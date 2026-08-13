@@ -1,16 +1,16 @@
 const mongoose = require('mongoose')
 
 async function connectDB() {
-  const uri = process.env.MONGODB_URI
-
-  if (!uri) {
-    throw new Error('MONGODB_URI is not set')
+  if (!process.env.MONGODB_URI) {
+    return
   }
 
   mongoose.set('strictQuery', true)
 
-  await mongoose.connect(uri, { serverSelectionTimeoutMS: 8000 })
+  await mongoose.connect(process.env.MONGODB_URI, { serverSelectionTimeoutMS: 8000 })
   console.log(`MongoDB connected: ${mongoose.connection.host}`)
+  return mongoose.connection
 }
 
 module.exports = connectDB
+module.exports.connectDB = connectDB

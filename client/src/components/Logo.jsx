@@ -4,23 +4,23 @@ export default function Logo({
   className = '',
   iconOnly = false,
   stacked = false,
-  variant = 'default', // 'default' (dark text), 'light' (white text), 'orange'
-  size = 'md', // 'sm' | 'md' | 'lg' | 'xl'
+  variant = 'default', // 'default' (dark text), 'light' (white text)
+  size = 'md', // 'sm' | 'md' | 'lg' | 'xl' | 'splash'
 }) {
-  const heights = {
-    sm: 'h-7',
-    md: 'h-9',
-    lg: 'h-12',
-    xl: 'h-16',
-    splash: 'h-24 sm:h-32',
+  const iconHeights = {
+    sm: 'h-6',
+    md: 'h-8',
+    lg: 'h-11',
+    xl: 'h-14',
+    splash: 'h-16 sm:h-24',
   }
 
   const textSizes = {
-    sm: 'text-sm tracking-[0.16em]',
-    md: 'text-lg tracking-[0.18em]',
-    lg: 'text-2xl tracking-[0.2em]',
-    xl: 'text-3xl tracking-[0.22em]',
-    splash: 'text-2xl sm:text-3xl tracking-[0.25em]',
+    sm: 'text-base tracking-[0.14em]',
+    md: 'text-xl sm:text-2xl tracking-[0.16em]',
+    lg: 'text-3xl tracking-[0.18em]',
+    xl: 'text-4xl tracking-[0.2em]',
+    splash: 'text-3xl sm:text-5xl tracking-[0.22em]',
   }
 
   const isLight = variant === 'light'
@@ -30,49 +30,30 @@ export default function Logo({
 
   return (
     <div
-      className={`inline-flex ${
-        stacked ? 'flex-col items-center gap-2' : 'flex-row items-center gap-2.5'
+      className={`inline-flex items-center ${
+        stacked ? 'flex-col justify-center gap-3' : 'flex-row gap-3'
       } select-none ${className}`}
     >
-      {/* Icon Mark: The iconic 'P' with top-right Orange Fold Accent */}
+      {/* Sleek Fixed D/O Brand Mark with Top-Right Orange Corner Accent */}
       <svg
-        className={`${heights[size] || heights.md} w-auto aspect-[160/190] shrink-0`}
-        viewBox="0 0 160 190"
+        className={`${iconHeights[size] || iconHeights.md} w-auto aspect-[110/110] shrink-0`}
+        viewBox="0 0 110 110"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
-        {/* Stem of the P */}
-        <line
-          x1="36"
-          y1="34"
-          x2="36"
-          y2="156"
-          stroke={markColor}
-          strokeWidth="25"
-          strokeLinecap="round"
-        />
-
-        {/* Circular Loop of the P */}
+        {/* Main Loop (Vertical Stem + Curved D-loop) */}
         <path
-          d="M 36 34 C 80 34 134 45 134 94 C 134 142 80 154 36 154"
+          d="M 22 22 L 22 88 C 22 88 22 96 34 96 C 60 96 78 80 78 55 C 78 30 60 22 34 22 Z"
           stroke={markColor}
-          strokeWidth="25"
+          strokeWidth="16"
+          strokeLinejoin="round"
+          strokeLinecap="round"
           fill="none"
-          strokeLinecap="round"
         />
 
-        {/* Cutout gap for the top-right corner */}
-        <path
-          d="M 98 25 L 148 75 L 148 25 Z"
-          fill={isLight ? '#020202' : '#FFFFFF'}
-        />
-
-        {/* Top-Right Orange Triangle Accent */}
-        <polygon
-          points="104,10 148,10 148,54"
-          fill={accentColor}
-        />
+        {/* Top-Right Orange Corner Triangle */}
+        <polygon points="70,6 98,6 98,34" fill={accentColor} />
       </svg>
 
       {/* Wordmark ONPRINT */}

@@ -5,18 +5,15 @@ const connectDB = require('./config/db')
 
 const PORT = process.env.PORT || 5000
 
-async function start() {
-  try {
-    await connectDB()
+// Bind to the platform-assigned port immediately, independent of MongoDB.
+// A slow/unreachable database must never delay or block port binding —
+// deployment platforms detect the app as failed if nothing opens the
+// assigned port within their startup window.
+const app = createApp()
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`ONPRINT API listening on port ${PORT} [${process.env.NODE_ENV || 'development'}]`)
+})
 
-    const app = createApp()
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log(`ONPRINT API listening on port ${PORT} [${process.env.NODE_ENV || 'development'}]`)
-    })
-  } catch (err) {
-    console.error('Failed to start server:', err.message)
-    process.exit(1)
-  }
-}
-
-start()
+connectDB().catch((err) => {
+  console.error('MongoDB connection failed:', err.message)
+})

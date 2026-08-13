@@ -1,7 +1,7 @@
 export default function LoadingState({ label = 'Loading…' }) {
   return (
-    <div className="flex items-center justify-center gap-2 py-16 text-sm text-ink-500">
-      <span className="h-4 w-4 animate-spin rounded-full border-2 border-gray-300 border-t-brand-600" />
+    <div role="status" className="flex items-center justify-center gap-3 py-16 text-sm font-medium text-secondary">
+      <span className="h-4 w-4 animate-spin rounded-full border-2 border-border border-t-accent" aria-hidden="true" />
       {label}
     </div>
   )

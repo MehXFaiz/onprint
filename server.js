@@ -15,7 +15,9 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`ONPRINT API listening on port ${PORT} [${process.env.NODE_ENV || 'development'}]`)
 })
 
-if (MONGODB_ENABLED && process.env.MONGODB_URI) {
+const mongoUri = process.env.MONGODB_URI ? process.env.MONGODB_URI.trim() : ''
+
+if (MONGODB_ENABLED && mongoUri) {
   connectDB().catch((err) => {
     console.error('MongoDB connection failed:', err.message)
   })

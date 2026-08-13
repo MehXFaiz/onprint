@@ -14,7 +14,8 @@
     "postinstall": "npm install --prefix client",
     "dev:client": "npm run dev --prefix client",
     "dev:all": "concurrently -n CLIENT,SERVER -c blue,green \"npm:dev:client\" \"npm:dev\"",
-    "build": "npm run build --prefix client"
+    "build": "npm run build --prefix client",
+    "seed": "node src/utils/seed.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

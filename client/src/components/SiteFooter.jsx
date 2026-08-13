@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Container from './Container'
 import { CmykDots } from './PrintMarks'
+import Logo from './Logo'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -24,9 +25,9 @@ export default function SiteFooter() {
     <footer className="border-t border-border bg-primary text-background/70">
       <Container className="grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
-          <p className="font-display text-xl font-extrabold text-background">
-            ON<span className="text-accent">PRINT</span>
-          </p>
+          <Link to="/">
+            <Logo variant="light" size="md" />
+          </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed">
             Professional printing and packaging solutions — from concept to finished product.
           </p>

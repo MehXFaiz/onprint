@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
+import Logo from '../../components/Logo'
 
 const initialForm = { email: '', password: '' }
 
@@ -30,6 +31,7 @@ export default function LoginPage() {
   return (
     <Container className="flex min-h-[75vh] items-center justify-center py-20">
       <div className="w-full max-w-sm">
+        <Logo size="lg" className="mb-6" />
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Welcome Back</p>
         <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary">Sign In</h1>
         <p className="mt-2 text-sm text-secondary">Access your quotes and order history.</p>

@@ -1,4 +1,5 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
+import Logo from '../components/Logo'
 
 const navLinks = [
   { to: '/admin', label: 'Dashboard' },
@@ -17,8 +18,9 @@ export default function AdminLayout() {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <aside className="hidden w-64 shrink-0 bg-ink-900 p-6 text-gray-300 md:block">
-        <Link to="/admin" className="text-lg font-bold text-white">
-          ONPRINT Admin
+        <Link to="/admin" className="flex items-center gap-2">
+          <Logo variant="light" size="sm" />
+          <span className="text-xs font-semibold uppercase tracking-wider text-brand-600 bg-white/10 px-2 py-0.5 rounded">Admin</span>
         </Link>
         <nav className="mt-8 flex flex-col gap-1">
           {navLinks.map((link) => (

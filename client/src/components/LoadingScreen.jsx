@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import Logo from './Logo'
 
 const SESSION_KEY = 'onprint-press-cinematic-v2'
 
@@ -119,7 +120,7 @@ export default function LoadingScreen() {
 
               {/* Printed ONPRINT Logo revealed on the sheet */}
               <motion.div
-                className="relative flex items-center gap-1.5 font-display text-4xl sm:text-6xl font-black uppercase tracking-[0.24em] text-[#121212]"
+                className="relative flex items-center justify-center py-2"
                 initial={{ opacity: 0, clipPath: 'inset(0 100% 0 0)' }}
                 animate={{
                   opacity: 1,
@@ -127,9 +128,7 @@ export default function LoadingScreen() {
                 }}
                 transition={{ duration: 0.8, delay: 0.75, ease: 'easeOut' }}
               >
-                <span>ON</span>
-                <span className="text-[#E54829]">PRINT</span>
-                <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-[#E54829] inline-block ml-0.5 shadow-[0_0_8px_#E54829]" />
+                <Logo size="splash" />
               </motion.div>
 
               {/* Printed Tagline */}

@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
+import Logo from '../../components/Logo'
 
-const initialForm = { name: '', email: '', password: '' }
+const initialForm = { name: '', email: '', company: '', password: '' }
 
 export default function RegisterPage() {
   const [values, setValues] = useState(initialForm)
@@ -33,6 +34,7 @@ export default function RegisterPage() {
   return (
     <Container className="flex min-h-[75vh] items-center justify-center py-20">
       <div className="w-full max-w-sm">
+        <Logo size="lg" className="mb-6" />
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Get Started</p>
         <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary">Create an Account</h1>
         <p className="mt-2 text-sm text-secondary">Track quotes and orders in one place.</p>

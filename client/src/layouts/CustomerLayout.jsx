@@ -1,4 +1,5 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
+import Logo from '../components/Logo'
 
 const navLinks = [
   { to: '/account', label: 'Dashboard' },
@@ -11,8 +12,8 @@ export default function CustomerLayout() {
   return (
     <div className="flex min-h-screen">
       <aside className="hidden w-64 shrink-0 border-r border-gray-200 bg-gray-50 p-6 md:block">
-        <Link to="/" className="text-lg font-bold text-ink-900">
-          ONPRINT
+        <Link to="/">
+          <Logo size="sm" />
         </Link>
         <nav className="mt-8 flex flex-col gap-1">
           {navLinks.map((link) => (

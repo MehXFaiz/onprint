@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
 import Button from './Button'
+import Logo from './Logo'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -46,12 +47,8 @@ export default function SiteHeader() {
       }`}
     >
       <Container className={`flex items-center justify-between transition-[padding] duration-300 ${scrolled ? 'py-4' : 'py-6'}`}>
-        <Link
-          to="/"
-          className="flex items-center font-display text-xl font-extrabold tracking-tight text-primary"
-          onClick={() => setMenuOpen(false)}
-        >
-          ON<span className="text-accent">PRINT</span>
+        <Link to="/" onClick={() => setMenuOpen(false)}>
+          <Logo size="md" />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">

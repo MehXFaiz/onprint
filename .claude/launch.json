@@ -3,9 +3,7 @@
   "configurations": [
     {
       "name": "onprint-dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev:all"],
-      "port": 5173
+      "url": "http://localhost:5173"
     }
   ]
 }

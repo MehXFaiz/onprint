@@ -16,11 +16,12 @@ app.listen(PORT, '0.0.0.0', () => {
 })
 
 const mongoUri = process.env.MONGODB_URI ? process.env.MONGODB_URI.trim() : ''
+const isMongoUriValid = mongoUri.startsWith('mongodb://') || mongoUri.startsWith('mongodb+srv://')
 
-if (MONGODB_ENABLED && mongoUri) {
+if (MONGODB_ENABLED && isMongoUriValid) {
   connectDB().catch((err) => {
     console.error('MongoDB connection failed:', err.message)
   })
 } else {
-  console.log('MongoDB connection disabled — set MONGODB_ENABLED=true and MONGODB_URI to enable.')
+  console.log('MongoDB connection disabled — set MONGODB_ENABLED=true and a valid MONGODB_URI (mongodb:// or mongodb+srv://) to enable.')
 }

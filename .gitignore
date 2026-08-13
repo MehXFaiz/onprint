@@ -4,6 +4,7 @@ node_modules/
 !.env.example
 *.log
 .DS_Store
+.localdata/
 
 # React production build (generated via `npm run build`)
 dist

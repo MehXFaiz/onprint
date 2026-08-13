@@ -4,70 +4,93 @@ import StatCounter from '../../components/StatCounter'
 import Reveal from '../../components/Reveal'
 import Button from '../../components/Button'
 import { CornerMarks } from '../../components/PrintMarks'
+import { ShieldCheck, Award, Zap, HeartHandshake } from 'lucide-react'
 
-// Placeholder company stats — swap for real, admin-editable figures once Settings exists.
 const stats = [
-  { value: 10, suffix: '+', label: 'Years Experience' },
-  { value: 500, suffix: '+', label: 'Projects Completed' },
-  { value: 100, suffix: '+', label: 'Business Clients' },
-  { value: 50, suffix: '+', label: 'Print Solutions' },
+  { value: 10, suffix: '+', label: 'Years of Experience' },
+  { value: 500, suffix: '+', label: 'Corporate Clients' },
+  { value: 1500, suffix: '+', label: 'Projects Completed' },
+  { value: 50, suffix: '+', label: 'Custom Print Solutions' },
 ]
 
 const values = [
-  { title: 'Craft over shortcuts', description: 'Every job is checked by hand before it ships — not just by a machine.' },
-  { title: 'Clarity over guesswork', description: 'You know the price, the timeline and the spec before production starts.' },
-  { title: 'Reliability over promises', description: 'If we commit to a delivery date, that date holds.' },
-  { title: 'Partnership over transactions', description: 'We work alongside your team, project after project.' },
+  {
+    icon: Award,
+    title: 'Craft over shortcuts',
+    description: 'Every single print job is inspected by hand for registration, bleed, and color accuracy before it leaves our floor.',
+  },
+  {
+    icon: Zap,
+    title: 'Clarity over guesswork',
+    description: 'You receive clear specs, stock samples, exact pricing, and confirmed dispatch dates upfront.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Reliability over promises',
+    description: 'When we commit to a production window and delivery date in Dubai or across UAE, that commitment holds.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Partnership over transactions',
+    description: 'We act as an extension of your creative studio or brand marketing team, order after order.',
+  },
 ]
 
 export default function AboutPage() {
   return (
     <div>
-      {/* Hero */}
-      <section className="border-b border-border">
-        <Container className="grid grid-cols-1 items-center gap-16 py-20 sm:py-28 lg:grid-cols-2">
+      {/* Hero Section */}
+      <section className="border-b border-border bg-background py-16 sm:py-24 lg:py-28">
+        <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-accent">
-              <span className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
-              About ONPRINT
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent shadow-xs">
+              About ONPRINT Dubai
             </span>
-            <h1 className="font-display mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-primary sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-6 text-4xl font-extrabold leading-[1.04] tracking-tight text-primary sm:text-5xl lg:text-6xl">
               We print more than paper.
               <br />
               We print <span className="text-accent">identities.</span>
             </h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-secondary">
-              ONPRINT started with a simple belief: the physical things a brand puts into the
-              world — a business card, a box, a label — should feel as considered as everything
-              else it makes. That belief still runs every job on our floor.
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-secondary sm:text-lg">
+              ONPRINT was established with a singular conviction: the physical collateral a brand hands to a client — business cards, gift packaging, stationery, rollups — should feel as refined as the brand itself.
             </p>
-            <div className="mt-10">
-              <Button to="/contact" variant="outline" icon={false}>
-                Talk to Our Team
+            <div className="mt-8 flex gap-4">
+              <Button to="/contact" variant="accent" size="lg">
+                Talk to Our Print Studio
+              </Button>
+              <Button to="/portfolio" variant="secondary" size="lg">
+                View Past Projects
               </Button>
             </div>
           </div>
 
-          <div className="relative mx-auto flex h-[340px] w-full max-w-sm items-center justify-center sm:h-[400px]">
-            <CornerMarks className="absolute -left-2 -top-2 h-8 w-8 text-primary/30" />
-            <CornerMarks className="absolute -bottom-2 -right-2 h-8 w-8 rotate-180 text-primary/30" />
-            <div className="relative h-full w-full">
-              <div className="absolute inset-x-6 top-0 h-2/3 border border-border bg-surface" />
-              <div className="absolute inset-x-0 bottom-0 h-2/3 bg-primary" />
-              <div className="absolute bottom-10 left-1/2 h-24 w-24 -translate-x-1/2 bg-accent" />
-              <div className="absolute inset-x-10 top-8 flex justify-center gap-1.5">
-                {['#00AEEF', '#EC008C', '#FFF200', '#101010'].map((c) => (
-                  <span key={c} className="h-2 w-2 rounded-full" style={{ backgroundColor: c }} />
-                ))}
+          <div className="relative mx-auto flex h-[340px] w-full max-w-md items-center justify-center sm:h-[400px]">
+            <CornerMarks className="absolute -left-2 -top-2 h-8 w-8 text-primary/40" />
+            <CornerMarks className="absolute -bottom-2 -right-2 h-8 w-8 rotate-180 text-primary/40" />
+            <div className="relative h-full w-full overflow-hidden rounded-2xl border border-border bg-surface shadow-xl">
+              <div className="flex h-full flex-col justify-between p-8">
+                <div className="flex items-center justify-between border-b border-border/60 pb-4">
+                  <span className="font-display text-lg font-extrabold text-primary">ONPRINT UAE</span>
+                  <span className="text-xs font-bold text-accent">EST. 2016</span>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-xs font-bold uppercase tracking-wider text-secondary">Press Standards</p>
+                  <h3 className="font-display text-xl font-bold text-primary">Master Offset &amp; Digital Craft</h3>
+                  <p className="text-sm text-secondary leading-relaxed">Combining Heidelberg offset speed with modern ultra-resolution digital technology.</p>
+                </div>
+                <div className="flex items-center justify-between border-t border-border/60 pt-4 text-xs font-bold text-primary">
+                  <span>CMYK / PANTONE MATCHED</span>
+                  <span className="text-accent">100% QUALITY ASSURED</span>
+                </div>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Stats */}
-      <section className="border-b border-border bg-surface py-20">
-        <Container className="grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-4">
+      {/* Stats Counter Section */}
+      <section className="border-b border-border bg-surface py-16">
+        <Container className="grid grid-cols-2 gap-8 lg:grid-cols-4">
           {stats.map((stat, index) => (
             <Reveal key={stat.label} delay={index * 0.08}>
               <StatCounter {...stat} />
@@ -76,48 +99,55 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Story */}
-      <section className="py-24 sm:py-32">
+      {/* Story Section */}
+      <section className="py-20 sm:py-28">
         <Container className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.4fr]">
           <SectionHeading eyebrow="Our Story" title="Built on the press floor, not a pitch deck." />
-          <div className="space-y-6 text-base leading-relaxed text-secondary">
+          <div className="space-y-6 text-base leading-relaxed text-secondary sm:text-lg">
             <p>
-              ONPRINT was founded on a straightforward premise: businesses deserve a print
-              partner who treats their brand with the same care they do. Not a faceless
-              order form — a team that understands paper stock, finishing, color calibration
-              and deadlines, and applies that expertise to every job, large or small.
+              ONPRINT was founded in Dubai on a straightforward premise: businesses deserve a print partner who treats their brand with genuine care. Not a faceless automated web form — a dedicated team that deeply understands paper weight, tactile finishes, precise color calibration, and hard deadlines.
             </p>
             <p>
-              Today we work across digital and offset printing, packaging, signage and
-              promotional products — serving startups placing their first order for business
-              cards and established brands running recurring packaging production. The scale
-              changes; the standard doesn't.
+              Today, our Al Quoz print facility houses state-of-the-art digital, offset, foil-stamping, and laser die-cutting equipment. We serve everyone from burgeoning startups placing their first business card order to multinational corporate enterprises producing recurring luxury gift boxes.
             </p>
             <p>
-              Every project moves through the same discipline: a clear quote, a confirmed
-              spec, a production run that's checked at every stage, and delivery you can plan
-              around.
+              Every single order moves through our disciplined production workflow: clear quotation, pre-flight file check, proof approval, multi-stage press quality control, and careful packaging before dispatch.
             </p>
           </div>
         </Container>
       </section>
 
-      {/* Values */}
-      <section className="border-t border-border bg-surface py-24 sm:py-32">
+      {/* Core Values Grid */}
+      <section className="border-t border-border bg-surface py-20 sm:py-28">
         <Container>
-          <SectionHeading eyebrow="What We Believe" title="The standard behind every print run." center />
-          <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2">
-            {values.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.08}>
-                <div className="border-t-2 border-primary pt-5">
-                  <h3 className="font-display text-lg font-bold text-primary">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-secondary">{item.description}</p>
-                </div>
-              </Reveal>
-            ))}
+          <SectionHeading
+            eyebrow="What We Believe"
+            title="The principles behind every single sheet."
+            subtitle="How we maintain our standards across hundreds of print runs every month."
+            center
+          />
+
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2">
+            {values.map((item, index) => {
+              const Icon = item.icon
+              return (
+                <Reveal key={item.title} delay={index * 0.08}>
+                  <div className="flex gap-5 rounded-2xl border border-border bg-background p-8 shadow-xs transition-all duration-300 hover:border-primary/40 hover:shadow-md">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
+                      <Icon className="h-6 w-6" strokeWidth={1.75} />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-xl font-bold text-primary">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-secondary">{item.description}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              )
+            })}
           </div>
         </Container>
       </section>
     </div>
   )
 }
+

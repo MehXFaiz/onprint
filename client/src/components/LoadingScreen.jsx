@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import Logo from './Logo'
 
-const SESSION_KEY = 'onprint-splash-cinematic-v4'
+const SESSION_KEY = 'onprint-splash-cinematic-v5'
 
 export default function LoadingScreen() {
   const reduce = useReducedMotion()
@@ -114,14 +113,14 @@ export default function LoadingScreen() {
             </motion.div>
 
             {/* Step 3: Ink / Printing Stroke Expansion */}
-            <div className="relative flex items-center justify-center my-3 w-full max-w-[500px]">
+            <div className="relative flex items-center justify-center my-4 w-full max-w-[550px]">
               {/* Main Horizontal Ink Sweep Stroke */}
               <motion.div
-                className="h-[2px] rounded-full bg-gradient-to-r from-transparent via-[#F05B26] to-transparent shadow-[0_0_15px_#F05B26]"
+                className="h-[2px] rounded-full bg-gradient-to-r from-transparent via-[#F05B26] to-transparent shadow-[0_0_18px_#F05B26]"
                 initial={{ width: 0, opacity: 0 }}
                 animate={{
                   width: ['0%', '100%', '100%'],
-                  opacity: [0, 1, 0.4],
+                  opacity: [0, 1, 0.6],
                 }}
                 transition={{
                   duration: 1.1,
@@ -133,11 +132,11 @@ export default function LoadingScreen() {
 
               {/* Core White Laser Precision Line */}
               <motion.div
-                className="absolute h-[1px] bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_8px_#ffffff]"
+                className="absolute h-[1px] bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_10px_#ffffff]"
                 initial={{ width: 0, opacity: 0 }}
                 animate={{
-                  width: ['0%', '70%', '70%'],
-                  opacity: [0, 0.9, 0.2],
+                  width: ['0%', '75%', '75%'],
+                  opacity: [0, 0.95, 0.3],
                 }}
                 transition={{
                   duration: 0.9,
@@ -147,50 +146,24 @@ export default function LoadingScreen() {
               />
             </div>
 
-            {/* Step 4: ONPRINT Logo Reveal & Premium Glow */}
+            {/* Step 5: Tagline Fade In (No Logo as requested) */}
             <motion.div
-              className="relative flex items-center justify-center py-2"
-              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              className="mt-6 flex items-center justify-center text-xs sm:text-sm font-semibold tracking-[0.45em] text-zinc-200 uppercase"
+              initial={{ opacity: 0, y: 10 }}
               animate={{
                 opacity: [0, 0, 1, 1],
                 y: [10, 10, 0, 0],
-                scale: [0.95, 0.95, 1, 1],
-              }}
-              transition={{
-                duration: 1.8,
-                times: [0, 0.4, 0.75, 1],
-                ease: [0.16, 1, 0.3, 1],
-              }}
-            >
-              {/* Premium Subtle Backlight Glow around Logo */}
-              <motion.div
-                className="absolute -inset-6 rounded-full bg-[#F05B26]/15 filter blur-2xl pointer-events-none"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 0, 1, 0.8] }}
-                transition={{ duration: 1.5, delay: 0.9 }}
-              />
-
-              <Logo variant="light" size="splash" />
-            </motion.div>
-
-            {/* Step 5: Tagline Fade In */}
-            <motion.div
-              className="mt-4 flex items-center justify-center text-[10px] sm:text-xs font-semibold tracking-[0.4em] text-zinc-300 uppercase"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{
-                opacity: [0, 0, 1, 1],
-                y: [8, 8, 0, 0],
               }}
               transition={{
                 duration: 1.6,
-                times: [0, 0.65, 0.9, 1],
+                times: [0, 0.45, 0.8, 1],
                 ease: 'easeOut',
               }}
             >
               <span>PRINT</span>
-              <span className="text-[#F05B26] mx-2.5 font-bold text-sm select-none">•</span>
+              <span className="text-[#F05B26] mx-3 sm:mx-4 font-bold text-base select-none">•</span>
               <span>CREATE</span>
-              <span className="text-[#F05B26] mx-2.5 font-bold text-sm select-none">•</span>
+              <span className="text-[#F05B26] mx-3 sm:mx-4 font-bold text-base select-none">•</span>
               <span>DELIVER</span>
             </motion.div>
           </motion.div>

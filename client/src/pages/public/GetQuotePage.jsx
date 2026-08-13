@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useSearchParams } from 'react-router-dom'
-import { Check, ChevronLeft, ChevronRight, Upload, X, CheckCircle2 } from 'lucide-react'
+import { Check, ChevronLeft, ChevronRight, Upload, X, CheckCircle2, FileText } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import { getProductBySlug } from '../../services/products'
@@ -32,22 +32,22 @@ function StepIndicator({ current }) {
           <li key={label} className="flex flex-1 flex-col items-start last:flex-none">
             <div className="flex w-full items-center">
               <span
-                className={`flex h-8 w-8 shrink-0 items-center justify-center border font-display text-xs font-bold tabular-nums transition-colors ${
+                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-display text-xs font-extrabold tabular-nums transition-all ${
                   done
-                    ? 'border-accent bg-accent text-white'
+                    ? 'bg-accent text-white shadow-xs'
                     : active
-                      ? 'border-primary bg-primary text-background'
-                      : 'border-border bg-surface text-secondary'
+                      ? 'bg-primary text-background shadow-md'
+                      : 'border border-border bg-surface text-secondary'
                 }`}
               >
-                {done ? <Check className="h-4 w-4" /> : stepNumber}
+                {done ? <Check className="h-4 w-4" strokeWidth={3} /> : stepNumber}
               </span>
               {stepNumber < steps.length && (
-                <span className={`mx-2 h-px flex-1 transition-colors ${done ? 'bg-accent' : 'bg-border'}`} />
+                <span className={`mx-2 h-0.5 flex-1 transition-colors ${done ? 'bg-accent' : 'bg-border'}`} />
               )}
             </div>
             <span
-              className={`mt-2 hidden text-xs font-medium sm:block ${active ? 'text-primary' : 'text-secondary'}`}
+              className={`mt-2.5 hidden text-xs font-bold sm:block ${active ? 'text-primary' : 'text-secondary'}`}
             >
               {label}
             </span>
@@ -60,14 +60,14 @@ function StepIndicator({ current }) {
 
 function FieldLabel({ htmlFor, children, optional }) {
   return (
-    <label htmlFor={htmlFor} className="text-sm font-semibold text-primary">
-      {children} {optional && <span className="font-normal text-secondary">(optional)</span>}
+    <label htmlFor={htmlFor} className="text-xs font-bold uppercase tracking-wider text-primary">
+      {children} {optional && <span className="font-normal text-secondary lowercase">(optional)</span>}
     </label>
   )
 }
 
 const inputClasses =
-  'mt-2 w-full border border-border bg-surface px-3 py-2.5 text-sm text-primary focus:border-accent focus:outline-none'
+  'mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-primary transition-colors focus:border-accent focus:outline-none'
 
 export default function GetQuotePage() {
   const { state } = useLocation()
@@ -97,7 +97,7 @@ export default function GetQuotePage() {
         notes: state.notes || '',
       }))
       if (state.artworkFileName) {
-        setPrefillNote(`You selected "${state.artworkFileName}" on the product page — please re-attach it below.`)
+        setPrefillNote(`Selected artwork: "${state.artworkFileName}" — please attach below.`)
       }
       return
     }
@@ -110,8 +110,7 @@ export default function GetQuotePage() {
         })
         .catch(() => {})
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [searchParams, state])
 
   function updateField(field) {
     return (event) => {
@@ -137,13 +136,13 @@ export default function GetQuotePage() {
   function validateStep(current) {
     const nextErrors = {}
     if (current === 1 && !form.product.trim()) {
-      nextErrors.product = 'Choose what you need, or describe it below.'
+      nextErrors.product = 'Select a category or specify your project requirement.'
     }
     if (current === 2 && !form.quantity) {
-      nextErrors.quantity = 'Let us know how many you need.'
+      nextErrors.quantity = 'Please enter required quantity.'
     }
     if (current === 4) {
-      if (!form.name.trim()) nextErrors.name = 'Please enter your name.'
+      if (!form.name.trim()) nextErrors.name = 'Please enter your full name.'
       if (!form.email.trim()) {
         nextErrors.email = 'Please enter your email.'
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
@@ -167,47 +166,48 @@ export default function GetQuotePage() {
   }
 
   function handleSubmit() {
-    // No submit endpoint exists yet (roadmap Phase 7 — Quote system). This confirms
-    // receipt locally; wire to a real POST /api/quotes once it exists.
     setSubmitted(true)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   if (submitted) {
     return (
-      <Container className="flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
-        <CheckCircle2 className="h-10 w-10 text-accent" strokeWidth={1.5} />
+      <Container className="flex min-h-[50vh] flex-col items-center justify-center py-24 text-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent-soft text-accent">
+          <CheckCircle2 className="h-8 w-8" />
+        </div>
         <h1 className="font-display mt-6 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
-          Quote request received.
+          Quote Request Submitted!
         </h1>
-        <p className="mt-4 max-w-md text-secondary">
-          Thanks, {form.name.split(' ')[0]} — we've got your request for {form.product || 'your project'} and
-          will follow up at {form.email} with pricing shortly.
+        <p className="mt-4 max-w-md text-base text-secondary">
+          Thank you, {form.name.split(' ')[0]} — we have logged your request for <strong className="text-primary">{form.product || 'your project'}</strong> and will send formal pricing to <span className="text-primary font-bold">{form.email}</span> shortly.
         </p>
         <Button to="/" variant="outline" icon={false} className="mt-8">
-          Back to Home
+          Back to Storefront
         </Button>
       </Container>
     )
   }
 
   return (
-    <div className="py-16 sm:py-20">
+    <div className="py-16 sm:py-24">
       <Container className="max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Get a Quote</p>
-        <h1 className="font-display mt-2 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
-          Tell us about your project.
+        <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
+          ONPRINT Quote Wizard
+        </span>
+        <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
+          Tell us about your print project.
         </h1>
 
         <div className="mt-10">
           <StepIndicator current={step} />
         </div>
 
-        <div className="mt-12 border-t border-border pt-10">
+        <div className="mt-12 rounded-2xl border border-border bg-surface p-8 shadow-xs sm:p-10">
           {step === 1 && (
             <div>
-              <h2 className="font-display text-xl font-bold text-primary">What do you need?</h2>
-              <p className="mt-2 text-sm text-secondary">Pick a category, or describe your project below.</p>
+              <h2 className="font-display text-xl font-bold text-primary">1. What do you need?</h2>
+              <p className="mt-1.5 text-sm text-secondary">Pick an existing product category or specify custom work.</p>
 
               {categories.length > 0 && (
                 <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -216,10 +216,10 @@ export default function GetQuotePage() {
                       key={c._id}
                       type="button"
                       onClick={() => selectProduct(c.name)}
-                      className={`border px-4 py-3 text-left text-sm font-medium transition-colors ${
+                      className={`rounded-xl border p-4 text-left text-xs font-bold transition-all cursor-pointer ${
                         form.product === c.name
-                          ? 'border-accent bg-accent-soft text-accent-hover'
-                          : 'border-border text-secondary hover:border-primary hover:text-primary'
+                          ? 'border-accent bg-accent-soft text-accent shadow-xs'
+                          : 'border-border bg-background text-secondary hover:border-primary hover:text-primary'
                       }`}
                     >
                       {c.name}
@@ -229,28 +229,28 @@ export default function GetQuotePage() {
               )}
 
               <div className="mt-6">
-                <FieldLabel htmlFor="product">Describe what you need</FieldLabel>
+                <FieldLabel htmlFor="product">Or specify custom project</FieldLabel>
                 <input
                   id="product"
                   type="text"
                   value={form.product}
                   onChange={updateField('product')}
-                  placeholder="e.g. Business cards, retail packaging, event banners…"
+                  placeholder="e.g. Luxury Business Cards, Embossed Boxes, Rigid Envelopes…"
                   aria-invalid={Boolean(errors.product)}
                   className={inputClasses}
                 />
-                {errors.product && <p className="mt-1.5 text-xs text-accent">{errors.product}</p>}
+                {errors.product && <p className="mt-1.5 text-xs font-semibold text-accent">{errors.product}</p>}
               </div>
             </div>
           )}
 
           {step === 2 && (
             <div className="space-y-6">
-              <h2 className="font-display text-xl font-bold text-primary">Tell us about the project.</h2>
+              <h2 className="font-display text-xl font-bold text-primary">2. Project Specifications</h2>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
-                  <FieldLabel htmlFor="quantity">Quantity</FieldLabel>
+                  <FieldLabel htmlFor="quantity">Quantity Required *</FieldLabel>
                   <input
                     id="quantity"
                     type="number"
@@ -260,47 +260,62 @@ export default function GetQuotePage() {
                     aria-invalid={Boolean(errors.quantity)}
                     className={inputClasses}
                   />
-                  {errors.quantity && <p className="mt-1.5 text-xs text-accent">{errors.quantity}</p>}
+                  {errors.quantity && <p className="mt-1.5 text-xs font-semibold text-accent">{errors.quantity}</p>}
                 </div>
                 <div>
                   <FieldLabel htmlFor="size" optional>
-                    Size
+                    Dimensions / Size
                   </FieldLabel>
-                  <input id="size" type="text" value={form.size} onChange={updateField('size')} className={inputClasses} />
+                  <input
+                    id="size"
+                    type="text"
+                    value={form.size}
+                    onChange={updateField('size')}
+                    placeholder="e.g. A4, 90x55mm, Custom 20x30cm"
+                    className={inputClasses}
+                  />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
                   <FieldLabel htmlFor="material" optional>
-                    Material
+                    Paper / Stock Material
                   </FieldLabel>
                   <input
                     id="material"
                     type="text"
                     value={form.material}
                     onChange={updateField('material')}
+                    placeholder="e.g. 350gsm Silk, Craft Card, Metallic"
                     className={inputClasses}
                   />
                 </div>
                 <div>
                   <FieldLabel htmlFor="finish" optional>
-                    Finishing
+                    Finishing &amp; Lamination
                   </FieldLabel>
-                  <input id="finish" type="text" value={form.finish} onChange={updateField('finish')} className={inputClasses} />
+                  <input
+                    id="finish"
+                    type="text"
+                    value={form.finish}
+                    onChange={updateField('finish')}
+                    placeholder="e.g. Matte Lamination, Gold Foil, Spot UV"
+                    className={inputClasses}
+                  />
                 </div>
               </div>
 
               <div>
                 <FieldLabel htmlFor="notes" optional>
-                  Notes
+                  Additional Project Notes
                 </FieldLabel>
                 <textarea
                   id="notes"
                   rows={4}
                   value={form.notes}
                   onChange={updateField('notes')}
-                  placeholder="Anything else we should know?"
+                  placeholder="Mention packaging assembly needs, delivery deadline, or Pantone codes…"
                   className={inputClasses}
                 />
               </div>
@@ -309,19 +324,21 @@ export default function GetQuotePage() {
 
           {step === 3 && (
             <div>
-              <h2 className="font-display text-xl font-bold text-primary">Upload your artwork.</h2>
-              <p className="mt-2 text-sm text-secondary">
-                Optional — you can also send artwork later. Accepts images, PDF, AI or EPS files.
+              <h2 className="font-display text-xl font-bold text-primary">3. Upload Artwork &amp; Mockups</h2>
+              <p className="mt-1.5 text-sm text-secondary">
+                Upload your print-ready PDF, Illustrator (.AI), EPS, or high-res images. (Optional)
               </p>
-              {prefillNote && <p className="mt-3 text-xs text-accent">{prefillNote}</p>}
+              {prefillNote && <p className="mt-3 text-xs font-bold text-accent">{prefillNote}</p>}
 
               <label
                 htmlFor="artwork"
-                className="mt-6 flex cursor-pointer flex-col items-center justify-center gap-3 border border-dashed border-border bg-surface px-6 py-12 text-center transition-colors hover:border-primary"
+                className="mt-6 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-border bg-background p-10 text-center transition-colors hover:border-accent"
               >
-                <Upload className="h-6 w-6 text-secondary" strokeWidth={1.5} />
-                <span className="text-sm font-medium text-primary">Click to select files</span>
-                <span className="text-xs text-secondary">or drag and drop</span>
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent">
+                  <Upload className="h-6 w-6" />
+                </div>
+                <span className="text-sm font-bold text-primary">Click to attach files</span>
+                <span className="text-xs text-secondary">Supports PDF, AI, EPS, PNG, JPG (Max 50MB)</span>
                 <input
                   id="artwork"
                   type="file"
@@ -333,18 +350,18 @@ export default function GetQuotePage() {
               </label>
 
               {artworkFiles.length > 0 && (
-                <ul className="mt-4 space-y-2">
+                <ul className="mt-6 space-y-2">
                   {artworkFiles.map((file, index) => (
                     <li
                       key={`${file.name}-${index}`}
-                      className="flex items-center justify-between border border-border bg-surface px-4 py-2.5 text-sm"
+                      className="flex items-center justify-between rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium"
                     >
                       <span className="truncate text-primary">{file.name}</span>
                       <button
                         type="button"
                         onClick={() => removeFile(index)}
                         aria-label={`Remove ${file.name}`}
-                        className="ml-3 shrink-0 text-secondary hover:text-accent"
+                        className="ml-3 shrink-0 text-secondary hover:text-accent cursor-pointer"
                       >
                         <X className="h-4 w-4" />
                       </button>
@@ -357,11 +374,11 @@ export default function GetQuotePage() {
 
           {step === 4 && (
             <div className="space-y-6">
-              <h2 className="font-display text-xl font-bold text-primary">Your contact details.</h2>
+              <h2 className="font-display text-xl font-bold text-primary">4. Contact Information</h2>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
-                  <FieldLabel htmlFor="name">Name</FieldLabel>
+                  <FieldLabel htmlFor="name">Full Name *</FieldLabel>
                   <input
                     id="name"
                     type="text"
@@ -370,10 +387,10 @@ export default function GetQuotePage() {
                     aria-invalid={Boolean(errors.name)}
                     className={inputClasses}
                   />
-                  {errors.name && <p className="mt-1.5 text-xs text-accent">{errors.name}</p>}
+                  {errors.name && <p className="mt-1.5 text-xs font-semibold text-accent">{errors.name}</p>}
                 </div>
                 <div>
-                  <FieldLabel htmlFor="email">Email</FieldLabel>
+                  <FieldLabel htmlFor="email">Email Address *</FieldLabel>
                   <input
                     id="email"
                     type="email"
@@ -382,20 +399,20 @@ export default function GetQuotePage() {
                     aria-invalid={Boolean(errors.email)}
                     className={inputClasses}
                   />
-                  {errors.email && <p className="mt-1.5 text-xs text-accent">{errors.email}</p>}
+                  {errors.email && <p className="mt-1.5 text-xs font-semibold text-accent">{errors.email}</p>}
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
                   <FieldLabel htmlFor="phone" optional>
-                    Phone
+                    Phone / Mobile Number
                   </FieldLabel>
                   <input id="phone" type="tel" value={form.phone} onChange={updateField('phone')} className={inputClasses} />
                 </div>
                 <div>
                   <FieldLabel htmlFor="company" optional>
-                    Company
+                    Company Name
                   </FieldLabel>
                   <input id="company" type="text" value={form.company} onChange={updateField('company')} className={inputClasses} />
                 </div>
@@ -405,26 +422,31 @@ export default function GetQuotePage() {
 
           {step === 5 && (
             <div>
-              <h2 className="font-display text-xl font-bold text-primary">Review &amp; submit.</h2>
-              <dl className="mt-6 divide-y divide-border border border-border">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent mb-2">
+                <FileText className="h-4 w-4" />
+                <span>Summary Check</span>
+              </div>
+              <h2 className="font-display text-2xl font-bold text-primary">5. Review Your Request</h2>
+
+              <dl className="mt-6 divide-y divide-border/60 rounded-xl border border-border bg-background">
                 {[
-                  ['What you need', form.product],
+                  ['Project Required', form.product],
                   ['Quantity', form.quantity],
-                  ['Size', form.size],
-                  ['Material', form.material],
+                  ['Dimensions', form.size],
+                  ['Material Stock', form.material],
                   ['Finishing', form.finish],
                   ['Notes', form.notes],
-                  ['Artwork', artworkFiles.length > 0 ? artworkFiles.map((f) => f.name).join(', ') : 'None attached'],
-                  ['Name', form.name],
-                  ['Email', form.email],
-                  ['Phone', form.phone],
+                  ['Attached Files', artworkFiles.length > 0 ? artworkFiles.map((f) => f.name).join(', ') : 'None attached'],
+                  ['Contact Name', form.name],
+                  ['Email Address', form.email],
+                  ['Phone Number', form.phone],
                   ['Company', form.company],
                 ]
                   .filter(([, value]) => value)
                   .map(([label, value]) => (
-                    <div key={label} className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:justify-between sm:gap-4">
-                      <dt className="text-sm font-semibold text-primary">{label}</dt>
-                      <dd className="text-sm text-secondary sm:text-right">{value}</dd>
+                    <div key={label} className="flex flex-col gap-1 px-5 py-3.5 sm:flex-row sm:justify-between sm:gap-4">
+                      <dt className="text-xs font-bold uppercase tracking-wider text-secondary">{label}</dt>
+                      <dd className="text-sm font-bold text-primary sm:text-right">{value}</dd>
                     </div>
                   ))}
               </dl>
@@ -432,25 +454,26 @@ export default function GetQuotePage() {
           )}
         </div>
 
-        <div className="mt-10 flex items-center justify-between border-t border-border pt-8">
+        {/* Wizard Controls */}
+        <div className="mt-8 flex items-center justify-between">
           <button
             type="button"
             onClick={goBack}
             disabled={step === 1}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary transition-colors hover:text-primary disabled:opacity-0"
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-secondary transition-colors hover:text-primary disabled:opacity-0 cursor-pointer"
           >
             <ChevronLeft className="h-4 w-4" />
-            Back
+            Previous Step
           </button>
 
           {step < steps.length ? (
-            <Button onClick={goNext} variant="primary" icon={false} className="inline-flex items-center gap-1.5">
-              Continue
+            <Button onClick={goNext} variant="primary" icon={false} size="md" className="inline-flex items-center gap-2">
+              Next Step
               <ChevronRight className="h-4 w-4" />
             </Button>
           ) : (
-            <Button onClick={handleSubmit} variant="accent" icon={false}>
-              Submit Quote Request
+            <Button onClick={handleSubmit} variant="accent" size="lg" icon={false}>
+              Confirm &amp; Submit Request
             </Button>
           )}
         </div>
@@ -458,3 +481,4 @@ export default function GetQuotePage() {
     </div>
   )
 }
+

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import ArrowLink from '../../components/ArrowLink'
@@ -9,31 +9,50 @@ import Reveal from '../../components/Reveal'
 import StatCounter from '../../components/StatCounter'
 import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
+import ServiceCard from '../../components/ServiceCard'
+import ProductCard from '../../components/ProductCard'
 import { CornerMarks } from '../../components/PrintMarks'
 import { getServices } from '../../services/services'
 import { getProducts } from '../../services/products'
 
-const trustItems = ['Quality Print', 'Fast Turnaround', 'Custom Solutions', 'Professional Service']
+const trustBadges = [
+  { label: 'Precision Offset & Digital Print', icon: ShieldCheck },
+  { label: 'Express Turnaround Dubai', icon: Zap },
+  { label: 'Custom Luxury Finishes', icon: Award },
+  { label: 'Trusted by 500+ UAE Brands', icon: Users },
+]
 
 const whyUs = [
-  { title: 'Precision', description: 'Consistent quality from design to final print.' },
-  { title: 'Quality', description: 'Professional materials and finishing.' },
-  { title: 'Speed', description: 'Reliable turnaround for every project.' },
-  { title: 'Partnership', description: 'We work with businesses, brands and individuals.' },
+  {
+    title: 'Flawless Precision',
+    description: 'Calibrated color management systems ensure true-to-brand color consistency from screen to paper.',
+  },
+  {
+    title: 'Premium Materials',
+    description: 'Curated selection of FSC-certified card stocks, luxury foils, soft-touch laminates, and textured papers.',
+  },
+  {
+    title: 'Rapid Production',
+    description: 'State-of-the-art print presses in Dubai delivering tight deadlines without compromising detail.',
+  },
+  {
+    title: 'End-to-End Craft',
+    description: 'Dedicated print specialists guiding your specs, artwork pre-flight, and finishing requirements.',
+  },
 ]
 
 const processSteps = [
-  { step: '01', title: 'Discover', description: 'We learn your brand, your project and what success looks like.' },
-  { step: '02', title: 'Design', description: 'Specs, materials and finishes are locked in before anything runs.' },
-  { step: '03', title: 'Print', description: 'Production on calibrated equipment, checked at every stage.' },
-  { step: '04', title: 'Deliver', description: 'Finished, inspected and in your hands on schedule.' },
+  { step: '01', title: 'Consultation & Spec', description: 'Select your stock, dimensions, finishes, and quantity with instant quote clarity.' },
+  { step: '02', title: 'Pre-flight Artwork', description: 'Our prepress studio inspects bleed, resolution, and CMYK color profiles.' },
+  { step: '03', title: 'Press Production', description: 'Printed on high-precision offset and digital presses with multi-stage quality control.' },
+  { step: '04', title: 'Inspected & Delivered', description: 'Hand-checked, packaged in protective covers, and delivered straight to your door.' },
 ]
 
 const stats = [
   { value: 10, suffix: '+', label: 'Years Experience' },
-  { value: 500, suffix: '+', label: 'Projects Completed' },
-  { value: 100, suffix: '+', label: 'Business Clients' },
-  { value: 50, suffix: '+', label: 'Print Solutions' },
+  { value: 500, suffix: '+', label: 'UAE Corporate Clients' },
+  { value: 1500, suffix: '+', label: 'Print Runs Delivered' },
+  { value: 99, suffix: '%', label: 'On-Time Dispatch Rate' },
 ]
 
 export default function HomePage() {
@@ -50,212 +69,232 @@ export default function HomePage() {
       .catch(() => setProducts([]))
   }, [])
 
-  const [featureProduct, ...supportingProducts] = products || []
-
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border">
-        <Container className="grid grid-cols-1 items-center gap-16 py-20 sm:py-28 lg:grid-cols-2 lg:py-32">
-          <div>
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-accent">
-              <span className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
-              Printing &middot; Packaging &middot; Branding
-            </span>
-            <h1 className="mt-6 font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-primary sm:text-6xl lg:text-7xl">
-              FROM PIXEL
-              <br />
-              TO <span className="text-accent">PRESS.</span>
-            </h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-secondary">
-              ONPRINT is where digital precision meets physical craft — business cards, packaging,
-              signage and everything your brand puts into the world.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-5">
-              <Button to="/get-a-quote" variant="accent">
-                Start a Project
-              </Button>
-              <ArrowLink to="/portfolio">Explore Our Work</ArrowLink>
-            </div>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden border-b border-border bg-background py-16 sm:py-24 lg:py-32">
+        <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-7">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent shadow-xs">
+                <Sparkles className="h-3.5 w-3.5 text-accent" />
+                Dubai’s Premier Print &amp; Creative Studio
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <h1 className="font-display mt-6 text-4xl font-extrabold leading-[1.02] tracking-tight text-primary sm:text-6xl xl:text-7xl">
+                DIGITAL PRECISION.
+                <br />
+                <span className="text-accent">PHYSICAL CRAFT.</span>
+              </h1>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-secondary sm:text-lg">
+                ONPRINT transforms brand identities into tangible physical masterpieces. From bespoke corporate gifts and executive stationery to high-volume luxury packaging and signage.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
+                <Button to="/get-a-quote" variant="accent" size="lg">
+                  Request a Custom Quote
+                </Button>
+                <Button to="/products" variant="secondary" size="lg">
+                  Browse Catalog
+                </Button>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.4}>
+              <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-border/80 pt-6 text-xs font-semibold text-secondary">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-accent" />
+                  <span>Free Design Pre-flight</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-accent" />
+                  <span>Express Same-Day Printing</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-accent" />
+                  <span>Doorstep UAE Delivery</span>
+                </div>
+              </div>
+            </Reveal>
           </div>
 
-          <div className="relative mx-auto flex h-[380px] w-full max-w-md items-center justify-center sm:h-[440px]">
-            <CornerMarks className="absolute -left-2 -top-2 h-8 w-8 text-primary/30" />
-            <CornerMarks className="absolute -bottom-2 -right-2 h-8 w-8 rotate-180 text-primary/30" />
+          {/* Hero Visual Studio Showcase */}
+          <div className="lg:col-span-5">
+            <Reveal delay={0.2}>
+              <div className="relative mx-auto flex h-[360px] w-full max-w-md items-center justify-center sm:h-[440px]">
+                <CornerMarks className="absolute -left-3 -top-3 h-8 w-8 text-primary/40" />
+                <CornerMarks className="absolute -bottom-3 -right-3 h-8 w-8 rotate-180 text-primary/40" />
 
-            <motion.div
-              initial={{ opacity: 0, y: 16, rotate: -6 }}
-              animate={{ opacity: 1, y: 0, rotate: -6 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute left-4 top-6 h-56 w-40 border border-border bg-surface shadow-[0_20px_50px_-20px_rgba(21,20,15,0.25)] sm:h-64 sm:w-48"
-            >
-              <div className="flex h-full flex-col justify-between p-4">
-                <div className="flex gap-1">
-                  {['#00AEEF', '#EC008C', '#FFF200', '#101010'].map((c) => (
-                    <span key={c} className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: c }} />
-                  ))}
-                </div>
-                <div className="space-y-1.5">
-                  <div className="h-1.5 w-3/4 bg-primary/15" />
-                  <div className="h-1.5 w-1/2 bg-primary/15" />
-                </div>
+                {/* Back card: Soft finish stock */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20, rotate: -6 }}
+                  animate={{ opacity: 1, y: 0, rotate: -6 }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute left-2 top-4 flex h-64 w-44 flex-col justify-between rounded-2xl border border-border bg-surface p-5 shadow-xl sm:h-72 sm:w-52"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex gap-1.5">
+                      {['#00AEEF', '#EC008C', '#FFF200', '#101010'].map((c) => (
+                        <span key={c} className="h-2 w-2 rounded-full" style={{ backgroundColor: c }} />
+                      ))}
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-secondary">CMYK 350GSM</span>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-2 w-3/4 rounded bg-primary/10" />
+                    <div className="h-2 w-1/2 rounded bg-primary/10" />
+                    <div className="h-2 w-5/6 rounded bg-accent/20" />
+                  </div>
+                  <div className="rounded-lg bg-accent-soft p-2.5 text-center text-xs font-bold text-accent">
+                    EMBOSSED FOIL
+                  </div>
+                </motion.div>
+
+                {/* Front card: ONPRINT Dark Primary card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20, rotate: 5 }}
+                  animate={{ opacity: 1, y: 0, rotate: 5 }}
+                  transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute right-0 top-20 flex h-48 w-68 flex-col justify-between rounded-2xl border border-primary bg-primary p-6 shadow-2xl sm:right-2 sm:top-24 sm:w-72"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-display text-base font-extrabold tracking-tight text-background">
+                      ON<span className="text-accent">PRINT</span>
+                    </span>
+                    <span className="rounded bg-accent/20 px-2 py-0.5 text-[10px] font-bold text-accent">STUDIO</span>
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-background/70">CORPORATE GIFTING &amp; PRESS</p>
+                    <p className="mt-1 text-sm font-bold text-background">Precision Printing Dubai</p>
+                  </div>
+                  <div className="flex items-center justify-between border-t border-background/15 pt-3 text-[10px] font-semibold text-background/60">
+                    <span>JOB ID: #OP-9824</span>
+                    <span className="text-accent">PASSED QC</span>
+                  </div>
+                </motion.div>
+
+                {/* Decorative Accent Swatch */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.7, delay: 0.3 }}
+                  className="absolute bottom-4 left-10 flex h-28 w-28 items-center justify-center rounded-2xl border border-accent/30 bg-accent-soft/90 p-4 shadow-lg sm:left-16"
+                >
+                  <div className="text-center">
+                    <span className="font-display text-2xl font-black text-accent">300 DPI</span>
+                    <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">Ultra HD</p>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16, rotate: 4 }}
-              animate={{ opacity: 1, y: 0, rotate: 4 }}
-              transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-2 top-24 flex h-44 w-64 flex-col justify-between border border-border bg-primary p-4 shadow-[0_20px_50px_-20px_rgba(21,20,15,0.35)] sm:right-0 sm:top-28"
-            >
-              <span className="font-display text-sm font-extrabold tracking-tight text-background">
-                ON<span className="text-accent">PRINT</span>
-              </span>
-              <div className="space-y-1.5">
-                <div className="h-1.5 w-2/3 bg-background/25" />
-                <div className="h-1.5 w-1/3 bg-background/25" />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16, rotate: -2 }}
-              animate={{ opacity: 1, y: 0, rotate: -2 }}
-              transition={{ duration: 0.7, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute bottom-2 left-16 h-24 w-24 border border-accent/40 bg-accent-soft sm:left-24"
-            />
+            </Reveal>
           </div>
         </Container>
       </section>
 
-      {/* Trust bar */}
-      <section className="border-b border-border bg-surface">
-        <Container className="grid grid-cols-2 gap-6 py-8 sm:grid-cols-4 sm:gap-4">
-          {trustItems.map((item) => (
-            <p
-              key={item}
-              className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-secondary sm:text-left"
-            >
-              {item}
-            </p>
-          ))}
+      {/* Trust Badges Banner */}
+      <section className="border-b border-border bg-surface py-8">
+        <Container>
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-4">
+            {trustBadges.map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.label} className="flex items-center justify-center gap-3 text-center sm:justify-start">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent">
+                    <Icon className="h-4 w-4" />
+                  </div>
+                  <span className="text-xs font-bold text-primary">{item.label}</span>
+                </div>
+              )
+            })}
+          </div>
         </Container>
       </section>
 
-      {/* Services */}
-      <section className="py-24 sm:py-32">
+      {/* Services Grid */}
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-            <SectionHeading eyebrow="What We Offer" title="Services built for every stage of print." />
+            <SectionHeading
+              eyebrow="What We Print"
+              title="Tailored printing solutions for every project."
+              subtitle="From small corporate batches to massive commercial production runs."
+            />
             <ArrowLink to="/services" className="shrink-0">
               View All Services
             </ArrowLink>
           </div>
 
-          <div className="mt-14 border-t border-border">
-            {services === null && <LoadingState label="Loading services…" />}
+          <div className="mt-12">
+            {services === null && <LoadingState label="Loading print services…" />}
             {services?.length === 0 && (
-              <EmptyState title="Services coming soon" note="Check back shortly, or explore our product catalog." />
+              <EmptyState title="Services coming soon" note="Check back shortly or request a quote." />
             )}
             {services && services.length > 0 && (
-              <ul>
-                {services.map((service, index) => (
-                  <li key={service._id} className="group border-b border-border">
-                    <Link to={`/services/${service.slug}`} className="flex items-center gap-6 py-6 sm:py-8">
-                      <span className="font-display text-sm font-bold tabular-nums text-secondary transition-colors group-hover:text-accent">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                      <span className="font-display flex-1 text-xl font-bold tracking-tight text-primary transition-transform duration-300 group-hover:translate-x-2 sm:text-2xl">
-                        {service.name}
-                      </span>
-                      <span className="hidden max-w-xs flex-1 text-sm text-secondary lg:block">
-                        {service.shortDescription}
-                      </span>
-                      <ArrowRightIcon className="h-5 w-5 shrink-0 text-secondary transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent" />
-                    </Link>
-                  </li>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {services.map((service) => (
+                  <ServiceCard key={service._id} service={service} />
                 ))}
-              </ul>
-            )}
-          </div>
-        </Container>
-      </section>
-
-      {/* Featured products */}
-      <section className="border-t border-border bg-surface py-24 sm:py-32">
-        <Container>
-          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-            <SectionHeading eyebrow="Popular Picks" title="A print catalog worth browsing." />
-            <ArrowLink to="/products" className="shrink-0">
-              View All Products
-            </ArrowLink>
-          </div>
-
-          <div className="mt-14">
-            {products === null && <LoadingState label="Loading products…" />}
-            {products?.length === 0 && (
-              <EmptyState title="Products coming soon" note="Our catalog is being stocked — check back shortly." />
-            )}
-            {featureProduct && (
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-                <Link
-                  to={`/products/${featureProduct.slug}`}
-                  className="group relative col-span-1 flex aspect-[4/5] flex-col justify-end overflow-hidden border border-border bg-primary lg:col-span-2 lg:aspect-auto"
-                >
-                  {featureProduct.images?.[0] && (
-                    <img
-                      src={featureProduct.images[0]}
-                      alt=""
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-105"
-                    />
-                  )}
-                  <div className="relative z-10 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent p-8">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-background/60">Featured</p>
-                    <h3 className="font-display mt-2 text-2xl font-extrabold text-background sm:text-3xl">
-                      {featureProduct.name}
-                    </h3>
-                    <p className="mt-3 text-sm font-semibold text-accent">
-                      {featureProduct.price != null ? `From $${featureProduct.price}` : 'Request a Quote'}
-                    </p>
-                  </div>
-                </Link>
-
-                <div className="grid grid-cols-2 gap-6 lg:grid-cols-1">
-                  {supportingProducts.map((product) => (
-                    <Link
-                      key={product._id}
-                      to={`/products/${product.slug}`}
-                      className="group relative flex aspect-square flex-col justify-end overflow-hidden border border-border bg-primary"
-                    >
-                      {product.images?.[0] && (
-                        <img
-                          src={product.images[0]}
-                          alt=""
-                          loading="lazy"
-                          className="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-105"
-                        />
-                      )}
-                      <div className="relative z-10 bg-gradient-to-t from-primary/95 via-primary/30 to-transparent p-4">
-                        <h3 className="font-display text-sm font-bold text-background">{product.name}</h3>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
               </div>
             )}
           </div>
         </Container>
       </section>
 
-      {/* Why ONPRINT */}
-      <section className="py-24 sm:py-32">
+      {/* Featured Products Catalog */}
+      <section className="border-t border-border bg-surface py-20 sm:py-28">
         <Container>
-          <SectionHeading eyebrow="Why ONPRINT" title="Printing built around your brand." center />
-          <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+            <SectionHeading
+              eyebrow="Best Selling Items"
+              title="Explore our signature products."
+              subtitle="Premium quality stocks, crisp resolution, and fast turnarounds."
+            />
+            <ArrowLink to="/products" className="shrink-0">
+              Explore Full Catalog
+            </ArrowLink>
+          </div>
+
+          <div className="mt-12">
+            {products === null && <LoadingState label="Loading product catalog…" />}
+            {products?.length === 0 && (
+              <EmptyState title="Products coming soon" note="Our catalog is being stocked." />
+            )}
+            {products && products.length > 0 && (
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {products.map((product) => (
+                  <ProductCard key={product._id} product={product} />
+                ))}
+              </div>
+            )}
+          </div>
+        </Container>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 sm:py-28">
+        <Container>
+          <SectionHeading
+            eyebrow="Why ONPRINT"
+            title="The standard behind every press run."
+            subtitle="Why leading Dubai enterprises and creative agencies partner with us."
+            center
+          />
+
+          <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {whyUs.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.08}>
-                <div className="border-t-2 border-primary pt-5">
-                  <h3 className="font-display text-lg font-bold text-primary">{item.title}</h3>
+                <div className="h-full rounded-2xl border border-border bg-surface p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-soft font-display text-sm font-bold text-accent">
+                    0{index + 1}
+                  </div>
+                  <h3 className="font-display mt-5 text-lg font-bold text-primary">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-secondary">{item.description}</p>
                 </div>
               </Reveal>
@@ -264,24 +303,29 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Process */}
-      <section className="border-t border-border bg-surface py-24 sm:py-32">
+      {/* Production Process Timeline */}
+      <section className="border-t border-border bg-surface py-20 sm:py-28">
         <Container>
-          <SectionHeading eyebrow="How It Works" title="From request to delivery." />
+          <SectionHeading
+            eyebrow="How It Works"
+            title="From artwork submission to final delivery."
+            subtitle="Four straightforward steps to bring your project into print."
+          />
+
           <div className="relative mt-16">
-            <div className="absolute left-0 right-0 top-5 hidden h-px bg-border sm:block" />
+            <div className="absolute left-0 right-0 top-6 hidden h-0.5 bg-border sm:block" />
             <motion.div
-              className="absolute left-0 top-5 hidden h-px bg-accent sm:block"
+              className="absolute left-0 top-6 hidden h-0.5 bg-accent sm:block"
               initial={{ width: '0%' }}
               whileInView={{ width: '100%' }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: 'easeInOut' }}
             />
-            <div className="relative grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {processSteps.map((item, index) => (
                 <Reveal key={item.step} delay={index * 0.1}>
-                  <div className="relative">
-                    <span className="relative z-10 flex h-10 w-10 items-center justify-center border border-primary bg-surface font-display text-sm font-bold tabular-nums text-primary">
+                  <div className="rounded-2xl border border-border bg-background p-6 shadow-xs">
+                    <span className="relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-primary bg-primary font-display text-sm font-bold text-background shadow-sm">
                       {item.step}
                     </span>
                     <h3 className="font-display mt-5 text-lg font-bold text-primary">{item.title}</h3>
@@ -294,21 +338,24 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* About teaser + stats */}
-      <section className="py-24 sm:py-32">
+      {/* Story & Stat Counters */}
+      <section className="py-20 sm:py-28">
         <Container className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <SectionHeading
               eyebrow="About ONPRINT"
-              title="We print more than paper. We print identities."
-              subtitle="Every project that leaves our press carries a brand's reputation with it. That's why precision, consistency and craft aren't optional — they're the whole job."
+              title="We print more than paper. We print brand trust."
+              subtitle="Every piece of print that leaves our floor carries a brand's reputation with it. That's why precision, paper feel, and immaculate finishing are non-negotiable."
             />
             <div className="mt-8">
-              <ArrowLink to="/about">Our Story</ArrowLink>
+              <Button to="/about" variant="outline" size="md">
+                Learn About Our History
+              </Button>
             </div>
           </Reveal>
+
           <Reveal delay={0.1}>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-10 border-t border-border pt-10">
+            <div className="grid grid-cols-2 gap-6 rounded-2xl border border-border bg-surface p-8 shadow-xs">
               {stats.map((stat) => (
                 <StatCounter key={stat.label} {...stat} />
               ))}
@@ -317,25 +364,25 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="border-t border-border bg-primary py-24 sm:py-32">
+      {/* Primary Dark Call to Action */}
+      <section className="border-t border-border bg-primary py-20 text-background sm:py-28">
         <Container className="flex flex-col items-center gap-8 text-center">
-          <h2 className="font-display max-w-3xl text-3xl font-extrabold tracking-tight text-background sm:text-5xl">
-            HAVE SOMETHING TO PRINT?
+          <span className="rounded-full bg-accent/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+            Ready to Print?
+          </span>
+          <h2 className="font-display max-w-3xl text-3xl font-extrabold tracking-tight sm:text-5xl">
+            LET’S BRING YOUR NEXT PRINT PROJECT TO LIFE.
           </h2>
-          <p className="max-w-xl text-lg text-background/70">
-            Tell us what you're building and we'll help bring it to life.
+          <p className="max-w-xl text-base text-background/80 sm:text-lg">
+            Get an instant custom quote, request sample stocks, or talk directly with our Dubai print production experts.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-5">
-            <Button to="/get-a-quote" variant="accent">
-              Get a Quote
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Button to="/get-a-quote" variant="accent" size="lg">
+              Start Quote Wizard
             </Button>
-            <Link
-              to="/contact"
-              className="text-sm font-semibold text-background/80 underline decoration-background/30 underline-offset-4 transition-colors hover:text-background"
-            >
-              Talk to Us
-            </Link>
+            <Button to="/contact" variant="outline" size="lg" className="border-background/30 text-background hover:bg-background/10 hover:border-background">
+              Contact Sales Team
+            </Button>
           </div>
         </Container>
       </section>
@@ -343,10 +390,3 @@ export default function HomePage() {
   )
 }
 
-function ArrowRightIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  )
-}

@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "postinstall": "npm install --prefix client",
+    "postinstall": "npm ci --prefix client",
     "dev:client": "npm run dev --prefix client",
     "dev:all": "concurrently -n CLIENT,SERVER -c blue,green \"npm:dev:client\" \"npm:dev\"",
     "build": "npm run build --prefix client",

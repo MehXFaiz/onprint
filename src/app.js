@@ -6,7 +6,7 @@ const helmet = require('helmet')
 const morgan = require('morgan')
 const { notFound, errorHandler } = require('./middleware/errorHandler')
 
-const CLIENT_DIST = path.join(__dirname, '..', 'client', 'dist')
+const CLIENT_DIST = path.join(__dirname, '..', 'dist')
 
 function createApp() {
   const app = express()

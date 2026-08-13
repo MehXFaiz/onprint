@@ -5,6 +5,9 @@ const cors = require('cors')
 const helmet = require('helmet')
 const morgan = require('morgan')
 const { notFound, errorHandler } = require('./middleware/errorHandler')
+const categoryRoutes = require('./routes/categoryRoutes')
+const serviceRoutes = require('./routes/serviceRoutes')
+const productRoutes = require('./routes/productRoutes')
 
 const CLIENT_DIST = path.join(__dirname, '..', 'dist')
 
@@ -34,6 +37,10 @@ function createApp() {
   app.get('/api/health', (req, res) => {
     res.json({ success: true, message: 'ONPRINT API is running' })
   })
+
+  app.use('/api/categories', categoryRoutes)
+  app.use('/api/services', serviceRoutes)
+  app.use('/api/products', productRoutes)
 
   // Single-process deployment: if a built client exists (npm run build --prefix
   // client), serve it from the same Express process/port instead of requiring a

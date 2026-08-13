@@ -12,6 +12,7 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`ONPRINT API listening on port ${PORT} [${process.env.NODE_ENV || 'development'}]`)
 })
 
+// MongoDB connection is completely skipped by default unless MONGODB_ENABLED=true and MONGODB_URI are set
 if (mongoEnabled && process.env.MONGODB_URI) {
   connectDB().catch((err) => {
     console.error('MongoDB connection failed:', err.message)

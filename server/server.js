@@ -10,7 +10,7 @@ async function start() {
     await connectDB()
 
     const app = createApp()
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
       console.log(`ONPRINT API listening on port ${PORT} [${process.env.NODE_ENV || 'development'}]`)
     })
   } catch (err) {

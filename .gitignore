@@ -7,6 +7,3 @@ node_modules/
 
 # React production build (generated via `npm run build`)
 dist
-
-# local MongoDB data used only for local dev verification
-.localdata

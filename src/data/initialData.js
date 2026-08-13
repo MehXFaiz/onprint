@@ -1,25 +1,55 @@
-require('dotenv').config()
-
-const mongoose = require('mongoose')
-const connectDB = require('../config/db')
-const Category = require('../models/Category')
-const Service = require('../models/Service')
-const Product = require('../models/Product')
-
 function img(seed) {
   return `https://picsum.photos/seed/onprint-${seed}/900/700`
 }
 
 const categories = [
-  { name: 'Business Stationery', slug: 'business-stationery', description: 'Business cards, letterheads and everyday office stationery.' },
-  { name: 'Marketing Materials', slug: 'marketing-materials', description: 'Flyers, brochures and posters that get your message out.' },
-  { name: 'Packaging & Labels', slug: 'packaging-labels', description: 'Custom boxes, packaging and stickers for your products.' },
-  { name: 'Banners & Signage', slug: 'banners-signage', description: 'Large-format banners and signage for events and storefronts.' },
-  { name: 'Promotional Products', slug: 'promotional-products', description: 'Calendars and branded giveaways for marketing campaigns.' },
-  { name: 'Custom & Specialty', slug: 'custom-specialty', description: 'Certificates, invitations and one-off custom print jobs.' },
+  {
+    _id: 'cat-1',
+    name: 'Business Stationery',
+    slug: 'business-stationery',
+    description: 'Business cards, letterheads and everyday office stationery.',
+    active: true,
+  },
+  {
+    _id: 'cat-2',
+    name: 'Marketing Materials',
+    slug: 'marketing-materials',
+    description: 'Flyers, brochures and posters that get your message out.',
+    active: true,
+  },
+  {
+    _id: 'cat-3',
+    name: 'Packaging & Labels',
+    slug: 'packaging-labels',
+    description: 'Custom boxes, packaging and stickers for your products.',
+    active: true,
+  },
+  {
+    _id: 'cat-4',
+    name: 'Banners & Signage',
+    slug: 'banners-signage',
+    description: 'Large-format banners and signage for events and storefronts.',
+    active: true,
+  },
+  {
+    _id: 'cat-5',
+    name: 'Promotional Products',
+    slug: 'promotional-products',
+    description: 'Calendars and branded giveaways for marketing campaigns.',
+    active: true,
+  },
+  {
+    _id: 'cat-6',
+    name: 'Custom & Specialty',
+    slug: 'custom-specialty',
+    description: 'Certificates, invitations and one-off custom print jobs.',
+    active: true,
+  },
 ]
 
-const services = [
+const categoryMap = Object.fromEntries(categories.map((c) => [c.slug, c]))
+
+const rawServices = [
   { name: 'Digital Printing', slug: 'digital-printing', category: 'business-stationery', shortDescription: 'Fast, high-quality short-run digital printing for any project.', order: 1 },
   { name: 'Offset Printing', slug: 'offset-printing', category: 'business-stationery', shortDescription: 'Cost-effective, consistent color for high-volume print runs.', order: 2 },
   { name: 'Business Cards', slug: 'business-cards-service', category: 'business-stationery', shortDescription: 'Premium finishes that make a strong first impression.', order: 3 },
@@ -33,6 +63,19 @@ const services = [
   { name: 'Promotional Materials', slug: 'promotional-materials-service', category: 'promotional-products', shortDescription: 'Branded calendars, cards and giveaways.', order: 11 },
   { name: 'Custom Printing', slug: 'custom-printing', category: 'custom-specialty', shortDescription: 'Certificates, invitations and specialty one-off jobs.', order: 12 },
 ]
+
+const services = rawServices.map((s, idx) => ({
+  _id: `srv-${idx + 1}`,
+  name: s.name,
+  slug: s.slug,
+  category: categoryMap[s.category]
+    ? { _id: categoryMap[s.category]._id, name: categoryMap[s.category].name, slug: categoryMap[s.category].slug }
+    : null,
+  shortDescription: s.shortDescription,
+  order: s.order,
+  image: img(s.slug),
+  active: true,
+}))
 
 const sizeOptions = [
   { label: 'Standard', priceModifier: 0 },
@@ -49,7 +92,7 @@ const finishOptions = [
   { label: 'Foil Stamping', priceModifier: 35 },
 ]
 
-const products = [
+const rawProducts = [
   {
     name: 'Business Cards',
     slug: 'business-cards',
@@ -186,37 +229,26 @@ const products = [
   },
 ]
 
-async function seed() {
-  await connectDB()
+const products = rawProducts.map((p, idx) => ({
+  _id: `prod-${idx + 1}`,
+  name: p.name,
+  slug: p.slug,
+  category: categoryMap[p.category]
+    ? { _id: categoryMap[p.category]._id, name: categoryMap[p.category].name, slug: categoryMap[p.category].slug }
+    : null,
+  shortDescription: p.shortDescription,
+  description: p.description,
+  price: p.price,
+  minimumQuantity: p.minimumQuantity,
+  featured: Boolean(p.featured),
+  specifications: p.specifications,
+  images: [img(p.slug), img(`${p.slug}-alt`)],
+  active: true,
+  createdAt: new Date(Date.now() - idx * 86400000).toISOString(),
+}))
 
-  console.log('Clearing existing categories, services and products...')
-  await Promise.all([Category.deleteMany({}), Service.deleteMany({}), Product.deleteMany({})])
-
-  console.log('Seeding categories...')
-  const categoryDocs = await Category.insertMany(
-    categories.map((c) => ({ ...c, image: img(c.slug) })),
-  )
-  const categoryIdBySlug = Object.fromEntries(categoryDocs.map((c) => [c.slug, c._id]))
-
-  console.log('Seeding services...')
-  await Service.insertMany(
-    services.map((s) => ({ ...s, category: categoryIdBySlug[s.category], image: img(s.slug) })),
-  )
-
-  console.log('Seeding products...')
-  await Product.insertMany(
-    products.map((p) => ({
-      ...p,
-      category: categoryIdBySlug[p.category],
-      images: [img(p.slug), img(`${p.slug}-alt`)],
-    })),
-  )
-
-  console.log(`Done: ${categoryDocs.length} categories, ${services.length} services, ${products.length} products.`)
-  await mongoose.disconnect()
+module.exports = {
+  categories,
+  services,
+  products,
 }
-
-seed().catch((err) => {
-  console.error('Seed failed:', err)
-  process.exit(1)
-})

@@ -15,6 +15,7 @@ const contactRoutes = require('./routes/contactRoutes')
 const quoteRoutes = require('./routes/quoteRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 const newsletterRoutes = require('./routes/newsletterRoutes')
+const adminRoutes = require('./routes/adminRoutes')
 
 const CLIENT_DIST = path.join(__dirname, '..', 'dist')
 
@@ -75,6 +76,7 @@ function createApp() {
   app.use('/api/quotes', quoteRoutes)
   app.use('/api/orders', orderRoutes)
   app.use('/api/newsletter', newsletterRoutes)
+  app.use('/api/admin', adminRoutes)
 
   // Single-process deployment for GoDaddy / cPanel Node.js Apps
   const hasClientBuild = fs.existsSync(path.join(CLIENT_DIST, 'index.html'))

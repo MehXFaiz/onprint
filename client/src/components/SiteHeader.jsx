@@ -99,7 +99,7 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-50 w-full bg-background shadow-sm">
       {/* Executive Top Utility Bar */}
       <div className="hidden border-b border-border/60 bg-muted/30 py-2 text-xs text-secondary lg:block">
-        <Container className="flex items-center justify-between">
+        <Container className="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-12">
           {/* Social Icons + Tagline */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
@@ -158,20 +158,20 @@ export default function SiteHeader() {
           scrolled ? 'border-border bg-background/95 backdrop-blur-md py-3' : 'border-transparent bg-background py-4'
         }`}
       >
-        <Container className="flex items-center justify-between gap-6">
+        <Container className="flex items-center justify-between gap-3 xl:gap-4 2xl:gap-6 px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-12">
           {/* Logo with generous margin */}
           <Link to="/" onClick={() => setMenuOpen(false)} className="shrink-0">
             <Logo size="md" />
           </Link>
 
           {/* Desktop Navigation Links - Optimized Whitespace & No Text Wrapping */}
-          <nav className="hidden items-center gap-5 xl:gap-7 2xl:gap-8 xl:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-3 xl:gap-4 2xl:gap-7 xl:flex shrink min-w-0" aria-label="Primary">
             {/* 1. Home */}
             <NavLink
               to="/"
               end
               className={({ isActive }) =>
-                `whitespace-nowrap text-sm font-semibold tracking-tight transition-colors ${
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
                   isActive ? 'text-accent font-bold' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
                 }`
               }
@@ -183,7 +183,7 @@ export default function SiteHeader() {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `whitespace-nowrap text-sm font-semibold tracking-tight transition-colors ${
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
                   isActive ? 'text-accent font-bold' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
                 }`
               }
@@ -195,7 +195,7 @@ export default function SiteHeader() {
             <NavLink
               to="/products"
               className={({ isActive }) =>
-                `whitespace-nowrap text-sm font-semibold tracking-tight transition-colors ${
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
                   isActive ? 'text-accent font-bold' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
                 }`
               }
@@ -212,12 +212,12 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown(activeDropdown === 'gifts' ? null : 'gifts')}
-                className={`flex items-center gap-1.5 whitespace-nowrap text-sm font-semibold tracking-tight transition-colors ${
+                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
                   activeDropdown === 'gifts' ? 'text-accent' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
                 }`}
               >
                 <span>Corporate Gifts Dubai</span>
-                <ChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${activeDropdown === 'gifts' ? 'rotate-180 text-accent' : ''}`} />
+                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'gifts' ? 'rotate-180 text-accent' : ''}`} />
               </button>
 
               <AnimatePresence>
@@ -254,12 +254,12 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown(activeDropdown === 'stationery' ? null : 'stationery')}
-                className={`flex items-center gap-1.5 whitespace-nowrap text-sm font-semibold tracking-tight transition-colors ${
+                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
                   activeDropdown === 'stationery' ? 'text-accent' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
                 }`}
               >
                 <span>Office Stationery Printing</span>
-                <ChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${activeDropdown === 'stationery' ? 'rotate-180 text-accent' : ''}`} />
+                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'stationery' ? 'rotate-180 text-accent' : ''}`} />
               </button>
 
               <AnimatePresence>
@@ -296,12 +296,12 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown(activeDropdown === 'other' ? null : 'other')}
-                className={`flex items-center gap-1.5 whitespace-nowrap text-sm font-semibold tracking-tight transition-colors ${
+                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
                   activeDropdown === 'other' ? 'text-accent' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
                 }`}
               >
                 <span>Other Products</span>
-                <ChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${activeDropdown === 'other' ? 'rotate-180 text-accent' : ''}`} />
+                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'other' ? 'rotate-180 text-accent' : ''}`} />
               </button>
 
               <AnimatePresence>
@@ -333,7 +333,7 @@ export default function SiteHeader() {
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `whitespace-nowrap text-sm font-semibold tracking-tight transition-colors ${
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
                   isActive ? 'text-accent font-bold' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
                 }`
               }
@@ -345,7 +345,7 @@ export default function SiteHeader() {
             <NavLink
               to="/portfolio"
               className={({ isActive }) =>
-                `whitespace-nowrap text-sm font-semibold tracking-tight transition-colors ${
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
                   isActive ? 'text-accent font-bold' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
                 }`
               }
@@ -355,8 +355,8 @@ export default function SiteHeader() {
           </nav>
 
           {/* Right CTA Button */}
-          <div className="hidden items-center gap-4 xl:flex shrink-0">
-            <Button to="/get-a-quote" variant="accent" icon={false} className="!px-6 !py-2.5 text-sm font-bold shadow-md shadow-accent/20">
+          <div className="hidden items-center xl:flex shrink-0">
+            <Button to="/get-a-quote" variant="accent" icon={false} className="!px-4 xl:!px-5 2xl:!px-6 !py-2 xl:!py-2.5 text-xs xl:text-sm font-bold shadow-md shadow-accent/20">
               Get a Quote
             </Button>
           </div>

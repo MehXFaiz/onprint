@@ -150,7 +150,15 @@ export default function LoadingScreen() {
                 }}
               >
                 <div className="inline-flex items-center gap-4 select-none">
-                  <Logo variant="light" size="splash" />
+                  <span
+                    className="font-display font-black uppercase text-5xl sm:text-7xl tracking-[0.22em]"
+                    style={{
+                      WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.9)',
+                      color: 'transparent',
+                    }}
+                  >
+                    ONPRINT
+                  </span>
                 </div>
               </motion.div>
 
@@ -167,7 +175,9 @@ export default function LoadingScreen() {
                   ease: 'easeOut',
                 }}
               >
-                <Logo variant="light" size="splash" />
+                <span className="font-display font-black uppercase text-5xl sm:text-7xl tracking-[0.22em] text-white">
+                  ON<span className="text-[#c63c22]">PRINT</span>
+                </span>
               </motion.div>
             </div>
 

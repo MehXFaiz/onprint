@@ -227,9 +227,9 @@ export default function HomePage() {
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
-              eyebrow="What We Print"
-              title="Tailored printing solutions for every project."
-              subtitle="From small corporate batches to massive commercial production runs."
+              eyebrow="OUR SERVICES"
+              title="Professional printing and creative solutions."
+              subtitle="Professional printing and creative solutions for businesses, brands and individuals."
             />
             <ArrowLink to="/services" className="shrink-0">
               View All Services
@@ -238,9 +238,6 @@ export default function HomePage() {
 
           <div className="mt-12">
             {services === null && <LoadingState label="Loading print services…" />}
-            {services?.length === 0 && (
-              <EmptyState title="Services coming soon" note="Check back shortly or request a quote." />
-            )}
             {services && services.length > 0 && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {services.map((service) => (
@@ -263,9 +260,9 @@ export default function HomePage() {
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
-              eyebrow="Best Selling Items"
+              eyebrow="OUR PRODUCTS"
               title="Explore our signature products."
-              subtitle="Premium quality stocks, crisp resolution, and fast turnarounds."
+              subtitle="Explore our range of professionally printed products and promotional materials."
             />
             <ArrowLink to="/products" className="shrink-0">
               Explore Full Catalog
@@ -274,9 +271,6 @@ export default function HomePage() {
 
           <div className="mt-12">
             {products === null && <LoadingState label="Loading product catalog…" />}
-            {products?.length === 0 && (
-              <EmptyState title="Products coming soon" note="Our catalog is being stocked." />
-            )}
             {products && products.length > 0 && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {products.map((product) => (

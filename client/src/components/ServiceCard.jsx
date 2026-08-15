@@ -1,45 +1,51 @@
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Printer, Sparkles, Layers, FileText, Tag, Gift } from 'lucide-react'
-
-// Helper icon picker based on service slug or name
-function getServiceIcon(slug = '', name = '') {
-  const key = (slug + ' ' + name).toLowerCase()
-  if (key.includes('digital') || key.includes('press')) return Printer
-  if (key.includes('packag')) return Layers
-  if (key.includes('label') || key.includes('sticker')) return Tag
-  if (key.includes('stationery') || key.includes('card')) return FileText
-  if (key.includes('promo') || key.includes('gift')) return Gift
-  return Sparkles
-}
+import { ArrowRight, Sparkles } from 'lucide-react'
+import { getProductImage } from '../assets/productImages'
 
 export default function ServiceCard({ service }) {
-  const Icon = getServiceIcon(service.slug, service.name)
+  const serviceImage = getProductImage(service)
 
   return (
     <Link
       to={`/services/${service.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 sm:p-8"
+      className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/80 bg-surface shadow-xs transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-xl"
     >
-      <div className="flex items-center justify-between">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent transition-colors group-hover:bg-accent group-hover:text-white">
-          <Icon className="h-6 w-6" strokeWidth={1.75} />
+      {/* Large Image Showcase */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+        <img
+          src={serviceImage}
+          alt={service.name}
+          loading="lazy"
+          className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 contrast-[1.02]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-40 transition-opacity duration-300 group-hover:opacity-25" />
+
+        {/* Category Badge */}
+        <div className="absolute top-3.5 left-3.5">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-primary/80 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-background backdrop-blur-md shadow-xs">
+            <Sparkles className="h-3 w-3 text-accent" />
+            {service.category?.name || 'Printing Service'}
+          </span>
         </div>
-        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-secondary transition-colors group-hover:border-primary group-hover:text-primary">
-          <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </span>
       </div>
 
-      <div className="mt-8 flex flex-1 flex-col">
-        <h3 className="font-display text-xl font-bold tracking-tight text-primary transition-colors group-hover:text-accent">
-          {service.name}
-        </h3>
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-secondary">{service.shortDescription}</p>
-        <div className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent">
-          <span>Explore Service</span>
-          <span className="h-0.5 w-4 bg-accent transition-all duration-300 group-hover:w-7" />
+      {/* Content Area with Clean Spacing */}
+      <div className="flex flex-1 flex-col justify-between p-6 sm:p-7 bg-surface">
+        <div>
+          <h3 className="font-display text-xl font-black tracking-tight text-primary transition-colors group-hover:text-accent">
+            {service.name}
+          </h3>
+          <p className="mt-3 text-xs sm:text-sm leading-relaxed text-secondary line-clamp-3">
+            {service.shortDescription || service.description}
+          </p>
+        </div>
+
+        {/* Minimal CTA */}
+        <div className="mt-6 flex items-center justify-between border-t border-border/60 pt-4 text-xs font-extrabold uppercase tracking-wider text-accent">
+          <span>Learn More</span>
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
         </div>
       </div>
     </Link>
   )
 }
-

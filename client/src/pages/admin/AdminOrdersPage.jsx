@@ -25,9 +25,11 @@ function StatusBadge({ status }) {
     Icon = CheckCircle2
   }
 
+  const IconComponent = Icon || Clock
+
   return (
     <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold border ${style}`}>
-      <Icon className="h-3 w-3" />
+      <IconComponent className="h-3 w-3" />
       {status}
     </span>
   )

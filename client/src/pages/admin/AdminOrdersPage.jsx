@@ -225,6 +225,33 @@ export default function AdminOrdersPage() {
           </tbody>
         </table>
       </div>
+
+      {/* Pagination Controls */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs text-xs font-semibold text-neutral-600">
+        <div>
+          Showing <span className="font-bold text-neutral-900">{filteredOrders.length}</span> of{' '}
+          <span className="font-bold text-neutral-900">{orders.length}</span> orders
+        </div>
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            disabled
+            className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+          >
+            Previous
+          </button>
+          <button type="button" className="rounded-xl bg-[#A82F19] px-3 py-1.5 font-bold text-white shadow-xs">
+            1
+          </button>
+          <button
+            type="button"
+            disabled
+            className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Wrench, Plus, Search, Edit2, Trash2, CheckCircle2, X } from 'lucide-react'
+import { Wrench, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle } from 'lucide-react'
 import Button from '../../components/Button'
 
 const MOCK_SERVICES = [
@@ -19,6 +19,7 @@ export default function AdminServicesPage() {
   const [services, setServices] = useState(MOCK_SERVICES)
   const [search, setSearch] = useState('')
   const [notification, setNotification] = useState(location.state?.toast || null)
+  const [deletingService, setDeletingService] = useState(null)
 
   useEffect(() => {
     if (notification) {
@@ -32,11 +33,11 @@ export default function AdminServicesPage() {
     s.slug.toLowerCase().includes(search.toLowerCase())
   )
 
-  const handleDelete = (id, name) => {
-    if (window.confirm(`Are you sure you want to delete service "${name}"?`)) {
-      setServices((prev) => prev.filter((s) => s.id !== id))
-      setNotification(`Service "${name}" deleted.`)
-    }
+  const confirmDeleteService = () => {
+    if (!deletingService) return
+    setServices((prev) => prev.filter((s) => s.id !== deletingService.id))
+    setNotification(`Service "${deletingService.name}" deleted successfully.`)
+    setDeletingService(null)
   }
 
   return (
@@ -126,7 +127,7 @@ export default function AdminServicesPage() {
                       <Edit2 className="h-4 w-4" />
                     </button>
                     <button
-                      onClick={() => handleDelete(s.id, s.name)}
+                      onClick={() => setDeletingService(s)}
                       className="rounded-lg p-1.5 text-red-600 hover:bg-red-50 transition-colors"
                       title="Delete Service"
                     >
@@ -139,6 +140,69 @@ export default function AdminServicesPage() {
           </tbody>
         </table>
       </div>
+
+      {/* Pagination Controls */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs text-xs font-semibold text-neutral-600">
+        <div>
+          Showing <span className="font-bold text-neutral-900">{filtered.length}</span> of{' '}
+          <span className="font-bold text-neutral-900">{services.length}</span> services
+        </div>
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            disabled
+            className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+          >
+            Previous
+          </button>
+          <button type="button" className="rounded-xl bg-[#A82F19] px-3 py-1.5 font-bold text-white shadow-xs">
+            1
+          </button>
+          <button
+            type="button"
+            disabled
+            className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+
+      {/* Delete Confirmation Modal */}
+      {deletingService && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+            <div className="flex items-center gap-3 text-red-600">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
+                <AlertTriangle className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-bold text-neutral-900">Delete Service?</h3>
+                <p className="text-xs text-neutral-500">
+                  Are you sure you want to delete &quot;{deletingService.name}&quot;?
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-neutral-100">
+              <button
+                type="button"
+                onClick={() => setDeletingService(null)}
+                className="rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={confirmDeleteService}
+                className="rounded-xl bg-red-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
+              >
+                Delete Service
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Image as ImageIcon, Plus, Search, Edit2, Trash2, CheckCircle2, X } from 'lucide-react'
+import { Image as ImageIcon, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle } from 'lucide-react'
 import Button from '../../components/Button'
 
 const MOCK_PORTFOLIO = [
@@ -16,6 +16,7 @@ export default function AdminPortfolioPage() {
   const [items, setItems] = useState(MOCK_PORTFOLIO)
   const [search, setSearch] = useState('')
   const [notification, setNotification] = useState(location.state?.toast || null)
+  const [deletingItem, setDeletingItem] = useState(null)
 
   useEffect(() => {
     if (notification) {
@@ -30,11 +31,11 @@ export default function AdminPortfolioPage() {
       item.client.toLowerCase().includes(search.toLowerCase())
   )
 
-  const handleDelete = (id, title) => {
-    if (window.confirm(`Are you sure you want to delete portfolio project "${title}"?`)) {
-      setItems((prev) => prev.filter((i) => i.id !== id))
-      setNotification(`Project "${title}" deleted.`)
-    }
+  const confirmDeleteItem = () => {
+    if (!deletingItem) return
+    setItems((prev) => prev.filter((i) => i.id !== deletingItem.id))
+    setNotification(`Project "${deletingItem.title}" deleted successfully.`)
+    setDeletingItem(null)
   }
 
   return (
@@ -120,7 +121,7 @@ export default function AdminPortfolioPage() {
                 <Edit2 className="h-4 w-4" />
               </button>
               <button
-                onClick={() => handleDelete(item.id, item.title)}
+                onClick={() => setDeletingItem(item)}
                 className="rounded-xl border border-red-200 p-2 text-red-600 hover:bg-red-50 transition-colors"
                 title="Delete Project"
               >
@@ -130,6 +131,69 @@ export default function AdminPortfolioPage() {
           </div>
         ))}
       </div>
+
+      {/* Pagination Controls */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs text-xs font-semibold text-neutral-600">
+        <div>
+          Showing <span className="font-bold text-neutral-900">{filtered.length}</span> of{' '}
+          <span className="font-bold text-neutral-900">{items.length}</span> projects
+        </div>
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            disabled
+            className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+          >
+            Previous
+          </button>
+          <button type="button" className="rounded-xl bg-[#A82F19] px-3 py-1.5 font-bold text-white shadow-xs">
+            1
+          </button>
+          <button
+            type="button"
+            disabled
+            className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+
+      {/* Delete Confirmation Modal */}
+      {deletingItem && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+            <div className="flex items-center gap-3 text-red-600">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
+                <AlertTriangle className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-bold text-neutral-900">Delete Project?</h3>
+                <p className="text-xs text-neutral-500">
+                  Are you sure you want to delete &quot;{deletingItem.title}&quot; from portfolio showcase?
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-neutral-100">
+              <button
+                type="button"
+                onClick={() => setDeletingItem(null)}
+                className="rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={confirmDeleteItem}
+                className="rounded-xl bg-red-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
+              >
+                Delete Project
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

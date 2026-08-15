@@ -154,6 +154,25 @@ export default function AdminPortfolioFormPage() {
                 placeholder="/assets/products/1 (13).jpg"
                 className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
               />
+              {form.image && (
+                <div className="mt-3 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-3">
+                  <div className="h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white flex items-center justify-center">
+                    <img
+                      src={form.image}
+                      alt="Portfolio Preview"
+                      className="h-full w-full object-cover"
+                      onError={(e) => {
+                        e.target.onerror = null
+                        e.target.src = '/assets/products/1 (13).jpg'
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-neutral-900">Image Preview</div>
+                    <div className="text-[11px] text-neutral-500 font-mono truncate max-w-xs">{form.image}</div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 

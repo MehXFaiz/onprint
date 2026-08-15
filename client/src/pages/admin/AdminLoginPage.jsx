@@ -38,7 +38,7 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md rounded-3xl border border-neutral-800 bg-neutral-950 p-8 shadow-2xl">
         <div className="text-center">
           <Link to="/" className="inline-block">
-            <Logo variant="light" size="md" />
+            <Logo variant="light" size="xl" />
           </Link>
           <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
             <ShieldCheck className="h-4 w-4" />

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ChevronRight, Package, Save, Image as ImageIcon } from 'lucide-react'
 import Button from '../../components/Button'
+import ImageUploader from '../../components/ImageUploader'
 import { getStoredProducts, addProduct } from '../../services/products'
 
 const DEFAULT_CATEGORIES = [
@@ -29,6 +30,8 @@ export default function AdminProductFormPage() {
     shortDescription: '',
     description: '',
     image: '',
+    images: [],
+    altText: '',
     featured: false,
     status: 'active',
   })
@@ -38,6 +41,7 @@ export default function AdminProductFormPage() {
     const all = getStoredProducts()
     const found = all.find((p) => String(p._id || p.id) === String(id))
     if (found) {
+      const imgList = Array.isArray(found.images) ? found.images : found.image ? [found.image] : []
       setForm({
         name: found.name || '',
         categoryName: typeof found.category === 'object' ? found.category?.name : found.category || 'Corporate Gift Items',
@@ -45,7 +49,9 @@ export default function AdminProductFormPage() {
         minimumQuantity: String(found.minimumQuantity || 10),
         shortDescription: found.shortDescription || '',
         description: found.description || found.shortDescription || '',
-        image: Array.isArray(found.images) ? found.images[0] : found.image || '',
+        image: imgList[0] || '',
+        images: imgList,
+        altText: found.altText || found.name || '',
         featured: Boolean(found.featured),
         status: found.active !== false ? 'active' : 'inactive',
       })
@@ -248,36 +254,38 @@ export default function AdminProductFormPage() {
             <p className="text-xs text-neutral-500">Image URL and catalog highlights.</p>
           </div>
 
-          <div>
-            <label className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-              Product Image URL
-            </label>
-            <input
-              type="text"
+          <div className="space-y-6">
+            <ImageUploader
+              label="Main Product Image *"
               value={form.image}
-              onChange={(e) => setForm({ ...form, image: e.target.value })}
-              placeholder="/assets/products/1 (1).jpg"
-              className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+              onChange={(url) =>
+                setForm((prev) => {
+                  const mainUrl = url || ''
+                  const remainingGallery = (prev.images || []).filter((u) => u !== prev.image)
+                  return {
+                    ...prev,
+                    image: mainUrl,
+                    images: mainUrl ? [mainUrl, ...remainingGallery] : remainingGallery,
+                  }
+                })
+              }
+              altText={form.altText}
+              onAltTextChange={(text) => setForm((prev) => ({ ...prev, altText: text }))}
+              description="Upload main product showcase image (JPG, PNG, WEBP, SVG up to 5MB)"
             />
-            {form.image && (
-              <div className="mt-3 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-3">
-                <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white flex items-center justify-center">
-                  <img
-                    src={form.image}
-                    alt="Product Preview"
-                    className="h-full w-full object-cover"
-                    onError={(e) => {
-                      e.target.onerror = null
-                      e.target.src = '/assets/products/1 (1).jpg'
-                    }}
-                  />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-neutral-900">Image Preview</div>
-                  <div className="text-[11px] text-neutral-500 font-mono truncate max-w-xs">{form.image}</div>
-                </div>
-              </div>
-            )}
+
+            <ImageUploader
+              label="Additional Product Gallery Images"
+              multiple={true}
+              value={(form.images || []).filter((u) => u !== form.image)}
+              onChange={(galleryUrls) =>
+                setForm((prev) => ({
+                  ...prev,
+                  images: prev.image ? [prev.image, ...galleryUrls] : galleryUrls,
+                }))
+              }
+              description="Upload supplementary angle & detail photos (up to 10 images)"
+            />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Settings, Save, CheckCircle2, Building, Mail, Phone, MapPin, Globe, Shield } from 'lucide-react'
 import Button from '../../components/Button'
+import ImageUploader from '../../components/ImageUploader'
 
 export default function AdminSettingsPage() {
   const [toast, setToast] = useState(null)
@@ -93,6 +94,24 @@ export default function AdminSettingsPage() {
                 className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
               />
             </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+            <ImageUploader
+              label="Official Studio Logo"
+              value={form.logoImage || '/assets/logo.png'}
+              onChange={(url) => setForm((prev) => ({ ...prev, logoImage: url }))}
+              altText="ONPRINT Studio Logo"
+              description="Upload primary brand logo (PNG, WEBP, SVG up to 5MB)"
+            />
+
+            <ImageUploader
+              label="Homepage Hero Banner Image"
+              value={form.heroBannerImage || '/assets/products/1 (1).jpg'}
+              onChange={(url) => setForm((prev) => ({ ...prev, heroBannerImage: url }))}
+              altText="ONPRINT Dubai Banner"
+              description="Upload main storefront hero banner (JPG, WEBP up to 5MB)"
+            />
           </div>
         </div>
 

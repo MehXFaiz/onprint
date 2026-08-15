@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ChevronRight, Image as ImageIcon, Save } from 'lucide-react'
 import Button from '../../components/Button'
+import ImageUploader from '../../components/ImageUploader'
 
 export default function AdminPortfolioFormPage() {
   const navigate = useNavigate()
@@ -143,37 +144,14 @@ export default function AdminPortfolioFormPage() {
               </select>
             </div>
 
-            <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-                Showcase Image URL
-              </label>
-              <input
-                type="text"
-                value={form.image}
-                onChange={(e) => setForm({ ...form, image: e.target.value })}
-                placeholder="/assets/products/1 (13).jpg"
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
-              />
-              {form.image && (
-                <div className="mt-3 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-3">
-                  <div className="h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white flex items-center justify-center">
-                    <img
-                      src={form.image}
-                      alt="Portfolio Preview"
-                      className="h-full w-full object-cover"
-                      onError={(e) => {
-                        e.target.onerror = null
-                        e.target.src = '/assets/products/1 (13).jpg'
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-neutral-900">Image Preview</div>
-                    <div className="text-[11px] text-neutral-500 font-mono truncate max-w-xs">{form.image}</div>
-                  </div>
-                </div>
-              )}
-            </div>
+            <ImageUploader
+              label="Portfolio Cover Image"
+              value={form.image}
+              onChange={(url) => setForm((prev) => ({ ...prev, image: url }))}
+              altText={form.altText || form.title}
+              onAltTextChange={(alt) => setForm((prev) => ({ ...prev, altText: alt }))}
+              description="Upload portfolio project showcase image (JPG, PNG, WEBP, SVG up to 5MB)"
+            />
           </div>
 
           <div>

@@ -16,6 +16,7 @@ const quoteRoutes = require('./routes/quoteRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 const newsletterRoutes = require('./routes/newsletterRoutes')
 const adminRoutes = require('./routes/adminRoutes')
+const uploadRoutes = require('./routes/uploadRoutes')
 
 const CLIENT_DIST = path.join(__dirname, '..', 'dist')
 
@@ -90,7 +91,8 @@ function createApp() {
     })
   })
 
-  // Static assets
+  // Static assets & Uploads
+  app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')))
   app.use('/assets', express.static(path.join(__dirname, 'assets')))
   app.use('/assets', express.static(path.join(__dirname, '..', 'client', 'public', 'assets')))
 
@@ -104,6 +106,7 @@ function createApp() {
   app.use('/api/orders', orderRoutes)
   app.use('/api/newsletter', newsletterRoutes)
   app.use('/api/admin', adminRoutes)
+  app.use('/api/upload', uploadRoutes)
 
   // Single-process deployment for GoDaddy / cPanel Node.js Apps
   const hasClientBuild = fs.existsSync(path.join(CLIENT_DIST, 'index.html'))

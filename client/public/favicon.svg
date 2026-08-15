@@ -1,6 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <rect width="100" height="100" rx="20" fill="#141414"/>
-  <text x="50" y="58" dominant-baseline="middle" text-anchor="middle" font-family="'Manrope', 'Inter', system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" letter-spacing="1">
-    <tspan fill="#FFFFFF">ON</tspan><tspan fill="#c63c22">P</tspan>
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <!-- Left Vertical Stem -->
+  <rect x="25" y="20" width="30" height="190" rx="15" ry="15" fill="#1E1E1E" />
+  
+  <!-- Loop & Cutout -->
+  <path d="M 55,25 H 155 L 205,75 V 105 A 75,75 0 1,1 55,185 Z" fill="none" stroke="#1E1E1E" stroke-width="30" stroke-linecap="square" />
+  
+  <!-- Orange Triangle Accent -->
+  <polygon points="156,20 210,20 210,74" fill="#F36621" />
 </svg>

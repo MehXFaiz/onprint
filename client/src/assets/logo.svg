@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360" width="100%" height="100%">
+  <!-- ONPRINT Symbol -->
+  <g id="symbol">
+    <!-- Left Vertical Rounded Stem -->
+    <rect x="36" y="30" width="34" height="215" rx="17" ry="17" fill="#1E1E1E" />
+    
+    <!-- Outer Circular Loop with top-right diagonal slice -->
+    <path d="M 68,36 A 90,90 0 1,1 230,126 A 90,90 0 0,1 68,216 Z" fill="none" stroke="#1E1E1E" stroke-width="34" stroke-linecap="round" />
+    <path d="M 68,36 H 180 L 235,90 V 126 A 90,90 0 1,1 68,216" fill="none" stroke="#1E1E1E" stroke-width="34" stroke-linecap="square" />
+    
+    <!-- Orange Triangle Accent -->
+    <polygon points="182,30 240,30 240,88" fill="#F36621" />
+  </g>
+  
+  <!-- ONPRINT Wordmark -->
+  <text x="150" y="315" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="34" letter-spacing="9" fill="#1E1E1E">ONPRINT</text>
+</svg>

@@ -1,35 +1,33 @@
 import React from 'react'
+import logoImg from '../assets/logo.png'
+import logoLightImg from '../assets/logo_light.png'
 
 export default function Logo({
   className = '',
-  variant = 'default', // 'default' (dark text), 'light' (white text), 'accent'
+  variant = 'default', // 'default' (black/orange) | 'light' (white/orange for dark backgrounds)
   size = 'md', // 'sm' | 'md' | 'lg' | 'xl' | 'splash'
 }) {
-  const textSizes = {
-    sm: 'text-lg sm:text-xl tracking-[0.14em]',
-    md: 'text-2xl sm:text-3xl tracking-[0.16em]',
-    lg: 'text-3xl sm:text-4xl tracking-[0.18em]',
-    xl: 'text-4xl sm:text-5xl tracking-[0.2em]',
-    splash: 'text-5xl sm:text-7xl tracking-[0.22em]',
+  const heightMap = {
+    sm: 'h-7 sm:h-8',
+    md: 'h-9 sm:h-11',
+    lg: 'h-12 sm:h-14',
+    xl: 'h-16 sm:h-20',
+    splash: 'h-24 sm:h-32',
   }
 
   const isLight = variant === 'light'
-  const isAccent = variant === 'accent'
-  const textColor = isAccent ? '#A82F19' : isLight ? '#FFFFFF' : '#000000'
-  const accentColor = '#A82F19'
+  const logoSource = isLight ? logoLightImg : logoImg
 
   return (
-    <div className={`inline-flex items-center select-none whitespace-nowrap overflow-visible ${className}`}>
-      {/* Text-based Logo ONPRINT */}
-      <span
-        className={`font-display font-black uppercase leading-none select-none ${
-          textSizes[size] || textSizes.md
+    <div className={`inline-flex items-center shrink-0 select-none ${className}`}>
+      <img
+        src={logoSource}
+        alt="ONPRINT — Professional Printing & Branding Solutions"
+        loading="eager"
+        className={`w-auto object-contain ${
+          heightMap[size] || heightMap.md
         }`}
-        style={{ color: textColor }}
-      >
-        ON<span style={{ color: accentColor }}>PRINT</span>
-      </span>
+      />
     </div>
   )
 }
-

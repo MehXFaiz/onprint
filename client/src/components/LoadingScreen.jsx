@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import Logo from './Logo'
-
 
 const SESSION_KEY = 'onprint-splash-futuristic-v1'
 
@@ -49,9 +47,9 @@ export default function LoadingScreen() {
             filter: 'blur(12px)',
             transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
           }}
-          aria-label="ONPRINT Futuristic Intro"
+          aria-label="ONPRINT Intro Splash Screen"
         >
-          {/* Subtle Ambient Red Glow */}
+          {/* Ambient Red Glow */}
           <motion.div
             className="absolute w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] rounded-full pointer-events-none"
             style={{
@@ -112,9 +110,9 @@ export default function LoadingScreen() {
               />
             ))}
 
-            {/* Logo Stage Container */}
+            {/* Laser Scan Stage */}
             <div className="relative flex items-center justify-center min-h-[140px] sm:min-h-[180px] w-full">
-              {/* Thin Vertical Laser Scanning Line sweeping Left to Right */}
+              {/* Thin Vertical Laser Scanning Line */}
               <motion.div
                 className="absolute top-0 bottom-0 w-[2px] bg-white z-30 shadow-[0_0_18px_#FFFFFF,0_0_35px_#c63c22]"
                 initial={{ left: '0%', opacity: 0 }}
@@ -133,7 +131,7 @@ export default function LoadingScreen() {
                 <div className="absolute -bottom-4 -left-1.5 h-8 w-4 bg-[#c63c22] rounded-full blur-[3px] opacity-90" />
               </motion.div>
 
-              {/* Layer 1: Outline Logo progressively revealed by clip-path scan */}
+              {/* Layer 1: Outline Typography revealed by laser scan */}
               <motion.div
                 className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
                 initial={{ clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' }}
@@ -150,11 +148,19 @@ export default function LoadingScreen() {
                 }}
               >
                 <div className="inline-flex items-center gap-4 select-none">
-                  <Logo variant="light" size="splash" />
+                  <span
+                    className="font-display font-black uppercase text-5xl sm:text-7xl tracking-[0.22em]"
+                    style={{
+                      WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.9)',
+                      color: 'transparent',
+                    }}
+                  >
+                    ONPRINT
+                  </span>
                 </div>
               </motion.div>
 
-              {/* Layer 2: Solid Logo Fills smoothly after outline scan */}
+              {/* Layer 2: Solid Typography Fills after laser scan */}
               <motion.div
                 className="inline-flex items-center gap-4 select-none z-20"
                 initial={{ opacity: 0 }}
@@ -167,11 +173,13 @@ export default function LoadingScreen() {
                   ease: 'easeOut',
                 }}
               >
-                <Logo variant="light" size="splash" />
+                <span className="font-display font-black uppercase text-5xl sm:text-7xl tracking-[0.22em] text-white">
+                  ON<span className="text-[#c63c22]">PRINT</span>
+                </span>
               </motion.div>
             </div>
 
-            {/* Tagline Reveal: PRINT. CREATE. DELIVER. */}
+            {/* Tagline Reveal */}
             <motion.div
               className="mt-8 flex items-center justify-center text-xs sm:text-sm font-bold tracking-[0.45em] text-zinc-300 uppercase"
               initial={{ opacity: 0, y: 12 }}
@@ -197,4 +205,3 @@ export default function LoadingScreen() {
     </AnimatePresence>
   )
 }
-

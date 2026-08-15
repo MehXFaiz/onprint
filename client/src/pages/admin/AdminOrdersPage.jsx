@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { ShoppingBag, Search, Filter, Edit2, Plus, CheckCircle2, Clock, Truck, AlertCircle, X } from 'lucide-react'
 import Button from '../../components/Button'
@@ -25,11 +25,18 @@ function StatusBadge({ status }) {
     Icon = CheckCircle2
   }
 
-  const IconComponent = Icon || Clock
+  const renderBadgeIcon = () => {
+    if (React.isValidElement(Icon)) return Icon
+    if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon !== null && Icon.$$typeof)) {
+      const Component = Icon
+      return <Component className="h-3 w-3" />
+    }
+    return <Clock className="h-3 w-3" />
+  }
 
   return (
     <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold border ${style}`}>
-      <IconComponent className="h-3 w-3" />
+      {renderBadgeIcon()}
       {status}
     </span>
   )

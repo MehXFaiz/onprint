@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight, Loader2 } from 'lucide-react'
 
@@ -31,16 +32,26 @@ export default function Button({
 }) {
   const classes = `${baseClasses} ${variants[variant] || variants.primary} ${sizes[size] || sizes.md} ${className}`
 
-  const content = (
-    <>
-      {loading && <Loader2 className="h-4 w-4 shrink-0 animate-spin text-current" />}
-      <span>{children}</span>
-      {!loading && icon && (
+  let iconContent = null
+  if (!loading) {
+    if (icon === true) {
+      iconContent = (
         <ArrowUpRight
           className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           strokeWidth={2}
         />
-      )}
+      )
+    } else if (typeof icon === 'function' || typeof icon === 'string' || (typeof icon === 'object' && icon !== null && icon.$$typeof)) {
+      const CustomIcon = icon
+      iconContent = <CustomIcon className="h-4 w-4 shrink-0" />
+    }
+  }
+
+  const content = (
+    <>
+      {loading && <Loader2 className="h-4 w-4 shrink-0 animate-spin text-current" />}
+      <span>{children}</span>
+      {iconContent}
     </>
   )
 

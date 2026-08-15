@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Link, NavLink, Outlet, Navigate } from 'react-router-dom'
 import Logo from '../components/Logo'
 import { useAuth } from '../context/AuthContext'
@@ -117,6 +117,14 @@ export default function AdminLayout() {
           <nav className="mt-4 flex flex-col gap-1.5">
             {navLinks.map((link) => {
               const Icon = link.icon
+              const renderNavIcon = () => {
+                if (!Icon) return null
+                if (React.isValidElement(Icon)) return Icon
+                if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) {
+                  return <Icon className="h-4 w-4 shrink-0" />
+                }
+                return null
+              }
               return (
                 <NavLink
                   key={link.to}
@@ -131,7 +139,7 @@ export default function AdminLayout() {
                     }`
                   }
                 >
-                  <Icon className="h-4 w-4 shrink-0" />
+                  {renderNavIcon()}
                   <span>{link.label}</span>
                 </NavLink>
               )

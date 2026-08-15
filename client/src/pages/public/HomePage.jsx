@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles } from 'lucide-react'
 import Container from '../../components/Container'
@@ -209,10 +209,18 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-4">
             {trustBadges.map((item) => {
               const Icon = item.icon
+              const renderBadgeIcon = () => {
+                if (!Icon) return null
+                if (React.isValidElement(Icon)) return Icon
+                if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) {
+                  return <Icon className="h-5 w-5" />
+                }
+                return null
+              }
               return (
                 <div key={item.label} className="flex items-center justify-center gap-3 text-center sm:justify-start">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
-                    <Icon className="h-5 w-5" />
+                    {renderBadgeIcon()}
                   </div>
                   <span className="text-xs font-extrabold text-[#000000]">{item.label}</span>
                 </div>

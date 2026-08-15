@@ -1,3 +1,4 @@
+import React from 'react'
 import Container from '../../components/Container'
 import SectionHeading from '../../components/SectionHeading'
 import StatCounter from '../../components/StatCounter'
@@ -130,11 +131,19 @@ export default function AboutPage() {
           <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2">
             {values.map((item, index) => {
               const Icon = item.icon
+              const renderValueIcon = () => {
+                if (!Icon) return null
+                if (React.isValidElement(Icon)) return Icon
+                if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) {
+                  return <Icon className="h-6 w-6" strokeWidth={1.75} />
+                }
+                return null
+              }
               return (
                 <Reveal key={item.title} delay={index * 0.08}>
                   <div className="flex gap-5 rounded-2xl border border-border bg-background p-8 shadow-xs transition-all duration-300 hover:border-primary/40 hover:shadow-md">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                      <Icon className="h-6 w-6" strokeWidth={1.75} />
+                      {renderValueIcon()}
                     </div>
                     <div>
                       <h3 className="font-display text-xl font-bold text-primary">{item.title}</h3>

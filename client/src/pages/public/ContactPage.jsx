@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Mail, MapPin, Phone, Clock, CheckCircle2, MessageSquare } from 'lucide-react'
 import Container from '../../components/Container'
 import SectionHeading from '../../components/SectionHeading'
@@ -82,23 +82,33 @@ export default function ContactPage() {
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
           {/* Contact Details Cards */}
           <div className="space-y-4 lg:col-span-5">
-            {contactDetails.map(({ icon: Icon, label, value, href }) => (
-              <div key={label} className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-6 shadow-xs">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                  <Icon className="h-5 w-5" strokeWidth={1.75} />
+            {contactDetails.map(({ icon: Icon, label, value, href }) => {
+              const renderContactIcon = () => {
+                if (!Icon) return null
+                if (React.isValidElement(Icon)) return Icon
+                if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) {
+                  return <Icon className="h-5 w-5" strokeWidth={1.75} />
+                }
+                return null
+              }
+              return (
+                <div key={label} className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-6 shadow-xs">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
+                    {renderContactIcon()}
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-secondary">{label}</p>
+                    {href ? (
+                      <a href={href} className="mt-1 block text-base font-bold text-primary transition-colors hover:text-accent">
+                        {value}
+                      </a>
+                    ) : (
+                      <p className="mt-1 text-base font-bold text-primary">{value}</p>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-secondary">{label}</p>
-                  {href ? (
-                    <a href={href} className="mt-1 block text-base font-bold text-primary transition-colors hover:text-accent">
-                      {value}
-                    </a>
-                  ) : (
-                    <p className="mt-1 text-base font-bold text-primary">{value}</p>
-                  )}
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           {/* Form */}

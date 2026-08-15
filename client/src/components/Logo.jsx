@@ -1,4 +1,8 @@
 import React from 'react'
+import logoImg from '../assets/logo.png'
+import logoLightImg from '../assets/logo_light.png'
+import logoIconImg from '../assets/logo_icon.png'
+import logoIconLightImg from '../assets/logo_icon_light.png'
 
 export default function Logo({
   className = '',
@@ -8,91 +12,36 @@ export default function Logo({
   iconOnly = false,
 }) {
   const isLight = variant === 'light'
-  
-  // Fill colors
-  const primaryColor = isLight ? '#FFFFFF' : '#171717'
-  const accentColor = '#A82F19' // ONPRINT brand accent
+  const isIcon = iconOnly || !showText
 
-  const heightMap = {
-    sm: 'h-10 sm:h-12',
-    md: 'h-16 sm:h-20',
-    lg: 'h-24 sm:h-28',
-    xl: 'h-32 sm:h-36',
-    splash: 'h-40 sm:h-52',
+  let imgSrc = logoImg
+  if (isIcon) {
+    imgSrc = isLight ? logoIconLightImg : logoIconImg
+  } else {
+    imgSrc = isLight ? logoLightImg : logoImg
   }
 
-  const selectedHeight = heightMap[size] || heightMap.md
-
-  if (iconOnly) {
-    return (
-      <div className={`inline-flex items-center shrink-0 select-none ${className}`}>
-        <svg
-          viewBox="0 0 270 270"
-          className={`w-auto object-contain ${selectedHeight}`}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Left Vertical Stem */}
-          <rect x="36" y="30" width="34" height="215" rx="17" ry="17" fill={primaryColor} />
-          
-          {/* Outer Loop */}
-          <path
-            d="M 68,36 H 180 L 235,90 V 126 A 90,90 0 1,1 68,216"
-            fill="none"
-            stroke={primaryColor}
-            strokeWidth="34"
-            strokeLinecap="square"
-          />
-          
-          {/* Accent Triangle */}
-          <polygon points="182,30 240,30 240,88" fill={accentColor} />
-        </svg>
-      </div>
-    )
+  // Display size mapping: width controlled via CSS, height: auto strictly preserves aspect ratio.
+  // Display sizes are enlarged per user requirement while source image remains unmodified.
+  const widthMap = {
+    sm: 'w-[100px] sm:w-[120px]',
+    md: 'w-[130px] sm:w-[155px]', // Navbar logo enlarged display size
+    lg: 'w-[180px] sm:w-[220px]',
+    xl: 'w-[240px] sm:w-[280px]',
+    splash: 'w-[280px] sm:w-[360px]',
   }
+
+  const selectedWidth = widthMap[size] || widthMap.md
 
   return (
     <div className={`inline-flex items-center shrink-0 select-none ${className}`}>
-      <svg
-        viewBox="0 0 300 360"
-        className={`w-auto object-contain ${selectedHeight}`}
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Emblem Symbol */}
-        <g id="symbol">
-          {/* Left Vertical Rounded Stem */}
-          <rect x="36" y="30" width="34" height="215" rx="17" ry="17" fill={primaryColor} />
-          
-          {/* Outer Circular Loop */}
-          <path
-            d="M 68,36 H 180 L 235,90 V 126 A 90,90 0 1,1 68,216"
-            fill="none"
-            stroke={primaryColor}
-            strokeWidth="34"
-            strokeLinecap="square"
-          />
-          
-          {/* Accent Triangle */}
-          <polygon points="182,30 240,30 240,88" fill={accentColor} />
-        </g>
-        
-        {/* Wordmark */}
-        {showText && (
-          <text
-            x="150"
-            y="315"
-            textAnchor="middle"
-            fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-            fontWeight="900"
-            fontSize="34"
-            letterSpacing="9"
-            fill={primaryColor}
-          >
-            ONPRINT
-          </text>
-        )}
-      </svg>
+      <img
+        src={imgSrc}
+        alt="ONPRINT"
+        className={`onprint-logo ${selectedWidth} h-auto object-contain shrink-0`}
+        style={{ height: 'auto', objectFit: 'contain' }}
+      />
     </div>
   )
 }
+

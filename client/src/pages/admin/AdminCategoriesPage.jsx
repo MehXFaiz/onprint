@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import {
   FolderTree,
   Plus,
@@ -8,7 +9,6 @@ import {
   Trash2,
   CheckCircle2,
   XCircle,
-  X,
   AlertTriangle,
   Image as ImageIcon,
   ArrowUpDown,
@@ -18,65 +18,37 @@ import {
 import Button from '../../components/Button'
 import {
   getCategories,
-  createCategory,
-  updateCategory,
   updateCategoryStatus,
   deleteCategory,
 } from '../../services/categories'
 
 export default function AdminCategoriesPage() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const [categories, setCategories] = useState([])
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
   const [error, setError] = useState(null)
-  const [toast, setToast] = useState(null)
+  const [toast, setToast] = useState(location.state?.toast || null)
 
   // Filters & Controls
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
   const [sortBy, setSortBy] = useState('display_order_asc')
 
-  // Modal States
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [editingCategory, setEditingCategory] = useState(null)
-
   // Delete Confirmation State
   const [deletingCategory, setDeletingCategory] = useState(null)
   const [deleteError, setDeleteError] = useState(null)
   const [submitting, setSubmitting] = useState(false)
 
-  // Form State
-  const [formData, setFormData] = useState({
-    name: '',
-    slug: '',
-    description: '',
-    image: '',
-    status: 'active',
-    displayOrder: 0,
-  })
-  const [formErrors, setFormErrors] = useState({})
-  const [slugManuallyEdited, setSlugManuallyEdited] = useState(false)
-
-  // Auto Toast Timer
+  // Clear toast after 4s
   useEffect(() => {
     if (toast) {
       const timer = setTimeout(() => setToast(null), 4000)
       return () => clearTimeout(timer)
     }
   }, [toast])
-
-  // Helper function to auto-generate slug
-  const slugify = (text) => {
-    return (text || '')
-      .toString()
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, '-')
-      .replace(/[^\w\-]+/g, '')
-      .replace(/\-\-+/g, '-')
-      .replace(/^-+/, '')
-      .replace(/-+$/, '')
-  }
 
   const fetchCategoryList = async (isManual = false) => {
     if (isManual) setRefreshing(true)
@@ -117,89 +89,6 @@ export default function AdminCategoriesPage() {
 
     return matchesSearch && matchesStatus
   })
-
-  // Open Add Modal
-  const handleOpenAddModal = () => {
-    setEditingCategory(null)
-    setFormData({
-      name: '',
-      slug: '',
-      description: '',
-      image: '',
-      status: 'active',
-      displayOrder: categories.length + 1,
-    })
-    setFormErrors({})
-    setSlugManuallyEdited(false)
-    setIsModalOpen(true)
-  }
-
-  // Open Edit Modal
-  const handleOpenEditModal = (cat) => {
-    setEditingCategory(cat)
-    setFormData({
-      name: cat.name,
-      slug: cat.slug,
-      description: cat.description || '',
-      image: cat.image || '',
-      status: cat.status || (cat.active ? 'active' : 'inactive'),
-      displayOrder: cat.displayOrder || 0,
-    })
-    setFormErrors({})
-    setSlugManuallyEdited(true)
-    setIsModalOpen(true)
-  }
-
-  // Handle Form Name Change
-  const handleNameChange = (e) => {
-    const nameVal = e.target.value
-    setFormData((prev) => ({
-      ...prev,
-      name: nameVal,
-      slug: slugManuallyEdited ? prev.slug : slugify(nameVal),
-    }))
-  }
-
-  // Handle Form Submit (Add / Edit)
-  const handleFormSubmit = async (e) => {
-    e.preventDefault()
-    setFormErrors({})
-
-    const errors = {}
-    if (!formData.name.trim()) errors.name = 'Category Name is required'
-    if (!formData.slug.trim()) errors.slug = 'Category Slug is required'
-
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors)
-      return
-    }
-
-    setSubmitting(true)
-    try {
-      if (editingCategory) {
-        // Update
-        const targetId = editingCategory.id || editingCategory._id
-        await updateCategory(targetId, formData)
-        setToast({ type: 'success', message: `Category "${formData.name}" updated successfully` })
-      } else {
-        // Create
-        await createCategory(formData)
-        setToast({ type: 'success', message: `Category "${formData.name}" created successfully` })
-      }
-
-      setIsModalOpen(false)
-      fetchCategoryList(true)
-    } catch (err) {
-      const errMsg = err?.response?.data?.message || err?.message || 'Operation failed'
-      if (errMsg.toLowerCase().includes('slug')) {
-        setFormErrors({ slug: errMsg })
-      } else {
-        setFormErrors({ general: errMsg })
-      }
-    } finally {
-      setSubmitting(false)
-    }
-  }
 
   // Handle Toggle Status
   const handleToggleStatus = async (cat) => {
@@ -252,17 +141,19 @@ export default function AdminCategoriesPage() {
       {toast && (
         <div
           className={`fixed top-6 right-6 z-50 flex items-center gap-2.5 rounded-2xl px-4 py-3 text-xs font-bold shadow-2xl transition-all ${
-            toast.type === 'error'
+            typeof toast === 'string'
+              ? 'bg-neutral-900 text-white border border-neutral-700'
+              : toast.type === 'error'
               ? 'bg-red-900 text-white border border-red-700'
               : 'bg-neutral-900 text-white border border-neutral-700'
           }`}
         >
-          {toast.type === 'error' ? (
+          {typeof toast === 'object' && toast.type === 'error' ? (
             <XCircle className="h-4 w-4 text-red-400" />
           ) : (
             <CheckCircle2 className="h-4 w-4 text-emerald-400" />
           )}
-          <span>{toast.message}</span>
+          <span>{typeof toast === 'string' ? toast : toast.message}</span>
         </div>
       )}
 
@@ -277,12 +168,12 @@ export default function AdminCategoriesPage() {
             Category Management
           </h1>
           <p className="mt-0.5 text-xs text-neutral-500">
-            Create, edit, and organize product categories in GoDaddy MySQL database.
+            Manage your product categories in GoDaddy MySQL database.
           </p>
         </div>
 
         <Button
-          onClick={handleOpenAddModal}
+          onClick={() => navigate('/admin/categories/new')}
           variant="accent"
           icon={false}
           className="shadow-md shadow-[#A82F19]/20 self-start sm:self-auto cursor-pointer"
@@ -383,7 +274,7 @@ export default function AdminCategoriesPage() {
                 : 'Get started by creating your first product category.'}
             </p>
           </div>
-          <Button onClick={handleOpenAddModal} variant="accent" icon={false} className="cursor-pointer">
+          <Button onClick={() => navigate('/admin/categories/new')} variant="accent" icon={false} className="cursor-pointer">
             <Plus className="h-4 w-4 mr-1.5" />
             Add your first category
           </Button>
@@ -408,8 +299,9 @@ export default function AdminCategoriesPage() {
               <tbody className="divide-y divide-neutral-100 font-medium text-neutral-800">
                 {filteredCategories.map((cat) => {
                   const isActive = cat.status === 'active' || cat.active
+                  const targetId = cat.id || cat._id
                   return (
-                    <tr key={cat.id || cat._id} className="hover:bg-neutral-50/60 transition-colors">
+                    <tr key={targetId} className="hover:bg-neutral-50/60 transition-colors">
                       {/* Image Thumbnail */}
                       <td className="py-3 px-4">
                         <div className="h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 flex items-center justify-center">
@@ -471,7 +363,7 @@ export default function AdminCategoriesPage() {
                         <div className="flex items-center justify-end gap-1.5">
                           <button
                             type="button"
-                            onClick={() => handleOpenEditModal(cat)}
+                            onClick={() => navigate(`/admin/categories/${targetId}/edit`)}
                             title="Edit Category"
                             className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
                           >
@@ -498,9 +390,10 @@ export default function AdminCategoriesPage() {
           <div className="grid grid-cols-1 gap-3 md:hidden">
             {filteredCategories.map((cat) => {
               const isActive = cat.status === 'active' || cat.active
+              const targetId = cat.id || cat._id
               return (
                 <div
-                  key={cat.id || cat._id}
+                  key={targetId}
                   className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs space-y-3"
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -538,7 +431,7 @@ export default function AdminCategoriesPage() {
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
-                        onClick={() => handleOpenEditModal(cat)}
+                        onClick={() => navigate(`/admin/categories/${targetId}/edit`)}
                         className="inline-flex items-center gap-1 rounded-lg border border-neutral-200 px-2.5 py-1 text-xs font-bold text-neutral-700 hover:bg-neutral-50"
                       >
                         <Edit2 className="h-3.5 w-3.5" /> Edit
@@ -557,161 +450,6 @@ export default function AdminCategoriesPage() {
             })}
           </div>
         </>
-      )}
-
-      {/* Add / Edit Category Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 overflow-y-auto">
-          <div className="w-full max-w-lg rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-6 my-8">
-            <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
-              <div>
-                <h3 className="font-display text-lg font-bold text-neutral-900">
-                  {editingCategory ? 'Edit Category' : 'Add New Category'}
-                </h3>
-                <p className="text-xs text-neutral-500">
-                  {editingCategory
-                    ? 'Update category details in MySQL database'
-                    : 'Create a new product category in GoDaddy MySQL database'}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsModalOpen(false)}
-                className="rounded-lg p-1 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            <form onSubmit={handleFormSubmit} className="space-y-4">
-              {formErrors.general && (
-                <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs font-semibold text-red-700">
-                  {formErrors.general}
-                </div>
-              )}
-
-              {/* Category Name */}
-              <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-                  Category Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={handleNameChange}
-                  placeholder="e.g. Corporate Gift Items"
-                  className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
-                />
-                {formErrors.name && (
-                  <span className="text-[10px] font-bold text-red-600 mt-1 block">{formErrors.name}</span>
-                )}
-              </div>
-
-              {/* Category Slug */}
-              <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-                  Category Slug *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.slug}
-                  onChange={(e) => {
-                    setSlugManuallyEdited(true)
-                    setFormData({ ...formData, slug: slugify(e.target.value) })
-                  }}
-                  placeholder="e.g. corporate-gift-items"
-                  className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs font-mono text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
-                />
-                {formErrors.slug && (
-                  <span className="text-[10px] font-bold text-red-600 mt-1 block">{formErrors.slug}</span>
-                )}
-              </div>
-
-              {/* Description */}
-              <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-                  Description
-                </label>
-                <textarea
-                  rows="3"
-                  value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  placeholder="Provide a brief summary of products in this category..."
-                  className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
-                />
-              </div>
-
-              {/* Image URL */}
-              <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-                  Category Image URL
-                </label>
-                <input
-                  type="text"
-                  value={formData.image}
-                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                  placeholder="/assets/products/1 (1).jpg or image URL"
-                  className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
-                />
-              </div>
-
-              {/* Status & Display Order */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-                    Status
-                  </label>
-                  <select
-                    value={formData.status}
-                    onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none cursor-pointer"
-                  >
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-                    Display Order
-                  </label>
-                  <input
-                    type="number"
-                    value={formData.displayOrder}
-                    onChange={(e) => setFormData({ ...formData, displayOrder: e.target.value })}
-                    className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              {/* Buttons */}
-              <div className="flex items-center justify-end gap-3 pt-4 border-t border-neutral-100">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  className="rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50 transition-colors"
-                >
-                  Cancel
-                </button>
-                <Button
-                  type="submit"
-                  variant="accent"
-                  icon={false}
-                  disabled={submitting}
-                  className="!px-6 shadow-md shadow-[#A82F19]/20"
-                >
-                  {submitting
-                    ? 'Saving...'
-                    : editingCategory
-                    ? 'Update Category'
-                    : 'Add Category'}
-                </Button>
-              </div>
-            </form>
-          </div>
-        </div>
       )}
 
       {/* Delete Confirmation Modal */}

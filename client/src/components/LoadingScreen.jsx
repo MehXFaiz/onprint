@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import Logo from './Logo'
+
 
 const SESSION_KEY = 'onprint-splash-futuristic-v1'
 
@@ -148,16 +150,7 @@ export default function LoadingScreen() {
                 }}
               >
                 <div className="inline-flex items-center gap-4 select-none">
-                  {/* Outline Wordmark */}
-                  <span
-                    className="font-display font-black uppercase text-5xl sm:text-7xl tracking-[0.22em]"
-                    style={{
-                      WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.9)',
-                      color: 'transparent',
-                    }}
-                  >
-                    ONPRINT
-                  </span>
+                  <Logo variant="light" size="splash" />
                 </div>
               </motion.div>
 
@@ -174,10 +167,7 @@ export default function LoadingScreen() {
                   ease: 'easeOut',
                 }}
               >
-                {/* Solid Wordmark */}
-                <span className="font-display font-black uppercase text-5xl sm:text-7xl tracking-[0.22em] text-white">
-                  ON<span className="text-[#c63c22]">PRINT</span>
-                </span>
+                <Logo variant="light" size="splash" />
               </motion.div>
             </div>
 

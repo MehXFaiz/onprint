@@ -11,6 +11,7 @@ import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
 import ServiceCard from '../../components/ServiceCard'
 import ProductCard from '../../components/ProductCard'
+import CorporateGiftsSection from '../../components/CorporateGiftsSection'
 import ProductDetailModal from '../../components/ProductDetailModal'
 import { CornerMarks } from '../../components/PrintMarks'
 import { getServices } from '../../services/services'
@@ -248,6 +249,12 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+
+      {/* Dedicated Corporate Gift Items Carousel Showcase (Matching User Screenshot Requirement) */}
+      <CorporateGiftsSection
+        products={products}
+        onQuickView={setQuickViewProduct}
+      />
 
       {/* Featured Products Catalog */}
       <section className="border-t border-border bg-surface py-20 sm:py-28">

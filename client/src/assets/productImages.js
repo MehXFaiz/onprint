@@ -10,9 +10,13 @@ import img9 from './products/1 (9).jpg'
 import img10 from './products/1 (10).jpg'
 import img11 from './products/1 (11).jpg'
 import img12 from './products/1 (12).jpg'
+import img13 from './products/1 (13).jpg'
 
 export const productSlugImageMap = {
   'mug-printing-dubai': img1,
+  'mugs-printing-dubai': img1,
+  'water-bottles-printing-dubai': img13,
+  'custom-water-bottles-printing-in-dubai': img13,
   'custom-mouse-pad': img2,
   't-shirt-printing-dubai': img3,
   'cap-printing-dubai': img4,

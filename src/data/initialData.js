@@ -93,6 +93,18 @@ const rawProducts = [
     image: '/assets/products/1 (4).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: [finishOptions[0]] },
   },
+  {
+    name: 'Custom Water Bottles Printing in Dubai',
+    slug: 'water-bottles-printing-dubai',
+    category: 'corporate-gift-items',
+    shortDescription: 'Smart LED temperature display vacuum flasks & stainless steel water bottles with laser engraving.',
+    description: 'Double-wall insulated 500ml stainless steel water bottles with LED touch temperature display and full-color UV logo printing.',
+    price: 55,
+    minimumQuantity: 25,
+    featured: true,
+    image: '/assets/products/1 (13).jpg',
+    specifications: { sizes: sizeOptions, materials: materialOptions, finishes: finishOptions },
+  },
 
   // OFFICE STATIONERY PRINTING
   {

@@ -252,11 +252,8 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Dedicated Corporate Gift Items Carousel Showcase */}
-      <CorporateGiftsSection
-        products={products}
-        onQuickView={setQuickViewProduct}
-      />
+      {/* 3 Main Product Showcase Sections (Corporate Gift Items, Office Stationery Printing, Other Products) */}
+      <ProductSectionsShowcase onQuickView={setQuickViewProduct} />
 
       {/* Executive Carefree Shopping & Express Delivery Section (Matching User Second Request) */}
       <CarefreeShoppingSection />

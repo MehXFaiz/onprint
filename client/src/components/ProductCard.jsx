@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Sparkles, Tag } from 'lucide-react'
+import { getProductImage } from '../assets/productImages'
 
 export default function ProductCard({ product, featured = false, onQuickView }) {
   const isFeatured = featured || product.featured
-  const primaryImage = product.images?.[0] || product.image
+  const productImage = getProductImage(product)
   const categoryName = product.category?.name || ''
 
   const handleActionClick = (e) => {
@@ -19,18 +20,18 @@ export default function ProductCard({ product, featured = false, onQuickView }) 
         isFeatured ? 'lg:col-span-2 lg:flex-row' : ''
       }`}
     >
-      {/* Product Image Showcase Area */}
+      {/* Product Image Showcase Area with Enhanced Visual Presentation */}
       <div
-        className={`relative overflow-hidden bg-muted/20 ${
+        className={`relative overflow-hidden bg-gradient-to-br from-surface via-muted/30 to-accent-soft/20 ${
           isFeatured ? 'aspect-[16/10] lg:w-1/2 lg:aspect-auto' : 'aspect-[4/3] w-full'
         }`}
       >
-        {primaryImage ? (
+        {productImage ? (
           <img
-            src={primaryImage}
+            src={productImage}
             alt={product.name}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-105 contrast-[1.03] saturate-[1.05]"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-xs font-bold uppercase tracking-widest text-secondary">
@@ -38,8 +39,8 @@ export default function ProductCard({ product, featured = false, onQuickView }) 
           </div>
         )}
 
-        {/* Subtle overlay gradient on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        {/* Studio Light Sheen Overlay on Hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
         {/* Floating Category Badge (Bottom Left) */}
         {categoryName && (
@@ -51,7 +52,7 @@ export default function ProductCard({ product, featured = false, onQuickView }) 
 
         {/* Featured Badge (Top Right) */}
         {isFeatured && (
-          <span className="absolute top-3.5 right-3.5 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+          <span className="absolute top-3.5 right-3.5 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md shadow-accent/20">
             <Sparkles className="h-3 w-3" />
             Featured
           </span>
@@ -104,6 +105,7 @@ export default function ProductCard({ product, featured = false, onQuickView }) 
     </div>
   )
 }
+
 
 
 

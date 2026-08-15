@@ -54,7 +54,7 @@ const rawProducts = [
     price: 25,
     minimumQuantity: 20,
     featured: true,
-    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (1).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: finishOptions },
   },
   {
@@ -66,7 +66,7 @@ const rawProducts = [
     price: 35,
     minimumQuantity: 25,
     featured: false,
-    image: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (2).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: [finishOptions[0]] },
   },
   {
@@ -78,7 +78,7 @@ const rawProducts = [
     price: 45,
     minimumQuantity: 15,
     featured: true,
-    image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (3).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: [finishOptions[0]] },
   },
   {
@@ -90,7 +90,7 @@ const rawProducts = [
     price: 30,
     minimumQuantity: 20,
     featured: false,
-    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (4).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: [finishOptions[0]] },
   },
 
@@ -104,7 +104,7 @@ const rawProducts = [
     price: 40,
     minimumQuantity: 50,
     featured: true,
-    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (5).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: finishOptions },
   },
   {
@@ -116,7 +116,7 @@ const rawProducts = [
     price: 15,
     minimumQuantity: 100,
     featured: false,
-    image: 'https://images.unsplash.com/photo-1585336261026-8f5786372969?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (6).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: [finishOptions[0]] },
   },
   {
@@ -128,7 +128,7 @@ const rawProducts = [
     price: 50,
     minimumQuantity: 100,
     featured: true,
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (7).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: finishOptions },
   },
   {
@@ -140,7 +140,7 @@ const rawProducts = [
     price: 65,
     minimumQuantity: 250,
     featured: false,
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (8).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: [finishOptions[0]] },
   },
 
@@ -154,7 +154,7 @@ const rawProducts = [
     price: 180,
     minimumQuantity: 1,
     featured: true,
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (9).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: [finishOptions[0]] },
   },
   {
@@ -166,7 +166,7 @@ const rawProducts = [
     price: 220,
     minimumQuantity: 1,
     featured: false,
-    image: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (10).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: [finishOptions[0]] },
   },
   {
@@ -178,7 +178,7 @@ const rawProducts = [
     price: 40,
     minimumQuantity: 250,
     featured: true,
-    image: 'https://images.unsplash.com/photo-1572375992501-4b0892d50c69?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (11).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: finishOptions },
   },
   {
@@ -190,7 +190,7 @@ const rawProducts = [
     price: 120,
     minimumQuantity: 1,
     featured: false,
-    image: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=900&auto=format&fit=crop',
+    image: '/assets/products/1 (12).jpg',
     specifications: { sizes: sizeOptions, materials: materialOptions, finishes: finishOptions },
   },
 ]

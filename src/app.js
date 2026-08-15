@@ -38,6 +38,9 @@ function createApp() {
     res.json({ success: true, message: 'ONPRINT API is running' })
   })
 
+  app.use('/assets', express.static(path.join(__dirname, 'assets')))
+  app.use('/assets', express.static(path.join(__dirname, '..', 'client', 'public', 'assets')))
+
   app.use('/api/categories', categoryRoutes)
   app.use('/api/services', serviceRoutes)
   app.use('/api/products', productRoutes)

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Package, Tag } from 'lucide-react'
 import Button from './Button'
+import { getProductImage } from '../assets/productImages'
 
 export default function ProductDetailModal({ product, onClose }) {
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function ProductDetailModal({ product, onClose }) {
 
   const isFeatured = product.featured
   const categoryName = product.category?.name || 'ONPRINT Product'
-  const primaryImage = product.images?.[0] || product.image
+  const primaryImage = getProductImage(product)
 
   return (
     <AnimatePresence>

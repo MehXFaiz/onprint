@@ -3,25 +3,17 @@ import { Link, useNavigate } from 'react-router-dom'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import Logo from '../../components/Logo'
-import { Lock, ShieldCheck, ArrowRight } from 'lucide-react'
-import { useAuth, DEMO_USERS } from '../../context/AuthContext'
+import { Lock } from 'lucide-react'
+import { useAuth } from '../../context/AuthContext'
 
 export default function LoginPage() {
   const navigate = useNavigate()
   const { login } = useAuth()
-  
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-
-  const handleDemoFill = () => {
-    const demo = DEMO_USERS.find((u) => u.role === 'admin')
-    if (demo) {
-      setEmail(demo.email)
-      setPassword(demo.password)
-    }
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -37,10 +29,14 @@ export default function LoginPage() {
 
     setLoading(true)
     try {
-      await login(email, password)
-      navigate('/admin')
-    } catch {
-      setError('Invalid email or password.')
+      const loggedUser = await login(email, password)
+      if (loggedUser && (loggedUser.role === 'admin' || loggedUser.role === 'ADMINISTRATOR')) {
+        navigate('/admin')
+      } else {
+        navigate('/account')
+      }
+    } catch (err) {
+      setError(err?.response?.data?.message || err?.message || 'Invalid email or password.')
     } finally {
       setLoading(false)
     }
@@ -62,34 +58,11 @@ export default function LoginPage() {
               Welcome Back
             </h1>
             <p className="mt-1 text-xs text-neutral-500">
-              Access your administrative dashboard.
+              Sign in to your ONPRINT account.
             </p>
           </div>
 
-          {/* Quick Demo Credentials Assistant */}
-          <div className="mt-6 rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-            <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-neutral-700 mb-2">
-              <span className="flex items-center gap-1">
-                <ShieldCheck className="h-3.5 w-3.5 text-[#A82F19]" />
-                Demo Credentials (1-Click Fill)
-              </span>
-            </div>
-            <div>
-              <button
-                type="button"
-                onClick={handleDemoFill}
-                className="flex w-full items-center justify-between rounded-xl border border-neutral-200 bg-white p-3 text-left text-xs font-semibold text-neutral-800 transition-all hover:border-[#A82F19] hover:bg-red-50/30 cursor-pointer"
-              >
-                <div>
-                  <div className="font-bold text-neutral-900">Admin Account</div>
-                  <div className="text-[10px] text-neutral-500">admin@onprint.ae</div>
-                </div>
-                <ArrowRight className="h-4 w-4 text-[#A82F19]" />
-              </button>
-            </div>
-          </div>
-
-          <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-4">
+          <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-4">
             {error && (
               <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs font-semibold text-red-700">
                 {error}
@@ -112,11 +85,9 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-                  Password
-                </label>
-              </div>
+              <label htmlFor="password" className="text-xs font-bold uppercase tracking-wider text-neutral-900">
+                Password
+              </label>
               <input
                 id="password"
                 type="password"

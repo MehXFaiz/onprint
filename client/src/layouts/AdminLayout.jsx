@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet, Navigate } from 'react-router-dom'
 import Logo from '../components/Logo'
+import { useAuth } from '../context/AuthContext'
 import {
   LayoutDashboard,
   Package,
@@ -32,7 +33,25 @@ const navLinks = [
 ]
 
 export default function AdminLayout() {
+  const { user, isAuthenticated, isAdmin, loading } = useAuth()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Prevent UI flash during auth initialization
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-neutral-900 flex items-center justify-center text-white">
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-white border-t-transparent" />
+          <span className="text-xs font-bold uppercase tracking-wider text-neutral-400">Verifying Admin Session...</span>
+        </div>
+      </div>
+    )
+  }
+
+  // Redirect to Admin Login if unauthenticated or non-admin
+  if (!isAuthenticated || !isAdmin) {
+    return <Navigate to="/admin/login" replace />
+  }
 
   return (
     <div className="flex min-h-screen bg-background flex-col md:flex-row">
@@ -88,8 +107,14 @@ export default function AdminLayout() {
             </button>
           </div>
 
+          {/* User badge */}
+          <div className="mt-4 px-1 py-2 border-b border-background/10 text-xs">
+            <div className="font-bold text-white truncate">{user?.name}</div>
+            <div className="text-[10px] text-background/60 truncate">{user?.email}</div>
+          </div>
+
           {/* Nav Items */}
-          <nav className="mt-6 flex flex-col gap-1.5">
+          <nav className="mt-4 flex flex-col gap-1.5">
             {navLinks.map((link) => {
               const Icon = link.icon
               return (

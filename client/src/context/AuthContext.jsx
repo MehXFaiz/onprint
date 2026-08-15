@@ -1,90 +1,81 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import api from '../services/api'
 
 const AuthContext = createContext(null)
 
-const STORAGE_KEY = 'onprint_auth_user'
-
-export const DEMO_USERS = [
-  {
-    _id: 'user-admin-1',
-    name: 'ONPRINT Admin',
-    email: 'admin@onprint.ae',
-    password: 'admin123',
-    role: 'admin',
-    company: 'ONPRINT Printing Press LLC',
-  },
-]
+const TOKEN_KEY = 'onprint_auth_token'
+const LEGACY_USER_KEY = 'onprint_auth_user'
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY)
-      if (saved) return JSON.parse(saved)
-    } catch {
-      // fallback
-    }
-    // Default logged in user for instant preview experience
-    return DEMO_USERS[0]
-  })
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
 
+  // Verify token & restore session from MySQL backend on initial mount
   useEffect(() => {
-    try {
-      if (user) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(user))
-      } else {
-        localStorage.removeItem(STORAGE_KEY)
+    async function restoreSession() {
+      // Clear legacy hardcoded user storage if present
+      localStorage.removeItem(LEGACY_USER_KEY)
+
+      const token = localStorage.getItem(TOKEN_KEY)
+      if (!token) {
+        setUser(null)
+        setLoading(false)
+        return
       }
-    } catch {
-      // ignore
+
+      try {
+        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        const { data } = await api.get('/auth/me')
+        if (data?.success && data?.user) {
+          setUser(data.user)
+        } else {
+          logout()
+        }
+      } catch {
+        // Token invalid, expired, or server unreachable
+        logout()
+      } finally {
+        setLoading(false)
+      }
     }
-  }, [user])
+
+    restoreSession()
+  }, [])
 
   const login = async (email, password) => {
-    const trimmedEmail = email.trim().toLowerCase()
-    
-    // Check demo users first
-    const foundDemo = DEMO_USERS.find(
-      (u) => u.email.toLowerCase() === trimmedEmail && u.password === password
-    )
-
-    if (foundDemo) {
-      setUser(foundDemo)
-      return foundDemo
+    const { data } = await api.post('/auth/login', { email, password })
+    if (data?.token && data?.user) {
+      localStorage.setItem(TOKEN_KEY, data.token)
+      api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`
+      setUser(data.user)
+      return data.user
     }
-
-    // Default fallback auth logic for custom entered credentials
-    const newUser = {
-      _id: `user-${Date.now()}`,
-      name: email.split('@')[0] || 'User',
-      email,
-      role: 'admin',
-      company: 'ONPRINT Press',
-    }
-    setUser(newUser)
-    return newUser
+    throw new Error(data?.message || 'Login failed')
   }
 
   const register = async (userData) => {
-    const newUser = {
-      _id: `user-${Date.now()}`,
-      name: userData.name,
-      email: userData.email,
-      company: userData.company || 'ONPRINT Press',
-      role: 'admin',
+    const { data } = await api.post('/auth/register', userData)
+    if (data?.token && data?.user) {
+      localStorage.setItem(TOKEN_KEY, data.token)
+      api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`
+      setUser(data.user)
+      return data.user
     }
-    setUser(newUser)
-    return newUser
+    throw new Error(data?.message || 'Registration failed')
   }
 
   const logout = () => {
+    localStorage.removeItem(TOKEN_KEY)
+    localStorage.removeItem(LEGACY_USER_KEY)
+    delete api.defaults.headers.common['Authorization']
     setUser(null)
-    localStorage.removeItem(STORAGE_KEY)
   }
 
   const value = {
     user,
+    loading,
     isAuthenticated: Boolean(user),
-    isAdmin: true,
+    isAdmin: Boolean(user && (user.role === 'admin' || user.role === 'ADMINISTRATOR')),
     login,
     register,
     logout,
@@ -100,4 +91,3 @@ export function useAuth() {
   }
   return context
 }
-

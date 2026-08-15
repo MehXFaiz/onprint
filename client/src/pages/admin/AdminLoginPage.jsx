@@ -2,15 +2,15 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Logo from '../../components/Logo'
 import Button from '../../components/Button'
-import { ShieldCheck, Lock, ArrowLeft } from 'lucide-react'
-import { useAuth, DEMO_USERS } from '../../context/AuthContext'
+import { ShieldCheck, ArrowLeft } from 'lucide-react'
+import { useAuth } from '../../context/AuthContext'
 
 export default function AdminLoginPage() {
   const navigate = useNavigate()
   const { login } = useAuth()
-  
-  const [email, setEmail] = useState('admin@onprint.ae')
-  const [password, setPassword] = useState('admin123')
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -20,14 +20,14 @@ export default function AdminLoginPage() {
     setLoading(true)
 
     try {
-      const user = await login(email, password)
-      if (user.role === 'admin') {
+      const loggedUser = await login(email, password)
+      if (loggedUser && (loggedUser.role === 'admin' || loggedUser.role === 'ADMINISTRATOR')) {
         navigate('/admin')
       } else {
         setError('Access denied. Administrator privileges required.')
       }
-    } catch {
-      setError('Invalid admin credentials.')
+    } catch (err) {
+      setError(err?.response?.data?.message || err?.message || 'Invalid admin credentials.')
     } finally {
       setLoading(false)
     }
@@ -69,6 +69,7 @@ export default function AdminLoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="admin@onprint.ae"
               className="mt-2 w-full rounded-xl border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 text-sm text-white focus:border-[#A82F19] focus:outline-none"
             />
           </div>
@@ -83,6 +84,7 @@ export default function AdminLoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
               className="mt-2 w-full rounded-xl border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 text-sm text-white focus:border-[#A82F19] focus:outline-none"
             />
           </div>

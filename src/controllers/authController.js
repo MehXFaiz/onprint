@@ -13,7 +13,8 @@ async function register(req, res, next) {
       throw new ApiError(400, 'Name, email, and password are required')
     }
 
-    const [existing] = await pool.execute('SELECT id FROM users WHERE email = ? LIMIT 1', [email.toLowerCase().trim()])
+    const cleanEmail = email.toLowerCase().trim()
+    const [existing] = await pool.execute('SELECT id FROM users WHERE email = ? LIMIT 1', [cleanEmail])
     if (existing.length > 0) {
       throw new ApiError(409, 'An account with this email address already exists')
     }
@@ -21,12 +22,12 @@ async function register(req, res, next) {
     const passwordHash = await bcrypt.hash(password, 10)
     const [result] = await pool.execute(
       'INSERT INTO users (name, email, password_hash, phone, role, status) VALUES (?, ?, ?, ?, ?, ?)',
-      [name.trim(), email.toLowerCase().trim(), passwordHash, phone || null, 'customer', 'active']
+      [name.trim(), cleanEmail, passwordHash, phone || null, 'customer', 'active']
     )
 
     const userId = result.insertId
     const token = jwt.sign(
-      { id: userId, email: email.toLowerCase().trim(), role: 'customer', name: name.trim() },
+      { id: userId, email: cleanEmail, role: 'customer', name: name.trim() },
       JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
     )
@@ -37,7 +38,7 @@ async function register(req, res, next) {
       user: {
         id: userId,
         name: name.trim(),
-        email: email.toLowerCase().trim(),
+        email: cleanEmail,
         phone: phone || null,
         role: 'customer',
       },
@@ -59,39 +60,17 @@ async function login(req, res, next) {
     const [users] = await pool.execute('SELECT * FROM users WHERE email = ? LIMIT 1', [cleanEmail])
 
     if (users.length === 0) {
-      // Fallback for default demo admin if DB is empty or unpopulated
-      if (cleanEmail === 'admin@onprint.ae' && password === 'admin123') {
-        const token = jwt.sign(
-          { id: 1, email: cleanEmail, role: 'admin', name: 'ONPRINT Admin' },
-          JWT_SECRET,
-          { expiresIn: '7d' }
-        )
-        return res.json({
-          success: true,
-          token,
-          user: { id: 1, name: 'ONPRINT Admin', email: cleanEmail, role: 'admin' },
-        })
-      }
       throw new ApiError(401, 'Invalid email or password')
     }
 
     const user = users[0]
-    const validPassword = await bcrypt.compare(password, user.password_hash)
 
+    if (user.status && user.status !== 'active') {
+      throw new ApiError(403, 'Account is inactive. Please contact support.')
+    }
+
+    const validPassword = await bcrypt.compare(password, user.password_hash)
     if (!validPassword) {
-      // Allow fallback if password_hash match fails on plain demo password
-      if (cleanEmail === 'admin@onprint.ae' && password === 'admin123') {
-        const token = jwt.sign(
-          { id: user.id, email: user.email, role: 'admin', name: user.name },
-          JWT_SECRET,
-          { expiresIn: '7d' }
-        )
-        return res.json({
-          success: true,
-          token,
-          user: { id: user.id, name: user.name, email: user.email, role: user.role },
-        })
-      }
       throw new ApiError(401, 'Invalid email or password')
     }
 
@@ -112,6 +91,7 @@ async function login(req, res, next) {
         email: user.email,
         phone: user.phone,
         role: user.role,
+        status: user.status,
       },
     })
   } catch (err) {
@@ -121,9 +101,18 @@ async function login(req, res, next) {
 
 async function getMe(req, res, next) {
   try {
+    const [rows] = await pool.execute(
+      'SELECT id, name, email, phone, role, status FROM users WHERE id = ? LIMIT 1',
+      [req.user.id]
+    )
+
+    if (rows.length === 0) {
+      throw new ApiError(404, 'User not found')
+    }
+
     res.json({
       success: true,
-      user: req.user,
+      user: rows[0],
     })
   } catch (err) {
     next(err)

@@ -389,18 +389,20 @@ export default function SiteHeader() {
                         <div className="font-bold text-xs text-neutral-900 truncate">{user?.name}</div>
                         <div className="text-[10px] text-neutral-500 truncate">{user?.email}</div>
                         <span className="mt-1 inline-block rounded bg-red-50 px-1.5 py-0.5 text-[9px] font-bold uppercase text-[#A82F19]">
-                          Administrator
+                          {user?.role === 'admin' || user?.role === 'ADMINISTRATOR' ? 'Administrator' : 'Customer'}
                         </span>
                       </div>
 
-                      <Link
-                        to="/admin"
-                        onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-[#A82F19] hover:bg-red-50 rounded-xl transition-colors"
-                      >
-                        <ShieldCheck className="h-4 w-4" />
-                        <span>Admin Control Panel</span>
-                      </Link>
+                      {(user?.role === 'admin' || user?.role === 'ADMINISTRATOR') && (
+                        <Link
+                          to="/admin"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-[#A82F19] hover:bg-red-50 rounded-xl transition-colors"
+                        >
+                          <ShieldCheck className="h-4 w-4" />
+                          <span>Admin Control Panel</span>
+                        </Link>
+                      )}
 
                       <button
                         type="button"

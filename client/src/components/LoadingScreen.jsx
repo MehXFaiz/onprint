@@ -148,28 +148,9 @@ export default function LoadingScreen() {
                 }}
               >
                 <div className="inline-flex items-center gap-4 select-none">
-                  {/* Outline SVG Mark */}
-                  <svg
-                    className="h-16 sm:h-24 w-auto shrink-0 overflow-visible"
-                    viewBox="-4 -4 118 118"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M 22 22 L 22 88 C 22 88 22 96 34 96 C 60 96 78 80 78 55 C 78 30 60 22 34 22 Z"
-                      stroke="#c63c22"
-                      strokeWidth="8"
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                      fill="none"
-                      className="drop-shadow-[0_0_12px_rgba(198,60,34,0.9)]"
-                    />
-                    <polygon points="70,6 98,6 98,34" stroke="#c63c22" strokeWidth="4" fill="none" />
-                  </svg>
-
                   {/* Outline Wordmark */}
                   <span
-                    className="font-display font-black uppercase text-4xl sm:text-6xl tracking-[0.22em]"
+                    className="font-display font-black uppercase text-5xl sm:text-7xl tracking-[0.22em]"
                     style={{
                       WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.9)',
                       color: 'transparent',
@@ -193,26 +174,8 @@ export default function LoadingScreen() {
                   ease: 'easeOut',
                 }}
               >
-                {/* Solid SVG Mark */}
-                <svg
-                  className="h-16 sm:h-24 w-auto shrink-0 overflow-visible"
-                  viewBox="-4 -4 118 118"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M 22 22 L 22 88 C 22 88 22 96 34 96 C 60 96 78 80 78 55 C 78 30 60 22 34 22 Z"
-                    stroke="#FFFFFF"
-                    strokeWidth="14"
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                    fill="none"
-                  />
-                  <polygon points="70,6 98,6 98,34" fill="#c63c22" />
-                </svg>
-
                 {/* Solid Wordmark */}
-                <span className="font-display font-black uppercase text-4xl sm:text-6xl tracking-[0.22em] text-white">
+                <span className="font-display font-black uppercase text-5xl sm:text-7xl tracking-[0.22em] text-white">
                   ON<span className="text-[#c63c22]">PRINT</span>
                 </span>
               </motion.div>

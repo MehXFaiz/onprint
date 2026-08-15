@@ -11,6 +11,7 @@ import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
 import ServiceCard from '../../components/ServiceCard'
 import ProductCard from '../../components/ProductCard'
+import ProductDetailModal from '../../components/ProductDetailModal'
 import { CornerMarks } from '../../components/PrintMarks'
 import { getServices } from '../../services/services'
 import { getProducts } from '../../services/products'
@@ -58,6 +59,7 @@ const stats = [
 export default function HomePage() {
   const [services, setServices] = useState(null)
   const [products, setProducts] = useState(null)
+  const [quickViewProduct, setQuickViewProduct] = useState(null)
 
   useEffect(() => {
     getServices()
@@ -269,12 +271,19 @@ export default function HomePage() {
             {products && products.length > 0 && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {products.map((product) => (
-                  <ProductCard key={product._id} product={product} />
+                  <ProductCard key={product._id} product={product} onQuickView={setQuickViewProduct} />
                 ))}
               </div>
             )}
           </div>
         </Container>
+
+        {quickViewProduct && (
+          <ProductDetailModal
+            product={quickViewProduct}
+            onClose={() => setQuickViewProduct(null)}
+          />
+        )}
       </section>
 
       {/* Why Choose Us */}

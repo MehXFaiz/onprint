@@ -19,8 +19,10 @@ export default function AdminCategoryFormPage() {
     slug: '',
     description: '',
     image: '',
+    image_url: '',
     status: 'active',
     displayOrder: 0,
+    display_order: 0,
   })
 
   // Load existing category for editing
@@ -31,13 +33,17 @@ export default function AdminCategoryFormPage() {
         setLoading(true)
         const cat = await getCategoryById(id)
         if (cat) {
+          const img = cat.image_url || cat.image || ''
+          const order = cat.display_order ?? cat.displayOrder ?? 0
           setForm({
             name: cat.name || '',
             slug: cat.slug || '',
             description: cat.description || '',
-            image: cat.image || '',
+            image: img,
+            image_url: img,
             status: cat.status || (cat.active ? 'active' : 'inactive'),
-            displayOrder: cat.displayOrder || 0,
+            displayOrder: order,
+            display_order: order,
           })
           setSlugEdited(true)
         }
@@ -84,13 +90,24 @@ export default function AdminCategoryFormPage() {
       return
     }
 
+    const payload = {
+      name: form.name.trim(),
+      slug: form.slug.trim(),
+      description: form.description.trim(),
+      image: form.image || form.image_url || '',
+      image_url: form.image_url || form.image || '',
+      status: form.status,
+      displayOrder: Number(form.displayOrder ?? form.display_order ?? 0),
+      display_order: Number(form.display_order ?? form.displayOrder ?? 0),
+    }
+
     setSubmitting(true)
     try {
       if (isEdit) {
-        await updateCategory(id, form)
+        await updateCategory(id, payload)
         navigate('/admin/categories', { state: { toast: `Category "${form.name}" updated successfully.` } })
       } else {
-        await createCategory(form)
+        await createCategory(payload)
         navigate('/admin/categories', { state: { toast: `Category "${form.name}" created successfully.` } })
       }
     } catch (err) {

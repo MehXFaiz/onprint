@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Eye, ArrowUpRight, Sparkles, Tag, ShieldCheck, Check } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react'
+import ProductCard from './ProductCard'
 import { getProductImage } from '../assets/productImages'
 
 // 3 Main Sections Data strictly matching the uploaded user screenshot items with enhanced details
@@ -265,103 +266,13 @@ function SectionCardGroup({ section, onQuickView }) {
             transition={{ duration: 0.35, ease: 'easeOut' }}
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {visibleItems.map((item) => {
-              const imageSrc = getProductImage(item)
-
-              return (
-                <div
-                  key={item._id || item.slug}
-                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] shadow-xs transition-all duration-300 hover:-translate-y-2 hover:border-[#A82F19]/50 hover:shadow-xl"
-                >
-                  {/* Image Container */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FFFFFF]">
-                    <img
-                      src={imageSrc}
-                      alt={item.name}
-                      loading="lazy"
-                      className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
-                    />
-
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-[#000000]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                    {/* Top Badges Bar */}
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
-                      {item.badge ? (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-[#A82F19] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#FFFFFF] shadow-xs">
-                          <Sparkles className="h-2.5 w-2.5 text-[#FFFFFF]" />
-                          {item.badge}
-                        </span>
-                      ) : <span />}
-
-                      {item.tag && (
-                        <span className="inline-flex items-center gap-1 rounded-full border border-[#A82F19] bg-[#FFFFFF] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#A82F19] shadow-xs">
-                          <Tag className="h-2.5 w-2.5 text-[#A82F19]" />
-                          {item.tag}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Card Banner at bottom of image */}
-                    <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-[#000000]/10 bg-[#FFFFFF]/95 p-3 backdrop-blur-md shadow-md transition-all duration-300 group-hover:border-[#A82F19]/40 z-10">
-                      <div className="flex items-center justify-between gap-2 text-[10px] font-extrabold">
-                        <span className="uppercase tracking-wider text-[#A82F19]">
-                          {item.price ? `From AED ` : 'Custom Quote'}
-                          {item.price && <span className="text-[#000000] font-black">{item.price}</span>}
-                        </span>
-                        {item.minimumQuantity && (
-                          <span className="font-semibold text-[#000000]/60">
-                            Min: {item.minimumQuantity} pcs
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Main Title Text */}
-                      <h3 className="font-display mt-1 text-sm font-black tracking-tight text-[#000000] transition-colors group-hover:text-[#A82F19] line-clamp-1">
-                        {item.name}
-                      </h3>
-                    </div>
-                  </div>
-
-                  {/* Card Content & Action Bar */}
-                  <div className="flex flex-1 flex-col justify-between p-4 sm:p-5 pt-3 bg-[#FFFFFF]">
-                    <div>
-                      <p className="text-xs text-[#000000]/70 leading-relaxed line-clamp-2">
-                        {item.shortDescription}
-                      </p>
-
-                      {item.spec && (
-                        <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-md bg-[#FFFFFF] px-2 py-0.5 text-[10px] font-semibold text-[#000000]/80 border border-[#A82F19]/30">
-                          <Check className="h-3 w-3 text-[#A82F19]" />
-                          <span>{item.spec}</span>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="mt-4 flex items-center justify-between border-t border-[#000000]/10 pt-3">
-                      <Link
-                        to={`/products/${item.slug}`}
-                        className="inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-[#000000] transition-colors hover:text-[#A82F19] group-hover:text-[#A82F19] cursor-pointer"
-                      >
-                        <span>Order Custom</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-[#A82F19] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </Link>
-
-                      {onQuickView && (
-                        <button
-                          type="button"
-                          onClick={() => onQuickView(item)}
-                          className="inline-flex items-center gap-1 rounded-lg border border-[#000000] bg-[#FFFFFF] px-2.5 py-1 text-[11px] font-bold text-[#000000] transition-all hover:border-[#A82F19] hover:bg-[#A82F19] hover:text-[#FFFFFF] cursor-pointer active:scale-95"
-                        >
-                          <Eye className="h-3 w-3" />
-                          <span>Quick View</span>
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
+            {visibleItems.map((item) => (
+              <ProductCard
+                key={item._id || item.slug}
+                product={item}
+                onQuickView={onQuickView}
+              />
+            ))}
           </motion.div>
         </AnimatePresence>
       </div>

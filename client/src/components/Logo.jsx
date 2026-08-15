@@ -15,8 +15,8 @@ export default function Logo({
 
   const isLight = variant === 'light'
   const isAccent = variant === 'accent'
-  const textColor = isAccent ? '#c63c22' : isLight ? '#FFFFFF' : '#141414'
-  const accentColor = '#c63c22'
+  const textColor = isAccent ? '#A82F19' : isLight ? '#FFFFFF' : '#000000'
+  const accentColor = '#A82F19'
 
   return (
     <div className={`inline-flex items-center select-none whitespace-nowrap overflow-visible ${className}`}>

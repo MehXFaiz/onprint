@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Eye, ArrowUpRight, Sparkles, Tag, ShieldCheck } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Sparkles, ShieldCheck } from 'lucide-react'
+import ProductCard from './ProductCard'
 import { getProductImage } from '../assets/productImages'
 
 // Core Corporate Gift Items (including exact 4 from user's image + bonus items)
@@ -115,7 +116,7 @@ export default function CorporateGiftsSection({ products, onQuickView }) {
   const visibleItems = filteredItems.slice(currentIndex * itemsPerPage, (currentIndex + 1) * itemsPerPage)
 
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-b from-surface via-background/40 to-surface border-y border-border/70">
+    <section className="relative overflow-hidden py-16 sm:py-24 bg-[#FFFFFF] border-y border-[#000000]/10">
       {/* Decorative Subtle Background Studio Glow */}
       <div className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
@@ -202,92 +203,13 @@ export default function CorporateGiftsSection({ products, onQuickView }) {
               transition={{ duration: 0.35, ease: 'easeOut' }}
               className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
             >
-              {visibleItems.map((item) => {
-                const img = getProductImage(item)
-                return (
-                  <div
-                    key={item._id || item.slug}
-                    className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/80 bg-surface shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-accent/40 hover:shadow-2xl"
-                  >
-                    {/* Top Image Studio Showcase with Soft Inner Shadow & Hover Sheen */}
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-b from-neutral-100 to-neutral-50 dark:from-neutral-900 dark:to-neutral-950">
-                      <img
-                        src={img}
-                        alt={item.name}
-                        loading="lazy"
-                        className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
-                      />
-
-                      {/* Soft Vignette Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/10 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-40" />
-
-                      {/* Top Badges Bar */}
-                      <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                        {item.badge ? (
-                          <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-primary/80 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-background backdrop-blur-md shadow-sm">
-                            <Sparkles className="h-2.5 w-2.5 text-accent" />
-                            {item.badge}
-                          </span>
-                        ) : <span />}
-
-                        {item.tag && (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-accent/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
-                            <Tag className="h-2.5 w-2.5" />
-                            {item.tag}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Floating Glass Banner Overlay at Bottom of Image (Matching screenshot concept, elevated to 10/10 UI) */}
-                      <div className="absolute bottom-3 left-3 right-3 rounded-2xl border border-white/30 bg-surface/85 p-3.5 backdrop-blur-md shadow-lg transition-all duration-300 group-hover:bg-surface/95 group-hover:border-accent/40">
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="text-[10px] font-extrabold uppercase tracking-wider text-accent">
-                            {item.price ? `From AED ${item.price}` : 'Custom Quote'}
-                          </span>
-                          {item.minimumQuantity && (
-                            <span className="text-[10px] font-bold text-secondary">
-                              Min: {item.minimumQuantity} pcs
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Title matching screenshot bold presentation */}
-                        <h3 className="font-display mt-1 text-base font-black tracking-tight text-primary transition-colors group-hover:text-accent line-clamp-1">
-                          {item.name}
-                        </h3>
-                      </div>
-                    </div>
-
-                    {/* Bottom Card Footer with Actions */}
-                    <div className="flex flex-1 flex-col justify-between p-4 sm:p-5 pt-3 bg-surface">
-                      <p className="text-xs text-secondary leading-relaxed line-clamp-2">
-                        {item.shortDescription || item.description}
-                      </p>
-
-                      <div className="mt-4 flex items-center justify-between border-t border-border/50 pt-3">
-                        <Link
-                          to={`/products/${item.slug}`}
-                          className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-primary transition-colors group-hover:text-accent cursor-pointer"
-                        >
-                          <span>Order Custom</span>
-                          <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-accent" />
-                        </Link>
-
-                        {onQuickView && (
-                          <button
-                            type="button"
-                            onClick={() => onQuickView(item)}
-                            className="inline-flex items-center gap-1 rounded-xl border border-border bg-background px-2.5 py-1.5 text-[11px] font-bold text-secondary transition-all hover:border-primary hover:text-primary cursor-pointer active:scale-95"
-                          >
-                            <Eye className="h-3 w-3" />
-                            <span>Quick View</span>
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
+              {visibleItems.map((item) => (
+                <ProductCard
+                  key={item._id || item.slug}
+                  product={item}
+                  onQuickView={onQuickView}
+                />
+              ))}
             </motion.div>
           </AnimatePresence>
         </div>

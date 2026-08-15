@@ -10,11 +10,11 @@ export function CornerMarks({ className = '' }) {
 }
 
 export function CmykDots({ className = '' }) {
-  const colors = ['#00AEEF', '#EC008C', '#FFF200', '#101010']
+  const colors = ['#000000', '#A82F19', '#FFFFFF', '#000000']
   return (
     <div className={`flex items-center gap-1.5 ${className}`} aria-hidden="true">
-      {colors.map((color) => (
-        <span key={color} className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: color }} />
+      {colors.map((color, idx) => (
+        <span key={idx} className="h-1.5 w-1.5 rounded-full border border-white/20" style={{ backgroundColor: color }} />
       ))}
     </div>
   )

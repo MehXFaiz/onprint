@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight, Loader2 } from 'lucide-react'
 
 const baseClasses =
-  'group inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-semibold tracking-wide transition-all duration-200 cursor-pointer rounded-lg border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
+  'group inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-bold tracking-wide transition-all duration-300 cursor-pointer rounded-xl border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A82F19] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
 
 const variants = {
-  primary: 'border-primary bg-primary text-background hover:bg-accent hover:border-accent shadow-sm',
-  accent: 'border-accent bg-accent text-white hover:bg-accent-hover hover:border-accent-hover shadow-md shadow-accent/20',
-  secondary: 'border-border bg-surface text-primary hover:border-primary hover:bg-background shadow-xs',
-  outline: 'border-primary/25 bg-transparent text-primary hover:border-accent hover:text-accent',
-  ghost: 'border-transparent bg-transparent text-primary hover:text-accent hover:bg-accent-soft/30',
+  primary: 'border-[#000000] bg-[#000000] text-[#FFFFFF] hover:bg-[#A82F19] hover:border-[#A82F19] shadow-sm',
+  accent: 'border-[#A82F19] bg-[#A82F19] text-[#FFFFFF] hover:bg-[#8f2513] hover:border-[#8f2513] shadow-md shadow-[#A82F19]/20',
+  secondary: 'border-[#000000] bg-[#FFFFFF] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19] shadow-xs',
+  outline: 'border-[#000000]/25 bg-transparent text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19]',
+  ghost: 'border-transparent bg-transparent text-[#000000] hover:text-[#A82F19] hover:bg-[#A82F19]/10',
 }
 
 const sizes = {

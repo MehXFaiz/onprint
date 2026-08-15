@@ -2,16 +2,16 @@
 
 :root {
   /* ONPRINT Approved Core Design System Theme */
-  --background: #faf8f5;
+  --background: #ffffff;
   --surface: #ffffff;
-  --primary: #15140f;
-  --secondary: #6e6a62;
+  --primary: #000000;
+  --secondary: #52525b;
   --text-primary: var(--primary);
   --text-secondary: var(--secondary);
-  --border: #e4e0d8;
-  --accent: #c63c22;
-  --accent-hover: #a82f19;
-  --accent-soft: #f4e4df;
+  --border: #e4e4e7;
+  --accent: #A82F19;
+  --accent-hover: #8f2513;
+  --accent-soft: #fcf1ef;
 }
 
 @theme {

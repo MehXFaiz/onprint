@@ -1,51 +1,62 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Sparkles } from 'lucide-react'
 import { getProductImage } from '../assets/productImages'
 
 export default function ServiceCard({ service }) {
   const serviceImage = getProductImage(service)
+  const categoryName = service.category?.name || service.category || 'PRINTING SERVICE'
 
   return (
     <Link
       to={`/services/${service.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/80 bg-surface shadow-xs transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-xl"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#000000]/12 bg-[#FFFFFF] shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#A82F19] hover:shadow-xl"
     >
-      {/* Large Image Showcase */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+      {/* Studio Image Container */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F8F8FA] border-b border-[#000000]/08">
         <img
           src={serviceImage}
           alt={service.name}
           loading="lazy"
-          className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 contrast-[1.02]"
+          className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-40 transition-opacity duration-300 group-hover:opacity-25" />
+        
+        {/* Subtle Dark Gradient Overlay on Hover */}
+        <div className="absolute inset-0 bg-[#000000]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-        {/* Category Badge */}
-        <div className="absolute top-3.5 left-3.5">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-primary/80 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-background backdrop-blur-md shadow-xs">
-            <Sparkles className="h-3 w-3 text-accent" />
-            {service.category?.name || 'Printing Service'}
+        {/* Clean Top Category Badge (Positioned inside image without overlapping borders) */}
+        <div className="absolute top-3 left-3 z-10">
+          <span className="inline-flex items-center gap-1.5 rounded-lg border border-[#000000]/10 bg-[#FFFFFF]/95 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-widest text-[#000000] shadow-sm backdrop-blur-md transition-colors group-hover:border-[#A82F19]/40 group-hover:text-[#A82F19]">
+            <Sparkles className="h-3 w-3 text-[#A82F19]" />
+            {categoryName}
           </span>
         </div>
       </div>
 
-      {/* Content Area with Clean Spacing */}
-      <div className="flex flex-1 flex-col justify-between p-6 sm:p-7 bg-surface">
+      {/* Content Area */}
+      <div className="flex flex-1 flex-col justify-between p-6 bg-[#FFFFFF]">
         <div>
-          <h3 className="font-display text-xl font-black tracking-tight text-primary transition-colors group-hover:text-accent">
+          <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#A82F19]">
+            {categoryName}
+          </span>
+          <h3 className="font-display mt-1 text-xl font-black tracking-tight text-[#000000] transition-colors group-hover:text-[#A82F19]">
             {service.name}
           </h3>
-          <p className="mt-3 text-xs sm:text-sm leading-relaxed text-secondary line-clamp-3">
+          <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#000000]/70 line-clamp-3">
             {service.shortDescription || service.description}
           </p>
         </div>
 
-        {/* Minimal CTA */}
-        <div className="mt-6 flex items-center justify-between border-t border-border/60 pt-4 text-xs font-extrabold uppercase tracking-wider text-accent">
-          <span>Learn More</span>
-          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+        {/* Bottom CTA Bar */}
+        <div className="mt-6 flex items-center justify-between border-t border-[#000000]/10 pt-4 text-xs font-extrabold uppercase tracking-wider text-[#000000] transition-colors group-hover:text-[#A82F19]">
+          <span>Explore Service</span>
+          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#000000]/5 text-[#000000] transition-all group-hover:bg-[#A82F19] group-hover:text-[#FFFFFF]">
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </div>
         </div>
       </div>
+
+      {/* Signature Red Accent Bar on Hover */}
+      <div className="h-1 w-0 bg-[#A82F19] transition-all duration-300 group-hover:w-full" />
     </Link>
   )
 }

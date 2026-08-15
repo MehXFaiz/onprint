@@ -75,113 +75,113 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden border-b border-border bg-background py-16 sm:py-24 lg:py-32">
+    <div className="bg-[#FFFFFF] text-[#000000]">
+      {/* 1. Hero Section */}
+      <section className="relative overflow-hidden border-b border-[#000000]/10 bg-[#FFFFFF] py-16 sm:py-24 lg:py-32">
         <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent shadow-xs">
-                <Sparkles className="h-3.5 w-3.5 text-accent" />
-                Dubai’s Premier Print &amp; Creative Studio
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19] bg-[#FFFFFF] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#A82F19] shadow-xs">
+                <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
+                ONPRINT • Dubai’s Premier Printing &amp; Branding Solutions
               </div>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h1 className="font-display mt-6 text-4xl font-extrabold leading-[1.02] tracking-tight text-primary sm:text-6xl xl:text-7xl">
+              <h1 className="font-display mt-6 text-4xl font-black leading-[1.02] tracking-tight text-[#000000] sm:text-6xl xl:text-7xl">
                 DIGITAL PRECISION.
                 <br />
-                <span className="text-accent">PHYSICAL CRAFT.</span>
+                <span className="text-[#A82F19]">PHYSICAL CRAFT.</span>
               </h1>
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-secondary sm:text-lg">
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-[#000000]/75 sm:text-lg">
                 ONPRINT transforms brand identities into tangible physical masterpieces. From bespoke corporate gifts and executive stationery to high-volume luxury packaging and signage.
               </p>
             </Reveal>
 
             <Reveal delay={0.3}>
               <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
-                <Button to="/get-a-quote" variant="accent" size="lg">
+                <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#A82F19]/25">
                   Request a Custom Quote
                 </Button>
-                <Button to="/products" variant="secondary" size="lg">
+                <Button to="/products" variant="secondary" size="lg" className="border-[#000000] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19]">
                   Browse Catalog
                 </Button>
               </div>
             </Reveal>
 
             <Reveal delay={0.4}>
-              <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-border/80 pt-6 text-xs font-semibold text-secondary">
+              <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-[#000000]/10 pt-6 text-xs font-bold text-[#000000]/80">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-accent" />
+                  <CheckCircle className="h-4 w-4 text-[#A82F19]" />
                   <span>Free Design Pre-flight</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-accent" />
+                  <CheckCircle className="h-4 w-4 text-[#A82F19]" />
                   <span>Express Same-Day Printing</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-accent" />
+                  <CheckCircle className="h-4 w-4 text-[#A82F19]" />
                   <span>Doorstep UAE Delivery</span>
                 </div>
               </div>
             </Reveal>
           </div>
 
-          {/* Hero Visual Studio Showcase */}
+          {/* Hero Visual Studio Showcase (Bespoke Corporate Print Cards - No Multi-Colors) */}
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
               <div className="relative mx-auto flex h-[360px] w-full max-w-md items-center justify-center sm:h-[440px]">
-                <CornerMarks className="absolute -left-3 -top-3 h-8 w-8 text-primary/40" />
-                <CornerMarks className="absolute -bottom-3 -right-3 h-8 w-8 rotate-180 text-primary/40" />
+                <CornerMarks className="absolute -left-3 -top-3 h-8 w-8 text-[#000000]/40" />
+                <CornerMarks className="absolute -bottom-3 -right-3 h-8 w-8 rotate-180 text-[#000000]/40" />
 
-                {/* Back card: Soft finish stock */}
+                {/* Back card: Luxury Stock Spec */}
                 <motion.div
                   initial={{ opacity: 0, y: 20, rotate: -6 }}
                   animate={{ opacity: 1, y: 0, rotate: -6 }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-2 top-4 flex h-64 w-44 flex-col justify-between rounded-2xl border border-border bg-surface p-5 shadow-xl sm:h-72 sm:w-52"
+                  className="absolute left-2 top-4 flex h-64 w-44 flex-col justify-between rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-5 shadow-xl sm:h-72 sm:w-52"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex gap-1.5">
-                      {['#00AEEF', '#EC008C', '#FFF200', '#101010'].map((c) => (
-                        <span key={c} className="h-2 w-2 rounded-full" style={{ backgroundColor: c }} />
+                      {['#000000', '#A82F19', '#000000'].map((c, i) => (
+                        <span key={i} className="h-2 w-2 rounded-full" style={{ backgroundColor: c }} />
                       ))}
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-secondary">CMYK 350GSM</span>
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#000000]/60">350 GSM STOCK</span>
                   </div>
                   <div className="space-y-2">
-                    <div className="h-2 w-3/4 rounded bg-primary/10" />
-                    <div className="h-2 w-1/2 rounded bg-primary/10" />
-                    <div className="h-2 w-5/6 rounded bg-accent/20" />
+                    <div className="h-2 w-3/4 rounded bg-[#000000]/15" />
+                    <div className="h-2 w-1/2 rounded bg-[#000000]/15" />
+                    <div className="h-2 w-5/6 rounded bg-[#A82F19]/25" />
                   </div>
-                  <div className="rounded-lg bg-accent-soft p-2.5 text-center text-xs font-bold text-accent">
-                    EMBOSSED FOIL
+                  <div className="rounded-xl border border-[#A82F19] bg-[#FFFFFF] p-2.5 text-center text-xs font-black text-[#A82F19]">
+                    RED FOIL EMBOSS
                   </div>
                 </motion.div>
 
-                {/* Front card: ONPRINT Dark Primary card */}
+                {/* Front card: ONPRINT Signature Black Card */}
                 <motion.div
                   initial={{ opacity: 0, y: 20, rotate: 5 }}
                   animate={{ opacity: 1, y: 0, rotate: 5 }}
                   transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute right-0 top-20 flex h-48 w-68 flex-col justify-between rounded-2xl border border-primary bg-primary p-6 shadow-2xl sm:right-2 sm:top-24 sm:w-72"
+                  className="absolute right-0 top-20 flex h-48 w-68 flex-col justify-between rounded-2xl border border-[#000000] bg-[#000000] p-6 shadow-2xl sm:right-2 sm:top-24 sm:w-72"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-display text-base font-extrabold tracking-tight text-background">
-                      ON<span className="text-accent">PRINT</span>
+                    <span className="font-display text-base font-black tracking-tight text-[#FFFFFF]">
+                      ON<span className="text-[#A82F19]">PRINT</span>
                     </span>
-                    <span className="rounded bg-accent/20 px-2 py-0.5 text-[10px] font-bold text-accent">STUDIO</span>
+                    <span className="rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[10px] font-extrabold text-[#FFFFFF]">PRESS</span>
                   </div>
                   <div>
-                    <p className="text-xs font-medium text-background/70">CORPORATE GIFTING &amp; PRESS</p>
-                    <p className="mt-1 text-sm font-bold text-background">Precision Printing Dubai</p>
+                    <p className="text-xs font-semibold text-[#FFFFFF]/70">CORPORATE GIFTING &amp; PRESS</p>
+                    <p className="mt-1 text-sm font-bold text-[#FFFFFF]">Precision Printing Dubai</p>
                   </div>
-                  <div className="flex items-center justify-between border-t border-background/15 pt-3 text-[10px] font-semibold text-background/60">
-                    <span>JOB ID: #OP-9824</span>
-                    <span className="text-accent">PASSED QC</span>
+                  <div className="flex items-center justify-between border-t border-[#FFFFFF]/20 pt-3 text-[10px] font-bold text-[#FFFFFF]/70">
+                    <span>SPEC: ULTRA HD</span>
+                    <span className="text-[#A82F19] font-black">PASSED QC</span>
                   </div>
                 </motion.div>
 
@@ -190,11 +190,11 @@ export default function HomePage() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.7, delay: 0.3 }}
-                  className="absolute bottom-4 left-10 flex h-28 w-28 items-center justify-center rounded-2xl border border-accent/30 bg-accent-soft/90 p-4 shadow-lg sm:left-16"
+                  className="absolute bottom-4 left-10 flex h-28 w-28 items-center justify-center rounded-2xl border border-[#A82F19] bg-[#FFFFFF] p-4 shadow-lg sm:left-16"
                 >
                   <div className="text-center">
-                    <span className="font-display text-2xl font-black text-accent">300 DPI</span>
-                    <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">Ultra HD</p>
+                    <span className="font-display text-2xl font-black text-[#A82F19]">1200 DPI</span>
+                    <p className="mt-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#000000]">Offset Press</p>
                   </div>
                 </motion.div>
               </div>
@@ -203,18 +203,18 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Trust Badges Banner */}
-      <section className="border-b border-border bg-surface py-8">
+      {/* 2. Trust Badges Banner */}
+      <section className="border-b border-[#000000]/10 bg-[#FFFFFF] py-8">
         <Container>
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-4">
             {trustBadges.map((item) => {
               const Icon = item.icon
               return (
                 <div key={item.label} className="flex items-center justify-center gap-3 text-center sm:justify-start">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent">
-                    <Icon className="h-4 w-4" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <span className="text-xs font-bold text-primary">{item.label}</span>
+                  <span className="text-xs font-extrabold text-[#000000]">{item.label}</span>
                 </div>
               )
             })}
@@ -222,16 +222,16 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Services Grid */}
+      {/* 3. Services Grid */}
       <section className="py-20 sm:py-28">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
               eyebrow="OUR SERVICES"
-              title="Professional printing and creative solutions."
-              subtitle="Professional printing and creative solutions for businesses, brands and individuals."
+              title="Professional printing solutions built for modern businesses."
+              subtitle="Full-service commercial printing, bespoke corporate gifts, office stationery, and packaging in Dubai."
             />
-            <ArrowLink to="/services" className="shrink-0">
+            <ArrowLink to="/services" className="shrink-0 text-[#A82F19]">
               View All Services
             </ArrowLink>
           </div>
@@ -249,22 +249,22 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* 3 Main Product Showcase Sections (Corporate Gift Items, Office Stationery Printing, Other Products) */}
+      {/* 4. Main Product Showcase Sections (Corporate Gift Items, Office Stationery Printing, Other Products) */}
       <ProductSectionsShowcase onQuickView={setQuickViewProduct} />
 
-      {/* Executive Carefree Shopping & Express Delivery Section (Matching User Second Request) */}
+      {/* 5. Carefree Shopping & Express Delivery Section */}
       <CarefreeShoppingSection />
 
-      {/* Featured Products Catalog */}
-      <section className="border-t border-border bg-surface py-20 sm:py-28">
+      {/* 6. Featured Products Catalog */}
+      <section className="border-t border-[#000000]/10 bg-[#FFFFFF] py-20 sm:py-28">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
               eyebrow="OUR PRODUCTS"
               title="Explore our signature products."
-              subtitle="Explore our range of professionally printed products and promotional materials."
+              subtitle="Browse our catalog of premium corporate giveaways, business cards, brochures, and event displays."
             />
-            <ArrowLink to="/products" className="shrink-0">
+            <ArrowLink to="/products" className="shrink-0 text-[#A82F19]">
               Explore Full Catalog
             </ArrowLink>
           </div>
@@ -289,25 +289,25 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 sm:py-28">
+      {/* 7. Why Choose Us */}
+      <section className="py-20 sm:py-28 bg-[#FFFFFF]">
         <Container>
           <SectionHeading
-            eyebrow="Why ONPRINT"
+            eyebrow="WHY ONPRINT"
             title="The standard behind every press run."
-            subtitle="Why leading Dubai enterprises and creative agencies partner with us."
+            subtitle="Why leading Dubai enterprises, government entities, and creative agencies trust ONPRINT."
             center
           />
 
           <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {whyUs.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.08}>
-                <div className="h-full rounded-2xl border border-border bg-surface p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-soft font-display text-sm font-bold text-accent">
+                <div className="h-full rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-6 shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#A82F19] hover:shadow-lg group">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#A82F19] font-display text-xs font-black text-[#FFFFFF]">
                     0{index + 1}
                   </div>
-                  <h3 className="font-display mt-5 text-lg font-bold text-primary">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-secondary">{item.description}</p>
+                  <h3 className="font-display mt-5 text-lg font-black text-[#000000] group-hover:text-[#A82F19] transition-colors">{item.title}</h3>
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#000000]/70">{item.description}</p>
                 </div>
               </Reveal>
             ))}
@@ -315,19 +315,19 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Production Process Timeline */}
-      <section className="border-t border-border bg-surface py-20 sm:py-28">
+      {/* 8. Production Process Timeline */}
+      <section className="border-t border-[#000000]/10 bg-[#FFFFFF] py-20 sm:py-28">
         <Container>
           <SectionHeading
-            eyebrow="How It Works"
-            title="From artwork submission to final delivery."
-            subtitle="Four straightforward steps to bring your project into print."
+            eyebrow="HOW IT WORKS"
+            title="From artwork submission to final doorstep delivery."
+            subtitle="Four straightforward steps to bring your custom print project to life."
           />
 
           <div className="relative mt-16">
-            <div className="absolute left-0 right-0 top-6 hidden h-0.5 bg-border sm:block" />
+            <div className="absolute left-0 right-0 top-6 hidden h-0.5 bg-[#000000]/10 sm:block" />
             <motion.div
-              className="absolute left-0 top-6 hidden h-0.5 bg-accent sm:block"
+              className="absolute left-0 top-6 hidden h-0.5 bg-[#A82F19] sm:block"
               initial={{ width: '0%' }}
               whileInView={{ width: '100%' }}
               viewport={{ once: true }}
@@ -336,12 +336,12 @@ export default function HomePage() {
             <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {processSteps.map((item, index) => (
                 <Reveal key={item.step} delay={index * 0.1}>
-                  <div className="rounded-2xl border border-border bg-background p-6 shadow-xs">
-                    <span className="relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-primary bg-primary font-display text-sm font-bold text-background shadow-sm">
+                  <div className="rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-6 shadow-xs">
+                    <span className="relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#000000] font-display text-xs font-black text-[#FFFFFF] shadow-sm">
                       {item.step}
                     </span>
-                    <h3 className="font-display mt-5 text-lg font-bold text-primary">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-secondary">{item.description}</p>
+                    <h3 className="font-display mt-5 text-lg font-black text-[#000000]">{item.title}</h3>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#000000]/70">{item.description}</p>
                   </div>
                 </Reveal>
               ))}
@@ -350,24 +350,24 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Story & Stat Counters */}
-      <section className="py-20 sm:py-28">
+      {/* 9. Story & Stat Counters */}
+      <section className="py-20 sm:py-28 bg-[#FFFFFF]">
         <Container className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <SectionHeading
-              eyebrow="About ONPRINT"
+              eyebrow="ABOUT ONPRINT"
               title="We print more than paper. We print brand trust."
               subtitle="Every piece of print that leaves our floor carries a brand's reputation with it. That's why precision, paper feel, and immaculate finishing are non-negotiable."
             />
             <div className="mt-8">
-              <Button to="/about" variant="outline" size="md">
+              <Button to="/about" variant="secondary" size="md" className="border-[#000000] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19]">
                 Learn About Our History
               </Button>
             </div>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="grid grid-cols-2 gap-6 rounded-2xl border border-border bg-surface p-8 shadow-xs">
+            <div className="grid grid-cols-2 gap-6 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-8 shadow-sm">
               {stats.map((stat) => (
                 <StatCounter key={stat.label} {...stat} />
               ))}
@@ -376,23 +376,27 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Primary Dark Call to Action */}
-      <section className="border-t border-border bg-primary py-20 text-background sm:py-28">
+      {/* 10. Primary Dark Call to Action */}
+      <section className="border-t border-[#000000] bg-[#000000] py-20 text-[#FFFFFF] sm:py-28">
         <Container className="flex flex-col items-center gap-8 text-center">
-          <span className="rounded-full bg-accent/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent">
-            Ready to Print?
-          </span>
-          <h2 className="font-display max-w-3xl text-3xl font-extrabold tracking-tight sm:text-5xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19] bg-[#000000] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#A82F19]">
+            <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
+            Ready to Bring Your Brand to Life?
+          </div>
+          
+          <h2 className="font-display max-w-3xl text-3xl font-black tracking-tight sm:text-5xl lg:text-6xl text-[#FFFFFF]">
             LET’S BRING YOUR NEXT PRINT PROJECT TO LIFE.
           </h2>
-          <p className="max-w-xl text-base text-background/80 sm:text-lg">
-            Get an instant custom quote, request sample stocks, or talk directly with our Dubai print production experts.
+
+          <p className="max-w-xl text-sm sm:text-base text-[#FFFFFF]/80 leading-relaxed">
+            From business cards to large-format printing, ONPRINT helps your brand stand out with unmatched precision across Dubai.
           </p>
+
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button to="/get-a-quote" variant="accent" size="lg">
-              Start Quote Wizard
+            <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#A82F19]/30">
+              Request a Quote
             </Button>
-            <Button to="/contact" variant="outline" size="lg" className="border-background/30 text-background hover:bg-background/10 hover:border-background">
+            <Button to="/contact" variant="outline" size="lg" className="border-[#FFFFFF]/30 text-[#FFFFFF] hover:bg-[#FFFFFF]/10 hover:border-[#FFFFFF]">
               Contact Sales Team
             </Button>
           </div>

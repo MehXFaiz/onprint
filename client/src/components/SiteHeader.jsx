@@ -96,18 +96,18 @@ export default function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background shadow-sm">
+    <header className="sticky top-0 z-50 w-full bg-[#FFFFFF] shadow-xs">
       {/* Executive Top Utility Bar */}
-      <div className="hidden border-b border-border/60 bg-muted/30 py-2 text-xs text-secondary lg:block">
+      <div className="hidden border-b border-[#000000]/10 bg-[#FFFFFF] py-2.5 text-xs text-[#000000]/70 lg:block">
         <Container className="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-12">
           {/* Social Icons + Tagline */}
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 text-[#000000]">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-accent"
+                className="transition-colors hover:text-[#A82F19]"
                 aria-label="Facebook"
               >
                 <FacebookIcon />
@@ -116,7 +116,7 @@ export default function SiteHeader() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-accent"
+                className="transition-colors hover:text-[#A82F19]"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -125,27 +125,27 @@ export default function SiteHeader() {
                 href="https://pinterest.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-accent"
+                className="transition-colors hover:text-[#A82F19]"
                 aria-label="Pinterest"
               >
                 <PinterestIcon />
               </a>
             </div>
-            <span className="h-3 w-[1px] bg-border" />
-            <span className="font-medium tracking-wide text-zinc-500">
-              Dubai’s Premier Printing & Custom Creative Services
+            <span className="h-3 w-[1px] bg-[#000000]/15" />
+            <span className="font-semibold tracking-wide text-[#000000]/70">
+              Dubai’s Premier Printing &amp; Custom Creative Services
             </span>
           </div>
 
           {/* Quick Contact Details */}
-          <div className="flex items-center gap-5">
-            <a href="tel:+97140000000" className="flex items-center gap-1.5 transition-colors hover:text-accent">
-              <Phone className="h-3.5 w-3.5 text-accent" />
+          <div className="flex items-center gap-5 font-semibold">
+            <a href="tel:+9714800PRINT" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
+              <Phone className="h-3.5 w-3.5 text-[#A82F19]" />
               <span>+971 4 800 PRINT</span>
             </a>
-            <span className="h-3 w-[1px] bg-border" />
-            <a href="mailto:info@onprint.ae" className="flex items-center gap-1.5 transition-colors hover:text-accent">
-              <Mail className="h-3.5 w-3.5 text-accent" />
+            <span className="h-3 w-[1px] bg-[#000000]/15" />
+            <a href="mailto:info@onprint.ae" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
+              <Mail className="h-3.5 w-3.5 text-[#A82F19]" />
               <span>info@onprint.ae</span>
             </a>
           </div>
@@ -155,24 +155,24 @@ export default function SiteHeader() {
       {/* Main Navigation Bar */}
       <div
         className={`border-b transition-all duration-300 ${
-          scrolled ? 'border-border bg-background/95 backdrop-blur-md py-3' : 'border-transparent bg-background py-4'
+          scrolled ? 'border-[#000000]/10 bg-[#FFFFFF]/98 backdrop-blur-md py-3' : 'border-[#000000]/10 bg-[#FFFFFF] py-4'
         }`}
       >
         <Container className="flex items-center justify-between gap-3 xl:gap-4 2xl:gap-6 px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-12">
-          {/* Logo with generous margin */}
+          {/* Logo */}
           <Link to="/" onClick={() => setMenuOpen(false)} className="shrink-0">
             <Logo size="md" />
           </Link>
 
-          {/* Desktop Navigation Links - Optimized Whitespace & No Text Wrapping */}
+          {/* Desktop Navigation Links */}
           <nav className="hidden items-center gap-3 xl:gap-4 2xl:gap-7 xl:flex shrink min-w-0" aria-label="Primary">
             {/* 1. Home */}
             <NavLink
               to="/"
               end
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
-                  isActive ? 'text-accent font-bold' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
+                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
                 }`
               }
             >
@@ -183,8 +183,8 @@ export default function SiteHeader() {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
-                  isActive ? 'text-accent font-bold' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
+                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
                 }`
               }
             >
@@ -195,8 +195,8 @@ export default function SiteHeader() {
             <NavLink
               to="/products"
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
-                  isActive ? 'text-accent font-bold' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
+                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
                 }`
               }
             >
@@ -212,12 +212,12 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown(activeDropdown === 'gifts' ? null : 'gifts')}
-                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
-                  activeDropdown === 'gifts' ? 'text-accent' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
+                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors cursor-pointer ${
+                  activeDropdown === 'gifts' ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
                 }`}
               >
                 <span>Corporate Gifts Dubai</span>
-                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'gifts' ? 'rotate-180 text-accent' : ''}`} />
+                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'gifts' ? 'rotate-180 text-[#A82F19]' : ''}`} />
               </button>
 
               <AnimatePresence>
@@ -227,14 +227,14 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute left-0 top-full mt-1.5 w-72 rounded-xl border border-border/80 bg-background p-2 shadow-2xl backdrop-blur-lg"
+                    className="absolute left-0 top-full mt-1.5 w-72 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-2 shadow-2xl backdrop-blur-lg z-50"
                   >
-                    <div className="flex flex-col divide-y divide-border/40">
+                    <div className="flex flex-col divide-y divide-[#000000]/10">
                       {corporateGiftsItems.map((item) => (
                         <Link
                           key={item.label}
                           to={item.to}
-                          className="px-3.5 py-2.5 text-xs sm:text-sm font-medium text-secondary transition-all hover:bg-accent/10 hover:text-accent hover:pl-4 rounded-lg"
+                          className="px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-[#000000] transition-all hover:bg-[#A82F19]/10 hover:text-[#A82F19] hover:pl-4 rounded-xl"
                         >
                           {item.label}
                         </Link>
@@ -254,12 +254,12 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown(activeDropdown === 'stationery' ? null : 'stationery')}
-                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
-                  activeDropdown === 'stationery' ? 'text-accent' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
+                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors cursor-pointer ${
+                  activeDropdown === 'stationery' ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
                 }`}
               >
                 <span>Office Stationery Printing</span>
-                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'stationery' ? 'rotate-180 text-accent' : ''}`} />
+                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'stationery' ? 'rotate-180 text-[#A82F19]' : ''}`} />
               </button>
 
               <AnimatePresence>
@@ -269,14 +269,14 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute left-0 top-full mt-1.5 w-72 rounded-xl border border-border/80 bg-background p-2 shadow-2xl backdrop-blur-lg"
+                    className="absolute left-0 top-full mt-1.5 w-72 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-2 shadow-2xl backdrop-blur-lg z-50"
                   >
-                    <div className="flex flex-col divide-y divide-border/40">
+                    <div className="flex flex-col divide-y divide-[#000000]/10">
                       {officeStationeryItems.map((item) => (
                         <Link
                           key={item.label}
                           to={item.to}
-                          className="px-3.5 py-2.5 text-xs sm:text-sm font-medium text-secondary transition-all hover:bg-accent/10 hover:text-accent hover:pl-4 rounded-lg"
+                          className="px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-[#000000] transition-all hover:bg-[#A82F19]/10 hover:text-[#A82F19] hover:pl-4 rounded-xl"
                         >
                           {item.label}
                         </Link>
@@ -296,12 +296,12 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown(activeDropdown === 'other' ? null : 'other')}
-                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
-                  activeDropdown === 'other' ? 'text-accent' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
+                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors cursor-pointer ${
+                  activeDropdown === 'other' ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
                 }`}
               >
                 <span>Other Products</span>
-                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'other' ? 'rotate-180 text-accent' : ''}`} />
+                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'other' ? 'rotate-180 text-[#A82F19]' : ''}`} />
               </button>
 
               <AnimatePresence>
@@ -311,14 +311,14 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute left-0 top-full mt-1.5 w-72 rounded-xl border border-border/80 bg-background p-2 shadow-2xl backdrop-blur-lg"
+                    className="absolute left-0 top-full mt-1.5 w-72 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-2 shadow-2xl backdrop-blur-lg z-50"
                   >
-                    <div className="flex flex-col divide-y divide-border/40">
+                    <div className="flex flex-col divide-y divide-[#000000]/10">
                       {otherProductsItems.map((item) => (
                         <Link
                           key={item.label}
                           to={item.to}
-                          className="px-3.5 py-2.5 text-xs sm:text-sm font-medium text-secondary transition-all hover:bg-accent/10 hover:text-accent hover:pl-4 rounded-lg"
+                          className="px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-[#000000] transition-all hover:bg-[#A82F19]/10 hover:text-[#A82F19] hover:pl-4 rounded-xl"
                         >
                           {item.label}
                         </Link>
@@ -333,8 +333,8 @@ export default function SiteHeader() {
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
-                  isActive ? 'text-accent font-bold' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
+                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
                 }`
               }
             >
@@ -345,8 +345,8 @@ export default function SiteHeader() {
             <NavLink
               to="/portfolio"
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
-                  isActive ? 'text-accent font-bold' : 'text-zinc-700 hover:text-accent dark:text-zinc-200'
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
+                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
                 }`
               }
             >
@@ -356,7 +356,7 @@ export default function SiteHeader() {
 
           {/* Right CTA Button */}
           <div className="hidden items-center xl:flex shrink-0">
-            <Button to="/get-a-quote" variant="accent" icon={false} className="!px-4 xl:!px-5 2xl:!px-6 !py-2 xl:!py-2.5 text-xs xl:text-sm font-bold shadow-md shadow-accent/20">
+            <Button to="/get-a-quote" variant="accent" icon={false} className="!px-5 2xl:!px-6 !py-2.5 text-xs xl:text-sm font-extrabold shadow-md shadow-[#A82F19]/20">
               Get a Quote
             </Button>
           </div>

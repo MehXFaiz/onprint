@@ -136,9 +136,9 @@ export default function CorporateGiftsSection({ products, onQuickView }) {
               </h2>
               {/* Unique Dual Accent Underline Bar */}
               <div className="mt-2.5 flex items-center gap-1.5">
-                <span className="h-1.5 w-16 rounded-full bg-gradient-to-r from-accent to-purple-600" />
-                <span className="h-1.5 w-3 rounded-full bg-accent/40" />
-                <span className="h-1.5 w-1.5 rounded-full bg-accent/20" />
+                <span className="h-1.5 w-16 rounded-full bg-[#A82F19]" />
+                <span className="h-1.5 w-3 rounded-full bg-[#A82F19]/40" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#A82F19]/20" />
               </div>
             </div>
           </div>

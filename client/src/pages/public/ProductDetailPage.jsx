@@ -6,6 +6,7 @@ import Button from '../../components/Button'
 import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
 import { getProductBySlug } from '../../services/products'
+import { getProductImage } from '../../assets/productImages'
 
 function OptionGroup({ label, options, selected, onSelect }) {
   if (!options?.length) return null
@@ -116,8 +117,8 @@ export default function ProductDetailPage() {
           <div className="lg:col-span-6">
             <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-xs">
               <div className="aspect-[4/3] overflow-hidden bg-accent-soft/40">
-                {product.images?.[activeImage] ? (
-                  <img src={product.images[activeImage]} alt={product.name} className="h-full w-full object-cover" />
+                {product ? (
+                  <img src={getProductImage(product)} alt={product.name} className="h-full w-full object-cover" />
                 ) : (
                   <div className="flex h-full items-center justify-center p-8 text-center">
                     <Sparkles className="h-12 w-12 text-accent" />
@@ -129,7 +130,7 @@ export default function ProductDetailPage() {
               <div className="mt-4 flex gap-3">
                 {product.images.map((image, index) => (
                   <button
-                    key={image}
+                    key={index}
                     type="button"
                     onClick={() => setActiveImage(index)}
                     aria-label={`Show image ${index + 1}`}
@@ -137,7 +138,7 @@ export default function ProductDetailPage() {
                       activeImage === index ? 'border-accent shadow-xs scale-105' : 'border-border hover:border-primary'
                     }`}
                   >
-                    <img src={image} alt="" className="h-full w-full object-cover" />
+                    <img src={getProductImage(product)} alt="" className="h-full w-full object-cover" />
                   </button>
                 ))}
               </div>

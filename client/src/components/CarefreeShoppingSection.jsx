@@ -30,7 +30,7 @@ export default function CarefreeShoppingSection() {
     <section className="relative overflow-hidden border-t border-border bg-gradient-to-b from-surface via-background to-surface py-20 sm:py-28">
       {/* Studio Background Ambient Glow */}
       <div className="pointer-events-none absolute right-0 top-1/3 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
-      <div className="pointer-events-none absolute left-0 bottom-10 h-80 w-80 rounded-full bg-purple-600/5 blur-3xl" />
+      <div className="pointer-events-none absolute left-0 bottom-10 h-80 w-80 rounded-full bg-accent/5 blur-3xl" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -105,7 +105,7 @@ export default function CarefreeShoppingSection() {
 
               {/* Dual Accent Bar Line */}
               <div className="mt-3 flex items-center gap-1.5 mb-8">
-                <span className="h-1.5 w-20 rounded-full bg-gradient-to-r from-accent to-emerald-600" />
+                <span className="h-1.5 w-20 rounded-full bg-[#A82F19]" />
                 <span className="h-1.5 w-3 rounded-full bg-accent/40" />
                 <span className="h-1.5 w-1.5 rounded-full bg-accent/20" />
               </div>

@@ -197,40 +197,40 @@ function SectionCardGroup({ section, onQuickView }) {
   const visibleItems = section.items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
 
   return (
-    <div className="relative rounded-3xl border border-border/80 bg-surface/90 p-6 sm:p-8 lg:p-10 shadow-sm backdrop-blur-xs transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl">
-      {/* Top Header Section matching the User's Title & Purple Underline Accent Bar */}
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-border/60">
+    <div className="relative rounded-3xl border border-[#A82F19]/20 bg-[#FFFFFF] p-6 sm:p-8 lg:p-10 shadow-sm transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-xl">
+      {/* Top Header Section */}
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-[#000000]/10">
         <div>
           {/* Eyebrow Chip */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-widest text-purple-600 dark:text-purple-400 mb-3">
-            <span className="flex h-2 w-2 rounded-full bg-purple-600 animate-pulse" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19] bg-[#FFFFFF] px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-widest text-[#A82F19] mb-3">
+            <span className="flex h-2 w-2 rounded-full bg-[#A82F19] animate-pulse" />
             <span>SECTION {section.sectionNumber}</span>
-            <span className="text-purple-400/50">•</span>
+            <span className="text-[#A82F19]/50">•</span>
             <span>{section.badge}</span>
           </div>
 
-          {/* Section Main Title with Purple Accent Bar (Honoring User Request with Unique Modern Styling) */}
+          {/* Section Main Title */}
           <div className="relative">
-            <h2 className="font-display text-2xl font-black tracking-tight text-primary sm:text-3xl lg:text-4xl">
+            <h2 className="font-display text-2xl font-black tracking-tight text-[#000000] sm:text-3xl lg:text-4xl">
               {section.title}
             </h2>
             {/* Signature Underline Accent Bar */}
             <div className="mt-3 flex items-center gap-2">
-              <span className="h-1.5 w-20 rounded-full bg-gradient-to-r from-purple-600 via-indigo-500 to-purple-400 shadow-xs" />
-              <span className="h-1.5 w-4 rounded-full bg-purple-400/40" />
-              <span className="h-1.5 w-1.5 rounded-full bg-purple-400/20" />
+              <span className="h-1.5 w-20 rounded-full bg-[#A82F19]" />
+              <span className="h-1.5 w-4 rounded-full bg-[#A82F19]/40" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#A82F19]/20" />
             </div>
           </div>
-          <p className="mt-3 max-w-2xl text-xs sm:text-sm text-secondary leading-relaxed">
+          <p className="mt-3 max-w-2xl text-xs sm:text-sm text-[#000000]/70 leading-relaxed">
             {section.subtitle}
           </p>
         </div>
 
-        {/* Carousel Slider Next/Prev Arrows Controls matching user screenshot controls */}
+        {/* Carousel Slider Next/Prev Arrows Controls */}
         <div className="flex items-center gap-3 shrink-0">
-          <div className="hidden sm:flex items-center gap-1.5 rounded-2xl border border-border/70 bg-background/80 px-3 py-1.5 text-xs font-bold text-secondary">
+          <div className="hidden sm:flex items-center gap-1.5 rounded-2xl border border-[#000000]/20 bg-[#FFFFFF] px-3 py-1.5 text-xs font-bold text-[#000000]">
             <span>{currentPage + 1}</span>
-            <span className="text-border">/</span>
+            <span className="text-[#000000]/30">/</span>
             <span>{totalPages}</span>
           </div>
 
@@ -238,7 +238,7 @@ function SectionCardGroup({ section, onQuickView }) {
             <button
               onClick={handlePrevPage}
               aria-label={`Previous slide for ${section.title}`}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-primary shadow-xs transition-all hover:border-purple-500 hover:bg-purple-500/10 hover:text-purple-600 active:scale-95 cursor-pointer"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#000000] bg-[#FFFFFF] text-[#000000] shadow-xs transition-all hover:border-[#A82F19] hover:bg-[#A82F19] hover:text-[#FFFFFF] active:scale-95 cursor-pointer"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -246,7 +246,7 @@ function SectionCardGroup({ section, onQuickView }) {
             <button
               onClick={handleNextPage}
               aria-label={`Next slide for ${section.title}`}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-purple-600 bg-purple-600 text-white shadow-md shadow-purple-600/20 transition-all hover:bg-purple-700 hover:scale-105 active:scale-95 cursor-pointer"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#A82F19] bg-[#A82F19] text-[#FFFFFF] shadow-md transition-all hover:bg-[#000000] hover:border-[#000000] hover:scale-105 active:scale-95 cursor-pointer"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -254,7 +254,7 @@ function SectionCardGroup({ section, onQuickView }) {
         </div>
       </div>
 
-      {/* Grid of Unique Enhanced Cards */}
+      {/* Grid of Product Cards */}
       <div className="mt-8">
         <AnimatePresence mode="wait">
           <motion.div
@@ -271,10 +271,10 @@ function SectionCardGroup({ section, onQuickView }) {
               return (
                 <div
                   key={item._id || item.slug}
-                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-background shadow-xs transition-all duration-500 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/10"
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] shadow-xs transition-all duration-300 hover:-translate-y-2 hover:border-[#A82F19]/50 hover:shadow-xl"
                 >
-                  {/* Image Container with Studio Lighting Vignette & Sheen */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+                  {/* Image Container */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FFFFFF]">
                     <img
                       src={imageSrc}
                       alt={item.name}
@@ -282,75 +282,76 @@ function SectionCardGroup({ section, onQuickView }) {
                       className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
                     />
 
-                    {/* Gradient Overlay Vignette */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-75 transition-opacity duration-300 group-hover:opacity-60" />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-[#000000]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                     {/* Top Badges Bar */}
                     <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
                       {item.badge ? (
-                        <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-black/70 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md shadow-xs">
-                          <Sparkles className="h-2.5 w-2.5 text-purple-400" />
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[#A82F19] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#FFFFFF] shadow-xs">
+                          <Sparkles className="h-2.5 w-2.5 text-[#FFFFFF]" />
                           {item.badge}
                         </span>
                       ) : <span />}
 
                       {item.tag && (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-purple-600/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-xs backdrop-blur-xs">
-                          <Tag className="h-2.5 w-2.5" />
+                        <span className="inline-flex items-center gap-1 rounded-full border border-[#A82F19] bg-[#FFFFFF] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#A82F19] shadow-xs">
+                          <Tag className="h-2.5 w-2.5 text-[#A82F19]" />
                           {item.tag}
                         </span>
                       )}
                     </div>
 
-                    {/* Unique Frosted Glass Overlay Card Banner at bottom of image (Directly matching screenshot concept, 10/10 UI style) */}
-                    <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-white/30 bg-white/85 dark:bg-neutral-950/85 p-3 backdrop-blur-md shadow-lg transition-all duration-300 group-hover:bg-white/95 dark:group-hover:bg-neutral-950/95 group-hover:border-purple-500/40 z-10">
+                    {/* Card Banner at bottom of image */}
+                    <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-[#000000]/10 bg-[#FFFFFF]/95 p-3 backdrop-blur-md shadow-md transition-all duration-300 group-hover:border-[#A82F19]/40 z-10">
                       <div className="flex items-center justify-between gap-2 text-[10px] font-extrabold">
-                        <span className="uppercase tracking-wider text-purple-600 dark:text-purple-400">
-                          {item.price ? `From AED ${item.price}` : 'Custom Quote'}
+                        <span className="uppercase tracking-wider text-[#A82F19]">
+                          {item.price ? `From AED ` : 'Custom Quote'}
+                          {item.price && <span className="text-[#000000] font-black">{item.price}</span>}
                         </span>
                         {item.minimumQuantity && (
-                          <span className="font-semibold text-secondary">
+                          <span className="font-semibold text-[#000000]/60">
                             Min: {item.minimumQuantity} pcs
                           </span>
                         )}
                       </div>
 
-                      {/* Main Title Text matching user screenshot bold titles */}
-                      <h3 className="font-display mt-1 text-sm font-black tracking-tight text-primary transition-colors group-hover:text-purple-600 dark:group-hover:text-purple-400 line-clamp-1">
+                      {/* Main Title Text */}
+                      <h3 className="font-display mt-1 text-sm font-black tracking-tight text-[#000000] transition-colors group-hover:text-[#A82F19] line-clamp-1">
                         {item.name}
                       </h3>
                     </div>
                   </div>
 
                   {/* Card Content & Action Bar */}
-                  <div className="flex flex-1 flex-col justify-between p-4 sm:p-5 pt-3 bg-background">
+                  <div className="flex flex-1 flex-col justify-between p-4 sm:p-5 pt-3 bg-[#FFFFFF]">
                     <div>
-                      <p className="text-xs text-secondary leading-relaxed line-clamp-2">
+                      <p className="text-xs text-[#000000]/70 leading-relaxed line-clamp-2">
                         {item.shortDescription}
                       </p>
 
                       {item.spec && (
-                        <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-md bg-surface px-2 py-0.5 text-[10px] font-semibold text-secondary border border-border/50">
-                          <Check className="h-3 w-3 text-purple-600" />
+                        <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-md bg-[#FFFFFF] px-2 py-0.5 text-[10px] font-semibold text-[#000000]/80 border border-[#A82F19]/30">
+                          <Check className="h-3 w-3 text-[#A82F19]" />
                           <span>{item.spec}</span>
                         </div>
                       )}
                     </div>
 
-                    <div className="mt-4 flex items-center justify-between border-t border-border/60 pt-3">
+                    <div className="mt-4 flex items-center justify-between border-t border-[#000000]/10 pt-3">
                       <Link
                         to={`/products/${item.slug}`}
-                        className="inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-primary transition-colors group-hover:text-purple-600 cursor-pointer"
+                        className="inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-[#000000] transition-colors hover:text-[#A82F19] group-hover:text-[#A82F19] cursor-pointer"
                       >
                         <span>Order Custom</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-purple-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        <ArrowUpRight className="h-3.5 w-3.5 text-[#A82F19] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </Link>
 
                       {onQuickView && (
                         <button
                           type="button"
                           onClick={() => onQuickView(item)}
-                          className="inline-flex items-center gap-1 rounded-lg border border-border bg-surface px-2.5 py-1 text-[11px] font-bold text-secondary transition-all hover:border-purple-500 hover:text-purple-600 cursor-pointer active:scale-95"
+                          className="inline-flex items-center gap-1 rounded-lg border border-[#000000] bg-[#FFFFFF] px-2.5 py-1 text-[11px] font-bold text-[#000000] transition-all hover:border-[#A82F19] hover:bg-[#A82F19] hover:text-[#FFFFFF] cursor-pointer active:scale-95"
                         >
                           <Eye className="h-3 w-3" />
                           <span>Quick View</span>
@@ -365,7 +366,7 @@ function SectionCardGroup({ section, onQuickView }) {
         </AnimatePresence>
       </div>
 
-      {/* Pagination Carousel Dots matching screenshot dots */}
+      {/* Pagination Carousel Dots */}
       {totalPages > 1 && (
         <div className="mt-8 flex items-center justify-center gap-2">
           {Array.from({ length: totalPages }).map((_, idx) => (
@@ -375,8 +376,8 @@ function SectionCardGroup({ section, onQuickView }) {
               aria-label={`Go to page ${idx + 1} of ${section.title}`}
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 currentPage === idx
-                  ? 'w-8 bg-purple-600'
-                  : 'w-2 bg-border hover:bg-secondary/40'
+                  ? 'w-8 bg-[#A82F19]'
+                  : 'w-2 bg-[#000000]/20 hover:bg-[#000000]/50'
               }`}
             />
           ))}
@@ -388,29 +389,27 @@ function SectionCardGroup({ section, onQuickView }) {
 
 export default function ProductSectionsShowcase({ onQuickView }) {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-gradient-to-b from-background via-surface/50 to-background border-y border-border/70">
-      {/* Decorative Subtle Radial Background Glows */}
-      <div className="pointer-events-none absolute -left-32 top-1/4 h-[500px] w-[500px] rounded-full bg-purple-500/5 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 top-2/3 h-[500px] w-[500px] rounded-full bg-indigo-500/5 blur-3xl" />
-
+    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-[#FFFFFF] border-y border-[#000000]/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Intro Banner */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-purple-600 dark:text-purple-400">
-            <Sparkles className="h-3.5 w-3.5 text-purple-600" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19] bg-[#FFFFFF] px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">
+            <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
             Dubai Premium Print Showcase
           </div>
 
-          <h2 className="font-display text-3xl font-black tracking-tight text-primary sm:text-4xl lg:text-5xl">
-            EXPLORE OUR <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-500 bg-clip-text text-transparent">PRODUCT CATEGORIES</span>
+          <h2 className="font-display text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
+            <span className="text-[#000000]">EXPLORE OUR </span>
+            <span className="text-[#A82F19]">PRODUCT </span>
+            <span className="text-[#000000]">CATEGORIES</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-secondary leading-relaxed">
+          <p className="text-sm sm:text-base text-[#000000]/70 leading-relaxed">
             From high-volume corporate giveaways to executive office stationery and large-format outdoor displays.
           </p>
         </div>
 
-        {/* 3 Main Product Sections Stacked Vertically as shown in user screenshot */}
+        {/* 3 Main Product Sections Stacked Vertically */}
         <div className="space-y-12">
           {homepageSectionsData.map((section) => (
             <SectionCardGroup key={section.id} section={section} onQuickView={onQuickView} />
@@ -418,20 +417,20 @@ export default function ProductSectionsShowcase({ onQuickView }) {
         </div>
 
         {/* Bottom Guarantee Banner */}
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-purple-500/20 bg-purple-500/5 p-6 backdrop-blur-xs">
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#A82F19]/30 bg-[#FFFFFF] p-6 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-purple-600 text-white font-bold">
-              <ShieldCheck className="h-5 w-5" />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#A82F19] text-[#FFFFFF] font-bold">
+              <ShieldCheck className="h-5 w-5 text-[#FFFFFF]" />
             </div>
             <div>
-              <h4 className="font-display text-sm font-extrabold text-primary">Need a custom bulk quantity or unique specification?</h4>
-              <p className="text-xs text-secondary">Our Dubai prepress team provides instant digital proofs and free material sample boxes.</p>
+              <h4 className="font-display text-sm font-extrabold text-[#000000]">Need a custom bulk quantity or unique specification?</h4>
+              <p className="text-xs text-[#000000]/70">Our Dubai prepress team provides instant digital proofs and free material sample boxes.</p>
             </div>
           </div>
 
           <Link
             to="/get-a-quote"
-            className="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-md transition-all hover:bg-purple-700 hover:scale-105 active:scale-95 shrink-0"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#A82F19] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-[#FFFFFF] shadow-md transition-all hover:bg-[#000000] hover:scale-105 active:scale-95 shrink-0"
           >
             <span>Request Custom Quote</span>
             <ArrowUpRight className="h-4 w-4" />

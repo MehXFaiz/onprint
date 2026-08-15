@@ -6,6 +6,7 @@ import Button from '../../components/Button'
 import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
 import { getServiceBySlug } from '../../services/services'
+import { getProductImage } from '../../assets/productImages'
 
 const standardFeatures = [
   'Prepress artwork verification & CMYK bleed check',
@@ -82,9 +83,9 @@ export default function ServiceDetailPage() {
 
           <div className="lg:col-span-5">
             <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-lg">
-              {service.image ? (
+              {service ? (
                 <div className="aspect-[4/3] overflow-hidden bg-accent-soft">
-                  <img src={service.image} alt={service.name} className="h-full w-full object-cover" />
+                  <img src={getProductImage(service)} alt={service.name} className="h-full w-full object-cover" />
                 </div>
               ) : (
                 <div className="flex aspect-[4/3] items-center justify-center bg-accent-soft p-8 text-center">

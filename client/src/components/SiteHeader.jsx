@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { ChevronDown, Menu, Phone, Mail, X } from 'lucide-react'
+import { ChevronDown, Menu, Phone, Mail, X, User, LogOut, LayoutDashboard, ShoppingBag, ShieldCheck } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
 import Button from './Button'
 import Logo from './Logo'
+import { useAuth } from '../context/AuthContext'
+
+
 
 // Custom Clean Social SVG Icons
 function FacebookIcon(props) {
@@ -63,10 +66,13 @@ const otherProductsItems = [
 ]
 
 export default function SiteHeader() {
+  const { user, isAuthenticated, isAdmin, logout } = useAuth()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [mobileExpanded, setMobileExpanded] = useState({})
+
 
   const location = useLocation()
 
@@ -354,12 +360,97 @@ export default function SiteHeader() {
             </NavLink>
           </nav>
 
-          {/* Right CTA Button */}
-          <div className="hidden items-center xl:flex shrink-0">
+          {/* Right CTA & User Account Menu */}
+          <div className="hidden items-center gap-3 xl:flex shrink-0">
+            {isAuthenticated ? (
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setUserMenuOpen((v) => !v)}
+                  className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-bold text-neutral-900 transition-colors hover:border-[#A82F19] hover:bg-white"
+                >
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#A82F19] text-white text-[11px]">
+                    {user?.name?.[0]?.toUpperCase() || 'U'}
+                  </div>
+                  <span className="max-w-[100px] truncate">{user?.name || 'Account'}</span>
+                  <ChevronDown className={`h-3.5 w-3.5 text-neutral-500 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                <AnimatePresence>
+                  {userMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 top-full mt-2 w-56 rounded-2xl border border-neutral-200 bg-white p-2 shadow-2xl z-50"
+                    >
+                      <div className="px-3 py-2 border-b border-neutral-100 mb-1">
+                        <div className="font-bold text-xs text-neutral-900 truncate">{user?.name}</div>
+                        <div className="text-[10px] text-neutral-500 truncate">{user?.email}</div>
+                        <span className="mt-1 inline-block rounded bg-red-50 px-1.5 py-0.5 text-[9px] font-bold uppercase text-[#A82F19]">
+                          {user?.role === 'admin' ? 'Administrator' : 'Corporate Client'}
+                        </span>
+                      </div>
+
+                      {isAdmin && (
+                        <Link
+                          to="/admin"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-[#A82F19] hover:bg-red-50 rounded-xl transition-colors"
+                        >
+                          <ShieldCheck className="h-4 w-4" />
+                          <span>Admin Control Panel</span>
+                        </Link>
+                      )}
+
+                      <Link
+                        to="/account"
+                        onClick={() => setUserMenuOpen(false)}
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors"
+                      >
+                        <LayoutDashboard className="h-4 w-4 text-neutral-500" />
+                        <span>Client Dashboard</span>
+                      </Link>
+
+                      <Link
+                        to="/account/orders"
+                        onClick={() => setUserMenuOpen(false)}
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors"
+                      >
+                        <ShoppingBag className="h-4 w-4 text-neutral-500" />
+                        <span>My Orders</span>
+                      </Link>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setUserMenuOpen(false)
+                          logout()
+                        }}
+                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 rounded-xl transition-colors mt-1 border-t border-neutral-100"
+                      >
+                        <LogOut className="h-4 w-4" />
+                        <span>Sign Out</span>
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="text-xs font-bold text-neutral-900 hover:text-[#A82F19] transition-colors px-2 py-1"
+              >
+                Sign In
+              </Link>
+            )}
+
             <Button to="/get-a-quote" variant="accent" icon={false} className="!px-5 2xl:!px-6 !py-2.5 text-xs xl:text-sm font-extrabold shadow-md shadow-[#A82F19]/20">
               Get a Quote
             </Button>
           </div>
+
 
           {/* Mobile Hamburger Button */}
           <button

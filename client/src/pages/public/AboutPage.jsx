@@ -134,10 +134,8 @@ export default function AboutPage() {
               const renderValueIcon = () => {
                 if (!Icon) return null
                 if (React.isValidElement(Icon)) return Icon
-                if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) {
-                  return <Icon className="h-6 w-6" strokeWidth={1.75} />
-                }
-                return null
+                const IconComp = Icon
+                return <IconComp className="h-6 w-6" strokeWidth={1.75} />
               }
               return (
                 <Reveal key={item.title} delay={index * 0.08}>

@@ -86,10 +86,8 @@ export default function ContactPage() {
               const renderContactIcon = () => {
                 if (!Icon) return null
                 if (React.isValidElement(Icon)) return Icon
-                if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) {
-                  return <Icon className="h-5 w-5" strokeWidth={1.75} />
-                }
-                return null
+                const IconComp = Icon
+                return <IconComp className="h-5 w-5" strokeWidth={1.75} />
               }
               return (
                 <div key={label} className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-6 shadow-xs">

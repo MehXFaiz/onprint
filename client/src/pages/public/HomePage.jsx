@@ -212,10 +212,8 @@ export default function HomePage() {
               const renderBadgeIcon = () => {
                 if (!Icon) return null
                 if (React.isValidElement(Icon)) return Icon
-                if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) {
-                  return <Icon className="h-5 w-5" />
-                }
-                return null
+                const IconComp = Icon
+                return <IconComp className="h-5 w-5" />
               }
               return (
                 <div key={item.label} className="flex items-center justify-center gap-3 text-center sm:justify-start">

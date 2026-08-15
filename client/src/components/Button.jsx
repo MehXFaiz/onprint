@@ -41,7 +41,9 @@ export default function Button({
           strokeWidth={2}
         />
       )
-    } else if (typeof icon === 'function' || typeof icon === 'string' || (typeof icon === 'object' && icon !== null && icon.$$typeof)) {
+    } else if (React.isValidElement(icon)) {
+      iconContent = icon
+    } else if (icon) {
       const CustomIcon = icon
       iconContent = <CustomIcon className="h-4 w-4 shrink-0" />
     }

@@ -25,10 +25,8 @@ export default function CustomerLayout() {
             const renderNavIcon = () => {
               if (!Icon) return null
               if (React.isValidElement(Icon)) return Icon
-              if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) {
-                return <Icon className="h-4 w-4 shrink-0" />
-              }
-              return null
+              const IconComp = Icon
+              return <IconComp className="h-4 w-4 shrink-0" />
             }
             return (
               <NavLink

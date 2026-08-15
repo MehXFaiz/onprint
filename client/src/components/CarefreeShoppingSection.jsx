@@ -121,10 +121,10 @@ export default function CarefreeShoppingSection() {
                       className="group flex items-start gap-4 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-4 sm:p-5 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#A82F19] hover:shadow-md"
                     >
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19] transition-transform group-hover:scale-110">
-                        {Icon && (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) ? (
-                          <Icon className="h-5 w-5" />
-                        ) : React.isValidElement(Icon) ? (
+                        {React.isValidElement(Icon) ? (
                           Icon
+                        ) : Icon ? (
+                          <Icon className="h-5 w-5" />
                         ) : null}
                       </div>
 

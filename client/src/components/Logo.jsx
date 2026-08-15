@@ -21,27 +21,25 @@ export default function Logo({
     imgSrc = isLight ? logoLightImg : logoImg
   }
 
-  // Display size mapping: width controlled via CSS, height: auto strictly preserves aspect ratio.
-  // Display sizes are enlarged per user requirement while source image remains unmodified.
-  const widthMap = {
-    sm: 'w-[100px] sm:w-[120px]',
-    md: 'w-[130px] sm:w-[155px]', // Navbar logo enlarged display size
-    lg: 'w-[180px] sm:w-[220px]',
-    xl: 'w-[240px] sm:w-[280px]',
-    splash: 'w-[280px] sm:w-[360px]',
+  // Compact height mapping: controls logo height so headers and cards remain sleek and uncluttered.
+  const heightMap = {
+    sm: 'h-6 sm:h-7',
+    md: 'h-8 sm:h-9',
+    lg: 'h-10 sm:h-12',
+    xl: 'h-14 sm:h-16',
+    splash: 'h-20 sm:h-24',
   }
 
-  const selectedWidth = widthMap[size] || widthMap.md
+  const selectedHeight = heightMap[size] || heightMap.md
 
   return (
     <div className={`inline-flex items-center shrink-0 select-none ${className}`}>
       <img
         src={imgSrc}
         alt="ONPRINT"
-        className={`onprint-logo ${selectedWidth} h-auto object-contain shrink-0`}
-        style={{ height: 'auto', objectFit: 'contain' }}
+        loading="eager"
+        className={`w-auto ${selectedHeight} object-contain shrink-0`}
       />
     </div>
   )
 }
-

@@ -21,6 +21,9 @@ CREATE TABLE IF NOT EXISTS categories (
   name VARCHAR(255) NOT NULL,
   slug VARCHAR(255) NOT NULL UNIQUE,
   description TEXT DEFAULT NULL,
+  image VARCHAR(500) DEFAULT NULL,
+  status VARCHAR(50) DEFAULT 'active',
+  display_order INT DEFAULT 0,
   active TINYINT(1) DEFAULT 1,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -163,14 +166,14 @@ CREATE TABLE IF NOT EXISTS site_settings (
 
 -- Default Admin User (Password: admin123)
 INSERT INTO users (name, email, password_hash, role, status) VALUES
-('ONPRINT Admin', 'admin@onprint.ae', '$2a$10$wB9V3J9b1Y7z8Yx.L7K0.e6tLz9R8a7b6c5d4e3f2g1h0i9j8k', 'admin', 'active')
+('ONPRINT Admin', 'admin@onprint.ae', '$2b$10$ciuCsCYnbPnRskoS6HtC6O4JinOZXmN4IFjrmJtKemCZyDipxzD66', 'admin', 'active')
 ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 -- Categories
-INSERT INTO categories (id, category_key, name, slug, description, active) VALUES
-(1, 'cat-corporate-gifts', 'Corporate Gift Items', 'corporate-gift-items', 'Premium branded gifts, apparel, mugs, and giveaways designed for businesses and corporate events in Dubai.', 1),
-(2, 'cat-office-stationery', 'Office Stationery Printing', 'office-stationery-printing', 'Executive notebooks, pens, business cards, and letterheads tailored for professional brand correspondence.', 1),
-(3, 'cat-other-products', 'Other Products', 'other-products', 'Large-format roll-ups, outdoor flags, die-cut vinyl stickers, and acrylic executive nameplates.', 1)
+INSERT INTO categories (id, category_key, name, slug, description, image, status, display_order, active) VALUES
+(1, 'cat-corporate-gifts', 'Corporate Gift Items', 'corporate-gift-items', 'Premium branded gifts, apparel, mugs, and giveaways designed for businesses and corporate events in Dubai.', '/assets/products/1 (1).jpg', 'active', 1, 1),
+(2, 'cat-office-stationery', 'Office Stationery Printing', 'office-stationery-printing', 'Executive notebooks, pens, business cards, and letterheads tailored for professional brand correspondence.', '/assets/products/1 (7).jpg', 'active', 2, 1),
+(3, 'cat-other-products', 'Other Products', 'other-products', 'Large-format roll-ups, outdoor flags, die-cut vinyl stickers, and acrylic executive nameplates.', '/assets/products/1 (9).jpg', 'active', 3, 1)
 ON DUPLICATE KEY UPDATE name=VALUES(name), description=VALUES(description);
 
 -- Products
@@ -208,10 +211,10 @@ INSERT INTO product_images (product_id, image_url, display_order) VALUES
 
 -- Services
 INSERT INTO services (id, service_key, category_id, name, slug, short_description, description, image, display_order, active) VALUES
-(1, 'serv-1', 2, 'Digital & Offset Printing', 'digital-offset-printing', 'High-precision digital and high-volume offset printing with Pantone color matching and crisp CMYK clarity.', 'From short-run express marketing collateral to high-volume commercial runs, our offset and digital presses deliver pin-sharp resolution, Pantone color fidelity, and rapid turnarounds in Dubai.', '/assets/products/1 (7).jpg', 1, 1),
-(2, 'serv-2', 1, 'Luxury Packaging & Custom Boxes', 'luxury-packaging-custom-boxes', 'Custom rigid boxes, magnetic gift boxes, folding cartons, and specialty foil-stamped presentation sleeves.', 'Elevate unboxing experiences with custom-engineered rigid gift boxes, velvet interiors, foil debossing, soft-touch laminates, and magnetic closures designed for luxury UAE brands.', '/assets/products/1 (5).jpg', 2, 1),
-(3, 'serv-3', 1, 'Corporate Gift Customization', 'corporate-gift-customization', 'Bespoke corporate merchandise, executive desk sets, thermal flasks, custom mugs, and apparel embroidery.', 'Turn everyday corporate giveaways into premium branded keepsakes. Laser engraving, screen printing, and UV printing on stainless steel flasks, leather items, ceramic mugs, and apparel.', '/assets/products/1 (13).jpg', 3, 1),
-(4, 'serv-4', 3, 'Large Format & Exhibition Signage', 'large-format-exhibition-signage', 'Roll-up banner stands, pop-up backdrops, outdoor teardrop flags, acrylic nameplates, and wall graphics.', 'Make your brand unmissable at trade shows and events. Durable UV-resistant inks, anti-curl PET film roll-ups, acrylic door plates, and high-impact outdoor promotional banners.', '/assets/products/1 (9).jpg', 4, 1),
-(5, 'serv-5', 3, 'Custom Labels & Die-Cut Stickers', 'custom-labels-die-cut-stickers', 'Waterproof vinyl stickers, product packaging labels, gold foil seals, and roll labels.', 'Precision contour-cut stickers and product packaging labels printed on waterproof vinyl, metallic foil, or transparent stock with scratch-resistant matte or gloss UV finish.', '/assets/products/1 (11).jpg', 5, 1),
-(6, 'serv-6', 2, 'Executive Business Stationery', 'executive-business-stationery', 'Premium business cards, cotton letterheads, custom envelopes, and luxury foil presentation folders.', 'Leave a lasting impression with 350gsm–400gsm cotton card stocks, edge painting, gold or silver foil embossing, spot UV varnishing, and custom die-cut corporate folders.', '/assets/products/1 (8).jpg', 6, 1)
+(1, 'serv-1', 2, 'Digital & Offset Printing', 'digital-offset-printing', 'High-precision digital and high-volume offset printing with Pantone color matching and crisp CMYK clarity.', '/assets/products/1 (7).jpg', 1, 1),
+(2, 'serv-2', 1, 'Luxury Packaging & Custom Boxes', 'luxury-packaging-custom-boxes', 'Custom rigid boxes, magnetic gift boxes, folding cartons, and specialty foil-stamped presentation sleeves.', '/assets/products/1 (5).jpg', 2, 1),
+(3, 'serv-3', 1, 'Corporate Gift Customization', 'corporate-gift-customization', 'Bespoke corporate merchandise, executive desk sets, thermal flasks, custom mugs, and apparel embroidery.', '/assets/products/1 (13).jpg', 3, 1),
+(4, 'serv-4', 3, 'Large Format & Exhibition Signage', 'large-format-exhibition-signage', 'Roll-up banner stands, pop-up backdrops, outdoor teardrop flags, acrylic nameplates, and wall graphics.', '/assets/products/1 (9).jpg', 4, 1),
+(5, 'serv-5', 3, 'Custom Labels & Die-Cut Stickers', 'custom-labels-die-cut-stickers', 'Waterproof vinyl stickers, product packaging labels, gold foil seals, and roll labels.', '/assets/products/1 (11).jpg', 5, 1),
+(6, 'serv-6', 2, 'Executive Business Stationery', 'executive-business-stationery', 'Premium business cards, cotton letterheads, custom envelopes, and luxury foil presentation folders.', '/assets/products/1 (8).jpg', 6, 1)
 ON DUPLICATE KEY UPDATE name=VALUES(name);

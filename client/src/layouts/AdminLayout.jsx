@@ -120,8 +120,11 @@ export default function AdminLayout() {
               const renderNavIcon = () => {
                 if (!Icon) return null
                 if (React.isValidElement(Icon)) return Icon
-                const IconComp = Icon
-                return <IconComp className="h-4 w-4 shrink-0" />
+                if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon !== null && Icon.$$typeof)) {
+                  const IconComp = Icon
+                  return <IconComp className="h-4 w-4 shrink-0" />
+                }
+                return null
               }
               return (
                 <NavLink

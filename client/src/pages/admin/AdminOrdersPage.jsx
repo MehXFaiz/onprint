@@ -27,8 +27,11 @@ function StatusBadge({ status }) {
 
   const renderBadgeIcon = () => {
     if (React.isValidElement(Icon)) return Icon
-    const IconComp = Icon || Clock
-    return <IconComp className="h-3 w-3" />
+    if (Icon && (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof))) {
+      const IconComp = Icon
+      return <IconComp className="h-3 w-3" />
+    }
+    return <Clock className="h-3 w-3" />
   }
 
   return (

@@ -15,12 +15,12 @@ const navLinks = [
 ]
 
 const serviceLinks = [
-  { to: '/products?category=Corporate+Gifts', label: 'Corporate Gifts Dubai' },
-  { to: '/products?category=Office+Stationery', label: 'Office Stationery Printing' },
-  { to: '/services/digital-printing', label: 'Digital Press & Offset' },
-  { to: '/services/packaging-service', label: 'Packaging & Custom Boxes' },
-  { to: '/services/labels-stickers', label: 'Labels & Vinyl Stickers' },
-  { to: '/services/promotional-materials-service', label: 'Banners & Rollups' },
+  { to: '/products?category=corporate-gift-items', label: 'Corporate Gifts Dubai' },
+  { to: '/products?category=office-stationery-printing', label: 'Office Stationery Printing' },
+  { to: '/services/digital-offset-printing', label: 'Digital Press & Offset' },
+  { to: '/services/luxury-packaging-custom-boxes', label: 'Packaging & Custom Boxes' },
+  { to: '/services/custom-labels-die-cut-stickers', label: 'Labels & Vinyl Stickers' },
+  { to: '/services/large-format-exhibition-signage', label: 'Banners & Rollups' },
 ]
 
 export default function SiteFooter() {

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import Logo from '../../components/Logo'
-import { Lock, UserCheck, ShieldCheck, ArrowRight } from 'lucide-react'
+import { Lock, ShieldCheck, ArrowRight } from 'lucide-react'
 import { useAuth, DEMO_USERS } from '../../context/AuthContext'
 
 export default function LoginPage() {
@@ -15,8 +15,8 @@ export default function LoginPage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const handleDemoFill = (type) => {
-    const demo = DEMO_USERS.find((u) => u.role === type)
+  const handleDemoFill = () => {
+    const demo = DEMO_USERS.find((u) => u.role === 'admin')
     if (demo) {
       setEmail(demo.email)
       setPassword(demo.password)
@@ -37,12 +37,8 @@ export default function LoginPage() {
 
     setLoading(true)
     try {
-      const loggedUser = await login(email, password)
-      if (loggedUser.role === 'admin') {
-        navigate('/admin')
-      } else {
-        navigate('/account')
-      }
+      await login(email, password)
+      navigate('/admin')
     } catch {
       setError('Invalid email or password.')
     } finally {
@@ -66,7 +62,7 @@ export default function LoginPage() {
               Welcome Back
             </h1>
             <p className="mt-1 text-xs text-neutral-500">
-              Access your print quotes, order tracking, and administrative dashboard.
+              Access your administrative dashboard.
             </p>
           </div>
 
@@ -78,29 +74,17 @@ export default function LoginPage() {
                 Demo Credentials (1-Click Fill)
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-2">
+            <div>
               <button
                 type="button"
-                onClick={() => handleDemoFill('admin')}
-                className="flex items-center justify-between rounded-xl border border-neutral-200 bg-white p-2.5 text-left text-xs font-semibold text-neutral-800 transition-all hover:border-[#A82F19] hover:bg-red-50/30"
+                onClick={handleDemoFill}
+                className="flex w-full items-center justify-between rounded-xl border border-neutral-200 bg-white p-3 text-left text-xs font-semibold text-neutral-800 transition-all hover:border-[#A82F19] hover:bg-red-50/30 cursor-pointer"
               >
                 <div>
                   <div className="font-bold text-neutral-900">Admin Account</div>
                   <div className="text-[10px] text-neutral-500">admin@onprint.ae</div>
                 </div>
-                <ArrowRight className="h-3.5 w-3.5 text-[#A82F19]" />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => handleDemoFill('customer')}
-                className="flex items-center justify-between rounded-xl border border-neutral-200 bg-white p-2.5 text-left text-xs font-semibold text-neutral-800 transition-all hover:border-[#A82F19] hover:bg-red-50/30"
-              >
-                <div>
-                  <div className="font-bold text-neutral-900">Client Account</div>
-                  <div className="text-[10px] text-neutral-500">client@onprint.ae</div>
-                </div>
-                <UserCheck className="h-3.5 w-3.5 text-[#A82F19]" />
+                <ArrowRight className="h-4 w-4 text-[#A82F19]" />
               </button>
             </div>
           </div>
@@ -154,13 +138,6 @@ export default function LoginPage() {
               {loading ? 'Authenticating...' : 'Sign In to Portal'}
             </Button>
           </form>
-
-          <div className="mt-6 text-center text-xs font-medium text-neutral-500 pt-6 border-t border-neutral-100">
-            Don't have an account yet?{' '}
-            <Link to="/register" className="font-bold text-[#A82F19] hover:underline">
-              Create Client Account
-            </Link>
-          </div>
         </div>
       </Container>
     </div>

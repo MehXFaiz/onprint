@@ -1,6 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import PublicLayout from './layouts/PublicLayout'
-import CustomerLayout from './layouts/CustomerLayout'
 import AdminLayout from './layouts/AdminLayout'
 
 import HomePage from './pages/public/HomePage'
@@ -16,14 +15,7 @@ import FaqPage from './pages/public/FaqPage'
 import PrivacyPolicyPage from './pages/public/PrivacyPolicyPage'
 import TermsPage from './pages/public/TermsPage'
 import LoginPage from './pages/public/LoginPage'
-import RegisterPage from './pages/public/RegisterPage'
 import NotFoundPage from './pages/public/NotFoundPage'
-
-import DashboardPage from './pages/customer/DashboardPage'
-import MyQuotesPage from './pages/customer/MyQuotesPage'
-import MyOrdersPage from './pages/customer/MyOrdersPage'
-import OrderDetailPage from './pages/customer/OrderDetailPage'
-import ProfilePage from './pages/customer/ProfilePage'
 
 import AdminLoginPage from './pages/admin/AdminLoginPage'
 import AdminDashboardPage from './pages/admin/AdminDashboardPage'
@@ -54,16 +46,9 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/register" element={<Navigate to="/login" replace />} />
+        <Route path="/account/*" element={<Navigate to="/admin" replace />} />
         <Route path="*" element={<NotFoundPage />} />
-      </Route>
-
-      <Route path="/account" element={<CustomerLayout />}>
-        <Route index element={<DashboardPage />} />
-        <Route path="quotes" element={<MyQuotesPage />} />
-        <Route path="orders" element={<MyOrdersPage />} />
-        <Route path="orders/:id" element={<OrderDetailPage />} />
-        <Route path="profile" element={<ProfilePage />} />
       </Route>
 
       <Route path="/admin/login" element={<AdminLoginPage />} />

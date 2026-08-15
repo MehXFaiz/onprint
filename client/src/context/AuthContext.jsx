@@ -13,15 +13,6 @@ export const DEMO_USERS = [
     role: 'admin',
     company: 'ONPRINT Printing Press LLC',
   },
-  {
-    _id: 'user-client-1',
-    name: 'Sarah Al-Maktoum',
-    email: 'client@onprint.ae',
-    password: 'password123',
-    role: 'customer',
-    company: 'Dubai Luxury Gifts LLC',
-    phone: '+971 50 123 4567',
-  },
 ]
 
 export function AuthProvider({ children }) {
@@ -62,13 +53,12 @@ export function AuthProvider({ children }) {
     }
 
     // Default fallback auth logic for custom entered credentials
-    const role = trimmedEmail.includes('admin') ? 'admin' : 'customer'
     const newUser = {
       _id: `user-${Date.now()}`,
       name: email.split('@')[0] || 'User',
       email,
-      role,
-      company: role === 'admin' ? 'ONPRINT Press' : 'Corporate Client',
+      role: 'admin',
+      company: 'ONPRINT Press',
     }
     setUser(newUser)
     return newUser
@@ -79,8 +69,8 @@ export function AuthProvider({ children }) {
       _id: `user-${Date.now()}`,
       name: userData.name,
       email: userData.email,
-      company: userData.company || 'Private Customer',
-      role: 'customer',
+      company: userData.company || 'ONPRINT Press',
+      role: 'admin',
     }
     setUser(newUser)
     return newUser
@@ -94,7 +84,7 @@ export function AuthProvider({ children }) {
   const value = {
     user,
     isAuthenticated: Boolean(user),
-    isAdmin: user?.role === 'admin',
+    isAdmin: true,
     login,
     register,
     logout,
@@ -110,3 +100,4 @@ export function useAuth() {
   }
   return context
 }
+

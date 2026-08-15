@@ -389,37 +389,17 @@ export default function SiteHeader() {
                         <div className="font-bold text-xs text-neutral-900 truncate">{user?.name}</div>
                         <div className="text-[10px] text-neutral-500 truncate">{user?.email}</div>
                         <span className="mt-1 inline-block rounded bg-red-50 px-1.5 py-0.5 text-[9px] font-bold uppercase text-[#A82F19]">
-                          {user?.role === 'admin' ? 'Administrator' : 'Corporate Client'}
+                          Administrator
                         </span>
                       </div>
 
-                      {isAdmin && (
-                        <Link
-                          to="/admin"
-                          onClick={() => setUserMenuOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-[#A82F19] hover:bg-red-50 rounded-xl transition-colors"
-                        >
-                          <ShieldCheck className="h-4 w-4" />
-                          <span>Admin Control Panel</span>
-                        </Link>
-                      )}
-
                       <Link
-                        to="/account"
+                        to="/admin"
                         onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors"
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-[#A82F19] hover:bg-red-50 rounded-xl transition-colors"
                       >
-                        <LayoutDashboard className="h-4 w-4 text-neutral-500" />
-                        <span>Client Dashboard</span>
-                      </Link>
-
-                      <Link
-                        to="/account/orders"
-                        onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors"
-                      >
-                        <ShoppingBag className="h-4 w-4 text-neutral-500" />
-                        <span>My Orders</span>
+                        <ShieldCheck className="h-4 w-4" />
+                        <span>Admin Control Panel</span>
                       </Link>
 
                       <button
@@ -428,7 +408,7 @@ export default function SiteHeader() {
                           setUserMenuOpen(false)
                           logout()
                         }}
-                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 rounded-xl transition-colors mt-1 border-t border-neutral-100"
+                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 rounded-xl transition-colors mt-1 border-t border-neutral-100 cursor-pointer"
                       >
                         <LogOut className="h-4 w-4" />
                         <span>Sign Out</span>

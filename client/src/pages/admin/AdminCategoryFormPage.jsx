@@ -110,6 +110,11 @@ export default function AdminCategoryFormPage() {
       return
     }
 
+    if (!form.image_url && !form.image) {
+      setError('Category Image is required. Please choose an image file.')
+      return
+    }
+
     try {
       setSubmitting(true)
       const payload = {
@@ -157,7 +162,7 @@ export default function AdminCategoryFormPage() {
 
   const serpTitle = form.seoTitle || (form.name ? `${form.name} | ONPRINT Dubai` : 'Category Title | ONPRINT Dubai')
   const serpDesc = form.seoDescription || (form.description ? form.description : 'High-impact printing and branding solutions manufactured in Dubai, UAE.')
-  const serpUrl = `https://0nprint.com/products?category=${form.slug || 'category-slug'}`
+  const serpUrl = `https://0nprint.com/categories/${form.slug || 'category-slug'}`
 
   return (
     <div className="space-y-6">
@@ -232,7 +237,7 @@ export default function AdminCategoryFormPage() {
                 type="text"
                 value={form.name}
                 onChange={handleNameChange}
-                placeholder="e.g. Corporate Gift Items"
+                placeholder="e.g. Brochures Printing"
                 required
                 className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
               />
@@ -243,12 +248,12 @@ export default function AdminCategoryFormPage() {
                 URL Slug <span className="text-red-500">*</span>
               </label>
               <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-500 focus-within:border-[#A82F19]">
-                <span className="text-neutral-400">/products?category=</span>
+                <span className="text-neutral-400">/categories/</span>
                 <input
                   type="text"
                   value={form.slug}
                   onChange={handleSlugChange}
-                  placeholder="corporate-gift-items"
+                  placeholder="brochures-printing"
                   required
                   className="w-full bg-transparent pl-1 font-semibold text-neutral-900 focus:outline-none"
                 />

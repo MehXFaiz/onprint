@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import Logo from '../../components/Logo'
-import { Lock } from 'lucide-react'
+import { Lock, ShieldCheck, ArrowRight } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
 
 export default function LoginPage() {
@@ -14,6 +14,12 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+
+  const handleFillAdmin = () => {
+    setEmail('admin@onprint.ae')
+    setPassword('admin123')
+    setError('')
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -58,11 +64,32 @@ export default function LoginPage() {
               Welcome Back
             </h1>
             <p className="mt-1 text-xs text-neutral-500">
-              Sign in to your ONPRINT account.
+              Sign in to your ONPRINT account or administrative portal.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-4">
+          {/* Quick Demo Credentials Assistant */}
+          <div className="mt-6 rounded-2xl border border-neutral-200 bg-neutral-50 p-3.5">
+            <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-neutral-700 mb-2">
+              <span className="flex items-center gap-1">
+                <ShieldCheck className="h-3.5 w-3.5 text-[#A82F19]" />
+                Admin Credentials (1-Click Fill)
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={handleFillAdmin}
+              className="flex w-full items-center justify-between rounded-xl border border-neutral-200 bg-white p-2.5 text-left text-xs font-semibold text-neutral-800 transition-all hover:border-[#A82F19] hover:bg-red-50/30 cursor-pointer"
+            >
+              <div>
+                <div className="font-bold text-neutral-900">admin@onprint.ae</div>
+                <div className="text-[10px] text-neutral-500">Password: admin123</div>
+              </div>
+              <ArrowRight className="h-4 w-4 text-[#A82F19]" />
+            </button>
+          </div>
+
+          <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-4">
             {error && (
               <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs font-semibold text-red-700">
                 {error}

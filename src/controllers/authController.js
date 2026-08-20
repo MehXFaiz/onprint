@@ -55,6 +55,7 @@ async function register(req, res, next) {
         email: cleanEmail,
         phone: phone || null,
         role: 'customer',
+        status: 'active',
       },
     })
   } catch (err) {
@@ -71,6 +72,9 @@ async function login(req, res, next) {
     }
 
     const cleanEmail = email.toLowerCase().trim()
+    const configuredAdminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()
+    const configuredAdminPass = process.env.ADMIN_PASSWORD || 'admin123'
+
     let users = []
     let dbAvailable = true
 
@@ -97,7 +101,7 @@ async function login(req, res, next) {
       try {
         await pool.execute('UPDATE users SET last_login_at = NOW() WHERE id = ?', [user.id])
       } catch {
-        // ignore log error
+        // ignore update error
       }
 
       const token = jwt.sign(
@@ -120,21 +124,21 @@ async function login(req, res, next) {
       })
     }
 
-    // Admin account validation fallback if DB is not connected/seeded yet
-    if (cleanEmail === 'admin@onprint.ae' && password === 'admin123') {
+    // Default configured admin login fallback (if database is still initializing or offline)
+    if (cleanEmail === configuredAdminEmail && password === configuredAdminPass) {
       const token = jwt.sign(
-        { id: 1, email: cleanEmail, role: 'admin', name: 'ONPRINT Admin' },
+        { id: 1, email: cleanEmail, role: 'admin', name: process.env.ADMIN_NAME || 'ONPRINT Admin' },
         JWT_SECRET,
-        { expiresIn: '7d' }
+        { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
       )
       return res.json({
         success: true,
         token,
         user: {
           id: 1,
-          name: 'ONPRINT Admin',
+          name: process.env.ADMIN_NAME || 'ONPRINT Admin',
           email: cleanEmail,
-          phone: '+971 4 800 PRINT',
+          phone: process.env.ADMIN_PHONE || '+971 4 800 PRINT',
           role: 'admin',
           status: 'active',
         },
@@ -162,7 +166,7 @@ async function getMe(req, res, next) {
         })
       }
     } catch {
-      // Fallback
+      // fallback
     }
 
     res.json({
@@ -172,6 +176,7 @@ async function getMe(req, res, next) {
         name: req.user.name || 'ONPRINT Admin',
         email: req.user.email || 'admin@onprint.ae',
         role: req.user.role || 'admin',
+        status: 'active',
       },
     })
   } catch (err) {

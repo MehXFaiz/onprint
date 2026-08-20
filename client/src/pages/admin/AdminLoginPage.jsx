@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Logo from '../../components/Logo'
 import Button from '../../components/Button'
-import { ShieldCheck, ArrowLeft } from 'lucide-react'
+import { ShieldCheck, ArrowLeft, ArrowRight } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
 
 export default function AdminLoginPage() {
@@ -13,6 +13,12 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+
+  const handleFillAdmin = () => {
+    setEmail('admin@onprint.ae')
+    setPassword('admin123')
+    setError('')
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -52,7 +58,28 @@ export default function AdminLoginPage() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+        {/* Quick Demo Credentials Assistant */}
+        <div className="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/60 p-3.5">
+          <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">
+            <span className="flex items-center gap-1">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#A82F19]" />
+              Default Admin (1-Click Fill)
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={handleFillAdmin}
+            className="flex w-full items-center justify-between rounded-xl border border-neutral-800 bg-neutral-950 p-2.5 text-left text-xs font-semibold text-neutral-200 transition-all hover:border-[#A82F19] hover:bg-neutral-900 cursor-pointer"
+          >
+            <div>
+              <div className="font-bold text-white">admin@onprint.ae</div>
+              <div className="text-[10px] text-neutral-400">Password: admin123</div>
+            </div>
+            <ArrowRight className="h-4 w-4 text-[#A82F19]" />
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           {error && (
             <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-xs font-semibold text-red-400">
               {error}

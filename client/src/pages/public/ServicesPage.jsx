@@ -8,12 +8,15 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { Sparkles } from 'lucide-react'
 import { getServices } from '../../services/services'
+import { trackViewServices } from '../../utils/analytics'
 
 export default function ServicesPage() {
   const [services, setServices] = useState(null)
   const [error, setError] = useState(false)
 
   useEffect(() => {
+    trackViewServices({ service_name: 'All Services', service_slug: 'services' })
+
     getServices()
       .then(setServices)
       .catch(() => setError(true))

@@ -69,19 +69,39 @@ async function getSitemapXml(req, res) {
     })
 
     // 2. Dynamic Categories
+    urls.push({
+      loc: `${SITE_URL}/categories`,
+      lastmod: now,
+      changefreq: 'weekly',
+      priority: '0.9',
+    })
+
     try {
       const [cats] = await pool.execute('SELECT slug, updated_at FROM categories WHERE active = 1')
       if (cats.length > 0) {
         cats.forEach((c) => {
+          const mod = c.updated_at ? new Date(c.updated_at).toISOString().split('T')[0] : now
+          urls.push({
+            loc: `${SITE_URL}/categories/${c.slug}`,
+            lastmod: mod,
+            changefreq: 'weekly',
+            priority: '0.85',
+          })
           urls.push({
             loc: `${SITE_URL}/products?category=${c.slug}`,
-            lastmod: c.updated_at ? new Date(c.updated_at).toISOString().split('T')[0] : now,
+            lastmod: mod,
             changefreq: 'weekly',
             priority: '0.8',
           })
         })
       } else {
         fallbackCategories.forEach((c) => {
+          urls.push({
+            loc: `${SITE_URL}/categories/${c.slug}`,
+            lastmod: now,
+            changefreq: 'weekly',
+            priority: '0.85',
+          })
           urls.push({
             loc: `${SITE_URL}/products?category=${c.slug}`,
             lastmod: now,
@@ -92,6 +112,12 @@ async function getSitemapXml(req, res) {
       }
     } catch {
       fallbackCategories.forEach((c) => {
+        urls.push({
+          loc: `${SITE_URL}/categories/${c.slug}`,
+          lastmod: now,
+          changefreq: 'weekly',
+          priority: '0.85',
+        })
         urls.push({
           loc: `${SITE_URL}/products?category=${c.slug}`,
           lastmod: now,

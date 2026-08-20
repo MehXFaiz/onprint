@@ -3,6 +3,7 @@ import Container from './Container'
 import { CmykDots } from './PrintMarks'
 import Logo from './Logo'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { trackGetQuoteClick } from '../utils/analytics'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -109,7 +110,11 @@ export default function SiteFooter() {
             <Link to="/terms" className="hover:text-[#FFFFFF] hover:underline">
               Terms &amp; Conditions
             </Link>
-            <Link to="/get-a-quote" className="text-[#A82F19] hover:underline font-bold">
+            <Link
+              to="/get-a-quote"
+              className="text-[#A82F19] hover:underline font-bold"
+              onClick={() => trackGetQuoteClick({ source_page: 'footer' })}
+            >
               Request Quote
             </Link>
           </div>

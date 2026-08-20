@@ -9,6 +9,7 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { getProductBySlug } from '../../services/products'
 import { getProductImage } from '../../assets/productImages'
+import { trackViewProduct, trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
 
 function OptionGroup({ label, options, selected, onSelect }) {
   if (!options?.length) return null
@@ -61,6 +62,12 @@ export default function ProductDetailPage() {
         setFinish(data.specifications?.finishes?.[0] || null)
         setActiveImage(0)
         setStatus('ready')
+
+        trackViewProduct({
+          product_name: data.name,
+          product_id: data._id || data.slug,
+          category_name: data.category?.name || 'General Printing',
+        })
       })
       .catch(() => setStatus('error'))
   }, [slug])
@@ -87,6 +94,12 @@ export default function ProductDetailPage() {
   }
 
   function handleRequestQuote() {
+    trackGetQuoteClick({
+      source_page: 'product_detail',
+      product_name: product.name,
+      category_name: product.category?.name,
+    })
+
     navigate('/get-a-quote', {
       state: {
         product: product.name,
@@ -292,7 +305,16 @@ export default function ProductDetailPage() {
                 <Button onClick={handleRequestQuote} variant="accent" size="lg" className="w-full justify-center sm:w-auto">
                   Request Quote for {product.name}
                 </Button>
-                <Button to="/contact" variant="secondary" size="lg" className="w-full justify-center sm:w-auto">
+                <Button
+                  to="/contact"
+                  variant="secondary"
+                  size="lg"
+                  className="w-full justify-center sm:w-auto"
+                  onClick={() => trackProductInquiry({
+                    source_page: 'product_detail',
+                    product_name: product.name,
+                  })}
+                >
                   Inquire Custom Specs
                 </Button>
               </div>

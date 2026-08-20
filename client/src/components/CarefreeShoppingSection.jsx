@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ShieldCheck, Truck, BadgePercent, ArrowRight, PhoneCall, Sparkles, CheckCircle2, MessageCircle } from 'lucide-react'
 import { CornerMarks } from './PrintMarks'
 import flagImg from '../assets/products/1 (10).jpg'
+import { trackGetQuoteClick, trackProductInquiry } from '../utils/analytics'
 
 const features = [
   {
@@ -151,6 +152,7 @@ export default function CarefreeShoppingSection() {
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#A82F19] px-7 py-4 text-xs font-black uppercase tracking-wider text-[#FFFFFF] shadow-lg shadow-[#A82F19]/25 transition-all hover:bg-[#8f2513] hover:scale-[1.02] cursor-pointer active:scale-95 sm:text-sm"
+                  onClick={() => trackProductInquiry({ source_page: 'carefree_shopping_section' })}
                 >
                   <span>Contact Sales Now</span>
                   <ArrowRight className="h-4 w-4" />
@@ -159,6 +161,7 @@ export default function CarefreeShoppingSection() {
                 <Link
                   to="/get-a-quote"
                   className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#000000] bg-[#FFFFFF] px-6 py-4 text-xs font-extrabold uppercase tracking-wider text-[#000000] shadow-xs transition-all hover:border-[#A82F19] hover:text-[#A82F19] cursor-pointer active:scale-95 sm:text-sm"
+                  onClick={() => trackGetQuoteClick({ source_page: 'carefree_shopping_section' })}
                 >
                   <MessageCircle className="h-4 w-4 text-[#A82F19]" />
                   <span>Get Instant Quote</span>

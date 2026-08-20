@@ -8,6 +8,16 @@ export default defineConfig({
   server: {
     host: true,
     port: 5173,
+    proxy: {
+      '/uploads': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
+    },
   },
   build: {
     // built to the repo-root dist/, which the production server serves directly

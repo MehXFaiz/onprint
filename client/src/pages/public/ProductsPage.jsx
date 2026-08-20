@@ -12,6 +12,7 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { getProducts } from '../../services/products'
 import { getCategories } from '../../services/categories'
+import { trackViewCategory, trackSearch } from '../../utils/analytics'
 
 const categoryMeta = {
   'corporate-gift-items': {
@@ -68,6 +69,32 @@ export default function ProductsPage() {
         setLoading(false)
       })
   }, [])
+
+  // Track Category View Event
+  useEffect(() => {
+    if (categoryParam) {
+      const catObj = categories.find((c) => c.slug === categoryParam || c._id === categoryParam)
+      const catName = catObj?.name || categoryMeta[categoryParam]?.heading || categoryParam
+      trackViewCategory({
+        category_name: catName,
+        category_slug: categoryParam,
+      })
+    } else {
+      trackViewCategory({
+        category_name: 'All Products',
+        category_slug: 'all',
+      })
+    }
+  }, [categoryParam, categories])
+
+  // Track Search Queries (Debounced 600ms)
+  useEffect(() => {
+    if (!searchQuery || searchQuery.trim().length < 2) return
+    const timer = setTimeout(() => {
+      trackSearch({ search_term: searchQuery.trim() })
+    }, 600)
+    return () => clearTimeout(timer)
+  }, [searchQuery])
 
   function handleCategoryChange(slug) {
     setSearchParams(slug ? { category: slug } : {})

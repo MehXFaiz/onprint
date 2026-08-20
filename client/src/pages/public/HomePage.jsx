@@ -17,6 +17,7 @@ import SEOHead from '../../components/SEOHead'
 import { CornerMarks } from '../../components/PrintMarks'
 import { getServices } from '../../services/services'
 import { getProducts } from '../../services/products'
+import { trackViewHomepage, trackGetQuoteClick } from '../../utils/analytics'
 
 const trustBadges = [
   { label: 'Precision Offset & Digital Print', icon: ShieldCheck },
@@ -92,6 +93,8 @@ export default function HomePage() {
   const [quickViewProduct, setQuickViewProduct] = useState(null)
 
   useEffect(() => {
+    trackViewHomepage()
+
     getServices()
       .then((data) => setServices(data.slice(0, 6)))
       .catch(() => setServices([]))
@@ -137,7 +140,13 @@ export default function HomePage() {
 
             <Reveal delay={0.3}>
               <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
-                <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#A82F19]/25">
+                <Button
+                  to="/get-a-quote"
+                  variant="accent"
+                  size="lg"
+                  className="shadow-lg shadow-[#A82F19]/25"
+                  onClick={() => trackGetQuoteClick({ source_page: 'homepage_hero' })}
+                >
                   Request a Custom Quote
                 </Button>
                 <Button to="/products" variant="secondary" size="lg" className="border-[#000000] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19]">
@@ -498,7 +507,13 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#A82F19]/30">
+            <Button
+              to="/get-a-quote"
+              variant="accent"
+              size="lg"
+              className="shadow-lg shadow-[#A82F19]/30"
+              onClick={() => trackGetQuoteClick({ source_page: 'homepage_bottom_cta' })}
+            >
               Request a Custom Quote
             </Button>
             <Button to="/contact" variant="outline" size="lg" className="border-[#FFFFFF]/30 text-[#FFFFFF] hover:bg-[#FFFFFF]/10 hover:border-[#FFFFFF]">

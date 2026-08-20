@@ -7,6 +7,7 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { getProductBySlug } from '../../services/products'
 import { getCategories } from '../../services/categories'
+import { trackQuoteRequest } from '../../utils/analytics'
 
 const steps = ['What You Need', 'Project Details', 'Artwork', 'Contact Details', 'Review & Submit']
 
@@ -168,6 +169,11 @@ export default function GetQuotePage() {
   }
 
   function handleSubmit() {
+    trackQuoteRequest({
+      source_page: 'get_quote_wizard',
+      product_name: form.product || undefined,
+      category_name: form.product || undefined,
+    })
     setSubmitted(true)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }

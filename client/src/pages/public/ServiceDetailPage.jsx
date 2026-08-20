@@ -9,6 +9,7 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { getServiceBySlug } from '../../services/services'
 import { getProductImage } from '../../assets/productImages'
+import { trackViewServices, trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
 
 const standardFeatures = [
   'Prepress artwork verification & CMYK bleed check',
@@ -40,6 +41,7 @@ export default function ServiceDetailPage() {
       .then((data) => {
         setService(data)
         setStatus('ready')
+        trackViewServices({ service_name: data.name, service_slug: data.slug })
       })
       .catch(() => setStatus('error'))
   }, [slug])
@@ -111,10 +113,20 @@ export default function ServiceDetailPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button to="/get-a-quote" variant="accent" size="lg">
+              <Button
+                to="/get-a-quote"
+                variant="accent"
+                size="lg"
+                onClick={() => trackGetQuoteClick({ source_page: 'service_detail', product_name: service.name })}
+              >
                 Request Quote for {service.name}
               </Button>
-              <Button to="/contact" variant="secondary" size="lg">
+              <Button
+                to="/contact"
+                variant="secondary"
+                size="lg"
+                onClick={() => trackProductInquiry({ source_page: 'service_detail', service_name: service.name })}
+              >
                 Inquire With Studio
               </Button>
             </div>

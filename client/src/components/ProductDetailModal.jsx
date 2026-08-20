@@ -4,8 +4,19 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Package, Tag } from 'lucide-react'
 import Button from './Button'
 import { getProductImage } from '../assets/productImages'
+import { trackViewProduct, trackGetQuoteClick } from '../utils/analytics'
 
 export default function ProductDetailModal({ product, onClose }) {
+  useEffect(() => {
+    if (product) {
+      trackViewProduct({
+        product_name: product.name,
+        product_id: product._id || product.slug,
+        category_name: product.category?.name || 'ONPRINT Product',
+      })
+    }
+  }, [product])
+
   useEffect(() => {
     function handleKeyDown(e) {
       if (e.key === 'Escape') {
@@ -142,6 +153,14 @@ export default function ProductDetailModal({ product, onClose }) {
                   variant="accent"
                   size="md"
                   className="w-full justify-center text-sm font-bold shadow-md shadow-accent/20"
+                  onClick={() => {
+                    trackGetQuoteClick({
+                      source_page: 'product_quick_view_modal',
+                      product_name: product.name,
+                      category_name: categoryName,
+                    })
+                    onClose()
+                  }}
                 >
                   Request Quote for Product
                 </Button>

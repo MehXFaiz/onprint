@@ -4,6 +4,7 @@ import Container from '../../components/Container'
 import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
+import { trackContactFormSubmit } from '../../utils/analytics'
 
 const contactDetails = [
   { icon: Phone, label: 'Phone / WhatsApp', value: '+971 4 800 PRINT', href: 'tel:+9714800PRINT' },
@@ -40,6 +41,7 @@ export default function ContactPage() {
     const nextErrors = validate(values)
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length === 0) {
+      trackContactFormSubmit({ source_page: 'contact_page' })
       setSubmitted(true)
     }
   }

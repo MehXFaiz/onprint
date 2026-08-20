@@ -188,6 +188,165 @@ const seedBlogArticles = [
   },
 ]
 
+const seedCategoriesList = [
+  {
+    category_key: 'cat-brochures-printing',
+    name: 'Brochures Printing',
+    slug: 'brochures-printing',
+    description: 'Premium corporate bi-fold, tri-fold, and multi-page marketing brochures printed on luxury coated art paper with precision folding and finishing.',
+    image: '/uploads/categories/brochures-printing.jpg',
+    image_url: '/uploads/categories/brochures-printing.jpg',
+    status: 'active',
+    display_order: 1,
+    active: 1,
+    seo_title: 'Brochures Printing in Dubai | Premium Brochure Printing | ONPRINT',
+    seo_description: 'Professional brochure printing in Dubai. Custom bi-fold, tri-fold, and multi-page brochures with soft-touch matte lamination and fast turnaround.',
+    seo_keywords: 'brochures printing dubai, brochure printing dubai, corporate brochures uae, custom bi fold brochures',
+    seo_heading: 'Commercial Brochure Printing in Dubai',
+    canonical_url: 'https://0nprint.com/categories/brochures-printing',
+    image_alt: 'Professional commercial printed brochures in Dubai',
+  },
+  {
+    category_key: 'cat-business-cards-printing',
+    name: 'Business Cards Printing',
+    slug: 'business-cards-printing',
+    description: 'Executive 350gsm to 600gsm cotton and silk business cards with soft-touch velvet lamination, metallic gold foil stamping, and painted edges.',
+    image: '/uploads/categories/business-cards-printing.jpg',
+    image_url: '/uploads/categories/business-cards-printing.jpg',
+    status: 'active',
+    display_order: 2,
+    active: 1,
+    seo_title: 'Business Card Printing in Dubai | Luxury Business Cards | ONPRINT',
+    seo_description: 'Make an undeniable first impression with luxury business cards in Dubai. 350gsm–600gsm cotton stocks, gold foil stamping, and spot UV varnishing.',
+    seo_keywords: 'business cards printing dubai, luxury business cards dubai, executive visiting cards uae',
+    seo_heading: 'Luxury Executive Business Card Printing in Dubai',
+    canonical_url: 'https://0nprint.com/categories/business-cards-printing',
+    image_alt: 'Luxury gold foil executive business cards in Dubai',
+  },
+  {
+    category_key: 'cat-flyers-printing-in-dubai',
+    name: 'Flyers Printing In Dubai',
+    slug: 'flyers-printing-in-dubai',
+    description: 'High-impact commercial marketing flyers printed on 170gsm–300gsm gloss or matte art paper with vibrant CMYK Pantone color fidelity.',
+    image: '/uploads/categories/flyers-printing-in-dubai.jpg',
+    image_url: '/uploads/categories/flyers-printing-in-dubai.jpg',
+    status: 'active',
+    display_order: 3,
+    active: 1,
+    seo_title: 'Flyer Printing in Dubai | Same Day Marketing Flyer Printing | ONPRINT',
+    seo_description: 'Order custom marketing flyer printing in Dubai. Single and double-sided promo flyers on premium art paper with express same-day delivery.',
+    seo_keywords: 'flyers printing in dubai, flyer printing dubai, promotional flyers uae, marketing leaflets dubai',
+    seo_heading: 'High-Impact Marketing Flyer Printing in Dubai',
+    canonical_url: 'https://0nprint.com/categories/flyers-printing-in-dubai',
+    image_alt: 'Full color commercial marketing flyers printed in Dubai',
+  },
+  {
+    category_key: 'cat-id-card-printing-dubai',
+    name: 'ID Card Printing Dubai',
+    slug: 'id-card-printing-dubai',
+    description: 'Secure CR80 standard PVC employee identity cards with high-definition thermal printing, smart chips, magnetic strips, and barcodes.',
+    image: '/uploads/categories/id-card-printing-dubai.jpg',
+    image_url: '/uploads/categories/id-card-printing-dubai.jpg',
+    status: 'active',
+    display_order: 4,
+    active: 1,
+    seo_title: 'ID Card Printing Dubai | Corporate Employee & PVC Cards | ONPRINT',
+    seo_description: 'High-security corporate PVC ID card printing in Dubai. Crisp photo resolution, smart NFC chips, barcodes, and custom lanyards for UAE businesses.',
+    seo_keywords: 'id card printing dubai, pvc id cards dubai, corporate employee badges uae, student id card printing',
+    seo_heading: 'Corporate PVC ID Card Printing Solutions Dubai',
+    canonical_url: 'https://0nprint.com/categories/id-card-printing-dubai',
+    image_alt: 'Corporate employee PVC identity cards with chips in Dubai',
+  },
+  {
+    category_key: 'cat-lanyard-printing-dubai',
+    name: 'Lanyard Printing Dubai',
+    slug: 'lanyard-printing-dubai',
+    description: 'Custom branded satin and woven polyester neck lanyards with screen printing, safety breakaway clips, and heavy-duty metal swivel hooks.',
+    image: '/uploads/categories/lanyard-printing-dubai.jpg',
+    image_url: '/uploads/categories/lanyard-printing-dubai.jpg',
+    status: 'active',
+    display_order: 5,
+    active: 1,
+    seo_title: 'Lanyard Printing Dubai | Custom Branded Neck Lanyards | ONPRINT',
+    seo_description: 'Custom branded neck lanyard printing in Dubai. High-density polyester and satin lanyards with safety buckles and swivel hooks for corporate events.',
+    seo_keywords: 'lanyard printing dubai, custom lanyards dubai, branded neck straps uae, event lanyards dubai',
+    seo_heading: 'Custom Branded Neck Lanyard Printing in Dubai',
+    canonical_url: 'https://0nprint.com/categories/lanyard-printing-dubai',
+    image_alt: 'Custom branded corporate neck lanyards in Dubai',
+  },
+  {
+    category_key: 'cat-letterheads-printing-dubai',
+    name: 'Letterheads Printing Dubai',
+    slug: 'letterheads-printing-dubai',
+    description: 'Executive 120gsm smooth uncoated white letterheads and official corporate stationery printed with crisp full-color CMYK laser compatibility.',
+    image: '/uploads/categories/letterheads-printing-dubai.jpg',
+    image_url: '/uploads/categories/letterheads-printing-dubai.jpg',
+    status: 'active',
+    display_order: 6,
+    active: 1,
+    seo_title: 'Letterhead Printing in Dubai | Official Corporate Stationery | ONPRINT',
+    seo_description: 'Executive corporate letterhead printing in Dubai. 120gsm smooth laser-guaranteed paper for official contracts, proposals, and invoices.',
+    seo_keywords: 'letterheads printing dubai, letterhead printing dubai, corporate stationery uae, official letterhead paper',
+    seo_heading: 'Executive Corporate Letterhead Printing in Dubai',
+    canonical_url: 'https://0nprint.com/categories/letterheads-printing-dubai',
+    image_alt: 'Executive corporate stationery letterhead and envelope in Dubai',
+  },
+  {
+    category_key: 'cat-name-badges-printing-dubai',
+    name: 'Name Badges Printing Dubai',
+    slug: 'name-badges-printing-dubai',
+    description: 'Laser-cut brushed metal and acrylic employee name badges with magnetic backings, clear domed epoxy coatings, and scratch-resistant finishes.',
+    image: '/uploads/categories/name-badges-printing-dubai.jpg',
+    image_url: '/uploads/categories/name-badges-printing-dubai.jpg',
+    status: 'active',
+    display_order: 7,
+    active: 1,
+    seo_title: 'Name Badges Printing Dubai | Magnetic Metal & Acrylic Badges | ONPRINT',
+    seo_description: 'Professional staff name badges printing in Dubai. Brushed silver, gold, and acrylic magnetic badges with domed epoxy resin for corporate teams.',
+    seo_keywords: 'name badges printing dubai, magnetic name badges dubai, staff badge printing uae, acrylic name tag printing',
+    seo_heading: 'Professional Magnetic Name Badges Printing Dubai',
+    canonical_url: 'https://0nprint.com/categories/name-badges-printing-dubai',
+    image_alt: 'Professional magnetic metal and acrylic name badges in Dubai',
+  },
+]
+
+async function seedCategoriesIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM categories')
+    if (rows[0].count === 0) {
+      console.log('[Categories] Seeding initial high-quality Dubai printing categories in MySQL...')
+      for (const cat of seedCategoriesList) {
+        await connection.query(
+          `INSERT INTO categories 
+           (category_key, name, slug, description, image, image_url, status, display_order, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+           ON DUPLICATE KEY UPDATE name=VALUES(name), image_url=VALUES(image_url), image=VALUES(image)`,
+          [
+            cat.category_key,
+            cat.name,
+            cat.slug,
+            cat.description,
+            cat.image,
+            cat.image_url,
+            cat.status,
+            cat.display_order,
+            cat.active,
+            cat.seo_title,
+            cat.seo_description,
+            cat.seo_keywords,
+            cat.seo_heading,
+            cat.canonical_url,
+            cat.image_alt,
+          ]
+        )
+      }
+      console.log('[Categories] Seeded 7 professional printing categories successfully.')
+    }
+  } catch (err) {
+    console.warn('[Categories Seed Check Note]:', err.message)
+  }
+}
+
 async function seedBlogPostsIfEmpty(connection) {
   try {
     const [rows] = await connection.query('SELECT COUNT(*) AS count FROM blog_posts')
@@ -268,6 +427,9 @@ async function initDatabase() {
     await addColumnIfMissing(connection, 'categories', 'seo_heading', 'VARCHAR(255) DEFAULT NULL')
     await addColumnIfMissing(connection, 'categories', 'canonical_url', 'VARCHAR(500) DEFAULT NULL')
     await addColumnIfMissing(connection, 'categories', 'image_alt', 'VARCHAR(255) DEFAULT NULL')
+
+    // Seed categories if empty
+    await seedCategoriesIfEmpty(connection)
 
     // 3. Products Table
     await connection.query(`
@@ -489,4 +651,5 @@ module.exports = {
   testConnection,
   initDatabase,
   seedBlogArticles,
+  seedCategoriesList,
 }

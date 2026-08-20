@@ -6,6 +6,7 @@ import Container from './Container'
 import Button from './Button'
 import Logo from './Logo'
 import { useAuth } from '../context/AuthContext'
+import { trackGetQuoteClick } from '../utils/analytics'
 
 
 
@@ -356,7 +357,13 @@ export default function SiteHeader() {
               </div>
             ) : null}
 
-            <Button to="/get-a-quote" variant="accent" icon={false} className="!px-5 2xl:!px-6 !py-2.5 text-xs xl:text-sm font-extrabold shadow-md shadow-[#A82F19]/20">
+            <Button
+              to="/get-a-quote"
+              variant="accent"
+              icon={false}
+              className="!px-5 2xl:!px-6 !py-2.5 text-xs xl:text-sm font-extrabold shadow-md shadow-[#A82F19]/20"
+              onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
+            >
               Get a Quote
             </Button>
           </div>
@@ -462,7 +469,16 @@ export default function SiteHeader() {
               </NavLink>
 
               <div className="mt-4 pt-4 border-t border-border">
-                <Button to="/get-a-quote" variant="accent" icon={false} className="w-full justify-center">
+                <Button
+                  to="/get-a-quote"
+                  variant="accent"
+                  icon={false}
+                  className="w-full justify-center"
+                  onClick={() => {
+                    setMenuOpen(false)
+                    trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
+                  }}
+                >
                   Get a Quote
                 </Button>
               </div>

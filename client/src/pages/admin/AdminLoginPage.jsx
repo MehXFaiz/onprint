@@ -4,6 +4,7 @@ import Logo from '../../components/Logo'
 import Button from '../../components/Button'
 import { ShieldCheck, ArrowLeft, ArrowRight } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
+import { trackAdminLogin } from '../../utils/analytics'
 
 export default function AdminLoginPage() {
   const navigate = useNavigate()
@@ -28,6 +29,7 @@ export default function AdminLoginPage() {
     try {
       const loggedUser = await login(email, password)
       if (loggedUser && (loggedUser.role === 'admin' || loggedUser.role === 'ADMINISTRATOR')) {
+        trackAdminLogin({ success: true })
         navigate('/admin')
       } else {
         setError('Access denied. Administrator privileges required.')

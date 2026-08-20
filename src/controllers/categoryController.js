@@ -1,4 +1,4 @@
-const { pool } = require('../config/database')
+const { pool, seedCategoriesList } = require('../config/database')
 const ApiError = require('../utils/ApiError')
 
 // Helper function to generate clean URL slug
@@ -14,70 +14,18 @@ function generateSlug(name) {
     .replace(/-+$/, '')
 }
 
-// Initial seed categories if MySQL table is completely empty
-const initialSeedCategories = [
-  {
-    id: 1,
-    category_key: 'cat-corporate-gifts',
-    name: 'Corporate Gift Items',
-    slug: 'corporate-gift-items',
-    description: 'Premium branded gifts, apparel, mugs, and giveaways designed for businesses and corporate events in Dubai.',
-    image: '/assets/products/1 (1).jpg',
-    image_url: '/assets/products/1 (1).jpg',
-    status: 'active',
-    display_order: 1,
-    active: 1,
-    seo_title: 'Corporate Gifts Dubai | Custom Promotional Gifts & Merchandise | ONPRINT',
-    seo_description: 'Explore premium corporate gifts in Dubai. Custom printed mugs, thermal flasks, t-shirts, notebooks, and promotional merchandise tailored for UAE brands.',
-    seo_keywords: 'corporate gifts dubai, promotional gifts dubai, corporate gift printing dubai, branded giveaways uae',
-    image_alt: 'Premium corporate gifts and promotional merchandise in Dubai',
-  },
-  {
-    id: 2,
-    category_key: 'cat-office-stationery',
-    name: 'Office Stationery Printing',
-    slug: 'office-stationery-printing',
-    description: 'Executive notebooks, pens, business cards, and letterheads tailored for professional brand correspondence.',
-    image: '/assets/products/1 (7).jpg',
-    image_url: '/assets/products/1 (7).jpg',
-    status: 'active',
-    display_order: 2,
-    active: 1,
-    seo_title: 'Office Stationery Printing Dubai | Executive Business Stationery | ONPRINT',
-    seo_description: 'Professional office stationery printing in Dubai. Custom business cards, executive letterheads, branded notebooks, and luxury corporate folders.',
-    seo_keywords: 'office stationery printing dubai, business stationery dubai, business card printing dubai',
-    image_alt: 'Executive business cards and office stationery printing Dubai',
-  },
-  {
-    id: 3,
-    category_key: 'cat-other-products',
-    name: 'Other Products',
-    slug: 'other-products',
-    description: 'Large-format roll-ups, outdoor flags, die-cut vinyl stickers, and acrylic executive nameplates.',
-    image: '/assets/products/1 (9).jpg',
-    image_url: '/assets/products/1 (9).jpg',
-    status: 'active',
-    display_order: 3,
-    active: 1,
-    seo_title: 'Large Format Printing & Custom Displays Dubai | ONPRINT',
-    seo_description: 'High-impact large format printing, roll-up banner stands, outdoor flags, waterproof vinyl stickers, and acrylic nameplates in Dubai, UAE.',
-    seo_keywords: 'large format printing dubai, roll up printing dubai, sticker printing dubai, banner printing dubai',
-    image_alt: 'Large format roll-up banner and signage printing Dubai',
-  },
-]
-
 async function seedCategoriesIfEmpty() {
   try {
     const [rows] = await pool.query('SELECT COUNT(*) AS count FROM categories')
-    if (rows[0].count === 0) {
+    if (rows[0].count === 0 && Array.isArray(seedCategoriesList) && seedCategoriesList.length > 0) {
       console.log('[Categories] Seeding initial MySQL category records...')
-      for (const cat of initialSeedCategories) {
+      for (const cat of seedCategoriesList) {
         await pool.query(
-          `INSERT INTO categories (id, category_key, name, slug, description, image, image_url, status, display_order, active, seo_title, seo_description, seo_keywords, image_alt)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE name=VALUES(name)`,
+          `INSERT INTO categories 
+           (category_key, name, slug, description, image, image_url, status, display_order, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+           ON DUPLICATE KEY UPDATE name=VALUES(name), image_url=VALUES(image_url), image=VALUES(image)`,
           [
-            cat.id,
             cat.category_key,
             cat.name,
             cat.slug,
@@ -90,6 +38,8 @@ async function seedCategoriesIfEmpty() {
             cat.seo_title,
             cat.seo_description,
             cat.seo_keywords,
+            cat.seo_heading,
+            cat.canonical_url,
             cat.image_alt,
           ]
         )
@@ -454,20 +404,16 @@ async function deleteCategory(req, res, next) {
   try {
     const { id } = req.params
 
-    const [pRows] = await pool.execute(
-      `SELECT COUNT(*) AS count FROM products 
-       WHERE category_id = ? OR category_id = (SELECT id FROM categories WHERE id = ? OR category_key = ? OR slug = ? LIMIT 1)`,
-      [id, id, id, id]
-    )
-    const productCount = pRows.length > 0 ? Number(pRows[0].count) : 0
-
-    if (productCount > 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'This category contains products and cannot be deleted.',
-        hasProducts: true,
-        productCount,
-      })
+    // Unlink products associated with this category to prevent foreign key blocks
+    try {
+      await pool.execute(
+        `UPDATE products SET category_id = NULL 
+         WHERE category_id = ? 
+            OR category_id = (SELECT id FROM categories WHERE id = ? OR category_key = ? OR slug = ? LIMIT 1)`,
+        [id, id, id, id]
+      )
+    } catch {
+      // Ignore if products table doesn't have matching keys
     }
 
     const [deleteResult] = await pool.execute(
@@ -475,11 +421,40 @@ async function deleteCategory(req, res, next) {
       [id, id, id]
     )
 
-    if (deleteResult.affectedRows === 0) {
-      throw new ApiError(404, 'Category not found')
+    res.json({
+      success: true,
+      message: 'Category deleted successfully',
+      affectedRows: deleteResult.affectedRows,
+    })
+  } catch (err) {
+    next(err)
+  }
+}
+
+async function uploadCategoryImage(req, res, next) {
+  try {
+    const { id } = req.params
+    if (!req.file) {
+      throw new ApiError(400, 'Please select an image file to upload.')
     }
 
-    res.json({ success: true, message: 'Category deleted successfully' })
+    const relativeUrl = `/uploads/${req.file.filename}`
+
+    // Update MySQL category image
+    await pool.execute(
+      `UPDATE categories 
+       SET image = ?, image_url = ?, updated_at = NOW() 
+       WHERE id = ? OR category_key = ? OR slug = ?`,
+      [relativeUrl, relativeUrl, id, id, id]
+    )
+
+    res.status(200).json({
+      success: true,
+      message: 'Category image uploaded successfully',
+      url: relativeUrl,
+      image_url: relativeUrl,
+      filename: req.file.filename,
+    })
   } catch (err) {
     next(err)
   }
@@ -492,4 +467,5 @@ module.exports = {
   updateCategory,
   updateCategoryStatus,
   deleteCategory,
+  uploadCategoryImage,
 }

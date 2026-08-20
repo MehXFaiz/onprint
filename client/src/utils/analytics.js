@@ -66,8 +66,11 @@ export function initGA(measurementId) {
 
   const cleanId = measurementId.trim()
 
-  // Prevent duplicate script tag injection
-  if (document.getElementById('onprint-ga4-script')) {
+  // Prevent duplicate script tag injection if index.html already has it
+  if (
+    document.getElementById('onprint-ga4-script') ||
+    document.querySelector('script[src*="googletagmanager.com/gtag/js"]')
+  ) {
     isInitialized = true
     return
   }

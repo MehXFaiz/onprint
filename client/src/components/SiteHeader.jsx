@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { ChevronDown, Menu, Phone, Mail, X, User, LogOut, LayoutDashboard, ShoppingBag, ShieldCheck } from 'lucide-react'
+import { ChevronDown, Menu, Phone, Mail, X, LogOut, ShieldCheck } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
 import Button from './Button'
@@ -297,19 +297,19 @@ export default function SiteHeader() {
             </NavLink>
           </nav>
 
-          {/* Right CTA & User Account Menu */}
+          {/* Right CTA & Admin Account Menu */}
           <div className="hidden items-center gap-3 xl:flex shrink-0">
-            {isAuthenticated ? (
+            {isAuthenticated && isAdmin ? (
               <div className="relative">
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-bold text-neutral-900 transition-colors hover:border-[#A82F19] hover:bg-white"
+                  className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-bold text-neutral-900 transition-colors hover:border-[#A82F19] hover:bg-white cursor-pointer"
                 >
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#A82F19] text-white text-[11px]">
-                    {user?.name?.[0]?.toUpperCase() || 'U'}
+                    {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
-                  <span className="max-w-[100px] truncate">{user?.name || 'Account'}</span>
+                  <span className="max-w-[100px] truncate">{user?.name || 'Admin'}</span>
                   <ChevronDown className={`h-3.5 w-3.5 text-neutral-500 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -323,23 +323,21 @@ export default function SiteHeader() {
                       className="absolute right-0 top-full mt-2 w-56 rounded-2xl border border-neutral-200 bg-white p-2 shadow-2xl z-50"
                     >
                       <div className="px-3 py-2 border-b border-neutral-100 mb-1">
-                        <div className="font-bold text-xs text-neutral-900 truncate">{user?.name}</div>
+                        <div className="font-bold text-xs text-neutral-900 truncate">{user?.name || 'Administrator'}</div>
                         <div className="text-[10px] text-neutral-500 truncate">{user?.email}</div>
                         <span className="mt-1 inline-block rounded bg-red-50 px-1.5 py-0.5 text-[9px] font-bold uppercase text-[#A82F19]">
-                          {user?.role === 'admin' || user?.role === 'ADMINISTRATOR' ? 'Administrator' : 'Customer'}
+                          Administrator
                         </span>
                       </div>
 
-                      {(user?.role === 'admin' || user?.role === 'ADMINISTRATOR') && (
-                        <Link
-                          to="/admin"
-                          onClick={() => setUserMenuOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-[#A82F19] hover:bg-red-50 rounded-xl transition-colors"
-                        >
-                          <ShieldCheck className="h-4 w-4" />
-                          <span>Admin Control Panel</span>
-                        </Link>
-                      )}
+                      <Link
+                        to="/admin"
+                        onClick={() => setUserMenuOpen(false)}
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-[#A82F19] hover:bg-red-50 rounded-xl transition-colors"
+                      >
+                        <ShieldCheck className="h-4 w-4" />
+                        <span>Admin Control Panel</span>
+                      </Link>
 
                       <button
                         type="button"
@@ -356,14 +354,7 @@ export default function SiteHeader() {
                   )}
                 </AnimatePresence>
               </div>
-            ) : (
-              <Link
-                to="/login"
-                className="text-xs font-bold text-neutral-900 hover:text-[#A82F19] transition-colors px-2 py-1"
-              >
-                Sign In
-              </Link>
-            )}
+            ) : null}
 
             <Button to="/get-a-quote" variant="accent" icon={false} className="!px-5 2xl:!px-6 !py-2.5 text-xs xl:text-sm font-extrabold shadow-md shadow-[#A82F19]/20">
               Get a Quote

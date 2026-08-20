@@ -14,7 +14,6 @@ import GetQuotePage from './pages/public/GetQuotePage'
 import FaqPage from './pages/public/FaqPage'
 import PrivacyPolicyPage from './pages/public/PrivacyPolicyPage'
 import TermsPage from './pages/public/TermsPage'
-import LoginPage from './pages/public/LoginPage'
 import NotFoundPage from './pages/public/NotFoundPage'
 
 import AdminLoginPage from './pages/admin/AdminLoginPage'
@@ -52,8 +51,8 @@ function App() {
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms" element={<TermsPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<Navigate to="/admin/login" replace />} />
+        <Route path="/register" element={<Navigate to="/admin/login" replace />} />
         <Route path="/account/*" element={<Navigate to="/admin" replace />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

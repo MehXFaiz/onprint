@@ -6,7 +6,7 @@ ONPRINT is a full-stack platform for a professional printing-services business: 
 
 - **Client:** React 19, Vite, React Router, Tailwind CSS, Axios
 - **Server:** Node.js, Express, `mysql2` (promise pool)
-- **Database:** GoDaddy MySQL / MariaDB (relational schema in `onprint_godaddy_mysql.sql`)
+- **Database:** GoDaddy MySQL / MariaDB (relational schema in `onprintdb.sql`)
 - **Auth:** JWT + bcrypt password hashing
 
 ## Project Structure
@@ -15,7 +15,7 @@ ONPRINT is a full-stack platform for a professional printing-services business: 
 onprint/
 ├── package.json               Production Node app with express, mysql2, bcryptjs, jsonwebtoken, helmet, cors
 ├── server.js                  Entry point — binds process.env.PORT
-├── onprint_godaddy_mysql.sql  Full MySQL schema & initial seed data for GoDaddy
+├── onprintdb.sql  Full MySQL schema & initial seed data for GoDaddy
 ├── src/
 │   ├── config/database.js     Centralized mysql2 connection pool & connection tester
 │   ├── controllers/           authController, productController, categoryController, serviceController, quoteController, orderController, contactController, newsletterController
@@ -37,7 +37,7 @@ onprint/
 2. **Import SQL Schema**:
    - Open cPanel -> **phpMyAdmin**.
    - Select your database and click **Import**.
-   - Upload `onprint_godaddy_mysql.sql` and run.
+   - Upload `onprintdb.sql` and run.
 3. **Configure Environment Variables (`.env`)**:
    ```env
    DB_HOST=YOUR_GODADDY_MYSQL_HOST

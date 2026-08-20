@@ -48,13 +48,6 @@ const officeStationeryItems = [
   { label: 'Name Badges Printing Dubai', to: '/categories/name-badges-printing-dubai' },
 ]
 
-const otherProductsItems = [
-  { label: 'Flags Printing In Dubai', to: '/products?category=Other+Products&q=Flags' },
-  { label: 'Name Plates Printing In Dubai', to: '/products?category=Other+Products&q=Name+Plates' },
-  { label: 'Roll up Printing In Dubai', to: '/products?category=Other+Products&q=Roll+up' },
-  { label: 'Stickers Printing In Dubai', to: '/products?category=Other+Products&q=Stickers' },
-]
-
 export default function SiteHeader() {
   const { user, isAuthenticated, isAdmin, logout } = useAuth()
   const [scrolled, setScrolled] = useState(false)
@@ -243,49 +236,7 @@ export default function SiteHeader() {
               </AnimatePresence>
             </div>
 
-            {/* 6. Other Products Dropdown */}
-            <div
-              className="relative py-1"
-              onMouseEnter={() => setActiveDropdown('other')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                type="button"
-                onClick={() => setActiveDropdown(activeDropdown === 'other' ? null : 'other')}
-                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors cursor-pointer ${
-                  activeDropdown === 'other' ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
-                }`}
-              >
-                <span>Other Products</span>
-                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'other' ? 'rotate-180 text-[#A82F19]' : ''}`} />
-              </button>
-
-              <AnimatePresence>
-                {activeDropdown === 'other' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute left-0 top-full mt-1.5 w-72 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-2 shadow-2xl backdrop-blur-lg z-50"
-                  >
-                    <div className="flex flex-col divide-y divide-[#000000]/10">
-                      {otherProductsItems.map((item) => (
-                        <Link
-                          key={item.label}
-                          to={item.to}
-                          className="px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-[#000000] transition-all hover:bg-[#A82F19]/10 hover:text-[#A82F19] hover:pl-4 rounded-xl"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 7. Contact us */}
+            {/* 6. Contact us */}
             <NavLink
               to="/contact"
               className={({ isActive }) =>
@@ -447,27 +398,6 @@ export default function SiteHeader() {
                 {mobileExpanded.stationery && (
                   <div className="mt-2 flex flex-col gap-2 pl-3 border-l-2 border-accent/40 py-2">
                     {officeStationeryItems.map((item) => (
-                      <Link key={item.label} to={item.to} className="py-1 text-sm text-secondary hover:text-accent">
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Accordion 3: Other Products */}
-              <div className="border-b border-border/60 py-2">
-                <button
-                  type="button"
-                  onClick={() => toggleMobileCategory('other')}
-                  className="flex w-full items-center justify-between py-1 text-base font-semibold text-primary"
-                >
-                  <span>Other Products</span>
-                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileExpanded.other ? 'rotate-180 text-accent' : ''}`} />
-                </button>
-                {mobileExpanded.other && (
-                  <div className="mt-2 flex flex-col gap-2 pl-3 border-l-2 border-accent/40 py-2">
-                    {otherProductsItems.map((item) => (
                       <Link key={item.label} to={item.to} className="py-1 text-sm text-secondary hover:text-accent">
                         {item.label}
                       </Link>

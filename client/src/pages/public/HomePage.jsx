@@ -11,7 +11,6 @@ import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
 import ServiceCard from '../../components/ServiceCard'
 import ProductCard from '../../components/ProductCard'
-import CorporateGiftsSection from '../../components/CorporateGiftsSection'
 import ProductSectionsShowcase from '../../components/ProductSectionsShowcase'
 import CarefreeShoppingSection from '../../components/CarefreeShoppingSection'
 import ProductDetailModal from '../../components/ProductDetailModal'
@@ -97,7 +96,7 @@ export default function HomePage() {
 
             <Reveal delay={0.2}>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-[#000000]/75 sm:text-lg">
-                ONPRINT transforms brand identities into tangible physical masterpieces. From bespoke corporate gifts and executive stationery to high-volume luxury packaging and signage.
+                ONPRINT transforms brand identities into tangible physical masterpieces. From executive stationery to high-volume luxury packaging, signage, and precision printing.
               </p>
             </Reveal>
 
@@ -176,7 +175,7 @@ export default function HomePage() {
                     <span className="rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[10px] font-extrabold text-[#FFFFFF]">PRESS</span>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#FFFFFF]/70">CORPORATE GIFTING &amp; PRESS</p>
+                    <p className="text-xs font-semibold text-[#FFFFFF]/70">EXECUTIVE BRANDING &amp; PRESS</p>
                     <p className="mt-1 text-sm font-bold text-[#FFFFFF]">Precision Printing Dubai</p>
                   </div>
                   <div className="flex items-center justify-between border-t border-[#FFFFFF]/20 pt-3 text-[10px] font-bold text-[#FFFFFF]/70">
@@ -238,7 +237,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="OUR SERVICES"
               title="Professional printing solutions built for modern businesses."
-              subtitle="Full-service commercial printing, bespoke corporate gifts, office stationery, and packaging in Dubai."
+              subtitle="Full-service commercial printing, executive office stationery, and custom packaging in Dubai."
             />
             <ArrowLink to="/services" className="shrink-0 text-[#A82F19]">
               View All Services

@@ -36,18 +36,7 @@ function PinterestIcon(props) {
   )
 }
 
-// Navigation structure matching exact user screenshot content
-const corporateGiftsItems = [
-  { label: 'Bags Printing Dubai', to: '/products?category=Corporate+Gifts&q=Bags' },
-  { label: 'Cap Printing Dubai', to: '/products?category=Corporate+Gifts&q=Cap' },
-  { label: 'Custom Water Bottles Printing in Dubai', to: '/products?category=Corporate+Gifts&q=Water+Bottles' },
-  { label: 'Mugs Printing Dubai', to: '/products?category=Corporate+Gifts&q=Mugs' },
-  { label: 'Keychains Printing', to: '/products?category=Corporate+Gifts&q=Keychains' },
-  { label: 'Notebooks Printing', to: '/products?category=Corporate+Gifts&q=Notebooks' },
-  { label: 'Pens Printing', to: '/products?category=Corporate+Gifts&q=Pens' },
-  { label: 'T-shirt Printing in Dubai', to: '/products?category=Corporate+Gifts&q=T-shirt' },
-]
-
+// Navigation structure matching remaining product categories
 const officeStationeryItems = [
   { label: 'Brochures Printing', to: '/products?category=Office+Stationery&q=Brochures' },
   { label: 'Business Cards Printing', to: '/products?category=Office+Stationery&q=Business+Cards' },
@@ -197,59 +186,7 @@ export default function SiteHeader() {
               About us
             </NavLink>
 
-            {/* 3. Best Selling Items */}
-            <NavLink
-              to="/products"
-              className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
-                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
-                }`
-              }
-            >
-              Best Selling Items
-            </NavLink>
 
-            {/* 4. Corporate Gifts Dubai Dropdown */}
-            <div
-              className="relative py-1"
-              onMouseEnter={() => setActiveDropdown('gifts')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                type="button"
-                onClick={() => setActiveDropdown(activeDropdown === 'gifts' ? null : 'gifts')}
-                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors cursor-pointer ${
-                  activeDropdown === 'gifts' ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
-                }`}
-              >
-                <span>Corporate Gifts Dubai</span>
-                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'gifts' ? 'rotate-180 text-[#A82F19]' : ''}`} />
-              </button>
-
-              <AnimatePresence>
-                {activeDropdown === 'gifts' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute left-0 top-full mt-1.5 w-72 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-2 shadow-2xl backdrop-blur-lg z-50"
-                  >
-                    <div className="flex flex-col divide-y divide-[#000000]/10">
-                      {corporateGiftsItems.map((item) => (
-                        <Link
-                          key={item.label}
-                          to={item.to}
-                          className="px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-[#000000] transition-all hover:bg-[#A82F19]/10 hover:text-[#A82F19] hover:pl-4 rounded-xl"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
 
             {/* 5. Office Stationery Printing Dropdown */}
             <div
@@ -482,30 +419,7 @@ export default function SiteHeader() {
               <NavLink to="/about" className="py-2.5 text-base font-semibold text-primary">
                 About us
               </NavLink>
-              <NavLink to="/products" className="py-2.5 text-base font-semibold text-primary">
-                Best Selling Items
-              </NavLink>
 
-              {/* Accordion 1: Corporate Gifts Dubai */}
-              <div className="border-b border-border/60 py-2">
-                <button
-                  type="button"
-                  onClick={() => toggleMobileCategory('gifts')}
-                  className="flex w-full items-center justify-between py-1 text-base font-semibold text-primary"
-                >
-                  <span>Corporate Gifts Dubai</span>
-                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileExpanded.gifts ? 'rotate-180 text-accent' : ''}`} />
-                </button>
-                {mobileExpanded.gifts && (
-                  <div className="mt-2 flex flex-col gap-2 pl-3 border-l-2 border-accent/40 py-2">
-                    {corporateGiftsItems.map((item) => (
-                      <Link key={item.label} to={item.to} className="py-1 text-sm text-secondary hover:text-accent">
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
 
               {/* Accordion 2: Office Stationery Printing */}
               <div className="border-b border-border/60 py-2">

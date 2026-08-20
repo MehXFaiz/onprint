@@ -5,68 +5,11 @@ import { ChevronLeft, ChevronRight, Sparkles, ShieldCheck, ArrowUpRight } from '
 import ProductCard from './ProductCard'
 import { getProductImage } from '../assets/productImages'
 
-// 3 Main Sections Data strictly matching the uploaded user screenshot items with enhanced details
+// Main Product Sections Data matching active catalog categories
 const homepageSectionsData = [
   {
-    id: 'corporate-gift-items',
-    sectionNumber: '01',
-    badge: 'Corporate Gifts & Giveaways',
-    title: 'Corporate Gift Items',
-    subtitle: 'Custom printed promotional merchandise, mugs, bottles, and bespoke branded gifts in Dubai.',
-    items: [
-      {
-        _id: 'sec1-1',
-        name: 'Bags Printing Dubai',
-        slug: 'bags-printing-dubai',
-        imageKey: 'toteBags',
-        shortDescription: 'Eco-friendly 100% natural cotton canvas tote bags with high-density screen printing.',
-        price: 18,
-        minimumQuantity: 50,
-        badge: 'Eco Friendly',
-        tag: 'Canvas & Jute',
-        spec: 'Heavy Duty 280 GSM',
-      },
-      {
-        _id: 'sec1-2',
-        name: 'Keychain Printing Dubai',
-        slug: 'keychain-printing-dubai',
-        imageKey: 'keychain',
-        shortDescription: 'Precision laser engraved wooden & metallic keychain rings with custom corporate logo.',
-        price: 12,
-        minimumQuantity: 50,
-        badge: 'Popular Gift',
-        tag: 'Laser Engraved',
-        spec: 'Natural Oak & Metal',
-      },
-      {
-        _id: 'sec1-3',
-        name: 'Mugs Printing Dubai',
-        slug: 'mugs-printing-dubai',
-        imageKey: 'mugs',
-        shortDescription: '11oz ceramic, magic heat-reveal & thermal travel mugs custom sublimated in vibrant colors.',
-        price: 25,
-        minimumQuantity: 20,
-        badge: 'Best Seller',
-        tag: 'Sublimation',
-        spec: 'Dishwasher Safe Ceramic',
-      },
-      {
-        _id: 'sec1-4',
-        name: 'Custom Water Bottles Printing in Dubai',
-        slug: 'custom-water-bottles-printing-in-dubai',
-        imageKey: 'bottles',
-        shortDescription: 'Double-wall insulated stainless steel thermal flasks with LED temperature cap touch screen.',
-        price: 55,
-        minimumQuantity: 25,
-        badge: 'Executive',
-        tag: 'Smart LED Flask',
-        spec: '500ml Vacuum Insulated',
-      },
-    ],
-  },
-  {
     id: 'office-stationery-printing',
-    sectionNumber: '02',
+    sectionNumber: '01',
     badge: 'Executive Brand Identity',
     title: 'Office Stationery Printing',
     subtitle: 'High-precision business correspondence, marketing collaterals, flyers, brochures, and ID badges.',
@@ -123,7 +66,7 @@ const homepageSectionsData = [
   },
   {
     id: 'other-products',
-    sectionNumber: '03',
+    sectionNumber: '02',
     badge: 'Large Format & Signage',
     title: 'Other Products',
     subtitle: 'Event roll-up banner displays, outdoor advertising flags, die-cut stickers, and door nameplates.',
@@ -316,7 +259,7 @@ export default function ProductSectionsShowcase({ onQuickView }) {
           </h2>
 
           <p className="text-sm sm:text-base text-[#000000]/70 leading-relaxed">
-            From high-volume corporate giveaways to executive office stationery and large-format outdoor displays.
+            From executive office stationery and promotional marketing collaterals to large-format outdoor displays.
           </p>
         </div>
 

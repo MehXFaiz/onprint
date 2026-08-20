@@ -102,7 +102,6 @@ export default function AdminProductsPage() {
             className="w-full sm:w-auto rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#A82F19] focus:outline-none cursor-pointer"
           >
             <option value="ALL">All Categories</option>
-            <option value="Gift">Corporate Gifts</option>
             <option value="Stationery">Office Stationery</option>
             <option value="Roll-up">Large Format Signage</option>
           </select>

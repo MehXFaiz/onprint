@@ -6,7 +6,7 @@ import Button from '../../components/Button'
 const MOCK_SERVICES = [
   { id: 1, name: 'Digital & Offset Printing', slug: 'digital-offset-printing', description: 'High-precision digital and high-volume offset printing with Pantone color matching.', status: 'active', displayOrder: 1 },
   { id: 2, name: 'Luxury Packaging & Custom Boxes', slug: 'luxury-packaging-custom-boxes', description: 'Custom rigid boxes, magnetic gift boxes, folding cartons, and specialty sleeves.', status: 'active', displayOrder: 2 },
-  { id: 3, name: 'Corporate Gift Customization', slug: 'corporate-gift-customization', description: 'Bespoke corporate merchandise, executive desk sets, thermal flasks, custom mugs.', status: 'active', displayOrder: 3 },
+  { id: 3, name: 'Brochures & Catalogs Printing', slug: 'brochures-catalogs-printing', description: 'Multi-page booklets, saddle-stitched catalogs, bi-fold brochures, and presentation folders.', status: 'active', displayOrder: 3 },
   { id: 4, name: 'Large Format & Exhibition Signage', slug: 'large-format-exhibition-signage', description: 'Roll-up banner stands, pop-up backdrops, outdoor teardrop flags, acrylic nameplates.', status: 'active', displayOrder: 4 },
   { id: 5, name: 'Custom Labels & Die-Cut Stickers', slug: 'custom-labels-die-cut-stickers', description: 'Waterproof vinyl stickers, product packaging labels, gold foil seals.', status: 'active', displayOrder: 5 },
   { id: 6, name: 'Executive Business Stationery', slug: 'executive-business-stationery', description: 'Premium business cards, cotton letterheads, custom envelopes, and presentation folders.', status: 'active', displayOrder: 6 },

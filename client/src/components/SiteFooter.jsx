@@ -8,15 +8,15 @@ const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About Us' },
   { to: '/services', label: 'Printing Services' },
-  { to: '/products', label: 'Products & Gifts' },
+  { to: '/products', label: 'Products' },
   { to: '/portfolio', label: 'Portfolio & Work' },
   { to: '/contact', label: 'Contact Us' },
   { to: '/faq', label: 'FAQ' },
 ]
 
 const serviceLinks = [
-  { to: '/products?category=corporate-gift-items', label: 'Corporate Gifts Dubai' },
   { to: '/products?category=office-stationery-printing', label: 'Office Stationery Printing' },
+  { to: '/products?category=other-products', label: 'Other Products & Signage' },
   { to: '/services/digital-offset-printing', label: 'Digital Press & Offset' },
   { to: '/services/luxury-packaging-custom-boxes', label: 'Packaging & Custom Boxes' },
   { to: '/services/custom-labels-die-cut-stickers', label: 'Labels & Vinyl Stickers' },
@@ -33,7 +33,7 @@ export default function SiteFooter() {
             <Logo variant="light" size="md" />
           </Link>
           <p className="max-w-xs text-sm leading-relaxed text-[#FFFFFF]/70">
-            ONPRINT is Dubai’s premier physical branding &amp; print studio. Delivering flawless precision across corporate gifts, office stationery, packaging, and high-impact print collateral.
+            ONPRINT is Dubai’s premier physical branding &amp; print studio. Delivering flawless precision across office stationery, packaging, and high-impact print collateral.
           </p>
           <div className="pt-2">
             <CmykDots className="mt-2" />

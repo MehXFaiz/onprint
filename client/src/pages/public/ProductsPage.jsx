@@ -12,12 +12,6 @@ import { getProducts } from '../../services/products'
 import { getCategories } from '../../services/categories'
 
 const categoryMeta = {
-  'corporate-gift-items': {
-    eyebrow: 'CORPORATE GIFT ITEMS',
-    heading: 'Custom Corporate Gifts & Merchandise',
-    description:
-      'Premium branded gifts designed for businesses and events in Dubai. From custom mugs and mouse pads to DTG t-shirts and embroidered caps.',
-  },
   'office-stationery-printing': {
     eyebrow: 'OFFICE STATIONERY PRINTING',
     heading: 'Executive Corporate Stationery',
@@ -117,7 +111,7 @@ export default function ProductsPage() {
               Signature Print Showcase.
             </h1>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-secondary sm:text-base">
-              Explore our complete suite of corporate gift items, executive office stationery, and custom large-format printing produced in Dubai.
+              Explore our complete suite of executive office stationery and custom large-format printing produced in Dubai.
             </p>
           </div>
 

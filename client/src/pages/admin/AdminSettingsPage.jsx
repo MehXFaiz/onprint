@@ -9,7 +9,7 @@ export default function AdminSettingsPage() {
 
   const [form, setForm] = useState({
     studioName: 'ONPRINT Printing & Packaging Studio',
-    tagline: 'Custom Corporate Gifts & Business Printing Dubai',
+    tagline: 'Business Printing & Executive Stationery Dubai',
     supportEmail: 'support@onprint.ae',
     salesEmail: 'sales@onprint.ae',
     phone: '+971 4 800 PRINT',

@@ -6,11 +6,11 @@ import ImageUploader from '../../components/ImageUploader'
 import { getStoredProducts, addProduct } from '../../services/products'
 
 const DEFAULT_CATEGORIES = [
-  'Corporate Gift Items',
   'Office Stationery Printing',
   'Other Products',
-  'Bags Printing',
-  'Apparel & T-Shirts',
+  'Brochures & Flyers',
+  'Signage & Rollups',
+  'Packaging & Custom Boxes',
 ]
 
 export default function AdminProductFormPage() {
@@ -24,7 +24,7 @@ export default function AdminProductFormPage() {
 
   const [form, setForm] = useState({
     name: '',
-    categoryName: 'Corporate Gift Items',
+    categoryName: 'Office Stationery Printing',
     price: '50',
     minimumQuantity: '10',
     shortDescription: '',
@@ -44,7 +44,7 @@ export default function AdminProductFormPage() {
       const imgList = Array.isArray(found.images) ? found.images : found.image ? [found.image] : []
       setForm({
         name: found.name || '',
-        categoryName: typeof found.category === 'object' ? found.category?.name : found.category || 'Corporate Gift Items',
+        categoryName: typeof found.category === 'object' ? found.category?.name : found.category || 'Office Stationery Printing',
         price: String(found.price || 50),
         minimumQuantity: String(found.minimumQuantity || 10),
         shortDescription: found.shortDescription || '',

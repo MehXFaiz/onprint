@@ -51,7 +51,7 @@ export default function PortfolioPage() {
           <SectionHeading
             eyebrow="Portfolio &amp; Work"
             title="Selected press runs &amp; brand collateral."
-            subtitle="A curated editorial look at corporate gifts, packaging, and high-impact press projects produced in Dubai."
+            subtitle="A curated editorial look at stationery, packaging, and high-impact press projects produced in Dubai."
           />
           <Button to="/get-a-quote" variant="accent" className="shrink-0">
             Start Your Project

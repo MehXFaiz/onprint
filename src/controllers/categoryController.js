@@ -1,4 +1,4 @@
-const { pool, seedCategoriesList } = require('../config/database')
+const { pool } = require('../config/database')
 const ApiError = require('../utils/ApiError')
 
 // Helper function to generate clean URL slug
@@ -14,46 +14,8 @@ function generateSlug(name) {
     .replace(/-+$/, '')
 }
 
-async function seedCategoriesIfEmpty() {
-  try {
-    const [rows] = await pool.query('SELECT COUNT(*) AS count FROM categories')
-    if (rows[0].count === 0 && Array.isArray(seedCategoriesList) && seedCategoriesList.length > 0) {
-      console.log('[Categories] Seeding initial MySQL category records...')
-      for (const cat of seedCategoriesList) {
-        await pool.query(
-          `INSERT INTO categories 
-           (category_key, name, slug, description, image, image_url, status, display_order, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE name=VALUES(name), image_url=VALUES(image_url), image=VALUES(image)`,
-          [
-            cat.category_key,
-            cat.name,
-            cat.slug,
-            cat.description,
-            cat.image,
-            cat.image_url,
-            cat.status,
-            cat.display_order,
-            cat.active,
-            cat.seo_title,
-            cat.seo_description,
-            cat.seo_keywords,
-            cat.seo_heading,
-            cat.canonical_url,
-            cat.image_alt,
-          ]
-        )
-      }
-    }
-  } catch (err) {
-    console.warn('[Categories] MySQL seed check note:', err.message)
-  }
-}
-
 async function listCategories(req, res, next) {
   try {
-    await seedCategoriesIfEmpty()
-
     const { search, status, sort } = req.query
 
     let query = `
@@ -68,7 +30,7 @@ async function listCategories(req, res, next) {
         c.created_at AS createdAt, c.updated_at AS updatedAt,
         COUNT(p.id) AS productCount
       FROM categories c
-      LEFT JOIN products p ON p.category_id = c.id OR (c.category_key IS NOT NULL AND p.category_id IS NULL)
+      LEFT JOIN products p ON p.category_id = c.id
       WHERE 1=1
     `
     const params = []
@@ -98,7 +60,9 @@ async function listCategories(req, res, next) {
       query += ' ORDER BY c.display_order ASC, c.name ASC'
     }
 
-    const [rows] = await pool.execute(query, params)
+    // Use pool.query when there are no params to avoid prepared-statement issues
+    // with certain MySQL versions that mishandle empty param arrays in pool.execute
+    const [rows] = params.length > 0 ? await pool.execute(query, params) : await pool.query(query)
 
     const list = rows.map((c) => ({
       id: c.id,

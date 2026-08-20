@@ -39,13 +39,13 @@ function PinterestIcon(props) {
 
 // Navigation structure matching remaining product categories
 const officeStationeryItems = [
-  { label: 'Brochures Printing', to: '/products?category=Office+Stationery&q=Brochures' },
-  { label: 'Business Cards Printing', to: '/products?category=Office+Stationery&q=Business+Cards' },
-  { label: 'Flyers Printing In Dubai', to: '/products?category=Office+Stationery&q=Flyers' },
-  { label: 'Id Card Printing Dubai', to: '/products?category=Office+Stationery&q=ID+Card' },
-  { label: 'Lanyard Printing Dubai', to: '/products?category=Office+Stationery&q=Lanyard' },
-  { label: 'Letterheads Printing Dubai', to: '/products?category=Office+Stationery&q=Letterheads' },
-  { label: 'Name Badges Printing Dubai', to: '/products?category=Office+Stationery&q=Name+Badges' },
+  { label: 'Brochures Printing', to: '/categories/brochures-printing' },
+  { label: 'Business Cards Printing', to: '/categories/business-cards-printing' },
+  { label: 'Flyers Printing In Dubai', to: '/categories/flyers-printing-in-dubai' },
+  { label: 'ID Card Printing Dubai', to: '/categories/id-card-printing-dubai' },
+  { label: 'Lanyard Printing Dubai', to: '/categories/lanyard-printing-dubai' },
+  { label: 'Letterheads Printing Dubai', to: '/categories/letterheads-printing-dubai' },
+  { label: 'Name Badges Printing Dubai', to: '/categories/name-badges-printing-dubai' },
 ]
 
 const otherProductsItems = [
@@ -185,6 +185,18 @@ export default function SiteHeader() {
               }
             >
               About us
+            </NavLink>
+
+            {/* 3. Categories */}
+            <NavLink
+              to="/categories"
+              className={({ isActive }) =>
+                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
+                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
+                }`
+              }
+            >
+              Categories
             </NavLink>
 
 
@@ -416,6 +428,9 @@ export default function SiteHeader() {
               </NavLink>
               <NavLink to="/about" className="py-2.5 text-base font-semibold text-primary">
                 About us
+              </NavLink>
+              <NavLink to="/categories" className="py-2.5 text-base font-semibold text-primary">
+                Categories
               </NavLink>
 
 

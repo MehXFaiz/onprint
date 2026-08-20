@@ -9,6 +9,7 @@ import Reveal from '../../components/Reveal'
 import StatCounter from '../../components/StatCounter'
 import LoadingState from '../../components/LoadingState'
 import ServiceCard from '../../components/ServiceCard'
+import CategoryCard from '../../components/CategoryCard'
 import ProductCard from '../../components/ProductCard'
 import ProductSectionsShowcase from '../../components/ProductSectionsShowcase'
 import CarefreeShoppingSection from '../../components/CarefreeShoppingSection'
@@ -17,6 +18,7 @@ import SEOHead from '../../components/SEOHead'
 import { CornerMarks } from '../../components/PrintMarks'
 import { getServices } from '../../services/services'
 import { getProducts } from '../../services/products'
+import { getCategories } from '../../services/categories'
 import { trackViewHomepage, trackGetQuoteClick } from '../../utils/analytics'
 
 const trustBadges = [
@@ -89,6 +91,7 @@ const homeFaqs = [
 
 export default function HomePage() {
   const [services, setServices] = useState(null)
+  const [categories, setCategories] = useState(null)
   const [products, setProducts] = useState(null)
   const [quickViewProduct, setQuickViewProduct] = useState(null)
 
@@ -98,6 +101,10 @@ export default function HomePage() {
     getServices()
       .then((data) => setServices(data.slice(0, 6)))
       .catch(() => setServices([]))
+
+    getCategories({ status: 'active', sort: 'display_order_asc' })
+      .then((data) => setCategories(data || []))
+      .catch(() => setCategories([]))
 
     getProducts({ featured: true })
       .then((res) => setProducts(res.data.slice(0, 4)))
@@ -305,10 +312,45 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* 4. Main Product Showcase Sections (Corporate Gift Items, Office Stationery Printing, Other Products) */}
+      {/* 4. Dynamic Printing Categories Grid */}
+      <section className="border-t border-[#000000]/10 bg-[#FFFFFF] py-20 sm:py-28">
+        <Container>
+          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+            <div>
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">
+                PRINTING CATEGORIES
+              </span>
+              <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#000000] sm:text-4xl">
+                Commercial Printing Categories in Dubai
+              </h2>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#000000]/70 sm:text-base">
+                Discover our specialized printing disciplines, from luxury brochures and executive cards to secure employee ID badges.
+              </p>
+            </div>
+            <ArrowLink to="/categories" className="shrink-0 text-[#A82F19]">
+              Explore All Categories
+            </ArrowLink>
+          </div>
+
+          <div className="mt-12">
+            {categories === null && <LoadingState label="Loading printing categories…" />}
+            {categories && categories.length > 0 && (
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {categories.map((cat, idx) => (
+                  <Reveal key={cat.id || cat.slug} delay={idx * 0.05}>
+                    <CategoryCard category={cat} priority={idx < 4} />
+                  </Reveal>
+                ))}
+              </div>
+            )}
+          </div>
+        </Container>
+      </section>
+
+      {/* 5. Main Product Showcase Sections */}
       <ProductSectionsShowcase onQuickView={setQuickViewProduct} />
 
-      {/* 5. Carefree Shopping & Express Delivery Section */}
+      {/* 6. Carefree Shopping & Express Delivery Section */}
       <CarefreeShoppingSection />
 
       {/* 6. Featured Products Catalog */}

@@ -15,6 +15,7 @@ import {
   Mail,
   Wrench,
   Calendar,
+  FolderTree,
 } from 'lucide-react'
 import Button from '../../components/Button'
 import { getAdminDashboard } from '../../services/admin'
@@ -322,14 +323,17 @@ export default function AdminDashboardPage() {
           <div className="mt-0.5 text-[11px] font-semibold text-neutral-500">{services.active} Active</div>
         </Link>
 
-        <div className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs">
+        <Link
+          to="/admin/categories"
+          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-[#A82F19] transition-colors"
+        >
           <div className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wider">
-            <Mail className="h-3.5 w-3.5 text-emerald-600" />
-            <span>Newsletter</span>
+            <FolderTree className="h-3.5 w-3.5 text-[#A82F19]" />
+            <span>Categories</span>
           </div>
-          <div className="mt-2 text-2xl font-black text-neutral-900">{subscribers.total}</div>
-          <div className="mt-0.5 text-[11px] font-semibold text-neutral-500">Subscribers</div>
-        </div>
+          <div className="mt-2 text-2xl font-black text-neutral-900">{data?.categories?.total || 7}</div>
+          <div className="mt-0.5 text-[11px] font-bold text-[#A82F19]">Manage Store Categories</div>
+        </Link>
       </div>
 
       {/* Quick Action Cards */}

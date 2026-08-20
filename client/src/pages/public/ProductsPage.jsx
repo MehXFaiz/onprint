@@ -15,6 +15,62 @@ import { getCategories } from '../../services/categories'
 import { trackViewCategory, trackSearch } from '../../utils/analytics'
 
 const categoryMeta = {
+  'brochures-printing': {
+    eyebrow: 'BROCHURES PRINTING DUBAI',
+    heading: 'Commercial Brochure Printing Dubai',
+    title: 'Brochures Printing in Dubai | Premium Brochure Printing | ONPRINT',
+    description:
+      'Professional brochure printing in Dubai. Custom bi-fold, tri-fold, and multi-page brochures with soft-touch matte lamination and fast turnaround.',
+    keywords: 'brochures printing dubai, brochure printing dubai, corporate brochures uae, custom bi fold brochures',
+  },
+  'business-cards-printing': {
+    eyebrow: 'BUSINESS CARDS PRINTING',
+    heading: 'Luxury Executive Business Card Printing Dubai',
+    title: 'Business Card Printing in Dubai | Luxury Business Cards | ONPRINT',
+    description:
+      'Make an undeniable first impression with luxury business cards in Dubai. 350gsm–600gsm cotton stocks, gold foil stamping, and spot UV varnishing.',
+    keywords: 'business cards printing dubai, luxury business cards dubai, executive visiting cards uae',
+  },
+  'flyers-printing-in-dubai': {
+    eyebrow: 'FLYERS PRINTING IN DUBAI',
+    heading: 'High-Impact Marketing Flyer Printing Dubai',
+    title: 'Flyer Printing in Dubai | Same Day Marketing Flyer Printing | ONPRINT',
+    description:
+      'Order custom marketing flyer printing in Dubai. Single and double-sided promo flyers on premium art paper with express same-day delivery.',
+    keywords: 'flyers printing in dubai, flyer printing dubai, promotional flyers uae, marketing leaflets dubai',
+  },
+  'id-card-printing-dubai': {
+    eyebrow: 'ID CARD PRINTING DUBAI',
+    heading: 'Corporate PVC ID Card Printing Solutions Dubai',
+    title: 'ID Card Printing Dubai | Corporate Employee & PVC Cards | ONPRINT',
+    description:
+      'High-security corporate PVC ID card printing in Dubai. Crisp photo resolution, smart NFC chips, barcodes, and custom lanyards for UAE businesses.',
+    keywords: 'id card printing dubai, pvc id cards dubai, corporate employee badges uae, student id card printing',
+  },
+  'lanyard-printing-dubai': {
+    eyebrow: 'LANYARD PRINTING DUBAI',
+    heading: 'Custom Branded Neck Lanyard Printing Dubai',
+    title: 'Lanyard Printing Dubai | Custom Branded Neck Lanyards | ONPRINT',
+    description:
+      'Custom branded neck lanyard printing in Dubai. High-density polyester and satin lanyards with safety buckles and swivel hooks for corporate events.',
+    keywords: 'lanyard printing dubai, custom lanyards dubai, branded neck straps uae, event lanyards dubai',
+  },
+  'letterheads-printing-dubai': {
+    eyebrow: 'LETTERHEADS PRINTING DUBAI',
+    heading: 'Executive Corporate Letterhead Printing Dubai',
+    title: 'Letterhead Printing in Dubai | Official Corporate Stationery | ONPRINT',
+    description:
+      'Executive corporate letterhead printing in Dubai. 120gsm smooth laser-guaranteed paper for official contracts, proposals, and invoices.',
+    keywords: 'letterheads printing dubai, letterhead printing dubai, corporate stationery uae, official letterhead paper',
+  },
+  'name-badges-printing-dubai': {
+    eyebrow: 'NAME BADGES PRINTING DUBAI',
+    heading: 'Professional Magnetic Name Badges Printing Dubai',
+    title: 'Name Badges Printing Dubai | Magnetic Metal & Acrylic Badges | ONPRINT',
+    description:
+      'Professional staff name badges printing in Dubai. Brushed silver, gold, and acrylic magnetic badges with domed epoxy resin for corporate teams.',
+    keywords: 'name badges printing dubai, magnetic name badges dubai, staff badge printing uae, acrylic name tag printing',
+  },
   'corporate-gift-items': {
     eyebrow: 'CORPORATE GIFTS DUBAI',
     heading: 'Corporate Gifts & Promotional Merchandise Dubai',
@@ -232,7 +288,7 @@ export default function ProductsPage() {
           </button>
           {categories.map((c) => (
             <button
-              key={c._id}
+              key={c.id || c.slug || c._id}
               type="button"
               onClick={() => handleCategoryChange(c.slug || c._id)}
               className={`shrink-0 rounded-full px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer ${

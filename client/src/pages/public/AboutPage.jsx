@@ -4,6 +4,8 @@ import SectionHeading from '../../components/SectionHeading'
 import StatCounter from '../../components/StatCounter'
 import Reveal from '../../components/Reveal'
 import Button from '../../components/Button'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import SEOHead from '../../components/SEOHead'
 import { CornerMarks } from '../../components/PrintMarks'
 import { ShieldCheck, Award, Zap, HeartHandshake } from 'lucide-react'
 
@@ -40,17 +42,24 @@ const values = [
 export default function AboutPage() {
   return (
     <div>
+      <SEOHead
+        title="About ONPRINT | Leading Printing Press in Al Quoz, Dubai"
+        description="Learn about ONPRINT, Dubai’s dedicated printing and branding company in Al Quoz Industrial Area. Decades of collective press experience delivering flawless print collateral across the UAE."
+        keywords="about onprint, printing press dubai, al quoz printing company, commercial printer uae"
+        canonicalPath="/about"
+        breadcrumbs={[{ name: 'About Us', url: '/about' }]}
+      />
+
       {/* Hero Section */}
       <section className="border-b border-border bg-background py-16 sm:py-24 lg:py-28">
         <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
+            <Breadcrumbs items={[{ name: 'About Us' }]} />
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent shadow-xs">
               About ONPRINT Dubai
             </span>
             <h1 className="font-display mt-6 text-4xl font-extrabold leading-[1.04] tracking-tight text-primary sm:text-5xl lg:text-6xl">
-              We print more than paper.
-              <br />
-              We print <span className="text-accent">identities.</span>
+              Precision Printing Press &amp; Branding Studio in Dubai
             </h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-secondary sm:text-lg">
               ONPRINT was established with a singular conviction: the physical collateral a brand hands to a client — business cards, gift packaging, stationery, rollups — should feel as refined as the brand itself.
@@ -72,11 +81,11 @@ export default function AboutPage() {
               <div className="flex h-full flex-col justify-between p-8">
                 <div className="flex items-center justify-between border-b border-border/60 pb-4">
                   <span className="font-display text-lg font-extrabold text-primary">ONPRINT UAE</span>
-                  <span className="text-xs font-bold text-accent">EST. 2016</span>
+                  <span className="text-xs font-bold text-accent">DUBAI FACILITY</span>
                 </div>
                 <div className="space-y-3">
                   <p className="text-xs font-bold uppercase tracking-wider text-secondary">Press Standards</p>
-                  <h3 className="font-display text-xl font-bold text-primary">Master Offset &amp; Digital Craft</h3>
+                  <h2 className="font-display text-xl font-bold text-primary">Master Offset &amp; Digital Craft</h2>
                   <p className="text-sm text-secondary leading-relaxed">Combining Heidelberg offset speed with modern ultra-resolution digital technology.</p>
                 </div>
                 <div className="flex items-center justify-between border-t border-border/60 pt-4 text-xs font-bold text-primary">
@@ -112,7 +121,7 @@ export default function AboutPage() {
               Today, our Al Quoz print facility houses state-of-the-art digital, offset, foil-stamping, and laser die-cutting equipment. We serve everyone from burgeoning startups placing their first business card order to multinational corporate enterprises producing recurring luxury gift boxes.
             </p>
             <p>
-              Every single order moves through our disciplined production workflow: clear quotation, pre-flight file check, proof approval, multi-stage press quality control, and careful packaging before dispatch.
+              Every single order moves through our disciplined production workflow: clear quotation, pre-flight file check, proof approval, multi-stage press quality control, and careful packaging before dispatch across all Emirates.
             </p>
           </div>
         </Container>
@@ -123,8 +132,8 @@ export default function AboutPage() {
         <Container>
           <SectionHeading
             eyebrow="What We Believe"
-            title="The principles behind every single sheet."
-            subtitle="How we maintain our standards across hundreds of print runs every month."
+            title="The principles behind every single press run."
+            subtitle="How we maintain our standards across hundreds of print orders every month in the UAE."
             center
           />
 
@@ -160,4 +169,3 @@ export default function AboutPage() {
     </div>
   )
 }
-

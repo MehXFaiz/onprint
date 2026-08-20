@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Mail, MapPin, Phone, Clock, CheckCircle2, MessageSquare } from 'lucide-react'
 import Container from '../../components/Container'
-import SectionHeading from '../../components/SectionHeading'
 import Button from '../../components/Button'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import SEOHead from '../../components/SEOHead'
 
 const contactDetails = [
   { icon: Phone, label: 'Phone / WhatsApp', value: '+971 4 800 PRINT', href: 'tel:+9714800PRINT' },
@@ -46,6 +47,12 @@ export default function ContactPage() {
   if (submitted) {
     return (
       <Container className="flex min-h-[50vh] flex-col items-center justify-center py-24 text-center">
+        <SEOHead
+          title="Inquiry Received | Contact ONPRINT Dubai"
+          description="Thank you for contacting ONPRINT Dubai. Our print specialists will respond to your project request promptly."
+          canonicalPath="/contact"
+          noindex
+        />
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent-soft text-accent">
           <CheckCircle2 className="h-8 w-8" />
         </div>
@@ -72,16 +79,31 @@ export default function ContactPage() {
 
   return (
     <div className="py-16 sm:py-24">
+      <SEOHead
+        title="Contact ONPRINT | Printing Services in Dubai | Al Quoz Studio"
+        description="Contact ONPRINT printing company in Dubai. Located in Al Quoz Industrial Area 3. Get in touch for custom quotes, prepress consultations, and express UAE delivery."
+        keywords="contact onprint, printing services dubai contact, al quoz print shop, dubai printing press contact"
+        canonicalPath="/contact"
+        breadcrumbs={[{ name: 'Contact Us', url: '/contact' }]}
+      />
+
       <Container>
-        <SectionHeading
-          eyebrow="Get In Touch"
-          title="Let’s discuss your print &amp; creative requirements."
-          subtitle="Questions about press specs, materials, timelines, or custom orders? Our Al Quoz studio is ready to help."
-        />
+        <Breadcrumbs items={[{ name: 'Contact Us' }]} />
+
+        <div className="border-b border-border pb-8">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-accent">GET IN TOUCH</span>
+          <h1 className="font-display mt-2 text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
+            Contact ONPRINT Dubai – Print &amp; Creative Studio
+          </h1>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-secondary sm:text-base">
+            Questions about press specs, paper stocks, turnaround timelines, or custom orders? Our Al Quoz studio is ready to help your brand.
+          </p>
+        </div>
 
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
           {/* Contact Details Cards */}
           <div className="space-y-4 lg:col-span-5">
+            <h2 className="font-display text-lg font-bold text-primary mb-4">Dubai Press Facility</h2>
             {contactDetails.map(({ icon: Icon, label, value, href }) => {
               const renderContactIcon = () => {
                 if (!Icon) return null
@@ -208,4 +230,3 @@ export default function ContactPage() {
     </div>
   )
 }
-

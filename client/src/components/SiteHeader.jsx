@@ -286,7 +286,7 @@ export default function SiteHeader() {
 
             {/* 8. Blog */}
             <NavLink
-              to="/portfolio"
+              to="/blog"
               className={({ isActive }) =>
                 `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
                   isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
@@ -457,7 +457,7 @@ export default function SiteHeader() {
               <NavLink to="/contact" className="py-2.5 text-base font-semibold text-primary">
                 Contact us
               </NavLink>
-              <NavLink to="/portfolio" className="py-2.5 text-base font-semibold text-primary">
+              <NavLink to="/blog" className="py-2.5 text-base font-semibold text-primary">
                 Blog
               </NavLink>
 

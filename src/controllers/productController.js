@@ -4,6 +4,18 @@ const ApiError = require('../utils/ApiError')
 
 const PAGE_SIZE = 12
 
+function generateSlug(name) {
+  return (name || '')
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '')
+}
+
 async function listProducts(req, res, next) {
   try {
     const page = Math.max(1, parseInt(req.query.page, 10) || 1)
@@ -18,6 +30,9 @@ async function listProducts(req, res, next) {
           p.id, p.product_key, p.name, p.slug, p.short_description AS shortDescription,
           p.description, p.price, p.minimum_quantity AS minimumQuantity,
           p.featured, p.specifications, p.active, p.created_at AS createdAt,
+          p.seo_title AS seoTitle, p.seo_description AS seoDescription,
+          p.seo_keywords AS seoKeywords, p.seo_heading AS seoHeading,
+          p.canonical_url AS canonicalUrl, p.image_alt AS imageAlt,
           c.id AS cat_id, c.category_key AS cat_key, c.name AS cat_name, c.slug AS cat_slug
         FROM products p
         LEFT JOIN categories c ON p.category_id = c.id
@@ -45,9 +60,8 @@ async function listProducts(req, res, next) {
       const [rows] = await pool.execute(query, params)
 
       if (rows.length > 0) {
-        // Fetch images for products
         const [images] = await pool.execute(
-          'SELECT product_id, image_url FROM product_images ORDER BY display_order ASC'
+          'SELECT product_id, image_url, alt_text FROM product_images ORDER BY display_order ASC'
         )
 
         const imageMap = {}
@@ -67,6 +81,12 @@ async function listProducts(req, res, next) {
           minimumQuantity: p.minimumQuantity,
           featured: Boolean(p.featured),
           active: Boolean(p.active),
+          seoTitle: p.seoTitle || `${p.name} | ONPRINT Dubai`,
+          seoDescription: p.seoDescription || p.shortDescription || p.description || '',
+          seoKeywords: p.seoKeywords || '',
+          seoHeading: p.seoHeading || p.name,
+          canonicalUrl: p.canonicalUrl || `https://0nprint.com/products/${p.slug}`,
+          imageAlt: p.imageAlt || p.name,
           createdAt: p.createdAt,
           category: p.cat_id
             ? { _id: p.cat_key || `cat-${p.cat_id}`, id: p.cat_id, name: p.cat_name, slug: p.cat_slug }
@@ -75,7 +95,7 @@ async function listProducts(req, res, next) {
         }))
       }
     } catch {
-      // Database fallback
+      // Fallback to static initial data
     }
 
     if (list.length === 0) {
@@ -86,13 +106,18 @@ async function listProducts(req, res, next) {
           (p) =>
             p.category &&
             (String(p.category._id).toLowerCase() === catQuery ||
-              String(p.category.slug).toLowerCase() === catQuery),
+              String(p.category.slug).toLowerCase() === catQuery ||
+              String(p.category.name).toLowerCase().includes(catQuery))
         )
       }
-      if (featured === 'true') filtered = filtered.filter((p) => p.featured)
+      if (featured === 'true' || featured === '1') filtered = filtered.filter((p) => p.featured)
       if (searchQuery) {
         const term = searchQuery.toLowerCase()
-        filtered = filtered.filter((p) => p.name.toLowerCase().includes(term))
+        filtered = filtered.filter(
+          (p) =>
+            p.name.toLowerCase().includes(term) ||
+            (p.shortDescription && p.shortDescription.toLowerCase().includes(term))
+        )
       }
       list = filtered
     }
@@ -125,6 +150,9 @@ async function getProductBySlug(req, res, next) {
           p.id, p.product_key, p.name, p.slug, p.short_description AS shortDescription,
           p.description, p.price, p.minimum_quantity AS minimumQuantity,
           p.featured, p.specifications, p.active, p.created_at AS createdAt,
+          p.seo_title AS seoTitle, p.seo_description AS seoDescription,
+          p.seo_keywords AS seoKeywords, p.seo_heading AS seoHeading,
+          p.canonical_url AS canonicalUrl, p.image_alt AS imageAlt,
           c.id AS cat_id, c.category_key AS cat_key, c.name AS cat_name, c.slug AS cat_slug
         FROM products p
         LEFT JOIN categories c ON p.category_id = c.id
@@ -136,7 +164,7 @@ async function getProductBySlug(req, res, next) {
       if (rows.length > 0) {
         const p = rows[0]
         const [images] = await pool.execute(
-          'SELECT image_url FROM product_images WHERE product_id = ? ORDER BY display_order ASC',
+          'SELECT image_url, alt_text FROM product_images WHERE product_id = ? ORDER BY display_order ASC',
           [p.id]
         )
 
@@ -151,6 +179,12 @@ async function getProductBySlug(req, res, next) {
           minimumQuantity: p.minimumQuantity,
           featured: Boolean(p.featured),
           active: Boolean(p.active),
+          seoTitle: p.seoTitle || `${p.name} | ONPRINT Dubai`,
+          seoDescription: p.seoDescription || p.shortDescription || p.description || '',
+          seoKeywords: p.seoKeywords || '',
+          seoHeading: p.seoHeading || p.name,
+          canonicalUrl: p.canonicalUrl || `https://0nprint.com/products/${p.slug}`,
+          imageAlt: p.imageAlt || (images[0]?.alt_text) || p.name,
           createdAt: p.createdAt,
           category: p.cat_id
             ? { _id: p.cat_key || `cat-${p.cat_id}`, id: p.cat_id, name: p.cat_name, slug: p.cat_slug }
@@ -164,7 +198,7 @@ async function getProductBySlug(req, res, next) {
       // Fallback
     }
 
-    const fallback = fallbackProducts.find((p) => p.slug === slug || p._id === slug)
+    const fallback = fallbackProducts.find((p) => p.slug === slug || p._id === slug || String(p.id) === slug)
     if (!fallback) throw new ApiError(404, 'Product not found')
 
     res.json({ success: true, data: fallback })
@@ -188,18 +222,24 @@ async function createProduct(req, res, next) {
       minimumQuantity,
       featured,
       images,
+      seoTitle,
+      seoDescription,
+      seoKeywords,
+      seoHeading,
+      imageAlt,
     } = req.body
 
     if (!name) throw new ApiError(400, 'Product name is required')
 
-    const cleanSlug = slug || name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '')
+    const cleanSlug = generateSlug(slug || name)
 
     const [result] = await connection.execute(
       `INSERT INTO products 
-        (name, slug, category_id, short_description, description, price, minimum_quantity, featured, active)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+        (name, slug, category_id, short_description, description, price, minimum_quantity, featured, active,
+         seo_title, seo_description, seo_keywords, seo_heading, image_alt, canonical_url)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, ?, ?, ?, ?)`,
       [
-        name,
+        name.trim(),
         cleanSlug,
         categoryId || null,
         shortDescription || '',
@@ -207,6 +247,12 @@ async function createProduct(req, res, next) {
         price || 0,
         minimumQuantity || 1,
         featured ? 1 : 0,
+        seoTitle || `${name} | ONPRINT Dubai`,
+        seoDescription || shortDescription || description || '',
+        seoKeywords || '',
+        seoHeading || name,
+        imageAlt || name,
+        `https://0nprint.com/products/${cleanSlug}`,
       ]
     )
 
@@ -215,14 +261,14 @@ async function createProduct(req, res, next) {
     if (Array.isArray(images) && images.length > 0) {
       for (let i = 0; i < images.length; i++) {
         await connection.execute(
-          'INSERT INTO product_images (product_id, image_url, display_order) VALUES (?, ?, ?)',
-          [productId, images[i], i + 1]
+          'INSERT INTO product_images (product_id, image_url, alt_text, display_order) VALUES (?, ?, ?, ?)',
+          [productId, images[i], imageAlt || name, i + 1]
         )
       }
     } else {
       await connection.execute(
-        'INSERT INTO product_images (product_id, image_url, display_order) VALUES (?, ?, 1)',
-        [productId, '/assets/products/1 (1).jpg']
+        'INSERT INTO product_images (product_id, image_url, alt_text, display_order) VALUES (?, ?, ?, 1)',
+        [productId, '/assets/products/1 (1).jpg', imageAlt || name]
       )
     }
 
@@ -250,21 +296,46 @@ async function createProduct(req, res, next) {
 async function updateProduct(req, res, next) {
   try {
     const { id } = req.params
-    const { name, slug, shortDescription, description, price, minimumQuantity, featured, active } = req.body
+    const {
+      name,
+      slug,
+      categoryId,
+      shortDescription,
+      description,
+      price,
+      minimumQuantity,
+      featured,
+      active,
+      seoTitle,
+      seoDescription,
+      seoKeywords,
+      seoHeading,
+      imageAlt,
+    } = req.body
+
+    const cleanSlug = generateSlug(slug || name)
 
     const [result] = await pool.execute(
       `UPDATE products 
-       SET name = ?, slug = ?, short_description = ?, description = ?, price = ?, minimum_quantity = ?, featured = ?, active = ?
+       SET name = ?, slug = ?, category_id = ?, short_description = ?, description = ?, price = ?, minimum_quantity = ?,
+           featured = ?, active = ?, seo_title = ?, seo_description = ?, seo_keywords = ?, seo_heading = ?, image_alt = ?, canonical_url = ?
        WHERE id = ? OR product_key = ? OR slug = ?`,
       [
         name,
-        slug,
+        cleanSlug,
+        categoryId || null,
         shortDescription,
         description,
         price,
         minimumQuantity,
         featured ? 1 : 0,
         active ? 1 : 0,
+        seoTitle || `${name} | ONPRINT Dubai`,
+        seoDescription || shortDescription || description || '',
+        seoKeywords || '',
+        seoHeading || name,
+        imageAlt || name,
+        `https://0nprint.com/products/${cleanSlug}`,
         id,
         id,
         id,

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { ArrowLeft, ChevronRight, FolderTree, Save, Image as ImageIcon, Search, Globe, Sparkles } from 'lucide-react'
+import { ArrowLeft, ChevronRight, Save, Image as ImageIcon, Search, Globe, Sparkles, BookOpen } from 'lucide-react'
 import Button from '../../components/Button'
 import ImageUploader from '../../components/ImageUploader'
-import { getCategoryById, createCategory, updateCategory } from '../../services/categories'
+import { getBlogPostBySlug, createBlogPost, updateBlogPost, getStoredBlogPosts } from '../../services/blog'
 
-export default function AdminCategoryFormPage() {
+const CATEGORIES = ['Printing Guide', 'Corporate Gifting', 'Business Stationery', 'Industry Insights']
+
+export default function AdminBlogFormPage() {
   const navigate = useNavigate()
   const { id } = useParams()
   const isEdit = Boolean(id)
@@ -16,55 +18,53 @@ export default function AdminCategoryFormPage() {
   const [slugEdited, setSlugEdited] = useState(false)
 
   const [form, setForm] = useState({
-    name: '',
+    title: '',
     slug: '',
-    description: '',
-    image: '',
-    image_url: '',
-    status: 'active',
-    displayOrder: 0,
-    display_order: 0,
+    category: 'Printing Guide',
+    author: 'ONPRINT Studio',
+    readTime: '5 min read',
+    excerpt: '',
+    content: '',
+    featuredImage: '/assets/products/1 (1).jpg',
+    imageAlt: '',
     seoTitle: '',
     seoDescription: '',
     seoKeywords: '',
-    seoHeading: '',
-    imageAlt: '',
+    status: 'active',
   })
 
-  // Load existing category for editing
   useEffect(() => {
     if (!isEdit) return
-    async function loadCategory() {
+    async function loadPost() {
       try {
         setLoading(true)
-        const cat = await getCategoryById(id)
-        if (cat) {
-          const img = cat.image_url || cat.image || ''
-          const order = cat.display_order ?? cat.displayOrder ?? 0
+        const all = getStoredBlogPosts()
+        const found = all.find((p) => String(p._id || p.id) === String(id) || p.slug === id)
+        if (found) {
           setForm({
-            name: cat.name || '',
-            slug: cat.slug || '',
-            description: cat.description || '',
-            image: img,
-            image_url: img,
-            status: cat.status || (cat.active ? 'active' : 'inactive'),
-            displayOrder: order,
-            display_order: order,
-            seoTitle: cat.seoTitle || '',
-            seoDescription: cat.seoDescription || '',
-            seoKeywords: cat.seoKeywords || '',
-            seoHeading: cat.seoHeading || '',
-            imageAlt: cat.imageAlt || '',
+            title: found.title || '',
+            slug: found.slug || '',
+            category: found.category || 'Printing Guide',
+            author: found.author || 'ONPRINT Studio',
+            readTime: found.readTime || '5 min read',
+            excerpt: found.excerpt || '',
+            content: found.content || '',
+            featuredImage: found.featuredImage || found.featured_image || '/assets/products/1 (1).jpg',
+            imageAlt: found.imageAlt || found.image_alt || found.title || '',
+            seoTitle: found.seoTitle || found.seo_title || '',
+            seoDescription: found.seoDescription || found.seo_description || '',
+            seoKeywords: found.seoKeywords || found.seo_keywords || '',
+            status: 'active',
           })
           setSlugEdited(true)
         }
       } catch (err) {
-        setError(err?.response?.data?.message || err?.message || 'Failed to load category data.')
+        setError(err.message || 'Failed to load article.')
       } finally {
         setLoading(false)
       }
     }
-    loadCategory()
+    loadPost()
   }, [id, isEdit])
 
   const slugify = (text) => {
@@ -79,69 +79,58 @@ export default function AdminCategoryFormPage() {
       .replace(/-+$/, '')
   }
 
-  const handleNameChange = (e) => {
+  const handleTitleChange = (e) => {
     const val = e.target.value
     setForm((prev) => ({
       ...prev,
-      name: val,
+      title: val,
       slug: slugEdited ? prev.slug : slugify(val),
-    }))
-  }
-
-  const handleSlugChange = (e) => {
-    setSlugEdited(true)
-    setForm((prev) => ({
-      ...prev,
-      slug: slugify(e.target.value),
     }))
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!form.title.trim()) {
+      setError('Article title is required.')
+      return
+    }
+
+    setSubmitting(true)
     setError(null)
 
-    if (!form.name.trim()) {
-      setError('Category name is required.')
-      return
-    }
-
-    if (!form.slug.trim()) {
-      setError('Category slug is required.')
-      return
-    }
-
     try {
-      setSubmitting(true)
+      const cleanSlug = form.slug.trim() || slugify(form.title.trim())
       const payload = {
-        name: form.name.trim(),
-        slug: form.slug.trim(),
-        description: form.description.trim(),
-        image: form.image_url || form.image,
-        image_url: form.image_url || form.image,
-        status: form.status,
-        displayOrder: Number(form.displayOrder) || 0,
-        display_order: Number(form.displayOrder) || 0,
-        seo_title: form.seoTitle.trim() || `${form.name.trim()} | ONPRINT Dubai`,
-        seoTitle: form.seoTitle.trim() || `${form.name.trim()} | ONPRINT Dubai`,
-        seo_description: form.seoDescription.trim() || form.description.trim(),
-        seoDescription: form.seoDescription.trim() || form.description.trim(),
-        seo_keywords: form.seoKeywords.trim(),
+        title: form.title.trim(),
+        slug: cleanSlug,
+        category: form.category,
+        author: form.author.trim() || 'ONPRINT Studio',
+        readTime: form.readTime.trim() || '5 min read',
+        excerpt: form.excerpt.trim(),
+        content: form.content.trim(),
+        featuredImage: form.featuredImage,
+        featured_image: form.featuredImage,
+        imageAlt: form.imageAlt.trim() || form.title.trim(),
+        image_alt: form.imageAlt.trim() || form.title.trim(),
+        seoTitle: form.seoTitle.trim() || `${form.title.trim()} | ONPRINT Blog`,
+        seo_title: form.seoTitle.trim() || `${form.title.trim()} | ONPRINT Blog`,
+        seoDescription: form.seoDescription.trim() || form.excerpt.trim(),
+        seo_description: form.seoDescription.trim() || form.excerpt.trim(),
         seoKeywords: form.seoKeywords.trim(),
-        seo_heading: form.seoHeading.trim() || form.name.trim(),
-        seoHeading: form.seoHeading.trim() || form.name.trim(),
-        image_alt: form.imageAlt.trim() || form.name.trim(),
-        imageAlt: form.imageAlt.trim() || form.name.trim(),
+        seo_keywords: form.seoKeywords.trim(),
+        canonical_url: `https://0nprint.com/blog/${cleanSlug}`,
+        published_at: new Date().toISOString(),
       }
 
       if (isEdit) {
-        await updateCategory(id, payload)
+        await updateBlogPost(id, payload)
       } else {
-        await createCategory(payload)
+        await createBlogPost(payload)
       }
 
-      navigate('/admin/categories')
+      navigate('/admin/blog')
     } catch (err) {
-      setError(err?.response?.data?.message || err?.message || 'Failed to save category.')
+      setError(err.message || 'Failed to save article.')
     } finally {
       setSubmitting(false)
     }
@@ -155,40 +144,40 @@ export default function AdminCategoryFormPage() {
     )
   }
 
-  const serpTitle = form.seoTitle || (form.name ? `${form.name} | ONPRINT Dubai` : 'Category Title | ONPRINT Dubai')
-  const serpDesc = form.seoDescription || (form.description ? form.description : 'High-impact printing and branding solutions manufactured in Dubai, UAE.')
-  const serpUrl = `https://0nprint.com/products?category=${form.slug || 'category-slug'}`
+  const serpTitle = form.seoTitle || (form.title ? `${form.title} | ONPRINT Blog` : 'Article Title | ONPRINT Blog')
+  const serpDesc = form.seoDescription || form.excerpt || 'Read expert insights on commercial printing and corporate branding in Dubai.'
+  const serpUrl = `https://0nprint.com/blog/${form.slug || 'article-slug'}`
 
   return (
     <div className="space-y-6">
       {/* Breadcrumbs */}
-      <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500">
+      <nav className="flex items-center gap-2 text-xs font-semibold text-neutral-500">
         <Link to="/admin" className="hover:text-neutral-900 transition-colors">
-          Dashboard
+          Admin
         </Link>
-        <ChevronRight className="h-3.5 w-3.5" />
-        <Link to="/admin/categories" className="hover:text-neutral-900 transition-colors">
-          Categories
+        <ChevronRight className="h-3.5 w-3.5 text-neutral-400" />
+        <Link to="/admin/blog" className="hover:text-neutral-900 transition-colors">
+          Blog Articles
         </Link>
-        <ChevronRight className="h-3.5 w-3.5" />
-        <span className="text-neutral-900">{isEdit ? 'Edit Category' : 'Create Category'}</span>
-      </div>
+        <ChevronRight className="h-3.5 w-3.5 text-neutral-400" />
+        <span className="text-neutral-900">{isEdit ? 'Edit Article' : 'Write Article'}</span>
+      </nav>
 
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-neutral-200 pb-5">
         <div>
           <h1 className="font-display text-2xl font-black tracking-tight text-neutral-900">
-            {isEdit ? `Edit Category: ${form.name}` : 'Add New Category'}
+            {isEdit ? `Edit Article: ${form.title}` : 'Write New Blog Article'}
           </h1>
           <p className="text-xs text-neutral-500 mt-1">
-            Configure category metadata, imagery, and Google Search Optimization settings.
+            Author SEO-optimized long-form content for Dubai print searchers.
           </p>
         </div>
         <div className="flex items-center gap-3">
           <Button
             type="button"
             variant="outline"
-            onClick={() => navigate('/admin/categories')}
+            onClick={() => navigate('/admin/blog')}
             disabled={submitting}
             className="border-neutral-200 text-neutral-700 hover:bg-neutral-50 text-xs"
           >
@@ -203,7 +192,7 @@ export default function AdminCategoryFormPage() {
             className="text-xs font-bold"
           >
             <Save className="h-4 w-4 mr-1.5" />
-            {submitting ? 'Saving...' : isEdit ? 'Save Changes' : 'Create Category'}
+            {submitting ? 'Publishing...' : isEdit ? 'Update Article' : 'Publish Article'}
           </Button>
         </div>
       </div>
@@ -216,23 +205,23 @@ export default function AdminCategoryFormPage() {
 
       {/* Main Grid */}
       <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-        {/* Left Column: Details & SEO */}
+        {/* Left Column */}
         <div className="space-y-6 lg:col-span-8">
-          {/* General Information Card */}
+          {/* Article Info */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
             <h2 className="font-display text-base font-bold text-neutral-900 border-b border-neutral-100 pb-3">
-              General Information
+              Article Content &amp; Details
             </h2>
 
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
-                Category Name <span className="text-red-500">*</span>
+                Article Title <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
-                value={form.name}
-                onChange={handleNameChange}
-                placeholder="e.g. Corporate Gift Items"
+                value={form.title}
+                onChange={handleTitleChange}
+                placeholder="e.g. The Complete Guide to Commercial & Digital Printing in Dubai"
                 required
                 className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
               />
@@ -243,28 +232,88 @@ export default function AdminCategoryFormPage() {
                 URL Slug <span className="text-red-500">*</span>
               </label>
               <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-500 focus-within:border-[#A82F19]">
-                <span className="text-neutral-400">/products?category=</span>
+                <span className="text-neutral-400">/blog/</span>
                 <input
                   type="text"
                   value={form.slug}
-                  onChange={handleSlugChange}
-                  placeholder="corporate-gift-items"
+                  onChange={(e) => {
+                    setSlugEdited(true)
+                    setForm((prev) => ({ ...prev, slug: slugify(e.target.value) }))
+                  }}
+                  placeholder="commercial-printing-guide-dubai"
                   required
                   className="w-full bg-transparent pl-1 font-semibold text-neutral-900 focus:outline-none"
                 />
               </div>
             </div>
 
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                  Category
+                </label>
+                <select
+                  value={form.category}
+                  onChange={(e) => setForm((prev) => ({ ...prev, category: e.target.value }))}
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                >
+                  {CATEGORIES.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                  Author
+                </label>
+                <input
+                  type="text"
+                  value={form.author}
+                  onChange={(e) => setForm((prev) => ({ ...prev, author: e.target.value }))}
+                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                  Estimated Read Time
+                </label>
+                <input
+                  type="text"
+                  value={form.readTime}
+                  onChange={(e) => setForm((prev) => ({ ...prev, readTime: e.target.value }))}
+                  placeholder="e.g. 6 min read"
+                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                />
+              </div>
+            </div>
+
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
-                Description
+                Summary / Excerpt (Lead Paragraph)
               </label>
               <textarea
-                rows={3}
-                value={form.description}
-                onChange={(e) => setForm((prev) => ({ ...prev, description: e.target.value }))}
-                placeholder="Describe the products grouped under this category…"
+                rows={2}
+                value={form.excerpt}
+                onChange={(e) => setForm((prev) => ({ ...prev, excerpt: e.target.value }))}
+                placeholder="A compelling 2-sentence summary introducing the article…"
                 className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                Article Body (HTML / Semantic Content)
+              </label>
+              <textarea
+                rows={12}
+                value={form.content}
+                onChange={(e) => setForm((prev) => ({ ...prev, content: e.target.value }))}
+                placeholder="<h2>Subheading</h2><p>Article body paragraphs...</p><ul><li>Key points</li></ul>"
+                className="w-full rounded-xl border border-neutral-300 p-3 font-mono text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
               />
             </div>
           </div>
@@ -274,7 +323,7 @@ export default function AdminCategoryFormPage() {
             <div className="flex items-center gap-2 border-b border-neutral-100 pb-3">
               <Search className="h-4 w-4 text-[#A82F19]" />
               <h2 className="font-display text-base font-bold text-neutral-900">
-                Google Search Engine Optimization (SEO)
+                Google Search Optimization (SEO)
               </h2>
             </div>
 
@@ -291,7 +340,7 @@ export default function AdminCategoryFormPage() {
                 type="text"
                 value={form.seoTitle}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoTitle: e.target.value }))}
-                placeholder="e.g. Corporate Gifts Dubai | Custom Promotional Items | ONPRINT"
+                placeholder="e.g. Commercial Printing in Dubai | Complete Guide | ONPRINT"
                 className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
               />
             </div>
@@ -309,40 +358,25 @@ export default function AdminCategoryFormPage() {
                 rows={3}
                 value={form.seoDescription}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoDescription: e.target.value }))}
-                placeholder="Write an enticing summary for Google searchers (130-160 characters)..."
+                placeholder="Detailed meta description with primary target keywords..."
                 className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
-                  SEO Keywords (Comma Separated)
-                </label>
-                <input
-                  type="text"
-                  value={form.seoKeywords}
-                  onChange={(e) => setForm((prev) => ({ ...prev, seoKeywords: e.target.value }))}
-                  placeholder="corporate gifts dubai, promotional gifts uae"
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
-                  Primary H1 Heading Override
-                </label>
-                <input
-                  type="text"
-                  value={form.seoHeading}
-                  onChange={(e) => setForm((prev) => ({ ...prev, seoHeading: e.target.value }))}
-                  placeholder={form.name || 'Defaults to Category Name'}
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
-                />
-              </div>
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                SEO Keywords (Comma Separated)
+              </label>
+              <input
+                type="text"
+                value={form.seoKeywords}
+                onChange={(e) => setForm((prev) => ({ ...prev, seoKeywords: e.target.value }))}
+                placeholder="printing services dubai, digital printing guide uae"
+                className="w-full rounded-xl border border-neutral-300 px-4 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+              />
             </div>
 
-            {/* Live Google SERP Snippet Preview */}
+            {/* Live SERP Snippet Preview */}
             <div className="mt-4 rounded-xl border border-neutral-200 bg-neutral-50 p-4">
               <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-500">
                 Google SERP Snippet Preview
@@ -363,50 +397,16 @@ export default function AdminCategoryFormPage() {
           </div>
         </div>
 
-        {/* Right Column: Image & Publishing */}
+        {/* Right Column */}
         <div className="space-y-6 lg:col-span-4">
-          {/* Publishing Settings */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
             <h2 className="font-display text-base font-bold text-neutral-900 border-b border-neutral-100 pb-3">
-              Publishing
-            </h2>
-
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
-                Visibility Status
-              </label>
-              <select
-                value={form.status}
-                onChange={(e) => setForm((prev) => ({ ...prev, status: e.target.value }))}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
-              >
-                <option value="active">Active (Visible)</option>
-                <option value="inactive">Inactive (Hidden)</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
-                Display Order
-              </label>
-              <input
-                type="number"
-                value={form.displayOrder}
-                onChange={(e) => setForm((prev) => ({ ...prev, displayOrder: e.target.value, display_order: e.target.value }))}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
-              />
-            </div>
-          </div>
-
-          {/* Image & Alt Text */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-neutral-900 border-b border-neutral-100 pb-3">
-              Category Image &amp; ALT
+              Featured Image &amp; ALT Tag
             </h2>
 
             <ImageUploader
-              value={form.image_url || form.image}
-              onChange={(url) => setForm((prev) => ({ ...prev, image: url, image_url: url }))}
+              value={form.featuredImage}
+              onChange={(url) => setForm((prev) => ({ ...prev, featuredImage: url }))}
             />
 
             <div>
@@ -417,7 +417,7 @@ export default function AdminCategoryFormPage() {
                 type="text"
                 value={form.imageAlt}
                 onChange={(e) => setForm((prev) => ({ ...prev, imageAlt: e.target.value }))}
-                placeholder={form.name || 'Descriptive ALT tag for screen readers & Google Images'}
+                placeholder={form.title || 'Descriptive ALT text'}
                 className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
               />
             </div>

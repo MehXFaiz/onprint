@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import PublicLayout from './layouts/PublicLayout'
 import AdminLayout from './layouts/AdminLayout'
+import GoogleAnalytics from './components/GoogleAnalytics'
 
 import HomePage from './pages/public/HomePage'
 import AboutPage from './pages/public/AboutPage'
@@ -8,6 +9,8 @@ import ServicesPage from './pages/public/ServicesPage'
 import ServiceDetailPage from './pages/public/ServiceDetailPage'
 import ProductsPage from './pages/public/ProductsPage'
 import ProductDetailPage from './pages/public/ProductDetailPage'
+import BlogPage from './pages/public/BlogPage'
+import BlogPostPage from './pages/public/BlogPostPage'
 import PortfolioPage from './pages/public/PortfolioPage'
 import ContactPage from './pages/public/ContactPage'
 import GetQuotePage from './pages/public/GetQuotePage'
@@ -24,6 +27,9 @@ import AdminCategoriesPage from './pages/admin/AdminCategoriesPage'
 import AdminCategoryFormPage from './pages/admin/AdminCategoryFormPage'
 import AdminServicesPage from './pages/admin/AdminServicesPage'
 import AdminServiceFormPage from './pages/admin/AdminServiceFormPage'
+import AdminBlogPage from './pages/admin/AdminBlogPage'
+import AdminBlogFormPage from './pages/admin/AdminBlogFormPage'
+import AdminSeoAuditPage from './pages/admin/AdminSeoAuditPage'
 import AdminOrdersPage from './pages/admin/AdminOrdersPage'
 import AdminOrderFormPage from './pages/admin/AdminOrderFormPage'
 import AdminQuotesPage from './pages/admin/AdminQuotesPage'
@@ -37,70 +43,83 @@ import AdminSettingsPage from './pages/admin/AdminSettingsPage'
 
 function App() {
   return (
-    <Routes>
-      <Route element={<PublicLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/services/:slug" element={<ServiceDetailPage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/products/:slug" element={<ProductDetailPage />} />
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/get-a-quote" element={<GetQuotePage />} />
-        <Route path="/faq" element={<FaqPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-        <Route path="/terms" element={<TermsPage />} />
-        <Route path="/login" element={<Navigate to="/admin/login" replace />} />
-        <Route path="/register" element={<Navigate to="/admin/login" replace />} />
-        <Route path="/account/*" element={<Navigate to="/admin" replace />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
+    <>
+      <GoogleAnalytics />
+      <Routes>
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:slug" element={<ServiceDetailPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:slug" element={<ProductDetailPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/get-a-quote" element={<GetQuotePage />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/login" element={<Navigate to="/admin/login" replace />} />
+          <Route path="/register" element={<Navigate to="/admin/login" replace />} />
+          <Route path="/account/*" element={<Navigate to="/admin" replace />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
 
-      <Route path="/admin/login" element={<AdminLoginPage />} />
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route index element={<AdminDashboardPage />} />
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboardPage />} />
 
-        {/* Categories Dedicated Routes */}
-        <Route path="categories" element={<AdminCategoriesPage />} />
-        <Route path="categories/new" element={<AdminCategoryFormPage />} />
-        <Route path="categories/:id/edit" element={<AdminCategoryFormPage />} />
+          {/* Categories Dedicated Routes */}
+          <Route path="categories" element={<AdminCategoriesPage />} />
+          <Route path="categories/new" element={<AdminCategoryFormPage />} />
+          <Route path="categories/:id/edit" element={<AdminCategoryFormPage />} />
 
-        {/* Products Dedicated Routes */}
-        <Route path="products" element={<AdminProductsPage />} />
-        <Route path="products/new" element={<AdminProductFormPage />} />
-        <Route path="products/:id/edit" element={<AdminProductFormPage />} />
+          {/* Products Dedicated Routes */}
+          <Route path="products" element={<AdminProductsPage />} />
+          <Route path="products/new" element={<AdminProductFormPage />} />
+          <Route path="products/:id/edit" element={<AdminProductFormPage />} />
 
-        {/* Services Dedicated Routes */}
-        <Route path="services" element={<AdminServicesPage />} />
-        <Route path="services/new" element={<AdminServiceFormPage />} />
-        <Route path="services/:id/edit" element={<AdminServiceFormPage />} />
+          {/* Services Dedicated Routes */}
+          <Route path="services" element={<AdminServicesPage />} />
+          <Route path="services/new" element={<AdminServiceFormPage />} />
+          <Route path="services/:id/edit" element={<AdminServiceFormPage />} />
 
-        {/* Orders Dedicated Routes */}
-        <Route path="orders" element={<AdminOrdersPage />} />
-        <Route path="orders/new" element={<AdminOrderFormPage />} />
-        <Route path="orders/:id/edit" element={<AdminOrderFormPage />} />
+          {/* Blog Dedicated Routes */}
+          <Route path="blog" element={<AdminBlogPage />} />
+          <Route path="blog/new" element={<AdminBlogFormPage />} />
+          <Route path="blog/:id/edit" element={<AdminBlogFormPage />} />
 
-        {/* Quotes Dedicated Routes */}
-        <Route path="quotes" element={<AdminQuotesPage />} />
-        <Route path="quotes/new" element={<AdminQuoteFormPage />} />
-        <Route path="quotes/:id/edit" element={<AdminQuoteFormPage />} />
+          {/* SEO Audit Tool Route */}
+          <Route path="seo-audit" element={<AdminSeoAuditPage />} />
 
-        {/* Customers Dedicated Routes */}
-        <Route path="customers" element={<AdminCustomersPage />} />
-        <Route path="customers/new" element={<AdminCustomerFormPage />} />
-        <Route path="customers/:id/edit" element={<AdminCustomerFormPage />} />
+          {/* Orders Dedicated Routes */}
+          <Route path="orders" element={<AdminOrdersPage />} />
+          <Route path="orders/new" element={<AdminOrderFormPage />} />
+          <Route path="orders/:id/edit" element={<AdminOrderFormPage />} />
 
-        {/* Portfolio Dedicated Routes */}
-        <Route path="portfolio" element={<AdminPortfolioPage />} />
-        <Route path="portfolio/new" element={<AdminPortfolioFormPage />} />
-        <Route path="portfolio/:id/edit" element={<AdminPortfolioFormPage />} />
+          {/* Quotes Dedicated Routes */}
+          <Route path="quotes" element={<AdminQuotesPage />} />
+          <Route path="quotes/new" element={<AdminQuoteFormPage />} />
+          <Route path="quotes/:id/edit" element={<AdminQuoteFormPage />} />
 
-        {/* Messages & Settings */}
-        <Route path="messages" element={<AdminMessagesPage />} />
-        <Route path="settings" element={<AdminSettingsPage />} />
-      </Route>
-    </Routes>
+          {/* Customers Dedicated Routes */}
+          <Route path="customers" element={<AdminCustomersPage />} />
+          <Route path="customers/new" element={<AdminCustomerFormPage />} />
+          <Route path="customers/:id/edit" element={<AdminCustomerFormPage />} />
+
+          {/* Portfolio Dedicated Routes */}
+          <Route path="portfolio" element={<AdminPortfolioPage />} />
+          <Route path="portfolio/new" element={<AdminPortfolioFormPage />} />
+          <Route path="portfolio/:id/edit" element={<AdminPortfolioFormPage />} />
+
+          {/* Messages & Settings */}
+          <Route path="messages" element={<AdminMessagesPage />} />
+          <Route path="settings" element={<AdminSettingsPage />} />
+        </Route>
+      </Routes>
+    </>
   )
 }
 

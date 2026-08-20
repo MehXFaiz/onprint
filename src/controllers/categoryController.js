@@ -27,6 +27,10 @@ const initialSeedCategories = [
     status: 'active',
     display_order: 1,
     active: 1,
+    seo_title: 'Corporate Gifts Dubai | Custom Promotional Gifts & Merchandise | ONPRINT',
+    seo_description: 'Explore premium corporate gifts in Dubai. Custom printed mugs, thermal flasks, t-shirts, notebooks, and promotional merchandise tailored for UAE brands.',
+    seo_keywords: 'corporate gifts dubai, promotional gifts dubai, corporate gift printing dubai, branded giveaways uae',
+    image_alt: 'Premium corporate gifts and promotional merchandise in Dubai',
   },
   {
     id: 2,
@@ -39,6 +43,10 @@ const initialSeedCategories = [
     status: 'active',
     display_order: 2,
     active: 1,
+    seo_title: 'Office Stationery Printing Dubai | Executive Business Stationery | ONPRINT',
+    seo_description: 'Professional office stationery printing in Dubai. Custom business cards, executive letterheads, branded notebooks, and luxury corporate folders.',
+    seo_keywords: 'office stationery printing dubai, business stationery dubai, business card printing dubai',
+    image_alt: 'Executive business cards and office stationery printing Dubai',
   },
   {
     id: 3,
@@ -51,6 +59,10 @@ const initialSeedCategories = [
     status: 'active',
     display_order: 3,
     active: 1,
+    seo_title: 'Large Format Printing & Custom Displays Dubai | ONPRINT',
+    seo_description: 'High-impact large format printing, roll-up banner stands, outdoor flags, waterproof vinyl stickers, and acrylic nameplates in Dubai, UAE.',
+    seo_keywords: 'large format printing dubai, roll up printing dubai, sticker printing dubai, banner printing dubai',
+    image_alt: 'Large format roll-up banner and signage printing Dubai',
   },
 ]
 
@@ -61,10 +73,25 @@ async function seedCategoriesIfEmpty() {
       console.log('[Categories] Seeding initial MySQL category records...')
       for (const cat of initialSeedCategories) {
         await pool.query(
-          `INSERT INTO categories (id, category_key, name, slug, description, image, image_url, status, display_order, active)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          `INSERT INTO categories (id, category_key, name, slug, description, image, image_url, status, display_order, active, seo_title, seo_description, seo_keywords, image_alt)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
            ON DUPLICATE KEY UPDATE name=VALUES(name)`,
-          [cat.id, cat.category_key, cat.name, cat.slug, cat.description, cat.image, cat.image_url, cat.status, cat.display_order, cat.active]
+          [
+            cat.id,
+            cat.category_key,
+            cat.name,
+            cat.slug,
+            cat.description,
+            cat.image,
+            cat.image_url,
+            cat.status,
+            cat.display_order,
+            cat.active,
+            cat.seo_title,
+            cat.seo_description,
+            cat.seo_keywords,
+            cat.image_alt,
+          ]
         )
       }
     }
@@ -75,7 +102,6 @@ async function seedCategoriesIfEmpty() {
 
 async function listCategories(req, res, next) {
   try {
-    console.log('[Categories] GET request received for categories list')
     await seedCategoriesIfEmpty()
 
     const { search, status, sort } = req.query
@@ -86,6 +112,9 @@ async function listCategories(req, res, next) {
         COALESCE(c.image, c.image_url) AS image,
         COALESCE(c.image_url, c.image) AS image_url,
         c.status, c.display_order AS displayOrder, c.active,
+        c.seo_title AS seoTitle, c.seo_description AS seoDescription,
+        c.seo_keywords AS seoKeywords, c.seo_heading AS seoHeading,
+        c.canonical_url AS canonicalUrl, c.image_alt AS imageAlt,
         c.created_at AS createdAt, c.updated_at AS updatedAt,
         COUNT(p.id) AS productCount
       FROM categories c
@@ -133,15 +162,19 @@ async function listCategories(req, res, next) {
       active: Boolean(c.active !== 0 && c.status !== 'inactive'),
       displayOrder: Number(c.displayOrder || 0),
       display_order: Number(c.displayOrder || 0),
+      seoTitle: c.seoTitle || `${c.name} | ONPRINT Dubai`,
+      seoDescription: c.seoDescription || c.description || '',
+      seoKeywords: c.seoKeywords || '',
+      seoHeading: c.seoHeading || c.name,
+      canonicalUrl: c.canonicalUrl || `https://0nprint.com/products?category=${c.slug}`,
+      imageAlt: c.imageAlt || c.name,
       createdAt: c.createdAt,
       updatedAt: c.updatedAt,
       productCount: Number(c.productCount || 0),
     }))
 
-    console.log(`[Categories] Fetched ${list.length} categories from MySQL`)
     res.json({ success: true, data: list })
   } catch (err) {
-    console.error('[Categories] MySQL error in listCategories:', err.message)
     next(err)
   }
 }
@@ -149,7 +182,6 @@ async function listCategories(req, res, next) {
 async function getCategoryById(req, res, next) {
   try {
     const { id } = req.params
-    console.log(`[Categories] GET request received for category ID/slug: ${id}`)
 
     const [rows] = await pool.execute(
       `SELECT 
@@ -157,6 +189,9 @@ async function getCategoryById(req, res, next) {
         COALESCE(c.image, c.image_url) AS image,
         COALESCE(c.image_url, c.image) AS image_url,
         c.status, c.display_order AS displayOrder, c.active,
+        c.seo_title AS seoTitle, c.seo_description AS seoDescription,
+        c.seo_keywords AS seoKeywords, c.seo_heading AS seoHeading,
+        c.canonical_url AS canonicalUrl, c.image_alt AS imageAlt,
         c.created_at AS createdAt, c.updated_at AS updatedAt,
         COUNT(p.id) AS productCount
       FROM categories c
@@ -184,6 +219,12 @@ async function getCategoryById(req, res, next) {
       active: Boolean(c.active !== 0 && c.status !== 'inactive'),
       displayOrder: Number(c.displayOrder || 0),
       display_order: Number(c.displayOrder || 0),
+      seoTitle: c.seoTitle || `${c.name} | ONPRINT Dubai`,
+      seoDescription: c.seoDescription || c.description || '',
+      seoKeywords: c.seoKeywords || '',
+      seoHeading: c.seoHeading || c.name,
+      canonicalUrl: c.canonicalUrl || `https://0nprint.com/products?category=${c.slug}`,
+      imageAlt: c.imageAlt || c.name,
       createdAt: c.createdAt,
       updatedAt: c.updatedAt,
       productCount: Number(c.productCount || 0),
@@ -191,22 +232,23 @@ async function getCategoryById(req, res, next) {
 
     res.json({ success: true, data: categoryData })
   } catch (err) {
-    console.error('[Categories] MySQL error in getCategoryById:', err.message)
     next(err)
   }
 }
 
 async function createCategory(req, res, next) {
   try {
-    console.log('[Categories] POST request received to create category')
-    console.log('[Categories] Validating payload:', JSON.stringify(req.body))
-
     const name = (req.body.name || '').trim()
     const rawSlug = (req.body.slug || '').trim()
     const description = (req.body.description || '').trim()
     const imageUrl = (req.body.image_url || req.body.image || '').trim()
     const statusInput = req.body.status
     const displayOrderInput = req.body.display_order ?? req.body.displayOrder
+    const seoTitle = (req.body.seo_title || req.body.seoTitle || '').trim()
+    const seoDescription = (req.body.seo_description || req.body.seoDescription || '').trim()
+    const seoKeywords = (req.body.seo_keywords || req.body.seoKeywords || '').trim()
+    const seoHeading = (req.body.seo_heading || req.body.seoHeading || '').trim()
+    const imageAlt = (req.body.image_alt || req.body.imageAlt || '').trim()
 
     if (!name) {
       throw new ApiError(400, 'Category Name is required')
@@ -221,20 +263,15 @@ async function createCategory(req, res, next) {
     const isActive = categoryStatus === 'active' ? 1 : 0
     const orderNum = parseInt(displayOrderInput, 10) || 0
 
-    // Check duplicate slug in MySQL
-    console.log(`[Categories] Checking duplicate slug '${cleanSlug}' in MySQL...`)
     const [existing] = await pool.execute('SELECT id FROM categories WHERE slug = ? LIMIT 1', [cleanSlug])
     if (existing.length > 0) {
-      console.warn(`[Categories] Slug '${cleanSlug}' already exists in MySQL database`)
       throw new ApiError(409, 'Category slug already exists')
     }
 
-    // Insert into MySQL categories table
-    console.log('[Categories] MySQL insert started...')
     const [result] = await pool.execute(
       `INSERT INTO categories 
-       (name, slug, description, image, image_url, status, display_order, active)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+       (name, slug, description, image, image_url, status, display_order, active, seo_title, seo_description, seo_keywords, seo_heading, image_alt, canonical_url)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         name,
         cleanSlug,
@@ -244,11 +281,16 @@ async function createCategory(req, res, next) {
         categoryStatus,
         orderNum,
         isActive,
+        seoTitle || `${name} | ONPRINT Dubai`,
+        seoDescription || description || null,
+        seoKeywords || null,
+        seoHeading || name,
+        imageAlt || name,
+        `https://0nprint.com/products?category=${cleanSlug}`,
       ]
     )
 
     const newId = result.insertId
-    console.log(`[Categories] Category inserted successfully into MySQL with ID: ${newId}`)
 
     const categoryObj = {
       id: newId,
@@ -261,6 +303,12 @@ async function createCategory(req, res, next) {
       status: categoryStatus,
       displayOrder: orderNum,
       display_order: orderNum,
+      seoTitle: seoTitle || `${name} | ONPRINT Dubai`,
+      seoDescription: seoDescription || description,
+      seoKeywords,
+      seoHeading: seoHeading || name,
+      imageAlt: imageAlt || name,
+      canonicalUrl: `https://0nprint.com/products?category=${cleanSlug}`,
       active: Boolean(isActive),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -274,7 +322,6 @@ async function createCategory(req, res, next) {
       data: categoryObj,
     })
   } catch (err) {
-    console.error('[Categories] MySQL error in createCategory:', err.message)
     next(err)
   }
 }
@@ -282,15 +329,17 @@ async function createCategory(req, res, next) {
 async function updateCategory(req, res, next) {
   try {
     const { id } = req.params
-    console.log(`[Categories] PUT request received to update category ID: ${id}`)
-    console.log('[Categories] Validating payload:', JSON.stringify(req.body))
-
     const name = (req.body.name || '').trim()
     const rawSlug = (req.body.slug || '').trim()
     const description = (req.body.description || '').trim()
     const imageUrl = (req.body.image_url || req.body.image || '').trim()
     const statusInput = req.body.status
     const displayOrderInput = req.body.display_order ?? req.body.displayOrder
+    const seoTitle = (req.body.seo_title || req.body.seoTitle || '').trim()
+    const seoDescription = (req.body.seo_description || req.body.seoDescription || '').trim()
+    const seoKeywords = (req.body.seo_keywords || req.body.seoKeywords || '').trim()
+    const seoHeading = (req.body.seo_heading || req.body.seoHeading || '').trim()
+    const imageAlt = (req.body.image_alt || req.body.imageAlt || '').trim()
 
     if (!name) {
       throw new ApiError(400, 'Category Name is required')
@@ -305,30 +354,43 @@ async function updateCategory(req, res, next) {
     const isActive = categoryStatus === 'active' ? 1 : 0
     const orderNum = parseInt(displayOrderInput, 10) || 0
 
-    // Check duplicate slug excluding current ID
-    console.log(`[Categories] Checking duplicate slug '${cleanSlug}' for update...`)
     const [existing] = await pool.execute(
       'SELECT id FROM categories WHERE slug = ? AND id != ? AND (category_key IS NULL OR category_key != ?) LIMIT 1',
       [cleanSlug, id, id]
     )
     if (existing.length > 0) {
-      console.warn(`[Categories] Slug '${cleanSlug}' is taken by another category`)
       throw new ApiError(409, 'Category slug already exists')
     }
 
-    console.log('[Categories] Executing MySQL UPDATE query...')
     const [updateResult] = await pool.execute(
       `UPDATE categories 
-       SET name = ?, slug = ?, description = ?, image = ?, image_url = ?, status = ?, display_order = ?, active = ?, updated_at = NOW() 
+       SET name = ?, slug = ?, description = ?, image = ?, image_url = ?, status = ?, display_order = ?, active = ?,
+           seo_title = ?, seo_description = ?, seo_keywords = ?, seo_heading = ?, image_alt = ?, canonical_url = ?, updated_at = NOW() 
        WHERE id = ? OR category_key = ? OR slug = ?`,
-      [name, cleanSlug, description || null, imageUrl || null, imageUrl || null, categoryStatus, orderNum, isActive, id, id, id]
+      [
+        name,
+        cleanSlug,
+        description || null,
+        imageUrl || null,
+        imageUrl || null,
+        categoryStatus,
+        orderNum,
+        isActive,
+        seoTitle || `${name} | ONPRINT Dubai`,
+        seoDescription || description || null,
+        seoKeywords || null,
+        seoHeading || name,
+        imageAlt || name,
+        `https://0nprint.com/products?category=${cleanSlug}`,
+        id,
+        id,
+        id,
+      ]
     )
 
     if (updateResult.affectedRows === 0) {
       throw new ApiError(404, 'Category not found or no changes made')
     }
-
-    console.log(`[Categories] Category ID ${id} updated successfully in MySQL`)
 
     const updatedObj = {
       id: Number(id) || id,
@@ -341,6 +403,12 @@ async function updateCategory(req, res, next) {
       status: categoryStatus,
       displayOrder: orderNum,
       display_order: orderNum,
+      seoTitle: seoTitle || `${name} | ONPRINT Dubai`,
+      seoDescription: seoDescription || description,
+      seoKeywords,
+      seoHeading: seoHeading || name,
+      imageAlt: imageAlt || name,
+      canonicalUrl: `https://0nprint.com/products?category=${cleanSlug}`,
       active: Boolean(isActive),
       updatedAt: new Date().toISOString(),
     }
@@ -352,7 +420,6 @@ async function updateCategory(req, res, next) {
       data: updatedObj,
     })
   } catch (err) {
-    console.error('[Categories] MySQL error in updateCategory:', err.message)
     next(err)
   }
 }
@@ -361,8 +428,6 @@ async function updateCategoryStatus(req, res, next) {
   try {
     const { id } = req.params
     const statusInput = req.body.status
-    console.log(`[Categories] PATCH request received for status update on category ID ${id}: ${statusInput}`)
-
     const categoryStatus = statusInput === 'inactive' ? 'inactive' : 'active'
     const isActive = categoryStatus === 'active' ? 1 : 0
 
@@ -375,15 +440,12 @@ async function updateCategoryStatus(req, res, next) {
       throw new ApiError(404, 'Category not found')
     }
 
-    console.log(`[Categories] Category ID ${id} status updated to '${categoryStatus}' in MySQL`)
-
     res.json({
       success: true,
       message: `Category status changed to ${categoryStatus}`,
       data: { id, status: categoryStatus, active: Boolean(isActive) },
     })
   } catch (err) {
-    console.error('[Categories] MySQL error in updateCategoryStatus:', err.message)
     next(err)
   }
 }
@@ -391,9 +453,7 @@ async function updateCategoryStatus(req, res, next) {
 async function deleteCategory(req, res, next) {
   try {
     const { id } = req.params
-    console.log(`[Categories] DELETE request received for category ID: ${id}`)
 
-    // Check if category has dependent products in MySQL
     const [pRows] = await pool.execute(
       `SELECT COUNT(*) AS count FROM products 
        WHERE category_id = ? OR category_id = (SELECT id FROM categories WHERE id = ? OR category_key = ? OR slug = ? LIMIT 1)`,
@@ -402,7 +462,6 @@ async function deleteCategory(req, res, next) {
     const productCount = pRows.length > 0 ? Number(pRows[0].count) : 0
 
     if (productCount > 0) {
-      console.warn(`[Categories] Category ID ${id} contains ${productCount} products and cannot be deleted.`)
       return res.status(400).json({
         success: false,
         message: 'This category contains products and cannot be deleted.',
@@ -420,11 +479,8 @@ async function deleteCategory(req, res, next) {
       throw new ApiError(404, 'Category not found')
     }
 
-    console.log(`[Categories] Category ID ${id} deleted successfully from MySQL`)
-
     res.json({ success: true, message: 'Category deleted successfully' })
   } catch (err) {
-    console.error('[Categories] MySQL error in deleteCategory:', err.message)
     next(err)
   }
 }

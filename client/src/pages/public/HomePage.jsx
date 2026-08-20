@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles } from 'lucide-react'
+import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import ArrowLink from '../../components/ArrowLink'
@@ -8,12 +8,12 @@ import SectionHeading from '../../components/SectionHeading'
 import Reveal from '../../components/Reveal'
 import StatCounter from '../../components/StatCounter'
 import LoadingState from '../../components/LoadingState'
-import EmptyState from '../../components/EmptyState'
 import ServiceCard from '../../components/ServiceCard'
 import ProductCard from '../../components/ProductCard'
 import ProductSectionsShowcase from '../../components/ProductSectionsShowcase'
 import CarefreeShoppingSection from '../../components/CarefreeShoppingSection'
 import ProductDetailModal from '../../components/ProductDetailModal'
+import SEOHead from '../../components/SEOHead'
 import { CornerMarks } from '../../components/PrintMarks'
 import { getServices } from '../../services/services'
 import { getProducts } from '../../services/products'
@@ -48,7 +48,7 @@ const processSteps = [
   { step: '01', title: 'Consultation & Spec', description: 'Select your stock, dimensions, finishes, and quantity with instant quote clarity.' },
   { step: '02', title: 'Pre-flight Artwork', description: 'Our prepress studio inspects bleed, resolution, and CMYK color profiles.' },
   { step: '03', title: 'Press Production', description: 'Printed on high-precision offset and digital presses with multi-stage quality control.' },
-  { step: '04', title: 'Inspected & Delivered', description: 'Hand-checked, packaged in protective covers, and delivered straight to your door.' },
+  { step: '04', title: 'Inspected & Delivered', description: 'Hand-checked, packaged in protective covers, and delivered straight to your door in Dubai & UAE.' },
 ]
 
 const stats = [
@@ -56,6 +56,34 @@ const stats = [
   { value: 500, suffix: '+', label: 'UAE Corporate Clients' },
   { value: 1500, suffix: '+', label: 'Print Runs Delivered' },
   { value: 99, suffix: '%', label: 'On-Time Dispatch Rate' },
+]
+
+const homeFaqs = [
+  {
+    question: 'What printing services does ONPRINT offer in Dubai?',
+    answer:
+      'ONPRINT provides a comprehensive suite of commercial printing solutions in Dubai, including digital press printing, high-volume offset printing, executive office stationery, luxury packaging boxes, corporate gift items, die-cut vinyl stickers, and large-format exhibition signage.',
+  },
+  {
+    question: 'What is the turnaround time for print orders across Dubai and the UAE?',
+    answer:
+      'Standard digital printing runs (business cards, flyers, brochures) typically take 24 to 48 hours once artwork is approved. Large offset runs, custom rigid gift boxes, and specialty foil-embossed projects take 3 to 7 business days. Express same-day production is available for urgent requirements.',
+  },
+  {
+    question: 'Do you offer corporate gift printing and branded merchandise?',
+    answer:
+      'Yes. We specialize in custom corporate gifts in Dubai, including laser-engraved thermal smart water bottles, ceramic mugs, executive hardcover notebooks, custom polo shirts, embroidered caps, and curated VIP executive gift sets.',
+  },
+  {
+    question: 'Can I see a proof before my project goes to press?',
+    answer:
+      'Every order includes a thorough pre-flight artwork review and a digital PDF proof for approval before production begins. Physical printed proofs on your chosen paper stock are also available upon request for high-volume or color-critical runs.',
+  },
+  {
+    question: 'How do I request a custom quotation for bulk printing?',
+    answer:
+      'You can request an instant quote online via our Get a Quote page, email our sales team at info@onprint.ae, or call +971 4 800 PRINT. Our Al Quoz print specialists provide clear itemized quotations within 2 hours.',
+  },
 ]
 
 export default function HomePage() {
@@ -75,6 +103,15 @@ export default function HomePage() {
 
   return (
     <div className="bg-[#FFFFFF] text-[#000000]">
+      {/* SEO Head Management & Structured Data */}
+      <SEOHead
+        title="Printing Company in Dubai | ONPRINT – Printing & Branding Solutions"
+        description="ONPRINT is Dubai’s premier printing company. Precision digital & offset printing, corporate gifts, business cards, office stationery, packaging, and large-format signage in UAE."
+        keywords="printing company in dubai, printing services dubai, digital printing dubai, commercial printing dubai, custom printing dubai, corporate gifts dubai, business cards dubai"
+        canonicalPath="/"
+        faqList={homeFaqs}
+      />
+
       {/* 1. Hero Section */}
       <section className="relative overflow-hidden border-b border-[#000000]/10 bg-[#FFFFFF] py-16 sm:py-24 lg:py-32">
         <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
@@ -87,16 +124,14 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h1 className="font-display mt-6 text-4xl font-black leading-[1.02] tracking-tight text-[#000000] sm:text-6xl xl:text-7xl">
-                DIGITAL PRECISION.
-                <br />
-                <span className="text-[#A82F19]">PHYSICAL CRAFT.</span>
+              <h1 className="font-display mt-6 text-4xl font-black leading-[1.04] tracking-tight text-[#000000] sm:text-6xl xl:text-7xl">
+                Professional Printing &amp; Branding Solutions in Dubai
               </h1>
             </Reveal>
 
             <Reveal delay={0.2}>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-[#000000]/75 sm:text-lg">
-                ONPRINT transforms brand identities into tangible physical masterpieces. From executive stationery to high-volume luxury packaging, signage, and precision printing.
+                ONPRINT transforms brand identities into tangible physical masterpieces. From executive stationery to high-volume luxury packaging, corporate gifts, signage, and precision digital printing across Dubai and the UAE.
               </p>
             </Reveal>
 
@@ -106,7 +141,7 @@ export default function HomePage() {
                   Request a Custom Quote
                 </Button>
                 <Button to="/products" variant="secondary" size="lg" className="border-[#000000] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19]">
-                  Browse Catalog
+                  Browse Product Catalog
                 </Button>
               </div>
             </Reveal>
@@ -129,7 +164,7 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          {/* Hero Visual Studio Showcase (Bespoke Corporate Print Cards - No Multi-Colors) */}
+          {/* Hero Visual Studio Showcase */}
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
               <div className="relative mx-auto flex h-[360px] w-full max-w-md items-center justify-center sm:h-[440px]">
@@ -234,13 +269,17 @@ export default function HomePage() {
       <section className="py-20 sm:py-28">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-            <SectionHeading
-              eyebrow="OUR SERVICES"
-              title="Professional printing solutions built for modern businesses."
-              subtitle="Full-service commercial printing, executive office stationery, and custom packaging in Dubai."
-            />
+            <div>
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">OUR SERVICES</span>
+              <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#000000] sm:text-4xl">
+                Dubai’s Leading Commercial Printing Services
+              </h2>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#000000]/70 sm:text-base">
+                Full-service commercial printing, executive office stationery, and custom packaging in Dubai with flawless Pantone precision.
+              </p>
+            </div>
             <ArrowLink to="/services" className="shrink-0 text-[#A82F19]">
-              View All Services
+              View All Print Services
             </ArrowLink>
           </div>
 
@@ -267,13 +306,17 @@ export default function HomePage() {
       <section className="border-t border-[#000000]/10 bg-[#FFFFFF] py-20 sm:py-28">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-            <SectionHeading
-              eyebrow="OUR PRODUCTS"
-              title="Explore our signature products."
-              subtitle="Browse our catalog of premium corporate giveaways, business cards, brochures, and event displays."
-            />
+            <div>
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">SIGNATURE PRODUCTS</span>
+              <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#000000] sm:text-4xl">
+                Featured Printing Products &amp; Promotional Merchandise
+              </h2>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#000000]/70 sm:text-base">
+                Browse our curated selection of premium corporate giveaways, business cards, brochures, thermal flasks, and event displays.
+              </p>
+            </div>
             <ArrowLink to="/products" className="shrink-0 text-[#A82F19]">
-              Explore Full Catalog
+              Explore Full Product Catalog
             </ArrowLink>
           </div>
 
@@ -300,12 +343,15 @@ export default function HomePage() {
       {/* 7. Why Choose Us */}
       <section className="py-20 sm:py-28 bg-[#FFFFFF]">
         <Container>
-          <SectionHeading
-            eyebrow="WHY ONPRINT"
-            title="The standard behind every press run."
-            subtitle="Why leading Dubai enterprises, government entities, and creative agencies trust ONPRINT."
-            center
-          />
+          <div className="text-center">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">WHY ONPRINT</span>
+            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#000000] sm:text-4xl">
+              Why Leading Dubai Enterprises Choose ONPRINT
+            </h2>
+            <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-[#000000]/70 sm:text-base">
+              The standard behind every press run for corporations, luxury hotels, agencies, and government entities across the UAE.
+            </p>
+          </div>
 
           <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {whyUs.map((item, index) => (
@@ -326,11 +372,15 @@ export default function HomePage() {
       {/* 8. Production Process Timeline */}
       <section className="border-t border-[#000000]/10 bg-[#FFFFFF] py-20 sm:py-28">
         <Container>
-          <SectionHeading
-            eyebrow="HOW IT WORKS"
-            title="From artwork submission to final doorstep delivery."
-            subtitle="Four straightforward steps to bring your custom print project to life."
-          />
+          <div>
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">HOW IT WORKS</span>
+            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#000000] sm:text-4xl">
+              Our 4-Step Precision Printing Process
+            </h2>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#000000]/70 sm:text-base">
+              From artwork pre-flight verification to doorstep UAE delivery in 4 clear, disciplined steps.
+            </p>
+          </div>
 
           <div className="relative mt-16">
             <div className="absolute left-0 right-0 top-6 hidden h-0.5 bg-[#000000]/10 sm:block" />
@@ -362,14 +412,21 @@ export default function HomePage() {
       <section className="py-20 sm:py-28 bg-[#FFFFFF]">
         <Container className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <SectionHeading
-              eyebrow="ABOUT ONPRINT"
-              title="We print more than paper. We print brand trust."
-              subtitle="Every piece of print that leaves our floor carries a brand's reputation with it. That's why precision, paper feel, and immaculate finishing are non-negotiable."
-            />
-            <div className="mt-8">
+            <div>
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">ABOUT ONPRINT</span>
+              <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#000000] sm:text-4xl">
+                We Print More Than Paper. We Print Brand Trust in Dubai.
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-[#000000]/75">
+                Every piece of print that leaves our Al Quoz press floor carries a brand's reputation with it. That's why precision, paper tactile feel, and immaculate finishing are non-negotiable standards for our studio.
+              </p>
+            </div>
+            <div className="mt-8 flex gap-4">
               <Button to="/about" variant="secondary" size="md" className="border-[#000000] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19]">
-                Learn About Our History
+                Learn About Our Facility
+              </Button>
+              <Button to="/blog" variant="outline" size="md" className="border-[#000000]/20 text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19]">
+                Read Printing Guides
               </Button>
             </div>
           </Reveal>
@@ -384,7 +441,47 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* 10. Primary Dark Call to Action */}
+      {/* 10. Frequently Asked Questions (SEO Keyword Content Section) */}
+      <section className="border-t border-[#000000]/10 bg-[#FFFFFF] py-20 sm:py-28">
+        <Container className="max-w-4xl">
+          <div className="text-center">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">DUBAI PRINTING FAQ</span>
+            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#000000] sm:text-4xl">
+              Frequently Asked Questions About Printing in Dubai
+            </h2>
+            <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-[#000000]/70 sm:text-base">
+              Key information on order turnarounds, minimum quantities, paper stocks, and corporate gifting in the UAE.
+            </p>
+          </div>
+
+          <div className="mt-12 divide-y divide-[#000000]/10 border-t border-b border-[#000000]/10">
+            {homeFaqs.map((faq) => (
+              <details key={faq.question} className="group py-6">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
+                  <h3 className="font-display text-base font-bold text-[#000000] sm:text-lg group-hover:text-[#A82F19] transition-colors">
+                    {faq.question}
+                  </h3>
+                  <ChevronDown className="h-5 w-5 shrink-0 text-[#000000]/50 transition-transform duration-300 group-open:rotate-180 group-hover:text-[#A82F19]" />
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-[#000000]/70 sm:text-base">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-xs font-bold text-[#000000]/60">
+              Have specific project questions?{' '}
+              <ArrowLink to="/contact" className="text-[#A82F19]">
+                Speak to our print studio
+              </ArrowLink>
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* 11. Primary Dark Call to Action */}
       <section className="border-t border-[#000000] bg-[#000000] py-20 text-[#FFFFFF] sm:py-28">
         <Container className="flex flex-col items-center gap-8 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19] bg-[#000000] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#A82F19]">
@@ -397,12 +494,12 @@ export default function HomePage() {
           </h2>
 
           <p className="max-w-xl text-sm sm:text-base text-[#FFFFFF]/80 leading-relaxed">
-            From business cards to large-format printing, ONPRINT helps your brand stand out with unmatched precision across Dubai.
+            From business cards to luxury packaging and large-format printing, ONPRINT helps your brand stand out with unmatched precision across Dubai.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#A82F19]/30">
-              Request a Quote
+              Request a Custom Quote
             </Button>
             <Button to="/contact" variant="outline" size="lg" className="border-[#FFFFFF]/30 text-[#FFFFFF] hover:bg-[#FFFFFF]/10 hover:border-[#FFFFFF]">
               Contact Sales Team
@@ -413,4 +510,3 @@ export default function HomePage() {
     </div>
   )
 }
-

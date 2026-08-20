@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+Allow: /services
+Allow: /services/
+Allow: /products
+Allow: /products/
+Allow: /portfolio
+Allow: /portfolio/
+Allow: /blog
+Allow: /blog/
+Allow: /about
+Allow: /contact
+Allow: /faq
+Allow: /get-a-quote
+Allow: /privacy-policy
+Allow: /terms
+Allow: /assets/
+Allow: /uploads/
+
+# Admin and Private Areas
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /api/
+Disallow: /api/*
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+Disallow: /account
+
+Sitemap: https://0nprint.com/sitemap.xml

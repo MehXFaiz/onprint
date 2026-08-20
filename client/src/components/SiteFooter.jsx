@@ -10,11 +10,13 @@ const navLinks = [
   { to: '/services', label: 'Printing Services' },
   { to: '/products', label: 'Products' },
   { to: '/portfolio', label: 'Portfolio & Work' },
+  { to: '/blog', label: 'Printing & Gifting Blog' },
   { to: '/contact', label: 'Contact Us' },
   { to: '/faq', label: 'FAQ' },
 ]
 
 const serviceLinks = [
+  { to: '/products?category=corporate-gift-items', label: 'Corporate Gift Items Dubai' },
   { to: '/products?category=office-stationery-printing', label: 'Office Stationery Printing' },
   { to: '/products?category=other-products', label: 'Other Products & Signage' },
   { to: '/services/digital-offset-printing', label: 'Digital Press & Offset' },

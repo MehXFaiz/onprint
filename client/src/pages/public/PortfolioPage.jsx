@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Sparkles } from 'lucide-react'
 import Container from '../../components/Container'
-import SectionHeading from '../../components/SectionHeading'
 import Reveal from '../../components/Reveal'
 import EmptyState from '../../components/EmptyState'
 import Button from '../../components/Button'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import SEOHead from '../../components/SEOHead'
 import { portfolioCategories, portfolioItems } from '../../data/portfolio'
 
 const treatments = {
@@ -46,20 +47,37 @@ export default function PortfolioPage() {
 
   return (
     <div className="py-16 sm:py-24">
+      <SEOHead
+        title="Commercial Print & Branding Portfolio Dubai | ONPRINT"
+        description="Explore our curated portfolio of executive business stationery, custom packaging boxes, luxury gift sets, and large-format signage produced for UAE brands."
+        keywords="printing portfolio dubai, luxury print samples uae, custom packaging showcase dubai, branding collateral uae"
+        canonicalPath="/portfolio"
+        breadcrumbs={[{ name: 'Portfolio', url: '/portfolio' }]}
+      />
+
       <Container>
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-          <SectionHeading
-            eyebrow="Portfolio &amp; Work"
-            title="Selected press runs &amp; brand collateral."
-            subtitle="A curated editorial look at stationery, packaging, and high-impact press projects produced in Dubai."
-          />
+        <Breadcrumbs items={[{ name: 'Portfolio' }]} />
+
+        <div className="flex flex-col items-start justify-between gap-6 border-b border-border pb-10 sm:flex-row sm:items-end">
+          <div>
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-accent">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>SELECTED PRESS WORK</span>
+            </div>
+            <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
+              Commercial Printing &amp; Luxury Branding Portfolio
+            </h1>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-secondary sm:text-base">
+              A curated editorial showcase of stationery, packaging boxes, and high-impact press projects produced in Dubai.
+            </p>
+          </div>
           <Button to="/get-a-quote" variant="accent" className="shrink-0">
             Start Your Project
           </Button>
         </div>
 
         {/* Filter Pills */}
-        <div className="mt-10 flex flex-wrap gap-2.5 border-b border-border pb-8">
+        <div className="mt-8 flex flex-wrap gap-2.5 border-b border-border pb-8">
           {portfolioCategories.map((cat) => (
             <button
               key={cat}
@@ -94,4 +112,3 @@ export default function PortfolioPage() {
     </div>
   )
 }
-

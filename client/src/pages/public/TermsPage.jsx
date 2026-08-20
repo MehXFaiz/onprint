@@ -1,4 +1,6 @@
 import Container from '../../components/Container'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import SEOHead from '../../components/SEOHead'
 
 const sections = [
   {
@@ -33,22 +35,27 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <div className="py-20 sm:py-28">
+    <div className="py-16 sm:py-24">
+      <SEOHead
+        title="Terms & Conditions | ONPRINT Dubai"
+        description="Terms and conditions for commercial printing, proof approval, and orders with ONPRINT Dubai, UAE."
+        canonicalPath="/terms"
+        breadcrumbs={[{ name: 'Terms & Conditions', url: '/terms' }]}
+      />
+
       <Container className="max-w-3xl">
+        <Breadcrumbs items={[{ name: 'Terms & Conditions' }]} />
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Legal</p>
         <h1 className="font-display mt-3 text-4xl font-extrabold tracking-tight text-primary sm:text-5xl">
           Terms &amp; Conditions
         </h1>
-        <p className="mt-4 text-sm text-secondary">
-          Last updated {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}. This is
-          placeholder terms content and should be reviewed by legal counsel before publishing.
-        </p>
+        <p className="mt-4 text-xs font-semibold text-secondary">Effective Date: January 1, 2026</p>
 
-        <div className="mt-14 space-y-10 border-t border-border pt-10">
-          {sections.map((section) => (
-            <div key={section.title}>
-              <h2 className="font-display text-lg font-bold text-primary">{section.title}</h2>
-              <p className="mt-3 leading-relaxed text-secondary">{section.body}</p>
+        <div className="mt-12 divide-y divide-border border-t border-b border-border">
+          {sections.map((s) => (
+            <div key={s.title} className="py-8">
+              <h2 className="font-display text-lg font-bold text-primary">{s.title}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-secondary">{s.body}</p>
             </div>
           ))}
         </div>

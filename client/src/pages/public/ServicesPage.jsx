@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import Container from '../../components/Container'
-import SectionHeading from '../../components/SectionHeading'
 import ServiceCard from '../../components/ServiceCard'
 import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
 import Reveal from '../../components/Reveal'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import SEOHead from '../../components/SEOHead'
+import { Sparkles } from 'lucide-react'
 import { getServices } from '../../services/services'
 
 export default function ServicesPage() {
@@ -18,16 +20,33 @@ export default function ServicesPage() {
   }, [])
 
   return (
-    <div className="py-20 sm:py-28">
-      <Container>
-        <SectionHeading
-          eyebrow="What We Offer"
-          title="Full-service printing, built to spec."
-          subtitle="From everyday stationery to large-format signage, ONPRINT covers every printing need — with the finishing to match."
-        />
+    <div className="py-16 sm:py-24">
+      <SEOHead
+        title="Printing Services Dubai | Commercial & Digital Printing Press | ONPRINT"
+        description="Comprehensive printing services in Dubai. High-volume offset printing, express digital press, luxury packaging, corporate gifts, stickers, and exhibition displays."
+        keywords="printing services dubai, commercial printing dubai, digital printing dubai, offset printing dubai, packaging printing dubai"
+        canonicalPath="/services"
+        breadcrumbs={[{ name: 'Printing Services', url: '/services' }]}
+      />
 
-        <div className="mt-16">
-          {services === null && !error && <LoadingState label="Loading services…" />}
+      <Container>
+        <Breadcrumbs items={[{ name: 'Printing Services' }]} />
+
+        <div className="border-b border-border pb-10">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-accent">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>COMMERCIAL PRINT SOLUTIONS</span>
+          </div>
+          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
+            Commercial &amp; Digital Printing Services in Dubai
+          </h1>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-secondary sm:text-base">
+            From executive office stationery and bespoke luxury packaging to large-format exhibition signage, ONPRINT covers every commercial printing need in Dubai with guaranteed color fidelity and precision finishing.
+          </p>
+        </div>
+
+        <div className="mt-12">
+          {services === null && !error && <LoadingState label="Loading printing services…" />}
           {error && <EmptyState title="Couldn't load services" note="Please try again shortly." />}
           {services?.length === 0 && <EmptyState title="No services available yet" note="Check back soon." />}
           {services && services.length > 0 && (

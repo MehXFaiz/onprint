@@ -3,6 +3,8 @@ import { useLocation, useSearchParams } from 'react-router-dom'
 import { Check, ChevronLeft, ChevronRight, Upload, X, CheckCircle2, FileText } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import SEOHead from '../../components/SEOHead'
 import { getProductBySlug } from '../../services/products'
 import { getCategories } from '../../services/categories'
 
@@ -191,12 +193,22 @@ export default function GetQuotePage() {
 
   return (
     <div className="py-16 sm:py-24">
+      <SEOHead
+        title="Get a Custom Printing Quote in Dubai | Fast Pricing | ONPRINT"
+        description="Request a fast custom print quotation in Dubai. Specify paper weights, finishes, dimensions, and quantities for business cards, packaging, stationery, and corporate gifts."
+        keywords="printing quote dubai, print price calculator dubai, custom printing quote uae"
+        canonicalPath="/get-a-quote"
+        breadcrumbs={[{ name: 'Get a Quote', url: '/get-a-quote' }]}
+      />
+
       <Container className="max-w-3xl">
+        <Breadcrumbs items={[{ name: 'Get a Quote' }]} />
+
         <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
           ONPRINT Quote Wizard
         </span>
         <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
-          Tell us about your print project.
+          Request a Custom Printing Quote in Dubai
         </h1>
 
         <div className="mt-10">

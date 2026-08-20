@@ -17,6 +17,8 @@ import {
   Menu,
   X,
   ShieldCheck,
+  BookOpen,
+  Search,
 } from 'lucide-react'
 
 const navLinks = [
@@ -24,6 +26,8 @@ const navLinks = [
   { to: '/admin/products', label: 'Products', icon: Package },
   { to: '/admin/categories', label: 'Categories', icon: FolderTree },
   { to: '/admin/services', label: 'Services', icon: Wrench },
+  { to: '/admin/blog', label: 'Blog Articles', icon: BookOpen },
+  { to: '/admin/seo-audit', label: 'SEO Audit', icon: Search },
   { to: '/admin/orders', label: 'Orders', icon: ShoppingBag },
   { to: '/admin/quotes', label: 'Quotes', icon: FileText },
   { to: '/admin/customers', label: 'Customers', icon: Users },

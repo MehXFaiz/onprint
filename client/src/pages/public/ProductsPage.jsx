@@ -8,21 +8,35 @@ import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
 import Reveal from '../../components/Reveal'
 import Button from '../../components/Button'
+import Breadcrumbs from '../../components/Breadcrumbs'
+import SEOHead from '../../components/SEOHead'
 import { getProducts } from '../../services/products'
 import { getCategories } from '../../services/categories'
 
 const categoryMeta = {
+  'corporate-gift-items': {
+    eyebrow: 'CORPORATE GIFTS DUBAI',
+    heading: 'Corporate Gifts & Promotional Merchandise Dubai',
+    title: 'Corporate Gifts Dubai | Custom Promotional Gifts & Merchandise | ONPRINT',
+    description:
+      'Premium corporate gift printing in Dubai. Custom printed mugs, thermal smart flasks, apparel, notebooks, and promotional merchandise for UAE brands.',
+    keywords: 'corporate gifts dubai, promotional gifts dubai, corporate gift printing dubai, custom gifts dubai, branded merchandise uae',
+  },
   'office-stationery-printing': {
     eyebrow: 'OFFICE STATIONERY PRINTING',
-    heading: 'Executive Corporate Stationery',
+    heading: 'Executive Office Stationery Printing Dubai',
+    title: 'Office Stationery Printing Dubai | Executive Business Stationery | ONPRINT',
     description:
-      'Executive leather notebooks, metallic rollerball pens, soft-touch business cards, and letterheads crafted for seamless corporate communication.',
+      'Executive leather notebooks, metallic rollerball pens, soft-touch business cards, and official letterheads crafted for seamless corporate communication in Dubai.',
+    keywords: 'office stationery printing dubai, business card printing dubai, corporate letterheads dubai, executive notebooks uae',
   },
   'other-products': {
-    eyebrow: 'OTHER PRODUCTS',
-    heading: 'Large-Format & Promotional Displays',
+    eyebrow: 'LARGE FORMAT & PROMOTIONAL DISPLAYS',
+    heading: 'Large-Format Displays, Signage & Stickers in Dubai',
+    title: 'Large Format Printing & Custom Displays Dubai | ONPRINT',
     description:
-      'Heavy-duty aluminum roll-ups, outdoor beach flags, die-cut vinyl stickers, and acrylic executive desk & door nameplates.',
+      'Heavy-duty aluminum roll-ups, outdoor beach flags, die-cut vinyl stickers, and acrylic executive desk & door nameplates manufactured in Dubai.',
+    keywords: 'large format printing dubai, roll up printing dubai, sticker printing dubai, beach flags dubai, acrylic nameplates uae',
   },
 }
 
@@ -65,7 +79,8 @@ export default function ProductsPage() {
       const matchCat =
         !categoryParam ||
         item.category?.slug === categoryParam ||
-        item.category?._id === categoryParam
+        item.category?._id === categoryParam ||
+        item.category?.name?.toLowerCase() === categoryParam.toLowerCase()
 
       const matchSearch =
         !searchQuery.trim() ||
@@ -97,21 +112,58 @@ export default function ProductsPage() {
     return Object.values(groups)
   }, [products, categoryParam])
 
+  // Active Category Meta
+  const activeMeta = categoryMeta[categoryParam] || {
+    eyebrow: 'ONPRINT PRODUCT CATALOG',
+    heading: 'Custom Printing Products & Promotional Supplies in Dubai',
+    title: 'Custom Printing Products Dubai | Corporate Merchandise & Stationery | ONPRINT',
+    description:
+      'Explore our full catalog of corporate gifts, business cards, letterheads, roll-up banners, and waterproof stickers in Dubai, UAE.',
+    keywords: 'custom printing products dubai, printing company dubai, promotional products dubai, business stationery printing uae',
+  }
+
+  const breadcrumbsList = categoryParam
+    ? [
+        { name: 'Products', url: '/products' },
+        { name: activeMeta.heading, url: `/products?category=${categoryParam}` },
+      ]
+    : [{ name: 'Products', url: '/products' }]
+
   return (
     <div className="py-16 sm:py-24">
+      {/* SEO Head Management */}
+      <SEOHead
+        title={activeMeta.title}
+        description={activeMeta.description}
+        keywords={activeMeta.keywords}
+        canonicalPath={categoryParam ? `/products?category=${categoryParam}` : '/products'}
+        breadcrumbs={breadcrumbsList}
+      />
+
       <Container>
+        <Breadcrumbs
+          items={
+            categoryParam
+              ? [
+                  { name: 'Products', path: '/products' },
+                  { name: categories.find((c) => c.slug === categoryParam)?.name || activeMeta.eyebrow },
+                ]
+              : [{ name: 'Products' }]
+          }
+        />
+
         {/* Editorial Page Header */}
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end border-b border-border pb-10">
           <div>
             <div className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-accent">
               <Sparkles className="h-3.5 w-3.5" />
-              <span>ONPRINT Product Catalog</span>
+              <span>{activeMeta.eyebrow}</span>
             </div>
             <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
-              Signature Print Showcase.
+              {activeMeta.heading}
             </h1>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-secondary sm:text-base">
-              Explore our complete suite of executive office stationery and custom large-format printing produced in Dubai.
+              {activeMeta.description}
             </p>
           </div>
 
@@ -130,6 +182,7 @@ export default function ProductsPage() {
                 type="button"
                 onClick={() => setSearchQuery('')}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-secondary hover:text-primary cursor-pointer"
+                aria-label="Clear search query"
               >
                 <X className="h-3.5 w-3.5" />
               </button>
@@ -137,7 +190,7 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        {/* Category Navigation Pills (Mobile Horizontal Scrollable) */}
+        {/* Category Navigation Pills */}
         <div className="mt-8 flex items-center gap-2.5 overflow-x-auto pb-4 scrollbar-none">
           <button
             type="button"
@@ -181,20 +234,6 @@ export default function ProductsPage() {
           {/* VIEW 1: Filtered / Single Category or Search Active */}
           {!loading && !error && (categoryParam || searchQuery) && filteredProducts.length > 0 && (
             <div className="space-y-12">
-              {categoryParam && categoryMeta[categoryParam] && (
-                <div className="border-b border-border/80 pb-6">
-                  <span className="text-xs font-extrabold uppercase tracking-widest text-accent">
-                    {categoryMeta[categoryParam].eyebrow}
-                  </span>
-                  <h2 className="font-display mt-1 text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
-                    {categoryMeta[categoryParam].heading}
-                  </h2>
-                  <p className="mt-2 max-w-2xl text-xs sm:text-sm leading-relaxed text-secondary">
-                    {categoryMeta[categoryParam].description}
-                  </p>
-                </div>
-              )}
-
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredProducts.map((product, index) => (
                   <Reveal key={product._id} delay={(index % 3) * 0.08}>
@@ -252,9 +291,9 @@ export default function ProductsPage() {
               <span className="rounded-full bg-accent/20 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-accent">
                 Custom Press Orders
               </span>
-              <h3 className="font-display mt-4 text-2xl font-extrabold tracking-tight sm:text-4xl text-background">
-                Have a custom printing requirement?
-              </h3>
+              <h2 className="font-display mt-4 text-2xl font-extrabold tracking-tight sm:text-4xl text-background">
+                Have a custom printing requirement in Dubai?
+              </h2>
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-background/80">
                 Let's create something extraordinary for your brand. From custom embossing and spot UV to bespoke packaging sizes, our press team is ready in Al Quoz, Dubai.
               </p>
@@ -282,5 +321,3 @@ export default function ProductsPage() {
     </div>
   )
 }
-
-

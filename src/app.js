@@ -17,6 +17,9 @@ const orderRoutes = require('./routes/orderRoutes')
 const newsletterRoutes = require('./routes/newsletterRoutes')
 const adminRoutes = require('./routes/adminRoutes')
 const uploadRoutes = require('./routes/uploadRoutes')
+const blogRoutes = require('./routes/blogRoutes')
+const seoRoutes = require('./routes/seoRoutes')
+const { getRobotsTxt, getSitemapXml } = require('./controllers/seoController')
 
 const CLIENT_DIST = path.join(__dirname, '..', 'dist')
 
@@ -73,6 +76,10 @@ function createApp() {
     app.use(morgan('dev'))
   }
 
+  // Direct SEO endpoints on root
+  app.get('/robots.txt', getRobotsTxt)
+  app.get('/sitemap.xml', getSitemapXml)
+
   // Health endpoint
   app.get('/api/health', async (req, res) => {
     let databaseConnected = false
@@ -107,6 +114,8 @@ function createApp() {
   app.use('/api/newsletter', newsletterRoutes)
   app.use('/api/admin', adminRoutes)
   app.use('/api/upload', uploadRoutes)
+  app.use('/api/blog', blogRoutes)
+  app.use('/api/seo', seoRoutes)
 
   // Single-process deployment for GoDaddy / cPanel Node.js Apps
   const hasClientBuild = fs.existsSync(path.join(CLIENT_DIST, 'index.html'))

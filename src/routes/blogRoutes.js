@@ -7,15 +7,15 @@ const {
   updateBlogPost,
   deleteBlogPost,
 } = require('../controllers/blogController')
-const { requireAuth, requireAdmin } = require('../middleware/auth')
+const { authenticateToken, requireAdmin } = require('../middleware/auth')
 
 // Public routes
 router.get('/', listBlogPosts)
 router.get('/:slug', getBlogPostBySlug)
 
 // Admin management routes
-router.post('/', requireAuth, requireAdmin, createBlogPost)
-router.put('/:id', requireAuth, requireAdmin, updateBlogPost)
-router.delete('/:id', requireAuth, requireAdmin, deleteBlogPost)
+router.post('/', authenticateToken, requireAdmin, createBlogPost)
+router.put('/:id', authenticateToken, requireAdmin, updateBlogPost)
+router.delete('/:id', authenticateToken, requireAdmin, deleteBlogPost)
 
 module.exports = router

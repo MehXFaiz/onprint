@@ -28,9 +28,8 @@ async function listCategories(req, res, next) {
         c.seo_keywords AS seoKeywords, c.seo_heading AS seoHeading,
         c.canonical_url AS canonicalUrl, c.image_alt AS imageAlt,
         c.created_at AS createdAt, c.updated_at AS updatedAt,
-        COUNT(p.id) AS productCount
+        (SELECT COUNT(*) FROM products p WHERE p.category_id = c.id) AS productCount
       FROM categories c
-      LEFT JOIN products p ON p.category_id = c.id
       WHERE 1=1
     `
     const params = []
@@ -46,8 +45,6 @@ async function listCategories(req, res, next) {
       params.push(term, term, term)
     }
 
-    query += ' GROUP BY c.id'
-
     if (sort === 'name_asc') {
       query += ' ORDER BY c.name ASC'
     } else if (sort === 'name_desc') {
@@ -60,8 +57,6 @@ async function listCategories(req, res, next) {
       query += ' ORDER BY c.display_order ASC, c.name ASC'
     }
 
-    // Use pool.query when there are no params to avoid prepared-statement issues
-    // with certain MySQL versions that mishandle empty param arrays in pool.execute
     const [rows] = params.length > 0 ? await pool.execute(query, params) : await pool.query(query)
 
     const list = rows.map((c) => ({
@@ -107,11 +102,9 @@ async function getCategoryById(req, res, next) {
         c.seo_keywords AS seoKeywords, c.seo_heading AS seoHeading,
         c.canonical_url AS canonicalUrl, c.image_alt AS imageAlt,
         c.created_at AS createdAt, c.updated_at AS updatedAt,
-        COUNT(p.id) AS productCount
+        (SELECT COUNT(*) FROM products p WHERE p.category_id = c.id) AS productCount
       FROM categories c
-      LEFT JOIN products p ON p.category_id = c.id
       WHERE c.id = ? OR c.category_key = ? OR c.slug = ?
-      GROUP BY c.id
       LIMIT 1`,
       [id, id, id]
     )

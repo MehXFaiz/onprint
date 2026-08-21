@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
 import Button from './Button'
 import Logo from './Logo'
+import AppMenuBar from './AppMenuBar'
 import { useAuth } from '../context/AuthContext'
 import { trackGetQuoteClick } from '../utils/analytics'
 
@@ -342,6 +343,13 @@ export default function SiteHeader() {
           >
             {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
+        </Container>
+      </div>
+
+      {/* App Quick Menu Bar */}
+      <div className="border-b border-slate-200 bg-white">
+        <Container className="px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-12 py-1 overflow-x-auto">
+          <AppMenuBar className="border-0 shadow-none" />
         </Container>
       </div>
 

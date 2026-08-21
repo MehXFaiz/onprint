@@ -1,20 +1,36 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { ChevronDown, Menu, Phone, Mail, X, LogOut, ShieldCheck } from 'lucide-react'
+import {
+  ChevronDown,
+  Menu,
+  Phone,
+  Mail,
+  X,
+  LogOut,
+  ShieldCheck,
+  Home,
+  Info,
+  LayoutGrid,
+  Printer,
+  BookOpen,
+  CreditCard,
+  FileText,
+  UserCheck,
+  Award,
+  FileSpreadsheet,
+  PhoneCall,
+} from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
 import Button from './Button'
 import Logo from './Logo'
-import AppMenuBar from './AppMenuBar'
 import { useAuth } from '../context/AuthContext'
 import { trackGetQuoteClick } from '../utils/analytics'
-
-
 
 // Custom Clean Social SVG Icons
 function FacebookIcon(props) {
   return (
-    <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
     </svg>
   )
@@ -22,7 +38,7 @@ function FacebookIcon(props) {
 
 function InstagramIcon(props) {
   return (
-    <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -32,7 +48,7 @@ function InstagramIcon(props) {
 
 function PinterestIcon(props) {
   return (
-    <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.182-.78 1.172-4.97 1.172-4.97s-.299-.6-.299-1.486c0-1.39.806-2.428 1.81-2.428.854 0 1.265.641 1.265 1.41 0 .859-.546 2.144-.829 3.335-.236.997.5 1.81 1.484 1.81 1.782 0 3.151-1.879 3.151-4.59 0-2.399-1.724-4.077-4.187-4.077-2.853 0-4.527 2.14-4.527 4.35 0 .862.332 1.787.747 2.29.082.1.094.188.069.29-.076.315-.245.998-.278 1.139-.044.183-.146.222-.338.134-1.264-.588-2.054-2.435-2.054-3.918 0-3.187 2.316-6.115 6.678-6.115 3.506 0 6.231 2.498 6.231 5.839 0 3.484-2.197 6.287-5.246 6.287-1.024 0-1.987-.532-2.317-1.161l-.63 2.4c-.228.877-.845 1.977-1.258 2.645C9.728 21.847 10.84 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
     </svg>
   )
@@ -40,13 +56,13 @@ function PinterestIcon(props) {
 
 // Navigation structure matching remaining product categories
 const officeStationeryItems = [
-  { label: 'Brochures Printing', to: '/categories/brochures-printing' },
-  { label: 'Business Cards Printing', to: '/categories/business-cards-printing' },
-  { label: 'Flyers Printing In Dubai', to: '/categories/flyers-printing-in-dubai' },
-  { label: 'ID Card Printing Dubai', to: '/categories/id-card-printing-dubai' },
-  { label: 'Lanyard Printing Dubai', to: '/categories/lanyard-printing-dubai' },
-  { label: 'Letterheads Printing Dubai', to: '/categories/letterheads-printing-dubai' },
-  { label: 'Name Badges Printing Dubai', to: '/categories/name-badges-printing-dubai' },
+  { label: 'Brochures Printing', to: '/categories/brochures-printing', icon: BookOpen },
+  { label: 'Business Cards Printing', to: '/categories/business-cards-printing', icon: CreditCard },
+  { label: 'Flyers Printing In Dubai', to: '/categories/flyers-printing-in-dubai', icon: FileText },
+  { label: 'ID Card Printing Dubai', to: '/categories/id-card-printing-dubai', icon: UserCheck },
+  { label: 'Lanyard Printing Dubai', to: '/categories/lanyard-printing-dubai', icon: Award },
+  { label: 'Letterheads Printing Dubai', to: '/categories/letterheads-printing-dubai', icon: FileSpreadsheet },
+  { label: 'Name Badges Printing Dubai', to: '/categories/name-badges-printing-dubai', icon: UserCheck },
 ]
 
 export default function SiteHeader() {
@@ -56,7 +72,6 @@ export default function SiteHeader() {
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [mobileExpanded, setMobileExpanded] = useState({})
-
 
   const location = useLocation()
 
@@ -86,13 +101,13 @@ export default function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#FFFFFF] shadow-xs">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-xs">
       {/* Executive Top Utility Bar */}
-      <div className="hidden border-b border-[#000000]/10 bg-[#FFFFFF] py-2.5 text-xs text-[#000000]/70 lg:block">
+      <div className="hidden border-b border-slate-200 bg-slate-50 py-2 text-xs text-slate-600 lg:block">
         <Container className="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-12">
           {/* Social Icons + Tagline */}
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3 text-[#000000]">
+            <div className="flex items-center gap-3 text-slate-600">
               <a
                 href="https://facebook.com"
                 target="_blank"
@@ -121,19 +136,19 @@ export default function SiteHeader() {
                 <PinterestIcon />
               </a>
             </div>
-            <span className="h-3 w-[1px] bg-[#000000]/15" />
-            <span className="font-semibold tracking-wide text-[#000000]/70">
+            <span className="h-3 w-[1px] bg-slate-200" />
+            <span className="font-medium tracking-normal text-slate-600">
               Dubai’s Premier Printing &amp; Custom Creative Services
             </span>
           </div>
 
           {/* Quick Contact Details */}
-          <div className="flex items-center gap-5 font-semibold">
+          <div className="flex items-center gap-5 font-medium text-slate-600">
             <a href="tel:+9714800PRINT" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
               <Phone className="h-3.5 w-3.5 text-[#A82F19]" />
               <span>+971 4 800 PRINT</span>
             </a>
-            <span className="h-3 w-[1px] bg-[#000000]/15" />
+            <span className="h-3 w-[1px] bg-slate-200" />
             <a href="mailto:info@onprint.ae" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
               <Mail className="h-3.5 w-3.5 text-[#A82F19]" />
               <span>info@onprint.ae</span>
@@ -142,10 +157,10 @@ export default function SiteHeader() {
         </Container>
       </div>
 
-      {/* Main Navigation Bar */}
+      {/* Main Navigation Bar (Menubar Style) */}
       <div
-        className={`border-b transition-all duration-300 ${
-          scrolled ? 'border-[#000000]/10 bg-[#FFFFFF]/98 backdrop-blur-md py-3' : 'border-[#000000]/10 bg-[#FFFFFF] py-4'
+        className={`border-b border-slate-200 bg-white shadow-sm transition-all duration-300 ${
+          scrolled ? 'py-2.5 backdrop-blur-md bg-white/95' : 'py-3.5'
         }`}
       >
         <Container className="flex items-center justify-between gap-3 xl:gap-4 2xl:gap-6 px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-12">
@@ -154,48 +169,55 @@ export default function SiteHeader() {
             <Logo size="md" />
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden items-center gap-3 xl:gap-4 2xl:gap-7 xl:flex shrink min-w-0" aria-label="Primary">
+          {/* Desktop Navigation Links (Menubar styling with icons) */}
+          <nav className="hidden items-center gap-1 xl:gap-1.5 2xl:gap-2 xl:flex shrink min-w-0" aria-label="Primary">
             {/* 1. Home */}
             <NavLink
               to="/"
               end
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
-                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
+                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                  isActive
+                    ? 'bg-red-50 text-[#A82F19] font-bold'
+                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                 }`
               }
             >
-              Home
+              <Home className="w-4 h-4 shrink-0" />
+              <span>Home</span>
             </NavLink>
 
             {/* 2. About us */}
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
-                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
+                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                  isActive
+                    ? 'bg-red-50 text-[#A82F19] font-bold'
+                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                 }`
               }
             >
-              About us
+              <Info className="w-4 h-4 shrink-0" />
+              <span>About us</span>
             </NavLink>
 
             {/* 3. Categories */}
             <NavLink
               to="/categories"
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
-                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
+                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                  isActive
+                    ? 'bg-red-50 text-[#A82F19] font-bold'
+                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                 }`
               }
             >
-              Categories
+              <LayoutGrid className="w-4 h-4 shrink-0" />
+              <span>Categories</span>
             </NavLink>
 
-
-
-            {/* 5. Office Stationery Printing Dropdown */}
+            {/* 4. Office Stationery Printing Dropdown */}
             <div
               className="relative py-1"
               onMouseEnter={() => setActiveDropdown('stationery')}
@@ -204,61 +226,74 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown(activeDropdown === 'stationery' ? null : 'stationery')}
-                className={`flex items-center gap-1 xl:gap-1.5 whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors cursor-pointer ${
-                  activeDropdown === 'stationery' ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors cursor-pointer ${
+                  activeDropdown === 'stationery' || location.pathname.startsWith('/categories/')
+                    ? 'bg-red-50 text-[#A82F19] font-bold'
+                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                 }`}
               >
+                <Printer className="w-4 h-4 shrink-0" />
                 <span>Office Stationery Printing</span>
-                <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'stationery' ? 'rotate-180 text-[#A82F19]' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'stationery' ? 'rotate-180 text-[#A82F19]' : 'text-slate-500'}`} />
               </button>
 
               <AnimatePresence>
                 {activeDropdown === 'stationery' && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
+                    exit={{ opacity: 0, y: 6 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute left-0 top-full mt-1.5 w-72 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-2 shadow-2xl backdrop-blur-lg z-50"
+                    className="absolute left-0 top-full mt-1.5 w-64 rounded-lg border border-slate-200 bg-white p-1.5 shadow-md z-50"
                   >
-                    <div className="flex flex-col divide-y divide-[#000000]/10">
-                      {officeStationeryItems.map((item) => (
-                        <Link
-                          key={item.label}
-                          to={item.to}
-                          className="px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-[#000000] transition-all hover:bg-[#A82F19]/10 hover:text-[#A82F19] hover:pl-4 rounded-xl"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
+                    <div className="flex flex-col gap-0.5">
+                      {officeStationeryItems.map((item) => {
+                        const Icon = item.icon
+                        return (
+                          <Link
+                            key={item.label}
+                            to={item.to}
+                            className="group flex items-center gap-2.5 px-3 py-2 text-xs sm:text-sm font-medium text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 rounded-md transition-colors"
+                          >
+                            <Icon className="w-4 h-4 text-slate-400 group-hover:text-[#A82F19] transition-colors shrink-0" />
+                            <span>{item.label}</span>
+                          </Link>
+                        )
+                      })}
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* 6. Contact us */}
+            {/* 5. Contact us */}
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
-                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
+                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                  isActive
+                    ? 'bg-red-50 text-[#A82F19] font-bold'
+                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                 }`
               }
             >
-              Contact us
+              <PhoneCall className="w-4 h-4 shrink-0" />
+              <span>Contact us</span>
             </NavLink>
 
-            {/* 8. Blog */}
+            {/* 6. Blog */}
             <NavLink
               to="/blog"
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-bold tracking-tight transition-colors ${
-                  isActive ? 'text-[#A82F19]' : 'text-[#000000] hover:text-[#A82F19]'
+                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                  isActive
+                    ? 'bg-red-50 text-[#A82F19] font-bold'
+                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                 }`
               }
             >
-              Blog
+              <BookOpen className="w-4 h-4 shrink-0" />
+              <span>Blog</span>
             </NavLink>
           </nav>
 
@@ -269,27 +304,27 @@ export default function SiteHeader() {
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-bold text-neutral-900 transition-colors hover:border-[#A82F19] hover:bg-white cursor-pointer"
+                  className="flex items-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900 cursor-pointer shadow-xs"
                 >
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#A82F19] text-white text-[11px]">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#A82F19] text-white text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
                   <span className="max-w-[100px] truncate">{user?.name || 'Admin'}</span>
-                  <ChevronDown className={`h-3.5 w-3.5 text-neutral-500 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`h-3.5 w-3.5 text-slate-500 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 <AnimatePresence>
                   {userMenuOpen && (
                     <motion.div
-                      initial={{ opacity: 0, y: 8 }}
+                      initial={{ opacity: 0, y: 6 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
+                      exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2 w-56 rounded-2xl border border-neutral-200 bg-white p-2 shadow-2xl z-50"
+                      className="absolute right-0 top-full mt-1.5 w-56 rounded-lg border border-slate-200 bg-white p-1.5 shadow-md z-50"
                     >
-                      <div className="px-3 py-2 border-b border-neutral-100 mb-1">
-                        <div className="font-bold text-xs text-neutral-900 truncate">{user?.name || 'Administrator'}</div>
-                        <div className="text-[10px] text-neutral-500 truncate">{user?.email}</div>
+                      <div className="px-3 py-2 border-b border-slate-100 mb-1">
+                        <div className="font-bold text-xs text-slate-900 truncate">{user?.name || 'Administrator'}</div>
+                        <div className="text-[10px] text-slate-500 truncate">{user?.email}</div>
                         <span className="mt-1 inline-block rounded bg-red-50 px-1.5 py-0.5 text-[9px] font-bold uppercase text-[#A82F19]">
                           Administrator
                         </span>
@@ -298,9 +333,9 @@ export default function SiteHeader() {
                       <Link
                         to="/admin"
                         onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-[#A82F19] hover:bg-red-50 rounded-xl transition-colors"
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 rounded-md transition-colors"
                       >
-                        <ShieldCheck className="h-4 w-4" />
+                        <ShieldCheck className="w-4 h-4 text-slate-400" />
                         <span>Admin Control Panel</span>
                       </Link>
 
@@ -310,9 +345,9 @@ export default function SiteHeader() {
                           setUserMenuOpen(false)
                           logout()
                         }}
-                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 rounded-xl transition-colors mt-1 border-t border-neutral-100 cursor-pointer"
+                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-50 rounded-md transition-colors mt-1 border-t border-slate-100 cursor-pointer"
                       >
-                        <LogOut className="h-4 w-4" />
+                        <LogOut className="w-4 h-4" />
                         <span>Sign Out</span>
                       </button>
                     </motion.div>
@@ -325,13 +360,12 @@ export default function SiteHeader() {
               to="/get-a-quote"
               variant="accent"
               icon={false}
-              className="!px-5 2xl:!px-6 !py-2.5 text-xs xl:text-sm font-extrabold shadow-md shadow-[#A82F19]/20"
+              className="!px-5 2xl:!px-6 !py-2 text-xs xl:text-sm font-bold shadow-sm shadow-[#A82F19]/20"
               onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
             >
               Get a Quote
             </Button>
           </div>
-
 
           {/* Mobile Hamburger Button */}
           <button
@@ -339,17 +373,10 @@ export default function SiteHeader() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
-            className="flex items-center justify-center p-2 text-primary xl:hidden rounded-lg hover:bg-muted/50"
+            className="flex items-center justify-center p-2 text-slate-700 xl:hidden rounded-md border border-slate-200 hover:bg-slate-100 transition-colors"
           >
-            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-        </Container>
-      </div>
-
-      {/* App Quick Menu Bar */}
-      <div className="border-b border-slate-200 bg-white">
-        <Container className="px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-12 py-1 overflow-x-auto">
-          <AppMenuBar className="border-0 shadow-none" />
         </Container>
       </div>
 
@@ -361,72 +388,127 @@ export default function SiteHeader() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden border-t border-border bg-background xl:hidden"
+            className="overflow-hidden border-b border-slate-200 bg-white shadow-sm xl:hidden"
             aria-label="Mobile Navigation"
           >
-            <Container className="flex flex-col gap-2 py-6">
+            <Container className="flex flex-col gap-1 py-4">
               {/* Social icons in mobile drawer */}
-              <div className="flex items-center justify-between pb-4 border-b border-border text-secondary">
-                <div className="flex items-center gap-4">
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <FacebookIcon className="h-5 w-5 hover:text-accent" />
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200 text-slate-500">
+                <div className="flex items-center gap-3">
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="p-1 rounded hover:bg-slate-100">
+                    <FacebookIcon />
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <InstagramIcon className="h-5 w-5 hover:text-accent" />
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-1 rounded hover:bg-slate-100">
+                    <InstagramIcon />
                   </a>
-                  <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
-                    <PinterestIcon className="h-5 w-5 hover:text-accent" />
+                  <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="p-1 rounded hover:bg-slate-100">
+                    <PinterestIcon />
                   </a>
                 </div>
-                <span className="text-xs font-medium text-zinc-400">Dubai, UAE</span>
+                <span className="text-xs font-medium text-slate-400">Dubai, UAE</span>
               </div>
 
               {/* Direct links */}
-              <NavLink to="/" end className="py-2.5 text-base font-semibold text-primary">
-                Home
-              </NavLink>
-              <NavLink to="/about" className="py-2.5 text-base font-semibold text-primary">
-                About us
-              </NavLink>
-              <NavLink to="/categories" className="py-2.5 text-base font-semibold text-primary">
-                Categories
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <Home className="w-4 h-4 text-slate-500" />
+                <span>Home</span>
               </NavLink>
 
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <Info className="w-4 h-4 text-slate-500" />
+                <span>About us</span>
+              </NavLink>
 
-              {/* Accordion 2: Office Stationery Printing */}
-              <div className="border-b border-border/60 py-2">
+              <NavLink
+                to="/categories"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <LayoutGrid className="w-4 h-4 text-slate-500" />
+                <span>Categories</span>
+              </NavLink>
+
+              {/* Accordion: Office Stationery Printing */}
+              <div className="border-y border-slate-100 py-1">
                 <button
                   type="button"
                   onClick={() => toggleMobileCategory('stationery')}
-                  className="flex w-full items-center justify-between py-1 text-base font-semibold text-primary"
+                  className="flex w-full items-center justify-between px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 rounded-md transition-colors"
                 >
-                  <span>Office Stationery Printing</span>
-                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileExpanded.stationery ? 'rotate-180 text-accent' : ''}`} />
+                  <div className="flex items-center gap-2.5">
+                    <Printer className="w-4 h-4 text-slate-500" />
+                    <span>Office Stationery Printing</span>
+                  </div>
+                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileExpanded.stationery ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
                 </button>
                 {mobileExpanded.stationery && (
-                  <div className="mt-2 flex flex-col gap-2 pl-3 border-l-2 border-accent/40 py-2">
-                    {officeStationeryItems.map((item) => (
-                      <Link key={item.label} to={item.to} className="py-1 text-sm text-secondary hover:text-accent">
-                        {item.label}
-                      </Link>
-                    ))}
+                  <div className="mt-1 flex flex-col gap-1 pl-6 pr-2 py-1 border-l-2 border-slate-200 ml-4">
+                    {officeStationeryItems.map((item) => {
+                      const Icon = item.icon
+                      return (
+                        <Link
+                          key={item.label}
+                          to={item.to}
+                          className="flex items-center gap-2.5 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:text-[#A82F19] hover:bg-slate-50 rounded-md transition-colors"
+                        >
+                          <Icon className="w-3.5 h-3.5 text-slate-400" />
+                          <span>{item.label}</span>
+                        </Link>
+                      )
+                    })}
                   </div>
                 )}
               </div>
 
-              <NavLink to="/contact" className="py-2.5 text-base font-semibold text-primary">
-                Contact us
-              </NavLink>
-              <NavLink to="/blog" className="py-2.5 text-base font-semibold text-primary">
-                Blog
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <PhoneCall className="w-4 h-4 text-slate-500" />
+                <span>Contact us</span>
               </NavLink>
 
-              <div className="mt-4 pt-4 border-t border-border">
+              <NavLink
+                to="/blog"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <BookOpen className="w-4 h-4 text-slate-500" />
+                <span>Blog</span>
+              </NavLink>
+
+              {/* Mobile CTA */}
+              <div className="mt-3 pt-3 border-t border-slate-200">
                 <Button
                   to="/get-a-quote"
                   variant="accent"
                   icon={false}
-                  className="w-full justify-center"
+                  className="w-full justify-center !py-2.5 shadow-sm shadow-[#A82F19]/20"
                   onClick={() => {
                     setMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })

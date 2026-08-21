@@ -53,9 +53,9 @@ export default function ServicesPage() {
           {error && <EmptyState title="Couldn't load services" note="Please try again shortly." />}
           {services?.length === 0 && <EmptyState title="No services available yet" note="Check back soon." />}
           {services && services.length > 0 && (
-            <div role="list" className="group grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service, index) => (
-                <Reveal key={service._id || service.slug || index} delay={(index % 3) * 0.08}>
+                <Reveal key={service._id} delay={(index % 3) * 0.08}>
                   <ServiceCard service={service} />
                 </Reveal>
               ))}

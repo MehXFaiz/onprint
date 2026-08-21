@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowUpRight, Sparkles, CheckCircle2 } from 'lucide-react'
 import { getProductImage } from '../assets/productImages'
-import { cn } from '@/lib/utils'
 
 // Helper to derive quick spec feature pills based on service slug/category
 function getServiceHighlights(service) {
@@ -30,7 +29,7 @@ function getServiceHighlights(service) {
   return ['Premium Quality', 'Express Dispatch']
 }
 
-export default function ServiceCard({ service, className }) {
+export default function ServiceCard({ service }) {
   const serviceImage = getProductImage(service)
   const categoryName = service.category?.name || service.category || 'PRINTING SERVICE'
   const highlights = getServiceHighlights(service)
@@ -38,17 +37,7 @@ export default function ServiceCard({ service, className }) {
   return (
     <Link
       to={`/services/${service.slug}`}
-      tabIndex={0}
-      aria-label={`${service.name}, ${categoryName}`}
-      className={cn(
-        'group/card relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200/80 bg-white shadow-xs transition-all duration-500 ease-in-out',
-        // Parent grid hover effect: de-emphasize all cards in grid on hover
-        'group-hover:scale-[0.97] group-hover:opacity-60 group-hover:blur-[2px]',
-        // Current card hover/focus: pop out and highlight
-        'hover:!scale-[1.03] hover:!opacity-100 hover:!blur-none hover:border-[#A82F19]/50 hover:shadow-2xl hover:shadow-[#A82F19]/15',
-        'focus-visible:!scale-[1.03] focus-visible:!opacity-100 focus-visible:!blur-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A82F19] focus-visible:ring-offset-2',
-        className
-      )}
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200/80 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#A82F19]/40 hover:shadow-2xl hover:shadow-[#A82F19]/10"
     >
       {/* Studio Image Container */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-100">
@@ -56,15 +45,15 @@ export default function ServiceCard({ service, className }) {
           src={serviceImage}
           alt={service.name}
           loading="lazy"
-          className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover/card:scale-108"
+          className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
         />
         
         {/* Soft Gradient Overlay for Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover/card:opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-40" />
 
         {/* Clean Glassmorphic Category Badge */}
         <div className="absolute top-3.5 left-3.5 z-10">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/50 bg-white/80 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-neutral-900 shadow-md backdrop-blur-md transition-all duration-300 group-hover/card:bg-white group-hover/card:border-[#A82F19]/40 group-hover/card:text-[#A82F19]">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/50 bg-white/80 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-neutral-900 shadow-md backdrop-blur-md transition-all duration-300 group-hover:bg-white group-hover:border-[#A82F19]/40 group-hover:text-[#A82F19]">
             <Sparkles className="h-3 w-3 text-[#A82F19]" />
             {categoryName}
           </span>
@@ -74,7 +63,7 @@ export default function ServiceCard({ service, className }) {
       {/* Content Area */}
       <div className="flex flex-1 flex-col justify-between p-6 bg-white">
         <div>
-          <h3 className="font-display text-xl font-bold tracking-tight text-neutral-900 transition-colors duration-200 group-hover/card:text-[#A82F19]">
+          <h3 className="font-display text-xl font-bold tracking-tight text-neutral-900 transition-colors duration-200 group-hover:text-[#A82F19]">
             {service.name}
           </h3>
 
@@ -87,7 +76,7 @@ export default function ServiceCard({ service, className }) {
             {highlights.map((tag, idx) => (
               <span
                 key={idx}
-                className="inline-flex items-center gap-1 rounded-md bg-neutral-100 px-2.5 py-1 text-[11px] font-semibold text-neutral-700 border border-neutral-200/60 transition-colors group-hover/card:border-neutral-300 group-hover/card:bg-neutral-50"
+                className="inline-flex items-center gap-1 rounded-md bg-neutral-100 px-2.5 py-1 text-[11px] font-semibold text-neutral-700 border border-neutral-200/60 transition-colors group-hover:border-neutral-300 group-hover:bg-neutral-50"
               >
                 <CheckCircle2 className="h-3 w-3 text-[#A82F19]" />
                 {tag}
@@ -97,16 +86,16 @@ export default function ServiceCard({ service, className }) {
         </div>
 
         {/* Bottom CTA Bar */}
-        <div className="mt-6 flex items-center justify-between border-t border-neutral-100 pt-4 text-xs font-bold uppercase tracking-wider text-neutral-900 transition-colors group-hover/card:text-[#A82F19]">
+        <div className="mt-6 flex items-center justify-between border-t border-neutral-100 pt-4 text-xs font-bold uppercase tracking-wider text-neutral-900 transition-colors group-hover:text-[#A82F19]">
           <span className="flex items-center gap-1">Explore Service</span>
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-900 transition-all duration-300 group-hover/card:bg-[#A82F19] group-hover/card:text-white group-hover/card:shadow-md group-hover/card:shadow-[#A82F19]/30">
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-900 transition-all duration-300 group-hover:bg-[#A82F19] group-hover:text-white group-hover:shadow-md group-hover:shadow-[#A82F19]/30">
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
         </div>
       </div>
 
       {/* Signature Red Accent Bar on Hover */}
-      <div className="h-1 w-0 bg-[#A82F19] transition-all duration-300 group-hover/card:w-full" />
+      <div className="h-1 w-0 bg-[#A82F19] transition-all duration-300 group-hover:w-full" />
     </Link>
   )
 }

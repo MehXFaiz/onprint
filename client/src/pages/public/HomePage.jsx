@@ -302,9 +302,9 @@ export default function HomePage() {
           <div className="mt-12">
             {services === null && <LoadingState label="Loading print services…" />}
             {services && services.length > 0 && (
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div role="list" className="group grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {services.map((service) => (
-                  <ServiceCard key={service._id} service={service} />
+                  <ServiceCard key={service._id || service.slug} service={service} />
                 ))}
               </div>
             )}

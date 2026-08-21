@@ -10,6 +10,7 @@ import rollupImg from './products/rollup_banner.jpg'
 import flagsImg from './products/flags.jpg'
 import stickersImg from './products/stickers.jpg'
 import namePlatesImg from './products/name_plates.jpg'
+import img1 from './products/1 (1).jpg'
 import img2 from './products/1 (2).jpg'
 import img3 from './products/1 (3).jpg'
 import img4 from './products/1 (4).jpg'
@@ -17,6 +18,11 @@ import img5 from './products/1 (5).jpg'
 import img6 from './products/1 (6).jpg'
 import img7 from './products/1 (7).jpg'
 import img8 from './products/1 (8).jpg'
+import img9 from './products/1 (9).jpg'
+import img10 from './products/1 (10).jpg'
+import img11 from './products/1 (11).jpg'
+import img12 from './products/1 (12).jpg'
+import img13 from './products/1 (13).jpg'
 
 export const productImages = {
   toteBags: toteBagsImg,
@@ -34,6 +40,15 @@ export const productImages = {
 }
 
 export const productSlugImageMap = {
+  // Service mappings
+  'digital-offset-printing': img1,
+  'luxury-packaging-custom-boxes': img5,
+  'brochures-catalogs-printing': brochuresImg,
+  'large-format-exhibition-signage': img9,
+  'custom-labels-die-cut-stickers': img10,
+  'executive-business-stationery': img11,
+
+  // Product & category mappings
   'bags-printing-dubai': toteBagsImg,
   'tote-bags-printing-dubai': toteBagsImg,
   'keychain-printing-dubai': keychainImg,
@@ -73,9 +88,14 @@ export function getProductImage(product) {
   if (product.slug && productSlugImageMap[product.slug]) {
     return productSlugImageMap[product.slug]
   }
-  if (product.images?.[0] && !product.images[0].startsWith('http')) {
+  if (product.image && typeof product.image === 'string' && (product.image.startsWith('http') || product.image.startsWith('data:') || product.image.startsWith('/'))) {
+    // If it's a direct valid relative or URL image
+    if (product.image.startsWith('http') || product.image.startsWith('data:')) {
+      return product.image
+    }
+  }
+  if (product.images?.[0]) {
     return product.images[0]
   }
-  return product.images?.[0] || product.image || toteBagsImg
+  return product.image || toteBagsImg
 }
-

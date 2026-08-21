@@ -12,17 +12,28 @@ export default function ServiceCard({ service, className = '' }) {
       role="listitem"
       aria-label={`${service.name}, ${categoryName}`}
       tabIndex={0}
-      className={`group/card relative h-80 sm:h-96 w-full cursor-pointer overflow-hidden rounded-xl bg-cover bg-center shadow-lg transition-all duration-500 ease-in-out
+      className={`group/card relative h-80 sm:h-96 w-full cursor-pointer overflow-hidden rounded-xl bg-slate-900 shadow-lg transition-all duration-500 ease-in-out block
         group-hover:scale-[0.97] group-hover:opacity-60 group-hover:blur-[2px]
         hover:!scale-105 hover:!opacity-100 hover:!blur-none hover:shadow-2xl hover:z-20
         focus-visible:!scale-105 focus-visible:!opacity-100 focus-visible:!blur-none
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#A82F19] ring-offset-white ${className}`}
-      style={{ backgroundImage: `url(${serviceImage})` }}
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#A82F19] ring-offset-black ${className}`}
     >
+      {/* Background Image with smooth zoom */}
+      <img
+        src={serviceImage}
+        alt={service.name}
+        loading="lazy"
+        onError={(e) => {
+          e.target.onerror = null
+          e.target.src = '/assets/products/1 (1).jpg'
+        }}
+        className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover/card:scale-110"
+      />
+
       {/* Gradient overlay for text contrast */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-500 group-hover/card:via-black/50" />
 
-      {/* Card Content */}
+      {/* Card Content at bottom */}
       <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
         <p className="text-xs sm:text-sm font-light uppercase tracking-widest opacity-80 text-white/90">
           {categoryName}

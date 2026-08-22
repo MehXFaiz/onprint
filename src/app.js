@@ -4,6 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
 const morgan = require('morgan')
+const compression = require('compression')
 const { pool, testConnection } = require('./config/database')
 const { notFound, errorHandler } = require('./middleware/errorHandler')
 
@@ -58,6 +59,7 @@ function createApp() {
   }
 
   app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false }))
+  app.use(compression())
   app.use(cors(corsOptions))
   app.options('*', cors(corsOptions))
 
@@ -117,10 +119,18 @@ function createApp() {
     })
   })
 
-  // Static assets & Uploads
-  app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')))
-  app.use('/assets', express.static(path.join(__dirname, 'assets')))
-  app.use('/assets', express.static(path.join(__dirname, '..', 'client', 'public', 'assets')))
+  // Static assets & Uploads with caching headers
+  const staticCacheOptions = {
+    maxAge: '1y',
+    immutable: true,
+  }
+  const uploadCacheOptions = {
+    maxAge: '7d',
+  }
+
+  app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads'), uploadCacheOptions))
+  app.use('/assets', express.static(path.join(__dirname, 'assets'), staticCacheOptions))
+  app.use('/assets', express.static(path.join(__dirname, '..', 'client', 'public', 'assets'), staticCacheOptions))
 
   // API Routes
   app.use('/api/auth', authRoutes)
@@ -136,11 +146,22 @@ function createApp() {
   app.use('/api/blog', blogRoutes)
   app.use('/api/seo', seoRoutes)
 
-  // Single-process deployment for GoDaddy / cPanel / Preview Node.js Apps
+  // Single-process deployment for GoDaddy / cPanel / Node.js Apps
   const hasClientBuild = fs.existsSync(path.join(CLIENT_DIST, 'index.html'))
   if (hasClientBuild) {
-    app.use(express.static(CLIENT_DIST))
+    app.use('/assets', express.static(path.join(CLIENT_DIST, 'assets'), staticCacheOptions))
+    app.use(
+      express.static(CLIENT_DIST, {
+        maxAge: '1h',
+        setHeaders: (res, filePath) => {
+          if (filePath.endsWith('.html')) {
+            res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
+          }
+        },
+      })
+    )
     app.get(/^(?!\/api).*/, (req, res) => {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
       res.sendFile(path.join(CLIENT_DIST, 'index.html'))
     })
   }

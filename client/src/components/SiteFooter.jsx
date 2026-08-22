@@ -10,6 +10,7 @@ const navLinks = [
   { to: '/about', label: 'About Us' },
   { to: '/services', label: 'Printing Services' },
   { to: '/products', label: 'Products' },
+  { to: '/track-order', label: 'Track Your Order' },
   { to: '/portfolio', label: 'Portfolio & Work' },
   { to: '/blog', label: 'Printing & Gifting Blog' },
   { to: '/contact', label: 'Contact Us' },
@@ -109,6 +110,9 @@ export default function SiteFooter() {
             </Link>
             <Link to="/terms" className="hover:text-[#FFFFFF] hover:underline">
               Terms &amp; Conditions
+            </Link>
+            <Link to="/track-order" className="hover:text-[#FFFFFF] hover:underline">
+              Track Order
             </Link>
             <Link
               to="/get-a-quote"

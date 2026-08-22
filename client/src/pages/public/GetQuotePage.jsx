@@ -222,11 +222,14 @@ export default function GetQuotePage() {
   }
 
   if (submitted) {
-    const quoteNum =
-      submittedOrder?.quoteNumber || submittedOrder?._id || `QT-2026-${submittedOrder?.id || 'SUBMITTED'}`
+    const orderNum =
+      submittedOrder?.orderNumber ||
+      submittedOrder?.quoteNumber ||
+      (submittedOrder?._id && String(submittedOrder._id).startsWith('ONP-') ? submittedOrder._id : null) ||
+      `ONP-2026-${submittedOrder?.id || 'SUBMITTED'}`
     const prodName = submittedOrder?.productName || form.product || 'Custom Print Job'
     const orderQty = submittedOrder?.quantity ?? form.quantity ?? 1
-    const quoteStatus = submittedOrder?.status || 'Pending'
+    const orderStatus = submittedOrder?.status || 'Pending'
 
     return (
       <Container className="flex min-h-[50vh] flex-col items-center justify-center py-24 text-center">
@@ -234,16 +237,16 @@ export default function GetQuotePage() {
           <CheckCircle2 className="h-8 w-8" />
         </div>
         <h1 className="font-display mt-6 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
-          Quote Request Submitted!
+          Order Request Submitted!
         </h1>
         <p className="mt-4 max-w-md text-base text-secondary">
-          Thank you, {form.name.split(' ')[0]} — we have received your request for <strong className="text-primary">{form.product || 'your project'}</strong>. Our team will review the specifications and issue an approved quote to <span className="text-primary font-bold">{form.email}</span>. Once approved, production will commence.
+          Thank you, {form.name.split(' ')[0]} — we have received your request for <strong className="text-primary">{form.product || 'your project'}</strong>. Our production team will verify your specifications and provide status updates.
         </p>
 
         <div className="mt-6 w-full max-w-md rounded-2xl border border-border bg-surface p-5 text-left text-xs space-y-2 shadow-xs">
           <div className="flex items-center justify-between border-b border-border/80 pb-2">
-            <span className="font-bold uppercase tracking-wider text-secondary">Quote Reference</span>
-            <span className="font-mono font-bold text-accent">{quoteNum}</span>
+            <span className="font-bold uppercase tracking-wider text-secondary">Order Number</span>
+            <span className="font-mono font-bold text-accent text-sm">{orderNum}</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-secondary">Product:</span>
@@ -255,18 +258,18 @@ export default function GetQuotePage() {
           </div>
           <div className="flex items-center justify-between">
             <span className="text-secondary">Status:</span>
-            <span className="rounded-full bg-purple-50 border border-purple-200 px-2 py-0.5 font-bold text-purple-700">
-              {quoteStatus} (Awaiting Approval)
+            <span className="rounded-full bg-amber-50 border border-amber-200 px-2.5 py-0.5 font-bold text-amber-700">
+              {orderStatus} (Received)
             </span>
           </div>
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
+          <Button to={`/track-order?order=${orderNum}`} variant="accent" icon={false}>
+            Track Your Order
+          </Button>
           <Button to="/" variant="outline" icon={false}>
             Back to Storefront
-          </Button>
-          <Button to="/customer/quotes" variant="accent" icon={false}>
-            View My Quotes
           </Button>
         </div>
       </Container>

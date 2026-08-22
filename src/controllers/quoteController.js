@@ -13,12 +13,14 @@ async function createQuote(req, res, next) {
 
     const year = new Date().getFullYear()
     const randomSeq = Math.floor(100000 + Math.random() * 900000)
-    const quoteNumber = `QT-${year}-${randomSeq}`
+    const quoteNumber = req.body.orderNumber || req.body.quoteNumber || `ONP-${year}-${randomSeq}`
+    const orderNumber = quoteNumber
     const userId = req.user ? req.user.id : null
 
     // 1. Always persist to disk-backed persistentStore
     const createdLocalQuote = persistentStore.addQuote({
       quoteNumber,
+      orderNumber,
       userId,
       name: name.trim(),
       email: email.toLowerCase().trim(),
@@ -60,6 +62,7 @@ async function createQuote(req, res, next) {
 
       if (Array.isArray(items) && items.length > 0) {
         for (const item of items) {
+          const itemSubtotal = item.subtotal || (item.quantity || 1) * (item.unitPrice || 0)
           await connection.execute(
             `INSERT INTO quote_items 
               (quote_id, product_id, product_name, quantity, unit_price, subtotal, options)
@@ -67,10 +70,10 @@ async function createQuote(req, res, next) {
             [
               quoteId,
               item.productId || null,
-              item.productName || item.name || 'Custom Print Job',
+              item.productName || 'Custom Item',
               item.quantity || 1,
-              item.unitPrice || item.price || 0.0,
-              item.subtotal || (item.quantity || 1) * (item.unitPrice || item.price || 0.0),
+              item.unitPrice || 0,
+              itemSubtotal,
               item.options ? JSON.stringify(item.options) : null,
             ]
           )
@@ -91,6 +94,7 @@ async function createQuote(req, res, next) {
       data: {
         id: quoteId,
         quoteNumber,
+        orderNumber,
         status: 'Pending',
       },
     })

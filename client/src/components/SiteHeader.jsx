@@ -19,6 +19,7 @@ import {
   Award,
   FileSpreadsheet,
   PhoneCall,
+  Truck,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
@@ -142,8 +143,13 @@ export default function SiteHeader() {
             </span>
           </div>
 
-          {/* Quick Contact Details */}
-          <div className="flex items-center gap-5 font-medium text-slate-600">
+          {/* Quick Contact Details & Order Tracking */}
+          <div className="flex items-center gap-4 font-medium text-slate-600">
+            <Link to="/track-order" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-700 hover:bg-slate-100 px-2 py-0.5 rounded">
+              <Truck className="h-3.5 w-3.5 text-[#A82F19]" />
+              <span className="font-semibold text-[11px]">Track Order</span>
+            </Link>
+            <span className="h-3 w-[1px] bg-slate-200" />
             <a href="tel:+9714800PRINT" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
               <Phone className="h-3.5 w-3.5 text-[#A82F19]" />
               <span>+971 4 800 PRINT</span>
@@ -500,6 +506,18 @@ export default function SiteHeader() {
               >
                 <BookOpen className="w-4 h-4 text-slate-500" />
                 <span>Blog</span>
+              </NavLink>
+
+              <NavLink
+                to="/track-order"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <Truck className="w-4 h-4 text-slate-500" />
+                <span>Track Order</span>
               </NavLink>
 
               {/* Mobile CTA */}

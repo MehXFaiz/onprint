@@ -18,10 +18,19 @@ const BlogPostPage = lazy(() => import('./pages/public/BlogPostPage'))
 const PortfolioPage = lazy(() => import('./pages/public/PortfolioPage'))
 const ContactPage = lazy(() => import('./pages/public/ContactPage'))
 const GetQuotePage = lazy(() => import('./pages/public/GetQuotePage'))
+const TrackOrderPage = lazy(() => import('./pages/public/TrackOrderPage'))
 const FaqPage = lazy(() => import('./pages/public/FaqPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'))
 const TermsPage = lazy(() => import('./pages/public/TermsPage'))
 const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
+
+// Lazy load customer portal section
+const CustomerLayout = lazy(() => import('./layouts/CustomerLayout'))
+const CustomerDashboardPage = lazy(() => import('./pages/customer/DashboardPage'))
+const CustomerMyOrdersPage = lazy(() => import('./pages/customer/MyOrdersPage'))
+const CustomerOrderDetailPage = lazy(() => import('./pages/customer/OrderDetailPage'))
+const CustomerMyQuotesPage = lazy(() => import('./pages/customer/MyQuotesPage'))
+const CustomerProfilePage = lazy(() => import('./pages/customer/ProfilePage'))
 
 // Lazy load admin section and layouts to dramatically improve initial page load performance
 const AdminLayout = lazy(() => import('./layouts/AdminLayout'))
@@ -75,13 +84,35 @@ function App() {
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/get-a-quote" element={<GetQuotePage />} />
+            <Route path="/track-order" element={<TrackOrderPage />} />
+            <Route path="/track" element={<Navigate to="/track-order" replace />} />
+            <Route path="/orders/track" element={<Navigate to="/track-order" replace />} />
+            <Route path="/order-tracking" element={<Navigate to="/track-order" replace />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/login" element={<Navigate to="/admin/login" replace />} />
             <Route path="/register" element={<Navigate to="/admin/login" replace />} />
-            <Route path="/account/*" element={<Navigate to="/admin" replace />} />
             <Route path="*" element={<NotFoundPage />} />
+          </Route>
+
+          {/* Customer Portal Dedicated Routes */}
+          <Route path="/account" element={<CustomerLayout />}>
+            <Route index element={<CustomerDashboardPage />} />
+            <Route path="quotes" element={<CustomerMyQuotesPage />} />
+            <Route path="orders" element={<CustomerMyOrdersPage />} />
+            <Route path="orders/:id" element={<CustomerOrderDetailPage />} />
+            <Route path="profile" element={<CustomerProfilePage />} />
+          </Route>
+
+          {/* Customer Route Aliases (prevents 404 for /customer/quotes, /customer/orders) */}
+          <Route path="/customer" element={<CustomerLayout />}>
+            <Route index element={<CustomerDashboardPage />} />
+            <Route path="quotes" element={<CustomerMyQuotesPage />} />
+            <Route path="orders" element={<CustomerMyOrdersPage />} />
+            <Route path="orders/:id" element={<CustomerOrderDetailPage />} />
+            <Route path="track" element={<Navigate to="/track-order" replace />} />
+            <Route path="profile" element={<CustomerProfilePage />} />
           </Route>
 
           <Route path="/admin/login" element={<AdminLoginPage />} />

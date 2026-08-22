@@ -152,8 +152,172 @@ export async function fetchOrders() {
 }
 
 export function getOrderById(orderId) {
+  if (!orderId) return null
+  const cleanId = String(orderId).trim().toLowerCase()
   const orders = getStoredOrders()
-  return orders.find((o) => o._id === orderId || o.id === orderId || o.orderNumber === orderId) || null
+  const found = orders.find(
+    (o) =>
+      String(o._id).toLowerCase() === cleanId ||
+      String(o.id).toLowerCase() === cleanId ||
+      String(o.orderNumber || '').toLowerCase() === cleanId ||
+      String(o.quoteNumber || '').toLowerCase() === cleanId
+  )
+  if (found) return found
+
+  // Fallback check in quotes store
+  const rawQuotes = getStoredQuotesRaw()
+  const foundQuote = rawQuotes.find(
+    (q) =>
+      String(q._id).toLowerCase() === cleanId ||
+      String(q.id).toLowerCase() === cleanId ||
+      String(q.orderNumber || '').toLowerCase() === cleanId ||
+      String(q.quoteNumber || '').toLowerCase() === cleanId
+  )
+  if (foundQuote) {
+    return {
+      _id: foundQuote._id || `ORD-${foundQuote.id}`,
+      id: foundQuote.id,
+      orderNumber: foundQuote.orderNumber || foundQuote.quoteNumber || `ONP-2026-${foundQuote.id}`,
+      createdAt: foundQuote.createdAt,
+      status: foundQuote.status || 'Pending',
+      paymentStatus: 'Pending',
+      currency: 'AED',
+      customerName: foundQuote.name || 'Client',
+      customerEmail: foundQuote.email || '',
+      customerPhone: foundQuote.phone || '',
+      company: foundQuote.company || '',
+      productName: foundQuote.productName || 'Custom Print Job',
+      quantity: Number(foundQuote.quantity) || 1,
+      totalPrice: Number(foundQuote.totalPrice || 0),
+      specs: foundQuote.specs || '',
+      notes: foundQuote.notes || '',
+      artworkFile: foundQuote.artworkFile || null,
+      quoteNumber: foundQuote.quoteNumber || foundQuote.orderNumber,
+      items: Array.isArray(foundQuote.items) && foundQuote.items.length > 0
+        ? foundQuote.items
+        : [
+            {
+              productName: foundQuote.productName || 'Custom Print Job',
+              quantity: Number(foundQuote.quantity) || 1,
+              unitPrice: foundQuote.totalPrice || 0,
+              subtotal: foundQuote.totalPrice || 0,
+            },
+          ],
+    }
+  }
+
+  return null
+}
+
+const RECENT_TRACKED_KEY = 'onprint_recent_tracked_orders'
+
+export function getRecentTrackedOrders() {
+  try {
+    const raw = localStorage.getItem(RECENT_TRACKED_KEY)
+    if (raw) return JSON.parse(raw) || []
+  } catch {
+    // ignore
+  }
+  return []
+}
+
+export function saveRecentTrackedOrder(order) {
+  if (!order || !order.orderNumber) return
+  try {
+    const existing = getRecentTrackedOrders()
+    const filtered = existing.filter((item) => item.orderNumber !== order.orderNumber)
+    const itemToSave = {
+      orderNumber: order.orderNumber,
+      productName: order.productName || 'Custom Print Job',
+      status: order.status || 'Pending',
+      totalPrice: order.totalPrice || 0,
+      createdAt: order.createdAt || new Date().toISOString(),
+    }
+    const updated = [itemToSave, ...filtered].slice(0, 5)
+    localStorage.setItem(RECENT_TRACKED_KEY, JSON.stringify(updated))
+  } catch {
+    // ignore
+  }
+}
+
+export async function trackOrder(query) {
+  if (!query || !query.trim()) return null
+  const clean = query.trim().toLowerCase()
+
+  // 1. Check local order by ID / Order Number / Email / Phone
+  const localOrders = getStoredOrders()
+  let matched = localOrders.find(
+    (o) =>
+      String(o.orderNumber || '').toLowerCase() === clean ||
+      String(o.quoteNumber || '').toLowerCase() === clean ||
+      String(o._id || '').toLowerCase() === clean ||
+      String(o.id || '').toLowerCase() === clean ||
+      String(o.customerEmail || '').toLowerCase() === clean ||
+      String(o.customerPhone || '').replace(/\D/g, '') === clean.replace(/\D/g, '') && clean.length > 5
+  )
+
+  // 2. Check local quotes
+  if (!matched) {
+    const rawQuotes = getStoredQuotesRaw()
+    const matchedQuote = rawQuotes.find(
+      (q) =>
+        String(q.orderNumber || '').toLowerCase() === clean ||
+        String(q.quoteNumber || '').toLowerCase() === clean ||
+        String(q._id || '').toLowerCase() === clean ||
+        String(q.id || '').toLowerCase() === clean ||
+        String(q.email || '').toLowerCase() === clean ||
+        String(q.phone || '').replace(/\D/g, '') === clean.replace(/\D/g, '') && clean.length > 5
+    )
+
+    if (matchedQuote) {
+      matched = {
+        _id: matchedQuote._id || `ORD-${matchedQuote.id}`,
+        id: matchedQuote.id,
+        orderNumber: matchedQuote.orderNumber || matchedQuote.quoteNumber || `ONP-2026-${matchedQuote.id}`,
+        createdAt: matchedQuote.createdAt,
+        status: matchedQuote.status || 'Pending',
+        paymentStatus: 'Pending',
+        currency: 'AED',
+        customerName: matchedQuote.name || 'Client',
+        customerEmail: matchedQuote.email || '',
+        customerPhone: matchedQuote.phone || '',
+        company: matchedQuote.company || '',
+        productName: matchedQuote.productName || 'Custom Print Job',
+        quantity: Number(matchedQuote.quantity) || 1,
+        totalPrice: Number(matchedQuote.totalPrice || 0),
+        specs: matchedQuote.specs || '',
+        notes: matchedQuote.notes || '',
+        artworkFile: matchedQuote.artworkFile || null,
+        quoteNumber: matchedQuote.quoteNumber || matchedQuote.orderNumber,
+        items: Array.isArray(matchedQuote.items) && matchedQuote.items.length > 0
+          ? matchedQuote.items
+          : [
+              {
+                productName: matchedQuote.productName || 'Custom Print Job',
+                quantity: Number(matchedQuote.quantity) || 1,
+                unitPrice: matchedQuote.totalPrice || 0,
+                subtotal: matchedQuote.totalPrice || 0,
+              },
+            ],
+      }
+    }
+  }
+
+  // 3. Try backend API fetch if available
+  try {
+    const { data } = await api.get(`/orders/${encodeURIComponent(clean)}`)
+    if (data?.success && data?.data) {
+      matched = data.data
+    }
+  } catch {
+    // offline or not found on server
+  }
+
+  if (matched) {
+    saveRecentTrackedOrder(matched)
+  }
+
+  return matched
 }
 
 export async function updateOrderStatus(orderId, newStatus) {

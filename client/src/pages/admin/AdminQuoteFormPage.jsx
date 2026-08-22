@@ -13,7 +13,7 @@ export default function AdminQuoteFormPage() {
   const [error, setError] = useState(null)
 
   const [form, setForm] = useState({
-    quoteNumber: `QT-2026-${Math.floor(100000 + Math.random() * 900000)}`,
+    quoteNumber: `ONP-2026-${Math.floor(100000 + Math.random() * 900000)}`,
     name: '',
     email: '',
     phone: '',
@@ -29,7 +29,7 @@ export default function AdminQuoteFormPage() {
     const existing = quotes.find((q) => String(q.id) === String(id) || q._id === id || q.quoteNumber === id)
     if (existing) {
       setForm({
-        quoteNumber: existing.quoteNumber || `QT-2026-${existing.id}`,
+        quoteNumber: existing.quoteNumber || `ONP-2026-${existing.id}`,
         name: existing.name || '',
         email: existing.email || '',
         phone: existing.phone || '',

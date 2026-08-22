@@ -134,13 +134,69 @@ function addOrder(orderData) {
 }
 
 function getOrder(id) {
+  if (!id) return null
   const store = loadStore()
-  return store.orders.find((o) => String(o.id) === String(id) || o.orderNumber === id || o._id === id) || null
+  const clean = String(id).trim().toLowerCase()
+  const found = store.orders.find(
+    (o) =>
+      String(o.id).toLowerCase() === clean ||
+      String(o.orderNumber || '').toLowerCase() === clean ||
+      String(o._id || '').toLowerCase() === clean ||
+      String(o.quoteNumber || '').toLowerCase() === clean ||
+      String(o.customerEmail || '').toLowerCase() === clean ||
+      (o.customerPhone && String(o.customerPhone).replace(/\D/g, '') === clean.replace(/\D/g, '') && clean.length > 5)
+  )
+  if (found) return found
+
+  const foundQuote = (store.quotes || []).find(
+    (q) =>
+      String(q.id).toLowerCase() === clean ||
+      String(q.quoteNumber || '').toLowerCase() === clean ||
+      String(q.orderNumber || '').toLowerCase() === clean ||
+      String(q._id || '').toLowerCase() === clean ||
+      String(q.email || '').toLowerCase() === clean ||
+      (q.phone && String(q.phone).replace(/\D/g, '') === clean.replace(/\D/g, '') && clean.length > 5)
+  )
+
+  if (foundQuote) {
+    return {
+      _id: foundQuote._id || `ord-${foundQuote.id}`,
+      id: foundQuote.id,
+      orderNumber: foundQuote.orderNumber || foundQuote.quoteNumber || `ONP-2026-${foundQuote.id}`,
+      customerName: foundQuote.name || 'Client',
+      customerEmail: foundQuote.email || '',
+      customerPhone: foundQuote.phone || null,
+      company: foundQuote.company || null,
+      status: foundQuote.status || 'Pending',
+      subtotal: Number(foundQuote.totalPrice || 0),
+      tax: 0,
+      shipping: 0,
+      totalPrice: Number(foundQuote.totalPrice || 0),
+      currency: 'AED',
+      notes: foundQuote.notes || '',
+      specs: foundQuote.specs || null,
+      artworkFile: foundQuote.artworkFile || null,
+      quoteNumber: foundQuote.quoteNumber,
+      createdAt: foundQuote.createdAt,
+      productName: foundQuote.productName || 'Custom Print Job',
+      items: Array.isArray(foundQuote.items) && foundQuote.items.length > 0 ? foundQuote.items : [
+        {
+          productName: foundQuote.productName || 'Custom Print Job',
+          quantity: foundQuote.quantity || 1,
+          unitPrice: foundQuote.totalPrice || 0,
+          subtotal: foundQuote.totalPrice || 0,
+        }
+      ],
+    }
+  }
+
+  return null
 }
 
 function updateOrderStatus(id, status) {
   const store = loadStore()
-  const order = store.orders.find((o) => String(o.id) === String(id) || o.orderNumber === id || o._id === id)
+  const clean = String(id).trim().toLowerCase()
+  const order = store.orders.find((o) => String(o.id).toLowerCase() === clean || String(o.orderNumber || '').toLowerCase() === clean || String(o._id || '').toLowerCase() === clean)
   if (order) {
     order.status = status
     order.updatedAt = new Date().toISOString()
@@ -159,12 +215,14 @@ function addQuote(quoteData) {
   const store = loadStore()
   const year = new Date().getFullYear()
   const randomSeq = Math.floor(100000 + Math.random() * 900000)
-  const quoteNumber = quoteData.quoteNumber || `QT-${year}-${randomSeq}`
+  const orderNumber = quoteData.orderNumber || quoteData.quoteNumber || `ONP-${year}-${randomSeq}`
+  const quoteNumber = orderNumber
   const id = store.quotes.length > 0 ? Math.max(...store.quotes.map((q) => q.id || 0)) + 1 : 1
 
   const newQuote = {
     _id: `qt-${id}`,
     id,
+    orderNumber,
     quoteNumber,
     name: quoteData.name || 'Client',
     email: quoteData.email || '',

@@ -1,8 +1,11 @@
+import api from './api'
+
 const ORDERS_STORAGE_KEY = 'onprint_admin_orders'
 
 export const initialOrders = [
   {
     _id: 'ORD-9821',
+    id: 1,
     orderNumber: 'ONP-2026-9821',
     customerName: 'Sarah Al-Maktoum',
     customerEmail: 'client@onprint.ae',
@@ -20,6 +23,7 @@ export const initialOrders = [
   },
   {
     _id: 'ORD-9820',
+    id: 2,
     orderNumber: 'ONP-2026-9820',
     customerName: 'Ahmed Al-Mansoori',
     customerEmail: 'ahmed@emiratesholding.ae',
@@ -37,6 +41,7 @@ export const initialOrders = [
   },
   {
     _id: 'ORD-9819',
+    id: 3,
     orderNumber: 'ONP-2026-9819',
     customerName: 'Elena Rostova',
     customerEmail: 'elena@artisanboutique.ae',
@@ -54,6 +59,7 @@ export const initialOrders = [
   },
   {
     _id: 'ORD-9818',
+    id: 4,
     orderNumber: 'ONP-2026-9818',
     customerName: 'Tariq Hassan',
     customerEmail: 'tariq@gulfevents.ae',
@@ -71,6 +77,7 @@ export const initialOrders = [
   },
   {
     _id: 'ORD-9817',
+    id: 5,
     orderNumber: 'ONP-2026-9817',
     customerName: 'Jessica Taylor',
     customerEmail: 'jessica@apexmedia.com',
@@ -106,26 +113,78 @@ export function saveOrders(orders) {
   }
 }
 
+export function getOrderById(orderId) {
+  const orders = getStoredOrders()
+  return orders.find((o) => o._id === orderId || o.id === orderId || o.orderNumber === orderId) || null
+}
+
 export function updateOrderStatus(orderId, newStatus) {
   const current = getStoredOrders()
   const updated = current.map((order) =>
-    order._id === orderId ? { ...order, status: newStatus } : order
+    order._id === orderId || order.id === orderId ? { ...order, status: newStatus } : order
   )
+  saveOrders(updated)
+
+  // Asynchronously attempt to update backend API if available
+  api.put(`/orders/${orderId}/status`, { status: newStatus }).catch(() => {
+    // Backend sync error handled gracefully
+  })
+
+  return updated
+}
+
+export function updateOrder(orderId, updatedFields) {
+  const current = getStoredOrders()
+  const updated = current.map((order) =>
+    order._id === orderId || order.id === orderId ? { ...order, ...updatedFields } : order
+  )
+  saveOrders(updated)
+  return updated
+}
+
+export function deleteOrder(orderId) {
+  const current = getStoredOrders()
+  const updated = current.filter((o) => o._id !== orderId && o.id !== orderId)
   saveOrders(updated)
   return updated
 }
 
 export function createOrder(orderData) {
   const current = getStoredOrders()
+  const randomSeq = Math.floor(1000 + Math.random() * 9000)
   const newOrder = {
-    _id: `ORD-${Math.floor(1000 + Math.random() * 9000)}`,
-    orderNumber: `ONP-2026-${Math.floor(1000 + Math.random() * 9000)}`,
+    _id: `ORD-${randomSeq}`,
+    id: Date.now(),
+    orderNumber: `ONP-2026-${randomSeq}`,
     createdAt: new Date().toISOString(),
     status: 'Pending',
     paymentStatus: 'Pending',
+    currency: 'AED',
+    totalPrice: orderData.totalPrice || 0,
     ...orderData,
   }
   const updated = [newOrder, ...current]
   saveOrders(updated)
+
+  // Asynchronously attempt to sync with backend API
+  api.post('/orders', {
+    customerName: orderData.customerName,
+    customerEmail: orderData.customerEmail,
+    customerPhone: orderData.customerPhone || orderData.phone,
+    company: orderData.company,
+    notes: orderData.notes,
+    totalPrice: orderData.totalPrice || 0,
+    items: [
+      {
+        productName: orderData.productName || 'Custom Print Job',
+        quantity: orderData.quantity || 1,
+        unitPrice: orderData.totalPrice ? Number(orderData.totalPrice) / (Number(orderData.quantity) || 1) : 0,
+        subtotal: orderData.totalPrice || 0,
+      },
+    ],
+  }).catch(() => {
+    // Backend sync error handled gracefully
+  })
+
   return newOrder
 }

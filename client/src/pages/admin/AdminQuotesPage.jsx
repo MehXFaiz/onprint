@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { FileText, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle } from 'lucide-react'
 import Button from '../../components/Button'
-
-const MOCK_QUOTES = [
-  { id: 1, quoteNumber: 'QT-2026-884120', name: 'Khalid Real Estate', email: 'khalid@khalidre.ae', phone: '+971 55 444 3322', company: 'Khalid Real Estate LLC', totalPrice: 3500, status: 'Pending' },
-  { id: 2, quoteNumber: 'QT-2026-884119', name: 'Apex General Trading', email: 'procurement@apexgt.ae', phone: '+971 50 777 8899', company: 'Apex Trading', totalPrice: 5200, status: 'Approved' },
-]
+import { getStoredQuotes, deleteQuote } from '../../services/quotes'
 
 export default function AdminQuotesPage() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const [quotes, setQuotes] = useState(MOCK_QUOTES)
+  const [quotes, setQuotes] = useState([])
   const [search, setSearch] = useState('')
   const [notification, setNotification] = useState(location.state?.toast || null)
   const [deletingQuote, setDeletingQuote] = useState(null)
+
+  useEffect(() => {
+    setQuotes(getStoredQuotes())
+  }, [])
 
   useEffect(() => {
     if (notification) {
@@ -26,14 +26,15 @@ export default function AdminQuotesPage() {
 
   const filtered = quotes.filter(
     (q) =>
-      q.quoteNumber.toLowerCase().includes(search.toLowerCase()) ||
-      q.name.toLowerCase().includes(search.toLowerCase()) ||
-      q.email.toLowerCase().includes(search.toLowerCase())
+      (q.quoteNumber || '').toLowerCase().includes(search.toLowerCase()) ||
+      (q.name || '').toLowerCase().includes(search.toLowerCase()) ||
+      (q.email || '').toLowerCase().includes(search.toLowerCase())
   )
 
   const confirmDeleteQuote = () => {
     if (!deletingQuote) return
-    setQuotes((prev) => prev.filter((q) => q.id !== deletingQuote.id))
+    const updated = deleteQuote(deletingQuote._id || deletingQuote.id)
+    setQuotes(updated)
     setNotification(`Quote request "${deletingQuote.quoteNumber}" deleted successfully.`)
     setDeletingQuote(null)
   }
@@ -108,11 +109,11 @@ export default function AdminQuotesPage() {
           </thead>
           <tbody className="divide-y divide-neutral-100 font-medium text-neutral-800">
             {filtered.map((q) => (
-              <tr key={q.id} className="hover:bg-neutral-50/60 transition-colors">
+              <tr key={q._id || q.id || q.quoteNumber} className="hover:bg-neutral-50/60 transition-colors">
                 <td className="py-3 px-4 font-mono font-bold text-neutral-900">{q.quoteNumber}</td>
                 <td className="py-3 px-4 font-bold text-neutral-900">{q.name}</td>
                 <td className="py-3 px-4 font-mono text-[11px] text-neutral-600">{q.email}</td>
-                <td className="py-3 px-4 text-neutral-700">{q.company}</td>
+                <td className="py-3 px-4 text-neutral-700">{q.company || '-'}</td>
                 <td className="py-3 px-4 font-black text-neutral-900">AED {q.totalPrice?.toLocaleString()}</td>
                 <td className="py-3 px-4">
                   <span
@@ -128,15 +129,15 @@ export default function AdminQuotesPage() {
                 <td className="py-3 px-4 text-right">
                   <div className="flex items-center justify-end gap-2">
                     <button
-                      onClick={() => navigate(`/admin/quotes/${q.id}/edit`)}
-                      className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
+                      onClick={() => navigate(`/admin/quotes/${q._id || q.id}/edit`)}
+                      className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
                       title="Edit Quote"
                     >
                       <Edit2 className="h-4 w-4" />
                     </button>
                     <button
                       onClick={() => setDeletingQuote(q)}
-                      className="rounded-lg p-1.5 text-red-600 hover:bg-red-50 transition-colors"
+                      className="rounded-lg p-1.5 text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
                       title="Delete Quote"
                     >
                       <Trash2 className="h-4 w-4" />

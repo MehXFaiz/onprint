@@ -192,13 +192,21 @@ export default function AdminOrdersPage() {
           </thead>
           <tbody className="divide-y divide-neutral-100 font-medium text-neutral-800">
             {filteredOrders.map((o) => (
-              <tr key={o.id} className="hover:bg-neutral-50/60 transition-colors">
+              <tr key={o._id || o.id || o.orderNumber} className="hover:bg-neutral-50/60 transition-colors">
                 <td className="py-3 px-4 font-mono font-bold text-neutral-900">{o.orderNumber}</td>
                 <td className="py-3 px-4">
                   <div className="font-bold text-neutral-900">{o.customerName}</div>
-                  <div className="text-[10px] text-neutral-500">{o.company || 'Client'}</div>
+                  <div className="text-[10px] text-neutral-500">{o.company || o.customerEmail || 'Client'}</div>
                 </td>
-                <td className="py-3 px-4 font-bold text-neutral-800 max-w-xs truncate">{o.productName}</td>
+                <td className="py-3 px-4 max-w-xs">
+                  <div className="font-bold text-neutral-800 truncate">{o.productName}</div>
+                  {o.specs && <div className="text-[10px] text-neutral-500 truncate">{o.specs}</div>}
+                  {o.artworkFile && (
+                    <div className="mt-0.5 inline-flex items-center gap-1 text-[9px] font-bold text-[#A82F19] bg-red-50 px-1.5 py-0.5 rounded">
+                      📎 {o.artworkFile}
+                    </div>
+                  )}
+                </td>
                 <td className="py-3 px-4 font-bold text-neutral-700">{o.quantity}</td>
                 <td className="py-3 px-4 font-black text-neutral-900">AED {o.totalPrice?.toLocaleString()}</td>
                 <td className="py-3 px-4">
@@ -208,7 +216,7 @@ export default function AdminOrdersPage() {
                   <div className="flex items-center justify-end gap-2">
                     <select
                       value={o.status}
-                      onChange={(e) => handleStatusChange(o.id, e.target.value)}
+                      onChange={(e) => handleStatusChange(o._id || o.id, e.target.value)}
                       className="rounded-lg border border-neutral-200 bg-neutral-50 px-2 py-1 text-[10px] font-bold text-neutral-800 focus:border-[#A82F19] focus:outline-none cursor-pointer"
                     >
                       <option value="Pending">Pending</option>
@@ -219,8 +227,8 @@ export default function AdminOrdersPage() {
                     </select>
 
                     <button
-                      onClick={() => navigate(`/admin/orders/${o.id}/edit`)}
-                      className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
+                      onClick={() => navigate(`/admin/orders/${o._id || o.id}/edit`)}
+                      className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
                       title="Edit Order"
                     >
                       <Edit2 className="h-4 w-4" />

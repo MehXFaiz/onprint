@@ -7,6 +7,8 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { getProductBySlug } from '../../services/products'
 import { getCategories } from '../../services/categories'
+import { createOrder } from '../../services/orders'
+import { createQuote } from '../../services/quotes'
 import { trackQuoteRequest } from '../../utils/analytics'
 
 const steps = ['What You Need', 'Project Details', 'Artwork', 'Contact Details', 'Review & Submit']
@@ -83,6 +85,7 @@ export default function GetQuotePage() {
   const [artworkFiles, setArtworkFiles] = useState([])
   const [prefillNote, setPrefillNote] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [submittedOrder, setSubmittedOrder] = useState(null)
 
   useEffect(() => {
     getCategories().then(setCategories).catch(() => setCategories([]))
@@ -169,11 +172,59 @@ export default function GetQuotePage() {
   }
 
   function handleSubmit() {
+    const specsArray = []
+    if (form.size) specsArray.push(`Size: ${form.size}`)
+    if (form.material) specsArray.push(`Material: ${form.material}`)
+    if (form.finish) specsArray.push(`Finish: ${form.finish}`)
+    const specs = specsArray.length > 0 ? specsArray.join(' | ') : 'Custom Specifications'
+
+    const qty = parseInt(form.quantity, 10) || 1
+    let totalPrice = state?.estimatedPrice || 0
+    if (!totalPrice) {
+      totalPrice = Math.max(250, Math.round(qty * 4.5))
+    }
+
+    const artworkNames = artworkFiles.length > 0 ? artworkFiles.map((f) => f.name).join(', ') : null
+
+    // 1. Create active Order entry so it appears in Admin & Customer Dashboard Orders
+    const newOrder = createOrder({
+      customerName: form.name.trim(),
+      customerEmail: form.email.trim(),
+      phone: form.phone.trim() || null,
+      company: form.company.trim() || null,
+      productName: form.product.trim() || 'Custom Print Job',
+      quantity: qty,
+      totalPrice,
+      status: 'Pending',
+      paymentStatus: 'Pending',
+      specs,
+      notes: form.notes.trim() || null,
+      artworkFile: artworkNames,
+      deliveryAddress: 'UAE Delivery',
+    })
+
+    // 2. Create Quote entry so it appears in Quotes Manager
+    createQuote({
+      name: form.name.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim() || null,
+      company: form.company.trim() || null,
+      productName: form.product.trim() || 'Custom Print Job',
+      quantity: qty,
+      totalPrice,
+      status: 'Pending',
+      specs,
+      notes: form.notes.trim() || null,
+      artworkFile: artworkNames,
+    })
+
     trackQuoteRequest({
       source_page: 'get_quote_wizard',
       product_name: form.product || undefined,
       category_name: form.product || undefined,
     })
+
+    setSubmittedOrder(newOrder)
     setSubmitted(true)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -190,9 +241,38 @@ export default function GetQuotePage() {
         <p className="mt-4 max-w-md text-base text-secondary">
           Thank you, {form.name.split(' ')[0]} — we have logged your request for <strong className="text-primary">{form.product || 'your project'}</strong> and will send formal pricing to <span className="text-primary font-bold">{form.email}</span> shortly.
         </p>
-        <Button to="/" variant="outline" icon={false} className="mt-8">
-          Back to Storefront
-        </Button>
+
+        {submittedOrder && (
+          <div className="mt-6 w-full max-w-md rounded-2xl border border-border bg-surface p-5 text-left text-xs space-y-2 shadow-xs">
+            <div className="flex items-center justify-between border-b border-border/80 pb-2">
+              <span className="font-bold uppercase tracking-wider text-secondary">Order Reference</span>
+              <span className="font-mono font-bold text-accent">{submittedOrder.orderNumber}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-secondary">Product:</span>
+              <span className="font-bold text-primary">{submittedOrder.productName}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-secondary">Quantity:</span>
+              <span className="font-bold text-primary">{submittedOrder.quantity} units</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-secondary">Status:</span>
+              <span className="rounded-full bg-amber-50 border border-amber-200 px-2 py-0.5 font-bold text-amber-700">
+                {submittedOrder.status}
+              </span>
+            </div>
+          </div>
+        )}
+
+        <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
+          <Button to="/" variant="outline" icon={false}>
+            Back to Storefront
+          </Button>
+          <Button to="/admin/orders" variant="accent" icon={false}>
+            View in Dashboard Orders
+          </Button>
+        </div>
       </Container>
     )
   }

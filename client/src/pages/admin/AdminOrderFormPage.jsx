@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ChevronRight, ShoppingBag, Save } from 'lucide-react'
 import Button from '../../components/Button'
+import { getStoredOrders, createOrder, updateOrder, getOrderById } from '../../services/orders'
 
 export default function AdminOrderFormPage() {
   const navigate = useNavigate()
@@ -12,32 +13,35 @@ export default function AdminOrderFormPage() {
   const [error, setError] = useState(null)
 
   const [form, setForm] = useState({
-    orderNumber: 'ORD-2026-104921',
+    orderNumber: `ONP-2026-${Math.floor(1000 + Math.random() * 9000)}`,
     customerName: '',
     customerEmail: '',
     customerPhone: '',
     company: '',
     productName: '',
-    quantity: '500',
-    totalPrice: '4250',
-    status: 'In Production',
+    quantity: '100',
+    totalPrice: '1500',
+    status: 'Pending',
     notes: '',
   })
 
   useEffect(() => {
     if (!isEdit) return
-    setForm({
-      orderNumber: 'ORD-2026-104921',
-      customerName: 'Ahmed Al Mansoori',
-      customerEmail: 'ahmed@emirateslogistics.ae',
-      customerPhone: '+971 50 123 4567',
-      company: 'Emirates Logistics',
-      productName: 'Custom Water Bottles Printing in Dubai',
-      quantity: '500',
-      totalPrice: '4250',
-      status: 'In Production',
-      notes: 'Smart LED temperature display with laser engraving logo.',
-    })
+    const existing = getOrderById(id)
+    if (existing) {
+      setForm({
+        orderNumber: existing.orderNumber || `ONP-2026-${existing.id}`,
+        customerName: existing.customerName || '',
+        customerEmail: existing.customerEmail || '',
+        customerPhone: existing.phone || existing.customerPhone || '',
+        company: existing.company || '',
+        productName: existing.productName || '',
+        quantity: String(existing.quantity || 1),
+        totalPrice: String(existing.totalPrice || 0),
+        status: existing.status || 'Pending',
+        notes: existing.notes || existing.specs || '',
+      })
+    }
   }, [id, isEdit])
 
   const handleSubmit = (e) => {
@@ -48,11 +52,40 @@ export default function AdminOrderFormPage() {
     }
 
     setSubmitting(true)
+    const qty = parseInt(form.quantity, 10) || 1
+    const total = parseFloat(form.totalPrice) || 0
+
+    if (isEdit) {
+      updateOrder(id, {
+        customerName: form.customerName.trim(),
+        customerEmail: form.customerEmail.trim(),
+        phone: form.customerPhone.trim(),
+        company: form.company.trim(),
+        productName: form.productName.trim(),
+        quantity: qty,
+        totalPrice: total,
+        status: form.status,
+        notes: form.notes.trim(),
+      })
+    } else {
+      createOrder({
+        customerName: form.customerName.trim(),
+        customerEmail: form.customerEmail.trim(),
+        phone: form.customerPhone.trim(),
+        company: form.company.trim(),
+        productName: form.productName.trim(),
+        quantity: qty,
+        totalPrice: total,
+        status: form.status,
+        notes: form.notes.trim(),
+      })
+    }
+
     setTimeout(() => {
       navigate('/admin/orders', {
         state: { toast: `Order ${form.orderNumber} ${isEdit ? 'updated' : 'created'} successfully.` },
       })
-    }, 400)
+    }, 200)
   }
 
   return (

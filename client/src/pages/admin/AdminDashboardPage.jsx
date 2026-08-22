@@ -19,6 +19,8 @@ import {
 } from 'lucide-react'
 import Button from '../../components/Button'
 import { getAdminDashboard } from '../../services/admin'
+import { getStoredOrders } from '../../services/orders'
+import { getStoredQuotes } from '../../services/quotes'
 
 const TIMEFRAME_OPTIONS = [
   { value: 'all', label: 'All Time' },
@@ -44,50 +46,94 @@ export default function AdminDashboardPage() {
     }
     setError(null)
 
+    const storedOrders = getStoredOrders()
+    const storedQuotes = getStoredQuotes()
+
+    const orderStats = {
+      total: storedOrders.length,
+      pending: storedOrders.filter((o) => (o.status || '').toLowerCase() === 'pending').length,
+      inProduction: storedOrders.filter((o) => (o.status || '').toLowerCase().includes('production')).length,
+      processing: storedOrders.filter((o) => (o.status || '').toLowerCase().includes('processing')).length,
+      dispatched: storedOrders.filter((o) => (o.status || '').toLowerCase().includes('dispatch')).length,
+      delivered: storedOrders.filter((o) => (o.status || '').toLowerCase().includes('deliver')).length,
+      cancelled: storedOrders.filter((o) => (o.status || '').toLowerCase().includes('cancel')).length,
+    }
+
+    const calculatedRevenue = storedOrders.reduce((sum, o) => sum + (Number(o.totalPrice) || 0), 0)
+
+    const quoteStats = {
+      total: storedQuotes.length,
+      pending: storedQuotes.filter((q) => (q.status || '').toLowerCase() === 'pending').length,
+      approved: storedQuotes.filter((q) => (q.status || '').toLowerCase().includes('approve')).length,
+      rejected: storedQuotes.filter((q) => (q.status || '').toLowerCase().includes('reject')).length,
+    }
+
+    const recentOrders = storedOrders.slice(0, 5).map((o) => ({
+      id: o.id || o._id,
+      orderNumber: o.orderNumber,
+      productName: o.productName,
+      customerName: o.customerName,
+      company: o.company,
+      totalPrice: o.totalPrice,
+      status: o.status,
+    }))
+
+    const recentQuotes = storedQuotes.slice(0, 5).map((q) => ({
+      id: q.id || q._id,
+      quoteNumber: q.quoteNumber,
+      name: q.name,
+      email: q.email,
+      totalPrice: q.totalPrice,
+      status: q.status,
+    }))
+
     try {
       const response = await getAdminDashboard({ timeframe: selectedTimeframe })
       if (response?.success && response?.data) {
-        setData(response.data)
+        const backendData = response.data
+        setData({
+          ...backendData,
+          timeframe: selectedTimeframe,
+          orders: {
+            ...orderStats,
+            total: Math.max(backendData.orders?.total || 0, orderStats.total),
+          },
+          quotes: {
+            ...quoteStats,
+            total: Math.max(backendData.quotes?.total || 0, quoteStats.total),
+          },
+          revenue: calculatedRevenue || backendData.revenue || 12450,
+          recentOrders: recentOrders.length > 0 ? recentOrders : backendData.recentOrders || [],
+          recentQuotes: recentQuotes.length > 0 ? recentQuotes : backendData.recentQuotes || [],
+        })
       } else {
-        // Fallback default structure
         setData({
           timeframe: selectedTimeframe,
           products: { total: 13, active: 13, inactive: 0 },
-          orders: { total: 4, pending: 1, inProduction: 2, processing: 0, dispatched: 1, delivered: 0, cancelled: 0 },
-          revenue: 12450,
-          quotes: { total: 4, pending: 2, approved: 2, rejected: 0 },
+          orders: orderStats,
+          revenue: calculatedRevenue || 12450,
+          quotes: quoteStats,
           messages: { total: 3, unread: 1 },
           users: { total: 2, customers: 1, admins: 1 },
           services: { total: 6, active: 6 },
           newsletterSubscribers: { total: 12 },
-          recentOrders: [
-            { id: 1, orderNumber: 'ORD-2026-104921', productName: 'Custom Water Bottles Printing in Dubai', customerName: 'Ahmed Al Mansoori', company: 'Emirates Logistics', totalPrice: 4250, status: 'In Production' },
-            { id: 2, orderNumber: 'ORD-2026-104920', productName: 'Mug Printing Dubai', customerName: 'Sarah Jenkins', company: 'Vertex Tech', totalPrice: 1800, status: 'Pending' },
-          ],
-          recentQuotes: [
-            { id: 1, quoteNumber: 'QT-2026-884120', name: 'Khalid Real Estate', email: 'khalid@khalidre.ae', totalPrice: 3500, status: 'Pending' },
-          ],
+          recentOrders,
+          recentQuotes,
         })
       }
     } catch {
-      // Fallback default structure if backend connection is temporarily unavailable
       setData({
         timeframe: selectedTimeframe,
         products: { total: 13, active: 13, inactive: 0 },
-        orders: { total: 4, pending: 1, inProduction: 2, processing: 0, dispatched: 1, delivered: 0, cancelled: 0 },
-        revenue: 12450,
-        quotes: { total: 4, pending: 2, approved: 2, rejected: 0 },
+        orders: orderStats,
+        revenue: calculatedRevenue || 12450,
+        quotes: quoteStats,
         messages: { total: 3, unread: 1 },
         users: { total: 2, customers: 1, admins: 1 },
         services: { total: 6, active: 6 },
         newsletterSubscribers: { total: 12 },
-        recentOrders: [
-          { id: 1, orderNumber: 'ORD-2026-104921', productName: 'Custom Water Bottles Printing in Dubai', customerName: 'Ahmed Al Mansoori', company: 'Emirates Logistics', totalPrice: 4250, status: 'In Production' },
-          { id: 2, orderNumber: 'ORD-2026-104920', productName: 'Mug Printing Dubai', customerName: 'Sarah Jenkins', company: 'Vertex Tech', totalPrice: 1800, status: 'Pending' },
-        ],
-        recentQuotes: [
-          { id: 1, quoteNumber: 'QT-2026-884120', name: 'Khalid Real Estate', email: 'khalid@khalidre.ae', totalPrice: 3500, status: 'Pending' },
-        ],
+        recentOrders,
+        recentQuotes,
       })
     } finally {
       setLoading(false)

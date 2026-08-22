@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ChevronRight, FileText, Save } from 'lucide-react'
 import Button from '../../components/Button'
+import { getStoredQuotes, createQuote, updateQuote } from '../../services/quotes'
 
 export default function AdminQuoteFormPage() {
   const navigate = useNavigate()
@@ -12,28 +13,32 @@ export default function AdminQuoteFormPage() {
   const [error, setError] = useState(null)
 
   const [form, setForm] = useState({
-    quoteNumber: 'QT-2026-884120',
+    quoteNumber: `QT-2026-${Math.floor(100000 + Math.random() * 900000)}`,
     name: '',
     email: '',
     phone: '',
     company: '',
-    totalPrice: '3500',
+    totalPrice: '2500',
     status: 'Pending',
     notes: '',
   })
 
   useEffect(() => {
     if (!isEdit) return
-    setForm({
-      quoteNumber: 'QT-2026-884120',
-      name: 'Khalid Real Estate',
-      email: 'khalid@khalidre.ae',
-      phone: '+971 55 444 3322',
-      company: 'Khalid Real Estate LLC',
-      totalPrice: '3500',
-      status: 'Pending',
-      notes: 'Requested custom acrylic door nameplates and foil embossed presentation folders.',
-    })
+    const quotes = getStoredQuotes()
+    const existing = quotes.find((q) => String(q.id) === String(id) || q._id === id || q.quoteNumber === id)
+    if (existing) {
+      setForm({
+        quoteNumber: existing.quoteNumber || `QT-2026-${existing.id}`,
+        name: existing.name || '',
+        email: existing.email || '',
+        phone: existing.phone || '',
+        company: existing.company || '',
+        totalPrice: String(existing.totalPrice || 0),
+        status: existing.status || 'Pending',
+        notes: existing.notes || '',
+      })
+    }
   }, [id, isEdit])
 
   const handleSubmit = (e) => {
@@ -44,11 +49,35 @@ export default function AdminQuoteFormPage() {
     }
 
     setSubmitting(true)
+    const total = parseFloat(form.totalPrice) || 0
+
+    if (isEdit) {
+      updateQuote(id, {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim(),
+        company: form.company.trim(),
+        totalPrice: total,
+        status: form.status,
+        notes: form.notes.trim(),
+      })
+    } else {
+      createQuote({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim(),
+        company: form.company.trim(),
+        totalPrice: total,
+        status: form.status,
+        notes: form.notes.trim(),
+      })
+    }
+
     setTimeout(() => {
       navigate('/admin/quotes', {
         state: { toast: `Quote request ${form.quoteNumber} ${isEdit ? 'updated' : 'created'} successfully.` },
       })
-    }, 400)
+    }, 200)
   }
 
   return (

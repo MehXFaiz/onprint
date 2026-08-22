@@ -21,6 +21,7 @@ import Button from '../../components/Button'
 import { getAdminDashboard } from '../../services/admin'
 import { getStoredOrders } from '../../services/orders'
 import { getStoredQuotes } from '../../services/quotes'
+import { getStoredMessages } from '../../services/contact'
 
 const TIMEFRAME_OPTIONS = [
   { value: 'all', label: 'All Time' },
@@ -48,6 +49,7 @@ export default function AdminDashboardPage() {
 
     const storedOrders = getStoredOrders()
     const storedQuotes = getStoredQuotes()
+    const storedMessages = getStoredMessages()
 
     const orderStats = {
       total: storedOrders.length,
@@ -66,6 +68,11 @@ export default function AdminDashboardPage() {
       pending: storedQuotes.filter((q) => (q.status || '').toLowerCase() === 'pending').length,
       approved: storedQuotes.filter((q) => (q.status || '').toLowerCase().includes('approve')).length,
       rejected: storedQuotes.filter((q) => (q.status || '').toLowerCase().includes('reject')).length,
+    }
+
+    const messageStats = {
+      total: storedMessages.length,
+      unread: storedMessages.filter((m) => (m.status || 'unread').toLowerCase() === 'unread').length,
     }
 
     const recentOrders = storedOrders.slice(0, 5).map((o) => ({
@@ -87,6 +94,17 @@ export default function AdminDashboardPage() {
       status: q.status,
     }))
 
+    const recentMessages = storedMessages.slice(0, 5).map((m) => ({
+      id: m.id || m._id,
+      name: m.name,
+      email: m.email,
+      phone: m.phone,
+      subject: m.subject || 'Direct Studio Inquiry',
+      message: m.message,
+      status: m.status || 'unread',
+      createdAt: m.createdAt,
+    }))
+
     try {
       const response = await getAdminDashboard({ timeframe: selectedTimeframe })
       if (response?.success && response?.data) {
@@ -96,9 +114,11 @@ export default function AdminDashboardPage() {
           timeframe: selectedTimeframe,
           orders: backendData.orders || orderStats,
           quotes: backendData.quotes || quoteStats,
+          messages: backendData.messages || messageStats,
           revenue: backendData.revenue ?? calculatedRevenue ?? 0,
-          recentOrders: backendData.recentOrders || recentOrders || [],
-          recentQuotes: backendData.recentQuotes || recentQuotes || [],
+          recentOrders: backendData.recentOrders && backendData.recentOrders.length > 0 ? backendData.recentOrders : recentOrders,
+          recentQuotes: backendData.recentQuotes && backendData.recentQuotes.length > 0 ? backendData.recentQuotes : recentQuotes,
+          recentMessages: backendData.recentMessages && backendData.recentMessages.length > 0 ? backendData.recentMessages : recentMessages,
         })
       } else {
         setData({
@@ -107,12 +127,13 @@ export default function AdminDashboardPage() {
           orders: orderStats,
           revenue: calculatedRevenue || 0,
           quotes: quoteStats,
-          messages: { total: 0, unread: 0 },
+          messages: messageStats,
           users: { total: 1, customers: 0, admins: 1 },
           services: { total: 7, active: 7 },
           newsletterSubscribers: { total: 0 },
           recentOrders,
           recentQuotes,
+          recentMessages,
         })
       }
     } catch {
@@ -122,12 +143,13 @@ export default function AdminDashboardPage() {
         orders: orderStats,
         revenue: calculatedRevenue || 0,
         quotes: quoteStats,
-        messages: { total: 0, unread: 0 },
+        messages: messageStats,
         users: { total: 1, customers: 0, admins: 1 },
         services: { total: 7, active: 7 },
         newsletterSubscribers: { total: 0 },
         recentOrders,
         recentQuotes,
+        recentMessages,
       })
     } finally {
       setLoading(false)

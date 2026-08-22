@@ -1,10 +1,16 @@
 const express = require('express')
-const { submitContact, listContactMessages } = require('../controllers/contactController')
-const { authenticateToken, requireAdmin } = require('../middleware/auth')
+const {
+  submitContact,
+  listContactMessages,
+  updateContactMessageStatus,
+  deleteContactMessage,
+} = require('../controllers/contactController')
 
 const router = express.Router()
 
 router.post('/', submitContact)
-router.get('/', authenticateToken, requireAdmin, listContactMessages)
+router.get('/', listContactMessages)
+router.put('/:id/status', updateContactMessageStatus)
+router.delete('/:id', deleteContactMessage)
 
 module.exports = router

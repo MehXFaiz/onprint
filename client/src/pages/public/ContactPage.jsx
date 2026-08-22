@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Mail, MapPin, Phone, Clock, CheckCircle2, MessageSquare } from 'lucide-react'
+import { Mail, MapPin, Phone, Clock, CheckCircle2, MessageSquare, RefreshCw } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { trackContactFormSubmit } from '../../utils/analytics'
+import { submitContactInquiry } from '../../services/contact'
 
 const contactDetails = [
   { icon: Phone, label: 'Phone / WhatsApp', value: '+971 4 800 PRINT', href: 'tel:+9714800PRINT' },
@@ -30,19 +31,34 @@ function validate(values) {
 export default function ContactPage() {
   const [values, setValues] = useState(initialForm)
   const [errors, setErrors] = useState({})
+  const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
   function handleChange(field) {
     return (event) => setValues((prev) => ({ ...prev, [field]: event.target.value }))
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
     const nextErrors = validate(values)
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length === 0) {
-      trackContactFormSubmit({ source_page: 'contact_page' })
-      setSubmitted(true)
+      setSubmitting(true)
+      try {
+        await submitContactInquiry({
+          name: values.name.trim(),
+          email: values.email.trim(),
+          phone: values.phone.trim() || null,
+          subject: values.subject.trim() || 'Direct Studio Inquiry',
+          message: values.message.trim(),
+        })
+        trackContactFormSubmit({ source_page: 'contact_page' })
+        setSubmitted(true)
+      } catch (err) {
+        console.error('Failed to submit contact inquiry:', err)
+      } finally {
+        setSubmitting(false)
+      }
     }
   }
 
@@ -223,8 +239,20 @@ export default function ContactPage() {
               {errors.message && <p className="mt-1.5 text-xs font-semibold text-accent">{errors.message}</p>}
             </div>
 
-            <Button type="submit" variant="accent" size="lg" className="mt-8 w-full justify-center sm:w-auto">
-              Submit Inquiry
+            <Button
+              type="submit"
+              variant="accent"
+              size="lg"
+              disabled={submitting}
+              className="mt-8 w-full justify-center sm:w-auto font-bold"
+            >
+              {submitting ? (
+                <span className="flex items-center gap-2">
+                  <RefreshCw className="h-4 w-4 animate-spin" /> Submitting...
+                </span>
+              ) : (
+                'Submit Inquiry'
+              )}
             </Button>
           </form>
         </div>

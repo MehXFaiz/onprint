@@ -150,6 +150,16 @@ async function getAdminDashboardMetrics(req, res, next) {
       recentQuotes = storeQuotes.slice(0, 5)
     }
 
+    let recentMessages = []
+    if (messageStats.total === 0) {
+      const storeMessages = persistentStore.getMessages()
+      messageStats = {
+        total: storeMessages.length,
+        unread: storeMessages.filter((m) => (m.status || '').toLowerCase() === 'unread').length,
+      }
+      recentMessages = storeMessages.slice(0, 5)
+    }
+
     if (serviceStats.total === 0) {
       serviceStats.total = fallbackServices.length
       serviceStats.active = fallbackServices.length
@@ -174,6 +184,7 @@ async function getAdminDashboardMetrics(req, res, next) {
         newsletterSubscribers: subscriberStats,
         recentOrders,
         recentQuotes,
+        recentMessages,
       },
     })
   } catch (err) {

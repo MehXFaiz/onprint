@@ -288,9 +288,53 @@ function deleteOrder(id) {
   return true
 }
 
-function deleteQuote(id) {
+function getMessages() {
   const store = loadStore()
-  store.quotes = store.quotes.filter((q) => String(q.id) !== String(id) && q.quoteNumber !== id && q._id !== id)
+  return store.messages || []
+}
+
+function addMessage(msgData) {
+  const store = loadStore()
+  if (!store.messages) store.messages = []
+  const id = store.messages.length > 0 ? Math.max(...store.messages.map((m) => m.id || 0)) + 1 : 1
+
+  const newMessage = {
+    _id: `msg-${id}`,
+    id,
+    name: msgData.name || 'Anonymous',
+    email: msgData.email || '',
+    phone: msgData.phone || null,
+    company: msgData.company || null,
+    subject: msgData.subject || 'Direct Studio Inquiry',
+    message: msgData.message || '',
+    status: msgData.status || 'unread',
+    createdAt: msgData.createdAt || new Date().toISOString(),
+  }
+
+  store.messages.unshift(newMessage)
+  saveStore(store)
+  return newMessage
+}
+
+function updateMessageStatus(id, status) {
+  const store = loadStore()
+  if (!store.messages) return null
+  const clean = String(id).trim().toLowerCase()
+  const msg = store.messages.find((m) => String(m.id).toLowerCase() === clean || String(m._id || '').toLowerCase() === clean)
+  if (msg) {
+    msg.status = status
+    msg.updatedAt = new Date().toISOString()
+    saveStore(store)
+    return msg
+  }
+  return null
+}
+
+function deleteMessage(id) {
+  const store = loadStore()
+  if (!store.messages) return true
+  const clean = String(id).trim().toLowerCase()
+  store.messages = store.messages.filter((m) => String(m.id).toLowerCase() !== clean && String(m._id || '').toLowerCase() !== clean)
   saveStore(store)
   return true
 }
@@ -308,4 +352,8 @@ module.exports = {
   updateQuote,
   deleteQuote,
   syncQuoteToOrder,
+  getMessages,
+  addMessage,
+  updateMessageStatus,
+  deleteMessage,
 }

@@ -1,32 +1,55 @@
-import { useState } from 'react'
-import { MessageSquare, Search, Filter, Mail, CheckCircle2, Trash2, User, Phone } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { MessageSquare, Search, Filter, Mail, CheckCircle2, Trash2, User, Phone, RefreshCw } from 'lucide-react'
+import { getStoredMessages, fetchMessages, updateMessageStatus, deleteMessage } from '../../services/contact'
 
 export default function AdminMessagesPage() {
   const [messages, setMessages] = useState([])
+  const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
   const [selectedMessage, setSelectedMessage] = useState(null)
   const [toast, setToast] = useState(null)
 
+  const loadData = async () => {
+    setLoading(true)
+    const local = getStoredMessages()
+    setMessages(local)
+    try {
+      const remote = await fetchMessages()
+      if (Array.isArray(remote)) {
+        setMessages(remote)
+      }
+    } catch {
+      // ignore
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    loadData()
+  }, [])
+
   const filtered = messages.filter((m) => {
     const matchesSearch =
-      m.name.toLowerCase().includes(search.toLowerCase()) ||
-      m.email.toLowerCase().includes(search.toLowerCase()) ||
-      m.subject.toLowerCase().includes(search.toLowerCase()) ||
-      m.company.toLowerCase().includes(search.toLowerCase())
-    const matchesStatus = statusFilter === 'all' || m.status === statusFilter
+      (m.name || '').toLowerCase().includes(search.toLowerCase()) ||
+      (m.email || '').toLowerCase().includes(search.toLowerCase()) ||
+      (m.subject || '').toLowerCase().includes(search.toLowerCase()) ||
+      (m.company || '').toLowerCase().includes(search.toLowerCase()) ||
+      (m.message || '').toLowerCase().includes(search.toLowerCase())
+    const matchesStatus = statusFilter === 'all' || (m.status || 'unread') === statusFilter
     return matchesSearch && matchesStatus
   })
 
-  const markAsRead = (id) => {
-    setMessages((prev) =>
-      prev.map((m) => (m.id === id ? { ...m, status: 'read' } : m))
-    )
+  const markAsRead = async (id) => {
+    const updated = await updateMessageStatus(id, 'read')
+    setMessages(updated)
   }
 
-  const handleDelete = (id) => {
-    setMessages((prev) => prev.filter((m) => m.id !== id))
-    if (selectedMessage?.id === id) {
+  const handleDelete = async (id) => {
+    const updated = await deleteMessage(id)
+    setMessages(updated)
+    if (selectedMessage?.id === id || selectedMessage?._id === id) {
       setSelectedMessage(null)
     }
     setToast('Message deleted successfully.')
@@ -97,19 +120,23 @@ export default function AdminMessagesPage() {
             </div>
           ) : (
             filtered.map((msg) => {
-              const isSelected = selectedMessage?.id === msg.id
+              const msgId = msg.id || msg._id
+              const isSelected = selectedMessage && (selectedMessage.id === msgId || selectedMessage._id === msgId)
+              const formattedDate = msg.createdAt
+                ? new Date(msg.createdAt).toLocaleDateString('en-AE', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+                : 'Recent'
               return (
                 <div
-                  key={msg.id}
+                  key={msgId}
                   onClick={() => {
                     setSelectedMessage(msg)
-                    if (msg.status === 'unread') markAsRead(msg.id)
+                    if (msg.status === 'unread') markAsRead(msgId)
                   }}
                   className={`rounded-2xl border p-4 shadow-xs cursor-pointer transition-all ${
                     isSelected
                       ? 'border-[#A82F19] bg-red-50/20 shadow-sm'
                       : msg.status === 'unread'
-                      ? 'border-neutral-300 bg-white font-bold'
+                      ? 'border-[#A82F19]/40 bg-red-50/10 font-bold'
                       : 'border-neutral-200/80 bg-white hover:border-neutral-300'
                   }`}
                 >
@@ -124,20 +151,20 @@ export default function AdminMessagesPage() {
                           : 'bg-neutral-100 text-neutral-600 border border-neutral-200'
                       }`}
                     >
-                      {msg.status}
+                      {msg.status || 'unread'}
                     </span>
                   </div>
 
                   <div className="text-[11px] font-semibold text-neutral-700 mt-1 line-clamp-1">
-                    {msg.subject}
+                    {msg.subject || 'Direct Studio Inquiry'}
                   </div>
                   <p className="text-[11px] text-neutral-500 mt-1 line-clamp-2 leading-relaxed">
                     {msg.message}
                   </p>
 
                   <div className="mt-3 flex items-center justify-between text-[10px] text-neutral-400 border-t border-neutral-100 pt-2">
-                    <span>{msg.company || 'Direct Contact'}</span>
-                    <span>{msg.createdAt}</span>
+                    <span>{msg.email}</span>
+                    <span>{formattedDate}</span>
                   </div>
                 </div>
               )

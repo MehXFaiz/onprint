@@ -12,11 +12,31 @@ export default function DashboardPage() {
   const [quotes, setQuotes] = useState([])
 
   useEffect(() => {
+    if (!user) {
+      setOrders([])
+      setQuotes([])
+      return
+    }
+    const userEmail = (user.email || '').toLowerCase().trim()
+    const userPhone = user.phone ? String(user.phone).replace(/\D/g, '') : ''
+
     const allOrders = getStoredOrders()
+    const myOrders = allOrders.filter((o) => {
+      const oEmail = (o.customerEmail || o.email || '').toLowerCase().trim()
+      const oPhone = (o.customerPhone || o.phone || '').replace(/\D/g, '')
+      return (userEmail && oEmail === userEmail) || (userPhone && oPhone && oPhone === userPhone) || (user.id && o.userId === user.id)
+    })
+
     const allQuotes = getStoredQuotes()
-    setOrders(allOrders)
-    setQuotes(allQuotes)
-  }, [])
+    const myQuotes = allQuotes.filter((q) => {
+      const qEmail = (q.email || '').toLowerCase().trim()
+      const qPhone = (q.phone || '').replace(/\D/g, '')
+      return (userEmail && qEmail === userEmail) || (userPhone && qPhone && qPhone === userPhone) || (user.id && q.userId === user.id)
+    })
+
+    setOrders(myOrders)
+    setQuotes(myQuotes)
+  }, [user])
 
   return (
     <div className="space-y-8">

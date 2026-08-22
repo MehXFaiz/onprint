@@ -1,14 +1,29 @@
 import { useState, useEffect } from 'react'
 import { FileText, Plus, CheckCircle2, Clock, Package } from 'lucide-react'
 import Button from '../../components/Button'
+import { useAuth } from '../../context/AuthContext'
 import { getStoredQuotes } from '../../services/quotes'
 
 export default function MyQuotesPage() {
+  const { user } = useAuth()
   const [quotes, setQuotes] = useState([])
 
   useEffect(() => {
-    setQuotes(getStoredQuotes())
-  }, [])
+    if (!user) {
+      setQuotes([])
+      return
+    }
+    const userEmail = (user.email || '').toLowerCase().trim()
+    const userPhone = user.phone ? String(user.phone).replace(/\D/g, '') : ''
+
+    const allQuotes = getStoredQuotes()
+    const myQuotes = allQuotes.filter((q) => {
+      const qEmail = (q.email || '').toLowerCase().trim()
+      const qPhone = (q.phone || '').replace(/\D/g, '')
+      return (userEmail && qEmail === userEmail) || (userPhone && qPhone && userPhone === qPhone) || (user.id && q.userId === user.id)
+    })
+    setQuotes(myQuotes)
+  }, [user])
 
   return (
     <div className="space-y-6">

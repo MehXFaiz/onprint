@@ -1,14 +1,29 @@
 import { useState, useEffect } from 'react'
 import { ShoppingBag, FileText, CheckCircle2, Clock, Truck, Package, Plus } from 'lucide-react'
 import Button from '../../components/Button'
+import { useAuth } from '../../context/AuthContext'
 import { getStoredOrders } from '../../services/orders'
 
 export default function MyOrdersPage() {
+  const { user } = useAuth()
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
-    setOrders(getStoredOrders())
-  }, [])
+    if (!user) {
+      setOrders([])
+      return
+    }
+    const userEmail = (user.email || '').toLowerCase().trim()
+    const userPhone = user.phone ? String(user.phone).replace(/\D/g, '') : ''
+
+    const all = getStoredOrders()
+    const myOrders = all.filter((o) => {
+      const oEmail = (o.customerEmail || o.email || '').toLowerCase().trim()
+      const oPhone = (o.customerPhone || o.phone || '').replace(/\D/g, '')
+      return (userEmail && oEmail === userEmail) || (userPhone && oPhone && userPhone === oPhone) || (user.id && o.userId === user.id)
+    })
+    setOrders(myOrders)
+  }, [user])
 
   return (
     <div className="space-y-6">

@@ -1,5 +1,5 @@
 import api from './api'
-import { syncApprovedQuoteToOrder } from './orders'
+import { syncApprovedQuoteToOrder, saveMyOrder } from './orders'
 
 const QUOTES_STORAGE_KEY = 'onprint_admin_quotes'
 
@@ -107,6 +107,7 @@ export async function createQuote(quoteData) {
       ],
     }
     localStorage.setItem('onprint_admin_orders', JSON.stringify([orderRecord, ...currentOrders]))
+    saveMyOrder(orderRecord)
   } catch {
     // ignore
   }

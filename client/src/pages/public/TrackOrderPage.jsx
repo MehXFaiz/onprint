@@ -23,9 +23,11 @@ import Container from '../../components/Container'
 import Button from '../../components/Button'
 import SEOHead from '../../components/SEOHead'
 import Breadcrumbs from '../../components/Breadcrumbs'
+import { useAuth } from '../../context/AuthContext'
 import { trackOrder, getRecentTrackedOrders, getStoredOrders } from '../../services/orders'
 
 export default function TrackOrderPage() {
+  const { user } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams()
   const initialQuery = searchParams.get('order') || searchParams.get('q') || ''
 
@@ -37,15 +39,15 @@ export default function TrackOrderPage() {
   const [recentOrders, setRecentOrders] = useState([])
   const [copied, setCopied] = useState(false)
 
-  // Load recent tracked orders on mount
+  // Load recent tracked orders on mount and when user state changes
   useEffect(() => {
-    const recent = getRecentTrackedOrders()
+    const recent = getRecentTrackedOrders(user)
     setRecentOrders(recent)
 
     if (initialQuery) {
       handleSearch(initialQuery)
     }
-  }, [])
+  }, [user])
 
   const handleSearch = async (searchTerm) => {
     const term = (searchTerm !== undefined ? searchTerm : query).trim()
@@ -59,11 +61,11 @@ export default function TrackOrderPage() {
     setSearchParams({ order: term }, { replace: true })
 
     try {
-      const result = await trackOrder(term)
+      const result = await trackOrder(term, user)
       if (result) {
         setOrder(result)
         setNotFound(false)
-        setRecentOrders(getRecentTrackedOrders())
+        setRecentOrders(getRecentTrackedOrders(user))
       } else {
         setOrder(null)
         setNotFound(true)

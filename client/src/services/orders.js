@@ -209,38 +209,83 @@ export function getOrderById(orderId) {
   return null
 }
 
+const MY_ORDERS_KEY = 'onprint_my_orders'
 const RECENT_TRACKED_KEY = 'onprint_recent_tracked_orders'
 
-export function getRecentTrackedOrders() {
-  try {
-    const raw = localStorage.getItem(RECENT_TRACKED_KEY)
-    if (raw) return JSON.parse(raw) || []
-  } catch {
-    // ignore
-  }
-  return []
-}
-
-export function saveRecentTrackedOrder(order) {
+// Helper to save order placed by this user/browser
+export function saveMyOrder(order) {
   if (!order || !order.orderNumber) return
   try {
-    const existing = getRecentTrackedOrders()
+    const raw = localStorage.getItem(MY_ORDERS_KEY)
+    const existing = raw ? JSON.parse(raw) : []
     const filtered = existing.filter((item) => item.orderNumber !== order.orderNumber)
     const itemToSave = {
       orderNumber: order.orderNumber,
       productName: order.productName || 'Custom Print Job',
       status: order.status || 'Pending',
       totalPrice: order.totalPrice || 0,
+      customerEmail: (order.customerEmail || order.email || '').toLowerCase().trim(),
+      customerPhone: order.customerPhone || order.phone || '',
       createdAt: order.createdAt || new Date().toISOString(),
     }
     const updated = [itemToSave, ...filtered].slice(0, 5)
-    localStorage.setItem(RECENT_TRACKED_KEY, JSON.stringify(updated))
+    localStorage.setItem(MY_ORDERS_KEY, JSON.stringify(updated))
   } catch {
     // ignore
   }
 }
 
-export async function trackOrder(query) {
+export function getMyOrders(currentUser = null) {
+  try {
+    const raw = localStorage.getItem(MY_ORDERS_KEY)
+    const localMyOrders = raw ? JSON.parse(raw) : []
+
+    if (currentUser?.email) {
+      const userEmail = currentUser.email.toLowerCase().trim()
+      const userPhone = currentUser.phone ? String(currentUser.phone).replace(/\D/g, '') : ''
+      const allOrders = getStoredOrders()
+      const matchedStored = allOrders.filter((o) => {
+        const oEmail = (o.customerEmail || o.email || '').toLowerCase().trim()
+        const oPhone = (o.customerPhone || o.phone || '').replace(/\D/g, '')
+        return (userEmail && oEmail === userEmail) || (userPhone && oPhone && oPhone === userPhone) || (currentUser.id && o.userId === currentUser.id)
+      })
+      const combined = [...matchedStored, ...localMyOrders.filter((o) => (o.customerEmail || '').toLowerCase().trim() === userEmail)]
+      const seen = new Set()
+      return combined.filter((o) => {
+        if (!o.orderNumber || seen.has(o.orderNumber)) return false
+        seen.add(o.orderNumber)
+        return true
+      })
+    }
+
+    return localMyOrders
+  } catch {
+    return []
+  }
+}
+
+export function getRecentTrackedOrders(currentUser = null) {
+  // Clear any legacy shared tracking cache so foreign orders are removed
+  try {
+    localStorage.removeItem(RECENT_TRACKED_KEY)
+  } catch {
+    // ignore
+  }
+  return getMyOrders(currentUser)
+}
+
+export function saveRecentTrackedOrder(order, currentUser = null) {
+  if (!order || !order.orderNumber) return
+  // Only save if order belongs to the user
+  if (currentUser?.email) {
+    const uEmail = currentUser.email.toLowerCase().trim()
+    const oEmail = (order.customerEmail || order.email || '').toLowerCase().trim()
+    if (uEmail !== oEmail) return
+  }
+  saveMyOrder(order)
+}
+
+export async function trackOrder(query, currentUser = null) {
   if (!query || !query.trim()) return null
   const clean = query.trim().toLowerCase()
 
@@ -314,7 +359,19 @@ export async function trackOrder(query) {
   }
 
   if (matched) {
-    saveRecentTrackedOrder(matched)
+    if (currentUser?.email) {
+      const uEmail = currentUser.email.toLowerCase().trim()
+      const oEmail = (matched.customerEmail || matched.email || '').toLowerCase().trim()
+      if (uEmail === oEmail) {
+        saveMyOrder(matched)
+      }
+    } else {
+      const myOrders = getMyOrders()
+      const isMine = myOrders.some((o) => o.orderNumber === matched.orderNumber)
+      if (isMine) {
+        saveMyOrder(matched)
+      }
+    }
   }
 
   return matched

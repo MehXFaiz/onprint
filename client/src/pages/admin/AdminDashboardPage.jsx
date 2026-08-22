@@ -351,11 +351,11 @@ export default function AdminDashboardPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <Link
           to="/admin/messages"
-          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-neutral-300 transition-colors"
+          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-amber-500 transition-colors"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wider">
             <MessageSquare className="h-3.5 w-3.5 text-amber-600" />
-            <span>Messages</span>
+            <span>Studio Inquiries</span>
           </div>
           <div className="mt-2 text-2xl font-black text-neutral-900">{messages.total}</div>
           <div className="mt-0.5 text-[11px] font-bold text-amber-600">{messages.unread} Unread</div>
@@ -400,13 +400,14 @@ export default function AdminDashboardPage() {
 
 
       {/* Recent Activity Widgets */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Widget 1: Orders */}
         <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 shadow-xs flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between border-b border-neutral-100 pb-4 mb-4">
               <div>
-                <h3 className="font-display text-lg font-bold text-neutral-900">Recent Press Orders</h3>
-                <p className="text-xs text-neutral-500">Live order queue from MySQL database</p>
+                <h3 className="font-display text-base font-bold text-neutral-900">Recent Press Orders</h3>
+                <p className="text-xs text-neutral-500">Live order queue from database</p>
               </div>
               <Link
                 to="/admin/orders"
@@ -418,24 +419,24 @@ export default function AdminDashboardPage() {
 
             {recentOrders.length === 0 ? (
               <div className="py-8 text-center text-xs text-neutral-500">
-                No orders recorded in database yet.
+                No orders recorded yet.
               </div>
             ) : (
               <div className="divide-y divide-neutral-100">
-                {recentOrders.map((order) => (
+                {recentOrders.slice(0, 4).map((order) => (
                   <div key={order.id} className="py-3 flex items-center justify-between text-xs">
                     <div>
-                      <div className="font-bold text-neutral-900">{order.productName}</div>
+                      <div className="font-bold text-neutral-900">{order.productName || 'Print Order'}</div>
                       <div className="text-[11px] text-neutral-500">
-                        {order.orderNumber} • {order.customerName} ({order.company || 'Client'})
+                        {order.orderNumber} • {order.customerName}
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
                       <span className="font-bold text-neutral-900">
                         AED {(order.totalPrice || 0).toLocaleString()}
                       </span>
-                      <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-[10px] font-bold text-neutral-700">
+                      <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[9px] font-bold text-neutral-700">
                         {order.status}
                       </span>
                     </div>
@@ -446,12 +447,13 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
+        {/* Widget 2: Quotes */}
         <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 shadow-xs flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between border-b border-neutral-100 pb-4 mb-4">
               <div>
-                <h3 className="font-display text-lg font-bold text-neutral-900">Recent Quote Requests</h3>
-                <p className="text-xs text-neutral-500">Custom print requests submitted by clients</p>
+                <h3 className="font-display text-base font-bold text-neutral-900">Recent Quotes</h3>
+                <p className="text-xs text-neutral-500">Submitted quote requests</p>
               </div>
               <Link
                 to="/admin/quotes"
@@ -463,11 +465,11 @@ export default function AdminDashboardPage() {
 
             {recentQuotes.length === 0 ? (
               <div className="py-8 text-center text-xs text-neutral-500">
-                No quote requests recorded in database yet.
+                No quote requests recorded yet.
               </div>
             ) : (
               <div className="divide-y divide-neutral-100">
-                {recentQuotes.map((quote) => (
+                {recentQuotes.slice(0, 4).map((quote) => (
                   <div key={quote.id} className="py-3 flex items-center justify-between text-xs">
                     <div>
                       <div className="font-bold text-neutral-900">{quote.name}</div>
@@ -476,15 +478,59 @@ export default function AdminDashboardPage() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
-                      {quote.totalPrice > 0 && (
-                        <span className="font-bold text-neutral-900">
-                          AED {(quote.totalPrice || 0).toLocaleString()}
-                        </span>
-                      )}
-                      <span className="rounded-full bg-purple-50 px-2.5 py-1 text-[10px] font-bold text-purple-700 border border-purple-200">
+                    <div className="flex items-center gap-2">
+                      <span className="rounded-full bg-purple-50 px-2 py-0.5 text-[9px] font-bold text-purple-700 border border-purple-200">
                         {quote.status}
                       </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Widget 3: Direct Studio Inquiries */}
+        <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 shadow-xs flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between border-b border-neutral-100 pb-4 mb-4">
+              <div>
+                <h3 className="font-display text-base font-bold text-neutral-900">Direct Studio Inquiries</h3>
+                <p className="text-xs text-neutral-500">Contact form messages & specs</p>
+              </div>
+              <Link
+                to="/admin/messages"
+                className="text-xs font-bold text-amber-600 hover:underline flex items-center gap-1"
+              >
+                View All <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            {recentMessages.length === 0 ? (
+              <div className="py-8 text-center text-xs text-neutral-500">
+                No contact inquiries received yet.
+              </div>
+            ) : (
+              <div className="divide-y divide-neutral-100">
+                {recentMessages.slice(0, 4).map((msg) => (
+                  <div key={msg.id || msg._id} className="py-3 text-xs">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="font-bold text-neutral-900 truncate">{msg.name}</div>
+                      <span
+                        className={`rounded-full px-2 py-0.5 text-[9px] font-extrabold uppercase ${
+                          msg.status === 'unread'
+                            ? 'bg-amber-100 text-amber-800 border border-amber-200'
+                            : 'bg-neutral-100 text-neutral-600'
+                        }`}
+                      >
+                        {msg.status || 'unread'}
+                      </span>
+                    </div>
+                    <div className="text-[11px] text-neutral-600 font-medium truncate mt-0.5">
+                      {msg.subject || 'Direct Studio Inquiry'}
+                    </div>
+                    <div className="text-[10px] text-neutral-400 mt-1 line-clamp-1">
+                      {msg.message}
                     </div>
                   </div>
                 ))}

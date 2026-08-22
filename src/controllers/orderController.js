@@ -286,9 +286,32 @@ async function updateOrderStatus(req, res, next) {
   }
 }
 
+async function deleteOrder(req, res, next) {
+  let connection = null
+  try {
+    const { id } = req.params
+    persistentStore.deleteOrder(id)
+
+    try {
+      connection = await pool.getConnection()
+      await connection.execute('DELETE FROM order_items WHERE order_id = ?', [id])
+      await connection.execute('DELETE FROM orders WHERE id = ? OR order_number = ?', [id, id])
+    } catch {
+      // offline/store fallback
+    }
+
+    res.json({ success: true, message: 'Order deleted successfully' })
+  } catch (err) {
+    next(err)
+  } finally {
+    if (connection) connection.release()
+  }
+}
+
 module.exports = {
   createOrder,
   listOrders,
   getOrderById,
   updateOrderStatus,
+  deleteOrder,
 }

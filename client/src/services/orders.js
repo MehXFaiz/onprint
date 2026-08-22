@@ -185,10 +185,17 @@ export function updateOrder(orderId, updatedFields) {
   return updated
 }
 
-export function deleteOrder(orderId) {
+export async function deleteOrder(orderId) {
   const current = getStoredOrders()
   const updated = current.filter((o) => o._id !== orderId && o.id !== orderId && o.orderNumber !== orderId)
   saveOrders(updated)
+
+  try {
+    await api.delete(`/orders/${orderId}`)
+  } catch {
+    // offline fallback
+  }
+
   return updated
 }
 

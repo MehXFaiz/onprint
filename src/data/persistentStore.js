@@ -223,6 +223,13 @@ function updateQuote(id, updatedData) {
   return null
 }
 
+function deleteOrder(id) {
+  const store = loadStore()
+  store.orders = store.orders.filter((o) => String(o.id) !== String(id) && o.orderNumber !== id && o._id !== id)
+  saveStore(store)
+  return true
+}
+
 function deleteQuote(id) {
   const store = loadStore()
   store.quotes = store.quotes.filter((q) => String(q.id) !== String(id) && q.quoteNumber !== id && q._id !== id)
@@ -235,6 +242,7 @@ module.exports = {
   addOrder,
   getOrder,
   updateOrderStatus,
+  deleteOrder,
   getQuotes,
   addQuote,
   getQuote,

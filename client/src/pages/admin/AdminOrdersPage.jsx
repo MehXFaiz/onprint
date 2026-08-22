@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { ShoppingBag, Search, Filter, Plus, CheckCircle2, Clock, Truck, AlertCircle, X } from 'lucide-react'
+import { ShoppingBag, Search, Filter, Plus, CheckCircle2, Clock, Truck, AlertCircle, X, Trash2, AlertTriangle } from 'lucide-react'
 import Button from '../../components/Button'
-import { getStoredOrders, fetchOrders, updateOrderStatus } from '../../services/orders'
+import { getStoredOrders, fetchOrders, updateOrderStatus, deleteOrder } from '../../services/orders'
 
 function StatusBadge({ status }) {
   let style = 'bg-neutral-100 text-neutral-700 border-neutral-200'
@@ -51,6 +51,7 @@ export default function AdminOrdersPage() {
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('ALL')
   const [notification, setNotification] = useState(location.state?.toast || null)
+  const [deletingOrder, setDeletingOrder] = useState(null)
 
   const reloadOrders = async () => {
     setLoading(true)
@@ -74,6 +75,15 @@ export default function AdminOrdersPage() {
     const updated = await updateOrderStatus(orderId, newStatus)
     setOrders(updated)
     setNotification(`Order status updated to "${newStatus}".`)
+  }
+
+  const confirmDeleteOrder = async () => {
+    if (!deletingOrder) return
+    const idToDelete = deletingOrder._id || deletingOrder.id || deletingOrder.orderNumber
+    const updated = await deleteOrder(idToDelete)
+    setOrders(updated)
+    setNotification(`Order "${deletingOrder.orderNumber}" deleted successfully.`)
+    setDeletingOrder(null)
   }
 
   const filteredOrders = orders.filter((o) => {
@@ -240,7 +250,7 @@ export default function AdminOrdersPage() {
                     <StatusBadge status={o.status} />
                   </td>
                   <td className="py-3 px-4 text-right">
-                    <div className="flex items-center justify-end">
+                    <div className="flex items-center justify-end gap-2">
                       <select
                         value={o.status}
                         onChange={(e) => handleStatusChange(o._id || o.id, e.target.value)}
@@ -252,6 +262,14 @@ export default function AdminOrdersPage() {
                         <option value="Dispatched">Dispatched</option>
                         <option value="Delivered">Delivered</option>
                       </select>
+                      <button
+                        type="button"
+                        onClick={() => setDeletingOrder(o)}
+                        title="Delete order"
+                        className="rounded-lg border border-neutral-200 p-1 text-neutral-400 hover:border-red-200 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -287,6 +305,42 @@ export default function AdminOrdersPage() {
           </button>
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {deletingOrder && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+            <div className="flex items-center gap-3 text-red-600">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
+                <AlertTriangle className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-bold text-neutral-900">Delete Order?</h3>
+                <p className="text-xs text-neutral-500">
+                  Are you sure you want to delete order &quot;{deletingOrder.orderNumber}&quot;?
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-neutral-100">
+              <button
+                type="button"
+                onClick={() => setDeletingOrder(null)}
+                className="rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50 cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={confirmDeleteOrder}
+                className="rounded-xl bg-red-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
+              >
+                Delete Order
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

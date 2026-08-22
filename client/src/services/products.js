@@ -1,126 +1,23 @@
 import api from './api'
 
-export const defaultProducts = [
-  {
-    _id: 'prod-6',
-    name: 'Notebook Printing',
-    slug: 'notebook-printing',
-    imageKey: 'brochures',
-    category: { _id: 'cat-office-stationery', name: 'Office Stationery Printing', slug: 'office-stationery-printing' },
-    shortDescription: 'Hardcover leatherette journals with foil stamped covers and ribbon page markers.',
-    description: 'Executive A5 & A4 bound notebooks with 80gsm cream ruled pages, custom ribbon markers, and debossed covers.',
-    price: 40,
-    minimumQuantity: 50,
-    featured: true,
-    images: ['/assets/products/1 (5).jpg'],
-    active: true,
-  },
-  {
-    _id: 'prod-7',
-    name: 'Pens Printing',
-    slug: 'pens-printing',
-    imageKey: 'badges',
-    category: { _id: 'cat-office-stationery', name: 'Office Stationery Printing', slug: 'office-stationery-printing' },
-    shortDescription: 'Metallic & eco-friendly rollerball pens laser engraved or screen printed with your brand.',
-    description: 'Sleek metal body ballpoint pens with black or blue German ink refills, packaged in velvet presentation pouches.',
-    price: 15,
-    minimumQuantity: 100,
-    featured: false,
-    images: ['/assets/products/1 (6).jpg'],
-    active: true,
-  },
-  {
-    _id: 'prod-8',
-    name: 'Business Cards Printing',
-    slug: 'business-cards-printing',
-    imageKey: 'flyers',
-    category: { _id: 'cat-office-stationery', name: 'Office Stationery Printing', slug: 'office-stationery-printing' },
-    shortDescription: 'Premium 350gsm silk, soft-touch matte laminate, and gold foil embossed cards.',
-    description: 'Make an undeniable first impression with thick 350gsm–400gsm cotton or soft-touch laminated cards with painted edges.',
-    price: 50,
-    minimumQuantity: 100,
-    featured: true,
-    images: ['/assets/products/1 (7).jpg'],
-    active: true,
-  },
-  {
-    _id: 'prod-9',
-    name: 'Letterhead Printing Dubai',
-    slug: 'letterhead-printing-dubai',
-    imageKey: 'brochures',
-    category: { _id: 'cat-office-stationery', name: 'Office Stationery Printing', slug: 'office-stationery-printing' },
-    shortDescription: 'Executive 120gsm smooth white letterheads printed in crisp full-color CMYK.',
-    description: 'Laser-guaranteed 120gsm smooth uncoated paper letterheads for official corporate contracts, invoices, and letters.',
-    price: 65,
-    minimumQuantity: 250,
-    featured: false,
-    images: ['/assets/products/1 (8).jpg'],
-    active: true,
-  },
-  {
-    _id: 'prod-10',
-    name: 'Roll-up Printing Dubai',
-    slug: 'roll-up-printing-dubai',
-    imageKey: 'rollup',
-    category: { _id: 'cat-other-products', name: 'Other Products', slug: 'other-products' },
-    shortDescription: 'Heavy-duty aluminum roll-up banner stands with anti-curl grey back film & padded bag.',
-    description: '85x200cm & 100x200cm retractable banner stands printed on high-resolution anti-curl PET film for exhibitions and retail.',
-    price: 180,
-    minimumQuantity: 1,
-    featured: true,
-    images: ['/assets/products/1 (9).jpg'],
-    active: true,
-  },
-  {
-    _id: 'prod-11',
-    name: 'Flag Printing Dubai',
-    slug: 'flag-printing-dubai',
-    imageKey: 'flags',
-    category: { _id: 'cat-other-products', name: 'Other Products', slug: 'other-products' },
-    shortDescription: 'Teardrop and feather beach flags with weather-resistant knitted polyester print.',
-    description: 'Dynamic outdoor promotional flags with heavy water bags, ground spikes, and single or double-sided mirror printing.',
-    price: 220,
-    minimumQuantity: 1,
-    featured: false,
-    images: ['/assets/products/1 (10).jpg'],
-    active: true,
-  },
-  {
-    _id: 'prod-12',
-    name: 'Stickers Printing Dubai',
-    slug: 'stickers-printing-dubai',
-    imageKey: 'stickers',
-    category: { _id: 'cat-other-products', name: 'Other Products', slug: 'other-products' },
-    shortDescription: 'Waterproof vinyl die-cut stickers, kiss-cut sheets, and metallic foil product labels.',
-    description: 'Durable weather-resistant vinyl stickers with matte or gloss UV lamination for packaging, windows, and branding.',
-    price: 40,
-    minimumQuantity: 250,
-    featured: true,
-    images: ['/assets/products/1 (11).jpg'],
-    active: true,
-  },
-  {
-    _id: 'prod-13',
-    name: 'Name Plate Printing Dubai',
-    slug: 'name-plate-printing-dubai',
-    imageKey: 'namePlates',
-    category: { _id: 'cat-other-products', name: 'Other Products', slug: 'other-products' },
-    shortDescription: 'Elegant acrylic, stainless steel, and brass desk & door nameplates with UV printing.',
-    description: 'Laser-cut clear acrylic or brushed metal door & desk signs with metallic stand-off bolts for modern corporate offices.',
-    price: 120,
-    minimumQuantity: 1,
-    featured: false,
-    images: ['/assets/products/1 (12).jpg'],
-    active: true,
-  },
-]
+export const defaultProducts = []
 
 const PRODUCTS_STORAGE_KEY = 'onprint_admin_products'
 
 export function getStoredProducts() {
   try {
     const saved = localStorage.getItem(PRODUCTS_STORAGE_KEY)
-    if (saved) return JSON.parse(saved)
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      if (Array.isArray(parsed)) {
+        // Filter out legacy dummy product IDs
+        const clean = parsed.filter((p) => {
+          const id = String(p._id || p.id || '')
+          return !['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5', 'prod-6', 'prod-7', 'prod-8', 'prod-9', 'prod-10', 'prod-11', 'prod-12', 'prod-13'].includes(id)
+        })
+        return clean
+      }
+    }
   } catch {
     // fallback
   }

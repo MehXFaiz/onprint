@@ -3,17 +3,11 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { Image as ImageIcon, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle } from 'lucide-react'
 import Button from '../../components/Button'
 
-const MOCK_PORTFOLIO = [
-  { id: 1, title: 'Emirates Smart Vacuum Flasks', client: 'Emirates Logistics', category: 'Corporate Gifts', image: '/assets/products/1 (13).jpg' },
-  { id: 2, title: 'Vertex Executive Hardcover Journals', client: 'Vertex Tech', category: 'Office Stationery', image: '/assets/products/1 (5).jpg' },
-  { id: 3, title: 'Custom Roll-up Exhibition Stand', client: 'Dubai Expo Client', category: 'Large Format', image: '/assets/products/1 (9).jpg' },
-]
-
 export default function AdminPortfolioPage() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const [items, setItems] = useState(MOCK_PORTFOLIO)
+  const [items, setItems] = useState([])
   const [search, setSearch] = useState('')
   const [notification, setNotification] = useState(location.state?.toast || null)
   const [deletingItem, setDeletingItem] = useState(null)

@@ -21,6 +21,7 @@ async function getAdminDashboardMetrics(req, res, next) {
     let messageStats = { total: 0, unread: 0 }
     let userStats = { total: 0, customers: 0, admins: 0 }
     let serviceStats = { total: 0, active: 0 }
+    let categoryStats = { total: fallbackCategories.length, active: fallbackCategories.length }
     let subscriberStats = { total: 0 }
     let recentOrders = []
     let recentQuotes = []
@@ -111,11 +112,18 @@ async function getAdminDashboardMetrics(req, res, next) {
       if (rqRows.length > 0) {
         recentQuotes = rqRows.map((q) => ({ ...q, totalPrice: Number(q.totalPrice) }))
       }
+      // 10. Categories Metrics
+      const [cRows] = await pool.execute('SELECT active, COUNT(*) AS count FROM categories GROUP BY active')
+      cRows.forEach((r) => {
+        const cnt = Number(r.count)
+        categoryStats.total += cnt
+        if (r.active) categoryStats.active += cnt
+      })
     } catch (err) {
       console.warn('[Admin Dashboard] MySQL query note:', err.message)
     }
 
-    // If MySQL had no orders or was unavailable, read from persistentStore
+    // Read live local persistent orders/quotes if MySQL had none
     if (!mysqlLoaded || orderStats.total === 0) {
       const storeOrders = persistentStore.getOrders()
       orderStats = {
@@ -142,10 +150,6 @@ async function getAdminDashboardMetrics(req, res, next) {
       recentQuotes = storeQuotes.slice(0, 5)
     }
 
-    if (productStats.total === 0) {
-      productStats.total = fallbackProducts.length
-      productStats.active = fallbackProducts.length
-    }
     if (serviceStats.total === 0) {
       serviceStats.total = fallbackServices.length
       serviceStats.active = fallbackServices.length
@@ -159,6 +163,7 @@ async function getAdminDashboardMetrics(req, res, next) {
       success: true,
       data: {
         timeframe: timeframe || 'all',
+        categories: { total: fallbackCategories.length, active: fallbackCategories.length },
         products: productStats,
         orders: orderStats,
         revenue,

@@ -1,47 +1,11 @@
 import { useState } from 'react'
 import { MessageSquare, Search, Filter, Mail, CheckCircle2, Trash2, User, Phone } from 'lucide-react'
 
-const MOCK_MESSAGES = [
-  {
-    id: 1,
-    name: 'Tariq Al-Mansoor',
-    email: 'tariq@gulflogistics.ae',
-    phone: '+971 50 999 1122',
-    company: 'Gulf Logistics Dubai',
-    subject: 'Bulk Mug & Notebook Printing Quotation',
-    message: 'Hello ONPRINT team, we are looking to order 500 ceramic mugs and 300 custom leatherette notebooks for our upcoming annual conference. Kindly provide pricing and lead time for delivery to Business Bay.',
-    status: 'unread',
-    createdAt: '2026-08-15 14:20',
-  },
-  {
-    id: 2,
-    name: 'Catherine Vance',
-    email: 'catherine@vancecreative.com',
-    phone: '+971 55 333 8844',
-    company: 'Vance Creative Agency',
-    subject: 'Luxury Spot UV Foil Business Cards Query',
-    message: 'Good afternoon, we have custom vector artwork prepared for 400gsm cotton business cards with gold foil debossing. Can we arrange a print sample proof before starting full production?',
-    status: 'read',
-    createdAt: '2026-08-14 11:05',
-  },
-  {
-    id: 3,
-    name: 'Rashid Khan',
-    email: 'rkhan@apexevents.ae',
-    phone: '+971 52 444 7711',
-    company: 'Apex Events Management',
-    subject: 'Urgent Roll-up Banner Stand Delivery at DWTC',
-    message: 'We need 5 heavy-duty aluminum roll-up banners printed and delivered directly to Hall 3, Dubai World Trade Centre by tomorrow morning. Please confirm express turnaround option.',
-    status: 'replied',
-    createdAt: '2026-08-13 16:45',
-  },
-]
-
 export default function AdminMessagesPage() {
-  const [messages, setMessages] = useState(MOCK_MESSAGES)
+  const [messages, setMessages] = useState([])
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
-  const [selectedMessage, setSelectedMessage] = useState(MOCK_MESSAGES[0])
+  const [selectedMessage, setSelectedMessage] = useState(null)
   const [toast, setToast] = useState(null)
 
   const filtered = messages.filter((m) => {

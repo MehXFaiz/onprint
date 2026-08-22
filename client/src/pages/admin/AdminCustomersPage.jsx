@@ -4,9 +4,7 @@ import { Users, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle } fr
 import Button from '../../components/Button'
 
 const MOCK_CUSTOMERS = [
-  { id: 1, name: 'Ahmed Al Mansoori', email: 'ahmed@emirateslogistics.ae', phone: '+971 50 123 4567', company: 'Emirates Logistics', role: 'customer', status: 'active' },
-  { id: 2, name: 'Sarah Jenkins', email: 'sarah@vertextech.ae', phone: '+971 52 987 6543', company: 'Vertex Tech', role: 'customer', status: 'active' },
-  { id: 3, name: 'ONPRINT Admin', email: 'admin@onprint.ae', phone: '+971 4 800 PRINT', company: 'ONPRINT Studio', role: 'admin', status: 'active' },
+  { id: 1, name: 'ONPRINT Admin', email: 'admin@onprint.ae', phone: '+971 4 800 PRINT', company: 'ONPRINT Studio', role: 'admin', status: 'active' },
 ]
 
 export default function AdminCustomersPage() {

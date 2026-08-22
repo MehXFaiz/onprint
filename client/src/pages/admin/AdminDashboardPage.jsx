@@ -94,29 +94,23 @@ export default function AdminDashboardPage() {
         setData({
           ...backendData,
           timeframe: selectedTimeframe,
-          orders: {
-            ...orderStats,
-            total: Math.max(backendData.orders?.total || 0, orderStats.total),
-          },
-          quotes: {
-            ...quoteStats,
-            total: Math.max(backendData.quotes?.total || 0, quoteStats.total),
-          },
-          revenue: calculatedRevenue || backendData.revenue || 0,
-          recentOrders: recentOrders.length > 0 ? recentOrders : backendData.recentOrders || [],
-          recentQuotes: recentQuotes.length > 0 ? recentQuotes : backendData.recentQuotes || [],
+          orders: backendData.orders || orderStats,
+          quotes: backendData.quotes || quoteStats,
+          revenue: backendData.revenue ?? calculatedRevenue ?? 0,
+          recentOrders: backendData.recentOrders || recentOrders || [],
+          recentQuotes: backendData.recentQuotes || recentQuotes || [],
         })
       } else {
         setData({
           timeframe: selectedTimeframe,
-          products: { total: 13, active: 13, inactive: 0 },
+          products: { total: 0, active: 0, inactive: 0 },
           orders: orderStats,
           revenue: calculatedRevenue || 0,
           quotes: quoteStats,
-          messages: { total: 3, unread: 1 },
-          users: { total: 2, customers: 1, admins: 1 },
-          services: { total: 6, active: 6 },
-          newsletterSubscribers: { total: 12 },
+          messages: { total: 0, unread: 0 },
+          users: { total: 1, customers: 0, admins: 1 },
+          services: { total: 7, active: 7 },
+          newsletterSubscribers: { total: 0 },
           recentOrders,
           recentQuotes,
         })
@@ -124,14 +118,14 @@ export default function AdminDashboardPage() {
     } catch {
       setData({
         timeframe: selectedTimeframe,
-        products: { total: 13, active: 13, inactive: 0 },
+        products: { total: 0, active: 0, inactive: 0 },
         orders: orderStats,
         revenue: calculatedRevenue || 0,
         quotes: quoteStats,
-        messages: { total: 3, unread: 1 },
-        users: { total: 2, customers: 1, admins: 1 },
-        services: { total: 6, active: 6 },
-        newsletterSubscribers: { total: 12 },
+        messages: { total: 0, unread: 0 },
+        users: { total: 1, customers: 0, admins: 1 },
+        services: { total: 7, active: 7 },
+        newsletterSubscribers: { total: 0 },
         recentOrders,
         recentQuotes,
       })
@@ -166,22 +160,22 @@ export default function AdminDashboardPage() {
     )
   }
 
-  const products = data?.products || { total: 13, active: 13, inactive: 0 }
+  const products = data?.products || { total: 0, active: 0, inactive: 0 }
   const orders = data?.orders || {
-    total: 4,
-    pending: 1,
-    inProduction: 2,
+    total: 0,
+    pending: 0,
+    inProduction: 0,
     processing: 0,
-    dispatched: 1,
+    dispatched: 0,
     delivered: 0,
     cancelled: 0,
   }
-  const revenue = data?.revenue || 12450
-  const quotes = data?.quotes || { total: 4, pending: 2, approved: 2, rejected: 0 }
-  const messages = data?.messages || { total: 3, unread: 1 }
-  const users = data?.users || { total: 2, customers: 1, admins: 1 }
-  const services = data?.services || { total: 6, active: 6 }
-  const subscribers = data?.newsletterSubscribers || { total: 12 }
+  const revenue = data?.revenue ?? 0
+  const quotes = data?.quotes || { total: 0, pending: 0, approved: 0, rejected: 0 }
+  const messages = data?.messages || { total: 0, unread: 0 }
+  const users = data?.users || { total: 1, customers: 0, admins: 1 }
+  const services = data?.services || { total: 7, active: 7 }
+  const subscribers = data?.newsletterSubscribers || { total: 0 }
   const recentOrders = data?.recentOrders || []
   const recentQuotes = data?.recentQuotes || []
 

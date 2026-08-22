@@ -29,45 +29,40 @@ function createApp() {
   // Test MySQL DB connection on startup
   testConnection()
 
-  app.use(
-    helmet({
-      contentSecurityPolicy: false,
-    }),
-  )
+  const corsOptions = {
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true)
 
-  app.use(
-    cors({
-      origin: (origin, callback) => {
-        if (!origin) return callback(null, true)
+      const clientUrls = process.env.CLIENT_URL
+        ? process.env.CLIENT_URL.split(',').map((u) => u.trim().replace(/\/$/, ''))
+        : []
 
-        const clientUrls = process.env.CLIENT_URL
-          ? process.env.CLIENT_URL.split(',').map((u) => u.trim().replace(/\/$/, ''))
-          : []
-
-        if (clientUrls.includes('*') || clientUrls.includes(origin)) {
-          return callback(null, true)
-        }
-
-        if (
-          origin === 'https://0nprint.com' ||
-          origin === 'https://www.0nprint.com' ||
-          origin.startsWith('http://localhost:') ||
-          origin.startsWith('http://127.0.0.1:') ||
-          origin.endsWith('.airoapp.ai') ||
-          !process.env.CLIENT_URL
-        ) {
-          return callback(null, true)
-        }
-
+      if (clientUrls.includes('*') || clientUrls.includes(origin)) {
         return callback(null, true)
-      },
-      credentials: true,
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
-    }),
-  )
+      }
 
-  app.options('*', cors())
+      if (
+        origin === 'https://0nprint.com' ||
+        origin === 'https://www.0nprint.com' ||
+        origin.startsWith('http://localhost:') ||
+        origin.startsWith('http://127.0.0.1:') ||
+        origin.endsWith('.airoapp.ai') ||
+        !process.env.CLIENT_URL
+      ) {
+        return callback(null, true)
+      }
+
+      return callback(null, true)
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
+    optionsSuccessStatus: 204,
+  }
+
+  app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false }))
+  app.use(cors(corsOptions))
+  app.options('*', cors(corsOptions))
 
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))

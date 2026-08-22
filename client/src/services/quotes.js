@@ -1,4 +1,5 @@
 import api from './api'
+import { syncApprovedQuoteToOrder } from './orders'
 
 const QUOTES_STORAGE_KEY = 'onprint_admin_quotes'
 
@@ -65,11 +66,15 @@ export async function createQuote(quoteData) {
     id: Date.now(),
     quoteNumber: `QT-2026-${randomSeq}`,
     createdAt: new Date().toISOString(),
-    status: 'Pending',
+    status: quoteData.status || 'Pending',
     ...quoteData,
   }
   const updated = [newQuote, ...current]
   saveQuotes(updated)
+
+  if ((newQuote.status || '').toLowerCase() === 'approved') {
+    syncApprovedQuoteToOrder(newQuote)
+  }
 
   try {
     const res = await api.post('/quotes', {
@@ -83,6 +88,7 @@ export async function createQuote(quoteData) {
       productName: quoteData.productName,
       quantity: quoteData.quantity,
       totalPrice: quoteData.totalPrice || 0,
+      status: quoteData.status || 'Pending',
       items: [
         {
           productName: quoteData.productName || 'Custom Print Request',
@@ -107,25 +113,64 @@ export async function createQuote(quoteData) {
 
 export async function updateQuoteStatus(quoteId, newStatus) {
   const current = getStoredQuotes()
-  const updated = current.map((q) =>
-    q.id === quoteId || q._id === quoteId || q.quoteNumber === quoteId ? { ...q, status: newStatus } : q
-  )
+  let targetQuote = null
+  const updated = current.map((q) => {
+    if (q.id === quoteId || q._id === quoteId || q.quoteNumber === quoteId) {
+      targetQuote = { ...q, status: newStatus }
+      return targetQuote
+    }
+    return q
+  })
   saveQuotes(updated)
+
+  if (targetQuote && (newStatus || '').toLowerCase() === 'approved') {
+    syncApprovedQuoteToOrder(targetQuote)
+  }
+
+  try {
+    await api.put(`/quotes/${quoteId}/status`, { status: newStatus })
+  } catch {
+    // offline fallback
+  }
+
   return updated
 }
 
-export function updateQuote(quoteId, updatedData) {
+export async function updateQuote(quoteId, updatedData) {
   const current = getStoredQuotes()
-  const updated = current.map((q) =>
-    q.id === quoteId || q._id === quoteId || q.quoteNumber === quoteId ? { ...q, ...updatedData } : q
-  )
+  let targetQuote = null
+  const updated = current.map((q) => {
+    if (q.id === quoteId || q._id === quoteId || q.quoteNumber === quoteId) {
+      targetQuote = { ...q, ...updatedData }
+      return targetQuote
+    }
+    return q
+  })
   saveQuotes(updated)
+
+  if (targetQuote && (targetQuote.status || '').toLowerCase() === 'approved') {
+    syncApprovedQuoteToOrder(targetQuote)
+  }
+
+  try {
+    await api.put(`/quotes/${quoteId}`, updatedData)
+  } catch {
+    // offline fallback
+  }
+
   return updated
 }
 
-export function deleteQuote(quoteId) {
+export async function deleteQuote(quoteId) {
   const current = getStoredQuotes()
   const updated = current.filter((q) => q.id !== quoteId && q._id !== quoteId && q.quoteNumber !== quoteId)
   saveQuotes(updated)
+
+  try {
+    await api.delete(`/quotes/${quoteId}`)
+  } catch {
+    // offline fallback
+  }
+
   return updated
 }

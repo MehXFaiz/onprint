@@ -4,22 +4,24 @@ import PublicLayout from './layouts/PublicLayout'
 import GoogleAnalytics from './components/GoogleAnalytics'
 
 import HomePage from './pages/public/HomePage'
-import AboutPage from './pages/public/AboutPage'
-import ServicesPage from './pages/public/ServicesPage'
-import ServiceDetailPage from './pages/public/ServiceDetailPage'
-import CategoriesPage from './pages/public/CategoriesPage'
-import CategoryDetailPage from './pages/public/CategoryDetailPage'
-import ProductsPage from './pages/public/ProductsPage'
-import ProductDetailPage from './pages/public/ProductDetailPage'
-import BlogPage from './pages/public/BlogPage'
-import BlogPostPage from './pages/public/BlogPostPage'
-import PortfolioPage from './pages/public/PortfolioPage'
-import ContactPage from './pages/public/ContactPage'
-import GetQuotePage from './pages/public/GetQuotePage'
-import FaqPage from './pages/public/FaqPage'
-import PrivacyPolicyPage from './pages/public/PrivacyPolicyPage'
-import TermsPage from './pages/public/TermsPage'
-import NotFoundPage from './pages/public/NotFoundPage'
+
+// Lazy load secondary public pages for optimal initial bundle size and fastest FCP
+const AboutPage = lazy(() => import('./pages/public/AboutPage'))
+const ServicesPage = lazy(() => import('./pages/public/ServicesPage'))
+const ServiceDetailPage = lazy(() => import('./pages/public/ServiceDetailPage'))
+const CategoriesPage = lazy(() => import('./pages/public/CategoriesPage'))
+const CategoryDetailPage = lazy(() => import('./pages/public/CategoryDetailPage'))
+const ProductsPage = lazy(() => import('./pages/public/ProductsPage'))
+const ProductDetailPage = lazy(() => import('./pages/public/ProductDetailPage'))
+const BlogPage = lazy(() => import('./pages/public/BlogPage'))
+const BlogPostPage = lazy(() => import('./pages/public/BlogPostPage'))
+const PortfolioPage = lazy(() => import('./pages/public/PortfolioPage'))
+const ContactPage = lazy(() => import('./pages/public/ContactPage'))
+const GetQuotePage = lazy(() => import('./pages/public/GetQuotePage'))
+const FaqPage = lazy(() => import('./pages/public/FaqPage'))
+const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'))
+const TermsPage = lazy(() => import('./pages/public/TermsPage'))
+const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
 
 // Lazy load admin section and layouts to dramatically improve initial page load performance
 const AdminLayout = lazy(() => import('./layouts/AdminLayout'))

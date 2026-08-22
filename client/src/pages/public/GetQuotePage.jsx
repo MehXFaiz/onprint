@@ -7,7 +7,6 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { getProductBySlug } from '../../services/products'
 import { getCategories } from '../../services/categories'
-import { createOrder } from '../../services/orders'
 import { createQuote } from '../../services/quotes'
 import { trackQuoteRequest } from '../../utils/analytics'
 
@@ -191,25 +190,8 @@ export default function GetQuotePage() {
     const artworkNames = artworkFiles.length > 0 ? artworkFiles.map((f) => f.name).join(', ') : null
 
     try {
-      // 1. Create active Order entry so it appears in Admin & Customer Dashboard Orders
-      const newOrder = await createOrder({
-        customerName: form.name.trim(),
-        customerEmail: form.email.trim(),
-        phone: form.phone.trim() || null,
-        company: form.company.trim() || null,
-        productName: form.product.trim() || 'Custom Print Job',
-        quantity: qty,
-        totalPrice,
-        status: 'Pending',
-        paymentStatus: 'Pending',
-        specs,
-        notes: form.notes.trim() || null,
-        artworkFile: artworkNames,
-        deliveryAddress: 'UAE Delivery',
-      })
-
-      // 2. Create Quote entry so it appears in Quotes Manager
-      await createQuote({
+      // 1. Create Quote inquiry entry
+      const newQuote = await createQuote({
         name: form.name.trim(),
         email: form.email.trim(),
         phone: form.phone.trim() || null,
@@ -229,7 +211,7 @@ export default function GetQuotePage() {
         category_name: form.product || undefined,
       })
 
-      setSubmittedOrder(newOrder)
+      setSubmittedOrder(newQuote)
       setSubmitted(true)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } catch (err) {
@@ -240,11 +222,11 @@ export default function GetQuotePage() {
   }
 
   if (submitted) {
-    const orderNum =
-      submittedOrder?.orderNumber || submittedOrder?._id || `ONP-2026-${submittedOrder?.id || 'SUBMITTED'}`
+    const quoteNum =
+      submittedOrder?.quoteNumber || submittedOrder?._id || `QT-2026-${submittedOrder?.id || 'SUBMITTED'}`
     const prodName = submittedOrder?.productName || form.product || 'Custom Print Job'
     const orderQty = submittedOrder?.quantity ?? form.quantity ?? 1
-    const orderStatus = submittedOrder?.status || 'Pending'
+    const quoteStatus = submittedOrder?.status || 'Pending'
 
     return (
       <Container className="flex min-h-[50vh] flex-col items-center justify-center py-24 text-center">
@@ -255,13 +237,13 @@ export default function GetQuotePage() {
           Quote Request Submitted!
         </h1>
         <p className="mt-4 max-w-md text-base text-secondary">
-          Thank you, {form.name.split(' ')[0]} — we have logged your request for <strong className="text-primary">{form.product || 'your project'}</strong> and will send formal pricing to <span className="text-primary font-bold">{form.email}</span> shortly.
+          Thank you, {form.name.split(' ')[0]} — we have received your request for <strong className="text-primary">{form.product || 'your project'}</strong>. Our team will review the specifications and issue an approved quote to <span className="text-primary font-bold">{form.email}</span>. Once approved, production will commence.
         </p>
 
         <div className="mt-6 w-full max-w-md rounded-2xl border border-border bg-surface p-5 text-left text-xs space-y-2 shadow-xs">
           <div className="flex items-center justify-between border-b border-border/80 pb-2">
-            <span className="font-bold uppercase tracking-wider text-secondary">Order Reference</span>
-            <span className="font-mono font-bold text-accent">{orderNum}</span>
+            <span className="font-bold uppercase tracking-wider text-secondary">Quote Reference</span>
+            <span className="font-mono font-bold text-accent">{quoteNum}</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-secondary">Product:</span>
@@ -273,8 +255,8 @@ export default function GetQuotePage() {
           </div>
           <div className="flex items-center justify-between">
             <span className="text-secondary">Status:</span>
-            <span className="rounded-full bg-amber-50 border border-amber-200 px-2 py-0.5 font-bold text-amber-700">
-              {orderStatus}
+            <span className="rounded-full bg-purple-50 border border-purple-200 px-2 py-0.5 font-bold text-purple-700">
+              {quoteStatus} (Awaiting Approval)
             </span>
           </div>
         </div>
@@ -283,8 +265,8 @@ export default function GetQuotePage() {
           <Button to="/" variant="outline" icon={false}>
             Back to Storefront
           </Button>
-          <Button to="/admin/orders" variant="accent" icon={false}>
-            View in Dashboard Orders
+          <Button to="/customer/quotes" variant="accent" icon={false}>
+            View My Quotes
           </Button>
         </div>
       </Container>

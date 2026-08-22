@@ -23,8 +23,70 @@ function saveStore(data) {
   }
 }
 
+function syncQuoteToOrder(quote, store) {
+  if (!quote || (quote.status || '').toLowerCase() !== 'approved') return
+  const existingOrder = store.orders.find(
+    (o) => o.quoteNumber === quote.quoteNumber || o.quoteId === quote.id || o.notes?.includes(quote.quoteNumber)
+  )
+  if (!existingOrder) {
+    const year = new Date().getFullYear()
+    const randomSeq = Math.floor(100000 + Math.random() * 900000)
+    const orderNumber = `ONP-${year}-${randomSeq}`
+    const id = store.orders.length > 0 ? Math.max(...store.orders.map((o) => o.id || 0)) + 1 : 1
+
+    const newOrder = {
+      _id: `ord-${id}`,
+      id,
+      orderNumber,
+      customerName: quote.name || 'Client',
+      customerEmail: quote.email || '',
+      customerPhone: quote.phone || null,
+      company: quote.company || null,
+      status: 'Pending',
+      subtotal: Number(quote.totalPrice || 0),
+      tax: 0,
+      shipping: 0,
+      totalPrice: Number(quote.totalPrice || 0),
+      currency: 'AED',
+      notes: quote.notes ? `${quote.notes} (Approved Quote ${quote.quoteNumber})` : `Approved Quote ${quote.quoteNumber}`,
+      specs: quote.specs || null,
+      artworkFile: quote.artworkFile || null,
+      quoteNumber: quote.quoteNumber,
+      quoteId: quote.id,
+      createdAt: new Date().toISOString(),
+      productName: quote.productName || quote.items?.[0]?.productName || 'Custom Print Job',
+      items: quote.items && quote.items.length > 0 ? quote.items : [
+        {
+          productName: quote.productName || 'Custom Print Job',
+          quantity: quote.quantity || 1,
+          unitPrice: quote.totalPrice || 0,
+          subtotal: quote.totalPrice || 0,
+        },
+      ],
+    }
+    store.orders.unshift(newOrder)
+  }
+}
+
 function getOrders() {
   const store = loadStore()
+  let modified = false
+  if (Array.isArray(store.quotes)) {
+    store.quotes.forEach((q) => {
+      if ((q.status || '').toLowerCase() === 'approved') {
+        const hasOrder = store.orders.some(
+          (o) => o.quoteNumber === q.quoteNumber || o.quoteId === q.id || o.notes?.includes(q.quoteNumber)
+        )
+        if (!hasOrder) {
+          syncQuoteToOrder(q, store)
+          modified = true
+        }
+      }
+    })
+  }
+  if (modified) {
+    saveStore(store)
+  }
   return store.orders || []
 }
 
@@ -52,6 +114,8 @@ function addOrder(orderData) {
     notes: orderData.notes || null,
     specs: orderData.specs || null,
     artworkFile: orderData.artworkFile || null,
+    quoteNumber: orderData.quoteNumber || null,
+    quoteId: orderData.quoteId || null,
     createdAt: orderData.createdAt || new Date().toISOString(),
     productName: orderData.productName || orderData.items?.[0]?.productName || 'Printing Order',
     items: orderData.items || [
@@ -117,6 +181,9 @@ function addQuote(quoteData) {
   }
 
   store.quotes.unshift(newQuote)
+  if ((newQuote.status || '').toLowerCase() === 'approved') {
+    syncQuoteToOrder(newQuote, store)
+  }
   saveStore(store)
   return newQuote
 }
@@ -132,6 +199,24 @@ function updateQuoteStatus(id, status) {
   if (quote) {
     quote.status = status
     quote.updatedAt = new Date().toISOString()
+    if ((status || '').toLowerCase() === 'approved') {
+      syncQuoteToOrder(quote, store)
+    }
+    saveStore(store)
+    return quote
+  }
+  return null
+}
+
+function updateQuote(id, updatedData) {
+  const store = loadStore()
+  const quote = store.quotes.find((q) => String(q.id) === String(id) || q.quoteNumber === id || q._id === id)
+  if (quote) {
+    Object.assign(quote, updatedData)
+    quote.updatedAt = new Date().toISOString()
+    if ((quote.status || '').toLowerCase() === 'approved') {
+      syncQuoteToOrder(quote, store)
+    }
     saveStore(store)
     return quote
   }
@@ -154,5 +239,7 @@ module.exports = {
   addQuote,
   getQuote,
   updateQuoteStatus,
+  updateQuote,
   deleteQuote,
+  syncQuoteToOrder,
 }

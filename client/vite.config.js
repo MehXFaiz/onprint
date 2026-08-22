@@ -23,5 +23,15 @@ export default defineConfig({
     // built to the repo-root dist/, which the production server serves directly
     outDir: '../dist',
     emptyOutDir: true,
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-motion': ['framer-motion', 'motion'],
+          'vendor-icons': ['lucide-react'],
+        },
+      },
+    },
   },
 })

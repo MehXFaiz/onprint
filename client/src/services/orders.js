@@ -25,8 +25,92 @@ function sanitizeOrders(list) {
   })
 }
 
+function getStoredQuotesRaw() {
+  try {
+    const saved = localStorage.getItem('onprint_admin_quotes')
+    if (saved) {
+      return JSON.parse(saved) || []
+    }
+  } catch {
+    // ignore
+  }
+  return []
+}
+
+export function syncApprovedQuoteToOrder(quote) {
+  if (!quote || (quote.status || '').toLowerCase() !== 'approved') return null
+  try {
+    const saved = localStorage.getItem(ORDERS_STORAGE_KEY)
+    const currentOrders = saved ? JSON.parse(saved) : []
+    const cleanOrders = sanitizeOrders(currentOrders)
+    const qNum = quote.quoteNumber || ''
+    const qId = quote.id || quote._id
+
+    const exists = cleanOrders.some(
+      (o) =>
+        (qNum && o.quoteNumber === qNum) ||
+        (qId && o.quoteId === qId) ||
+        (qNum && (o.notes || '').includes(qNum)) ||
+        (qNum && (o.orderNumber || '').includes(qNum))
+    )
+
+    if (exists) return null
+
+    const randomSeq = Math.floor(100000 + Math.random() * 900000)
+    const newOrder = {
+      _id: `ORD-${randomSeq}`,
+      id: Date.now() + Math.floor(Math.random() * 1000),
+      orderNumber: `ONP-2026-${randomSeq}`,
+      createdAt: quote.createdAt || new Date().toISOString(),
+      status: 'Pending',
+      paymentStatus: 'Pending',
+      currency: 'AED',
+      customerName: quote.name || 'Client',
+      customerEmail: quote.email || '',
+      customerPhone: quote.phone || '',
+      company: quote.company || '',
+      productName: quote.productName || quote.items?.[0]?.productName || 'Custom Print Job',
+      quantity: Number(quote.quantity) || 1,
+      totalPrice: Number(quote.totalPrice || 0),
+      specs: quote.specs || '',
+      notes: quote.notes ? `${quote.notes} (Approved Quote ${quote.quoteNumber})` : `Approved Quote ${quote.quoteNumber}`,
+      artworkFile: quote.artworkFile || null,
+      quoteNumber: quote.quoteNumber || null,
+      quoteId: quote.id || quote._id || null,
+      items: Array.isArray(quote.items) && quote.items.length > 0
+        ? quote.items
+        : [
+            {
+              productName: quote.productName || 'Custom Print Job',
+              quantity: Number(quote.quantity) || 1,
+              unitPrice: quote.totalPrice ? Number(quote.totalPrice) / (Number(quote.quantity) || 1) : 0,
+              subtotal: Number(quote.totalPrice || 0),
+            },
+          ],
+    }
+
+    const updated = [newOrder, ...cleanOrders]
+    saveOrders(updated)
+    return newOrder
+  } catch {
+    return null
+  }
+}
+
+export function syncAllApprovedQuotesToOrders() {
+  const quotes = getStoredQuotesRaw()
+  if (Array.isArray(quotes)) {
+    quotes.forEach((q) => {
+      if ((q.status || '').toLowerCase() === 'approved') {
+        syncApprovedQuoteToOrder(q)
+      }
+    })
+  }
+}
+
 export function getStoredOrders() {
   try {
+    syncAllApprovedQuotesToOrders()
     const saved = localStorage.getItem(ORDERS_STORAGE_KEY)
     if (saved) {
       const parsed = JSON.parse(saved)
@@ -53,11 +137,13 @@ export function saveOrders(orders) {
 
 export async function fetchOrders() {
   try {
+    syncAllApprovedQuotesToOrders()
     const { data } = await api.get('/orders')
     if (data?.success && Array.isArray(data.data)) {
       const clean = sanitizeOrders(data.data)
       saveOrders(clean)
-      return clean
+      syncAllApprovedQuotesToOrders()
+      return getStoredOrders()
     }
   } catch (err) {
     console.warn('[Orders Service] API fetch fallback to local cache:', err.message)

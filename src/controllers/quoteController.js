@@ -223,8 +223,189 @@ async function getQuoteById(req, res, next) {
   }
 }
 
+async function updateQuoteStatus(req, res, next) {
+  try {
+    const { id } = req.params
+    const { status } = req.body
+
+    if (!status) throw new ApiError(400, 'Status is required')
+
+    const updated = persistentStore.updateQuoteStatus(id, status)
+
+    try {
+      await pool.execute(
+        'UPDATE quotes SET status = ?, updated_at = NOW() WHERE id = ? OR quote_number = ?',
+        [status, id, id]
+      )
+
+      if (status === 'Approved') {
+        const [rows] = await pool.execute(
+          'SELECT * FROM quotes WHERE id = ? OR quote_number = ? LIMIT 1',
+          [id, id]
+        )
+        if (rows.length > 0) {
+          const q = rows[0]
+          const [existingOrders] = await pool.execute(
+            'SELECT id FROM orders WHERE notes LIKE ? LIMIT 1',
+            [`%${q.quote_number}%`]
+          )
+          if (existingOrders.length === 0) {
+            const year = new Date().getFullYear()
+            const randomSeq = Math.floor(100000 + Math.random() * 900000)
+            const orderNumber = `ONP-${year}-${randomSeq}`
+            const [orderRes] = await pool.execute(
+              `INSERT INTO orders 
+                (order_number, user_id, customer_name, customer_email, customer_phone, company, status, subtotal, tax, shipping, total_price, currency, notes)
+               VALUES (?, ?, ?, ?, ?, ?, 'Pending', ?, 0, 0, ?, 'AED', ?)`,
+              [
+                orderNumber,
+                q.user_id || null,
+                q.name,
+                q.email,
+                q.phone || null,
+                q.company || null,
+                q.total_price || 0,
+                q.total_price || 0,
+                q.notes ? `${q.notes} (Approved Quote ${q.quote_number})` : `Approved Quote ${q.quote_number}`,
+              ]
+            )
+
+            const [items] = await pool.execute('SELECT * FROM quote_items WHERE quote_id = ?', [q.id])
+            if (items.length > 0) {
+              for (const item of items) {
+                await pool.execute(
+                  `INSERT INTO order_items 
+                    (order_id, product_id, product_name, quantity, unit_price, subtotal)
+                   VALUES (?, ?, ?, ?, ?, ?)`,
+                  [
+                    orderRes.insertId,
+                    item.product_id || null,
+                    item.product_name || 'Custom Print Job',
+                    item.quantity || 1,
+                    item.unit_price || 0,
+                    item.subtotal || 0,
+                  ]
+                )
+              }
+            } else {
+              await pool.execute(
+                `INSERT INTO order_items 
+                  (order_id, product_id, product_name, quantity, unit_price, subtotal)
+                 VALUES (?, NULL, 'Custom Print Job', 1, ?, ?)`,
+                [orderRes.insertId, q.total_price || 0, q.total_price || 0]
+              )
+            }
+          }
+        }
+      }
+    } catch {
+      // MySQL unavailable
+    }
+
+    res.json({
+      success: true,
+      message: `Quote status updated to ${status}${status === 'Approved' ? ' and converted to order' : ''}`,
+      data: updated,
+    })
+  } catch (err) {
+    next(err)
+  }
+}
+
+async function updateQuote(req, res, next) {
+  try {
+    const { id } = req.params
+    const updatedFields = req.body
+
+    const updated = persistentStore.updateQuote(id, updatedFields)
+
+    try {
+      const { name, email, phone, company, notes, status, totalPrice } = updatedFields
+      await pool.execute(
+        `UPDATE quotes 
+         SET name = COALESCE(?, name),
+             email = COALESCE(?, email),
+             phone = COALESCE(?, phone),
+             company = COALESCE(?, company),
+             notes = COALESCE(?, notes),
+             status = COALESCE(?, status),
+             total_price = COALESCE(?, total_price),
+             updated_at = NOW()
+         WHERE id = ? OR quote_number = ?`,
+        [name, email, phone, company, notes, status, totalPrice, id, id]
+      )
+
+      if (status === 'Approved') {
+        const [rows] = await pool.execute(
+          'SELECT * FROM quotes WHERE id = ? OR quote_number = ? LIMIT 1',
+          [id, id]
+        )
+        if (rows.length > 0) {
+          const q = rows[0]
+          const [existingOrders] = await pool.execute(
+            'SELECT id FROM orders WHERE notes LIKE ? LIMIT 1',
+            [`%${q.quote_number}%`]
+          )
+          if (existingOrders.length === 0) {
+            const year = new Date().getFullYear()
+            const randomSeq = Math.floor(100000 + Math.random() * 900000)
+            const orderNumber = `ONP-${year}-${randomSeq}`
+            await pool.execute(
+              `INSERT INTO orders 
+                (order_number, user_id, customer_name, customer_email, customer_phone, company, status, subtotal, tax, shipping, total_price, currency, notes)
+               VALUES (?, ?, ?, ?, ?, ?, 'Pending', ?, 0, 0, ?, 'AED', ?)`,
+              [
+                orderNumber,
+                q.user_id || null,
+                q.name,
+                q.email,
+                q.phone || null,
+                q.company || null,
+                q.total_price || 0,
+                q.total_price || 0,
+                q.notes ? `${q.notes} (Approved Quote ${q.quote_number})` : `Approved Quote ${q.quote_number}`,
+              ]
+            )
+          }
+        }
+      }
+    } catch {
+      // MySQL unavailable
+    }
+
+    res.json({
+      success: true,
+      message: 'Quote updated successfully',
+      data: updated,
+    })
+  } catch (err) {
+    next(err)
+  }
+}
+
+async function deleteQuote(req, res, next) {
+  try {
+    const { id } = req.params
+    persistentStore.deleteQuote(id)
+
+    try {
+      await pool.execute('DELETE FROM quote_items WHERE quote_id = ?', [id])
+      await pool.execute('DELETE FROM quotes WHERE id = ? OR quote_number = ?', [id, id])
+    } catch {
+      // MySQL unavailable
+    }
+
+    res.json({ success: true, message: 'Quote deleted successfully' })
+  } catch (err) {
+    next(err)
+  }
+}
+
 module.exports = {
   createQuote,
   listQuotes,
   getQuoteById,
+  updateQuote,
+  updateQuoteStatus,
+  deleteQuote,
 }

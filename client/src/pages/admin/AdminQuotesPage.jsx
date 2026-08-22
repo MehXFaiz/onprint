@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
-import { FileText, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle } from 'lucide-react'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
+import { FileText, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle, ShoppingBag, ExternalLink } from 'lucide-react'
 import Button from '../../components/Button'
-import { getStoredQuotes, fetchQuotes, deleteQuote } from '../../services/quotes'
+import { getStoredQuotes, fetchQuotes, deleteQuote, updateQuoteStatus } from '../../services/quotes'
 
 export default function AdminQuotesPage() {
   const navigate = useNavigate()
@@ -32,11 +32,22 @@ export default function AdminQuotesPage() {
     }
   }, [notification])
 
+  const handleStatusChange = async (quoteId, newStatus) => {
+    const updated = await updateQuoteStatus(quoteId, newStatus)
+    setQuotes(updated)
+    if (newStatus === 'Approved') {
+      setNotification(`Quote approved! Successfully converted to active order in Orders.`)
+    } else {
+      setNotification(`Quote status updated to "${newStatus}".`)
+    }
+  }
+
   const filtered = quotes.filter(
     (q) =>
       (q.quoteNumber || '').toLowerCase().includes(search.toLowerCase()) ||
       (q.name || '').toLowerCase().includes(search.toLowerCase()) ||
-      (q.email || '').toLowerCase().includes(search.toLowerCase())
+      (q.email || '').toLowerCase().includes(search.toLowerCase()) ||
+      (q.status || '').toLowerCase().includes(search.toLowerCase())
   )
 
   const confirmDeleteQuote = () => {
@@ -95,7 +106,7 @@ export default function AdminQuotesPage() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search quotes by number, client name, or email..."
+            placeholder="Search quotes by number, client name, status, or email..."
             className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
           />
         </div>
@@ -129,21 +140,39 @@ export default function AdminQuotesPage() {
             ) : (
               filtered.map((q) => (
                 <tr key={q._id || q.id || q.quoteNumber} className="hover:bg-neutral-50/60 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-neutral-900">{q.quoteNumber}</td>
+                  <td className="py-3 px-4">
+                    <div className="font-mono font-bold text-neutral-900">{q.quoteNumber}</div>
+                    {q.status === 'Approved' && (
+                      <Link
+                        to="/admin/orders"
+                        className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 hover:text-emerald-800 hover:underline mt-0.5"
+                        title="View in Orders"
+                      >
+                        <ShoppingBag className="h-3 w-3" />
+                        In Orders
+                      </Link>
+                    )}
+                  </td>
                   <td className="py-3 px-4 font-bold text-neutral-900">{q.name}</td>
                   <td className="py-3 px-4 font-mono text-[11px] text-neutral-600">{q.email}</td>
                   <td className="py-3 px-4 text-neutral-700">{q.company || '-'}</td>
                   <td className="py-3 px-4 font-black text-neutral-900">AED {q.totalPrice?.toLocaleString()}</td>
                   <td className="py-3 px-4">
-                    <span
-                      className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase ${
+                    <select
+                      value={q.status || 'Pending'}
+                      onChange={(e) => handleStatusChange(q._id || q.id, e.target.value)}
+                      className={`rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase border cursor-pointer ${
                         q.status === 'Approved'
-                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                          : 'bg-purple-50 text-purple-700 border border-purple-200'
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
+                          : q.status === 'Rejected'
+                            ? 'bg-red-50 text-red-700 border-red-300'
+                            : 'bg-purple-50 text-purple-700 border-purple-300'
                       }`}
                     >
-                      {q.status}
-                    </span>
+                      <option value="Pending">Pending</option>
+                      <option value="Approved">Approved</option>
+                      <option value="Rejected">Rejected</option>
+                    </select>
                   </td>
                   <td className="py-3 px-4 text-right">
                     <div className="flex items-center justify-end gap-2">

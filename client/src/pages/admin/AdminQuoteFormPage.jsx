@@ -53,7 +53,7 @@ export default function AdminQuoteFormPage() {
 
     try {
       if (isEdit) {
-        updateQuote(id, {
+        await updateQuote(id, {
           name: form.name.trim(),
           email: form.email.trim(),
           phone: form.phone.trim(),
@@ -74,8 +74,13 @@ export default function AdminQuoteFormPage() {
         })
       }
 
+      const toastMessage =
+        form.status === 'Approved'
+          ? `Quote ${form.quoteNumber} approved and converted to active order in Orders!`
+          : `Quote request ${form.quoteNumber} ${isEdit ? 'updated' : 'created'} successfully.`
+
       navigate('/admin/quotes', {
-        state: { toast: `Quote request ${form.quoteNumber} ${isEdit ? 'updated' : 'created'} successfully.` },
+        state: { toast: toastMessage },
       })
     } catch (err) {
       setError(err.message || 'Failed to save quote.')

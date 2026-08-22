@@ -80,7 +80,8 @@ export default function AdminOrdersPage() {
     const matchesSearch =
       (o.orderNumber || '').toLowerCase().includes(search.toLowerCase()) ||
       (o.customerName || '').toLowerCase().includes(search.toLowerCase()) ||
-      (o.productName || '').toLowerCase().includes(search.toLowerCase())
+      (o.productName || '').toLowerCase().includes(search.toLowerCase()) ||
+      (o.quoteNumber || '').toLowerCase().includes(search.toLowerCase())
     const matchesStatus = statusFilter === 'ALL' || o.status === statusFilter
     return matchesSearch && matchesStatus
   })
@@ -162,7 +163,7 @@ export default function AdminOrdersPage() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by order number or customer..."
+            placeholder="Search by order #, customer, or quote #..."
             className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
           />
         </div>
@@ -205,14 +206,21 @@ export default function AdminOrdersPage() {
                   <ShoppingBag className="h-8 w-8 text-neutral-300 mx-auto mb-2" />
                   <p className="font-bold text-neutral-800">No orders recorded in database yet</p>
                   <p className="mt-1 text-neutral-400">
-                    When a client submits a quote request or places an order on the website, it will show up here.
+                    When a client quote request is approved or placed on the website, it will show up here.
                   </p>
                 </td>
               </tr>
             ) : (
               filteredOrders.map((o) => (
                 <tr key={o._id || o.id || o.orderNumber} className="hover:bg-neutral-50/60 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-neutral-900">{o.orderNumber}</td>
+                  <td className="py-3 px-4">
+                    <div className="font-mono font-bold text-neutral-900">{o.orderNumber}</div>
+                    {o.quoteNumber && (
+                      <div className="inline-flex items-center gap-1 text-[9px] font-bold text-purple-700 bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200 mt-0.5">
+                        Quote: {o.quoteNumber}
+                      </div>
+                    )}
+                  </td>
                   <td className="py-3 px-4">
                     <div className="font-bold text-neutral-900">{o.customerName}</div>
                     <div className="text-[10px] text-neutral-500">{o.company || o.customerEmail || 'Client'}</div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { ShoppingBag, Search, Filter, Edit2, Plus, CheckCircle2, Clock, Truck, AlertCircle, X } from 'lucide-react'
 import Button from '../../components/Button'
-import { getStoredOrders, updateOrderStatus } from '../../services/orders'
+import { getStoredOrders, fetchOrders, updateOrderStatus } from '../../services/orders'
 
 function StatusBadge({ status }) {
   let style = 'bg-neutral-100 text-neutral-700 border-neutral-200'
@@ -47,12 +47,20 @@ export default function AdminOrdersPage() {
   const location = useLocation()
 
   const [orders, setOrders] = useState([])
+  const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('ALL')
   const [notification, setNotification] = useState(location.state?.toast || null)
 
+  const reloadOrders = async () => {
+    setLoading(true)
+    const list = await fetchOrders()
+    setOrders(list)
+    setLoading(false)
+  }
+
   useEffect(() => {
-    setOrders(getStoredOrders())
+    reloadOrders()
   }, [])
 
   useEffect(() => {
@@ -62,17 +70,17 @@ export default function AdminOrdersPage() {
     }
   }, [notification])
 
-  const handleStatusChange = (orderId, newStatus) => {
-    const updated = updateOrderStatus(orderId, newStatus)
+  const handleStatusChange = async (orderId, newStatus) => {
+    const updated = await updateOrderStatus(orderId, newStatus)
     setOrders(updated)
     setNotification(`Order status updated to "${newStatus}".`)
   }
 
   const filteredOrders = orders.filter((o) => {
     const matchesSearch =
-      o.orderNumber.toLowerCase().includes(search.toLowerCase()) ||
-      o.customerName.toLowerCase().includes(search.toLowerCase()) ||
-      o.productName.toLowerCase().includes(search.toLowerCase())
+      (o.orderNumber || '').toLowerCase().includes(search.toLowerCase()) ||
+      (o.customerName || '').toLowerCase().includes(search.toLowerCase()) ||
+      (o.productName || '').toLowerCase().includes(search.toLowerCase())
     const matchesStatus = statusFilter === 'ALL' || o.status === statusFilter
     return matchesSearch && matchesStatus
   })
@@ -191,52 +199,64 @@ export default function AdminOrdersPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-neutral-100 font-medium text-neutral-800">
-            {filteredOrders.map((o) => (
-              <tr key={o._id || o.id || o.orderNumber} className="hover:bg-neutral-50/60 transition-colors">
-                <td className="py-3 px-4 font-mono font-bold text-neutral-900">{o.orderNumber}</td>
-                <td className="py-3 px-4">
-                  <div className="font-bold text-neutral-900">{o.customerName}</div>
-                  <div className="text-[10px] text-neutral-500">{o.company || o.customerEmail || 'Client'}</div>
-                </td>
-                <td className="py-3 px-4 max-w-xs">
-                  <div className="font-bold text-neutral-800 truncate">{o.productName}</div>
-                  {o.specs && <div className="text-[10px] text-neutral-500 truncate">{o.specs}</div>}
-                  {o.artworkFile && (
-                    <div className="mt-0.5 inline-flex items-center gap-1 text-[9px] font-bold text-[#A82F19] bg-red-50 px-1.5 py-0.5 rounded">
-                      📎 {o.artworkFile}
-                    </div>
-                  )}
-                </td>
-                <td className="py-3 px-4 font-bold text-neutral-700">{o.quantity}</td>
-                <td className="py-3 px-4 font-black text-neutral-900">AED {o.totalPrice?.toLocaleString()}</td>
-                <td className="py-3 px-4">
-                  <StatusBadge status={o.status} />
-                </td>
-                <td className="py-3 px-4 text-right">
-                  <div className="flex items-center justify-end gap-2">
-                    <select
-                      value={o.status}
-                      onChange={(e) => handleStatusChange(o._id || o.id, e.target.value)}
-                      className="rounded-lg border border-neutral-200 bg-neutral-50 px-2 py-1 text-[10px] font-bold text-neutral-800 focus:border-[#A82F19] focus:outline-none cursor-pointer"
-                    >
-                      <option value="Pending">Pending</option>
-                      <option value="Processing">Processing</option>
-                      <option value="In Production">In Production</option>
-                      <option value="Dispatched">Dispatched</option>
-                      <option value="Delivered">Delivered</option>
-                    </select>
-
-                    <button
-                      onClick={() => navigate(`/admin/orders/${o._id || o.id}/edit`)}
-                      className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
-                      title="Edit Order"
-                    >
-                      <Edit2 className="h-4 w-4" />
-                    </button>
-                  </div>
+            {filteredOrders.length === 0 ? (
+              <tr>
+                <td colSpan="7" className="py-12 text-center text-xs text-neutral-500">
+                  <ShoppingBag className="h-8 w-8 text-neutral-300 mx-auto mb-2" />
+                  <p className="font-bold text-neutral-800">No orders recorded in database yet</p>
+                  <p className="mt-1 text-neutral-400">
+                    When a client submits a quote request or places an order on the website, it will show up here.
+                  </p>
                 </td>
               </tr>
-            ))}
+            ) : (
+              filteredOrders.map((o) => (
+                <tr key={o._id || o.id || o.orderNumber} className="hover:bg-neutral-50/60 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-neutral-900">{o.orderNumber}</td>
+                  <td className="py-3 px-4">
+                    <div className="font-bold text-neutral-900">{o.customerName}</div>
+                    <div className="text-[10px] text-neutral-500">{o.company || o.customerEmail || 'Client'}</div>
+                  </td>
+                  <td className="py-3 px-4 max-w-xs">
+                    <div className="font-bold text-neutral-800 truncate">{o.productName}</div>
+                    {o.specs && <div className="text-[10px] text-neutral-500 truncate">{o.specs}</div>}
+                    {o.artworkFile && (
+                      <div className="mt-0.5 inline-flex items-center gap-1 text-[9px] font-bold text-[#A82F19] bg-red-50 px-1.5 py-0.5 rounded">
+                        📎 {o.artworkFile}
+                      </div>
+                    )}
+                  </td>
+                  <td className="py-3 px-4 font-bold text-neutral-700">{o.quantity}</td>
+                  <td className="py-3 px-4 font-black text-neutral-900">AED {o.totalPrice?.toLocaleString()}</td>
+                  <td className="py-3 px-4">
+                    <StatusBadge status={o.status} />
+                  </td>
+                  <td className="py-3 px-4 text-right">
+                    <div className="flex items-center justify-end gap-2">
+                      <select
+                        value={o.status}
+                        onChange={(e) => handleStatusChange(o._id || o.id, e.target.value)}
+                        className="rounded-lg border border-neutral-200 bg-neutral-50 px-2 py-1 text-[10px] font-bold text-neutral-800 focus:border-[#A82F19] focus:outline-none cursor-pointer"
+                      >
+                        <option value="Pending">Pending</option>
+                        <option value="Processing">Processing</option>
+                        <option value="In Production">In Production</option>
+                        <option value="Dispatched">Dispatched</option>
+                        <option value="Delivered">Delivered</option>
+                      </select>
+
+                      <button
+                        onClick={() => navigate(`/admin/orders/${o._id || o.id}/edit`)}
+                        className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
+                        title="Edit Order"
+                      >
+                        <Edit2 className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

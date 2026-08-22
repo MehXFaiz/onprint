@@ -2,103 +2,40 @@ import api from './api'
 
 const ORDERS_STORAGE_KEY = 'onprint_admin_orders'
 
-export const initialOrders = [
-  {
-    _id: 'ORD-9821',
-    id: 1,
-    orderNumber: 'ONP-2026-9821',
-    customerName: 'Sarah Al-Maktoum',
-    customerEmail: 'client@onprint.ae',
-    company: 'Dubai Luxury Gifts LLC',
-    phone: '+971 50 123 4567',
-    productName: 'Custom Water Bottles Printing in Dubai',
-    quantity: 100,
-    totalPrice: 5500,
-    status: 'In Production',
-    paymentStatus: 'Paid',
-    createdAt: '2026-08-14T10:30:00Z',
-    specs: '500ml Stainless Steel Vacuum Flask, Matt Black with Gold Foil UV Logo',
-    artworkFile: 'water_bottle_artwork_v2.pdf',
-    deliveryAddress: 'Business Bay, Tower B, Level 14, Dubai, UAE',
-  },
-  {
-    _id: 'ORD-9820',
-    id: 2,
-    orderNumber: 'ONP-2026-9820',
-    customerName: 'Ahmed Al-Mansoori',
-    customerEmail: 'ahmed@emiratesholding.ae',
-    company: 'Emirates Holdings',
-    phone: '+971 52 987 6543',
-    productName: 'Executive Business Stationery',
-    quantity: 500,
-    totalPrice: 3200,
-    status: 'Pending',
-    paymentStatus: 'Pending',
-    createdAt: '2026-08-15T09:15:00Z',
-    specs: '350gsm Cotton Card Stock, Soft-touch Laminate with Gold Foil Embossing',
-    artworkFile: 'business_card_vector_cmyk.ai',
-    deliveryAddress: 'DIFC Gate Precinct 4, Dubai, UAE',
-  },
-  {
-    _id: 'ORD-9819',
-    id: 3,
-    orderNumber: 'ONP-2026-9819',
-    customerName: 'Elena Rostova',
-    customerEmail: 'elena@artisanboutique.ae',
-    company: 'Artisan Boutique',
-    phone: '+971 55 444 3322',
-    productName: 'Luxury Packaging & Custom Boxes',
-    quantity: 250,
-    totalPrice: 7800,
-    status: 'Dispatched',
-    paymentStatus: 'Paid',
-    createdAt: '2026-08-12T14:20:00Z',
-    specs: 'Magnetic Closure Rigid Gift Box, Velvet Tray Interior, Debossed Logo',
-    artworkFile: 'box_dieline_final.pdf',
-    deliveryAddress: 'Dubai Design District (d3), Building 7, Dubai, UAE',
-  },
-  {
-    _id: 'ORD-9818',
-    id: 4,
-    orderNumber: 'ONP-2026-9818',
-    customerName: 'Tariq Hassan',
-    customerEmail: 'tariq@gulfevents.ae',
-    company: 'Gulf Events Management',
-    phone: '+971 50 888 1122',
-    productName: 'Roll-up Printing Dubai',
-    quantity: 10,
-    totalPrice: 1800,
-    status: 'Delivered',
-    paymentStatus: 'Paid',
-    createdAt: '2026-08-10T11:00:00Z',
-    specs: '85x200cm Aluminum Luxury Stand, Anti-curl PET Film, High Resolution UV',
-    artworkFile: 'rollup_stand_banner_85x200.pdf',
-    deliveryAddress: 'DWTC Exhibition Center, Hall 4, Dubai, UAE',
-  },
-  {
-    _id: 'ORD-9817',
-    id: 5,
-    orderNumber: 'ONP-2026-9817',
-    customerName: 'Jessica Taylor',
-    customerEmail: 'jessica@apexmedia.com',
-    company: 'Apex Media Agency',
-    phone: '+971 56 777 2211',
-    productName: 'Stickers Printing Dubai',
-    quantity: 2000,
-    totalPrice: 1200,
-    status: 'In Production',
-    paymentStatus: 'Paid',
-    createdAt: '2026-08-13T16:45:00Z',
-    specs: 'Waterproof Vinyl Die-Cut Stickers, Gloss UV Finish, Roll Format',
-    artworkFile: 'stickers_diecut_master.png',
-    deliveryAddress: 'Media City, Building 9, Dubai, UAE',
-  },
-]
+// Clean / empty initial orders list (No fake mock users)
+export const initialOrders = []
+
+// Filter out old legacy dummy mock orders if present in localStorage
+function sanitizeOrders(list) {
+  if (!Array.isArray(list)) return []
+  const DUMMY_NAMES = [
+    'sarah al-maktoum',
+    'ahmed al-mansoori',
+    'elena rostova',
+    'tariq hassan',
+    'jessica taylor',
+  ]
+  const DUMMY_IDS = ['ORD-9821', 'ORD-9820', 'ORD-9819', 'ORD-9818', 'ORD-9817']
+
+  return list.filter((order) => {
+    const name = (order.customerName || '').toLowerCase().trim()
+    const id = order._id || order.id || ''
+    const isDummy = DUMMY_NAMES.includes(name) || DUMMY_IDS.includes(id)
+    return !isDummy
+  })
+}
 
 export function getStoredOrders() {
   try {
     const saved = localStorage.getItem(ORDERS_STORAGE_KEY)
-    if (saved) return JSON.parse(saved)
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      const clean = sanitizeOrders(parsed)
+      if (clean.length !== parsed.length) {
+        saveOrders(clean)
+      }
+      return clean
+    }
   } catch {
     // fallback
   }
@@ -107,10 +44,25 @@ export function getStoredOrders() {
 
 export function saveOrders(orders) {
   try {
-    localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders))
+    const clean = sanitizeOrders(orders)
+    localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(clean))
   } catch {
     // ignore
   }
+}
+
+export async function fetchOrders() {
+  try {
+    const { data } = await api.get('/orders')
+    if (data?.success && Array.isArray(data.data)) {
+      const clean = sanitizeOrders(data.data)
+      saveOrders(clean)
+      return clean
+    }
+  } catch (err) {
+    console.warn('[Orders Service] API fetch fallback to local cache:', err.message)
+  }
+  return getStoredOrders()
 }
 
 export function getOrderById(orderId) {
@@ -118,17 +70,20 @@ export function getOrderById(orderId) {
   return orders.find((o) => o._id === orderId || o.id === orderId || o.orderNumber === orderId) || null
 }
 
-export function updateOrderStatus(orderId, newStatus) {
+export async function updateOrderStatus(orderId, newStatus) {
   const current = getStoredOrders()
   const updated = current.map((order) =>
-    order._id === orderId || order.id === orderId ? { ...order, status: newStatus } : order
+    order._id === orderId || order.id === orderId || order.orderNumber === orderId
+      ? { ...order, status: newStatus }
+      : order
   )
   saveOrders(updated)
 
-  // Asynchronously attempt to update backend API if available
-  api.put(`/orders/${orderId}/status`, { status: newStatus }).catch(() => {
-    // Backend sync error handled gracefully
-  })
+  try {
+    await api.put(`/orders/${orderId}/status`, { status: newStatus })
+  } catch {
+    // Graceful offline fallback
+  }
 
   return updated
 }
@@ -136,7 +91,9 @@ export function updateOrderStatus(orderId, newStatus) {
 export function updateOrder(orderId, updatedFields) {
   const current = getStoredOrders()
   const updated = current.map((order) =>
-    order._id === orderId || order.id === orderId ? { ...order, ...updatedFields } : order
+    order._id === orderId || order.id === orderId || order.orderNumber === orderId
+      ? { ...order, ...updatedFields }
+      : order
   )
   saveOrders(updated)
   return updated
@@ -144,14 +101,14 @@ export function updateOrder(orderId, updatedFields) {
 
 export function deleteOrder(orderId) {
   const current = getStoredOrders()
-  const updated = current.filter((o) => o._id !== orderId && o.id !== orderId)
+  const updated = current.filter((o) => o._id !== orderId && o.id !== orderId && o.orderNumber !== orderId)
   saveOrders(updated)
   return updated
 }
 
-export function createOrder(orderData) {
+export async function createOrder(orderData) {
   const current = getStoredOrders()
-  const randomSeq = Math.floor(1000 + Math.random() * 9000)
+  const randomSeq = Math.floor(100000 + Math.random() * 900000)
   const newOrder = {
     _id: `ORD-${randomSeq}`,
     id: Date.now(),
@@ -160,31 +117,43 @@ export function createOrder(orderData) {
     status: 'Pending',
     paymentStatus: 'Pending',
     currency: 'AED',
-    totalPrice: orderData.totalPrice || 0,
+    totalPrice: Number(orderData.totalPrice || 0),
     ...orderData,
   }
+
   const updated = [newOrder, ...current]
   saveOrders(updated)
 
-  // Asynchronously attempt to sync with backend API
-  api.post('/orders', {
-    customerName: orderData.customerName,
-    customerEmail: orderData.customerEmail,
-    customerPhone: orderData.customerPhone || orderData.phone,
-    company: orderData.company,
-    notes: orderData.notes,
-    totalPrice: orderData.totalPrice || 0,
-    items: [
-      {
-        productName: orderData.productName || 'Custom Print Job',
-        quantity: orderData.quantity || 1,
-        unitPrice: orderData.totalPrice ? Number(orderData.totalPrice) / (Number(orderData.quantity) || 1) : 0,
-        subtotal: orderData.totalPrice || 0,
-      },
-    ],
-  }).catch(() => {
-    // Backend sync error handled gracefully
-  })
+  try {
+    const res = await api.post('/orders', {
+      customerName: orderData.customerName,
+      customerEmail: orderData.customerEmail,
+      customerPhone: orderData.customerPhone || orderData.phone,
+      company: orderData.company,
+      notes: orderData.notes,
+      specs: orderData.specs,
+      artworkFile: orderData.artworkFile,
+      productName: orderData.productName,
+      quantity: orderData.quantity,
+      totalPrice: Number(orderData.totalPrice || 0),
+      items: [
+        {
+          productName: orderData.productName || 'Custom Print Job',
+          quantity: orderData.quantity || 1,
+          unitPrice: orderData.totalPrice ? Number(orderData.totalPrice) / (Number(orderData.quantity) || 1) : 0,
+          subtotal: Number(orderData.totalPrice || 0),
+        },
+      ],
+    })
+
+    if (res.data?.success && res.data?.data?.orderNumber) {
+      newOrder.orderNumber = res.data.data.orderNumber
+      newOrder.id = res.data.data.id || newOrder.id
+      saveOrders([newOrder, ...current])
+    }
+  } catch (err) {
+    console.warn('[Orders Service] API post fallback to local persistence:', err.message)
+  }
 
   return newOrder
 }

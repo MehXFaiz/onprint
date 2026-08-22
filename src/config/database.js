@@ -313,7 +313,8 @@ const seedCategoriesList = [
 async function seedCategoriesIfEmpty(connection) {
   try {
     const [rows] = await connection.query('SELECT COUNT(*) AS count FROM categories')
-    if (rows[0].count === 0) {
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
       console.log('[Categories] Seeding initial high-quality Dubai printing categories in MySQL...')
       for (const cat of seedCategoriesList) {
         await connection.query(
@@ -350,7 +351,8 @@ async function seedCategoriesIfEmpty(connection) {
 async function seedBlogPostsIfEmpty(connection) {
   try {
     const [rows] = await connection.query('SELECT COUNT(*) AS count FROM blog_posts')
-    if (rows[0].count === 0) {
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
       console.log('[Blog] Seeding initial high-quality Dubai SEO blog posts...')
       for (const post of seedBlogArticles) {
         await connection.query(
@@ -635,13 +637,13 @@ async function initDatabase() {
 async function testConnection() {
   try {
     const connection = await pool.getConnection()
-    await connection.query('SELECT 1')
+    await connection.query('SELECT 1 AS connected')
     connection.release()
-    console.log('ONPRINT MySQL connection successful')
+    console.log('MySQL database connected successfully')
     await initDatabase()
     return true
   } catch (err) {
-    console.error('ONPRINT MySQL connection failed:', err.message)
+    console.error('MySQL database connection failed:', err.message)
     return false
   }
 }

@@ -2,19 +2,27 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { FileText, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle } from 'lucide-react'
 import Button from '../../components/Button'
-import { getStoredQuotes, deleteQuote } from '../../services/quotes'
+import { getStoredQuotes, fetchQuotes, deleteQuote } from '../../services/quotes'
 
 export default function AdminQuotesPage() {
   const navigate = useNavigate()
   const location = useLocation()
 
   const [quotes, setQuotes] = useState([])
+  const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [notification, setNotification] = useState(location.state?.toast || null)
   const [deletingQuote, setDeletingQuote] = useState(null)
 
+  const reloadQuotes = async () => {
+    setLoading(true)
+    const list = await fetchQuotes()
+    setQuotes(list)
+    setLoading(false)
+  }
+
   useEffect(() => {
-    setQuotes(getStoredQuotes())
+    reloadQuotes()
   }, [])
 
   useEffect(() => {
@@ -108,44 +116,56 @@ export default function AdminQuotesPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-neutral-100 font-medium text-neutral-800">
-            {filtered.map((q) => (
-              <tr key={q._id || q.id || q.quoteNumber} className="hover:bg-neutral-50/60 transition-colors">
-                <td className="py-3 px-4 font-mono font-bold text-neutral-900">{q.quoteNumber}</td>
-                <td className="py-3 px-4 font-bold text-neutral-900">{q.name}</td>
-                <td className="py-3 px-4 font-mono text-[11px] text-neutral-600">{q.email}</td>
-                <td className="py-3 px-4 text-neutral-700">{q.company || '-'}</td>
-                <td className="py-3 px-4 font-black text-neutral-900">AED {q.totalPrice?.toLocaleString()}</td>
-                <td className="py-3 px-4">
-                  <span
-                    className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase ${
-                      q.status === 'Approved'
-                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                        : 'bg-purple-50 text-purple-700 border border-purple-200'
-                    }`}
-                  >
-                    {q.status}
-                  </span>
-                </td>
-                <td className="py-3 px-4 text-right">
-                  <div className="flex items-center justify-end gap-2">
-                    <button
-                      onClick={() => navigate(`/admin/quotes/${q._id || q.id}/edit`)}
-                      className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
-                      title="Edit Quote"
-                    >
-                      <Edit2 className="h-4 w-4" />
-                    </button>
-                    <button
-                      onClick={() => setDeletingQuote(q)}
-                      className="rounded-lg p-1.5 text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
-                      title="Delete Quote"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </button>
-                  </div>
+            {filtered.length === 0 ? (
+              <tr>
+                <td colSpan="7" className="py-12 text-center text-xs text-neutral-500">
+                  <FileText className="h-8 w-8 text-neutral-300 mx-auto mb-2" />
+                  <p className="font-bold text-neutral-800">No quote requests recorded yet</p>
+                  <p className="mt-1 text-neutral-400">
+                    When a client requests a quote on the website, it will be listed here.
+                  </p>
                 </td>
               </tr>
-            ))}
+            ) : (
+              filtered.map((q) => (
+                <tr key={q._id || q.id || q.quoteNumber} className="hover:bg-neutral-50/60 transition-colors">
+                  <td className="py-3 px-4 font-mono font-bold text-neutral-900">{q.quoteNumber}</td>
+                  <td className="py-3 px-4 font-bold text-neutral-900">{q.name}</td>
+                  <td className="py-3 px-4 font-mono text-[11px] text-neutral-600">{q.email}</td>
+                  <td className="py-3 px-4 text-neutral-700">{q.company || '-'}</td>
+                  <td className="py-3 px-4 font-black text-neutral-900">AED {q.totalPrice?.toLocaleString()}</td>
+                  <td className="py-3 px-4">
+                    <span
+                      className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase ${
+                        q.status === 'Approved'
+                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                          : 'bg-purple-50 text-purple-700 border border-purple-200'
+                      }`}
+                    >
+                      {q.status}
+                    </span>
+                  </td>
+                  <td className="py-3 px-4 text-right">
+                    <div className="flex items-center justify-end gap-2">
+                      <button
+                        onClick={() => navigate(`/admin/quotes/${q._id || q.id}/edit`)}
+                        className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
+                        title="Edit Quote"
+                      >
+                        <Edit2 className="h-4 w-4" />
+                      </button>
+                      <button
+                        onClick={() => setDeletingQuote(q)}
+                        className="rounded-lg p-1.5 text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                        title="Delete Quote"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

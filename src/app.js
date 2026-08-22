@@ -26,9 +26,6 @@ const CLIENT_DIST = path.join(__dirname, '..', 'dist')
 function createApp() {
   const app = express()
 
-  // Test MySQL DB connection on startup
-  testConnection()
-
   const corsOptions = {
     origin: (origin, callback) => {
       if (!origin) return callback(null, true)
@@ -75,11 +72,38 @@ function createApp() {
   app.get('/robots.txt', getRobotsTxt)
   app.get('/sitemap.xml', getSitemapXml)
 
-  // Health endpoint
+  // Database Health Check endpoint
+  app.get('/api/health/db', async (req, res) => {
+    try {
+      const [rows] = await pool.query('SELECT 1 AS connected')
+      if (rows && rows.length > 0) {
+        return res.status(200).json({
+          success: true,
+          database: 'MySQL',
+          connected: true,
+        })
+      }
+      return res.status(500).json({
+        success: false,
+        database: 'MySQL',
+        connected: false,
+        error: 'Database connection failed',
+      })
+    } catch {
+      return res.status(500).json({
+        success: false,
+        database: 'MySQL',
+        connected: false,
+        error: 'Database connection failed',
+      })
+    }
+  })
+
+  // General Health endpoint
   app.get('/api/health', async (req, res) => {
     let databaseConnected = false
     try {
-      const [rows] = await pool.query('SELECT 1')
+      const [rows] = await pool.query('SELECT 1 AS connected')
       databaseConnected = rows.length > 0
     } catch {
       databaseConnected = false
@@ -87,7 +111,7 @@ function createApp() {
 
     res.json({
       success: true,
-      database: 'mysql',
+      database: 'MySQL',
       databaseConnected,
       message: 'ONPRINT GoDaddy MySQL API is running',
     })

@@ -1,5 +1,6 @@
 const { pool } = require('../config/database')
 const { products: fallbackProducts, categories: fallbackCategories, services: fallbackServices } = require('../data/initialData')
+const persistentStore = require('../data/persistentStore')
 
 async function getAdminDashboardMetrics(req, res, next) {
   try {
@@ -23,6 +24,7 @@ async function getAdminDashboardMetrics(req, res, next) {
     let subscriberStats = { total: 0 }
     let recentOrders = []
     let recentQuotes = []
+    let mysqlLoaded = false
 
     try {
       // 1. Products Metrics
@@ -36,18 +38,21 @@ async function getAdminDashboardMetrics(req, res, next) {
 
       // 2. Orders Metrics & Revenue
       const [oRows] = await pool.execute('SELECT status, total_price, created_at FROM orders')
-      oRows.forEach((o) => {
-        orderStats.total += 1
-        const st = (o.status || '').toLowerCase()
-        if (st.includes('pending')) orderStats.pending += 1
-        else if (st.includes('production') || st.includes('press')) orderStats.inProduction += 1
-        else if (st.includes('processing')) orderStats.processing += 1
-        else if (st.includes('dispatch')) orderStats.dispatched += 1
-        else if (st.includes('deliver') || st.includes('complete')) orderStats.delivered += 1
-        else if (st.includes('cancel')) orderStats.cancelled += 1
+      if (oRows.length > 0) {
+        oRows.forEach((o) => {
+          orderStats.total += 1
+          const st = (o.status || '').toLowerCase()
+          if (st.includes('pending')) orderStats.pending += 1
+          else if (st.includes('production') || st.includes('press')) orderStats.inProduction += 1
+          else if (st.includes('processing')) orderStats.processing += 1
+          else if (st.includes('dispatch')) orderStats.dispatched += 1
+          else if (st.includes('deliver') || st.includes('complete')) orderStats.delivered += 1
+          else if (st.includes('cancel')) orderStats.cancelled += 1
 
-        revenue += Number(o.total_price || 0)
-      })
+          revenue += Number(o.total_price || 0)
+        })
+        mysqlLoaded = true
+      }
 
       // 3. Quotes Metrics
       const [qRows] = await pool.execute('SELECT status, COUNT(*) AS count FROM quotes GROUP BY status')
@@ -94,19 +99,49 @@ async function getAdminDashboardMetrics(req, res, next) {
         `SELECT id, order_number AS orderNumber, customer_name AS customerName, company, total_price AS totalPrice, status, created_at AS createdAt 
          FROM orders ORDER BY created_at DESC LIMIT 5`
       )
-      recentOrders = roRows.map((o) => ({ ...o, productName: 'Printing Order', totalPrice: Number(o.totalPrice) }))
+      if (roRows.length > 0) {
+        recentOrders = roRows.map((o) => ({ ...o, productName: 'Printing Order', totalPrice: Number(o.totalPrice) }))
+      }
 
       // 9. Recent Quotes
       const [rqRows] = await pool.execute(
         `SELECT id, quote_number AS quoteNumber, name, email, company, total_price AS totalPrice, status, created_at AS createdAt 
          FROM quotes ORDER BY created_at DESC LIMIT 5`
       )
-      recentQuotes = rqRows.map((q) => ({ ...q, totalPrice: Number(q.totalPrice) }))
+      if (rqRows.length > 0) {
+        recentQuotes = rqRows.map((q) => ({ ...q, totalPrice: Number(q.totalPrice) }))
+      }
     } catch (err) {
-      console.warn('MySQL admin dashboard query fallback:', err.message)
+      console.warn('[Admin Dashboard] MySQL query note:', err.message)
     }
 
-    // Fallbacks for display if database is clean/empty
+    // If MySQL had no orders or was unavailable, read from persistentStore
+    if (!mysqlLoaded || orderStats.total === 0) {
+      const storeOrders = persistentStore.getOrders()
+      orderStats = {
+        total: storeOrders.length,
+        pending: storeOrders.filter((o) => (o.status || '').toLowerCase() === 'pending').length,
+        inProduction: storeOrders.filter((o) => (o.status || '').toLowerCase().includes('production')).length,
+        processing: storeOrders.filter((o) => (o.status || '').toLowerCase().includes('processing')).length,
+        dispatched: storeOrders.filter((o) => (o.status || '').toLowerCase().includes('dispatch')).length,
+        delivered: storeOrders.filter((o) => (o.status || '').toLowerCase().includes('deliver')).length,
+        cancelled: storeOrders.filter((o) => (o.status || '').toLowerCase().includes('cancel')).length,
+      }
+      revenue = storeOrders.reduce((sum, o) => sum + (Number(o.totalPrice) || 0), 0)
+      recentOrders = storeOrders.slice(0, 5)
+    }
+
+    if (quoteStats.total === 0) {
+      const storeQuotes = persistentStore.getQuotes()
+      quoteStats = {
+        total: storeQuotes.length,
+        pending: storeQuotes.filter((q) => (q.status || '').toLowerCase() === 'pending').length,
+        approved: storeQuotes.filter((q) => (q.status || '').toLowerCase().includes('approve')).length,
+        rejected: storeQuotes.filter((q) => (q.status || '').toLowerCase().includes('reject')).length,
+      }
+      recentQuotes = storeQuotes.slice(0, 5)
+    }
+
     if (productStats.total === 0) {
       productStats.total = fallbackProducts.length
       productStats.active = fallbackProducts.length

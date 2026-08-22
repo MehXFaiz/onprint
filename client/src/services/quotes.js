@@ -2,47 +2,32 @@ import api from './api'
 
 const QUOTES_STORAGE_KEY = 'onprint_admin_quotes'
 
-export const initialQuotes = [
-  {
-    _id: 'QT-884120',
-    id: 1,
-    quoteNumber: 'QT-2026-884120',
-    name: 'Khalid Real Estate',
-    email: 'khalid@khalidre.ae',
-    phone: '+971 55 444 3322',
-    company: 'Khalid Real Estate LLC',
-    productName: 'Custom Acrylic Nameplates & Folders',
-    quantity: 150,
-    totalPrice: 3500,
-    status: 'Pending',
-    createdAt: '2026-08-14T09:30:00Z',
-    specs: 'Size: Custom | Material: Clear Acrylic & 350gsm Silk',
-    notes: 'Requested custom acrylic door nameplates and foil embossed presentation folders.',
-    artworkFile: 'door_plates_dieline.pdf',
-  },
-  {
-    _id: 'QT-884119',
-    id: 2,
-    quoteNumber: 'QT-2026-884119',
-    name: 'Apex General Trading',
-    email: 'procurement@apexgt.ae',
-    phone: '+971 50 777 8899',
-    company: 'Apex Trading',
-    productName: 'Luxury Business Cards & Letterheads',
-    quantity: 1000,
-    totalPrice: 5200,
-    status: 'Approved',
-    createdAt: '2026-08-12T11:20:00Z',
-    specs: 'Size: 90x55mm | Material: 350gsm Silk | Finish: Gold Foil',
-    notes: '350gsm silk cards with gold foil stamping and letterheads.',
-    artworkFile: 'business_cards_vector.ai',
-  },
-]
+export const initialQuotes = []
+
+function sanitizeQuotes(list) {
+  if (!Array.isArray(list)) return []
+  const DUMMY_NAMES = ['khalid real estate', 'apex general trading']
+  const DUMMY_IDS = ['QT-884120', 'QT-884119']
+
+  return list.filter((q) => {
+    const name = (q.name || '').toLowerCase().trim()
+    const id = q._id || q.id || ''
+    const isDummy = DUMMY_NAMES.includes(name) || DUMMY_IDS.includes(id)
+    return !isDummy
+  })
+}
 
 export function getStoredQuotes() {
   try {
     const saved = localStorage.getItem(QUOTES_STORAGE_KEY)
-    if (saved) return JSON.parse(saved)
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      const clean = sanitizeQuotes(parsed)
+      if (clean.length !== parsed.length) {
+        saveQuotes(clean)
+      }
+      return clean
+    }
   } catch {
     // fallback
   }
@@ -51,13 +36,28 @@ export function getStoredQuotes() {
 
 export function saveQuotes(quotes) {
   try {
-    localStorage.setItem(QUOTES_STORAGE_KEY, JSON.stringify(quotes))
+    const clean = sanitizeQuotes(quotes)
+    localStorage.setItem(QUOTES_STORAGE_KEY, JSON.stringify(clean))
   } catch {
     // ignore
   }
 }
 
-export function createQuote(quoteData) {
+export async function fetchQuotes() {
+  try {
+    const { data } = await api.get('/quotes')
+    if (data?.success && Array.isArray(data.data)) {
+      const clean = sanitizeQuotes(data.data)
+      saveQuotes(clean)
+      return clean
+    }
+  } catch (err) {
+    console.warn('[Quotes Service] API fetch fallback to local cache:', err.message)
+  }
+  return getStoredQuotes()
+}
+
+export async function createQuote(quoteData) {
   const current = getStoredQuotes()
   const randomSeq = Math.floor(100000 + Math.random() * 900000)
   const newQuote = {
@@ -71,37 +71,44 @@ export function createQuote(quoteData) {
   const updated = [newQuote, ...current]
   saveQuotes(updated)
 
-  // Asynchronously attempt to sync with backend API if available
-  api.post('/quotes', {
-    name: quoteData.name,
-    email: quoteData.email,
-    phone: quoteData.phone,
-    company: quoteData.company,
-    notes: quoteData.notes,
-    totalPrice: quoteData.totalPrice || 0,
-    items: [
-      {
-        productName: quoteData.productName || 'Custom Print Request',
-        quantity: quoteData.quantity || 1,
-        unitPrice: quoteData.totalPrice ? Number(quoteData.totalPrice) / (Number(quoteData.quantity) || 1) : 0,
-        subtotal: quoteData.totalPrice || 0,
-        options: {
-          specs: quoteData.specs,
-          artworkFile: quoteData.artworkFile,
+  try {
+    const res = await api.post('/quotes', {
+      name: quoteData.name,
+      email: quoteData.email,
+      phone: quoteData.phone,
+      company: quoteData.company,
+      notes: quoteData.notes,
+      specs: quoteData.specs,
+      artworkFile: quoteData.artworkFile,
+      productName: quoteData.productName,
+      quantity: quoteData.quantity,
+      totalPrice: quoteData.totalPrice || 0,
+      items: [
+        {
+          productName: quoteData.productName || 'Custom Print Request',
+          quantity: quoteData.quantity || 1,
+          unitPrice: quoteData.totalPrice ? Number(quoteData.totalPrice) / (Number(quoteData.quantity) || 1) : 0,
+          subtotal: quoteData.totalPrice || 0,
         },
-      },
-    ],
-  }).catch(() => {
-    // Backend sync error handled gracefully
-  })
+      ],
+    })
+
+    if (res.data?.success && res.data?.data?.quoteNumber) {
+      newQuote.quoteNumber = res.data.data.quoteNumber
+      newQuote.id = res.data.data.id || newQuote.id
+      saveQuotes([newQuote, ...current])
+    }
+  } catch (err) {
+    console.warn('[Quotes Service] API post fallback to local persistence:', err.message)
+  }
 
   return newQuote
 }
 
-export function updateQuoteStatus(quoteId, newStatus) {
+export async function updateQuoteStatus(quoteId, newStatus) {
   const current = getStoredQuotes()
   const updated = current.map((q) =>
-    q.id === quoteId || q._id === quoteId ? { ...q, status: newStatus } : q
+    q.id === quoteId || q._id === quoteId || q.quoteNumber === quoteId ? { ...q, status: newStatus } : q
   )
   saveQuotes(updated)
   return updated
@@ -110,7 +117,7 @@ export function updateQuoteStatus(quoteId, newStatus) {
 export function updateQuote(quoteId, updatedData) {
   const current = getStoredQuotes()
   const updated = current.map((q) =>
-    q.id === quoteId || q._id === quoteId ? { ...q, ...updatedData } : q
+    q.id === quoteId || q._id === quoteId || q.quoteNumber === quoteId ? { ...q, ...updatedData } : q
   )
   saveQuotes(updated)
   return updated
@@ -118,7 +125,7 @@ export function updateQuote(quoteId, updatedData) {
 
 export function deleteQuote(quoteId) {
   const current = getStoredQuotes()
-  const updated = current.filter((q) => q.id !== quoteId && q._id !== quoteId)
+  const updated = current.filter((q) => q.id !== quoteId && q._id !== quoteId && q.quoteNumber !== quoteId)
   saveQuotes(updated)
   return updated
 }

@@ -136,9 +136,9 @@ function createApp() {
   app.use('/api/blog', blogRoutes)
   app.use('/api/seo', seoRoutes)
 
-  // Single-process deployment for GoDaddy / cPanel Node.js Apps
+  // Single-process deployment for GoDaddy / cPanel / Preview Node.js Apps
   const hasClientBuild = fs.existsSync(path.join(CLIENT_DIST, 'index.html'))
-  if (process.env.NODE_ENV === 'production' && hasClientBuild) {
+  if (hasClientBuild) {
     app.use(express.static(CLIENT_DIST))
     app.get(/^(?!\/api).*/, (req, res) => {
       res.sendFile(path.join(CLIENT_DIST, 'index.html'))

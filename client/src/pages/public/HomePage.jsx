@@ -14,6 +14,7 @@ import ProductCard from '../../components/ProductCard'
 import ProductSectionsShowcase from '../../components/ProductSectionsShowcase'
 import CarefreeShoppingSection from '../../components/CarefreeShoppingSection'
 import ProductDetailModal from '../../components/ProductDetailModal'
+import HeroSection from '../../components/HeroSection'
 import SEOHead from '../../components/SEOHead'
 import { CornerMarks } from '../../components/PrintMarks'
 import { getServices } from '../../services/services'
@@ -123,135 +124,7 @@ export default function HomePage() {
       />
 
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden border-b border-[#000000]/10 bg-[#FFFFFF] py-16 sm:py-24 lg:py-32">
-        <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19] bg-[#FFFFFF] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#A82F19] shadow-xs">
-                <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
-                ONPRINT • Dubai’s Premier Printing &amp; Branding Solutions
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <h1 className="font-display mt-6 text-4xl font-black leading-[1.04] tracking-tight text-[#000000] sm:text-6xl xl:text-7xl">
-                Professional Printing &amp; Branding Solutions in Dubai
-              </h1>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-[#000000]/75 sm:text-lg">
-                ONPRINT transforms brand identities into tangible physical masterpieces. From executive stationery to high-volume luxury packaging, corporate gifts, signage, and precision digital printing across Dubai and the UAE.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.3}>
-              <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
-                <Button
-                  to="/get-a-quote"
-                  variant="accent"
-                  size="lg"
-                  className="shadow-lg shadow-[#A82F19]/25"
-                  onClick={() => trackGetQuoteClick({ source_page: 'homepage_hero' })}
-                >
-                  Request a Custom Quote
-                </Button>
-                <Button to="/products" variant="secondary" size="lg" className="border-[#000000] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19]">
-                  Browse Product Catalog
-                </Button>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.4}>
-              <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-[#000000]/10 pt-6 text-xs font-bold text-[#000000]/80">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#A82F19]" />
-                  <span>Free Design Pre-flight</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#A82F19]" />
-                  <span>Express Same-Day Printing</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#A82F19]" />
-                  <span>Doorstep UAE Delivery</span>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Hero Visual Studio Showcase */}
-          <div className="lg:col-span-5">
-            <Reveal delay={0.2}>
-              <div className="relative mx-auto flex h-[360px] w-full max-w-md items-center justify-center sm:h-[440px]">
-                <CornerMarks className="absolute -left-3 -top-3 h-8 w-8 text-[#000000]/40" />
-                <CornerMarks className="absolute -bottom-3 -right-3 h-8 w-8 rotate-180 text-[#000000]/40" />
-
-                {/* Back card: Luxury Stock Spec */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20, rotate: -6 }}
-                  animate={{ opacity: 1, y: 0, rotate: -6 }}
-                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-2 top-4 flex h-64 w-44 flex-col justify-between rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-5 shadow-xl sm:h-72 sm:w-52"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-1.5">
-                      {['#000000', '#A82F19', '#000000'].map((c, i) => (
-                        <span key={i} className="h-2 w-2 rounded-full" style={{ backgroundColor: c }} />
-                      ))}
-                    </div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#000000]/60">350 GSM STOCK</span>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-2 w-3/4 rounded bg-[#000000]/15" />
-                    <div className="h-2 w-1/2 rounded bg-[#000000]/15" />
-                    <div className="h-2 w-5/6 rounded bg-[#A82F19]/25" />
-                  </div>
-                  <div className="rounded-xl border border-[#A82F19] bg-[#FFFFFF] p-2.5 text-center text-xs font-black text-[#A82F19]">
-                    RED FOIL EMBOSS
-                  </div>
-                </motion.div>
-
-                {/* Front card: ONPRINT Signature Black Card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20, rotate: 5 }}
-                  animate={{ opacity: 1, y: 0, rotate: 5 }}
-                  transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute right-0 top-20 flex h-48 w-68 flex-col justify-between rounded-2xl border border-[#000000] bg-[#000000] p-6 shadow-2xl sm:right-2 sm:top-24 sm:w-72"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-display text-base font-black tracking-tight text-[#FFFFFF]">
-                      ON<span className="text-[#A82F19]">PRINT</span>
-                    </span>
-                    <span className="rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[10px] font-extrabold text-[#FFFFFF]">PRESS</span>
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-[#FFFFFF]/70">EXECUTIVE BRANDING &amp; PRESS</p>
-                    <p className="mt-1 text-sm font-bold text-[#FFFFFF]">Precision Printing Dubai</p>
-                  </div>
-                  <div className="flex items-center justify-between border-t border-[#FFFFFF]/20 pt-3 text-[10px] font-bold text-[#FFFFFF]/70">
-                    <span>SPEC: ULTRA HD</span>
-                    <span className="text-[#A82F19] font-black">PASSED QC</span>
-                  </div>
-                </motion.div>
-
-                {/* Decorative Accent Swatch */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.7, delay: 0.3 }}
-                  className="absolute bottom-4 left-10 flex h-28 w-28 items-center justify-center rounded-2xl border border-[#A82F19] bg-[#FFFFFF] p-4 shadow-lg sm:left-16"
-                >
-                  <div className="text-center">
-                    <span className="font-display text-2xl font-black text-[#A82F19]">1200 DPI</span>
-                    <p className="mt-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#000000]">Offset Press</p>
-                  </div>
-                </motion.div>
-              </div>
-            </Reveal>
-          </div>
-        </Container>
-      </section>
+      <HeroSection />
 
       {/* 2. Trust Badges Banner */}
       <section className="border-b border-[#000000]/10 bg-[#FFFFFF] py-8">

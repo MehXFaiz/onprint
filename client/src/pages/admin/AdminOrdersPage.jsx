@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { ShoppingBag, Search, Filter, Edit2, Plus, CheckCircle2, Clock, Truck, AlertCircle, X } from 'lucide-react'
+import { ShoppingBag, Search, Filter, Plus, CheckCircle2, Clock, Truck, AlertCircle, X } from 'lucide-react'
 import Button from '../../components/Button'
 import { getStoredOrders, fetchOrders, updateOrderStatus } from '../../services/orders'
 
@@ -232,7 +232,7 @@ export default function AdminOrdersPage() {
                     <StatusBadge status={o.status} />
                   </td>
                   <td className="py-3 px-4 text-right">
-                    <div className="flex items-center justify-end gap-2">
+                    <div className="flex items-center justify-end">
                       <select
                         value={o.status}
                         onChange={(e) => handleStatusChange(o._id || o.id, e.target.value)}
@@ -244,14 +244,6 @@ export default function AdminOrdersPage() {
                         <option value="Dispatched">Dispatched</option>
                         <option value="Delivered">Delivered</option>
                       </select>
-
-                      <button
-                        onClick={() => navigate(`/admin/orders/${o._id || o.id}/edit`)}
-                        className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
-                        title="Edit Order"
-                      >
-                        <Edit2 className="h-4 w-4" />
-                      </button>
                     </div>
                   </td>
                 </tr>

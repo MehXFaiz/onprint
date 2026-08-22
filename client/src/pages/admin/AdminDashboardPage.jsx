@@ -376,51 +376,6 @@ export default function AdminDashboardPage() {
         </Link>
       </div>
 
-      {/* Quick Action Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 shadow-xs flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
-              <Package className="h-4 w-4" />
-              <span>Catalog Upload</span>
-            </div>
-            <h3 className="font-display text-xl font-bold text-neutral-900 mt-1">
-              Add New Product to Shop
-            </h3>
-            <p className="mt-2 text-xs leading-relaxed text-neutral-600">
-              Upload product photos, set minimum unit order quantities, specify finish options (foil debossing, spot UV, laminates), and define prices.
-            </p>
-          </div>
-          <div className="mt-6 pt-4 border-t border-neutral-100">
-            <Button to="/admin/products" variant="accent" icon={false} className="w-full justify-center">
-              Go to Product Uploader
-            </Button>
-          </div>
-        </div>
-
-        <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 shadow-xs flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600">
-              <ShoppingBag className="h-4 w-4" />
-              <span>Production Pipeline</span>
-            </div>
-            <h3 className="font-display text-xl font-bold text-neutral-900 mt-1">
-              Manage Client Orders & Status
-            </h3>
-            <p className="mt-2 text-xs leading-relaxed text-neutral-600">
-              Update print statuses from Pending to In Production or Dispatched. Review client vector artwork files and custom print specifications.
-            </p>
-          </div>
-          <div className="mt-6 pt-4 border-t border-neutral-100">
-            <Link
-              to="/admin/orders"
-              className="inline-flex w-full items-center justify-center rounded-xl bg-neutral-900 px-4 py-2.5 text-xs font-bold text-white hover:bg-[#A82F19] transition-colors"
-            >
-              Open Order Manager
-            </Link>
-          </div>
-        </div>
-      </div>
 
       {/* Recent Activity Widgets */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

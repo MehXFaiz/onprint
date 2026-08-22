@@ -44,7 +44,7 @@ export default function AdminOrderFormPage() {
     }
   }, [id, isEdit])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!form.customerName.trim() || !form.productName.trim()) {
       setError('Customer Name and Product Name are required.')
@@ -55,37 +55,40 @@ export default function AdminOrderFormPage() {
     const qty = parseInt(form.quantity, 10) || 1
     const total = parseFloat(form.totalPrice) || 0
 
-    if (isEdit) {
-      updateOrder(id, {
-        customerName: form.customerName.trim(),
-        customerEmail: form.customerEmail.trim(),
-        phone: form.customerPhone.trim(),
-        company: form.company.trim(),
-        productName: form.productName.trim(),
-        quantity: qty,
-        totalPrice: total,
-        status: form.status,
-        notes: form.notes.trim(),
-      })
-    } else {
-      createOrder({
-        customerName: form.customerName.trim(),
-        customerEmail: form.customerEmail.trim(),
-        phone: form.customerPhone.trim(),
-        company: form.company.trim(),
-        productName: form.productName.trim(),
-        quantity: qty,
-        totalPrice: total,
-        status: form.status,
-        notes: form.notes.trim(),
-      })
-    }
+    try {
+      if (isEdit) {
+        updateOrder(id, {
+          customerName: form.customerName.trim(),
+          customerEmail: form.customerEmail.trim(),
+          phone: form.customerPhone.trim(),
+          company: form.company.trim(),
+          productName: form.productName.trim(),
+          quantity: qty,
+          totalPrice: total,
+          status: form.status,
+          notes: form.notes.trim(),
+        })
+      } else {
+        await createOrder({
+          customerName: form.customerName.trim(),
+          customerEmail: form.customerEmail.trim(),
+          phone: form.customerPhone.trim(),
+          company: form.company.trim(),
+          productName: form.productName.trim(),
+          quantity: qty,
+          totalPrice: total,
+          status: form.status,
+          notes: form.notes.trim(),
+        })
+      }
 
-    setTimeout(() => {
       navigate('/admin/orders', {
         state: { toast: `Order ${form.orderNumber} ${isEdit ? 'updated' : 'created'} successfully.` },
       })
-    }, 200)
+    } catch (err) {
+      setError(err.message || 'Failed to save order.')
+      setSubmitting(false)
+    }
   }
 
   return (

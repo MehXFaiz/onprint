@@ -86,6 +86,7 @@ export default function GetQuotePage() {
   const [prefillNote, setPrefillNote] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [submittedOrder, setSubmittedOrder] = useState(null)
+  const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
     getCategories().then(setCategories).catch(() => setCategories([]))
@@ -171,7 +172,10 @@ export default function GetQuotePage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
+    if (submitting) return
+    setSubmitting(true)
+
     const specsArray = []
     if (form.size) specsArray.push(`Size: ${form.size}`)
     if (form.material) specsArray.push(`Material: ${form.material}`)
@@ -186,50 +190,62 @@ export default function GetQuotePage() {
 
     const artworkNames = artworkFiles.length > 0 ? artworkFiles.map((f) => f.name).join(', ') : null
 
-    // 1. Create active Order entry so it appears in Admin & Customer Dashboard Orders
-    const newOrder = createOrder({
-      customerName: form.name.trim(),
-      customerEmail: form.email.trim(),
-      phone: form.phone.trim() || null,
-      company: form.company.trim() || null,
-      productName: form.product.trim() || 'Custom Print Job',
-      quantity: qty,
-      totalPrice,
-      status: 'Pending',
-      paymentStatus: 'Pending',
-      specs,
-      notes: form.notes.trim() || null,
-      artworkFile: artworkNames,
-      deliveryAddress: 'UAE Delivery',
-    })
+    try {
+      // 1. Create active Order entry so it appears in Admin & Customer Dashboard Orders
+      const newOrder = await createOrder({
+        customerName: form.name.trim(),
+        customerEmail: form.email.trim(),
+        phone: form.phone.trim() || null,
+        company: form.company.trim() || null,
+        productName: form.product.trim() || 'Custom Print Job',
+        quantity: qty,
+        totalPrice,
+        status: 'Pending',
+        paymentStatus: 'Pending',
+        specs,
+        notes: form.notes.trim() || null,
+        artworkFile: artworkNames,
+        deliveryAddress: 'UAE Delivery',
+      })
 
-    // 2. Create Quote entry so it appears in Quotes Manager
-    createQuote({
-      name: form.name.trim(),
-      email: form.email.trim(),
-      phone: form.phone.trim() || null,
-      company: form.company.trim() || null,
-      productName: form.product.trim() || 'Custom Print Job',
-      quantity: qty,
-      totalPrice,
-      status: 'Pending',
-      specs,
-      notes: form.notes.trim() || null,
-      artworkFile: artworkNames,
-    })
+      // 2. Create Quote entry so it appears in Quotes Manager
+      await createQuote({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim() || null,
+        company: form.company.trim() || null,
+        productName: form.product.trim() || 'Custom Print Job',
+        quantity: qty,
+        totalPrice,
+        status: 'Pending',
+        specs,
+        notes: form.notes.trim() || null,
+        artworkFile: artworkNames,
+      })
 
-    trackQuoteRequest({
-      source_page: 'get_quote_wizard',
-      product_name: form.product || undefined,
-      category_name: form.product || undefined,
-    })
+      trackQuoteRequest({
+        source_page: 'get_quote_wizard',
+        product_name: form.product || undefined,
+        category_name: form.product || undefined,
+      })
 
-    setSubmittedOrder(newOrder)
-    setSubmitted(true)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+      setSubmittedOrder(newOrder)
+      setSubmitted(true)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } catch (err) {
+      console.error('Failed to submit quote request:', err)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (submitted) {
+    const orderNum =
+      submittedOrder?.orderNumber || submittedOrder?._id || `ONP-2026-${submittedOrder?.id || 'SUBMITTED'}`
+    const prodName = submittedOrder?.productName || form.product || 'Custom Print Job'
+    const orderQty = submittedOrder?.quantity ?? form.quantity ?? 1
+    const orderStatus = submittedOrder?.status || 'Pending'
+
     return (
       <Container className="flex min-h-[50vh] flex-col items-center justify-center py-24 text-center">
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent-soft text-accent">
@@ -242,28 +258,26 @@ export default function GetQuotePage() {
           Thank you, {form.name.split(' ')[0]} — we have logged your request for <strong className="text-primary">{form.product || 'your project'}</strong> and will send formal pricing to <span className="text-primary font-bold">{form.email}</span> shortly.
         </p>
 
-        {submittedOrder && (
-          <div className="mt-6 w-full max-w-md rounded-2xl border border-border bg-surface p-5 text-left text-xs space-y-2 shadow-xs">
-            <div className="flex items-center justify-between border-b border-border/80 pb-2">
-              <span className="font-bold uppercase tracking-wider text-secondary">Order Reference</span>
-              <span className="font-mono font-bold text-accent">{submittedOrder.orderNumber}</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-secondary">Product:</span>
-              <span className="font-bold text-primary">{submittedOrder.productName}</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-secondary">Quantity:</span>
-              <span className="font-bold text-primary">{submittedOrder.quantity} units</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-secondary">Status:</span>
-              <span className="rounded-full bg-amber-50 border border-amber-200 px-2 py-0.5 font-bold text-amber-700">
-                {submittedOrder.status}
-              </span>
-            </div>
+        <div className="mt-6 w-full max-w-md rounded-2xl border border-border bg-surface p-5 text-left text-xs space-y-2 shadow-xs">
+          <div className="flex items-center justify-between border-b border-border/80 pb-2">
+            <span className="font-bold uppercase tracking-wider text-secondary">Order Reference</span>
+            <span className="font-mono font-bold text-accent">{orderNum}</span>
           </div>
-        )}
+          <div className="flex items-center justify-between">
+            <span className="text-secondary">Product:</span>
+            <span className="font-bold text-primary">{prodName}</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-secondary">Quantity:</span>
+            <span className="font-bold text-primary">{orderQty} units</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-secondary">Status:</span>
+            <span className="rounded-full bg-amber-50 border border-amber-200 px-2 py-0.5 font-bold text-amber-700">
+              {orderStatus}
+            </span>
+          </div>
+        </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
           <Button to="/" variant="outline" icon={false}>
@@ -570,8 +584,8 @@ export default function GetQuotePage() {
               <ChevronRight className="h-4 w-4" />
             </Button>
           ) : (
-            <Button onClick={handleSubmit} variant="accent" size="lg" icon={false}>
-              Confirm &amp; Submit Request
+            <Button onClick={handleSubmit} variant="accent" size="lg" icon={false} disabled={submitting}>
+              {submitting ? 'Submitting Request...' : 'Confirm & Submit Request'}
             </Button>
           )}
         </div>

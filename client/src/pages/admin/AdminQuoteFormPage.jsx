@@ -41,7 +41,7 @@ export default function AdminQuoteFormPage() {
     }
   }, [id, isEdit])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!form.name.trim() || !form.email.trim()) {
       setError('Contact Name and Email address are required.')
@@ -51,33 +51,36 @@ export default function AdminQuoteFormPage() {
     setSubmitting(true)
     const total = parseFloat(form.totalPrice) || 0
 
-    if (isEdit) {
-      updateQuote(id, {
-        name: form.name.trim(),
-        email: form.email.trim(),
-        phone: form.phone.trim(),
-        company: form.company.trim(),
-        totalPrice: total,
-        status: form.status,
-        notes: form.notes.trim(),
-      })
-    } else {
-      createQuote({
-        name: form.name.trim(),
-        email: form.email.trim(),
-        phone: form.phone.trim(),
-        company: form.company.trim(),
-        totalPrice: total,
-        status: form.status,
-        notes: form.notes.trim(),
-      })
-    }
+    try {
+      if (isEdit) {
+        updateQuote(id, {
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          company: form.company.trim(),
+          totalPrice: total,
+          status: form.status,
+          notes: form.notes.trim(),
+        })
+      } else {
+        await createQuote({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          company: form.company.trim(),
+          totalPrice: total,
+          status: form.status,
+          notes: form.notes.trim(),
+        })
+      }
 
-    setTimeout(() => {
       navigate('/admin/quotes', {
         state: { toast: `Quote request ${form.quoteNumber} ${isEdit ? 'updated' : 'created'} successfully.` },
       })
-    }, 200)
+    } catch (err) {
+      setError(err.message || 'Failed to save quote.')
+      setSubmitting(false)
+    }
   }
 
   return (

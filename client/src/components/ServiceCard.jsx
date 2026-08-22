@@ -32,9 +32,7 @@ export default function ServiceCard({ service, className = '' }) {
   return (
     <Link
       to={`/services/${service.slug}`}
-      role="listitem"
       aria-label={service.name}
-      tabIndex={0}
       className={`group/card relative block h-56 sm:h-64 w-full cursor-pointer overflow-hidden rounded-2xl border border-black/10 bg-neutral-900 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#A82F19] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A82F19] ${className}`}
     >
       {/* Background Image with smooth subtle zoom */}

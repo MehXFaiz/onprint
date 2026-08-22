@@ -537,8 +537,8 @@ export default function HomePage() {
       {/* 11. Primary Dark Call to Action */}
       <section className="border-t border-[#000000] bg-[#000000] py-20 text-[#FFFFFF] sm:py-28">
         <Container className="flex flex-col items-center gap-8 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19] bg-[#000000] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#A82F19]">
-            <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#FF7A59]/40 bg-white/5 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#FF7A59]">
+            <Sparkles className="h-3.5 w-3.5 text-[#FF7A59]" />
             Ready to Bring Your Brand to Life?
           </div>
           

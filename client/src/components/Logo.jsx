@@ -38,6 +38,8 @@ export default function Logo({
         src={imgSrc}
         alt="ONPRINT"
         loading="eager"
+        width={isIcon ? 36 : 180}
+        height={36}
         className={`w-auto ${selectedHeight} object-contain shrink-0`}
       />
     </div>

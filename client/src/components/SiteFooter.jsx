@@ -17,13 +17,13 @@ const navLinks = [
 ]
 
 const serviceLinks = [
-  { to: '/services/brochures-printing', label: 'Brochures Printing' },
-  { to: '/services/business-cards-printing', label: 'Business Cards Printing' },
+  { to: '/services/brochures-printing', label: 'Brochures Printing Service' },
+  { to: '/services/business-cards-printing', label: 'Business Cards Printing Service' },
   { to: '/services/flyers-printing-in-dubai', label: 'Flyers Printing Dubai' },
-  { to: '/services/id-card-printing-dubai', label: 'ID Card Printing' },
-  { to: '/services/lanyard-printing-dubai', label: 'Lanyard Printing' },
-  { to: '/services/letterheads-printing-dubai', label: 'Letterheads Printing' },
-  { to: '/services/name-badges-printing-dubai', label: 'Name Badges Printing' },
+  { to: '/services/id-card-printing-dubai', label: 'ID Card Printing Service' },
+  { to: '/services/lanyard-printing-dubai', label: 'Lanyard Printing Service' },
+  { to: '/services/letterheads-printing-dubai', label: 'Letterheads Printing Service' },
+  { to: '/services/name-badges-printing-dubai', label: 'Name Badges Printing Service' },
 ]
 
 export default function SiteFooter() {
@@ -45,11 +45,11 @@ export default function SiteFooter() {
 
         {/* Col 2: Navigation */}
         <nav aria-label="Footer navigation">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A82F19]">Navigation</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#FF7A59]">Navigation</p>
           <ul className="mt-4 space-y-2.5 text-sm font-semibold">
             {navLinks.map((link) => (
               <li key={link.to}>
-                <Link to={link.to} className="transition-colors hover:text-[#A82F19] hover:underline underline-offset-4">
+                <Link to={link.to} className="transition-colors hover:text-[#FF7A59] hover:underline underline-offset-4">
                   {link.label}
                 </Link>
               </li>
@@ -59,11 +59,11 @@ export default function SiteFooter() {
 
         {/* Col 3: Services */}
         <nav aria-label="Footer services">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A82F19]">Services &amp; Categories</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#FF7A59]">Services &amp; Categories</p>
           <ul className="mt-4 space-y-2.5 text-sm font-semibold">
             {serviceLinks.map((link) => (
               <li key={link.to}>
-                <Link to={link.to} className="transition-colors hover:text-[#A82F19] hover:underline underline-offset-4">
+                <Link to={link.to} className="transition-colors hover:text-[#FF7A59] hover:underline underline-offset-4">
                   {link.label}
                 </Link>
               </li>
@@ -73,26 +73,26 @@ export default function SiteFooter() {
 
         {/* Col 4: Contact */}
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A82F19]">Dubai Headquarters</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#FF7A59]">Dubai Headquarters</p>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-center gap-2.5">
-              <Phone className="h-4 w-4 text-[#A82F19] shrink-0" />
-              <a href="tel:+9714800PRINT" className="transition-colors hover:text-[#A82F19]">
+              <Phone className="h-4 w-4 text-[#FF7A59] shrink-0" />
+              <a href="tel:+9714800PRINT" className="transition-colors hover:text-[#FF7A59]">
                 +971 4 800 PRINT
               </a>
             </li>
             <li className="flex items-center gap-2.5">
-              <Mail className="h-4 w-4 text-[#A82F19] shrink-0" />
-              <a href="mailto:info@onprint.ae" className="transition-colors hover:text-[#A82F19]">
+              <Mail className="h-4 w-4 text-[#FF7A59] shrink-0" />
+              <a href="mailto:info@onprint.ae" className="transition-colors hover:text-[#FF7A59]">
                 info@onprint.ae
               </a>
             </li>
             <li className="flex items-start gap-2.5">
-              <MapPin className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+              <MapPin className="h-4 w-4 text-[#FF7A59] shrink-0 mt-0.5" />
               <span className="text-[#FFFFFF]/80">Al Quoz Industrial Area 3, Dubai, UAE</span>
             </li>
             <li className="flex items-center gap-2.5 text-xs text-[#FFFFFF]/60 pt-1">
-              <Clock className="h-3.5 w-3.5 text-[#A82F19] shrink-0" />
+              <Clock className="h-3.5 w-3.5 text-[#FF7A59] shrink-0" />
               <span>Mon–Sat: 8:30 AM – 6:30 PM</span>
             </li>
           </ul>
@@ -112,7 +112,7 @@ export default function SiteFooter() {
             </Link>
             <Link
               to="/get-a-quote"
-              className="text-[#A82F19] hover:underline font-bold"
+              className="text-[#FF7A59] hover:underline font-bold"
               onClick={() => trackGetQuoteClick({ source_page: 'footer' })}
             >
               Request Quote

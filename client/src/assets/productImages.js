@@ -41,6 +41,17 @@ export const productImages = {
 
 export const productSlugImageMap = {
   // Service mappings
+  'brochures-printing': '/uploads/categories/brochures-printing.jpg',
+  'brochures-printing-dubai': '/uploads/categories/brochures-printing.jpg',
+  'business-cards-printing': '/uploads/categories/business-cards-printing.jpg',
+  'business-cards-printing-dubai': '/uploads/categories/business-cards-printing.jpg',
+  'flyers-printing-in-dubai': '/uploads/categories/flyers-printing-in-dubai.jpg',
+  'flyers-printing-dubai': '/uploads/categories/flyers-printing-in-dubai.jpg',
+  'id-card-printing-dubai': '/uploads/categories/id-card-printing-dubai.jpg',
+  'lanyard-printing-dubai': '/uploads/categories/lanyard-printing-dubai.jpg',
+  'letterheads-printing-dubai': '/uploads/categories/letterheads-printing-dubai.jpg',
+  'letterhead-printing-dubai': '/uploads/categories/letterheads-printing-dubai.jpg',
+  'name-badges-printing-dubai': '/uploads/categories/name-badges-printing-dubai.jpg',
   'digital-offset-printing': img1,
   'luxury-packaging-custom-boxes': img5,
   'brochures-catalogs-printing': brochuresImg,
@@ -57,12 +68,6 @@ export const productSlugImageMap = {
   'mugs-printing-dubai': mugsImg,
   'water-bottles-printing-dubai': bottlesImg,
   'custom-water-bottles-printing-in-dubai': bottlesImg,
-  'flyers-printing-in-dubai': flyersImg,
-  'flyers-printing-dubai': flyersImg,
-  'brochures-printing': brochuresImg,
-  'brochures-printing-dubai': brochuresImg,
-  'name-badges-printing-dubai': badgesImg,
-  'id-card-printing-dubai': idCardsImg,
   'roll-up-printing-in-dubai': rollupImg,
   'roll-up-printing-dubai': rollupImg,
   'flags-printing-in-dubai': flagsImg,
@@ -76,26 +81,19 @@ export const productSlugImageMap = {
   'cap-printing-dubai': img4,
   'notebook-printing': img5,
   'pens-printing': img6,
-  'business-cards-printing': img7,
-  'letterhead-printing-dubai': img8,
 }
 
 export function getProductImage(product) {
   if (!product) return toteBagsImg
+  const rawImg = product.image_url || product.image || (product.images && product.images[0])
+  if (typeof rawImg === 'string' && rawImg.trim() !== '') {
+    return rawImg
+  }
   if (product.imageKey && productImages[product.imageKey]) {
     return productImages[product.imageKey]
   }
   if (product.slug && productSlugImageMap[product.slug]) {
     return productSlugImageMap[product.slug]
   }
-  if (product.image && typeof product.image === 'string' && (product.image.startsWith('http') || product.image.startsWith('data:') || product.image.startsWith('/'))) {
-    // If it's a direct valid relative or URL image
-    if (product.image.startsWith('http') || product.image.startsWith('data:')) {
-      return product.image
-    }
-  }
-  if (product.images?.[0]) {
-    return product.images[0]
-  }
-  return product.image || toteBagsImg
+  return toteBagsImg
 }

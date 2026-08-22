@@ -4,12 +4,13 @@ import { Wrench, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle } f
 import Button from '../../components/Button'
 
 const MOCK_SERVICES = [
-  { id: 1, name: 'Digital & Offset Printing', slug: 'digital-offset-printing', description: 'High-precision digital and high-volume offset printing with Pantone color matching.', status: 'active', displayOrder: 1 },
-  { id: 2, name: 'Luxury Packaging & Custom Boxes', slug: 'luxury-packaging-custom-boxes', description: 'Custom rigid boxes, magnetic gift boxes, folding cartons, and specialty sleeves.', status: 'active', displayOrder: 2 },
-  { id: 3, name: 'Brochures & Catalogs Printing', slug: 'brochures-catalogs-printing', description: 'Multi-page booklets, saddle-stitched catalogs, bi-fold brochures, and presentation folders.', status: 'active', displayOrder: 3 },
-  { id: 4, name: 'Large Format & Exhibition Signage', slug: 'large-format-exhibition-signage', description: 'Roll-up banner stands, pop-up backdrops, outdoor teardrop flags, acrylic nameplates.', status: 'active', displayOrder: 4 },
-  { id: 5, name: 'Custom Labels & Die-Cut Stickers', slug: 'custom-labels-die-cut-stickers', description: 'Waterproof vinyl stickers, product packaging labels, gold foil seals.', status: 'active', displayOrder: 5 },
-  { id: 6, name: 'Executive Business Stationery', slug: 'executive-business-stationery', description: 'Premium business cards, cotton letterheads, custom envelopes, and presentation folders.', status: 'active', displayOrder: 6 },
+  { id: 1, name: 'Brochures Printing', slug: 'brochures-printing', description: 'Premium bi-fold, tri-fold, and multi-page marketing brochures on luxury coated art paper.', status: 'active', displayOrder: 1 },
+  { id: 2, name: 'Business Cards Printing', slug: 'business-cards-printing', description: 'Executive 350gsm–600gsm cotton & silk business cards with soft-touch velvet lamination and gold foil.', status: 'active', displayOrder: 2 },
+  { id: 3, name: 'Flyers Printing In Dubai', slug: 'flyers-printing-in-dubai', description: 'High-impact marketing flyers printed on 170gsm–300gsm gloss or matte art paper with vibrant CMYK.', status: 'active', displayOrder: 3 },
+  { id: 4, name: 'ID Card Printing Dubai', slug: 'id-card-printing-dubai', description: 'Secure CR80 standard PVC employee identity cards with high-definition thermal printing and smart chips.', status: 'active', displayOrder: 4 },
+  { id: 5, name: 'Lanyard Printing Dubai', slug: 'lanyard-printing-dubai', description: 'Custom branded satin and woven polyester neck lanyards with safety breakaway clips and metal hooks.', status: 'active', displayOrder: 5 },
+  { id: 6, name: 'Letterheads Printing Dubai', slug: 'letterheads-printing-dubai', description: 'Executive 120gsm smooth uncoated white letterheads with laser printer compatibility.', status: 'active', displayOrder: 6 },
+  { id: 7, name: 'Name Badges Printing Dubai', slug: 'name-badges-printing-dubai', description: 'Laser-cut brushed metal & acrylic staff name badges with strong magnetic backings and epoxy dome finish.', status: 'active', displayOrder: 7 },
 ]
 
 export default function AdminServicesPage() {

@@ -17,13 +17,13 @@ const navLinks = [
 ]
 
 const serviceLinks = [
-  { to: '/products?category=corporate-gift-items', label: 'Corporate Gift Items Dubai' },
-  { to: '/products?category=office-stationery-printing', label: 'Office Stationery Printing' },
-  { to: '/products?category=other-products', label: 'Other Products & Signage' },
-  { to: '/services/digital-offset-printing', label: 'Digital Press & Offset' },
-  { to: '/services/luxury-packaging-custom-boxes', label: 'Packaging & Custom Boxes' },
-  { to: '/services/custom-labels-die-cut-stickers', label: 'Labels & Vinyl Stickers' },
-  { to: '/services/large-format-exhibition-signage', label: 'Banners & Rollups' },
+  { to: '/services/brochures-printing', label: 'Brochures Printing' },
+  { to: '/services/business-cards-printing', label: 'Business Cards Printing' },
+  { to: '/services/flyers-printing-in-dubai', label: 'Flyers Printing Dubai' },
+  { to: '/services/id-card-printing-dubai', label: 'ID Card Printing' },
+  { to: '/services/lanyard-printing-dubai', label: 'Lanyard Printing' },
+  { to: '/services/letterheads-printing-dubai', label: 'Letterheads Printing' },
+  { to: '/services/name-badges-printing-dubai', label: 'Name Badges Printing' },
 ]
 
 export default function SiteFooter() {

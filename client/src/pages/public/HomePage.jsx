@@ -99,7 +99,7 @@ export default function HomePage() {
     trackViewHomepage()
 
     getServices()
-      .then((data) => setServices(data.slice(0, 6)))
+      .then((data) => setServices(data || []))
       .catch(() => setServices([]))
 
     getCategories({ status: 'active', sort: 'display_order_asc' })
@@ -302,9 +302,11 @@ export default function HomePage() {
           <div className="mt-12">
             {services === null && <LoadingState label="Loading print services…" />}
             {services && services.length > 0 && (
-              <div role="list" className="group grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {services.map((service) => (
-                  <ServiceCard key={service._id} service={service} />
+              <div role="list" className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {services.map((service, idx) => (
+                  <Reveal key={service._id || service.slug} delay={idx * 0.05}>
+                    <ServiceCard service={service} />
+                  </Reveal>
                 ))}
               </div>
             )}

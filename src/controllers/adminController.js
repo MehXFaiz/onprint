@@ -25,6 +25,8 @@ async function getAdminDashboardMetrics(req, res, next) {
     let subscriberStats = { total: 0 }
     let recentOrders = []
     let recentQuotes = []
+    let recentMessages = []
+    let blogStats = { total: 0, published: 0, drafts: 0, scheduled: 0, featured: 0 }
     let mysqlLoaded = false
 
     try {
@@ -112,13 +114,41 @@ async function getAdminDashboardMetrics(req, res, next) {
       if (rqRows.length > 0) {
         recentQuotes = rqRows.map((q) => ({ ...q, totalPrice: Number(q.totalPrice) }))
       }
-      // 10. Categories Metrics
+
+      // 10. Recent Messages
+      const [rmRows] = await pool.execute(
+        `SELECT id, name, email, phone, subject, message, status, created_at AS createdAt 
+         FROM contact_messages ORDER BY created_at DESC LIMIT 5`
+      )
+      if (rmRows.length > 0) {
+        recentMessages = rmRows
+      }
+
+      // 11. Categories Metrics
       const [cRows] = await pool.execute('SELECT active, COUNT(*) AS count FROM categories GROUP BY active')
       cRows.forEach((r) => {
         const cnt = Number(r.count)
         categoryStats.total += cnt
         if (r.active) categoryStats.active += cnt
       })
+
+      // 12. Blog Metrics
+      const [bRows] = await pool.execute(`
+        SELECT 
+          COUNT(*) AS total,
+          SUM(CASE WHEN status = 'published' THEN 1 ELSE 0 END) AS published,
+          SUM(CASE WHEN status = 'draft' THEN 1 ELSE 0 END) AS drafts
+        FROM blogs
+      `)
+      if (bRows.length > 0) {
+        blogStats = {
+          total: Number(bRows[0].total) || 0,
+          published: Number(bRows[0].published) || 0,
+          drafts: Number(bRows[0].drafts) || 0,
+          scheduled: 0,
+          featured: 0,
+        }
+      }
     } catch (err) {
       console.warn('[Admin Dashboard] MySQL query note:', err.message)
     }
@@ -150,14 +180,24 @@ async function getAdminDashboardMetrics(req, res, next) {
       recentQuotes = storeQuotes.slice(0, 5)
     }
 
-    let recentMessages = []
-    if (messageStats.total === 0) {
+    if (recentMessages.length === 0) {
       const storeMessages = persistentStore.getMessages()
       messageStats = {
         total: storeMessages.length,
         unread: storeMessages.filter((m) => (m.status || '').toLowerCase() === 'unread').length,
       }
       recentMessages = storeMessages.slice(0, 5)
+    }
+
+    if (blogStats.total === 0) {
+      const storeBlogs = persistentStore.getBlogs()
+      blogStats = {
+        total: storeBlogs.length,
+        published: storeBlogs.filter((b) => b.status === 'published').length,
+        drafts: storeBlogs.filter((b) => b.status === 'draft').length,
+        scheduled: 0,
+        featured: storeBlogs.filter((b) => b.is_featured).length,
+      }
     }
 
     if (serviceStats.total === 0) {
@@ -185,6 +225,7 @@ async function getAdminDashboardMetrics(req, res, next) {
         recentOrders,
         recentQuotes,
         recentMessages,
+        blogs: blogStats,
       },
     })
   } catch (err) {

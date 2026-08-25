@@ -16,6 +16,7 @@ import {
   Wrench,
   Calendar,
   FolderTree,
+  BookOpen,
 } from 'lucide-react'
 import Button from '../../components/Button'
 import { getAdminDashboard } from '../../services/admin'
@@ -198,9 +199,10 @@ export default function AdminDashboardPage() {
   const users = data?.users || { total: 1, customers: 0, admins: 1 }
   const services = data?.services || { total: 7, active: 7 }
   const subscribers = data?.newsletterSubscribers || { total: 0 }
-  const recentOrders = data?.recentOrders || []
-  const recentQuotes = data?.recentQuotes || []
-  const recentMessages = data?.recentMessages || []
+  const blogs = data?.blogs || { total: 0, published: 0 }
+  const recentOrders = Array.isArray(data?.recentOrders) ? data.recentOrders : []
+  const recentQuotes = Array.isArray(data?.recentQuotes) ? data.recentQuotes : []
+  const recentMessages = Array.isArray(data?.recentMessages) ? data.recentMessages : []
 
   return (
     <div className="space-y-8">
@@ -349,7 +351,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Secondary Metric Summary Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         <Link
           to="/admin/messages"
           className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-amber-500 transition-colors"
@@ -395,7 +397,19 @@ export default function AdminDashboardPage() {
             <span>Categories</span>
           </div>
           <div className="mt-2 text-2xl font-black text-neutral-900">{data?.categories?.total || 7}</div>
-          <div className="mt-0.5 text-[11px] font-bold text-[#A82F19]">Manage Store Categories</div>
+          <div className="mt-0.5 text-[11px] font-bold text-[#A82F19]">Store Categories</div>
+        </Link>
+
+        <Link
+          to="/admin/blog"
+          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-[#A82F19] transition-colors col-span-2 sm:col-span-1"
+        >
+          <div className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wider">
+            <BookOpen className="h-3.5 w-3.5 text-[#A82F19]" />
+            <span>Blog Articles</span>
+          </div>
+          <div className="mt-2 text-2xl font-black text-neutral-900">{blogs.total}</div>
+          <div className="mt-0.5 text-[11px] font-bold text-emerald-600">{blogs.published} Published</div>
         </Link>
       </div>
 

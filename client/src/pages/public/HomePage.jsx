@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown } from 'lucide-react'
+import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown, Clock, ArrowRight } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import ArrowLink from '../../components/ArrowLink'
@@ -19,6 +19,7 @@ import { CornerMarks } from '../../components/PrintMarks'
 import { getServices } from '../../services/services'
 import { getProducts } from '../../services/products'
 import { getCategories } from '../../services/categories'
+import { getPublicBlogs } from '../../services/blog'
 import { trackViewHomepage, trackGetQuoteClick } from '../../utils/analytics'
 
 const trustBadges = [
@@ -93,6 +94,7 @@ export default function HomePage() {
   const [services, setServices] = useState(null)
   const [categories, setCategories] = useState(null)
   const [products, setProducts] = useState(null)
+  const [blogs, setBlogs] = useState([])
   const [quickViewProduct, setQuickViewProduct] = useState(null)
 
   useEffect(() => {
@@ -109,6 +111,10 @@ export default function HomePage() {
     getProducts({ featured: true })
       .then((res) => setProducts(res.data.slice(0, 4)))
       .catch(() => setProducts([]))
+
+    getPublicBlogs({ limit: 3, sort: 'newest' })
+      .then((res) => setBlogs(res?.data || []))
+      .catch(() => setBlogs([]))
   }, [])
 
   return (
@@ -493,6 +499,75 @@ export default function HomePage() {
           </Reveal>
         </Container>
       </section>
+
+      {/* Dynamic Printing & Branding Knowledge Section */}
+      {blogs && blogs.length > 0 && (
+        <section className="border-t border-[#000000]/10 bg-[#FFFFFF] py-20 sm:py-28">
+          <Container>
+            <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+              <div>
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">
+                  PRINTING KNOWLEDGE &amp; GUIDES
+                </span>
+                <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#000000] sm:text-4xl">
+                  Commercial Printing &amp; Branding Insights
+                </h2>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#000000]/70 sm:text-base">
+                  Expert advice on substrate selection, hot foiling, Pantone CMYK matching, and pre-press standards in Dubai.
+                </p>
+              </div>
+              <ArrowLink to="/blog" className="shrink-0 text-[#A82F19]">
+                View All Guides
+              </ArrowLink>
+            </div>
+
+            <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {blogs.slice(0, 3).map((blog, idx) => (
+                <Reveal key={blog.id || blog.slug} delay={idx * 0.08}>
+                  <article className="flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19] hover:shadow-lg">
+                    <div>
+                      <div className="aspect-[16/10] overflow-hidden rounded-xl bg-neutral-100">
+                        <img
+                          src={blog.featured_image || blog.featuredImage}
+                          alt={blog.image_alt || blog.imageAlt || blog.title}
+                          className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+
+                      <div className="mt-5 flex items-center gap-3 text-[11px] font-bold text-neutral-500">
+                        <span className="rounded-full bg-[#A82F19]/10 px-2.5 py-0.5 text-[#A82F19] uppercase tracking-wider">
+                          {blog.category || 'Printing Guide'}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          {blog.reading_time || blog.readTime || '4 min read'}
+                        </span>
+                      </div>
+
+                      <h3 className="font-display mt-3 text-lg font-bold text-[#000000] transition-colors hover:text-[#A82F19]">
+                        <Button to={`/blog/${blog.slug}`} variant="ghost" className="!p-0 !h-auto text-left font-display font-bold text-lg hover:text-[#A82F19]">
+                          {blog.title}
+                        </Button>
+                      </h3>
+
+                      <p className="mt-2 text-xs leading-relaxed text-[#000000]/70 line-clamp-3">
+                        {blog.excerpt}
+                      </p>
+                    </div>
+
+                    <div className="mt-6 border-t border-[#000000]/10 pt-4">
+                      <ArrowLink to={`/blog/${blog.slug}`} className="text-xs font-bold text-[#A82F19]">
+                        Read Full Guide
+                      </ArrowLink>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* 10. Frequently Asked Questions (SEO Keyword Content Section) */}
       <section className="border-t border-[#000000]/10 bg-[#FFFFFF] py-20 sm:py-28">

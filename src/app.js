@@ -145,6 +145,7 @@ function createApp() {
   app.use('/api/admin', adminRoutes)
   app.use('/api/upload', uploadRoutes)
   app.use('/api/blog', blogRoutes)
+  app.use('/api/blogs', blogRoutes)
   app.use('/api/seo', seoRoutes)
 
   // Single-process deployment for GoDaddy / cPanel / Node.js Apps

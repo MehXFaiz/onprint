@@ -288,7 +288,7 @@ export default function SEOHead({
         image: blogImage.startsWith('http') ? blogImage : `${SITE_URL}${blogImage.startsWith('/') ? blogImage : `/${blogImage}`}`,
         author: {
           '@type': 'Organization',
-          name: blogArticle.author || 'ONPRINT Studio',
+          name: blogArticle.author_name || blogArticle.author || 'ONPRINT Editorial Team',
           url: SITE_URL,
         },
         publisher: {

@@ -93,25 +93,37 @@ CREATE TABLE IF NOT EXISTS services (
   CONSTRAINT fk_services_category FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS blog_posts (
+CREATE TABLE IF NOT EXISTS blogs (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
   slug VARCHAR(255) NOT NULL UNIQUE,
   excerpt TEXT DEFAULT NULL,
   content LONGTEXT NOT NULL,
-  category VARCHAR(100) DEFAULT 'Printing & Branding',
   featured_image VARCHAR(500) DEFAULT NULL,
   image_alt VARCHAR(255) DEFAULT NULL,
-  author VARCHAR(100) DEFAULT 'ONPRINT Studio',
-  read_time VARCHAR(50) DEFAULT '5 min read',
+  category_id INT DEFAULT NULL,
+  product_id INT DEFAULT NULL,
+  author_id INT DEFAULT NULL,
+  author_name VARCHAR(100) DEFAULT 'ONPRINT Editorial Team',
+  status ENUM('draft', 'published', 'scheduled') DEFAULT 'draft',
+  is_featured TINYINT(1) DEFAULT 0,
   seo_title VARCHAR(255) DEFAULT NULL,
-  seo_description TEXT DEFAULT NULL,
-  seo_keywords VARCHAR(500) DEFAULT NULL,
+  meta_description TEXT DEFAULT NULL,
+  focus_keyword VARCHAR(255) DEFAULT NULL,
+  secondary_keywords TEXT DEFAULT NULL,
   canonical_url VARCHAR(500) DEFAULT NULL,
+  og_title VARCHAR(255) DEFAULT NULL,
+  og_description TEXT DEFAULT NULL,
+  og_image VARCHAR(500) DEFAULT NULL,
+  schema_type VARCHAR(50) DEFAULT 'BlogPosting',
+  reading_time INT DEFAULT 3,
+  target_location VARCHAR(100) DEFAULT NULL,
   published_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  active TINYINT(1) DEFAULT 1,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_blogs_category FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL,
+  CONSTRAINT fk_blogs_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL,
+  CONSTRAINT fk_blogs_author FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS contact_messages (

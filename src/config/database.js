@@ -319,29 +319,79 @@ async function initDatabase() {
     await addColumnIfMissing(connection, 'services', 'canonical_url', 'VARCHAR(500) DEFAULT NULL')
     await addColumnIfMissing(connection, 'services', 'image_alt', 'VARCHAR(255) DEFAULT NULL')
 
-    // 6. Blog Posts Table
+    // 6. Dynamic Blogs Table
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS blog_posts (
+      CREATE TABLE IF NOT EXISTS blogs (
         id INT AUTO_INCREMENT PRIMARY KEY,
         title VARCHAR(255) NOT NULL,
         slug VARCHAR(255) NOT NULL UNIQUE,
         excerpt TEXT DEFAULT NULL,
         content LONGTEXT NOT NULL,
-        category VARCHAR(100) DEFAULT 'Printing & Branding',
         featured_image VARCHAR(500) DEFAULT NULL,
         image_alt VARCHAR(255) DEFAULT NULL,
-        author VARCHAR(100) DEFAULT 'ONPRINT Studio',
-        read_time VARCHAR(50) DEFAULT '5 min read',
+        category_id INT DEFAULT NULL,
+        product_id INT DEFAULT NULL,
+        author_id INT DEFAULT NULL,
+        author_name VARCHAR(100) DEFAULT 'ONPRINT Editorial Team',
+        status ENUM('draft', 'published', 'scheduled') DEFAULT 'draft',
+        is_featured TINYINT(1) DEFAULT 0,
         seo_title VARCHAR(255) DEFAULT NULL,
-        seo_description TEXT DEFAULT NULL,
-        seo_keywords VARCHAR(500) DEFAULT NULL,
+        meta_description TEXT DEFAULT NULL,
+        focus_keyword VARCHAR(255) DEFAULT NULL,
+        secondary_keywords TEXT DEFAULT NULL,
         canonical_url VARCHAR(500) DEFAULT NULL,
+        og_title VARCHAR(255) DEFAULT NULL,
+        og_description TEXT DEFAULT NULL,
+        og_image VARCHAR(500) DEFAULT NULL,
+        schema_type VARCHAR(50) DEFAULT 'BlogPosting',
+        reading_time INT DEFAULT 3,
+        target_location VARCHAR(100) DEFAULT NULL,
         published_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        active TINYINT(1) DEFAULT 1,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        CONSTRAINT fk_blogs_category FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL,
+        CONSTRAINT fk_blogs_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL,
+        CONSTRAINT fk_blogs_author FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE SET NULL
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
+
+    // Ensure all columns exist on blogs table in case it was created earlier
+    await addColumnIfMissing(connection, 'blogs', 'category_id', 'INT DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'product_id', 'INT DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'author_id', 'INT DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'author_name', 'VARCHAR(100) DEFAULT "ONPRINT Editorial Team"')
+    await addColumnIfMissing(connection, 'blogs', 'status', 'VARCHAR(50) DEFAULT "draft"')
+    await addColumnIfMissing(connection, 'blogs', 'is_featured', 'TINYINT(1) DEFAULT 0')
+    await addColumnIfMissing(connection, 'blogs', 'seo_title', 'VARCHAR(255) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'meta_description', 'TEXT DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'focus_keyword', 'VARCHAR(255) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'secondary_keywords', 'TEXT DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'canonical_url', 'VARCHAR(500) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'og_title', 'VARCHAR(255) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'og_description', 'TEXT DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'og_image', 'VARCHAR(500) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'schema_type', 'VARCHAR(50) DEFAULT "BlogPosting"')
+    await addColumnIfMissing(connection, 'blogs', 'reading_time', 'INT DEFAULT 3')
+    await addColumnIfMissing(connection, 'blogs', 'target_location', 'VARCHAR(100) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'blogs', 'image_alt', 'VARCHAR(255) DEFAULT NULL')
+
+    // Maintain legacy blog_posts view or migrate if previous blog_posts table exists
+    try {
+      const [tableCheck] = await connection.query(`SHOW TABLES LIKE 'blog_posts'`)
+      if (tableCheck.length > 0) {
+        // Copy any existing blog_posts into blogs if empty
+        const [blogCount] = await connection.query(`SELECT COUNT(*) AS cnt FROM blogs`)
+        if (blogCount[0].cnt === 0) {
+          await connection.query(`
+            INSERT IGNORE INTO blogs (title, slug, excerpt, content, featured_image, image_alt, author_name, status, seo_title, meta_description, canonical_url, published_at, created_at)
+            SELECT title, slug, excerpt, content, featured_image, image_alt, author, IF(active = 1, 'published', 'draft'), seo_title, seo_description, canonical_url, published_at, created_at
+            FROM blog_posts
+          `)
+        }
+      }
+    } catch (e) {
+      // Ignore migration note
+    }
 
     // 7. Contact Messages Table
     await connection.query(`

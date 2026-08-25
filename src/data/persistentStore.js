@@ -12,7 +12,7 @@ function loadStore() {
   } catch (err) {
     console.warn('[PersistentStore] Read error, resetting:', err.message)
   }
-  return { orders: [], quotes: [], messages: [] }
+  return { orders: [], quotes: [], messages: [], blogs: [] }
 }
 
 function saveStore(data) {
@@ -380,6 +380,102 @@ function deleteMessage(id) {
   return true
 }
 
+function getBlogs() {
+  const store = loadStore()
+  return Array.isArray(store.blogs) ? store.blogs : []
+}
+
+function getBlog(id) {
+  const store = loadStore()
+  const blogs = Array.isArray(store.blogs) ? store.blogs : []
+  const clean = String(id).trim().toLowerCase()
+  return blogs.find((b) => String(b.id).toLowerCase() === clean || String(b._id || '').toLowerCase() === clean) || null
+}
+
+function getBlogBySlug(slug) {
+  const store = loadStore()
+  const blogs = Array.isArray(store.blogs) ? store.blogs : []
+  const clean = String(slug).trim().toLowerCase()
+  return blogs.find((b) => String(b.slug).toLowerCase() === clean || String(b.id).toLowerCase() === clean || String(b._id || '').toLowerCase() === clean) || null
+}
+
+function addBlog(blogData) {
+  const store = loadStore()
+  if (!Array.isArray(store.blogs)) store.blogs = []
+  const id = store.blogs.length > 0 ? Math.max(...store.blogs.map((b) => Number(b.id) || 0)) + 1 : 1
+  const newBlog = {
+    id,
+    _id: `blog-${id}`,
+    title: blogData.title || 'Untitled Article',
+    slug: blogData.slug || `article-${id}`,
+    excerpt: blogData.excerpt || '',
+    content: blogData.content || '',
+    featured_image: blogData.featured_image || blogData.featuredImage || '/assets/products/1 (1).jpg',
+    image_alt: blogData.image_alt || blogData.imageAlt || blogData.title || '',
+    category_id: blogData.category_id ? Number(blogData.category_id) : null,
+    product_id: blogData.product_id ? Number(blogData.product_id) : null,
+    author_id: blogData.author_id ? Number(blogData.author_id) : null,
+    author_name: blogData.author_name || blogData.author || 'ONPRINT Editorial Team',
+    status: blogData.status || 'draft',
+    is_featured: blogData.is_featured ? 1 : 0,
+    seo_title: blogData.seo_title || blogData.seoTitle || `${blogData.title} | ONPRINT Dubai`,
+    meta_description: blogData.meta_description || blogData.seoDescription || blogData.excerpt || '',
+    focus_keyword: blogData.focus_keyword || blogData.seoKeywords || '',
+    secondary_keywords: blogData.secondary_keywords || '',
+    canonical_url: blogData.canonical_url || `https://0nprint.com/blog/${blogData.slug || id}`,
+    og_title: blogData.og_title || blogData.seo_title || blogData.title,
+    og_description: blogData.og_description || blogData.meta_description || blogData.excerpt || '',
+    og_image: blogData.og_image || blogData.featured_image || '/assets/products/1 (1).jpg',
+    schema_type: blogData.schema_type || 'BlogPosting',
+    reading_time: Number(blogData.reading_time) || 3,
+    target_location: blogData.target_location || null,
+    published_at: blogData.published_at || new Date().toISOString(),
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  }
+  store.blogs.unshift(newBlog)
+  saveStore(store)
+  return newBlog
+}
+
+function updateBlog(id, blogData) {
+  const store = loadStore()
+  if (!Array.isArray(store.blogs)) return null
+  const clean = String(id).trim().toLowerCase()
+  const idx = store.blogs.findIndex((b) => String(b.id).toLowerCase() === clean || String(b._id || '').toLowerCase() === clean)
+  if (idx === -1) return null
+
+  store.blogs[idx] = {
+    ...store.blogs[idx],
+    ...blogData,
+    id: store.blogs[idx].id,
+    _id: store.blogs[idx]._id,
+    updated_at: new Date().toISOString(),
+  }
+  saveStore(store)
+  return store.blogs[idx]
+}
+
+function deleteBlog(id) {
+  const store = loadStore()
+  if (!Array.isArray(store.blogs)) return true
+  const clean = String(id).trim().toLowerCase()
+  store.blogs = store.blogs.filter((b) => String(b.id).toLowerCase() !== clean && String(b._id || '').toLowerCase() !== clean)
+  saveStore(store)
+  return true
+}
+
+function deleteBlogs(ids) {
+  const store = loadStore()
+  if (!Array.isArray(store.blogs) || !Array.isArray(ids)) return true
+  const idSet = new Set(ids.map((id) => String(id).toLowerCase().trim()))
+  store.blogs = store.blogs.filter(
+    (b) => !idSet.has(String(b.id).toLowerCase()) && !idSet.has(String(b._id || '').toLowerCase())
+  )
+  saveStore(store)
+  return true
+}
+
 module.exports = {
   getOrders,
   addOrder,
@@ -399,4 +495,11 @@ module.exports = {
   addMessage,
   updateMessageStatus,
   deleteMessage,
+  getBlogs,
+  getBlog,
+  getBlogBySlug,
+  addBlog,
+  updateBlog,
+  deleteBlog,
+  deleteBlogs,
 }

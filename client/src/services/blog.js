@@ -1,119 +1,115 @@
 import api from './api'
 
-export const defaultBlogPosts = []
-
-const BLOG_STORAGE_KEY = 'onprint_admin_blog_posts'
-
-export function getStoredBlogPosts() {
-  try {
-    const saved = localStorage.getItem(BLOG_STORAGE_KEY)
-    if (saved) {
-      const parsed = JSON.parse(saved)
-      if (Array.isArray(parsed)) {
-        const clean = parsed.filter((p) => {
-          const id = String(p._id || p.id || '')
-          return !['blog-1', 'blog-2', 'blog-3', 'blog-4', '1', '2', '3', '4'].includes(id)
-        })
-        return clean
-      }
-    }
-  } catch {
-    // ignore
-  }
-  return defaultBlogPosts
+/**
+ * Fetch public published blog posts with pagination, search, and category/product filters
+ */
+export async function getPublicBlogs(params = {}) {
+  const { data } = await api.get('/blogs', { params })
+  return data
 }
 
-export function saveStoredBlogPosts(posts) {
-  try {
-    localStorage.setItem(BLOG_STORAGE_KEY, JSON.stringify(posts))
-  } catch {
-    // ignore
-  }
+/**
+ * Fetch a single blog post by slug (includes related blogs, related product, and category)
+ */
+export async function getPublicBlogBySlug(slug) {
+  const { data } = await api.get(`/blogs/${slug}`)
+  return data?.data
 }
 
-export async function getBlogPosts(params = {}) {
-  try {
-    const { data } = await api.get('/blog', { params })
-    if (data?.data && data.data.length > 0) return data.data
-  } catch {
-    // fallback
-  }
-
-  let list = getStoredBlogPosts()
-  if (params.category && params.category !== 'All') {
-    list = list.filter((p) => p.category.toLowerCase() === params.category.toLowerCase())
-  }
-  if (params.search || params.q) {
-    const term = (params.search || params.q).toLowerCase()
-    list = list.filter((p) => p.title.toLowerCase().includes(term) || p.excerpt.toLowerCase().includes(term))
-  }
-  return list
+/**
+ * Fetch all blogs for Admin dashboard with statistics and filters
+ */
+export async function getAdminBlogs(params = {}) {
+  const { data } = await api.get('/blogs/admin', { params })
+  return data
 }
 
-export async function getBlogPostBySlug(slug) {
-  try {
-    const { data } = await api.get(`/blog/${slug}`)
-    if (data?.data) return data.data
-  } catch {
-    // fallback
-  }
-
-  const all = getStoredBlogPosts()
-  const found = all.find((p) => p.slug === slug || String(p.id) === slug || p._id === slug)
-  if (found) {
-    const related = all.filter((p) => p.slug !== found.slug).slice(0, 3)
-    return { ...found, related }
-  }
-  throw new Error('Blog article not found')
+/**
+ * Fetch blog dashboard KPI statistics
+ */
+export async function getBlogStats() {
+  const { data } = await api.get('/blogs/stats')
+  return data?.data
 }
 
-export async function createBlogPost(payload) {
-  try {
-    const { data } = await api.post('/blog', payload)
-    return data
-  } catch (err) {
-    if (err.message === 'Network Error' || !err.response) {
-      const all = getStoredBlogPosts()
-      const newPost = {
-        _id: `blog-${Date.now()}`,
-        id: Date.now(),
-        ...payload,
-        publishedAt: new Date().toISOString(),
-        active: true,
-      }
-      saveStoredBlogPosts([newPost, ...all])
-      return { success: true, data: newPost }
-    }
-    throw err
-  }
+/**
+ * Create a new blog post (Admin)
+ */
+export async function createBlog(payload) {
+  const { data } = await api.post('/blogs', payload)
+  return data
 }
 
-export async function updateBlogPost(id, payload) {
-  try {
-    const { data } = await api.put(`/blog/${id}`, payload)
-    return data
-  } catch (err) {
-    if (err.message === 'Network Error' || !err.response) {
-      const all = getStoredBlogPosts()
-      const updated = all.map((p) => (String(p.id) === String(id) || p._id === id ? { ...p, ...payload } : p))
-      saveStoredBlogPosts(updated)
-      return { success: true, message: 'Article updated' }
-    }
-    throw err
-  }
+/**
+ * Update an existing blog post (Admin)
+ */
+export async function updateBlog(id, payload) {
+  const { data } = await api.put(`/blogs/${id}`, payload)
+  return data
 }
 
-export async function deleteBlogPost(id) {
-  try {
-    const { data } = await api.delete(`/blog/${id}`)
-    return data
-  } catch (err) {
-    if (err.message === 'Network Error' || !err.response) {
-      const all = getStoredBlogPosts()
-      const updated = all.filter((p) => String(p.id) !== String(id) && p._id !== id)
-      saveStoredBlogPosts(updated)
-      return { success: true, message: 'Article deleted' }
-    }
-    throw err
-  }
+/**
+ * Delete a single blog post (Admin)
+ */
+export async function deleteBlog(id) {
+  const { data } = await api.delete(`/blogs/${id}`)
+  return data
 }
+
+/**
+ * Bulk delete blog posts (Admin)
+ */
+export async function bulkDeleteBlogs(blogIds) {
+  const { data } = await api.post('/blogs/bulk-delete', { blogIds })
+  return data
+}
+
+/**
+ * Publish blog (Admin)
+ */
+export async function publishBlog(id) {
+  const { data } = await api.patch(`/blogs/${id}/publish`)
+  return data
+}
+
+/**
+ * Unpublish blog / Save as Draft (Admin)
+ */
+export async function unpublishBlog(id) {
+  const { data } = await api.patch(`/blogs/${id}/unpublish`)
+  return data
+}
+
+/**
+ * Toggle featured state (Admin)
+ */
+export async function toggleFeaturedBlog(id) {
+  const { data } = await api.patch(`/blogs/${id}/featured`)
+  return data
+}
+
+/**
+ * AI Content and SEO Generator (Admin)
+ */
+export async function generateBlogContent(payload) {
+  const { data } = await api.post('/blogs/generate-content', payload)
+  return data?.data
+}
+
+/**
+ * AI Image Generator & Matcher (Admin)
+ */
+export async function generateBlogImage(payload) {
+  const { data } = await api.post('/blogs/generate-image', payload)
+  return data?.data
+}
+
+// Backwards-compatible aliases
+export const getBlogPosts = async (params = {}) => {
+  const res = await getPublicBlogs(params)
+  return res?.data || []
+}
+export const getBlogPostBySlug = getPublicBlogBySlug
+export const createBlogPost = createBlog
+export const updateBlogPost = updateBlog
+export const deleteBlogPost = deleteBlog

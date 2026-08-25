@@ -1,4 +1,4 @@
-const { pool, seedBlogArticles } = require('../config/database')
+const { pool } = require('../config/database')
 const { products: fallbackProducts, services: fallbackServices, categories: fallbackCategories } = require('../data/initialData')
 
 const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
@@ -209,9 +209,13 @@ async function getSitemapXml(req, res) {
       })
     }
 
-    // 5. Dynamic Blog Posts
+    // 5. Dynamic Blog Posts (Only published blogs)
     try {
-      const [blogs] = await pool.execute('SELECT slug, updated_at, published_at FROM blog_posts WHERE active = 1')
+      const [blogs] = await pool.execute(`
+        SELECT slug, updated_at, published_at 
+        FROM blogs 
+        WHERE status = 'published' AND (published_at IS NULL OR published_at <= NOW())
+      `)
       if (blogs.length > 0) {
         blogs.forEach((b) => {
           urls.push({
@@ -221,31 +225,25 @@ async function getSitemapXml(req, res) {
               : b.published_at
               ? new Date(b.published_at).toISOString().split('T')[0]
               : now,
-            changefreq: 'monthly',
-            priority: '0.75',
-          })
-        })
-      } else if (seedBlogArticles) {
-        seedBlogArticles.forEach((b) => {
-          urls.push({
-            loc: `${SITE_URL}/blog/${b.slug}`,
-            lastmod: now,
-            changefreq: 'monthly',
-            priority: '0.75',
+            changefreq: 'weekly',
+            priority: '0.8',
           })
         })
       }
     } catch {
-      if (seedBlogArticles) {
-        seedBlogArticles.forEach((b) => {
-          urls.push({
-            loc: `${SITE_URL}/blog/${b.slug}`,
-            lastmod: now,
-            changefreq: 'monthly',
-            priority: '0.75',
+      try {
+        const persistentBlogs = require('../data/persistentStore').getBlogs()
+        persistentBlogs
+          .filter((b) => b.status === 'published')
+          .forEach((b) => {
+            urls.push({
+              loc: `${SITE_URL}/blog/${b.slug}`,
+              lastmod: now,
+              changefreq: 'weekly',
+              priority: '0.8',
+            })
           })
-        })
-      }
+      } catch (e) {}
     }
 
     // Format XML
@@ -337,10 +335,14 @@ async function runSeoAudit(req, res) {
     // Check Blog Posts
     let blogs = []
     try {
-      const [rows] = await pool.execute('SELECT id, title, slug, seo_title, seo_description, image_alt FROM blog_posts')
+      const [rows] = await pool.execute('SELECT id, title, slug, seo_title, meta_description AS seo_description, image_alt FROM blogs')
       blogs = rows
     } catch {
-      blogs = seedBlogArticles || []
+      try {
+        blogs = require('../data/persistentStore').getBlogs()
+      } catch (e) {
+        blogs = []
+      }
     }
 
     blogs.forEach((b) => {

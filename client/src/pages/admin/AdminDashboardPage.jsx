@@ -200,6 +200,7 @@ export default function AdminDashboardPage() {
   const subscribers = data?.newsletterSubscribers || { total: 0 }
   const recentOrders = data?.recentOrders || []
   const recentQuotes = data?.recentQuotes || []
+  const recentMessages = data?.recentMessages || []
 
   return (
     <div className="space-y-8">

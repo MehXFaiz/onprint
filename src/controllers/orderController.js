@@ -308,10 +308,45 @@ async function deleteOrder(req, res, next) {
   }
 }
 
+async function bulkDeleteOrders(req, res, next) {
+  let connection = null
+  try {
+    const ids = req.body.ids || req.body.orderIds || []
+    if (!Array.isArray(ids) || ids.length === 0) {
+      throw new ApiError(400, 'Order IDs array is required for bulk deletion')
+    }
+
+    persistentStore.deleteOrders(ids)
+
+    try {
+      connection = await pool.getConnection()
+      const placeholders = ids.map(() => '?').join(',')
+      await connection.execute(`DELETE FROM order_items WHERE order_id IN (${placeholders})`, ids)
+      await connection.execute(
+        `DELETE FROM orders WHERE id IN (${placeholders}) OR order_number IN (${placeholders})`,
+        [...ids, ...ids]
+      )
+    } catch {
+      // offline/store fallback
+    }
+
+    res.json({
+      success: true,
+      message: `${ids.length} orders deleted successfully`,
+      count: ids.length,
+    })
+  } catch (err) {
+    next(err)
+  } finally {
+    if (connection) connection.release()
+  }
+}
+
 module.exports = {
   createOrder,
   listOrders,
   getOrderById,
   updateOrderStatus,
   deleteOrder,
+  bulkDeleteOrders,
 }

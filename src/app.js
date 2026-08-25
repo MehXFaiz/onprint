@@ -20,7 +20,7 @@ const adminRoutes = require('./routes/adminRoutes')
 const uploadRoutes = require('./routes/uploadRoutes')
 const blogRoutes = require('./routes/blogRoutes')
 const seoRoutes = require('./routes/seoRoutes')
-const { getRobotsTxt, getSitemapXml } = require('./controllers/seoController')
+const { getRobotsTxt, getSitemapXml, getLlmsTxt } = require('./controllers/seoController')
 
 const CLIENT_DIST = path.join(__dirname, '..', 'dist')
 
@@ -72,6 +72,7 @@ function createApp() {
 
   // Direct SEO endpoints on root
   app.get('/robots.txt', getRobotsTxt)
+  app.get('/llms.txt', getLlmsTxt)
   app.get('/sitemap.xml', getSitemapXml)
 
   // Database Health Check endpoint
@@ -155,13 +156,13 @@ function createApp() {
         maxAge: '1h',
         setHeaders: (res, filePath) => {
           if (filePath.endsWith('.html')) {
-            res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
+            res.setHeader('Cache-Control', 'no-cache, must-revalidate')
           }
         },
       })
     )
     app.get(/^(?!\/api).*/, (req, res) => {
-      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
+      res.setHeader('Cache-Control', 'no-cache, must-revalidate')
       res.sendFile(path.join(CLIENT_DIST, 'index.html'))
     })
   }

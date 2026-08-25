@@ -283,7 +283,48 @@ function updateQuote(id, updatedData) {
 
 function deleteOrder(id) {
   const store = loadStore()
-  store.orders = store.orders.filter((o) => String(o.id) !== String(id) && o.orderNumber !== id && o._id !== id)
+  const clean = String(id).trim().toLowerCase()
+  store.orders = (store.orders || []).filter(
+    (o) => String(o.id).toLowerCase() !== clean && String(o.orderNumber || '').toLowerCase() !== clean && String(o._id || '').toLowerCase() !== clean
+  )
+  saveStore(store)
+  return true
+}
+
+function deleteOrders(ids) {
+  if (!Array.isArray(ids) || ids.length === 0) return true
+  const store = loadStore()
+  const cleanSet = new Set(ids.map((id) => String(id).trim().toLowerCase()))
+  store.orders = (store.orders || []).filter((o) => {
+    const idStr = String(o.id).toLowerCase()
+    const numStr = String(o.orderNumber || '').toLowerCase()
+    const uidStr = String(o._id || '').toLowerCase()
+    return !cleanSet.has(idStr) && !cleanSet.has(numStr) && !cleanSet.has(uidStr)
+  })
+  saveStore(store)
+  return true
+}
+
+function deleteQuote(id) {
+  const store = loadStore()
+  const clean = String(id).trim().toLowerCase()
+  store.quotes = (store.quotes || []).filter(
+    (q) => String(q.id).toLowerCase() !== clean && String(q.quoteNumber || '').toLowerCase() !== clean && String(q._id || '').toLowerCase() !== clean
+  )
+  saveStore(store)
+  return true
+}
+
+function deleteQuotes(ids) {
+  if (!Array.isArray(ids) || ids.length === 0) return true
+  const store = loadStore()
+  const cleanSet = new Set(ids.map((id) => String(id).trim().toLowerCase()))
+  store.quotes = (store.quotes || []).filter((q) => {
+    const idStr = String(q.id).toLowerCase()
+    const numStr = String(q.quoteNumber || '').toLowerCase()
+    const uidStr = String(q._id || '').toLowerCase()
+    return !cleanSet.has(idStr) && !cleanSet.has(numStr) && !cleanSet.has(uidStr)
+  })
   saveStore(store)
   return true
 }
@@ -345,12 +386,14 @@ module.exports = {
   getOrder,
   updateOrderStatus,
   deleteOrder,
+  deleteOrders,
   getQuotes,
   addQuote,
   getQuote,
   updateQuoteStatus,
   updateQuote,
   deleteQuote,
+  deleteQuotes,
   syncQuoteToOrder,
   getMessages,
   addMessage,

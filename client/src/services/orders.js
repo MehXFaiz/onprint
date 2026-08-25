@@ -420,6 +420,27 @@ export async function deleteOrder(orderId) {
   return updated
 }
 
+export async function deleteOrders(orderIds) {
+  if (!Array.isArray(orderIds) || orderIds.length === 0) return getStoredOrders()
+  const idSet = new Set(orderIds.map((id) => String(id).toLowerCase()))
+  const current = getStoredOrders()
+  const updated = current.filter((o) => {
+    const _id = String(o._id || '').toLowerCase()
+    const id = String(o.id || '').toLowerCase()
+    const num = String(o.orderNumber || '').toLowerCase()
+    return !idSet.has(_id) && !idSet.has(id) && !idSet.has(num)
+  })
+  saveOrders(updated)
+
+  try {
+    await api.post('/orders/bulk-delete', { ids: orderIds })
+  } catch {
+    // offline fallback
+  }
+
+  return updated
+}
+
 export async function createOrder(orderData) {
   const current = getStoredOrders()
   const randomSeq = Math.floor(100000 + Math.random() * 900000)

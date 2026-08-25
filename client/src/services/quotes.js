@@ -218,3 +218,24 @@ export async function deleteQuote(quoteId) {
 
   return updated
 }
+
+export async function deleteQuotes(quoteIds) {
+  if (!Array.isArray(quoteIds) || quoteIds.length === 0) return getStoredQuotes()
+  const idSet = new Set(quoteIds.map((id) => String(id).toLowerCase()))
+  const current = getStoredQuotes()
+  const updated = current.filter((q) => {
+    const _id = String(q._id || '').toLowerCase()
+    const id = String(q.id || '').toLowerCase()
+    const num = String(q.quoteNumber || '').toLowerCase()
+    return !idSet.has(_id) && !idSet.has(id) && !idSet.has(num)
+  })
+  saveQuotes(updated)
+
+  try {
+    await api.post('/quotes/bulk-delete', { ids: quoteIds })
+  } catch {
+    // offline fallback
+  }
+
+  return updated
+}

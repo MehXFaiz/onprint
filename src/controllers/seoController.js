@@ -39,6 +39,22 @@ Sitemap: ${SITE_URL}/sitemap.xml
   res.type('text/plain').send(robots)
 }
 
+async function getLlmsTxt(req, res) {
+  const llms = `# ONPRINT — Commercial & Corporate Printing Services Dubai
+
+> ONPRINT is a premier commercial printing company based in Dubai, UAE. We specialize in luxury offset, digital, and large-format printing for corporate brands, agencies, and businesses across the Emirates.
+
+## Primary Services
+- [Commercial Printing Services](${SITE_URL}/services): Executive brochures, business cards, flyers, and marketing collateral.
+- [Printing Categories](${SITE_URL}/categories): Catalog of all printing categories and disciplines.
+- [Custom Quote Request](${SITE_URL}/get-quote): Request bespoke estimates for large print runs and custom finishing.
+- [Track Order Status](${SITE_URL}/track-order): Real-time tracking of Dubai print production and dispatch stages.
+- [About ONPRINT](${SITE_URL}/about): Corporate information, printing technology, and capabilities.
+- [Contact Customer Support](${SITE_URL}/contact): Direct inquiries and support in Dubai.
+`
+  res.type('text/plain').send(llms)
+}
+
 async function getSitemapXml(req, res) {
   try {
     const urls = []
@@ -363,6 +379,7 @@ async function runSeoAudit(req, res) {
 
 module.exports = {
   getRobotsTxt,
+  getLlmsTxt,
   getSitemapXml,
   runSeoAudit,
 }

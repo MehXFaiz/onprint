@@ -1,11 +1,20 @@
 import axios from 'axios'
 
-// In production the frontend and API are served from the same domain (GoDaddy
-// single-process deployment), so a relative /api path is correct.
-// In local dev, the Vite proxy forwards /api → localhost:5000, so /api also works.
-// VITE_API_URL can still override this for any other hosting setup.
+// Determine base URL:
+// If running in browser on 0nprint.com, www.0nprint.com, or local dev, use relative '/api'
+// This completely avoids CORS errors from preview or staging URLs.
+const getBaseURL = () => {
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname
+    if (host === '0nprint.com' || host === 'www.0nprint.com' || host === 'localhost' || host === '127.0.0.1') {
+      return '/api'
+    }
+  }
+  return import.meta.env.VITE_API_URL || '/api'
+}
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  baseURL: getBaseURL(),
   withCredentials: true,
 })
 

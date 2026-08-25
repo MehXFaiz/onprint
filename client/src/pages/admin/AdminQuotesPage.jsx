@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
-import { FileText, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle, ShoppingBag, ExternalLink } from 'lucide-react'
+import { FileText, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle, ShoppingBag, ExternalLink, CheckSquare } from 'lucide-react'
 import Button from '../../components/Button'
-import { getStoredQuotes, fetchQuotes, deleteQuote, updateQuoteStatus } from '../../services/quotes'
+import { getStoredQuotes, fetchQuotes, deleteQuote, deleteQuotes, updateQuoteStatus } from '../../services/quotes'
 
 export default function AdminQuotesPage() {
   const navigate = useNavigate()
@@ -13,6 +13,8 @@ export default function AdminQuotesPage() {
   const [search, setSearch] = useState('')
   const [notification, setNotification] = useState(location.state?.toast || null)
   const [deletingQuote, setDeletingQuote] = useState(null)
+  const [selectedQuoteIds, setSelectedQuoteIds] = useState([])
+  const [isBulkDeleting, setIsBulkDeleting] = useState(false)
 
   const reloadQuotes = async () => {
     setLoading(true)
@@ -32,6 +34,8 @@ export default function AdminQuotesPage() {
     }
   }, [notification])
 
+  const getQuoteId = (q) => String(q._id || q.id || q.quoteNumber)
+
   const handleStatusChange = async (quoteId, newStatus) => {
     const updated = await updateQuoteStatus(quoteId, newStatus)
     setQuotes(updated)
@@ -47,19 +51,56 @@ export default function AdminQuotesPage() {
       (q.quoteNumber || '').toLowerCase().includes(search.toLowerCase()) ||
       (q.name || '').toLowerCase().includes(search.toLowerCase()) ||
       (q.email || '').toLowerCase().includes(search.toLowerCase()) ||
+      (q.company || '').toLowerCase().includes(search.toLowerCase()) ||
       (q.status || '').toLowerCase().includes(search.toLowerCase())
   )
 
-  const confirmDeleteQuote = () => {
+  const confirmDeleteQuote = async () => {
     if (!deletingQuote) return
-    const updated = deleteQuote(deletingQuote._id || deletingQuote.id)
+    const targetId = deletingQuote._id || deletingQuote.id || deletingQuote.quoteNumber
+    const updated = await deleteQuote(targetId)
     setQuotes(updated)
+    setSelectedQuoteIds((prev) => prev.filter((id) => id !== String(targetId)))
     setNotification(`Quote request "${deletingQuote.quoteNumber}" deleted successfully.`)
     setDeletingQuote(null)
   }
 
+  const confirmBulkDelete = async () => {
+    if (selectedQuoteIds.length === 0) return
+    const count = selectedQuoteIds.length
+    const updated = await deleteQuotes(selectedQuoteIds)
+    setQuotes(updated)
+    setSelectedQuoteIds([])
+    setIsBulkDeleting(false)
+    setNotification(`Successfully deleted ${count} selected quote request${count > 1 ? 's' : ''}.`)
+  }
+
+  const isAllSelected =
+    filtered.length > 0 &&
+    filtered.every((q) => selectedQuoteIds.includes(getQuoteId(q)))
+  const isSomeSelected = selectedQuoteIds.length > 0 && !isAllSelected
+
+  const toggleSelectAll = () => {
+    if (isAllSelected) {
+      const filteredKeySet = new Set(filtered.map(getQuoteId))
+      setSelectedQuoteIds((prev) => prev.filter((id) => !filteredKeySet.has(id)))
+    } else {
+      const allFilteredIds = filtered.map(getQuoteId)
+      setSelectedQuoteIds((prev) => Array.from(new Set([...prev, ...allFilteredIds])))
+    }
+  }
+
+  const toggleSelectQuote = (id) => {
+    const idStr = String(id)
+    setSelectedQuoteIds((prev) =>
+      prev.includes(idStr) ? prev.filter((item) => item !== idStr) : [...prev, idStr]
+    )
+  }
+
+  const clearSelection = () => setSelectedQuoteIds([])
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-16">
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-neutral-200/80 shadow-xs">
         <div>
@@ -92,15 +133,15 @@ export default function AdminQuotesPage() {
             <CheckCircle2 className="h-4 w-4 text-emerald-400" />
             {notification}
           </span>
-          <button onClick={() => setNotification(null)}>
+          <button onClick={() => setNotification(null)} className="cursor-pointer">
             <X className="h-4 w-4 text-neutral-400 hover:text-white" />
           </button>
         </div>
       )}
 
-      {/* Filter */}
-      <div className="bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
-        <div className="relative max-w-md">
+      {/* Filter Toolbar & Bulk Action indicator */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
+        <div className="relative w-full max-w-md">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
           <input
             type="text"
@@ -110,6 +151,28 @@ export default function AdminQuotesPage() {
             className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
           />
         </div>
+
+        {selectedQuoteIds.length > 0 && (
+          <div className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-3 py-1.5 rounded-xl border border-red-200 text-xs font-bold">
+            <span>{selectedQuoteIds.length} selected</span>
+            <button
+              type="button"
+              onClick={() => setIsBulkDeleting(true)}
+              className="flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white px-2.5 py-1 rounded-lg transition-colors cursor-pointer"
+              title="Delete all selected quotes"
+            >
+              <Trash2 className="h-3 w-3" />
+              <span>Delete</span>
+            </button>
+            <button
+              type="button"
+              onClick={clearSelection}
+              className="text-red-600 hover:text-red-800 text-[11px] underline cursor-pointer"
+            >
+              Clear
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Table */}
@@ -117,6 +180,18 @@ export default function AdminQuotesPage() {
         <table className="w-full text-left text-xs border-collapse">
           <thead>
             <tr className="border-b border-neutral-200 bg-neutral-50 text-[11px] font-extrabold uppercase tracking-wider text-neutral-500">
+              <th className="py-3.5 px-4 w-10 text-center">
+                <input
+                  type="checkbox"
+                  checked={isAllSelected}
+                  ref={(el) => {
+                    if (el) el.indeterminate = isSomeSelected
+                  }}
+                  onChange={toggleSelectAll}
+                  aria-label="Select all quotes"
+                  className="h-4 w-4 rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]/20 cursor-pointer accent-[#A82F19]"
+                />
+              </th>
               <th className="py-3.5 px-4">Quote #</th>
               <th className="py-3.5 px-4">Client Name</th>
               <th className="py-3.5 px-4">Email</th>
@@ -129,7 +204,7 @@ export default function AdminQuotesPage() {
           <tbody className="divide-y divide-neutral-100 font-medium text-neutral-800">
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan="7" className="py-12 text-center text-xs text-neutral-500">
+                <td colSpan="8" className="py-12 text-center text-xs text-neutral-500">
                   <FileText className="h-8 w-8 text-neutral-300 mx-auto mb-2" />
                   <p className="font-bold text-neutral-800">No quote requests recorded yet</p>
                   <p className="mt-1 text-neutral-400">
@@ -138,62 +213,81 @@ export default function AdminQuotesPage() {
                 </td>
               </tr>
             ) : (
-              filtered.map((q) => (
-                <tr key={q._id || q.id || q.quoteNumber} className="hover:bg-neutral-50/60 transition-colors">
-                  <td className="py-3 px-4">
-                    <div className="font-mono font-bold text-neutral-900">{q.quoteNumber}</div>
-                    {q.status === 'Approved' && (
-                      <Link
-                        to="/admin/orders"
-                        className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 hover:text-emerald-800 hover:underline mt-0.5"
-                        title="View in Orders"
+              filtered.map((q) => {
+                const quoteId = getQuoteId(q)
+                const isSelected = selectedQuoteIds.includes(quoteId)
+
+                return (
+                  <tr
+                    key={quoteId}
+                    className={`transition-colors ${
+                      isSelected ? 'bg-red-50/30 hover:bg-red-50/50' : 'hover:bg-neutral-50/60'
+                    }`}
+                  >
+                    <td className="py-3 px-4 w-10 text-center">
+                      <input
+                        type="checkbox"
+                        checked={isSelected}
+                        onChange={() => toggleSelectQuote(quoteId)}
+                        aria-label={`Select quote ${q.quoteNumber}`}
+                        className="h-4 w-4 rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]/20 cursor-pointer accent-[#A82F19]"
+                      />
+                    </td>
+                    <td className="py-3 px-4">
+                      <div className="font-mono font-bold text-neutral-900">{q.quoteNumber}</div>
+                      {q.status === 'Approved' && (
+                        <Link
+                          to="/admin/orders"
+                          className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 hover:text-emerald-800 hover:underline mt-0.5"
+                          title="View in Orders"
+                        >
+                          <ShoppingBag className="h-3 w-3" />
+                          In Orders
+                        </Link>
+                      )}
+                    </td>
+                    <td className="py-3 px-4 font-bold text-neutral-900">{q.name}</td>
+                    <td className="py-3 px-4 font-mono text-[11px] text-neutral-600">{q.email}</td>
+                    <td className="py-3 px-4 text-neutral-700">{q.company || '-'}</td>
+                    <td className="py-3 px-4 font-black text-neutral-900">AED {q.totalPrice?.toLocaleString()}</td>
+                    <td className="py-3 px-4">
+                      <select
+                        value={q.status || 'Pending'}
+                        onChange={(e) => handleStatusChange(q._id || q.id, e.target.value)}
+                        className={`rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase border cursor-pointer ${
+                          q.status === 'Approved'
+                            ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
+                            : q.status === 'Rejected'
+                              ? 'bg-red-50 text-red-700 border-red-300'
+                              : 'bg-purple-50 text-purple-700 border-purple-300'
+                        }`}
                       >
-                        <ShoppingBag className="h-3 w-3" />
-                        In Orders
-                      </Link>
-                    )}
-                  </td>
-                  <td className="py-3 px-4 font-bold text-neutral-900">{q.name}</td>
-                  <td className="py-3 px-4 font-mono text-[11px] text-neutral-600">{q.email}</td>
-                  <td className="py-3 px-4 text-neutral-700">{q.company || '-'}</td>
-                  <td className="py-3 px-4 font-black text-neutral-900">AED {q.totalPrice?.toLocaleString()}</td>
-                  <td className="py-3 px-4">
-                    <select
-                      value={q.status || 'Pending'}
-                      onChange={(e) => handleStatusChange(q._id || q.id, e.target.value)}
-                      className={`rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase border cursor-pointer ${
-                        q.status === 'Approved'
-                          ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
-                          : q.status === 'Rejected'
-                            ? 'bg-red-50 text-red-700 border-red-300'
-                            : 'bg-purple-50 text-purple-700 border-purple-300'
-                      }`}
-                    >
-                      <option value="Pending">Pending</option>
-                      <option value="Approved">Approved</option>
-                      <option value="Rejected">Rejected</option>
-                    </select>
-                  </td>
-                  <td className="py-3 px-4 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <button
-                        onClick={() => navigate(`/admin/quotes/${q._id || q.id}/edit`)}
-                        className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
-                        title="Edit Quote"
-                      >
-                        <Edit2 className="h-4 w-4" />
-                      </button>
-                      <button
-                        onClick={() => setDeletingQuote(q)}
-                        className="rounded-lg p-1.5 text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
-                        title="Delete Quote"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))
+                        <option value="Pending">Pending</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Rejected">Rejected</option>
+                      </select>
+                    </td>
+                    <td className="py-3 px-4 text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        <button
+                          onClick={() => navigate(`/admin/quotes/${q._id || q.id}/edit`)}
+                          className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
+                          title="Edit Quote"
+                        >
+                          <Edit2 className="h-4 w-4" />
+                        </button>
+                        <button
+                          onClick={() => setDeletingQuote(q)}
+                          className="rounded-lg p-1.5 text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                          title="Delete Quote"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                )
+              })
             )}
           </tbody>
         </table>
@@ -204,6 +298,9 @@ export default function AdminQuotesPage() {
         <div>
           Showing <span className="font-bold text-neutral-900">{filtered.length}</span> of{' '}
           <span className="font-bold text-neutral-900">{quotes.length}</span> quotes
+          {selectedQuoteIds.length > 0 && (
+            <span className="ml-2 text-[#A82F19] font-bold">({selectedQuoteIds.length} selected)</span>
+          )}
         </div>
         <div className="flex items-center gap-1.5">
           <button
@@ -226,7 +323,37 @@ export default function AdminQuotesPage() {
         </div>
       </div>
 
-      {/* Delete Confirmation Modal */}
+      {/* Floating Bottom Bulk Action Bar */}
+      {selectedQuoteIds.length > 0 && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 bg-neutral-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-neutral-700">
+          <div className="flex items-center gap-2">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#A82F19] text-xs font-bold text-white">
+              {selectedQuoteIds.length}
+            </span>
+            <span className="text-xs font-semibold">
+              {selectedQuoteIds.length === 1 ? '1 quote selected' : `${selectedQuoteIds.length} quotes selected`}
+            </span>
+          </div>
+          <div className="h-4 w-px bg-neutral-700 mx-1" />
+          <button
+            type="button"
+            onClick={() => setIsBulkDeleting(true)}
+            className="flex items-center gap-1.5 rounded-xl bg-red-600 px-3.5 py-1.5 text-xs font-bold text-white hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
+          >
+            <Trash2 className="h-3.5 w-3.5" />
+            Delete Selected
+          </button>
+          <button
+            type="button"
+            onClick={clearSelection}
+            className="rounded-xl border border-neutral-700 px-3 py-1.5 text-xs font-medium text-neutral-300 hover:bg-neutral-800 hover:text-white transition-colors cursor-pointer"
+          >
+            Deselect All
+          </button>
+        </div>
+      )}
+
+      {/* Single Delete Confirmation Modal */}
       {deletingQuote && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
           <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-5">
@@ -246,7 +373,7 @@ export default function AdminQuotesPage() {
               <button
                 type="button"
                 onClick={() => setDeletingQuote(null)}
-                className="rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50"
+                className="rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50 cursor-pointer"
               >
                 Cancel
               </button>
@@ -256,6 +383,59 @@ export default function AdminQuotesPage() {
                 className="rounded-xl bg-red-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
               >
                 Delete Quote
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Bulk Delete Confirmation Modal */}
+      {isBulkDeleting && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+            <div className="flex items-start gap-3 text-red-600">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100 mt-0.5">
+                <AlertTriangle className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-bold text-neutral-900">
+                  Delete {selectedQuoteIds.length} Quote Request{selectedQuoteIds.length > 1 ? 's' : ''}?
+                </h3>
+                <p className="text-xs text-neutral-500 mt-1">
+                  Are you sure you want to permanently delete the {selectedQuoteIds.length} selected quote requests? This action cannot be undone.
+                </p>
+              </div>
+            </div>
+
+            <div className="max-h-40 overflow-y-auto rounded-2xl bg-neutral-50 p-3 border border-neutral-200 text-xs space-y-1.5">
+              {quotes
+                .filter((q) => selectedQuoteIds.includes(getQuoteId(q)))
+                .map((q) => (
+                  <div
+                    key={getQuoteId(q)}
+                    className="flex items-center justify-between font-medium text-neutral-800 py-1 border-b border-neutral-100 last:border-0"
+                  >
+                    <span className="font-mono font-bold text-neutral-900">{q.quoteNumber}</span>
+                    <span className="text-neutral-500 truncate max-w-[150px]">{q.name || 'Client'}</span>
+                    <span className="font-bold text-neutral-900">AED {q.totalPrice?.toLocaleString()}</span>
+                  </div>
+                ))}
+            </div>
+
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-neutral-100">
+              <button
+                type="button"
+                onClick={() => setIsBulkDeleting(false)}
+                className="rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50 cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={confirmBulkDelete}
+                className="rounded-xl bg-red-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
+              >
+                Delete {selectedQuoteIds.length} Quotes
               </button>
             </div>
           </div>

@@ -405,6 +405,36 @@ async function deleteQuote(req, res, next) {
   }
 }
 
+async function bulkDeleteQuotes(req, res, next) {
+  try {
+    const ids = req.body.ids || req.body.quoteIds || []
+    if (!Array.isArray(ids) || ids.length === 0) {
+      throw new ApiError(400, 'Quote IDs array is required for bulk deletion')
+    }
+
+    persistentStore.deleteQuotes(ids)
+
+    try {
+      const placeholders = ids.map(() => '?').join(',')
+      await pool.execute(`DELETE FROM quote_items WHERE quote_id IN (${placeholders})`, ids)
+      await pool.execute(
+        `DELETE FROM quotes WHERE id IN (${placeholders}) OR quote_number IN (${placeholders})`,
+        [...ids, ...ids]
+      )
+    } catch {
+      // MySQL unavailable
+    }
+
+    res.json({
+      success: true,
+      message: `${ids.length} quotes deleted successfully`,
+      count: ids.length,
+    })
+  } catch (err) {
+    next(err)
+  }
+}
+
 module.exports = {
   createQuote,
   listQuotes,
@@ -412,4 +442,5 @@ module.exports = {
   updateQuote,
   updateQuoteStatus,
   deleteQuote,
+  bulkDeleteQuotes,
 }

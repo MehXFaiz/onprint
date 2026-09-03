@@ -20,7 +20,7 @@ const adminRoutes = require('./routes/adminRoutes')
 const uploadRoutes = require('./routes/uploadRoutes')
 const blogRoutes = require('./routes/blogRoutes')
 const seoRoutes = require('./routes/seoRoutes')
-const { getRobotsTxt, getSitemapXml, getLlmsTxt } = require('./controllers/seoController')
+const { getRobotsTxt, getSitemapXml, getLlmsTxt, getAdsTxt } = require('./controllers/seoController')
 
 const CLIENT_DIST = path.join(__dirname, '..', 'dist')
 
@@ -74,6 +74,7 @@ function createApp() {
   app.get('/robots.txt', getRobotsTxt)
   app.get('/llms.txt', getLlmsTxt)
   app.get('/sitemap.xml', getSitemapXml)
+  app.get('/ads.txt', getAdsTxt)
 
   // Database Health Check endpoint
   app.get('/api/health/db', async (req, res) => {

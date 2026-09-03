@@ -55,6 +55,13 @@ async function getLlmsTxt(req, res) {
   res.type('text/plain').send(llms)
 }
 
+const ADSENSE_PUB_ID = (process.env.ADSENSE_PUB_ID || 'pub-2412757543318629').trim()
+
+async function getAdsTxt(req, res) {
+  const ads = `google.com, ${ADSENSE_PUB_ID}, DIRECT, f08c47fec0942fa0\n`
+  res.type('text/plain').send(ads)
+}
+
 async function getSitemapXml(req, res) {
   try {
     const urls = []
@@ -372,6 +379,7 @@ async function runSeoAudit(req, res) {
         blogArticlesCount: blogs.length,
         sitemapUrl: `${SITE_URL}/sitemap.xml`,
         robotsUrl: `${SITE_URL}/robots.txt`,
+        adsUrl: `${SITE_URL}/ads.txt`,
       },
     })
   } catch (err) {
@@ -382,6 +390,7 @@ async function runSeoAudit(req, res) {
 module.exports = {
   getRobotsTxt,
   getLlmsTxt,
+  getAdsTxt,
   getSitemapXml,
   runSeoAudit,
 }

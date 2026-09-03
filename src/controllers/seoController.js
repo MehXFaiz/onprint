@@ -6,6 +6,7 @@ const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, 
 async function getRobotsTxt(req, res) {
   const robots = `User-agent: *
 Allow: /
+Allow: /ads.txt
 Allow: /services
 Allow: /services/
 Allow: /products
@@ -36,7 +37,9 @@ Disallow: /account
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `
-  res.type('text/plain').send(robots)
+  res.header('Content-Type', 'text/plain; charset=utf-8')
+  res.header('Cache-Control', 'public, max-age=3600')
+  res.status(200).send(robots)
 }
 
 async function getLlmsTxt(req, res) {
@@ -52,14 +55,18 @@ async function getLlmsTxt(req, res) {
 - [About ONPRINT](${SITE_URL}/about): Corporate information, printing technology, and capabilities.
 - [Contact Customer Support](${SITE_URL}/contact): Direct inquiries and support in Dubai.
 `
-  res.type('text/plain').send(llms)
+  res.header('Content-Type', 'text/plain; charset=utf-8')
+  res.header('Cache-Control', 'public, max-age=3600')
+  res.status(200).send(llms)
 }
 
 const ADSENSE_PUB_ID = (process.env.ADSENSE_PUB_ID || 'pub-2412757543318629').trim()
 
 async function getAdsTxt(req, res) {
   const ads = `google.com, ${ADSENSE_PUB_ID}, DIRECT, f08c47fec0942fa0\n`
-  res.type('text/plain').send(ads)
+  res.header('Content-Type', 'text/plain; charset=utf-8')
+  res.header('Cache-Control', 'public, max-age=3600')
+  res.status(200).send(ads)
 }
 
 async function getSitemapXml(req, res) {

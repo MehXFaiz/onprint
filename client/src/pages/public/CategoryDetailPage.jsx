@@ -194,15 +194,15 @@ export default function CategoryDetailPage() {
             </Reveal>
 
             <Reveal delay={0.3}>
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#A82F19]/25">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
+                <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#A82F19]/25 text-center justify-center">
                   Request a Free Quote
                 </Button>
                 <Button
                   to={`/products?category=${category.slug}`}
                   variant="secondary"
                   size="lg"
-                  className="border-[#000000] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19]"
+                  className="border-[#000000] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19] text-center justify-center"
                 >
                   View Products Catalog
                 </Button>
@@ -211,7 +211,7 @@ export default function CategoryDetailPage() {
 
             {/* Quality Checklist */}
             <Reveal delay={0.4}>
-              <div className="grid grid-cols-2 gap-4 border-t border-[#000000]/10 pt-6 text-xs font-bold text-[#000000]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 border-t border-[#000000]/10 pt-6 text-xs font-bold text-[#000000]">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-[#A82F19] shrink-0" />
                   <span>300+ DPI Precision CMYK</span>
@@ -355,7 +355,7 @@ export default function CategoryDetailPage() {
         </div>
 
         {/* CTA Banner */}
-        <div className="mt-16 rounded-3xl border border-[#000000] bg-[#000000] p-8 sm:p-12 text-[#FFFFFF] shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-16 rounded-3xl border border-[#000000] bg-[#000000] p-6 sm:p-10 md:p-12 text-[#FFFFFF] shadow-2xl flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-6">
           <div>
             <h3 className="font-display text-2xl font-black text-[#FFFFFF] sm:text-3xl">
               Ready to Order {categoryName}?
@@ -364,7 +364,7 @@ export default function CategoryDetailPage() {
               Send us your artwork or consult with our prepress team for instant digital proofs and volume discounts.
             </p>
           </div>
-          <Button to="/get-a-quote" variant="accent" size="lg" className="shrink-0 font-bold">
+          <Button to="/get-a-quote" variant="accent" size="lg" className="shrink-0 font-bold text-center justify-center">
             Get an Instant Quote
           </Button>
         </div>

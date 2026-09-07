@@ -300,7 +300,7 @@ export default function GetQuotePage() {
           <StepIndicator current={step} />
         </div>
 
-        <div className="mt-12 rounded-2xl border border-border bg-surface p-8 shadow-xs sm:p-10">
+        <div className="mt-12 rounded-2xl border border-border bg-surface p-5 sm:p-8 md:p-10 shadow-xs">
           {step === 1 && (
             <div>
               <h2 className="font-display text-xl font-bold text-primary">1. What do you need?</h2>
@@ -552,24 +552,24 @@ export default function GetQuotePage() {
         </div>
 
         {/* Wizard Controls */}
-        <div className="mt-8 flex items-center justify-between">
+        <div className="mt-8 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-4">
           <button
             type="button"
             onClick={goBack}
             disabled={step === 1}
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-secondary transition-colors hover:text-primary disabled:opacity-0 cursor-pointer"
+            className="inline-flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-secondary transition-colors hover:text-primary disabled:invisible cursor-pointer py-2 sm:py-0"
           >
             <ChevronLeft className="h-4 w-4" />
             Previous Step
           </button>
 
           {step < steps.length ? (
-            <Button onClick={goNext} variant="primary" icon={false} size="md" className="inline-flex items-center gap-2">
+            <Button onClick={goNext} variant="primary" icon={false} size="md" className="inline-flex items-center justify-center gap-2">
               Next Step
               <ChevronRight className="h-4 w-4" />
             </Button>
           ) : (
-            <Button onClick={handleSubmit} variant="accent" size="lg" icon={false} disabled={submitting}>
+            <Button onClick={handleSubmit} variant="accent" size="lg" icon={false} disabled={submitting} className="justify-center">
               {submitting ? 'Submitting Request...' : 'Confirm & Submit Request'}
             </Button>
           )}

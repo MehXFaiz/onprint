@@ -394,7 +394,7 @@ export default function SiteHeader() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden border-b border-slate-200 bg-white shadow-sm xl:hidden"
+            className="max-h-[calc(100vh-4.5rem)] overflow-y-auto border-b border-slate-200 bg-white shadow-sm xl:hidden"
             aria-label="Mobile Navigation"
           >
             <Container className="flex flex-col gap-1 py-4">

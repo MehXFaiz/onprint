@@ -30,7 +30,7 @@ const serviceLinks = [
 export default function SiteFooter() {
   return (
     <footer className="border-t border-[#000000] bg-[#000000] text-[#FFFFFF]/80">
-      <Container className="grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+      <Container className="grid grid-cols-1 gap-10 sm:gap-12 py-10 sm:py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         {/* Col 1: Brand Info */}
         <div className="space-y-4">
           <Link to="/" className="inline-block">
@@ -102,9 +102,9 @@ export default function SiteFooter() {
 
       {/* Bottom Bar */}
       <div className="border-t border-[#FFFFFF]/10 bg-[#000000] py-6">
-        <Container className="flex flex-col items-center justify-between gap-4 text-xs text-[#FFFFFF]/60 sm:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-4 text-xs text-[#FFFFFF]/60 text-center sm:flex-row sm:text-left">
           <p>&copy; {new Date().getFullYear()} ONPRINT Printing &amp; Creative Solutions. All rights reserved.</p>
-          <div className="flex gap-6 font-semibold">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-semibold sm:justify-end">
             <Link to="/privacy-policy" className="hover:text-[#FFFFFF] hover:underline">
               Privacy Policy
             </Link>

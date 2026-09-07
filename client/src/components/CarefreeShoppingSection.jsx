@@ -60,18 +60,18 @@ export default function CarefreeShoppingSection() {
               </div>
 
               {/* Floating Quality Badge Overlay */}
-              <div className="absolute bottom-6 left-6 right-6 z-20 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF]/95 p-4.5 backdrop-blur-md shadow-xl sm:p-5">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
-                      <CheckCircle2 className="h-5 w-5" />
+              <div className="absolute bottom-3 left-3 right-3 z-20 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF]/95 p-3.5 backdrop-blur-md shadow-xl sm:bottom-6 sm:left-6 sm:right-6 sm:p-5">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
+                      <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5" />
                     </div>
                     <div>
-                      <h4 className="font-display text-sm font-black text-[#000000]">Dubai Express Production</h4>
-                      <p className="text-[11px] font-bold text-[#000000]/60">Passed 100% Quality Pre-flight</p>
+                      <h4 className="font-display text-xs sm:text-sm font-black text-[#000000]">Dubai Express Production</h4>
+                      <p className="text-[10px] sm:text-[11px] font-bold text-[#000000]/60">Passed 100% Quality Pre-flight</p>
                     </div>
                   </div>
-                  <span className="rounded-full bg-[#A82F19] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#FFFFFF] shadow-xs">
+                  <span className="shrink-0 rounded-full bg-[#A82F19] px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-[#FFFFFF] shadow-xs">
                     Verified
                   </span>
                 </div>
@@ -97,7 +97,7 @@ export default function CarefreeShoppingSection() {
               </div>
 
               {/* Main Title */}
-              <h2 className="font-display text-3xl font-black tracking-tight text-[#000000] sm:text-4xl lg:text-5xl">
+              <h2 className="font-display text-2xl font-black tracking-tight text-[#000000] sm:text-4xl lg:text-5xl">
                 Carefree Shopping
               </h2>
 
@@ -119,9 +119,9 @@ export default function CarefreeShoppingSection() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: idx * 0.1 }}
-                      className="group flex items-start gap-4 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-4 sm:p-5 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#A82F19] hover:shadow-md"
+                      className="group flex items-start gap-3.5 sm:gap-4 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-3.5 sm:p-5 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#A82F19] hover:shadow-md"
                     >
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19] transition-transform group-hover:scale-110">
+                      <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19] transition-transform group-hover:scale-110">
                         {React.isValidElement(Icon) ? (
                           Icon
                         ) : Icon && (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) ? (
@@ -129,12 +129,12 @@ export default function CarefreeShoppingSection() {
                         ) : null}
                       </div>
 
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
-                          <h3 className="font-display text-base font-extrabold text-[#000000] group-hover:text-[#A82F19] transition-colors">
+                          <h3 className="font-display text-sm sm:text-base font-extrabold text-[#000000] group-hover:text-[#A82F19] transition-colors truncate">
                             {item.title}
                           </h3>
-                          <span className="rounded-full bg-[#FFFFFF] border border-[#000000]/15 px-2.5 py-0.5 text-[10px] font-bold text-[#000000]/60">
+                          <span className="shrink-0 rounded-full bg-[#FFFFFF] border border-[#000000]/15 px-2.5 py-0.5 text-[10px] font-bold text-[#000000]/60">
                             {item.badge}
                           </span>
                         </div>
@@ -148,10 +148,10 @@ export default function CarefreeShoppingSection() {
               </div>
 
               {/* Call to Action Row */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#A82F19] px-7 py-4 text-xs font-black uppercase tracking-wider text-[#FFFFFF] shadow-lg shadow-[#A82F19]/25 transition-all hover:bg-[#8f2513] hover:scale-[1.02] cursor-pointer active:scale-95 sm:text-sm"
+                  className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#A82F19] px-7 py-3.5 sm:py-4 text-xs font-black uppercase tracking-wider text-[#FFFFFF] shadow-lg shadow-[#A82F19]/25 transition-all hover:bg-[#8f2513] hover:scale-[1.02] cursor-pointer active:scale-95 sm:text-sm"
                   onClick={() => trackProductInquiry({ source_page: 'carefree_shopping_section' })}
                 >
                   <span>Contact Sales Now</span>
@@ -160,7 +160,7 @@ export default function CarefreeShoppingSection() {
 
                 <Link
                   to="/get-a-quote"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#000000] bg-[#FFFFFF] px-6 py-4 text-xs font-extrabold uppercase tracking-wider text-[#000000] shadow-xs transition-all hover:border-[#A82F19] hover:text-[#A82F19] cursor-pointer active:scale-95 sm:text-sm"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#000000] bg-[#FFFFFF] px-6 py-3.5 sm:py-4 text-xs font-extrabold uppercase tracking-wider text-[#000000] shadow-xs transition-all hover:border-[#A82F19] hover:text-[#A82F19] cursor-pointer active:scale-95 sm:text-sm"
                   onClick={() => trackGetQuoteClick({ source_page: 'carefree_shopping_section' })}
                 >
                   <MessageCircle className="h-4 w-4 text-[#A82F19]" />

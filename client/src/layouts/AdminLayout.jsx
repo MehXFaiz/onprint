@@ -88,7 +88,7 @@ export default function AdminLayout() {
 
       {/* Sidebar Navigation */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 transform bg-primary p-6 text-background/80 transition-transform duration-200 ease-in-out md:static md:translate-x-0 md:block shrink-0 flex flex-col justify-between ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 max-h-screen overflow-y-auto transform bg-primary p-6 text-background/80 transition-transform duration-200 ease-in-out md:static md:translate-x-0 md:block shrink-0 flex flex-col justify-between ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
@@ -165,7 +165,7 @@ export default function AdminLayout() {
       </aside>
 
       {/* Main Content Viewport */}
-      <main className="flex-1 p-4 sm:p-6 md:p-10 overflow-y-auto">
+      <main className="flex-1 min-w-0 w-full p-4 sm:p-6 md:p-8 lg:p-10 overflow-y-auto">
         <Outlet />
       </main>
     </div>

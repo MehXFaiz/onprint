@@ -141,7 +141,7 @@ function SectionCardGroup({ section, onQuickView }) {
   const visibleItems = section.items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
 
   return (
-    <div className="relative rounded-3xl border border-[#A82F19]/20 bg-[#FFFFFF] p-6 sm:p-8 lg:p-10 shadow-sm transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-xl">
+    <div className="relative rounded-3xl border border-[#A82F19]/20 bg-[#FFFFFF] p-4 sm:p-8 lg:p-10 shadow-sm transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-xl">
       {/* Top Header Section */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-[#000000]/10">
         <div>
@@ -271,8 +271,8 @@ export default function ProductSectionsShowcase({ onQuickView }) {
         </div>
 
         {/* Bottom Guarantee Banner */}
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#A82F19]/30 bg-[#FFFFFF] p-6 shadow-sm">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-[#A82F19]/30 bg-[#FFFFFF] p-4 sm:p-6 shadow-sm">
+          <div className="flex items-start sm:items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#A82F19] text-[#FFFFFF] font-bold">
               <ShieldCheck className="h-5 w-5 text-[#FFFFFF]" />
             </div>
@@ -284,7 +284,7 @@ export default function ProductSectionsShowcase({ onQuickView }) {
 
           <Link
             to="/get-a-quote"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#A82F19] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-[#FFFFFF] shadow-md transition-all hover:bg-[#000000] hover:scale-105 active:scale-95 shrink-0"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#A82F19] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-[#FFFFFF] shadow-md transition-all hover:bg-[#000000] hover:scale-105 active:scale-95 shrink-0"
           >
             <span>Request Custom Quote</span>
             <ArrowUpRight className="h-4 w-4" />

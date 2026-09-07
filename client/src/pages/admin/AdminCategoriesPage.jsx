@@ -276,8 +276,8 @@ export default function AdminCategoriesPage() {
       ) : (
         <>
           {/* Desktop & Tablet Table View */}
-          <div className="hidden md:block overflow-hidden rounded-3xl border border-neutral-200/80 bg-white shadow-xs">
-            <table className="w-full text-left text-xs border-collapse">
+          <div className="hidden md:block w-full overflow-x-auto rounded-3xl border border-neutral-200/80 bg-white shadow-xs">
+            <table className="w-full min-w-[750px] text-left text-xs border-collapse">
               <thead>
                 <tr className="border-b border-neutral-200 bg-neutral-50 text-[11px] font-extrabold uppercase tracking-wider text-neutral-500">
                   <th className="py-3.5 px-4">Image</th>

@@ -140,36 +140,36 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h1 className="font-display mt-6 text-4xl font-black leading-[1.04] tracking-tight text-[#000000] sm:text-6xl xl:text-7xl">
+              <h1 className="font-display mt-6 text-3xl font-black leading-[1.08] tracking-tight text-[#000000] sm:text-5xl lg:text-6xl xl:text-7xl">
                 Professional Printing &amp; Branding Solutions in Dubai
               </h1>
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-[#000000]/75 sm:text-lg">
+              <p className="mt-6 max-w-xl text-sm sm:text-base leading-relaxed text-[#000000]/75 lg:text-lg">
                 ONPRINT transforms brand identities into tangible physical masterpieces. From executive stationery to high-volume luxury packaging, corporate gifts, signage, and precision digital printing across Dubai and the UAE.
               </p>
             </Reveal>
 
             <Reveal delay={0.3}>
-              <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
+              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 sm:mt-10">
                 <Button
                   to="/get-a-quote"
                   variant="accent"
                   size="lg"
-                  className="shadow-lg shadow-[#A82F19]/25"
+                  className="shadow-lg shadow-[#A82F19]/25 text-center justify-center"
                   onClick={() => trackGetQuoteClick({ source_page: 'homepage_hero' })}
                 >
                   Request a Custom Quote
                 </Button>
-                <Button to="/products" variant="secondary" size="lg" className="border-[#000000] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19]">
+                <Button to="/products" variant="secondary" size="lg" className="border-[#000000] text-[#000000] hover:border-[#A82F19] hover:text-[#A82F19] text-center justify-center">
                   Browse Product Catalog
                 </Button>
               </div>
             </Reveal>
 
             <Reveal delay={0.4}>
-              <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-[#000000]/10 pt-6 text-xs font-bold text-[#000000]/80">
+              <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-6 border-t border-[#000000]/10 pt-6 text-xs font-bold text-[#000000]/80">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-[#A82F19]" />
                   <span>Free Design Pre-flight</span>
@@ -189,7 +189,7 @@ export default function HomePage() {
           {/* Hero Visual Studio Showcase */}
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
-              <div className="relative mx-auto flex h-[360px] w-full max-w-md items-center justify-center sm:h-[440px]">
+              <div className="relative mx-auto flex h-[340px] w-full max-w-[300px] xs:max-w-md items-center justify-center sm:h-[440px]">
                 <CornerMarks className="absolute -left-3 -top-3 h-8 w-8 text-[#000000]/40" />
                 <CornerMarks className="absolute -bottom-3 -right-3 h-8 w-8 rotate-180 text-[#000000]/40" />
 
@@ -198,7 +198,7 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 20, rotate: -6 }}
                   animate={{ opacity: 1, y: 0, rotate: -6 }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-2 top-4 flex h-64 w-44 flex-col justify-between rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-5 shadow-xl sm:h-72 sm:w-52"
+                  className="absolute left-1 sm:left-2 top-4 flex h-60 w-40 flex-col justify-between rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-4 sm:p-5 shadow-xl sm:h-72 sm:w-52"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex gap-1.5">
@@ -206,14 +206,14 @@ export default function HomePage() {
                         <span key={i} className="h-2 w-2 rounded-full" style={{ backgroundColor: c }} />
                       ))}
                     </div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#000000]/60">350 GSM STOCK</span>
+                    <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-[#000000]/60">350 GSM STOCK</span>
                   </div>
                   <div className="space-y-2">
                     <div className="h-2 w-3/4 rounded bg-[#000000]/15" />
                     <div className="h-2 w-1/2 rounded bg-[#000000]/15" />
                     <div className="h-2 w-5/6 rounded bg-[#A82F19]/25" />
                   </div>
-                  <div className="rounded-xl border border-[#A82F19] bg-[#FFFFFF] p-2.5 text-center text-xs font-black text-[#A82F19]">
+                  <div className="rounded-xl border border-[#A82F19] bg-[#FFFFFF] p-2 text-center text-[11px] sm:text-xs font-black text-[#A82F19]">
                     RED FOIL EMBOSS
                   </div>
                 </motion.div>
@@ -223,19 +223,19 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 20, rotate: 5 }}
                   animate={{ opacity: 1, y: 0, rotate: 5 }}
                   transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute right-0 top-20 flex h-48 w-68 flex-col justify-between rounded-2xl border border-[#000000] bg-[#000000] p-6 shadow-2xl sm:right-2 sm:top-24 sm:w-72"
+                  className="absolute right-0 top-16 sm:top-24 flex h-44 w-60 sm:h-48 sm:w-72 flex-col justify-between rounded-2xl border border-[#000000] bg-[#000000] p-4 sm:p-6 shadow-2xl sm:right-2"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-display text-base font-black tracking-tight text-[#FFFFFF]">
+                    <span className="font-display text-sm sm:text-base font-black tracking-tight text-[#FFFFFF]">
                       ON<span className="text-[#A82F19]">PRINT</span>
                     </span>
-                    <span className="rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[10px] font-extrabold text-[#FFFFFF]">PRESS</span>
+                    <span className="rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[9px] sm:text-[10px] font-extrabold text-[#FFFFFF]">PRESS</span>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#FFFFFF]/70">EXECUTIVE BRANDING &amp; PRESS</p>
-                    <p className="mt-1 text-sm font-bold text-[#FFFFFF]">Precision Printing Dubai</p>
+                    <p className="text-[11px] sm:text-xs font-semibold text-[#FFFFFF]/70">EXECUTIVE BRANDING &amp; PRESS</p>
+                    <p className="mt-1 text-xs sm:text-sm font-bold text-[#FFFFFF]">Precision Printing Dubai</p>
                   </div>
-                  <div className="flex items-center justify-between border-t border-[#FFFFFF]/20 pt-3 text-[10px] font-bold text-[#FFFFFF]/70">
+                  <div className="flex items-center justify-between border-t border-[#FFFFFF]/20 pt-2.5 text-[9px] sm:text-[10px] font-bold text-[#FFFFFF]/70">
                     <span>SPEC: ULTRA HD</span>
                     <span className="text-[#A82F19] font-black">PASSED QC</span>
                   </div>
@@ -246,11 +246,11 @@ export default function HomePage() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.7, delay: 0.3 }}
-                  className="absolute bottom-4 left-10 flex h-28 w-28 items-center justify-center rounded-2xl border border-[#A82F19] bg-[#FFFFFF] p-4 shadow-lg sm:left-16"
+                  className="absolute bottom-2 sm:bottom-4 left-4 sm:left-16 flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-2xl border border-[#A82F19] bg-[#FFFFFF] p-3 sm:p-4 shadow-lg"
                 >
                   <div className="text-center">
-                    <span className="font-display text-2xl font-black text-[#A82F19]">1200 DPI</span>
-                    <p className="mt-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#000000]">Offset Press</p>
+                    <span className="font-display text-xl sm:text-2xl font-black text-[#A82F19]">1200 DPI</span>
+                    <p className="mt-0.5 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-[#000000]">Offset Press</p>
                   </div>
                 </motion.div>
               </div>
@@ -625,17 +625,17 @@ export default function HomePage() {
             From business cards to luxury packaging and large-format printing, ONPRINT helps your brand stand out with unmatched precision across Dubai.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
             <Button
               to="/get-a-quote"
               variant="accent"
               size="lg"
-              className="shadow-lg shadow-[#A82F19]/30"
+              className="shadow-lg shadow-[#A82F19]/30 text-center justify-center"
               onClick={() => trackGetQuoteClick({ source_page: 'homepage_bottom_cta' })}
             >
               Request a Custom Quote
             </Button>
-            <Button to="/contact" variant="outline" size="lg" className="border-[#FFFFFF]/30 text-[#FFFFFF] hover:bg-[#FFFFFF]/10 hover:border-[#FFFFFF]">
+            <Button to="/contact" variant="outline" size="lg" className="border-[#FFFFFF]/30 text-[#FFFFFF] hover:bg-[#FFFFFF]/10 hover:border-[#FFFFFF] text-center justify-center">
               Contact Sales Team
             </Button>
           </div>

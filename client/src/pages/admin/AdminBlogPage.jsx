@@ -388,7 +388,7 @@ export default function AdminBlogPage() {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
+            <table className="w-full min-w-[800px] text-left text-xs">
               <thead className="border-b border-neutral-200 bg-neutral-50/80 font-bold uppercase tracking-wider text-neutral-500">
                 <tr>
                   <th className="py-3.5 pl-5 pr-2 w-8">

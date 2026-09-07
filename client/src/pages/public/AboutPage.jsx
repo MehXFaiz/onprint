@@ -58,23 +58,23 @@ export default function AboutPage() {
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent shadow-xs">
               About ONPRINT Dubai
             </span>
-            <h1 className="font-display mt-6 text-4xl font-extrabold leading-[1.04] tracking-tight text-primary sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-6 text-3xl font-extrabold leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
               Precision Printing Press &amp; Branding Studio in Dubai
             </h1>
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-secondary sm:text-lg">
+            <p className="mt-6 max-w-lg text-sm sm:text-base leading-relaxed text-secondary sm:text-lg">
               ONPRINT was established with a singular conviction: the physical collateral a brand hands to a client — business cards, gift packaging, stationery, rollups — should feel as refined as the brand itself.
             </p>
-            <div className="mt-8 flex gap-4">
-              <Button to="/contact" variant="accent" size="lg">
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+              <Button to="/contact" variant="accent" size="lg" className="text-center justify-center">
                 Talk to Our Print Studio
               </Button>
-              <Button to="/portfolio" variant="secondary" size="lg">
+              <Button to="/portfolio" variant="secondary" size="lg" className="text-center justify-center">
                 View Past Projects
               </Button>
             </div>
           </div>
 
-          <div className="relative mx-auto flex h-[340px] w-full max-w-md items-center justify-center sm:h-[400px]">
+          <div className="relative mx-auto flex h-[320px] w-full max-w-xs sm:max-w-md items-center justify-center sm:h-[400px]">
             <CornerMarks className="absolute -left-2 -top-2 h-8 w-8 text-primary/40" />
             <CornerMarks className="absolute -bottom-2 -right-2 h-8 w-8 rotate-180 text-primary/40" />
             <div className="relative h-full w-full overflow-hidden rounded-2xl border border-border bg-surface shadow-xl">

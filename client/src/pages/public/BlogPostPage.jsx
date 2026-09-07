@@ -169,7 +169,7 @@ export default function BlogPostPage() {
 
         {/* Full Article Content */}
         <div
-          className="prose prose-neutral max-w-none text-base leading-relaxed text-primary [&_h2]:font-display [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-black [&_h2]:tracking-tight [&_h2]:text-primary [&_h3]:font-display [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-primary [&_p]:mt-4 [&_p]:text-secondary [&_p]:leading-relaxed [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:text-secondary [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:text-secondary [&_li]:mt-2 [&_strong]:text-primary [&_a]:text-accent [&_a]:underline"
+          className="prose prose-neutral max-w-none text-base leading-relaxed text-primary [&_h2]:font-display [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-black [&_h2]:tracking-tight [&_h2]:text-primary [&_h3]:font-display [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-primary [&_p]:mt-4 [&_p]:text-secondary [&_p]:leading-relaxed [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:text-secondary [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:text-secondary [&_li]:mt-2 [&_strong]:text-primary [&_a]:text-accent [&_a]:underline [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-2xl [&_table]:w-full [&_table]:overflow-x-auto [&_table]:block [&_pre]:overflow-x-auto"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
@@ -202,7 +202,7 @@ export default function BlogPostPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 shrink-0">
+                <div className="flex flex-wrap items-center gap-3 shrink-0">
                   {productData.slug && (
                     <Button to={`/products/${productData.slug}`} variant="outline" size="sm">
                       View Product
@@ -258,10 +258,10 @@ export default function BlogPostPage() {
         </div>
 
         {/* High-Converting Quote Call-to-Action */}
-        <div className="mt-12 rounded-3xl border border-primary bg-primary p-8 text-background shadow-xl sm:p-10">
-          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+        <div className="mt-12 rounded-3xl border border-primary bg-primary p-6 sm:p-10 text-background shadow-xl">
+          <div className="flex flex-col items-stretch sm:flex-row sm:items-center justify-between gap-6">
             <div>
-              <span className="rounded-full bg-accent/20 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-accent">
+              <span className="inline-block rounded-full bg-accent/20 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-accent">
                 Ready to Print in Dubai?
               </span>
               <h3 className="font-display mt-3 text-xl font-extrabold text-background sm:text-2xl">
@@ -271,7 +271,7 @@ export default function BlogPostPage() {
                 Request a bespoke estimate from ONPRINT with fast turnaround and free Dubai delivery.
               </p>
             </div>
-            <Button to="/get-a-quote" variant="accent" size="lg" className="shrink-0">
+            <Button to="/get-a-quote" variant="accent" size="lg" className="shrink-0 text-center justify-center">
               Request a Quote
             </Button>
           </div>

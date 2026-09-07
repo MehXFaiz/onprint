@@ -36,7 +36,7 @@ const AdminServicesPage = lazy(() => import('./pages/admin/AdminServicesPage'))
 const AdminServiceFormPage = lazy(() => import('./pages/admin/AdminServiceFormPage'))
 const AdminBlogPage = lazy(() => import('./pages/admin/AdminBlogPage'))
 const AdminBlogFormPage = lazy(() => import('./pages/admin/AdminBlogFormPage'))
-const AdminSeoAuditPage = lazy(() => import('./pages/admin/AdminSeoAuditPage'))
+const AdminSeoManagerPage = lazy(() => import('./pages/admin/seo/AdminSeoManagerPage'))
 const AdminOrdersPage = lazy(() => import('./pages/admin/AdminOrdersPage'))
 const AdminOrderFormPage = lazy(() => import('./pages/admin/AdminOrderFormPage'))
 const AdminQuotesPage = lazy(() => import('./pages/admin/AdminQuotesPage'))
@@ -116,8 +116,9 @@ function App() {
             <Route path="blog/new" element={<AdminBlogFormPage />} />
             <Route path="blog/:id/edit" element={<AdminBlogFormPage />} />
 
-            {/* SEO Audit Tool Route */}
-            <Route path="seo-audit" element={<AdminSeoAuditPage />} />
+            {/* SEO Management Routes */}
+            <Route path="seo" element={<AdminSeoManagerPage />} />
+            <Route path="seo-audit" element={<Navigate to="/admin/seo" replace />} />
 
             {/* Orders Dedicated Routes */}
             <Route path="orders" element={<AdminOrdersPage />} />

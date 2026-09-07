@@ -19,6 +19,8 @@ import {
   ShieldCheck,
   BookOpen,
   Search,
+  Sparkles,
+  Bot,
 } from 'lucide-react'
 
 const navLinks = [
@@ -27,7 +29,7 @@ const navLinks = [
   { to: '/admin/categories', label: 'Categories', icon: FolderTree },
   { to: '/admin/services', label: 'Services', icon: Wrench },
   { to: '/admin/blog', label: 'Blog Articles', icon: BookOpen },
-  { to: '/admin/seo-audit', label: 'SEO Audit', icon: Search },
+  { to: '/admin/seo', label: 'AI SEO Manager', icon: Sparkles },
   { to: '/admin/orders', label: 'Orders', icon: ShoppingBag },
   { to: '/admin/quotes', label: 'Quotes', icon: FileText },
   { to: '/admin/customers', label: 'Customers', icon: Users },

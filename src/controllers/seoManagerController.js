@@ -35,45 +35,73 @@ class SeoManagerController {
       }
 
       // Count recommendations
-      const [recCounts] = await pool.query(`
-        SELECT 
-          COUNT(*) as total,
-          SUM(CASE WHEN status = 'PENDING' THEN 1 ELSE 0 END) as pending,
-          SUM(CASE WHEN status = 'APPROVED' THEN 1 ELSE 0 END) as approved,
-          SUM(CASE WHEN status = 'APPLIED' THEN 1 ELSE 0 END) as applied,
-          SUM(CASE WHEN status = 'REJECTED' THEN 1 ELSE 0 END) as rejected
-        FROM seo_recommendations
-      `)
+      let recCounts = [{ total: 0, pending: 0, approved: 0, applied: 0, rejected: 0 }]
+      try {
+        const [rows] = await pool.query(`
+          SELECT 
+            COUNT(*) as total,
+            SUM(CASE WHEN status = 'PENDING' OR status = 'NEW' THEN 1 ELSE 0 END) as pending,
+            SUM(CASE WHEN status = 'APPROVED' THEN 1 ELSE 0 END) as approved,
+            SUM(CASE WHEN status = 'APPLIED' THEN 1 ELSE 0 END) as applied,
+            SUM(CASE WHEN status = 'REJECTED' THEN 1 ELSE 0 END) as rejected
+          FROM seo_recommendations
+        `)
+        if (rows.length > 0) recCounts = rows
+      } catch (err) {
+        console.warn('[SeoController] Rec counts fallback note:', err.message)
+      }
 
       // Top pending recommendations
-      const [topPending] = await pool.query(`
-        SELECT * FROM seo_recommendations 
-        WHERE status = 'PENDING' 
-        ORDER BY FIELD(priority, 'CRITICAL', 'HIGH', 'MEDIUM', 'LOW'), created_at DESC 
-        LIMIT 5
-      `)
+      let topPending = []
+      try {
+        const [rows] = await pool.query(`
+          SELECT * FROM seo_recommendations 
+          WHERE status = 'PENDING' OR status = 'NEW' 
+          ORDER BY FIELD(priority, 'CRITICAL', 'HIGH', 'MEDIUM', 'LOW'), created_at DESC 
+          LIMIT 5
+        `)
+        topPending = rows
+      } catch (err) {
+        console.warn('[SeoController] Top pending fallback note:', err.message)
+      }
 
       // Top issues
-      const [topIssues] = await pool.query(`
-        SELECT * FROM seo_issues 
-        ORDER BY FIELD(severity, 'critical', 'high', 'medium', 'low'), created_at DESC 
-        LIMIT 6
-      `)
+      let topIssues = []
+      try {
+        const [rows] = await pool.query(`
+          SELECT * FROM seo_issues 
+          ORDER BY FIELD(severity, 'critical', 'high', 'medium', 'low'), created_at DESC 
+          LIMIT 6
+        `)
+        topIssues = rows
+      } catch (err) {
+        console.warn('[SeoController] Top issues fallback note:', err.message)
+      }
 
       // 7-day trend from daily reports
-      const [trends] = await pool.query(`
-        SELECT report_date, health_score, technical_score, onpage_score, content_score, structured_data_score, critical_issues, high_issues, organic_clicks, organic_impressions 
-        FROM seo_daily_reports 
-        ORDER BY report_date DESC 
-        LIMIT 7
-      `)
+      let trends = []
+      try {
+        const [rows] = await pool.query(`
+          SELECT report_date, health_score, technical_score, onpage_score, content_score, structured_data_score, critical_issues, high_issues, organic_clicks, organic_impressions 
+          FROM seo_daily_reports 
+          ORDER BY report_date DESC 
+          LIMIT 7
+        `)
+        trends = rows
+      } catch (err) {
+        console.warn('[SeoController] Trends fallback note:', err.message)
+      }
 
       // Settings
-      const [settingsRows] = await pool.query(`SELECT setting_key, setting_value FROM seo_settings`)
       const settings = {}
-      settingsRows.forEach((r) => {
-        settings[r.setting_key] = r.setting_value
-      })
+      try {
+        const [settingsRows] = await pool.query(`SELECT setting_key, setting_value FROM seo_settings`)
+        settingsRows.forEach((r) => {
+          settings[r.setting_key] = r.setting_value
+        })
+      } catch (err) {
+        console.warn('[SeoController] Settings fallback note:', err.message)
+      }
 
       res.json({
         success: true,

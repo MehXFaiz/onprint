@@ -1,18 +1,21 @@
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Sparkles, Eye, Check } from 'lucide-react'
+import { ArrowUpRight, Sparkles, Eye, Check, Tag } from 'lucide-react'
 import { getProductImage } from '../assets/productImages'
 
 export default function ProductCard({
   product,
   featured = false,
   variant = 'glass',
-  onQuickView
+  onQuickView,
 }) {
   if (!product) return null
 
   const isFeatured = featured || product.featured
   const productImage = getProductImage(product)
-  const categoryName = typeof product.category === 'object' ? product.category?.name : (product.category || '')
+  const categoryName =
+    typeof product.category === 'object'
+      ? product.category?.name
+      : product.category || ''
 
   const handleQuickView = (e) => {
     if (onQuickView) {
@@ -22,7 +25,7 @@ export default function ProductCard({
     }
   }
 
-  // Derive 2 to 4 key features dynamically
+  // Derive 2–3 key features dynamically
   const deriveFeatures = () => {
     if (Array.isArray(product.features) && product.features.length > 0) {
       return product.features.slice(0, 3)
@@ -48,113 +51,116 @@ export default function ProductCard({
 
   return (
     <div
-      className={`group relative flex flex-col justify-between h-full overflow-hidden rounded-2xl border border-[#000000]/12 bg-[#FFFFFF] shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#A82F19] hover:shadow-xl ${
-        isFeatured ? 'lg:col-span-2 lg:flex-row' : ''
+      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/60 hover:shadow-lg ${
+        isFeatured ? 'sm:col-span-2 sm:flex-row' : ''
       }`}
     >
-      {/* Product Image Area */}
+      {/* Product Image */}
       <div
-        className={`relative overflow-hidden bg-[#FFFFFF] ${
-          isFeatured ? 'aspect-[16/10] lg:w-1/2 lg:aspect-auto' : 'aspect-[4/3] w-full'
+        className={`relative shrink-0 overflow-hidden bg-gray-50 ${
+          isFeatured
+            ? 'aspect-[16/9] sm:aspect-auto sm:w-[45%]'
+            : 'aspect-[4/3] w-full'
         }`}
       >
         {productImage ? (
           <img
             src={productImage}
-            alt={product.name}
+            alt={product.imageAlt || product.name}
             loading="lazy"
             className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-[#000000]/5 text-xs font-bold uppercase tracking-widest text-[#000000]/50">
+          <div className="flex h-full w-full items-center justify-center bg-black/5 text-[11px] font-black uppercase tracking-widest text-black/30">
             ONPRINT PRESS
           </div>
         )}
 
-        {/* Soft Hover Overlay */}
-        <div className="absolute inset-0 bg-[#000000]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        {/* Dark overlay on hover */}
+        <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/8" />
 
-        {/* Featured / Category Top-Left Badge */}
-        <div className="absolute top-3 left-3 z-10 flex items-center gap-2 pointer-events-none">
+        {/* Top-left badges */}
+        <div className="absolute left-3 top-3 z-10 flex flex-col items-start gap-1.5 pointer-events-none">
           {isFeatured && (
-            <span className="inline-flex items-center gap-1 rounded-md bg-[#A82F19] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-widest text-[#FFFFFF] shadow-xs">
-              <Sparkles className="h-3 w-3 text-[#FFFFFF]" />
+            <span className="inline-flex items-center gap-1 rounded-md bg-[#A82F19] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white shadow-sm">
+              <Sparkles className="h-3 w-3" />
               Featured
             </span>
           )}
         </div>
 
-        {/* Floating Price Badge in Top-Right Corner */}
-        {product.price && (
-          <div className="absolute top-3 right-3 z-10 pointer-events-none">
-            <span className="inline-flex items-center rounded-md bg-[#A82F19] px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#FFFFFF] shadow-md">
-              FROM AED {product.price}
+        {/* Price badge — top-right */}
+        {product.price && Number(product.price) > 0 && (
+          <div className="absolute right-3 top-3 z-10 pointer-events-none">
+            <span className="inline-flex items-center gap-1 rounded-lg bg-black/80 px-2.5 py-1 text-[11px] font-extrabold tracking-wider text-white backdrop-blur-sm">
+              <Tag className="h-3 w-3 text-[#A82F19]" />
+              AED {product.price}+
             </span>
           </div>
         )}
       </div>
 
-      {/* Product Information Section */}
-      <div className="flex flex-1 flex-col justify-between p-5 sm:p-6 bg-[#FFFFFF]">
+      {/* Content */}
+      <div className="flex flex-1 flex-col justify-between p-5">
         <div className="space-y-2">
-          {/* Category */}
+          {/* Category pill */}
           {categoryName && (
-            <span className="block text-[10px] font-extrabold uppercase tracking-widest text-[#A82F19]">
+            <span className="inline-block rounded-full border border-[#A82F19]/20 bg-[#A82F19]/8 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-[#A82F19]">
               {categoryName}
             </span>
           )}
 
-          {/* Product Name */}
-          <h3 className="font-display text-base sm:text-lg font-black tracking-tight text-[#000000] transition-colors duration-200 group-hover:text-[#A82F19] line-clamp-1">
+          {/* Product name */}
+          <h3 className="font-display text-base font-black leading-snug tracking-tight text-black transition-colors duration-200 group-hover:text-[#A82F19] line-clamp-2">
             {product.name}
           </h3>
 
-          {/* Short Description */}
-          <p className="text-xs leading-relaxed text-[#000000]/70 line-clamp-2">
+          {/* Short description */}
+          <p className="text-xs leading-relaxed text-black/60 line-clamp-2">
             {product.shortDescription || product.description}
           </p>
 
-          {/* Product Features List */}
+          {/* Features */}
           {featuresList.length > 0 && (
-            <div className="pt-2 border-t border-[#000000]/8 space-y-1.5">
-              <span className="block text-[9px] font-extrabold uppercase tracking-wider text-[#000000]/50">
+            <div className="pt-2.5 border-t border-black/8 space-y-1.5">
+              <span className="block text-[9px] font-extrabold uppercase tracking-wider text-black/40">
                 Key Features
               </span>
               {featuresList.map((feat, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs font-medium text-[#000000]/85">
-                  <Check className="h-3.5 w-3.5 shrink-0 text-[#A82F19]" />
-                  <span className="truncate">{feat}</span>
+                <div key={idx} className="flex items-start gap-1.5 text-[11px] font-medium text-black/75">
+                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#A82F19]" />
+                  <span className="line-clamp-1">{feat}</span>
                 </div>
               ))}
             </div>
           )}
         </div>
 
-        {/* Action / CTA Bar */}
-        <div className="mt-5 pt-4 border-t border-[#000000]/10 flex items-center gap-2">
+        {/* CTA */}
+        <div className="mt-4 flex items-center gap-2 border-t border-black/8 pt-4">
           <Link
             to={`/products/${product.slug}`}
-            className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#A82F19] border border-[#A82F19] px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-[#FFFFFF] transition-all duration-300 hover:bg-[#000000] hover:border-[#000000] cursor-pointer shadow-xs active:scale-[0.98]"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#A82F19] px-4 py-2.5 text-[11px] font-extrabold uppercase tracking-wider text-white transition-all duration-200 hover:bg-black active:scale-[0.98] shadow-sm"
           >
-            <span>Explore Product</span>
-            <ArrowUpRight className="h-4 w-4 text-[#FFFFFF]" />
+            <span>Explore</span>
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
 
           {onQuickView && (
             <button
               type="button"
               onClick={handleQuickView}
-              aria-label="Quick View Product"
-              className="inline-flex items-center justify-center rounded-xl border border-[#000000]/20 bg-[#FFFFFF] p-2.5 text-[#000000] transition-all hover:border-[#A82F19] hover:bg-[#A82F19] hover:text-[#FFFFFF] cursor-pointer active:scale-95"
+              aria-label="Quick View"
+              className="inline-flex items-center justify-center rounded-xl border border-black/15 bg-white p-2.5 text-black transition-all hover:border-[#A82F19] hover:bg-[#A82F19] hover:text-white active:scale-95"
             >
-              <Eye className="h-4 w-4 text-current" />
+              <Eye className="h-4 w-4" />
             </button>
           )}
         </div>
       </div>
 
-      {/* Subtle bottom ONPRINT red accent line */}
-      <div className="h-1 w-0 bg-[#A82F19] transition-all duration-300 ease-out group-hover:w-full" />
+      {/* Bottom red accent line */}
+      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-[#A82F19] transition-all duration-300 ease-out group-hover:w-full" />
     </div>
   )
 }

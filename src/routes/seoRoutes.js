@@ -12,6 +12,8 @@ router.get('/sitemap.xml', getSitemapXml)
 router.get('/llms.txt', getLlmsTxt)
 router.get('/ads.txt', getAdsTxt)
 router.get('/audit', runSeoAudit) // Public quick audit endpoint
+router.get('/landing-pages', (req, res) => seoManagerController.getProgrammaticPages(req, res))
+router.get('/landing-pages/:slug', (req, res) => seoManagerController.getProgrammaticPage(req, res))
 
 // ==========================================
 // 2. DAILY AUTOMATED RUNNER (Cron / Webhook / Admin)
@@ -46,6 +48,23 @@ router.get('/dashboard', (req, res) => seoManagerController.getDashboardSummary(
 // Technical & On-Page Audits
 router.get('/audit-details', (req, res) => seoManagerController.getAudit(req, res))
 router.post('/audit-trigger', (req, res) => seoManagerController.triggerAudit(req, res))
+
+// Content Opportunities Finder
+router.get('/opportunities', (req, res) => seoManagerController.getOpportunities(req, res))
+
+// Internal Linking Engine
+router.get('/internal-links', (req, res) => seoManagerController.getInternalLinks(req, res))
+
+// Competitor Gap Analysis
+router.get('/competitor-analysis', (req, res) => seoManagerController.getCompetitorAnalysis(req, res))
+
+// Image SEO Audit & Alt Tag Updater
+router.get('/image-audit', (req, res) => seoManagerController.getImageAudit(req, res))
+router.post('/image-update', (req, res) => seoManagerController.updateImageAlt(req, res))
+
+// SEO Safety & Review Required Queue
+router.get('/safety-queue', (req, res) => seoManagerController.getSafetyQueue(req, res))
+router.post('/validate-change', (req, res) => seoManagerController.validateChange(req, res))
 
 // AI Recommendations
 router.get('/recommendations', (req, res) => seoManagerController.getRecommendations(req, res))

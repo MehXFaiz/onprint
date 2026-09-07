@@ -1,7 +1,22 @@
 const { pool } = require('../config/database')
 const { products: fallbackProducts, services: fallbackServices, categories: fallbackCategories } = require('../data/initialData')
+const programmaticSeoService = require('../services/programmaticSeoService')
 
 const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+
+function escapeXml(unsafe) {
+  return String(unsafe || '')
+    .replace(/[<>&'"]/g, (c) => {
+      switch (c) {
+        case '<': return '&lt;'
+        case '>': return '&gt;'
+        case '&': return '&amp;'
+        case '\'': return '&apos;'
+        case '"': return '&quot;'
+        default: return c
+      }
+    })
+}
 
 async function getRobotsTxt(req, res) {
   const robots = `User-agent: *
@@ -19,6 +34,10 @@ Allow: /about
 Allow: /contact
 Allow: /faq
 Allow: /get-a-quote
+Allow: /printing-services
+Allow: /printing-services/
+Allow: /printing-solutions
+Allow: /printing-solutions/
 Allow: /privacy-policy
 Allow: /terms
 Allow: /assets/
@@ -260,16 +279,31 @@ async function getSitemapXml(req, res) {
       } catch (e) {}
     }
 
-    // Format XML
+    // 6. Safe Programmatic Landing Pages (Locations & Use Cases)
+    try {
+      const programmaticPages = programmaticSeoService.getAllPages()
+      programmaticPages.forEach((p) => {
+        urls.push({
+          loc: p.fullUrl,
+          lastmod: now,
+          changefreq: 'weekly',
+          priority: '0.85',
+        })
+      })
+    } catch (progErr) {
+      console.warn('[Sitemap] Programmatic pages inclusion note:', progErr.message)
+    }
+
+    // Format XML with strict validation & XML entity escaping
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`
     xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
 
     urls.forEach((u) => {
       xml += `  <url>\n`
-      xml += `    <loc>${u.loc}</loc>\n`
-      xml += `    <lastmod>${u.lastmod}</lastmod>\n`
-      xml += `    <changefreq>${u.changefreq}</changefreq>\n`
-      xml += `    <priority>${u.priority}</priority>\n`
+      xml += `    <loc>${escapeXml(u.loc)}</loc>\n`
+      xml += `    <lastmod>${escapeXml(u.lastmod)}</lastmod>\n`
+      xml += `    <changefreq>${escapeXml(u.changefreq)}</changefreq>\n`
+      xml += `    <priority>${escapeXml(u.priority)}</priority>\n`
       xml += `  </url>\n`
     })
 

@@ -22,6 +22,7 @@ const TrackOrderPage = lazy(() => import('./pages/public/TrackOrderPage'))
 const FaqPage = lazy(() => import('./pages/public/FaqPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'))
 const TermsPage = lazy(() => import('./pages/public/TermsPage'))
+const ProgrammaticLandingPage = lazy(() => import('./pages/public/ProgrammaticLandingPage'))
 const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
 
 // Lazy load admin section and layouts to dramatically improve initial page load performance
@@ -67,6 +68,8 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/:slug" element={<ServiceDetailPage />} />
+            <Route path="/printing-services/:slug" element={<ProgrammaticLandingPage />} />
+            <Route path="/printing-solutions/:slug" element={<ProgrammaticLandingPage />} />
             <Route path="/categories" element={<CategoriesPage />} />
             <Route path="/categories/:slug" element={<CategoryDetailPage />} />
             <Route path="/products" element={<ProductsPage />} />

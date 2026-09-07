@@ -4,6 +4,12 @@ const googleSearchConsoleService = require('../services/googleSearchConsoleServi
 const seoAiAnalyzerService = require('../services/seoAiAnalyzerService')
 const seoChangeService = require('../services/seoChangeService')
 const seoDailyScheduler = require('../services/seoDailyScheduler')
+const seoSafetyService = require('../services/seoSafetyService')
+const internalLinkingService = require('../services/internalLinkingService')
+const seoOpportunityService = require('../services/seoOpportunityService')
+const competitorGapService = require('../services/competitorGapService')
+const imageSeoService = require('../services/imageSeoService')
+const programmaticSeoService = require('../services/programmaticSeoService')
 
 /**
  * AI SEO Manager Controller
@@ -31,7 +37,7 @@ class SeoManagerController {
         opportunities: {},
       }
       if (gscStatus.isConnected) {
-        gscPerformance = await googleSearchConsoleService.getPerformance()
+        gscPerformance = await googleSearchConsoleService.getPerformanceData()
       }
 
       // Count recommendations
@@ -124,11 +130,28 @@ class SeoManagerController {
             approved: recCounts[0]?.approved || 0,
             applied: recCounts[0]?.applied || 0,
             rejected: recCounts[0]?.rejected || 0,
-            topPending: topPending.map((r) => ({
-              ...r,
-              keywords: typeof r.keywords === 'string' ? JSON.parse(r.keywords) : r.keywords,
-              internal_link_suggestions: typeof r.internal_link_suggestions === 'string' ? JSON.parse(r.internal_link_suggestions) : r.internal_link_suggestions,
-            })),
+            topPending: topPending.map((r) => {
+              let curVal = r.current_value
+              let propVal = r.proposed_value
+              if (typeof curVal === 'string') {
+                try { curVal = JSON.parse(curVal) } catch {}
+              }
+              if (typeof propVal === 'string') {
+                try { propVal = JSON.parse(propVal) } catch {}
+              }
+              const targetField = r.target_field || (propVal?.meta_description ? 'meta_description' : propVal?.title ? 'seo_title' : 'metadata')
+              return {
+                ...r,
+                target_type: r.target_type || r.entity_type || 'page',
+                target_field: targetField,
+                target_name: r.target_name || (r.page_url ? r.page_url.split('/').filter(Boolean).pop() : 'Page'),
+                target_url: r.target_url || r.page_url,
+                current_value: typeof curVal === 'object' && curVal !== null ? (curVal[targetField] || curVal.meta_description || curVal.title || '') : (curVal || ''),
+                recommended_value: r.recommended_value || (typeof propVal === 'object' && propVal !== null ? (propVal[targetField] || propVal.meta_description || propVal.title || '') : (propVal || '')),
+                keywords: typeof r.keywords === 'string' ? JSON.parse(r.keywords) : (r.keywords || []),
+                internal_link_suggestions: typeof r.internal_link_suggestions === 'string' ? JSON.parse(r.internal_link_suggestions) : (r.internal_link_suggestions || []),
+              }
+            }),
           },
           topIssues,
           searchConsole: {
@@ -137,11 +160,11 @@ class SeoManagerController {
           },
           trends: trends.reverse(),
           scheduler: {
-            enabled: settings.scheduler_enabled === '1' || settings.scheduler_enabled === 'true',
-            dailyRunTime: settings.daily_run_time || '03:00',
-            timezone: settings.timezone || 'Asia/Dubai',
+            enabled: (settings.scheduler_enabled !== '0' && settings.scheduler_enabled !== 'false') && (settings.schedule_enabled !== '0' && settings.schedule_enabled !== 'false') && (settings.scheduler_enabled === '1' || settings.scheduler_enabled === 'true' || settings.schedule_enabled === '1' || settings.schedule_enabled === 'true'),
+            dailyRunTime: settings.daily_run_time || settings.schedule_time || '03:00',
+            timezone: settings.timezone || settings.schedule_timezone || 'Asia/Dubai',
             lastRunAt: settings.last_run_at || null,
-            autoApplySafe: settings.auto_apply_safe === '1' || settings.auto_apply_safe === 'true',
+            autoApplySafe: settings.auto_apply_safe === '1' || settings.auto_apply_safe === 'true' || settings.auto_apply_safe_changes === '1' || settings.auto_apply_safe_changes === 'true',
           },
         },
       })
@@ -200,13 +223,13 @@ class SeoManagerController {
       }
 
       if (targetType && targetType !== 'all') {
-        whereSql += ' AND target_type = ?'
-        params.push(targetType.toLowerCase())
+        whereSql += ' AND (entity_type = ? OR target_type = ?)'
+        params.push(targetType.toLowerCase(), targetType.toLowerCase())
       }
 
       const [rows] = await pool.query(
         `SELECT * FROM seo_recommendations ${whereSql} 
-         ORDER BY FIELD(status, 'PENDING', 'APPROVED', 'APPLIED', 'REJECTED', 'FAILED'), 
+         ORDER BY FIELD(status, 'PENDING', 'NEW', 'APPROVED', 'APPLIED', 'REJECTED', 'FAILED'), 
                   FIELD(priority, 'CRITICAL', 'HIGH', 'MEDIUM', 'LOW'), 
                   created_at DESC 
          LIMIT ? OFFSET ?`,
@@ -218,11 +241,37 @@ class SeoManagerController {
         params
       )
 
-      const formatted = rows.map((r) => ({
-        ...r,
-        keywords: typeof r.keywords === 'string' ? JSON.parse(r.keywords) : r.keywords,
-        internal_link_suggestions: typeof r.internal_link_suggestions === 'string' ? JSON.parse(r.internal_link_suggestions) : r.internal_link_suggestions,
-      }))
+      const formatted = rows.map((r) => {
+        let curVal = r.current_value
+        let propVal = r.proposed_value
+        if (typeof curVal === 'string') {
+          try { curVal = JSON.parse(curVal) } catch {}
+        }
+        if (typeof propVal === 'string') {
+          try { propVal = JSON.parse(propVal) } catch {}
+        }
+
+        const targetField = r.target_field || (propVal?.meta_description ? 'meta_description' : propVal?.title ? 'seo_title' : 'metadata')
+        const currentDisplay = typeof curVal === 'object' && curVal !== null
+          ? (curVal[targetField] || curVal.meta_description || curVal.title || JSON.stringify(curVal))
+          : (curVal || '')
+        const recommendedDisplay = r.recommended_value || (typeof propVal === 'object' && propVal !== null
+          ? (propVal[targetField] || propVal.meta_description || propVal.title || JSON.stringify(propVal))
+          : (propVal || ''))
+
+        return {
+          ...r,
+          target_type: r.target_type || r.entity_type || 'page',
+          target_field: targetField,
+          target_name: r.target_name || (r.page_url ? r.page_url.split('/').filter(Boolean).pop() : 'Page'),
+          target_url: r.target_url || r.page_url,
+          current_value: currentDisplay,
+          recommended_value: recommendedDisplay,
+          proposed_value: typeof propVal === 'object' ? JSON.stringify(propVal) : propVal,
+          keywords: typeof r.keywords === 'string' ? JSON.parse(r.keywords) : (r.keywords || []),
+          internal_link_suggestions: typeof r.internal_link_suggestions === 'string' ? JSON.parse(r.internal_link_suggestions) : (r.internal_link_suggestions || []),
+        }
+      })
 
       res.json({
         success: true,
@@ -506,11 +555,27 @@ class SeoManagerController {
    */
   async getSettings(req, res) {
     try {
-      const [rows] = await pool.query(`SELECT setting_key, setting_value, description FROM seo_settings`)
+      let rows = []
+      try {
+        const [queryRows] = await pool.query(`SELECT setting_key, setting_value FROM seo_settings`)
+        rows = queryRows
+      } catch (dbErr) {
+        console.warn('[SeoController] getSettings DB note:', dbErr.message)
+      }
+
       const settingsObj = {}
       rows.forEach((r) => {
         settingsObj[r.setting_key] = r.setting_value
       })
+
+      // Normalize key aliases
+      const schedulerEnabled = settingsObj.scheduler_enabled ?? settingsObj.schedule_enabled ?? '1'
+      const dailyRunTime = settingsObj.daily_run_time ?? settingsObj.schedule_time ?? '03:00'
+      const timezone = settingsObj.timezone ?? settingsObj.schedule_timezone ?? 'Asia/Dubai'
+      const autoApplySafe = settingsObj.auto_apply_safe ?? settingsObj.auto_apply_safe_changes ?? '0'
+      const minConfidence = settingsObj.min_confidence_auto_apply || '0.90'
+      const aiProvider = settingsObj.ai_provider || 'gemini'
+      const aiModel = settingsObj.ai_model || 'gemini-1.5-flash'
 
       // Mask sensitive API keys for security
       const maskedAiKey = (settingsObj.ai_api_key || process.env.AI_API_KEY || process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY || '')
@@ -521,6 +586,17 @@ class SeoManagerController {
         success: true,
         data: {
           ...settingsObj,
+          scheduler_enabled: schedulerEnabled,
+          schedule_enabled: schedulerEnabled,
+          daily_run_time: dailyRunTime,
+          schedule_time: dailyRunTime,
+          timezone,
+          schedule_timezone: timezone,
+          auto_apply_safe: autoApplySafe,
+          auto_apply_safe_changes: autoApplySafe,
+          min_confidence_auto_apply: minConfidence,
+          ai_provider: aiProvider,
+          ai_model: aiModel,
           hasAiKey,
           ai_api_key_masked: displayAiKey,
           cron_endpoint: `${(process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')}/api/seo/run-daily`,
@@ -538,6 +614,20 @@ class SeoManagerController {
     try {
       const settings = req.body || {}
 
+      // Mirror aliases so either key is updated consistently
+      if (settings.scheduler_enabled !== undefined) {
+        settings.schedule_enabled = settings.scheduler_enabled
+      }
+      if (settings.daily_run_time !== undefined) {
+        settings.schedule_time = settings.daily_run_time
+      }
+      if (settings.timezone !== undefined) {
+        settings.schedule_timezone = settings.timezone
+      }
+      if (settings.auto_apply_safe !== undefined) {
+        settings.auto_apply_safe_changes = settings.auto_apply_safe
+      }
+
       for (const [key, value] of Object.entries(settings)) {
         if (key === 'hasAiKey' || key === 'ai_api_key_masked' || key === 'cron_endpoint') continue
 
@@ -552,10 +642,14 @@ class SeoManagerController {
         )
       }
 
-      await pool.query(
-        `INSERT INTO seo_logs (event_type, status, message) VALUES (?, ?, ?)`,
-        ['settings_updated', 'success', `SEO Settings updated by ${req.user?.name || 'Admin'}`]
-      )
+      try {
+        await pool.query(
+          `INSERT INTO seo_logs (event_type, status, message) VALUES (?, ?, ?)`,
+          ['settings_updated', 'success', `SEO Settings updated by ${req.user?.name || 'Admin'}`]
+        )
+      } catch (logErr) {
+        console.warn('[SeoController] Settings log note:', logErr.message)
+      }
 
       res.json({ success: true, message: 'SEO settings updated successfully.' })
     } catch (err) {
@@ -614,6 +708,140 @@ class SeoManagerController {
           details: typeof r.details === 'string' ? JSON.parse(r.details) : r.details,
         })),
       })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
+   * 12. Content Opportunity Finder (Striking distance & high-impression queries)
+   */
+  async getOpportunities(req, res) {
+    try {
+      const data = await seoOpportunityService.getOpportunities()
+      res.json({ success: true, data })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
+   * 13. Internal Linking Engine Recommendations
+   */
+  async getInternalLinks(req, res) {
+    try {
+      const data = await internalLinkingService.generateRecommendations()
+      res.json({ success: true, data })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
+   * 14. Competitor Gap Analysis
+   */
+  async getCompetitorAnalysis(req, res) {
+    try {
+      const data = await competitorGapService.getGapAnalysis()
+      res.json({ success: true, data })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
+   * 15. Image SEO Audit
+   */
+  async getImageAudit(req, res) {
+    try {
+      const data = await imageSeoService.scanImages()
+      res.json({ success: true, data })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
+   * 16. Update Image Alt Text
+   */
+  async updateImageAlt(req, res) {
+    try {
+      const { entityType, entityId, altText } = req.body
+      if (!entityType || !entityId || !altText) {
+        return res.status(400).json({ success: false, message: 'entityType, entityId, and altText are required.' })
+      }
+      const result = await imageSeoService.updateAltText(entityType, entityId, altText)
+      res.json(result)
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
+   * 17. SEO Safety & Review Required Queue
+   */
+  async getSafetyQueue(req, res) {
+    try {
+      const [rows] = await pool.query(
+        `SELECT * FROM seo_recommendations 
+         WHERE status = 'REVIEW_REQUIRED' 
+         ORDER BY FIELD(priority, 'CRITICAL', 'HIGH', 'MEDIUM', 'LOW'), created_at DESC`
+      )
+
+      const formatted = rows.map((r) => {
+        let propVal = r.proposed_value
+        if (typeof propVal === 'string') {
+          try { propVal = JSON.parse(propVal) } catch {}
+        }
+        return {
+          ...r,
+          proposed_value: propVal,
+          safety_violations: propVal?.safety_violations || [],
+        }
+      })
+
+      res.json({ success: true, data: formatted })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
+   * 18. Real-time Pre-publish Safety Validation
+   */
+  async validateChange(req, res) {
+    try {
+      const result = seoSafetyService.validateChange(req.body)
+      res.json({ success: true, data: result })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
+   * 19. Programmatic Landing Pages Catalog
+   */
+  async getProgrammaticPages(req, res) {
+    try {
+      const pages = programmaticSeoService.getAllPages()
+      res.json({ success: true, data: pages })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
+   * 20. Single Programmatic Page Details
+   */
+  async getProgrammaticPage(req, res) {
+    try {
+      const { slug } = req.params
+      const { type } = req.query
+      const page = programmaticSeoService.getPageBySlug(slug, type)
+      if (!page) {
+        return res.status(404).json({ success: false, message: 'Programmatic landing page not found.' })
+      }
+      res.json({ success: true, data: page })
     } catch (err) {
       res.status(500).json({ success: false, message: err.message })
     }

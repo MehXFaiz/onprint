@@ -16,8 +16,8 @@ async function columnExists(connection, tableName, columnName) {
   try {
     const [rows] = await connection.query(
       `SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS 
-       WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? AND COLUMN_NAME = ?`,
-      [process.env.DB_NAME || 'onprintdb', tableName, columnName]
+       WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?`,
+      [tableName, columnName]
     )
     return rows.length > 0
   } catch {
@@ -470,6 +470,8 @@ async function initDatabase() {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
 
+    await addColumnIfMissing(connection, 'seo_settings', 'description', 'TEXT DEFAULT NULL')
+
     // 11.2 SEO Audits History
     await connection.query(`
       CREATE TABLE IF NOT EXISTS seo_audits (
@@ -485,6 +487,12 @@ async function initDatabase() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
+    await addColumnIfMissing(connection, 'seo_audits', 'technical_score', 'INT NOT NULL DEFAULT 0')
+    await addColumnIfMissing(connection, 'seo_audits', 'onpage_score', 'INT NOT NULL DEFAULT 0')
+    await addColumnIfMissing(connection, 'seo_audits', 'content_score', 'INT NOT NULL DEFAULT 0')
+    await addColumnIfMissing(connection, 'seo_audits', 'structured_data_score', 'INT NOT NULL DEFAULT 0')
+    await addColumnIfMissing(connection, 'seo_audits', 'total_pages_scanned', 'INT NOT NULL DEFAULT 0')
+    await addColumnIfMissing(connection, 'seo_audits', 'issues_count', 'INT NOT NULL DEFAULT 0')
 
     // 11.3 SEO Issues Itemized
     await connection.query(`
@@ -516,11 +524,16 @@ async function initDatabase() {
         page_url VARCHAR(500) NOT NULL,
         entity_type VARCHAR(50) DEFAULT 'page',
         entity_id INT DEFAULT NULL,
+        target_type VARCHAR(50) DEFAULT NULL,
+        target_field VARCHAR(100) DEFAULT NULL,
+        target_name VARCHAR(255) DEFAULT NULL,
+        target_url VARCHAR(500) DEFAULT NULL,
         issue TEXT NOT NULL,
         priority ENUM('CRITICAL', 'HIGH', 'MEDIUM', 'LOW') DEFAULT 'MEDIUM',
-        status ENUM('NEW', 'REVIEWED', 'APPROVED', 'APPLIED', 'REJECTED', 'FAILED') DEFAULT 'NEW',
+        status VARCHAR(50) DEFAULT 'NEW',
         current_value JSON DEFAULT NULL,
         proposed_value JSON DEFAULT NULL,
+        recommended_value TEXT DEFAULT NULL,
         reason TEXT DEFAULT NULL,
         expected_benefit TEXT DEFAULT NULL,
         confidence DECIMAL(3, 2) DEFAULT 0.85,
@@ -534,6 +547,16 @@ async function initDatabase() {
         INDEX idx_seo_rec_type (entity_type)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
+    await addColumnIfMissing(connection, 'seo_recommendations', 'target_type', 'VARCHAR(50) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'seo_recommendations', 'target_field', 'VARCHAR(100) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'seo_recommendations', 'target_name', 'VARCHAR(255) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'seo_recommendations', 'target_url', 'VARCHAR(500) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'seo_recommendations', 'recommended_value', 'TEXT DEFAULT NULL')
+    try {
+      await connection.query(`ALTER TABLE seo_recommendations MODIFY COLUMN status VARCHAR(50) DEFAULT 'NEW'`)
+    } catch (e) {
+      // Ignored if table status column already modified
+    }
 
     // 11.5 SEO Changes & Rollback Audit Trail
     await connection.query(`
@@ -565,21 +588,71 @@ async function initDatabase() {
         id INT AUTO_INCREMENT PRIMARY KEY,
         report_date DATE NOT NULL UNIQUE,
         health_score INT NOT NULL DEFAULT 0,
+        technical_score INT NOT NULL DEFAULT 0,
+        onpage_score INT NOT NULL DEFAULT 0,
+        content_score INT NOT NULL DEFAULT 0,
+        structured_data_score INT NOT NULL DEFAULT 0,
+        total_pages_scanned INT NOT NULL DEFAULT 0,
+        critical_issues INT NOT NULL DEFAULT 0,
+        high_issues INT NOT NULL DEFAULT 0,
+        medium_issues INT NOT NULL DEFAULT 0,
+        low_issues INT NOT NULL DEFAULT 0,
+        pending_recommendations INT NOT NULL DEFAULT 0,
+        applied_changes_today INT NOT NULL DEFAULT 0,
+        organic_clicks INT NOT NULL DEFAULT 0,
+        organic_impressions INT NOT NULL DEFAULT 0,
         clicks INT DEFAULT 0,
         impressions INT DEFAULT 0,
         ctr DECIMAL(5, 2) DEFAULT 0.00,
         avg_position DECIMAL(5, 2) DEFAULT 0.00,
+        top_gaining_keywords JSON DEFAULT NULL,
+        top_losing_keywords JSON DEFAULT NULL,
         top_opportunities JSON DEFAULT NULL,
         technical_issues JSON DEFAULT NULL,
         content_opportunities JSON DEFAULT NULL,
         ai_recommendations JSON DEFAULT NULL,
         changes_applied JSON DEFAULT NULL,
         changes_pending JSON DEFAULT NULL,
+        executive_summary TEXT DEFAULT NULL,
         report_summary TEXT DEFAULT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         INDEX idx_seo_report_date (report_date)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
+
+    // Automatic column migrations for seo_daily_reports (ensures compatibility with existing databases)
+    const dailyReportColumns = [
+      ['technical_score', 'INT NOT NULL DEFAULT 0'],
+      ['onpage_score', 'INT NOT NULL DEFAULT 0'],
+      ['content_score', 'INT NOT NULL DEFAULT 0'],
+      ['structured_data_score', 'INT NOT NULL DEFAULT 0'],
+      ['total_pages_scanned', 'INT NOT NULL DEFAULT 0'],
+      ['critical_issues', 'INT NOT NULL DEFAULT 0'],
+      ['high_issues', 'INT NOT NULL DEFAULT 0'],
+      ['medium_issues', 'INT NOT NULL DEFAULT 0'],
+      ['low_issues', 'INT NOT NULL DEFAULT 0'],
+      ['pending_recommendations', 'INT NOT NULL DEFAULT 0'],
+      ['applied_changes_today', 'INT NOT NULL DEFAULT 0'],
+      ['organic_clicks', 'INT NOT NULL DEFAULT 0'],
+      ['organic_impressions', 'INT NOT NULL DEFAULT 0'],
+      ['clicks', 'INT DEFAULT 0'],
+      ['impressions', 'INT DEFAULT 0'],
+      ['ctr', 'DECIMAL(5, 2) DEFAULT 0.00'],
+      ['avg_position', 'DECIMAL(5, 2) DEFAULT 0.00'],
+      ['top_gaining_keywords', 'JSON DEFAULT NULL'],
+      ['top_losing_keywords', 'JSON DEFAULT NULL'],
+      ['top_opportunities', 'JSON DEFAULT NULL'],
+      ['technical_issues', 'JSON DEFAULT NULL'],
+      ['content_opportunities', 'JSON DEFAULT NULL'],
+      ['ai_recommendations', 'JSON DEFAULT NULL'],
+      ['changes_applied', 'JSON DEFAULT NULL'],
+      ['changes_pending', 'JSON DEFAULT NULL'],
+      ['executive_summary', 'TEXT DEFAULT NULL'],
+      ['report_summary', 'TEXT DEFAULT NULL'],
+    ]
+    for (const [colName, colDef] of dailyReportColumns) {
+      await addColumnIfMissing(connection, 'seo_daily_reports', colName, colDef)
+    }
 
     // 11.7 SEO Keyword Snapshots (from Search Console)
     await connection.query(`
@@ -646,12 +719,17 @@ async function initDatabase() {
 
     // Seed default SEO settings if empty
     const defaultSeoSettings = [
+      ['scheduler_enabled', '1'],
       ['schedule_enabled', '1'],
+      ['daily_run_time', '03:00'],
       ['schedule_time', '03:00'],
+      ['timezone', 'Asia/Dubai'],
       ['schedule_timezone', 'Asia/Dubai'],
       ['ai_provider', 'gemini'],
-      ['ai_model', 'gemini-2.5-flash'],
+      ['ai_model', 'gemini-1.5-flash'],
+      ['auto_apply_safe', '0'],
       ['auto_apply_safe_changes', '0'],
+      ['min_confidence_auto_apply', '0.90'],
       ['gsc_property_url', 'https://0nprint.com'],
       ['notification_email', 'admin@onprint.ae'],
     ]

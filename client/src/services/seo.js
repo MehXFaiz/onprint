@@ -113,3 +113,49 @@ export async function getSeoLogs(params = {}) {
   const { data } = await api.get('/seo/logs', { params })
   return data
 }
+
+export async function getSeoOpportunities() {
+  const { data } = await api.get('/seo/opportunities')
+  return data
+}
+
+export async function getInternalLinks() {
+  const { data } = await api.get('/seo/internal-links')
+  return data
+}
+
+export async function getCompetitorAnalysis() {
+  const { data } = await api.get('/seo/competitor-analysis')
+  return data
+}
+
+export async function getImageAudit() {
+  const { data } = await api.get('/seo/image-audit')
+  return data
+}
+
+export async function updateImageAlt(payload) {
+  const { data } = await api.post('/seo/image-update', payload)
+  return data
+}
+
+export async function getSafetyQueue() {
+  const { data } = await api.get('/seo/safety-queue')
+  return data
+}
+
+export async function validateSeoChange(change) {
+  const { data } = await api.post('/seo/validate-change', change)
+  return data
+}
+
+export async function getProgrammaticPages() {
+  const { data } = await api.get('/seo/landing-pages')
+  return data
+}
+
+export async function getProgrammaticPage(slug, type) {
+  const { data } = await api.get(`/seo/landing-pages/${slug}`, { params: { type } })
+  return data
+}
+

@@ -207,7 +207,7 @@ export default function AdminDashboardPage() {
   return (
     <div className="space-y-8">
       {/* Top Controls Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
         <div className="flex items-center gap-2 text-xs font-bold text-neutral-700">
           <Calendar className="h-4 w-4 text-[#A82F19]" />
           <span>Filter Metric Window:</span>
@@ -237,7 +237,7 @@ export default function AdminDashboardPage() {
 
       {/* Welcome Banner */}
       <div className="rounded-3xl border border-neutral-200 bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 p-6 sm:p-8 text-white shadow-xl">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
               <ShieldCheck className="h-4 w-4" />
@@ -251,7 +251,7 @@ export default function AdminDashboardPage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <Button
               to="/admin/products"
               variant="accent"
@@ -274,7 +274,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Primary KPI Stat Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {/* Card 1: Total Products */}
         <Link
           to="/admin/products"
@@ -351,7 +351,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Secondary Metric Summary Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-4">
         <Link
           to="/admin/messages"
           className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-amber-500 transition-colors"
@@ -413,9 +413,8 @@ export default function AdminDashboardPage() {
         </Link>
       </div>
 
-
       {/* Recent Activity Widgets */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Widget 1: Orders */}
         <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 shadow-xs flex flex-col justify-between">
           <div>

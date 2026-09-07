@@ -96,6 +96,10 @@ router.post(
       const relativeUrl = `/uploads/${req.file.filename}`
       console.log(`[Upload] Single image uploaded successfully: ${relativeUrl}`)
 
+      const cleanOriginal = req.file.originalname.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9]+/g, ' ').trim()
+      const seoSuggestedAlt = `${cleanOriginal} commercial printing Dubai | ONPRINT`
+      const seoSuggestedFilename = `${cleanOriginal.toLowerCase().replace(/\s+/g, '-')}-dubai-onprint.webp`
+
       res.status(201).json({
         success: true,
         message: 'Image uploaded successfully',
@@ -104,6 +108,13 @@ router.post(
         originalName: req.file.originalname,
         mimeType: req.file.mimetype,
         size: req.file.size,
+        seoSuggestions: {
+          suggestedAlt: seoSuggestedAlt,
+          suggestedFilename: seoSuggestedFilename,
+          recommendedDimensions: '1200x800 px (3:2 ratio)',
+          formatAdvice: req.file.mimetype === 'image/webp' ? 'Optimal WebP format' : 'Consider converting to WebP for 30% faster mobile loading',
+          lazyLoadingTag: 'loading="lazy" decoding="async"',
+        },
       })
     } catch (err) {
       next(err)

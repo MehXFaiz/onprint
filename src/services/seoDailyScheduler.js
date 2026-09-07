@@ -48,33 +48,99 @@ class SeoDailyScheduler {
         settings[r.setting_key] = r.setting_value
       })
 
-      if (settings.scheduler_enabled === '0' || settings.scheduler_enabled === 'false') {
+      const isEnabled = (settings.scheduler_enabled !== '0' && settings.scheduler_enabled !== 'false') && (settings.schedule_enabled !== '0' && settings.schedule_enabled !== 'false')
+      if (!isEnabled) {
         return
       }
 
-      const scheduledTime = settings.daily_run_time || '03:00'
+      const scheduledTime = settings.daily_run_time || settings.schedule_time || '03:00'
       const [schedHour, schedMin] = scheduledTime.split(':').map(Number)
 
-      const now = new Date()
-      const currentHour = now.getHours()
-      const currentMin = now.getMinutes()
+      const tz = settings.timezone || settings.schedule_timezone || 'Asia/Dubai'
+      let currentHour, currentMin, todayStr
+      try {
+        const now = new Date()
+        const parts = new Intl.DateTimeFormat('en-CA', {
+          timeZone: tz,
+          hour12: false,
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+        }).formatToParts(now)
+
+        const partMap = {}
+        parts.forEach((p) => {
+          partMap[p.type] = p.value
+        })
+        currentHour = Number(partMap.hour)
+        currentMin = Number(partMap.minute)
+        todayStr = `${partMap.year}-${partMap.month}-${partMap.day}`
+      } catch (tzErr) {
+        const now = new Date()
+        currentHour = now.getHours()
+        currentMin = now.getMinutes()
+        todayStr = now.toISOString().split('T')[0]
+      }
 
       // If within 2-minute window of the scheduled time
       if (currentHour === schedHour && Math.abs(currentMin - schedMin) <= 1) {
         // Check if already ran today
-        const todayStr = now.toISOString().split('T')[0]
         const [existing] = await pool.query(
           `SELECT id FROM seo_daily_reports WHERE report_date = ? LIMIT 1`,
           [todayStr]
         )
 
         if (existing.length === 0) {
-          console.log(`[SeoDailyScheduler] Scheduled trigger time reached (${scheduledTime}). Starting daily SEO run...`)
+          console.log(`[SeoDailyScheduler] Scheduled trigger time reached (${scheduledTime} in ${tz}). Starting daily SEO run...`)
           await this.executeDailyRun({ isCronTrigger: false, forced: false })
         }
       }
     } catch (err) {
       console.warn('[SeoDailyScheduler] checkScheduledRun note:', err.message)
+    }
+  }
+
+  /**
+   * Ensure required columns exist on seo_daily_reports before insertion
+   */
+  async ensureReportColumns() {
+    try {
+      const requiredColumns = [
+        { name: 'technical_score', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'onpage_score', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'content_score', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'structured_data_score', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'total_pages_scanned', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'critical_issues', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'high_issues', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'medium_issues', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'low_issues', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'pending_recommendations', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'applied_changes_today', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'organic_clicks', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'organic_impressions', def: 'INT NOT NULL DEFAULT 0' },
+        { name: 'avg_position', def: 'DECIMAL(5, 2) DEFAULT 0.00' },
+        { name: 'top_gaining_keywords', def: 'JSON DEFAULT NULL' },
+        { name: 'top_losing_keywords', def: 'JSON DEFAULT NULL' },
+        { name: 'executive_summary', def: 'TEXT DEFAULT NULL' },
+      ]
+
+      const [cols] = await pool.query(
+        `SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS 
+         WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'seo_daily_reports'`
+      )
+      const existing = new Set(cols.map((c) => c.COLUMN_NAME.toLowerCase()))
+
+      for (const col of requiredColumns) {
+        if (!existing.has(col.name.toLowerCase())) {
+          await pool.query(`ALTER TABLE \`seo_daily_reports\` ADD COLUMN \`${col.name}\` ${col.def}`)
+          console.log(`[SeoDailyScheduler] Dynamically added missing column '${col.name}' to 'seo_daily_reports'`)
+        }
+      }
+    } catch (err) {
+      console.warn('[SeoDailyScheduler] ensureReportColumns note:', err.message)
     }
   }
 
@@ -106,7 +172,7 @@ class SeoDailyScheduler {
         settings[r.setting_key] = r.setting_value
       })
 
-      const autoApplyEnabled = settings.auto_apply_safe === '1' || settings.auto_apply_safe === 'true'
+      const autoApplyEnabled = settings.auto_apply_safe === '1' || settings.auto_apply_safe === 'true' || settings.auto_apply_safe_changes === '1' || settings.auto_apply_safe_changes === 'true'
       const minConfidence = parseFloat(settings.min_confidence_auto_apply || '0.90')
 
       // 2. Step 1: Run Full SEO Audit
@@ -150,14 +216,24 @@ class SeoDailyScheduler {
       if (autoApplyEnabled) {
         console.log(`[SeoDailyScheduler] Step 4/4: Evaluating auto-apply for safe recommendations (min confidence: ${minConfidence})...`)
         try {
-          const [pendingSafe] = await pool.query(
-            `SELECT id, target_field, confidence 
-             FROM seo_recommendations 
-             WHERE status = 'PENDING' 
-               AND target_field IN ('meta_description', 'image_alt', 'h1') 
-               AND confidence >= ?`,
-            [minConfidence]
+          const [recCols] = await pool.query(
+            `SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS 
+             WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'seo_recommendations' AND COLUMN_NAME = 'target_field'`
           )
+          const hasTargetField = recCols.length > 0
+
+          const query = hasTargetField
+            ? `SELECT id, target_field, confidence 
+               FROM seo_recommendations 
+               WHERE (status = 'PENDING' OR status = 'NEW') 
+                 AND (target_field IN ('meta_description', 'image_alt', 'h1') OR target_field IS NULL) 
+                 AND confidence >= ?`
+            : `SELECT id, confidence 
+               FROM seo_recommendations 
+               WHERE (status = 'PENDING' OR status = 'NEW') 
+                 AND confidence >= ?`
+
+          const [pendingSafe] = await pool.query(query, [minConfidence])
 
           for (const rec of pendingSafe) {
             try {
@@ -172,9 +248,9 @@ class SeoDailyScheduler {
         }
       }
 
-      // Count pending recommendations remaining
+      // Count pending recommendations remaining (checking both PENDING and NEW)
       const [pendingRows] = await pool.query(
-        `SELECT COUNT(*) as pendingCount FROM seo_recommendations WHERE status = 'PENDING'`
+        `SELECT COUNT(*) as pendingCount FROM seo_recommendations WHERE status = 'PENDING' OR status = 'NEW'`
       )
       const pendingCount = pendingRows[0]?.pendingCount || 0
 
@@ -193,6 +269,9 @@ class SeoDailyScheduler {
         `${aiResult.recommendationsCreated} AI recommendation(s) generated. ` +
         `${autoAppliedCount} safe optimization(s) auto-applied. ` +
         (gscMetrics.connected ? `Google Search Console recorded ${gscMetrics.totalClicks} clicks and ${gscMetrics.totalImpressions} impressions.` : `Google Search Console is not connected.`)
+
+      // Ensure all required columns exist in seo_daily_reports before saving
+      await this.ensureReportColumns()
 
       // 6. Persist to seo_daily_reports (Upsert for idempotency)
       const [existingToday] = await pool.query(

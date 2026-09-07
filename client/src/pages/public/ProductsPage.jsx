@@ -316,43 +316,40 @@ export default function ProductsPage() {
 
           {/* VIEW 1: Filtered / Single Category or Search Active */}
           {!loading && !error && (categoryParam || searchQuery) && filteredProducts.length > 0 && (
-            <div className="space-y-12">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {filteredProducts.map((product, index) => (
-                  <Reveal key={product._id} delay={(index % 3) * 0.08}>
-                    <ProductCard
-                      product={product}
-                      featured={index === 0 && !searchQuery}
-                      onQuickView={setQuickViewProduct}
-                    />
-                  </Reveal>
-                ))}
-              </div>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {filteredProducts.map((product, index) => (
+                <Reveal key={product._id} delay={(index % 4) * 0.06}>
+                  <ProductCard
+                    product={product}
+                    featured={index === 0 && !searchQuery}
+                    onQuickView={setQuickViewProduct}
+                  />
+                </Reveal>
+              ))}
             </div>
           )}
 
           {/* VIEW 2: All Categories Editorial Grouped Layout */}
           {!loading && !error && !categoryParam && !searchQuery && (
-            <div className="space-y-20">
+            <div className="space-y-16">
               {groupedCategories.map((group, groupIdx) => (
-                <section key={groupIdx} className="space-y-8">
+                <section key={groupIdx} className="space-y-6">
                   {/* Editorial Category Header */}
-                  <div className="border-b border-border/80 pb-6">
-                    <span className="text-xs font-extrabold uppercase tracking-widest text-accent">
-                      {group.meta.eyebrow}
-                    </span>
-                    <h2 className="font-display mt-1 text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
-                      {group.meta.heading}
-                    </h2>
-                    <p className="mt-2 max-w-2xl text-xs sm:text-sm leading-relaxed text-secondary">
-                      {group.meta.description}
-                    </p>
+                  <div className="flex items-end justify-between border-b border-black/10 pb-5">
+                    <div>
+                      <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#A82F19]">
+                        {group.meta.eyebrow}
+                      </span>
+                      <h2 className="font-display mt-1 text-xl font-extrabold tracking-tight text-black sm:text-3xl">
+                        {group.meta.heading}
+                      </h2>
+                    </div>
                   </div>
 
-                  {/* Asymmetric Editorial Grid Layout */}
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {/* Product grid — featured card spans 2 cols on sm+ */}
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {group.items.map((product, idx) => (
-                      <Reveal key={product._id} delay={(idx % 3) * 0.08}>
+                      <Reveal key={product._id} delay={(idx % 4) * 0.06}>
                         <ProductCard
                           product={product}
                           featured={idx === 0}

@@ -458,7 +458,219 @@ async function initDatabase() {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
 
-    // 11. Automatically Seed/Verify Admin User in DB
+    // 11. SEO Management System Tables
+    // 11.1 SEO Settings
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_settings (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        setting_key VARCHAR(100) NOT NULL UNIQUE,
+        setting_value LONGTEXT DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.2 SEO Audits History
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_audits (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        health_score INT NOT NULL DEFAULT 0,
+        technical_score INT NOT NULL DEFAULT 0,
+        onpage_score INT NOT NULL DEFAULT 0,
+        content_score INT NOT NULL DEFAULT 0,
+        structured_data_score INT NOT NULL DEFAULT 0,
+        total_pages_scanned INT NOT NULL DEFAULT 0,
+        issues_count INT NOT NULL DEFAULT 0,
+        summary_json JSON DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.3 SEO Issues Itemized
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_issues (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        audit_id INT DEFAULT NULL,
+        entity_type VARCHAR(50) NOT NULL,
+        entity_id INT DEFAULT NULL,
+        url VARCHAR(500) DEFAULT NULL,
+        issue_type VARCHAR(100) NOT NULL,
+        category ENUM('technical', 'onpage', 'content', 'schema', 'indexing') DEFAULT 'onpage',
+        severity ENUM('critical', 'high', 'medium', 'low') DEFAULT 'medium',
+        title VARCHAR(255) NOT NULL,
+        description TEXT DEFAULT NULL,
+        recommendation TEXT DEFAULT NULL,
+        resolved TINYINT(1) DEFAULT 0,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_seo_issues_audit (audit_id),
+        INDEX idx_seo_issues_cat (category),
+        INDEX idx_seo_issues_sev (severity),
+        INDEX idx_seo_issues_res (resolved)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.4 SEO AI Recommendations
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_recommendations (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        page_url VARCHAR(500) NOT NULL,
+        entity_type VARCHAR(50) DEFAULT 'page',
+        entity_id INT DEFAULT NULL,
+        issue TEXT NOT NULL,
+        priority ENUM('CRITICAL', 'HIGH', 'MEDIUM', 'LOW') DEFAULT 'MEDIUM',
+        status ENUM('NEW', 'REVIEWED', 'APPROVED', 'APPLIED', 'REJECTED', 'FAILED') DEFAULT 'NEW',
+        current_value JSON DEFAULT NULL,
+        proposed_value JSON DEFAULT NULL,
+        reason TEXT DEFAULT NULL,
+        expected_benefit TEXT DEFAULT NULL,
+        confidence DECIMAL(3, 2) DEFAULT 0.85,
+        keywords JSON DEFAULT NULL,
+        internal_link_suggestions JSON DEFAULT NULL,
+        reviewed_at DATETIME DEFAULT NULL,
+        applied_at DATETIME DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_seo_rec_status (status),
+        INDEX idx_seo_rec_priority (priority),
+        INDEX idx_seo_rec_type (entity_type)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.5 SEO Changes & Rollback Audit Trail
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_changes (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        recommendation_id INT DEFAULT NULL,
+        entity_type VARCHAR(50) NOT NULL,
+        entity_id INT DEFAULT NULL,
+        page_url VARCHAR(500) NOT NULL,
+        change_type VARCHAR(100) NOT NULL,
+        old_value JSON DEFAULT NULL,
+        new_value JSON DEFAULT NULL,
+        ai_reason TEXT DEFAULT NULL,
+        ai_model VARCHAR(100) DEFAULT 'gemini-2.5-flash',
+        approved_by VARCHAR(100) DEFAULT 'Admin',
+        approved_at DATETIME DEFAULT NULL,
+        applied_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        status ENUM('applied', 'rolled_back') DEFAULT 'applied',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_seo_changes_type (entity_type),
+        INDEX idx_seo_changes_status (status),
+        INDEX idx_seo_changes_time (applied_at)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.6 SEO Daily Reports
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_daily_reports (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        report_date DATE NOT NULL UNIQUE,
+        health_score INT NOT NULL DEFAULT 0,
+        clicks INT DEFAULT 0,
+        impressions INT DEFAULT 0,
+        ctr DECIMAL(5, 2) DEFAULT 0.00,
+        avg_position DECIMAL(5, 2) DEFAULT 0.00,
+        top_opportunities JSON DEFAULT NULL,
+        technical_issues JSON DEFAULT NULL,
+        content_opportunities JSON DEFAULT NULL,
+        ai_recommendations JSON DEFAULT NULL,
+        changes_applied JSON DEFAULT NULL,
+        changes_pending JSON DEFAULT NULL,
+        report_summary TEXT DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_seo_report_date (report_date)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.7 SEO Keyword Snapshots (from Search Console)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_keyword_snapshots (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        query VARCHAR(255) NOT NULL,
+        page_url VARCHAR(500) DEFAULT NULL,
+        clicks INT DEFAULT 0,
+        impressions INT DEFAULT 0,
+        ctr DECIMAL(5, 2) DEFAULT 0.00,
+        position DECIMAL(5, 2) DEFAULT 0.00,
+        previous_position DECIMAL(5, 2) DEFAULT NULL,
+        opportunity_type VARCHAR(50) DEFAULT NULL,
+        snapshot_date DATE NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_seo_kw_query (query),
+        INDEX idx_seo_kw_date (snapshot_date),
+        INDEX idx_seo_kw_opp (opportunity_type)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.8 SEO Page Metrics
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_page_metrics (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        page_url VARCHAR(500) NOT NULL,
+        clicks INT DEFAULT 0,
+        impressions INT DEFAULT 0,
+        ctr DECIMAL(5, 2) DEFAULT 0.00,
+        position DECIMAL(5, 2) DEFAULT 0.00,
+        snapshot_date DATE NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_seo_pm_url (page_url(191)),
+        INDEX idx_seo_pm_date (snapshot_date)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.9 SEO Integrations (GSC, AI Provider)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_integrations (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        integration_name VARCHAR(100) NOT NULL UNIQUE,
+        is_connected TINYINT(1) DEFAULT 0,
+        config JSON DEFAULT NULL,
+        last_synced_at DATETIME DEFAULT NULL,
+        error_message TEXT DEFAULT NULL,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.10 SEO Operational Logs
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_logs (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        event_type VARCHAR(100) NOT NULL,
+        status VARCHAR(50) DEFAULT 'info',
+        message TEXT NOT NULL,
+        details JSON DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_seo_logs_type (event_type),
+        INDEX idx_seo_logs_time (created_at)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // Seed default SEO settings if empty
+    const defaultSeoSettings = [
+      ['schedule_enabled', '1'],
+      ['schedule_time', '03:00'],
+      ['schedule_timezone', 'Asia/Dubai'],
+      ['ai_provider', 'gemini'],
+      ['ai_model', 'gemini-2.5-flash'],
+      ['auto_apply_safe_changes', '0'],
+      ['gsc_property_url', 'https://0nprint.com'],
+      ['notification_email', 'admin@onprint.ae'],
+    ]
+    for (const [key, val] of defaultSeoSettings) {
+      await connection.query(
+        'INSERT IGNORE INTO seo_settings (setting_key, setting_value) VALUES (?, ?)',
+        [key, val]
+      )
+    }
+
+    // Seed default SEO integration records if empty
+    await connection.query(`
+      INSERT IGNORE INTO seo_integrations (integration_name, is_connected, config)
+      VALUES 
+        ('google_search_console', 0, '{"property": "https://0nprint.com", "auth_type": "oauth2"}'),
+        ('ai_service', 1, '{"provider": "gemini", "model": "gemini-2.5-flash"}')
+    `)
+
+    // 12. Automatically Seed/Verify Admin User in DB
     const adminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
     const adminName = process.env.ADMIN_NAME || 'ONPRINT Admin'

@@ -271,25 +271,35 @@ class SeoChangeService {
       params.push(status)
     }
 
-    const [rows] = await pool.query(
-      `SELECT * FROM seo_changes ${whereSql} ORDER BY applied_at DESC LIMIT ? OFFSET ?`,
-      [...params, Number(limit), Number(offset)]
-    )
+    try {
+      const [rows] = await pool.query(
+        `SELECT * FROM seo_changes ${whereSql} ORDER BY applied_at DESC LIMIT ? OFFSET ?`,
+        [...params, Number(limit), Number(offset)]
+      )
 
-    const [countRows] = await pool.query(
-      `SELECT COUNT(*) as total FROM seo_changes ${whereSql}`,
-      params
-    )
+      const [countRows] = await pool.query(
+        `SELECT COUNT(*) as total FROM seo_changes ${whereSql}`,
+        params
+      )
 
-    return {
-      changes: rows.map((r) => ({
-        ...r,
-        old_value: typeof r.old_value === 'string' ? JSON.parse(r.old_value) : r.old_value,
-        new_value: typeof r.new_value === 'string' ? JSON.parse(r.new_value) : r.new_value,
-      })),
-      total: countRows[0].total,
-      page: Number(page),
-      limit: Number(limit),
+      return {
+        changes: rows.map((r) => ({
+          ...r,
+          old_value: typeof r.old_value === 'string' ? JSON.parse(r.old_value) : r.old_value,
+          new_value: typeof r.new_value === 'string' ? JSON.parse(r.new_value) : r.new_value,
+        })),
+        total: countRows[0].total,
+        page: Number(page),
+        limit: Number(limit),
+      }
+    } catch (err) {
+      console.warn('[SeoChangeService] getHistory fallback note:', err.message)
+      return {
+        changes: [],
+        total: 0,
+        page: Number(page),
+        limit: Number(limit),
+      }
     }
   }
 }

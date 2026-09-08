@@ -174,7 +174,7 @@ class SeoScannerService {
     let blogs = []
     try {
       const [rows] = await pool.query(`
-        SELECT id, title, slug, excerpt, content, featured_image, image_alt, seo_title, meta_description, canonical_url, status 
+        SELECT id, title, slug, excerpt, content, featured_image, image_alt, seo_title, meta_title, meta_description, focus_keyword, canonical_url, status, seo_score, readability_score, word_count, robots_index, robots_follow
         FROM blogs 
         WHERE status = 'published'
       `)
@@ -190,19 +190,28 @@ class SeoScannerService {
     blogs.forEach((b) => {
       const url = `${SITE_URL}/blog/${b.slug}`
       urlSet.add(url)
+      const plainText = (b.content || '').replace(/<[^>]+>/g, ' ').trim()
+      const wordCount = b.word_count || (plainText ? plainText.split(/\s+/).filter(Boolean).length : 0)
+      const internalLinkCount = ((b.content || '').match(/href=["'](?:\/|https?:\/\/(?:www\.)?(?:0nprint\.com|localhost))/gi) || []).length
+
       scannedEntities.push({
         id: b.id || null,
         entityType: 'blog',
         name: b.title,
         slug: b.slug,
         url,
-        title: b.seo_title || `${b.title} | ONPRINT Dubai`,
+        title: b.meta_title || b.seo_title || `${b.title} | ONPRINT Dubai`,
         metaDescription: b.meta_description || b.excerpt,
         h1: b.title,
         imageAlt: b.image_alt,
         canonicalUrl: b.canonical_url || url,
         hasSchema: true,
         contentLength: (b.content || '').length,
+        wordCount,
+        seoScore: b.seo_score != null ? Number(b.seo_score) : null,
+        readabilityScore: b.readability_score != null ? Number(b.readability_score) : null,
+        focusKeyword: b.focus_keyword || '',
+        internalLinkCount,
         inboundLinks: 3,
         loadTimeMs: 410,
         raw: b,
@@ -458,6 +467,90 @@ class SeoScannerService {
         internalLinkingDeductions += 8
       } else if (inboundLinks < 2) {
         internalLinkingDeductions += 2
+      }
+
+      // 9. Blog-Specific SEO & Content Quality Checks
+      if (entityType === 'blog') {
+        // Missing Focus Keyword
+        if (!entity.focusKeyword || entity.focusKeyword.trim().length === 0) {
+          issues.push({
+            entity_type: 'blog',
+            entity_id: id,
+            url,
+            issue_type: 'missing_focus_keyword',
+            category: 'onpage',
+            severity: 'medium',
+            title: `Missing focus keyword on blog "${name}"`,
+            description: `Target keyword is not defined, which impedes keyword density evaluation and SERP alignment.`,
+            recommendation: `Assign a targeted commercial keyword (e.g. "flyer printing dubai") to guide content optimization.`,
+          })
+          onpageDeductions += 3
+        }
+
+        // Thin Blog Content (< 300 words)
+        if ((entity.wordCount || 0) < 300) {
+          issues.push({
+            entity_type: 'blog',
+            entity_id: id,
+            url,
+            issue_type: 'thin_blog_content',
+            category: 'content',
+            severity: 'high',
+            title: `Thin blog content on "${name}" (${entity.wordCount || 0} words)`,
+            description: `Article has fewer than 300 words. Comprehensive articles (600–1,200 words) have a significantly higher probability of ranking for competitive commercial queries.`,
+            recommendation: `Expand content with step-by-step guidance, print finishing tips, and FAQs.`,
+          })
+          contentDeductions += 6
+        }
+
+        // Low SEO Score (< 70)
+        if (entity.seoScore != null && entity.seoScore < 70) {
+          const sev = entity.seoScore < 50 ? 'critical' : 'high'
+          issues.push({
+            entity_type: 'blog',
+            entity_id: id,
+            url,
+            issue_type: 'low_blog_seo_score',
+            category: 'onpage',
+            severity: sev,
+            title: `Low SEO score (${entity.seoScore}/100) on blog "${name}"`,
+            description: `Blog post has an overall SEO score of ${entity.seoScore}/100, which is below the 70/100 threshold.`,
+            recommendation: `Use the AI SEO Optimizer to regenerate meta tags, optimize keyword density, and add FAQs.`,
+          })
+          onpageDeductions += sev === 'critical' ? 7 : 4
+        }
+
+        // Poor Readability (< 50)
+        if (entity.readabilityScore != null && entity.readabilityScore < 50) {
+          issues.push({
+            entity_type: 'blog',
+            entity_id: id,
+            url,
+            issue_type: 'poor_readability',
+            category: 'content',
+            severity: 'medium',
+            title: `Difficult readability (${entity.readabilityScore}/100) on blog "${name}"`,
+            description: `The Flesch reading score is low, indicating long, complex sentences that may increase bounce rates.`,
+            recommendation: `Break long paragraphs into shorter bullet points and use concise, active phrasing.`,
+          })
+          contentDeductions += 3
+        }
+
+        // Missing Internal Links in Blog Content
+        if ((entity.internalLinkCount || 0) === 0) {
+          issues.push({
+            entity_type: 'blog',
+            entity_id: id,
+            url,
+            issue_type: 'missing_blog_internal_links',
+            category: 'technical',
+            severity: 'medium',
+            title: `No internal links in blog "${name}"`,
+            description: `This blog post does not link to any ONPRINT products, services, or category pages.`,
+            recommendation: `Add 2–4 contextual internal links with descriptive anchor text pointing to relevant service and product pages.`,
+          })
+          internalLinkingDeductions += 4
+        }
       }
     })
 

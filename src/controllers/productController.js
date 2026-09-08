@@ -1,6 +1,7 @@
 const { pool } = require('../config/database')
 const { products: fallbackProducts } = require('../data/initialData')
 const ApiError = require('../utils/ApiError')
+const pageSeoService = require('../services/pageSeoService')
 
 const PAGE_SIZE = 12
 
@@ -274,6 +275,20 @@ async function createProduct(req, res, next) {
 
     await connection.commit()
 
+    // Automatic sync with page_seo
+    pageSeoService.autoCreateOrSyncEntitySeo('product', {
+      id: productId,
+      name,
+      slug: cleanSlug,
+      seo_title: seoTitle,
+      seo_description: seoDescription || shortDescription || description,
+      short_description: shortDescription,
+      description,
+      seo_keywords: seoKeywords,
+      image_alt: imageAlt,
+      canonical_url: `https://0nprint.com/products/${cleanSlug}`,
+    }).catch((err) => console.warn('[PageSEO Sync] Product create warning:', err.message))
+
     res.status(201).json({
       success: true,
       data: {
@@ -345,6 +360,20 @@ async function updateProduct(req, res, next) {
     if (result.affectedRows === 0) {
       throw new ApiError(404, 'Product not found')
     }
+
+    // Automatic sync with page_seo
+    pageSeoService.autoCreateOrSyncEntitySeo('product', {
+      id,
+      name,
+      slug: cleanSlug,
+      seo_title: seoTitle,
+      seo_description: seoDescription || shortDescription || description,
+      short_description: shortDescription,
+      description,
+      seo_keywords: seoKeywords,
+      image_alt: imageAlt,
+      canonical_url: `https://0nprint.com/products/${cleanSlug}`,
+    }).catch((err) => console.warn('[PageSEO Sync] Product update warning:', err.message))
 
     res.json({ success: true, message: 'Product updated successfully' })
   } catch (err) {

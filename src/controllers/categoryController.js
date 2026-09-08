@@ -1,5 +1,6 @@
 const { pool } = require('../config/database')
 const ApiError = require('../utils/ApiError')
+const pageSeoService = require('../services/pageSeoService')
 
 // Helper function to generate clean URL slug
 function generateSlug(name) {
@@ -222,6 +223,19 @@ async function createCategory(req, res, next) {
       productCount: 0,
     }
 
+    // Sync with page_seo
+    pageSeoService.autoCreateOrSyncEntitySeo('category', {
+      id: newId,
+      name,
+      slug: cleanSlug,
+      seo_title: seoTitle,
+      seo_description: seoDescription || description,
+      description,
+      seo_keywords: seoKeywords,
+      image_alt: imageAlt,
+      canonical_url: `https://0nprint.com/categories/${cleanSlug}`,
+    }).catch((err) => console.warn('[PageSEO Sync] Category create warning:', err.message))
+
     res.status(201).json({
       success: true,
       message: 'Category created successfully',
@@ -298,6 +312,19 @@ async function updateCategory(req, res, next) {
     if (updateResult.affectedRows === 0) {
       throw new ApiError(404, 'Category not found or no changes made')
     }
+
+    // Sync with page_seo
+    pageSeoService.autoCreateOrSyncEntitySeo('category', {
+      id,
+      name,
+      slug: cleanSlug,
+      seo_title: seoTitle,
+      seo_description: seoDescription || description,
+      description,
+      seo_keywords: seoKeywords,
+      image_alt: imageAlt,
+      canonical_url: `https://0nprint.com/categories/${cleanSlug}`,
+    }).catch((err) => console.warn('[PageSEO Sync] Category update warning:', err.message))
 
     const updatedObj = {
       id: Number(id) || id,

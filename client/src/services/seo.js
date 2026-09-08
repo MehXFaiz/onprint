@@ -159,3 +159,73 @@ export async function getProgrammaticPage(slug, type) {
   return data
 }
 
+// ==========================================
+// PAGE-BY-PAGE AI SEO SYSTEM API CLIENT
+// ==========================================
+
+export async function getPageSeoByUrl(url) {
+  const { data } = await api.get('/seo/by-url', { params: { url } })
+  return data
+}
+
+export async function getSeoPagesList(params = {}) {
+  const { data } = await api.get('/seo/pages', { params })
+  return data
+}
+
+export async function getPageSeoDetail(id) {
+  const { data } = await api.get(`/seo/pages/${id}`)
+  return data
+}
+
+export async function createPageSeo(payload) {
+  const { data } = await api.post('/seo/pages', payload)
+  return data
+}
+
+export async function updatePageSeo(id, payload) {
+  const { data } = await api.put(`/seo/pages/${id}`, payload)
+  return data
+}
+
+export async function analyzePageSeoWithAi(id) {
+  const { data } = await api.post(`/seo/pages/${id}/analyze`)
+  return data
+}
+
+export async function optimizePageSeoWithAi(id) {
+  const { data } = await api.post(`/seo/pages/${id}/optimize`)
+  return data
+}
+
+export async function getSeoScoreOverview() {
+  const { data } = await api.get('/seo/score')
+  return data
+}
+
+export async function runFullSeoAudit() {
+  const { data } = await api.post('/seo/audit')
+  return data
+}
+
+export async function getSeoAuditIssues() {
+  const { data } = await api.get('/seo/issues')
+  return data
+}
+
+export async function getCannibalizationReport() {
+  const { data } = await api.get('/seo/cannibalization')
+  return data
+}
+
+export async function rollbackPageSeoHistory(historyId) {
+  const { data } = await api.post(`/seo/history/${historyId}/rollback`)
+  return data
+}
+
+export async function getPageSeoHistory(pageId) {
+  const { data } = await api.get('/seo/history', { params: { page_seo_id: pageId } })
+  return data
+}
+
+

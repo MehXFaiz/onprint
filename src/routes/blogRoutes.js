@@ -14,6 +14,9 @@ const {
   toggleFeaturedBlog,
   generateBlogContent,
   generateBlogImage,
+  generateBlogSeoHandler,
+  analyzeBlogSeoHandler,
+  getBlogSeoMetrics,
 } = require('../controllers/blogController')
 const { authenticateToken, requireAdmin } = require('../middleware/auth')
 
@@ -31,10 +34,19 @@ router.get('/product/:productSlug', (req, res, next) => {
 // Admin specific management endpoints (must come before /:slug so 'stats' or 'admin' aren't treated as slug)
 router.get('/admin', authenticateToken, requireAdmin, listAdminBlogs)
 router.get('/stats', authenticateToken, requireAdmin, getBlogStats)
+router.get('/seo-metrics', authenticateToken, requireAdmin, getBlogSeoMetrics)
 router.post('/bulk-delete', authenticateToken, requireAdmin, bulkDeleteBlogs)
 router.delete('/bulk', authenticateToken, requireAdmin, bulkDeleteBlogs)
 router.post('/generate-content', authenticateToken, requireAdmin, generateBlogContent)
 router.post('/generate-image', authenticateToken, requireAdmin, generateBlogImage)
+router.post('/generate-seo', authenticateToken, requireAdmin, generateBlogSeoHandler)
+router.post('/analyze-seo', authenticateToken, requireAdmin, analyzeBlogSeoHandler)
+
+// Resource SEO & action endpoints (with /:id)
+router.post('/:id/generate-seo', authenticateToken, requireAdmin, generateBlogSeoHandler)
+router.post('/:id/analyze-seo', authenticateToken, requireAdmin, analyzeBlogSeoHandler)
+router.post('/:id/publish', authenticateToken, requireAdmin, publishBlog)
+router.post('/:id/unpublish', authenticateToken, requireAdmin, unpublishBlog)
 
 // Single resource endpoints
 router.get('/:slug', getBlogBySlug)

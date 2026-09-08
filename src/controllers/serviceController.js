@@ -1,6 +1,7 @@
 const { pool } = require('../config/database')
 const { services: fallbackServices } = require('../data/initialData')
 const ApiError = require('../utils/ApiError')
+const pageSeoService = require('../services/pageSeoService')
 
 function generateSlug(name) {
   return (name || '')
@@ -170,11 +171,27 @@ async function createService(req, res, next) {
       ]
     )
 
+    const newServiceId = result.insertId
+
+    // Sync with page_seo
+    pageSeoService.autoCreateOrSyncEntitySeo('service', {
+      id: newServiceId,
+      name,
+      slug: cleanSlug,
+      seo_title: seoTitle,
+      seo_description: seoDescription || shortDescription || description,
+      short_description: shortDescription,
+      description,
+      seo_keywords: seoKeywords,
+      image_alt: imageAlt,
+      canonical_url: `https://0nprint.com/services/${cleanSlug}`,
+    }).catch((err) => console.warn('[PageSEO Sync] Service create warning:', err.message))
+
     res.status(201).json({
       success: true,
       data: {
-        id: result.insertId,
-        _id: `serv-${result.insertId}`,
+        id: newServiceId,
+        _id: `serv-${newServiceId}`,
         name,
         slug: cleanSlug,
       },
@@ -235,6 +252,20 @@ async function updateService(req, res, next) {
     if (result.affectedRows === 0) {
       throw new ApiError(404, 'Service not found')
     }
+
+    // Sync with page_seo
+    pageSeoService.autoCreateOrSyncEntitySeo('service', {
+      id,
+      name,
+      slug: cleanSlug,
+      seo_title: seoTitle,
+      seo_description: seoDescription || shortDescription || description,
+      short_description: shortDescription,
+      description,
+      seo_keywords: seoKeywords,
+      image_alt: imageAlt,
+      canonical_url: `https://0nprint.com/services/${cleanSlug}`,
+    }).catch((err) => console.warn('[PageSEO Sync] Service update warning:', err.message))
 
     res.json({ success: true, message: 'Service updated successfully' })
   } catch (err) {

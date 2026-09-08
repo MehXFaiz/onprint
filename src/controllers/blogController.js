@@ -1,6 +1,9 @@
 const { pool } = require('../config/database')
 const ApiError = require('../utils/ApiError')
 const persistentStore = require('../data/persistentStore')
+const blogSeoAiService = require('../services/blogSeoAiService')
+const googleSearchConsoleService = require('../services/googleSearchConsoleService')
+const pageSeoService = require('../services/pageSeoService')
 
 function generateSlug(text) {
   return (text || '')
@@ -131,9 +134,11 @@ async function listPublicBlogs(req, res, next) {
         SELECT 
           b.id, b.title, b.slug, b.excerpt, b.content, b.featured_image, b.image_alt,
           b.category_id, b.product_id, b.author_name, b.status, b.is_featured,
-          b.seo_title, b.meta_description, b.focus_keyword, b.secondary_keywords,
+          b.seo_title, b.meta_title, b.meta_description, b.focus_keyword, b.secondary_keywords,
           b.canonical_url, b.og_title, b.og_description, b.og_image, b.schema_type,
           b.reading_time, b.target_location, b.published_at, b.created_at, b.updated_at,
+          b.robots_index, b.robots_follow, b.seo_score, b.readability_score, b.keyword_density,
+          b.word_count, b.seo_suggestions, b.schema_markup, b.faqs,
           c.name AS category_name, c.slug AS category_slug,
           p.name AS product_name, p.slug AS product_slug, p.image AS product_image
         FROM blogs b
@@ -249,9 +254,11 @@ async function listAdminBlogs(req, res, next) {
         SELECT 
           b.id, b.title, b.slug, b.excerpt, b.content, b.featured_image, b.image_alt,
           b.category_id, b.product_id, b.author_name, b.status, b.is_featured,
-          b.seo_title, b.meta_description, b.focus_keyword, b.secondary_keywords,
+          b.seo_title, b.meta_title, b.meta_description, b.focus_keyword, b.secondary_keywords,
           b.canonical_url, b.og_title, b.og_description, b.og_image, b.schema_type,
           b.reading_time, b.target_location, b.published_at, b.created_at, b.updated_at,
+          b.robots_index, b.robots_follow, b.seo_score, b.readability_score, b.keyword_density,
+          b.word_count, b.seo_suggestions, b.schema_markup, b.faqs,
           c.name AS category_name, c.slug AS category_slug,
           p.name AS product_name, p.slug AS product_slug, p.image AS product_image
         FROM blogs b
@@ -362,9 +369,11 @@ async function getBlogBySlug(req, res, next) {
         `SELECT 
           b.id, b.title, b.slug, b.excerpt, b.content, b.featured_image, b.image_alt,
           b.category_id, b.product_id, b.author_name, b.status, b.is_featured,
-          b.seo_title, b.meta_description, b.focus_keyword, b.secondary_keywords,
+          b.seo_title, b.meta_title, b.meta_description, b.focus_keyword, b.secondary_keywords,
           b.canonical_url, b.og_title, b.og_description, b.og_image, b.schema_type,
           b.reading_time, b.target_location, b.published_at, b.created_at, b.updated_at,
+          b.robots_index, b.robots_follow, b.seo_score, b.readability_score, b.keyword_density,
+          b.word_count, b.seo_suggestions, b.schema_markup, b.faqs,
           c.id AS cat_id, c.name AS category_name, c.slug AS category_slug, c.description AS category_description, c.image AS category_image,
           p.id AS prod_id, p.name AS product_name, p.slug AS product_slug, p.short_description AS product_description, p.image AS product_image, p.price AS product_price
         FROM blogs b
@@ -460,6 +469,8 @@ async function createBlog(req, res, next) {
       is_featured = 0,
       seo_title,
       seoTitle,
+      meta_title,
+      metaTitle,
       meta_description,
       metaDescription,
       focus_keyword,
@@ -471,6 +482,10 @@ async function createBlog(req, res, next) {
       schema_type = 'BlogPosting',
       reading_time,
       target_location,
+      robots_index = 'index',
+      robots_follow = 'follow',
+      faqs = [],
+      schema_markup = null,
       published_at,
     } = req.body
 
@@ -493,14 +508,47 @@ async function createBlog(req, res, next) {
     const authId = author_id && !isNaN(author_id) ? parseInt(author_id, 10) : (req.user?.id || null)
     const authName = author_name || author || 'ONPRINT Editorial Team'
 
-    const seoTit = seo_title || seoTitle || `${cleanTitle} | ONPRINT Dubai`
+    const metaTit = meta_title || metaTitle || seo_title || seoTitle || `${cleanTitle} | ONPRINT Dubai`
+    const seoTit = seo_title || seoTitle || metaTit
     const metaDesc = meta_description || metaDescription || excerpt || cleanTitle
     const focKey = focus_keyword || ''
     const secKeys = Array.isArray(secondary_keywords) ? secondary_keywords.join(', ') : (secondary_keywords || '')
     const canonUrl = canonical_url || `https://0nprint.com/blog/${cleanSlug}`
-    const ogTit = og_title || seoTit
+    const ogTit = og_title || metaTit
     const ogDesc = og_description || metaDesc
     const ogImg = og_image || img
+
+    let faqsArray = []
+    if (Array.isArray(faqs)) {
+      faqsArray = faqs
+    } else if (typeof faqs === 'string' && faqs.trim().startsWith('[')) {
+      try { faqsArray = JSON.parse(faqs) } catch {}
+    }
+
+    // Algorithmic evaluation of SEO score, word count, readability, keyword density
+    const evaluation = blogSeoAiService.calculateSeoScore({
+      title: cleanTitle,
+      content,
+      meta_title: metaTit,
+      seo_title: seoTit,
+      meta_description: metaDesc,
+      focus_keyword: focKey,
+      secondary_keywords: secKeys,
+      slug: cleanSlug,
+      canonical_url: canonUrl,
+      featured_image: img,
+      image_alt: alt,
+      faqs: faqsArray,
+      robots_index,
+      robots_follow,
+    })
+
+    const finalSeoScore = evaluation.score
+    const finalReadability = evaluation.readabilityScore
+    const finalDensity = evaluation.keywordDensity
+    const finalWordCount = evaluation.wordCount
+    const finalSuggestions = JSON.stringify(evaluation.recommendations)
+    const finalFaqsJson = JSON.stringify(faqsArray)
 
     let insertedId = null
 
@@ -509,10 +557,12 @@ async function createBlog(req, res, next) {
         `INSERT INTO blogs (
           title, slug, excerpt, content, featured_image, image_alt,
           category_id, product_id, author_id, author_name, status, is_featured,
-          seo_title, meta_description, focus_keyword, secondary_keywords,
+          seo_title, meta_title, meta_description, focus_keyword, secondary_keywords,
           canonical_url, og_title, og_description, og_image, schema_type,
-          reading_time, target_location, published_at
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          reading_time, target_location, robots_index, robots_follow,
+          seo_score, readability_score, keyword_density, word_count,
+          seo_suggestions, schema_markup, faqs, published_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           cleanTitle,
           cleanSlug,
@@ -527,6 +577,7 @@ async function createBlog(req, res, next) {
           status,
           isFeat,
           seoTit,
+          metaTit,
           metaDesc,
           focKey,
           secKeys,
@@ -537,6 +588,15 @@ async function createBlog(req, res, next) {
           schema_type,
           calculatedReadingTime,
           target_location || null,
+          robots_index || 'index',
+          robots_follow || 'follow',
+          finalSeoScore,
+          finalReadability,
+          finalDensity,
+          finalWordCount,
+          finalSuggestions,
+          schema_markup || null,
+          finalFaqsJson,
           publishDate,
         ]
       )
@@ -557,6 +617,7 @@ async function createBlog(req, res, next) {
         status,
         is_featured: isFeat,
         seo_title: seoTit,
+        meta_title: metaTit,
         meta_description: metaDesc,
         focus_keyword: focKey,
         secondary_keywords: secKeys,
@@ -567,10 +628,32 @@ async function createBlog(req, res, next) {
         schema_type,
         reading_time: calculatedReadingTime,
         target_location: target_location || null,
+        robots_index: robots_index || 'index',
+        robots_follow: robots_follow || 'follow',
+        seo_score: finalSeoScore,
+        readability_score: finalReadability,
+        keyword_density: finalDensity,
+        word_count: finalWordCount,
+        seo_suggestions: evaluation.recommendations,
+        faqs: faqsArray,
         published_at: publishDate,
       })
       insertedId = stored.id
     }
+
+    // Sync with page_seo
+    pageSeoService.autoCreateOrSyncEntitySeo('blog', {
+      id: insertedId,
+      title: cleanTitle,
+      slug: cleanSlug,
+      seo_title: seoTit,
+      meta_title: metaTit,
+      meta_description: metaDesc,
+      focus_keyword: focKey,
+      secondary_keywords: secKeys,
+      image_alt: alt,
+      canonical_url: canonUrl,
+    }).catch((err) => console.warn('[PageSEO Sync] Blog create warning:', err.message))
 
     res.status(201).json({
       success: true,
@@ -581,6 +664,7 @@ async function createBlog(req, res, next) {
         title: cleanTitle,
         slug: cleanSlug,
         status,
+        seo_score: finalSeoScore,
       },
     })
   } catch (err) {
@@ -611,6 +695,8 @@ async function updateBlog(req, res, next) {
       is_featured,
       seo_title,
       seoTitle,
+      meta_title,
+      metaTitle,
       meta_description,
       metaDescription,
       focus_keyword,
@@ -622,10 +708,14 @@ async function updateBlog(req, res, next) {
       schema_type,
       reading_time,
       target_location,
+      robots_index,
+      robots_follow,
+      faqs,
+      schema_markup,
       published_at,
     } = req.body
 
-    const cleanTitle = title ? title.trim() : ''
+    const cleanTitle = title ? title.trim() : undefined
     const cleanSlug = slug ? await getUniqueSlug(slug, id) : undefined
     const img = featured_image || featuredImage
     const alt = image_alt || imageAlt
@@ -634,6 +724,55 @@ async function updateBlog(req, res, next) {
     const catId = category_id !== undefined ? (category_id && !isNaN(category_id) ? parseInt(category_id, 10) : null) : undefined
     const prodId = product_id !== undefined ? (product_id && !isNaN(product_id) ? parseInt(product_id, 10) : null) : undefined
     const secKeys = Array.isArray(secondary_keywords) ? secondary_keywords.join(', ') : secondary_keywords
+
+    let faqsArray = undefined
+    let faqsJson = undefined
+    if (faqs !== undefined) {
+      if (Array.isArray(faqs)) {
+        faqsArray = faqs
+      } else if (typeof faqs === 'string' && faqs.trim().startsWith('[')) {
+        try { faqsArray = JSON.parse(faqs) } catch { faqsArray = [] }
+      }
+      faqsJson = JSON.stringify(faqsArray || [])
+    }
+
+    // Fetch existing blog data to perform full evaluation if content or title changed
+    let existing = null
+    try {
+      const [rows] = await pool.execute('SELECT * FROM blogs WHERE id = ? OR slug = ? LIMIT 1', [id, id])
+      if (rows.length > 0) existing = rows[0]
+    } catch {}
+
+    const mergedTitle = cleanTitle !== undefined ? cleanTitle : (existing?.title || '')
+    const mergedContent = content !== undefined ? content : (existing?.content || '')
+    const mergedMetaTitle = meta_title || metaTitle || seo_title || seoTitle || (existing?.meta_title || existing?.seo_title || mergedTitle)
+    const mergedMetaDesc = meta_description !== undefined ? meta_description : (existing?.meta_description || '')
+    const mergedKeyword = focus_keyword !== undefined ? focus_keyword : (existing?.focus_keyword || '')
+    const mergedSlug = cleanSlug !== undefined ? cleanSlug : (existing?.slug || '')
+    const mergedFaqs = faqsArray !== undefined ? faqsArray : (existing?.faqs ? (typeof existing.faqs === 'string' ? JSON.parse(existing.faqs) : existing.faqs) : [])
+
+    const evaluation = blogSeoAiService.calculateSeoScore({
+      title: mergedTitle,
+      content: mergedContent,
+      meta_title: mergedMetaTitle,
+      seo_title: seo_title || seoTitle || mergedMetaTitle,
+      meta_description: mergedMetaDesc,
+      focus_keyword: mergedKeyword,
+      secondary_keywords: secKeys !== undefined ? secKeys : existing?.secondary_keywords,
+      slug: mergedSlug,
+      canonical_url: canonical_url || existing?.canonical_url,
+      featured_image: img || existing?.featured_image,
+      image_alt: alt || existing?.image_alt,
+      faqs: mergedFaqs,
+      robots_index: robots_index || existing?.robots_index || 'index',
+      robots_follow: robots_follow || existing?.robots_follow || 'follow',
+    })
+
+    const newScore = evaluation.score
+    const newReadability = evaluation.readabilityScore
+    const newDensity = evaluation.keywordDensity
+    const newWordCount = evaluation.wordCount
+    const newSuggestions = JSON.stringify(evaluation.recommendations)
 
     try {
       const [result] = await pool.execute(
@@ -650,6 +789,7 @@ async function updateBlog(req, res, next) {
           status = COALESCE(?, status),
           is_featured = COALESCE(?, is_featured),
           seo_title = COALESCE(?, seo_title),
+          meta_title = COALESCE(?, meta_title),
           meta_description = COALESCE(?, meta_description),
           focus_keyword = COALESCE(?, focus_keyword),
           secondary_keywords = COALESCE(?, secondary_keywords),
@@ -660,6 +800,15 @@ async function updateBlog(req, res, next) {
           schema_type = COALESCE(?, schema_type),
           reading_time = COALESCE(?, reading_time),
           target_location = COALESCE(?, target_location),
+          robots_index = COALESCE(?, robots_index),
+          robots_follow = COALESCE(?, robots_follow),
+          seo_score = ?,
+          readability_score = ?,
+          keyword_density = ?,
+          word_count = ?,
+          seo_suggestions = ?,
+          schema_markup = COALESCE(?, schema_markup),
+          faqs = COALESCE(?, faqs),
           published_at = COALESCE(?, published_at)
         WHERE id = ? OR slug = ?`,
         [
@@ -675,6 +824,7 @@ async function updateBlog(req, res, next) {
           status || null,
           isFeat,
           seo_title || seoTitle || null,
+          meta_title || metaTitle || null,
           meta_description || metaDescription || null,
           focus_keyword || null,
           secKeys !== undefined ? secKeys : null,
@@ -685,6 +835,15 @@ async function updateBlog(req, res, next) {
           schema_type || null,
           calculatedReadingTime || null,
           target_location || null,
+          robots_index || null,
+          robots_follow || null,
+          newScore,
+          newReadability,
+          newDensity,
+          newWordCount,
+          newSuggestions,
+          schema_markup || null,
+          faqsJson !== undefined ? faqsJson : null,
           published_at || null,
           id,
           id,
@@ -692,7 +851,6 @@ async function updateBlog(req, res, next) {
       )
 
       if (result.affectedRows === 0) {
-        // Fallback update in persistentStore
         const updated = persistentStore.updateBlog(id, req.body)
         if (!updated) throw new ApiError(404, 'Blog article not found')
       }
@@ -703,7 +861,30 @@ async function updateBlog(req, res, next) {
       if (!updated) throw new ApiError(404, 'Blog article not found')
     }
 
-    res.json({ success: true, message: 'Blog article updated successfully' })
+    // Sync with page_seo
+    pageSeoService.autoCreateOrSyncEntitySeo('blog', {
+      id,
+      title: mergedTitle,
+      slug: mergedSlug,
+      seo_title: seo_title || seoTitle || mergedMetaTitle,
+      meta_title: mergedMetaTitle,
+      meta_description: mergedMetaDesc,
+      focus_keyword: mergedKeyword,
+      secondary_keywords: secKeys !== undefined ? secKeys : existing?.secondary_keywords,
+      image_alt: alt || existing?.image_alt,
+      canonical_url: canonical_url || existing?.canonical_url || `https://0nprint.com/blog/${mergedSlug}`,
+    }).catch((err) => console.warn('[PageSEO Sync] Blog update warning:', err.message))
+
+    res.json({
+      success: true,
+      message: 'Blog article updated successfully',
+      data: {
+        id,
+        seo_score: newScore,
+        readability_score: newReadability,
+        word_count: newWordCount,
+      },
+    })
   } catch (err) {
     next(err)
   }
@@ -1044,6 +1225,29 @@ function formatBlogRow(r) {
     }
   }
 
+  let parsedFaqs = []
+  if (Array.isArray(r.faqs)) {
+    parsedFaqs = r.faqs
+  } else if (typeof r.faqs === 'string' && r.faqs.trim().startsWith('[')) {
+    try {
+      parsedFaqs = JSON.parse(r.faqs)
+    } catch {}
+  }
+
+  let parsedSuggestions = []
+  if (Array.isArray(r.seo_suggestions)) {
+    parsedSuggestions = r.seo_suggestions
+  } else if (typeof r.seo_suggestions === 'string' && r.seo_suggestions.trim().startsWith('[')) {
+    try {
+      parsedSuggestions = JSON.parse(r.seo_suggestions)
+    } catch {}
+  }
+
+  const scoreNum = r.seo_score !== undefined && r.seo_score !== null ? Number(r.seo_score) : 0
+  const readabilityNum = r.readability_score !== undefined && r.readability_score !== null ? Number(r.readability_score) : 70
+  const densityNum = r.keyword_density !== undefined && r.keyword_density !== null ? Number(r.keyword_density) : 0
+  const wordCountNum = r.word_count !== undefined && r.word_count !== null ? Number(r.word_count) : 0
+
   return {
     id,
     _id: `blog-${id}`,
@@ -1067,8 +1271,10 @@ function formatBlogRow(r) {
     is_featured: r.is_featured === 1 || r.is_featured === true || r.is_featured === '1',
     reading_time: r.reading_time ? `${r.reading_time} min read` : '4 min read',
     readTime: r.reading_time ? `${r.reading_time} min read` : (r.read_time || '4 min read'),
-    seo_title: r.seo_title || `${r.title} | ONPRINT Blog`,
-    seoTitle: r.seo_title || `${r.title} | ONPRINT Blog`,
+    seo_title: r.seo_title || r.meta_title || `${r.title} | ONPRINT Blog`,
+    seoTitle: r.seo_title || r.meta_title || `${r.title} | ONPRINT Blog`,
+    meta_title: r.meta_title || r.seo_title || `${r.title} | ONPRINT Blog`,
+    metaTitle: r.meta_title || r.seo_title || `${r.title} | ONPRINT Blog`,
     meta_description: r.meta_description || r.excerpt || '',
     seoDescription: r.meta_description || r.excerpt || '',
     focus_keyword: r.focus_keyword || '',
@@ -1081,10 +1287,239 @@ function formatBlogRow(r) {
     og_image: r.og_image || featImg,
     schema_type: r.schema_type || 'BlogPosting',
     target_location: r.target_location || null,
+    robots_index: r.robots_index || 'index',
+    robots_follow: r.robots_follow || 'follow',
+    seo_score: scoreNum,
+    seoScore: scoreNum,
+    readability_score: readabilityNum,
+    readabilityScore: readabilityNum,
+    keyword_density: densityNum,
+    keywordDensity: densityNum,
+    word_count: wordCountNum,
+    wordCount: wordCountNum,
+    seo_suggestions: parsedSuggestions,
+    schema_markup: r.schema_markup || null,
+    faqs: parsedFaqs,
     published_at: r.published_at || r.created_at,
     publishedAt: r.published_at || r.created_at,
     created_at: r.created_at,
     updated_at: r.updated_at,
+  }
+}
+
+/**
+ * AI SEO Generation Handler
+ * Analyzes article topic, category, content and generates full SEO metadata & FAQs
+ */
+async function generateBlogSeoHandler(req, res, next) {
+  try {
+    const { id } = req.params
+    let payload = req.body || {}
+
+    // If a blog ID is provided and content/title not provided in body, load from DB
+    if (id && (!payload.title || !payload.content)) {
+      const [rows] = await pool.execute('SELECT * FROM blogs WHERE id = ? OR slug = ? LIMIT 1', [id, id])
+      if (rows.length > 0) {
+        payload = { ...rows[0], ...payload }
+      }
+    }
+
+    const result = await blogSeoAiService.generateBlogSeo(payload)
+    res.json({
+      success: true,
+      data: result,
+    })
+  } catch (err) {
+    next(err)
+  }
+}
+
+/**
+ * AI SEO Analysis & 0-100 Scoring Handler
+ * Evaluates live checklist, point breakdown, and problem/solution recommendations
+ */
+async function analyzeBlogSeoHandler(req, res, next) {
+  try {
+    const { id } = req.params
+    let blogData = req.body || {}
+
+    if (id) {
+      const [rows] = await pool.execute('SELECT * FROM blogs WHERE id = ? OR slug = ? LIMIT 1', [id, id])
+      if (rows.length > 0) {
+        blogData = { ...rows[0], ...blogData }
+      }
+    }
+
+    const evaluation = blogSeoAiService.calculateSeoScore(blogData)
+
+    // If existing blog in DB, update score & recommendations in MySQL
+    if (id && !isNaN(id)) {
+      try {
+        await pool.execute(
+          `UPDATE blogs SET 
+            seo_score = ?, 
+            readability_score = ?, 
+            keyword_density = ?, 
+            word_count = ?, 
+            seo_suggestions = ?
+           WHERE id = ?`,
+          [
+            evaluation.score,
+            evaluation.readabilityScore,
+            evaluation.keywordDensity,
+            evaluation.wordCount,
+            JSON.stringify(evaluation.recommendations),
+            id,
+          ]
+        )
+      } catch (dbErr) {
+        console.warn('[BlogController] Update score note:', dbErr.message)
+      }
+    }
+
+    res.json({
+      success: true,
+      data: evaluation,
+    })
+  } catch (err) {
+    next(err)
+  }
+}
+
+/**
+ * Get aggregated Blog SEO performance metrics for Admin Dashboard
+ */
+async function getBlogSeoMetrics(req, res, next) {
+  try {
+    const [rows] = await pool.execute(`
+      SELECT 
+        b.id, b.title, b.slug, b.status, b.seo_score, b.readability_score, 
+        b.word_count, b.focus_keyword, b.meta_description, b.meta_title, b.seo_title, 
+        b.featured_image, b.published_at, b.updated_at,
+        c.name AS category_name
+      FROM blogs b
+      LEFT JOIN categories c ON b.category_id = c.id
+      ORDER BY b.seo_score ASC, b.id DESC
+    `)
+
+    const totalBlogs = rows.length
+    const publishedBlogs = rows.filter((b) => b.status === 'published').length
+    const draftsCount = rows.filter((b) => b.status === 'draft').length
+    const avgScore = totalBlogs > 0 ? Math.round(rows.reduce((sum, b) => sum + (Number(b.seo_score) || 0), 0) / totalBlogs) : 0
+    const blogsAbove90 = rows.filter((b) => (Number(b.seo_score) || 0) >= 90).length
+    const blogs70to89 = rows.filter((b) => (Number(b.seo_score) || 0) >= 70 && (Number(b.seo_score) || 0) < 90).length
+    const blogsBelow70 = rows.filter((b) => (Number(b.seo_score) || 0) < 70).length
+    const missingMetaTitle = rows.filter((b) => !b.meta_title && !b.seo_title).length
+    const missingMetaDescription = rows.filter((b) => !b.meta_description || b.meta_description.trim().length < 10).length
+    const missingFocusKeyword = rows.filter((b) => !b.focus_keyword || b.focus_keyword.trim().length === 0).length
+    const missingFeaturedImage = rows.filter((b) => !b.featured_image || b.featured_image.trim().length === 0).length
+    const blogsNeedingOptimization = rows.filter((b) => (Number(b.seo_score) || 0) < 75 || !b.meta_description || !b.focus_keyword).length
+
+    // Compile real actionable opportunities
+    const opportunities = []
+    if (missingMetaDescription > 0) {
+      opportunities.push({
+        id: 'opp-meta-desc',
+        type: 'missing_metadata',
+        priority: 'HIGH',
+        message: `${missingMetaDescription} blog article(s) are missing optimized meta descriptions.`,
+        action: 'Add 135–155 char meta descriptions with clear value propositions.',
+      })
+    }
+    if (missingFocusKeyword > 0) {
+      opportunities.push({
+        id: 'opp-focus-kw',
+        type: 'keyword_targeting',
+        priority: 'HIGH',
+        message: `${missingFocusKeyword} blog article(s) do not have a primary focus keyword assigned.`,
+        action: 'Assign specific Dubai commercial search queries to target articles.',
+      })
+    }
+    if (blogsBelow70 > 0) {
+      opportunities.push({
+        id: 'opp-low-score',
+        type: 'content_quality',
+        priority: 'MEDIUM',
+        message: `${blogsBelow70} blog article(s) have an SEO score below 70.`,
+        action: 'Use AI SEO Generator in the blog editor to address checklist warnings.',
+      })
+    }
+    if (missingFeaturedImage > 0) {
+      opportunities.push({
+        id: 'opp-image',
+        type: 'image_seo',
+        priority: 'MEDIUM',
+        message: `${missingFeaturedImage} blog article(s) are missing featured imagery.`,
+        action: 'Attach high-resolution photography with descriptive ALT text.',
+      })
+    }
+
+    // Connect real Search Console data if connected
+    let gscConnected = false
+    let blogGscData = {}
+    try {
+      const gscStatus = await googleSearchConsoleService.getStatus()
+      if (gscStatus.isConnected) {
+        gscConnected = true
+        const perf = await googleSearchConsoleService.getPerformanceData()
+        if (perf && Array.isArray(perf.pages)) {
+          perf.pages.forEach((p) => {
+            blogGscData[p.page] = p
+          })
+        }
+      }
+    } catch {}
+
+    const blogsWithPerformance = rows.map((b) => {
+      const blogUrl = `https://0nprint.com/blog/${b.slug}`
+      const perf = blogGscData[blogUrl] || blogGscData[`/blog/${b.slug}`] || null
+      return {
+        id: b.id,
+        title: b.title,
+        slug: b.slug,
+        status: b.status,
+        category: b.category_name || 'General',
+        seo_score: Number(b.seo_score) || 0,
+        readability_score: Number(b.readability_score) || 70,
+        word_count: Number(b.word_count) || 0,
+        focus_keyword: b.focus_keyword || '',
+        published_at: b.published_at,
+        updated_at: b.updated_at,
+        has_meta_title: Boolean(b.meta_title || b.seo_title),
+        has_meta_description: Boolean(b.meta_description && b.meta_description.length >= 20),
+        has_focus_keyword: Boolean(b.focus_keyword),
+        has_featured_image: Boolean(b.featured_image),
+        search_performance: perf ? {
+          clicks: perf.clicks || 0,
+          impressions: perf.impressions || 0,
+          ctr: perf.ctr || 0,
+          position: perf.position || 0,
+        } : null,
+      }
+    })
+
+    res.json({
+      success: true,
+      data: {
+        totalBlogs,
+        publishedBlogs,
+        draftsCount,
+        averageSeoScore: avgScore,
+        blogsAbove90,
+        blogs70to89,
+        blogsBelow70,
+        missingMetaTitle,
+        missingMetaDescription,
+        missingFocusKeyword,
+        missingFeaturedImage,
+        blogsNeedingOptimization,
+        opportunities,
+        gscConnected,
+        blogs: blogsWithPerformance,
+      },
+    })
+  } catch (err) {
+    next(err)
   }
 }
 
@@ -1102,6 +1537,11 @@ module.exports = {
   toggleFeaturedBlog,
   generateBlogContent,
   generateBlogImage,
+  generateBlogSeo: generateBlogSeoHandler,
+  generateBlogSeoHandler,
+  analyzeBlogSeo: analyzeBlogSeoHandler,
+  analyzeBlogSeoHandler,
+  getBlogSeoMetrics,
   // Backwards compatibility aliases
   listBlogPosts: listPublicBlogs,
   getBlogPostBySlug: getBlogBySlug,
@@ -1109,3 +1549,4 @@ module.exports = {
   updateBlogPost: updateBlog,
   deleteBlogPost: deleteBlog,
 }
+

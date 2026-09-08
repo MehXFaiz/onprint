@@ -22,6 +22,13 @@ import {
   CheckSquare,
   Square,
   UploadCloud,
+  Gauge,
+  X,
+  ExternalLink,
+  AlertTriangle,
+  XCircle,
+  CheckCircle,
+  TrendingUp,
 } from 'lucide-react'
 import Button from '../../components/Button'
 import {
@@ -32,6 +39,7 @@ import {
   publishBlog,
   unpublishBlog,
   toggleFeaturedBlog,
+  analyzeBlogSeo,
 } from '../../services/blog'
 import { getCategories } from '../../services/categories'
 import { getProducts } from '../../services/products'
@@ -43,6 +51,11 @@ export default function AdminBlogPage() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [pagination, setPagination] = useState({ page: 1, limit: 20, total: 0, totalPages: 1 })
+
+  // SEO Modal State
+  const [seoModalPost, setSeoModalPost] = useState(null)
+  const [seoModalLoading, setSeoModalLoading] = useState(false)
+  const [seoModalData, setSeoModalData] = useState(null)
 
   // Filters & Search
   const [search, setSearch] = useState('')
@@ -179,6 +192,37 @@ export default function AdminBlogPage() {
     } else {
       setSelectedIds(posts.map((p) => p.id))
     }
+  }
+
+  // Open SEO Analysis Modal
+  const openSeoModal = async (post) => {
+    setSeoModalPost(post)
+    setSeoModalLoading(true)
+    // Seed modal with post data while waiting for real-time live evaluation
+    setSeoModalData({
+      seo_score: post.seo_score != null ? Number(post.seo_score) : null,
+      readability_score: post.readability_score != null ? Number(post.readability_score) : null,
+      keyword_density: post.keyword_density != null ? Number(post.keyword_density) : null,
+      word_count: post.word_count != null ? Number(post.word_count) : null,
+      recommendations: post.seo_suggestions || [],
+      evaluation: null,
+    })
+
+    try {
+      const res = await analyzeBlogSeo(post, post.id)
+      if (res?.data) {
+        setSeoModalData(res.data)
+      }
+    } catch (err) {
+      console.warn('Live SEO analysis error:', err.message)
+    } finally {
+      setSeoModalLoading(false)
+    }
+  }
+
+  const closeSeoModal = () => {
+    setSeoModalPost(null)
+    setSeoModalData(null)
   }
 
   const toggleSelectOne = (id) => {
@@ -407,16 +451,17 @@ export default function AdminBlogPage() {
                   </th>
                   <th className="py-3.5 px-3">Article &amp; SEO Slug</th>
                   <th className="px-3 py-3.5">Category</th>
-                  <th className="px-3 py-3.5">Related Product</th>
                   <th className="px-3 py-3.5">Status</th>
+                  <th className="px-3 py-3.5 text-center">SEO Score</th>
                   <th className="px-3 py-3.5 text-center">Featured</th>
-                  <th className="px-3 py-3.5">Published Date</th>
+                  <th className="px-3 py-3.5">Published / Updated</th>
                   <th className="py-3.5 pl-3 pr-6 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100 font-medium text-neutral-800">
                 {posts.map((post) => {
                   const isSelected = selectedIds.includes(post.id)
+                  const seoScore = post.seo_score != null ? Number(post.seo_score) : null
                   return (
                     <tr
                       key={post.id}
@@ -468,18 +513,6 @@ export default function AdminBlogPage() {
                         </span>
                       </td>
 
-                      {/* Related Product */}
-                      <td className="px-3 py-4">
-                        {post.product ? (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-accent-soft/40 px-2.5 py-1 text-[10px] font-bold text-accent">
-                            <Package className="h-3 w-3" />
-                            <span className="max-w-[120px] truncate">{post.product}</span>
-                          </span>
-                        ) : (
-                          <span className="text-neutral-400 text-[11px]">—</span>
-                        )}
-                      </td>
-
                       {/* Status Badge */}
                       <td className="px-3 py-4">
                         {post.status === 'published' ? (
@@ -515,6 +548,39 @@ export default function AdminBlogPage() {
                         )}
                       </td>
 
+                      {/* SEO Score Badge */}
+                      <td className="px-3 py-4 text-center">
+                        {seoScore != null ? (
+                          <button
+                            type="button"
+                            onClick={() => openSeoModal(post)}
+                            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-extrabold border transition-all hover:scale-105 cursor-pointer ${
+                              seoScore >= 90
+                                ? 'bg-emerald-50 text-emerald-700 border-emerald-300 hover:bg-emerald-100'
+                                : seoScore >= 75
+                                ? 'bg-blue-50 text-blue-700 border-blue-300 hover:bg-blue-100'
+                                : seoScore >= 50
+                                ? 'bg-amber-50 text-amber-700 border-amber-300 hover:bg-amber-100'
+                                : 'bg-rose-50 text-rose-700 border-rose-300 hover:bg-rose-100'
+                            }`}
+                            title="Click to view full SEO breakdown & AI suggestions"
+                          >
+                            <Gauge className="h-3 w-3" />
+                            <span>{seoScore}/100</span>
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => openSeoModal(post)}
+                            className="inline-flex items-center gap-1 rounded-full bg-neutral-100 border border-neutral-200 px-2 py-0.5 text-[10px] font-bold text-neutral-500 hover:bg-neutral-200 cursor-pointer"
+                            title="Click to run real-time SEO analysis"
+                          >
+                            <Sparkles className="h-3 w-3 text-amber-500" />
+                            <span>Analyze</span>
+                          </button>
+                        )}
+                      </td>
+
                       {/* Featured Star Toggle */}
                       <td className="px-3 py-4 text-center">
                         <button
@@ -531,20 +597,33 @@ export default function AdminBlogPage() {
                         </button>
                       </td>
 
-                      {/* Published Date */}
-                      <td className="px-3 py-4 text-neutral-500 text-[11px]">
-                        {formatDate(post.published_at || post.publishedAt)}
+                      {/* Published / Updated Date */}
+                      <td className="px-3 py-4 text-neutral-600 text-[11px]">
+                        <div className="font-semibold text-neutral-800">
+                          {formatDate(post.published_at || post.publishedAt)}
+                        </div>
+                        <div className="text-[10px] text-neutral-400 mt-0.5">
+                          Upd: {formatDate(post.updated_at || post.updatedAt)}
+                        </div>
                       </td>
 
                       {/* Actions */}
                       <td className="py-4 pl-3 pr-6 text-right">
                         <div className="flex items-center justify-end gap-1.5">
+                          <button
+                            type="button"
+                            onClick={() => openSeoModal(post)}
+                            className="rounded-lg p-1.5 text-neutral-400 hover:bg-[#A82F19]/10 hover:text-[#A82F19] transition-colors cursor-pointer"
+                            title="View SEO Analysis"
+                          >
+                            <Gauge className="h-4 w-4 text-[#A82F19]" />
+                          </button>
                           <Link
                             to={`/blog/${post.slug}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="rounded-lg p-1.5 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
-                            title="View on site"
+                            title="View live on website"
                           >
                             <Eye className="h-4 w-4" />
                           </Link>
@@ -673,6 +752,235 @@ export default function AdminBlogPage() {
               >
                 {actionLoading ? 'Deleting...' : 'Confirm Bulk Delete'}
               </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SEO Analysis Breakdown Modal */}
+      {seoModalPost && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs overflow-y-auto">
+          <div className="w-full max-w-2xl rounded-3xl bg-white shadow-2xl border border-neutral-200 overflow-hidden my-8 animate-in fade-in zoom-in-95">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between border-b border-neutral-100 bg-neutral-50/80 px-6 py-4">
+              <div className="flex items-center gap-2 text-[#A82F19]">
+                <Gauge className="h-5 w-5" />
+                <h3 className="font-display text-base font-black text-neutral-900">
+                  AI Blog SEO Analysis &amp; Diagnostic
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={closeSeoModal}
+                className="rounded-lg p-1.5 text-neutral-400 hover:bg-neutral-200 hover:text-neutral-900 transition-colors cursor-pointer"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+              {/* Article Meta Header */}
+              <div className="rounded-2xl border border-neutral-200 bg-neutral-50/50 p-4">
+                <div className="font-bold text-neutral-900 text-sm">{seoModalPost.title}</div>
+                <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px]">
+                  <span className="font-mono text-neutral-500">/blog/{seoModalPost.slug}</span>
+                  {seoModalPost.focus_keyword && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-[#A82F19]/10 px-2 py-0.5 font-bold text-[#A82F19]">
+                      Keyword: {seoModalPost.focus_keyword}
+                    </span>
+                  )}
+                  {seoModalPost.category && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-neutral-200 px-2 py-0.5 font-bold text-neutral-700">
+                      {seoModalPost.category}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* KPI Score Cards Grid */}
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {/* 0-100 Score */}
+                <div className="rounded-2xl border border-neutral-200 bg-white p-3.5 text-center shadow-xs">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+                    Overall Score
+                  </div>
+                  <div className="mt-1 flex items-baseline justify-center gap-1">
+                    <span
+                      className={`text-2xl font-black ${
+                        (seoModalData?.seo_score || 0) >= 90
+                          ? 'text-emerald-600'
+                          : (seoModalData?.seo_score || 0) >= 75
+                          ? 'text-blue-600'
+                          : (seoModalData?.seo_score || 0) >= 50
+                          ? 'text-amber-600'
+                          : 'text-rose-600'
+                      }`}
+                    >
+                      {seoModalData?.seo_score != null ? seoModalData.seo_score : '—'}
+                    </span>
+                    <span className="text-xs text-neutral-400 font-bold">/100</span>
+                  </div>
+                  <div className="text-[10px] font-bold text-neutral-500 mt-0.5">
+                    {(seoModalData?.seo_score || 0) >= 90
+                      ? 'Excellent'
+                      : (seoModalData?.seo_score || 0) >= 75
+                      ? 'Good'
+                      : (seoModalData?.seo_score || 0) >= 50
+                      ? 'Needs Work'
+                      : 'Poor'}
+                  </div>
+                </div>
+
+                {/* Readability Score */}
+                <div className="rounded-2xl border border-neutral-200 bg-white p-3.5 text-center shadow-xs">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+                    Readability
+                  </div>
+                  <div className="mt-1 text-2xl font-black text-neutral-900">
+                    {seoModalData?.readability_score != null ? seoModalData.readability_score : '—'}
+                  </div>
+                  <div className="text-[10px] font-bold text-neutral-500 mt-0.5">Flesch Ease</div>
+                </div>
+
+                {/* Word Count */}
+                <div className="rounded-2xl border border-neutral-200 bg-white p-3.5 text-center shadow-xs">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+                    Word Count
+                  </div>
+                  <div className="mt-1 text-2xl font-black text-neutral-900">
+                    {seoModalData?.word_count != null ? seoModalData.word_count : '—'}
+                  </div>
+                  <div className="text-[10px] font-bold text-neutral-500 mt-0.5">Words</div>
+                </div>
+
+                {/* Keyword Density */}
+                <div className="rounded-2xl border border-neutral-200 bg-white p-3.5 text-center shadow-xs">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+                    Density
+                  </div>
+                  <div className="mt-1 text-2xl font-black text-neutral-900">
+                    {seoModalData?.keyword_density != null ? `${seoModalData.keyword_density}%` : '—'}
+                  </div>
+                  <div className="text-[10px] font-bold text-neutral-500 mt-0.5">Ideal: 1–2.5%</div>
+                </div>
+              </div>
+
+              {/* 16-point Breakdown Checklist */}
+              {seoModalData?.breakdown && (
+                <div className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-xs">
+                  <div className="font-bold text-xs uppercase tracking-wider text-neutral-700 mb-3 flex items-center justify-between">
+                    <span>16-Point Optimization Checklist</span>
+                    <span className="text-[11px] text-neutral-400 font-normal">Google Essentials Compliant</span>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 text-xs">
+                    {Object.entries(seoModalData.breakdown).map(([factorKey, item]) => {
+                      const isPassing = item?.score > 0 || item?.passed === true
+                      const label = factorKey
+                        .replace(/([A-Z])/g, ' $1')
+                        .replace(/^./, (str) => str.toUpperCase())
+                      return (
+                        <div
+                          key={factorKey}
+                          className={`flex items-start gap-2 rounded-xl p-2 border ${
+                            isPassing
+                              ? 'bg-emerald-50/50 border-emerald-100 text-emerald-900'
+                              : 'bg-neutral-50 border-neutral-200 text-neutral-700'
+                          }`}
+                        >
+                          {isPassing ? (
+                            <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                          ) : (
+                            <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
+                          )}
+                          <div className="min-w-0">
+                            <div className="font-bold text-[11px] truncate">{label}</div>
+                            <div className="text-[10px] text-neutral-500 truncate">
+                              {item?.note || (isPassing ? 'Satisfies best practices' : 'Needs attention')}
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* Actionable Recommendations List */}
+              <div className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-xs">
+                <div className="font-bold text-xs uppercase tracking-wider text-neutral-700 mb-3">
+                  Priority Recommendations &amp; Fixes
+                </div>
+                {seoModalLoading ? (
+                  <div className="py-6 text-center text-xs text-neutral-400">
+                    <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#A82F19] border-t-transparent mx-auto mb-2" />
+                    Running 16-point real-time AI SEO diagnostic…
+                  </div>
+                ) : Array.isArray(seoModalData?.recommendations) && seoModalData.recommendations.length > 0 ? (
+                  <div className="space-y-3">
+                    {seoModalData.recommendations.map((rec, idx) => {
+                      const sev = (rec.priority || rec.severity || 'MEDIUM').toUpperCase()
+                      return (
+                        <div
+                          key={idx}
+                          className="rounded-xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs space-y-1"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-bold text-neutral-900">
+                              {rec.problem || rec.issue || rec.title}
+                            </span>
+                            <span
+                              className={`rounded-full px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider ${
+                                sev === 'CRITICAL'
+                                  ? 'bg-red-100 text-red-700'
+                                  : sev === 'HIGH'
+                                  ? 'bg-amber-100 text-amber-800'
+                                  : 'bg-blue-100 text-blue-800'
+                              }`}
+                            >
+                              {sev}
+                            </span>
+                          </div>
+                          {rec.why && (
+                            <div className="text-[11px] text-neutral-600">
+                              <strong className="text-neutral-700">Why:</strong> {rec.why}
+                            </div>
+                          )}
+                          {(rec.solution || rec.fix || rec.recommendation) && (
+                            <div className="text-[11px] text-emerald-800 bg-emerald-50/60 p-2 rounded-lg mt-1">
+                              <strong className="text-emerald-900">Action:</strong>{' '}
+                              {rec.solution || rec.fix || rec.recommendation}
+                            </div>
+                          )}
+                        </div>
+                      )
+                    })}
+                  </div>
+                ) : (
+                  <div className="py-4 text-center text-xs font-semibold text-emerald-700 bg-emerald-50 rounded-xl">
+                    ✓ No critical SEO deficiencies detected. Article meets core search guidelines.
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="flex items-center justify-between border-t border-neutral-100 bg-neutral-50/80 px-6 py-4">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={closeSeoModal}
+                className="text-xs"
+              >
+                Close
+              </Button>
+              <Link
+                to={`/admin/blog/${seoModalPost.id}/edit`}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-[#A82F19] px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-[#8F2613] transition-colors"
+              >
+                <Edit2 className="h-3.5 w-3.5" />
+                <span>Optimize in Blog Editor</span>
+              </Link>
             </div>
           </div>
         </div>

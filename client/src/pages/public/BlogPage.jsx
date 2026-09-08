@@ -198,13 +198,19 @@ export default function BlogPage() {
 
           {!loading && posts.length === 0 && (
             <EmptyState
-              title="No blog articles found"
+              title={
+                searchParam
+                  ? `No blog articles found matching "${searchParam}"`
+                  : categoryParam !== 'All'
+                  ? 'No blog articles found in this category'
+                  : 'No blog articles published yet.'
+              }
               note={
                 searchParam
-                  ? `No articles found matching "${searchParam}". Try another search term.`
+                  ? 'Try searching with different keywords or clear filters.'
                   : categoryParam !== 'All'
-                  ? `No articles published in this category yet. Check back soon.`
-                  : 'No articles published yet. Please check back shortly.'
+                  ? 'Check back soon for new guides in this discipline.'
+                  : 'No blog articles published yet.'
               }
             />
           )}

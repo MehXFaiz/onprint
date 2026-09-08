@@ -104,6 +104,35 @@ export async function generateBlogImage(payload) {
   return data?.data
 }
 
+/**
+ * AI-powered Blog SEO Generator (Admin)
+ * Generates meta title, meta description, focus keyword, secondary keywords,
+ * slug, canonical, og tags, structured data, and FAQs.
+ */
+export async function generateBlogSeo(payload, id = null) {
+  const url = id ? `/blogs/${id}/generate-seo` : '/blogs/generate-seo'
+  const { data } = await api.post(url, payload)
+  return data?.data || data
+}
+
+/**
+ * Real-time Blog SEO Analysis (Admin)
+ * Evaluates 16 on-page & technical factors and returns 0-100 score + checklist + recommendations.
+ */
+export async function analyzeBlogSeo(payload, id = null) {
+  const url = id ? `/blogs/${id}/analyze-seo` : '/blogs/analyze-seo'
+  const { data } = await api.post(url, payload)
+  return data?.data || data
+}
+
+/**
+ * Fetch Blog SEO Dashboard Metrics & Opportunities (Admin)
+ */
+export async function getBlogSeoMetrics() {
+  const { data } = await api.get('/blogs/seo-metrics')
+  return data?.data || data
+}
+
 // Backwards-compatible aliases
 export const getBlogPosts = async (params = {}) => {
   const res = await getPublicBlogs(params)

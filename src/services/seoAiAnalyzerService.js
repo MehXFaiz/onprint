@@ -128,11 +128,25 @@ class SeoAiAnalyzerService {
     const actualLimit = maxEntities || limit
 
     const auditResult = await seoScannerService.runAudit()
+    const issueMap = new Map()
+    auditResult.issues.forEach((iss) => {
+      const current = issueMap.get(iss.url) || []
+      current.push(iss)
+      issueMap.set(iss.url, current)
+    })
+
     const entitiesToAnalyze = auditResult.entities
       .filter((e) => {
         if (entityType && e.entityType !== entityType) return false
         if (entityId && e.id !== entityId) return false
         return true
+      })
+      .sort((a, b) => {
+        const aIss = issueMap.get(a.url) || []
+        const bIss = issueMap.get(b.url) || []
+        const aScore = aIss.reduce((acc, i) => acc + (i.severity === 'critical' ? 10 : i.severity === 'high' ? 5 : 2), 0)
+        const bScore = bIss.reduce((acc, i) => acc + (i.severity === 'critical' ? 10 : i.severity === 'high' ? 5 : 2), 0)
+        return bScore - aScore
       })
       .slice(0, actualLimit)
 
@@ -360,9 +374,18 @@ REQUIRED JSON FORMAT:
     let priority = 'MEDIUM'
     let issue = 'Metadata & Search Intent Optimization'
 
-    if (issues.some((i) => i.severity === 'critical' || i.severity === 'high')) {
+    if (issues.some((i) => i.severity === 'critical')) {
+      priority = 'CRITICAL'
+      issue = issues.find((i) => i.severity === 'critical')?.title || 'Critical Missing Metadata'
+    } else if (issues.some((i) => i.severity === 'high')) {
       priority = 'HIGH'
-      issue = issues[0]?.title || 'Critical Missing Metadata'
+      issue = issues.find((i) => i.severity === 'high')?.title || 'High Priority SEO Issue'
+    } else if (issues.some((i) => i.severity === 'medium')) {
+      priority = 'MEDIUM'
+      issue = issues.find((i) => i.severity === 'medium')?.title || 'Optimization Opportunity'
+    } else if (issues.length > 0) {
+      priority = 'LOW'
+      issue = issues[0]?.title || 'Minor Optimization'
     }
 
     let suggestedTitle = `${name} in Dubai | ONPRINT`

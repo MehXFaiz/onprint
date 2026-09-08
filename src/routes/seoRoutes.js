@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { getRobotsTxt, getSitemapXml, getLlmsTxt, getAdsTxt, runSeoAudit } = require('../controllers/seoController')
 const seoManagerController = require('../controllers/seoManagerController')
+const pageSeoController = require('../controllers/pageSeoController')
 const { authenticateToken, requireAdmin } = require('../middleware/auth')
 
 // ==========================================
@@ -12,6 +13,7 @@ router.get('/sitemap.xml', getSitemapXml)
 router.get('/llms.txt', getLlmsTxt)
 router.get('/ads.txt', getAdsTxt)
 router.get('/audit', runSeoAudit) // Public quick audit endpoint
+router.get('/by-url', (req, res) => pageSeoController.getPageByUrl(req, res))
 router.get('/landing-pages', (req, res) => seoManagerController.getProgrammaticPages(req, res))
 router.get('/landing-pages/:slug', (req, res) => seoManagerController.getProgrammaticPage(req, res))
 
@@ -42,8 +44,26 @@ router.post('/run-daily', allowCronOrAdmin, (req, res) => seoManagerController.r
 router.use(authenticateToken)
 router.use(requireAdmin)
 
+// Website SEO Score Overview
+router.get('/score', (req, res) => pageSeoController.getScore(req, res))
+
 // Dashboard Overview
 router.get('/dashboard', (req, res) => seoManagerController.getDashboardSummary(req, res))
+
+// Page-by-Page SEO Catalog & Management
+router.get('/pages', (req, res) => pageSeoController.getPages(req, res))
+router.get('/pages/:id', (req, res) => pageSeoController.getPageById(req, res))
+router.post('/pages', (req, res) => pageSeoController.createPage(req, res))
+router.put('/pages/:id', (req, res) => pageSeoController.updatePage(req, res))
+router.post('/pages/:id/analyze', (req, res) => pageSeoController.analyzePage(req, res))
+router.post('/pages/:id/optimize', (req, res) => pageSeoController.optimizePage(req, res))
+
+// Full Website SEO Audit & Issues
+router.post('/audit', (req, res) => pageSeoController.runAudit(req, res))
+router.get('/issues', (req, res) => pageSeoController.getIssues(req, res))
+
+// Keyword Cannibalization Detector
+router.get('/cannibalization', (req, res) => pageSeoController.getCannibalization(req, res))
 
 // Technical & On-Page Audits
 router.get('/audit-details', (req, res) => seoManagerController.getAudit(req, res))
@@ -75,8 +95,8 @@ router.post('/recommendations/:id/apply', (req, res) => seoManagerController.app
 router.post('/recommendations/bulk-apply', (req, res) => seoManagerController.bulkApply(req, res))
 
 // Change History & Rollback
-router.get('/history', (req, res) => seoManagerController.getChangeHistory(req, res))
-router.post('/history/:id/rollback', (req, res) => seoManagerController.rollbackChange(req, res))
+router.get('/history', (req, res) => pageSeoController.getHistory(req, res))
+router.post('/history/:id/rollback', (req, res) => pageSeoController.rollbackChange(req, res))
 
 // Daily Reports
 router.get('/reports', (req, res) => seoManagerController.getDailyReports(req, res))
@@ -84,9 +104,6 @@ router.get('/reports/:date', (req, res) => seoManagerController.getDailyReportBy
 
 // Keywords & Queries
 router.get('/keywords', (req, res) => seoManagerController.getKeywords(req, res))
-
-// Pages & Catalog Status
-router.get('/pages', (req, res) => seoManagerController.getPages(req, res))
 
 // Google Search Console Integration
 router.get('/search-console/status', (req, res) => seoManagerController.getSearchConsoleStatus(req, res))

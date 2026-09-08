@@ -92,43 +92,104 @@ async function getSitemapXml(req, res) {
   try {
     const urls = []
     const now = new Date().toISOString().split('T')[0]
+    const seenUrls = new Set()
 
-    // 1. Static Primary Pages
-    const staticPages = [
-      { path: '', priority: '1.0', changefreq: 'weekly' },
-      { path: '/services', priority: '0.9', changefreq: 'weekly' },
-      { path: '/products', priority: '0.9', changefreq: 'daily' },
-      { path: '/blog', priority: '0.8', changefreq: 'daily' },
-      { path: '/portfolio', priority: '0.7', changefreq: 'monthly' },
-      { path: '/about', priority: '0.7', changefreq: 'monthly' },
-      { path: '/contact', priority: '0.8', changefreq: 'monthly' },
-      { path: '/get-a-quote', priority: '0.8', changefreq: 'monthly' },
-      { path: '/faq', priority: '0.6', changefreq: 'monthly' },
-      { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly' },
-      { path: '/terms', priority: '0.3', changefreq: 'yearly' },
-    ]
-
-    staticPages.forEach((p) => {
-      urls.push({
-        loc: `${SITE_URL}${p.path}`,
-        lastmod: now,
-        changefreq: p.changefreq,
-        priority: p.priority,
-      })
-    })
-
-    // 2. Dynamic Categories
-    urls.push({
-      loc: `${SITE_URL}/categories`,
-      lastmod: now,
-      changefreq: 'weekly',
-      priority: '0.9',
-    })
-
+    // 1. Fetch all indexable pages directly from page_seo (Single Source of Truth)
     try {
-      const [cats] = await pool.execute('SELECT slug, updated_at FROM categories WHERE active = 1')
-      if (cats.length > 0) {
-        cats.forEach((c) => {
+      const [seoPages] = await pool.query(`
+        SELECT url, updated_at, robots_index, page_type
+        FROM page_seo
+        WHERE robots_index = 'index'
+        ORDER BY FIELD(page_type, 'static', 'service', 'category', 'product', 'blog', 'portfolio', 'programmatic'), url ASC
+      `)
+
+      if (seoPages && seoPages.length > 0) {
+        seoPages.forEach((p) => {
+          const rawUrl = (p.url || '').trim()
+          if (!rawUrl) return
+          const cleanPath = rawUrl.startsWith('/') ? rawUrl : `/${rawUrl}`
+          const fullLoc = `${SITE_URL}${cleanPath === '/' ? '' : cleanPath}`
+          
+          if (seenUrls.has(fullLoc)) return
+          seenUrls.add(fullLoc)
+
+          const mod = p.updated_at ? new Date(p.updated_at).toISOString().split('T')[0] : now
+          let priority = '0.7'
+          let changefreq = 'weekly'
+
+          if (cleanPath === '/' || cleanPath === '') {
+            priority = '1.0'
+            changefreq = 'daily'
+          } else if (p.page_type === 'service') {
+            priority = '0.9'
+            changefreq = 'weekly'
+          } else if (p.page_type === 'category') {
+            priority = '0.85'
+            changefreq = 'weekly'
+          } else if (p.page_type === 'product') {
+            priority = '0.85'
+            changefreq = 'weekly'
+          } else if (p.page_type === 'blog') {
+            priority = '0.8'
+            changefreq = 'weekly'
+          } else if (cleanPath === '/contact' || cleanPath === '/get-a-quote') {
+            priority = '0.85'
+            changefreq = 'monthly'
+          } else if (cleanPath === '/privacy-policy' || cleanPath === '/terms') {
+            priority = '0.3'
+            changefreq = 'yearly'
+          }
+
+          urls.push({
+            loc: fullLoc,
+            lastmod: mod,
+            changefreq,
+            priority,
+          })
+        })
+      }
+    } catch (pageSeoErr) {
+      console.warn('[Sitemap] page_seo lookup warning:', pageSeoErr.message)
+    }
+
+    // 2. If page_seo had no records, use catalog tables fallback
+    if (urls.length === 0) {
+      // 1. Static Primary Pages
+      const staticPages = [
+        { path: '', priority: '1.0', changefreq: 'weekly' },
+        { path: '/services', priority: '0.9', changefreq: 'weekly' },
+        { path: '/products', priority: '0.9', changefreq: 'daily' },
+        { path: '/blog', priority: '0.8', changefreq: 'daily' },
+        { path: '/portfolio', priority: '0.7', changefreq: 'monthly' },
+        { path: '/about', priority: '0.7', changefreq: 'monthly' },
+        { path: '/contact', priority: '0.8', changefreq: 'monthly' },
+        { path: '/get-a-quote', priority: '0.8', changefreq: 'monthly' },
+        { path: '/faq', priority: '0.6', changefreq: 'monthly' },
+        { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly' },
+        { path: '/terms', priority: '0.3', changefreq: 'yearly' },
+      ]
+
+      staticPages.forEach((p) => {
+        urls.push({
+          loc: `${SITE_URL}${p.path}`,
+          lastmod: now,
+          changefreq: p.changefreq,
+          priority: p.priority,
+        })
+      })
+
+      // Dynamic Categories Fallback
+      urls.push({
+        loc: `${SITE_URL}/categories`,
+        lastmod: now,
+        changefreq: 'weekly',
+        priority: '0.9',
+      })
+
+      try {
+        const [cats] = await pool.execute('SELECT slug, updated_at FROM categories WHERE active = 1')
+        if (cats.length > 0) {
+          cats.forEach((c) => {
           const mod = c.updated_at ? new Date(c.updated_at).toISOString().split('T')[0] : now
           urls.push({
             loc: `${SITE_URL}/categories/${c.slug}`,
@@ -276,19 +337,23 @@ async function getSitemapXml(req, res) {
               priority: '0.8',
             })
           })
-      } catch (e) {}
+        } catch (e) {}
+      }
     }
 
     // 6. Safe Programmatic Landing Pages (Locations & Use Cases)
     try {
       const programmaticPages = programmaticSeoService.getAllPages()
       programmaticPages.forEach((p) => {
-        urls.push({
-          loc: p.fullUrl,
-          lastmod: now,
-          changefreq: 'weekly',
-          priority: '0.85',
-        })
+        if (!seenUrls.has(p.fullUrl)) {
+          seenUrls.add(p.fullUrl)
+          urls.push({
+            loc: p.fullUrl,
+            lastmod: now,
+            changefreq: 'weekly',
+            priority: '0.85',
+          })
+        }
       })
     } catch (progErr) {
       console.warn('[Sitemap] Programmatic pages inclusion note:', progErr.message)

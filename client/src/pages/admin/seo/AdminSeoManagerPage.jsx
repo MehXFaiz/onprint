@@ -41,8 +41,12 @@ import {
   Image as ImageIcon,
   MapPin,
   Edit3,
+  BookOpen,
 } from 'lucide-react'
 import Button from '../../../components/Button'
+import PageSeoEditorModal from './PageSeoEditorModal'
+import AiAnalysisModal from './AiAnalysisModal'
+import KeywordCannibalizationCard from './KeywordCannibalizationCard'
 import {
   getSeoDashboard,
   getSeoAudit,
@@ -72,7 +76,14 @@ import {
   updateImageAlt,
   getSafetyQueue,
   getProgrammaticPages,
+  getSeoPagesList,
+  getSeoScoreOverview,
+  runFullSeoAudit,
+  getCannibalizationReport,
+  optimizePageSeoWithAi,
+  updatePageSeo,
 } from '../../../services/seo'
+import { getBlogSeoMetrics } from '../../../services/blog'
 
 const SCHEMA_TEMPLATES = {
   Organization: {
@@ -279,6 +290,16 @@ export default function AdminSeoManagerPage() {
   const [settingsData, setSettingsData] = useState({})
   const [activityLogs, setActivityLogs] = useState([])
 
+  // Page-by-Page SEO States
+  const [scoreOverview, setScoreOverview] = useState(null)
+  const [cannibalizationReports, setCannibalizationReports] = useState([])
+  const [pageTypeFilter, setPageTypeFilter] = useState('all')
+  const [scoreFilter, setScoreFilter] = useState('all')
+  const [indexFilter, setIndexFilter] = useState('all')
+  const [editingPage, setEditingPage] = useState(null)
+  const [analyzingPage, setAnalyzingPage] = useState(null)
+  const [fullAuditRunning, setFullAuditRunning] = useState(false)
+
   // Advanced SEO module states
   const [opportunitiesData, setOpportunitiesData] = useState({ opportunities: {}, totalTrackedQueries: 0 })
   const [internalLinksData, setInternalLinksData] = useState({ recommendations: [], totalRecommendations: 0 })
@@ -288,6 +309,12 @@ export default function AdminSeoManagerPage() {
   const [programmaticPages, setProgrammaticPages] = useState([])
   const [schemaSelectedType, setSchemaSelectedType] = useState('Organization')
   const [editingAlt, setEditingAlt] = useState({})
+
+  // Blog SEO state
+  const [blogMetrics, setBlogMetrics] = useState(null)
+  const [blogSearch, setBlogSearch] = useState('')
+  const [blogStatusFilter, setBlogStatusFilter] = useState('ALL')
+  const [blogHealthFilter, setBlogHealthFilter] = useState('ALL')
 
   // Modal / Review state
   const [selectedRec, setSelectedRec] = useState(null)
@@ -320,17 +347,41 @@ export default function AdminSeoManagerPage() {
     setTimeout(() => setToast(null), 4000)
   }
 
+  const loadBlogMetrics = async () => {
+    try {
+      const res = await getBlogSeoMetrics()
+      if (res?.success) {
+        setBlogMetrics(res.data)
+      }
+    } catch (err) {
+      console.warn('Load blog metrics error:', err.message)
+    }
+  }
+
   // Load Initial Dashboard Data
   useEffect(() => {
     loadDashboard()
+    loadBlogMetrics()
+    loadScoreOverview()
+    loadCannibalization()
+    loadPages()
   }, [])
 
   // Load Tab-specific data on switch
   useEffect(() => {
+    if (activeTab === 'overview') {
+      loadScoreOverview()
+      loadCannibalization()
+    }
+    if (activeTab === 'blog-seo') loadBlogMetrics()
     if (activeTab === 'recommendations') loadRecommendations()
     if (activeTab === 'audit') loadAudit()
     if (activeTab === 'keywords') loadKeywords()
-    if (activeTab === 'pages') loadPages()
+    if (activeTab === 'pages') {
+      loadPages()
+      loadScoreOverview()
+      loadCannibalization()
+    }
     if (activeTab === 'search-console') loadGscStatus()
     if (activeTab === 'reports') loadDailyReports()
     if (activeTab === 'history') loadHistory()
@@ -385,13 +436,82 @@ export default function AdminSeoManagerPage() {
     }
   }
 
+  const loadScoreOverview = async () => {
+    try {
+      const res = await getSeoScoreOverview()
+      if (res?.success) setScoreOverview(res.data)
+    } catch (err) {
+      console.warn('Load score overview error:', err.message)
+    }
+  }
+
+  const loadCannibalization = async () => {
+    try {
+      const res = await getCannibalizationReport()
+      if (res?.success) setCannibalizationReports(res.data || [])
+    } catch (err) {
+      console.warn('Load cannibalization error:', err.message)
+    }
+  }
+
   const loadPages = async () => {
     try {
-      const res = await getSeoPages()
+      const res = await getSeoPagesList()
       if (res?.success) setPagesList(res.data || [])
     } catch (err) {
       console.warn('Load pages error:', err.message)
     }
+  }
+
+  const handleTriggerFullAudit = async () => {
+    try {
+      setFullAuditRunning(true)
+      const res = await runFullSeoAudit()
+      if (res?.success) {
+        showToast(
+          `Audit complete! ${res.data?.totalPagesScanned || 0} pages scanned. Health Score: ${res.data?.averageScore || 0}/100`,
+          'success'
+        )
+        loadPages()
+        loadScoreOverview()
+        loadCannibalization()
+        loadAudit()
+        loadDashboard()
+      }
+    } catch (err) {
+      showToast('Full audit failed: ' + (err.response?.data?.message || err.message), 'error')
+    } finally {
+      setFullAuditRunning(false)
+    }
+  }
+
+  const handleQuickAiOptimize = async (pageItem) => {
+    try {
+      setActionLoading(true)
+      const res = await optimizePageSeoWithAi(pageItem.id)
+      if (res?.success && res.data?.optimizedPayload) {
+        const updateRes = await updatePageSeo(pageItem.id, res.data.optimizedPayload)
+        if (updateRes?.success) {
+          showToast(
+            `Page "${pageItem.url}" optimized with AI (New Score: ${updateRes.data?.seo_score || 95}/100)!`,
+            'success'
+          )
+          loadPages()
+          loadScoreOverview()
+        }
+      }
+    } catch (err) {
+      showToast('AI optimization failed: ' + (err.response?.data?.message || err.message), 'error')
+    } finally {
+      setActionLoading(false)
+    }
+  }
+
+  const handlePageUpdated = (updatedPage) => {
+    loadPages()
+    loadScoreOverview()
+    loadCannibalization()
+    showToast(`Page SEO for "${updatedPage?.url || 'URL'}" updated successfully!`)
   }
 
   const loadGscStatus = async () => {
@@ -714,35 +834,86 @@ export default function AdminSeoManagerPage() {
     }
   }
 
-  // Filtered pages
+  // Filtered pages for Page-by-Page SEO Catalog
   const filteredPages = useMemo(() => {
     return pagesList.filter((p) => {
-      const term = pageSearch.toLowerCase()
-      return (
-        p.name?.toLowerCase().includes(term) ||
+      const term = pageSearch.toLowerCase().trim()
+      const matchSearch =
+        !term ||
         p.url?.toLowerCase().includes(term) ||
-        p.entityType?.toLowerCase().includes(term)
-      )
+        p.meta_title?.toLowerCase().includes(term) ||
+        p.focus_keyword?.toLowerCase().includes(term) ||
+        p.h1?.toLowerCase().includes(term) ||
+        p.page_type?.toLowerCase().includes(term)
+
+      const matchType =
+        pageTypeFilter === 'all' ||
+        (pageTypeFilter === 'static' && (p.page_type === 'static' || p.page_type === 'homepage')) ||
+        p.page_type === pageTypeFilter
+
+      const score = Number(p.seo_score) || 0
+      const matchScore =
+        scoreFilter === 'all' ||
+        (scoreFilter === 'good' && score >= 80) ||
+        (scoreFilter === 'needs_improvement' && score >= 60 && score < 80) ||
+        (scoreFilter === 'poor' && score < 60)
+
+      const matchIndex =
+        indexFilter === 'all' ||
+        (indexFilter === 'index' && (p.robots_index === 'index' || !p.robots_index)) ||
+        (indexFilter === 'noindex' && p.robots_index === 'noindex')
+
+      return matchSearch && matchType && matchScore && matchIndex
     })
-  }, [pagesList, pageSearch])
+  }, [pagesList, pageSearch, pageTypeFilter, scoreFilter, indexFilter])
+
+  // Filtered blog articles
+  const filteredBlogArticles = useMemo(() => {
+    if (!blogMetrics?.items) return []
+    return blogMetrics.items.filter((b) => {
+      const term = blogSearch.toLowerCase().trim()
+      const matchSearch =
+        !term ||
+        b.title?.toLowerCase().includes(term) ||
+        b.slug?.toLowerCase().includes(term) ||
+        b.focus_keyword?.toLowerCase().includes(term) ||
+        b.category_name?.toLowerCase().includes(term)
+
+      const matchStatus =
+        blogStatusFilter === 'ALL' ||
+        (blogStatusFilter === 'PUBLISHED' && b.status === 'published') ||
+        (blogStatusFilter === 'DRAFT' && b.status === 'draft')
+
+      const score = Number(b.seo_score) || 0
+      const matchHealth =
+        blogHealthFilter === 'ALL' ||
+        (blogHealthFilter === 'POOR' && score < 70) ||
+        (blogHealthFilter === 'OPTIMAL' && score >= 90) ||
+        (blogHealthFilter === 'NO_KW' && (!b.focus_keyword || !b.focus_keyword.trim())) ||
+        (blogHealthFilter === 'NO_DESC' && (!b.meta_description || b.meta_description.trim().length < 10))
+
+      return matchSearch && matchStatus && matchHealth
+    })
+  }, [blogMetrics, blogSearch, blogStatusFilter, blogHealthFilter])
 
   // Top metric scores calculation
-  const scores = dashboardData?.scores || {
-    healthScore: 92,
-    technicalScore: 95,
-    onpageScore: 90,
-    contentScore: 88,
-    structuredDataScore: 95,
+  const scores = {
+    healthScore: scoreOverview?.averageScore ?? dashboardData?.scores?.healthScore ?? 92,
+    technicalScore: dashboardData?.scores?.technicalScore ?? 95,
+    onpageScore: dashboardData?.scores?.onpageScore ?? 90,
+    contentScore: dashboardData?.scores?.contentScore ?? 88,
+    structuredDataScore: dashboardData?.scores?.structuredDataScore ?? 95,
   }
 
   const tabs = [
     { id: 'overview', label: 'Overview & Health', icon: BarChart3 },
     { id: 'audit', label: 'Technical Audit', icon: ShieldCheck },
     { id: 'recommendations', label: 'AI Recommendations', icon: Sparkles, count: dashboardData?.recommendationsSummary?.pending },
+    { id: 'blog-seo', label: 'Blog SEO', icon: BookOpen, count: blogMetrics?.summary?.blogsNeedingOptimization },
     { id: 'opportunities', label: 'Content Opportunities', icon: Target, count: opportunitiesData?.strikingDistanceCount },
     { id: 'keywords', label: 'Keywords & SERP', icon: TrendingUp },
     { id: 'internal-links', label: 'Internal Links', icon: Link2, count: internalLinksData?.highPriorityCount },
-    { id: 'pages', label: 'Page Catalog', icon: Layers },
+    { id: 'pages', label: 'Page Catalog', icon: Layers, count: scoreOverview?.totalPages ?? pagesList.length },
     { id: 'schema', label: 'Schema Validator', icon: FileCode },
     { id: 'images', label: 'Image SEO', icon: ImageIcon, count: imageAuditData?.missingAltCount },
     { id: 'programmatic', label: 'Programmatic SEO', icon: MapPin },
@@ -812,10 +983,23 @@ export default function AdminSeoManagerPage() {
           <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             <Button
               type="button"
+              variant="accent"
+              size="sm"
+              onClick={handleTriggerFullAudit}
+              disabled={fullAuditRunning || actionLoading}
+              icon={false}
+              className="text-xs font-bold bg-[#A82F19] text-white hover:bg-[#8f2714] shadow-md shadow-[#A82F19]/20"
+            >
+              <ShieldCheck className={`h-3.5 w-3.5 mr-1.5 ${fullAuditRunning ? 'animate-spin' : ''}`} />
+              {fullAuditRunning ? 'Auditing 38+ Pages...' : 'Full Website Audit'}
+            </Button>
+
+            <Button
+              type="button"
               variant="outline"
               size="sm"
               onClick={handleTriggerAudit}
-              disabled={actionLoading}
+              disabled={actionLoading || fullAuditRunning}
               icon={false}
               className="border-neutral-200 bg-white text-neutral-800 hover:bg-neutral-50 text-xs font-bold"
             >
@@ -1204,6 +1388,478 @@ export default function AdminSeoManagerPage() {
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
+            </div>
+          </div>
+
+          {/* Blog & Editorial SEO Health Snapshot */}
+          <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-100 pb-4">
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center text-[#A82F19]">
+                  <BookOpen className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-display text-base font-bold text-neutral-900">
+                    Editorial Blog SEO &amp; Content Architecture
+                  </h3>
+                  <p className="text-xs text-neutral-500">
+                    {blogMetrics?.summary?.totalBlogs || 0} total articles • {blogMetrics?.summary?.publishedBlogs || 0} published • {blogMetrics?.summary?.draftsCount || 0} drafts
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Link
+                  to="/admin/blog"
+                  className="rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-bold text-neutral-700 hover:border-[#A82F19] hover:text-[#A82F19] transition-colors"
+                >
+                  Manage Blogs
+                </Link>
+                <button
+                  onClick={() => setActiveTab('blog-seo')}
+                  className="rounded-xl bg-neutral-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-black transition-colors cursor-pointer flex items-center gap-1"
+                >
+                  <span>Blog SEO Deep-Dive</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+              <div className="rounded-xl bg-neutral-50 p-3.5 border border-neutral-100">
+                <span className="text-[10px] font-extrabold uppercase text-neutral-400">Average SEO Score</span>
+                <div className="flex items-baseline gap-1 mt-1">
+                  <span className={`text-2xl font-black ${(blogMetrics?.summary?.avgScore || 0) >= 80 ? 'text-emerald-600' : (blogMetrics?.summary?.avgScore || 0) >= 60 ? 'text-amber-600' : 'text-red-600'}`}>
+                    {blogMetrics?.summary?.avgScore || 0}%
+                  </span>
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-neutral-50 p-3.5 border border-neutral-100">
+                <span className="text-[10px] font-extrabold uppercase text-neutral-400">Score &ge; 90 (High Quality)</span>
+                <div className="text-2xl font-black text-emerald-600 mt-1">
+                  {blogMetrics?.summary?.blogsAbove90 || 0}
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-neutral-50 p-3.5 border border-neutral-100">
+                <span className="text-[10px] font-extrabold uppercase text-neutral-400">Score &lt; 70 (Needs Work)</span>
+                <div className="text-2xl font-black text-amber-600 mt-1">
+                  {blogMetrics?.summary?.blogsBelow70 || 0}
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-neutral-50 p-3.5 border border-neutral-100">
+                <span className="text-[10px] font-extrabold uppercase text-neutral-400">Missing Metadata</span>
+                <div className="text-2xl font-black text-neutral-900 mt-1">
+                  {(blogMetrics?.summary?.missingFocusKeyword || 0) + (blogMetrics?.summary?.missingMetaDescription || 0)}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAB: BLOG SEO & EDITORIAL ARCHITECTURE                                    */}
+      {/* ========================================================================= */}
+      {activeTab === 'blog-seo' && (
+        <div className="space-y-6">
+          {/* Header Banner */}
+          <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <BookOpen className="h-5 w-5 text-[#A82F19]" />
+                  <h2 className="font-display text-xl font-bold text-neutral-900">
+                    Blog SEO &amp; Content Architecture
+                  </h2>
+                </div>
+                <p className="mt-1 text-xs sm:text-sm text-neutral-500 max-w-2xl">
+                  Real-time 16-point audit scores, focus keyword tracking, metadata coverage, readability ratings, and automated optimization opportunities across all ONPRINT articles.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2 shrink-0">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={loadBlogMetrics}
+                  icon={false}
+                  className="text-xs font-bold"
+                >
+                  <RefreshCw className="h-3.5 w-3.5 mr-1.5 text-neutral-600" />
+                  Refresh Audit
+                </Button>
+                <Link
+                  to="/admin/blog"
+                  className="rounded-xl border border-neutral-200 bg-white px-3.5 py-2 text-xs font-bold text-neutral-700 hover:border-neutral-400 hover:text-neutral-900 transition-colors"
+                >
+                  Manage Articles
+                </Link>
+                <Link
+                  to="/admin/blog/new"
+                  className="rounded-xl bg-[#A82F19] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#8e2714] transition-colors shadow-sm flex items-center gap-1.5"
+                >
+                  <Sparkles className="h-3.5 w-3.5" />
+                  <span>+ New Article</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* KPI Cards Row */}
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 border-t border-neutral-100">
+              {/* Total Articles */}
+              <div className="rounded-xl bg-neutral-50 p-4 border border-neutral-100 flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-extrabold uppercase text-neutral-400">Total Articles</span>
+                  <BookOpen className="h-4 w-4 text-neutral-500" />
+                </div>
+                <div className="my-2">
+                  <div className="text-3xl font-black text-neutral-900">
+                    {blogMetrics?.summary?.totalBlogs || 0}
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 text-[11px] font-bold text-neutral-500">
+                  <span className="text-emerald-700 font-extrabold">{blogMetrics?.summary?.publishedBlogs || 0} Published</span>
+                  <span>•</span>
+                  <span>{blogMetrics?.summary?.draftsCount || 0} Drafts</span>
+                </div>
+              </div>
+
+              {/* Average SEO Score */}
+              <div className="rounded-xl bg-neutral-50 p-4 border border-neutral-100 flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-extrabold uppercase text-neutral-400">Avg Blog SEO Score</span>
+                  <ShieldCheck className="h-4 w-4 text-emerald-600" />
+                </div>
+                <div className="my-2">
+                  <div className="flex items-baseline gap-2">
+                    <span className={`text-3xl font-black ${(blogMetrics?.summary?.avgScore || 0) >= 80 ? 'text-emerald-600' : (blogMetrics?.summary?.avgScore || 0) >= 60 ? 'text-amber-600' : 'text-red-600'}`}>
+                      {blogMetrics?.summary?.avgScore || 0}%
+                    </span>
+                    <span className="text-xs font-bold text-neutral-400">/ 100</span>
+                  </div>
+                  <div className="mt-2 h-1.5 w-full rounded-full bg-neutral-200 overflow-hidden">
+                    <div
+                      className={`h-full rounded-full ${(blogMetrics?.summary?.avgScore || 0) >= 80 ? 'bg-emerald-500' : (blogMetrics?.summary?.avgScore || 0) >= 60 ? 'bg-amber-500' : 'bg-red-500'}`}
+                      style={{ width: `${Math.min(100, Math.max(5, blogMetrics?.summary?.avgScore || 0))}%` }}
+                    />
+                  </div>
+                </div>
+                <span className="text-[11px] text-neutral-500">16-point multi-factor algorithm</span>
+              </div>
+
+              {/* Score Distribution */}
+              <div className="rounded-xl bg-neutral-50 p-4 border border-neutral-100 flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-extrabold uppercase text-neutral-400">Score Distribution</span>
+                  <BarChart3 className="h-4 w-4 text-blue-600" />
+                </div>
+                <div className="my-2 space-y-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-emerald-700 flex items-center gap-1">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                      &ge; 90 (High Quality)
+                    </span>
+                    <span className="font-extrabold text-neutral-900">{blogMetrics?.summary?.blogsAbove90 || 0}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-amber-700 flex items-center gap-1">
+                      <span className="h-2 w-2 rounded-full bg-amber-500" />
+                      70–89 (Fair)
+                    </span>
+                    <span className="font-extrabold text-neutral-900">{blogMetrics?.summary?.blogs70to89 || 0}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-red-700 flex items-center gap-1">
+                      <span className="h-2 w-2 rounded-full bg-red-500" />
+                      &lt; 70 (Needs Work)
+                    </span>
+                    <span className="font-extrabold text-neutral-900">{blogMetrics?.summary?.blogsBelow70 || 0}</span>
+                  </div>
+                </div>
+                <span className="text-[10px] text-neutral-400">Based on latest crawler audit</span>
+              </div>
+
+              {/* Missing Metadata */}
+              <div className="rounded-xl bg-neutral-50 p-4 border border-neutral-100 flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-extrabold uppercase text-neutral-400">Missing Metadata</span>
+                  <AlertTriangle className="h-4 w-4 text-amber-500" />
+                </div>
+                <div className="my-2 space-y-1 text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="text-neutral-600">Missing Focus KW:</span>
+                    <span className={`font-bold ${(blogMetrics?.summary?.missingFocusKeyword || 0) > 0 ? 'text-amber-600' : 'text-emerald-600'}`}>
+                      {blogMetrics?.summary?.missingFocusKeyword || 0}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-neutral-600">Missing Meta Desc:</span>
+                    <span className={`font-bold ${(blogMetrics?.summary?.missingMetaDescription || 0) > 0 ? 'text-amber-600' : 'text-emerald-600'}`}>
+                      {blogMetrics?.summary?.missingMetaDescription || 0}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-neutral-600">Missing Meta Title:</span>
+                    <span className={`font-bold ${(blogMetrics?.summary?.missingMetaTitle || 0) > 0 ? 'text-amber-600' : 'text-emerald-600'}`}>
+                      {blogMetrics?.summary?.missingMetaTitle || 0}
+                    </span>
+                  </div>
+                </div>
+                <span className="text-[10px] text-neutral-400">Critical for Google SERP CTR</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Actionable AI Opportunities */}
+          {blogMetrics?.opportunities?.length > 0 && (
+            <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
+              <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-[#A82F19]" />
+                  <h3 className="font-display text-sm font-bold text-neutral-900">
+                    High-Impact Blog SEO Opportunities ({blogMetrics.opportunities.length})
+                  </h3>
+                </div>
+                <span className="text-xs text-neutral-500">Autonomous crawl detections</span>
+              </div>
+
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {blogMetrics.opportunities.map((opp) => (
+                  <div
+                    key={opp.id}
+                    className="rounded-xl border border-neutral-200/80 bg-neutral-50/70 p-4 flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-2">
+                        <span
+                          className={`rounded-md px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider ${
+                            opp.priority === 'CRITICAL'
+                              ? 'bg-red-100 text-red-700'
+                              : opp.priority === 'HIGH'
+                              ? 'bg-amber-100 text-amber-800'
+                              : 'bg-blue-100 text-blue-700'
+                          }`}
+                        >
+                          {opp.priority} PRIORITY
+                        </span>
+                        <span className="text-[10px] font-mono text-neutral-400 uppercase">{opp.type}</span>
+                      </div>
+                      <p className="mt-2 text-xs font-bold text-neutral-900 leading-snug">{opp.message}</p>
+                      <p className="mt-1 text-[11px] text-neutral-500 leading-relaxed">{opp.action}</p>
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t border-neutral-200/60">
+                      <Link
+                        to="/admin/blog"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#A82F19] hover:underline"
+                      >
+                        <span>Fix in Blog Editor</span>
+                        <ArrowUpRight className="h-3 w-3" />
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Blog Articles & Scores Table Card */}
+          <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
+            {/* Filter and Search Bar */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-neutral-100">
+              <div className="relative w-full md:w-80">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+                <input
+                  type="text"
+                  placeholder="Search articles by title, keyword, slug..."
+                  value={blogSearch}
+                  onChange={(e) => setBlogSearch(e.target.value)}
+                  className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 pl-9 pr-4 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:bg-white focus:outline-none transition-all"
+                />
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                {/* Status Filter */}
+                <div className="flex items-center gap-1 rounded-xl bg-neutral-100 p-1">
+                  {['ALL', 'PUBLISHED', 'DRAFT'].map((status) => (
+                    <button
+                      key={status}
+                      type="button"
+                      onClick={() => setBlogStatusFilter(status)}
+                      className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition-all cursor-pointer ${
+                        blogStatusFilter === status
+                          ? 'bg-white text-neutral-900 shadow-xs'
+                          : 'text-neutral-500 hover:text-neutral-900'
+                      }`}
+                    >
+                      {status === 'ALL' ? 'All Status' : status === 'PUBLISHED' ? 'Published' : 'Drafts'}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Health Filter */}
+                <select
+                  value={blogHealthFilter}
+                  onChange={(e) => setBlogHealthFilter(e.target.value)}
+                  className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-semibold text-neutral-800 focus:border-[#A82F19] focus:outline-none"
+                >
+                  <option value="ALL">All Scores</option>
+                  <option value="OPTIMAL">Score &ge; 90 (High)</option>
+                  <option value="POOR">Score &lt; 70 (Needs Work)</option>
+                  <option value="NO_KW">Missing Focus KW</option>
+                  <option value="NO_DESC">Missing Meta Description</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Articles Table */}
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="border-b border-neutral-200/80 bg-neutral-50/50 text-[11px] font-extrabold uppercase tracking-wider text-neutral-500">
+                    <th className="px-4 py-3.5">Article</th>
+                    <th className="px-4 py-3.5">Status</th>
+                    <th className="px-4 py-3.5">SEO Score</th>
+                    <th className="px-4 py-3.5">Readability &amp; Words</th>
+                    <th className="px-4 py-3.5">Focus Keyword</th>
+                    <th className="px-4 py-3.5">Published / Updated</th>
+                    <th className="px-4 py-3.5 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  {filteredBlogArticles.length > 0 ? (
+                    filteredBlogArticles.map((blog) => {
+                      const score = Number(blog.seo_score) || 0
+                      const scoreColor =
+                        score >= 85
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                          : score >= 70
+                          ? 'bg-amber-50 text-amber-800 border-amber-200'
+                          : 'bg-red-50 text-red-700 border-red-200'
+
+                      return (
+                        <tr key={blog.id} className="hover:bg-neutral-50/80 transition-colors">
+                          <td className="px-4 py-4 max-w-sm">
+                            <div className="flex items-center gap-3">
+                              {blog.featured_image && (
+                                <img
+                                  src={blog.featured_image}
+                                  alt=""
+                                  className="h-10 w-10 rounded-lg object-cover bg-neutral-100 shrink-0 border border-neutral-200"
+                                />
+                              )}
+                              <div className="min-w-0">
+                                <Link
+                                  to={`/admin/blog/${blog.id}/edit`}
+                                  className="font-bold text-neutral-900 hover:text-[#A82F19] transition-colors truncate block"
+                                >
+                                  {blog.title}
+                                </Link>
+                                <div className="flex items-center gap-2 mt-0.5 text-[11px] text-neutral-400 truncate">
+                                  <span>/blog/{blog.slug}</span>
+                                  {blog.category_name && (
+                                    <>
+                                      <span>•</span>
+                                      <span className="text-neutral-500 font-medium">{blog.category_name}</span>
+                                    </>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+
+                          <td className="px-4 py-4 whitespace-nowrap">
+                            <span
+                              className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider border ${
+                                blog.status === 'published'
+                                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                  : 'bg-neutral-100 text-neutral-600 border-neutral-200'
+                              }`}
+                            >
+                              <span
+                                className={`h-1.5 w-1.5 rounded-full ${
+                                  blog.status === 'published' ? 'bg-emerald-500' : 'bg-neutral-400'
+                                }`}
+                              />
+                              {blog.status}
+                            </span>
+                          </td>
+
+                          <td className="px-4 py-4 whitespace-nowrap">
+                            <span
+                              className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-black border ${scoreColor}`}
+                            >
+                              {score}/100
+                            </span>
+                          </td>
+
+                          <td className="px-4 py-4 whitespace-nowrap text-neutral-600">
+                            <div className="font-bold text-neutral-900">
+                              {blog.readability_score ? `${blog.readability_score}% readability` : 'Unrated'}
+                            </div>
+                            <div className="text-[11px] text-neutral-400 mt-0.5">
+                              {blog.word_count ? `${blog.word_count} words` : '—'}
+                            </div>
+                          </td>
+
+                          <td className="px-4 py-4 max-w-xs">
+                            {blog.focus_keyword ? (
+                              <span className="inline-block rounded-md bg-neutral-100 px-2 py-0.5 text-[11px] font-mono text-neutral-700 truncate max-w-[200px]">
+                                {blog.focus_keyword}
+                              </span>
+                            ) : (
+                              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-600">
+                                <AlertTriangle className="h-3 w-3" />
+                                Missing Keyword
+                              </span>
+                            )}
+                          </td>
+
+                          <td className="px-4 py-4 whitespace-nowrap text-neutral-500 text-[11px]">
+                            <div>
+                              {blog.published_at ? new Date(blog.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Not published'}
+                            </div>
+                            <div className="text-neutral-400 text-[10px] mt-0.5">
+                              Upd: {blog.updated_at ? new Date(blog.updated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '—'}
+                            </div>
+                          </td>
+
+                          <td className="px-4 py-4 whitespace-nowrap text-right">
+                            <div className="flex items-center justify-end gap-2">
+                              <Link
+                                to={`/blog/${blog.slug}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="rounded-lg border border-neutral-200 p-1.5 text-neutral-500 hover:border-neutral-400 hover:text-neutral-900 transition-colors"
+                                title="View Live Preview"
+                              >
+                                <ExternalLink className="h-3.5 w-3.5" />
+                              </Link>
+                              <Link
+                                to={`/admin/blog/${blog.id}/edit`}
+                                className="rounded-lg bg-neutral-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-[#A82F19] transition-colors"
+                              >
+                                Edit &amp; Optimize
+                              </Link>
+                            </div>
+                          </td>
+                        </tr>
+                      )
+                    })
+                  ) : (
+                    <tr>
+                      <td colSpan="7" className="py-12 text-center text-xs text-neutral-500">
+                        <BookOpen className="mx-auto h-8 w-8 text-neutral-300 mb-2" />
+                        No articles match the selected criteria.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -2106,95 +2762,302 @@ export default function AdminSeoManagerPage() {
       )}
 
       {/* ========================================================================= */}
-      {/* TAB 5: PAGE CATALOG & ENTITY HEALTH                                        */}
+      {/* TAB 5: PAGE-BY-PAGE AI SEO CONTROL CENTER                                  */}
       {/* ========================================================================= */}
       {activeTab === 'pages' && (
         <div className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
-              <input
-                type="text"
-                placeholder="Search page URL, product, or category..."
-                value={pageSearch}
-                onChange={(e) => setPageSearch(e.target.value)}
-                className="w-full rounded-xl border border-neutral-200 bg-white pl-10 pr-4 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
-              />
+          {/* Keyword Cannibalization Alert Section */}
+          <KeywordCannibalizationCard
+            reports={cannibalizationReports}
+            onEditPage={(competingPage) => {
+              const fullRecord = pagesList.find((p) => p.url === competingPage.url || p.id === competingPage.id)
+              if (fullRecord) setEditingPage(fullRecord)
+              else setEditingPage(competingPage)
+            }}
+          />
+
+          {/* Catalog Metrics Bar */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            <div className="rounded-xl border border-neutral-200/80 bg-white p-4 shadow-xs">
+              <span className="text-[10px] font-extrabold uppercase text-neutral-400">Total Website Pages</span>
+              <div className="text-2xl font-black text-neutral-900 mt-1">{scoreOverview?.totalPages || pagesList.length}</div>
+              <span className="text-[11px] text-neutral-500">Every URL has unique SEO</span>
             </div>
-            <span className="text-xs font-bold text-neutral-500">
-              Showing {filteredPages.length} entities
-            </span>
+
+            <div className="rounded-xl border border-emerald-200/80 bg-emerald-50/40 p-4 shadow-xs">
+              <span className="text-[10px] font-extrabold uppercase text-emerald-700">Optimal (Score 80+)</span>
+              <div className="text-2xl font-black text-emerald-700 mt-1">{scoreOverview?.scoreDistribution?.good ?? pagesList.filter(p => (p.seo_score || 0) >= 80).length}</div>
+              <span className="text-[11px] text-emerald-600">Well optimized</span>
+            </div>
+
+            <div className="rounded-xl border border-amber-200/80 bg-amber-50/40 p-4 shadow-xs">
+              <span className="text-[10px] font-extrabold uppercase text-amber-700">Needs Work (60-79)</span>
+              <div className="text-2xl font-black text-amber-700 mt-1">{scoreOverview?.scoreDistribution?.needsImprovement ?? pagesList.filter(p => (p.seo_score || 0) >= 60 && (p.seo_score || 0) < 80).length}</div>
+              <span className="text-[11px] text-amber-600">Quick AI gains available</span>
+            </div>
+
+            <div className="rounded-xl border border-red-200/80 bg-red-50/40 p-4 shadow-xs">
+              <span className="text-[10px] font-extrabold uppercase text-red-700">Poor (&lt;60)</span>
+              <div className="text-2xl font-black text-red-700 mt-1">{scoreOverview?.scoreDistribution?.poor ?? pagesList.filter(p => (p.seo_score || 0) < 60).length}</div>
+              <span className="text-[11px] text-red-600">Priority fixes</span>
+            </div>
+
+            <div className="rounded-xl border border-blue-200/80 bg-blue-50/40 p-4 shadow-xs col-span-2 sm:col-span-1">
+              <span className="text-[10px] font-extrabold uppercase text-blue-700">Indexable Status</span>
+              <div className="text-2xl font-black text-blue-700 mt-1">
+                {pagesList.filter(p => p.robots_index === 'index' || !p.robots_index).length}
+                <span className="text-xs text-neutral-400 font-normal ml-1">/ {pagesList.length}</span>
+              </div>
+              <span className="text-[11px] text-blue-600">In dynamic sitemap.xml</span>
+            </div>
           </div>
 
+          {/* Filters & Search Toolbar */}
+          <div className="rounded-2xl border border-neutral-200/80 bg-white p-4 sm:p-5 shadow-xs space-y-4">
+            {/* Page Type Subtabs */}
+            <div className="flex flex-wrap items-center gap-2 border-b border-neutral-100 pb-3">
+              {[
+                { id: 'all', label: 'All Pages', count: pagesList.length },
+                { id: 'static', label: 'Homepage & Static', count: pagesList.filter(p => p.page_type === 'static' || p.page_type === 'homepage').length },
+                { id: 'service', label: 'Services', count: pagesList.filter(p => p.page_type === 'service').length },
+                { id: 'category', label: 'Categories', count: pagesList.filter(p => p.page_type === 'category').length },
+                { id: 'product', label: 'Products', count: pagesList.filter(p => p.page_type === 'product').length },
+                { id: 'blog', label: 'Blog Articles', count: pagesList.filter(p => p.page_type === 'blog').length },
+                { id: 'portfolio', label: 'Portfolio', count: pagesList.filter(p => p.page_type === 'portfolio').length },
+              ].map((t) => (
+                <button
+                  key={t.id}
+                  onClick={() => setPageTypeFilter(t.id)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                    pageTypeFilter === t.id
+                      ? 'bg-[#A82F19] text-white shadow-xs'
+                      : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200/70'
+                  }`}
+                >
+                  <span>{t.label}</span>
+                  <span className={`rounded-full px-1.5 py-0.2 text-[10px] ${pageTypeFilter === t.id ? 'bg-white/20 text-white' : 'bg-neutral-200 text-neutral-700'}`}>
+                    {t.count}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {/* Controls row */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+              <div className="relative flex-1 max-w-md">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+                <input
+                  type="text"
+                  placeholder="Search URL, Title, Focus Keyword, H1..."
+                  value={pageSearch}
+                  onChange={(e) => setPageSearch(e.target.value)}
+                  className="w-full rounded-xl border border-neutral-200 bg-neutral-50 pl-10 pr-4 py-2 text-xs text-neutral-900 focus:bg-white focus:border-[#A82F19] focus:outline-none"
+                />
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2.5">
+                {/* Score Filter */}
+                <select
+                  value={scoreFilter}
+                  onChange={(e) => setScoreFilter(e.target.value)}
+                  className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-700 focus:border-[#A82F19] focus:outline-none"
+                >
+                  <option value="all">All SEO Scores</option>
+                  <option value="good">Optimal (80+)</option>
+                  <option value="needs_improvement">Needs Work (60-79)</option>
+                  <option value="poor">Poor (&lt;60)</option>
+                </select>
+
+                {/* Index Directive Filter */}
+                <select
+                  value={indexFilter}
+                  onChange={(e) => setIndexFilter(e.target.value)}
+                  className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-700 focus:border-[#A82F19] focus:outline-none"
+                >
+                  <option value="all">All Index Directives</option>
+                  <option value="index">Indexable (index)</option>
+                  <option value="noindex">Non-Indexable (noindex)</option>
+                </select>
+
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    loadPages()
+                    loadScoreOverview()
+                    loadCannibalization()
+                  }}
+                  disabled={actionLoading}
+                  className="text-xs font-bold shrink-0"
+                >
+                  <RefreshCw className={`h-3 w-3 mr-1 ${actionLoading ? 'animate-spin' : ''}`} />
+                  Refresh
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Page-by-Page Table */}
           <div className="rounded-2xl border border-neutral-200/80 bg-white overflow-hidden shadow-xs">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
                   <tr className="bg-neutral-50 border-b border-neutral-200 text-[10px] font-extrabold uppercase text-neutral-400">
-                    <th className="p-4">Entity &amp; Name</th>
-                    <th className="p-4">Type</th>
-                    <th className="p-4">SEO Title</th>
-                    <th className="p-4">Meta Description</th>
-                    <th className="p-4 text-center">Schema</th>
-                    <th className="p-4 text-right">Actions</th>
+                    <th className="p-3.5">URL &amp; Page Type</th>
+                    <th className="p-3.5">Meta Title</th>
+                    <th className="p-3.5">Focus Keyword</th>
+                    <th className="p-3.5">Heading (H1)</th>
+                    <th className="p-3.5 text-center">Directives</th>
+                    <th className="p-3.5 text-center">Schema</th>
+                    <th className="p-3.5 text-center">SEO Score</th>
+                    <th className="p-3.5 text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
-                  {filteredPages.map((page, idx) => {
-                    const hasCustomTitle = Boolean(page.title && !page.title.includes('fallback'))
-                    const hasCustomDesc = Boolean(page.metaDescription && page.metaDescription.length > 20)
-                    return (
-                      <tr key={idx} className="hover:bg-neutral-50 transition-colors">
-                        <td className="p-4">
-                          <div className="font-bold text-neutral-900">{page.name}</div>
-                          <div className="text-[11px] text-neutral-400 font-mono">{page.url}</div>
-                        </td>
-                        <td className="p-4">
-                          <span className="rounded bg-neutral-100 px-2 py-0.5 text-[10px] font-extrabold uppercase text-neutral-700">
-                            {page.entityType}
-                          </span>
-                        </td>
-                        <td className="p-4 max-w-xs truncate">
-                          {hasCustomTitle ? (
-                            <span className="text-neutral-900 font-medium">{page.title}</span>
-                          ) : (
-                            <span className="text-amber-600 font-bold">Needs Custom Title</span>
-                          )}
-                        </td>
-                        <td className="p-4 max-w-xs truncate">
-                          {hasCustomDesc ? (
-                            <span className="text-neutral-600">{page.metaDescription}</span>
-                          ) : (
-                            <span className="text-amber-600 font-bold">Needs Description</span>
-                          )}
-                        </td>
-                        <td className="p-4 text-center">
-                          {page.hasSchema ? (
-                            <CheckCircle className="h-4 w-4 text-emerald-600 mx-auto" />
-                          ) : (
-                            <X className="h-4 w-4 text-neutral-300 mx-auto" />
-                          )}
-                        </td>
-                        <td className="p-4 text-right">
-                          <Link
-                            to={
-                              page.entityType === 'category'
-                                ? `/admin/categories`
-                                : page.entityType === 'service'
-                                ? `/admin/services`
-                                : page.entityType === 'blog'
-                                ? `/admin/blog`
-                                : `/admin/products`
-                            }
-                            className="inline-flex items-center gap-1 font-bold text-[#A82F19] hover:underline"
-                          >
-                            <span>Edit</span>
-                            <ArrowRight className="h-3 w-3" />
-                          </Link>
-                        </td>
-                      </tr>
-                    )
-                  })}
+                  {filteredPages.length === 0 ? (
+                    <tr>
+                      <td colSpan={8} className="py-12 text-center text-xs text-neutral-400">
+                        No pages found matching current filter criteria.
+                      </td>
+                    </tr>
+                  ) : (
+                    filteredPages.map((p) => {
+                      const titleLength = (p.meta_title || '').length
+                      const isOptimalTitle = titleLength >= 50 && titleLength <= 60
+                      const score = Number(p.seo_score) || 0
+
+                      return (
+                        <tr key={p.id} className="hover:bg-neutral-50/70 transition-colors">
+                          {/* URL & Type */}
+                          <td className="p-3.5">
+                            <div className="flex items-center gap-1.5 font-mono text-[11px] font-bold text-neutral-900 max-w-[210px] truncate">
+                              <span className="truncate">{p.url}</span>
+                              <a
+                                href={p.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-[#A82F19] hover:opacity-80 shrink-0 p-0.5"
+                                title="Open live page"
+                              >
+                                <ExternalLink className="h-3 w-3" />
+                              </a>
+                            </div>
+                            <div className="flex items-center gap-1.5 mt-1">
+                              <span className="rounded bg-neutral-100 px-1.5 py-0.2 text-[9px] font-bold uppercase tracking-wider text-neutral-600">
+                                {p.page_type}
+                              </span>
+                              {p.is_cannibalized && (
+                                <span className="rounded bg-amber-100 text-amber-800 px-1.5 py-0.2 text-[9px] font-black uppercase">
+                                  Cannibalized
+                                </span>
+                              )}
+                            </div>
+                          </td>
+
+                          {/* Meta Title */}
+                          <td className="p-3.5 max-w-[240px]">
+                            <div className="font-semibold text-neutral-900 truncate" title={p.meta_title}>
+                              {p.meta_title || <span className="text-red-500 font-bold">Missing Meta Title</span>}
+                            </div>
+                            <div className="flex items-center gap-1.5 mt-0.5">
+                              <span
+                                className={`text-[10px] font-mono font-bold ${
+                                  isOptimalTitle ? 'text-emerald-600' : 'text-amber-600'
+                                }`}
+                              >
+                                {titleLength} chars
+                              </span>
+                              {p.meta_description ? (
+                                <span className="text-[10px] text-neutral-400 font-mono">
+                                  • {p.meta_description.length} desc chars
+                                </span>
+                              ) : (
+                                <span className="text-[10px] text-red-500 font-bold">• No description</span>
+                              )}
+                            </div>
+                          </td>
+
+                          {/* Focus Keyword */}
+                          <td className="p-3.5 max-w-[170px]">
+                            {p.focus_keyword ? (
+                              <span className="inline-block rounded-md bg-[#A82F19]/10 border border-[#A82F19]/20 px-2 py-0.5 text-[11px] font-bold text-[#A82F19] truncate max-w-full">
+                                {p.focus_keyword}
+                              </span>
+                            ) : (
+                              <span className="text-amber-600 font-bold text-[11px]">None set</span>
+                            )}
+                          </td>
+
+                          {/* H1 Heading */}
+                          <td className="p-3.5 max-w-[180px] truncate text-neutral-700 text-[11px]" title={p.h1}>
+                            {p.h1 || <span className="text-neutral-400 italic">No custom H1</span>}
+                          </td>
+
+                          {/* Directives */}
+                          <td className="p-3.5 text-center">
+                            <span
+                              className={`rounded px-2 py-0.5 text-[10px] font-bold uppercase font-mono ${
+                                p.robots_index === 'noindex'
+                                  ? 'bg-red-100 text-red-700'
+                                  : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                              }`}
+                            >
+                              {p.robots_index || 'index'}
+                            </span>
+                          </td>
+
+                          {/* Schema */}
+                          <td className="p-3.5 text-center">
+                            <span className="rounded bg-neutral-100 px-2 py-0.5 text-[10px] font-mono font-semibold text-neutral-800">
+                              {p.schema_type || 'WebPage'}
+                            </span>
+                          </td>
+
+                          {/* SEO Score */}
+                          <td className="p-3.5 text-center">
+                            <span
+                              className={`inline-flex items-center justify-center font-black text-xs px-2.5 py-1 rounded-full ${
+                                score >= 80
+                                  ? 'bg-emerald-100 text-emerald-800'
+                                  : score >= 60
+                                  ? 'bg-amber-100 text-amber-800'
+                                  : 'bg-red-100 text-red-800'
+                              }`}
+                            >
+                              {score}/100
+                            </span>
+                          </td>
+
+                          {/* Actions */}
+                          <td className="p-3.5 text-right">
+                            <div className="flex items-center justify-end gap-1.5">
+                              <button
+                                onClick={() => setEditingPage(p)}
+                                className="px-2.5 py-1 rounded-lg border border-neutral-300 bg-white text-[11px] font-bold text-neutral-800 hover:border-[#A82F19] hover:text-[#A82F19] cursor-pointer transition-colors shadow-2xs"
+                              >
+                                Edit SEO
+                              </button>
+                              <button
+                                onClick={() => setAnalyzingPage(p)}
+                                className="px-2 py-1 rounded-lg bg-neutral-100 text-[#A82F19] hover:bg-[#A82F19]/10 text-[11px] font-bold cursor-pointer transition-colors"
+                                title="Analyze with AI"
+                              >
+                                <Sparkles className="h-3.5 w-3.5" />
+                              </button>
+                              <button
+                                onClick={() => handleQuickAiOptimize(p)}
+                                disabled={actionLoading}
+                                className="px-2 py-1 rounded-lg bg-neutral-900 text-white hover:bg-black text-[10px] font-black cursor-pointer transition-colors"
+                                title="1-Click Quick AI Optimize"
+                              >
+                                Auto-Opt
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      )
+                    })
+                  )}
                 </tbody>
               </table>
             </div>
@@ -3229,6 +4092,36 @@ export default function AdminSeoManagerPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Page SEO Editor Modal */}
+      {editingPage && (
+        <PageSeoEditorModal
+          page={editingPage}
+          isOpen={Boolean(editingPage)}
+          onClose={() => setEditingPage(null)}
+          onSaved={(updated) => {
+            handlePageUpdated(updated)
+            setEditingPage(null)
+          }}
+          onOpenAiAnalysis={(p) => {
+            setEditingPage(null)
+            setAnalyzingPage(p)
+          }}
+        />
+      )}
+
+      {/* AI Page SEO Optimizer Modal */}
+      {analyzingPage && (
+        <AiAnalysisModal
+          page={analyzingPage}
+          isOpen={Boolean(analyzingPage)}
+          onClose={() => setAnalyzingPage(null)}
+          onApplied={(updated) => {
+            handlePageUpdated(updated)
+            setAnalyzingPage(null)
+          }}
+        />
       )}
     </div>
   )

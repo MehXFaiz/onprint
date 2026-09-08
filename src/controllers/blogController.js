@@ -140,7 +140,7 @@ async function listPublicBlogs(req, res, next) {
           b.robots_index, b.robots_follow, b.seo_score, b.readability_score, b.keyword_density,
           b.word_count, b.seo_suggestions, b.schema_markup, b.faqs,
           c.name AS category_name, c.slug AS category_slug,
-          p.name AS product_name, p.slug AS product_slug, p.image AS product_image
+          p.name AS product_name, p.slug AS product_slug, NULL AS product_image
         FROM blogs b
         LEFT JOIN categories c ON b.category_id = c.id
         LEFT JOIN products p ON b.product_id = p.id
@@ -260,7 +260,7 @@ async function listAdminBlogs(req, res, next) {
           b.robots_index, b.robots_follow, b.seo_score, b.readability_score, b.keyword_density,
           b.word_count, b.seo_suggestions, b.schema_markup, b.faqs,
           c.name AS category_name, c.slug AS category_slug,
-          p.name AS product_name, p.slug AS product_slug, p.image AS product_image
+          p.name AS product_name, p.slug AS product_slug, NULL AS product_image
         FROM blogs b
         LEFT JOIN categories c ON b.category_id = c.id
         LEFT JOIN products p ON b.product_id = p.id
@@ -375,7 +375,7 @@ async function getBlogBySlug(req, res, next) {
           b.robots_index, b.robots_follow, b.seo_score, b.readability_score, b.keyword_density,
           b.word_count, b.seo_suggestions, b.schema_markup, b.faqs,
           c.id AS cat_id, c.name AS category_name, c.slug AS category_slug, c.description AS category_description, c.image AS category_image,
-          p.id AS prod_id, p.name AS product_name, p.slug AS product_slug, p.short_description AS product_description, p.image AS product_image, p.price AS product_price
+          p.id AS prod_id, p.name AS product_name, p.slug AS product_slug, p.short_description AS product_description, NULL AS product_image, p.price AS product_price
         FROM blogs b
         LEFT JOIN categories c ON b.category_id = c.id
         LEFT JOIN products p ON b.product_id = p.id
@@ -646,6 +646,9 @@ async function createBlog(req, res, next) {
       id: insertedId,
       title: cleanTitle,
       slug: cleanSlug,
+      status,
+      robots_index: status === 'draft' ? 'noindex' : (robots_index || 'index'),
+      robots_follow: status === 'draft' ? 'nofollow' : (robots_follow || 'follow'),
       seo_title: seoTit,
       meta_title: metaTit,
       meta_description: metaDesc,
@@ -861,11 +864,16 @@ async function updateBlog(req, res, next) {
       if (!updated) throw new ApiError(404, 'Blog article not found')
     }
 
+    const mergedStatus = status !== undefined ? status : (existing?.status || 'draft')
+
     // Sync with page_seo
     pageSeoService.autoCreateOrSyncEntitySeo('blog', {
       id,
       title: mergedTitle,
       slug: mergedSlug,
+      status: mergedStatus,
+      robots_index: robots_index || (mergedStatus === 'draft' ? 'noindex' : (existing?.robots_index || 'index')),
+      robots_follow: robots_follow || (mergedStatus === 'draft' ? 'nofollow' : (existing?.robots_follow || 'follow')),
       seo_title: seo_title || seoTitle || mergedMetaTitle,
       meta_title: mergedMetaTitle,
       meta_description: mergedMetaDesc,
@@ -897,10 +905,22 @@ async function deleteBlog(req, res, next) {
   try {
     const { id } = req.params
 
+    let slug = null
+    try {
+      const [rows] = await pool.execute('SELECT slug FROM blogs WHERE id = ? OR slug = ? LIMIT 1', [id, id])
+      if (rows.length > 0) slug = rows[0].slug
+    } catch {}
+
     try {
       const [result] = await pool.execute('DELETE FROM blogs WHERE id = ? OR slug = ?', [id, id])
       if (result.affectedRows === 0) {
         persistentStore.deleteBlog(id)
+      }
+      if (slug) {
+        await pool.execute(
+          `DELETE FROM page_seo WHERE url = ? OR (page_type = 'blog' AND (page_id = ? OR slug = ?))`,
+          [`/blog/${slug}`, id, slug]
+        ).catch(() => {})
       }
     } catch (dbErr) {
       console.warn('[BlogController] MySQL deleteBlog fallback:', dbErr.message)
@@ -926,6 +946,7 @@ async function bulkDeleteBlogs(req, res, next) {
     try {
       const placeholders = blogIds.map(() => '?').join(',')
       await pool.query(`DELETE FROM blogs WHERE id IN (${placeholders})`, blogIds)
+      await pool.query(`DELETE FROM page_seo WHERE page_type = 'blog' AND page_id IN (${placeholders})`, blogIds).catch(() => {})
     } catch (dbErr) {
       console.warn('[BlogController] MySQL bulkDeleteBlogs fallback:', dbErr.message)
     }
@@ -949,11 +970,23 @@ async function publishBlog(req, res, next) {
     const { id } = req.params
     const now = new Date().toISOString().slice(0, 19).replace('T', ' ')
 
+    let slug = null
+    try {
+      const [rows] = await pool.execute('SELECT slug FROM blogs WHERE id = ? OR slug = ? LIMIT 1', [id, id])
+      if (rows.length > 0) slug = rows[0].slug
+    } catch {}
+
     try {
       await pool.execute(
         `UPDATE blogs SET status = 'published', published_at = IF(published_at IS NULL, NOW(), published_at) WHERE id = ? OR slug = ?`,
         [id, id]
       )
+      if (slug) {
+        await pool.execute(
+          `UPDATE page_seo SET robots_index = 'index' WHERE url = ? OR (page_type = 'blog' AND page_id = ?)`,
+          [`/blog/${slug}`, id]
+        ).catch(() => {})
+      }
     } catch (dbErr) {
       persistentStore.updateBlog(id, { status: 'published', published_at: now })
     }
@@ -971,8 +1004,20 @@ async function unpublishBlog(req, res, next) {
   try {
     const { id } = req.params
 
+    let slug = null
+    try {
+      const [rows] = await pool.execute('SELECT slug FROM blogs WHERE id = ? OR slug = ? LIMIT 1', [id, id])
+      if (rows.length > 0) slug = rows[0].slug
+    } catch {}
+
     try {
       await pool.execute(`UPDATE blogs SET status = 'draft' WHERE id = ? OR slug = ?`, [id, id])
+      if (slug) {
+        await pool.execute(
+          `UPDATE page_seo SET robots_index = 'noindex' WHERE url = ? OR (page_type = 'blog' AND page_id = ?)`,
+          [`/blog/${slug}`, id]
+        ).catch(() => {})
+      }
     } catch (dbErr) {
       persistentStore.updateBlog(id, { status: 'draft' })
     }
@@ -1018,7 +1063,9 @@ async function generateBlogContent(req, res, next) {
       product_id,
       focus_keyword,
       target_location = 'Dubai',
-      tone = 'authoritative and commercial',
+      tone = 'Professional, Informative and Commercial',
+      language = 'English',
+      length = '1500–2000 words',
     } = req.body
 
     let categoryName = 'Commercial Printing'
@@ -1048,14 +1095,18 @@ async function generateBlogContent(req, res, next) {
     const loc = target_location ? target_location.trim() : 'Dubai'
     const keyword = focus_keyword || `${categoryName.toLowerCase()} ${loc.toLowerCase()}`
 
-    // Build intelligent structured printing article
-    const generatedArticle = generatePrintingArticleBody({
+    // Build intelligent structured printing article via AI service
+    const generatedArticle = await blogSeoAiService.generateArticleContent({
       title: mainTopic,
+      topic: mainTopic,
       categoryName,
       productName,
       productDetails,
-      keyword,
-      location: loc,
+      focus_keyword: keyword,
+      target_location: loc,
+      language,
+      tone,
+      length,
     })
 
     res.json({

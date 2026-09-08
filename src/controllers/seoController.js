@@ -97,10 +97,12 @@ async function getSitemapXml(req, res) {
     // 1. Fetch all indexable pages directly from page_seo (Single Source of Truth)
     try {
       const [seoPages] = await pool.query(`
-        SELECT url, updated_at, robots_index, page_type
-        FROM page_seo
-        WHERE robots_index = 'index'
-        ORDER BY FIELD(page_type, 'static', 'service', 'category', 'product', 'blog', 'portfolio', 'programmatic'), url ASC
+        SELECT ps.url, ps.updated_at, ps.robots_index, ps.page_type
+        FROM page_seo ps
+        LEFT JOIN blogs b ON ps.page_type = 'blog' AND (ps.slug = b.slug OR ps.page_id = b.id)
+        WHERE ps.robots_index = 'index'
+          AND (ps.page_type != 'blog' OR (b.status = 'published' AND (b.published_at IS NULL OR b.published_at <= NOW())))
+        ORDER BY FIELD(ps.page_type, 'static', 'service', 'category', 'product', 'blog', 'portfolio', 'programmatic'), ps.url ASC
       `)
 
       if (seoPages && seoPages.length > 0) {

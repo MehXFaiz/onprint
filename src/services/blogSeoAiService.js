@@ -1035,6 +1035,286 @@ REQUIRED JSON FORMAT:
       og_description: metaDesc,
     }
   }
+
+  /**
+   * External AI & Fallback Full Article Content Generator
+   */
+  async generateArticleContent({
+    topic = '',
+    title = '',
+    focus_keyword = '',
+    target_location = 'Dubai',
+    language = 'English',
+    tone = 'Professional, Informative and Commercial',
+    length = '1500–2000 words',
+    categoryName = 'Commercial Printing',
+    productName = '',
+    productDetails = '',
+  }) {
+    const mainTopic = (title || topic || `${categoryName} Guide for Dubai Businesses`).trim()
+    const loc = (target_location || 'Dubai').trim()
+    const keyword = (focus_keyword || `${categoryName.toLowerCase()} ${loc.toLowerCase()}`).trim()
+
+    // 1. Check if remote AI is configured
+    const { apiKey, provider, model } = await this.getAiConfig()
+
+    if (apiKey && apiKey.length > 5) {
+      try {
+        const systemPrompt = `You are a Senior Commercial Printing Specialist and Master Technical SEO Copywriter in Dubai, UAE, writing for ONPRINT (0nprint.com).
+Write an in-depth, authentic, highly engaging printing guide.
+
+STRICT CONTENT SAFETY & COMPLIANCE RULES:
+1. STRICTLY NO KEYWORD STUFFING. Maintain a natural keyword density of 1.0% to 2.0%.
+2. NO REPETITIVE ROBOTIC FILLER (Avoid cliches like "In today's fast-paced world", "Delve into", "Tapestry").
+3. NO FAKE AWARDS, CERTIFICATIONS, FALSE CLIENT CLAIMS, OR UNREALISTIC PROMISES (e.g., never claim "100% free printing").
+4. Authentic technical expertise: Discuss paper GSM (100gsm stationery, 170-250gsm leaflets, 350-450gsm cardstock), finishes (soft-touch velvet lamination, metallic hot foil, spot UV, die-cutting), pre-press (CMYK FOGRA39, 3mm bleed, 300 DPI, vector curves), and practical Dubai business contexts (DWTC exhibitions, DIFC corporate stationery, Dubai summer humidity resistance).
+5. Structure:
+   - Engaging introduction
+   - 5-6 structured sections with descriptive <h2> headings
+   - Relevant <h3> subsections
+   - Bullet points and an HTML comparison <table> comparing paper substrates
+   - 3 to 5 authentic FAQs
+   - Conclusion with clear Call-to-Action linking to <a href="/get-a-quote">Request a Bespoke Quote</a> and <a href="/services">Commercial Printing Services</a>.
+6. Tone: ${tone}. Language: ${language}. Target length: ${length}.
+7. Return strictly valid JSON without markdown wrapping.
+
+REQUIRED JSON OUTPUT FORMAT:
+{
+  "title": "Compelling Title",
+  "slug": "clean-kebab-case-slug",
+  "excerpt": "2-sentence compelling summary for SERP and lead intro (130-155 characters)",
+  "content": "<p>Lead paragraph...</p><h2>...</h2>...",
+  "reading_time": 6,
+  "focus_keyword": "${keyword}",
+  "secondary_keywords": "secondary, keywords, list",
+  "seo_title": "Title | ONPRINT ${loc}",
+  "meta_title": "Title | ONPRINT ${loc}",
+  "meta_description": "135-155 character meta description",
+  "canonical_url": "https://0nprint.com/blog/clean-slug",
+  "target_location": "${loc}",
+  "image_alt": "Descriptive photography ALT text",
+  "faqs": [
+    { "question": "Question 1?", "answer": "Answer 1." },
+    { "question": "Question 2?", "answer": "Answer 2." },
+    { "question": "Question 3?", "answer": "Answer 3." }
+  ]
+}`
+
+        const userPayload = {
+          topic: mainTopic,
+          focusKeyword: keyword,
+          targetLocation: loc,
+          categoryName,
+          productName,
+          productDetails,
+          language,
+          tone,
+          length,
+        }
+
+        let aiResult = null
+        if (provider === 'gemini') {
+          const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
+          const body = {
+            contents: [
+              {
+                role: 'user',
+                parts: [
+                  { text: systemPrompt },
+                  { text: `Generate full blog article for:\n\n${JSON.stringify(userPayload, null, 2)}` },
+                ],
+              },
+            ],
+            generationConfig: {
+              responseMimeType: 'application/json',
+              temperature: 0.3,
+              maxOutputTokens: 4000,
+            },
+          }
+          const response = await this._httpsPost(endpoint, body)
+          const text = response?.candidates?.[0]?.content?.parts?.[0]?.text
+          if (text) aiResult = JSON.parse(text)
+        } else {
+          const endpoint = `https://api.openai.com/v1/chat/completions`
+          const body = {
+            model: model || 'gpt-4o-mini',
+            messages: [
+              { role: 'system', content: systemPrompt },
+              { role: 'user', content: `Generate full blog article for:\n\n${JSON.stringify(userPayload, null, 2)}` },
+            ],
+            response_format: { type: 'json_object' },
+            temperature: 0.3,
+          }
+          const response = await this._httpsPost(endpoint, body, { Authorization: `Bearer ${apiKey}` })
+          const text = response?.choices?.[0]?.message?.content
+          if (text) aiResult = JSON.parse(text)
+        }
+
+        if (aiResult && aiResult.content && aiResult.title) {
+          return aiResult
+        }
+      } catch (remoteErr) {
+        console.warn('[BlogSeoAiService] Remote AI content generation error, falling back to deterministic template:', remoteErr.message)
+      }
+    }
+
+    // 2. High-quality deterministic printing specialist generator fallback
+    return this._generateComprehensivePrintingArticle({
+      title: mainTopic,
+      categoryName,
+      productName,
+      productDetails,
+      keyword,
+      location: loc,
+      length,
+    })
+  }
+
+  /**
+   * Deterministic full-length printing article generator
+   */
+  _generateComprehensivePrintingArticle({ title, categoryName, productName, productDetails, keyword, location, length }) {
+    const cleanTitle = title.replace(/\s+/g, ' ').trim()
+    const slug = generateSlug(cleanTitle)
+
+    const h2_1 = `1. The Strategic Importance of Premium ${categoryName} in the UAE`
+    const h2_2 = `2. Substrate Selection: Detailed Paper GSM & Material Specifications`
+    const h2_3 = `3. Advanced Print Finishing: Foiling, Spot UV & Tactile Laminations`
+    const h2_4 = `4. Technical Pre-Press Checklist: Bleeds, Safe Zones & CMYK Profiles`
+    const h2_5 = `5. Practical Dubai & UAE Business Advice: Humidity Resistance & Event Deadlines`
+    const h2_6 = `6. Ordering Custom ${productName || categoryName} with ONPRINT Dubai`
+
+    const contentHtml = `
+<p class="lead">In the dynamic business landscape of <strong>${location}</strong>, tactile brand collateral establishes instant credibility with corporate clients, investors, and high-net-worth partners. Whether presenting executive tender proposals in DIFC, distributing promotional literature at the Dubai World Trade Centre (DWTC), or delivering bespoke corporate gift packaging, high-fidelity <strong>${keyword}</strong> sets the gold standard for brand prestige.</p>
+
+<h2>${h2_1}</h2>
+<p>In commercial transactions, first impressions are forged in a matter of seconds. When an executive receives a business proposal or corporate stationery, sensory touchpoints communicate value before a single word is read. Premium weight, crisp edge registration, tactile coatings, and razor-sharp typographic reproduction convey technical competence and meticulous corporate attention to detail.</p>
+<p>Modern digital and offset printing technologies allow organizations in ${location} to execute consistent corporate identity across all physical media. By aligning CMYK press curves with Pantone Matching System (PMS) swatches, your collateral maintains exact color continuity across letterheads, brochures, business cards, and exhibition signage.</p>
+
+<h2>${h2_2}</h2>
+<p>Substrate selection forms the physical foundation of any print piece. The weight, texture, and coating of paper stock dramatically alter how ink pigments sit on the surface, directly affecting color saturation, ink absorption, and durability.</p>
+
+<table class="min-w-full my-6 text-xs text-left border border-neutral-300 rounded-xl overflow-hidden">
+  <thead class="bg-neutral-100 font-bold uppercase tracking-wider text-neutral-700">
+    <tr>
+      <th class="p-3 border-b border-neutral-300">Substrate Class</th>
+      <th class="p-3 border-b border-neutral-300">Grammage (GSM)</th>
+      <th class="p-3 border-b border-neutral-300">Surface Texture & Finish</th>
+      <th class="p-3 border-b border-neutral-300">Recommended Dubai Application</th>
+    </tr>
+  </thead>
+  <tbody class="divide-y divide-neutral-200">
+    <tr>
+      <td class="p-3 font-semibold">Premium Art Board</td>
+      <td class="p-3">350gsm – 450gsm</td>
+      <td class="p-3">Dense, smooth, heavy rigidity</td>
+      <td class="p-3">Executive business cards, presentation folders, luxury swing tags</td>
+    </tr>
+    <tr>
+      <td class="p-3 font-semibold">Silk / Coated Matte</td>
+      <td class="p-3">170gsm – 250gsm</td>
+      <td class="p-3">Non-glare satin, high ink holdout</td>
+      <td class="p-3">Annual reports, luxury corporate brochures, event catalogs</td>
+    </tr>
+    <tr>
+      <td class="p-3 font-semibold">Gloss Coated Paper</td>
+      <td class="p-3">130gsm – 170gsm</td>
+      <td class="p-3">High reflectivity, vibrant photo reproduction</td>
+      <td class="p-3">Marketing flyers, product leaflets, exhibition handouts</td>
+    </tr>
+    <tr>
+      <td class="p-3 font-semibold">Woodfree Bond Stationery</td>
+      <td class="p-3">100gsm – 120gsm</td>
+      <td class="p-3">Natural tactile tooth, laser-printer compatible</td>
+      <td class="p-3">Official corporate letterheads, branded envelopes, formal invoices</td>
+    </tr>
+    <tr>
+      <td class="p-3 font-semibold">Textured Specialty Board</td>
+      <td class="p-3">300gsm – 350gsm</td>
+      <td class="p-3">Linen, hammered, or kraft organic texture</td>
+      <td class="p-3">Artisan invitations, boutique hotel collateral, eco packaging</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Understanding Caliper and Bulk vs Weight</h3>
+<p>Paper weight (grams per square meter, or GSM) is not the sole determinant of rigidity. Caliper (thickness measured in microns) varies significantly depending on paper density. For instance, high-bulk uncoated cardstock at 300gsm can feel substantially thicker in hand than compressed coated silk board of identical weight. Our pre-press desk helps you balance weight with mailing considerations and tactile impact.</p>
+
+<h2>${h2_3}</h2>
+<p>Surface embellishments transform standard commercial printing into distinctive tactile assets. Specialized finishing processes protect the substrate against scuffs while accentuating key visual elements:</p>
+<ul>
+  <li><strong>Soft-Touch Velvet Lamination:</strong> Applies a microscopic matte polyurethane film that produces an ultra-luxurious suede feel. It eliminates fingerprint oil transfer and significantly enhances scratch resistance.</li>
+  <li><strong>Metallic Hot Foil Stamping:</strong> Using precision heated magnesium or brass dies, metallic foil (Gold, Silver, Rose Gold, Copper, or Holographic) is bonded under immense pressure. Perfect for corporate emblems and executive insignias.</li>
+  <li><strong>Raised Spot UV Varnishing (Scodix / Screen):</strong> A high-gloss clear polymer is selectively cured over matte surfaces, creating a dramatic optical contrast that catches the light as the recipient angles the piece.</li>
+  <li><strong>Precision Die-Cutting & Embossing:</strong> Custom steel rules cut, crease, or raise paper fibers to create three-dimensional embossed logos, tailored presentation folder pockets, and distinctive silhouette edges.</li>
+</ul>
+
+<h2>${h2_4}</h2>
+<p>Flawless commercial print runs require rigorous pre-press artwork preparation. To prevent production delays and ensure color accuracy on our Heidelberg offset and digital press lines, adhere to the following pre-flight standards:</p>
+<ol>
+  <li><strong>Color Space:</strong> Convert all RGB photographic assets and vector spot elements to CMYK using European standards (ISO Coated v2 / FOGRA39).</li>
+  <li><strong>Bleed Margins:</strong> Always provide a minimum of <strong>3.0 mm bleed</strong> on all outer edges extending past the trim line to avoid white hairline gaps during high-speed guillotine cutting.</li>
+  <li><strong>Safety Margin Zone:</strong> Keep all essential typography, logos, and critical design elements at least <strong>4.0 mm inside the cut line</strong>.</li>
+  <li><strong>Image Resolution:</strong> Ensure all rasterized bitmap imagery maintains at least <strong>300 DPI at 100% final output scale</strong>. Never upscale low-resolution 72 DPI web graphics.</li>
+  <li><strong>Typeface Outlining:</strong> Convert all live fonts to vector curves / outlines before exporting print-ready PDF/X-1a or PDF/X-4 files to avoid font substitution glitches.</li>
+</ol>
+
+<h2>${h2_5}</h2>
+<p>Commercial printing in the Arabian Gulf involves environmental factors that require specialized consideration:</p>
+<ul>
+  <li><strong>Combating UAE Summer Humidity:</strong> High relative humidity during summer months can cause unlaminated uncoated paper to warp or absorb atmospheric moisture. We recommend matte or gloss sealers on both sides of covers to preserve structural rigidity.</li>
+  <li><strong>Exhibition Deadlines at DWTC & ADNEC:</strong> Trade show exhibitors frequently face compressed schedules. Our Dubai production facility operates express digital lines capable of same-day turnaround with direct courier delivery to event halls and hotel conference centers.</li>
+  <li><strong>Corporate Gifting Guidelines:</strong> Personalized VIP presentation boxes and promotional merchandise must align with UAE corporate cultural standards. Subtlety, luxury packaging, and impeccable finishing take precedence over flashy branding.</li>
+</ul>
+
+<h2>${h2_6}</h2>
+<p>At <strong>ONPRINT</strong>, we combine German offset press precision with agile digital production to serve commercial enterprises, government entities, and creative agencies throughout Dubai, Abu Dhabi, and the wider UAE.</p>
+<p>Whether you require a limited run of executive presentation folders or high-volume marketing literature, our pre-press desk reviews every PDF proof for color fidelity, bleed compliance, and paper grain alignment.</p>
+<p>Ready to bring your print project to life? <a href="/get-a-quote"><strong>Request an Instant Bespoke Quote</strong></a> from our production team or explore our complete catalog of <a href="/services"><strong>Commercial Printing Services</strong></a> today.</p>
+`.trim()
+
+    const excerpt = `Comprehensive technical guide to professional ${keyword} in ${location}. Learn about paper GSM weights, luxury foil stamping, soft-touch lamination, CMYK pre-press best practices, and fast UAE delivery.`
+    const seoTitle = `${cleanTitle} | ONPRINT ${location}`.slice(0, 60)
+    const metaDescription = `Expert guide to ${keyword} in ${location}. Learn paper weights, foil stamping, soft-touch lamination, and pre-press standards. Fast delivery across UAE.`.slice(0, 155)
+
+    const faqs = [
+      {
+        question: `What is the standard production turnaround time for ${categoryName.toLowerCase()} in ${location}?`,
+        answer: `Standard turnaround is 24 to 48 hours for digital short runs and 3 to 5 working days for high-volume offset runs. Same-day express dispatch across Dubai is available for urgent requirements.`,
+      },
+      {
+        question: `What is the difference between coated silk, gloss, and uncoated paper stocks?`,
+        answer: `Coated silk paper offers a soft, non-glare satin surface with excellent readability and color sharpness. Gloss paper maximizes photo saturation and reflectivity. Uncoated bond paper has natural texture and is easily writable, making it the industry standard for letterheads and forms.`,
+      },
+      {
+        question: `How do I ensure my corporate brand colors match accurately on press?`,
+        answer: `We recommend supplying Pantone (PMS) reference codes or converting files to CMYK using the FOGRA39 profile. ONPRINT can also generate calibrated digital contract proofs for physical review before full production.`,
+      },
+      {
+        question: `Can I inspect physical paper samples and finishing swatches before placing an order?`,
+        answer: `Yes, ONPRINT provides complimentary sample swatch books featuring our range of paper weights (100gsm to 450gsm), velvet laminations, metallic foils, and raised spot UV varnishes.`,
+      },
+    ]
+
+    return {
+      title: cleanTitle,
+      slug,
+      excerpt,
+      content: contentHtml,
+      reading_time: 6,
+      category: categoryName,
+      focus_keyword: keyword,
+      secondary_keywords: `${categoryName.toLowerCase()}, commercial printing ${location.toLowerCase()}, custom printing uae, print finishing dubai, pre-press standards`,
+      seo_title: seoTitle,
+      meta_title: seoTitle,
+      meta_description: metaDescription,
+      canonical_url: `https://0nprint.com/blog/${slug}`,
+      target_location: location,
+      image_alt: `${cleanTitle} — Commercial Printing Dubai | ONPRINT`,
+      faqs,
+    }
+  }
 }
 
 module.exports = new BlogSeoAiService()
+

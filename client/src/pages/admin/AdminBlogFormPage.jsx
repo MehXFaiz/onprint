@@ -64,8 +64,13 @@ export default function AdminBlogFormPage() {
   const [showAiModal, setShowAiModal] = useState(false)
   const [aiPrompt, setAiPrompt] = useState({
     topic: '',
-    targetLocation: 'Dubai',
-    focusKeyword: '',
+    targetKeyword: '',
+    targetLocation: 'Dubai, UAE',
+    language: 'English',
+    tone: 'Professional',
+    articleLength: '1500–2000 words',
+    category_id: '',
+    product_id: '',
   })
 
   // AI SEO Optimizer States
@@ -102,7 +107,7 @@ export default function AdminBlogFormPage() {
     og_image: '',
     schema_type: 'BlogPosting',
     schema_markup: '',
-    target_location: 'Dubai',
+    target_location: 'Dubai, UAE',
     robots_index: 'index',
     robots_follow: 'follow',
     faqs: [],
@@ -239,37 +244,59 @@ export default function AdminBlogFormPage() {
     setAiLoading(true)
     setError(null)
     try {
+      const categoryObj = categories.find((c) => String(c.id) === String(aiPrompt.category_id || form.category_id))
+      const productObj = products.find((p) => String(p.id) === String(aiPrompt.product_id || form.product_id))
+
       const result = await generateBlogContent({
         title: form.title || aiPrompt.topic,
         topic: aiPrompt.topic || form.title,
-        category_id: form.category_id || undefined,
-        product_id: form.product_id || undefined,
-        focus_keyword: aiPrompt.focusKeyword || form.focus_keyword || undefined,
-        target_location: aiPrompt.targetLocation || form.target_location || 'Dubai',
+        category_id: aiPrompt.category_id || form.category_id || undefined,
+        product_id: aiPrompt.product_id || form.product_id || undefined,
+        focus_keyword: aiPrompt.targetKeyword || form.focus_keyword || undefined,
+        target_location: aiPrompt.targetLocation || form.target_location || 'Dubai, UAE',
+        language: aiPrompt.language || 'English',
+        tone: aiPrompt.tone || 'Professional',
+        length: aiPrompt.articleLength || '1500–2000 words',
       })
 
       if (result) {
         setForm((prev) => ({
           ...prev,
-          title: prev.title || result.title,
-          slug: prev.slug || result.slug,
-          excerpt: result.excerpt,
-          content: result.content,
-          reading_time: result.reading_time || 4,
-          focus_keyword: result.focus_keyword,
-          secondary_keywords: result.secondary_keywords,
-          seo_title: result.seo_title,
-          meta_title: result.seo_title,
-          meta_description: result.meta_description,
-          canonical_url: result.canonical_url,
-          target_location: result.target_location,
-          image_alt: result.image_alt,
-          og_title: result.seo_title,
-          og_description: result.meta_description,
+          title: result.title || prev.title,
+          slug: result.slug || prev.slug,
+          category_id: aiPrompt.category_id || prev.category_id,
+          product_id: aiPrompt.product_id || prev.product_id,
+          excerpt: result.excerpt || prev.excerpt,
+          content: result.content || prev.content,
+          reading_time: result.reading_time || 6,
+          focus_keyword: result.focus_keyword || prev.focus_keyword,
+          secondary_keywords: result.secondary_keywords || prev.secondary_keywords,
+          seo_title: result.seo_title || prev.seo_title,
+          meta_title: result.meta_title || result.seo_title || prev.meta_title,
+          meta_description: result.meta_description || prev.meta_description,
+          canonical_url: result.canonical_url || prev.canonical_url,
+          target_location: result.target_location || aiPrompt.targetLocation || prev.target_location,
+          image_alt: result.image_alt || prev.image_alt || `${result.title || prev.title} printing dubai`,
+          og_title: result.seo_title || prev.og_title,
+          og_description: result.meta_description || prev.og_description,
+          status: 'draft', // AI MUST NEVER AUTO-PUBLISH
+          faqs: Array.isArray(result.faqs) && result.faqs.length > 0
+            ? result.faqs.map((f, i) => ({
+                id: Date.now() + i,
+                question: f.question,
+                answer: f.answer,
+                is_approved: true,
+              }))
+            : prev.faqs,
         }))
         setShowAiModal(false)
-        setSuccessMsg('AI content and SEO metadata generated successfully!')
-        setTimeout(() => setSuccessMsg(null), 4000)
+        setSuccessMsg('AI printing guide generated successfully! Review and edit content below.')
+        setTimeout(() => setSuccessMsg(null), 5000)
+
+        // Trigger live SEO diagnostic
+        setTimeout(() => {
+          handleRunLiveAnalysis()
+        }, 300)
       }
     } catch (err) {
       setError(err.message || 'Failed to generate AI content.')
@@ -509,13 +536,149 @@ export default function AdminBlogFormPage() {
         await createBlog(payload)
       }
 
-      navigate('/admin/blog')
+      setSuccessMsg('Blog saved successfully.')
+      setTimeout(() => {
+        navigate('/admin/blog')
+      }, 1200)
     } catch (err) {
       setError(err.message || 'Failed to save blog article.')
     } finally {
       setSubmitting(false)
     }
   }
+
+  // 10-Point Real-Time SEO Checklist Evaluator
+  const computedChecklist = [
+    (() => {
+      const titleVal = (form.meta_title || form.seo_title || form.title || '').trim()
+      let status = 'red'
+      let note = `${titleVal.length} chars (Target: 50–60)`
+      if (titleVal.length >= 50 && titleVal.length <= 60) {
+        status = 'green'
+        note = `${titleVal.length} chars (Optimal)`
+      } else if (titleVal.length >= 40 && titleVal.length <= 70) {
+        status = 'yellow'
+        note = `${titleVal.length} chars (Acceptable)`
+      }
+      return { id: 'title-len', label: 'Title length (50–60 chars)', status, note }
+    })(),
+    (() => {
+      const descVal = (form.meta_description || form.excerpt || '').trim()
+      let status = 'red'
+      let note = `${descVal.length} chars (Target: 140–160)`
+      if (descVal.length >= 140 && descVal.length <= 160) {
+        status = 'green'
+        note = `${descVal.length} chars (Optimal)`
+      } else if (descVal.length >= 120 && descVal.length <= 170) {
+        status = 'yellow'
+        note = `${descVal.length} chars (Acceptable)`
+      }
+      return { id: 'desc-len', label: 'Meta description length (140–160 chars)', status, note }
+    })(),
+    (() => {
+      const kw = (form.focus_keyword || '').toLowerCase().trim()
+      const titleVal = (form.meta_title || form.seo_title || form.title || '').toLowerCase()
+      const passed = Boolean(kw && titleVal.includes(kw))
+      return {
+        id: 'kw-title',
+        label: 'Focus keyword in title',
+        status: passed ? 'green' : 'red',
+        note: passed ? 'Present' : 'Missing from title',
+      }
+    })(),
+    (() => {
+      const kw = (form.focus_keyword || '').toLowerCase().trim()
+      const plain = (form.content || '').replace(/<[^>]+>/g, ' ')
+      const first100 = plain.trim().split(/\s+/).filter(Boolean).slice(0, 100).join(' ').toLowerCase()
+      const passed = Boolean(kw && first100.includes(kw))
+      return {
+        id: 'kw-intro',
+        label: 'Focus keyword in first 100 words',
+        status: passed ? 'green' : 'red',
+        note: passed ? 'Found in lead' : 'Missing in intro',
+      }
+    })(),
+    (() => {
+      const kw = (form.focus_keyword || '').toLowerCase().trim()
+      const h2Matches = (form.content || '').match(/<h2[^>]*>([\s\S]*?)<\/h2>/gi) || []
+      const passed = Boolean(kw && h2Matches.some((h) => h.toLowerCase().includes(kw)))
+      return {
+        id: 'kw-h2',
+        label: 'Focus keyword in at least one H2',
+        status: passed ? 'green' : 'red',
+        note: passed ? 'Found in H2' : 'Missing from H2',
+      }
+    })(),
+    (() => {
+      const kw = (form.focus_keyword || '').toLowerCase().trim()
+      const plain = (form.content || '').replace(/<[^>]+>/g, ' ').trim()
+      const words = plain.split(/\s+/).filter(Boolean)
+      let density = 0
+      let status = 'red'
+      if (kw && words.length > 0) {
+        const regex = new RegExp(`\\b${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi')
+        const matches = plain.toLowerCase().match(regex) || []
+        const kwWordCount = kw.split(/\s+/).filter(Boolean).length
+        density = parseFloat((((matches.length * kwWordCount) / words.length) * 100).toFixed(2))
+        if (density >= 1.0 && density <= 2.5) {
+          status = 'green'
+        } else if ((density >= 0.5 && density < 1.0) || (density > 2.5 && density <= 3.5)) {
+          status = 'yellow'
+        } else {
+          status = 'red'
+        }
+      }
+      return {
+        id: 'kw-density',
+        label: 'Keyword density (1–2.5%)',
+        status,
+        note: `${density}%`,
+      }
+    })(),
+    (() => {
+      const kw = (form.focus_keyword || '').toLowerCase().trim()
+      const alt = (form.image_alt || '').toLowerCase().trim()
+      const passed = Boolean(kw && alt.includes(kw))
+      return {
+        id: 'kw-alt',
+        label: 'Image alt text contains keyword',
+        status: passed ? 'green' : 'red',
+        note: passed ? 'Optimized' : 'Missing in ALT',
+      }
+    })(),
+    (() => {
+      const internalMatches = (form.content || '').match(/href=["'](?:\/|https?:\/\/(?:www\.)?0nprint\.com)/gi) || []
+      const count = internalMatches.length
+      const status = count >= 2 ? 'green' : count === 1 ? 'yellow' : 'red'
+      return {
+        id: 'internal-links',
+        label: 'Internal links present',
+        status,
+        note: `${count} link(s)`,
+      }
+    })(),
+    (() => {
+      const plain = (form.content || '').replace(/<[^>]+>/g, ' ').trim()
+      const count = plain ? plain.split(/\s+/).filter(Boolean).length : 0
+      const status = count >= 1000 ? 'green' : count >= 600 ? 'yellow' : 'red'
+      return {
+        id: 'word-count',
+        label: 'Word count > 1000 words',
+        status,
+        note: `${count} words`,
+      }
+    })(),
+    (() => {
+      const url = (form.canonical_url || '').trim()
+      const passed = Boolean(url.startsWith('http://') || url.startsWith('https://'))
+      return {
+        id: 'canonical',
+        label: 'Canonical URL set',
+        status: passed ? 'green' : 'red',
+        note: passed ? 'Configured' : 'Missing URL',
+      }
+    })(),
+  ]
 
   if (loading) {
     return (
@@ -563,7 +726,7 @@ export default function AdminBlogFormPage() {
             className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-300 bg-white px-3.5 py-2 text-xs font-bold text-neutral-800 shadow-xs hover:border-[#A82F19] hover:text-[#A82F19] transition-all cursor-pointer"
           >
             <Sparkles className="h-4 w-4 text-[#A82F19]" />
-            <span>Generate Content (AI)</span>
+            <span>CREATE BLOG WITH AI</span>
           </button>
 
           {/* AI SEO Generator Trigger */}
@@ -574,7 +737,7 @@ export default function AdminBlogFormPage() {
             className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-300 bg-emerald-50 px-3.5 py-2 text-xs font-bold text-emerald-800 shadow-xs hover:bg-emerald-100 transition-all cursor-pointer disabled:opacity-50"
           >
             <Sparkles className={`h-4 w-4 text-emerald-600 ${seoGenLoading ? 'animate-spin' : ''}`} />
-            <span>{seoGenLoading ? 'Generating SEO…' : 'Generate SEO with AI'}</span>
+            <span>{seoGenLoading ? 'GENERATING SEO…' : 'GENERATE SEO WITH AI'}</span>
           </button>
 
           {/* Run Live SEO Check */}
@@ -585,7 +748,7 @@ export default function AdminBlogFormPage() {
             className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-3.5 py-2 text-xs font-bold text-neutral-700 shadow-xs hover:border-neutral-400 transition-all cursor-pointer disabled:opacity-50"
           >
             <Gauge className={`h-4 w-4 text-[#A82F19] ${seoAnalysisLoading ? 'animate-spin' : ''}`} />
-            <span>{seoAnalysisLoading ? 'Analyzing…' : 'Analyze SEO'}</span>
+            <span>{seoAnalysisLoading ? 'ANALYZING…' : 'ANALYZE SEO'}</span>
           </button>
 
           <Button
@@ -607,7 +770,7 @@ export default function AdminBlogFormPage() {
             className="text-xs font-bold shadow-md"
           >
             <Save className="h-4 w-4 mr-1.5" />
-            {submitting ? 'Saving to Database...' : isEdit ? 'Update Article' : 'Save Article'}
+            {submitting ? 'Saving to Database...' : isEdit ? 'UPDATE BLOG' : 'SAVE BLOG'}
           </Button>
         </div>
       </div>
@@ -1198,60 +1361,43 @@ export default function AdminBlogFormPage() {
               </div>
             </div>
 
-            {/* Essential Checklists */}
-            <div className="space-y-2 border-t border-neutral-100 pt-3 text-[11px]">
-              <div className="font-bold text-neutral-800 uppercase tracking-wider text-[10px]">
-                Search Essentials Checklist
-              </div>
-              
-              {/* Focus keyword in Title */}
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-600">Keyword in Meta Title</span>
-                {form.focus_keyword && (form.meta_title || form.title || '').toLowerCase().includes(form.focus_keyword.toLowerCase()) ? (
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-600" />
-                ) : (
-                  <XCircle className="h-3.5 w-3.5 text-neutral-300" />
-                )}
+            {/* 10-Point SEO Checklist with green/yellow/red indicators */}
+            <div className="space-y-2.5 border-t border-neutral-100 pt-3 text-[11px]">
+              <div className="flex items-center justify-between pb-1">
+                <span className="font-bold text-neutral-800 uppercase tracking-wider text-[10px]">
+                  10-Point SEO Checklist
+                </span>
+                <span className="text-[10px] font-bold text-neutral-500 bg-neutral-100 px-2 py-0.5 rounded-full">
+                  {computedChecklist.filter((c) => c.status === 'green').length}/10 Passed
+                </span>
               </div>
 
-              {/* Focus keyword in Meta Description */}
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-600">Keyword in Meta Description</span>
-                {form.focus_keyword && (form.meta_description || '').toLowerCase().includes(form.focus_keyword.toLowerCase()) ? (
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-600" />
-                ) : (
-                  <XCircle className="h-3.5 w-3.5 text-neutral-300" />
-                )}
-              </div>
-
-              {/* Focus keyword in URL Slug */}
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-600">Keyword in URL Slug</span>
-                {form.focus_keyword && form.slug.toLowerCase().includes(form.focus_keyword.toLowerCase().replace(/\s+/g, '-')) ? (
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-600" />
-                ) : (
-                  <XCircle className="h-3.5 w-3.5 text-neutral-300" />
-                )}
-              </div>
-
-              {/* Content Length */}
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-600">Word Count &ge; 300</span>
-                {(seoEvaluation?.wordCount ?? (form.content ? form.content.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length : 0)) >= 300 ? (
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-600" />
-                ) : (
-                  <XCircle className="h-3.5 w-3.5 text-amber-500" />
-                )}
-              </div>
-
-              {/* FAQs Configured */}
-              <div className="flex items-center justify-between">
-                <span className="text-neutral-600">FAQ Schema Configured</span>
-                {Array.isArray(form.faqs) && form.faqs.length > 0 ? (
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-600" />
-                ) : (
-                  <XCircle className="h-3.5 w-3.5 text-neutral-300" />
-                )}
+              <div className="space-y-1.5">
+                {computedChecklist.map((item) => (
+                  <div key={item.id} className="flex items-center justify-between gap-2 py-1 px-2 rounded-lg bg-neutral-50/60 border border-neutral-100">
+                    <div className="flex items-center gap-2 truncate">
+                      {item.status === 'green' ? (
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                      ) : item.status === 'yellow' ? (
+                        <AlertTriangle className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                      ) : (
+                        <XCircle className="h-3.5 w-3.5 text-rose-500 shrink-0" />
+                      )}
+                      <span className="text-neutral-700 font-medium truncate">{item.label}</span>
+                    </div>
+                    <span
+                      className={`text-[10px] font-bold shrink-0 px-2 py-0.5 rounded-full ${
+                        item.status === 'green'
+                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                          : item.status === 'yellow'
+                          ? 'bg-amber-50 text-amber-700 border border-amber-200'
+                          : 'bg-rose-50 text-rose-700 border border-rose-200'
+                      }`}
+                    >
+                      {item.note}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -1401,48 +1547,86 @@ export default function AdminBlogFormPage() {
               />
             </div>
           </div>
+
+          {/* Bottom Form Actions */}
+          <div className="flex items-center justify-end gap-3 pt-2">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => navigate('/admin/blog')}
+              disabled={submitting}
+              className="text-xs"
+            >
+              Cancel
+            </Button>
+            <Button
+              type="button"
+              variant="accent"
+              onClick={handleSubmit}
+              disabled={submitting}
+              className="text-xs font-bold shadow-md"
+            >
+              <Save className="h-4 w-4 mr-1.5" />
+              {submitting ? 'Saving to Database...' : isEdit ? 'UPDATE BLOG' : 'SAVE BLOG'}
+            </Button>
+          </div>
         </div>
       </form>
 
-      {/* AI Assistant Generation Modal */}
+      {/* CREATE BLOG WITH AI Modal */}
       {showAiModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-xs">
-          <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl space-y-5">
-            <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
-              <div className="flex items-center gap-2 text-[#A82F19]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs overflow-y-auto">
+          <div className="w-full max-w-xl rounded-3xl bg-white p-6 sm:p-8 shadow-2xl space-y-5 border border-neutral-200 my-8">
+            <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
+              <div className="flex items-center gap-2.5 text-[#A82F19]">
                 <Sparkles className="h-5 w-5" />
-                <h3 className="font-display text-lg font-bold text-neutral-900">
-                  AI Blog &amp; SEO Generator
+                <h3 className="font-display text-lg font-black text-neutral-900 uppercase tracking-tight">
+                  CREATE BLOG WITH AI
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setShowAiModal(false)}
-                className="text-neutral-400 hover:text-neutral-900 text-sm font-bold cursor-pointer"
+                className="rounded-lg p-1.5 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-900 text-sm font-bold cursor-pointer"
               >
                 ✕
               </button>
             </div>
 
             <p className="text-xs text-neutral-600 leading-relaxed">
-              Generate a structured commercial printing article with pre-press specifications, GSM comparisons, finishing methods, and complete Google SEO metadata.
+              Generate an authentic, long-form commercial printing guide with technical paper GSM specifications, substrate comparison tables, CMYK pre-press checklists, FAQs, and high-converting CTAs tailored for businesses in the UAE.
             </p>
 
-            <div className="space-y-3 text-xs">
+            <div className="space-y-4 text-xs">
+              {/* Blog Topic */}
               <div>
                 <label className="block font-bold uppercase tracking-wider text-neutral-700 mb-1">
-                  Article Topic or Idea
+                  Blog Topic <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   value={aiPrompt.topic}
                   onChange={(e) => setAiPrompt((p) => ({ ...p, topic: e.target.value }))}
-                  placeholder="e.g. How to choose the best business cards for executive brands"
+                  placeholder="e.g. The Ultimate Guide to Luxury Business Card Printing in Dubai"
                   className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              {/* Target Keyword & Location */}
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div>
+                  <label className="block font-bold uppercase tracking-wider text-neutral-700 mb-1">
+                    Target Keyword
+                  </label>
+                  <input
+                    type="text"
+                    value={aiPrompt.targetKeyword}
+                    onChange={(e) => setAiPrompt((p) => ({ ...p, targetKeyword: e.target.value }))}
+                    placeholder="e.g. business card printing dubai"
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  />
+                </div>
+
                 <div>
                   <label className="block font-bold uppercase tracking-wider text-neutral-700 mb-1">
                     Target Location
@@ -1451,24 +1635,109 @@ export default function AdminBlogFormPage() {
                     type="text"
                     value={aiPrompt.targetLocation}
                     onChange={(e) => setAiPrompt((p) => ({ ...p, targetLocation: e.target.value }))}
-                    placeholder="Dubai"
-                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-bold uppercase tracking-wider text-neutral-700 mb-1">
-                    Primary Focus Keyword
-                  </label>
-                  <input
-                    type="text"
-                    value={aiPrompt.focusKeyword}
-                    onChange={(e) => setAiPrompt((p) => ({ ...p, focusKeyword: e.target.value }))}
-                    placeholder="e.g. business card printing dubai"
+                    placeholder="Dubai, UAE"
                     className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
                   />
                 </div>
               </div>
+
+              {/* Content Language, Tone, Article Length */}
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div>
+                  <label className="block font-bold uppercase tracking-wider text-neutral-700 mb-1">
+                    Content Language
+                  </label>
+                  <select
+                    value={aiPrompt.language}
+                    onChange={(e) => setAiPrompt((p) => ({ ...p, language: e.target.value }))}
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  >
+                    <option value="English">English</option>
+                    <option value="Arabic">Arabic</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-bold uppercase tracking-wider text-neutral-700 mb-1">
+                    Tone
+                  </label>
+                  <select
+                    value={aiPrompt.tone}
+                    onChange={(e) => setAiPrompt((p) => ({ ...p, tone: e.target.value }))}
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  >
+                    <option value="Professional">Professional</option>
+                    <option value="Informative">Informative</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Authoritative">Authoritative</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-bold uppercase tracking-wider text-neutral-700 mb-1">
+                    Article Length
+                  </label>
+                  <select
+                    value={aiPrompt.articleLength}
+                    onChange={(e) => setAiPrompt((p) => ({ ...p, articleLength: e.target.value }))}
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  >
+                    <option value="1500–2000 words">1500–2000 words</option>
+                    <option value="1000–1500 words">1000–1500 words</option>
+                    <option value="2000+ words">2000+ words</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Optional Category & Product Link */}
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div>
+                  <label className="block font-bold uppercase tracking-wider text-neutral-700 mb-1">
+                    Category (MySQL)
+                  </label>
+                  <select
+                    value={aiPrompt.category_id}
+                    onChange={(e) => setAiPrompt((p) => ({ ...p, category_id: e.target.value }))}
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  >
+                    <option value="">Auto-Detect from Topic</option>
+                    {categories.map((c) => (
+                      <option key={c.id} value={c.id}>
+                        {c.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-bold uppercase tracking-wider text-neutral-700 mb-1">
+                    Related Product (MySQL)
+                  </label>
+                  <select
+                    value={aiPrompt.product_id}
+                    onChange={(e) => setAiPrompt((p) => ({ ...p, product_id: e.target.value }))}
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  >
+                    <option value="">Auto-Detect from Topic</option>
+                    {products.map((p) => (
+                      <option key={p.id} value={p.id}>
+                        {p.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Content Safety Guarantee Badge */}
+            <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-3 text-[11px] text-neutral-600 space-y-1">
+              <div className="font-bold text-neutral-800 flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Strict Content Safety &amp; Quality Guarantee</span>
+              </div>
+              <p>
+                Zero keyword stuffing, zero false claims or fake certifications. All generated technical content adheres to authentic Dubai commercial printing standards. AI will never publish automatically—admin review is required.
+              </p>
             </div>
 
             <div className="flex justify-end gap-3 pt-2">
@@ -1486,9 +1755,10 @@ export default function AdminBlogFormPage() {
                 variant="accent"
                 onClick={handleGenerateAiContent}
                 disabled={aiLoading}
-                className="text-xs font-bold"
+                className="text-xs font-bold bg-[#A82F19] hover:bg-[#8e2714]"
               >
-                {aiLoading ? 'Generating Full Article...' : 'Generate Article & SEO'}
+                <Sparkles className={`h-4 w-4 mr-1.5 ${aiLoading ? 'animate-spin' : ''}`} />
+                <span>{aiLoading ? 'GENERATING PRINTING ARTICLE…' : 'GENERATE BLOG'}</span>
               </Button>
             </div>
           </div>

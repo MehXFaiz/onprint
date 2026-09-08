@@ -936,6 +936,11 @@ class PageSeoService {
       url = `/${entity.slug}`
     }
 
+    // Determine robots directive: Draft entities must NEVER be indexed in Google or Sitemaps
+    const isDraft = entity.status === 'draft'
+    const robotsIndex = entity.robots_index || (isDraft ? 'noindex' : 'index')
+    const robotsFollow = entity.robots_follow || (isDraft ? 'nofollow' : 'follow')
+
     // Check if record exists
     const [existing] = await pool.query('SELECT id FROM page_seo WHERE url = ?', [url])
 
@@ -944,7 +949,7 @@ class PageSeoService {
       const [res] = await pool.query(
         `INSERT INTO page_seo 
          (page_type, page_id, url, slug, meta_title, meta_description, focus_keyword, h1, canonical_url, robots_index, robots_follow, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, schema_type, seo_score, readability_score)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'index', 'follow', ?, ?, ?, ?, ?, ?, ?, 85, 80)`,
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 85, 80)`,
         [
           entityType,
           entity.id || null,
@@ -955,6 +960,8 @@ class PageSeoService {
           focusKw,
           h1,
           canonical,
+          robotsIndex,
+          robotsFollow,
           metaTitle,
           metaDesc.slice(0, 300),
           image,
@@ -964,7 +971,7 @@ class PageSeoService {
           schemaType,
         ]
       )
-      console.log(`[Page SEO] Auto-created SEO record for new ${entityType}: ${url}`)
+      console.log(`[Page SEO] Auto-created SEO record for new ${entityType}: ${url} (robots: ${robotsIndex})`)
       return res.insertId
     } else {
       await pool.query(
@@ -972,9 +979,19 @@ class PageSeoService {
            page_id = COALESCE(?, page_id), 
            slug = ?, 
            meta_title = COALESCE(?, meta_title),
-           meta_description = COALESCE(?, meta_description)
+           meta_description = COALESCE(?, meta_description),
+           robots_index = COALESCE(?, robots_index),
+           robots_follow = COALESCE(?, robots_follow)
          WHERE id = ?`,
-        [entity.id || null, entity.slug, entity.seo_title, entity.seo_description, existing[0].id]
+        [
+          entity.id || null,
+          entity.slug,
+          entity.seo_title || null,
+          entity.seo_description || null,
+          entity.robots_index || (entity.status ? (isDraft ? 'noindex' : 'index') : null),
+          entity.robots_follow || (entity.status ? (isDraft ? 'nofollow' : 'follow') : null),
+          existing[0].id,
+        ]
       )
       return existing[0].id
     }

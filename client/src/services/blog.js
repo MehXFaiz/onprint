@@ -17,6 +17,14 @@ export async function getPublicBlogBySlug(slug) {
 }
 
 /**
+ * Fetch a single blog post for Admin by ID or slug
+ */
+export async function getAdminBlogById(id) {
+  const { data } = await api.get(`/blogs/${id}`)
+  return data?.data
+}
+
+/**
  * Fetch all blogs for Admin dashboard with statistics and filters
  */
 export async function getAdminBlogs(params = {}) {

@@ -4,6 +4,7 @@ const {
   listAdminBlogs,
   getBlogStats,
   getBlogSeoMetrics,
+  getBlogBySlug,
   createBlog,
   updateBlog,
   deleteBlog,
@@ -29,11 +30,13 @@ adminBlogRouter.use(authenticateToken, requireAdmin)
 adminBlogRouter.get('/', listAdminBlogs)
 adminBlogRouter.get('/stats', getBlogStats)
 adminBlogRouter.get('/seo-metrics', getBlogSeoMetrics)
+adminBlogRouter.get('/:slug', getBlogBySlug)
 adminBlogRouter.post('/', createBlog)
 adminBlogRouter.put('/:id', updateBlog)
 adminBlogRouter.delete('/:id', deleteBlog)
 adminBlogRouter.post('/bulk-delete', bulkDeleteBlogs)
 adminBlogRouter.delete('/bulk', bulkDeleteBlogs)
+adminBlogRouter.post('/generate', generateBlogContent)
 adminBlogRouter.post('/generate-content', generateBlogContent)
 adminBlogRouter.post('/generate-image', generateBlogImage)
 adminBlogRouter.post('/generate-seo', generateBlogSeoHandler)

@@ -262,7 +262,7 @@ export default function AdminBlogPage() {
         </div>
         <Button to="/admin/blog/new" variant="accent" className="text-xs font-bold shrink-0 shadow-sm">
           <Plus className="h-4 w-4 mr-1.5" />
-          Write New Article
+          Add Blog
         </Button>
       </div>
 

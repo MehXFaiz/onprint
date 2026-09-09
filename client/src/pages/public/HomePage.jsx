@@ -131,18 +131,19 @@ export default function HomePage() {
       {/* 1. Hero Section */}
       <section className="relative isolate overflow-hidden border-b border-[#000000]/10 bg-[#FFFFFF] py-16 sm:py-24 lg:py-32">
         <video
-          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-[0.32]"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-80"
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           poster="/assets/products/brochures.jpg"
           aria-hidden="true"
         >
           <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_3840_2160_25fps.mp4" type="video/mp4" />
         </video>
-        <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(255,255,255,0.86)_0%,rgba(255,255,255,0.72)_46%,rgba(255,255,255,0.42)_100%)]" />
-        <div className="pointer-events-none absolute inset-0 z-[1] bg-[#A82F19]/[0.05] mix-blend-multiply" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(255,255,255,0.48)_0%,rgba(255,255,255,0.28)_46%,rgba(255,255,255,0.12)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-[#A82F19]/[0.04] mix-blend-multiply" />
         <Container className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <Reveal>

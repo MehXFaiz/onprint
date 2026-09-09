@@ -34,6 +34,7 @@ export default function ServiceDetailPage() {
   const { slug } = useParams()
   const [service, setService] = useState(null)
   const [status, setStatus] = useState('loading')
+  const [mockupTilt, setMockupTilt] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     setStatus('loading')
@@ -64,6 +65,16 @@ export default function ServiceDetailPage() {
     { question: `How long does ${service.name} take in Dubai?`, answer: 'Standard production takes 2 to 4 business days. Urgent rush production is available upon request.' },
     { question: 'Can I request custom material samples?', answer: 'Yes, our Al Quoz print facility provides physical sample swatches and digital prepress proofs for all corporate orders.' }
   ]
+  const handleMockupMove = (event) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2
+    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2
+    setMockupTilt({ x: y * -5, y: x * 7 })
+  }
+
+  const resetMockup = () => setMockupTilt({ x: 0, y: 0 })
 
   return (
     <div className="py-16 sm:py-24">
@@ -134,13 +145,39 @@ export default function ServiceDetailPage() {
 
           <div className="lg:col-span-5">
             <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-lg">
-              <div className="aspect-[4/3] overflow-hidden bg-accent-soft">
+              <div
+                className="product-mockup-stage group/mockup relative aspect-[4/3] overflow-hidden bg-[#e9e5df]"
+                onPointerMove={handleMockupMove}
+                onPointerLeave={resetMockup}
+              >
                 <img
                   src={getProductImage(service)}
-                  alt={service.imageAlt || `${service.name} in Dubai`}
-                  className="h-full w-full object-cover"
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 h-full w-full object-cover opacity-25 blur-[1px]"
                   loading="lazy"
                 />
+                <div
+                  className="product-mockup-object absolute inset-[9%] flex items-center justify-center"
+                  style={{
+                    transform: `perspective(900px) rotateX(${mockupTilt.x}deg) rotateY(${mockupTilt.y}deg)`,
+                  }}
+                >
+                  <div className="product-mockup-shadow absolute inset-[5%] rounded-2xl bg-black/30 blur-xl" />
+                  <div className="product-mockup-face relative h-full w-full overflow-hidden rounded-2xl border border-white/80 bg-white shadow-[12px_18px_30px_rgba(0,0,0,0.25)]">
+                    <img
+                      src={getProductImage(service)}
+                      alt={service.imageAlt || `${service.name} in Dubai`}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/35 via-transparent to-black/15" />
+                  </div>
+                  <div className="product-mockup-edge absolute right-[-2%] top-[6%] h-[88%] w-[5%] rounded-r-lg bg-[#c8c0b7]" />
+                </div>
+                <span className="pointer-events-none absolute bottom-3 right-3 z-10 rounded-full border border-white/60 bg-white/85 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.14em] text-black/65 shadow-sm backdrop-blur-md">
+                  3D product view
+                </span>
               </div>
               <div className="p-6">
                 <h3 className="font-display text-sm font-bold uppercase tracking-wider text-primary">Service Guarantee</h3>

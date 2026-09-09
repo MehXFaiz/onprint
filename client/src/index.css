@@ -58,6 +58,60 @@ body {
   outline-offset: 2px;
 }
 
+.product-mockup-stage {
+  perspective: 1000px;
+  isolation: isolate;
+}
+
+.product-mockup-object {
+  transform-style: preserve-3d;
+  transition: transform 180ms ease-out;
+}
+
+.product-mockup-face,
+.product-mockup-edge,
+.product-mockup-shadow {
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 350ms ease;
+}
+
+.product-mockup-face {
+  transform: translateZ(18px) rotate(-2deg);
+}
+
+.product-mockup-edge {
+  transform: translateZ(4px) rotate(-2deg);
+}
+
+.product-mockup-shadow {
+  transform: translate3d(12px, 18px, -8px) rotate(-2deg);
+  opacity: 0.3;
+}
+
+.group\/mockup:hover .product-mockup-face,
+.group\/mockup:focus-within .product-mockup-face {
+  transform: translateZ(30px) rotate(-1deg) scale(1.03);
+}
+
+.group\/mockup:hover .product-mockup-edge,
+.group\/mockup:focus-within .product-mockup-edge {
+  transform: translateZ(12px) rotate(-1deg);
+}
+
+.group\/mockup:hover .product-mockup-shadow,
+.group\/mockup:focus-within .product-mockup-shadow {
+  transform: translate3d(18px, 24px, -10px) rotate(-1deg) scale(1.02);
+  opacity: 0.42;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-mockup-object,
+  .product-mockup-face,
+  .product-mockup-edge,
+  .product-mockup-shadow {
+    transition: none;
+  }
+}
+
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

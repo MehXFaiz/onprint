@@ -131,7 +131,7 @@ export default function HomePage() {
       {/* 1. Hero Section */}
       <section className="relative isolate overflow-hidden border-b border-[#000000]/10 bg-[#FFFFFF] py-16 sm:py-24 lg:py-32">
         <video
-          className="pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover opacity-[0.16]"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-[0.32]"
           autoPlay
           muted
           loop
@@ -141,9 +141,9 @@ export default function HomePage() {
         >
           <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_3840_2160_25fps.mp4" type="video/mp4" />
         </video>
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.9)_46%,rgba(255,255,255,0.65)_100%)]" />
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[#A82F19]/[0.03] mix-blend-multiply" />
-        <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(255,255,255,0.86)_0%,rgba(255,255,255,0.72)_46%,rgba(255,255,255,0.42)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-[#A82F19]/[0.05] mix-blend-multiply" />
+        <Container className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19] bg-[#FFFFFF] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#A82F19] shadow-xs">

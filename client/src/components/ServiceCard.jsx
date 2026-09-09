@@ -59,9 +59,21 @@ export default function ServiceCard({ service, className = '' }) {
         onPointerMove={handleMockupMove}
         onPointerLeave={resetMockup}
       >
+        <img
+          src={serviceImage}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          onError={(event) => {
+            event.currentTarget.onerror = null
+            event.currentTarget.src = '/assets/products/1 (1).jpg'
+          }}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[#e9e5df]/35" />
         {serviceImage ? (
           <div
-            className="product-mockup-object absolute inset-[8%] flex items-center justify-center"
+            className="service-mockup-object product-mockup-object absolute inset-[8%] flex items-center justify-center"
             style={{
               transform: `perspective(900px) rotateX(${mockupTilt.x}deg) rotateY(${mockupTilt.y}deg)`,
             }}
@@ -76,7 +88,7 @@ export default function ServiceCard({ service, className = '' }) {
                   event.currentTarget.onerror = null
                   event.currentTarget.src = '/assets/products/1 (1).jpg'
                 }}
-                className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover/mockup:scale-105"
+                className="h-full w-full object-cover object-center"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-black/15" />
             </div>

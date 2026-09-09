@@ -69,20 +69,12 @@ export default function ProductCard({
   return (
     <div className="group relative flex flex-col h-full w-full min-w-0 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/60 hover:shadow-lg hover:z-10">
       {/* Product Image */}
-<<<<<<< HEAD
-      <div className="relative w-full aspect-[4/3] shrink-0 overflow-hidden bg-gray-50 flex items-center justify-center">
-=======
       <div
-        className={`product-mockup-stage group/mockup relative shrink-0 overflow-hidden bg-[#f5f3ef] ${
-          isFeatured
-            ? 'aspect-[16/9] sm:aspect-auto sm:w-[45%]'
-            : 'aspect-[4/3] w-full'
-        }`}
+        className="product-mockup-stage group/mockup relative w-full aspect-[4/3] shrink-0 overflow-hidden bg-[#f5f3ef] flex items-center justify-center"
         onPointerEnter={() => setIsMockupActive(true)}
         onPointerMove={handleMockupMove}
         onPointerLeave={resetMockup}
       >
->>>>>>> 48e57e8f53a6550455e165facbf071111f24fb10
         {productImage ? (
           <div
             className="product-mockup-object absolute inset-[12%] flex items-center justify-center"
@@ -108,17 +100,12 @@ export default function ProductCard({
           </div>
         )}
 
-<<<<<<< HEAD
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/5 pointer-events-none" />
-=======
         <div className="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full border border-white/60 bg-white/85 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.16em] text-black/65 shadow-sm backdrop-blur-md transition-all duration-300 group-hover/mockup:-translate-y-1 group-hover/mockup:bg-white">
           {isMockupActive ? '3D preview' : 'Hover to preview'}
         </div>
 
         {/* Dark overlay on hover */}
-        <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/[0.03]" />
->>>>>>> 48e57e8f53a6550455e165facbf071111f24fb10
+        <div className="pointer-events-none absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/[0.03]" />
 
         {/* Top-left badges */}
         {isFeatured && (

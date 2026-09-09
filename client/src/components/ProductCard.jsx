@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { ArrowUpRight, Sparkles, Eye, Check, Tag } from 'lucide-react'
 import { getProductImage } from '../assets/productImages'
 
@@ -8,6 +9,9 @@ export default function ProductCard({
   variant = 'glass',
   onQuickView,
 }) {
+  const [isMockupActive, setIsMockupActive] = useState(false)
+  const [mockupTilt, setMockupTilt] = useState({ x: 0, y: 0 })
+
   if (!product) return null
 
   const isFeatured = featured || product.featured
@@ -48,26 +52,73 @@ export default function ProductCard({
   }
 
   const featuresList = deriveFeatures()
+  const handleMockupMove = (event) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2
+    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2
+    setMockupTilt({ x: y * -7, y: x * 9 })
+  }
+
+  const resetMockup = () => {
+    setIsMockupActive(false)
+    setMockupTilt({ x: 0, y: 0 })
+  }
 
   return (
     <div className="group relative flex flex-col h-full w-full min-w-0 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/60 hover:shadow-lg hover:z-10">
       {/* Product Image */}
+<<<<<<< HEAD
       <div className="relative w-full aspect-[4/3] shrink-0 overflow-hidden bg-gray-50 flex items-center justify-center">
+=======
+      <div
+        className={`product-mockup-stage group/mockup relative shrink-0 overflow-hidden bg-[#f5f3ef] ${
+          isFeatured
+            ? 'aspect-[16/9] sm:aspect-auto sm:w-[45%]'
+            : 'aspect-[4/3] w-full'
+        }`}
+        onPointerEnter={() => setIsMockupActive(true)}
+        onPointerMove={handleMockupMove}
+        onPointerLeave={resetMockup}
+      >
+>>>>>>> 48e57e8f53a6550455e165facbf071111f24fb10
         {productImage ? (
-          <img
-            src={productImage}
-            alt={product.imageAlt || product.name}
-            loading="lazy"
-            className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
-          />
+          <div
+            className="product-mockup-object absolute inset-[12%] flex items-center justify-center"
+            style={{
+              transform: `perspective(900px) rotateX(${mockupTilt.x}deg) rotateY(${mockupTilt.y}deg)`,
+            }}
+          >
+            <div className="product-mockup-shadow absolute inset-[8%] rounded-[1.25rem] bg-black/20 blur-xl" />
+            <div className="product-mockup-face relative h-full w-full overflow-hidden rounded-[1.25rem] border border-white/80 bg-white shadow-[12px_16px_28px_rgba(0,0,0,0.2)]">
+              <img
+                src={productImage}
+                alt={product.imageAlt || product.name}
+                loading="lazy"
+                className="h-full w-full object-cover object-center"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/35 via-transparent to-black/10" />
+            </div>
+            <div className="product-mockup-edge absolute right-[-3%] top-[6%] h-[88%] w-[5%] rounded-r-lg bg-[#d8d2ca]" />
+          </div>
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-black/5 text-[11px] font-black uppercase tracking-widest text-black/30">
             ONPRINT PRESS
           </div>
         )}
 
+<<<<<<< HEAD
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/5 pointer-events-none" />
+=======
+        <div className="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full border border-white/60 bg-white/85 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.16em] text-black/65 shadow-sm backdrop-blur-md transition-all duration-300 group-hover/mockup:-translate-y-1 group-hover/mockup:bg-white">
+          {isMockupActive ? '3D preview' : 'Hover to preview'}
+        </div>
+
+        {/* Dark overlay on hover */}
+        <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/[0.03]" />
+>>>>>>> 48e57e8f53a6550455e165facbf071111f24fb10
 
         {/* Top-left badges */}
         {isFeatured && (

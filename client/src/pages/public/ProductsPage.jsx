@@ -6,7 +6,6 @@ import ProductCard from '../../components/ProductCard'
 import ProductDetailModal from '../../components/ProductDetailModal'
 import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
-import Reveal from '../../components/Reveal'
 import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
@@ -316,15 +315,13 @@ export default function ProductsPage() {
 
           {/* VIEW 1: Filtered / Single Category or Search Active */}
           {!loading && !error && (categoryParam || searchQuery) && filteredProducts.length > 0 && (
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {filteredProducts.map((product, index) => (
-                <Reveal key={product._id} delay={(index % 4) * 0.06}>
-                  <ProductCard
-                    product={product}
-                    featured={index === 0 && !searchQuery}
-                    onQuickView={setQuickViewProduct}
-                  />
-                </Reveal>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch">
+              {filteredProducts.map((product) => (
+                <ProductCard
+                  key={product._id || product.slug || product.id}
+                  product={product}
+                  onQuickView={setQuickViewProduct}
+                />
               ))}
             </div>
           )}
@@ -346,16 +343,14 @@ export default function ProductsPage() {
                     </div>
                   </div>
 
-                  {/* Product grid — featured card spans 2 cols on sm+ */}
-                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {group.items.map((product, idx) => (
-                      <Reveal key={product._id} delay={(idx % 4) * 0.06}>
-                        <ProductCard
-                          product={product}
-                          featured={idx === 0}
-                          onQuickView={setQuickViewProduct}
-                        />
-                      </Reveal>
+                  {/* Standard Responsive Product Grid */}
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch">
+                    {group.items.map((product) => (
+                      <ProductCard
+                        key={product._id || product.slug || product.id}
+                        product={product}
+                        onQuickView={setQuickViewProduct}
+                      />
                     ))}
                   </div>
                 </section>

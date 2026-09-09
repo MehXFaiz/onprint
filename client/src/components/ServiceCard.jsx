@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import {
   ArrowUpRight,
   BookOpen,
@@ -26,8 +27,24 @@ const serviceIconMap = {
 }
 
 export default function ServiceCard({ service, className = '' }) {
+  const [isMockupActive, setIsMockupActive] = useState(false)
+  const [mockupTilt, setMockupTilt] = useState({ x: 0, y: 0 })
   const serviceImage = getProductImage(service)
   const IconComponent = (service.slug && serviceIconMap[service.slug]) || Sparkles
+
+  const handleMockupMove = (event) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2
+    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2
+    setMockupTilt({ x: y * -5, y: x * 7 })
+  }
+
+  const resetMockup = () => {
+    setIsMockupActive(false)
+    setMockupTilt({ x: 0, y: 0 })
+  }
 
   return (
     <Link
@@ -35,17 +52,45 @@ export default function ServiceCard({ service, className = '' }) {
       aria-label={service.name}
       className={`group/card relative block h-56 sm:h-64 w-full cursor-pointer overflow-hidden rounded-2xl border border-black/10 bg-neutral-900 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#A82F19] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A82F19] ${className}`}
     >
-      {/* Background Image with smooth subtle zoom */}
-      <img
-        src={serviceImage}
-        alt={service.name}
-        loading="lazy"
-        onError={(e) => {
-          e.target.onerror = null
-          e.target.src = '/assets/products/1 (1).jpg'
-        }}
-        className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover/card:scale-108"
-      />
+      {/* Real service image presented as a lifted print mockup */}
+      <div
+        className="product-mockup-stage group/mockup absolute inset-0 overflow-hidden bg-[#e9e5df]"
+        onPointerEnter={() => setIsMockupActive(true)}
+        onPointerMove={handleMockupMove}
+        onPointerLeave={resetMockup}
+      >
+        {serviceImage ? (
+          <div
+            className="product-mockup-object absolute inset-[8%] flex items-center justify-center"
+            style={{
+              transform: `perspective(900px) rotateX(${mockupTilt.x}deg) rotateY(${mockupTilt.y}deg)`,
+            }}
+          >
+            <div className="product-mockup-shadow absolute inset-[5%] rounded-[1.1rem] bg-black/30 blur-xl" />
+            <div className="product-mockup-face relative h-full w-full overflow-hidden rounded-[1.1rem] border border-white/70 bg-white shadow-[10px_14px_24px_rgba(0,0,0,0.24)]">
+              <img
+                src={serviceImage}
+                alt={service.name}
+                loading="lazy"
+                onError={(event) => {
+                  event.currentTarget.onerror = null
+                  event.currentTarget.src = '/assets/products/1 (1).jpg'
+                }}
+                className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover/mockup:scale-105"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-black/15" />
+            </div>
+            <div className="product-mockup-edge absolute right-[-2%] top-[6%] h-[88%] w-[5%] rounded-r-lg bg-[#c8c0b7]" />
+          </div>
+        ) : (
+          <div className="flex h-full items-center justify-center text-xs font-bold uppercase tracking-widest text-black/40">
+            ONPRINT PRESS
+          </div>
+        )}
+        <span className="pointer-events-none absolute bottom-3 right-3 z-10 rounded-full border border-white/60 bg-white/85 px-2 py-1 text-[9px] font-extrabold uppercase tracking-[0.14em] text-black/65 shadow-sm backdrop-blur-md">
+          {isMockupActive ? '3D view' : 'View mockup'}
+        </span>
+      </div>
 
       {/* Gradient overlay for perfect text legibility */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/20 transition-opacity duration-300 group-hover/card:via-black/65" />

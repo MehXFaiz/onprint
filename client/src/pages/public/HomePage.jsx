@@ -148,21 +148,6 @@ export default function HomePage() {
         >
           <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#A82F19]">Luxury Packaging</span>
         </motion.div>
-        <motion.div
-          className="pointer-events-none absolute bottom-[20%] left-[10%] z-0 rounded-2xl border border-[#000000]/10 bg-white/80 px-4 py-3 shadow-xl backdrop-blur-sm"
-          animate={{ y: [0, 14, 0], x: [0, 8, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
-              <Zap className="h-5 w-5" />
-            </div>
-            <div>
-              <div className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#000000]/60">Express</div>
-              <div className="text-sm font-black text-[#000000]">Same-Day Dispatch</div>
-            </div>
-          </div>
-        </motion.div>
         <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(255,255,255,0.48)_0%,rgba(255,255,255,0.28)_46%,rgba(255,255,255,0.12)_100%)]" />
         <div className="pointer-events-none absolute inset-0 z-[1] bg-[#A82F19]/[0.04] mix-blend-multiply" />
         <Container className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
@@ -224,68 +209,70 @@ export default function HomePage() {
           {/* Hero Visual Studio Showcase */}
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
-              <div className="relative mx-auto flex h-[340px] w-full max-w-[300px] xs:max-w-md items-center justify-center sm:h-[440px]">
-                <CornerMarks className="absolute -left-3 -top-3 h-8 w-8 text-[#000000]/40" />
-                <CornerMarks className="absolute -bottom-3 -right-3 h-8 w-8 rotate-180 text-[#000000]/40" />
-
-                {/* Back card: Luxury Stock Spec */}
+              <div className="relative mx-auto flex h-[320px] w-full max-w-[360px] items-center justify-center sm:h-[400px]">
                 <motion.div
-                  initial={{ opacity: 0, y: 20, rotate: -6 }}
-                  animate={{ opacity: 1, y: 0, rotate: -6 }}
-                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-1 sm:left-2 top-4 flex h-60 w-40 flex-col justify-between rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-4 sm:p-5 shadow-xl sm:h-72 sm:w-52"
+                  animate={{ y: [0, -10, 0], rotate: [0, 1, 0] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute inset-5 rounded-[30px] border border-[#000000]/10 bg-[linear-gradient(135deg,#F6F1EC_0%,#FFFFFF_50%,#F3F3F3_100%)] shadow-[0_30px_80px_rgba(0,0,0,0.08)]"
+                />
+
+                <motion.div
+                  animate={{ y: [0, -12, 0], x: [0, 8, 0] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute left-4 top-10 flex h-52 w-44 flex-col justify-between rounded-[26px] border border-[#000000]/10 bg-[#FFFFFF] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:left-6 sm:h-64 sm:w-52"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex gap-1.5">
-                      {['#000000', '#A82F19', '#000000'].map((c, i) => (
-                        <span key={i} className="h-2 w-2 rounded-full" style={{ backgroundColor: c }} />
-                      ))}
+                    <div className="flex items-center gap-2">
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#000000]" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#A82F19]" />
                     </div>
-                    <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-[#000000]/60">350 GSM STOCK</span>
+                    <span className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#000000]/50">Print</span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="h-2 w-3/4 rounded bg-[#000000]/15" />
-                    <div className="h-2 w-1/2 rounded bg-[#000000]/15" />
-                    <div className="h-2 w-5/6 rounded bg-[#A82F19]/25" />
+
+                  <div className="space-y-3">
+                    <div className="h-2.5 w-3/4 rounded-full bg-[#000000]/10" />
+                    <div className="h-2.5 w-1/2 rounded-full bg-[#000000]/10" />
+                    <div className="h-2.5 w-2/3 rounded-full bg-[#A82F19]/20" />
                   </div>
-                  <div className="rounded-xl border border-[#A82F19] bg-[#FFFFFF] p-2 text-center text-[11px] sm:text-xs font-black text-[#A82F19]">
-                    RED FOIL EMBOSS
+
+                  <div className="rounded-2xl border border-[#A82F19]/35 bg-[#A82F19]/5 px-3 py-2 text-center">
+                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A82F19]">Luxury Finish</div>
                   </div>
                 </motion.div>
 
-                {/* Front card: ONPRINT Signature Black Card */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20, rotate: 5 }}
-                  animate={{ opacity: 1, y: 0, rotate: 5 }}
-                  transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute right-0 top-16 sm:top-24 flex h-44 w-60 sm:h-48 sm:w-72 flex-col justify-between rounded-2xl border border-[#000000] bg-[#000000] p-4 sm:p-6 shadow-2xl sm:right-2"
+                  animate={{ y: [0, 10, 0], rotate: [0, -2, 0] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute right-4 top-16 flex h-48 w-56 flex-col justify-between rounded-[28px] border border-[#000000]/10 bg-[#000000] p-5 shadow-[0_28px_50px_rgba(0,0,0,0.16)] sm:right-6 sm:h-52 sm:w-64"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-display text-sm sm:text-base font-black tracking-tight text-[#FFFFFF]">
+                    <span className="font-display text-xl font-black tracking-tight text-[#FFFFFF]">
                       ON<span className="text-[#A82F19]">PRINT</span>
                     </span>
-                    <span className="rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[9px] sm:text-[10px] font-extrabold text-[#FFFFFF]">PRESS</span>
+                    <span className="rounded-full bg-[#A82F19] px-2 py-1 text-[8px] font-black uppercase tracking-[0.18em] text-[#FFFFFF]">
+                      Studio
+                    </span>
                   </div>
-                  <div>
-                    <p className="text-[11px] sm:text-xs font-semibold text-[#FFFFFF]/70">EXECUTIVE BRANDING &amp; PRESS</p>
-                    <p className="mt-1 text-xs sm:text-sm font-bold text-[#FFFFFF]">Precision Printing Dubai</p>
+
+                  <div className="space-y-2">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#FFFFFF]/65">Branding &amp; Print</p>
+                    <p className="text-sm font-bold text-[#FFFFFF]">Clean. Precise. Premium.</p>
                   </div>
-                  <div className="flex items-center justify-between border-t border-[#FFFFFF]/20 pt-2.5 text-[9px] sm:text-[10px] font-bold text-[#FFFFFF]/70">
-                    <span>SPEC: ULTRA HD</span>
-                    <span className="text-[#A82F19] font-black">PASSED QC</span>
+
+                  <div className="flex items-center justify-between border-t border-[#FFFFFF]/15 pt-3 text-[9px] font-bold uppercase tracking-[0.18em] text-[#FFFFFF]/70">
+                    <span>Color Proof</span>
+                    <span className="text-[#A82F19]">QC Ready</span>
                   </div>
                 </motion.div>
 
-                {/* Decorative Accent Swatch */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.7, delay: 0.3 }}
-                  className="absolute bottom-2 sm:bottom-4 left-4 sm:left-16 flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-2xl border border-[#A82F19] bg-[#FFFFFF] p-3 sm:p-4 shadow-lg"
+                  animate={{ y: [0, -14, 0], scale: [1, 1.03, 1] }}
+                  transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute bottom-4 left-10 flex h-20 w-20 items-center justify-center rounded-[20px] border border-[#A82F19]/30 bg-[#FFFFFF] shadow-[0_15px_30px_rgba(168,47,25,0.12)] sm:left-16"
                 >
                   <div className="text-center">
-                    <span className="font-display text-xl sm:text-2xl font-black text-[#A82F19]">1200 DPI</span>
-                    <p className="mt-0.5 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-[#000000]">Offset Press</p>
+                    <span className="font-display text-xl font-black text-[#A82F19]">1200</span>
+                    <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#000000]">DPI</p>
                   </div>
                 </motion.div>
               </div>

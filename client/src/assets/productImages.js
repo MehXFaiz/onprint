@@ -52,7 +52,7 @@ export const productSlugImageMap = {
   'letterheads-printing-dubai': img11,
   'letterhead-printing-dubai': img11,
   'name-badges-printing-dubai': badgesImg,
-  'digital-offset-printing': img1,
+  'digital-offset-printing': toteBagsImg,
   'luxury-packaging-custom-boxes': img5,
   'brochures-catalogs-printing': brochuresImg,
   'large-format-exhibition-signage': img9,

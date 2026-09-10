@@ -130,19 +130,39 @@ export default function HomePage() {
 
       {/* 1. Hero Section */}
       <section className="relative isolate overflow-hidden border-b border-[#000000]/10 bg-[#FFFFFF] py-16 sm:py-24 lg:py-32">
-        <video
-          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-80"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster="/assets/products/mugs.jpg"
-          aria-hidden="true"
+        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_left,rgba(168,47,25,0.12),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.08),transparent_32%)]" />
+        <motion.div
+          className="pointer-events-none absolute -left-14 top-10 z-0 h-56 w-56 rounded-full bg-[#A82F19]/10 blur-3xl"
+          animate={{ x: [0, 15, 0], y: [0, -12, 0], scale: [1, 1.08, 1] }}
+          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="pointer-events-none absolute -right-12 bottom-10 z-0 h-72 w-72 rounded-full bg-[#000000]/6 blur-3xl"
+          animate={{ x: [0, -18, 0], y: [0, 12, 0], scale: [1, 1.12, 1] }}
+          transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="pointer-events-none absolute right-[15%] top-[18%] z-0 rounded-full border border-[#A82F19]/20 bg-white/70 px-4 py-2 shadow-lg backdrop-blur-sm"
+          animate={{ y: [0, -12, 0], rotate: [0, 2, -1, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <source src="https://videos.pexels.com/video-files/3512731/3512731-hd_1920_1080_30fps.mp4" type="video/mp4" />
-          <source src="https://cdn.pixabay.com/video/2020/03/30/34594-402634196_large.mp4" type="video/mp4" />
-        </video>
+          <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#A82F19]">Luxury Packaging</span>
+        </motion.div>
+        <motion.div
+          className="pointer-events-none absolute bottom-[20%] left-[10%] z-0 rounded-2xl border border-[#000000]/10 bg-white/80 px-4 py-3 shadow-xl backdrop-blur-sm"
+          animate={{ y: [0, 14, 0], x: [0, 8, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
+              <Zap className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#000000]/60">Express</div>
+              <div className="text-sm font-black text-[#000000]">Same-Day Dispatch</div>
+            </div>
+          </div>
+        </motion.div>
         <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(255,255,255,0.48)_0%,rgba(255,255,255,0.28)_46%,rgba(255,255,255,0.12)_100%)]" />
         <div className="pointer-events-none absolute inset-0 z-[1] bg-[#A82F19]/[0.04] mix-blend-multiply" />
         <Container className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">

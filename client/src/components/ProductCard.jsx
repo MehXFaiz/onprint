@@ -105,7 +105,7 @@ export default function ProductCard({
         </div>
 
         {/* Dark overlay on hover */}
-        <div className="pointer-events-none absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/[0.03]" />
+<div className="pointer-events-none absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/[0.03]" />
 
         {/* Top-left badges */}
         {isFeatured && (

@@ -68,6 +68,16 @@ body {
   transition: transform 180ms ease-out;
 }
 
+.service-mockup-object {
+  opacity: 0.22;
+  transition: opacity 260ms ease, transform 180ms ease-out;
+}
+
+.group\/mockup:hover .service-mockup-object,
+.group\/mockup:focus-within .service-mockup-object {
+  opacity: 1;
+}
+
 .product-mockup-face,
 .product-mockup-edge,
 .product-mockup-shadow {
@@ -105,6 +115,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .product-mockup-object,
+  .service-mockup-object,
   .product-mockup-face,
   .product-mockup-edge,
   .product-mockup-shadow {

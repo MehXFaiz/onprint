@@ -129,8 +129,23 @@ export default function HomePage() {
       />
 
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden border-b border-[#000000]/10 bg-[#FFFFFF] py-16 sm:py-24 lg:py-32">
-        <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+      <section className="relative isolate overflow-hidden border-b border-[#000000]/10 bg-[#FFFFFF] py-16 sm:py-24 lg:py-32">
+        <video
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-80"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/assets/products/mugs.jpg"
+          aria-hidden="true"
+        >
+          <source src="https://videos.pexels.com/video-files/3512731/3512731-hd_1920_1080_30fps.mp4" type="video/mp4" />
+          <source src="https://cdn.pixabay.com/video/2020/03/30/34594-402634196_large.mp4" type="video/mp4" />
+        </video>
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(255,255,255,0.48)_0%,rgba(255,255,255,0.28)_46%,rgba(255,255,255,0.12)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-[#A82F19]/[0.04] mix-blend-multiply" />
+        <Container className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19] bg-[#FFFFFF] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#A82F19] shadow-xs">

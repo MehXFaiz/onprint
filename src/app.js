@@ -47,7 +47,7 @@ function replaceMeta(html, attribute, name, content) {
   return pattern.test(html) ? html.replace(pattern, replacement) : html.replace('</head>', `    ${replacement}\n  </head>`)
 }
 
-async function renderSeoShell(requestPath) {
+async function renderSeoShell(requestPath, { noindex = false } = {}) {
   const indexPath = path.join(CLIENT_DIST, 'index.html')
   const html = await fs.promises.readFile(indexPath, 'utf8')
   const siteUrl = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
@@ -59,14 +59,16 @@ async function renderSeoShell(requestPath) {
     console.warn('[SEO] Server shell metadata lookup warning:', error.message)
   }
 
-  if (!seo) return html
+  seo = seo || {}
 
   const title = seo.meta_title || 'Printing Company in Dubai | ONPRINT'
   const description = seo.meta_description || ''
   const canonical = seo.canonical_url || `${siteUrl}${requestPath === '/' ? '' : requestPath}`
   const ogImage = absoluteSeoUrl(seo.og_image, siteUrl)
   const twitterImage = absoluteSeoUrl(seo.twitter_image || seo.og_image, siteUrl)
-  const robots = `${seo.robots_index || 'index'}, ${seo.robots_follow || 'follow'}, max-image-preview:large`
+  const robots = noindex
+    ? 'noindex, nofollow'
+    : `${seo.robots_index || 'index'}, ${seo.robots_follow || 'follow'}, max-image-preview:large`
 
   let rendered = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(title)}</title>`)
   rendered = replaceMeta(rendered, 'name', 'description', description)
@@ -207,6 +209,58 @@ async function renderSeoShell(requestPath) {
   }
 
   return rendered
+}
+
+const PUBLIC_STATIC_PATHS = new Set([
+  '/',
+  '/about',
+  '/services',
+  '/categories',
+  '/products',
+  '/blog',
+  '/portfolio',
+  '/contact',
+  '/get-a-quote',
+  '/track-order',
+  '/faq',
+  '/privacy-policy',
+  '/terms',
+  '/printing-services',
+  '/printing-solutions',
+])
+
+async function isKnownPublicPath(requestPath) {
+  if (PUBLIC_STATIC_PATHS.has(requestPath)) return true
+
+  const dynamicRoute = requestPath.match(/^\/(categories|products|services|blog|printing-services|printing-solutions)\/([^/]+)$/)
+  if (!dynamicRoute) return false
+
+  const [, routeType, slug] = dynamicRoute
+  try {
+    if (routeType === 'categories') {
+      const [rows] = await pool.execute('SELECT id FROM categories WHERE slug = ? AND active = 1 LIMIT 1', [slug])
+      return rows.length > 0
+    }
+    if (routeType === 'products') {
+      const [rows] = await pool.execute('SELECT id FROM products WHERE slug = ? AND active = 1 LIMIT 1', [slug])
+      return rows.length > 0
+    }
+    if (routeType === 'services') {
+      const [rows] = await pool.execute('SELECT id FROM services WHERE slug = ? AND active = 1 LIMIT 1', [slug])
+      return rows.length > 0
+    }
+    if (routeType === 'blog') {
+      const [rows] = await pool.execute(
+        `SELECT id FROM blogs WHERE slug = ? AND status = 'published' AND (published_at IS NULL OR published_at <= NOW()) LIMIT 1`,
+        [slug]
+      )
+      return rows.length > 0
+    }
+    return true
+  } catch {
+    // Preserve SPA fallback behavior for recognized dynamic sections when the DB is temporarily unavailable.
+    return true
+  }
 }
 
 function createApp() {
@@ -379,8 +433,9 @@ function createApp() {
     app.get(/^(?!\/api).*/, async (req, res, next) => {
       res.setHeader('Cache-Control', 'no-cache, must-revalidate')
       try {
-        const renderedShell = await renderSeoShell(req.path)
-        res.type('html').send(renderedShell)
+        const knownPath = await isKnownPublicPath(req.path)
+        const renderedShell = await renderSeoShell(req.path, { noindex: !knownPath })
+        res.status(knownPath ? 200 : 404).type('html').send(renderedShell)
       } catch (error) {
         next(error)
       }

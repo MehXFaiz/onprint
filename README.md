@@ -47,12 +47,27 @@ onprint/
    DB_PASSWORD=YOUR_GODADDY_DATABASE_PASSWORD
    JWT_SECRET=your_jwt_secret_key_here
    NODE_ENV=production
+   SITE_URL=https://your-production-domain.example
+   VITE_SITE_URL=https://your-production-domain.example
+   GOOGLE_SITE_VERIFICATION=
    ```
 4. **Deploy Node.js App on GoDaddy**:
    - Go to cPanel -> **Setup Node.js App**.
    - Set Application Root to project root, Application Startup File to `server.js`.
    - Run `npm install` and `npm run build`.
    - Start the application.
+
+## Google Search Console and SEO
+
+Set `SITE_URL` and `VITE_SITE_URL` to the same canonical HTTPS production domain before building and deploying. The server exposes dynamic `GET /robots.txt` and `GET /sitemap.xml` routes from the database-backed catalog. Set `GOOGLE_SITE_VERIFICATION` only when Google provides an HTML verification token; Domain Property verification should use Google's DNS TXT record and does not require exposing a secret in the application.
+
+After deployment:
+
+1. Add the real production domain as a Domain property in Google Search Console.
+2. Add Google's TXT record to DNS and complete verification.
+3. Submit `https://your-production-domain.example/sitemap.xml` under Sitemaps.
+4. Inspect the homepage, key category pages, product pages, and published blog pages.
+5. Request indexing where appropriate and monitor Pages, Core Web Vitals, and enhancements.
 
 ## Local Development
 

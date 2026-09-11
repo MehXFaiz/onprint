@@ -201,12 +201,6 @@ async function getSitemapXml(req, res) {
             changefreq: 'weekly',
             priority: '0.85',
           })
-          urls.push({
-            loc: `${SITE_URL}/products?category=${c.slug}`,
-            lastmod: mod,
-            changefreq: 'weekly',
-            priority: '0.8',
-          })
         })
       } else {
         fallbackCategories.forEach((c) => {
@@ -215,12 +209,6 @@ async function getSitemapXml(req, res) {
             lastmod: now,
             changefreq: 'weekly',
             priority: '0.85',
-          })
-          urls.push({
-            loc: `${SITE_URL}/products?category=${c.slug}`,
-            lastmod: now,
-            changefreq: 'weekly',
-            priority: '0.8',
           })
         })
       }
@@ -231,12 +219,6 @@ async function getSitemapXml(req, res) {
           lastmod: now,
           changefreq: 'weekly',
           priority: '0.85',
-        })
-        urls.push({
-          loc: `${SITE_URL}/products?category=${c.slug}`,
-          lastmod: now,
-          changefreq: 'weekly',
-          priority: '0.8',
         })
       })
     }

@@ -24,6 +24,8 @@ import img11 from './products/1 (11).jpg'
 import img12 from './products/1 (12).jpg'
 import img13 from './products/1 (13).jpg'
 
+const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
+
 export const productImages = {
   toteBags: toteBagsImg,
   keychain: keychainImg,
@@ -43,8 +45,8 @@ export const productSlugImageMap = {
   // Service / category-page slug mappings
   'brochures-printing': brochuresImg,
   'brochures-printing-dubai': brochuresImg,
-  'business-cards-printing': img11,
-  'business-cards-printing-dubai': img11,
+  'business-cards-printing': businessCardsImg,
+  'business-cards-printing-dubai': businessCardsImg,
   'flyers-printing-in-dubai': flyersImg,
   'flyers-printing-dubai': flyersImg,
   'id-card-printing-dubai': idCardsImg,
@@ -57,7 +59,11 @@ export const productSlugImageMap = {
   'custom-branded-tote-bags': toteBagsImg,
   'personalized-water-bottles': bottlesImg,
   'custom-printed-mugs': mugsImg,
-  'premium-business-cards': img11,
+  'premium-business-cards': businessCardsImg,
+  'standard-business-cards': businessCardsImg,
+  'premium-soft-touch-business-cards': businessCardsImg,
+  'velvet-foil-business-cards': businessCardsImg,
+  'luxury-painted-edge-business-cards': businessCardsImg,
   'acrylic-nameplates': namePlatesImg,
   'roll-up-banners': rollupImg,
   'beach-flags': flagsImg,
@@ -67,7 +73,7 @@ export const productSlugImageMap = {
   'brochures-catalogs-printing': brochuresImg,
   'large-format-exhibition-signage': img9,
   'custom-labels-die-cut-stickers': stickersImg,
-  'executive-business-stationery': img11,
+  'executive-business-stationery': businessCardsImg,
 
   // Product slug mappings
   'bags-printing-dubai': toteBagsImg,
@@ -96,14 +102,14 @@ export const productSlugImageMap = {
 /** Map category slugs → best matching hero image */
 export const categorySlugImageMap = {
   'brochures-printing': brochuresImg,
-  'business-cards-printing': img11,
+  'business-cards-printing': businessCardsImg,
   'flyers-printing-in-dubai': flyersImg,
   'id-card-printing-dubai': idCardsImg,
   'lanyard-printing-dubai': badgesImg,
-  'letterheads-printing-dubai': img11,
+  'letterheads-printing-dubai': businessCardsImg,
   'name-badges-printing-dubai': badgesImg,
   'corporate-gift-items': mugsImg,
-  'office-stationery-printing': img11,
+  'office-stationery-printing': businessCardsImg,
   'other-products': rollupImg,
 }
 
@@ -122,7 +128,7 @@ const slugKeywordImageMap = [
   [['name plate', 'nameplate', 'name-plate', 'door sign'], namePlatesImg],
   [['id card', 'id-card', 'pvc card', 'employee card'], idCardsImg],
   [['lanyard', 'neck strap'], badgesImg],
-  [['letterhead', 'business card', 'visiting card', 'stationery'], img11],
+  [['letterhead', 'business card', 'visiting card', 'stationery'], businessCardsImg],
   [['roll-up', 'rollup', 'banner', 'pull-up', 'backdrop'], rollupImg],
   [['flag', 'beach flag', 'teardrop', 'feather flag'], flagsImg],
   [['sticker', 'label', 'die-cut', 'vinyl'], stickersImg],

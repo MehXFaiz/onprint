@@ -286,6 +286,78 @@ const seedServicesList = [
 
 const seedProductsList = [
   {
+    product_key: 'prod-standard-business-cards',
+    category_slug: 'business-cards-printing',
+    name: 'Standard Business Cards',
+    slug: 'standard-business-cards',
+    short_description: 'Clean 300gsm business cards for everyday networking, teams, and local business use.',
+    description: 'Reliable 300gsm business cards printed on smooth matte or silk stock with crisp full-colour artwork and practical finishing for everyday business networking.',
+    price: 45.00,
+    minimum_quantity: 100,
+    featured: 0,
+    seo_title: 'Standard Business Cards Dubai | 300gsm Card Printing | ONPRINT',
+    seo_description: 'Order clean 300gsm standard business cards in Dubai with crisp colour printing and practical matte or silk finishes for everyday networking.',
+    seo_keywords: 'standard business cards dubai, 300gsm business cards, affordable card printing dubai',
+    seo_heading: 'Standard 300gsm Business Cards in Dubai',
+    canonical_url: 'https://0nprint.com/products/standard-business-cards',
+    image_alt: 'Standard 300gsm business cards printed by ONPRINT',
+    images: ['/uploads/categories/business-cards-printing.jpg'],
+  },
+  {
+    product_key: 'prod-premium-soft-touch-business-cards',
+    category_slug: 'business-cards-printing',
+    name: 'Premium Soft-Touch Business Cards',
+    slug: 'premium-soft-touch-business-cards',
+    short_description: '350gsm business cards with soft-touch lamination, spot UV, and a refined tactile finish.',
+    description: 'Premium 350gsm business cards finished with soft-touch lamination and optional spot UV detailing for companies that need a polished, memorable handout.',
+    price: 75.00,
+    minimum_quantity: 100,
+    featured: 1,
+    seo_title: 'Premium Soft-Touch Business Cards Dubai | ONPRINT',
+    seo_description: 'Premium 350gsm soft-touch business cards in Dubai with optional spot UV detailing and refined finishing for professional brands.',
+    seo_keywords: 'soft touch business cards dubai, 350gsm business cards, premium visiting cards uae',
+    seo_heading: 'Premium Soft-Touch Business Cards in Dubai',
+    canonical_url: 'https://0nprint.com/products/premium-soft-touch-business-cards',
+    image_alt: 'Premium 350gsm soft-touch business cards printed by ONPRINT',
+    images: ['/uploads/categories/business-cards-printing.jpg'],
+  },
+  {
+    product_key: 'prod-velvet-foil-business-cards',
+    category_slug: 'business-cards-printing',
+    name: 'Velvet Foil Business Cards',
+    slug: 'velvet-foil-business-cards',
+    short_description: '450gsm velvet-laminated cards with hot foil stamping for executive and luxury branding.',
+    description: 'Executive 450gsm business cards with tactile velvet lamination and hot foil stamping in gold or silver, designed for premium client meetings and luxury brands.',
+    price: 150.00,
+    minimum_quantity: 100,
+    featured: 1,
+    seo_title: 'Velvet Foil Business Cards Dubai | 450gsm Luxury Cards | ONPRINT',
+    seo_description: 'Make a premium impression with 450gsm velvet foil business cards in Dubai, available with tactile lamination and gold or silver foil.',
+    seo_keywords: 'velvet foil business cards dubai, 450gsm business cards, gold foil visiting cards',
+    seo_heading: '450gsm Velvet Foil Business Cards in Dubai',
+    canonical_url: 'https://0nprint.com/products/velvet-foil-business-cards',
+    image_alt: '450gsm velvet laminated business cards with foil stamping',
+    images: ['/uploads/categories/business-cards-printing.jpg'],
+  },
+  {
+    product_key: 'prod-luxury-painted-edge-business-cards',
+    category_slug: 'business-cards-printing',
+    name: 'Luxury Painted-Edge Business Cards',
+    slug: 'luxury-painted-edge-business-cards',
+    short_description: '600gsm duplex cards with painted edges, foil, embossing, and a substantial luxury feel.',
+    description: 'Statement 600gsm duplex business cards with painted edges, precision embossing, and metallic foil options for executive identities, agencies, and luxury businesses.',
+    price: 220.00,
+    minimum_quantity: 100,
+    featured: 1,
+    seo_title: 'Luxury Painted-Edge Business Cards Dubai | 600gsm Cards | ONPRINT',
+    seo_description: 'Order substantial 600gsm painted-edge business cards in Dubai with foil and embossing options for luxury corporate identities.',
+    seo_keywords: 'painted edge business cards dubai, 600gsm business cards, luxury business cards uae',
+    seo_heading: '600gsm Luxury Painted-Edge Business Cards in Dubai',
+    canonical_url: 'https://0nprint.com/products/luxury-painted-edge-business-cards',
+    image_alt: '600gsm painted-edge luxury business cards with foil finish',
+    images: ['/uploads/categories/business-cards-printing.jpg'],
+  },
+  {
     product_key: 'prod-luxury-velvet-business-cards',
     category_slug: 'business-cards-printing',
     name: 'Luxury Velvet Business Cards',
@@ -738,6 +810,60 @@ async function seedProductsIfEmpty(connection) {
         }
       }
       console.log('[Products] Seeded 7 professional printing products successfully.')
+    }
+
+    // Add newly introduced business-card quality tiers to existing installations
+    // without replacing or fabricating any products already managed by the admin.
+    const businessCardQualitySlugs = new Set([
+      'standard-business-cards',
+      'premium-soft-touch-business-cards',
+      'velvet-foil-business-cards',
+      'luxury-painted-edge-business-cards',
+    ])
+    const [businessCardCategoryRows] = await connection.query(
+      `SELECT id FROM categories WHERE slug = 'business-cards-printing' LIMIT 1`
+    )
+    const businessCardCategoryId = businessCardCategoryRows[0]?.id || null
+
+    if (businessCardCategoryId) {
+      for (const prod of seedProductsList.filter((item) => businessCardQualitySlugs.has(item.slug))) {
+        await connection.query(
+          `INSERT INTO products
+           (product_key, category_id, name, slug, short_description, description, price, minimum_quantity, featured, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+           ON DUPLICATE KEY UPDATE category_id = VALUES(category_id), image_alt = VALUES(image_alt)`,
+          [
+            prod.product_key,
+            businessCardCategoryId,
+            prod.name,
+            prod.slug,
+            prod.short_description,
+            prod.description,
+            prod.price,
+            prod.minimum_quantity,
+            prod.featured,
+            1,
+            prod.seo_title,
+            prod.seo_description,
+            prod.seo_keywords,
+            prod.seo_heading,
+            prod.canonical_url,
+            prod.image_alt,
+          ]
+        )
+
+        const [productRows] = await connection.query('SELECT id FROM products WHERE slug = ? LIMIT 1', [prod.slug])
+        const productId = productRows[0]?.id
+        if (productId && prod.images?.length) {
+          const [imageRows] = await connection.query('SELECT id FROM product_images WHERE product_id = ? LIMIT 1', [productId])
+          if (imageRows.length === 0) {
+            await connection.query(
+              'INSERT INTO product_images (product_id, image_url, alt_text, display_order) VALUES (?, ?, ?, ?)',
+              [productId, prod.images[0], prod.image_alt, 1]
+            )
+          }
+        }
+      }
     }
   } catch (err) {
     console.warn('[Products Seed Check Note]:', err.message)

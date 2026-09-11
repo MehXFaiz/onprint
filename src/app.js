@@ -8,6 +8,7 @@ const compression = require('compression')
 const { pool, testConnection } = require('./config/database')
 const { notFound, errorHandler } = require('./middleware/errorHandler')
 const pageSeoService = require('./services/pageSeoService')
+const breadcrumbService = require('./services/breadcrumbService')
 
 const authRoutes = require('./routes/authRoutes')
 const categoryRoutes = require('./routes/categoryRoutes')

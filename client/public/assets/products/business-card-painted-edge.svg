@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Painted-edge luxury business card design</title>
+  <desc id="desc">A bold cobalt and coral business card design with a painted-edge effect and modern typography.</desc>
+  <rect width="1200" height="800" rx="28" fill="#e6e2dc"/>
+  <rect x="86" y="118" width="1028" height="564" rx="20" fill="#0d2a4a"/>
+  <rect x="86" y="118" width="18" height="564" rx="9" fill="#e56f5a"/>
+  <path d="M820 118h294v294z" fill="#e56f5a"/>
+  <path d="M960 118h154v154z" fill="#f0bd64" opacity=".9"/>
+  <text x="150" y="230" fill="#fff" font-family="Arial,sans-serif" font-size="26" font-weight="700" letter-spacing="5">NORTHLINE</text>
+  <text x="150" y="270" fill="#a9c0d4" font-family="Arial,sans-serif" font-size="16" letter-spacing="4">ARCHITECTURE + DESIGN</text>
+  <text x="150" y="470" fill="#fff" font-family="Arial,sans-serif" font-size="48" font-weight="700">Alex Morgan</text>
+  <text x="150" y="515" fill="#f0bd64" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3">CREATIVE DIRECTOR</text>
+  <text x="150" y="610" fill="#d5e0e9" font-family="Arial,sans-serif" font-size="20">Studio 14, Al Quoz  •  Dubai, UAE</text>
+</svg>

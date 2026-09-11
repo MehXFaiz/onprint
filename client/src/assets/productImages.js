@@ -25,6 +25,10 @@ import img12 from './products/1 (12).jpg'
 import img13 from './products/1 (13).jpg'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
+const standardBusinessCardImg = '/assets/products/business-card-standard.svg'
+const softTouchBusinessCardImg = '/assets/products/business-card-soft-touch.svg'
+const velvetFoilBusinessCardImg = '/assets/products/business-card-velvet-foil.svg'
+const paintedEdgeBusinessCardImg = '/assets/products/business-card-painted-edge.svg'
 
 export const productImages = {
   toteBags: toteBagsImg,
@@ -60,10 +64,10 @@ export const productSlugImageMap = {
   'personalized-water-bottles': bottlesImg,
   'custom-printed-mugs': mugsImg,
   'premium-business-cards': businessCardsImg,
-  'standard-business-cards': businessCardsImg,
-  'premium-soft-touch-business-cards': businessCardsImg,
-  'velvet-foil-business-cards': businessCardsImg,
-  'luxury-painted-edge-business-cards': businessCardsImg,
+  'standard-business-cards': standardBusinessCardImg,
+  'premium-soft-touch-business-cards': softTouchBusinessCardImg,
+  'velvet-foil-business-cards': velvetFoilBusinessCardImg,
+  'luxury-painted-edge-business-cards': paintedEdgeBusinessCardImg,
   'acrylic-nameplates': namePlatesImg,
   'roll-up-banners': rollupImg,
   'beach-flags': flagsImg,

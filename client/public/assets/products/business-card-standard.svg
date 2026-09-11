@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Standard business card design</title>
+  <desc id="desc">A clean white business card with red geometric detail and contact information.</desc>
+  <rect width="1200" height="800" rx="28" fill="#f3f0eb"/>
+  <rect x="86" y="118" width="1028" height="564" rx="20" fill="#fff" stroke="#d8d1c9" stroke-width="3"/>
+  <path d="M86 118h360L86 478z" fill="#a82f19"/>
+  <path d="M86 118h230L86 348z" fill="#151515" opacity=".92"/>
+  <circle cx="980" cy="210" r="42" fill="#a82f19" opacity=".12"/>
+  <text x="150" y="210" fill="#fff" font-family="Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="4">ONPRINT</text>
+  <text x="150" y="470" fill="#151515" font-family="Arial,sans-serif" font-size="48" font-weight="700">Alex Morgan</text>
+  <text x="150" y="515" fill="#a82f19" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3">ACCOUNT DIRECTOR</text>
+  <line x1="150" y1="560" x2="1050" y2="560" stroke="#ddd7d0" stroke-width="2"/>
+  <text x="150" y="610" fill="#333" font-family="Arial,sans-serif" font-size="22">+971 4 800 PRINT</text>
+  <text x="700" y="610" fill="#333" font-family="Arial,sans-serif" font-size="22">hello@onprint.ae</text>
+</svg>

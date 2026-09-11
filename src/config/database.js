@@ -301,7 +301,7 @@ const seedProductsList = [
     seo_heading: 'Standard 300gsm Business Cards in Dubai',
     canonical_url: 'https://0nprint.com/products/standard-business-cards',
     image_alt: 'Standard 300gsm business cards printed by ONPRINT',
-    images: ['/uploads/categories/business-cards-printing.jpg'],
+    images: ['/assets/products/business-card-standard.svg'],
   },
   {
     product_key: 'prod-premium-soft-touch-business-cards',
@@ -319,7 +319,7 @@ const seedProductsList = [
     seo_heading: 'Premium Soft-Touch Business Cards in Dubai',
     canonical_url: 'https://0nprint.com/products/premium-soft-touch-business-cards',
     image_alt: 'Premium 350gsm soft-touch business cards printed by ONPRINT',
-    images: ['/uploads/categories/business-cards-printing.jpg'],
+    images: ['/assets/products/business-card-soft-touch.svg'],
   },
   {
     product_key: 'prod-velvet-foil-business-cards',
@@ -337,7 +337,7 @@ const seedProductsList = [
     seo_heading: '450gsm Velvet Foil Business Cards in Dubai',
     canonical_url: 'https://0nprint.com/products/velvet-foil-business-cards',
     image_alt: '450gsm velvet laminated business cards with foil stamping',
-    images: ['/uploads/categories/business-cards-printing.jpg'],
+    images: ['/assets/products/business-card-velvet-foil.svg'],
   },
   {
     product_key: 'prod-luxury-painted-edge-business-cards',
@@ -355,7 +355,7 @@ const seedProductsList = [
     seo_heading: '600gsm Luxury Painted-Edge Business Cards in Dubai',
     canonical_url: 'https://0nprint.com/products/luxury-painted-edge-business-cards',
     image_alt: '600gsm painted-edge luxury business cards with foil finish',
-    images: ['/uploads/categories/business-cards-printing.jpg'],
+    images: ['/assets/products/business-card-painted-edge.svg'],
   },
   {
     product_key: 'prod-luxury-velvet-business-cards',

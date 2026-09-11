@@ -110,14 +110,14 @@ export default function ServiceCard({ service, className = '' }) {
       {/* Top Floating Badge */}
       <div className="absolute left-3.5 top-3.5 z-10 flex items-center gap-1.5">
         <span className="inline-flex items-center gap-1.5 rounded-full bg-black/40 px-2.5 py-1 text-[10px] font-bold text-white backdrop-blur-md border border-white/15 shadow-xs">
-          <IconComponent className="h-3.5 w-3.5 text-[#FF7A59]" />
+          <IconComponent className="h-3.5 w-3.5 text-[#A82F19]" />
           <span>Dubai Press</span>
         </span>
       </div>
 
       {/* Card Content at bottom */}
       <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-white z-10">
-        <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug group-hover/card:text-[#FF8A65] transition-colors">
+        <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug group-hover/card:text-[#A82F19] transition-colors">
           {service.name}
         </h3>
 
@@ -128,7 +128,7 @@ export default function ServiceCard({ service, className = '' }) {
         )}
 
         <div className="mt-3 flex items-center justify-between border-t border-white/10 pt-2.5">
-          <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-[#FF7A59] group-hover/card:text-white transition-colors">
+          <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-[#A82F19] group-hover/card:text-white transition-colors">
             <span>Explore Service</span>
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5" />
           </span>

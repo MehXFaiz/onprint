@@ -20,6 +20,8 @@ import {
   FileSpreadsheet,
   PhoneCall,
   Truck,
+  ShoppingBag,
+  Layers,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
@@ -320,6 +322,36 @@ export default function SiteHeader() {
               <span>Categories</span>
             </NavLink>
 
+            {/* 4. Products */}
+            <NavLink
+              to="/products"
+              className={({ isActive }) =>
+                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                  isActive
+                    ? 'bg-red-50 text-[#A82F19] font-bold'
+                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                }`
+              }
+            >
+              <ShoppingBag className="w-4 h-4 shrink-0" />
+              <span>Products</span>
+            </NavLink>
+
+            {/* 5. Services */}
+            <NavLink
+              to="/services"
+              className={({ isActive }) =>
+                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                  isActive
+                    ? 'bg-red-50 text-[#A82F19] font-bold'
+                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                }`
+              }
+            >
+              <Layers className="w-4 h-4 shrink-0" />
+              <span>Services</span>
+            </NavLink>
+
             {/* 4. Live Product Categories Mega Menu */}
             {megaMenuGroups.map((group) => {
               const isActive = activeDropdown === group.key
@@ -588,6 +620,30 @@ export default function SiteHeader() {
               >
                 <LayoutGrid className="w-4 h-4 text-slate-500" />
                 <span>Categories</span>
+              </NavLink>
+
+              <NavLink
+                to="/products"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <ShoppingBag className="w-4 h-4 text-slate-500" />
+                <span>Products</span>
+              </NavLink>
+
+              <NavLink
+                to="/services"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <Layers className="w-4 h-4 text-slate-500" />
+                <span>Services</span>
               </NavLink>
 
               {/* Accordion: Dynamic database-driven category groups */}

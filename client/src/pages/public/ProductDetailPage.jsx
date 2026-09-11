@@ -91,7 +91,22 @@ export default function ProductDetailPage() {
     return Math.round((product.price + modifiers) * (quantity / unit) * 100) / 100
   }, [product, size, material, finish, quantity])
 
-  if (status === 'loading') return <LoadingState label="Loading product specifications…" />
+  if (status === 'loading') {
+    return (
+      <Container className="py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 animate-pulse">
+          <div className="aspect-[4/3] rounded-3xl bg-black/6" />
+          <div className="space-y-4">
+            <div className="h-4 w-1/4 rounded-full bg-black/6" />
+            <div className="h-8 w-3/4 rounded-full bg-black/8" />
+            <div className="h-4 w-full rounded-full bg-black/5" />
+            <div className="h-4 w-2/3 rounded-full bg-black/5" />
+            <div className="mt-8 h-12 w-1/2 rounded-xl bg-black/6" />
+          </div>
+        </div>
+      </Container>
+    )
+  }
   if (status === 'error' || !product) {
     return (
       <Container className="py-24">

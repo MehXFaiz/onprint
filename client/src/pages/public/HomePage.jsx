@@ -209,70 +209,97 @@ export default function HomePage() {
           {/* Hero Visual Studio Showcase */}
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
-              <div className="relative mx-auto flex h-[320px] w-full max-w-[360px] items-center justify-center sm:h-[400px]">
+              <div className="relative mx-auto flex h-[340px] w-full max-w-[400px] items-center justify-center sm:h-[430px]">
+                {/* Ambient Soft Studio Backdrop */}
                 <motion.div
-                  animate={{ y: [0, -10, 0], rotate: [0, 1, 0] }}
+                  animate={{ y: [0, -8, 0], rotate: [0, 1, 0] }}
                   transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute inset-5 rounded-[30px] border border-[#000000]/10 bg-[linear-gradient(135deg,#F6F1EC_0%,#FFFFFF_50%,#F3F3F3_100%)] shadow-[0_30px_80px_rgba(0,0,0,0.08)]"
+                  className="absolute inset-4 rounded-[32px] border border-[#000000]/10 bg-[linear-gradient(135deg,#F6F2EE_0%,#FFFFFF_50%,#ECE7E1_100%)] shadow-[0_30px_70px_rgba(0,0,0,0.07)]"
                 />
 
+                {/* Card 1: Luxury Business Card Showcase (White Card with Real Imagery & Spec) */}
                 <motion.div
-                  animate={{ y: [0, -12, 0], x: [0, 8, 0] }}
+                  animate={{ y: [0, -12, 0], x: [0, 6, 0] }}
                   transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute left-4 top-10 flex h-52 w-44 flex-col justify-between rounded-[26px] border border-[#000000]/10 bg-[#FFFFFF] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:left-6 sm:h-64 sm:w-52"
+                  className="absolute left-2 top-6 flex h-60 w-48 flex-col justify-between overflow-hidden rounded-2xl border border-black/10 bg-white p-3.5 shadow-[0_20px_45px_rgba(0,0,0,0.08)] sm:left-4 sm:h-72 sm:w-56"
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="h-2.5 w-2.5 rounded-full bg-[#000000]" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-[#A82F19]" />
+                  <div className="relative h-28 sm:h-36 w-full overflow-hidden rounded-xl bg-[#F5F3EF]">
+                    <img
+                      src="/assets/products/1 (11).jpg"
+                      alt="Premium Business Cards Printing Dubai"
+                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                      loading="eager"
+                    />
+                    <span className="absolute top-2 left-2 rounded-md bg-[#A82F19] px-2 py-0.5 text-[8px] font-black uppercase tracking-wider text-white shadow-xs">
+                      Spot UV &amp; Foil
+                    </span>
+                  </div>
+
+                  <div className="mt-2 space-y-1">
+                    <div className="flex items-center justify-between text-[9px] font-extrabold uppercase tracking-wider text-black/50">
+                      <span>Executive Press</span>
+                      <span className="text-[#A82F19] font-bold">600 GSM</span>
                     </div>
-                    <span className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#000000]/50">Print</span>
+                    <p className="text-xs font-black text-black leading-snug">
+                      Luxury Cotton Card Stock
+                    </p>
                   </div>
 
-                  <div className="space-y-3">
-                    <div className="h-2.5 w-3/4 rounded-full bg-[#000000]/10" />
-                    <div className="h-2.5 w-1/2 rounded-full bg-[#000000]/10" />
-                    <div className="h-2.5 w-2/3 rounded-full bg-[#A82F19]/20" />
-                  </div>
-
-                  <div className="rounded-2xl border border-[#A82F19]/35 bg-[#A82F19]/5 px-3 py-2 text-center">
-                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A82F19]">Luxury Finish</div>
+                  <div className="mt-2 flex items-center justify-between border-t border-black/8 pt-2 text-[9px] font-bold text-black/60">
+                    <span>Precision Bleed</span>
+                    <span className="text-[#A82F19] font-black">Passed QC ✓</span>
                   </div>
                 </motion.div>
 
+                {/* Card 2: Luxury Dark Packaging Box Showcase */}
                 <motion.div
-                  animate={{ y: [0, 10, 0], rotate: [0, -2, 0] }}
-                  transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute right-4 top-16 flex h-48 w-56 flex-col justify-between rounded-[28px] border border-[#000000]/10 bg-[#000000] p-5 shadow-[0_28px_50px_rgba(0,0,0,0.16)] sm:right-6 sm:h-52 sm:w-64"
+                  animate={{ y: [0, 10, 0], rotate: [0, -1.5, 0] }}
+                  transition={{ duration: 8.5, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute right-2 top-14 flex h-52 w-52 flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-black p-4 text-white shadow-[0_28px_50px_rgba(0,0,0,0.22)] sm:right-4 sm:h-60 sm:w-60"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-display text-xl font-black tracking-tight text-[#FFFFFF]">
+                    <span className="font-display text-lg font-black tracking-tight text-white">
                       ON<span className="text-[#A82F19]">PRINT</span>
                     </span>
-                    <span className="rounded-full bg-[#A82F19] px-2 py-1 text-[8px] font-black uppercase tracking-[0.18em] text-[#FFFFFF]">
-                      Studio
+                    <span className="rounded-full bg-[#A82F19] px-2 py-0.5 text-[8px] font-black uppercase tracking-wider text-white">
+                      Al Quoz Press
                     </span>
                   </div>
 
-                  <div className="space-y-2">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#FFFFFF]/65">Branding &amp; Print</p>
-                    <p className="text-sm font-bold text-[#FFFFFF]">Clean. Precise. Premium.</p>
+                  <div className="relative my-2 h-20 sm:h-24 w-full overflow-hidden rounded-lg bg-neutral-900">
+                    <img
+                      src="/assets/products/1 (5).jpg"
+                      alt="Luxury Packaging &amp; Rigid Boxes Dubai"
+                      className="h-full w-full object-cover opacity-90 transition-transform duration-500 hover:scale-105"
+                      loading="eager"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <span className="absolute bottom-1.5 left-2 text-[9px] font-bold text-white/90">
+                      Custom Rigid Packaging
+                    </span>
                   </div>
 
-                  <div className="flex items-center justify-between border-t border-[#FFFFFF]/15 pt-3 text-[9px] font-bold uppercase tracking-[0.18em] text-[#FFFFFF]/70">
-                    <span>Color Proof</span>
-                    <span className="text-[#A82F19]">QC Ready</span>
+                  <div className="flex items-center justify-between border-t border-white/15 pt-2 text-[9px] font-bold uppercase tracking-wider text-white/70">
+                    <span className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#A82F19] animate-pulse" />
+                      Pantone Match
+                    </span>
+                    <span className="text-white font-extrabold">100% Calibrated</span>
                   </div>
                 </motion.div>
 
+                {/* Floating Badge: 1200 DPI Resolution */}
                 <motion.div
-                  animate={{ y: [0, -14, 0], scale: [1, 1.03, 1] }}
-                  transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute bottom-4 left-10 flex h-20 w-20 items-center justify-center rounded-[20px] border border-[#A82F19]/30 bg-[#FFFFFF] shadow-[0_15px_30px_rgba(168,47,25,0.12)] sm:left-16"
+                  animate={{ y: [0, -10, 0], scale: [1, 1.03, 1] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute bottom-3 left-6 flex h-16 w-36 items-center gap-2.5 rounded-2xl border border-[#A82F19]/30 bg-white px-3 py-2 shadow-[0_15px_30px_rgba(168,47,25,0.12)] sm:bottom-4 sm:left-10"
                 >
-                  <div className="text-center">
-                    <span className="font-display text-xl font-black text-[#A82F19]">1200</span>
-                    <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#000000]">DPI</p>
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#A82F19] text-white">
+                    <Award className="h-4 w-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[11px] font-black text-black leading-tight">1200 DPI</div>
+                    <div className="text-[8px] font-bold uppercase tracking-wider text-[#A82F19]">HD Digital Press</div>
                   </div>
                 </motion.div>
               </div>
@@ -328,7 +355,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12">
-            {services === null && <LoadingState label="Loading print services…" />}
+            {services === null && <LoadingState type="cards" columns={4} count={4} label="Loading print services…" />}
             {services && services.length > 0 && (
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {services.map((service, idx) => (
@@ -363,7 +390,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12">
-            {categories === null && <LoadingState label="Loading printing categories…" />}
+            {categories === null && <LoadingState type="cards" columns={4} count={4} label="Loading printing categories…" />}
             {categories && categories.length > 0 && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {categories.map((cat, idx) => (
@@ -378,7 +405,11 @@ export default function HomePage() {
       </section>
 
       {/* 5. Main Product Showcase Sections */}
-      <ProductSectionsShowcase onQuickView={setQuickViewProduct} />
+      <ProductSectionsShowcase
+        categories={categories}
+        products={products}
+        onQuickView={setQuickViewProduct}
+      />
 
       {/* 6. Carefree Shopping & Express Delivery Section */}
       <CarefreeShoppingSection />
@@ -402,7 +433,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12">
-            {products === null && <LoadingState label="Loading product catalog…" />}
+            {products === null && <LoadingState type="cards" columns={4} count={4} label="Loading product catalog…" />}
             {products && products.length > 0 && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {products.map((product) => (
@@ -634,8 +665,8 @@ export default function HomePage() {
       {/* 11. Primary Dark Call to Action */}
       <section className="border-t border-[#000000] bg-[#000000] py-20 text-[#FFFFFF] sm:py-28">
         <Container className="flex flex-col items-center gap-8 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#FF7A59]/40 bg-white/5 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#FF7A59]">
-            <Sparkles className="h-3.5 w-3.5 text-[#FF7A59]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19]/40 bg-white/5 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#A82F19]">
+            <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
             Ready to Bring Your Brand to Life?
           </div>
           

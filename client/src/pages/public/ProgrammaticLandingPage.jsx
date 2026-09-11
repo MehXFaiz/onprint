@@ -108,7 +108,7 @@ export default function ProgrammaticLandingPage() {
           <Breadcrumbs items={breadcrumbs} className="text-neutral-400 mb-6" />
 
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#A82F19]/20 border border-[#A82F19]/40 px-3.5 py-1 text-xs font-extrabold text-[#FF7A59] mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#A82F19]/20 border border-[#A82F19]/40 px-3.5 py-1 text-xs font-extrabold text-[#A82F19] mb-4">
               {isLocation ? <MapPin className="h-3.5 w-3.5" /> : <Sparkles className="h-3.5 w-3.5" />}
               <span>{isLocation ? `Dubai Coverage: ${pageData.name}` : 'Commercial Industry Solution'}</span>
             </div>
@@ -124,7 +124,7 @@ export default function ProgrammaticLandingPage() {
             {/* Quick Action Badges */}
             <div className="mt-8 flex flex-wrap items-center gap-3 text-xs font-bold text-neutral-300">
               <span className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 border border-neutral-800 px-3 py-1.5">
-                <Clock className="h-3.5 w-3.5 text-[#FF7A59]" />
+                <Clock className="h-3.5 w-3.5 text-[#A82F19]" />
                 Same-Day Dispatch
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 border border-neutral-800 px-3 py-1.5">
@@ -147,7 +147,7 @@ export default function ProgrammaticLandingPage() {
               </Link>
               <a href="tel:+9714800PRINT">
                 <Button variant="outline" size="lg" className="border-neutral-700 text-white hover:bg-neutral-900 font-bold">
-                  <PhoneCall className="h-4 w-4 mr-2 text-[#FF7A59]" />
+                  <PhoneCall className="h-4 w-4 mr-2 text-[#A82F19]" />
                   +971 4 800 PRINT
                 </Button>
               </a>
@@ -346,7 +346,7 @@ export default function ProgrammaticLandingPage() {
 
                   <a href="tel:+9714800PRINT" className="block w-full">
                     <Button variant="outline" size="md" className="w-full border-neutral-700 text-white hover:bg-neutral-900 text-xs font-bold">
-                      <PhoneCall className="h-3.5 w-3.5 mr-2 text-[#FF7A59]" />
+                      <PhoneCall className="h-3.5 w-3.5 mr-2 text-[#A82F19]" />
                       Direct Line: +971 4 800 PRINT
                     </Button>
                   </a>

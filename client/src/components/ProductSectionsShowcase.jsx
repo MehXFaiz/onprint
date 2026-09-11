@@ -1,127 +1,37 @@
-import { useState } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Sparkles, ShieldCheck, ArrowUpRight } from 'lucide-react'
 import ProductCard from './ProductCard'
-import { getProductImage } from '../assets/productImages'
+import { getCategories } from '../services/categories'
+import { getProducts } from '../services/products'
 
-// Main Product Sections Data matching active catalog categories
-const homepageSectionsData = [
-  {
-    id: 'office-stationery-printing',
-    sectionNumber: '01',
-    badge: 'Executive Brand Identity',
-    title: 'Office Stationery Printing',
-    subtitle: 'High-precision business correspondence, marketing collaterals, flyers, brochures, and ID badges.',
-    items: [
-      {
-        _id: 'sec2-1',
-        name: 'Flyers Printing in Dubai',
-        slug: 'flyers-printing-in-dubai',
-        imageKey: 'flyers',
-        shortDescription: 'Full-color single & double-sided promo flyers on premium gloss or matte artpaper.',
-        price: 35,
-        minimumQuantity: 100,
-        badge: 'Express 24h',
-        tag: 'CMYK Offset',
-        spec: '170gsm–300gsm Art Paper',
-      },
-      {
-        _id: 'sec2-2',
-        name: 'Brochures Printing',
-        slug: 'brochures-printing',
-        imageKey: 'brochures',
-        shortDescription: 'Bi-fold, tri-fold & multi-page corporate brochure printing with soft-touch lamination.',
-        price: 65,
-        minimumQuantity: 100,
-        badge: 'Premium Finish',
-        tag: 'Tri-Fold & Bi-Fold',
-        spec: 'Precision Fold & Crease',
-      },
-      {
-        _id: 'sec2-3',
-        name: 'Name Badges Printing Dubai',
-        slug: 'name-badges-printing-dubai',
-        imageKey: 'badges',
-        shortDescription: 'Durable acrylic & metallic magnetic staff name badges with metallic domed epoxy coating.',
-        price: 22,
-        minimumQuantity: 10,
-        badge: 'Magnetic Fastener',
-        tag: 'UV Metallic',
-        spec: 'Scratch-Proof Resin',
-      },
-      {
-        _id: 'sec2-4',
-        name: 'Id Card Printing Dubai',
-        slug: 'id-card-printing-dubai',
-        imageKey: 'idCards',
-        shortDescription: 'High-security PVC employee ID cards with barcode, NFC chip, and custom printed lanyards.',
-        price: 15,
-        minimumQuantity: 10,
-        badge: 'Access Control',
-        tag: 'PVC & Lanyard',
-        spec: 'CR80 Standard Specs',
-      },
-    ],
-  },
-  {
-    id: 'other-products',
-    sectionNumber: '02',
-    badge: 'Large Format & Signage',
-    title: 'Other Products',
-    subtitle: 'Event roll-up banner displays, outdoor advertising flags, die-cut stickers, and door nameplates.',
-    items: [
-      {
-        _id: 'sec3-1',
-        name: 'Roll up Printing in Dubai',
-        slug: 'roll-up-printing-in-dubai',
-        imageKey: 'rollup',
-        shortDescription: 'Heavy-duty aluminum retractable roll-up banner stands with anti-curl PET film & carry case.',
-        price: 180,
-        minimumQuantity: 1,
-        badge: 'Exhibition Ready',
-        tag: 'Anti-Curl PET',
-        spec: '85x200cm Luxury Base',
-      },
-      {
-        _id: 'sec3-2',
-        name: 'Flags Printing in Dubai',
-        slug: 'flags-printing-in-dubai',
-        imageKey: 'flags',
-        shortDescription: 'Outdoor teardrop & feather promo beach flags with weather-resistant knitted polyester print.',
-        price: 220,
-        minimumQuantity: 1,
-        badge: 'Weather Proof',
-        tag: 'Sublimation Flag',
-        spec: '3.5m Heavy Base Spike',
-      },
-      {
-        _id: 'sec3-3',
-        name: 'Stickers Printing in Dubai',
-        slug: 'stickers-printing-in-dubai',
-        imageKey: 'stickers',
-        shortDescription: 'Waterproof die-cut vinyl stickers, product labels, and clear window graphics.',
-        price: 40,
-        minimumQuantity: 200,
-        badge: 'Waterproof Vinyl',
-        tag: 'Die-Cut Sheet',
-        spec: 'UV Laminated Vinyl',
-      },
-      {
-        _id: 'sec3-4',
-        name: 'Name Plates Printing in Dubai',
-        slug: 'name-plates-printing-in-dubai',
-        imageKey: 'namePlates',
-        shortDescription: 'Laser-cut clear acrylic & brushed stainless steel office door nameplates with metallic bolts.',
-        price: 120,
-        minimumQuantity: 1,
-        badge: 'Executive Suite',
-        tag: 'Acrylic & Metal',
-        spec: 'Silver Standoff Pins',
-      },
-    ],
-  },
-]
+function isProductInCategory(product, category) {
+  if (!product || !category) return false
+  const catId = String(category.id || category._id || '')
+  const catSlug = String(category.slug || '').toLowerCase()
+  const catName = String(category.name || '').toLowerCase()
+
+  const prodCat = product.category
+  if (prodCat && typeof prodCat === 'object') {
+    const pCatId = String(prodCat._id || prodCat.id || '')
+    const pCatSlug = String(prodCat.slug || '').toLowerCase()
+    const pCatName = String(prodCat.name || '').toLowerCase()
+    if (catId && pCatId === catId) return true
+    if (catSlug && pCatSlug === catSlug) return true
+    if (catName && pCatName === catName) return true
+  } else if (typeof prodCat === 'string') {
+    const pCatStr = prodCat.toLowerCase()
+    if (catId && prodCat === catId) return true
+    if (catSlug && pCatStr === catSlug) return true
+    if (catName && pCatStr === catName) return true
+  }
+
+  const pCatIdField = String(product.categoryId || product.category_id || '')
+  if (catId && pCatIdField === catId) return true
+
+  return false
+}
 
 // Single Section Component with Carousel Controls & Unique Card Aesthetic
 function SectionCardGroup({ section, onQuickView }) {
@@ -171,31 +81,33 @@ function SectionCardGroup({ section, onQuickView }) {
         </div>
 
         {/* Carousel Slider Next/Prev Arrows Controls */}
-        <div className="flex items-center gap-3 shrink-0">
-          <div className="hidden sm:flex items-center gap-1.5 rounded-2xl border border-[#000000]/20 bg-[#FFFFFF] px-3 py-1.5 text-xs font-bold text-[#000000]">
-            <span>{currentPage + 1}</span>
-            <span className="text-[#000000]/30">/</span>
-            <span>{totalPages}</span>
-          </div>
+        {totalPages > 1 && (
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="hidden sm:flex items-center gap-1.5 rounded-2xl border border-[#000000]/20 bg-[#FFFFFF] px-3 py-1.5 text-xs font-bold text-[#000000]">
+              <span>{currentPage + 1}</span>
+              <span className="text-[#000000]/30">/</span>
+              <span>{totalPages}</span>
+            </div>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handlePrevPage}
-              aria-label={`Previous slide for ${section.title}`}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#000000] bg-[#FFFFFF] text-[#000000] shadow-xs transition-all hover:border-[#A82F19] hover:bg-[#A82F19] hover:text-[#FFFFFF] active:scale-95 cursor-pointer"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handlePrevPage}
+                aria-label={`Previous slide for ${section.title}`}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#000000] bg-[#FFFFFF] text-[#000000] shadow-xs transition-all hover:border-[#A82F19] hover:bg-[#A82F19] hover:text-[#FFFFFF] active:scale-95 cursor-pointer"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
 
-            <button
-              onClick={handleNextPage}
-              aria-label={`Next slide for ${section.title}`}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#A82F19] bg-[#A82F19] text-[#FFFFFF] shadow-md transition-all hover:bg-[#000000] hover:border-[#000000] hover:scale-105 active:scale-95 cursor-pointer"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
+              <button
+                onClick={handleNextPage}
+                aria-label={`Next slide for ${section.title}`}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#A82F19] bg-[#A82F19] text-[#FFFFFF] shadow-md transition-all hover:bg-[#000000] hover:border-[#000000] hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Grid of Product Cards */}
@@ -211,7 +123,7 @@ function SectionCardGroup({ section, onQuickView }) {
           >
             {visibleItems.map((item) => (
               <ProductCard
-                key={item._id || item.slug}
+                key={item._id || item.id || item.slug}
                 product={item}
                 onQuickView={onQuickView}
               />
@@ -241,7 +153,80 @@ function SectionCardGroup({ section, onQuickView }) {
   )
 }
 
-export default function ProductSectionsShowcase({ onQuickView }) {
+export default function ProductSectionsShowcase({
+  categories: initialCategories = null,
+  products: initialProducts = null,
+  onQuickView,
+}) {
+  const [internalCategories, setInternalCategories] = useState(initialCategories)
+  const [internalProducts, setInternalProducts] = useState(initialProducts)
+  const [isLoading, setIsLoading] = useState(!initialCategories || !initialProducts)
+
+  useEffect(() => {
+    if (initialCategories) setInternalCategories(initialCategories)
+    if (initialProducts) setInternalProducts(initialProducts)
+  }, [initialCategories, initialProducts])
+
+  useEffect(() => {
+    let isMounted = true
+    if (!initialCategories || !initialProducts) {
+      Promise.all([
+        initialCategories ? Promise.resolve(initialCategories) : getCategories().catch(() => []),
+        initialProducts ? Promise.resolve(initialProducts) : getProducts().then((res) => res?.data || []).catch(() => []),
+      ]).then(([cats, prods]) => {
+        if (!isMounted) return
+        if (!initialCategories) setInternalCategories(cats)
+        if (!initialProducts) setInternalProducts(prods)
+        setIsLoading(false)
+      })
+    } else {
+      setIsLoading(false)
+    }
+    return () => {
+      isMounted = false
+    }
+  }, [initialCategories, initialProducts])
+
+  const sections = useMemo(() => {
+    const cats = internalCategories || []
+    const prods = internalProducts || []
+    if (!cats.length || !prods.length) return []
+
+    const dynamicSections = []
+    let sectionIdx = 1
+
+    cats.forEach((cat) => {
+      const items = prods.filter((p) => isProductInCategory(p, cat))
+      if (items.length > 0) {
+        dynamicSections.push({
+          id: cat.slug || cat.id || `sec-${sectionIdx}`,
+          sectionNumber: String(sectionIdx).padStart(2, '0'),
+          badge: cat.name || 'Commercial Print',
+          title: cat.name,
+          subtitle: cat.description || cat.metaDescription || `High-precision custom ${cat.name?.toLowerCase()} printing in Dubai.`,
+          items,
+        })
+        sectionIdx++
+      }
+    })
+
+    if (dynamicSections.length === 0 && prods.length > 0) {
+      dynamicSections.push({
+        id: 'featured-products',
+        sectionNumber: '01',
+        badge: 'Dubai Flagship Print',
+        title: 'Featured Print Catalog',
+        subtitle: 'Explore our precision commercial printing products, luxury corporate stationery, and custom packaging.',
+        items: prods,
+      })
+    }
+
+    return dynamicSections
+  }, [internalCategories, internalProducts])
+
+  if (!isLoading && sections.length === 0) {
+    return null
+  }
   return (
     <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-[#FFFFFF] border-y border-[#000000]/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
@@ -263,9 +248,9 @@ export default function ProductSectionsShowcase({ onQuickView }) {
           </p>
         </div>
 
-        {/* 3 Main Product Sections Stacked Vertically */}
+        {/* Main Product Sections Stacked Vertically */}
         <div className="space-y-12">
-          {homepageSectionsData.map((section) => (
+          {sections.map((section) => (
             <SectionCardGroup key={section.id} section={section} onQuickView={onQuickView} />
           ))}
         </div>

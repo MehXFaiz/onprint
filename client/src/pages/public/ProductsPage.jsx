@@ -303,13 +303,15 @@ export default function ProductsPage() {
 
         {/* Main Content Area */}
         <div className="mt-12">
-          {loading && <LoadingState label="Loading ONPRINT catalog products…" />}
+          {loading && <LoadingState type="cards" columns={4} count={8} label="Loading ONPRINT catalog products…" />}
           {error && <EmptyState title="Unable to load product catalog" note="Please check your connection and refresh." />}
 
           {!loading && !error && filteredProducts.length === 0 && (
             <EmptyState
               title="No matching products found"
               note={searchQuery ? `No results for "${searchQuery}". Try a different keyword.` : 'Select a different category above.'}
+              actionLabel={searchQuery ? 'Clear Search' : categoryParam ? 'View All Products' : undefined}
+              onAction={searchQuery ? () => setSearchQuery('') : categoryParam ? () => handleCategoryChange('') : undefined}
             />
           )}
 

@@ -97,7 +97,7 @@ export default function CategoriesPage() {
 
         {/* Category Grid Section */}
         <div className="mt-12">
-          {loading && <LoadingState label="Loading printing categories from database..." />}
+          {loading && <LoadingState type="cards" columns={4} count={8} label="Loading printing categories from database..." />}
 
           {error && !loading && (
             <div className="rounded-3xl border border-red-200 bg-red-50 p-8 text-center space-y-3">
@@ -116,7 +116,9 @@ export default function CategoriesPage() {
           {!loading && !error && filteredCategories.length === 0 && (
             <EmptyState
               title="No categories found"
-              description={searchQuery ? 'No category matches your search.' : 'No active printing categories currently available.'}
+              note={searchQuery ? 'No category matches your search filter.' : 'No active printing categories currently available.'}
+              actionLabel={searchQuery ? 'Clear Search' : undefined}
+              onAction={searchQuery ? () => setSearchQuery('') : undefined}
             />
           )}
 

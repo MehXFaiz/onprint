@@ -28,6 +28,7 @@ export default function CategoryDetailPage() {
 
   const [category, setCategory] = useState(null)
   const [products, setProducts] = useState([])
+  const [otherCategories, setOtherCategories] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [quickViewProduct, setQuickViewProduct] = useState(null)
@@ -40,9 +41,13 @@ export default function CategoryDetailPage() {
     async function loadCategoryData() {
       try {
         const catData = await getCategoryById(slug)
+        const allCats = await getCategories()
+        if (isMounted && Array.isArray(allCats)) {
+          setOtherCategories(allCats.filter((c) => c.slug !== slug && String(c.id) !== slug).slice(0, 6))
+        }
+
         if (!catData) {
           // If not found by direct ID/slug lookup, fetch list and find by slug
-          const allCats = await getCategories()
           const matched = allCats.find((c) => c.slug === slug || String(c.id) === slug)
           if (matched && isMounted) {
             setCategory(matched)
@@ -119,6 +124,25 @@ export default function CategoryDetailPage() {
     { name: categoryName, url: canonicalPath },
   ]
 
+  const categoryFaqs = [
+    {
+      question: `What materials and cardstocks are available for ${categoryName} in Dubai?`,
+      answer: `ONPRINT provides an extensive selection of premium FSC-certified stocks ranging from 120gsm fine stationery papers to 450gsm heavy cotton and silk boards, as well as waterproof synthetic substrates and luxury rigid packaging boards.`
+    },
+    {
+      question: `What is the standard production turnaround time for ${categoryName}?`,
+      answer: `We offer express same-day and 24-hour turnaround for rush corporate orders in Dubai, and standard 2–3 business days dispatch across Abu Dhabi, Sharjah, and all UAE Emirates.`
+    },
+    {
+      question: `Can I request physical color-matched proofs before mass printing?`,
+      answer: `Yes. Our prepress studio in Al Quoz, Dubai provides digital PDF proofs and physical ISO-calibrated press proofs with exact Pantone color matching and finish verification.`
+    },
+    {
+      question: `Do you provide bulk order discounts for UAE businesses?`,
+      answer: `Yes. Volume tier pricing is automatically calculated for large quantities, corporate stationery contracts, and exhibition events. Contact our print sales team for tailored corporate accounts.`
+    }
+  ]
+
   // Structured Data (CollectionPage + LocalBusiness)
   const collectionJsonLd = {
     '@context': 'https://schema.org',
@@ -150,6 +174,7 @@ export default function CategoryDetailPage() {
         keywords={seoKeywords}
         canonicalPath={canonicalPath}
         breadcrumbs={breadcrumbsList}
+        faqList={categoryFaqs}
         ogImage={categoryImage}
         ogType="website"
       />
@@ -353,6 +378,53 @@ export default function CategoryDetailPage() {
             </div>
           </div>
         </div>
+
+        {/* Category FAQs for SEO Rich Snippets */}
+        <div className="mt-16 rounded-3xl border border-[#000000]/10 bg-[#FFFFFF] p-8 sm:p-12 shadow-sm space-y-6">
+          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#A82F19]">
+            <HelpCircle className="h-4 w-4" />
+            <span>Frequently Asked Questions</span>
+          </div>
+          <h2 className="font-display text-xl font-bold tracking-tight text-[#000000] sm:text-2xl">
+            {categoryName} Specifications &amp; Ordering FAQs
+          </h2>
+          <div className="mt-6 divide-y divide-border/60 border-t border-border/60">
+            {categoryFaqs.map((faq, index) => (
+              <div key={index} className="py-5">
+                <h3 className="font-display text-base font-bold text-[#000000]">{faq.question}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#000000]/70">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Other Printing Disciplines Internal Linking */}
+        {otherCategories.length > 0 && (
+          <div className="mt-16">
+            <div className="flex items-center justify-between gap-4 mb-4">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">
+                EXPLORE PRINT DISCIPLINES
+              </span>
+              <Link
+                to="/categories"
+                className="text-xs font-bold text-secondary hover:text-[#A82F19] transition-colors"
+              >
+                View all categories &rarr;
+              </Link>
+            </div>
+            <div className="flex flex-wrap gap-2.5">
+              {otherCategories.map((cat) => (
+                <Link
+                  key={cat.slug || cat.id}
+                  to={`/categories/${cat.slug}`}
+                  className="rounded-xl border border-[#000000]/10 bg-[#FFFFFF] px-4 py-2.5 text-xs font-bold text-[#000000]/80 shadow-xs transition-all hover:border-[#A82F19] hover:text-[#A82F19] hover:-translate-y-0.5"
+                >
+                  {cat.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* CTA Banner */}
         <div className="mt-16 rounded-3xl border border-[#000000] bg-[#000000] p-6 sm:p-10 md:p-12 text-[#FFFFFF] shadow-2xl flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-6">

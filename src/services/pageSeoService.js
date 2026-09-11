@@ -335,6 +335,43 @@ class PageSeoService {
       ;[rows] = await pool.query('SELECT * FROM page_seo WHERE url = ?', [url.slice(0, -1)])
     }
 
+    // Dynamic on-the-fly resolution for products, categories, services, and blogs if not yet in page_seo
+    if (rows.length === 0) {
+      try {
+        if (url.startsWith('/products/')) {
+          const prodSlug = url.replace('/products/', '').trim()
+          const [prods] = await pool.query('SELECT * FROM products WHERE slug = ? LIMIT 1', [prodSlug])
+          if (prods.length > 0) {
+            await this.autoCreateOrSyncEntitySeo('product', prods[0])
+            ;[rows] = await pool.query('SELECT * FROM page_seo WHERE url = ?', [url])
+          }
+        } else if (url.startsWith('/categories/')) {
+          const catSlug = url.replace('/categories/', '').trim()
+          const [cats] = await pool.query('SELECT * FROM categories WHERE slug = ? LIMIT 1', [catSlug])
+          if (cats.length > 0) {
+            await this.autoCreateOrSyncEntitySeo('category', cats[0])
+            ;[rows] = await pool.query('SELECT * FROM page_seo WHERE url = ?', [url])
+          }
+        } else if (url.startsWith('/services/')) {
+          const servSlug = url.replace('/services/', '').trim()
+          const [servs] = await pool.query('SELECT * FROM services WHERE slug = ? LIMIT 1', [servSlug])
+          if (servs.length > 0) {
+            await this.autoCreateOrSyncEntitySeo('service', servs[0])
+            ;[rows] = await pool.query('SELECT * FROM page_seo WHERE url = ?', [url])
+          }
+        } else if (url.startsWith('/blog/')) {
+          const blogSlug = url.replace('/blog/', '').trim()
+          const [blogs] = await pool.query('SELECT * FROM blogs WHERE slug = ? LIMIT 1', [blogSlug])
+          if (blogs.length > 0) {
+            await this.autoCreateOrSyncEntitySeo('blog', blogs[0])
+            ;[rows] = await pool.query('SELECT * FROM page_seo WHERE url = ?', [url])
+          }
+        }
+      } catch (fallbackErr) {
+        console.warn('[PageSEO] Dynamic entity fallback resolution note:', fallbackErr.message)
+      }
+    }
+
     if (rows.length === 0) return null
     const page = rows[0]
 

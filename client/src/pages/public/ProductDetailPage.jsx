@@ -7,7 +7,8 @@ import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
-import { getProductBySlug } from '../../services/products'
+import ProductCard from '../../components/ProductCard'
+import { getProductBySlug, getProducts } from '../../services/products'
 import { getProductImage } from '../../assets/productImages'
 import { trackViewProduct, trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
 
@@ -50,6 +51,7 @@ export default function ProductDetailPage() {
   const [material, setMaterial] = useState(null)
   const [finish, setFinish] = useState(null)
   const [notes, setNotes] = useState('')
+  const [relatedProducts, setRelatedProducts] = useState([])
 
   useEffect(() => {
     setStatus('loading')
@@ -68,6 +70,16 @@ export default function ProductDetailPage() {
           product_id: data._id || data.slug,
           category_name: data.category?.name || 'General Printing',
         })
+
+        // Fetch related products from same category or catalog for internal link architecture
+        const catKey = data.category?.slug || data.category?._id || data.category?.id || data.category
+        getProducts({ category: catKey || undefined, pageSize: 6 })
+          .then((res) => {
+            const list = res?.data || res || []
+            const filtered = list.filter((p) => (p.slug || p._id) !== (data.slug || data._id)).slice(0, 3)
+            setRelatedProducts(filtered)
+          })
+          .catch(() => {})
       })
       .catch(() => setStatus('error'))
   }, [slug])
@@ -338,6 +350,34 @@ export default function ProductDetailPage() {
             ))}
           </div>
         </div>
+
+        {/* Related Printing Products & Internal Links */}
+        {relatedProducts.length > 0 && (
+          <div className="mt-16">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-accent">Related Print Disciplines</span>
+                <h2 className="font-display mt-1 text-2xl font-black tracking-tight text-primary">
+                  Complementary Printing Solutions
+                </h2>
+              </div>
+              {product.category?.slug && (
+                <Link
+                  to={`/categories/${product.category.slug}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-accent hover:underline"
+                >
+                  <span>Explore all {product.category.name}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </Link>
+              )}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {relatedProducts.map((relProd) => (
+                <ProductCard key={relProd._id || relProd.slug} product={relProd} />
+              ))}
+            </div>
+          </div>
+        )}
       </Container>
     </div>
   )

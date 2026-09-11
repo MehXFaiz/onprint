@@ -85,6 +85,118 @@ async function renderSeoShell(requestPath) {
     ? rendered.replace(/<link\s+rel=["']canonical["'][^>]*>/i, canonicalTag)
     : rendered.replace('</head>', `    ${canonicalTag}\n  </head>`)
 
+  // Inject Google Site Verification if configured in environment
+  const googleVerification = process.env.GOOGLE_SITE_VERIFICATION || process.env.GOOGLE_VERIFICATION
+  if (googleVerification && !rendered.includes('name="google-site-verification"')) {
+    rendered = rendered.replace('</head>', `    <meta name="google-site-verification" content="${escapeHtml(googleVerification)}" />\n  </head>`)
+  }
+
+  // Inject Standard Organization & LocalBusiness JSON-LD Schema
+  const organizationJson = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${siteUrl}/#organization`,
+    name: 'ONPRINT',
+    legalName: 'ONPRINT Printing & Branding Solutions',
+    url: siteUrl,
+    logo: `${siteUrl}/logo_icon.png`,
+    image: `${siteUrl}/logo_icon.png`,
+    description: 'ONPRINT is Dubai’s premier physical branding & commercial printing press. Specializing in executive stationery, luxury packaging, corporate gifts, large-format rollups, and precision digital printing across the UAE.',
+    telephone: '+9714800PRINT',
+    email: 'info@onprint.ae',
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Al Quoz Industrial Area 3',
+      addressLocality: 'Dubai',
+      addressRegion: 'Dubai',
+      postalCode: '00000',
+      addressCountry: 'AE',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 25.1328,
+      longitude: 55.2348,
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '08:30',
+        closes: '18:30',
+      },
+    ],
+    sameAs: [
+      'https://www.facebook.com/onprintdubai',
+      'https://www.instagram.com/onprintdubai',
+      'https://www.linkedin.com/company/onprintdubai',
+    ],
+    areaServed: [
+      { '@type': 'City', name: 'Dubai' },
+      { '@type': 'City', name: 'Abu Dhabi' },
+      { '@type': 'City', name: 'Sharjah' },
+      { '@type': 'Country', name: 'United Arab Emirates' },
+    ],
+  }
+
+  const websiteJson = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteUrl}/#website`,
+    url: siteUrl,
+    name: 'ONPRINT Printing Dubai',
+    publisher: {
+      '@id': `${siteUrl}/#organization`,
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl}/products?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  }
+
+  rendered = rendered.replace(
+    '</head>',
+    `    <script type="application/ld+json">${JSON.stringify(organizationJson)}</script>\n    <script type="application/ld+json">${JSON.stringify(websiteJson)}</script>\n  </head>`
+  )
+
+  // Inject BreadcrumbList JSON-LD for nested landing pages
+  let breadcrumbItems = null
+  if (requestPath.startsWith('/categories/') && requestPath.length > 12) {
+    breadcrumbItems = [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Categories', item: `${siteUrl}/categories` },
+      { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Category', item: canonical },
+    ]
+  } else if (requestPath.startsWith('/products/') && requestPath.length > 10) {
+    breadcrumbItems = [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Products', item: `${siteUrl}/products` },
+      { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Product', item: canonical },
+    ]
+  } else if (requestPath.startsWith('/services/') && requestPath.length > 10) {
+    breadcrumbItems = [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteUrl}/services` },
+      { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Service', item: canonical },
+    ]
+  } else if (requestPath.startsWith('/blog/') && requestPath.length > 6) {
+    breadcrumbItems = [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
+      { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Article', item: canonical },
+    ]
+  }
+
+  if (breadcrumbItems) {
+    const breadcrumbSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbItems,
+    }
+    rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>\n  </head>`)
+  }
+
   if (seo.schema_markup) {
     try {
       const schemaMarkup = JSON.stringify(JSON.parse(seo.schema_markup))
@@ -142,6 +254,34 @@ function createApp() {
   if (process.env.NODE_ENV !== 'production') {
     app.use(morgan('dev'))
   }
+
+  // Canonical domain & trailing-slash normalization middleware
+  app.use((req, res, next) => {
+    if (req.method !== 'GET' && req.method !== 'HEAD') return next()
+
+    // Host canonicalization (www -> non-www)
+    const host = req.headers.host || ''
+    if (host.startsWith('www.')) {
+      const nonWwwHost = host.slice(4)
+      const proto = req.headers['x-forwarded-proto'] || req.protocol || 'https'
+      return res.redirect(301, `${proto}://${nonWwwHost}${req.originalUrl}`)
+    }
+
+    // Trailing slash normalization (except root /)
+    const [pathname, search] = req.url.split('?')
+    if (pathname.length > 1 && pathname.endsWith('/')) {
+      const cleanUrl = pathname.slice(0, -1) + (search ? `?${search}` : '')
+      return res.redirect(301, cleanUrl)
+    }
+
+    next()
+  })
+
+  // Server-side 301 Permanent Redirects for legacy and alternate routes
+  app.get('/category/:slug', (req, res) => res.redirect(301, `/categories/${req.params.slug}`))
+  app.get('/product/:slug', (req, res) => res.redirect(301, `/products/${req.params.slug}`))
+  app.get(['/track', '/orders/track', '/order-tracking', '/customer', '/account'], (req, res) => res.redirect(301, '/track-order'))
+  app.get(['/login', '/register'], (req, res) => res.redirect(301, '/admin/login'))
 
   // Direct SEO endpoints on root
   app.get('/robots.txt', getRobotsTxt)

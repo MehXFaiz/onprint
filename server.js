@@ -7,7 +7,11 @@ const seoDailyScheduler = require('./src/services/seoDailyScheduler')
 const PORT = process.env.PORT || 5000
 
 async function startServer() {
-  await testConnection()
+  try {
+    await testConnection()
+  } catch (dbErr) {
+    console.error('[Server] Database initialization note:', dbErr.message)
+  }
   const app = createApp()
   
   // Initialize AI SEO daily scheduler

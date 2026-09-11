@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import {
   ChevronDown,
@@ -27,6 +27,91 @@ import Button from './Button'
 import Logo from './Logo'
 import { useAuth } from '../context/AuthContext'
 import { trackGetQuoteClick } from '../utils/analytics'
+import { getCategories } from '../services/categories'
+
+const NAV_GROUPS = [
+  {
+    key: 'printing',
+    label: 'Printing',
+    keywords: ['brochure', 'business card', 'letterhead', 'envelope', 'invoice', 'receipt', 'voucher', 'folder', 'notepad', 'calendar', 'certificate', 'printing'],
+  },
+  {
+    key: 'stickers',
+    label: 'Stickers & Labels',
+    keywords: ['sticker', 'label'],
+  },
+  {
+    key: 'signs',
+    label: 'Signs & Displays',
+    keywords: ['banner', 'poster', 'sign', 'foam', 'acrylic', 'display', 'roll-up', 'x-banner'],
+  },
+  {
+    key: 'packaging',
+    label: 'Packaging',
+    keywords: ['bag', 'box', 'packaging', 'tag', 'gift'],
+  },
+  {
+    key: 'apparel',
+    label: 'Apparel & Textile',
+    keywords: ['shirt', 'polo', 'hoodie', 'cap', 'jersey', 'uniform', 'fabric'],
+  },
+  {
+    key: 'promotional',
+    label: 'Promotional Products',
+    keywords: ['pen', 'keychain', 'lanyard', 'mug', 'bottle', 'trophy', 'award', 'gift', 'promo', 'merchandise'],
+  },
+  {
+    key: 'events',
+    label: 'Events & Branding',
+    keywords: ['event', 'flag', 'backdrop', 'table', 'badge', 'id card', 'exhibition', 'display'],
+  },
+  {
+    key: 'design',
+    label: 'Design Services',
+    keywords: ['logo', 'branding', 'design'],
+  },
+]
+
+function normalizeText(value = '') {
+  return String(value).toLowerCase().replace(/[^a-z0-9\s-]/g, ' ').replace(/\s+/g, ' ').trim()
+}
+
+function buildMegaMenuGroups(categories = []) {
+  const activeCategories = (categories || []).filter((cat) => {
+    const status = cat?.status || (cat?.active ? 'active' : 'inactive')
+    return status === 'active' || cat?.active !== false
+  })
+
+  const grouped = NAV_GROUPS.map((group) => {
+    const items = activeCategories.filter((cat) => {
+      const haystack = normalizeText(`${cat?.name || ''} ${cat?.slug || ''} ${cat?.description || ''}`)
+      return group.keywords.some((keyword) => haystack.includes(normalizeText(keyword)))
+    })
+
+    return {
+      ...group,
+      items: items.sort((a, b) => (Number(a.displayOrder ?? a.display_order ?? 0) - Number(b.displayOrder ?? b.display_order ?? 0))),
+    }
+  }).filter((group) => group.items.length > 0)
+
+  if (!grouped.length && activeCategories.length > 0) {
+    return [{
+      key: 'all',
+      label: 'All Categories',
+      items: activeCategories.slice(0, 8).sort((a, b) => (Number(a.displayOrder ?? a.display_order ?? 0) - Number(b.displayOrder ?? b.display_order ?? 0))),
+    }]
+  }
+
+  return grouped
+}
+
+function chunkArray(array, size) {
+  const chunks = []
+  for (let i = 0; i < array.length; i += size) {
+    chunks.push(array.slice(i, i + size))
+  }
+  return chunks
+}
 
 // Custom Clean Social SVG Icons
 function FacebookIcon(props) {
@@ -55,17 +140,6 @@ function PinterestIcon(props) {
   )
 }
 
-// Navigation structure matching remaining product categories
-const officeStationeryItems = [
-  { label: 'Brochures Printing', to: '/categories/brochures-printing', icon: BookOpen },
-  { label: 'Business Cards Printing', to: '/categories/business-cards-printing', icon: CreditCard },
-  { label: 'Flyers Printing In Dubai', to: '/categories/flyers-printing-in-dubai', icon: FileText },
-  { label: 'ID Card Printing Dubai', to: '/categories/id-card-printing-dubai', icon: UserCheck },
-  { label: 'Lanyard Printing Dubai', to: '/categories/lanyard-printing-dubai', icon: Award },
-  { label: 'Letterheads Printing Dubai', to: '/categories/letterheads-printing-dubai', icon: FileSpreadsheet },
-  { label: 'Name Badges Printing Dubai', to: '/categories/name-badges-printing-dubai', icon: UserCheck },
-]
-
 export default function SiteHeader() {
   const { user, isAuthenticated, isAdmin, logout } = useAuth()
   const [scrolled, setScrolled] = useState(false)
@@ -73,8 +147,31 @@ export default function SiteHeader() {
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [mobileExpanded, setMobileExpanded] = useState({})
+  const [categories, setCategories] = useState([])
 
   const location = useLocation()
+
+  useEffect(() => {
+    let isMounted = true
+
+    async function loadCategories() {
+      try {
+        const list = await getCategories({ status: 'active', sort: 'display_order_asc' })
+        if (isMounted) setCategories(list || [])
+      } catch (error) {
+        console.warn('[Header] Failed to load categories:', error)
+        if (isMounted) setCategories([])
+      }
+    }
+
+    loadCategories()
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  const megaMenuGroups = useMemo(() => buildMegaMenuGroups(categories), [categories])
 
   useEffect(() => {
     function onScroll() {
@@ -223,54 +320,95 @@ export default function SiteHeader() {
               <span>Categories</span>
             </NavLink>
 
-            {/* 4. Office Stationery Printing Dropdown */}
-            <div
-              className="relative py-1"
-              onMouseEnter={() => setActiveDropdown('stationery')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                type="button"
-                onClick={() => setActiveDropdown(activeDropdown === 'stationery' ? null : 'stationery')}
-                className={`flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors cursor-pointer ${
-                  activeDropdown === 'stationery' || location.pathname.startsWith('/categories/')
-                    ? 'bg-red-50 text-[#A82F19] font-bold'
-                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                }`}
-              >
-                <Printer className="w-4 h-4 shrink-0" />
-                <span>Office Stationery Printing</span>
-                <ChevronDown className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${activeDropdown === 'stationery' ? 'rotate-180 text-[#A82F19]' : 'text-slate-500'}`} />
-              </button>
+            {/* 4. Live Product Categories Mega Menu */}
+            {megaMenuGroups.map((group) => {
+              const isActive = activeDropdown === group.key
+              const columnChunks = chunkArray(group.items, 3)
 
-              <AnimatePresence>
-                {activeDropdown === 'stationery' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute left-0 top-full mt-1.5 w-64 rounded-lg border border-slate-200 bg-white p-1.5 shadow-md z-50"
+              return (
+                <div
+                  key={group.key}
+                  className="relative py-1"
+                  onMouseEnter={() => setActiveDropdown(group.key)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setActiveDropdown(isActive ? null : group.key)}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors cursor-pointer ${
+                      isActive || location.pathname.startsWith('/categories/')
+                        ? 'bg-red-50 text-[#A82F19] font-bold'
+                        : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                    }`}
                   >
-                    <div className="flex flex-col gap-0.5">
-                      {officeStationeryItems.map((item) => {
-                        const Icon = item.icon
-                        return (
-                          <Link
-                            key={item.label}
-                            to={item.to}
-                            className="group flex items-center gap-2.5 px-3 py-2 text-xs sm:text-sm font-medium text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 rounded-md transition-colors"
-                          >
-                            <Icon className="w-4 h-4 text-slate-400 group-hover:text-[#A82F19] transition-colors shrink-0" />
-                            <span>{item.label}</span>
-                          </Link>
-                        )
-                      })}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                    <Printer className="w-4 h-4 shrink-0" />
+                    <span>{group.label}</span>
+                    <ChevronDown className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${isActive ? 'rotate-180 text-[#A82F19]' : 'text-slate-500'}`} />
+                  </button>
+
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 6 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute left-0 top-full mt-2 w-[680px] rounded-2xl border border-slate-200 bg-white p-3 shadow-lg z-50"
+                      >
+                        <div className="flex gap-4">
+                          <div className="w-56 shrink-0 rounded-2xl border border-slate-200 bg-slate-50 p-3">
+                            <div className="mb-3 h-20 overflow-hidden rounded-xl bg-gradient-to-br from-[#A82F19]/10 via-white to-[#F6F1ED] p-2">
+                              {group.items[0]?.image_url ? (
+                                <img
+                                  src={group.items[0].image_url}
+                                  alt={group.items[0].name}
+                                  className="h-full w-full rounded-lg object-cover"
+                                />
+                              ) : (
+                                <div className="flex h-full items-center justify-center rounded-lg bg-white text-[#A82F19]">
+                                  <Printer className="h-8 w-8" />
+                                </div>
+                              )}
+                            </div>
+                            <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#A82F19]">Category Hub</div>
+                            <h3 className="mt-2 text-sm font-black text-slate-900">{group.label}</h3>
+                            <p className="mt-1 text-[11px] leading-5 text-slate-600">
+                              {group.items.length} live category option{group.items.length > 1 ? 's' : ''} available for your print needs.
+                            </p>
+                            <Link
+                              to="/categories"
+                              className="mt-3 inline-flex items-center gap-1.5 rounded-md bg-[#A82F19] px-2.5 py-1.5 text-[11px] font-bold text-white transition-colors hover:bg-[#8b2414]"
+                            >
+                              View all
+                              <ChevronDown className="h-3.5 w-3.5 rotate-[-90deg]" />
+                            </Link>
+                          </div>
+
+                          <div className="grid flex-1 grid-cols-3 gap-3">
+                            {columnChunks.map((chunk, columnIndex) => (
+                              <div key={`${group.key}-${columnIndex}`} className="space-y-2">
+                                {chunk.map((item) => (
+                                  <Link
+                                    key={item.slug || item.id}
+                                    to={`/categories/${item.slug}`}
+                                    className="group flex items-center gap-2 rounded-lg px-2.5 py-2 text-left text-[12px] font-medium text-slate-700 transition-colors hover:bg-slate-100 hover:text-[#A82F19]"
+                                  >
+                                    <span className="flex h-6 w-6 items-center justify-center rounded-md bg-slate-100 text-[9px] font-bold text-slate-500 transition-colors group-hover:bg-[#A82F19]/10 group-hover:text-[#A82F19]">
+                                      {item.name?.charAt(0)?.toUpperCase() || 'P'}
+                                    </span>
+                                    <span className="line-clamp-1">{item.name}</span>
+                                  </Link>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
 
             {/* 5. Contact us */}
             <NavLink
@@ -452,37 +590,46 @@ export default function SiteHeader() {
                 <span>Categories</span>
               </NavLink>
 
-              {/* Accordion: Office Stationery Printing */}
-              <div className="border-y border-slate-100 py-1">
-                <button
-                  type="button"
-                  onClick={() => toggleMobileCategory('stationery')}
-                  className="flex w-full items-center justify-between px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 rounded-md transition-colors"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Printer className="w-4 h-4 text-slate-500" />
-                    <span>Office Stationery Printing</span>
-                  </div>
-                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileExpanded.stationery ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
-                </button>
-                {mobileExpanded.stationery && (
-                  <div className="mt-1 flex flex-col gap-1 pl-6 pr-2 py-1 border-l-2 border-slate-200 ml-4">
-                    {officeStationeryItems.map((item) => {
-                      const Icon = item.icon
-                      return (
+              {/* Accordion: Dynamic database-driven category groups */}
+              {megaMenuGroups.map((group) => (
+                <div key={`mobile-${group.key}`} className="border-y border-slate-100 py-1">
+                  <button
+                    type="button"
+                    onClick={() => toggleMobileCategory(group.key)}
+                    className="flex w-full items-center justify-between px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 rounded-md transition-colors"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Printer className="w-4 h-4 text-slate-500" />
+                      <span>{group.label}</span>
+                    </div>
+                    <ChevronDown className={`h-4 w-4 transition-transform ${mobileExpanded[group.key] ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
+                  </button>
+                  {mobileExpanded[group.key] && (
+                    <div className="mt-1 flex flex-col gap-1 pl-6 pr-2 py-1 border-l-2 border-slate-200 ml-4">
+                      {group.items.map((item) => (
                         <Link
-                          key={item.label}
-                          to={item.to}
+                          key={item.slug || item.id}
+                          to={`/categories/${item.slug}`}
                           className="flex items-center gap-2.5 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:text-[#A82F19] hover:bg-slate-50 rounded-md transition-colors"
                         >
-                          <Icon className="w-3.5 h-3.5 text-slate-400" />
-                          <span>{item.label}</span>
+                          <span className="flex h-4 w-4 items-center justify-center rounded-sm bg-slate-100 text-[8px] font-bold text-slate-500">
+                            {item.name?.charAt(0)?.toUpperCase() || 'P'}
+                          </span>
+                          <span>{item.name}</span>
                         </Link>
-                      )
-                    })}
-                  </div>
-                )}
-              </div>
+                      ))}
+
+                      <Link
+                        to="/categories"
+                        className="mt-1 inline-flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#A82F19] hover:bg-slate-50 rounded-md"
+                      >
+                        View all
+                        <ChevronDown className="h-3.5 w-3.5 rotate-[-90deg]" />
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              ))}
 
               <NavLink
                 to="/contact"

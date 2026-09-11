@@ -21,30 +21,31 @@ import { getProducts } from '../../services/products'
 import { getCategories } from '../../services/categories'
 import { getPublicBlogs } from '../../services/blog'
 import { trackViewHomepage, trackGetQuoteClick } from '../../utils/analytics'
+import { portfolioItems } from '../../data/portfolio'
 
 const trustBadges = [
-  { label: 'Precision Offset & Digital Print', icon: ShieldCheck },
-  { label: 'Express Turnaround Dubai', icon: Zap },
-  { label: 'Custom Luxury Finishes', icon: Award },
-  { label: 'Trusted by 500+ UAE Brands', icon: Users },
+  { label: 'German Offset & Digital Press', sub: 'Calibrated CMYK & Pantone accuracy', icon: ShieldCheck },
+  { label: 'Express Dubai Turnaround', sub: 'Same-day & 24h rapid dispatch', icon: Zap },
+  { label: 'Luxury Finishing Techniques', sub: 'Spot UV, hot foil & debossing', icon: Award },
+  { label: 'Al Quoz Production Facility', sub: 'Trusted by 500+ UAE enterprises', icon: Users },
 ]
 
 const whyUs = [
   {
-    title: 'Flawless Precision',
-    description: 'Calibrated color management systems ensure true-to-brand color consistency from screen to paper.',
+    title: 'Calibrated Color Fidelity',
+    description: 'Heidelberg & HP Indigo press calibration profiles guarantee true-to-brand CMYK and Pantone precision on every run.',
   },
   {
-    title: 'Premium Materials',
-    description: 'Curated selection of FSC-certified card stocks, luxury foils, soft-touch laminates, and textured papers.',
+    title: 'Certified Luxury Substrates',
+    description: 'Extensive inventory of 300–600 GSM FSC-certified stocks, cotton boards, soft-touch laminates, and metallic foils.',
   },
   {
-    title: 'Rapid Production',
-    description: 'State-of-the-art print presses in Dubai delivering tight deadlines without compromising detail.',
+    title: 'Direct Al Quoz Pressroom',
+    description: 'In-house commercial printing in Dubai eliminates broker markups and guarantees rapid turnaround for urgent deadlines.',
   },
   {
-    title: 'End-to-End Craft',
-    description: 'Dedicated print specialists guiding your specs, artwork pre-flight, and finishing requirements.',
+    title: 'Pre-Press Specialist Proofing',
+    description: 'Every file is pre-flight checked by dedicated print engineers for bleed, resolution, and vector trap accuracy before plating.',
   },
 ]
 
@@ -309,9 +310,9 @@ export default function HomePage() {
       </section>
 
       {/* 2. Trust Badges Banner */}
-      <section className="border-b border-[#000000]/10 bg-[#FFFFFF] py-8">
+      <section className="border-b border-[#000000]/10 bg-[#FFFFFF] py-6 sm:py-8">
         <Container>
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6">
             {trustBadges.map((item) => {
               const Icon = item.icon
               const renderBadgeIcon = () => {
@@ -324,11 +325,14 @@ export default function HomePage() {
                 return null
               }
               return (
-                <div key={item.label} className="flex items-center justify-center gap-3 text-center sm:justify-start">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
+                <div key={item.label} className="flex items-center gap-3.5 text-left">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
                     {renderBadgeIcon()}
                   </div>
-                  <span className="text-xs font-extrabold text-[#000000]">{item.label}</span>
+                  <div>
+                    <span className="block text-xs font-black text-[#000000] leading-snug">{item.label}</span>
+                    {item.sub && <span className="block text-[11px] font-semibold text-[#000000]/60 mt-0.5">{item.sub}</span>}
+                  </div>
                 </div>
               )
             })}
@@ -452,7 +456,69 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* 7. Why Choose Us */}
+      {/* 7. Selected Press Work & Client Portfolio Showcase */}
+      <section className="border-t border-[#000000]/10 bg-[#FFFFFF] py-20 sm:py-28">
+        <Container>
+          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+            <div>
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#A82F19]">
+                SELECTED PRESS WORK
+              </span>
+              <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#000000] sm:text-4xl">
+                Crafted in Dubai. Delivered Across the UAE.
+              </h2>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#000000]/70 sm:text-base">
+                A selection of luxury packaging, executive stationery, and high-impact print collateral produced on our Al Quoz press floor.
+              </p>
+            </div>
+            <ArrowLink to="/portfolio" className="shrink-0 text-[#A82F19]">
+              View Full Portfolio
+            </ArrowLink>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {portfolioItems.slice(0, 4).map((item, idx) => (
+              <Reveal key={item.id} delay={idx * 0.08}>
+                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#A82F19] hover:shadow-xl">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
+                      <span className="rounded-md bg-black/80 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white backdrop-blur-xs">
+                        {item.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
+                    <div>
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-[#A82F19]">
+                        {item.clientSector}
+                      </span>
+                      <h3 className="font-display mt-1 text-sm font-black text-black group-hover:text-[#A82F19] transition-colors line-clamp-2">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-[11px] font-medium leading-snug text-neutral-600 line-clamp-2">
+                        {item.specs}
+                      </p>
+                    </div>
+                    <div className="mt-4 border-t border-black/8 pt-3">
+                      <ArrowLink to={`/get-a-quote?service=${encodeURIComponent(item.title)}`} className="text-xs font-bold text-[#A82F19]">
+                        Inquire Spec
+                      </ArrowLink>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* 8. Why Choose Us */}
       <section className="py-20 sm:py-28 bg-[#FFFFFF]">
         <Container>
           <div className="text-center">

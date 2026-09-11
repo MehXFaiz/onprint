@@ -8,31 +8,66 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { portfolioCategories, portfolioItems } from '../../data/portfolio'
 
-const treatments = {
-  dark: 'bg-primary text-background border border-primary',
-  accent: 'bg-accent text-white border border-accent shadow-md shadow-accent/20',
-  paper: 'border border-border bg-surface text-primary shadow-xs',
-  duotone: 'bg-accent-soft text-primary border border-accent/20',
-}
+import { Link } from 'react-router-dom'
 
 function PortfolioTile({ item }) {
   return (
-    <div
-      className={`group relative mb-6 block overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${treatments[item.treatment]}`}
-    >
-      <div className={`${item.aspect} flex flex-col justify-between p-6 sm:p-8`}>
-        <div className="flex items-start justify-between">
-          <span className="rounded-full bg-background/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider backdrop-blur-xs">
+    <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#A82F19] hover:shadow-xl">
+      {/* Project Photography */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+          <span className="rounded-full bg-black/80 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-xs">
             {item.category}
           </span>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-background/20 opacity-80 transition-all duration-300 group-hover:scale-110 group-hover:bg-accent group-hover:text-white group-hover:opacity-100">
-            <ArrowUpRight className="h-4 w-4" />
-          </span>
+          {item.clientSector && (
+            <span className="hidden sm:inline-block rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-black backdrop-blur-xs">
+              {item.clientSector}
+            </span>
+          )}
+        </div>
+        <Link
+          to={`/get-a-quote?service=${encodeURIComponent(item.title)}`}
+          className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#A82F19] text-white opacity-0 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:opacity-100"
+          title="Inquire about this spec"
+        >
+          <ArrowUpRight className="h-4 w-4" />
+        </Link>
+      </div>
+
+      {/* Project Details */}
+      <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+        <div>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-[#A82F19]">
+            Dubai Press Production
+          </p>
+          <h3 className="font-display mt-1.5 text-lg font-black tracking-tight text-black group-hover:text-[#A82F19] transition-colors">
+            {item.title}
+          </h3>
+          {item.specs && (
+            <p className="mt-2.5 text-xs font-semibold leading-relaxed text-neutral-600">
+              {item.specs}
+            </p>
+          )}
         </div>
 
-        <div className="mt-8">
-          <p className="text-xs font-semibold uppercase tracking-widest opacity-60">ONPRINT Showcase</p>
-          <h3 className="font-display mt-1 text-2xl font-extrabold tracking-tight sm:text-3xl">{item.title}</h3>
+        <div className="mt-5 flex items-center justify-between border-t border-black/8 pt-4">
+          <span className="text-[11px] font-bold text-neutral-500">
+            {item.clientSector || 'Commercial Client'}
+          </span>
+          <Link
+            to={`/get-a-quote?service=${encodeURIComponent(item.title)}`}
+            className="inline-flex items-center gap-1 text-xs font-bold text-[#A82F19] hover:underline"
+          >
+            <span>Quote This Spec</span>
+            <ArrowUpRight className="h-3 w-3" />
+          </Link>
         </div>
       </div>
     </div>
@@ -94,12 +129,12 @@ export default function PortfolioPage() {
           ))}
         </div>
 
-        {/* Portfolio Masonry Columns */}
+        {/* Portfolio Grid */}
         <div className="mt-12">
           {items.length === 0 ? (
             <EmptyState title="No projects in this category yet" note="Check back soon or select another category." />
           ) : (
-            <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {items.map((item, index) => (
                 <Reveal key={item.id} delay={(index % 3) * 0.08}>
                   <PortfolioTile item={item} />

@@ -22,6 +22,7 @@ import {
   Truck,
   ShoppingBag,
   Layers,
+  ArrowUpRight,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
@@ -262,219 +263,217 @@ export default function SiteHeader() {
         </Container>
       </div>
 
-      {/* Main Navigation Bar (Menubar Style) */}
+      {/* Main Navigation Bar */}
       <div
-        className={`border-b border-slate-200 bg-white shadow-sm transition-all duration-300 ${
+        className={`border-b border-slate-200 bg-white shadow-xs transition-all duration-300 ${
           scrolled ? 'py-2.5 backdrop-blur-md bg-white/95' : 'py-3.5'
         }`}
       >
-        <Container className="flex items-center justify-between gap-3 xl:gap-4 2xl:gap-6 px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-12">
+        <Container className="flex items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 xl:px-12">
           {/* Logo */}
-          <Link to="/" onClick={() => setMenuOpen(false)} className="shrink-0">
+          <Link to="/" onClick={() => setMenuOpen(false)} className="shrink-0 flex items-center">
             <Logo size="md" />
           </Link>
 
-          {/* Desktop Navigation Links (Menubar styling with icons) */}
-          <nav className="hidden items-center gap-1 xl:gap-1.5 2xl:gap-2 xl:flex shrink min-w-0" aria-label="Primary">
+          {/* Desktop Navigation Links (Clean Typographic Hierarchy & Proportional Spacing) */}
+          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 2xl:gap-3 flex-1 min-w-0" aria-label="Primary">
             {/* 1. Home */}
             <NavLink
               to="/"
               end
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap ${
                   isActive
-                    ? 'bg-red-50 text-[#A82F19] font-bold'
-                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
-              <Home className="w-4 h-4 shrink-0" />
-              <span>Home</span>
+              Home
             </NavLink>
 
-            {/* 2. About us */}
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
-                  isActive
-                    ? 'bg-red-50 text-[#A82F19] font-bold'
-                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                }`
-              }
+            {/* 2. Categories with Mega Menu Dropdown */}
+            <div
+              className="relative py-1"
+              onMouseEnter={() => setActiveDropdown('categories')}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
-              <Info className="w-4 h-4 shrink-0" />
-              <span>About us</span>
-            </NavLink>
+              <NavLink
+                to="/categories"
+                onClick={() => setActiveDropdown(null)}
+                className={({ isActive }) =>
+                  `flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap cursor-pointer ${
+                    isActive || activeDropdown === 'categories' || location.pathname.startsWith('/categories')
+                      ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                      : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                  }`
+                }
+              >
+                <span>Categories</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'categories' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
+              </NavLink>
 
-            {/* 3. Categories */}
-            <NavLink
-              to="/categories"
-              className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
-                  isActive
-                    ? 'bg-red-50 text-[#A82F19] font-bold'
-                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                }`
-              }
-            >
-              <LayoutGrid className="w-4 h-4 shrink-0" />
-              <span>Categories</span>
-            </NavLink>
+              {/* Live Categories Mega Menu */}
+              <AnimatePresence>
+                {activeDropdown === 'categories' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.18 }}
+                    className="absolute left-0 top-full mt-1.5 w-[min(740px,calc(100vw-32px))] rounded-2xl border border-slate-200 bg-white p-4 shadow-xl z-50"
+                  >
+                    <div className="flex gap-5">
+                      {/* Left Hub Banner */}
+                      <div className="w-56 shrink-0 rounded-xl border border-slate-100 bg-slate-50 p-4 flex flex-col justify-between">
+                        <div>
+                          <span className="inline-block rounded-full bg-[#A82F19]/10 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-widest text-[#A82F19]">
+                            Dubai Pressroom
+                          </span>
+                          <h4 className="mt-2 text-sm font-black text-slate-900 leading-snug">
+                            Commercial Print Catalog
+                          </h4>
+                          <p className="mt-1.5 text-[11px] leading-relaxed text-slate-600">
+                            FSC-certified paper stocks, custom Pantone matching, and same-day digital proofs.
+                          </p>
+                        </div>
+                        <div className="pt-4 border-t border-slate-200/60">
+                          <Link
+                            to="/categories"
+                            onClick={() => setActiveDropdown(null)}
+                            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A82F19] hover:underline"
+                          >
+                            <span>View All Categories</span>
+                            <ArrowUpRight className="h-3.5 w-3.5" />
+                          </Link>
+                        </div>
+                      </div>
 
-            {/* 4. Products */}
+                      {/* Right Grid of Category Groups */}
+                      <div className="flex-1 grid grid-cols-2 gap-4 max-h-[340px] overflow-y-auto pr-1">
+                        {megaMenuGroups.map((group) => (
+                          <div key={group.key} className="space-y-1.5">
+                            <h5 className="text-[11px] font-black uppercase tracking-wider text-slate-400">
+                              {group.label}
+                            </h5>
+                            <ul className="space-y-1">
+                              {group.items.slice(0, 4).map((item) => (
+                                <li key={item.slug || item.id}>
+                                  <Link
+                                    to={`/categories/${item.slug}`}
+                                    onClick={() => setActiveDropdown(null)}
+                                    className="group flex items-center justify-between py-1 text-xs font-medium text-slate-700 hover:text-[#A82F19] transition-colors"
+                                  >
+                                    <span className="truncate">{item.name}</span>
+                                    <ChevronDown className="h-3 w-3 -rotate-90 opacity-0 transition-opacity group-hover:opacity-100 text-[#A82F19]" />
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* 3. Products */}
             <NavLink
               to="/products"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap ${
                   isActive
-                    ? 'bg-red-50 text-[#A82F19] font-bold'
-                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
-              <ShoppingBag className="w-4 h-4 shrink-0" />
-              <span>Products</span>
+              Products
             </NavLink>
 
-            {/* 5. Services */}
+            {/* 4. Services */}
             <NavLink
               to="/services"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap ${
                   isActive
-                    ? 'bg-red-50 text-[#A82F19] font-bold'
-                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
-              <Layers className="w-4 h-4 shrink-0" />
-              <span>Services</span>
+              Services
             </NavLink>
 
-            {/* 4. Live Product Categories Mega Menu */}
-            {megaMenuGroups.map((group) => {
-              const isActive = activeDropdown === group.key
-              const columnChunks = chunkArray(group.items, 3)
-
-              return (
-                <div
-                  key={group.key}
-                  className="relative py-1"
-                  onMouseEnter={() => setActiveDropdown(group.key)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <button
-                    type="button"
-                    onClick={() => setActiveDropdown(isActive ? null : group.key)}
-                    className={`flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors cursor-pointer ${
-                      isActive || location.pathname.startsWith('/categories/')
-                        ? 'bg-red-50 text-[#A82F19] font-bold'
-                        : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                    }`}
-                  >
-                    <Printer className="w-4 h-4 shrink-0" />
-                    <span>{group.label}</span>
-                    <ChevronDown className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${isActive ? 'rotate-180 text-[#A82F19]' : 'text-slate-500'}`} />
-                  </button>
-
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 6 }}
-                        transition={{ duration: 0.15 }}
-                        className="absolute left-0 top-full mt-2 w-[680px] rounded-2xl border border-slate-200 bg-white p-3 shadow-lg z-50"
-                      >
-                        <div className="flex gap-4">
-                          <div className="w-56 shrink-0 rounded-2xl border border-slate-200 bg-slate-50 p-3">
-                            <div className="mb-3 h-20 overflow-hidden rounded-xl bg-gradient-to-br from-[#A82F19]/10 via-white to-[#F6F1ED] p-2">
-                              {group.items[0]?.image_url ? (
-                                <img
-                                  src={group.items[0].image_url}
-                                  alt={group.items[0].name}
-                                  className="h-full w-full rounded-lg object-cover"
-                                />
-                              ) : (
-                                <div className="flex h-full items-center justify-center rounded-lg bg-white text-[#A82F19]">
-                                  <Printer className="h-8 w-8" />
-                                </div>
-                              )}
-                            </div>
-                            <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#A82F19]">Category Hub</div>
-                            <h3 className="mt-2 text-sm font-black text-slate-900">{group.label}</h3>
-                            <p className="mt-1 text-[11px] leading-5 text-slate-600">
-                              {group.items.length} live category option{group.items.length > 1 ? 's' : ''} available for your print needs.
-                            </p>
-                            <Link
-                              to="/categories"
-                              className="mt-3 inline-flex items-center gap-1.5 rounded-md bg-[#A82F19] px-2.5 py-1.5 text-[11px] font-bold text-white transition-colors hover:bg-[#8b2414]"
-                            >
-                              View all
-                              <ChevronDown className="h-3.5 w-3.5 rotate-[-90deg]" />
-                            </Link>
-                          </div>
-
-                          <div className="grid flex-1 grid-cols-3 gap-3">
-                            {columnChunks.map((chunk, columnIndex) => (
-                              <div key={`${group.key}-${columnIndex}`} className="space-y-2">
-                                {chunk.map((item) => (
-                                  <Link
-                                    key={item.slug || item.id}
-                                    to={`/categories/${item.slug}`}
-                                    className="group flex items-center gap-2 rounded-lg px-2.5 py-2 text-left text-[12px] font-medium text-slate-700 transition-colors hover:bg-slate-100 hover:text-[#A82F19]"
-                                  >
-                                    <span className="flex h-6 w-6 items-center justify-center rounded-md bg-slate-100 text-[9px] font-bold text-slate-500 transition-colors group-hover:bg-[#A82F19]/10 group-hover:text-[#A82F19]">
-                                      {item.name?.charAt(0)?.toUpperCase() || 'P'}
-                                    </span>
-                                    <span className="line-clamp-1">{item.name}</span>
-                                  </Link>
-                                ))}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              )
-            })}
-
-            {/* 5. Contact us */}
+            {/* 5. Portfolio */}
             <NavLink
-              to="/contact"
+              to="/portfolio"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap ${
                   isActive
-                    ? 'bg-red-50 text-[#A82F19] font-bold'
-                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
-              <PhoneCall className="w-4 h-4 shrink-0" />
-              <span>Contact us</span>
+              Portfolio
             </NavLink>
 
-            {/* 6. Blog */}
+            {/* 6. About us */}
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap ${
+                  isActive
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                }`
+              }
+            >
+              About
+            </NavLink>
+
+            {/* 7. Blog */}
             <NavLink
               to="/blog"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-1.5 rounded-md whitespace-nowrap text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors ${
+                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap ${
                   isActive
-                    ? 'bg-red-50 text-[#A82F19] font-bold'
-                    : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
-              <BookOpen className="w-4 h-4 shrink-0" />
-              <span>Blog</span>
+              Blog
+            </NavLink>
+
+            {/* 8. Contact us */}
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap ${
+                  isActive
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                }`
+              }
+            >
+              Contact
             </NavLink>
           </nav>
 
           {/* Right CTA & Admin Account Menu */}
-          <div className="hidden items-center gap-3 xl:flex shrink-0">
+          <div className="hidden items-center gap-3 lg:flex shrink-0">
+            <a
+              href="tel:+9714800PRINT"
+              className="hidden 2xl:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#A82F19] transition-colors py-1.5 px-2 whitespace-nowrap"
+            >
+              <Phone className="h-3.5 w-3.5 text-[#A82F19]" />
+              <span>+971 4 800 PRINT</span>
+            </a>
+
             {isAuthenticated && isAdmin ? (
               <div className="relative">
                 <button
@@ -485,7 +484,7 @@ export default function SiteHeader() {
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#A82F19] text-white text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
-                  <span className="max-w-[100px] truncate">{user?.name || 'Admin'}</span>
+                  <span className="max-w-[90px] truncate">{user?.name || 'Admin'}</span>
                   <ChevronDown className={`h-3.5 w-3.5 text-slate-500 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -536,10 +535,10 @@ export default function SiteHeader() {
               to="/get-a-quote"
               variant="accent"
               icon={false}
-              className="!px-5 2xl:!px-6 !py-2 text-xs xl:text-sm font-bold shadow-sm shadow-[#A82F19]/20"
+              className="!px-4 xl:!px-5 !py-2 text-xs xl:text-sm font-extrabold shadow-sm shadow-[#A82F19]/25 whitespace-nowrap"
               onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
             >
-              Get a Quote
+              Request a Quote
             </Button>
           </div>
 
@@ -549,7 +548,7 @@ export default function SiteHeader() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
-            className="flex items-center justify-center p-2 text-slate-700 xl:hidden rounded-md border border-slate-200 hover:bg-slate-100 transition-colors"
+            className="flex items-center justify-center p-2 text-slate-700 lg:hidden rounded-lg border border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer"
           >
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -564,7 +563,7 @@ export default function SiteHeader() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="max-h-[calc(100vh-4.5rem)] overflow-y-auto border-b border-slate-200 bg-white shadow-sm xl:hidden"
+            className="max-h-[calc(100vh-4.5rem)] overflow-y-auto border-b border-slate-200 bg-white shadow-sm lg:hidden"
             aria-label="Mobile Navigation"
           >
             <Container className="flex flex-col gap-1 py-4">
@@ -581,7 +580,7 @@ export default function SiteHeader() {
                     <PinterestIcon />
                   </a>
                 </div>
-                <span className="text-xs font-medium text-slate-400">Dubai, UAE</span>
+                <span className="text-xs font-semibold text-slate-500">Al Quoz 3, Dubai</span>
               </div>
 
               {/* Direct links */}
@@ -599,18 +598,6 @@ export default function SiteHeader() {
               </NavLink>
 
               <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
-                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                  }`
-                }
-              >
-                <Info className="w-4 h-4 text-slate-500" />
-                <span>About us</span>
-              </NavLink>
-
-              <NavLink
                 to="/categories"
                 className={({ isActive }) =>
                   `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
@@ -620,30 +607,6 @@ export default function SiteHeader() {
               >
                 <LayoutGrid className="w-4 h-4 text-slate-500" />
                 <span>Categories</span>
-              </NavLink>
-
-              <NavLink
-                to="/products"
-                className={({ isActive }) =>
-                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
-                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                  }`
-                }
-              >
-                <ShoppingBag className="w-4 h-4 text-slate-500" />
-                <span>Products</span>
-              </NavLink>
-
-              <NavLink
-                to="/services"
-                className={({ isActive }) =>
-                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
-                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                  }`
-                }
-              >
-                <Layers className="w-4 h-4 text-slate-500" />
-                <span>Services</span>
               </NavLink>
 
               {/* Accordion: Dynamic database-driven category groups */}
@@ -688,15 +651,51 @@ export default function SiteHeader() {
               ))}
 
               <NavLink
-                to="/contact"
+                to="/products"
                 className={({ isActive }) =>
                   `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
                     isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                   }`
                 }
               >
-                <PhoneCall className="w-4 h-4 text-slate-500" />
-                <span>Contact us</span>
+                <ShoppingBag className="w-4 h-4 text-slate-500" />
+                <span>Products</span>
+              </NavLink>
+
+              <NavLink
+                to="/services"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <Layers className="w-4 h-4 text-slate-500" />
+                <span>Services</span>
+              </NavLink>
+
+              <NavLink
+                to="/portfolio"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <Award className="w-4 h-4 text-slate-500" />
+                <span>Portfolio</span>
+              </NavLink>
+
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <Info className="w-4 h-4 text-slate-500" />
+                <span>About us</span>
               </NavLink>
 
               <NavLink
@@ -712,6 +711,18 @@ export default function SiteHeader() {
               </NavLink>
 
               <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <PhoneCall className="w-4 h-4 text-slate-500" />
+                <span>Contact us</span>
+              </NavLink>
+
+              <NavLink
                 to="/track-order"
                 className={({ isActive }) =>
                   `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
@@ -724,18 +735,26 @@ export default function SiteHeader() {
               </NavLink>
 
               {/* Mobile CTA */}
-              <div className="mt-3 pt-3 border-t border-slate-200">
+              <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
+                <a
+                  href="tel:+9714800PRINT"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white py-2.5 text-xs font-bold text-slate-800 shadow-xs active:bg-slate-50"
+                >
+                  <Phone className="h-4 w-4 text-[#A82F19]" />
+                  <span>Call Dubai Press: +971 4 800 PRINT</span>
+                </a>
+
                 <Button
                   to="/get-a-quote"
                   variant="accent"
                   icon={false}
-                  className="w-full justify-center !py-2.5 shadow-sm shadow-[#A82F19]/20"
+                  className="w-full justify-center !py-2.5 shadow-sm shadow-[#A82F19]/25 font-bold"
                   onClick={() => {
                     setMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
                 >
-                  Get a Quote
+                  Request a Quote
                 </Button>
               </div>
             </Container>

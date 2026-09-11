@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useParams } from 'react-router-dom'
 import PublicLayout from './layouts/PublicLayout'
 import GoogleAnalytics from './components/GoogleAnalytics'
 
@@ -24,6 +24,16 @@ const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'))
 const TermsPage = lazy(() => import('./pages/public/TermsPage'))
 const ProgrammaticLandingPage = lazy(() => import('./pages/public/ProgrammaticLandingPage'))
 const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
+
+function CategoryRouteRedirect() {
+  const { slug } = useParams()
+  return <Navigate to={`/categories/${slug}`} replace />
+}
+
+function ProductRouteRedirect() {
+  const { slug } = useParams()
+  return <Navigate to={`/products/${slug}`} replace />
+}
 
 // Lazy load admin section and layouts to dramatically improve initial page load performance
 const AdminLayout = lazy(() => import('./layouts/AdminLayout'))
@@ -72,8 +82,10 @@ function App() {
             <Route path="/printing-solutions/:slug" element={<ProgrammaticLandingPage />} />
             <Route path="/categories" element={<CategoriesPage />} />
             <Route path="/categories/:slug" element={<CategoryDetailPage />} />
+            <Route path="/category/:slug" element={<CategoryRouteRedirect />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:slug" element={<ProductDetailPage />} />
+            <Route path="/product/:slug" element={<ProductRouteRedirect />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />

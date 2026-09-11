@@ -7,6 +7,7 @@ const morgan = require('morgan')
 const compression = require('compression')
 const { pool, testConnection } = require('./config/database')
 const { notFound, errorHandler } = require('./middleware/errorHandler')
+const pageSeoService = require('./services/pageSeoService')
 
 const authRoutes = require('./routes/authRoutes')
 const categoryRoutes = require('./routes/categoryRoutes')
@@ -23,6 +24,78 @@ const seoRoutes = require('./routes/seoRoutes')
 const { getRobotsTxt, getSitemapXml, getLlmsTxt, getAdsTxt } = require('./controllers/seoController')
 
 const CLIENT_DIST = path.join(__dirname, '..', 'dist')
+
+function escapeHtml(value = '') {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
+function absoluteSeoUrl(value, siteUrl) {
+  if (!value) return `${siteUrl}/logo_icon.png`
+  return value.startsWith('http') ? value : `${siteUrl}${value.startsWith('/') ? value : `/${value}`}`
+}
+
+function replaceMeta(html, attribute, name, content) {
+  if (!content) return html
+  const escapedContent = escapeHtml(content)
+  const pattern = new RegExp(`<meta\\s+${attribute}=["']${name}["'][^>]*>`, 'i')
+  const replacement = `<meta ${attribute}="${name}" content="${escapedContent}" />`
+  return pattern.test(html) ? html.replace(pattern, replacement) : html.replace('</head>', `    ${replacement}\n  </head>`)
+}
+
+async function renderSeoShell(requestPath) {
+  const indexPath = path.join(CLIENT_DIST, 'index.html')
+  const html = await fs.promises.readFile(indexPath, 'utf8')
+  const siteUrl = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+
+  let seo
+  try {
+    seo = await pageSeoService.getPageByUrl(requestPath)
+  } catch (error) {
+    console.warn('[SEO] Server shell metadata lookup warning:', error.message)
+  }
+
+  if (!seo) return html
+
+  const title = seo.meta_title || 'Printing Company in Dubai | ONPRINT'
+  const description = seo.meta_description || ''
+  const canonical = seo.canonical_url || `${siteUrl}${requestPath === '/' ? '' : requestPath}`
+  const ogImage = absoluteSeoUrl(seo.og_image, siteUrl)
+  const twitterImage = absoluteSeoUrl(seo.twitter_image || seo.og_image, siteUrl)
+  const robots = `${seo.robots_index || 'index'}, ${seo.robots_follow || 'follow'}, max-image-preview:large`
+
+  let rendered = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(title)}</title>`)
+  rendered = replaceMeta(rendered, 'name', 'description', description)
+  rendered = replaceMeta(rendered, 'name', 'keywords', [seo.focus_keyword, seo.secondary_keywords].filter(Boolean).join(', '))
+  rendered = replaceMeta(rendered, 'name', 'robots', robots)
+  rendered = replaceMeta(rendered, 'property', 'og:title', seo.og_title || title)
+  rendered = replaceMeta(rendered, 'property', 'og:description', seo.og_description || description)
+  rendered = replaceMeta(rendered, 'property', 'og:image', ogImage)
+  rendered = replaceMeta(rendered, 'property', 'og:url', canonical)
+  rendered = replaceMeta(rendered, 'name', 'twitter:title', seo.twitter_title || title)
+  rendered = replaceMeta(rendered, 'name', 'twitter:description', seo.twitter_description || description)
+  rendered = replaceMeta(rendered, 'name', 'twitter:image', twitterImage)
+
+  const canonicalTag = `<link rel="canonical" href="${escapeHtml(canonical)}" />`
+  rendered = /<link\s+rel=["']canonical["'][^>]*>/i.test(rendered)
+    ? rendered.replace(/<link\s+rel=["']canonical["'][^>]*>/i, canonicalTag)
+    : rendered.replace('</head>', `    ${canonicalTag}\n  </head>`)
+
+  if (seo.schema_markup) {
+    try {
+      const schemaMarkup = JSON.stringify(JSON.parse(seo.schema_markup))
+      rendered = rendered.replace('</head>', `    <script type="application/ld+json">${schemaMarkup}</script>\n  </head>`)
+    } catch {
+      // Ignore invalid stored schema; the client-side SEO layer also rejects it.
+    }
+  }
+
+  return rendered
+}
 
 function createApp() {
   const app = express()
@@ -163,9 +236,14 @@ function createApp() {
         },
       })
     )
-    app.get(/^(?!\/api).*/, (req, res) => {
+    app.get(/^(?!\/api).*/, async (req, res, next) => {
       res.setHeader('Cache-Control', 'no-cache, must-revalidate')
-      res.sendFile(path.join(CLIENT_DIST, 'index.html'))
+      try {
+        const renderedShell = await renderSeoShell(req.path)
+        res.type('html').send(renderedShell)
+      } catch (error) {
+        next(error)
+      }
     })
   }
 

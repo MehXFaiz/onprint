@@ -225,26 +225,31 @@ export default function SEOHead({
         : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`
       : DEFAULT_IMAGE)
 
+  const normalizeImageUrl = (image) => {
+    if (!image) return DEFAULT_IMAGE
+    return image.startsWith('http') ? image : `${SITE_URL}${image.startsWith('/') ? image : `/${image}`}`
+  }
+
   // Resolve Robots Directives
   let robotsDirective = 'index, follow, max-image-preview:large'
-  if (dbSeo) {
+  if (noindex) {
+    robotsDirective = 'noindex, nofollow'
+  } else if (dbSeo) {
     const idx = dbSeo.robots_index || 'index'
     const fol = dbSeo.robots_follow || 'follow'
     robotsDirective = `${idx}, ${fol}`
     if (idx === 'index') robotsDirective += ', max-image-preview:large'
-  } else if (noindex) {
-    robotsDirective = 'noindex, nofollow'
   }
 
   // Open Graph Values
   const ogTitle = dbSeo?.og_title || fullTitle
   const ogDescription = dbSeo?.og_description || metaDesc
-  const ogImg = dbSeo?.og_image || effectiveImage
+  const ogImg = normalizeImageUrl(dbSeo?.og_image || effectiveImage)
 
   // Twitter Card Values
   const twitterTitle = dbSeo?.twitter_title || dbSeo?.og_title || fullTitle
   const twitterDescription = dbSeo?.twitter_description || dbSeo?.og_description || metaDesc
-  const twitterImg = dbSeo?.twitter_image || dbSeo?.og_image || effectiveImage
+  const twitterImg = normalizeImageUrl(dbSeo?.twitter_image || dbSeo?.og_image || effectiveImage)
 
   useEffect(() => {
     // 1. Update Document Title
@@ -308,31 +313,32 @@ export default function SEOHead({
 
     // 9. Product Schema
     if (product) {
-      const productImage = product.images?.[0] || product.image || DEFAULT_IMAGE
+      const productImage = product.images?.[0]?.url || product.images?.[0] || product.image || DEFAULT_IMAGE
       const productSchema = {
         '@context': 'https://schema.org',
         '@type': 'Product',
         name: product.name,
         description: product.description || product.shortDescription || metaDesc,
-        image: productImage.startsWith('http') ? productImage : `${SITE_URL}${productImage.startsWith('/') ? productImage : `/${productImage}`}`,
+        image: normalizeImageUrl(productImage),
         sku: product.product_key || `ONP-${product.id || '001'}`,
         brand: {
           '@type': 'Brand',
           name: 'ONPRINT',
         },
-        offers: {
-          '@type': 'Offer',
-          url: effectiveCanonical,
-          priceCurrency: 'AED',
-          price: (product.price || 50).toFixed(2),
-          priceValidUntil: '2027-12-31',
-          availability: 'https://schema.org/InStock',
-          itemCondition: 'https://schema.org/NewCondition',
-          seller: {
-            '@type': 'Organization',
-            name: 'ONPRINT Dubai',
-          },
-        },
+        ...(product.price !== null && product.price !== undefined && Number(product.price) > 0
+          ? {
+              offers: {
+                '@type': 'Offer',
+                url: effectiveCanonical,
+                priceCurrency: product.currency || 'AED',
+                price: Number(product.price).toFixed(2),
+                seller: {
+                  '@type': 'Organization',
+                  name: 'ONPRINT Dubai',
+                },
+              },
+            }
+          : {}),
       }
       setStructuredDataScript('onprint-schema-product', productSchema)
     } else {

@@ -26,6 +26,8 @@ Allow: /services
 Allow: /services/
 Allow: /products
 Allow: /products/
+Allow: /categories
+Allow: /categories/
 Allow: /portfolio
 Allow: /portfolio/
 Allow: /blog
@@ -361,11 +363,14 @@ async function getSitemapXml(req, res) {
       console.warn('[Sitemap] Programmatic pages inclusion note:', progErr.message)
     }
 
+    // Remove duplicates collected from page_seo and live entity tables.
+    const uniqueUrls = Array.from(new Map(urls.map((entry) => [entry.loc, entry])).values())
+
     // Format XML with strict validation & XML entity escaping
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`
     xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
 
-    urls.forEach((u) => {
+    uniqueUrls.forEach((u) => {
       xml += `  <url>\n`
       xml += `    <loc>${escapeXml(u.loc)}</loc>\n`
       xml += `    <lastmod>${escapeXml(u.lastmod)}</lastmod>\n`

@@ -76,7 +76,7 @@ async function listCategories(req, res, next) {
       seoDescription: c.seoDescription || c.description || '',
       seoKeywords: c.seoKeywords || '',
       seoHeading: c.seoHeading || c.name,
-      canonicalUrl: c.canonicalUrl || `https://0nprint.com/products?category=${c.slug}`,
+      canonicalUrl: c.canonicalUrl || `https://0nprint.com/categories/${c.slug}`,
       imageAlt: c.imageAlt || c.name,
       createdAt: c.createdAt,
       updatedAt: c.updatedAt,
@@ -131,7 +131,7 @@ async function getCategoryById(req, res, next) {
       seoDescription: c.seoDescription || c.description || '',
       seoKeywords: c.seoKeywords || '',
       seoHeading: c.seoHeading || c.name,
-      canonicalUrl: c.canonicalUrl || `https://0nprint.com/products?category=${c.slug}`,
+      canonicalUrl: c.canonicalUrl || `https://0nprint.com/categories/${c.slug}`,
       imageAlt: c.imageAlt || c.name,
       createdAt: c.createdAt,
       updatedAt: c.updatedAt,
@@ -194,7 +194,7 @@ async function createCategory(req, res, next) {
         seoKeywords || null,
         seoHeading || name,
         imageAlt || name,
-        `https://0nprint.com/products?category=${cleanSlug}`,
+        `https://0nprint.com/categories/${cleanSlug}`,
       ]
     )
 
@@ -216,7 +216,7 @@ async function createCategory(req, res, next) {
       seoKeywords,
       seoHeading: seoHeading || name,
       imageAlt: imageAlt || name,
-      canonicalUrl: `https://0nprint.com/products?category=${cleanSlug}`,
+      canonicalUrl: `https://0nprint.com/categories/${cleanSlug}`,
       active: Boolean(isActive),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -302,7 +302,7 @@ async function updateCategory(req, res, next) {
         seoKeywords || null,
         seoHeading || name,
         imageAlt || name,
-        `https://0nprint.com/products?category=${cleanSlug}`,
+        `https://0nprint.com/categories/${cleanSlug}`,
         id,
         id,
         id,
@@ -342,7 +342,7 @@ async function updateCategory(req, res, next) {
       seoKeywords,
       seoHeading: seoHeading || name,
       imageAlt: imageAlt || name,
-      canonicalUrl: `https://0nprint.com/products?category=${cleanSlug}`,
+      canonicalUrl: `https://0nprint.com/categories/${cleanSlug}`,
       active: Boolean(isActive),
       updatedAt: new Date().toISOString(),
     }

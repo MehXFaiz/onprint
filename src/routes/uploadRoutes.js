@@ -3,6 +3,7 @@ const fs = require('fs')
 const express = require('express')
 const multer = require('multer')
 const ApiError = require('../utils/ApiError')
+const { authenticateToken, requireAdmin } = require('../middleware/auth')
 
 const router = express.Router()
 
@@ -86,6 +87,8 @@ function handleMulterUpload(uploadMiddleware) {
 // Single Image Upload Endpoint
 router.post(
   '/image',
+  authenticateToken,
+  requireAdmin,
   handleMulterUpload(upload.single('file')),
   async (req, res, next) => {
     try {
@@ -125,6 +128,8 @@ router.post(
 // Multiple Image Upload Endpoint (Up to 10 files)
 router.post(
   '/images',
+  authenticateToken,
+  requireAdmin,
   handleMulterUpload(upload.array('files', 10)),
   async (req, res, next) => {
     try {

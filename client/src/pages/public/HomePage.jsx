@@ -124,7 +124,7 @@ export default function HomePage() {
       <SEOHead
         title="Printing Company in Dubai | ONPRINT – Printing & Branding Solutions"
         description="ONPRINT is Dubai’s premier printing company. Precision digital & offset printing, corporate gifts, business cards, office stationery, packaging, and large-format signage in UAE."
-        keywords="printing company in dubai, printing services dubai, digital printing dubai, commercial printing dubai, custom printing dubai, corporate gifts dubai, business cards dubai"
+        keywords="printing company in dubai, commercial printing dubai, digital printing dubai, business card printing dubai, brochure printing dubai, sticker printing dubai, custom packaging dubai, banner printing dubai, corporate gifts dubai"
         canonicalPath="/"
         faqList={homeFaqs}
       />

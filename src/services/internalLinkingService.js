@@ -152,6 +152,8 @@ class InternalLinkingService {
       `professional ${name.toLowerCase()} options`,
       `custom ${name.toLowerCase()} solutions`,
       `view ${name.toLowerCase()} portfolio and specifications`,
+      `learn more about ${name.toLowerCase()}`,
+      `compare ${name.toLowerCase()} finishes and formats`,
     ]
     const hash = (target.slug || name).length % variations.length
     return variations[hash]

@@ -28,7 +28,8 @@ import velvetFoilBusinessCardImg from './products/card-velvet-foil.jpg'
 import paintedEdgeBusinessCardImg from './products/card-painted-edge.jpg'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
-const letterheadImg = '/uploads/categories/letterheads-printing-dubai.jpg'
+const penPrintingImg = '/uploads/categories/letterheads-printing-dubai.jpg'
+const letterheadImg = '/assets/products/letterhead-printing.svg'
 const standardBusinessCardImg = '/assets/products/business-card-standard.svg'
 
 export const productImages = {
@@ -107,8 +108,8 @@ export const productSlugImageMap = {
   't-shirt-printing-dubai': img3,
   'cap-printing-dubai': img4,
   'notebook-printing': img5,
-  'pens-printing': letterheadImg,
-  'pen-printing': letterheadImg,
+  'pens-printing': penPrintingImg,
+  'pen-printing': penPrintingImg,
 }
 
 /** Map category slugs → best matching hero image */
@@ -148,7 +149,7 @@ const slugKeywordImageMap = [
   [['flag', 'beach flag', 'teardrop', 'feather flag'], flagsImg],
   [['sticker', 'label', 'die-cut', 'vinyl'], stickersImg],
   [['notebook', 'diary', 'notepad'], img5],
-  [['pen', 'pencil', 'marker'], letterheadImg],
+  [['pen', 'pencil', 'marker'], penPrintingImg],
   [['t-shirt', 'tshirt', 'shirt', 'apparel', 'hoodie'], img3],
   [['cap', 'hat', 'headwear'], img4],
   [['mouse pad', 'mousepad', 'desk mat'], img2],

@@ -94,7 +94,8 @@ const homeFaqs = [
 export default function HomePage() {
   const [services, setServices] = useState(null)
   const [categories, setCategories] = useState(null)
-  const [products, setProducts] = useState(null)
+  const [allProducts, setAllProducts] = useState(null)
+  const [featuredProducts, setFeaturedProducts] = useState(null)
   const [blogs, setBlogs] = useState([])
   const [quickViewProduct, setQuickViewProduct] = useState(null)
 
@@ -109,9 +110,17 @@ export default function HomePage() {
       .then((data) => setCategories(data || []))
       .catch(() => setCategories([]))
 
-    getProducts({ featured: true })
-      .then((res) => setProducts(res.data.slice(0, 4)))
-      .catch(() => setProducts([]))
+    getProducts()
+      .then((res) => {
+        const list = res?.data || []
+        setAllProducts(list)
+        const feat = list.filter((p) => p.featured)
+        setFeaturedProducts(feat.length > 0 ? feat.slice(0, 4) : list.slice(0, 4))
+      })
+      .catch(() => {
+        setAllProducts([])
+        setFeaturedProducts([])
+      })
 
     getPublicBlogs({ limit: 3, sort: 'newest' })
       .then((res) => setBlogs(res?.data || []))
@@ -411,7 +420,7 @@ export default function HomePage() {
       {/* 5. Main Product Showcase Sections */}
       <ProductSectionsShowcase
         categories={categories}
-        products={products}
+        products={allProducts}
         onQuickView={setQuickViewProduct}
       />
 
@@ -437,10 +446,10 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12">
-            {products === null && <LoadingState type="cards" columns={4} count={4} label="Loading product catalog…" />}
-            {products && products.length > 0 && (
+            {featuredProducts === null && <LoadingState type="cards" columns={4} count={4} label="Loading product catalog…" />}
+            {featuredProducts && featuredProducts.length > 0 && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {products.map((product) => (
+                {featuredProducts.map((product) => (
                   <ProductCard key={product._id} product={product} onQuickView={setQuickViewProduct} />
                 ))}
               </div>

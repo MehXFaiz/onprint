@@ -23,12 +23,12 @@ import img10 from './products/1 (10).jpg'
 import img11 from './products/1 (11).jpg'
 import img12 from './products/1 (12).jpg'
 import img13 from './products/1 (13).jpg'
+import softTouchBusinessCardImg from './products/card-soft-touch.jpg'
+import velvetFoilBusinessCardImg from './products/card-velvet-foil.jpg'
+import paintedEdgeBusinessCardImg from './products/card-painted-edge.jpg'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
 const standardBusinessCardImg = '/assets/products/business-card-standard.svg'
-const softTouchBusinessCardImg = '/assets/products/business-card-soft-touch.svg'
-const velvetFoilBusinessCardImg = '/assets/products/business-card-velvet-foil.svg'
-const paintedEdgeBusinessCardImg = '/assets/products/business-card-painted-edge.svg'
 
 export const productImages = {
   toteBags: toteBagsImg,
@@ -43,6 +43,9 @@ export const productImages = {
   flags: flagsImg,
   stickers: stickersImg,
   namePlates: namePlatesImg,
+  softTouchCard: softTouchBusinessCardImg,
+  velvetFoilCard: velvetFoilBusinessCardImg,
+  paintedEdgeCard: paintedEdgeBusinessCardImg,
 }
 
 export const productSlugImageMap = {
@@ -64,10 +67,13 @@ export const productSlugImageMap = {
   'personalized-water-bottles': bottlesImg,
   'custom-printed-mugs': mugsImg,
   'premium-business-cards': businessCardsImg,
-  'standard-business-cards': standardBusinessCardImg,
+  'standard-business-cards': businessCardsImg,
   'premium-soft-touch-business-cards': softTouchBusinessCardImg,
+  'soft-touch-business-cards': softTouchBusinessCardImg,
   'velvet-foil-business-cards': velvetFoilBusinessCardImg,
+  'luxury-velvet-business-cards': velvetFoilBusinessCardImg,
   'luxury-painted-edge-business-cards': paintedEdgeBusinessCardImg,
+  'painted-edge-business-cards': paintedEdgeBusinessCardImg,
   'acrylic-nameplates': namePlatesImg,
   'roll-up-banners': rollupImg,
   'beach-flags': flagsImg,
@@ -122,6 +128,9 @@ export const categorySlugImageMap = {
  * Used as last-resort before the generic placeholder.
  */
 const slugKeywordImageMap = [
+  [['painted edge', 'painted-edge', 'painted-edges', 'painted edges'], paintedEdgeBusinessCardImg],
+  [['velvet foil', 'velvet-foil', 'foil card', 'gold foil card'], velvetFoilBusinessCardImg],
+  [['soft touch', 'soft-touch'], softTouchBusinessCardImg],
   [['mug', 'cup', 'flask', 'tumbler'], mugsImg],
   [['bottle', 'water bottle'], bottlesImg],
   [['tote', 'shopper', 'bag'], toteBagsImg],
@@ -147,30 +156,59 @@ const slugKeywordImageMap = [
 export function getProductImage(product) {
   if (!product) return img1
 
-  // 1. Prefer explicit URL already on the product (from DB upload)
-  //    Skip the generic DB default placeholder image
+  // 1. If product slug has an exact match in productSlugImageMap, check if it's a dedicated image
+  if (product.slug && productSlugImageMap[product.slug]) {
+    const slugImg = productSlugImageMap[product.slug]
+    const rawImg = product.image_url || product.image || (product.images && product.images[0])
+    // If rawImg is empty, placeholder, SVG, or generic category hero, return dedicated slug image
+    if (
+      !rawImg ||
+      rawImg === businessCardsImg ||
+      (typeof rawImg === 'string' && (
+        rawImg.includes('business-cards-printing.jpg') ||
+        rawImg.includes('1 (1).jpg') ||
+        rawImg.includes('1%20(1).jpg') ||
+        rawImg.includes('/assets/products/1 (') ||
+        rawImg.endsWith('.svg')
+      ))
+    ) {
+      return slugImg
+    }
+  }
+
+  // 2. Prefer explicit URL already on the product (from DB upload)
+  //    Skip generic DB default placeholder images, duplicate category images for specific cards, or old SVGs
   const rawImg = product.image_url || product.image || (product.images && product.images[0])
   if (
     typeof rawImg === 'string' &&
     rawImg.trim() !== '' &&
     !rawImg.includes('1 (1).jpg') &&
     !rawImg.includes('1%20(1).jpg') &&
-    !rawImg.includes('/assets/products/1 (')
+    !rawImg.includes('/assets/products/1 (') &&
+    !rawImg.endsWith('.svg')
   ) {
     return rawImg
   }
 
-  // 2. Explicit imageKey set on product object
+  // 3. Explicit imageKey set on product object
   if (product.imageKey && productImages[product.imageKey]) {
     return productImages[product.imageKey]
   }
 
-  // 3. Product slug exact match
+  // 4. Product slug exact match
   if (product.slug && productSlugImageMap[product.slug]) {
     return productSlugImageMap[product.slug]
   }
 
-  // 4. Category slug exact match
+  // 5. Keyword-in-slug/name fuzzy match (e.g. "painted edge", "velvet foil", "soft touch")
+  const combinedText = `${product.slug || ''} ${product.name || ''}`.toLowerCase()
+  for (const [keywords, img] of slugKeywordImageMap) {
+    if (keywords.some((kw) => combinedText.includes(kw))) {
+      return img
+    }
+  }
+
+  // 6. Category slug exact match
   const catSlug =
     (typeof product.category === 'object' ? product.category?.slug : null) ||
     product.categorySlug ||
@@ -179,14 +217,6 @@ export function getProductImage(product) {
     return categorySlugImageMap[catSlug]
   }
 
-  // 5. Keyword-in-slug/name fuzzy match
-  const combinedText = `${product.slug || ''} ${product.name || ''}`.toLowerCase()
-  for (const [keywords, img] of slugKeywordImageMap) {
-    if (keywords.some((kw) => combinedText.includes(kw))) {
-      return img
-    }
-  }
-
-  // 6. Absolute last resort — generic image
+  // 7. Absolute last resort — generic image
   return img1
 }

@@ -28,6 +28,7 @@ import velvetFoilBusinessCardImg from './products/card-velvet-foil.jpg'
 import paintedEdgeBusinessCardImg from './products/card-painted-edge.jpg'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
+const letterheadImg = '/uploads/categories/letterheads-printing-dubai.jpg'
 const standardBusinessCardImg = '/assets/products/business-card-standard.svg'
 
 export const productImages = {
@@ -58,8 +59,8 @@ export const productSlugImageMap = {
   'flyers-printing-dubai': flyersImg,
   'id-card-printing-dubai': idCardsImg,
   'lanyard-printing-dubai': badgesImg,
-  'letterheads-printing-dubai': img11,
-  'letterhead-printing-dubai': img11,
+  'letterheads-printing-dubai': letterheadImg,
+  'letterhead-printing-dubai': letterheadImg,
   'name-badges-printing-dubai': badgesImg,
   'digital-offset-printing': flyersImg,
   'luxury-packaging-custom-boxes': img5,
@@ -106,7 +107,8 @@ export const productSlugImageMap = {
   't-shirt-printing-dubai': img3,
   'cap-printing-dubai': img4,
   'notebook-printing': img5,
-  'pens-printing': img6,
+  'pens-printing': letterheadImg,
+  'pen-printing': letterheadImg,
 }
 
 /** Map category slugs → best matching hero image */
@@ -116,7 +118,7 @@ export const categorySlugImageMap = {
   'flyers-printing-in-dubai': flyersImg,
   'id-card-printing-dubai': idCardsImg,
   'lanyard-printing-dubai': badgesImg,
-  'letterheads-printing-dubai': businessCardsImg,
+  'letterheads-printing-dubai': letterheadImg,
   'name-badges-printing-dubai': badgesImg,
   'corporate-gift-items': mugsImg,
   'office-stationery-printing': businessCardsImg,
@@ -141,12 +143,12 @@ const slugKeywordImageMap = [
   [['name plate', 'nameplate', 'name-plate', 'door sign'], namePlatesImg],
   [['id card', 'id-card', 'pvc card', 'employee card'], idCardsImg],
   [['lanyard', 'neck strap'], badgesImg],
-  [['letterhead', 'business card', 'visiting card', 'stationery'], businessCardsImg],
+  [['letterhead', 'business card', 'visiting card', 'stationery'], letterheadImg],
   [['roll-up', 'rollup', 'banner', 'pull-up', 'backdrop'], rollupImg],
   [['flag', 'beach flag', 'teardrop', 'feather flag'], flagsImg],
   [['sticker', 'label', 'die-cut', 'vinyl'], stickersImg],
   [['notebook', 'diary', 'notepad'], img5],
-  [['pen', 'pencil', 'marker'], img6],
+  [['pen', 'pencil', 'marker'], letterheadImg],
   [['t-shirt', 'tshirt', 'shirt', 'apparel', 'hoodie'], img3],
   [['cap', 'hat', 'headwear'], img4],
   [['mouse pad', 'mousepad', 'desk mat'], img2],

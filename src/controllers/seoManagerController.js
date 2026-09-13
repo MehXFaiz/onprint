@@ -846,6 +846,133 @@ class SeoManagerController {
       res.status(500).json({ success: false, message: err.message })
     }
   }
+
+  async getKeywordTargets(req, res) {
+    try {
+      const { cluster, intent, priority, status, search, limit = 100, offset = 0 } = req.query
+      const filters = []
+      const params = []
+      if (cluster) { filters.push('cluster = ?'); params.push(cluster) }
+      if (intent) { filters.push('search_intent = ?'); params.push(intent) }
+      if (priority) { filters.push('priority = ?'); params.push(priority) }
+      if (status) { filters.push('status = ?'); params.push(status) }
+      if (search) { filters.push('(keyword LIKE ? OR target_page LIKE ?)'); params.push(`%${search}%`, `%${search}%`) }
+      const where = filters.length ? `WHERE ${filters.join(' AND ')}` : ''
+      const [rows] = await pool.query(`SELECT * FROM seo_keywords ${where} ORDER BY FIELD(priority, 'High', 'Medium', 'Low'), keyword ASC LIMIT ? OFFSET ?`, [...params, Number(limit), Number(offset)])
+      const [countRows] = await pool.query(`SELECT COUNT(*) AS total FROM seo_keywords ${where}`, params)
+      res.json({ success: true, data: { items: rows, total: countRows[0]?.total || 0 } })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  async createKeywordTarget(req, res) {
+    try {
+      const data = req.body || {}
+      if (!data.keyword || !data.cluster) return res.status(400).json({ success: false, message: 'keyword and cluster are required.' })
+      const [result] = await pool.query(
+        `INSERT INTO seo_keywords (keyword, keyword_type, search_intent, cluster, target_url, target_page, priority, status, notes, content_type, assigned_page)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [data.keyword.trim(), data.keyword_type || 'primary', data.search_intent || 'Commercial', data.cluster.trim(), data.target_url || null, data.target_page || null, data.priority || 'Medium', data.status || 'Planned', data.notes || null, data.content_type || null, data.assigned_page || null]
+      )
+      const [rows] = await pool.query('SELECT * FROM seo_keywords WHERE id = ?', [result.insertId])
+      res.status(201).json({ success: true, data: rows[0] })
+    } catch (err) {
+      res.status(err.code === 'ER_DUP_ENTRY' ? 409 : 500).json({ success: false, message: err.code === 'ER_DUP_ENTRY' ? 'This keyword already exists.' : err.message })
+    }
+  }
+
+  async updateKeywordTarget(req, res) { return this.updateSeoRecord(req, res, 'seo_keywords', 'keyword') }
+  async deleteKeywordTarget(req, res) { return this.deleteSeoRecord(req, res, 'seo_keywords') }
+
+  async getBacklinks(req, res) {
+    try {
+      const allowed = new Set(['new', 'lost', 'active', 'needs_review', 'nofollow', 'follow', 'high', 'low', 'relevant'])
+      const filter = String(req.query.filter || '').toLowerCase()
+      let where = ''
+      const params = []
+      if (allowed.has(filter)) {
+        if (['nofollow', 'follow'].includes(filter)) { where = 'WHERE link_type = ?'; params.push(filter) }
+        else if (['high', 'low'].includes(filter)) { where = 'WHERE authority ' + (filter === 'high' ? '>=' : '<') + ' 50' }
+        else if (filter === 'relevant') { where = "WHERE relevance = 'high'" }
+        else { where = 'WHERE status = ?'; params.push(filter) }
+      }
+      const [items] = await pool.query(`SELECT * FROM seo_backlinks ${where} ORDER BY COALESCE(last_checked_at, created_at) DESC`, params)
+      const [summaryRows] = await pool.query(`SELECT COUNT(*) AS total, COUNT(DISTINCT linking_domain) AS referring_domains, SUM(status = 'new') AS new_backlinks, SUM(status = 'lost') AS lost_backlinks, SUM(link_type = 'follow') AS follow_links, SUM(link_type = 'nofollow') AS nofollow_links FROM seo_backlinks`)
+      res.json({ success: true, data: { items, summary: summaryRows[0] || {} } })
+    } catch (err) { res.status(500).json({ success: false, message: err.message }) }
+  }
+
+  async createBacklink(req, res) { return this.createSeoRecord(req, res, 'seo_backlinks', ['linking_domain', 'linking_url', 'target_url']) }
+  async updateBacklink(req, res) { return this.updateSeoRecord(req, res, 'seo_backlinks', 'linking_domain') }
+  async deleteBacklink(req, res) { return this.deleteSeoRecord(req, res, 'seo_backlinks') }
+
+  async getOutreach(req, res) {
+    try {
+      const params = []
+      const where = req.query.status ? 'WHERE outreach_status = ?' : ''
+      if (req.query.status) params.push(req.query.status)
+      const [items] = await pool.query(`SELECT * FROM seo_outreach_prospects ${where} ORDER BY updated_at DESC`, params)
+      res.json({ success: true, data: items })
+    } catch (err) { res.status(500).json({ success: false, message: err.message }) }
+  }
+
+  async createOutreach(req, res) { return this.createSeoRecord(req, res, 'seo_outreach_prospects', ['website_domain']) }
+  async updateOutreach(req, res) { return this.updateSeoRecord(req, res, 'seo_outreach_prospects', 'website_domain') }
+  async deleteOutreach(req, res) { return this.deleteSeoRecord(req, res, 'seo_outreach_prospects') }
+
+  async getCompetitorRecords(req, res) {
+    try {
+      const [items] = await pool.query('SELECT * FROM seo_competitor_records ORDER BY updated_at DESC')
+      res.json({ success: true, data: items })
+    } catch (err) { res.status(500).json({ success: false, message: err.message }) }
+  }
+
+  async createCompetitorRecord(req, res) { return this.createSeoRecord(req, res, 'seo_competitor_records', ['competitor_name', 'record_type']) }
+
+  async createSeoRecord(req, res, table, requiredFields) {
+    try {
+      const data = req.body || {}
+      const missing = requiredFields.find((field) => !data[field])
+      if (missing) return res.status(400).json({ success: false, message: `${missing} is required.` })
+      const fieldsByTable = {
+        seo_backlinks: ['linking_domain', 'linking_url', 'target_url', 'anchor_text', 'link_type', 'status', 'authority', 'relevance', 'toxic_risk', 'first_discovered_at', 'last_checked_at', 'notes'],
+        seo_outreach_prospects: ['website_domain', 'contact_name', 'contact_email', 'website_category', 'relevance', 'authority', 'outreach_status', 'date_contacted', 'follow_up_date', 'response', 'link_obtained', 'target_url', 'anchor_text', 'notes'],
+        seo_competitor_records: ['competitor_name', 'competitor_url', 'record_type', 'keyword', 'source_url', 'notes'],
+      }
+      const fields = fieldsByTable[table]
+      const values = fields.map((field) => data[field] === undefined ? null : data[field])
+      const [result] = await pool.query(`INSERT INTO ${table} (${fields.join(', ')}) VALUES (${fields.map(() => '?').join(', ')})`, values)
+      const [rows] = await pool.query(`SELECT * FROM ${table} WHERE id = ?`, [result.insertId])
+      res.status(201).json({ success: true, data: rows[0] })
+    } catch (err) { res.status(500).json({ success: false, message: err.message }) }
+  }
+
+  async updateSeoRecord(req, res, table, requiredField) {
+    try {
+      const fieldsByTable = {
+        seo_keywords: ['keyword', 'keyword_type', 'search_intent', 'cluster', 'target_url', 'target_page', 'priority', 'status', 'notes', 'content_type', 'assigned_page'],
+        seo_backlinks: ['linking_domain', 'linking_url', 'target_url', 'anchor_text', 'link_type', 'status', 'authority', 'relevance', 'toxic_risk', 'first_discovered_at', 'last_checked_at', 'notes'],
+        seo_outreach_prospects: ['website_domain', 'contact_name', 'contact_email', 'website_category', 'relevance', 'authority', 'outreach_status', 'date_contacted', 'follow_up_date', 'response', 'link_obtained', 'target_url', 'anchor_text', 'notes'],
+      }
+      const fields = fieldsByTable[table]
+      const updates = fields.filter((field) => req.body?.[field] !== undefined)
+      if (updates.length === 0) return res.status(400).json({ success: false, message: 'No editable fields supplied.' })
+      const values = updates.map((field) => req.body[field])
+      await pool.query(`UPDATE ${table} SET ${updates.map((field) => `${field} = ?`).join(', ')} WHERE id = ?`, [...values, req.params.id])
+      const [rows] = await pool.query(`SELECT * FROM ${table} WHERE id = ?`, [req.params.id])
+      if (!rows.length) return res.status(404).json({ success: false, message: 'Record not found.' })
+      res.json({ success: true, data: rows[0] })
+    } catch (err) { res.status(500).json({ success: false, message: err.message }) }
+  }
+
+  async deleteSeoRecord(req, res, table) {
+    try {
+      const [result] = await pool.query(`DELETE FROM ${table} WHERE id = ?`, [req.params.id])
+      if (!result.affectedRows) return res.status(404).json({ success: false, message: 'Record not found.' })
+      res.json({ success: true, message: 'Record deleted.' })
+    } catch (err) { res.status(500).json({ success: false, message: err.message }) }
+  }
 }
 
 module.exports = new SeoManagerController()

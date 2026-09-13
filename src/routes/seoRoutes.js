@@ -104,6 +104,22 @@ router.get('/reports/:date', (req, res) => seoManagerController.getDailyReportBy
 
 // Keywords & Queries
 router.get('/keywords', (req, res) => seoManagerController.getKeywords(req, res))
+router.get('/keyword-targets', (req, res) => seoManagerController.getKeywordTargets(req, res))
+router.post('/keyword-targets', (req, res) => seoManagerController.createKeywordTarget(req, res))
+router.put('/keyword-targets/:id', (req, res) => seoManagerController.updateKeywordTarget(req, res))
+router.delete('/keyword-targets/:id', (req, res) => seoManagerController.deleteKeywordTarget(req, res))
+
+// Backlink records and manual outreach CRM. These endpoints never send email or create links.
+router.get('/backlinks', (req, res) => seoManagerController.getBacklinks(req, res))
+router.post('/backlinks', (req, res) => seoManagerController.createBacklink(req, res))
+router.put('/backlinks/:id', (req, res) => seoManagerController.updateBacklink(req, res))
+router.delete('/backlinks/:id', (req, res) => seoManagerController.deleteBacklink(req, res))
+router.get('/outreach', (req, res) => seoManagerController.getOutreach(req, res))
+router.post('/outreach', (req, res) => seoManagerController.createOutreach(req, res))
+router.put('/outreach/:id', (req, res) => seoManagerController.updateOutreach(req, res))
+router.delete('/outreach/:id', (req, res) => seoManagerController.deleteOutreach(req, res))
+router.get('/competitors', (req, res) => seoManagerController.getCompetitorRecords(req, res))
+router.post('/competitors', (req, res) => seoManagerController.createCompetitorRecord(req, res))
 
 // Google Search Console Integration
 router.get('/search-console/status', (req, res) => seoManagerController.getSearchConsoleStatus(req, res))

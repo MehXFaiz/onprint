@@ -1556,6 +1556,92 @@ async function initDatabase() {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
 
+    // 11.12 Scalable keyword, backlink, outreach and competitor records
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_keywords (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        keyword VARCHAR(255) NOT NULL,
+        keyword_type ENUM('primary', 'secondary') DEFAULT 'primary',
+        search_intent ENUM('Informational', 'Commercial', 'Transactional', 'Navigational', 'Local') NOT NULL DEFAULT 'Commercial',
+        cluster VARCHAR(150) NOT NULL,
+        target_url VARCHAR(500) DEFAULT NULL,
+        target_page VARCHAR(255) DEFAULT NULL,
+        priority ENUM('High', 'Medium', 'Low') DEFAULT 'Medium',
+        status ENUM('Planned', 'Assigned', 'Published', 'Tracking', 'Archived') DEFAULT 'Planned',
+        notes TEXT DEFAULT NULL,
+        content_type VARCHAR(100) DEFAULT NULL,
+        assigned_page VARCHAR(500) DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        UNIQUE KEY uq_seo_keyword (keyword),
+        INDEX idx_seo_keyword_cluster (cluster),
+        INDEX idx_seo_keyword_target (target_url(191))
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_backlinks (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        linking_domain VARCHAR(255) NOT NULL,
+        linking_url VARCHAR(1000) NOT NULL,
+        target_url VARCHAR(500) NOT NULL,
+        anchor_text VARCHAR(500) DEFAULT NULL,
+        link_type ENUM('follow', 'nofollow', 'sponsored', 'ugc', 'unknown') DEFAULT 'unknown',
+        status ENUM('active', 'new', 'lost', 'needs_review') DEFAULT 'needs_review',
+        authority DECIMAL(6,2) DEFAULT NULL,
+        relevance ENUM('high', 'medium', 'low', 'unknown') DEFAULT 'unknown',
+        toxic_risk ENUM('low', 'medium', 'high', 'unknown') DEFAULT 'unknown',
+        first_discovered_at DATE DEFAULT NULL,
+        last_checked_at DATE DEFAULT NULL,
+        notes TEXT DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_backlink_domain (linking_domain),
+        INDEX idx_backlink_status (status),
+        INDEX idx_backlink_type (link_type)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_outreach_prospects (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        website_domain VARCHAR(255) NOT NULL,
+        contact_name VARCHAR(255) DEFAULT NULL,
+        contact_email VARCHAR(255) DEFAULT NULL,
+        website_category VARCHAR(150) DEFAULT NULL,
+        relevance ENUM('high', 'medium', 'low', 'unknown') DEFAULT 'unknown',
+        authority DECIMAL(6,2) DEFAULT NULL,
+        outreach_status ENUM('Prospect', 'Contacted', 'Follow-up', 'Accepted', 'Published', 'Rejected', 'Not Relevant') DEFAULT 'Prospect',
+        date_contacted DATE DEFAULT NULL,
+        follow_up_date DATE DEFAULT NULL,
+        response TEXT DEFAULT NULL,
+        link_obtained TINYINT(1) DEFAULT 0,
+        target_url VARCHAR(500) DEFAULT NULL,
+        anchor_text VARCHAR(500) DEFAULT NULL,
+        notes TEXT DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_outreach_status (outreach_status),
+        INDEX idx_outreach_domain (website_domain)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_competitor_records (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        competitor_name VARCHAR(255) NOT NULL,
+        competitor_url VARCHAR(500) DEFAULT NULL,
+        record_type ENUM('ranking_keyword', 'page', 'keyword_gap', 'backlink_gap', 'content_gap', 'service_gap', 'location_gap') NOT NULL,
+        keyword VARCHAR(255) DEFAULT NULL,
+        source_url VARCHAR(1000) DEFAULT NULL,
+        notes TEXT DEFAULT NULL,
+        imported_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_competitor_name (competitor_name),
+        INDEX idx_competitor_type (record_type)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
     // Seed/Synchronize initial page SEO records
     await seedPageSeoIfEmpty(connection)
 

@@ -61,6 +61,11 @@ import {
   rollbackSeoChange,
   getDailyReports,
   getSeoKeywords,
+  getKeywordTargets,
+  getBacklinks,
+  createBacklink,
+  getOutreach,
+  createOutreach,
   getSeoPages,
   getSearchConsoleStatus,
   connectSearchConsole,
@@ -284,6 +289,11 @@ export default function AdminSeoManagerPage() {
   const [dailyReports, setDailyReports] = useState([])
   const [selectedReport, setSelectedReport] = useState(null)
   const [keywordsData, setKeywordsData] = useState({ queries: [], opportunities: {}, connected: false })
+  const [keywordTargets, setKeywordTargets] = useState({ items: [], total: 0 })
+  const [backlinkData, setBacklinkData] = useState({ items: [], summary: {} })
+  const [outreachData, setOutreachData] = useState([])
+  const [backlinkForm, setBacklinkForm] = useState({ linking_domain: '', linking_url: '', target_url: '', anchor_text: '' })
+  const [outreachForm, setOutreachForm] = useState({ website_domain: '', contact_name: '', target_url: '' })
   const [pagesList, setPagesList] = useState([])
   const [pageSearch, setPageSearch] = useState('')
   const [gscStatus, setGscStatus] = useState(null)
@@ -377,6 +387,9 @@ export default function AdminSeoManagerPage() {
     if (activeTab === 'recommendations') loadRecommendations()
     if (activeTab === 'audit') loadAudit()
     if (activeTab === 'keywords') loadKeywords()
+    if (activeTab === 'keyword-targets') loadKeywordTargets()
+    if (activeTab === 'backlinks') loadBacklinks()
+    if (activeTab === 'outreach') loadOutreach()
     if (activeTab === 'pages') {
       loadPages()
       loadScoreOverview()
@@ -434,6 +447,47 @@ export default function AdminSeoManagerPage() {
     } catch (err) {
       console.warn('Load keywords error:', err.message)
     }
+  }
+
+  const loadKeywordTargets = async () => {
+    try {
+      const res = await getKeywordTargets()
+      if (res?.success) setKeywordTargets(res.data || { items: [], total: 0 })
+    } catch (err) { console.warn('Load keyword targets error:', err.message) }
+  }
+
+  const loadBacklinks = async () => {
+    try {
+      const res = await getBacklinks()
+      if (res?.success) setBacklinkData(res.data || { items: [], summary: {} })
+    } catch (err) { console.warn('Load backlinks error:', err.message) }
+  }
+
+  const loadOutreach = async () => {
+    try {
+      const res = await getOutreach()
+      if (res?.success) setOutreachData(res.data || [])
+    } catch (err) { console.warn('Load outreach error:', err.message) }
+  }
+
+  const handleCreateBacklink = async (event) => {
+    event.preventDefault()
+    try {
+      await createBacklink(backlinkForm)
+      setBacklinkForm({ linking_domain: '', linking_url: '', target_url: '', anchor_text: '' })
+      showToast('Backlink record added.')
+      loadBacklinks()
+    } catch (err) { showToast(err.response?.data?.message || 'Could not add backlink record.', 'error') }
+  }
+
+  const handleCreateOutreach = async (event) => {
+    event.preventDefault()
+    try {
+      await createOutreach(outreachForm)
+      setOutreachForm({ website_domain: '', contact_name: '', target_url: '' })
+      showToast('Outreach prospect added.')
+      loadOutreach()
+    } catch (err) { showToast(err.response?.data?.message || 'Could not add outreach prospect.', 'error') }
   }
 
   const loadScoreOverview = async () => {
@@ -898,12 +952,14 @@ export default function AdminSeoManagerPage() {
 
   // Top metric scores calculation
   const scores = {
-    healthScore: scoreOverview?.averageScore ?? dashboardData?.scores?.healthScore ?? 92,
-    technicalScore: dashboardData?.scores?.technicalScore ?? 95,
-    onpageScore: dashboardData?.scores?.onpageScore ?? 90,
-    contentScore: dashboardData?.scores?.contentScore ?? 88,
-    structuredDataScore: dashboardData?.scores?.structuredDataScore ?? 95,
+    healthScore: scoreOverview?.averageScore ?? dashboardData?.scores?.healthScore ?? null,
+    technicalScore: dashboardData?.scores?.technicalScore ?? null,
+    onpageScore: dashboardData?.scores?.onpageScore ?? null,
+    contentScore: dashboardData?.scores?.contentScore ?? null,
+    structuredDataScore: dashboardData?.scores?.structuredDataScore ?? null,
   }
+  const formatScore = (value) => value == null ? 'No data available' : `${value}%`
+  const scoreWidth = (value) => value == null ? 0 : value
 
   const tabs = [
     { id: 'overview', label: 'Overview & Health', icon: BarChart3 },
@@ -912,6 +968,9 @@ export default function AdminSeoManagerPage() {
     { id: 'blog-seo', label: 'Blog SEO', icon: BookOpen, count: blogMetrics?.summary?.blogsNeedingOptimization },
     { id: 'opportunities', label: 'Content Opportunities', icon: Target, count: opportunitiesData?.strikingDistanceCount },
     { id: 'keywords', label: 'Keywords & SERP', icon: TrendingUp },
+    { id: 'keyword-targets', label: 'Keyword Architecture', icon: Key, count: keywordTargets.total },
+    { id: 'backlinks', label: 'Backlinks', icon: Link2, count: backlinkData.summary?.total },
+    { id: 'outreach', label: 'Outreach CRM', icon: ExternalLink, count: outreachData.length },
     { id: 'internal-links', label: 'Internal Links', icon: Link2, count: internalLinksData?.highPriorityCount },
     { id: 'pages', label: 'Page Catalog', icon: Layers, count: scoreOverview?.totalPages ?? pagesList.length },
     { id: 'schema', label: 'Schema Validator', icon: FileCode },
@@ -1078,7 +1137,7 @@ export default function AdminSeoManagerPage() {
               </div>
               <div className="my-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-4xl font-black text-neutral-900">{scores.healthScore}%</span>
+                  <span className="font-display text-4xl font-black text-neutral-900">{formatScore(scores.healthScore)}</span>
                   <span className={`text-xs font-bold ${scores.healthScore >= 90 ? 'text-emerald-600' : 'text-amber-600'}`}>
                     {scores.healthScore >= 90 ? 'Optimal' : 'Needs Work'}
                   </span>
@@ -1086,7 +1145,7 @@ export default function AdminSeoManagerPage() {
                 <div className="mt-2 h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
                   <div
                     className={`h-full rounded-full ${scores.healthScore >= 90 ? 'bg-emerald-500' : 'bg-amber-500'}`}
-                    style={{ width: `${scores.healthScore}%` }}
+                    style={{ width: `${scoreWidth(scores.healthScore)}%` }}
                   />
                 </div>
               </div>
@@ -1103,10 +1162,10 @@ export default function AdminSeoManagerPage() {
               </div>
               <div className="my-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-black text-neutral-900">{scores.technicalScore}%</span>
+                  <span className="font-display text-3xl font-black text-neutral-900">{formatScore(scores.technicalScore)}</span>
                 </div>
                 <div className="mt-2 h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
-                  <div className="h-full rounded-full bg-blue-500" style={{ width: `${scores.technicalScore}%` }} />
+                  <div className="h-full rounded-full bg-blue-500" style={{ width: `${scoreWidth(scores.technicalScore)}%` }} />
                 </div>
               </div>
               <p className="text-[11px] text-neutral-500">Robots, Sitemaps, Canonicals</p>
@@ -1120,10 +1179,10 @@ export default function AdminSeoManagerPage() {
               </div>
               <div className="my-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-black text-neutral-900">{scores.onpageScore}%</span>
+                  <span className="font-display text-3xl font-black text-neutral-900">{formatScore(scores.onpageScore)}</span>
                 </div>
                 <div className="mt-2 h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
-                  <div className="h-full rounded-full bg-purple-500" style={{ width: `${scores.onpageScore}%` }} />
+                  <div className="h-full rounded-full bg-purple-500" style={{ width: `${scoreWidth(scores.onpageScore)}%` }} />
                 </div>
               </div>
               <p className="text-[11px] text-neutral-500">Titles, Descriptions, H1s, ALTs</p>
@@ -1137,10 +1196,10 @@ export default function AdminSeoManagerPage() {
               </div>
               <div className="my-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-black text-neutral-900">{scores.contentScore}%</span>
+                  <span className="font-display text-3xl font-black text-neutral-900">{formatScore(scores.contentScore)}</span>
                 </div>
                 <div className="mt-2 h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
-                  <div className="h-full rounded-full bg-amber-500" style={{ width: `${scores.contentScore}%` }} />
+                  <div className="h-full rounded-full bg-amber-500" style={{ width: `${scoreWidth(scores.contentScore)}%` }} />
                 </div>
               </div>
               <p className="text-[11px] text-neutral-500">Word count &amp; keyword focus</p>
@@ -1154,10 +1213,10 @@ export default function AdminSeoManagerPage() {
               </div>
               <div className="my-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-black text-neutral-900">{scores.structuredDataScore}%</span>
+                  <span className="font-display text-3xl font-black text-neutral-900">{formatScore(scores.structuredDataScore)}</span>
                 </div>
                 <div className="mt-2 h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
-                  <div className="h-full rounded-full bg-emerald-500" style={{ width: `${scores.structuredDataScore}%` }} />
+                  <div className="h-full rounded-full bg-emerald-500" style={{ width: `${scoreWidth(scores.structuredDataScore)}%` }} />
                 </div>
               </div>
               <p className="text-[11px] text-neutral-500">Schema.org JSON-LD models</p>
@@ -2579,6 +2638,41 @@ export default function AdminSeoManagerPage() {
               </table>
             </div>
           </div>
+        </div>
+      )}
+
+      {activeTab === 'keyword-targets' && (
+        <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
+          <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
+            <div>
+              <h2 className="font-display text-lg font-bold text-neutral-900">Keyword architecture</h2>
+              <p className="mt-1 text-xs text-neutral-500">One primary owner per keyword prevents cannibalization across the site.</p>
+            </div>
+            <span className="text-xs font-bold text-neutral-500">{keywordTargets.total} tracked targets</span>
+          </div>
+          <div className="mt-4 overflow-x-auto">
+            {keywordTargets.items?.length ? (
+              <table className="w-full text-left text-xs"><thead><tr className="border-b text-[10px] uppercase text-neutral-400"><th className="pb-3">Keyword</th><th className="pb-3">Intent</th><th className="pb-3">Cluster</th><th className="pb-3">Target page</th><th className="pb-3">Priority</th><th className="pb-3">Status</th></tr></thead><tbody className="divide-y divide-neutral-100">{keywordTargets.items.map((item) => <tr key={item.id}><td className="py-3 font-bold text-neutral-900">{item.keyword}</td><td className="py-3">{item.search_intent}</td><td className="py-3">{item.cluster}</td><td className="py-3">{item.target_page || item.target_url || 'Unassigned'}</td><td className="py-3">{item.priority}</td><td className="py-3">{item.status}</td></tr>)}</tbody></table>
+            ) : <p className="py-10 text-center text-sm text-neutral-500">No keyword targets have been assigned yet.</p>}
+          </div>
+        </div>
+      )}
+
+      {activeTab === 'backlinks' && (
+        <div className="space-y-5">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-6">{[['Backlinks', backlinkData.summary?.total], ['Referring domains', backlinkData.summary?.referring_domains], ['New', backlinkData.summary?.new_backlinks], ['Lost', backlinkData.summary?.lost_backlinks], ['Follow', backlinkData.summary?.follow_links], ['Nofollow', backlinkData.summary?.nofollow_links]].map(([label, value]) => <div key={label} className="rounded-xl border border-neutral-200 bg-white p-4"><p className="text-[10px] font-bold uppercase text-neutral-400">{label}</p><p className="mt-1 text-2xl font-black text-neutral-900">{value || 0}</p></div>)}</div>
+          <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
+            <div className="flex items-center justify-between"><h2 className="font-display text-lg font-bold text-neutral-900">Manual backlink record</h2><span className="text-xs text-neutral-500">No links are created automatically.</span></div>
+            <form onSubmit={handleCreateBacklink} className="mt-4 grid gap-3 md:grid-cols-4"><input required placeholder="Linking domain" value={backlinkForm.linking_domain} onChange={(event) => setBacklinkForm({ ...backlinkForm, linking_domain: event.target.value })} className="rounded-lg border p-2 text-xs" /><input required placeholder="Linking URL" value={backlinkForm.linking_url} onChange={(event) => setBacklinkForm({ ...backlinkForm, linking_url: event.target.value })} className="rounded-lg border p-2 text-xs" /><input required placeholder="Target URL" value={backlinkForm.target_url} onChange={(event) => setBacklinkForm({ ...backlinkForm, target_url: event.target.value })} className="rounded-lg border p-2 text-xs" /><Button type="submit" size="sm">Add record</Button></form>
+          </div>
+          <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs overflow-x-auto">{backlinkData.items?.length ? <table className="w-full text-left text-xs"><thead><tr className="border-b text-[10px] uppercase text-neutral-400"><th className="pb-3">Domain</th><th className="pb-3">Linking URL</th><th className="pb-3">Target URL</th><th className="pb-3">Type</th><th className="pb-3">Status</th><th className="pb-3">Risk</th></tr></thead><tbody className="divide-y divide-neutral-100">{backlinkData.items.map((item) => <tr key={item.id}><td className="py-3 font-bold">{item.linking_domain}</td><td className="max-w-xs truncate py-3">{item.linking_url}</td><td className="max-w-xs truncate py-3">{item.target_url}</td><td className="py-3">{item.link_type}</td><td className="py-3">{item.status}</td><td className="py-3">{item.toxic_risk}</td></tr>)}</tbody></table> : <p className="py-10 text-center text-sm text-neutral-500">No backlink data available. Add verified links manually or connect an approved SEO data provider.</p>}</div>
+        </div>
+      )}
+
+      {activeTab === 'outreach' && (
+        <div className="space-y-5">
+          <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs"><h2 className="font-display text-lg font-bold text-neutral-900">Backlink outreach CRM</h2><p className="mt-1 text-xs text-neutral-500">Track legitimate opportunities without sending automated email.</p><form onSubmit={handleCreateOutreach} className="mt-4 grid gap-3 md:grid-cols-4"><input required placeholder="Website/domain" value={outreachForm.website_domain} onChange={(event) => setOutreachForm({ ...outreachForm, website_domain: event.target.value })} className="rounded-lg border p-2 text-xs" /><input placeholder="Contact name" value={outreachForm.contact_name} onChange={(event) => setOutreachForm({ ...outreachForm, contact_name: event.target.value })} className="rounded-lg border p-2 text-xs" /><input placeholder="Target URL" value={outreachForm.target_url} onChange={(event) => setOutreachForm({ ...outreachForm, target_url: event.target.value })} className="rounded-lg border p-2 text-xs" /><Button type="submit" size="sm">Add prospect</Button></form></div>
+          <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs overflow-x-auto">{outreachData.length ? <table className="w-full text-left text-xs"><thead><tr className="border-b text-[10px] uppercase text-neutral-400"><th className="pb-3">Website</th><th className="pb-3">Contact</th><th className="pb-3">Relevance</th><th className="pb-3">Status</th><th className="pb-3">Link obtained</th></tr></thead><tbody className="divide-y divide-neutral-100">{outreachData.map((item) => <tr key={item.id}><td className="py-3 font-bold">{item.website_domain}</td><td className="py-3">{item.contact_name || 'Unassigned'}</td><td className="py-3">{item.relevance}</td><td className="py-3">{item.outreach_status}</td><td className="py-3">{item.link_obtained ? 'Yes' : 'No'}</td></tr>)}</tbody></table> : <p className="py-10 text-center text-sm text-neutral-500">No outreach prospects recorded.</p>}</div>
         </div>
       )}
 

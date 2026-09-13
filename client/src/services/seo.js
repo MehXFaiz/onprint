@@ -74,6 +74,36 @@ export async function getSeoKeywords() {
   return data
 }
 
+export async function getKeywordTargets(params = {}) {
+  const { data } = await api.get('/seo/keyword-targets', { params })
+  return data
+}
+
+export async function createKeywordTarget(payload) {
+  const { data } = await api.post('/seo/keyword-targets', payload)
+  return data
+}
+
+export async function getBacklinks(params = {}) {
+  const { data } = await api.get('/seo/backlinks', { params })
+  return data
+}
+
+export async function createBacklink(payload) {
+  const { data } = await api.post('/seo/backlinks', payload)
+  return data
+}
+
+export async function getOutreach(params = {}) {
+  const { data } = await api.get('/seo/outreach', { params })
+  return data
+}
+
+export async function createOutreach(payload) {
+  const { data } = await api.post('/seo/outreach', payload)
+  return data
+}
+
 export async function getSeoPages() {
   const { data } = await api.get('/seo/pages')
   return data

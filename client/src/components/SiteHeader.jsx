@@ -262,9 +262,9 @@ export default function SiteHeader() {
               <span>+44 7344546056</span>
             </a>
             <span className="h-3 w-[1px] bg-slate-200" />
-            <a href="tel:+9714800PRINT" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
+            <a href="tel:+971551837995" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
               <Phone className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span>+971 4 800 PRINT</span>
+              <span>+971 55 183 7995</span>
             </a>
             <span className="h-3 w-[1px] bg-slate-200" />
             <a href="mailto:info@onprint.ae" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
@@ -489,11 +489,11 @@ export default function SiteHeader() {
               <span>+44 7344546056</span>
             </a>
             <a
-              href="tel:+9714800PRINT"
+              href="tel:+971551837995"
               className="hidden 2xl:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#A82F19] transition-colors py-1.5 px-2 whitespace-nowrap"
             >
               <Phone className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span>+971 4 800 PRINT</span>
+              <span>+971 55 183 7995</span>
             </a>
 
             {isAuthenticated && isAdmin ? (
@@ -769,11 +769,11 @@ export default function SiteHeader() {
                 </a>
 
                 <a
-                  href="tel:+9714800PRINT"
+                  href="tel:+971551837995"
                   className="flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white py-2.5 text-xs font-bold text-slate-800 shadow-xs active:bg-slate-50"
                 >
                   <Phone className="h-4 w-4 text-[#A82F19]" />
-                  <span>Call Dubai Press: +971 4 800 PRINT</span>
+                  <span>Call Dubai Press: +971 55 183 7995</span>
                 </a>
 
                 <Button

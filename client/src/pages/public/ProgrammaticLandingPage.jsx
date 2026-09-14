@@ -145,10 +145,10 @@ export default function ProgrammaticLandingPage() {
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:+9714800PRINT">
+              <a href="tel:+971551837995">
                 <Button variant="outline" size="lg" className="border-neutral-700 text-white hover:bg-neutral-900 font-bold">
                   <PhoneCall className="h-4 w-4 mr-2 text-[#A82F19]" />
-                  +971 4 800 PRINT
+                  +971 55 183 7995
                 </Button>
               </a>
             </div>
@@ -344,10 +344,10 @@ export default function ProgrammaticLandingPage() {
                     </Button>
                   </Link>
 
-                  <a href="tel:+9714800PRINT" className="block w-full">
+                  <a href="tel:+971551837995" className="block w-full">
                     <Button variant="outline" size="md" className="w-full border-neutral-700 text-white hover:bg-neutral-900 text-xs font-bold">
                       <PhoneCall className="h-3.5 w-3.5 mr-2 text-[#A82F19]" />
-                      Direct Line: +971 4 800 PRINT
+                      Direct Line: +971 55 183 7995
                     </Button>
                   </a>
                 </div>

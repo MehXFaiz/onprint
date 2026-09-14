@@ -319,7 +319,7 @@ export default function TrackOrderPage() {
                     <WhatsAppIcon className="h-4 w-4 fill-emerald-600" /> WhatsApp
                   </a>
                   <a
-                    href="tel:+9714800PRINT"
+                    href="tel:+971551837995"
                     className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors"
                   >
                     <Phone className="h-4 w-4 text-[#A82F19]" /> Call Us

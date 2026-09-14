@@ -10,7 +10,7 @@ import { submitContactInquiry } from '../../services/contact'
 
 const contactDetails = [
   { icon: WhatsAppIcon, label: 'WhatsApp Chat', value: '+44 7344546056', href: 'https://wa.me/447344546056', isWhatsApp: true },
-  { icon: Phone, label: 'Phone Call', value: '+971 4 800 PRINT', href: 'tel:+9714800PRINT' },
+  { icon: Phone, label: 'Phone Call', value: '+971 55 183 7995', href: 'tel:+971551837995' },
   { icon: Mail, label: 'Email Inquiry', value: 'info@onprint.ae', href: 'mailto:info@onprint.ae' },
   { icon: MapPin, label: 'Studio & Press', value: 'Al Quoz Industrial Area 3, Dubai, UAE' },
   { icon: Clock, label: 'Working Hours', value: 'Mon–Sat: 8:30 AM – 6:30 PM' },

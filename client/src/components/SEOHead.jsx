@@ -21,7 +21,7 @@ export const organizationSchema = {
   image: `${SITE_URL}/logo_icon.png`,
   description:
     'ONPRINT is Dubai’s premier physical branding & commercial printing press. Specializing in executive stationery, luxury packaging, corporate gifts, large-format rollups, and precision digital printing across the UAE.',
-  telephone: '+9714800PRINT',
+  telephone: '+971551837995',
   email: 'info@onprint.ae',
   priceRange: '$$',
   address: {

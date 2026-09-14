@@ -154,7 +154,7 @@ export default function CategoryDetailPage() {
     provider: {
       '@type': 'LocalBusiness',
       name: 'ONPRINT Printing & Branding Solutions',
-      telephone: '+971 4 800 PRINT',
+      telephone: '+971 55 183 7995',
       email: 'info@onprint.ae',
       address: {
         '@type': 'PostalAddress',

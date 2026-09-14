@@ -87,7 +87,7 @@ const homeFaqs = [
   {
     question: 'How do I request a custom quotation for bulk printing?',
     answer:
-      'You can request an instant quote online via our Get a Quote page, email our sales team at info@onprint.ae, or call +971 4 800 PRINT. Our Al Quoz print specialists provide clear itemized quotations within 2 hours.',
+      'You can request an instant quote online via our Get a Quote page, email our sales team at info@onprint.ae, or call +971 55 183 7995. Our Al Quoz print specialists provide clear itemized quotations within 2 hours.',
   },
 ]
 
@@ -235,7 +235,7 @@ export default function HomePage() {
                 >
                   <div className="relative h-28 sm:h-36 w-full overflow-hidden rounded-xl bg-[#F5F3EF]">
                     <img
-                      src="/assets/products/1 (11).jpg"
+                      src="/assets/products/luxury_business_cards.jpg"
                       alt="Premium Business Cards Printing Dubai"
                       className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                       loading="eager"
@@ -261,7 +261,7 @@ export default function HomePage() {
                   </div>
                 </motion.div>
 
-                {/* Card 2: Luxury Dark Packaging Box Showcase */}
+                {/* Card 2: Luxury Dark Lanyard Showcase */}
                 <motion.div
                   animate={{ y: [0, 10, 0], rotate: [0, -1.5, 0] }}
                   transition={{ duration: 8.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -278,14 +278,14 @@ export default function HomePage() {
 
                   <div className="relative my-2 h-20 sm:h-24 w-full overflow-hidden rounded-lg bg-neutral-900">
                     <img
-                      src="/assets/products/1 (5).jpg"
-                      alt="Luxury Packaging &amp; Rigid Boxes Dubai"
+                      src="/assets/products/custom_branded_lanyards.jpg"
+                      alt="Custom Branded Corporate Lanyards Dubai"
                       className="h-full w-full object-cover opacity-90 transition-transform duration-500 hover:scale-105"
                       loading="eager"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <span className="absolute bottom-1.5 left-2 text-[9px] font-bold text-white/90">
-                      Custom Rigid Packaging
+                      Custom Branded Lanyards
                     </span>
                   </div>
 

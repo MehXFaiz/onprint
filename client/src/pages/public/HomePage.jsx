@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown, Clock, ArrowRight } from 'lucide-react'
+import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown, Clock, ArrowRight, Package, Layers } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import ArrowLink from '../../components/ArrowLink'
@@ -15,7 +16,7 @@ import ProductSectionsShowcase from '../../components/ProductSectionsShowcase'
 import CarefreeShoppingSection from '../../components/CarefreeShoppingSection'
 import ProductDetailModal from '../../components/ProductDetailModal'
 import SEOHead from '../../components/SEOHead'
-import { CornerMarks } from '../../components/PrintMarks'
+import { CornerMarks, CmykDots, RegistrationMark } from '../../components/PrintMarks'
 import { getServices } from '../../services/services'
 import { getProducts } from '../../services/products'
 import { getCategories } from '../../services/categories'
@@ -139,344 +140,224 @@ export default function HomePage() {
       />
 
       {/* 1. Hero Section */}
-      <section className="relative isolate overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#FFFDFB] via-[#FAF6F0] to-[#FFFFFF] py-14 sm:py-20 lg:py-28">
-        {/* Subtle Architectural Print Matrix / Grid Pattern */}
+      <section className="relative isolate overflow-hidden border-b border-slate-200/80 bg-white py-14 sm:py-20 lg:py-24">
+        {/* Subtle Architectural Print Grid Background */}
         <div
-          className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_35%,#000_65%,transparent_100%)]"
+          className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_60%,transparent_100%)]"
           aria-hidden="true"
         />
 
-        {/* Ambient Glowing Color Orbs */}
-        <motion.div
-          className="pointer-events-none absolute -left-20 top-4 z-0 h-72 w-72 rounded-full bg-[#A82F19]/12 blur-[90px]"
-          animate={{ x: [0, 20, 0], y: [0, -15, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        {/* Subtle Ambient Color Lighting in strict ONPRINT theme */}
+        <div
+          className="pointer-events-none absolute -left-16 top-10 z-0 h-64 w-64 rounded-full bg-[#A82F19]/5 blur-[90px]"
           aria-hidden="true"
         />
-        <motion.div
-          className="pointer-events-none absolute right-4 top-1/4 z-0 h-80 w-80 rounded-full bg-[#D97706]/10 blur-[100px]"
-          animate={{ x: [0, -20, 0], y: [0, 20, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-          aria-hidden="true"
-        />
-        <motion.div
-          className="pointer-events-none absolute left-1/3 -bottom-10 z-0 h-64 w-64 rounded-full bg-[#A82F19]/8 blur-[80px]"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        <div
+          className="pointer-events-none absolute -right-16 bottom-10 z-0 h-72 w-72 rounded-full bg-slate-900/5 blur-[100px]"
           aria-hidden="true"
         />
 
-        {/* Floating Print House Registration Mark Accents */}
-        <div className="pointer-events-none absolute top-6 left-6 hidden xl:block opacity-25 text-slate-400">
+        {/* Subtle Technical Print Registration Marks */}
+        <div className="pointer-events-none absolute top-6 left-8 hidden xl:block opacity-20 text-slate-500">
           <CornerMarks className="h-6 w-6" />
         </div>
-        <div className="pointer-events-none absolute bottom-6 right-6 hidden xl:block opacity-25 text-slate-400">
+        <div className="pointer-events-none absolute top-6 right-8 hidden xl:block opacity-20 text-slate-500">
           <CornerMarks className="h-6 w-6" />
         </div>
-
-        {/* Floating Luxury Tag Badge */}
-        <motion.div
-          className="pointer-events-none absolute right-[10%] top-[12%] z-0 hidden lg:flex items-center gap-2 rounded-full border border-amber-300/40 bg-white/80 px-3.5 py-1.5 shadow-md shadow-amber-500/5 backdrop-blur-md"
-          animate={{ y: [0, -10, 0], rotate: [0, 1.5, -1, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
-          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-900">
-            Certified Luxury Finishes
-          </span>
-        </motion.div>
 
         <Container className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-7">
-            {/* Top Pill: Modern Glassmorphic Badge with Live Beacon */}
+          {/* LEFT COLUMN */}
+          <div className="lg:col-span-7 space-y-6">
+            {/* Small Premium Badge */}
             <Reveal>
-              <div className="inline-flex flex-wrap items-center gap-2.5 rounded-full border border-[#A82F19]/25 bg-gradient-to-r from-red-50/90 via-white to-amber-50/70 px-3.5 py-1.5 text-xs font-bold text-[#A82F19] shadow-xs backdrop-blur-md hover:border-[#A82F19]/40 transition-colors">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#A82F19] opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#A82F19]" />
-                </span>
-                <span className="font-extrabold uppercase tracking-widest text-[11px]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19]/20 bg-[#fcf1ef] px-3.5 py-1.5 text-xs font-bold text-[#A82F19]">
+                <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
+                <span className="uppercase tracking-widest text-[11px] font-extrabold">
                   Dubai’s Premier Print &amp; Branding Press
-                </span>
-                <span className="hidden sm:inline text-[#A82F19]/30">•</span>
-                <span className="hidden sm:inline-flex items-center gap-1 font-semibold text-slate-600 text-[11px]">
-                  <Sparkles className="h-3 w-3 text-amber-500" />
-                  Al Quoz Pressroom
                 </span>
               </div>
             </Reveal>
 
-            {/* Main Headline: Bold Typographic Contrast with Luxury Crimson Gradient */}
+            {/* Large Headline */}
             <Reveal delay={0.1}>
-              <h1 className="font-display mt-5 text-4xl font-black leading-[1.06] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl xl:text-[4.25rem]">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-black leading-[1.08] tracking-tight text-black">
                 Professional{' '}
-                <span className="relative inline-block whitespace-nowrap">
-                  <span className="bg-gradient-to-r from-[#8E1F11] via-[#A82F19] to-[#DE4622] bg-clip-text text-transparent">
-                    Printing &amp; Branding
-                  </span>
-                  {/* High-end decorative vector stroke */}
-                  <svg
-                    className="absolute -bottom-2 left-0 w-full h-3 text-[#A82F19]/35 fill-none"
-                    viewBox="0 0 260 10"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                  >
-                    <path d="M2 7.5C80 2 180 2 258 7.5" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
-                  </svg>
+                <span className="text-[#A82F19]">
+                  Printing &amp; Branding
                 </span>{' '}
-                <span className="block mt-1 sm:mt-2 text-slate-900 font-extrabold">
-                  Solutions in Dubai
-                </span>
+                Solutions in Dubai
               </h1>
             </Reveal>
 
-            {/* Subtitle: High-Contrast, Benefit-Oriented Copy */}
-            <Reveal delay={0.2}>
-              <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600 font-normal">
-                ONPRINT transforms brand identities into tangible physical masterpieces. From{' '}
-                <strong className="font-semibold text-slate-900 underline decoration-[#A82F19]/30 underline-offset-2">
-                  executive 600 GSM stationery
-                </strong>{' '}
-                and{' '}
-                <strong className="font-semibold text-slate-900 underline decoration-[#A82F19]/30 underline-offset-2">
-                  custom luxury foil packaging
-                </strong>{' '}
-                to <strong className="font-semibold text-slate-900 underline decoration-[#A82F19]/30 underline-offset-2">
-                  VIP corporate gifts
-                </strong>{' '}
-                and large-format signage with zero color compromise.
+            {/* Supporting Paragraph */}
+            <Reveal delay={0.18}>
+              <p className="text-base sm:text-lg leading-relaxed text-slate-600 font-normal max-w-xl">
+                ONPRINT transforms brand identities into tangible physical masterpieces. From executive 600 GSM stationery and custom luxury packaging to corporate gifts and large-format signage.
               </p>
             </Reveal>
 
-            {/* Tactile Print Finishes Micro-Chips */}
-            <Reveal delay={0.25}>
-              <div className="mt-5 flex flex-wrap items-center gap-2">
-                <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 mr-1">
-                  Master Finishes:
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-lg border border-amber-300/70 bg-gradient-to-r from-amber-50 to-orange-50/60 px-2.5 py-1 text-xs font-bold text-amber-900 shadow-2xs">
-                  <span className="text-[10px]">✨</span> Metallic Gold &amp; Copper Foil
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-700 shadow-2xs">
-                  <span className="text-[10px]">🎯</span> Spot UV Gloss
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-lg border border-red-200/80 bg-red-50/70 px-2.5 py-1 text-xs font-bold text-red-950 shadow-2xs">
-                  <span className="text-[10px]">🪶</span> Soft-Touch Velvet Lamination
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-700 shadow-2xs">
-                  <span className="text-[10px]">📐</span> 3D Emboss &amp; Deboss
-                </span>
+            {/* 4 Compact Trust/Value Indicators */}
+            <Reveal delay={0.24}>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+                <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 shadow-2xs">
+                  <Award className="h-4 w-4 text-[#A82F19] shrink-0" />
+                  <span className="text-xs font-bold text-slate-900">Premium Quality</span>
+                </div>
+                <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 shadow-2xs">
+                  <Clock className="h-4 w-4 text-[#A82F19] shrink-0" />
+                  <span className="text-xs font-bold text-slate-900">Fast Turnaround</span>
+                </div>
+                <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 shadow-2xs">
+                  <Layers className="h-4 w-4 text-[#A82F19] shrink-0" />
+                  <span className="text-xs font-bold text-slate-900">Custom Solutions</span>
+                </div>
+                <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 shadow-2xs">
+                  <Users className="h-4 w-4 text-[#A82F19] shrink-0" />
+                  <span className="text-xs font-bold text-slate-900">Expert Support</span>
+                </div>
               </div>
             </Reveal>
 
-            {/* Action Buttons & Social Proof */}
+            {/* Two CTA Buttons */}
             <Reveal delay={0.3}>
-              <div className="mt-7 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:mt-8">
-                <Button
-                  to="/get-a-quote"
-                  variant="accent"
-                  size="lg"
-                  className="shadow-xl shadow-[#A82F19]/25 hover:shadow-2xl hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all text-center justify-center font-bold px-7"
-                  onClick={() => trackGetQuoteClick({ source_page: 'homepage_hero' })}
-                >
-                  <span>Request a Custom Quote</span>
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </Button>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
                 <Button
                   to="/products"
+                  variant="accent"
+                  size="lg"
+                  className="!bg-[#A82F19] hover:!bg-[#8f2513] text-white font-bold shadow-md shadow-[#A82F19]/20 transition-all text-center justify-center !px-6 group"
+                >
+                  <span>Explore Our Products</span>
+                  <ArrowRight className="h-4 w-4 ml-1.5 inline-block transition-transform group-hover:translate-x-1" />
+                </Button>
+                <Button
+                  to="/get-a-quote"
                   variant="secondary"
                   size="lg"
-                  className="border-slate-800 text-slate-900 hover:bg-slate-900 hover:text-white transition-all text-center justify-center font-bold"
+                  className="border-2 border-black text-black hover:border-[#A82F19] hover:text-[#A82F19] font-bold text-center justify-center !px-6 transition-colors"
+                  onClick={() => trackGetQuoteClick({ source_page: 'homepage_hero' })}
                 >
-                  Browse Product Catalog
+                  Get a Quote
                 </Button>
-              </div>
-
-              {/* Social Proof & Trust Metric Sub-bar */}
-              <div className="mt-5 flex flex-wrap items-center gap-4 text-xs">
-                <div className="flex items-center gap-2">
-                  <div className="flex -space-x-1.5 overflow-hidden">
-                    {['/assets/products/1 (1).jpg', '/assets/products/1 (2).jpg', '/assets/products/1 (3).jpg', '/assets/products/1 (4).jpg'].map((src, i) => (
-                      <img
-                        key={i}
-                        src={src}
-                        alt="Client work"
-                        className="inline-block h-6 w-6 rounded-full ring-2 ring-white object-cover shadow-2xs"
-                      />
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-1 text-amber-500 font-black">
-                    {'★★★★★'}
-                    <span className="font-extrabold text-slate-900 ml-1">4.9/5</span>
-                  </div>
-                </div>
-                <span className="text-slate-300 hidden sm:inline">|</span>
-                <span className="font-semibold text-slate-600">
-                  Trusted by <span className="font-bold text-slate-900">500+</span> UAE Businesses
-                </span>
-                <span className="text-slate-300 hidden md:inline">|</span>
-                <span className="inline-flex items-center gap-1 text-emerald-700 font-bold bg-emerald-50 border border-emerald-200/60 rounded-full px-2.5 py-0.5 text-[11px]">
-                  <Clock className="h-3 w-3 text-emerald-600" />
-                  Quotes in 2 Hours
-                </span>
-              </div>
-            </Reveal>
-
-            {/* Value Pillars (Modern Frosted Glass Cards) */}
-            <Reveal delay={0.4}>
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-slate-200/80 pt-6">
-                <div className="flex items-center gap-2.5 rounded-xl border border-slate-200/70 bg-white/70 p-2.5 shadow-2xs backdrop-blur-xs">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-50 text-[#A82F19]">
-                    <Zap className="h-4 w-4" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="block text-xs font-black text-slate-900">Same-Day Express</span>
-                    <span className="block text-[10px] text-slate-500 font-medium">Direct Al Quoz Press</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2.5 rounded-xl border border-slate-200/70 bg-white/70 p-2.5 shadow-2xs backdrop-blur-xs">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-50 text-[#A82F19]">
-                    <CheckCircle className="h-4 w-4" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="block text-xs font-black text-slate-900">Free Artwork Pre-Flight</span>
-                    <span className="block text-[10px] text-slate-500 font-medium">Color &amp; Bleed Check</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2.5 rounded-xl border border-slate-200/70 bg-white/70 p-2.5 shadow-2xs backdrop-blur-xs">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-50 text-[#A82F19]">
-                    <ShieldCheck className="h-4 w-4" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="block text-xs font-black text-slate-900">Doorstep Delivery</span>
-                    <span className="block text-[10px] text-slate-500 font-medium">Dubai &amp; All Emirates</span>
-                  </div>
-                </div>
               </div>
             </Reveal>
           </div>
 
-          {/* Hero Visual Studio Showcase (Enhanced with Realistic Luxury Print Specs) */}
+          {/* RIGHT COLUMN: Premium Commercial Product Visual Composition */}
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
-              <div className="relative mx-auto flex h-[380px] w-full max-w-[420px] items-center justify-center sm:h-[450px]">
-                {/* Ambient Soft Studio Backdrop with Print Registration */}
-                <motion.div
-                  animate={{ y: [0, -8, 0], rotate: [0, 1, 0] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute inset-2 rounded-[32px] border border-black/10 bg-gradient-to-br from-[#FAF7F2] via-white to-[#ECE6DC] p-4 shadow-[0_30px_70px_rgba(0,0,0,0.08)] backdrop-blur-md"
-                >
-                  {/* Subtle Studio Top Header Bar */}
-                  <div className="flex items-center justify-between border-b border-black/8 pb-2 text-[10px] font-black uppercase tracking-wider text-black/50">
+              <div className="relative mx-auto flex h-[440px] sm:h-[480px] w-full max-w-[450px] items-center justify-center">
+                {/* Clean Studio Mat Base with Heidelberg Calibration */}
+                <div className="absolute inset-2 sm:inset-4 rounded-3xl border border-slate-200/80 bg-gradient-to-br from-slate-50 via-white to-slate-100/60 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
+                  <div className="flex items-center justify-between border-b border-slate-200/70 pb-2 text-[10px] font-black uppercase tracking-wider text-slate-500">
                     <div className="flex items-center gap-1.5">
                       <span className="h-2 w-2 rounded-full bg-[#A82F19]" />
-                      <span>Heidelberg Press #4</span>
+                      <span>ONPRINT Studio • Dubai</span>
                     </div>
-                    <div className="flex items-center gap-1 font-mono text-[9px] text-black/40">
-                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
-                      <span className="h-1.5 w-1.5 rounded-full bg-magenta-500" />
-                      <span className="h-1.5 w-1.5 rounded-full bg-yellow-400" />
-                      <span className="h-1.5 w-1.5 rounded-full bg-black" />
-                      <span>CMYK OK</span>
+                    <div className="flex items-center gap-1.5">
+                      <CmykDots />
+                      <span className="font-mono text-[9px] text-slate-400">ISO 12647-2</span>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
-                {/* Card 1: Luxury Business Card Showcase (White Card with Real Imagery & Spec) */}
+                {/* Layer 1: Luxury Shopping Bags & Packaging (Top Right) */}
                 <motion.div
-                  animate={{ y: [0, -14, 0], x: [0, 6, 0] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute left-2 top-8 flex h-64 w-52 flex-col justify-between overflow-hidden rounded-2xl border border-black/10 bg-white p-3.5 shadow-[0_25px_50px_rgba(0,0,0,0.12)] sm:left-4 sm:h-76 sm:w-60"
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute right-2 top-8 sm:right-4 sm:top-10 w-48 sm:w-56 overflow-hidden rounded-2xl border border-slate-200 bg-white p-2.5 shadow-[0_16px_36px_rgba(0,0,0,0.1)]"
                 >
-                  <div className="relative h-32 sm:h-40 w-full overflow-hidden rounded-xl bg-[#F5F3EF]">
+                  <div className="relative h-28 sm:h-32 w-full overflow-hidden rounded-xl bg-slate-100">
                     <img
-                      src="/assets/products/luxury_business_cards.jpg"
-                      alt="Premium Business Cards Printing Dubai"
+                      src="/assets/products/tote_bags.jpg"
+                      alt="Luxury Branded Packaging and Bags in Dubai"
                       className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                       loading="eager"
                     />
-                    <div className="absolute top-2 left-2 flex flex-col gap-1">
+                    <span className="absolute bottom-2 left-2 rounded bg-black/75 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">
+                      Bespoke Packaging
+                    </span>
+                  </div>
+                  <div className="mt-2 flex items-center justify-between text-[9px] font-bold text-slate-700">
+                    <span>Embossed Foil Bags</span>
+                    <span className="text-[#A82F19] font-black">Luxury Grade</span>
+                  </div>
+                </motion.div>
+
+                {/* Layer 2: Centerpiece - 600 GSM Luxury Business Cards & Foil Press */}
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute left-2 sm:left-4 top-16 sm:top-20 z-10 w-56 sm:w-64 overflow-hidden rounded-2xl border border-black/10 bg-white p-3 shadow-[0_25px_55px_rgba(0,0,0,0.12)]"
+                >
+                  <div className="relative h-36 sm:h-44 w-full overflow-hidden rounded-xl bg-slate-100">
+                    <img
+                      src="/assets/products/luxury_business_cards.jpg"
+                      alt="Executive Cotton Business Cards Dubai"
+                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                      loading="eager"
+                    />
+                    <div className="absolute top-2 left-2">
                       <span className="rounded-md bg-[#A82F19] px-2 py-0.5 text-[8px] font-black uppercase tracking-wider text-white shadow-xs">
                         Hot Foil &amp; Spot UV
                       </span>
                     </div>
-                    <span className="absolute bottom-2 right-2 rounded-md bg-black/75 px-1.5 py-0.5 text-[8px] font-bold text-white backdrop-blur-xs">
+                    <span className="absolute bottom-2 right-2 rounded bg-black/80 px-1.5 py-0.5 text-[8px] font-bold text-white">
                       600 GSM
                     </span>
                   </div>
 
-                  <div className="mt-2 space-y-1">
-                    <div className="flex items-center justify-between text-[9px] font-extrabold uppercase tracking-wider text-black/50">
+                  <div className="mt-2.5 space-y-1">
+                    <div className="flex items-center justify-between text-[9px] font-extrabold uppercase tracking-wider text-slate-500">
                       <span>Executive Press</span>
-                      <span className="text-[#A82F19] font-bold">FSC Certified</span>
+                      <span className="text-[#A82F19] font-black">FSC Certified</span>
                     </div>
                     <p className="text-xs font-black text-black leading-snug">
                       Luxury Cotton Card Stock
                     </p>
                   </div>
 
-                  <div className="mt-2 flex items-center justify-between border-t border-black/8 pt-2 text-[9px] font-bold text-black/60">
-                    <span className="flex items-center gap-1 text-emerald-700">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      Calibrated Bleed
-                    </span>
+                  <div className="mt-2 flex items-center justify-between border-t border-slate-100 pt-2 text-[9px] font-bold text-slate-600">
+                    <span>Precision Bleed</span>
                     <span className="text-[#A82F19] font-black">Passed QC ✓</span>
                   </div>
                 </motion.div>
 
-                {/* Card 2: Luxury Dark Lanyard / Packaging Showcase */}
+                {/* Layer 3: Executive Brochures & Corporate Materials (Bottom Right / Underlay) */}
                 <motion.div
-                  animate={{ y: [0, 12, 0], rotate: [0, -1.5, 0] }}
-                  transition={{ duration: 8.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute right-2 top-16 flex h-56 w-52 flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-neutral-950 p-4 text-white shadow-[0_30px_60px_rgba(0,0,0,0.28)] sm:right-4 sm:h-64 sm:w-60"
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute right-3 sm:right-6 bottom-4 sm:bottom-6 z-10 w-44 sm:w-52 overflow-hidden rounded-2xl border border-slate-200 bg-white p-2.5 shadow-[0_16px_36px_rgba(0,0,0,0.1)]"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="font-display text-lg font-black tracking-tight text-white">
-                      ON<span className="text-[#A82F19]">PRINT</span>
-                    </span>
-                    <span className="rounded-full bg-[#A82F19] px-2 py-0.5 text-[8px] font-black uppercase tracking-wider text-white">
-                      Al Quoz Press
-                    </span>
-                  </div>
-
-                  <div className="relative my-2 h-24 sm:h-28 w-full overflow-hidden rounded-lg bg-neutral-900">
+                  <div className="relative h-20 sm:h-24 w-full overflow-hidden rounded-lg bg-slate-100">
                     <img
-                      src="/assets/products/custom_branded_lanyards.jpg"
-                      alt="Custom Branded Corporate Lanyards Dubai"
-                      className="h-full w-full object-cover opacity-90 transition-transform duration-500 hover:scale-105"
+                      src="/assets/products/brochures.jpg"
+                      alt="Corporate Marketing Brochures Dubai"
+                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                       loading="eager"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
-                    <span className="absolute bottom-1.5 left-2 text-[9px] font-bold text-white/90">
-                      Custom Branded Lanyards
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <span className="absolute bottom-1.5 left-2 text-[8px] font-bold text-white">
+                      Multi-Page Brochures
                     </span>
                   </div>
-
-                  <div className="flex items-center justify-between border-t border-white/15 pt-2 text-[9px] font-bold uppercase tracking-wider text-white/70">
-                    <span className="flex items-center gap-1">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#A82F19] animate-pulse" />
-                      Pantone Matched
-                    </span>
-                    <span className="text-white font-extrabold">100% Precision</span>
+                  <div className="mt-1.5 flex items-center justify-between text-[9px] font-bold text-slate-700">
+                    <span>Art Paper 300 GSM</span>
+                    <span className="text-slate-900 font-extrabold">Heidelberg</span>
                   </div>
                 </motion.div>
 
-                {/* Floating Badge: 1200 DPI Resolution */}
+                {/* Floating Technical Badge: 1200 DPI HD Digital Press */}
                 <motion.div
-                  animate={{ y: [0, -10, 0], scale: [1, 1.03, 1] }}
-                  transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute bottom-2 left-6 flex h-16 w-40 items-center gap-2.5 rounded-2xl border border-[#A82F19]/30 bg-white/95 px-3 py-2 shadow-[0_15px_30px_rgba(168,47,25,0.14)] backdrop-blur-md sm:bottom-4 sm:left-8"
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute bottom-2 left-4 z-20 flex h-14 w-36 items-center gap-2 rounded-xl border border-slate-200 bg-white/95 px-2.5 py-1.5 shadow-[0_10px_25px_rgba(0,0,0,0.1)] backdrop-blur-xs"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#A82F19] to-[#C9381D] text-white shadow-xs">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#A82F19] text-white">
                     <Award className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[11px] font-black text-black leading-tight flex items-center gap-1">
-                      1200 DPI
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    </div>
+                    <div className="text-[11px] font-black text-black leading-tight">1200 DPI</div>
                     <div className="text-[8px] font-bold uppercase tracking-wider text-[#A82F19]">HD Digital Press</div>
                   </div>
                 </motion.div>
@@ -485,6 +366,62 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+
+      {/* 1.5 Floating Category Quick-Access Panel (Overlapping bottom of Hero) */}
+      <div className="relative -mt-10 sm:-mt-14 z-20 pb-4">
+        <Container>
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-3.5 sm:p-5 shadow-[0_16px_40px_rgba(0,0,0,0.06)]">
+            <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+              <div className="flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-[#A82F19]" />
+                <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900">
+                  Popular Print Categories
+                </span>
+              </div>
+              <Link
+                to="/categories"
+                className="text-xs font-bold text-[#A82F19] hover:underline flex items-center gap-1 transition-colors"
+              >
+                <span>All Categories {categories ? `(${categories.length})` : ''}</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            {/* Categories scrollable container: Horizontal scroll on mobile, responsive grid on desktop */}
+            <div className="flex sm:grid sm:grid-cols-4 lg:grid-cols-7 xl:grid-cols-8 gap-2.5 overflow-x-auto no-scrollbar scroll-smooth py-1">
+              {categories && categories.length > 0 ? (
+                categories.map((cat) => (
+                  <Link
+                    key={cat.id || cat.slug}
+                    to={`/categories/${cat.slug}`}
+                    className="group flex sm:flex-col items-center gap-2.5 sm:gap-2 rounded-xl border border-slate-100 bg-slate-50/60 p-2 sm:p-2.5 text-center transition-all duration-200 hover:-translate-y-1 hover:border-[#A82F19]/40 hover:bg-white hover:shadow-md shrink-0 min-w-[140px] sm:min-w-0"
+                  >
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg overflow-hidden bg-white border border-slate-200/60 p-1 flex items-center justify-center shrink-0 group-hover:border-[#A82F19]/30 transition-transform group-hover:scale-105">
+                      {cat.image_url ? (
+                        <img
+                          src={cat.image_url}
+                          alt={cat.name}
+                          className="h-full w-full object-cover rounded"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <Package className="h-5 w-5 text-[#A82F19]" />
+                      )}
+                    </div>
+                    <span className="text-[11px] sm:text-xs font-bold text-slate-800 group-hover:text-[#A82F19] transition-colors line-clamp-1">
+                      {cat.name}
+                    </span>
+                  </Link>
+                ))
+              ) : (
+                Array.from({ length: 7 }).map((_, idx) => (
+                  <div key={idx} className="h-16 sm:h-20 rounded-xl bg-slate-100 animate-pulse min-w-[140px] sm:min-w-0 shrink-0" />
+                ))
+              )}
+            </div>
+          </div>
+        </Container>
+      </div>
 
       {/* 2. Trust Badges Banner */}
       <section className="border-b border-[#000000]/10 bg-[#FFFFFF] py-6 sm:py-8">

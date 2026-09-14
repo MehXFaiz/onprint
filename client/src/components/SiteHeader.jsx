@@ -22,6 +22,7 @@ import {
   ShoppingBag,
   Layers,
   ArrowUpRight,
+  Search,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
@@ -298,7 +299,21 @@ export default function SiteHeader() {
               Home
             </NavLink>
 
-            {/* 2. Categories with Mega Menu Dropdown */}
+            {/* 2. Products */}
+            <NavLink
+              to="/products"
+              className={({ isActive }) =>
+                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap ${
+                  isActive
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                }`
+              }
+            >
+              Products
+            </NavLink>
+
+            {/* 3. Categories with Mega Menu Dropdown */}
             <div
               className="relative py-1"
               onMouseEnter={() => setActiveDropdown('categories')}
@@ -385,20 +400,6 @@ export default function SiteHeader() {
               </AnimatePresence>
             </div>
 
-            {/* 3. Products */}
-            <NavLink
-              to="/products"
-              className={({ isActive }) =>
-                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
-                }`
-              }
-            >
-              Products
-            </NavLink>
-
             {/* 4. Services */}
             <NavLink
               to="/services"
@@ -413,21 +414,7 @@ export default function SiteHeader() {
               Services
             </NavLink>
 
-            {/* 5. Portfolio */}
-            <NavLink
-              to="/portfolio"
-              className={({ isActive }) =>
-                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
-                }`
-              }
-            >
-              Portfolio
-            </NavLink>
-
-            {/* 6. About us */}
+            {/* 5. About Us */}
             <NavLink
               to="/about"
               className={({ isActive }) =>
@@ -438,10 +425,10 @@ export default function SiteHeader() {
                 }`
               }
             >
-              About
+              About Us
             </NavLink>
 
-            {/* 7. Blog */}
+            {/* 6. Blogs */}
             <NavLink
               to="/blog"
               className={({ isActive }) =>
@@ -452,10 +439,10 @@ export default function SiteHeader() {
                 }`
               }
             >
-              Blog
+              Blogs
             </NavLink>
 
-            {/* 8. Contact us */}
+            {/* 7. Contact */}
             <NavLink
               to="/contact"
               className={({ isActive }) =>
@@ -470,8 +457,28 @@ export default function SiteHeader() {
             </NavLink>
           </nav>
 
-          {/* Right CTA & Admin Account Menu */}
-          <div className="hidden items-center gap-3 lg:flex shrink-0">
+          {/* Right CTA, Icons & Account Menu */}
+          <div className="hidden items-center gap-2.5 xl:gap-3 lg:flex shrink-0">
+            {/* Search Icon Link */}
+            <Link
+              to="/products"
+              className="flex items-center justify-center h-8 w-8 rounded-lg text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors"
+              title="Search products"
+              aria-label="Search products"
+            >
+              <Search className="h-4 w-4" />
+            </Link>
+
+            {/* Cart / Orders Icon Link */}
+            <Link
+              to="/track-order"
+              className="flex items-center justify-center h-8 w-8 rounded-lg text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors relative"
+              title="Track Order & Cart"
+              aria-label="Track Order & Cart"
+            >
+              <ShoppingBag className="h-4 w-4" />
+            </Link>
+
             <a
               href="https://wa.me/447344546056"
               target="_blank"
@@ -544,10 +551,10 @@ export default function SiteHeader() {
               to="/get-a-quote"
               variant="accent"
               icon={false}
-              className="!px-4 xl:!px-5 !py-2 text-xs xl:text-sm font-extrabold shadow-sm shadow-[#A82F19]/25 whitespace-nowrap"
+              className="!px-4 xl:!px-5 !py-2 text-xs xl:text-sm font-extrabold shadow-sm shadow-[#A82F19]/25 hover:shadow-md hover:shadow-[#A82F19]/30 hover:-translate-y-0.5 transition-all whitespace-nowrap"
               onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
             >
-              Request a Quote
+              Get a Quote
             </Button>
           </div>
 
@@ -765,7 +772,7 @@ export default function SiteHeader() {
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
                 >
-                  Request a Quote
+                  Get a Quote
                 </Button>
               </div>
             </Container>

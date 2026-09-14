@@ -307,6 +307,79 @@ const LOCATION_PAGES = [
       },
     ],
   },
+  {
+    slug: 'deira',
+    name: 'Deira, Dubai',
+    type: 'location',
+    title: 'Commercial Printing Services Deira Dubai | Wholesale & Retail Print | ONPRINT',
+    metaDescription: 'High-capacity commercial printing press serving Deira trading enterprises, Al Rigga, and Port Saeed. Wholesale brochures, packaging boxes, and express UAE delivery.',
+    h1: 'Commercial Printing & Packaging Solutions for Deira, Dubai',
+    subheading: 'Precision digital and high-volume offset printing supporting wholesale merchants, perfume houses, logistics agencies, and trading companies across historic Deira.',
+    logistics: {
+      turnaround: 'Same-day and 24-hour express courier delivery across Deira commercial zones',
+      dispatchHub: 'Direct transit from Al Quoz press via Al Khail Road & Al Garhoud Bridge',
+      deliveryFee: 'Complimentary on commercial orders over 350 AED',
+    },
+    popularProducts: [
+      { name: 'Wholesale Product Catalogs', slug: 'brochures-printing', highlight: 'Multi-page saddle-stitched and perfect-bound product catalogs' },
+      { name: 'Custom Perfume & Retail Boxes', slug: 'brochures-printing', highlight: 'Rigid magnetic gift boxes and folding cartons' },
+      { name: 'Commercial Shipping Labels & Stickers', slug: 'flyers-printing-in-dubai', highlight: 'Barcode labels and permanent adhesive vinyl stickers' },
+      { name: 'Official Company Letterheads & Invoices', slug: 'letterheads-printing-dubai', highlight: 'NCR carbonless duplicate invoice books and laser letterheads' },
+    ],
+    contentSections: [
+      {
+        title: 'Dedicated Commercial Print Capabilities for Deira’s Trading Sector',
+        content:
+          'As Dubai’s historic center of international trade and wholesale commerce, Deira requires high-capacity printing solutions that combine robust durability with volume cost efficiency. From perfume houses in the Gold Souk area to import-export houses in Port Saeed and Al Rigga, ONPRINT delivers precision color fidelity, low minimum order quantities, and reliable scheduled deliveries.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you provide wholesale volume discounts for Deira trading companies?',
+        answer:
+          'Yes. We provide tiered wholesale volume pricing on multi-page catalogs, promotional flyers, packaging boxes, and invoice books for commercial clients.',
+      },
+      {
+        question: 'How fast can you deliver printed materials to Deira offices?',
+        answer:
+          'Orders approved before 11:30 AM can be dispatched the same day for afternoon delivery across Deira, Port Saeed, and Al Rigga.',
+      },
+    ],
+  },
+  {
+    slug: 'bur-dubai',
+    name: 'Bur Dubai',
+    type: 'location',
+    title: 'Bur Dubai Printing Press | Commercial Printing & Stationery | ONPRINT',
+    metaDescription: 'Complete commercial printing press serving Bur Dubai, Al Mankhool, Al Karama, and Dubai Creek. Official stationery, brochures, and express same-day print.',
+    h1: 'Commercial Printing & Corporate Stationery in Bur Dubai',
+    subheading: 'High-speed digital printing and luxury offset craftsmanship serving corporate offices, law firms, healthcare centers, and hospitality venues across Bur Dubai.',
+    logistics: {
+      turnaround: 'Rapid same-day dispatch via Al Maktoum Bridge & Al Shindagha corridor',
+      dispatchHub: 'Direct courier delivery from central Al Quoz production facility',
+      deliveryFee: 'Free delivery on all corporate orders above 300 AED',
+    },
+    popularProducts: [
+      { name: 'Official Corporate Stationery Sets', slug: 'letterheads-printing-dubai', highlight: '120gsm laser letterheads with matching security tint envelopes' },
+      { name: 'Luxury Business Cards', slug: 'business-cards-printing', highlight: '450gsm soft-touch matte cards with metallic gold foil stamping' },
+      { name: 'High-Impact Promotional Flyers', slug: 'flyers-printing-in-dubai', highlight: 'Vibrant CMYK marketing flyers on 170gsm gloss art paper' },
+      { name: 'Healthcare & Patient Presentation Folders', slug: 'brochures-printing', highlight: 'Die-cut pocket folders with business card slits' },
+    ],
+    contentSections: [
+      {
+        title: 'Enterprise Print Solutions for Bur Dubai’s Professional Community',
+        content:
+          'Bur Dubai hosts thousands of legal practices, financial consultancies, medical centers, and government institutions. ONPRINT supplies end-to-end commercial printing that meets strict corporate guidelines, providing fast online proofing and direct doorstep delivery across Al Mankhool, Al Karama, and Dubai Healthcare City.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can you deliver rush print orders to Bur Dubai offices on the same day?',
+        answer:
+          'Yes. Our Al Quoz production headquarters is situated minutes from Bur Dubai. Emergency orders for business cards, brochures, flyers, and rollups can be delivered in as little as 4 hours.',
+      },
+    ],
+  },
 ]
 
 const USE_CASE_PAGES = [

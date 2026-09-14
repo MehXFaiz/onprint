@@ -1,6 +1,9 @@
 const mysql = require('mysql2/promise')
 const bcrypt = require('bcryptjs')
 const { initialPageSeoRecords } = require('./initialPageSeoData')
+const DUBAI_KEYWORDS = require('../data/dubaiKeywordsData')
+const DUBAI_BLOGS = require('../data/dubaiBlogsData')
+const { UAE_BACKLINKS, UAE_OUTREACH_PROSPECTS, COMPETITOR_GAP_RECORDS } = require('../data/dubaiSeoSeedData')
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
@@ -935,7 +938,213 @@ async function seedPageSeoIfEmpty(connection) {
   }
 }
 
+async function seedBlogsIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM blogs')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
+      console.log(`[Blogs] Seeding ${DUBAI_BLOGS.length} comprehensive technical printing guides in MySQL...`)
+      for (const blog of DUBAI_BLOGS) {
+        await connection.query(
+          `INSERT INTO blogs 
+           (id, title, slug, excerpt, content, featured_image, image_alt, category_id, author_name, status, is_featured, reading_time, word_count, target_location, published_at, seo_title, meta_title, meta_description, focus_keyword, secondary_keywords, canonical_url, og_title, og_description, og_image, schema_type, seo_score, readability_score, faqs)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+           ON DUPLICATE KEY UPDATE title=VALUES(title), content=VALUES(content), excerpt=VALUES(excerpt), seo_title=VALUES(seo_title), meta_description=VALUES(meta_description)`,
+          [
+            blog.id,
+            blog.title,
+            blog.slug,
+            blog.excerpt,
+            blog.content,
+            blog.featured_image,
+            blog.image_alt,
+            blog.category_id,
+            blog.author_name,
+            blog.status,
+            blog.is_featured ? 1 : 0,
+            blog.reading_time,
+            blog.word_count,
+            blog.target_location,
+            blog.published_at,
+            blog.seo_title,
+            blog.seo_title,
+            blog.meta_description,
+            blog.focus_keyword,
+            blog.secondary_keywords,
+            blog.canonical_url,
+            blog.og_title,
+            blog.og_description,
+            blog.og_image,
+            blog.schema_type,
+            95,
+            85,
+            JSON.stringify(blog.faqs || []),
+          ]
+        )
 
+        // Ensure page_seo has matching record for blog
+        const blogUrl = `/blog/${blog.slug}`
+        const blogSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: blog.title,
+          description: blog.meta_description,
+          image: `${SITE_URL}${blog.featured_image}`,
+          author: { '@type': 'Organization', name: 'ONPRINT' },
+          publisher: { '@id': `${SITE_URL}/#organization` },
+          datePublished: blog.published_at,
+          mainEntityOfPage: { '@type': 'WebPage', '@id': blog.canonical_url },
+        }
+
+        await connection.query(
+          `INSERT INTO page_seo
+           (page_type, page_id, url, slug, meta_title, meta_description, focus_keyword, secondary_keywords, h1, canonical_url, robots_index, robots_follow, og_title, og_description, og_image, schema_type, schema_markup, seo_score, readability_score)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'index', 'follow', ?, ?, ?, ?, ?, 95, 85)
+           ON DUPLICATE KEY UPDATE meta_title=VALUES(meta_title), meta_description=VALUES(meta_description), focus_keyword=VALUES(focus_keyword)`,
+          [
+            'blog',
+            blog.id,
+            blogUrl,
+            blog.slug,
+            blog.seo_title,
+            blog.meta_description,
+            blog.focus_keyword,
+            blog.secondary_keywords,
+            blog.title,
+            blog.canonical_url,
+            blog.og_title,
+            blog.og_description,
+            blog.og_image,
+            'BlogPosting',
+            JSON.stringify(blogSchema),
+          ]
+        )
+      }
+      console.log(`[Blogs] Successfully seeded ${DUBAI_BLOGS.length} high-authority printing guides into MySQL.`)
+    }
+  } catch (err) {
+    console.warn('[Blogs Seed Check Note]:', err.message)
+  }
+}
+
+async function seedKeywordsIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_keywords')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count < 50) {
+      console.log(`[Keywords] Seeding ${DUBAI_KEYWORDS.length} targeted Dubai keywords into MySQL...`)
+      for (const kw of DUBAI_KEYWORDS) {
+        await connection.query(
+          `INSERT INTO seo_keywords 
+           (keyword, keyword_type, search_intent, cluster, target_url, target_page, priority, status, notes)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+           ON DUPLICATE KEY UPDATE cluster=VALUES(cluster), target_url=VALUES(target_url), priority=VALUES(priority), status=VALUES(status)`,
+          [
+            kw.keyword,
+            kw.keyword_type || 'primary',
+            kw.search_intent || 'Commercial',
+            kw.cluster,
+            kw.target_url,
+            kw.target_page,
+            kw.priority || 'Medium',
+            kw.status || 'Published',
+            kw.notes || null,
+          ]
+        )
+      }
+      console.log(`[Keywords] Successfully seeded ${DUBAI_KEYWORDS.length} Dubai printing keywords into MySQL.`)
+    }
+  } catch (err) {
+    console.warn('[Keywords Seed Check Note]:', err.message)
+  }
+}
+
+async function seedBacklinksIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_backlinks')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
+      console.log(`[Backlinks] Seeding ${UAE_BACKLINKS.length} verified UAE directory backlink records...`)
+      for (const bl of UAE_BACKLINKS) {
+        await connection.query(
+          `INSERT INTO seo_backlinks
+           (linking_domain, linking_url, target_url, anchor_text, link_type, status, authority, relevance, toxic_risk, first_discovered_at, last_checked_at, notes)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            bl.linking_domain,
+            bl.linking_url,
+            bl.target_url,
+            bl.anchor_text,
+            bl.link_type,
+            bl.status,
+            bl.authority,
+            bl.relevance,
+            bl.toxic_risk,
+            bl.first_discovered_at,
+            bl.last_checked_at,
+            bl.notes,
+          ]
+        )
+      }
+    }
+
+    const [outreachRows] = await connection.query('SELECT COUNT(*) AS count FROM seo_outreach_prospects')
+    const outreachCount = outreachRows && outreachRows[0] ? (outreachRows[0].count ?? outreachRows[0].COUNT ?? 0) : 0
+    if (outreachCount === 0) {
+      console.log(`[Outreach] Seeding ${UAE_OUTREACH_PROSPECTS.length} UAE outreach prospects...`)
+      for (const op of UAE_OUTREACH_PROSPECTS) {
+        await connection.query(
+          `INSERT INTO seo_outreach_prospects
+           (website_domain, contact_name, contact_email, website_category, relevance, authority, outreach_status, date_contacted, follow_up_date, target_url, anchor_text, notes)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            op.website_domain,
+            op.contact_name,
+            op.contact_email,
+            op.website_category,
+            op.relevance,
+            op.authority,
+            op.outreach_status,
+            op.date_contacted || null,
+            op.follow_up_date || null,
+            op.target_url,
+            op.anchor_text,
+            op.notes,
+          ]
+        )
+      }
+    }
+  } catch (err) {
+    console.warn('[Backlinks Seed Check Note]:', err.message)
+  }
+}
+
+async function seedCompetitorsIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_competitor_records')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
+      console.log(`[Competitors] Seeding ${COMPETITOR_GAP_RECORDS.length} competitor gap records...`)
+      for (const cg of COMPETITOR_GAP_RECORDS) {
+        await connection.query(
+          `INSERT INTO seo_competitor_records
+           (competitor_name, competitor_url, record_type, keyword, source_url, notes)
+           VALUES (?, ?, ?, ?, ?, ?)`,
+          [
+            cg.competitor_name,
+            cg.competitor_url,
+            cg.record_type,
+            cg.keyword,
+            cg.source_url,
+            cg.notes,
+          ]
+        )
+      }
+    }
+  } catch (err) {
+    console.warn('[Competitors Seed Check Note]:', err.message)
+  }
+}
 
 async function initDatabase() {
   try {

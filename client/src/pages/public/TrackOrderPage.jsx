@@ -8,7 +8,6 @@ import {
   Package,
   FileCheck,
   AlertCircle,
-  Phone,
   MessageSquare,
   ArrowRight,
   Printer,
@@ -317,12 +316,6 @@ export default function TrackOrderPage() {
                     className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50 px-3.5 py-2 text-xs font-bold text-emerald-700 hover:bg-emerald-100 transition-colors"
                   >
                     <WhatsAppIcon className="h-4 w-4 fill-emerald-600" /> WhatsApp
-                  </a>
-                  <a
-                    href="tel:+971551837995"
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors"
-                  >
-                    <Phone className="h-4 w-4 text-[#A82F19]" /> Call Us
                   </a>
                 </div>
               </div>

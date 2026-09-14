@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Mail, MapPin, Phone, Clock, CheckCircle2, MessageSquare, RefreshCw } from 'lucide-react'
+import { Mail, MapPin, Clock, CheckCircle2, MessageSquare, RefreshCw } from 'lucide-react'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
@@ -10,7 +10,6 @@ import { submitContactInquiry } from '../../services/contact'
 
 const contactDetails = [
   { icon: WhatsAppIcon, label: 'WhatsApp Chat', value: '+44 7344546056', href: 'https://wa.me/447344546056', isWhatsApp: true },
-  { icon: Phone, label: 'Phone Call', value: '+971 55 183 7995', href: 'tel:+971551837995' },
   { icon: Mail, label: 'Email Inquiry', value: 'info@onprint.ae', href: 'mailto:info@onprint.ae' },
   { icon: MapPin, label: 'Studio & Press', value: 'Al Quoz Industrial Area 3, Dubai, UAE' },
   { icon: Clock, label: 'Working Hours', value: 'Mon–Sat: 8:30 AM – 6:30 PM' },

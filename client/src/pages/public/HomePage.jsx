@@ -87,7 +87,7 @@ const homeFaqs = [
   {
     question: 'How do I request a custom quotation for bulk printing?',
     answer:
-      'You can request an instant quote online via our Get a Quote page, email our sales team at info@onprint.ae, or call +971 55 183 7995. Our Al Quoz print specialists provide clear itemized quotations within 2 hours.',
+      'You can request an instant quote online via our Get a Quote page, message our team on WhatsApp at +44 7344546056, or email us at info@onprint.ae. Our Al Quoz print specialists provide clear itemized quotations within 2 hours.',
   },
 ]
 

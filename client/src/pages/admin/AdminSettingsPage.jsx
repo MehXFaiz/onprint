@@ -13,7 +13,7 @@ export default function AdminSettingsPage() {
     supportEmail: 'support@onprint.ae',
     salesEmail: 'sales@onprint.ae',
     phone: '+971 4 800 PRINT',
-    whatsapp: '+971 50 123 4567',
+    whatsapp: '+44 7344546056',
     address: 'Warehouse 14, Al Quoz Industrial Area 3, Dubai, United Arab Emirates',
     currency: 'AED',
     minOrderAmount: '100',

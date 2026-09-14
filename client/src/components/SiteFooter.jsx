@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Container from './Container'
 import { CmykDots } from './PrintMarks'
 import Logo from './Logo'
+import WhatsAppIcon from './WhatsAppIcon'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { trackGetQuoteClick } from '../utils/analytics'
 
@@ -76,6 +77,17 @@ export default function SiteFooter() {
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A82F19]">Dubai Headquarters</p>
           <ul className="mt-4 space-y-3 text-sm">
+            <li className="flex items-center gap-2.5">
+              <WhatsAppIcon className="h-4 w-4 text-[#25D366] shrink-0 fill-[#25D366]" />
+              <a
+                href="https://wa.me/447344546056"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-[#25D366]"
+              >
+                +44 7344546056 (WhatsApp)
+              </a>
+            </li>
             <li className="flex items-center gap-2.5">
               <Phone className="h-4 w-4 text-[#A82F19] shrink-0" />
               <a href="tel:+9714800PRINT" className="transition-colors hover:text-[#A82F19]">

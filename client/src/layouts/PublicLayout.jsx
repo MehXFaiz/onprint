@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import LoadingScreen from '../components/LoadingScreen'
+import FloatingWhatsApp from '../components/FloatingWhatsApp'
 
 export default function PublicLayout() {
   const { pathname } = useLocation()
@@ -19,6 +20,7 @@ export default function PublicLayout() {
         <Outlet />
       </main>
       <SiteFooter />
+      <FloatingWhatsApp />
     </div>
   )
 }

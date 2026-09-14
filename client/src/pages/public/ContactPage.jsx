@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Mail, MapPin, Phone, Clock, CheckCircle2, MessageSquare, RefreshCw } from 'lucide-react'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
@@ -8,7 +9,8 @@ import { trackContactFormSubmit } from '../../utils/analytics'
 import { submitContactInquiry } from '../../services/contact'
 
 const contactDetails = [
-  { icon: Phone, label: 'Phone / WhatsApp', value: '+971 4 800 PRINT', href: 'tel:+9714800PRINT' },
+  { icon: WhatsAppIcon, label: 'WhatsApp Chat', value: '+44 7344546056', href: 'https://wa.me/447344546056', isWhatsApp: true },
+  { icon: Phone, label: 'Phone Call', value: '+971 4 800 PRINT', href: 'tel:+9714800PRINT' },
   { icon: Mail, label: 'Email Inquiry', value: 'info@onprint.ae', href: 'mailto:info@onprint.ae' },
   { icon: MapPin, label: 'Studio & Press', value: 'Al Quoz Industrial Area 3, Dubai, UAE' },
   { icon: Clock, label: 'Working Hours', value: 'Mon–Sat: 8:30 AM – 6:30 PM' },
@@ -122,7 +124,7 @@ export default function ContactPage() {
           {/* Contact Details Cards */}
           <div className="space-y-4 lg:col-span-5">
             <h2 className="font-display text-lg font-bold text-primary mb-4">Dubai Press Facility</h2>
-            {contactDetails.map(({ icon: Icon, label, value, href }) => {
+            {contactDetails.map(({ icon: Icon, label, value, href, isWhatsApp }) => {
               const renderContactIcon = () => {
                 if (!Icon) return null
                 if (React.isValidElement(Icon)) return Icon
@@ -134,13 +136,18 @@ export default function ContactPage() {
               }
               return (
                 <div key={label} className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-6 shadow-xs">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${isWhatsApp ? 'bg-emerald-50 text-[#25D366]' : 'bg-accent-soft text-accent'}`}>
                     {renderContactIcon()}
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-secondary">{label}</p>
                     {href ? (
-                      <a href={href} className="mt-1 block text-base font-bold text-primary transition-colors hover:text-accent">
+                      <a
+                        href={href}
+                        target={href.startsWith('http') ? '_blank' : undefined}
+                        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className={`mt-1 block text-base font-bold text-primary transition-colors ${isWhatsApp ? 'hover:text-[#25D366]' : 'hover:text-accent'}`}
+                      >
                         {value}
                       </a>
                     ) : (

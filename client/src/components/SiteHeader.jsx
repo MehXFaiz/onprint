@@ -28,6 +28,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
 import Button from './Button'
 import Logo from './Logo'
+import WhatsAppIcon from './WhatsAppIcon'
 import { useAuth } from '../context/AuthContext'
 import { trackGetQuoteClick } from '../utils/analytics'
 import { getCategories } from '../services/categories'
@@ -250,6 +251,17 @@ export default function SiteHeader() {
               <span className="font-semibold text-[11px]">Track Order</span>
             </Link>
             <span className="h-3 w-[1px] bg-slate-200" />
+            <a
+              href="https://wa.me/447344546056"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#25D366]"
+              aria-label="WhatsApp"
+            >
+              <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
+              <span>+44 7344546056</span>
+            </a>
+            <span className="h-3 w-[1px] bg-slate-200" />
             <a href="tel:+9714800PRINT" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
               <Phone className="h-3.5 w-3.5 text-[#A82F19]" />
               <span>+971 4 800 PRINT</span>
@@ -466,6 +478,16 @@ export default function SiteHeader() {
 
           {/* Right CTA & Admin Account Menu */}
           <div className="hidden items-center gap-3 lg:flex shrink-0">
+            <a
+              href="https://wa.me/447344546056"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#25D366] transition-colors py-1.5 px-2 whitespace-nowrap"
+              aria-label="WhatsApp +44 7344546056"
+            >
+              <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
+              <span>+44 7344546056</span>
+            </a>
             <a
               href="tel:+9714800PRINT"
               className="hidden 2xl:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#A82F19] transition-colors py-1.5 px-2 whitespace-nowrap"
@@ -736,6 +758,16 @@ export default function SiteHeader() {
 
               {/* Mobile CTA */}
               <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
+                <a
+                  href="https://wa.me/447344546056"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-50 py-2.5 text-xs font-bold text-emerald-800 shadow-xs active:bg-emerald-100"
+                >
+                  <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
+                  <span>WhatsApp: +44 7344546056</span>
+                </a>
+
                 <a
                   href="tel:+9714800PRINT"
                   className="flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white py-2.5 text-xs font-bold text-slate-800 shadow-xs active:bg-slate-50"

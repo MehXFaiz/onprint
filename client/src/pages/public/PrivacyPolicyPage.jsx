@@ -29,7 +29,7 @@ const sections = [
   },
   {
     title: 'Contact',
-    body: 'Questions about this policy can be directed to info@onprint.ae.',
+    body: 'Questions about this policy can be directed to 0nprint183@gmail.com.',
   },
 ]
 

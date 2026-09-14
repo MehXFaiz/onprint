@@ -155,7 +155,7 @@ export default function CategoryDetailPage() {
       '@type': 'LocalBusiness',
       name: 'ONPRINT Printing & Branding Solutions',
       telephone: '+971 55 183 7995',
-      email: 'info@onprint.ae',
+      email: '0nprint183@gmail.com',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Dubai',

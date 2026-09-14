@@ -42,7 +42,7 @@ const initialPageSeoRecords = [
           url: `${SITE_URL}`,
           logo: `${SITE_URL}/logo_icon.png`,
           telephone: '+9714800PRINT',
-          email: 'info@onprint.ae',
+          email: '0nprint183@gmail.com',
           priceRange: '$$',
           address: {
             '@type': 'PostalAddress',
@@ -130,7 +130,7 @@ const initialPageSeoRecords = [
       name: 'Contact ONPRINT Dubai',
       url: `${SITE_URL}/contact`,
       telephone: '+9714800PRINT',
-      email: 'info@onprint.ae',
+      email: '0nprint183@gmail.com',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Al Quoz Industrial Area 3',

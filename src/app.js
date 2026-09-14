@@ -105,7 +105,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     image: `${siteUrl}/logo_icon.png`,
     description: 'ONPRINT is Dubai’s premier physical branding & commercial printing press. Specializing in executive stationery, luxury packaging, corporate gifts, large-format rollups, and precision digital printing across the UAE.',
     telephone: '+9714800PRINT',
-    email: 'info@onprint.ae',
+    email: '0nprint183@gmail.com',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',

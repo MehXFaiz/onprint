@@ -261,9 +261,9 @@ export default function SiteHeader() {
               <span>+44 7344546056</span>
             </a>
             <span className="h-3 w-[1px] bg-slate-200" />
-            <a href="mailto:info@onprint.ae" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
+            <a href="mailto:0nprint183@gmail.com" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
               <Mail className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span>info@onprint.ae</span>
+              <span>0nprint183@gmail.com</span>
             </a>
           </div>
         </Container>

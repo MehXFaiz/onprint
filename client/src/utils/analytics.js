@@ -238,7 +238,7 @@ export function trackPhoneClick({ source_page, phone_number } = {}) {
 export function trackEmailClick({ source_page, email_address } = {}) {
   trackEvent('email_click', {
     source_page: source_page || 'website',
-    email_label: email_address || 'info@onprint.ae',
+    email_label: email_address || '0nprint183@gmail.com',
   })
 }
 

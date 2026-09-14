@@ -90,8 +90,8 @@ export default function SiteFooter() {
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className="h-4 w-4 text-[#A82F19] shrink-0" />
-              <a href="mailto:info@onprint.ae" className="transition-colors hover:text-[#A82F19]">
-                info@onprint.ae
+              <a href="mailto:0nprint183@gmail.com" className="transition-colors hover:text-[#A82F19]">
+                0nprint183@gmail.com
               </a>
             </li>
             <li className="flex items-start gap-2.5">

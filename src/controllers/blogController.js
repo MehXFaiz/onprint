@@ -152,6 +152,12 @@ async function listPublicBlogs(req, res, next) {
       const [rows] = await pool.query(dataQuery, dataParams)
 
       blogs = rows.map((r) => formatBlogRow(r))
+
+      if (blogs.length === 0 && (!searchTerm || !searchTerm.trim()) && (!category || category === 'All') && (!product || product === 'All')) {
+        let all = persistentStore.getBlogs().filter((b) => b.status === 'published')
+        total = all.length
+        blogs = all.slice(offset, offset + limitNum).map((b) => formatBlogRow(b))
+      }
     } catch (dbErr) {
       console.warn('[BlogController] MySQL listPublicBlogs fallback:', dbErr.message)
       // Persistent Store fallback
@@ -415,6 +421,16 @@ async function getBlogBySlug(req, res, next) {
         )
 
         relatedBlogs = relatedRows.map((r) => formatBlogRow(r))
+      } else {
+        const found = persistentStore.getBlogBySlug(slug) || persistentStore.getBlog(slug)
+        if (found) {
+          if (!isAdmin && found.status !== 'published') {
+            throw new ApiError(404, 'Blog article not found or not published')
+          }
+          blog = formatBlogRow(found)
+          const allPublished = persistentStore.getBlogs().filter((b) => b.status === 'published' && b.id !== blog.id)
+          relatedBlogs = allPublished.slice(0, 3).map((b) => formatBlogRow(b))
+        }
       }
     } catch (dbErr) {
       if (dbErr instanceof ApiError) throw dbErr

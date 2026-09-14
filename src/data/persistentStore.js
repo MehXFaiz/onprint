@@ -382,19 +382,31 @@ function deleteMessage(id) {
 
 function getBlogs() {
   const store = loadStore()
+  if (!Array.isArray(store.blogs) || store.blogs.length === 0) {
+    try {
+      const dubaiBlogsData = require('./dubaiBlogsData')
+      store.blogs = dubaiBlogsData.map((b) => ({
+        ...b,
+        _id: `blog-${b.id}`,
+        created_at: b.published_at || new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      }))
+      saveStore(store)
+    } catch (e) {
+      console.warn('[PersistentStore] Could not auto-seed dubai blogs:', e.message)
+    }
+  }
   return Array.isArray(store.blogs) ? store.blogs : []
 }
 
 function getBlog(id) {
-  const store = loadStore()
-  const blogs = Array.isArray(store.blogs) ? store.blogs : []
+  const blogs = getBlogs()
   const clean = String(id).trim().toLowerCase()
   return blogs.find((b) => String(b.id).toLowerCase() === clean || String(b._id || '').toLowerCase() === clean) || null
 }
 
 function getBlogBySlug(slug) {
-  const store = loadStore()
-  const blogs = Array.isArray(store.blogs) ? store.blogs : []
+  const blogs = getBlogs()
   const clean = String(slug).trim().toLowerCase()
   return blogs.find((b) => String(b.slug).toLowerCase() === clean || String(b.id).toLowerCase() === clean || String(b._id || '').toLowerCase() === clean) || null
 }
@@ -476,6 +488,85 @@ function deleteBlogs(ids) {
   return true
 }
 
+// -------------------------------------------------------------
+// SEO Keywords, Backlinks, Outreach, Competitors Fallback Store
+// -------------------------------------------------------------
+function getKeywords() {
+  const store = loadStore()
+  if (!Array.isArray(store.keywords) || store.keywords.length === 0) {
+    try {
+      const dubaiKeywordsData = require('./dubaiKeywordsData')
+      store.keywords = dubaiKeywordsData.map((kw, idx) => ({
+        id: idx + 1,
+        ...kw,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      }))
+      saveStore(store)
+    } catch (e) {
+      console.warn('[PersistentStore] Could not auto-seed keywords:', e.message)
+    }
+  }
+  return Array.isArray(store.keywords) ? store.keywords : []
+}
+
+function getBacklinks() {
+  const store = loadStore()
+  if (!Array.isArray(store.backlinks) || store.backlinks.length === 0) {
+    try {
+      const { seedBacklinks } = require('./dubaiSeoSeedData')
+      store.backlinks = seedBacklinks.map((b, idx) => ({
+        id: idx + 1,
+        ...b,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      }))
+      saveStore(store)
+    } catch (e) {
+      console.warn('[PersistentStore] Could not auto-seed backlinks:', e.message)
+    }
+  }
+  return Array.isArray(store.backlinks) ? store.backlinks : []
+}
+
+function getOutreach() {
+  const store = loadStore()
+  if (!Array.isArray(store.outreach) || store.outreach.length === 0) {
+    try {
+      const { seedOutreachProspects } = require('./dubaiSeoSeedData')
+      store.outreach = seedOutreachProspects.map((o, idx) => ({
+        id: idx + 1,
+        ...o,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      }))
+      saveStore(store)
+    } catch (e) {
+      console.warn('[PersistentStore] Could not auto-seed outreach:', e.message)
+    }
+  }
+  return Array.isArray(store.outreach) ? store.outreach : []
+}
+
+function getCompetitors() {
+  const store = loadStore()
+  if (!Array.isArray(store.competitors) || store.competitors.length === 0) {
+    try {
+      const { seedCompetitorRecords } = require('./dubaiSeoSeedData')
+      store.competitors = seedCompetitorRecords.map((c, idx) => ({
+        id: idx + 1,
+        ...c,
+        imported_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      }))
+      saveStore(store)
+    } catch (e) {
+      console.warn('[PersistentStore] Could not auto-seed competitors:', e.message)
+    }
+  }
+  return Array.isArray(store.competitors) ? store.competitors : []
+}
+
 module.exports = {
   getOrders,
   addOrder,
@@ -502,4 +593,8 @@ module.exports = {
   updateBlog,
   deleteBlog,
   deleteBlogs,
+  getKeywords,
+  getBacklinks,
+  getOutreach,
+  getCompetitors,
 }

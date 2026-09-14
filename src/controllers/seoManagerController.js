@@ -10,6 +10,7 @@ const seoOpportunityService = require('../services/seoOpportunityService')
 const competitorGapService = require('../services/competitorGapService')
 const imageSeoService = require('../services/imageSeoService')
 const programmaticSeoService = require('../services/programmaticSeoService')
+const persistentStore = require('../data/persistentStore')
 
 /**
  * AI SEO Manager Controller
@@ -457,22 +458,44 @@ class SeoManagerController {
       }
 
       // If Search Console is disconnected, fetch seeded / snapshot keyword database
-      const [snapshots] = await pool.query(
-        `SELECT * FROM seo_keyword_snapshots ORDER BY snapshot_date DESC, position ASC LIMIT 100`
-      )
+      let snapshots = []
+      try {
+        const [rows] = await pool.query(
+          `SELECT * FROM seo_keyword_snapshots ORDER BY snapshot_date DESC, position ASC LIMIT 100`
+        )
+        snapshots = rows || []
+      } catch (e) {}
+
+      let queries = []
+      if (snapshots.length > 0) {
+        queries = snapshots.map((s) => ({
+          query: s.keyword,
+          clicks: s.clicks ?? null,
+          impressions: s.impressions ?? null,
+          ctr: s.ctr ?? null,
+          position: s.position ?? null,
+        }))
+      } else {
+        const kws = persistentStore.getKeywords()
+        queries = kws.slice(0, 100).map((k) => ({
+          query: k.keyword,
+          clicks: null,
+          impressions: null,
+          ctr: null,
+          position: null,
+          cluster: k.cluster,
+          search_intent: k.search_intent,
+          priority: k.priority,
+          status: 'Data unavailable (GSC disconnected)',
+        }))
+      }
 
       res.json({
         success: true,
         data: {
           connected: false,
-          message: 'Google Search Console not connected. Showing tracked keyword targets.',
-          queries: snapshots.map((s) => ({
-            query: s.keyword,
-            clicks: s.clicks || 0,
-            impressions: s.impressions || 0,
-            ctr: s.ctr || 0,
-            position: s.position || 0,
-          })),
+          message: 'Google Search Console not connected. Displaying tracked keyword targets (Live performance data unavailable until GSC is connected).',
+          queries,
           opportunities: {
             highImpressionLowCtr: [],
             position4To20: [],
@@ -850,17 +873,37 @@ class SeoManagerController {
   async getKeywordTargets(req, res) {
     try {
       const { cluster, intent, priority, status, search, limit = 100, offset = 0 } = req.query
-      const filters = []
-      const params = []
-      if (cluster) { filters.push('cluster = ?'); params.push(cluster) }
-      if (intent) { filters.push('search_intent = ?'); params.push(intent) }
-      if (priority) { filters.push('priority = ?'); params.push(priority) }
-      if (status) { filters.push('status = ?'); params.push(status) }
-      if (search) { filters.push('(keyword LIKE ? OR target_page LIKE ?)'); params.push(`%${search}%`, `%${search}%`) }
-      const where = filters.length ? `WHERE ${filters.join(' AND ')}` : ''
-      const [rows] = await pool.query(`SELECT * FROM seo_keywords ${where} ORDER BY FIELD(priority, 'High', 'Medium', 'Low'), keyword ASC LIMIT ? OFFSET ?`, [...params, Number(limit), Number(offset)])
-      const [countRows] = await pool.query(`SELECT COUNT(*) AS total FROM seo_keywords ${where}`, params)
-      res.json({ success: true, data: { items: rows, total: countRows[0]?.total || 0 } })
+      try {
+        const filters = []
+        const params = []
+        if (cluster) { filters.push('cluster = ?'); params.push(cluster) }
+        if (intent) { filters.push('search_intent = ?'); params.push(intent) }
+        if (priority) { filters.push('priority = ?'); params.push(priority) }
+        if (status) { filters.push('status = ?'); params.push(status) }
+        if (search) { filters.push('(keyword LIKE ? OR target_page LIKE ?)'); params.push(`%${search}%`, `%${search}%`) }
+        const where = filters.length ? `WHERE ${filters.join(' AND ')}` : ''
+        const [rows] = await pool.query(`SELECT * FROM seo_keywords ${where} ORDER BY FIELD(priority, 'High', 'Medium', 'Low'), keyword ASC LIMIT ? OFFSET ?`, [...params, Number(limit), Number(offset)])
+        const [countRows] = await pool.query(`SELECT COUNT(*) AS total FROM seo_keywords ${where}`, params)
+        if (rows && rows.length > 0) {
+          return res.json({ success: true, data: { items: rows, total: countRows[0]?.total || 0 } })
+        }
+      } catch (dbErr) {
+        console.warn('[SeoManagerController] MySQL getKeywordTargets fallback:', dbErr.message)
+      }
+
+      // Persistent store fallback
+      let all = persistentStore.getKeywords()
+      if (cluster) all = all.filter((k) => (k.cluster || '').toLowerCase() === cluster.toLowerCase())
+      if (intent) all = all.filter((k) => (k.search_intent || '').toLowerCase() === intent.toLowerCase())
+      if (priority) all = all.filter((k) => (k.priority || '').toLowerCase() === priority.toLowerCase())
+      if (status) all = all.filter((k) => (k.status || '').toLowerCase() === status.toLowerCase())
+      if (search) {
+        const s = search.toLowerCase()
+        all = all.filter((k) => (k.keyword || '').toLowerCase().includes(s) || (k.target_page || '').toLowerCase().includes(s))
+      }
+      const total = all.length
+      const paged = all.slice(Number(offset), Number(offset) + Number(limit))
+      res.json({ success: true, data: { items: paged, total } })
     } catch (err) {
       res.status(500).json({ success: false, message: err.message })
     }
@@ -889,17 +932,43 @@ class SeoManagerController {
     try {
       const allowed = new Set(['new', 'lost', 'active', 'needs_review', 'nofollow', 'follow', 'high', 'low', 'relevant'])
       const filter = String(req.query.filter || '').toLowerCase()
-      let where = ''
-      const params = []
-      if (allowed.has(filter)) {
-        if (['nofollow', 'follow'].includes(filter)) { where = 'WHERE link_type = ?'; params.push(filter) }
-        else if (['high', 'low'].includes(filter)) { where = 'WHERE authority ' + (filter === 'high' ? '>=' : '<') + ' 50' }
-        else if (filter === 'relevant') { where = "WHERE relevance = 'high'" }
-        else { where = 'WHERE status = ?'; params.push(filter) }
+      try {
+        let where = ''
+        const params = []
+        if (allowed.has(filter)) {
+          if (['nofollow', 'follow'].includes(filter)) { where = 'WHERE link_type = ?'; params.push(filter) }
+          else if (['high', 'low'].includes(filter)) { where = 'WHERE authority ' + (filter === 'high' ? '>=' : '<') + ' 50' }
+          else if (filter === 'relevant') { where = "WHERE relevance = 'high'" }
+          else { where = 'WHERE status = ?'; params.push(filter) }
+        }
+        const [items] = await pool.query(`SELECT * FROM seo_backlinks ${where} ORDER BY COALESCE(last_checked_at, created_at) DESC`, params)
+        const [summaryRows] = await pool.query(`SELECT COUNT(*) AS total, COUNT(DISTINCT linking_domain) AS referring_domains, SUM(status = 'new') AS new_backlinks, SUM(status = 'lost') AS lost_backlinks, SUM(link_type = 'follow') AS follow_links, SUM(link_type = 'nofollow') AS nofollow_links FROM seo_backlinks`)
+        if (items && items.length > 0) {
+          return res.json({ success: true, data: { items, summary: summaryRows[0] || {} } })
+        }
+      } catch (dbErr) {
+        console.warn('[SeoManagerController] MySQL getBacklinks fallback:', dbErr.message)
       }
-      const [items] = await pool.query(`SELECT * FROM seo_backlinks ${where} ORDER BY COALESCE(last_checked_at, created_at) DESC`, params)
-      const [summaryRows] = await pool.query(`SELECT COUNT(*) AS total, COUNT(DISTINCT linking_domain) AS referring_domains, SUM(status = 'new') AS new_backlinks, SUM(status = 'lost') AS lost_backlinks, SUM(link_type = 'follow') AS follow_links, SUM(link_type = 'nofollow') AS nofollow_links FROM seo_backlinks`)
-      res.json({ success: true, data: { items, summary: summaryRows[0] || {} } })
+
+      // Persistent store fallback
+      let items = persistentStore.getBacklinks()
+      if (allowed.has(filter)) {
+        if (['nofollow', 'follow'].includes(filter)) items = items.filter((b) => b.link_type === filter)
+        else if (filter === 'high') items = items.filter((b) => Number(b.authority) >= 50)
+        else if (filter === 'low') items = items.filter((b) => Number(b.authority) < 50)
+        else if (filter === 'relevant') items = items.filter((b) => b.relevance === 'high')
+        else items = items.filter((b) => b.status === filter)
+      }
+      const domains = new Set(items.map((b) => b.linking_domain))
+      const summary = {
+        total: items.length,
+        referring_domains: domains.size,
+        new_backlinks: items.filter((b) => b.status === 'new').length,
+        lost_backlinks: items.filter((b) => b.status === 'lost').length,
+        follow_links: items.filter((b) => b.link_type === 'follow').length,
+        nofollow_links: items.filter((b) => b.link_type === 'nofollow').length,
+      }
+      res.json({ success: true, data: { items, summary } })
     } catch (err) { res.status(500).json({ success: false, message: err.message }) }
   }
 
@@ -909,10 +978,19 @@ class SeoManagerController {
 
   async getOutreach(req, res) {
     try {
-      const params = []
-      const where = req.query.status ? 'WHERE outreach_status = ?' : ''
-      if (req.query.status) params.push(req.query.status)
-      const [items] = await pool.query(`SELECT * FROM seo_outreach_prospects ${where} ORDER BY updated_at DESC`, params)
+      try {
+        const params = []
+        const where = req.query.status ? 'WHERE outreach_status = ?' : ''
+        if (req.query.status) params.push(req.query.status)
+        const [items] = await pool.query(`SELECT * FROM seo_outreach_prospects ${where} ORDER BY updated_at DESC`, params)
+        if (items && items.length > 0) {
+          return res.json({ success: true, data: items })
+        }
+      } catch (dbErr) {
+        console.warn('[SeoManagerController] MySQL getOutreach fallback:', dbErr.message)
+      }
+      let items = persistentStore.getOutreach()
+      if (req.query.status) items = items.filter((o) => (o.outreach_status || '').toLowerCase() === req.query.status.toLowerCase())
       res.json({ success: true, data: items })
     } catch (err) { res.status(500).json({ success: false, message: err.message }) }
   }
@@ -923,7 +1001,15 @@ class SeoManagerController {
 
   async getCompetitorRecords(req, res) {
     try {
-      const [items] = await pool.query('SELECT * FROM seo_competitor_records ORDER BY updated_at DESC')
+      try {
+        const [items] = await pool.query('SELECT * FROM seo_competitor_records ORDER BY updated_at DESC')
+        if (items && items.length > 0) {
+          return res.json({ success: true, data: items })
+        }
+      } catch (dbErr) {
+        console.warn('[SeoManagerController] MySQL getCompetitorRecords fallback:', dbErr.message)
+      }
+      const items = persistentStore.getCompetitors()
       res.json({ success: true, data: items })
     } catch (err) { res.status(500).json({ success: false, message: err.message }) }
   }

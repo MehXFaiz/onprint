@@ -1,12 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Package, Tag } from 'lucide-react'
+import { X, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Package, Tag, Compass, Image as ImageIcon } from 'lucide-react'
 import Button from './Button'
+import Product360Viewer from './Product360Viewer'
 import { getProductImage } from '../assets/productImages'
 import { trackViewProduct, trackGetQuoteClick } from '../utils/analytics'
 
 export default function ProductDetailModal({ product, onClose }) {
+  const [viewMode, setViewMode] = useState('360') // '360' | 'photo'
+
   useEffect(() => {
     if (product) {
       trackViewProduct({
@@ -47,7 +50,7 @@ export default function ProductDetailModal({ product, onClose }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           onClick={onClose}
-          className="absolute inset-0 bg-primary/70 backdrop-blur-sm"
+          className="absolute inset-0 bg-black/75 backdrop-blur-md"
         />
 
         {/* Modal Window */}
@@ -56,48 +59,87 @@ export default function ProductDetailModal({ product, onClose }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 12 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-border bg-surface shadow-2xl"
+          className="relative z-10 w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl border border-black/10 bg-white shadow-2xl"
         >
           {/* Close Button */}
           <button
             type="button"
             onClick={onClose}
             aria-label="Close product modal"
-            className="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-background/90 text-primary shadow-xs transition-colors hover:bg-accent hover:text-white cursor-pointer"
+            className="absolute right-4 top-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-black shadow-md transition-colors hover:bg-[#A82F19] hover:text-white cursor-pointer"
           >
             <X className="h-4 w-4" />
           </button>
 
           <div className="grid grid-cols-1 md:grid-cols-12">
-            {/* Image Canvas Column */}
-            <div className="relative flex items-center justify-center bg-muted/20 p-6 md:col-span-6 md:p-8 border-b md:border-b-0 md:border-r border-border/80">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border/60 bg-surface shadow-xs">
-                {primaryImage ? (
-                  <img
-                    src={primaryImage}
-                    alt={product.name}
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center text-xs font-bold uppercase tracking-widest text-secondary">
-                    ONPRINT PRESS
-                  </div>
-                )}
-
-                {/* Badges */}
-                <div className="absolute left-3 top-3 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-surface/95 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-primary shadow-xs backdrop-blur-md">
-                    <Tag className="h-3 w-3 text-accent" />
-                    {categoryName}
-                  </span>
+            {/* 360 Inspection Canvas Column */}
+            <div className="relative flex flex-col justify-between bg-[#fbfaf8] p-5 sm:p-7 md:col-span-6 md:border-r border-black/10">
+              {/* Mode Toggle Switch */}
+              <div className="mb-4 flex items-center justify-between">
+                <div className="flex items-center gap-1 rounded-xl border border-black/10 bg-white p-1 shadow-xs">
+                  <button
+                    type="button"
+                    onClick={() => setViewMode('360')}
+                    className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+                      viewMode === '360'
+                        ? 'bg-[#A82F19] text-white shadow-xs'
+                        : 'text-black/60 hover:text-black'
+                    }`}
+                  >
+                    <Compass className="h-3.5 w-3.5" />
+                    <span>360° View</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setViewMode('photo')}
+                    className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+                      viewMode === 'photo'
+                        ? 'bg-[#A82F19] text-white shadow-xs'
+                        : 'text-black/60 hover:text-black'
+                    }`}
+                  >
+                    <ImageIcon className="h-3.5 w-3.5" />
+                    <span>Static Photo</span>
+                  </button>
                 </div>
 
                 {isFeatured && (
-                  <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
                     <Sparkles className="h-3 w-3" />
                     Featured
                   </span>
                 )}
+              </div>
+
+              {/* Viewer Stage */}
+              <div className="relative w-full overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+                {viewMode === '360' ? (
+                  <Product360Viewer
+                    product={product}
+                    autoSpin={true}
+                    height="aspect-[4/3]"
+                  />
+                ) : (
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5f3ef]">
+                    {primaryImage ? (
+                      <img
+                        src={primaryImage}
+                        alt={product.name}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center text-xs font-bold uppercase tracking-widest text-black/40">
+                        ONPRINT PRESS
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Footnote note */}
+              <div className="mt-3 flex items-center justify-between text-[11px] font-semibold text-black/50">
+                <span>Category: <strong className="text-black">{categoryName}</strong></span>
+                <span className="text-[#A82F19] font-bold">Interactive 3D Preview</span>
               </div>
             </div>
 

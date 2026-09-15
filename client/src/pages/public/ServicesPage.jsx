@@ -25,9 +25,9 @@ export default function ServicesPage() {
   return (
     <div className="py-16 sm:py-24">
       <SEOHead
-        title="Printing Services Dubai | Commercial & Digital Printing Press | ONPRINT"
-        description="Comprehensive printing services in Dubai. High-volume offset printing, express digital press, luxury packaging, corporate gifts, stickers, and exhibition displays."
-        keywords="printing services dubai, commercial printing dubai, digital printing dubai, offset printing dubai, packaging printing dubai"
+        title="Printing Services in Dubai, UAE | Commercial & Digital Press | ONPRINT"
+        description="Professional printing services in Dubai, UAE. Custom packaging, business cards, corporate gifts, offset printing, digital press, luxury finishing. Al Quoz facility with fast turnaround."
+        keywords="printing services dubai uae, commercial printing dubai, digital printing services dubai, custom packaging dubai, corporate printing uae, business card printing dubai"
         canonicalPath="/services"
         breadcrumbs={[{ name: 'Printing Services', url: '/services' }]}
       />
@@ -41,7 +41,7 @@ export default function ServicesPage() {
             <span>COMMERCIAL PRINT SOLUTIONS</span>
           </div>
           <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
-            Commercial &amp; Digital Printing Services in Dubai
+            Custom Packaging &amp; Printing Services in Dubai, UAE
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-secondary sm:text-base">
             From executive office stationery and bespoke luxury packaging to large-format exhibition signage, ONPRINT covers every commercial printing need in Dubai with guaranteed color fidelity and precision finishing.

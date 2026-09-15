@@ -10,6 +10,7 @@ export const portfolioItems = [
     image: '/assets/products/1 (11).jpg',
     treatment: 'paper',
     aspect: 'aspect-[4/3]',
+    relatedService: { name: 'Business Cards Printing', url: '/categories/business-cards-printing' },
   },
   {
     id: 'custom-magnetic-rigid-packaging',
@@ -20,6 +21,7 @@ export const portfolioItems = [
     image: '/assets/products/1 (5).jpg',
     treatment: 'dark',
     aspect: 'aspect-[4/3]',
+    relatedService: { name: 'Corporate Gift Items', url: '/categories/corporate-gift-items' },
   },
   {
     id: 'corporate-brochures-annual-reports',
@@ -30,6 +32,7 @@ export const portfolioItems = [
     image: '/assets/products/brochures.jpg',
     treatment: 'paper',
     aspect: 'aspect-[4/3]',
+    relatedService: { name: 'Brochures Printing', url: '/categories/brochures-printing' },
   },
   {
     id: 'laser-engraved-thermal-bottles',
@@ -40,6 +43,7 @@ export const portfolioItems = [
     image: '/assets/products/water_bottles.jpg',
     treatment: 'duotone',
     aspect: 'aspect-[4/3]',
+    relatedService: { name: 'Corporate Gift Items', url: '/categories/corporate-gift-items' },
   },
   {
     id: 'branded-canvas-tote-bags',
@@ -50,6 +54,7 @@ export const portfolioItems = [
     image: '/assets/products/tote_bags.jpg',
     treatment: 'paper',
     aspect: 'aspect-[4/3]',
+    relatedService: { name: 'Corporate Gift Items', url: '/categories/corporate-gift-items' },
   },
   {
     id: 'brushed-metallic-name-badges',
@@ -60,6 +65,7 @@ export const portfolioItems = [
     image: '/assets/products/name_badges.jpg',
     treatment: 'dark',
     aspect: 'aspect-[4/3]',
+    relatedService: { name: 'Name Badges Printing', url: '/categories/name-badges-printing-dubai' },
   },
   {
     id: 'die-cut-vinyl-decals-labels',
@@ -70,6 +76,7 @@ export const portfolioItems = [
     image: '/assets/products/stickers.jpg',
     treatment: 'duotone',
     aspect: 'aspect-[4/3]',
+    relatedService: { name: 'Other Products', url: '/categories/other-products' },
   },
   {
     id: 'retractable-exhibition-rollups',
@@ -80,6 +87,7 @@ export const portfolioItems = [
     image: '/assets/products/rollup_banner.jpg',
     treatment: 'dark',
     aspect: 'aspect-[4/3]',
+    relatedService: { name: 'Large Format Printing', url: '/services/large-format-printing' },
   },
 ]
 

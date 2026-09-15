@@ -171,6 +171,10 @@ export default function BlogPostPage() {
 
   const productData = post.productData || (post.product ? { name: post.product, slug: post.product.toLowerCase().replace(/\s+/g, '-') } : null)
 
+  // Define share variables for social media buttons
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : `https://0nprint.com/blog/${post.slug}`
+  const shareTitle = post.title || 'ONPRINT Dubai Printing Guide'
+
   const formatDate = (dateStr) => {
     if (!dateStr) return null
     try {

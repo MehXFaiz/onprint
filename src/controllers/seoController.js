@@ -36,6 +36,9 @@ Allow: /about
 Allow: /contact
 Allow: /faq
 Allow: /get-a-quote
+Allow: /track-order
+Allow: /track
+Allow: /orders/track
 Allow: /printing-services
 Allow: /printing-services/
 Allow: /printing-solutions

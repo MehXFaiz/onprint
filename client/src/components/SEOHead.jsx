@@ -99,6 +99,19 @@ function setCanonicalUrl(url) {
   link.setAttribute('href', url)
 }
 
+function setHreflangTag(hreflang, href) {
+  if (!hreflang || !href) return
+  const selector = `link[rel="alternate"][hreflang="${hreflang}"]`
+  let link = document.querySelector(selector)
+  if (!link) {
+    link = document.createElement('link')
+    link.setAttribute('rel', 'alternate')
+    link.setAttribute('hreflang', hreflang)
+    document.head.appendChild(link)
+  }
+  link.setAttribute('href', href)
+}
+
 function setStructuredDataScript(id, schemaData) {
   let script = document.getElementById(id)
   if (!schemaData) {
@@ -262,6 +275,11 @@ export default function SEOHead({
 
     // 3. Canonical Tag
     setCanonicalUrl(effectiveCanonical)
+
+    // 3.5. Hreflang Tags for International SEO
+    setHreflangTag('en-ae', effectiveCanonical)
+    setHreflangTag('en', effectiveCanonical)
+    setHreflangTag('x-default', effectiveCanonical)
 
     // 4. Open Graph Tags
     setMetaTag('property', 'og:site_name', SITE_NAME)

@@ -22,6 +22,7 @@ import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { getProgrammaticPage } from '../../services/seo'
+import { getCategories } from '../../services/categories'
 
 export default function ProgrammaticLandingPage() {
   const { slug } = useParams()
@@ -30,25 +31,33 @@ export default function ProgrammaticLandingPage() {
   const pageType = isLocation ? 'location' : 'use_case'
 
   const [pageData, setPageData] = useState(null)
+  const [categories, setCategories] = useState([])
   const [loading, setLoading] = useState(true)
   const [openFaq, setOpenFaq] = useState(0)
 
   useEffect(() => {
     let isMounted = true
-    async function fetchPage() {
+    async function fetchData() {
       setLoading(true)
       try {
+        // Fetch programmatic page data
         const res = await getProgrammaticPage(slug, pageType)
         if (res?.success && res.data && isMounted) {
           setPageData(res.data)
         }
+
+        // Fetch categories for sidebar
+        const catRes = await getCategories({ limit: 5, status: 'active' })
+        if (catRes?.success && catRes.data?.categories && isMounted) {
+          setCategories(catRes.data.categories)
+        }
       } catch (err) {
-        console.warn('Could not fetch programmatic page from API, using fallback:', err.message)
+        console.warn('Could not fetch data from API:', err.message)
       } finally {
         if (isMounted) setLoading(false)
       }
     }
-    fetchPage()
+    fetchData()
     return () => {
       isMounted = false
     }
@@ -370,41 +379,56 @@ export default function ProgrammaticLandingPage() {
                   Key Printing Disciplines
                 </h3>
                 <nav className="space-y-1.5 text-xs font-bold">
-                  <Link
-                    to="/categories/brochures-printing"
-                    className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
-                  >
-                    <span>Brochures &amp; Catalogs</span>
-                    <ArrowRight className="h-3 w-3 text-neutral-400" />
-                  </Link>
-                  <Link
-                    to="/categories/business-cards-printing"
-                    className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
-                  >
-                    <span>Luxury Business Cards</span>
-                    <ArrowRight className="h-3 w-3 text-neutral-400" />
-                  </Link>
-                  <Link
-                    to="/categories/flyers-printing-in-dubai"
-                    className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
-                  >
-                    <span>Commercial Flyers &amp; Menus</span>
-                    <ArrowRight className="h-3 w-3 text-neutral-400" />
-                  </Link>
-                  <Link
-                    to="/categories/id-card-printing-dubai"
-                    className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
-                  >
-                    <span>Corporate PVC ID Cards</span>
-                    <ArrowRight className="h-3 w-3 text-neutral-400" />
-                  </Link>
-                  <Link
-                    to="/categories/letterheads-printing-dubai"
-                    className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
-                  >
-                    <span>Official Letterheads</span>
-                    <ArrowRight className="h-3 w-3 text-neutral-400" />
-                  </Link>
+                  {categories.length > 0 ? (
+                    categories.map((cat) => (
+                      <Link
+                        key={cat.id}
+                        to={`/categories/${cat.slug}`}
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
+                      >
+                        <span>{cat.name}</span>
+                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                      </Link>
+                    ))
+                  ) : (
+                    <>
+                      <Link
+                        to="/categories/brochures-printing"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
+                      >
+                        <span>Brochures &amp; Catalogs</span>
+                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                      </Link>
+                      <Link
+                        to="/categories/business-cards-printing"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
+                      >
+                        <span>Luxury Business Cards</span>
+                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                      </Link>
+                      <Link
+                        to="/categories/flyers-printing-in-dubai"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
+                      >
+                        <span>Commercial Flyers &amp; Menus</span>
+                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                      </Link>
+                      <Link
+                        to="/categories/id-card-printing-dubai"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
+                      >
+                        <span>Corporate PVC ID Cards</span>
+                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                      </Link>
+                      <Link
+                        to="/categories/letterheads-printing-dubai"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#A82F19] transition-colors"
+                      >
+                        <span>Official Letterheads</span>
+                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                      </Link>
+                    </>
+                  )}
                 </nav>
               </div>
             </div>

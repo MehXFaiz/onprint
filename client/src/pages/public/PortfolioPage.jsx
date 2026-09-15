@@ -57,17 +57,29 @@ function PortfolioTile({ item }) {
           )}
         </div>
 
-        <div className="mt-5 flex items-center justify-between border-t border-black/8 pt-4">
-          <span className="text-[11px] font-bold text-neutral-500">
-            {item.clientSector || 'Commercial Client'}
-          </span>
-          <Link
-            to={`/get-a-quote?service=${encodeURIComponent(item.title)}`}
-            className="inline-flex items-center gap-1 text-xs font-bold text-[#A82F19] hover:underline"
-          >
-            <span>Quote This Spec</span>
-            <ArrowUpRight className="h-3 w-3" />
-          </Link>
+        <div className="mt-5 space-y-3 border-t border-black/8 pt-4">
+          {/* Related Service Link */}
+          {item.relatedService && (
+            <Link
+              to={item.relatedService.url}
+              className="block text-[11px] font-semibold text-neutral-600 hover:text-[#A82F19] transition-colors"
+            >
+              Related: {item.relatedService.name}
+            </Link>
+          )}
+          
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] font-bold text-neutral-500">
+              {item.clientSector || 'Commercial Client'}
+            </span>
+            <Link
+              to={`/get-a-quote?service=${encodeURIComponent(item.title)}`}
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#A82F19] hover:underline"
+            >
+              <span>Quote This Spec</span>
+              <ArrowUpRight className="h-3 w-3" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

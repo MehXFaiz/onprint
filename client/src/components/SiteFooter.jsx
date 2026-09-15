@@ -10,6 +10,7 @@ const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About Us' },
   { to: '/services', label: 'Printing Services' },
+  { to: '/categories', label: 'All Categories' },
   { to: '/products', label: 'Products' },
   { to: '/track-order', label: 'Track Your Order' },
   { to: '/portfolio', label: 'Portfolio & Work' },

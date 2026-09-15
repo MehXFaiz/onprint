@@ -2558,6 +2558,59 @@ export default function AdminSeoManagerPage() {
       {/* ========================================================================= */}
       {activeTab === 'keywords' && (
         <div className="space-y-6">
+          {/* Keyword Growth Overview Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs">
+              <div className="text-[10px] font-extrabold uppercase text-neutral-400 mb-1">
+                Target Keywords
+              </div>
+              <div className="text-3xl font-black text-neutral-900">
+                {keywordTargets.total || 147}
+              </div>
+              <p className="text-xs text-neutral-500 mt-1">
+                Keywords we're tracking
+              </p>
+            </div>
+            
+            <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs">
+              <div className="text-[10px] font-extrabold uppercase text-neutral-400 mb-1">
+                Currently Ranking
+              </div>
+              <div className="text-3xl font-black text-emerald-600">
+                {keywordsData.queries?.length || 0}
+              </div>
+              <p className="text-xs text-neutral-500 mt-1">
+                {keywordsData.connected ? 'Live from GSC' : 'Snapshots only'}
+              </p>
+            </div>
+            
+            <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs">
+              <div className="text-[10px] font-extrabold uppercase text-neutral-400 mb-1">
+                Coverage Rate
+              </div>
+              <div className="text-3xl font-black text-indigo-600">
+                {keywordTargets.total > 0 
+                  ? Math.round(((keywordsData.queries?.length || 0) / keywordTargets.total) * 100) 
+                  : 0}%
+              </div>
+              <p className="text-xs text-neutral-500 mt-1">
+                Ranking vs target
+              </p>
+            </div>
+            
+            <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs">
+              <div className="text-[10px] font-extrabold uppercase text-neutral-400 mb-1">
+                Growth Goal
+              </div>
+              <div className="text-xl font-black text-amber-600">
+                +{Math.max(0, (keywordTargets.total || 147) - (keywordsData.queries?.length || 0))}
+              </div>
+              <p className="text-xs text-neutral-500 mt-1">
+                Keywords to rank for
+              </p>
+            </div>
+          </div>
+
           {!keywordsData.connected ? (
             <div className="rounded-2xl border border-amber-200 bg-amber-50/50 p-6 shadow-xs flex items-start gap-4">
               <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
@@ -2599,9 +2652,14 @@ export default function AdminSeoManagerPage() {
 
           {/* Keywords Table */}
           <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs">
-            <h3 className="font-display text-base font-bold text-neutral-900 border-b border-neutral-100 pb-3">
-              Tracked Search Queries &amp; Target Keywords ({keywordsData.queries?.length || 0})
-            </h3>
+            <div className="border-b border-neutral-100 pb-3 flex items-center justify-between">
+              <h3 className="font-display text-base font-bold text-neutral-900">
+                Currently Ranking Keywords
+              </h3>
+              <div className="text-xs font-bold text-neutral-500">
+                {keywordsData.queries?.length || 0} of {keywordTargets.total || 147} targets ranking
+              </div>
+            </div>
 
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-left text-xs">

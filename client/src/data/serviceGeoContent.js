@@ -183,7 +183,7 @@ export const serviceGeoContent = {
       'Custom sizes up to 5 meters wide',
       'UV-resistant inks for longevity',
       'Installation services available',
-    },
+    ],
     bestFor: [
       'Trade show displays and rollup banners',
       'Retail window graphics and posters',

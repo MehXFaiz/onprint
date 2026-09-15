@@ -3058,7 +3058,7 @@ const products = [
           ]
         }
       ]
-  }
+  },
   {
     _id: 'prod-bi-fold-brochures',
     id: 46,

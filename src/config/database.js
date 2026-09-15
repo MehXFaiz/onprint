@@ -5,16 +5,35 @@ const DUBAI_KEYWORDS = require('../data/dubaiKeywordsData')
 const DUBAI_BLOGS = require('../data/dubaiBlogsData')
 const { UAE_BACKLINKS, UAE_OUTREACH_PROSPECTS, COMPETITOR_GAP_RECORDS } = require('../data/dubaiSeoSeedData')
 
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  port: Number(process.env.DB_PORT || '3306'),
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'onprintdb',
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-})
+let pool
+
+function createFallbackPool() {
+  const fail = () => Promise.reject(new Error('Database pool is unavailable (degraded mode). Check DB_* environment variables.'))
+  return {
+    getConnection: fail,
+    query: fail,
+    execute: fail,
+    end: () => Promise.resolve(),
+  }
+}
+
+try {
+  pool = mysql.createPool({
+    host: process.env.DB_HOST || 'localhost',
+    port: Number(process.env.DB_PORT || '3306'),
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'onprintdb',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0,
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 0,
+  })
+} catch (err) {
+  console.warn('[Database] Failed to create MySQL pool (degraded mode):', err.message)
+  pool = createFallbackPool()
+}
 
 async function columnExists(connection, tableName, columnName) {
   try {

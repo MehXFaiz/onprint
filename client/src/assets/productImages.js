@@ -28,6 +28,7 @@ import img15 from './products/1 (15).jpg'
 import softTouchBusinessCardImg from './products/card-soft-touch.jpg'
 import velvetFoilBusinessCardImg from './products/card-velvet-foil.jpg'
 import paintedEdgeBusinessCardImg from './products/card-painted-edge.jpg'
+import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
 const penPrintingImg = '/uploads/categories/letterheads-printing-dubai.jpg'
@@ -281,3 +282,43 @@ export function getProductImage(product) {
   // 7. Absolute last resort — generic image
   return img1
 }
+
+export function getProductCategoriesWithImages(product) {
+  if (!product) return []
+  const cats = product.categories || []
+  const slug = product.slug || ''
+  return cats.map((cat) => {
+    const catSlug = typeof cat === 'object' ? (cat.slug || '') : cat
+    const catObj = typeof cat === 'object' ? cat : { slug: catSlug, name: catSlug }
+    const existingImages = Array.isArray(catObj.images) && catObj.images.length > 0 ? catObj.images : []
+    const mappedImages = slug && catSlug ? getMapCategoryImages(slug, catSlug) : []
+    const images = existingImages.length > 0 ? existingImages : mappedImages
+    return { ...catObj, images }
+  })
+}
+
+export function getProductCategoryImages(product, categorySlug) {
+  if (!product || !categorySlug) return []
+  const categories = getProductCategoriesWithImages(product)
+  const match = categories.find((c) => c.slug === categorySlug)
+  return match?.images || []
+}
+
+export function getAllProductCategoryImages(product) {
+  if (!product) return []
+  const categories = getProductCategoriesWithImages(product)
+  const result = []
+  for (const cat of categories) {
+    for (let i = 0; i < (cat.images || []).length; i++) {
+      result.push({
+        categorySlug: cat.slug,
+        categoryName: cat.name,
+        url: cat.images[i],
+        imageIndex: i,
+      })
+    }
+  }
+  return result
+}
+
+export { categoryImageMap }

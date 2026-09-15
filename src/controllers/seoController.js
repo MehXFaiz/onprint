@@ -48,6 +48,37 @@ Allow: /terms
 Allow: /assets/
 Allow: /uploads/
 
+# AI Crawlers - Explicitly allowed for GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 # Admin and Private Areas
 Disallow: /admin
 Disallow: /admin/
@@ -69,15 +100,75 @@ Sitemap: ${SITE_URL}/sitemap.xml
 async function getLlmsTxt(req, res) {
   const llms = `# ONPRINT — Commercial & Corporate Printing Services Dubai
 
-> ONPRINT is a premier commercial printing company based in Dubai, UAE. We specialize in luxury offset, digital, and large-format printing for corporate brands, agencies, and businesses across the Emirates.
+> ONPRINT is a professional commercial printing company based in Al Quoz Industrial Area 3, Dubai, UAE. 
+> We provide digital printing, offset printing, luxury packaging, corporate gifts, office stationery, 
+> business cards, brochures, flyers, banners, signage, and custom branded merchandise to businesses 
+> across the United Arab Emirates.
 
-## Primary Services
-- [Commercial Printing Services](${SITE_URL}/services): Executive brochures, business cards, flyers, and marketing collateral.
-- [Printing Categories](${SITE_URL}/categories): Catalog of all printing categories and disciplines.
-- [Custom Quote Request](${SITE_URL}/get-quote): Request bespoke estimates for large print runs and custom finishing.
-- [Track Order Status](${SITE_URL}/track-order): Real-time tracking of Dubai print production and dispatch stages.
-- [About ONPRINT](${SITE_URL}/about): Corporate information, printing technology, and capabilities.
-- [Contact Customer Support](${SITE_URL}/contact): Direct inquiries and support in Dubai.
+## About ONPRINT
+ONPRINT operates an in-house production facility in Al Quoz, Dubai, equipped with Heidelberg offset presses 
+and HP Indigo digital presses. We serve 500+ corporate clients across Dubai, Abu Dhabi, Sharjah, and the UAE, 
+delivering professional printing solutions with same-day and 24-hour turnaround options.
+
+**Location:** Al Quoz Industrial Area 3, Dubai, UAE  
+**Experience:** 10+ years in commercial printing  
+**Service Areas:** Dubai, Abu Dhabi, Sharjah, Ajman, RAK, Fujairah, UAE-wide  
+**Contact:** +971551837995 | 0nprint183@gmail.com
+
+## Core Services
+- **Digital Printing:** Fast turnaround printing for business cards, flyers, brochures, stationery (24-48 hours)
+- **Offset Printing:** High-volume commercial printing with superior color consistency (1,000+ units)
+- **Business Card Printing:** 350gsm-600gsm cotton and silk stocks with foil stamping, spot UV, soft-touch lamination
+- **Brochure & Flyer Printing:** Corporate marketing materials on 170gsm-300gsm gloss or matte art paper
+- **Luxury Packaging:** Custom rigid boxes, magnetic gift boxes, premium packaging with foil finishing
+- **Corporate Gifts:** Laser-engraved water bottles, branded tote bags, notebooks, mugs, polo shirts
+- **Large Format Printing:** Banners, rollup displays, signage, vinyl printing for events and exhibitions
+- **Office Stationery:** Letterheads, envelopes, folders, notebooks, corporate stationery sets
+- **ID Cards & Badges:** PVC ID cards, magnetic name badges, lanyards, access cards
+- **Stickers & Labels:** Die-cut vinyl stickers, product labels, waterproof outdoor stickers
+
+## Key Pages
+- [All Printing Services](${SITE_URL}/services) — Complete list of printing disciplines
+- [Product Categories](${SITE_URL}/categories) — Browse by printing category
+- [All Products](${SITE_URL}/products) — Full product catalog
+- [Portfolio](${SITE_URL}/portfolio) — Example projects and client work
+- [Get a Quote](${SITE_URL}/get-a-quote) — Request custom pricing
+- [Track Order](${SITE_URL}/track-order) — Real-time order tracking
+- [About ONPRINT](${SITE_URL}/about) — Company information and capabilities
+- [Contact Us](${SITE_URL}/contact) — Get in touch with our team
+- [FAQ](${SITE_URL}/faq) — Frequently asked questions
+- [Blog](${SITE_URL}/blog) — Printing guides and industry insights
+
+## Why Choose ONPRINT?
+- **Al Quoz Production Facility:** In-house printing eliminates broker markups
+- **Fast Turnaround:** Same-day and 24-hour production available
+- **Pantone Color Matching:** Guaranteed color accuracy for brand-critical projects
+- **FSC-Certified Paper:** Eco-friendly paper stocks available
+- **Corporate Client Base:** Trusted by 500+ UAE businesses
+- **Full-Service:** Design assistance, pre-flight checks, physical proofs available
+- **UAE-Wide Delivery:** Dubai/Sharjah 24hrs, Abu Dhabi 48hrs, full UAE coverage
+
+## Common Questions
+- **What is the difference between digital and offset printing?** Digital is ideal for small quantities (up to 1,000) with faster turnaround. Offset is cost-effective for large volumes (1,000+) with superior color consistency.
+- **What is the turnaround time?** Standard digital printing: 24-48 hours. Offset and specialty projects: 3-7 days. Same-day service available for rush orders.
+- **What paper stocks are available?** 120gsm-600gsm range including smooth uncoated, glossy art paper, matte coated, premium cotton, FSC-certified stocks.
+- **Do you deliver across UAE?** Yes, we deliver to all emirates. Dubai/Sharjah within 24 hours, Abu Dhabi and others within 48 hours.
+- **Can I see a proof before printing?** Yes, every order includes digital PDF proof. Physical printed proofs available on request.
+
+## Primary Services Links
+- [Commercial Printing](${SITE_URL}/services)
+- [Business Card Printing](${SITE_URL}/categories/business-cards-printing)
+- [Brochure Printing](${SITE_URL}/categories/brochures-printing)
+- [Flyer Printing](${SITE_URL}/categories/flyers-printing-in-dubai)
+- [Corporate Gifts](${SITE_URL}/categories/corporate-gift-items)
+- [Packaging Printing](${SITE_URL}/products)
+
+---
+**Last Updated:** 2026-09-15  
+**Website:** ${SITE_URL}  
+**Business Type:** Commercial Printing Company  
+**Specialization:** Digital & Offset Printing, Luxury Packaging, Corporate Branding
+
 `
   res.header('Content-Type', 'text/plain; charset=utf-8')
   res.header('Cache-Control', 'public, max-age=3600')

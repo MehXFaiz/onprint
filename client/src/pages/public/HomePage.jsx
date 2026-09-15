@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown, Clock, ArrowRight, Package, Layers } from 'lucide-react'
+import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown, Clock, ArrowRight, Package, Layers, MapPin, Info } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import ArrowLink from '../../components/ArrowLink'
@@ -71,9 +71,19 @@ const homeFaqs = [
       'ONPRINT provides a comprehensive suite of commercial printing solutions in Dubai, including digital press printing, high-volume offset printing, executive office stationery, luxury packaging boxes, corporate gift items, die-cut vinyl stickers, and large-format exhibition signage.',
   },
   {
+    question: 'Where is ONPRINT located in Dubai?',
+    answer:
+      'ONPRINT is located in Al Quoz Industrial Area 3, Dubai, UAE. Our production facility houses Heidelberg offset presses and HP Indigo digital presses, serving clients across Dubai, Abu Dhabi, Sharjah, and the entire UAE.',
+  },
+  {
     question: 'What is the turnaround time for print orders across Dubai and the UAE?',
     answer:
       'Standard digital printing runs (business cards, flyers, brochures) typically take 24 to 48 hours once artwork is approved. Large offset runs, custom rigid gift boxes, and specialty foil-embossed projects take 3 to 7 business days. Express same-day production is available for urgent requirements.',
+  },
+  {
+    question: 'What is the difference between digital and offset printing?',
+    answer:
+      'Digital printing is ideal for small to medium quantities (up to 1,000 units) with faster turnaround and no plate setup costs. Offset printing is more cost-effective for large volume runs (1,000+ units) and offers superior color consistency for brand-critical projects. Both methods are available at ONPRINT.',
   },
   {
     question: 'Do you offer corporate gift printing and branded merchandise?',
@@ -81,9 +91,24 @@ const homeFaqs = [
       'Yes. We specialize in custom corporate gifts in Dubai, including laser-engraved thermal smart water bottles, ceramic mugs, executive hardcover notebooks, custom polo shirts, embroidered caps, and curated VIP executive gift sets.',
   },
   {
+    question: 'What paper stocks and materials do you offer?',
+    answer:
+      'ONPRINT maintains an extensive inventory of FSC-certified paper stocks ranging from 120gsm to 600gsm, including smooth uncoated white, glossy art paper, matte coated stock, premium cotton business card stock, and specialty papers. We also offer luxury finishing options like soft-touch lamination, spot UV, and metallic foil stamping.',
+  },
+  {
+    question: 'How much does printing cost in Dubai?',
+    answer:
+      'Printing costs vary based on quantity, material, size, and finishing options. Digital business cards start from AED 120 for 100 cards, while custom packaging and large format printing are quoted based on specifications. Contact us for a detailed instant quote tailored to your exact requirements.',
+  },
+  {
     question: 'Can I see a proof before my project goes to press?',
     answer:
       'Every order includes a thorough pre-flight artwork review and a digital PDF proof for approval before production begins. Physical printed proofs on your chosen paper stock are also available upon request for high-volume or color-critical runs.',
+  },
+  {
+    question: 'Do you deliver across Dubai and the UAE?',
+    answer:
+      'Yes, ONPRINT delivers to all areas of Dubai, Abu Dhabi, Sharjah, Ajman, RAK, and across the UAE. Dubai and Sharjah deliveries typically arrive within 24 hours, while Abu Dhabi and other emirates receive delivery within 48 hours of dispatch.',
   },
   {
     question: 'How do I request a custom quotation for bulk printing?',
@@ -364,6 +389,109 @@ export default function HomePage() {
               </div>
             </Reveal>
           </div>
+        </Container>
+      </section>
+
+      {/* 1.2 What is ONPRINT - Clear Business Definition for AI/GEO */}
+      <section className="border-b border-slate-200/80 bg-white py-12 sm:py-16">
+        <Container>
+          <Reveal>
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-700">
+                <Info className="h-3.5 w-3.5" />
+                <span>About ONPRINT</span>
+              </div>
+              
+              <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-black mb-4">
+                What is ONPRINT?
+              </h2>
+              
+              <div className="space-y-4 text-slate-700 leading-relaxed">
+                <p className="text-base sm:text-lg font-medium text-slate-900">
+                  ONPRINT is a professional commercial printing company based in Al Quoz Industrial Area 3, Dubai, 
+                  serving businesses across the United Arab Emirates with comprehensive printing and branding solutions.
+                </p>
+                
+                <p className="text-sm sm:text-base">
+                  We specialize in digital printing, offset printing, luxury packaging, corporate gifts, 
+                  office stationery, business cards, brochures, flyers, banners, signage, and custom branded merchandise. 
+                  Our Al Quoz production facility houses Heidelberg offset presses and HP Indigo digital presses, 
+                  enabling us to deliver everything from small-run digital projects to high-volume commercial printing.
+                </p>
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Our Services</h3>
+                  <ul className="space-y-1.5 text-sm text-slate-700">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span>Digital & Offset Printing</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span>Business Cards & Corporate Stationery</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span>Brochures, Flyers & Marketing Materials</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span>Luxury Packaging & Custom Boxes</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span>Corporate Gifts & Branded Merchandise</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span>Large Format Printing, Banners & Signage</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Why Choose ONPRINT?</h3>
+                  <ul className="space-y-1.5 text-sm text-slate-700">
+                    <li className="flex items-start gap-2">
+                      <Award className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span><strong>10+ Years Experience</strong> in commercial printing</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Users className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span><strong>500+ Corporate Clients</strong> across UAE</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <MapPin className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span><strong>Al Quoz Production Facility</strong> in Dubai</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Zap className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span><strong>Same-Day & 24-Hour</strong> turnaround available</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ShieldCheck className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span><strong>Pantone Color Matching</strong> guarantee</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Package className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <span><strong>FSC-Certified Paper</strong> stocks available</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Button to="/about" variant="secondary" size="md" className="text-center justify-center">
+                  Learn More About Us
+                </Button>
+                <Button to="/services" variant="outline" size="md" className="text-center justify-center">
+                  View All Services
+                </Button>
+              </div>
+            </div>
+          </Reveal>
         </Container>
       </section>
 

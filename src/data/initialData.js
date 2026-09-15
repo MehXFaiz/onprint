@@ -5,8 +5,8 @@ const categories = [
     name: 'Brochures Printing',
     slug: 'brochures-printing',
     description: 'Premium corporate bi-fold, tri-fold, and multi-page marketing brochures printed on luxury coated art paper with precision folding and finishing.',
-    image: '/uploads/categories/brochures-printing.jpg',
-    image_url: '/uploads/categories/brochures-printing.jpg',
+    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Brochures%20Printing%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
+    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Brochures%20Printing%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
     status: 'active',
     display_order: 1,
     active: true,
@@ -23,8 +23,8 @@ const categories = [
     name: 'Business Cards Printing',
     slug: 'business-cards-printing',
     description: 'Executive 350gsm to 600gsm cotton and silk business cards with soft-touch velvet lamination, metallic gold foil stamping, and painted edges.',
-    image: '/uploads/categories/business-cards-printing.jpg',
-    image_url: '/uploads/categories/business-cards-printing.jpg',
+    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Business%20Cards%20Printing%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
+    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Business%20Cards%20Printing%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
     status: 'active',
     display_order: 2,
     active: true,
@@ -41,8 +41,8 @@ const categories = [
     name: 'Flyers Printing In Dubai',
     slug: 'flyers-printing-in-dubai',
     description: 'High-impact commercial marketing flyers printed on 170gsm–300gsm gloss or matte art paper with vibrant CMYK Pantone color fidelity.',
-    image: '/uploads/categories/flyers-printing-in-dubai.jpg',
-    image_url: '/uploads/categories/flyers-printing-in-dubai.jpg',
+    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Flyers%20Printing%20In%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
+    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Flyers%20Printing%20In%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
     status: 'active',
     display_order: 3,
     active: true,
@@ -59,8 +59,8 @@ const categories = [
     name: 'ID Card Printing Dubai',
     slug: 'id-card-printing-dubai',
     description: 'Secure CR80 standard PVC employee identity cards with high-definition thermal printing, smart chips, magnetic strips, and barcodes.',
-    image: '/uploads/categories/id-card-printing-dubai.jpg',
-    image_url: '/uploads/categories/id-card-printing-dubai.jpg',
+    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20ID%20Card%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
+    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20ID%20Card%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
     status: 'active',
     display_order: 4,
     active: true,
@@ -77,8 +77,8 @@ const categories = [
     name: 'Lanyard Printing Dubai',
     slug: 'lanyard-printing-dubai',
     description: 'Custom branded satin and woven polyester neck lanyards with screen printing, safety breakaway clips, and heavy-duty metal swivel hooks.',
-    image: '/uploads/categories/lanyard-printing-dubai.jpg',
-    image_url: '/uploads/categories/lanyard-printing-dubai.jpg',
+    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Lanyard%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
+    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Lanyard%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
     status: 'active',
     display_order: 5,
     active: true,
@@ -95,8 +95,8 @@ const categories = [
     name: 'Letterheads Printing Dubai',
     slug: 'letterheads-printing-dubai',
     description: 'Executive 120gsm smooth uncoated white letterheads and official corporate stationery printed with crisp full-color CMYK laser compatibility.',
-    image: '/uploads/categories/letterheads-printing-dubai.jpg',
-    image_url: '/uploads/categories/letterheads-printing-dubai.jpg',
+    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Letterheads%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
+    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Letterheads%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
     status: 'active',
     display_order: 6,
     active: true,
@@ -113,8 +113,8 @@ const categories = [
     name: 'Name Badges Printing Dubai',
     slug: 'name-badges-printing-dubai',
     description: 'Laser-cut brushed metal and acrylic employee name badges with magnetic backings, clear domed epoxy coatings, and scratch-resistant finishes.',
-    image: '/uploads/categories/name-badges-printing-dubai.jpg',
-    image_url: '/uploads/categories/name-badges-printing-dubai.jpg',
+    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Name%20Badges%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
+    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Name%20Badges%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9',
     status: 'active',
     display_order: 7,
     active: true,
@@ -153,15 +153,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Digital%20%26%20Offset%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-luxury-packaging-custom-boxes',
@@ -186,15 +203,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-custom-branded-tote-bags',
@@ -219,15 +253,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-personalized-water-bottles',
@@ -252,15 +303,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Personalized%20Water%20Bottles%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-custom-mugs',
@@ -285,15 +353,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Printed%20Mugs%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-premium-business-cards',
@@ -318,15 +403,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        },
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        }
+      ]
   },
   {
     _id: 'prod-standard-business-cards',
@@ -352,15 +454,32 @@ const products = [
     featured: false,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-premium-soft-touch-business-cards',
@@ -386,15 +505,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-velvet-foil-business-cards',
@@ -420,15 +556,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-luxury-painted-edge-business-cards',
@@ -454,15 +607,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-acrylic-nameplates',
@@ -487,15 +657,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Acrylic%20Nameplates%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-roll-up-banners',
@@ -520,15 +707,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        },
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        }
+      ]
   },
   {
     _id: 'prod-beach-flags',
@@ -553,15 +757,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Beach%20Flags%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        }
+      ]
   },
   {
     _id: 'prod-die-cut-stickers',
@@ -586,15 +807,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Die-Cut%20Stickers%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-engraved-keychains',
@@ -619,15 +857,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Engraved%20Keychains%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-executive-notebooks',
@@ -652,15 +907,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-catalogs-booklets-printing',
@@ -685,15 +957,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Catalogs%20%26%20Booklets%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-presentation-folders',
@@ -718,15 +1007,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        }
+      ]
   },
   {
     _id: 'prod-annual-reports-printing',
@@ -751,15 +1057,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Annual%20Reports%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-raised-ink-business-cards',
@@ -784,15 +1107,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-plastic-pvc-business-cards',
@@ -817,15 +1157,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-large-format-posters',
@@ -850,15 +1207,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-door-hangers-printing',
@@ -883,15 +1257,32 @@ const products = [
     featured: false,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-postcards-printing',
@@ -916,15 +1307,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        },
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        }
+      ]
   },
   {
     _id: 'prod-student-id-cards',
@@ -949,15 +1357,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        },
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        }
+      ]
   },
   {
     _id: 'prod-access-control-cards',
@@ -982,15 +1407,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-visitor-pass-cards',
@@ -1015,15 +1457,32 @@ const products = [
     featured: false,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Visitor%20Pass%20Cards%20%26%20Badges%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-custom-usb-flash-drives',
@@ -1048,15 +1507,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-corporate-gift-sets',
@@ -1081,15 +1557,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-power-banks-printing',
@@ -1114,15 +1607,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        },
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        }
+      ]
   },
   {
     _id: 'prod-printed-envelopes',
@@ -1147,15 +1657,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        },
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        }
+      ]
   },
   {
     _id: 'prod-desk-pads-printing',
@@ -1180,15 +1707,32 @@ const products = [
     featured: false,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-stationery-gift-sets',
@@ -1213,15 +1757,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-foam-board-signage',
@@ -1246,15 +1807,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-metal-name-signs',
@@ -1279,15 +1857,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Metal%20Name%20Signs%20%26%20Plaques%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-wall-acrylic-signage',
@@ -1312,15 +1907,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        },
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        }
+      ]
   },
   {
     _id: 'prod-calendars-printing',
@@ -1345,15 +1957,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-greeting-cards-printing',
@@ -1378,15 +2007,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Greeting%20Cards%20%26%20Invitation%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-printed-paper-bags',
@@ -1411,15 +2057,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-food-packaging-boxes',
@@ -1444,15 +2107,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-restaurant-menus-printing',
@@ -1477,15 +2157,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Restaurant%20Menus%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-letterheads-printing-dubai',
+          name: 'Letterheads Printing Dubai',
+          slug: 'letterheads-printing-dubai'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-wedding-invitation-suites',
@@ -1510,15 +2207,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-name-badges-printing-dubai',
+          name: 'Name Badges Printing Dubai',
+          slug: 'name-badges-printing-dubai'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        }
+      ]
   },
   {
     _id: 'prod-tshirt-screen-printing',
@@ -1543,15 +2257,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-brochures-printing',
+          name: 'Brochures Printing',
+          slug: 'brochures-printing'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        }
+      ]
   },
   {
     _id: 'prod-custom-cap-printing',
@@ -1576,15 +2307,32 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Cap%20%26%20Hat%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-business-cards-printing',
+          name: 'Business Cards Printing',
+          slug: 'business-cards-printing'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        }
+      ]
   },
   {
     _id: 'prod-mouse-pad-printing',
@@ -1609,16 +2357,33 @@ const products = [
     featured: true,
     active: true,
     images360: [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
-    ]
-  },
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd',
+        'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd'
+      ],
+    categories: [
+        {
+          _id: 'cat-lanyard-printing-dubai',
+          name: 'Lanyard Printing Dubai',
+          slug: 'lanyard-printing-dubai'
+        },
+        {
+          _id: 'cat-flyers-printing-in-dubai',
+          name: 'Flyers Printing In Dubai',
+          slug: 'flyers-printing-in-dubai'
+        },
+        {
+          _id: 'cat-id-card-printing-dubai',
+          name: 'ID Card Printing Dubai',
+          slug: 'id-card-printing-dubai'
+        }
+      ]
+  }
 ]
 
 const services = [

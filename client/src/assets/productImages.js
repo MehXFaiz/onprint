@@ -23,6 +23,8 @@ import img10 from './products/1 (10).jpg'
 import img11 from './products/1 (11).jpg'
 import img12 from './products/1 (12).jpg'
 import img13 from './products/1 (13).jpg'
+import img14 from './products/1 (14).jpg'
+import img15 from './products/1 (15).jpg'
 import softTouchBusinessCardImg from './products/card-soft-touch.jpg'
 import velvetFoilBusinessCardImg from './products/card-velvet-foil.jpg'
 import paintedEdgeBusinessCardImg from './products/card-painted-edge.jpg'
@@ -86,6 +88,35 @@ export const productSlugImageMap = {
   'large-format-exhibition-signage': img9,
   'custom-labels-die-cut-stickers': stickersImg,
   'executive-business-stationery': businessCardsImg,
+  'catalogs-booklets-printing': img8,
+  'presentation-folders': img9,
+  'annual-reports-printing': img10,
+  'raised-ink-business-cards': velvetFoilBusinessCardImg,
+  'plastic-pvc-business-cards': softTouchBusinessCardImg,
+  'large-format-posters': img9,
+  'door-hangers-printing': flyersImg,
+  'postcards-printing': img3,
+  'student-id-cards': idCardsImg,
+  'access-control-cards': img4,
+  'visitor-pass-cards': badgesImg,
+  'custom-usb-flash-drives': img2,
+  'corporate-gift-sets': img5,
+  'power-banks-printing': bottlesImg,
+  'printed-envelopes': letterheadImg,
+  'desk-pads-printing': img2,
+  'stationery-gift-sets': img11,
+  'foam-board-signage': img9,
+  'metal-name-signs': namePlatesImg,
+  'wall-acrylic-signage': img12,
+  'calendars-printing': img7,
+  'greeting-cards-printing': img6,
+  'printed-paper-bags': toteBagsImg,
+  'food-packaging-boxes': img13,
+  'restaurant-menus-printing': img14,
+  'wedding-invitation-suites': img15,
+  'tshirt-screen-printing': img3,
+  'custom-cap-printing': img4,
+  'mouse-pad-printing': img2,
 
   // Product slug mappings
   'bags-printing-dubai': toteBagsImg,
@@ -154,6 +185,33 @@ const slugKeywordImageMap = [
   [['cap', 'hat', 'headwear'], img4],
   [['mouse pad', 'mousepad', 'desk mat'], img2],
   [['signage', 'exhibition', 'display board'], img9],
+  [['annual report', 'annual-report', 'annual-report'], img10],
+  [['catalog', 'booklet', 'lookbook'], img8],
+  [['presentation folder', 'pocket folder', 'proposal folder'], img9],
+  [['raised ink', 'thermography'], velvetFoilBusinessCardImg],
+  [['plastic card', 'pvc card', 'clear card', 'frosted card'], softTouchBusinessCardImg],
+  [['door hanger', 'door-knob', 'doorknob'], flyersImg],
+  [['postcard', 'direct mail', 'a6 card', 'a5 card'], img3],
+  [['student id', 'school id', 'university id'], idCardsImg],
+  [['access control', 'rfid card', 'mifare', 'nfc card', 'hid card'], img4],
+  [['visitor pass', 'visitor badge', 'temporary badge'], badgesImg],
+  [['usb', 'flash drive', 'usb stick', 'thumb drive'], img2],
+  [['gift set', 'welcome kit', 'curated gift'], img5],
+  [['power bank', 'portable charger', 'power station'], bottlesImg],
+  [['envelope', 'dl envelope', 'c4 envelope', 'c5 envelope'], letterheadImg],
+  [['stationery set', 'stationery kit', 'welcome kit'], img11],
+  [['foam board', 'foamcore', 'kappa board'], img9],
+  [['metal sign', 'plaque', 'aluminum sign', 'brass sign', 'stainless sign'], namePlatesImg],
+  [['acrylic wall', 'frosted acrylic', 'acrylic logo', '3d letter'], img12],
+  [['calendar', 'diary', 'planner', 'tent calendar'], img7],
+  [['greeting card', 'corporate eid', 'diwali card', 'holiday card'], img6],
+  [['paper bag', 'kraft bag', 'shopping bag', 'takeaway bag'], toteBagsImg],
+  [['food packaging', 'burger box', 'bakery box', 'cake box', 'meal container'], img13],
+  [['restaurant menu', 'menu card', 'menu book', 'cafe menu'], img14],
+  [['wedding invitation', 'invitation suite', 'wedding card', 'save the date'], img15],
+  [['t-shirt', 'tshirt', 'tee shirt', 'uniform shirt', 'staff shirt'], img3],
+  [['cap', 'hat', 'beanie', 'trucker', 'baseball cap'], img4],
+  [['mouse pad', 'mousepad', 'desk mat', 'gel wrist'], img2],
 ]
 
 export function getProductImage(product) {

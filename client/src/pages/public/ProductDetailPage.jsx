@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { ArrowLeft, Sparkles, ShieldCheck, Truck, RotateCcw, HelpCircle } from 'lucide-react'
+import { ArrowLeft, Sparkles, ShieldCheck, Truck, RotateCcw, HelpCircle, Compass, Image as ImageIcon } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import LoadingState from '../../components/LoadingState'
@@ -8,6 +8,7 @@ import EmptyState from '../../components/EmptyState'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import ProductCard from '../../components/ProductCard'
+import Product360Viewer from '../../components/Product360Viewer'
 import { getProductBySlug, getProducts } from '../../services/products'
 import { getProductImage } from '../../assets/productImages'
 import { trackViewProduct, trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
@@ -46,6 +47,7 @@ export default function ProductDetailPage() {
   const [status, setStatus] = useState('loading')
 
   const [activeImage, setActiveImage] = useState(0)
+  const [viewMode, setViewMode] = useState('360') // '360' | 'photo'
   const [quantity, setQuantity] = useState(1)
   const [size, setSize] = useState(null)
   const [material, setMaterial] = useState(null)
@@ -189,19 +191,66 @@ export default function ProductDetailPage() {
         </Link>
 
         <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-12">
-          {/* Gallery */}
+          {/* Gallery & 360 Viewer */}
           <div className="lg:col-span-6">
-            <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-xs">
-              <div className="aspect-[4/3] overflow-hidden bg-accent-soft/40">
-                <img
-                  src={getProductImage(product)}
-                  alt={product.imageAlt || `${product.name} printing Dubai`}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
+            {/* Mode Toggle Switch */}
+            <div className="mb-4 flex items-center justify-between">
+              <div className="flex items-center gap-1 rounded-xl border border-black/10 bg-white p-1 shadow-xs">
+                <button
+                  type="button"
+                  onClick={() => setViewMode('360')}
+                  className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+                    viewMode === '360'
+                      ? 'bg-[#A82F19] text-white shadow-xs'
+                      : 'text-black/60 hover:text-black'
+                  }`}
+                >
+                  <Compass className="h-3.5 w-3.5" />
+                  <span>360° Interactive View</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setViewMode('photo')}
+                  className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+                    viewMode === 'photo'
+                      ? 'bg-[#A82F19] text-white shadow-xs'
+                      : 'text-black/60 hover:text-black'
+                  }`}
+                >
+                  <ImageIcon className="h-3.5 w-3.5" />
+                  <span>Static Photo</span>
+                </button>
               </div>
+
+              {product.featured && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+                  <Sparkles className="h-3 w-3" />
+                  Featured
+                </span>
+              )}
             </div>
-            {product.images?.length > 1 && (
+
+            {/* Viewer Stage */}
+            <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-xs">
+              {viewMode === '360' ? (
+                <Product360Viewer
+                  product={product}
+                  autoSpin={true}
+                  height="aspect-[4/3]"
+                />
+              ) : (
+                <div className="aspect-[4/3] overflow-hidden bg-accent-soft/40">
+                  <img
+                    src={getProductImage(product)}
+                    alt={product.imageAlt || `${product.name} printing Dubai`}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+            </div>
+
+            {viewMode === 'photo' && product.images?.length > 1 && (
               <div className="mt-4 flex gap-3">
                 {product.images.map((image, index) => (
                   <button

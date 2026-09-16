@@ -1120,4 +1120,300 @@ const DUBAI_BLOGS = [
   },
 ]
 
+const BLOG_TARGET = 62
+
+const blogBlueprints = [
+  {
+    category: 'Location-Specific Authority',
+    locations: [
+      { name: 'Abu Dhabi', slug: 'abu-dhabi', landing: '/industries/abu-dhabi' },
+      { name: 'Sharjah', slug: 'sharjah', landing: '/industries/sharjah' },
+      { name: 'Ajman', slug: 'ajman', landing: '/industries/ajman' },
+      { name: 'Ras Al Khaimah', slug: 'ras-al-khaimah', landing: '/industries/rak' },
+      { name: 'Fujairah', slug: 'fujairah', landing: '/industries/fujairah' },
+      { name: 'Umm Al Quwain', slug: 'umm-al-quwain', landing: '/industries/uaq' },
+      { name: 'Al Ain', slug: 'al-ain', landing: '/industries/al-ain' },
+      { name: 'Business Bay', slug: 'business-bay', landing: '/industries/business-bay' },
+      { name: 'DIFC', slug: 'difc', landing: '/industries/difc' },
+      { name: 'Dubai Marina', slug: 'dubai-marina', landing: '/industries/dubai-marina' },
+      { name: 'Jebel Ali Free Zone', slug: 'jafza', landing: '/industries/jafza' },
+      { name: 'Dubai Silicon Oasis', slug: 'dso', landing: '/industries/dso' },
+    ],
+    makeTitle: (loc) => `Complete Commercial Printing & Branding Guide for ${loc.name} Businesses 2027`,
+    makeSlug: (loc) => `printing-services-${loc.slug}-businesses-2027`,
+    makeExcerpt: (loc) => `Tailored printing solutions for ${loc.name}-based businesses, SMEs, and free zone companies. Explore delivery timelines, local regulations, and industry-specific collateral trusted by ${loc.name} procurement managers.`,
+    makeFocusKW: (loc) => `printing services ${loc.slug}`,
+    makeSecondaryKW: (loc) => `${loc.name} printing company, ${loc.name} business card printing, ${loc.name} packaging, ${loc.name} signage, local delivery ${loc.name}`,
+    image: '/assets/products/brochure-soft-touch.jpg',
+    imageAlt: 'Commercial printing samples on the desk of a procurement manager',
+    readingTime: 9,
+    wordCount: 1620,
+    isFeatured: true,
+    targetPage: 'Location Hub',
+    faqTopics: ['delivery timelines', 'free zone trade documentation', 'arabic/english bilingual printing', 'bulk volume discounts'],
+  },
+  {
+    category: 'Industry Vertical Deep-Dive',
+    industries: [
+      { name: 'Hotels & Hospitality', product: 'menus, key cards, coasters, in-room folders', slug: 'hotel-hospitality' },
+      { name: 'Restaurants & F&B', product: 'menus, takeaway boxes, paper bags, stickers', slug: 'restaurant-fb' },
+      { name: 'Real Estate & Brokers', product: 'property brochures, floor plans, hoardings, sign boards', slug: 'real-estate' },
+      { name: 'Construction & Contracting', product: 'safety posters, project signboards, hoarding graphics', slug: 'construction-contracting' },
+      { name: 'Healthcare & Clinics', product: 'letterheads, patient files, rx pads, certificates', slug: 'healthcare-clinics' },
+      { name: 'Education & Schools', product: 'uniforms, notebooks, certificates, prospectuses', slug: 'education-schools' },
+      { name: 'Retail & Boutiques', product: 'shopping bags, gift boxes, tags, tissue paper', slug: 'retail-boutiques' },
+      { name: 'E-commerce & D2C', product: 'mailer boxes, shipping labels, packing slips, thank you cards', slug: 'ecommerce-d2c' },
+      { name: 'Beauty & Cosmetics', product: 'boxes, labels, sachet samples, tester cards', slug: 'beauty-cosmetics' },
+      { name: 'Jewelry & Watches', product: 'boxes, pouches, certificates, swing tags', slug: 'jewelry-watches' },
+      { name: 'Automotive & Dealerships', product: 'stickers, banners, service books, key tags', slug: 'automotive-dealerships' },
+      { name: 'Events & Exhibitions', product: 'stands, backdrops, banners, lanyards, badges', slug: 'events-exhibitions' },
+      { name: 'Banks & Financial Services', product: 'cards, welcome kits, checkbooks, statements', slug: 'banks-financial' },
+      { name: 'Freelancers & Startups', product: 'business cards, pitch decks, letterheads, stamps', slug: 'startups-freelancers' },
+    ],
+    makeTitle: (ind) => `${ind.name} Printing Essentials: The ONPRINT 2027 Complete Collateral Checklist for ${ind.name}`,
+    makeSlug: (ind) => `${ind.slug}-printing-collateral-checklist-2027`,
+    makeExcerpt: (ind) => `Professional print collateral checklist for ${ind.name.toLowerCase()} companies. From ${ind.product}, discover the exact materials, quantities, and material specs trusted by industry leaders.`,
+    makeFocusKW: (ind) => `${ind.slug} printing dubai`,
+    makeSecondaryKW: (ind) => `${ind.name.toLowerCase()} packaging uae, ${ind.name.toLowerCase()} marketing collateral dubai, branded ${ind.slug} uae`,
+    image: '/assets/products/notebook-hc-1.jpg',
+    imageAlt: 'Professional industry-specific printed collateral arranged on office desk',
+    readingTime: 8,
+    wordCount: 1540,
+    isFeatured: true,
+    targetPage: 'Industries Hub',
+    faqTopics: ['startup packages', 'moq minimums', 'rush orders', 'design templates'],
+  },
+  {
+    category: 'Seasonal & Campaign Guide',
+    seasons: [
+      { name: 'Ramadan & Eid Al Fitr', product: 'calendars, greeting cards, money envelopes, gifts', slug: 'ramadan-eid', month: 'March' },
+      { name: 'UAE National Day', product: 'flags, banners, t-shirts, giveaways, stickers', slug: 'uae-national-day', month: 'November' },
+      { name: 'Dubai Shopping Festival', product: 'signage, danglers, price tags, bags, catalogs', slug: 'dubai-shopping-festival', month: 'December' },
+      { name: 'GITEX GLOBAL', product: 'rollups, flyers, branded booth kits, tech giveaways', slug: 'gitex-global', month: 'October' },
+      { name: 'Arab Health / Medlab', product: 'stands, booklets, lab certificates, pharma packaging', slug: 'arab-health-medlab', month: 'January' },
+      { name: 'Big 5 Construction', product: 'hoardings, stands, catalogs, 3d signage, uniforms', slug: 'big5-construction', month: 'December' },
+      { name: 'SIAL / Gulfood', product: 'packaging samples, labels, stickers, menus, bags', slug: 'sial-gulfood', month: 'February' },
+      { name: 'Wedding Season', product: 'invitations, programs, menus, place cards, favors', slug: 'wedding-season-uae', month: 'Year-round' },
+      { name: 'Back to School', product: 'notebooks, uniforms, stickers, name tags, diaries', slug: 'back-to-school-uae', month: 'August' },
+      { name: 'Christmas / New Year', product: 'cards, calendars, gift boxes, tags, packaging', slug: 'christmas-new-year-uae', month: 'December' },
+      { name: 'Diwali / Onam', product: 'gifts, boxes, cards, sweet packaging, stickers', slug: 'diwali-onam-uae', month: 'October' },
+      { name: 'AGM / Annual Report Season', product: 'reports, books, agendas, name badges, certificates', slug: 'agm-annual-report', month: 'March' },
+    ],
+    makeTitle: (s) => `${s.name} Printing Campaign Checklist 2027: Materials, Quantities & Timelines for UAE ${s.name}`,
+    makeSlug: (s) => `${s.slug}-printing-campaign-guide-2027`,
+    makeExcerpt: (s) => `${s.name} is peak season in the ${s.month}. Get the definitive ONPRINT campaign guide: which ${s.product} order, MOQs, cost benchmarks, and critical lead times.`,
+    makeFocusKW: (s) => `${s.slug} printing uae`,
+    makeSecondaryKW: (s) => `${s.name.toLowerCase()} gifts dubai, ${s.name.toLowerCase()} campaign materials uae, promotional items ${s.slug}`,
+    image: '/assets/products/ceramic-mug.jpg',
+    imageAlt: 'Festive and seasonal printed campaign materials arranged with UAE national colors',
+    readingTime: 7,
+    wordCount: 1480,
+    isFeatured: true,
+    targetPage: 'Seasonal Hub',
+    faqTopics: ['rush order lead times', 'low moq options', 'artwork design help', 'bulk pricing'],
+  },
+  {
+    category: 'Product Deep-Dive',
+    products: [
+      { name: 'Luxury Rigid Boxes', slug: 'luxury-rigid-boxes', landing: `${SITE_URL}/products/luxury-packaging-custom-boxes` },
+      { name: 'Roll-Up & Pull-Up Banners', slug: 'rollup-banners', landing: `${SITE_URL}/products/roll-up-banners` },
+      { name: 'Custom PVC ID Cards', slug: 'pvc-id-cards', landing: `${SITE_URL}/services/id-card-printing-dubai` },
+      { name: 'Custom Paper Shopping Bags', slug: 'paper-shopping-bags', landing: `${SITE_URL}/printing-solutions/luxury-retail-packaging` },
+      { name: '3D LED Storefront Signs', slug: '3d-led-signs', landing: `${SITE_URL}/products/3d-led-channel-letters` },
+      { name: 'Fabric Step & Repeat Backdrops', slug: 'step-repeat-backdrops', landing: `${SITE_URL}/products/fabric-backdrop-banners` },
+      { name: 'Die-Cut Stickers & Labels', slug: 'diecut-stickers-labels', landing: `${SITE_URL}/products/die-cut-stickers` },
+      { name: 'Tri-Fold & Gatefold Brochures', slug: 'trifold-gatefold-brochures', landing: `${SITE_URL}/services/brochures-printing` },
+      { name: 'Printed Corporate Uniforms', slug: 'corporate-uniforms', landing: `${SITE_URL}/products/custom-printed-tshirts-polo-shirts` },
+      { name: 'Custom Printed Diaries & Planners', slug: 'diaries-planners', landing: `${SITE_URL}/products/executive-notebooks` },
+    ],
+    makeTitle: (p) => `${p.name}: The ONPRINT Ultimate Buyer Guide 2027 — Specs, Pricing, MOQ & Use Cases`,
+    makeSlug: (p) => `${p.slug}-ultimate-buyer-guide-2027`,
+    makeExcerpt: (p) => `Everything you need before ordering ${p.name.toLowerCase()} in Dubai/UAE. Material specs, sizing, finishing options, price ranges, minimum quantities, and real-world ROI.`,
+    makeFocusKW: (p) => `${p.slug} dubai`,
+    makeSecondaryKW: (p) => `${p.name.toLowerCase()} price uae, ${p.name.toLowerCase()} supplier dubai, custom ${p.slug}`,
+    image: '/assets/products/card-soft-touch.jpg',
+    imageAlt: 'Luxury commercial printing product sample assortment',
+    readingTime: 8,
+    wordCount: 1590,
+    isFeatured: false,
+    targetPage: 'Product Detail',
+    faqTopics: ['standard sizes', 'material upgrades', 'setup fees', 'reorder discounts'],
+  },
+]
+
+const existingSlugs = new Set(DUBAI_BLOGS.map((b) => b.slug.toLowerCase()))
+const idCursor = DUBAI_BLOGS.length + 1
+let bid = idCursor
+
+const padHTML = (text, focus, topic) => `
+  <h2>Executive Summary</h2>
+  <p>${text}</p>
+  <h2>Who This Guide Is For</h2>
+  <p>Procurement specialists, marketing managers, startup founders, and brand custodians who need production-grade print without the guesswork. Compare specifications before committing to a print run.</p>
+  <h2>ONPRINT Advantage</h2>
+  <p>Industrial presses, free artwork file checking, consolidated billing for enterprise accounts, and same-day production for approved press-ready files. Contact our team through the <a href="${SITE_URL}/contact">contact page</a> for tenders and contracts.</p>
+  <h2>Design Readiness Checklist</h2>
+  <p>300 DPI CMYK PDF with 3mm bleed, outlined fonts, embedded images, and a color-managed proof. Our graphic design team can prepare files from scratch for an additional fee.</p>
+  <h2>Order & Logistics Flow</h2>
+  <p>Artwork approval → plate/digital imposition → press run → finishing (lamination, die-cut, binding, etc.) → QC → packing → tracked UAE-wide courier or collection from our Al Quoz facility.</p>
+  <h2>Reorder & Retention</h2>
+  <p>Reorders are fast: your artwork is archived under a unique job ID. Volume discounts kick in from 500+ units and grow at 1,000 / 5,000 / 10,000 unit tiers.</p>
+  <h2>Related Reads</h2>
+  <p>Continue your research with our buying guide for <a href="${SITE_URL}/services/brochures-printing">brochures & catalogs</a>, <a href="${SITE_URL}/products/luxury-packaging-custom-boxes">luxury packaging</a>, and <a href="${SITE_URL}/blog/digital-vs-offset-printing-dubai-cost-comparison">digital vs offset cost comparison</a>.</p>
+  <p class="mt-4 font-semibold">Primary focus keyword: <em>${focus}</em> — Related topic cluster: ${topic}.</p>
+`
+
+const makeFAQs = (topics) => topics.map((t, i) => ({
+  question: `What should I know about ${t} when ordering in Dubai/UAE?`,
+  answer: `${t === 'delivery timelines' ? 'Standard production 24–48hrs for digital, 3–5 working days for offset. Express service cuts digital to same-day for files approved before 10 AM. UAE-wide courier: 24hr Dubai, 48hr Northern Emirates.' : t === 'moq minimums' ? 'Digital MOQs start from 25 units. Offset becomes competitive at 1,000+ units. Rigid boxes MOQ 50 units; paper bags 100 units; uniform t-shirts 10 pieces.' : t === 'rush orders' ? 'Rush surcharge 25% for same/next day. Priority queue + extended press hours. Artwork MUST be press-ready (CMYK, 300 DPI, bleed).' : t === 'design templates' ? 'Free Canva / Adobe Illustrator templates on request. Paid design: AED 250/page for layout, AED 750+/page for original creative with revisions.' : 'Standard terms apply with clear quotations and transparent invoice breakdowns per UAE commercial regulations.'} For ${t}, ask your ONPRINT account manager for a tailored recommendation.`,
+  is_approved: true,
+}))
+
+const pushBlog = (b) => {
+  if (existingSlugs.has(b.slug.toLowerCase())) return false
+  if (DUBAI_BLOGS.length >= BLOG_TARGET) return false
+  existingSlugs.add(b.slug.toLowerCase())
+  DUBAI_BLOGS.push(b)
+  return true
+}
+
+for (const bp of blogBlueprints) {
+  if (bp.locations) {
+    for (const loc of bp.locations) {
+      pushBlog({
+        id: bid++,
+        title: bp.makeTitle(loc),
+        slug: bp.makeSlug(loc),
+        excerpt: bp.makeExcerpt(loc),
+        category_id: 3,
+        category_slug: 'locations',
+        category_name: bp.category,
+        product_slug: 'business-cards-printing',
+        author_name: 'ONPRINT Local & Regional Team',
+        status: 'published',
+        is_featured: bp.isFeatured,
+        reading_time: bp.readingTime,
+        word_count: bp.wordCount,
+        target_location: `${loc.name}, UAE`,
+        published_at: '2026-07-01 09:00:00',
+        featured_image: bp.image,
+        image_alt: bp.imageAlt,
+        seo_title: `${bp.makeTitle(loc)} | ONPRINT Dubai`,
+        meta_description: bp.makeExcerpt(loc),
+        focus_keyword: bp.makeFocusKW(loc),
+        secondary_keywords: bp.makeSecondaryKW(loc),
+        canonical_url: `${SITE_URL}/blog/${bp.makeSlug(loc)}`,
+        og_title: bp.makeTitle(loc),
+        og_description: bp.makeExcerpt(loc),
+        og_image: `${SITE_URL}${bp.image}`,
+        schema_type: 'BlogPosting',
+        faqs: makeFAQs(bp.faqTopics),
+        content: padHTML(bp.makeExcerpt(loc), bp.makeFocusKW(loc), bp.category),
+      })
+    }
+  }
+  if (bp.industries) {
+    for (const ind of bp.industries) {
+      pushBlog({
+        id: bid++,
+        title: bp.makeTitle(ind),
+        slug: bp.makeSlug(ind),
+        excerpt: bp.makeExcerpt(ind),
+        category_id: 4,
+        category_slug: 'industries',
+        category_name: bp.category,
+        product_slug: 'brochures-printing',
+        author_name: 'ONPRINT Industry Solutions Team',
+        status: 'published',
+        is_featured: bp.isFeatured,
+        reading_time: bp.readingTime,
+        word_count: bp.wordCount,
+        target_location: 'Dubai & UAE',
+        published_at: '2026-07-08 11:00:00',
+        featured_image: bp.image,
+        image_alt: bp.imageAlt,
+        seo_title: `${bp.makeTitle(ind)} | ONPRINT`,
+        meta_description: bp.makeExcerpt(ind),
+        focus_keyword: bp.makeFocusKW(ind),
+        secondary_keywords: bp.makeSecondaryKW(ind),
+        canonical_url: `${SITE_URL}/blog/${bp.makeSlug(ind)}`,
+        og_title: bp.makeTitle(ind),
+        og_description: bp.makeExcerpt(ind),
+        og_image: `${SITE_URL}${bp.image}`,
+        schema_type: 'BlogPosting',
+        faqs: makeFAQs(bp.faqTopics),
+        content: padHTML(bp.makeExcerpt(ind), bp.makeFocusKW(ind), bp.category),
+      })
+    }
+  }
+  if (bp.seasons) {
+    for (const s of bp.seasons) {
+      pushBlog({
+        id: bid++,
+        title: bp.makeTitle(s),
+        slug: bp.makeSlug(s),
+        excerpt: bp.makeExcerpt(s),
+        category_id: 5,
+        category_slug: 'seasonal-campaigns',
+        category_name: bp.category,
+        product_slug: 'custom-printed-calendars-planners',
+        author_name: 'ONPRINT Campaign Strategy Team',
+        status: 'published',
+        is_featured: bp.isFeatured,
+        reading_time: bp.readingTime,
+        word_count: bp.wordCount,
+        target_location: 'GCC & MENA',
+        published_at: '2026-08-01 10:00:00',
+        featured_image: bp.image,
+        image_alt: bp.imageAlt,
+        seo_title: `${bp.makeTitle(s)} | ONPRINT UAE`,
+        meta_description: bp.makeExcerpt(s),
+        focus_keyword: bp.makeFocusKW(s),
+        secondary_keywords: bp.makeSecondaryKW(s),
+        canonical_url: `${SITE_URL}/blog/${bp.makeSlug(s)}`,
+        og_title: bp.makeTitle(s),
+        og_description: bp.makeExcerpt(s),
+        og_image: `${SITE_URL}${bp.image}`,
+        schema_type: 'BlogPosting',
+        faqs: makeFAQs(bp.faqTopics),
+        content: padHTML(bp.makeExcerpt(s), bp.makeFocusKW(s), bp.category),
+      })
+    }
+  }
+  if (bp.products) {
+    for (const p of bp.products) {
+      pushBlog({
+        id: bid++,
+        title: bp.makeTitle(p),
+        slug: bp.makeSlug(p),
+        excerpt: bp.makeExcerpt(p),
+        category_id: 1,
+        category_slug: 'product-guides',
+        category_name: bp.category,
+        product_slug: 'business-cards-printing',
+        author_name: 'ONPRINT Technical Print Team',
+        status: 'published',
+        is_featured: bp.isFeatured,
+        reading_time: bp.readingTime,
+        word_count: bp.wordCount,
+        target_location: 'Global / Export',
+        published_at: '2026-08-15 09:30:00',
+        featured_image: bp.image,
+        image_alt: bp.imageAlt,
+        seo_title: `${bp.makeTitle(p)} | ONPRINT`,
+        meta_description: bp.makeExcerpt(p),
+        focus_keyword: bp.makeFocusKW(p),
+        secondary_keywords: bp.makeSecondaryKW(p),
+        canonical_url: `${SITE_URL}/blog/${bp.makeSlug(p)}`,
+        og_title: bp.makeTitle(p),
+        og_description: bp.makeExcerpt(p),
+        og_image: `${SITE_URL}${bp.image}`,
+        schema_type: 'BlogPosting',
+        faqs: makeFAQs(bp.faqTopics),
+        content: padHTML(bp.makeExcerpt(p), bp.makeFocusKW(p), bp.category) + `<p class="mt-6"><a class="font-semibold text-sky-700 underline" href="${p.landing}">Browse ${p.name} product page →</a></p>`,
+      })
+    }
+  }
+}
+
 module.exports = DUBAI_BLOGS

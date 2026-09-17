@@ -113,7 +113,7 @@ const homeFaqs = [
   {
     question: 'How do I request a custom quotation for bulk printing?',
     answer:
-      'You can request an instant quote online via our Get a Quote page, message our team on WhatsApp at +44 7344546056, or email us at 0nprint183@gmail.com. Our Al Quoz print specialists provide clear itemized quotations within 2 hours.',
+      'You can request an instant quote online via our Get a Quote page, call our Al Quoz press desk directly at +971 55 183 7995, message our team on WhatsApp, or email us at 0nprint183@gmail.com. Our print specialists provide itemized quotations within 2 hours.',
   },
 ]
 
@@ -217,7 +217,7 @@ export default function HomePage() {
             {/* Supporting Paragraph */}
             <Reveal delay={0.18}>
               <p className="text-base sm:text-lg leading-relaxed text-slate-600 font-normal max-w-xl">
-                ONPRINT transforms brand identities into tangible physical masterpieces. From executive 600 GSM stationery and custom luxury packaging to corporate gifts and large-format signage.
+                ONPRINT is Dubai’s premier commercial printing press and branding studio based in Al Quoz Industrial Area 3. We deliver precision digital and offset printing, bespoke luxury packaging, same-day business stationery, and corporate gifts across Dubai and the UAE.
               </p>
             </Reveal>
 

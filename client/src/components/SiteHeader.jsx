@@ -252,6 +252,14 @@ export default function SiteHeader() {
             </Link>
             <span className="h-3 w-[1px] bg-slate-200" />
             <a
+              href="tel:+971551837995"
+              className="hidden lg:flex items-center gap-1.5 transition-colors hover:text-[#A82F19]"
+            >
+              <PhoneCall className="h-3.5 w-3.5 text-[#A82F19]" />
+              <span>+971 55 183 7995</span>
+            </a>
+            <span className="hidden lg:inline-block h-3 w-[1px] bg-slate-200" />
+            <a
               href="https://wa.me/447344546056"
               target="_blank"
               rel="noopener noreferrer"
@@ -259,7 +267,7 @@ export default function SiteHeader() {
               aria-label="WhatsApp"
             >
               <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
-              <span>+44 7344546056</span>
+              <span>WhatsApp Chat</span>
             </a>
             <span className="h-3 w-[1px] bg-slate-200" />
             <a href="mailto:0nprint183@gmail.com" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
@@ -480,14 +488,23 @@ export default function SiteHeader() {
             </Link>
 
             <a
+              href="tel:+971551837995"
+              className="hidden xl:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#A82F19] transition-colors py-1.5 px-2 whitespace-nowrap"
+              aria-label="Call +971 55 183 7995"
+            >
+              <PhoneCall className="h-3.5 w-3.5 text-[#A82F19]" />
+              <span>+971 55 183 7995</span>
+            </a>
+
+            <a
               href="https://wa.me/447344546056"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden xl:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#25D366] transition-colors py-1.5 px-2 whitespace-nowrap"
-              aria-label="WhatsApp +44 7344546056"
+              aria-label="WhatsApp Chat"
             >
               <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
-              <span>+44 7344546056</span>
+              <span>WhatsApp</span>
             </a>
 
             {isAuthenticated && isAdmin ? (
@@ -753,13 +770,21 @@ export default function SiteHeader() {
               {/* Mobile CTA */}
               <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
                 <a
+                  href="tel:+971551837995"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 py-2.5 text-xs font-bold text-slate-800 shadow-xs active:bg-slate-100"
+                >
+                  <PhoneCall className="h-4 w-4 text-[#A82F19]" />
+                  <span>Call: +971 55 183 7995</span>
+                </a>
+
+                <a
                   href="https://wa.me/447344546056"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-50 py-2.5 text-xs font-bold text-emerald-800 shadow-xs active:bg-emerald-100"
                 >
                   <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
-                  <span>WhatsApp: +44 7344546056</span>
+                  <span>WhatsApp Concierge</span>
                 </a>
 
                 <Button

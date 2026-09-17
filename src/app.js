@@ -87,6 +87,16 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     ? rendered.replace(/<link\s+rel=["']canonical["'][^>]*>/i, canonicalTag)
     : rendered.replace('</head>', `    ${canonicalTag}\n  </head>`)
 
+  // Inject Hreflang Tags for International & UAE SEO
+  const hreflangTags = [
+    `<link rel="alternate" hreflang="en-ae" href="${escapeHtml(canonical)}" />`,
+    `<link rel="alternate" hreflang="en" href="${escapeHtml(canonical)}" />`,
+    `<link rel="alternate" hreflang="x-default" href="${escapeHtml(canonical)}" />`,
+  ].join('\n    ')
+  if (!rendered.includes('hreflang="en-ae"')) {
+    rendered = rendered.replace('</head>', `    ${hreflangTags}\n  </head>`)
+  }
+
   // Inject Google Site Verification if configured in environment
   const googleVerification = process.env.GOOGLE_SITE_VERIFICATION || process.env.GOOGLE_VERIFICATION
   if (googleVerification && !rendered.includes('name="google-site-verification"')) {
@@ -104,7 +114,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     logo: `${siteUrl}/logo_icon.png`,
     image: `${siteUrl}/logo_icon.png`,
     description: 'ONPRINT is Dubai’s premier physical branding & commercial printing press. Specializing in executive stationery, luxury packaging, corporate gifts, large-format rollups, and precision digital printing across the UAE.',
-    telephone: '+9714800PRINT',
+    telephone: '+971551837995',
     email: '0nprint183@gmail.com',
     priceRange: '$$',
     address: {

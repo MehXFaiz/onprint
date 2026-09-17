@@ -3,7 +3,7 @@ import Container from './Container'
 import { CmykDots } from './PrintMarks'
 import Logo from './Logo'
 import WhatsAppIcon from './WhatsAppIcon'
-import { Mail, MapPin, Clock } from 'lucide-react'
+import { Mail, MapPin, Clock, PhoneCall } from 'lucide-react'
 import { trackGetQuoteClick } from '../utils/analytics'
 
 const navLinks = [
@@ -79,6 +79,15 @@ export default function SiteFooter() {
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A82F19]">Dubai Headquarters</p>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-center gap-2.5">
+              <PhoneCall className="h-4 w-4 text-[#A82F19] shrink-0" />
+              <a
+                href="tel:+971551837995"
+                className="transition-colors hover:text-white"
+              >
+                +971 55 183 7995 (Pressroom)
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
               <WhatsAppIcon className="h-4 w-4 text-[#25D366] shrink-0 fill-[#25D366]" />
               <a
                 href="https://wa.me/447344546056"
@@ -86,7 +95,7 @@ export default function SiteFooter() {
                 rel="noopener noreferrer"
                 className="transition-colors hover:text-[#25D366]"
               >
-                +44 7344546056 (WhatsApp)
+                WhatsApp Concierge
               </a>
             </li>
             <li className="flex items-center gap-2.5">

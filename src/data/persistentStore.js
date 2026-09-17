@@ -3,16 +3,42 @@ const path = require('path')
 
 const STORE_PATH = path.join(__dirname, 'dbStore.json')
 
+const { GEO_FAQS } = require('./geoFaqsData')
+const { GEO_CONTENT_RECORDS } = require('./geoContentData')
+const { DUBAI_AI_VISIBILITY_QUERIES } = require('./dubaiAiVisibilityData')
+
 function loadStore() {
   try {
     if (fs.existsSync(STORE_PATH)) {
       const raw = fs.readFileSync(STORE_PATH, 'utf8')
-      return JSON.parse(raw)
+      const parsed = JSON.parse(raw)
+      if (!Array.isArray(parsed.geo_faqs) || parsed.geo_faqs.length === 0) {
+        parsed.geo_faqs = [...GEO_FAQS]
+      }
+      if (!Array.isArray(parsed.geo_content) || parsed.geo_content.length === 0) {
+        parsed.geo_content = [...GEO_CONTENT_RECORDS]
+      }
+      if (!Array.isArray(parsed.ai_visibility) || parsed.ai_visibility.length === 0) {
+        parsed.ai_visibility = [...DUBAI_AI_VISIBILITY_QUERIES]
+      }
+      if (!Array.isArray(parsed.citation_logs)) {
+        parsed.citation_logs = []
+      }
+      return parsed
     }
   } catch (err) {
     console.warn('[PersistentStore] Read error, resetting:', err.message)
   }
-  return { orders: [], quotes: [], messages: [], blogs: [] }
+  return {
+    orders: [],
+    quotes: [],
+    messages: [],
+    blogs: [],
+    geo_faqs: [...GEO_FAQS],
+    geo_content: [...GEO_CONTENT_RECORDS],
+    ai_visibility: [...DUBAI_AI_VISIBILITY_QUERIES],
+    citation_logs: [],
+  }
 }
 
 function saveStore(data) {
@@ -476,6 +502,187 @@ function deleteBlogs(ids) {
   return true
 }
 
+function getGeoFaqs(filter = {}) {
+  const store = loadStore()
+  let list = store.geo_faqs || []
+  if (filter.category && filter.category !== 'All') {
+    list = list.filter((f) => String(f.category).toLowerCase() === String(filter.category).toLowerCase())
+  }
+  if (filter.status && filter.status !== 'All') {
+    list = list.filter((f) => String(f.status).toLowerCase() === String(filter.status).toLowerCase())
+  }
+  if (filter.search) {
+    const s = String(filter.search).toLowerCase()
+    list = list.filter(
+      (f) =>
+        String(f.question || '').toLowerCase().includes(s) ||
+        String(f.answer || '').toLowerCase().includes(s) ||
+        String(f.related_service || '').toLowerCase().includes(s)
+    )
+  }
+  return list
+}
+
+function getGeoFaqsByUrl(url) {
+  const store = loadStore()
+  const list = store.geo_faqs || []
+  const cleanUrl = String(url || '').toLowerCase().trim()
+  return list.filter((f) => {
+    if (!f.target_url) return false
+    const u = String(f.target_url).toLowerCase()
+    return u.endsWith(cleanUrl) || u.includes(cleanUrl)
+  })
+}
+
+function addGeoFaq(data) {
+  const store = loadStore()
+  const id = (store.geo_faqs && store.geo_faqs.length > 0 ? Math.max(...store.geo_faqs.map((f) => Number(f.id) || 0)) : 0) + 1
+  const newFaq = {
+    id,
+    question: data.question || '',
+    answer: data.answer || '',
+    category: data.category || 'General',
+    related_service: data.related_service || null,
+    target_url: data.target_url || null,
+    search_intent: data.search_intent || 'Commercial',
+    status: data.status || 'published',
+    published_at: data.published_at || new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  }
+  store.geo_faqs.unshift(newFaq)
+  saveStore(store)
+  return newFaq
+}
+
+function updateGeoFaq(id, data) {
+  const store = loadStore()
+  const idx = store.geo_faqs.findIndex((f) => String(f.id) === String(id))
+  if (idx === -1) return null
+  store.geo_faqs[idx] = {
+    ...store.geo_faqs[idx],
+    ...data,
+    id: store.geo_faqs[idx].id,
+    updated_at: new Date().toISOString(),
+  }
+  saveStore(store)
+  return store.geo_faqs[idx]
+}
+
+function deleteGeoFaq(id) {
+  const store = loadStore()
+  store.geo_faqs = store.geo_faqs.filter((f) => String(f.id) !== String(id))
+  saveStore(store)
+  return true
+}
+
+function getGeoContent(filter = {}) {
+  const store = loadStore()
+  let list = store.geo_content || []
+  if (filter.status && filter.status !== 'All') {
+    list = list.filter((c) => String(c.status).toLowerCase() === String(filter.status).toLowerCase())
+  }
+  if (filter.search) {
+    const s = String(filter.search).toLowerCase()
+    list = list.filter(
+      (c) =>
+        String(c.topic || '').toLowerCase().includes(s) ||
+        String(c.question || '').toLowerCase().includes(s) ||
+        String(c.answer || '').toLowerCase().includes(s) ||
+        String(c.target_keyword || '').toLowerCase().includes(s)
+    )
+  }
+  return list
+}
+
+function addGeoContent(data) {
+  const store = loadStore()
+  const id = (store.geo_content && store.geo_content.length > 0 ? Math.max(...store.geo_content.map((c) => Number(c.id) || 0)) : 0) + 1
+  const newContent = {
+    id,
+    topic: data.topic || '',
+    question: data.question || '',
+    answer: data.answer || '',
+    target_keyword: data.target_keyword || null,
+    entity: data.entity || 'ONPRINT',
+    target_url: data.target_url || null,
+    related_service: data.related_service || null,
+    faq: data.faq !== undefined ? Number(data.faq) : 1,
+    source: data.source || 'ONPRINT Pressroom Operations Manual',
+    author: data.author || 'ONPRINT Technical Team',
+    status: data.status || 'published',
+    published_at: data.published_at || new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  }
+  store.geo_content.unshift(newContent)
+  saveStore(store)
+  return newContent
+}
+
+function updateGeoContent(id, data) {
+  const store = loadStore()
+  const idx = store.geo_content.findIndex((c) => String(c.id) === String(id))
+  if (idx === -1) return null
+  store.geo_content[idx] = {
+    ...store.geo_content[idx],
+    ...data,
+    id: store.geo_content[idx].id,
+    updated_at: new Date().toISOString(),
+  }
+  saveStore(store)
+  return store.geo_content[idx]
+}
+
+function deleteGeoContent(id) {
+  const store = loadStore()
+  store.geo_content = store.geo_content.filter((c) => String(c.id) !== String(id))
+  saveStore(store)
+  return true
+}
+
+function getAiVisibilityList() {
+  const store = loadStore()
+  return store.ai_visibility || []
+}
+
+function updateAiVisibilityItem(id, data) {
+  const store = loadStore()
+  const idx = store.ai_visibility.findIndex((item) => String(item.id) === String(id))
+  if (idx === -1) return null
+  store.ai_visibility[idx] = {
+    ...store.ai_visibility[idx],
+    ...data,
+    id: store.ai_visibility[idx].id,
+    last_tested: data.last_tested || new Date().toISOString().split('T')[0],
+  }
+  saveStore(store)
+  return store.ai_visibility[idx]
+}
+
+function getCitationLogs() {
+  const store = loadStore()
+  return store.citation_logs || []
+}
+
+function addCitationLog(data) {
+  const store = loadStore()
+  const id = Date.now().toString()
+  const newLog = {
+    id,
+    query: data.query || '',
+    date_checked: data.date_checked || new Date().toISOString().split('T')[0],
+    platform: data.platform || 'ChatGPT Search',
+    onprint_mentioned: Boolean(data.onprint_mentioned),
+    onprint_url: data.onprint_url || null,
+    citation_source: data.citation_source || null,
+    competitors_mentioned: data.competitors_mentioned || [],
+    notes: data.notes || '',
+    created_at: new Date().toISOString(),
+  }
+  store.citation_logs.unshift(newLog)
+  saveStore(store)
+  return newLog
+}
+
 module.exports = {
   getOrders,
   addOrder,
@@ -502,4 +709,17 @@ module.exports = {
   updateBlog,
   deleteBlog,
   deleteBlogs,
+  getGeoFaqs,
+  getGeoFaqsByUrl,
+  addGeoFaq,
+  updateGeoFaq,
+  deleteGeoFaq,
+  getGeoContent,
+  addGeoContent,
+  updateGeoContent,
+  deleteGeoContent,
+  getAiVisibilityList,
+  updateAiVisibilityItem,
+  getCitationLogs,
+  addCitationLog,
 }

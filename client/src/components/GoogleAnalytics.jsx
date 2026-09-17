@@ -55,9 +55,23 @@ export default function GoogleAnalytics() {
     return () => clearTimeout(timer)
   }, [location.pathname, location.search, measurementId])
 
-  // 3. Global click interceptor for Phone, Email & WhatsApp links
+  // 3. Global click interceptor for Phone, Email & WhatsApp links (Internal CRM + GA4)
   useEffect(() => {
-    if (!measurementId) return
+    function sendConversionBeacon(data) {
+      try {
+        const payload = JSON.stringify(data)
+        if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
+          navigator.sendBeacon('/api/seo/conversions/track', new Blob([payload], { type: 'application/json' }))
+        } else {
+          fetch('/api/seo/conversions/track', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: payload,
+            keepalive: true,
+          }).catch(() => {})
+        }
+      } catch {}
+    }
 
     function handleGlobalClick(event) {
       const anchor = event.target.closest('a')
@@ -66,19 +80,37 @@ export default function GoogleAnalytics() {
       const href = anchor.href.toLowerCase()
 
       if (href.startsWith('tel:')) {
-        trackPhoneClick({
-          source_page: location.pathname,
-          phone_number: anchor.href.replace(/^tel:/i, '').trim(),
+        const phone = anchor.href.replace(/^tel:/i, '').trim()
+        if (measurementId) {
+          trackPhoneClick({ source_page: location.pathname, phone_number: phone })
+        }
+        sendConversionBeacon({
+          conversion_type: 'phone',
+          landing_page: location.pathname,
+          referrer: document.referrer,
+          source_label: `Phone Call (${phone})`,
         })
       } else if (href.startsWith('mailto:')) {
-        trackEmailClick({
-          source_page: location.pathname,
-          email_address: anchor.href.replace(/^mailto:/i, '').trim(),
+        const email = anchor.href.replace(/^mailto:/i, '').trim()
+        if (measurementId) {
+          trackEmailClick({ source_page: location.pathname, email_address: email })
+        }
+        sendConversionBeacon({
+          conversion_type: 'email',
+          landing_page: location.pathname,
+          referrer: document.referrer,
+          source_label: `Email Link (${email})`,
         })
       } else if (href.includes('wa.me') || href.includes('whatsapp.com') || anchor.getAttribute('aria-label')?.toLowerCase().includes('whatsapp')) {
-        trackWhatsAppClick({
-          source_page: location.pathname,
-          label: anchor.getAttribute('aria-label') || 'whatsapp_link',
+        const label = anchor.getAttribute('aria-label') || 'whatsapp_concierge'
+        if (measurementId) {
+          trackWhatsAppClick({ source_page: location.pathname, label })
+        }
+        sendConversionBeacon({
+          conversion_type: 'whatsapp',
+          landing_page: location.pathname,
+          referrer: document.referrer,
+          source_label: `WhatsApp Concierge (${label})`,
         })
       }
     }

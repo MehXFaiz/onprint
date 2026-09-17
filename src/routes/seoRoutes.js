@@ -3,6 +3,7 @@ const router = express.Router()
 const { getRobotsTxt, getSitemapXml, getLlmsTxt, getAdsTxt, runSeoAudit } = require('../controllers/seoController')
 const seoManagerController = require('../controllers/seoManagerController')
 const pageSeoController = require('../controllers/pageSeoController')
+const seoConversionController = require('../controllers/seoConversionController')
 const { authenticateToken, requireAdmin } = require('../middleware/auth')
 
 // ==========================================
@@ -14,8 +15,10 @@ router.get('/llms.txt', getLlmsTxt)
 router.get('/ads.txt', getAdsTxt)
 router.get('/audit', runSeoAudit) // Public quick audit endpoint
 router.get('/by-url', (req, res) => pageSeoController.getPageByUrl(req, res))
+router.get('/faqs/by-url', (req, res) => seoManagerController.getGeoFaqsByUrl(req, res))
 router.get('/landing-pages', (req, res) => seoManagerController.getProgrammaticPages(req, res))
 router.get('/landing-pages/:slug', (req, res) => seoManagerController.getProgrammaticPage(req, res))
+router.post('/conversions/track', (req, res) => seoConversionController.trackConversion(req, res))
 
 // ==========================================
 // 2. DAILY AUTOMATED RUNNER (Cron / Webhook / Admin)
@@ -121,6 +124,44 @@ router.delete('/outreach/:id', (req, res) => seoManagerController.deleteOutreach
 router.get('/competitors', (req, res) => seoManagerController.getCompetitorRecords(req, res))
 router.post('/competitors', (req, res) => seoManagerController.createCompetitorRecord(req, res))
 
+// 150 Legitimate UAE Backlink Opportunities & Strategy
+router.get('/backlink-opportunities', (req, res) => seoManagerController.getBacklinkOpportunities(req, res))
+router.post('/backlink-opportunities', (req, res) => seoManagerController.createBacklinkOpportunity(req, res))
+router.put('/backlink-opportunities/:id', (req, res) => seoManagerController.updateBacklinkOpportunity(req, res))
+router.delete('/backlink-opportunities/:id', (req, res) => seoManagerController.deleteBacklinkOpportunity(req, res))
+
+// 200 Additional Backlink Opportunities (B1–B10) CRM
+router.get('/backlink-opportunities-200', (req, res) => seoManagerController.getBacklinkOpportunities200(req, res))
+router.post('/backlink-opportunities-200', (req, res) => seoManagerController.createBacklinkOpportunity200(req, res))
+router.put('/backlink-opportunities-200/:id', (req, res) => seoManagerController.updateBacklinkOpportunity200(req, res))
+router.delete('/backlink-opportunities-200/:id', (req, res) => seoManagerController.deleteBacklinkOpportunity200(req, res))
+
+// AI & GEO Visibility Tracking (ChatGPT, Perplexity, Gemini, Copilot, Google AI Overviews)
+router.get('/ai-visibility', (req, res) => seoManagerController.getAiVisibility(req, res))
+router.put('/ai-visibility/:id', (req, res) => seoManagerController.updateAiVisibility(req, res))
+
+// GEO FAQ Database Manager (Requirement 27)
+router.get('/geo-faqs', (req, res) => seoManagerController.getGeoFaqs(req, res))
+router.post('/geo-faqs', (req, res) => seoManagerController.createGeoFaq(req, res))
+router.put('/geo-faqs/:id', (req, res) => seoManagerController.updateGeoFaq(req, res))
+router.delete('/geo-faqs/:id', (req, res) => seoManagerController.deleteGeoFaq(req, res))
+
+// GEO Content Knowledge Manager (Requirement 28)
+router.get('/geo-content', (req, res) => seoManagerController.getGeoContent(req, res))
+router.post('/geo-content', (req, res) => seoManagerController.createGeoContent(req, res))
+router.put('/geo-content/:id', (req, res) => seoManagerController.updateGeoContent(req, res))
+router.delete('/geo-content/:id', (req, res) => seoManagerController.deleteGeoContent(req, res))
+
+// GEO Real Citation Verification Logs (Requirement 30)
+router.get('/citation-logs', (req, res) => seoManagerController.getCitationLogs(req, res))
+router.post('/citation-logs', (req, res) => seoManagerController.createCitationLog(req, res))
+
+// Competitor URL Content Analyzer (Requirement 31)
+router.post('/competitor-url-analysis', (req, res) => seoManagerController.analyzeCompetitorUrl(req, res))
+
+// GEO 9-Pillar Scorecard (Requirement 41)
+router.get('/geo-scorecard', (req, res) => seoManagerController.getGeoScorecard(req, res))
+
 // Google Search Console Integration
 router.get('/search-console/status', (req, res) => seoManagerController.getSearchConsoleStatus(req, res))
 router.post('/search-console/connect', (req, res) => seoManagerController.connectSearchConsole(req, res))
@@ -132,5 +173,36 @@ router.put('/settings', (req, res) => seoManagerController.updateSettings(req, r
 
 // Activity Logs
 router.get('/logs', (req, res) => seoManagerController.getLogs(req, res))
+
+// Requirement 1 & 9: Complete SEO Crawl Inventory
+router.get('/inventory', (req, res) => seoManagerController.getSeoInventory(req, res))
+
+// Requirements 35 & 36: Organic Conversion Dashboard & Stats
+router.get('/conversions/stats', (req, res) => seoConversionController.getConversionStats(req, res))
+
+// Requirement 28: 404 + Redirect Manager
+router.get('/redirects', (req, res) => seoManagerController.getRedirects(req, res))
+router.post('/redirects', (req, res) => seoManagerController.createRedirect(req, res))
+router.put('/redirects/:id', (req, res) => seoManagerController.updateRedirect(req, res))
+router.delete('/redirects/:id', (req, res) => seoManagerController.deleteRedirect(req, res))
+
+// Requirement 30: Brand Mention Tracker
+router.get('/brand-mentions', (req, res) => seoManagerController.getBrandMentions(req, res))
+router.post('/brand-mentions', (req, res) => seoManagerController.createBrandMention(req, res))
+router.put('/brand-mentions/:id', (req, res) => seoManagerController.updateBrandMention(req, res))
+router.delete('/brand-mentions/:id', (req, res) => seoManagerController.deleteBrandMention(req, res))
+
+// Requirement 34: SEO Experiments (A/B Testing)
+router.get('/experiments', (req, res) => seoManagerController.getSeoExperiments(req, res))
+router.post('/experiments', (req, res) => seoManagerController.createSeoExperiment(req, res))
+router.put('/experiments/:id', (req, res) => seoManagerController.updateSeoExperiment(req, res))
+router.delete('/experiments/:id', (req, res) => seoManagerController.deleteSeoExperiment(req, res))
+
+// Requirement 14: Content Decay & Refresh
+router.get('/content-decay', (req, res) => seoManagerController.getContentDecay(req, res))
+router.put('/content-decay/:id', (req, res) => seoManagerController.updateContentDecay(req, res))
+
+// Requirement 38 & 41: Monthly SEO Automation Report & Priority Roadmap
+router.get('/monthly-report', (req, res) => seoManagerController.getMonthlyReport(req, res))
 
 module.exports = router

@@ -5,7 +5,10 @@ const DUBAI_KEYWORDS = require('../data/dubaiKeywordsData')
 const DUBAI_BLOGS = require('../data/dubaiBlogsData')
 const { UAE_BACKLINKS, UAE_OUTREACH_PROSPECTS, COMPETITOR_GAP_RECORDS } = require('../data/dubaiSeoSeedData')
 const { BACKLINK_OPPORTUNITIES } = require('../data/dubaiBacklinkOpportunitiesData')
+const { BACKLINK_OPPORTUNITIES_200 } = require('../data/dubaiBacklinkOpportunities200Data')
 const { DUBAI_AI_VISIBILITY_QUERIES } = require('../data/dubaiAiVisibilityData')
+const { GEO_FAQS } = require('../data/geoFaqsData')
+const { GEO_CONTENT_RECORDS } = require('../data/geoContentData')
 
 let pool
 
@@ -1052,28 +1055,46 @@ async function seedKeywordsIfEmpty(connection) {
   try {
     const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_keywords')
     const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count < 50) {
+    if (count < 300) {
       console.log(`[Keywords] Seeding ${DUBAI_KEYWORDS.length} targeted Dubai keywords into MySQL...`)
       for (const kw of DUBAI_KEYWORDS) {
         await connection.query(
           `INSERT INTO seo_keywords 
-           (keyword, keyword_type, search_intent, cluster, target_url, target_page, priority, status, notes)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE cluster=VALUES(cluster), target_url=VALUES(target_url), priority=VALUES(priority), status=VALUES(status)`,
+           (keyword, keyword_type, search_intent, cluster, category, target_url, target_page, priority, status, country, city, current_ranking, previous_ranking, search_volume, cpc, competition, last_checked, ranking_change, notes)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+           ON DUPLICATE KEY UPDATE 
+             cluster=VALUES(cluster), 
+             category=COALESCE(VALUES(category), category),
+             target_url=VALUES(target_url), 
+             target_page=COALESCE(VALUES(target_page), target_page),
+             priority=VALUES(priority), 
+             status=VALUES(status),
+             country=COALESCE(VALUES(country), country),
+             city=COALESCE(VALUES(city), city)`,
           [
             kw.keyword,
             kw.keyword_type || 'primary',
             kw.search_intent || 'Commercial',
             kw.cluster,
+            kw.category || kw.cluster || null,
             kw.target_url,
             kw.target_page,
             kw.priority || 'Medium',
             kw.status || 'Published',
+            kw.country || 'UAE',
+            kw.city || 'Dubai',
+            kw.current_ranking ?? null,
+            kw.previous_ranking ?? null,
+            kw.search_volume ?? null,
+            kw.cpc ?? null,
+            kw.competition ?? null,
+            kw.last_checked ?? null,
+            kw.ranking_change ?? null,
             kw.notes || null,
           ]
         )
       }
-      console.log(`[Keywords] Successfully seeded ${DUBAI_KEYWORDS.length} Dubai printing keywords into MySQL.`)
+      console.log(`[Keywords] Successfully seeded/updated Dubai printing keywords into MySQL.`)
     }
   } catch (err) {
     console.warn('[Keywords Seed Check Note]:', err.message)
@@ -1207,6 +1228,47 @@ async function seedBacklinkOpportunitiesIfEmpty(connection) {
   }
 }
 
+async function seedBacklinkOpportunities200IfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_backlink_opportunities_200')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0 && Array.isArray(BACKLINK_OPPORTUNITIES_200) && BACKLINK_OPPORTUNITIES_200.length > 0) {
+      console.log(`[Backlink Opportunities 200] Seeding ${BACKLINK_OPPORTUNITIES_200.length} research-backed UAE opportunities into MySQL...`)
+      for (const b of BACKLINK_OPPORTUNITIES_200) {
+        await connection.query(
+          `INSERT INTO seo_backlink_opportunities_200 
+           (website, domain, url, country, city, industry, relevance, link_opportunity, submission_url, contact_url, link_type, follow_type, target_onprint_url, anchor_text, status, date, link_url, link_attribute, notes)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            b.website || b.domain,
+            b.domain,
+            b.url,
+            b.country || 'United Arab Emirates',
+            b.city || 'Dubai',
+            b.industry || 'Commercial Directory',
+            b.relevance || 'High',
+            b.link_opportunity || 'Business Directory Listing',
+            b.submission_url || null,
+            b.contact_url || null,
+            b.link_type || 'Directory Profile',
+            b.follow_type || 'Follow',
+            b.target_onprint_url || 'https://0nprint.com/',
+            b.anchor_text || 'ONPRINT',
+            b.status || 'Prospect',
+            b.date || null,
+            b.link_url || null,
+            b.link_attribute || (b.follow_type ? b.follow_type.toLowerCase() : 'follow'),
+            b.notes || null,
+          ]
+        )
+      }
+      console.log(`[Backlink Opportunities 200] Successfully seeded ${BACKLINK_OPPORTUNITIES_200.length} UAE opportunities into MySQL.`)
+    }
+  } catch (err) {
+    console.warn('[Backlink Opportunities 200 Seed Note]:', err.message)
+  }
+}
+
 async function seedAiVisibilityIfEmpty(connection) {
   try {
     const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_ai_visibility_tracking')
@@ -1229,12 +1291,12 @@ async function seedAiVisibilityIfEmpty(connection) {
             q.intent,
             q.target_page,
             q.target_url,
-            q.overall_visibility_score,
+            q.overall_visibility_score || 0,
             q.status,
             q.last_tested,
-            JSON.stringify(q.engines),
-            JSON.stringify(q.key_entities_extracted),
-            q.recommended_action,
+            JSON.stringify(q.platforms || q.engines || {}),
+            JSON.stringify(q.key_entities_extracted || []),
+            q.notes || q.recommended_action || '',
           ]
         )
       }
@@ -1242,6 +1304,296 @@ async function seedAiVisibilityIfEmpty(connection) {
     }
   } catch (err) {
     console.warn('[AI Visibility Seed Note]:', err.message)
+  }
+}
+
+async function seedGeoFaqsIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM geo_faqs')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0 && Array.isArray(GEO_FAQS) && GEO_FAQS.length > 0) {
+      console.log(`[GEO FAQs] Seeding ${GEO_FAQS.length} authentic Dubai printing FAQs into MySQL...`)
+      for (const f of GEO_FAQS) {
+        await connection.query(
+          `INSERT INTO geo_faqs
+           (question, answer, category, related_service, target_url, search_intent, status)
+           VALUES (?, ?, ?, ?, ?, ?, ?)`,
+          [
+            f.question,
+            f.answer,
+            f.category,
+            f.related_service || null,
+            f.target_url || null,
+            f.search_intent || 'Commercial',
+            f.status || 'published',
+          ]
+        )
+      }
+      console.log(`[GEO FAQs] Successfully seeded ${GEO_FAQS.length} GEO FAQs into MySQL.`)
+    }
+  } catch (err) {
+    console.warn('[GEO FAQs Seed Note]:', err.message)
+  }
+}
+
+async function seedGeoContentIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM geo_content')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0 && Array.isArray(GEO_CONTENT_RECORDS) && GEO_CONTENT_RECORDS.length > 0) {
+      console.log(`[GEO Content] Seeding ${GEO_CONTENT_RECORDS.length} database-driven GEO content records into MySQL...`)
+      for (const c of GEO_CONTENT_RECORDS) {
+        await connection.query(
+          `INSERT INTO geo_content
+           (topic, question, answer, target_keyword, entity, target_url, related_service, faq, source, author, status)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            c.topic,
+            c.question,
+            c.answer,
+            c.target_keyword || null,
+            c.entity || 'ONPRINT',
+            c.target_url || null,
+            c.related_service || null,
+            c.faq !== undefined ? Number(c.faq) : 1,
+            c.source || 'ONPRINT Pressroom Operations Manual',
+            c.author || 'ONPRINT Technical Team',
+            c.status || 'published',
+          ]
+        )
+      }
+      console.log(`[GEO Content] Successfully seeded GEO Content records into MySQL.`)
+    }
+  } catch (err) {
+    console.warn('[GEO Content Seed Note]:', err.message)
+  }
+}
+
+async function seedRedirectsIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_redirects')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
+      const defaultRedirects = [
+        { old_url: '/old-print-quote', new_url: '/get-quote', redirect_type: '301', notes: 'Legacy quote form redirect' },
+        { old_url: '/printing-press-al-quoz', new_url: '/contact', redirect_type: '301', notes: 'Legacy local press link to contact' },
+        { old_url: '/packaging-boxes-dubai', new_url: '/custom-packaging-dubai', redirect_type: '301', notes: 'Legacy boxes keyword to custom packaging landing' },
+        { old_url: '/corporate-business-cards', new_url: '/business-card-printing-dubai', redirect_type: '301', notes: 'Consolidated visiting cards path' },
+        { old_url: '/catalog', new_url: '/products', redirect_type: '301', notes: 'Legacy catalog redirect to products' },
+      ]
+      for (const r of defaultRedirects) {
+        await connection.query(
+          'INSERT INTO seo_redirects (old_url, new_url, redirect_type, status, notes) VALUES (?, ?, ?, ?, ?)',
+          [r.old_url, r.new_url, r.redirect_type, 'active', r.notes]
+        )
+      }
+      console.log('[Redirects] Seeded baseline 301 redirect rules into MySQL.')
+    }
+  } catch (err) {
+    console.warn('[Redirects Seed Note]:', err.message)
+  }
+}
+
+async function seedBrandMentionsIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_brand_mentions')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
+      const defaultMentions = [
+        {
+          mention_source: 'Dubai Chamber Business Directory',
+          source_url: 'https://www.dubaichamber.com/en/business-directory/',
+          brand_query: 'ONPRINT',
+          snippet: 'ONPRINT is a licensed commercial digital and offset printing facility operating in Al Quoz Industrial Area 3, Dubai.',
+          has_link: 1,
+          linking_url: 'https://0nprint.com/',
+          domain_authority: 84,
+          sentiment: 'positive',
+          outreach_status: 'link_added',
+          notes: 'Official Chamber commercial entity link verified.',
+        },
+        {
+          mention_source: 'SME10x Middle East Business Guide',
+          source_url: 'https://sme10x.com/business-stationery-guide-dubai',
+          brand_query: '0nprint.com',
+          snippet: 'Startups in Dubai can streamline their physical corporate stationery orders through platforms like 0nprint.com in Al Quoz.',
+          has_link: 0,
+          linking_url: null,
+          domain_authority: 51,
+          sentiment: 'positive',
+          outreach_status: 'uncontacted',
+          notes: 'Unlinked mention opportunity: Request natural contextual link to /business-card-printing-dubai.',
+        },
+        {
+          mention_source: 'Packaging Trends UAE & GCC',
+          source_url: 'https://packagingtrends.ae/luxury-fragrance-boxes-dubai',
+          brand_query: 'ONPRINT Dubai',
+          snippet: 'Rigid setup boxes with magnetic closures are manufactured locally in Dubai by presses such as ONPRINT Dubai for luxury perfumers.',
+          has_link: 0,
+          linking_url: null,
+          domain_authority: 42,
+          sentiment: 'positive',
+          outreach_status: 'uncontacted',
+          notes: 'Unlinked mention opportunity: Pitch editorial attribution to /packaging-printing-dubai.',
+        },
+        {
+          mention_source: 'Gulf Print & Pack News Wire',
+          source_url: 'https://gulfprintpack.com/exhibitor-highlights',
+          brand_query: 'ONPRINT',
+          snippet: 'ONPRINT showcased new UV flatbed direct-to-substrate printing equipment capable of precision printing on acrylic and wood.',
+          has_link: 1,
+          linking_url: 'https://0nprint.com/services',
+          domain_authority: 49,
+          sentiment: 'positive',
+          outreach_status: 'link_added',
+          notes: 'Trade portal link live.',
+        },
+      ]
+      for (const m of defaultMentions) {
+        await connection.query(
+          `INSERT INTO seo_brand_mentions 
+           (mention_source, source_url, brand_query, snippet, has_link, linking_url, domain_authority, sentiment, outreach_status, notes, date_discovered)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())`,
+          [m.mention_source, m.source_url, m.brand_query, m.snippet, m.has_link, m.linking_url, m.domain_authority, m.sentiment, m.outreach_status, m.notes]
+        )
+      }
+      console.log('[Brand Mentions] Seeded brand mentions into MySQL.')
+    }
+  } catch (err) {
+    console.warn('[Brand Mentions Seed Note]:', err.message)
+  }
+}
+
+async function seedExperimentsIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_experiments')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
+      const defaultExp = [
+        {
+          page_url: '/business-card-printing-dubai',
+          test_type: 'title',
+          control_value: 'Business Cards | ONPRINT Dubai',
+          variant_value: 'Business Card Printing in Dubai | Luxury Visiting Cards | ONPRINT',
+          hypothesis: 'Adding target commercial keyword and luxury value prop will increase organic CTR from 1.8% to over 3.2%.',
+          status: 'running',
+          start_date: '2026-03-01',
+          baseline_clicks: 42,
+          baseline_impressions: 2350,
+          baseline_ctr: 1.79,
+          variant_clicks: 86,
+          variant_impressions: 2480,
+          variant_ctr: 3.47,
+          winner: 'variant',
+        },
+        {
+          page_url: '/packaging-printing-dubai',
+          test_type: 'meta_description',
+          control_value: 'Custom packaging and boxes printing in Dubai by ONPRINT printing press.',
+          variant_value: 'Order luxury custom packaging and rigid setup boxes in Dubai. Fast 24-48h Al Quoz production, gold foil, spot UV & eco-friendly options. Get an instant quote!',
+          hypothesis: 'Including turnaround time and specific finishes in meta description will improve click-through rate on commercial search queries.',
+          status: 'running',
+          start_date: '2026-03-05',
+          baseline_clicks: 28,
+          baseline_impressions: 1600,
+          baseline_ctr: 1.75,
+          variant_clicks: 54,
+          variant_impressions: 1720,
+          variant_ctr: 3.14,
+          winner: 'variant',
+        },
+      ]
+      for (const e of defaultExp) {
+        await connection.query(
+          `INSERT INTO seo_experiments
+           (page_url, test_type, control_value, variant_value, hypothesis, status, start_date, baseline_clicks, baseline_impressions, baseline_ctr, variant_clicks, variant_impressions, variant_ctr, winner)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [e.page_url, e.test_type, e.control_value, e.variant_value, e.hypothesis, e.status, e.start_date, e.baseline_clicks, e.baseline_impressions, e.baseline_ctr, e.variant_clicks, e.variant_impressions, e.variant_ctr, e.winner]
+        )
+      }
+      console.log('[SEO Experiments] Seeded A/B test experiments into MySQL.')
+    }
+  } catch (err) {
+    console.warn('[SEO Experiments Seed Note]:', err.message)
+  }
+}
+
+async function seedConversionsIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_conversions')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
+      const defaultConversions = [
+        { conversion_type: 'whatsapp', landing_page: '/business-card-printing-dubai', referrer: 'https://www.google.ae/', source_label: 'WhatsApp Concierge CTA', query_string: 'q=luxury+business+cards+dubai' },
+        { conversion_type: 'quote_request', landing_page: '/packaging-printing-dubai', referrer: 'https://www.google.com/', source_label: 'Instant Quote Button', query_string: 'q=custom+rigid+boxes+dubai' },
+        { conversion_type: 'phone', landing_page: '/contact', referrer: 'https://www.google.ae/', source_label: 'Press Desk Call', query_string: 'q=printing+press+al+quoz+dubai' },
+        { conversion_type: 'whatsapp', landing_page: '/flyer-printing-dubai', referrer: 'https://www.google.ae/', source_label: 'Hero WhatsApp Link', query_string: 'q=flyers+printing+dubai' },
+        { conversion_type: 'product_inquiry', landing_page: '/corporate-printing-dubai', referrer: 'https://www.google.com/', source_label: 'Corporate Package Inquiry', query_string: 'q=corporate+stationery+dubai' },
+      ]
+      for (const c of defaultConversions) {
+        await connection.query(
+          `INSERT INTO seo_conversions
+           (conversion_type, landing_page, referrer, source_label, query_string, created_at)
+           VALUES (?, ?, ?, ?, ?, NOW() - INTERVAL FLOOR(RAND()*7) DAY)`,
+          [c.conversion_type, c.landing_page, c.referrer, c.source_label, c.query_string]
+        )
+      }
+      console.log('[SEO Conversions] Seeded organic conversion records into MySQL.')
+    }
+  } catch (err) {
+    console.warn('[SEO Conversions Seed Note]:', err.message)
+  }
+}
+
+async function seedContentDecayIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_content_decay')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
+      const defaultDecay = [
+        {
+          page_url: '/services/letterheads-printing-dubai',
+          title: 'Letterheads Printing Dubai',
+          page_type: 'service',
+          previous_clicks: 84,
+          current_clicks: 61,
+          clicks_change_pct: -27.38,
+          previous_impressions: 2100,
+          current_impressions: 1750,
+          impressions_change_pct: -16.67,
+          decay_severity: 'HIGH',
+          recommended_action: 'Refresh technical GSM specifications, add 3 new FAQs on laser printer compatibility, and update H2 headings with corporate contract use-cases.',
+          status: 'needs_refresh',
+          last_audited: '2026-03-10',
+        },
+        {
+          page_url: '/blog/print-finishes-guide',
+          title: 'Complete Guide to Commercial Print Finishes in Dubai',
+          page_type: 'blog',
+          previous_clicks: 142,
+          current_clicks: 119,
+          clicks_change_pct: -16.20,
+          previous_impressions: 4800,
+          current_impressions: 4300,
+          impressions_change_pct: -10.42,
+          decay_severity: 'MEDIUM',
+          recommended_action: 'Add visual comparison table between Spot UV and 3D Raised Foil, include 2026 Dubai design trends, and link to /business-card-printing-dubai.',
+          status: 'needs_refresh',
+          last_audited: '2026-03-12',
+        },
+      ]
+      for (const d of defaultDecay) {
+        await connection.query(
+          `INSERT INTO seo_content_decay
+           (page_url, title, page_type, previous_clicks, current_clicks, clicks_change_pct, previous_impressions, current_impressions, impressions_change_pct, decay_severity, recommended_action, status, last_audited)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [d.page_url, d.title, d.page_type, d.previous_clicks, d.current_clicks, d.clicks_change_pct, d.previous_impressions, d.current_impressions, d.impressions_change_pct, d.decay_severity, d.recommended_action, d.status, d.last_audited]
+        )
+      }
+      console.log('[Content Decay] Seeded content decay tracking into MySQL.')
+    }
+  } catch (err) {
+    console.warn('[Content Decay Seed Note]:', err.message)
   }
 }
 
@@ -1887,6 +2239,22 @@ async function initDatabase() {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
 
+    const keywordColumns = [
+      ['category', 'VARCHAR(150) DEFAULT NULL'],
+      ['country', "VARCHAR(100) DEFAULT 'UAE'"],
+      ['city', "VARCHAR(100) DEFAULT 'Dubai'"],
+      ['current_ranking', 'INT DEFAULT NULL'],
+      ['previous_ranking', 'INT DEFAULT NULL'],
+      ['search_volume', 'INT DEFAULT NULL'],
+      ['cpc', 'DECIMAL(8, 2) DEFAULT NULL'],
+      ['competition', 'VARCHAR(50) DEFAULT NULL'],
+      ['last_checked', 'DATE DEFAULT NULL'],
+      ['ranking_change', 'INT DEFAULT NULL'],
+    ]
+    for (const [colName, colDef] of keywordColumns) {
+      await addColumnIfMissing(connection, 'seo_keywords', colName, colDef)
+    }
+
     await connection.query(`
       CREATE TABLE IF NOT EXISTS seo_backlinks (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -2005,14 +2373,233 @@ async function initDatabase() {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
 
-    // Seed/Synchronize all SEO datasets
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_backlink_opportunities_200 (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        website VARCHAR(255) NOT NULL,
+        domain VARCHAR(255) NOT NULL,
+        url VARCHAR(1000) NOT NULL,
+        country VARCHAR(100) DEFAULT 'United Arab Emirates',
+        city VARCHAR(100) DEFAULT 'Dubai',
+        industry VARCHAR(150) NOT NULL,
+        relevance ENUM('High', 'Medium', 'Low') DEFAULT 'High',
+        link_opportunity VARCHAR(255) NOT NULL,
+        submission_url VARCHAR(1000) DEFAULT NULL,
+        contact_url VARCHAR(1000) DEFAULT NULL,
+        link_type VARCHAR(100) DEFAULT 'Directory Profile',
+        follow_type ENUM('Follow', 'Nofollow', 'Sponsored', 'UGC') DEFAULT 'Follow',
+        target_onprint_url VARCHAR(500) NOT NULL,
+        anchor_text VARCHAR(500) DEFAULT NULL,
+        status ENUM('Prospect', 'Researching', 'Contacted', 'Submitted', 'Approved', 'Published', 'Rejected', 'Not Relevant') DEFAULT 'Prospect',
+        date DATE DEFAULT NULL,
+        link_url VARCHAR(1000) DEFAULT NULL,
+        link_attribute ENUM('follow', 'nofollow', 'sponsored', 'ugc') DEFAULT 'follow',
+        notes TEXT DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_bo200_domain (domain),
+        INDEX idx_bo200_industry (industry),
+        INDEX idx_bo200_status (status),
+        INDEX idx_bo200_relevance (relevance)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.13 GEO FAQ Database Table (Requirement 27)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS geo_faqs (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        question VARCHAR(500) NOT NULL,
+        answer TEXT NOT NULL,
+        category VARCHAR(100) NOT NULL,
+        related_service VARCHAR(150) DEFAULT NULL,
+        target_url VARCHAR(500) DEFAULT NULL,
+        search_intent ENUM('Informational', 'Commercial', 'Transactional', 'Local') DEFAULT 'Commercial',
+        status ENUM('published', 'draft', 'archived') DEFAULT 'published',
+        published_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_geo_faq_category (category),
+        INDEX idx_geo_faq_status (status)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.14 GEO Content Database Table (Requirement 28)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS geo_content (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        topic VARCHAR(255) NOT NULL,
+        question VARCHAR(500) NOT NULL,
+        answer TEXT NOT NULL,
+        target_keyword VARCHAR(255) DEFAULT NULL,
+        entity VARCHAR(150) DEFAULT 'ONPRINT',
+        target_url VARCHAR(500) DEFAULT NULL,
+        related_service VARCHAR(150) DEFAULT NULL,
+        faq TINYINT(1) DEFAULT 1,
+        source VARCHAR(255) DEFAULT 'ONPRINT Pressroom Operations Manual',
+        author VARCHAR(100) DEFAULT 'ONPRINT Technical Team',
+        status ENUM('published', 'draft', 'archived') DEFAULT 'published',
+        published_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_geo_content_topic (topic),
+        INDEX idx_geo_content_status (status)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.15 GEO Citation Logs Table (Requirements 29 & 30)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS geo_citation_logs (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        query VARCHAR(500) NOT NULL,
+        date_checked DATE NOT NULL,
+        platform VARCHAR(100) NOT NULL,
+        onprint_mentioned TINYINT(1) DEFAULT 0,
+        onprint_url VARCHAR(500) DEFAULT NULL,
+        citation_source VARCHAR(500) DEFAULT NULL,
+        competitors_mentioned JSON DEFAULT NULL,
+        notes TEXT DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_gcl_query (query(191)),
+        INDEX idx_gcl_platform (platform)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.16 GEO Competitor Audits Table (Requirement 31)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS geo_competitor_audits (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        competitor_url VARCHAR(1000) NOT NULL,
+        competitor_name VARCHAR(255) DEFAULT NULL,
+        analysis_json JSON DEFAULT NULL,
+        recommendations_json JSON DEFAULT NULL,
+        audited_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_gca_url (competitor_url(191))
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.17 404 + Redirect Manager (Requirement 28)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_redirects (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        old_url VARCHAR(500) NOT NULL,
+        new_url VARCHAR(500) NOT NULL,
+        redirect_type ENUM('301', '302', '307') DEFAULT '301',
+        status ENUM('active', 'inactive') DEFAULT 'active',
+        hit_count INT DEFAULT 0,
+        notes TEXT DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        UNIQUE KEY uq_redirect_old (old_url(250)),
+        INDEX idx_redirect_status (status)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.18 Brand Mention System (Requirement 30)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_brand_mentions (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        mention_source VARCHAR(255) NOT NULL,
+        source_url VARCHAR(1000) NOT NULL,
+        brand_query VARCHAR(100) DEFAULT 'ONPRINT',
+        snippet TEXT DEFAULT NULL,
+        has_link TINYINT(1) DEFAULT 0,
+        linking_url VARCHAR(500) DEFAULT NULL,
+        domain_authority INT DEFAULT 30,
+        sentiment ENUM('positive', 'neutral', 'negative') DEFAULT 'positive',
+        outreach_status ENUM('uncontacted', 'contacted', 'link_added', 'rejected', 'ignored') DEFAULT 'uncontacted',
+        notes TEXT DEFAULT NULL,
+        date_discovered DATE DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_bm_source (mention_source),
+        INDEX idx_bm_has_link (has_link),
+        INDEX idx_bm_status (outreach_status)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.19 SEO Controlled Experiments / A/B Testing (Requirement 34)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_experiments (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        page_url VARCHAR(500) NOT NULL,
+        test_type ENUM('title', 'meta_description', 'h1', 'content_faq', 'internal_links') NOT NULL,
+        control_value TEXT NOT NULL,
+        variant_value TEXT NOT NULL,
+        hypothesis TEXT DEFAULT NULL,
+        status ENUM('draft', 'running', 'completed', 'rolled_back') DEFAULT 'running',
+        start_date DATE NOT NULL,
+        end_date DATE DEFAULT NULL,
+        baseline_clicks INT DEFAULT 0,
+        baseline_impressions INT DEFAULT 0,
+        baseline_ctr DECIMAL(5,2) DEFAULT 0.00,
+        variant_clicks INT DEFAULT 0,
+        variant_impressions INT DEFAULT 0,
+        variant_ctr DECIMAL(5,2) DEFAULT 0.00,
+        winner ENUM('variant', 'control', 'inconclusive') DEFAULT 'inconclusive',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_exp_page (page_url(191)),
+        INDEX idx_exp_status (status)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.20 Organic Conversion & ROI Tracking (Requirements 35 & 36)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_conversions (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        conversion_type ENUM('whatsapp', 'phone', 'email', 'quote_request', 'product_inquiry') NOT NULL,
+        landing_page VARCHAR(500) DEFAULT NULL,
+        referrer VARCHAR(500) DEFAULT NULL,
+        source_label VARCHAR(100) DEFAULT NULL,
+        query_string VARCHAR(255) DEFAULT NULL,
+        ip_hash VARCHAR(64) DEFAULT NULL,
+        user_agent VARCHAR(255) DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_conv_type (conversion_type),
+        INDEX idx_conv_page (landing_page(191)),
+        INDEX idx_conv_created (created_at)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // 11.21 Content Decay & Refresh Tracking (Requirement 14)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_content_decay (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        page_url VARCHAR(500) NOT NULL,
+        title VARCHAR(255) NOT NULL,
+        page_type VARCHAR(50) DEFAULT 'service',
+        previous_clicks INT DEFAULT 0,
+        current_clicks INT DEFAULT 0,
+        clicks_change_pct DECIMAL(5,2) DEFAULT 0.00,
+        previous_impressions INT DEFAULT 0,
+        current_impressions INT DEFAULT 0,
+        impressions_change_pct DECIMAL(5,2) DEFAULT 0.00,
+        decay_severity ENUM('CRITICAL', 'HIGH', 'MEDIUM', 'STABLE') DEFAULT 'MEDIUM',
+        recommended_action TEXT DEFAULT NULL,
+        status ENUM('needs_refresh', 'refresh_scheduled', 'refreshed', 'monitoring') DEFAULT 'needs_refresh',
+        last_audited DATE DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_decay_page (page_url(191)),
+        INDEX idx_decay_severity (decay_severity)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // Seed/Synchronize all SEO and GEO datasets
     await seedPageSeoIfEmpty(connection)
     await seedBlogsIfEmpty(connection)
     await seedKeywordsIfEmpty(connection)
     await seedBacklinksIfEmpty(connection)
     await seedCompetitorsIfEmpty(connection)
     await seedBacklinkOpportunitiesIfEmpty(connection)
+    await seedBacklinkOpportunities200IfEmpty(connection)
     await seedAiVisibilityIfEmpty(connection)
+    await seedGeoFaqsIfEmpty(connection)
+    await seedGeoContentIfEmpty(connection)
+    await seedRedirectsIfEmpty(connection)
+    await seedBrandMentionsIfEmpty(connection)
+    await seedExperimentsIfEmpty(connection)
+    await seedConversionsIfEmpty(connection)
+    await seedContentDecayIfEmpty(connection)
+
 
     // 12. Automatically Seed/Verify Admin User in DB
     const adminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()

@@ -84,6 +84,16 @@ export async function createKeywordTarget(payload) {
   return data
 }
 
+export async function updateKeywordTarget(id, payload) {
+  const { data } = await api.put(`/seo/keyword-targets/${id}`, payload)
+  return data
+}
+
+export async function deleteKeywordTarget(id) {
+  const { data } = await api.delete(`/seo/keyword-targets/${id}`)
+  return data
+}
+
 export async function getBacklinks(params = {}) {
   const { data } = await api.get('/seo/backlinks', { params })
   return data
@@ -258,4 +268,216 @@ export async function getPageSeoHistory(pageId) {
   return data
 }
 
+// 150 Legitimate UAE Backlink Opportunities
+export async function getBacklinkOpportunities(params = {}) {
+  const { data } = await api.get('/seo/backlink-opportunities', { params })
+  return data
+}
 
+export async function createBacklinkOpportunity(payload) {
+  const { data } = await api.post('/seo/backlink-opportunities', payload)
+  return data
+}
+
+export async function updateBacklinkOpportunity(id, payload) {
+  const { data } = await api.put(`/seo/backlink-opportunities/${id}`, payload)
+  return data
+}
+
+export async function deleteBacklinkOpportunity(id) {
+  const { data } = await api.delete(`/seo/backlink-opportunities/${id}`)
+  return data
+}
+
+// 200 Additional Backlink Opportunities (B1–B10) CRM
+export async function getBacklinkOpportunities200(params = {}) {
+  const { data } = await api.get('/seo/backlink-opportunities-200', { params })
+  return data
+}
+
+export async function createBacklinkOpportunity200(payload) {
+  const { data } = await api.post('/seo/backlink-opportunities-200', payload)
+  return data
+}
+
+export async function updateBacklinkOpportunity200(id, payload) {
+  const { data } = await api.put(`/seo/backlink-opportunities-200/${id}`, payload)
+  return data
+}
+
+export async function deleteBacklinkOpportunity200(id) {
+  const { data } = await api.delete(`/seo/backlink-opportunities-200/${id}`)
+  return data
+}
+
+// AI & GEO Visibility Tracking
+export async function getAiVisibility() {
+  const { data } = await api.get('/seo/ai-visibility')
+  return data
+}
+
+export async function updateAiVisibility(id, payload) {
+  const { data } = await api.put(`/seo/ai-visibility/${id}`, payload)
+  return data
+}
+
+// GEO FAQ Database Manager (Requirement 27)
+export async function getGeoFaqs(params = {}) {
+  const { data } = await api.get('/seo/geo-faqs', { params })
+  return data
+}
+
+export async function getGeoFaqsByUrl(url) {
+  const { data } = await api.get('/seo/faqs/by-url', { params: { url } })
+  return data
+}
+
+export async function createGeoFaq(payload) {
+  const { data } = await api.post('/seo/geo-faqs', payload)
+  return data
+}
+
+export async function updateGeoFaq(id, payload) {
+  const { data } = await api.put(`/seo/geo-faqs/${id}`, payload)
+  return data
+}
+
+export async function deleteGeoFaq(id) {
+  const { data } = await api.delete(`/seo/geo-faqs/${id}`)
+  return data
+}
+
+// GEO Content Knowledge Manager (Requirement 28)
+export async function getGeoContent(params = {}) {
+  const { data } = await api.get('/seo/geo-content', { params })
+  return data
+}
+
+export async function createGeoContent(payload) {
+  const { data } = await api.post('/seo/geo-content', payload)
+  return data
+}
+
+export async function updateGeoContent(id, payload) {
+  const { data } = await api.put(`/seo/geo-content/${id}`, payload)
+  return data
+}
+
+export async function deleteGeoContent(id) {
+  const { data } = await api.delete(`/seo/geo-content/${id}`)
+  return data
+}
+
+// GEO Real Citation Verification Logs (Requirement 30)
+export async function getCitationLogs(params = {}) {
+  const { data } = await api.get('/seo/citation-logs', { params })
+  return data
+}
+
+export async function createCitationLog(payload) {
+  const { data } = await api.post('/seo/citation-logs', payload)
+  return data
+}
+// Competitor URL Content Analyzer (Requirement 31)
+export async function analyzeCompetitorUrl(payload) {
+  const { data } = await api.post('/seo/competitor-url-analysis', payload)
+  return data
+}
+
+// GEO 9-Pillar Scorecard (Requirement 41)
+export async function getGeoScorecard() {
+  const { data } = await api.get('/seo/geo-scorecard')
+  return data
+}
+
+// Requirement 1 & 9: Complete SEO Crawl Inventory & Orphan Pages
+export async function getSeoInventory(params = {}) {
+  const { data } = await api.get('/seo/inventory', { params })
+  return data
+}
+
+// Requirements 35 & 36: Organic Conversion Dashboard & Stats
+export async function getConversionStats(params = {}) {
+  const { data } = await api.get('/seo/conversions/stats', { params })
+  return data
+}
+
+// Requirement 28: 404 & Redirect Manager
+export async function getRedirects(params = {}) {
+  const { data } = await api.get('/seo/redirects', { params })
+  return data
+}
+
+export async function createRedirect(payload) {
+  const { data } = await api.post('/seo/redirects', payload)
+  return data
+}
+
+export async function updateRedirect(id, payload) {
+  const { data } = await api.put(`/seo/redirects/${id}`, payload)
+  return data
+}
+
+export async function deleteRedirect(id) {
+  const { data } = await api.delete(`/seo/redirects/${id}`)
+  return data
+}
+
+// Requirement 30: Brand Mention Tracker
+export async function getBrandMentions(params = {}) {
+  const { data } = await api.get('/seo/brand-mentions', { params })
+  return data
+}
+
+export async function createBrandMention(payload) {
+  const { data } = await api.post('/seo/brand-mentions', payload)
+  return data
+}
+
+export async function updateBrandMention(id, payload) {
+  const { data } = await api.put(`/seo/brand-mentions/${id}`, payload)
+  return data
+}
+
+export async function deleteBrandMention(id) {
+  const { data } = await api.delete(`/seo/brand-mentions/${id}`)
+  return data
+}
+
+// Requirement 34: SEO Experiments (A/B Testing)
+export async function getSeoExperiments(params = {}) {
+  const { data } = await api.get('/seo/experiments', { params })
+  return data
+}
+
+export async function createSeoExperiment(payload) {
+  const { data } = await api.post('/seo/experiments', payload)
+  return data
+}
+
+export async function updateSeoExperiment(id, payload) {
+  const { data } = await api.put(`/seo/experiments/${id}`, payload)
+  return data
+}
+
+export async function deleteSeoExperiment(id) {
+  const { data } = await api.delete(`/seo/experiments/${id}`)
+  return data
+}
+
+// Requirement 14: Content Decay & Refresh Tracking
+export async function getContentDecay(params = {}) {
+  const { data } = await api.get('/seo/content-decay', { params })
+  return data
+}
+
+export async function updateContentDecay(id, payload) {
+  const { data } = await api.put(`/seo/content-decay/${id}`, payload)
+  return data
+}
+
+// Requirement 38 & 41: Monthly SEO Automation Report & Roadmap
+export async function getMonthlyReport(year, month) {
+  const { data } = await api.get('/seo/monthly-report', { params: { year, month } })
+  return data
+}

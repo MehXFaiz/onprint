@@ -343,6 +343,99 @@ CREATE TABLE IF NOT EXISTS seo_ai_visibility_tracking (
   INDEX idx_ai_vis_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE IF NOT EXISTS seo_redirects (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  old_url VARCHAR(500) NOT NULL,
+  new_url VARCHAR(500) NOT NULL,
+  redirect_type ENUM('301', '302', '307') DEFAULT '301',
+  status ENUM('active', 'inactive') DEFAULT 'active',
+  hit_count INT DEFAULT 0,
+  notes TEXT DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY uq_redirect_old (old_url(250)),
+  INDEX idx_redirect_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS seo_brand_mentions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  mention_source VARCHAR(255) NOT NULL,
+  source_url VARCHAR(1000) NOT NULL,
+  brand_query VARCHAR(100) DEFAULT 'ONPRINT',
+  snippet TEXT DEFAULT NULL,
+  has_link TINYINT(1) DEFAULT 0,
+  linking_url VARCHAR(500) DEFAULT NULL,
+  domain_authority INT DEFAULT 30,
+  sentiment ENUM('positive', 'neutral', 'negative') DEFAULT 'positive',
+  outreach_status ENUM('uncontacted', 'contacted', 'link_added', 'rejected', 'ignored') DEFAULT 'uncontacted',
+  notes TEXT DEFAULT NULL,
+  date_discovered DATE DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_bm_source (mention_source),
+  INDEX idx_bm_has_link (has_link),
+  INDEX idx_bm_status (outreach_status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS seo_experiments (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  page_url VARCHAR(500) NOT NULL,
+  test_type ENUM('title', 'meta_description', 'h1', 'content_faq', 'internal_links') NOT NULL,
+  control_value TEXT NOT NULL,
+  variant_value TEXT NOT NULL,
+  hypothesis TEXT DEFAULT NULL,
+  status ENUM('draft', 'running', 'completed', 'rolled_back') DEFAULT 'running',
+  start_date DATE NOT NULL,
+  end_date DATE DEFAULT NULL,
+  baseline_clicks INT DEFAULT 0,
+  baseline_impressions INT DEFAULT 0,
+  baseline_ctr DECIMAL(5,2) DEFAULT 0.00,
+  variant_clicks INT DEFAULT 0,
+  variant_impressions INT DEFAULT 0,
+  variant_ctr DECIMAL(5,2) DEFAULT 0.00,
+  winner ENUM('variant', 'control', 'inconclusive') DEFAULT 'inconclusive',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_exp_page (page_url(191)),
+  INDEX idx_exp_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS seo_conversions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  conversion_type ENUM('whatsapp', 'phone', 'email', 'quote_request', 'product_inquiry') NOT NULL,
+  landing_page VARCHAR(500) DEFAULT NULL,
+  referrer VARCHAR(500) DEFAULT NULL,
+  source_label VARCHAR(100) DEFAULT NULL,
+  query_string VARCHAR(255) DEFAULT NULL,
+  ip_hash VARCHAR(64) DEFAULT NULL,
+  user_agent VARCHAR(255) DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_conv_type (conversion_type),
+  INDEX idx_conv_page (landing_page(191)),
+  INDEX idx_conv_created (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS seo_content_decay (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  page_url VARCHAR(500) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  page_type VARCHAR(50) DEFAULT 'service',
+  previous_clicks INT DEFAULT 0,
+  current_clicks INT DEFAULT 0,
+  clicks_change_pct DECIMAL(5,2) DEFAULT 0.00,
+  previous_impressions INT DEFAULT 0,
+  current_impressions INT DEFAULT 0,
+  impressions_change_pct DECIMAL(5,2) DEFAULT 0.00,
+  decay_severity ENUM('CRITICAL', 'HIGH', 'MEDIUM', 'STABLE') DEFAULT 'MEDIUM',
+  recommended_action TEXT DEFAULT NULL,
+  status ENUM('needs_refresh', 'refresh_scheduled', 'refreshed', 'monitoring') DEFAULT 'needs_refresh',
+  last_audited DATE DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_decay_page (page_url(191)),
+  INDEX idx_decay_severity (decay_severity)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- =====================================================
 -- INITIAL SEED DATA
 -- =====================================================

@@ -28,7 +28,7 @@ const trustBadges = [
   { label: 'German Offset & Digital Press', sub: 'Calibrated CMYK & Pantone accuracy', icon: ShieldCheck },
   { label: 'Express Dubai Turnaround', sub: 'Same-day & 24h rapid dispatch', icon: Zap },
   { label: 'Luxury Finishing Techniques', sub: 'Spot UV, hot foil & debossing', icon: Award },
-  { label: 'Al Quoz Production Facility', sub: 'Trusted by 500+ UAE enterprises', icon: Users },
+  { label: 'Al Quoz Production Facility', sub: 'Direct UAE commercial pressroom', icon: Users },
 ]
 
 const whyUs = [
@@ -58,10 +58,10 @@ const processSteps = [
 ]
 
 const stats = [
-  { value: 10, suffix: '+', label: 'Years Experience' },
-  { value: 500, suffix: '+', label: 'UAE Corporate Clients' },
-  { value: 1500, suffix: '+', label: 'Print Runs Delivered' },
-  { value: 99, suffix: '%', label: 'On-Time Dispatch Rate' },
+  { value: 600, suffix: ' GSM', label: 'Max Stock Weight Capacity' },
+  { value: 24, suffix: '–48h', label: 'Standard Digital Turnaround' },
+  { value: 7, suffix: ' Emirates', label: 'Direct UAE Delivery Coverage' },
+  { value: 100, suffix: '%', label: 'Pre-Press Pre-Flight Inspection' },
 ]
 
 const homeFaqs = [
@@ -217,7 +217,7 @@ export default function HomePage() {
             {/* Supporting Paragraph */}
             <Reveal delay={0.18}>
               <p className="text-base sm:text-lg leading-relaxed text-slate-600 font-normal max-w-xl">
-                ONPRINT is Dubai’s premier commercial printing press and branding studio based in Al Quoz Industrial Area 3. We deliver precision digital and offset printing, bespoke luxury packaging, same-day business stationery, and corporate gifts across Dubai and the UAE.
+                ONPRINT is a commercial printing press and custom packaging studio located in Al Quoz Industrial Area 3, Dubai. We deliver precision digital and offset printing, bespoke luxury packaging, fast-turnaround business stationery, and corporate merchandise across Dubai and the UAE.
               </p>
             </Reveal>
 
@@ -550,6 +550,45 @@ export default function HomePage() {
           </div>
         </Container>
       </div>
+
+      {/* What is ONPRINT? — Generative Engine Answer Card */}
+      <section className="border-b border-border/80 bg-slate-50 py-8">
+        <Container>
+          <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-xs">
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
+              <div className="space-y-3 max-w-3xl">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-md bg-[#A82F19]/10 px-2.5 py-1 text-xs font-bold text-[#A82F19]">
+                    <Info className="h-3.5 w-3.5" />
+                    Verified Business Profile
+                  </span>
+                  <span className="text-xs font-semibold text-slate-500">Al Quoz 3, Dubai, UAE</span>
+                </div>
+                <h2 className="font-display text-xl sm:text-2xl font-black text-black">
+                  What is ONPRINT?
+                </h2>
+                <p className="text-sm sm:text-base leading-relaxed text-slate-700">
+                  <strong>ONPRINT</strong> (also known as <strong>0nprint</strong>) is a commercial printing, packaging, and corporate branding press located in Al Quoz Industrial Area 3, Dubai, United Arab Emirates. We specialize in digital printing, offset lithography, bespoke rigid boxes, product labels, and corporate stationery for UAE businesses.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs text-slate-600">
+                  <div><span className="font-bold text-slate-900 block">Facility:</span> Al Quoz Ind. Area 3</div>
+                  <div><span className="font-bold text-slate-900 block">Phone:</span> +971 55 183 7995</div>
+                  <div><span className="font-bold text-slate-900 block">Hours:</span> Mon–Sat 8:30–18:30</div>
+                  <div><span className="font-bold text-slate-900 block">Delivery:</span> All 7 Emirates</div>
+                </div>
+              </div>
+              <div className="shrink-0 flex flex-col gap-2">
+                <Button to="/about" variant="outline" size="sm" className="border-black text-black hover:border-[#A82F19] hover:text-[#A82F19]">
+                  Company Background
+                </Button>
+                <Button to="/contact" variant="ghost" size="sm" className="text-xs text-[#A82F19] font-bold">
+                  Visit Pressroom →
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* 2. Trust Badges Banner */}
       <section className="border-b border-[#000000]/10 bg-[#FFFFFF] py-6 sm:py-8">

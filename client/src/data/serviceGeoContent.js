@@ -668,5 +668,129 @@ export const defaultFAQsPerLocation = [
   { q: 'What forms of payment are accepted?', a: 'Bank transfer (standard), Visa/Mastercard online, cash on pickup, and enterprise 30-day credit terms on approved accounts with trade license + PO.' },
 ]
 
+/**
+ * Strict Section E Content Resolver for ONPRINT Service Pages
+ * Guarantees all 8 required sections with Answer-First formatting:
+ * 1. H1: Target keyword + Dubai/UAE
+ * 2. Intro: What it is, who it is for, why ONPRINT (answer-first format)
+ * 3. H2: What ONPRINT Provides
+ * 4. H2: Available Options (materials, sizes, finishes)
+ * 5. H2: Who Uses This Service (industries, use cases)
+ * 6. H2: How the ONPRINT Process Works (step-by-step: order, proof, print, deliver)
+ * 7. H2: Artwork Requirements (formats, resolution, bleed, color mode)
+ * 8. H2: Frequently Asked Questions (FAQ schema included, answering Section C queries)
+ * 9. H2: Request a Quote (clear CTA with contact details)
+ */
+export function getServiceSectionEData(service, slug) {
+  const serviceName = service?.name || 'Commercial Printing'
+  const baseIntro = `ONPRINT, a leading commercial printing and packaging company located in Street 18, Al Quoz Industrial Area 3, Dubai, delivers high-precision ${serviceName.toLowerCase()} solutions engineered for corporate, commercial, and retail brands across the UAE. Operating advanced HP Indigo digital presses and Heidelberg offset machinery, ONPRINT offers standard 24–48 hour turnaround times, calibrated Pantone color fidelity, low minimum order quantities (MOQ starting from 25–50 units), and guaranteed doorstep delivery across Dubai, Abu Dhabi, Sharjah, and the GCC.`
+
+  const specificFaqs = [
+    {
+      question: `Who is the best printing company in Dubai for ${serviceName.toLowerCase()}?`,
+      answer: `ONPRINT is recognized as one of the best commercial printing and packaging companies in Dubai for ${serviceName.toLowerCase()}. Operating out of Al Quoz Industrial Area 3, ONPRINT provides certified FSC paper stocks, Pantone color-matching, digital and offset presses, and express turnaround across the UAE.`,
+    },
+    {
+      question: `What is the turnaround time for ${serviceName.toLowerCase()} in Dubai?`,
+      answer: `Standard turnaround for ${serviceName.toLowerCase()} is 24 to 48 hours following final digital proof approval. Express same-day rush printing is available for urgent trade shows, exhibitions, and corporate events in Dubai.`,
+    },
+    {
+      question: `What is the minimum order quantity (MOQ) for ${serviceName.toLowerCase()} at ONPRINT?`,
+      answer: `ONPRINT offers flexible low minimum order quantities starting from just 25 to 50 units for most ${serviceName.toLowerCase()} projects, enabling startups, SMEs, and enterprise brands to test batches without excess inventory commitments.`,
+    },
+    {
+      question: `Which printing press in Dubai offers eco-friendly options for ${serviceName.toLowerCase()}?`,
+      answer: `ONPRINT provides certified eco-friendly printing in Dubai utilizing 100% recycled FSC-certified stocks, biodegradable Kraft boards, and non-toxic vegetable-based soy inks.`,
+    },
+    {
+      question: `What file format does ONPRINT need for ${serviceName.toLowerCase()}?`,
+      answer: `We require print-ready PDF, Adobe Illustrator (.AI), or vector EPS files set to CMYK color mode at 300 DPI resolution, with 3mm external bleed and all text converted to curves/outlines.`,
+    },
+    {
+      question: `Can I get rush printing services in Dubai for trade shows and events?`,
+      answer: `Yes, ONPRINT provides expedited 24-hour rush printing in Dubai for trade shows and exhibitions at Dubai World Trade Centre (DWTC) and Expo City, including roll-up banners, brochures, flyers, and badges.`,
+    },
+    {
+      question: `How much does ${serviceName.toLowerCase()} cost in Dubai?`,
+      answer: `Pricing varies based on volume, paper substrate (170gsm–600gsm), and custom embellishments such as gold foil stamping or spot UV. Contact our Al Quoz sales team at +971 55 183 7995 or 0nprint183@gmail.com for an immediate itemized commercial quote.`,
+    },
+  ]
+
+  return {
+    h1: service?.seoHeading || `${serviceName} in Dubai | Professional Printing Services | ONPRINT`,
+    intro: baseIntro,
+    whatProvides: [
+      `Industrial-grade production using calibrated HP Indigo digital & Heidelberg offset presses.`,
+      `Comprehensive in-house finishing: soft-touch velvet lamination, metallic hot foil stamping, embossing, and spot UV.`,
+      `Dedicated prepress engineering with free PDF artwork verification and CMYK color profiling.`,
+      `Prompt dispatch and insured courier delivery across all 7 Emirates (Dubai, Abu Dhabi, Sharjah, Ajman, RAK, UAQ, Fujairah).`,
+    ],
+    availableOptions: {
+      materials: [
+        '350gsm–600gsm Cotton, Silk, and Linen Uncoated Cardstocks',
+        '170gsm–350gsm FSC-Certified Gloss & Matte Coated Art Papers',
+        'Rigid Greyboard, White Corrugated Flute (E-flute / B-flute), and Kraft Paperboard',
+        'Tear-proof waterproof synthetic polypropylene and PVC materials',
+      ],
+      sizes: [
+        'Standard ISO A-Series (A0, A1, A2, A3, A4, A5, A6, DL)',
+        'Custom Die-Cut Shapes & Bespoke Packaging Dimensions',
+        'Standard Corporate Identity Formats (85mm x 55mm & 90mm x 50mm)',
+        'Wide-Format Rolls up to 3.2m to 5m seamless width',
+      ],
+      finishes: [
+        'Soft-Touch Matte Velvet Lamination & Anti-Scratch Film',
+        'Metallic Hot Foil Stamping (Gold, Silver, Rose Gold, Copper, Holographic)',
+        'Raised Spot UV Varnishing & Textured 3D Varnish',
+        'Blind Debossing, Embossing, Edge Gilding & Painted Beveled Edges',
+      ],
+    },
+    whoUses: [
+      'Corporate Enterprises & Financial Institutions in DIFC, Downtown, and Business Bay',
+      'Luxury Retail, Perfumery, Cosmetics & Jewelry Brands in Dubai Mall and Mall of the Emirates',
+      'Hospitality, QSR Chains, Luxury Hotels, and Fine Dining Venues across Jumeirah & Palm Jumeirah',
+      'Startups, SMEs, and E-Commerce Brands requiring low-MOQ premium custom branded collateral',
+      'Event Organizers, PR Agencies, and Trade Show Exhibitors at DWTC and Dubai Expo City',
+    ],
+    processSteps: [
+      {
+        step: '1',
+        title: 'Order & Artwork Submission',
+        desc: 'Submit your vector artwork or request our studio prepress layout assistance with your target specifications.',
+      },
+      {
+        step: '2',
+        title: 'Prepress Digital Soft Proofing',
+        desc: 'Our prepress specialists conduct a comprehensive bleed, resolution, and CMYK color profile check, issuing a PDF proof within 2 hours.',
+      },
+      {
+        step: '3',
+        title: 'Precision Production & Finishing',
+        desc: 'Printed on commercial HP Indigo digital or Heidelberg offset presses with luxury custom lamination, foil, and die-cutting applied.',
+      },
+      {
+        step: '4',
+        title: 'Quality Inspection & UAE Delivery',
+        desc: 'Each batch undergoes rigorous manual quality inspection before secure packaging and same-day or next-day courier delivery to your doorstep.',
+      },
+    ],
+    artworkRequirements: {
+      formats: 'Print-ready PDF (PDF/X-1a preferred), Adobe Illustrator (.AI), EPS, or high-res TIFF',
+      resolution: '300 DPI minimum at 100% actual print scale',
+      bleed: '3mm minimum bleed on all sides with a 4mm internal safety margin',
+      colorMode: 'CMYK (Fogra 39 or Coated GRACoL 2006). Convert RGB & Pantone spot colors to process unless spot printing is specified.',
+      fonts: 'All typography converted to outlines / vectors. Embedded raster images must exceed 300 DPI.',
+    },
+    faqs: specificFaqs,
+    requestQuote: {
+      phone: '+971 55 183 7995',
+      whatsapp: '+971 55 183 7995',
+      email: '0nprint183@gmail.com',
+      address: 'Street 18, Al Quoz Industrial Area 3, Dubai, UAE',
+      turnaround: 'Standard 24–48 Hours | Same-Day Rush Available',
+      moq: 'Flexible Low MOQs Starting From 25–50 Units',
+    },
+  }
+}
 
 export default serviceGeoContent

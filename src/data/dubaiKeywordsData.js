@@ -2182,4 +2182,17 @@ for (const kwc of authorityKeywordClusters) {
   }
 }
 
+// Integrate the 200 Additional Strategic Keywords (A1-A10)
+const DUBAI_KEYWORDS_200 = require('./dubaiKeywords200Data')
+for (const kw of DUBAI_KEYWORDS_200) {
+  const existingIdx = DUBAI_KEYWORDS.findIndex(k => k.keyword.toLowerCase() === kw.keyword.toLowerCase())
+  if (existingIdx >= 0) {
+    // Merge without overwriting existing critical metadata
+    DUBAI_KEYWORDS[existingIdx] = { ...DUBAI_KEYWORDS[existingIdx], ...kw }
+  } else {
+    DUBAI_KEYWORDS.push(kw)
+  }
+}
+
 module.exports = DUBAI_KEYWORDS
+

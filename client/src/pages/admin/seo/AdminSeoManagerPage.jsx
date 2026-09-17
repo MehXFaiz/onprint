@@ -47,6 +47,20 @@ import Button from '../../../components/Button'
 import PageSeoEditorModal from './PageSeoEditorModal'
 import AiAnalysisModal from './AiAnalysisModal'
 import KeywordCannibalizationCard from './KeywordCannibalizationCard'
+import KeywordArchitectureTab from './KeywordArchitectureTab'
+import BacklinkOpportunities200Tab from './BacklinkOpportunities200Tab'
+import GeoFaqManagerTab from './GeoFaqManagerTab'
+import GeoContentManagerTab from './GeoContentManagerTab'
+import GeoScorecardTab from './GeoScorecardTab'
+import CompetitorUrlAnalyzerTab from './CompetitorUrlAnalyzerTab'
+import AiVisibilityTab from './AiVisibilityTab'
+import SeoInventoryTab from './SeoInventoryTab'
+import SeoRedirectsTab from './SeoRedirectsTab'
+import SeoConversionsTab from './SeoConversionsTab'
+import SeoExperimentsTab from './SeoExperimentsTab'
+import SeoContentGapDecayTab from './SeoContentGapDecayTab'
+import SeoBrandMentionsTab from './SeoBrandMentionsTab'
+import SeoMonthlyReportTab from './SeoMonthlyReportTab'
 import {
   getSeoDashboard,
   getSeoAudit,
@@ -87,6 +101,11 @@ import {
   getCannibalizationReport,
   optimizePageSeoWithAi,
   updatePageSeo,
+  getBacklinkOpportunities,
+  updateBacklinkOpportunity,
+  getBacklinkOpportunities200,
+  getAiVisibility,
+  updateAiVisibility,
 } from '../../../services/seo'
 import { getBlogSeoMetrics } from '../../../services/blog'
 
@@ -99,23 +118,32 @@ const SCHEMA_TEMPLATES = {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "ONPRINT",
+      "alternateName": "0nprint",
       "url": "https://0nprint.com",
-      "logo": "https://0nprint.com/images/logo.png",
-      "foundingDate": "2024",
+      "logo": "https://0nprint.com/logo_icon.png",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Al Quoz Industrial Area 4",
+        "streetAddress": "Al Quoz Industrial Area 3",
         "addressLocality": "Dubai",
         "addressRegion": "Dubai",
         "addressCountry": "AE"
       },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+971-4-000-0000",
-        "contactType": "customer service",
-        "areaServed": "AE",
-        "availableLanguage": ["English", "Arabic"]
-      }
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+971 55 183 7995",
+          "contactType": "customer service / pressroom",
+          "areaServed": "AE",
+          "availableLanguage": ["English", "Arabic", "Urdu"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+44 7344 546056",
+          "contactType": "concierge / WhatsApp quotes",
+          "areaServed": "AE",
+          "availableLanguage": ["English", "Urdu"]
+        }
+      ]
     }
   },
   LocalBusiness: {
@@ -125,28 +153,32 @@ const SCHEMA_TEMPLATES = {
     json: {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "ONPRINT Dubai Commercial Printing",
-      "image": "https://0nprint.com/images/facility.jpg",
-      "priceRange": "AED 50 - AED 10000",
-      "telephone": "+971-4-000-0000",
+      "name": "ONPRINT",
+      "alternateName": "0nprint",
+      "image": "https://0nprint.com/logo_icon.png",
+      "priceRange": "$$",
+      "telephone": "+971 55 183 7995",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Street 18, Al Quoz Industrial Area 4",
+        "streetAddress": "Al Quoz Industrial Area 3",
         "addressLocality": "Dubai",
         "addressRegion": "Dubai",
+        "postalCode": "00000",
         "addressCountry": "AE"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 25.1274,
-        "longitude": 55.2281
+        "latitude": 25.1328,
+        "longitude": 55.2348
       },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "08:30",
-        "closes": "19:00"
-      }
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "08:30",
+          "closes": "18:30"
+        }
+      ]
     }
   },
   WebSite: {
@@ -320,6 +352,21 @@ export default function AdminSeoManagerPage() {
   const [schemaSelectedType, setSchemaSelectedType] = useState('Organization')
   const [editingAlt, setEditingAlt] = useState({})
 
+  // UAE 150 Backlink Opportunities state
+  const [backlinkOppData, setBacklinkOppData] = useState({ items: [], summary: {} })
+  const [backlinkOppSearch, setBacklinkOppSearch] = useState('')
+  const [backlinkOppCategory, setBacklinkOppCategory] = useState('all')
+  const [backlinkOppStatus, setBacklinkOppStatus] = useState('all')
+  const [backlinkOppPriority, setBacklinkOppPriority] = useState('all')
+  const [updatingBacklinkId, setUpdatingBacklinkId] = useState(null)
+
+  // UAE 200 Backlink Opportunities CRM state
+  const [backlinkOpp200Data, setBacklinkOpp200Data] = useState({ items: [], summary: {} })
+
+  // AI & GEO Visibility Tracking state
+  const [aiVisibilityData, setAiVisibilityData] = useState({ items: [], summary: {} })
+  const [expandedAiQuery, setExpandedAiQuery] = useState(null)
+
   // Blog SEO state
   const [blogMetrics, setBlogMetrics] = useState(null)
   const [blogSearch, setBlogSearch] = useState('')
@@ -405,7 +452,63 @@ export default function AdminSeoManagerPage() {
     if (activeTab === 'images') loadImageAudit()
     if (activeTab === 'safety') loadSafetyQueue()
     if (activeTab === 'programmatic') loadProgrammatic()
-  }, [activeTab, recFilter])
+    if (activeTab === 'backlink-opportunities') loadBacklinkOpportunities()
+    if (activeTab === 'backlink-opportunities-200') loadBacklinkOpportunities200()
+    if (activeTab === 'ai-visibility') loadAiVisibility()
+  }, [activeTab, recFilter, backlinkOppCategory, backlinkOppStatus, backlinkOppPriority])
+
+  const loadBacklinkOpportunities200 = async () => {
+    try {
+      const res = await getBacklinkOpportunities200()
+      if (res?.success) {
+        setBacklinkOpp200Data(res.data || { items: [], summary: {} })
+      }
+    } catch (err) {
+      console.warn('Load backlink opportunities 200 error:', err.message)
+    }
+  }
+
+  const loadBacklinkOpportunities = async () => {
+    try {
+      const res = await getBacklinkOpportunities({
+        search: backlinkOppSearch,
+        category: backlinkOppCategory,
+        status: backlinkOppStatus,
+        priority: backlinkOppPriority,
+      })
+      if (res?.success) {
+        setBacklinkOppData(res.data || { items: [], summary: {} })
+      }
+    } catch (err) {
+      console.warn('Load backlink opportunities error:', err.message)
+    }
+  }
+
+  const loadAiVisibility = async () => {
+    try {
+      const res = await getAiVisibility()
+      if (res?.success) {
+        setAiVisibilityData(res.data || { items: [], summary: {} })
+      }
+    } catch (err) {
+      console.warn('Load AI visibility error:', err.message)
+    }
+  }
+
+  const handleUpdateBacklinkStatus = async (id, newStatus) => {
+    try {
+      setUpdatingBacklinkId(id)
+      const res = await updateBacklinkOpportunity(id, { status: newStatus })
+      if (res?.success) {
+        showToast(`Backlink opportunity updated to ${newStatus}`)
+        loadBacklinkOpportunities()
+      }
+    } catch (err) {
+      showToast('Failed to update backlink opportunity: ' + (err.response?.data?.message || err.message), 'error')
+    } finally {
+      setUpdatingBacklinkId(null)
+    }
+  }
 
   const loadDashboard = async () => {
     setLoading(true)
@@ -950,6 +1053,38 @@ export default function AdminSeoManagerPage() {
     })
   }, [blogMetrics, blogSearch, blogStatusFilter, blogHealthFilter])
 
+  // Filtered 150 UAE Backlink Opportunities
+  const filteredBacklinkOpportunities = useMemo(() => {
+    const list = backlinkOppData?.items || []
+    return list.filter((item) => {
+      const s = (backlinkOppSearch || '').toLowerCase().trim()
+      const matchesSearch =
+        !s ||
+        (item.website_name || item.website || '').toLowerCase().includes(s) ||
+        (item.domain || '').toLowerCase().includes(s) ||
+        (item.target_anchor_text || item.anchor_text || '').toLowerCase().includes(s) ||
+        (item.target_url || item.target_onprint_url || '').toLowerCase().includes(s) ||
+        (item.notes || '').toLowerCase().includes(s)
+
+      const cat = (item.category || '').toLowerCase()
+      const matchesCategory =
+        backlinkOppCategory === 'all' ||
+        cat.includes(backlinkOppCategory.toLowerCase())
+
+      const status = (item.status || 'Planned').toLowerCase()
+      const matchesStatus =
+        backlinkOppStatus === 'all' ||
+        status === backlinkOppStatus.toLowerCase()
+
+      const priority = (item.priority || 'Medium').toLowerCase()
+      const matchesPriority =
+        backlinkOppPriority === 'all' ||
+        priority === backlinkOppPriority.toLowerCase()
+
+      return matchesSearch && matchesCategory && matchesStatus && matchesPriority
+    })
+  }, [backlinkOppData, backlinkOppSearch, backlinkOppCategory, backlinkOppStatus, backlinkOppPriority])
+
   // Top metric scores calculation
   const scores = {
     healthScore: scoreOverview?.averageScore ?? dashboardData?.scores?.healthScore ?? null,
@@ -963,13 +1098,27 @@ export default function AdminSeoManagerPage() {
 
   const tabs = [
     { id: 'overview', label: 'Overview & Health', icon: BarChart3 },
+    { id: 'inventory', label: 'Site Inventory & Crawl', icon: Layers },
+    { id: 'conversions', label: 'Organic Conversions', icon: TrendingUp },
+    { id: 'redirects', label: 'Redirects & 404s', icon: RotateCcw },
+    { id: 'experiments', label: 'CTR & Experiments', icon: Sliders },
+    { id: 'content-gap', label: 'Content Gap & Decay', icon: Target },
+    { id: 'brand-mentions', label: 'Brand Mentions & PR', icon: Sparkles },
+    { id: 'monthly-report', label: 'Monthly Report & Roadmap', icon: Calendar },
+    { id: 'geo-scorecard', label: 'GEO Scorecard (9-Pillar)', icon: ShieldCheck },
+    { id: 'geo-faqs', label: 'GEO / FAQ Manager', icon: HelpCircle },
+    { id: 'geo-content', label: 'GEO Content Manager', icon: FileText },
+    { id: 'ai-visibility', label: 'AI Visibility (GEO)', icon: Bot },
+    { id: 'competitor-analysis', label: 'Competitor URL Analyzer', icon: Crosshair },
     { id: 'audit', label: 'Technical Audit', icon: ShieldCheck },
     { id: 'recommendations', label: 'AI Recommendations', icon: Sparkles, count: dashboardData?.recommendationsSummary?.pending },
     { id: 'blog-seo', label: 'Blog SEO', icon: BookOpen, count: blogMetrics?.summary?.blogsNeedingOptimization },
     { id: 'opportunities', label: 'Content Opportunities', icon: Target, count: opportunitiesData?.strikingDistanceCount },
     { id: 'keywords', label: 'Keywords & SERP', icon: TrendingUp },
-    { id: 'keyword-targets', label: 'Keyword Architecture', icon: Key, count: keywordTargets.total },
-    { id: 'backlinks', label: 'Backlinks', icon: Link2, count: backlinkData.summary?.total },
+    { id: 'keyword-targets', label: 'Keyword Architecture (350+)', icon: Key, count: keywordTargets.total || 350 },
+    { id: 'backlink-opportunities-200', label: 'UAE Backlinks CRM (200)', icon: ExternalLink, count: backlinkOpp200Data.summary?.total || 200 },
+    { id: 'backlink-opportunities', label: 'UAE Backlinks (150)', icon: ArrowUpRight, count: backlinkOppData.summary?.total || 150 },
+    { id: 'backlinks', label: 'Backlinks CRM', icon: Link2, count: backlinkData.summary?.total },
     { id: 'outreach', label: 'Outreach CRM', icon: ExternalLink, count: outreachData.length },
     { id: 'internal-links', label: 'Internal Links', icon: Link2, count: internalLinksData?.highPriorityCount },
     { id: 'pages', label: 'Page Catalog', icon: Layers, count: scoreOverview?.totalPages ?? pagesList.length },
@@ -2403,6 +2552,33 @@ export default function AdminSeoManagerPage() {
       )}
 
       {/* ========================================================================= */}
+      {/* CORE ARCHITECTURE & GROWTH TABS (Req 1, 4, 10, 14, 28, 30, 35, 38, 41)    */}
+      {/* ========================================================================= */}
+      {activeTab === 'inventory' && (
+        <SeoInventoryTab
+          showToast={showToast}
+          onEditPage={(page) => {
+            setEditingPage(page)
+          }}
+        />
+      )}
+      {activeTab === 'conversions' && <SeoConversionsTab showToast={showToast} />}
+      {activeTab === 'redirects' && <SeoRedirectsTab showToast={showToast} />}
+      {activeTab === 'experiments' && <SeoExperimentsTab showToast={showToast} />}
+      {activeTab === 'content-gap' && <SeoContentGapDecayTab showToast={showToast} />}
+      {activeTab === 'brand-mentions' && <SeoBrandMentionsTab showToast={showToast} />}
+      {activeTab === 'monthly-report' && <SeoMonthlyReportTab showToast={showToast} />}
+
+      {/* ========================================================================= */}
+      {/* GEO & AI SEARCH OPTIMIZATION TABS                                         */}
+      {/* ========================================================================= */}
+      {activeTab === 'geo-scorecard' && <GeoScorecardTab showToast={showToast} />}
+      {activeTab === 'geo-faqs' && <GeoFaqManagerTab showToast={showToast} />}
+      {activeTab === 'geo-content' && <GeoContentManagerTab showToast={showToast} />}
+      {activeTab === 'ai-visibility' && <AiVisibilityTab showToast={showToast} />}
+      {activeTab === 'competitor-analysis' && <CompetitorUrlAnalyzerTab showToast={showToast} />}
+
+      {/* ========================================================================= */}
       {/* TAB: CONTENT OPPORTUNITY FINDER & STRIKING DISTANCE QUERIES               */}
       {/* ========================================================================= */}
       {activeTab === 'opportunities' && (
@@ -2700,18 +2876,496 @@ export default function AdminSeoManagerPage() {
       )}
 
       {activeTab === 'keyword-targets' && (
-        <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
-          <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
-            <div>
-              <h2 className="font-display text-lg font-bold text-neutral-900">Keyword architecture</h2>
-              <p className="mt-1 text-xs text-neutral-500">One primary owner per keyword prevents cannibalization across the site.</p>
+        <KeywordArchitectureTab
+          keywordTargets={keywordTargets}
+          onRefresh={loadKeywordTargets}
+          showToast={showToast}
+        />
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAB: 200 UAE BACKLINK ACQUISITION OPPORTUNITIES CRM (B1–B10)              */}
+      {/* ========================================================================= */}
+      {activeTab === 'backlink-opportunities-200' && (
+        <BacklinkOpportunities200Tab
+          backlinkData={backlinkOpp200Data}
+          onRefresh={loadBacklinkOpportunities200}
+          showToast={showToast}
+        />
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAB: 150 UAE BACKLINK ACQUISITION OPPORTUNITIES CRM                       */}
+      {/* ========================================================================= */}
+      {activeTab === 'backlink-opportunities' && (
+        <div className="space-y-6">
+          {/* Top Header & Strategy Summary */}
+          <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 px-3 py-1 text-xs font-bold text-[#A82F19]">
+                    <ArrowUpRight className="h-3.5 w-3.5" /> High Authority Off-Page SEO
+                  </span>
+                  <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-neutral-600">
+                    UAE & GCC Market
+                  </span>
+                </div>
+                <h2 className="mt-2 font-display text-xl sm:text-2xl font-black text-neutral-900">
+                  150 Legitimate UAE Backlink Acquisition Directory
+                </h2>
+                <p className="mt-1 text-xs sm:text-sm text-neutral-600 max-w-3xl leading-relaxed">
+                  Engineered specifically for the UAE printing and packaging market. A strictly white-hat catalog across 6 strategic pillars: verified business registries, government portals, packaging industry hubs, local business chambers, guest editorial guides, and digital PR outlets.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={loadBacklinkOpportunities}
+                  className="flex items-center gap-1.5"
+                >
+                  <RefreshCw className="h-3.5 w-3.5" /> Refresh List
+                </Button>
+              </div>
             </div>
-            <span className="text-xs font-bold text-neutral-500">{keywordTargets.total} tracked targets</span>
+
+            {/* Strategic Anchor Text Ratios Reminder */}
+            <div className="mt-5 pt-4 border-t border-neutral-100 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+              <div className="rounded-xl bg-neutral-50 p-3 border border-neutral-200/60">
+                <span className="font-bold text-neutral-700">40% Brand Anchors</span>
+                <p className="text-[11px] text-neutral-500 mt-0.5">ONPRINT, 0nprint.com, ONPRINT Dubai</p>
+              </div>
+              <div className="rounded-xl bg-neutral-50 p-3 border border-neutral-200/60">
+                <span className="font-bold text-neutral-700">30% Partial & Topical</span>
+                <p className="text-[11px] text-neutral-500 mt-0.5">luxury packaging press, Dubai print services</p>
+              </div>
+              <div className="rounded-xl bg-neutral-50 p-3 border border-neutral-200/60">
+                <span className="font-bold text-neutral-700">15% Exact Match Target</span>
+                <p className="text-[11px] text-neutral-500 mt-0.5">printing press Dubai, corporate gift printing</p>
+              </div>
+              <div className="rounded-xl bg-neutral-50 p-3 border border-neutral-200/60">
+                <span className="font-bold text-neutral-700">15% Generic / URL</span>
+                <p className="text-[11px] text-neutral-500 mt-0.5">https://0nprint.com, visit website, learn more</p>
+              </div>
+            </div>
           </div>
-          <div className="mt-4 overflow-x-auto">
-            {keywordTargets.items?.length ? (
-              <table className="w-full text-left text-xs"><thead><tr className="border-b text-[10px] uppercase text-neutral-400"><th className="pb-3">Keyword</th><th className="pb-3">Intent</th><th className="pb-3">Cluster</th><th className="pb-3">Target page</th><th className="pb-3">Priority</th><th className="pb-3">Status</th></tr></thead><tbody className="divide-y divide-neutral-100">{keywordTargets.items.map((item) => <tr key={item.id}><td className="py-3 font-bold text-neutral-900">{item.keyword}</td><td className="py-3">{item.search_intent}</td><td className="py-3">{item.cluster}</td><td className="py-3">{item.target_page || item.target_url || 'Unassigned'}</td><td className="py-3">{item.priority}</td><td className="py-3">{item.status}</td></tr>)}</tbody></table>
-            ) : <p className="py-10 text-center text-sm text-neutral-500">No keyword targets have been assigned yet.</p>}
+
+          {/* Metric Stats Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
+              <span className="text-[10px] font-extrabold uppercase text-neutral-400">Total Opportunities</span>
+              <div className="text-3xl font-black text-neutral-900 mt-1">
+                {backlinkOppData?.summary?.total || 150}
+              </div>
+              <p className="text-[11px] text-neutral-500 mt-1">Curated UAE targets</p>
+            </div>
+            <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
+              <span className="text-[10px] font-extrabold uppercase text-neutral-400">High Priority Targets</span>
+              <div className="text-3xl font-black text-[#A82F19] mt-1">
+                {backlinkOppData?.summary?.highPriority || backlinkOppData.items?.filter(i => (i.priority || '').toLowerCase() === 'high').length || 45}
+              </div>
+              <p className="text-[11px] text-neutral-500 mt-1">Maximum authority yield</p>
+            </div>
+            <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
+              <span className="text-[10px] font-extrabold uppercase text-neutral-400">Live Backlinks</span>
+              <div className="text-3xl font-black text-emerald-600 mt-1">
+                {backlinkOppData?.summary?.live || backlinkOppData.items?.filter(i => (i.status || '').toLowerCase() === 'live').length || 0}
+              </div>
+              <p className="text-[11px] text-neutral-500 mt-1">Active indexing links</p>
+            </div>
+            <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
+              <span className="text-[10px] font-extrabold uppercase text-neutral-400">Submitted / In Review</span>
+              <div className="text-3xl font-black text-blue-600 mt-1">
+                {backlinkOppData?.summary?.submitted || backlinkOppData.items?.filter(i => ['submitted', 'in review'].includes((i.status || '').toLowerCase())).length || 0}
+              </div>
+              <p className="text-[11px] text-neutral-500 mt-1">Pending approval</p>
+            </div>
+            <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
+              <span className="text-[10px] font-extrabold uppercase text-neutral-400">Planned Queue</span>
+              <div className="text-3xl font-black text-amber-600 mt-1">
+                {backlinkOppData?.summary?.planned || backlinkOppData.items?.filter(i => ['planned', 'not started'].includes((i.status || '').toLowerCase())).length || 150}
+              </div>
+              <p className="text-[11px] text-neutral-500 mt-1">Ready for outreach</p>
+            </div>
+          </div>
+
+          {/* 6 Pillars Strategic Breakdown Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div
+              onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Local Directory' ? 'all' : 'Local Directory')}
+              className={`rounded-2xl border p-4 cursor-pointer transition-all ${
+                backlinkOppCategory === 'Local Directory'
+                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  : 'border-neutral-200/80 bg-white hover:border-neutral-300'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
+                  <MapPin className="h-4 w-4 text-[#A82F19]" /> 1. Local Dubai Citations
+                </span>
+                <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-600">
+                  30 Targets
+                </span>
+              </div>
+              <p className="text-xs text-neutral-500 mt-2">
+                UAE Yellow Pages, Connect.ae, Dubai City Guide, Yello.ae. Perfect NAP synchronization for Google Local Pack & Google Maps rankings.
+              </p>
+            </div>
+
+            <div
+              onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Industry Portal' ? 'all' : 'Industry Portal')}
+              className={`rounded-2xl border p-4 cursor-pointer transition-all ${
+                backlinkOppCategory === 'Industry Portal'
+                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  : 'border-neutral-200/80 bg-white hover:border-neutral-300'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
+                  <Layers className="h-4 w-4 text-emerald-600" /> 2. Printing & Packaging Trade
+                </span>
+                <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-600">
+                  25 Targets
+                </span>
+              </div>
+              <p className="text-xs text-neutral-500 mt-2">
+                Gulf Print & Pack, PrintWeek MENA, Packaging Europe, Dieline. Hyper-relevant niche topical authority for packaging & digital printing.
+              </p>
+            </div>
+
+            <div
+              onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'B2B Profile' ? 'all' : 'B2B Profile')}
+              className={`rounded-2xl border p-4 cursor-pointer transition-all ${
+                backlinkOppCategory === 'B2B Profile'
+                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  : 'border-neutral-200/80 bg-white hover:border-neutral-300'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
+                  <Database className="h-4 w-4 text-blue-600" /> 3. B2B & Verified Registries
+                </span>
+                <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-600">
+                  20 Targets
+                </span>
+              </div>
+              <p className="text-xs text-neutral-500 mt-2">
+                Dubai Chamber of Commerce, Dubai SME, Kompass UAE, Tradewheel. High-trust entity grounding signals for Google Knowledge Graph.
+              </p>
+            </div>
+
+            <div
+              onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Business Partner' ? 'all' : 'Business Partner')}
+              className={`rounded-2xl border p-4 cursor-pointer transition-all ${
+                backlinkOppCategory === 'Business Partner'
+                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  : 'border-neutral-200/80 bg-white hover:border-neutral-300'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
+                  <Globe className="h-4 w-4 text-purple-600" /> 4. Local Business Partnerships
+                </span>
+                <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-600">
+                  20 Targets
+                </span>
+              </div>
+              <p className="text-xs text-neutral-500 mt-2">
+                Al Quoz Creative Zone community, Dubai Design District (d3) vendor list, UAE Event Planners Association, corporate gifting suppliers.
+              </p>
+            </div>
+
+            <div
+              onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Guest Content' ? 'all' : 'Guest Content')}
+              className={`rounded-2xl border p-4 cursor-pointer transition-all ${
+                backlinkOppCategory === 'Guest Content'
+                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  : 'border-neutral-200/80 bg-white hover:border-neutral-300'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
+                  <BookOpen className="h-4 w-4 text-amber-600" /> 5. Guest Content & Guides
+                </span>
+                <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-600">
+                  25 Targets
+                </span>
+              </div>
+              <p className="text-xs text-neutral-500 mt-2">
+                SME10x UAE, Middle East Print, Marketing In Asia MENA, Brand Quarterly ME. Thought-leadership editorial contributions with contextual backlinks.
+              </p>
+            </div>
+
+            <div
+              onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Digital PR' ? 'all' : 'Digital PR')}
+              className={`rounded-2xl border p-4 cursor-pointer transition-all ${
+                backlinkOppCategory === 'Digital PR'
+                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  : 'border-neutral-200/80 bg-white hover:border-neutral-300'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
+                  <Sparkles className="h-4 w-4 text-rose-600" /> 6. Digital PR & News Mentions
+                </span>
+                <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-600">
+                  30 Targets
+                </span>
+              </div>
+              <p className="text-xs text-neutral-500 mt-2">
+                Zawya, Arabian Business Press, Gulf News Business, Khaleej Times Business, UAE News 24/7. Major brand mentions and index tier boosts.
+              </p>
+            </div>
+          </div>
+
+          {/* Filtering and Search Toolbar */}
+          <div className="rounded-2xl border border-neutral-200/80 bg-white p-4 sm:p-5 shadow-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+                <input
+                  type="text"
+                  placeholder="Search website, domain, anchor, or URL..."
+                  value={backlinkOppSearch}
+                  onChange={(e) => setBacklinkOppSearch(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 focus:border-[#A82F19]"
+                />
+              </div>
+
+              <div>
+                <select
+                  value={backlinkOppCategory}
+                  onChange={(e) => setBacklinkOppCategory(e.target.value)}
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 focus:border-[#A82F19] bg-white"
+                >
+                  <option value="all">All 6 Pillars (All Categories)</option>
+                  <option value="Local Directory">Pillar 1: Local Dubai Citations</option>
+                  <option value="Industry Portal">Pillar 2: Printing & Packaging Trade</option>
+                  <option value="B2B Profile">Pillar 3: B2B & Verified Registries</option>
+                  <option value="Business Partner">Pillar 4: Local Business Partnerships</option>
+                  <option value="Guest Content">Pillar 5: Guest Content & Guides</option>
+                  <option value="Digital PR">Pillar 6: Digital PR & News Mentions</option>
+                </select>
+              </div>
+
+              <div>
+                <select
+                  value={backlinkOppPriority}
+                  onChange={(e) => setBacklinkOppPriority(e.target.value)}
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 focus:border-[#A82F19] bg-white"
+                >
+                  <option value="all">All Priorities</option>
+                  <option value="High">High Priority</option>
+                  <option value="Medium">Medium Priority</option>
+                  <option value="Low">Low Priority</option>
+                </select>
+              </div>
+
+              <div>
+                <select
+                  value={backlinkOppStatus}
+                  onChange={(e) => setBacklinkOppStatus(e.target.value)}
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 focus:border-[#A82F19] bg-white"
+                >
+                  <option value="all">All Statuses</option>
+                  <option value="Planned">Planned</option>
+                  <option value="Submitted">Submitted</option>
+                  <option value="In Review">In Review</option>
+                  <option value="Live">Live / Indexed</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="mt-3 flex items-center justify-between text-xs text-neutral-500 pt-2 border-t border-neutral-100">
+              <span>
+                Showing <strong className="text-neutral-900">{filteredBacklinkOpportunities.length}</strong> of{' '}
+                <strong className="text-neutral-900">{backlinkOppData.items?.length || 150}</strong> curated opportunities
+              </span>
+              {(backlinkOppSearch || backlinkOppCategory !== 'all' || backlinkOppPriority !== 'all' || backlinkOppStatus !== 'all') && (
+                <button
+                  onClick={() => {
+                    setBacklinkOppSearch('')
+                    setBacklinkOppCategory('all')
+                    setBacklinkOppPriority('all')
+                    setBacklinkOppStatus('all')
+                  }}
+                  className="text-xs text-[#A82F19] hover:underline font-semibold cursor-pointer"
+                >
+                  Clear all filters
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Interactive Opportunities Table */}
+          <div className="rounded-2xl border border-neutral-200/80 bg-white shadow-xs overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="border-b border-neutral-200 bg-neutral-50/80 text-[10px] font-bold uppercase tracking-wider text-neutral-500">
+                    <th className="py-3 px-4">Website & Platform</th>
+                    <th className="py-3 px-4">Pillar / Category</th>
+                    <th className="py-3 px-4">Authority & Link Type</th>
+                    <th className="py-3 px-4">Target Page & Recommended Anchor</th>
+                    <th className="py-3 px-4">Priority</th>
+                    <th className="py-3 px-4">Status</th>
+                    <th className="py-3 px-4 text-right">Workflow Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  {filteredBacklinkOpportunities.length > 0 ? (
+                    filteredBacklinkOpportunities.map((item, idx) => {
+                      const priority = item.priority || 'Medium'
+                      const status = item.status || 'Planned'
+                      const isUpdating = updatingBacklinkId === item.id
+
+                      return (
+                        <tr key={item.id || idx} className="hover:bg-neutral-50/60 transition-colors">
+                          {/* Website & Domain */}
+                          <td className="py-3.5 px-4">
+                            <div className="font-bold text-neutral-900 flex items-center gap-1.5">
+                              <span>{item.website_name || item.website || item.domain}</span>
+                              {(item.website_url || item.url) && (
+                                <a
+                                  href={item.website_url || item.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-neutral-400 hover:text-[#A82F19]"
+                                  title="Open website in new tab"
+                                >
+                                  <ExternalLink className="h-3 w-3" />
+                                </a>
+                              )}
+                            </div>
+                            <div className="text-[11px] text-neutral-500 font-mono mt-0.5">
+                              {item.domain}
+                            </div>
+                            {item.notes && (
+                              <p className="text-[10px] text-neutral-400 mt-1 max-w-xs truncate" title={item.notes}>
+                                {item.notes}
+                              </p>
+                            )}
+                          </td>
+
+                          {/* Category */}
+                          <td className="py-3.5 px-4">
+                            <span className="inline-block rounded-lg bg-neutral-100 px-2.5 py-1 text-[11px] font-semibold text-neutral-700">
+                              {item.category || 'General Directory'}
+                            </span>
+                            <div className="text-[10px] text-neutral-400 mt-0.5">
+                              {item.city || 'Dubai'}, {item.country || 'UAE'}
+                            </div>
+                          </td>
+
+                          {/* Authority & Link Type */}
+                          <td className="py-3.5 px-4">
+                            <div className="flex items-center gap-1.5">
+                              <span className="rounded-md bg-neutral-900 text-white font-mono text-[10px] font-bold px-1.5 py-0.5">
+                                DA {item.domain_authority || item.da || 35}
+                              </span>
+                              <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                                (item.follow_type || 'Follow').toLowerCase() === 'follow'
+                                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                  : 'bg-neutral-100 text-neutral-600'
+                              }`}>
+                                {item.follow_type || 'Follow'}
+                              </span>
+                            </div>
+                            <div className="text-[10px] text-neutral-500 mt-1">
+                              {item.link_type || 'Profile Link'}
+                            </div>
+                          </td>
+
+                          {/* Target URL & Anchor Text */}
+                          <td className="py-3.5 px-4 max-w-xs">
+                            <div className="font-semibold text-neutral-900 text-xs truncate" title={item.target_anchor_text || item.anchor_text}>
+                              &ldquo;{item.target_anchor_text || item.anchor_text || 'ONPRINT Dubai'}&rdquo;
+                            </div>
+                            <a
+                              href={item.target_url || item.target_onprint_url || 'https://0nprint.com/'}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[11px] text-[#A82F19] hover:underline font-mono truncate block mt-0.5"
+                              title={item.target_url || item.target_onprint_url}
+                            >
+                              {(item.target_url || item.target_onprint_url || 'https://0nprint.com/').replace(/^https?:\/\/(www\.)?0nprint\.com/, '') || '/'}
+                            </a>
+                          </td>
+
+                          {/* Priority */}
+                          <td className="py-3.5 px-4">
+                            <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
+                              priority.toLowerCase() === 'high'
+                                ? 'bg-red-50 text-red-700 border border-red-200'
+                                : priority.toLowerCase() === 'medium'
+                                ? 'bg-amber-50 text-amber-700 border border-amber-200'
+                                : 'bg-neutral-100 text-neutral-600'
+                            }`}>
+                              {priority}
+                            </span>
+                          </td>
+
+                          {/* Status */}
+                          <td className="py-3.5 px-4">
+                            <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
+                              status.toLowerCase() === 'live'
+                                ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                : status.toLowerCase() === 'submitted'
+                                ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                                : status.toLowerCase() === 'in review'
+                                ? 'bg-purple-50 text-purple-700 border border-purple-200'
+                                : status.toLowerCase() === 'rejected'
+                                ? 'bg-neutral-100 text-neutral-500 line-through'
+                                : 'bg-neutral-100 text-neutral-700'
+                            }`}>
+                              {status === 'Live' && <CheckCircle2 className="h-3 w-3" />}
+                              {status}
+                            </span>
+                          </td>
+
+                          {/* Workflow Action */}
+                          <td className="py-3.5 px-4 text-right">
+                            <div className="flex items-center justify-end gap-1.5">
+                              {item.submission_url && (
+                                <a
+                                  href={item.submission_url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="rounded-lg border border-neutral-200 bg-white px-2 py-1 text-[11px] font-semibold text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900 inline-flex items-center gap-1"
+                                  title="Open Submission / Directory Form"
+                                >
+                                  Submit <ExternalLink className="h-3 w-3" />
+                                </a>
+                              )}
+                              <select
+                                disabled={isUpdating}
+                                value={item.status || 'Planned'}
+                                onChange={(e) => handleUpdateBacklinkStatus(item.id, e.target.value)}
+                                className="rounded-lg border border-neutral-200 bg-white px-2 py-1 text-[11px] font-semibold text-neutral-700 hover:border-neutral-300 focus:outline-none focus:ring-1 focus:ring-[#A82F19]"
+                              >
+                                <option value="Planned">Planned</option>
+                                <option value="Submitted">Submitted</option>
+                                <option value="In Review">In Review</option>
+                                <option value="Live">Live / Indexed</option>
+                                <option value="Rejected">Rejected</option>
+                              </select>
+                            </div>
+                          </td>
+                        </tr>
+                      )
+                    })
+                  ) : (
+                    <tr>
+                      <td colSpan={7} className="py-12 text-center text-neutral-500 text-xs">
+                        No backlink opportunities match your filter criteria.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       )}

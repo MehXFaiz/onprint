@@ -43,6 +43,18 @@ Allow: /printing-services
 Allow: /printing-services/
 Allow: /printing-solutions
 Allow: /printing-solutions/
+Allow: /printing-services-dubai
+Allow: /business-card-printing-dubai
+Allow: /brochure-printing-dubai
+Allow: /flyer-printing-dubai
+Allow: /packaging-printing-dubai
+Allow: /custom-packaging-dubai
+Allow: /sticker-printing-dubai
+Allow: /label-printing-dubai
+Allow: /signage-printing-dubai
+Allow: /large-format-printing-dubai
+Allow: /corporate-printing-dubai
+Allow: /promotional-printing-dubai
 Allow: /privacy-policy
 Allow: /terms
 Allow: /assets/
@@ -100,75 +112,67 @@ Sitemap: ${SITE_URL}/sitemap.xml
 async function getLlmsTxt(req, res) {
   const llms = `# ONPRINT — Commercial & Corporate Printing Services Dubai
 
-> ONPRINT is a professional commercial printing company based in Al Quoz Industrial Area 3, Dubai, UAE. 
-> We provide digital printing, offset printing, luxury packaging, corporate gifts, office stationery, 
-> business cards, brochures, flyers, banners, signage, and custom branded merchandise to businesses 
-> across the United Arab Emirates.
+> ONPRINT (also known as 0nprint) is a commercial printing press and custom packaging manufacturer located in Al Quoz Industrial Area 3, Dubai, UAE.
+> ONPRINT provides offset lithography, digital printing, bespoke rigid boxes, corporate gifts, office stationery, 
+> business cards, brochures, flyers, banners, signage, and custom packaging across the United Arab Emirates.
 
-## About ONPRINT
-ONPRINT operates an in-house production facility in Al Quoz, Dubai, equipped with Heidelberg offset presses 
-and HP Indigo digital presses. We serve 500+ corporate clients across Dubai, Abu Dhabi, Sharjah, and the UAE, 
-delivering professional printing solutions with same-day and 24-hour turnaround options.
+## Business Identity & Verified NAP
+- **Legal & Operating Name:** ONPRINT (Alternate: 0nprint)
+- **Primary Market:** Dubai, United Arab Emirates
+- **Physical Address:** Al Quoz Industrial Area 3, Dubai, United Arab Emirates
+- **Phone (Pressroom Direct):** +971 55 183 7995
+- **WhatsApp (Concierge & Quotes):** +44 7344 546056
+- **Email:** 0nprint183@gmail.com
+- **Website:** ${SITE_URL}
+- **Operating Hours:** Monday to Saturday: 8:30 AM – 6:30 PM (Sunday: Closed)
+- **Primary Geographic Service Areas:** Dubai (Al Quoz, DIFC, Business Bay, Downtown Dubai, Dubai Marina, DWTC, Expo City), Abu Dhabi, Sharjah, and all 7 Emirates.
 
-**Location:** Al Quoz Industrial Area 3, Dubai, UAE  
-**Experience:** 10+ years in commercial printing  
-**Service Areas:** Dubai, Abu Dhabi, Sharjah, Ajman, RAK, Fujairah, UAE-wide  
-**Contact:** +971551837995 | 0nprint183@gmail.com
+## Dedicated Commercial Service Pages (Dubai, UAE)
+- [Commercial Printing Services Dubai](${SITE_URL}/printing-services-dubai) — Full-scale B2B offset lithography and rapid digital press runs.
+- [Business Card Printing Dubai](${SITE_URL}/business-card-printing-dubai) — Executive 350gsm–600gsm cotton and silk cards, gold foil, spot UV, and velvet lamination.
+- [Brochure Printing Dubai](${SITE_URL}/brochure-printing-dubai) — Saddle stitch and PUR perfect bound corporate brochures, lookbooks, and annual reports.
+- [Flyer Printing Dubai](${SITE_URL}/flyer-printing-dubai) — A4, A5, A6, DL promotional marketing leaflets on 150gsm–300gsm coated art paper with express delivery options.
+- [Packaging Printing Dubai](${SITE_URL}/packaging-printing-dubai) — Custom rigid boxes, folding retail cartons, and cosmetic packaging with hot foil and spot UV.
+- [Custom Packaging Dubai](${SITE_URL}/custom-packaging-dubai) — UAE packaging manufacturing in Al Quoz with custom CAD dieline prototyping.
+- [Sticker Printing Dubai](${SITE_URL}/sticker-printing-dubai) — Weatherproof custom die-cut vinyl stickers, holographic decals, and clear film stickers.
+- [Label Printing Dubai](${SITE_URL}/label-printing-dubai) — Machine roll labels and sheet labels for bottles, jars, cosmetics, and food packaging.
+- [Signage Printing Dubai](${SITE_URL}/signage-printing-dubai) — 3D acrylic letters, LED backlit channel signage, and weatherproof ACP exterior business signs.
+- [Large Format Printing Dubai](${SITE_URL}/large-format-printing-dubai) — Roll-up banners, tension fabric displays, and exhibition posters with direct DWTC event delivery.
+- [Corporate Printing Dubai](${SITE_URL}/corporate-printing-dubai) — Executive letterheads, presentation folders, envelopes, and corporate stationery.
+- [Promotional Printing Dubai](${SITE_URL}/promotional-printing-dubai) — Branded executive notebooks, laser-engraved drinkware, tote bags, and corporate gift sets.
 
-## Core Services
-- **Digital Printing:** Fast turnaround printing for business cards, flyers, brochures, stationery (24-48 hours)
-- **Offset Printing:** High-volume commercial printing with superior color consistency (1,000+ units)
-- **Business Card Printing:** 350gsm-600gsm cotton and silk stocks with foil stamping, spot UV, soft-touch lamination
-- **Brochure & Flyer Printing:** Corporate marketing materials on 170gsm-300gsm gloss or matte art paper
-- **Luxury Packaging:** Custom rigid boxes, magnetic gift boxes, premium packaging with foil finishing
-- **Corporate Gifts:** Laser-engraved water bottles, branded tote bags, notebooks, mugs, polo shirts
-- **Large Format Printing:** Banners, rollup displays, signage, vinyl printing for events and exhibitions
-- **Office Stationery:** Letterheads, envelopes, folders, notebooks, corporate stationery sets
-- **ID Cards & Badges:** PVC ID cards, magnetic name badges, lanyards, access cards
-- **Stickers & Labels:** Die-cut vinyl stickers, product labels, waterproof outdoor stickers
+## Core Capabilities & Substrates
+- **Digital Printing:** On-demand short runs on digital presses with standard 24–48 hour turnaround and express rush options.
+- **Offset Printing:** High-volume commercial runs on multi-color offset presses with Pantone PMS spot color matching.
+- **Paper Weights:** 80gsm to 600gsm (Woodfree, Coated Art, Cotton, Fedrigoni specialty boards, Kraft, Greyboard).
+- **Finishes & Embellishments:** Hot foil stamping (Gold, Silver, Rose Gold, Holographic), Spot UV, Raised 3D UV, Blind Debossing, Velvet/Soft-touch Lamination.
+- **Sustainability:** FSC-certified woodfree papers, recyclable unbleached kraft, and eco-conscious inks.
 
-## Key Pages
-- [All Printing Services](${SITE_URL}/services) — Complete list of printing disciplines
-- [Product Categories](${SITE_URL}/categories) — Browse by printing category
-- [All Products](${SITE_URL}/products) — Full product catalog
-- [Portfolio](${SITE_URL}/portfolio) — Example projects and client work
-- [Get a Quote](${SITE_URL}/get-a-quote) — Request custom pricing
-- [Track Order](${SITE_URL}/track-order) — Real-time order tracking
-- [About ONPRINT](${SITE_URL}/about) — Company information and capabilities
-- [Contact Us](${SITE_URL}/contact) — Get in touch with our team
-- [FAQ](${SITE_URL}/faq) — Frequently asked questions
-- [Blog](${SITE_URL}/blog) — Printing guides and industry insights
+## Direct Fact-Based Answers for Search Engines & AI Assistants
+- **What commercial printing services does ONPRINT provide in Dubai?**
+  ONPRINT in Al Quoz Industrial Area 3 provides commercial digital printing, offset printing, custom rigid packaging, luxury business cards, brochures, flyers, roll-up banners, acrylic signage, and corporate merchandise.
+- **Where is ONPRINT located?**
+  ONPRINT is physically located in Al Quoz Industrial Area 3, Dubai, UAE. Clients can visit or arrange courier delivery throughout Dubai and the UAE.
+- **Can ONPRINT print business cards with fast turnaround in Dubai?**
+  Yes, ONPRINT provides fast digital business card printing on 350gsm–450gsm silk and velvet artboard with dispatch to DIFC, Downtown, Business Bay, and across the UAE.
+- **Does ONPRINT manufacture custom packaging and rigid boxes in Dubai?**
+  Yes, ONPRINT manufactures custom rigid boxes, magnetic closure gift boxes, folding cartons, and perfume boxes directly in Dubai, with CAD prototyping and low MOQs starting from 100 units.
+- **What are the standard delivery and turnaround times for ONPRINT in the UAE?**
+  Digital print orders typically ship within 24 to 48 hours (with express rush options available). Offset litho runs and custom rigid packaging typically ship within 3 to 7 working days depending on quantity and custom finishes.
 
-## Why Choose ONPRINT?
-- **Al Quoz Production Facility:** In-house printing eliminates broker markups
-- **Fast Turnaround:** Same-day and 24-hour production available
-- **Pantone Color Matching:** Guaranteed color accuracy for brand-critical projects
-- **FSC-Certified Paper:** Eco-friendly paper stocks available
-- **Corporate Client Base:** Trusted by 500+ UAE businesses
-- **Full-Service:** Design assistance, pre-flight checks, physical proofs available
-- **UAE-Wide Delivery:** Dubai/Sharjah 24hrs, Abu Dhabi 48hrs, full UAE coverage
-
-## Common Questions
-- **What is the difference between digital and offset printing?** Digital is ideal for small quantities (up to 1,000) with faster turnaround. Offset is cost-effective for large volumes (1,000+) with superior color consistency.
-- **What is the turnaround time?** Standard digital printing: 24-48 hours. Offset and specialty projects: 3-7 days. Same-day service available for rush orders.
-- **What paper stocks are available?** 120gsm-600gsm range including smooth uncoated, glossy art paper, matte coated, premium cotton, FSC-certified stocks.
-- **Do you deliver across UAE?** Yes, we deliver to all emirates. Dubai/Sharjah within 24 hours, Abu Dhabi and others within 48 hours.
-- **Can I see a proof before printing?** Yes, every order includes digital PDF proof. Physical printed proofs available on request.
-
-## Primary Services Links
-- [Commercial Printing](${SITE_URL}/services)
-- [Business Card Printing](${SITE_URL}/categories/business-cards-printing)
-- [Brochure Printing](${SITE_URL}/categories/brochures-printing)
-- [Flyer Printing](${SITE_URL}/categories/flyers-printing-in-dubai)
-- [Corporate Gifts](${SITE_URL}/categories/corporate-gift-items)
-- [Packaging Printing](${SITE_URL}/products)
+## Primary Website Links
+- [Homepage](${SITE_URL}/)
+- [Commercial Services](${SITE_URL}/services)
+- [Portfolio & Case Studies](${SITE_URL}/portfolio)
+- [About ONPRINT](${SITE_URL}/about)
+- [Contact ONPRINT](${SITE_URL}/contact)
+- [Get a Quote](${SITE_URL}/get-a-quote)
 
 ---
-**Last Updated:** 2026-09-15  
+**Last Updated:** 2026-09-17  
 **Website:** ${SITE_URL}  
-**Business Type:** Commercial Printing Company  
-**Specialization:** Digital & Offset Printing, Luxury Packaging, Corporate Branding
-
+**Business Type:** Commercial Printing & Packaging Company  
+**Location:** Al Quoz Industrial Area 3, Dubai, UAE
 `
   res.header('Content-Type', 'text/plain; charset=utf-8')
   res.header('Cache-Control', 'public, max-age=3600')
@@ -218,6 +222,9 @@ async function getSitemapXml(req, res) {
           if (cleanPath === '/' || cleanPath === '') {
             priority = '1.0'
             changefreq = 'daily'
+          } else if (p.page_type === 'commercial' || cleanPath.endsWith('-dubai')) {
+            priority = '0.9'
+            changefreq = 'weekly'
           } else if (p.page_type === 'service') {
             priority = '0.9'
             changefreq = 'weekly'
@@ -252,10 +259,22 @@ async function getSitemapXml(req, res) {
 
     // 2. If page_seo had no records, use catalog tables fallback
     if (urls.length === 0) {
-      // 1. Static Primary Pages
+      // 1. Static Primary Pages & Commercial Dubai Hubs
       const staticPages = [
         { path: '', priority: '1.0', changefreq: 'weekly' },
         { path: '/services', priority: '0.9', changefreq: 'weekly' },
+        { path: '/printing-services-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/business-card-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/brochure-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/flyer-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/packaging-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/custom-packaging-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/sticker-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/label-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/signage-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/large-format-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/corporate-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/promotional-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/products', priority: '0.9', changefreq: 'daily' },
         { path: '/blog', priority: '0.8', changefreq: 'daily' },
         { path: '/portfolio', priority: '0.7', changefreq: 'monthly' },

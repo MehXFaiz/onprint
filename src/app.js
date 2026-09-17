@@ -109,12 +109,13 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     '@type': 'LocalBusiness',
     '@id': `${siteUrl}/#organization`,
     name: 'ONPRINT',
+    alternateName: '0nprint',
     legalName: 'ONPRINT Printing & Branding Solutions',
     url: siteUrl,
     logo: `${siteUrl}/logo_icon.png`,
     image: `${siteUrl}/logo_icon.png`,
-    description: 'ONPRINT is Dubai’s premier physical branding & commercial printing press. Specializing in executive stationery, luxury packaging, corporate gifts, large-format rollups, and precision digital printing across the UAE.',
-    telephone: '+971551837995',
+    description: 'ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz Industrial Area 3, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.',
+    telephone: '+971 55 183 7995',
     email: '0nprint183@gmail.com',
     priceRange: '$$',
     address: {
@@ -136,6 +137,22 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         opens: '08:30',
         closes: '18:30',
+      },
+    ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+971 55 183 7995',
+        contactType: 'customer service / sales',
+        areaServed: 'AE',
+        availableLanguage: ['English', 'Arabic', 'Urdu'],
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+44 7344 546056',
+        contactType: 'concierge / WhatsApp quotes',
+        areaServed: 'AE',
+        availableLanguage: ['English', 'Urdu'],
       },
     ],
     sameAs: [
@@ -198,6 +215,12 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
       { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
       { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Article', item: canonical },
     ]
+  } else if (COMMERCIAL_STATIC_PATHS.has(requestPath)) {
+    breadcrumbItems = [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteUrl}/services` },
+      { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Commercial Printing', item: canonical },
+    ]
   }
 
   if (breadcrumbItems) {
@@ -221,6 +244,21 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
   return rendered
 }
 
+const COMMERCIAL_STATIC_PATHS = new Set([
+  '/printing-services-dubai',
+  '/business-card-printing-dubai',
+  '/brochure-printing-dubai',
+  '/flyer-printing-dubai',
+  '/packaging-printing-dubai',
+  '/custom-packaging-dubai',
+  '/sticker-printing-dubai',
+  '/label-printing-dubai',
+  '/signage-printing-dubai',
+  '/large-format-printing-dubai',
+  '/corporate-printing-dubai',
+  '/promotional-printing-dubai',
+])
+
 const PUBLIC_STATIC_PATHS = new Set([
   '/',
   '/about',
@@ -237,6 +275,7 @@ const PUBLIC_STATIC_PATHS = new Set([
   '/terms',
   '/printing-services',
   '/printing-solutions',
+  ...COMMERCIAL_STATIC_PATHS,
 ])
 
 async function isKnownPublicPath(requestPath) {
@@ -346,6 +385,27 @@ function createApp() {
   app.get('/product/:slug', (req, res) => res.redirect(301, `/products/${req.params.slug}`))
   app.get(['/track', '/orders/track', '/order-tracking', '/customer', '/account'], (req, res) => res.redirect(301, '/track-order'))
   app.get(['/login', '/register'], (req, res) => res.redirect(301, '/admin/login'))
+
+  // Dynamic Database-Driven 301/302 Redirect Manager (Requirement 28)
+  app.use(async (req, res, next) => {
+    if (req.method !== 'GET' && req.method !== 'HEAD') return next()
+    if (req.path.startsWith('/api/') || req.path.startsWith('/assets/') || req.path.startsWith('/uploads/')) return next()
+
+    try {
+      const [rows] = await pool.query(
+        'SELECT new_url, redirect_type FROM seo_redirects WHERE old_url = ? AND status = "active" LIMIT 1',
+        [req.path]
+      )
+      if (rows && rows.length > 0) {
+        const rule = rows[0]
+        const type = Number(rule.redirect_type) || 301
+        pool.query('UPDATE seo_redirects SET hit_count = hit_count + 1 WHERE old_url = ?', [req.path]).catch(() => {})
+        return res.redirect(type, rule.new_url)
+      }
+    } catch {}
+
+    next()
+  })
 
   // Direct SEO endpoints on root
   app.get('/robots.txt', getRobotsTxt)

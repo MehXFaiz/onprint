@@ -23,6 +23,7 @@ const FaqPage = lazy(() => import('./pages/public/FaqPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'))
 const TermsPage = lazy(() => import('./pages/public/TermsPage'))
 const ProgrammaticLandingPage = lazy(() => import('./pages/public/ProgrammaticLandingPage'))
+const CommercialLandingPage = lazy(() => import('./pages/public/CommercialLandingPage'))
 const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
 
 function CategoryRouteRedirect() {
@@ -80,6 +81,33 @@ function App() {
             <Route path="/services/:slug" element={<ServiceDetailPage />} />
             <Route path="/printing-services/:slug" element={<ProgrammaticLandingPage />} />
             <Route path="/printing-solutions/:slug" element={<ProgrammaticLandingPage />} />
+
+            {/* 12 Core Commercial SEO Landing Pages */}
+            <Route path="/printing-services-dubai" element={<CommercialLandingPage pageKey="printing-services-dubai" />} />
+            <Route path="/business-card-printing-dubai" element={<CommercialLandingPage pageKey="business-card-printing-dubai" />} />
+            <Route path="/brochure-printing-dubai" element={<CommercialLandingPage pageKey="brochure-printing-dubai" />} />
+            <Route path="/flyer-printing-dubai" element={<CommercialLandingPage pageKey="flyer-printing-dubai" />} />
+            <Route path="/packaging-printing-dubai" element={<CommercialLandingPage pageKey="packaging-printing-dubai" />} />
+            <Route path="/custom-packaging-dubai" element={<CommercialLandingPage pageKey="custom-packaging-dubai" />} />
+            <Route path="/sticker-printing-dubai" element={<CommercialLandingPage pageKey="sticker-printing-dubai" />} />
+            <Route path="/label-printing-dubai" element={<CommercialLandingPage pageKey="label-printing-dubai" />} />
+            <Route path="/signage-printing-dubai" element={<CommercialLandingPage pageKey="signage-printing-dubai" />} />
+            <Route path="/large-format-printing-dubai" element={<CommercialLandingPage pageKey="large-format-printing-dubai" />} />
+            <Route path="/corporate-printing-dubai" element={<CommercialLandingPage pageKey="corporate-printing-dubai" />} />
+            <Route path="/promotional-printing-dubai" element={<CommercialLandingPage pageKey="promotional-printing-dubai" />} />
+
+            {/* Commercial Landing Page Aliases & Redirects */}
+            <Route path="/business-card-printing" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/custom-packaging" element={<Navigate to="/custom-packaging-dubai" replace />} />
+            <Route path="/packaging-printing" element={<Navigate to="/packaging-printing-dubai" replace />} />
+            <Route path="/brochure-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />
+            <Route path="/flyer-printing" element={<Navigate to="/flyer-printing-dubai" replace />} />
+            <Route path="/sticker-printing" element={<Navigate to="/sticker-printing-dubai" replace />} />
+            <Route path="/label-printing" element={<Navigate to="/label-printing-dubai" replace />} />
+            <Route path="/signage-printing" element={<Navigate to="/signage-printing-dubai" replace />} />
+            <Route path="/large-format-printing" element={<Navigate to="/large-format-printing-dubai" replace />} />
+            <Route path="/corporate-printing" element={<Navigate to="/corporate-printing-dubai" replace />} />
+            <Route path="/promotional-printing" element={<Navigate to="/promotional-printing-dubai" replace />} />
             <Route path="/categories" element={<CategoriesPage />} />
             <Route path="/categories/:slug" element={<CategoryDetailPage />} />
             <Route path="/category/:slug" element={<CategoryRouteRedirect />} />

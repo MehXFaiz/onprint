@@ -15,18 +15,19 @@ export const organizationSchema = {
   '@type': 'LocalBusiness',
   '@id': `${SITE_URL}/#organization`,
   name: 'ONPRINT',
+  alternateName: '0nprint',
   legalName: 'ONPRINT Printing & Branding Solutions',
   url: SITE_URL,
   logo: `${SITE_URL}/logo_icon.png`,
   image: `${SITE_URL}/logo_icon.png`,
   description:
-    'ONPRINT is Dubai’s premier physical branding & commercial printing press. Specializing in executive stationery, luxury packaging, corporate gifts, large-format rollups, and precision digital printing across the UAE.',
-  telephone: '+971551837995',
+    'ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz Industrial Area 3, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.',
+  telephone: '+971 55 183 7995',
   email: '0nprint183@gmail.com',
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Al Quoz Industrial Area 3',
+    streetAddress: 'Street 18, Al Quoz Industrial Area 3',
     addressLocality: 'Dubai',
     addressRegion: 'Dubai',
     postalCode: '00000',
@@ -45,6 +46,22 @@ export const organizationSchema = {
       closes: '18:30',
     },
   ],
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+971 55 183 7995',
+      contactType: 'customer service / sales',
+      areaServed: 'AE',
+      availableLanguage: ['English', 'Arabic', 'Urdu'],
+    },
+    {
+      '@type': 'ContactPoint',
+      telephone: '+971 55 183 7995',
+      contactType: 'concierge / WhatsApp quotes',
+      areaServed: 'AE',
+      availableLanguage: ['English', 'Arabic', 'Urdu'],
+    },
+  ],
   sameAs: [
     'https://www.facebook.com/onprintdubai',
     'https://www.instagram.com/onprintdubai',
@@ -56,6 +73,19 @@ export const organizationSchema = {
     { '@type': 'City', name: 'Sharjah' },
     { '@type': 'Country', name: 'United Arab Emirates' },
   ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Commercial Printing & Packaging Services Dubai',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Luxury Business Cards Printing Dubai' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Packaging & Box Printing Dubai' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Brochures & Leaflets Printing' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Large Format Signage & Exhibition Banners' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Stickers & Roll Labels Dubai' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Eco-Friendly Kraft Packaging & Bags' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Corporate Gifts & Branded Uniform Printing' } },
+    ],
+  },
 }
 
 /**
@@ -370,16 +400,34 @@ export default function SEOHead({
         '@context': 'https://schema.org',
         '@type': 'Service',
         name: service.name,
+        serviceType: service.category?.name || 'Commercial Printing Service',
         description: service.description || service.shortDescription || metaDesc,
         image: serviceImage.startsWith('http') ? serviceImage : `${SITE_URL}${serviceImage.startsWith('/') ? serviceImage : `/${serviceImage}`}`,
         provider: {
           '@type': 'LocalBusiness',
-          name: 'ONPRINT Dubai',
+          '@id': `${SITE_URL}/#organization`,
+          name: 'ONPRINT',
+          alternateName: '0nprint',
           url: SITE_URL,
+          telephone: '+971 55 183 7995',
+          email: '0nprint183@gmail.com',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'Street 18, Al Quoz Industrial Area 3',
+            addressLocality: 'Dubai',
+            addressRegion: 'Dubai',
+            addressCountry: 'AE',
+          },
         },
-        areaServed: {
-          '@type': 'Country',
-          name: 'United Arab Emirates',
+        areaServed: [
+          { '@type': 'City', name: 'Dubai' },
+          { '@type': 'City', name: 'Abu Dhabi' },
+          { '@type': 'City', name: 'Sharjah' },
+          { '@type': 'Country', name: 'United Arab Emirates' },
+        ],
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: `${service.name} Options Dubai`,
         },
       }
       setStructuredDataScript('onprint-schema-service', serviceSchema)

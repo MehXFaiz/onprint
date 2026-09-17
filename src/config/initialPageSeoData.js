@@ -41,7 +41,7 @@ const initialPageSeoRecords = [
           name: 'ONPRINT',
           url: `${SITE_URL}`,
           logo: `${SITE_URL}/logo_icon.png`,
-          telephone: '+9714800PRINT',
+          telephone: '+971551837995',
           email: '0nprint183@gmail.com',
           priceRange: '$$',
           address: {
@@ -129,7 +129,7 @@ const initialPageSeoRecords = [
       '@type': 'ContactPage',
       name: 'Contact ONPRINT Dubai',
       url: `${SITE_URL}/contact`,
-      telephone: '+9714800PRINT',
+      telephone: '+971551837995',
       email: '0nprint183@gmail.com',
       address: {
         '@type': 'PostalAddress',

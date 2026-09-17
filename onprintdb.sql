@@ -292,6 +292,57 @@ CREATE TABLE IF NOT EXISTS seo_competitor_records (
   INDEX idx_competitor_type (record_type)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE IF NOT EXISTS backlink_opportunities (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  website_name VARCHAR(255) NOT NULL,
+  domain VARCHAR(255) NOT NULL,
+  website_url VARCHAR(1000) NOT NULL,
+  category VARCHAR(150) NOT NULL,
+  submission_method VARCHAR(150) NOT NULL,
+  domain_authority INT DEFAULT 0,
+  priority ENUM('High', 'Medium', 'Low') DEFAULT 'Medium',
+  country VARCHAR(100) DEFAULT 'UAE',
+  city VARCHAR(100) DEFAULT 'Dubai',
+  relevance VARCHAR(50) DEFAULT 'High',
+  link_type VARCHAR(100) DEFAULT NULL,
+  follow_type ENUM('Follow', 'Nofollow', 'UGC', 'Sponsored') DEFAULT 'Follow',
+  contact_url VARCHAR(1000) DEFAULT NULL,
+  submission_url VARCHAR(1000) DEFAULT NULL,
+  target_url VARCHAR(500) NOT NULL,
+  target_anchor_text VARCHAR(500) DEFAULT NULL,
+  status ENUM('Not Started', 'Planned', 'Submitted', 'In Review', 'Live', 'Rejected') DEFAULT 'Planned',
+  date_added DATE DEFAULT NULL,
+  date_submitted DATE DEFAULT NULL,
+  date_live DATE DEFAULT NULL,
+  live_url VARCHAR(1000) DEFAULT NULL,
+  notes TEXT DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_bo_domain (domain),
+  INDEX idx_bo_category (category),
+  INDEX idx_bo_status (status),
+  INDEX idx_bo_priority (priority)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS seo_ai_visibility_tracking (
+  id VARCHAR(100) PRIMARY KEY,
+  query VARCHAR(500) NOT NULL,
+  cluster VARCHAR(255) DEFAULT NULL,
+  intent VARCHAR(100) DEFAULT NULL,
+  target_page VARCHAR(255) DEFAULT NULL,
+  target_url VARCHAR(500) DEFAULT NULL,
+  overall_visibility_score INT DEFAULT 0,
+  status VARCHAR(100) DEFAULT 'Dominant Citation',
+  last_tested DATE DEFAULT NULL,
+  engines_json LONGTEXT DEFAULT NULL,
+  key_entities_extracted LONGTEXT DEFAULT NULL,
+  recommended_action TEXT DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_ai_vis_cluster (cluster),
+  INDEX idx_ai_vis_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- =====================================================
 -- INITIAL SEED DATA
 -- =====================================================

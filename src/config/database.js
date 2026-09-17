@@ -4,6 +4,8 @@ const { initialPageSeoRecords } = require('./initialPageSeoData')
 const DUBAI_KEYWORDS = require('../data/dubaiKeywordsData')
 const DUBAI_BLOGS = require('../data/dubaiBlogsData')
 const { UAE_BACKLINKS, UAE_OUTREACH_PROSPECTS, COMPETITOR_GAP_RECORDS } = require('../data/dubaiSeoSeedData')
+const { BACKLINK_OPPORTUNITIES } = require('../data/dubaiBacklinkOpportunitiesData')
+const { DUBAI_AI_VISIBILITY_QUERIES } = require('../data/dubaiAiVisibilityData')
 
 let pool
 
@@ -1165,6 +1167,84 @@ async function seedCompetitorsIfEmpty(connection) {
   }
 }
 
+async function seedBacklinkOpportunitiesIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM backlink_opportunities')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0 && Array.isArray(BACKLINK_OPPORTUNITIES) && BACKLINK_OPPORTUNITIES.length > 0) {
+      console.log(`[Backlink Opportunities] Seeding ${BACKLINK_OPPORTUNITIES.length} legitimate UAE opportunities into MySQL...`)
+      for (const b of BACKLINK_OPPORTUNITIES) {
+        await connection.query(
+          `INSERT INTO backlink_opportunities 
+           (website_name, domain, website_url, category, submission_method, domain_authority, priority, country, city, relevance, link_type, follow_type, contact_url, submission_url, target_url, target_anchor_text, status, notes)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            b.website || b.website_name || b.domain,
+            b.domain,
+            b.url || b.website_url,
+            b.category,
+            b.submission_method,
+            b.da || b.domain_authority || 30,
+            b.priority || 'Medium',
+            b.country || 'UAE',
+            b.city || 'Dubai',
+            b.relevance || 'High',
+            b.link_type || 'Directory Profile Link',
+            b.follow_type || 'Follow',
+            b.contact_url || null,
+            b.submission_url || null,
+            b.target_onprint_url || b.target_url || 'https://0nprint.com/',
+            b.anchor_text || b.target_anchor_text || 'ONPRINT Dubai Printing',
+            b.status || 'Planned',
+            b.notes || null,
+          ]
+        )
+      }
+      console.log(`[Backlink Opportunities] Successfully seeded 150 UAE opportunities into MySQL.`)
+    }
+  } catch (err) {
+    console.warn('[Backlink Opportunities Seed Note]:', err.message)
+  }
+}
+
+async function seedAiVisibilityIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_ai_visibility_tracking')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0 && Array.isArray(DUBAI_AI_VISIBILITY_QUERIES) && DUBAI_AI_VISIBILITY_QUERIES.length > 0) {
+      console.log(`[AI Visibility] Seeding ${DUBAI_AI_VISIBILITY_QUERIES.length} core AI queries into MySQL...`)
+      for (const q of DUBAI_AI_VISIBILITY_QUERIES) {
+        await connection.query(
+          `INSERT INTO seo_ai_visibility_tracking 
+           (id, query, cluster, intent, target_page, target_url, overall_visibility_score, status, last_tested, engines_json, key_entities_extracted, recommended_action)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+           ON DUPLICATE KEY UPDATE 
+             overall_visibility_score = VALUES(overall_visibility_score),
+             status = VALUES(status),
+             engines_json = VALUES(engines_json)`,
+          [
+            q.id,
+            q.query,
+            q.cluster,
+            q.intent,
+            q.target_page,
+            q.target_url,
+            q.overall_visibility_score,
+            q.status,
+            q.last_tested,
+            JSON.stringify(q.engines),
+            JSON.stringify(q.key_entities_extracted),
+            q.recommended_action,
+          ]
+        )
+      }
+      console.log(`[AI Visibility] Successfully seeded AI visibility queries into MySQL.`)
+    }
+  } catch (err) {
+    console.warn('[AI Visibility Seed Note]:', err.message)
+  }
+}
+
 async function initDatabase() {
   try {
     const connection = await pool.getConnection()
@@ -1870,14 +1950,75 @@ async function initDatabase() {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
 
-    // Seed/Synchronize initial page SEO records
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS backlink_opportunities (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        website_name VARCHAR(255) NOT NULL,
+        domain VARCHAR(255) NOT NULL,
+        website_url VARCHAR(1000) NOT NULL,
+        category VARCHAR(150) NOT NULL,
+        submission_method VARCHAR(150) NOT NULL,
+        domain_authority INT DEFAULT 0,
+        priority ENUM('High', 'Medium', 'Low') DEFAULT 'Medium',
+        country VARCHAR(100) DEFAULT 'UAE',
+        city VARCHAR(100) DEFAULT 'Dubai',
+        relevance VARCHAR(50) DEFAULT 'High',
+        link_type VARCHAR(100) DEFAULT NULL,
+        follow_type ENUM('Follow', 'Nofollow', 'UGC', 'Sponsored') DEFAULT 'Follow',
+        contact_url VARCHAR(1000) DEFAULT NULL,
+        submission_url VARCHAR(1000) DEFAULT NULL,
+        target_url VARCHAR(500) NOT NULL,
+        target_anchor_text VARCHAR(500) DEFAULT NULL,
+        status ENUM('Not Started', 'Planned', 'Submitted', 'In Review', 'Live', 'Rejected') DEFAULT 'Planned',
+        date_added DATE DEFAULT NULL,
+        date_submitted DATE DEFAULT NULL,
+        date_live DATE DEFAULT NULL,
+        live_url VARCHAR(1000) DEFAULT NULL,
+        notes TEXT DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_bo_domain (domain),
+        INDEX idx_bo_category (category),
+        INDEX idx_bo_status (status),
+        INDEX idx_bo_priority (priority)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_ai_visibility_tracking (
+        id VARCHAR(100) PRIMARY KEY,
+        query VARCHAR(500) NOT NULL,
+        cluster VARCHAR(255) DEFAULT NULL,
+        intent VARCHAR(100) DEFAULT NULL,
+        target_page VARCHAR(255) DEFAULT NULL,
+        target_url VARCHAR(500) DEFAULT NULL,
+        overall_visibility_score INT DEFAULT 0,
+        status VARCHAR(100) DEFAULT 'Dominant Citation',
+        last_tested DATE DEFAULT NULL,
+        engines_json LONGTEXT DEFAULT NULL,
+        key_entities_extracted LONGTEXT DEFAULT NULL,
+        recommended_action TEXT DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_ai_vis_cluster (cluster),
+        INDEX idx_ai_vis_status (status)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    // Seed/Synchronize all SEO datasets
     await seedPageSeoIfEmpty(connection)
+    await seedBlogsIfEmpty(connection)
+    await seedKeywordsIfEmpty(connection)
+    await seedBacklinksIfEmpty(connection)
+    await seedCompetitorsIfEmpty(connection)
+    await seedBacklinkOpportunitiesIfEmpty(connection)
+    await seedAiVisibilityIfEmpty(connection)
 
     // 12. Automatically Seed/Verify Admin User in DB
     const adminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
     const adminName = process.env.ADMIN_NAME || 'ONPRINT Admin'
-    const adminPhone = process.env.ADMIN_PHONE || '+971 4 800 PRINT'
+    const adminPhone = process.env.ADMIN_PHONE || '+971 55 183 7995'
 
     const [adminRows] = await connection.query(
       'SELECT id, password_hash, role FROM users WHERE email = ? LIMIT 1',

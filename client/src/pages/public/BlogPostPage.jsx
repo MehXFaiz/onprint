@@ -24,6 +24,7 @@ import LoadingState from '../../components/LoadingState'
 import EmptyState from '../../components/EmptyState'
 import Reveal from '../../components/Reveal'
 import { getPublicBlogBySlug } from '../../services/blog'
+import { getBlogCoverImage } from '../../assets/productImages'
 
 /**
  * Basic HTML sanitizer to strip malicious scripts and event handlers
@@ -272,7 +273,7 @@ export default function BlogPostPage() {
         {/* Featured Hero Image with meaningful SEO alt */}
         <div className="my-8 aspect-[16/9] overflow-hidden rounded-3xl border border-border bg-accent-soft shadow-md">
           <img
-            src={post.featured_image || post.featuredImage}
+            src={getBlogCoverImage(post)}
             alt={post.image_alt || post.imageAlt || post.title}
             className="h-full w-full object-cover"
             loading="eager"
@@ -584,7 +585,7 @@ export default function BlogPostPage() {
                     <div>
                       <div className="aspect-[16/10] overflow-hidden rounded-xl bg-accent-soft">
                         <img
-                          src={item.featured_image || item.featuredImage}
+                          src={getBlogCoverImage(item)}
                           alt={item.image_alt || item.imageAlt || item.title}
                           className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                           loading="lazy"

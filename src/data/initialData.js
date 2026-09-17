@@ -136,9 +136,9 @@ const products = [
     name: 'Digital & Offset Printing',
     slug: 'digital-offset-printing',
     category: {
-      _id: 'cat-brochures-printing',
-      name: 'Printing Services',
-      slug: 'brochures-printing'
+      _id: 'cat-flyers-printing-in-dubai',
+      name: 'Digital & Offset Press',
+      slug: 'flyers-printing-in-dubai'
     },
     shortDescription: 'Premium digital and offset print runs for flyers, brochures, stationery, and marketing collateral in Dubai.',
     description: 'High-precision digital and offset printing for business cards, brochures, flyers, stationery, and branded marketing documents with Pantone color matching and quick UAE turnaround.',
@@ -201,9 +201,9 @@ const products = [
     name: 'Luxury Packaging & Custom Boxes',
     slug: 'luxury-packaging-custom-boxes',
     category: {
-      _id: 'cat-brochures-printing',
-      name: 'Packaging',
-      slug: 'brochures-printing'
+      _id: 'cat-letterheads-printing-dubai',
+      name: 'Luxury Packaging',
+      slug: 'letterheads-printing-dubai'
     },
     shortDescription: 'Custom rigid boxes, magnetic gift boxes, and premium packaging for retail, gifting, and luxury branding.',
     description: 'Bespoke luxury packaging and custom boxes with rigid construction, hot foil finishing, matte lamination, and premium inserts for retail and corporate gifting.',
@@ -1186,8 +1186,8 @@ const products = [
     },
     shortDescription: 'Perfect-bound and saddle-stitched product catalogs, lookbooks, and multi-page booklets with premium coatings.',
     description: 'Professional multi-page catalogs, lookbooks, and saddle-stitched or perfect-bound booklets printed on coated art paper with premium matte or gloss lamination. Ideal for retail, real estate, automotive, and FMCG brand showcases in Dubai.',
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Catalogs%20%26%20Booklets%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Catalogs%20%26%20Booklets%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
+    image: '/assets/products/brochure_booklet_catalog.jpg',
+    image_url: '/assets/products/brochure_booklet_catalog.jpg',
     imageAlt: 'Printed product catalogs and booklets in Dubai',
     seoTitle: 'Catalogs & Booklets Printing Dubai | Perfect Bound Lookbooks | ONPRINT',
     seoDescription: 'Premium product catalog printing in Dubai. Perfect-bound, saddle-stitched lookbooks and multi-page booklets with express UAE delivery.',
@@ -2480,9 +2480,9 @@ const products = [
     name: 'Wall & Desk Calendars Printing',
     slug: 'calendars-printing',
     category: {
-      _id: 'cat-brochures-printing',
-      name: 'Promotional Products',
-      slug: 'brochures-printing'
+      _id: 'cat-letterheads-printing-dubai',
+      name: 'Corporate Stationery',
+      slug: 'letterheads-printing-dubai'
     },
     shortDescription: 'Custom-designed wall calendars, desk tent calendars, and pocket planners for end-of-year corporate gifting.',
     description: 'Annual custom calendars including spiral-bound A3/A2 wall calendars, tent-style desk flip calendars, and pocket diary planners. Featuring UAE public holidays, Hijri dates, custom corporate imagery, and foil-stamped branded covers for year-end gifting in Dubai.',
@@ -2610,9 +2610,9 @@ const products = [
     name: 'Printed Kraft Paper Bags',
     slug: 'printed-paper-bags',
     category: {
-      _id: 'cat-brochures-printing',
-      name: 'Packaging',
-      slug: 'brochures-printing'
+      _id: 'cat-lanyard-printing-dubai',
+      name: 'Corporate Merchandise',
+      slug: 'lanyard-printing-dubai'
     },
     shortDescription: 'Kraft and luxury art paper shopping bags with twisted rope handles, custom sizes, and full-color branding.',
     description: 'Eco-friendly printed paper shopping bags in brown Kraft and premium white art card with twisted rope or ribbon handles, reinforced bottom board, and custom die-cut sizes. Full-color logo printing for retail, boutique, and restaurant takeaway brands in UAE.',
@@ -2675,9 +2675,9 @@ const products = [
     name: 'Custom Food Packaging Boxes',
     slug: 'food-packaging-boxes',
     category: {
-      _id: 'cat-brochures-printing',
-      name: 'Packaging',
-      slug: 'brochures-printing'
+      _id: 'cat-letterheads-printing-dubai',
+      name: 'Packaging & Boxes',
+      slug: 'letterheads-printing-dubai'
     },
     shortDescription: 'Burger boxes, pastry boxes, meal delivery containers, and cake boxes with grease-proof liners and custom branding.',
     description: 'Food-safe custom printed packaging including burger boxes, pastry and bakery boxes, meal-delivery containers, sandwich wedges, and cake boxes with grease-proof PE liners. FSC-certified materials with vibrant CMYK+ print for F&B brands and cloud kitchens in Dubai.',
@@ -2805,9 +2805,9 @@ const products = [
     name: 'Luxury Wedding Invitation Suites',
     slug: 'wedding-invitation-suites',
     category: {
-      _id: 'cat-brochures-printing',
-      name: 'Events & Occasions',
-      slug: 'brochures-printing'
+      _id: 'cat-letterheads-printing-dubai',
+      name: 'Bespoke Invitations',
+      slug: 'letterheads-printing-dubai'
     },
     shortDescription: 'Handmade paper, laser-cut, and foil-stamped wedding invitation boxes with RSVP cards, envelope liners, and wax seals.',
     description: 'Luxury bespoke wedding invitation suites including handmade cotton paper cards, laser-cut folders, hot foil gold/silver stamping, wax seals, envelope liners, RSVP cards, and save-the-date magnets. Custom packaged in decorative invitation boxes with ribbon closures for UAE weddings.',
@@ -3071,8 +3071,8 @@ const products = [
     },
     shortDescription: 'Classic 4-panel bi-fold brochures on 250gsm coated art paper with crisp folding and premium lamination.',
     description: 'Premium 4-panel bi-fold brochures printed on 250gsm to 300gsm silk or gloss coated art paper. Precision machine scored and folded for sharp edges, finished with optional soft-touch matte or gloss lamination. Perfect for corporate introductions, product overviews, and Dubai sales meeting leave-behinds.',
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Bi-Fold%20Brochures%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Bi-Fold%20Brochures%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
+    image: '/assets/products/brochure_bifold.jpg',
+    image_url: '/assets/products/brochure_bifold.jpg',
     imageAlt: 'Bi-fold 4-panel corporate printed brochures in Dubai',
     seoTitle: 'Bi-Fold Brochures Printing Dubai | 4-Panel Corporate Brochures | ONPRINT',
     seoDescription: 'Professional bi-fold brochure printing in Dubai. 4-panel corporate brochures on luxury coated paper with precision folding and fast UAE turnaround.',
@@ -3136,8 +3136,8 @@ const products = [
     },
     shortDescription: 'Popular 6-panel tri-fold letter-fold brochures with organized sections and premium matte or gloss finish.',
     description: 'High-impact 6-panel tri-fold (letter-fold) brochures printed on 200gsm to 300gsm coated art paper. Machine scored in two places for crisp parallel folds, creating six organized panels. Ideal for service menus, hotel information sheets, retail promotions, and Dubai event marketing.',
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Tri-Fold%20Brochures%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Tri-Fold%20Brochures%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
+    image: '/assets/products/brochure_trifold.jpg',
+    image_url: '/assets/products/brochure_trifold.jpg',
     imageAlt: 'Tri-fold 6-panel marketing brochures printed in Dubai',
     seoTitle: 'Tri-Fold Brochures Printing Dubai | 6-Panel Marketing Leaflets | ONPRINT',
     seoDescription: 'Tri-fold brochure printing in Dubai with 6 organized panels. Premium coated paper, matte or gloss finish, express same-day delivery available.',
@@ -3201,8 +3201,8 @@ const products = [
     },
     shortDescription: 'Dramatic opening gate-fold brochures with two side flaps revealing a full-width inner brand message.',
     description: 'Luxury gate-fold brochures featuring two outer flaps that fold inward like double doors to reveal a dramatic full-width inner spread. Printed on 300gsm to 400gsm premium coated art card with optional hot foil stamping, spot UV varnish, and soft-touch velvet lamination. Exclusive for Dubai real estate launches, luxury brand showcases, and VIP invitations.',
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Gate-Fold%20Brochures%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Gate-Fold%20Brochures%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
+    image: '/assets/products/brochure_gatefold.jpg',
+    image_url: '/assets/products/brochure_gatefold.jpg',
     imageAlt: 'Luxury gate-fold brochures with dramatic opening style in Dubai',
     seoTitle: 'Gate-Fold Brochures Printing Dubai | Luxury Opening Brochures | ONPRINT',
     seoDescription: 'Premium gate-fold brochure printing in Dubai. Dramatic opening style with foil stamping, spot UV and soft-touch lamination for luxury real estate and brands.',
@@ -3266,8 +3266,8 @@ const products = [
     },
     shortDescription: 'Accordion-style Z-fold leaflets with zig-zag panels for restaurant menus, price lists, and quick-reference guides.',
     description: 'Versatile accordion-style Z-fold (zig-zag) brochures and leaflets where panels fold back and forth alternately, creating multiple compact readable surfaces. Printed on 170gsm to 250gsm paper, ideal for restaurant and cafe menus, salon price lists, product specification sheets, instructional guides, and Dubai tourism maps.',
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Z-Fold%20Brochures%20%26%20Leaflets%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-    image_url: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Z-Fold%20Brochures%20%26%20Leaflets%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
+    image: '/assets/products/brochure_zfold.jpg',
+    image_url: '/assets/products/brochure_zfold.jpg',
     imageAlt: 'Z-fold accordion style brochures leaflets menus in Dubai',
     seoTitle: 'Z-Fold Brochures & Leaflets Dubai | Accordion Menus & Price Lists | ONPRINT',
     seoDescription: 'Z-fold accordion brochure printing in Dubai. Perfect for menus, price lists, reference guides and maps with multiple zig-zag panels.',

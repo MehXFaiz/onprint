@@ -12,6 +12,28 @@ function isProductInCategory(product, category) {
   const catSlug = String(category.slug || '').toLowerCase()
   const catName = String(category.name || '').toLowerCase()
 
+  const pName = String(product.name || '').toLowerCase()
+  const pSlug = String(product.slug || '').toLowerCase()
+
+  // Strict guard: ensure non-brochures never show in brochures section
+  if (catSlug.includes('brochure') || catName.includes('brochure')) {
+    const nonBrochureKeywords = [
+      'mug', 'cup', 'bottle', 'flask', 'tote', 'bag', 't-shirt', 'tshirt',
+      'cap', 'hat', 'badge', 'keychain', 'nameplate', 'signage', 'banner', 'flag', 'box', 'packaging'
+    ]
+    if (nonBrochureKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
+      return false
+    }
+  }
+
+  // Strict guard: ensure non-cards never show in business cards section
+  if (catSlug.includes('business-card') || catName.includes('business card')) {
+    const nonCardKeywords = ['mug', 'bottle', 'tote', 'banner', 'box', 'brochure', 'booklet']
+    if (nonCardKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
+      return false
+    }
+  }
+
   const prodCat = product.category
   if (prodCat && typeof prodCat === 'object') {
     const pCatId = String(prodCat._id || prodCat.id || '')
@@ -29,6 +51,14 @@ function isProductInCategory(product, category) {
 
   const pCatIdField = String(product.categoryId || product.category_id || '')
   if (catId && pCatIdField === catId) return true
+
+  // Match genuine brochure products by slug/name if viewing brochures section
+  if (catSlug.includes('brochure')) {
+    const brochureKeywords = ['brochure', 'bi-fold', 'tri-fold', 'gate-fold', 'z-fold', 'booklet', 'catalog']
+    if (brochureKeywords.some((kw) => pSlug.includes(kw) || pName.includes(kw))) {
+      return true
+    }
+  }
 
   return false
 }

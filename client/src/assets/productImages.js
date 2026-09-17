@@ -28,6 +28,19 @@ import img15 from './products/1 (15).jpg'
 import softTouchBusinessCardImg from './products/card-soft-touch.jpg'
 import velvetFoilBusinessCardImg from './products/card-velvet-foil.jpg'
 import paintedEdgeBusinessCardImg from './products/card-painted-edge.jpg'
+import serviceDigitalOffsetImg from './products/service_digital_offset.jpg'
+import serviceLuxuryPackagingImg from './products/service_luxury_packaging.jpg'
+import serviceCorporateGiftsImg from './products/service_corporate_gifts.jpg'
+import serviceStickersLabelsImg from './products/service_stickers_labels.jpg'
+import serviceExecutiveStationeryImg from './products/service_executive_stationery.jpg'
+import serviceExhibitionSignageImg from './products/service_exhibition_signage.jpg'
+import brochureBifoldImg from './products/brochure_bifold.jpg'
+import brochureTrifoldImg from './products/brochure_trifold.jpg'
+import brochureBookletImg from './products/brochure_booklet_catalog.jpg'
+import brochureGatefoldImg from './products/brochure_gatefold.jpg'
+import brochureZfoldImg from './products/brochure_zfold.jpg'
+import luxuryBusinessCardsDubaiImg from './products/luxury_business_cards_dubai.jpg'
+import luxuryCorporateGiftsDubaiImg from './products/luxury_corporate_gifts_dubai.jpg'
 import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
@@ -42,6 +55,11 @@ export const productImages = {
   bottles: bottlesImg,
   flyers: flyersImg,
   brochures: brochuresImg,
+  brochureBifold: brochureBifoldImg,
+  brochureTrifold: brochureTrifoldImg,
+  brochureBooklet: brochureBookletImg,
+  brochureGatefold: brochureGatefoldImg,
+  brochureZfold: brochureZfoldImg,
   badges: badgesImg,
   idCards: idCardsImg,
   rollup: rollupImg,
@@ -51,6 +69,12 @@ export const productImages = {
   softTouchCard: softTouchBusinessCardImg,
   velvetFoilCard: velvetFoilBusinessCardImg,
   paintedEdgeCard: paintedEdgeBusinessCardImg,
+  serviceDigitalOffset: serviceDigitalOffsetImg,
+  serviceLuxuryPackaging: serviceLuxuryPackagingImg,
+  serviceCorporateGifts: serviceCorporateGiftsImg,
+  serviceStickersLabels: serviceStickersLabelsImg,
+  serviceExecutiveStationery: serviceExecutiveStationeryImg,
+  serviceExhibitionSignage: serviceExhibitionSignageImg,
 }
 
 export const productSlugImageMap = {
@@ -66,8 +90,22 @@ export const productSlugImageMap = {
   'letterheads-printing-dubai': letterheadImg,
   'letterhead-printing-dubai': letterheadImg,
   'name-badges-printing-dubai': badgesImg,
-  'digital-offset-printing': flyersImg,
-  'luxury-packaging-custom-boxes': img5,
+  'digital-offset-printing': serviceDigitalOffsetImg,
+  'luxury-packaging-custom-boxes': serviceLuxuryPackagingImg,
+  'corporate-gift-customization': luxuryCorporateGiftsDubaiImg,
+  'corporate-gift-items': luxuryCorporateGiftsDubaiImg,
+  'corporate-gifts-dubai': luxuryCorporateGiftsDubaiImg,
+  'promotional-corporate-gifting-dubai-vip-ideas': luxuryCorporateGiftsDubaiImg,
+  'business-card-design-printing': luxuryBusinessCardsDubaiImg,
+  'how-to-choose-business-card-paper-dubai': luxuryBusinessCardsDubaiImg,
+  'choosing-printing-company-dubai': serviceDigitalOffsetImg,
+  'printing-services-dubai': serviceDigitalOffsetImg,
+  'custom-labels-die-cut-stickers': serviceStickersLabelsImg,
+  'executive-business-stationery': serviceExecutiveStationeryImg,
+  'office-stationery-printing': serviceExecutiveStationeryImg,
+  'large-format-exhibition-signage': serviceExhibitionSignageImg,
+  'packaging-printing-dubai': serviceLuxuryPackagingImg,
+  'custom-packaging-dubai': serviceLuxuryPackagingImg,
   'custom-branded-tote-bags': toteBagsImg,
   'personalized-water-bottles': bottlesImg,
   'custom-printed-mugs': mugsImg,
@@ -82,16 +120,29 @@ export const productSlugImageMap = {
   'acrylic-nameplates': namePlatesImg,
   'roll-up-banners': rollupImg,
   'beach-flags': flagsImg,
-  'die-cut-stickers': stickersImg,
+  'die-cut-stickers': serviceStickersLabelsImg,
   'engraved-keychains': keychainImg,
-  'executive-notebooks': img5,
-  'brochures-catalogs-printing': brochuresImg,
-  'large-format-exhibition-signage': img9,
-  'custom-labels-die-cut-stickers': stickersImg,
-  'executive-business-stationery': businessCardsImg,
-  'catalogs-booklets-printing': img8,
+  'executive-notebooks': serviceExecutiveStationeryImg,
+  'bi-fold-brochures-printing': brochureBifoldImg,
+  'corporate-bi-fold-brochures': brochureBifoldImg,
+  'bi-fold-brochure-printing': brochureBifoldImg,
+  'bi-fold-brochures': brochureBifoldImg,
+  'tri-fold-brochures-printing': brochureTrifoldImg,
+  'tri-fold-brochure-printing': brochureTrifoldImg,
+  'tri-fold-brochures': brochureTrifoldImg,
+  'gate-fold-brochures-printing': brochureGatefoldImg,
+  'gate-fold-brochure-printing': brochureGatefoldImg,
+  'gate-fold-brochures': brochureGatefoldImg,
+  'luxury-gate-fold-brochures': brochureGatefoldImg,
+  'z-fold-leaflets-printing': brochureZfoldImg,
+  'z-fold-brochures-leaflets': brochureZfoldImg,
+  'z-fold-brochures': brochureZfoldImg,
+  'z-fold-leaflets': brochureZfoldImg,
+  'brochures-catalogs-printing': brochureBookletImg,
+  'catalogs-booklets-printing': brochureBookletImg,
+  'multipage-booklet-brochures': brochureBookletImg,
+  'annual-reports-printing': brochureBookletImg,
   'presentation-folders': img9,
-  'annual-reports-printing': img10,
   'raised-ink-business-cards': velvetFoilBusinessCardImg,
   'plastic-pvc-business-cards': softTouchBusinessCardImg,
   'large-format-posters': img9,
@@ -163,15 +214,27 @@ export const categorySlugImageMap = {
  * Used as last-resort before the generic placeholder.
  */
 const slugKeywordImageMap = [
+  [['digital & offset', 'digital offset', 'offset printing', 'digital printing'], serviceDigitalOffsetImg],
+  [['luxury packaging', 'packaging & custom', 'custom boxes', 'custom box', 'rigid box', 'rigid packaging'], serviceLuxuryPackagingImg],
+  [['corporate gift', 'gift customization', 'corporate gifts', 'merchandise'], serviceCorporateGiftsImg],
+  [['custom labels', 'die-cut stickers', 'die cut stickers', 'labels & die-cut', 'stickers & labels'], serviceStickersLabelsImg],
+  [['executive business stationery', 'business stationery', 'office stationery', 'stationery suite'], serviceExecutiveStationeryImg],
+  [['exhibition signage', 'large format', 'exhibition displays', 'trade show display'], serviceExhibitionSignageImg],
   [['painted edge', 'painted-edge', 'painted-edges', 'painted edges'], paintedEdgeBusinessCardImg],
   [['velvet foil', 'velvet-foil', 'foil card', 'gold foil card'], velvetFoilBusinessCardImg],
   [['soft touch', 'soft-touch'], softTouchBusinessCardImg],
+  [['bi-fold', 'bifold', '4-panel brochure', 'bi fold'], brochureBifoldImg],
+  [['tri-fold', 'trifold', '6-panel brochure', 'tri fold', 'letter-fold'], brochureTrifoldImg],
+  [['gate-fold', 'gatefold', 'gate fold'], brochureGatefoldImg],
+  [['z-fold', 'zfold', 'z fold', 'accordion brochure'], brochureZfoldImg],
+  [['booklet', 'catalog', 'catalogue', 'lookbook'], brochureBookletImg],
+  [['annual report', 'annual-report', 'company profile'], brochureBookletImg],
+  [['brochure', 'leaflet', 'pamphlet'], brochureBifoldImg],
   [['mug', 'cup', 'flask', 'tumbler'], mugsImg],
   [['bottle', 'water bottle'], bottlesImg],
   [['tote', 'shopper', 'bag'], toteBagsImg],
   [['keychain', 'key-chain', 'keyring'], keychainImg],
-  [['flyer', 'leaflet', 'pamphlet'], flyersImg],
-  [['brochure', 'catalog', 'catalogue', 'booklet'], brochuresImg],
+  [['flyer', 'pamphlet'], flyersImg],
   [['name badge', 'name-badge', 'staff badge'], badgesImg],
   [['name plate', 'nameplate', 'name-plate', 'door sign'], namePlatesImg],
   [['id card', 'id-card', 'pvc card', 'employee card'], idCardsImg],
@@ -179,15 +242,13 @@ const slugKeywordImageMap = [
   [['letterhead', 'business card', 'visiting card', 'stationery'], letterheadImg],
   [['roll-up', 'rollup', 'banner', 'pull-up', 'backdrop'], rollupImg],
   [['flag', 'beach flag', 'teardrop', 'feather flag'], flagsImg],
-  [['sticker', 'label', 'die-cut', 'vinyl'], stickersImg],
+  [['sticker', 'label', 'die-cut', 'vinyl'], serviceStickersLabelsImg],
   [['notebook', 'diary', 'notepad'], img5],
   [['pen', 'pencil', 'marker'], penPrintingImg],
   [['t-shirt', 'tshirt', 'shirt', 'apparel', 'hoodie'], img3],
   [['cap', 'hat', 'headwear'], img4],
   [['mouse pad', 'mousepad', 'desk mat'], img2],
-  [['signage', 'exhibition', 'display board'], img9],
-  [['annual report', 'annual-report', 'annual-report'], img10],
-  [['catalog', 'booklet', 'lookbook'], img8],
+  [['signage', 'exhibition', 'display board'], serviceExhibitionSignageImg],
   [['presentation folder', 'pocket folder', 'proposal folder'], img9],
   [['raised ink', 'thermography'], velvetFoilBusinessCardImg],
   [['plastic card', 'pvc card', 'clear card', 'frosted card'], softTouchBusinessCardImg],
@@ -197,10 +258,10 @@ const slugKeywordImageMap = [
   [['access control', 'rfid card', 'mifare', 'nfc card', 'hid card'], img4],
   [['visitor pass', 'visitor badge', 'temporary badge'], badgesImg],
   [['usb', 'flash drive', 'usb stick', 'thumb drive'], img2],
-  [['gift set', 'welcome kit', 'curated gift'], img5],
+  [['gift set', 'welcome kit', 'curated gift'], serviceCorporateGiftsImg],
   [['power bank', 'portable charger', 'power station'], bottlesImg],
   [['envelope', 'dl envelope', 'c4 envelope', 'c5 envelope'], letterheadImg],
-  [['stationery set', 'stationery kit', 'welcome kit'], img11],
+  [['stationery set', 'stationery kit', 'welcome kit'], serviceExecutiveStationeryImg],
   [['foam board', 'foamcore', 'kappa board'], img9],
   [['metal sign', 'plaque', 'aluminum sign', 'brass sign', 'stainless sign'], namePlatesImg],
   [['acrylic wall', 'frosted acrylic', 'acrylic logo', '3d letter'], img12],
@@ -208,7 +269,7 @@ const slugKeywordImageMap = [
   [['greeting card', 'corporate eid', 'diwali card', 'holiday card'], img6],
   [['paper bag', 'kraft bag', 'shopping bag', 'takeaway bag'], toteBagsImg],
   [['food packaging', 'burger box', 'bakery box', 'cake box', 'meal container'], img13],
-  [['restaurant menu', 'menu card', 'menu book', 'cafe menu'], img14],
+  [['restaurant menu', 'menu card', 'menu book', 'cafe menu'], brochureZfoldImg],
   [['wedding invitation', 'invitation suite', 'wedding card', 'save the date'], img15],
   [['t-shirt', 'tshirt', 'tee shirt', 'uniform shirt', 'staff shirt'], img3],
   [['cap', 'hat', 'beanie', 'trucker', 'baseball cap'], img4],
@@ -222,17 +283,21 @@ export function getProductImage(product) {
   if (product.slug && productSlugImageMap[product.slug]) {
     const slugImg = productSlugImageMap[product.slug]
     const rawImg = product.image_url || product.image || (product.images && product.images[0])
-    // If rawImg is empty, placeholder, SVG, or generic category hero, return dedicated slug image
+    // If rawImg is empty, placeholder, SVG, generic category hero, or default seed, return dedicated slug image
     if (
       !rawImg ||
+      typeof rawImg !== 'string' ||
       rawImg === businessCardsImg ||
-      (typeof rawImg === 'string' && (
-        rawImg.includes('business-cards-printing.jpg') ||
-        rawImg.includes('1 (1).jpg') ||
-        rawImg.includes('1%20(1).jpg') ||
-        rawImg.includes('/assets/products/1 (') ||
-        rawImg.endsWith('.svg')
-      ))
+      rawImg.includes('/uploads/categories/') ||
+      rawImg.includes('business-cards-printing.jpg') ||
+      rawImg.includes('brochures-printing.jpg') ||
+      rawImg.includes('flyers-printing-in-dubai.jpg') ||
+      rawImg.includes('trae.ai') ||
+      rawImg.includes('1 (1).jpg') ||
+      rawImg.includes('1%20(1).jpg') ||
+      rawImg.includes('1 (5).jpg') ||
+      rawImg.includes('/assets/products/1 (') ||
+      rawImg.endsWith('.svg')
     ) {
       return slugImg
     }
@@ -244,6 +309,7 @@ export function getProductImage(product) {
   if (
     typeof rawImg === 'string' &&
     rawImg.trim() !== '' &&
+    !rawImg.includes('trae.ai') &&
     !rawImg.includes('1 (1).jpg') &&
     !rawImg.includes('1%20(1).jpg') &&
     !rawImg.includes('/assets/products/1 (') &&
@@ -319,6 +385,57 @@ export function getAllProductCategoryImages(product) {
     }
   }
   return result
+}
+
+export function getBlogCoverImage(blog) {
+  if (!blog) return luxuryBusinessCardsDubaiImg
+
+  const slug = (blog.slug || '').toLowerCase()
+  const title = (blog.title || '').toLowerCase()
+  const rawImg = blog.featured_image || blog.featuredImage || ''
+
+  if (slug.includes('business-card') || title.includes('business card')) {
+    return luxuryBusinessCardsDubaiImg
+  }
+  if (
+    slug.includes('corporate-gift') ||
+    title.includes('corporate gift') ||
+    slug.includes('promotional-corporate-gifting') ||
+    title.includes('promotional corporate gifting')
+  ) {
+    return luxuryCorporateGiftsDubaiImg
+  }
+  if (
+    slug.includes('choosing-printing-company') ||
+    slug.includes('commercial-printing') ||
+    slug.includes('digital-vs-offset') ||
+    title.includes('commercial printing') ||
+    title.includes('digital vs offset')
+  ) {
+    return serviceDigitalOffsetImg
+  }
+  if (slug.includes('retail-packaging') || title.includes('retail packaging')) {
+    return serviceLuxuryPackagingImg
+  }
+  if (slug.includes('roll-up') || title.includes('roll-up') || slug.includes('exhibition') || title.includes('exhibition')) {
+    return serviceExhibitionSignageImg
+  }
+  if (slug.includes('sticker') || title.includes('sticker')) {
+    return serviceStickersLabelsImg
+  }
+  if (slug.includes('brochure') || title.includes('brochure')) {
+    return brochuresImg
+  }
+
+  // Handle old numbered asset fallback replacements
+  if (typeof rawImg === 'string') {
+    if (rawImg.includes('1 (7).jpg') || rawImg.includes('1%20(7).jpg')) return luxuryBusinessCardsDubaiImg
+    if (rawImg.includes('1 (1).jpg') || rawImg.includes('1%20(1).jpg')) return luxuryCorporateGiftsDubaiImg
+    if (rawImg.includes('1 (9).jpg') || rawImg.includes('1%20(9).jpg')) return serviceDigitalOffsetImg
+    if (rawImg.trim() !== '') return rawImg
+  }
+
+  return luxuryBusinessCardsDubaiImg
 }
 
 export { categoryImageMap }

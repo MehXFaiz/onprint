@@ -9,6 +9,7 @@ import EmptyState from '../../components/EmptyState'
 import Reveal from '../../components/Reveal'
 import { getPublicBlogs } from '../../services/blog'
 import { getCategories } from '../../services/categories'
+import { getBlogCoverImage } from '../../assets/productImages'
 
 export default function BlogPage() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -222,7 +223,7 @@ export default function BlogPage() {
                 <div className="grid grid-cols-1 gap-8 rounded-3xl border border-border bg-surface p-6 shadow-sm sm:p-10 lg:grid-cols-12 lg:items-center">
                   <div className="aspect-[16/10] overflow-hidden rounded-2xl bg-accent-soft lg:col-span-6">
                     <img
-                      src={featuredPost.featured_image || featuredPost.featuredImage}
+                      src={getBlogCoverImage(featuredPost)}
                       alt={featuredPost.image_alt || featuredPost.imageAlt || featuredPost.title}
                       className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                       loading="lazy"
@@ -279,7 +280,7 @@ export default function BlogPage() {
                     <div>
                       <div className="aspect-[16/10] overflow-hidden rounded-xl bg-accent-soft">
                         <img
-                          src={post.featured_image || post.featuredImage}
+                          src={getBlogCoverImage(post)}
                           alt={post.image_alt || post.imageAlt || post.title}
                           className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                           loading="lazy"

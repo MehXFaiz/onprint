@@ -23,6 +23,7 @@ import { getCategories } from '../../services/categories'
 import { getPublicBlogs } from '../../services/blog'
 import { trackViewHomepage, trackGetQuoteClick } from '../../utils/analytics'
 import { portfolioItems } from '../../data/portfolio'
+import { getBlogCoverImage } from '../../assets/productImages'
 
 const trustBadges = [
   { label: 'German Offset & Digital Press', sub: 'Calibrated CMYK & Pantone accuracy', icon: ShieldCheck },
@@ -928,7 +929,7 @@ export default function HomePage() {
                     <div>
                       <div className="aspect-[16/10] overflow-hidden rounded-xl bg-neutral-100">
                         <img
-                          src={blog.featured_image || blog.featuredImage}
+                          src={getBlogCoverImage(blog)}
                           alt={blog.image_alt || blog.imageAlt || blog.title}
                           className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                           loading="lazy"

@@ -1094,7 +1094,7 @@ const DUBAI_BLOGS = [
     word_count: 1370,
     target_location: 'Dubai, UAE',
     published_at: '2026-04-10 09:30:00',
-    featured_image: '/assets/products/1 (1).jpg',
+    featured_image: '/assets/products/luxury_corporate_gifts_dubai.jpg',
     image_alt: 'Pantone color formula guide swatch book on commercial printing press console in Dubai',
     seo_title: 'Pantone Color Matching (PMS) Dubai: Commercial Print Color Guide | ONPRINT',
     meta_description: 'Prevent color shifts in your Dubai corporate collateral. Master Pantone spot colors, CMYK color gamut limits, and press spectrophotometer calibration.',
@@ -1103,7 +1103,7 @@ const DUBAI_BLOGS = [
     canonical_url: `${SITE_URL}/blog/pantone-color-matching-pms-commercial-printing-dubai`,
     og_title: 'Pantone Matching System (PMS) in Commercial Print: Avoiding Costly Color Shifts',
     og_description: 'How to guarantee 100% brand color accuracy across all commercial print runs in Dubai.',
-    og_image: `${SITE_URL}/assets/products/1 (1).jpg`,
+    og_image: `${SITE_URL}/assets/products/luxury_corporate_gifts_dubai.jpg`,
     schema_type: 'BlogPosting',
     faqs: [
       {

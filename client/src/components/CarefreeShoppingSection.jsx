@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ShieldCheck, Truck, BadgePercent, ArrowRight, PhoneCall, Sparkles, CheckCircle2, MessageCircle } from 'lucide-react'
 import { CornerMarks } from './PrintMarks'
-import flagImg from '../assets/products/1 (10).jpg'
+import carefreeShoppingImg from '../assets/products/carefree_shopping.jpg'
 import { trackGetQuoteClick, trackProductInquiry } from '../utils/analytics'
 
 const features = [
@@ -46,17 +46,17 @@ export default function CarefreeShoppingSection() {
               <CornerMarks className="absolute top-4 left-4 z-20 h-6 w-6 text-[#FFFFFF]/60" />
               <CornerMarks className="absolute bottom-4 right-4 z-20 h-6 w-6 rotate-180 text-[#FFFFFF]/60" />
 
-              {/* Main Flag / Event Print Photography */}
-              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden">
+              {/* Main Visual Luxury Print & Packaging Photography */}
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden bg-white">
                 <img
-                  src={flagImg}
-                  alt="Outdoor Flags & Express Corporate Print Dubai"
+                  src={carefreeShoppingImg}
+                  alt="Luxury Packaging, Corporate Gifts & Express Print Dispatch Dubai"
                   loading="lazy"
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 
-                {/* Subtle Overlay */}
-                <div className="absolute inset-0 bg-[#000000]/20" />
+                {/* Subtle Bottom Ambient Gradient for Badge Legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Floating Quality Badge Overlay */}

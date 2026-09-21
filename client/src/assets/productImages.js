@@ -41,6 +41,23 @@ import brochureGatefoldImg from './products/brochure_gatefold.jpg'
 import brochureZfoldImg from './products/brochure_zfold.jpg'
 import luxuryBusinessCardsDubaiImg from './products/luxury_business_cards_dubai.jpg'
 import luxuryCorporateGiftsDubaiImg from './products/luxury_corporate_gifts_dubai.jpg'
+
+// Dedicated high-resolution Mug variety images
+import mugWhiteCeramicImg from './products/mug_white_ceramic.jpg'
+import mugTwoToneImg from './products/mug_two_tone.jpg'
+import mugMagicHeatImg from './products/mug_magic_heat.jpg'
+import mugMatteBlackGoldImg from './products/mug_matte_black_gold.jpg'
+import mugTravelTumblerImg from './products/mug_travel_tumbler.jpg'
+import mugVintageEnamelImg from './products/mug_vintage_enamel.jpg'
+
+// Dedicated high-resolution Water Bottle variety images
+import bottleSmartLedImg from './products/bottle_smart_led.jpg'
+import bottleMatteThermalImg from './products/bottle_matte_thermal.jpg'
+import bottleSportsAluminiumImg from './products/bottle_sports_aluminium.jpg'
+import bottleGlassBambooImg from './products/bottle_glass_bamboo.jpg'
+import bottleProteinShakerImg from './products/bottle_protein_shaker.jpg'
+import bottleLuxuryCopperImg from './products/bottle_luxury_copper.jpg'
+
 import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
@@ -75,6 +92,22 @@ export const productImages = {
   serviceStickersLabels: serviceStickersLabelsImg,
   serviceExecutiveStationery: serviceExecutiveStationeryImg,
   serviceExhibitionSignage: serviceExhibitionSignageImg,
+
+  // Mugs
+  mugWhiteCeramic: mugWhiteCeramicImg,
+  mugTwoTone: mugTwoToneImg,
+  mugMagicHeat: mugMagicHeatImg,
+  mugMatteBlackGold: mugMatteBlackGoldImg,
+  mugTravelTumbler: mugTravelTumblerImg,
+  mugVintageEnamel: mugVintageEnamelImg,
+
+  // Bottles
+  bottleSmartLed: bottleSmartLedImg,
+  bottleMatteThermal: bottleMatteThermalImg,
+  bottleSportsAluminium: bottleSportsAluminiumImg,
+  bottleGlassBamboo: bottleGlassBambooImg,
+  bottleProteinShaker: bottleProteinShakerImg,
+  bottleLuxuryCopper: bottleLuxuryCopperImg,
 }
 
 export const productSlugImageMap = {
@@ -90,6 +123,11 @@ export const productSlugImageMap = {
   'letterheads-printing-dubai': letterheadImg,
   'letterhead-printing-dubai': letterheadImg,
   'name-badges-printing-dubai': badgesImg,
+  'mug-printing-dubai': mugWhiteCeramicImg,
+  'mugs-printing-dubai': mugWhiteCeramicImg,
+  'bottle-printing-dubai': bottleSmartLedImg,
+  'water-bottle-printing-dubai': bottleSmartLedImg,
+  'water-bottles-printing-dubai': bottleSmartLedImg,
   'digital-offset-printing': serviceDigitalOffsetImg,
   'luxury-packaging-custom-boxes': serviceLuxuryPackagingImg,
   'corporate-gift-customization': luxuryCorporateGiftsDubaiImg,
@@ -107,8 +145,26 @@ export const productSlugImageMap = {
   'packaging-printing-dubai': serviceLuxuryPackagingImg,
   'custom-packaging-dubai': serviceLuxuryPackagingImg,
   'custom-branded-tote-bags': toteBagsImg,
-  'personalized-water-bottles': bottlesImg,
-  'custom-printed-mugs': mugsImg,
+
+  // Mug Products
+  'classic-white-ceramic-mugs': mugWhiteCeramicImg,
+  'custom-printed-mugs': mugWhiteCeramicImg,
+  'two-tone-ceramic-mugs': mugTwoToneImg,
+  'magic-heat-sensitive-mugs': mugMagicHeatImg,
+  'executive-matte-black-mugs': mugMatteBlackGoldImg,
+  'stainless-steel-travel-mugs': mugTravelTumblerImg,
+  'vintage-enamel-camping-mugs': mugVintageEnamelImg,
+
+  // Water Bottle Products
+  'smart-led-temperature-bottles': bottleSmartLedImg,
+  'personalized-water-bottles': bottleSmartLedImg,
+  'matte-stainless-steel-bottles': bottleMatteThermalImg,
+  'aluminium-sports-water-bottles': bottleSportsAluminiumImg,
+  'borosilicate-glass-bamboo-bottles': bottleGlassBambooImg,
+  'ergonomic-gym-protein-shakers': bottleProteinShakerImg,
+  'luxury-copper-insulated-flasks': bottleLuxuryCopperImg,
+
+  // Cards & Stationery
   'premium-business-cards': businessCardsImg,
   'standard-business-cards': businessCardsImg,
   'premium-soft-touch-business-cards': softTouchBusinessCardImg,
@@ -169,16 +225,10 @@ export const productSlugImageMap = {
   'tshirt-screen-printing': img3,
   'custom-cap-printing': img4,
   'mouse-pad-printing': img2,
-
-  // Product slug mappings
   'bags-printing-dubai': toteBagsImg,
   'tote-bags-printing-dubai': toteBagsImg,
   'keychain-printing-dubai': keychainImg,
   'wooden-keychain-printing': keychainImg,
-  'mug-printing-dubai': mugsImg,
-  'mugs-printing-dubai': mugsImg,
-  'water-bottles-printing-dubai': bottlesImg,
-  'custom-water-bottles-printing-in-dubai': bottlesImg,
   'roll-up-printing-in-dubai': rollupImg,
   'roll-up-printing-dubai': rollupImg,
   'flags-printing-in-dubai': flagsImg,
@@ -204,8 +254,17 @@ export const categorySlugImageMap = {
   'lanyard-printing-dubai': badgesImg,
   'letterheads-printing-dubai': letterheadImg,
   'name-badges-printing-dubai': badgesImg,
-  'corporate-gift-items': mugsImg,
-  'office-stationery-printing': businessCardsImg,
+  'mug-printing-dubai': mugWhiteCeramicImg,
+  'bottle-printing-dubai': bottleSmartLedImg,
+  'luxury-packaging-boxes': serviceLuxuryPackagingImg,
+  'corporate-gift-items': luxuryCorporateGiftsDubaiImg,
+  'signage-banners-printing': serviceExhibitionSignageImg,
+  'custom-apparel-printing': img3,
+  'stickers-labels-printing': serviceStickersLabelsImg,
+  'catalogs-booklets-printing': brochureBookletImg,
+  'office-stationery-printing': serviceExecutiveStationeryImg,
+  'hospitality-event-printing': img14,
+  'promotional-drinkware-tech': bottlesImg,
   'other-products': rollupImg,
 }
 
@@ -230,56 +289,53 @@ const slugKeywordImageMap = [
   [['booklet', 'catalog', 'catalogue', 'lookbook'], brochureBookletImg],
   [['annual report', 'annual-report', 'company profile'], brochureBookletImg],
   [['brochure', 'leaflet', 'pamphlet'], brochureBifoldImg],
-  [['mug', 'cup', 'flask', 'tumbler'], mugsImg],
-  [['bottle', 'water bottle'], bottlesImg],
-  [['tote', 'shopper', 'bag'], toteBagsImg],
-  [['keychain', 'key-chain', 'keyring'], keychainImg],
-  [['flyer', 'pamphlet'], flyersImg],
-  [['name badge', 'name-badge', 'staff badge'], badgesImg],
-  [['name plate', 'nameplate', 'name-plate', 'door sign'], namePlatesImg],
-  [['id card', 'id-card', 'pvc card', 'employee card'], idCardsImg],
-  [['lanyard', 'neck strap'], badgesImg],
-  [['letterhead', 'business card', 'visiting card', 'stationery'], letterheadImg],
-  [['roll-up', 'rollup', 'banner', 'pull-up', 'backdrop'], rollupImg],
-  [['flag', 'beach flag', 'teardrop', 'feather flag'], flagsImg],
-  [['sticker', 'label', 'die-cut', 'vinyl'], serviceStickersLabelsImg],
-  [['notebook', 'diary', 'notepad'], img5],
-  [['pen', 'pencil', 'marker'], penPrintingImg],
-  [['t-shirt', 'tshirt', 'shirt', 'apparel', 'hoodie'], img3],
-  [['cap', 'hat', 'headwear'], img4],
-  [['mouse pad', 'mousepad', 'desk mat'], img2],
-  [['signage', 'exhibition', 'display board'], serviceExhibitionSignageImg],
-  [['presentation folder', 'pocket folder', 'proposal folder'], img9],
-  [['raised ink', 'thermography'], velvetFoilBusinessCardImg],
-  [['plastic card', 'pvc card', 'clear card', 'frosted card'], softTouchBusinessCardImg],
-  [['door hanger', 'door-knob', 'doorknob'], flyersImg],
-  [['postcard', 'direct mail', 'a6 card', 'a5 card'], img3],
-  [['student id', 'school id', 'university id'], idCardsImg],
-  [['access control', 'rfid card', 'mifare', 'nfc card', 'hid card'], img4],
-  [['visitor pass', 'visitor badge', 'temporary badge'], badgesImg],
-  [['usb', 'flash drive', 'usb stick', 'thumb drive'], img2],
-  [['gift set', 'welcome kit', 'curated gift'], serviceCorporateGiftsImg],
-  [['power bank', 'portable charger', 'power station'], bottlesImg],
-  [['envelope', 'dl envelope', 'c4 envelope', 'c5 envelope'], letterheadImg],
-  [['stationery set', 'stationery kit', 'welcome kit'], serviceExecutiveStationeryImg],
-  [['foam board', 'foamcore', 'kappa board'], img9],
-  [['metal sign', 'plaque', 'aluminum sign', 'brass sign', 'stainless sign'], namePlatesImg],
-  [['acrylic wall', 'frosted acrylic', 'acrylic logo', '3d letter'], img12],
-  [['calendar', 'diary', 'planner', 'tent calendar'], img7],
-  [['greeting card', 'corporate eid', 'diwali card', 'holiday card'], img6],
-  [['paper bag', 'kraft bag', 'shopping bag', 'takeaway bag'], toteBagsImg],
-  [['food packaging', 'burger box', 'bakery box', 'cake box', 'meal container'], img13],
-  [['restaurant menu', 'menu card', 'menu book', 'cafe menu'], brochureZfoldImg],
-  [['wedding invitation', 'invitation suite', 'wedding card', 'save the date'], img15],
-  [['t-shirt', 'tshirt', 'tee shirt', 'uniform shirt', 'staff shirt'], img3],
-  [['cap', 'hat', 'beanie', 'trucker', 'baseball cap'], img4],
-  [['mouse pad', 'mousepad', 'desk mat', 'gel wrist'], img2],
+
+  // Specific Mug Keywords
+  [['magic heat', 'heat sensitive', 'magic mug', 'color changing mug'], mugMagicHeatImg],
+  [['two-tone', 'two tone', 'accent mug', 'colored interior'], mugTwoToneImg],
+  [['matte black mug', 'executive mug', 'gold crest mug', 'black ceramic mug'], mugMatteBlackGoldImg],
+  [['travel mug', 'tumbler', 'travel tumbler', 'flip lid'], mugTravelTumblerImg],
+  [['enamel mug', 'camping mug', 'vintage enamel'], mugVintageEnamelImg],
+  [['white ceramic', 'sublimation mug', 'ceramic mug', 'coffee mug', 'mug'], mugWhiteCeramicImg],
+
+  // Specific Bottle Keywords
+  [['smart led', 'led temperature', 'digital flask', 'temperature bottle', 'aquasmart'], bottleSmartLedImg],
+  [['matte thermal', 'matte stainless', 'apex hydration', 'matte bottle'], bottleMatteThermalImg],
+  [['sports bottle', 'aluminium bottle', 'aluminum bottle', 'carabiner', 'fuel the run'], bottleSportsAluminiumImg],
+  [['glass bottle', 'bamboo lid', 'silicone sleeve', 'pure eco', 'borosilicate'], bottleGlassBambooImg],
+  [['protein shaker', 'shaker bottle', 'gym bottle', 'core elite'], bottleProteinShakerImg],
+  [['copper insulated', 'copper flask', 'executive edition', 'luxury bottle', 'copper bottle'], bottleLuxuryCopperImg],
+  [['bottle', 'flask', 'drinkware', 'water bottle'], bottleSmartLedImg],
+
+  [['business card', 'visiting card', 'card printing'], businessCardsImg],
+  [['flyer', 'leaflet', 'handbill'], flyersImg],
+  [['tote bag', 'canvas bag', 'shopping bag', 'cotton bag'], toteBagsImg],
+  [['roll-up', 'rollup', 'pull-up banner', 'retractable banner'], rollupImg],
+  [['id card', 'pvc card', 'badge card', 'smart card'], idCardsImg],
+  [['lanyard', 'neck strap', 'ribbon'], badgesImg],
+  [['name badge', 'name tag', 'magnetic badge', 'staff badge'], badgesImg],
+  [['nameplate', 'name plate', 'door sign', 'desk sign'], namePlatesImg],
+  [['sticker', 'label', 'decal'], serviceStickersLabelsImg],
+  [['flag', 'beach flag', 'feather flag', 'teardrop'], flagsImg],
+  [['keychain', 'key ring', 'keyring'], keychainImg],
+  [['letterhead', 'stationery', 'official paper'], letterheadImg],
 ]
 
-export function getProductImage(product) {
+/**
+ * Robust product image resolver.
+ * Priority order:
+ *  1. If product has a dedicated slug mapping AND raw image is a generic seed/placeholder, prefer slug mapping
+ *  2. Explicit URL on product (if valid, non-placeholder, and non-generic)
+ *  3. Explicit imageKey matching productImages
+ *  4. Product slug exact match in productSlugImageMap
+ *  5. Keyword fuzzy match in slug/name
+ *  6. Category slug match in categorySlugImageMap
+ *  7. Fallback to generic product shot
+ */
+export function resolveProductImage(product) {
   if (!product) return img1
 
-  // 1. If product slug has an exact match in productSlugImageMap, check if it's a dedicated image
+  // 1. If we have a dedicated product slug mapping, check whether the raw image is a known generic placeholder
   if (product.slug && productSlugImageMap[product.slug]) {
     const slugImg = productSlugImageMap[product.slug]
     const rawImg = product.image_url || product.image || (product.images && product.images[0])
@@ -387,55 +443,26 @@ export function getAllProductCategoryImages(product) {
   return result
 }
 
-export function getBlogCoverImage(blog) {
-  if (!blog) return luxuryBusinessCardsDubaiImg
+// Canonical alias for components expecting getProductImage
+export const getProductImage = resolveProductImage
 
-  const slug = (blog.slug || '').toLowerCase()
-  const title = (blog.title || '').toLowerCase()
-  const rawImg = blog.featured_image || blog.featuredImage || ''
-
-  if (slug.includes('business-card') || title.includes('business card')) {
-    return luxuryBusinessCardsDubaiImg
+/**
+ * Resolver for blog cover images
+ */
+export function getBlogCoverImage(post) {
+  if (!post) return img1
+  const raw = post.featured_image || post.cover_image || post.image_url || post.image
+  if (typeof raw === 'string' && raw.trim() !== '' && !raw.includes('trae.ai')) {
+    return raw
   }
-  if (
-    slug.includes('corporate-gift') ||
-    title.includes('corporate gift') ||
-    slug.includes('promotional-corporate-gifting') ||
-    title.includes('promotional corporate gifting')
-  ) {
-    return luxuryCorporateGiftsDubaiImg
+  if (post.category_slug && categorySlugImageMap[post.category_slug]) {
+    return categorySlugImageMap[post.category_slug]
   }
-  if (
-    slug.includes('choosing-printing-company') ||
-    slug.includes('commercial-printing') ||
-    slug.includes('digital-vs-offset') ||
-    title.includes('commercial printing') ||
-    title.includes('digital vs offset')
-  ) {
-    return serviceDigitalOffsetImg
+  if (post.product_slug && productSlugImageMap[post.product_slug]) {
+    return productSlugImageMap[post.product_slug]
   }
-  if (slug.includes('retail-packaging') || title.includes('retail packaging')) {
-    return serviceLuxuryPackagingImg
-  }
-  if (slug.includes('roll-up') || title.includes('roll-up') || slug.includes('exhibition') || title.includes('exhibition')) {
-    return serviceExhibitionSignageImg
-  }
-  if (slug.includes('sticker') || title.includes('sticker')) {
-    return serviceStickersLabelsImg
-  }
-  if (slug.includes('brochure') || title.includes('brochure')) {
-    return brochuresImg
-  }
-
-  // Handle old numbered asset fallback replacements
-  if (typeof rawImg === 'string') {
-    if (rawImg.includes('1 (7).jpg') || rawImg.includes('1%20(7).jpg')) return luxuryBusinessCardsDubaiImg
-    if (rawImg.includes('1 (1).jpg') || rawImg.includes('1%20(1).jpg')) return luxuryCorporateGiftsDubaiImg
-    if (rawImg.includes('1 (9).jpg') || rawImg.includes('1%20(9).jpg')) return serviceDigitalOffsetImg
-    if (rawImg.trim() !== '') return rawImg
-  }
-
-  return luxuryBusinessCardsDubaiImg
+  return img1
 }
 
-export { categoryImageMap }
+export default resolveProductImage
+

@@ -61,10 +61,13 @@ import SeoExperimentsTab from './SeoExperimentsTab'
 import SeoContentGapDecayTab from './SeoContentGapDecayTab'
 import SeoBrandMentionsTab from './SeoBrandMentionsTab'
 import SeoMonthlyReportTab from './SeoMonthlyReportTab'
+import SeoTasksTab from './SeoTasksTab'
+import TopicalAuthorityTab from './TopicalAuthorityTab'
 import {
   getSeoDashboard,
   getSeoAudit,
   triggerSeoAudit,
+  autoFixAuditIssues,
   getSeoRecommendations,
   triggerAiAnalysis,
   approveRecommendation,
@@ -377,6 +380,8 @@ export default function AdminSeoManagerPage() {
   const [selectedRec, setSelectedRec] = useState(null)
   const [reviewNotes, setReviewNotes] = useState('')
   const [copiedKey, setCopiedKey] = useState(false)
+  const [autoFixing, setAutoFixing] = useState(false)
+  const [autoFixResult, setAutoFixResult] = useState(null)
 
   // Form states for Settings & GSC
   const [settingsForm, setSettingsForm] = useState({
@@ -840,6 +845,24 @@ export default function AdminSeoManagerPage() {
     }
   }
 
+  const handleAutoFixIssues = async () => {
+    setAutoFixing(true)
+    try {
+      const res = await autoFixAuditIssues()
+      if (res?.success) {
+        setAutoFixResult(res)
+        showToast(res.message || `Auto-fixed ${res.fixedCount || 0} issues!`)
+        handleTriggerAudit()
+      } else {
+        showToast(res?.message || 'Auto-fix failed', 'error')
+      }
+    } catch (err) {
+      showToast('Auto-fix error: ' + (err.response?.data?.message || err.message), 'error')
+    } finally {
+      setAutoFixing(false)
+    }
+  }
+
   const handleTriggerAi = async () => {
     setActionLoading(true)
     try {
@@ -1098,6 +1121,8 @@ export default function AdminSeoManagerPage() {
 
   const tabs = [
     { id: 'overview', label: 'Overview & Health', icon: BarChart3 },
+    { id: 'tasks', label: 'SEO Tasks Queue', icon: CheckCircle2 },
+    { id: 'topical-map', label: 'Topical Map (Clusters A–T)', icon: Layers },
     { id: 'inventory', label: 'Site Inventory & Crawl', icon: Layers },
     { id: 'conversions', label: 'Organic Conversions', icon: TrendingUp },
     { id: 'redirects', label: 'Redirects & 404s', icon: RotateCcw },
@@ -2419,17 +2444,61 @@ export default function AdminSeoManagerPage() {
                   Categorized by severity and impact on crawling, indexing, and CTR.
                 </p>
               </div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleTriggerAudit}
-                disabled={actionLoading}
-                className="text-xs font-bold"
-              >
-                <RefreshCw className={`h-3.5 w-3.5 mr-1 ${actionLoading ? 'animate-spin' : ''}`} />
-                Re-Scan All
-              </Button>
+              <div className="flex flex-wrap items-center gap-2">
+                <Button
+                  variant="accent"
+                  size="sm"
+                  onClick={handleAutoFixIssues}
+                  disabled={autoFixing || actionLoading}
+                  className="text-xs font-bold bg-emerald-700 hover:bg-emerald-800 border-emerald-700 text-white"
+                >
+                  <Sparkles className={`h-3.5 w-3.5 mr-1 ${autoFixing ? 'animate-spin' : ''}`} />
+                  {autoFixing ? 'Auto-Fixing…' : 'Auto-Fix Safe Issues'}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleTriggerAudit}
+                  disabled={actionLoading}
+                  className="text-xs font-bold"
+                >
+                  <RefreshCw className={`h-3.5 w-3.5 mr-1 ${actionLoading ? 'animate-spin' : ''}`} />
+                  Re-Scan All
+                </Button>
+              </div>
             </div>
+
+            {/* Auto-Fix Results Banner */}
+            {autoFixResult && (
+              <div className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50/90 p-4 text-xs text-emerald-900 flex items-start justify-between gap-3">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="font-bold text-sm block">Auto-Remediation Executed Successfully</strong>
+                    <p className="mt-0.5 text-neutral-700">{autoFixResult.message}</p>
+                    {autoFixResult.fixes?.length > 0 && (
+                      <div className="mt-2 space-y-1">
+                        <span className="text-[11px] font-bold text-neutral-600 uppercase tracking-wider block">
+                          Applied Fixes ({autoFixResult.fixes.length}):
+                        </span>
+                        <ul className="list-disc pl-4 space-y-0.5 text-[11px] text-neutral-600 font-mono">
+                          {autoFixResult.fixes.slice(0, 8).map((f, i) => (
+                            <li key={i}>{f.action}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setAutoFixResult(null)}
+                  className="text-emerald-600 hover:text-emerald-900 p-1 text-sm font-bold"
+                >
+                  ✕
+                </button>
+              </div>
+            )}
 
             <div className="mt-4 divide-y divide-neutral-100">
               {auditData?.issues?.length > 0 ? (
@@ -4898,6 +4967,20 @@ export default function AdminSeoManagerPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAB: SEO TASKS QUEUE (Requirement 22 & 38)                                */}
+      {/* ========================================================================= */}
+      {activeTab === 'tasks' && (
+        <SeoTasksTab showToast={showToast} />
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAB: TOPICAL AUTHORITY MAP (Requirement 4 & 11)                           */}
+      {/* ========================================================================= */}
+      {activeTab === 'topical-map' && (
+        <TopicalAuthorityTab showToast={showToast} />
       )}
 
       {/* Page SEO Editor Modal */}

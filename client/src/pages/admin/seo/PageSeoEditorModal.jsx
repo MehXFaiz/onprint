@@ -25,7 +25,7 @@ export default function PageSeoEditorModal({
   onSaved,
   onOpenAiAnalysis,
 }) {
-  const [activeTab, setActiveTab] = useState('meta') // 'meta' | 'social' | 'schema' | 'history'
+  const [activeTab, setActiveTab] = useState('meta') // 'meta' | 'geo' | 'social' | 'schema' | 'history'
   const [formData, setFormData] = useState({})
   const [history, setHistory] = useState([])
   const [loadingHistory, setLoadingHistory] = useState(false)
@@ -43,6 +43,11 @@ export default function PageSeoEditorModal({
         canonical_url: page.canonical_url || '',
         robots_index: page.robots_index || 'index',
         robots_follow: page.robots_follow || 'follow',
+        search_intent: page.search_intent || 'Commercial',
+        focus_entity: page.focus_entity || '',
+        related_entities: page.related_entities || '',
+        seo_content: page.seo_content || '',
+        faq_content: typeof page.faq_content === 'object' ? JSON.stringify(page.faq_content, null, 2) : (page.faq_content || ''),
         og_title: page.og_title || page.meta_title || '',
         og_description: page.og_description || page.meta_description || '',
         og_image: page.og_image || '',
@@ -93,6 +98,22 @@ export default function PageSeoEditorModal({
         }
       }
 
+      // Validate FAQ content JSON if provided
+      if (formData.faq_content && formData.faq_content.trim()) {
+        try {
+          const parsed = JSON.parse(formData.faq_content)
+          if (!Array.isArray(parsed)) {
+            setStatusMessage({ type: 'error', text: 'FAQ Content must be a valid JSON array of { question, answer } objects.' })
+            setSaving(false)
+            return
+          }
+        } catch {
+          setStatusMessage({ type: 'error', text: 'FAQ Content contains invalid JSON syntax.' })
+          setSaving(false)
+          return
+        }
+      }
+
       const res = await updatePageSeo(page.id, formData)
       if (res?.success) {
         setStatusMessage({ type: 'success', text: 'Page SEO saved successfully!' })
@@ -127,6 +148,11 @@ export default function PageSeoEditorModal({
           canonical_url: res.data.canonical_url || '',
           robots_index: res.data.robots_index || 'index',
           robots_follow: res.data.robots_follow || 'follow',
+          search_intent: res.data.search_intent || 'Commercial',
+          focus_entity: res.data.focus_entity || '',
+          related_entities: res.data.related_entities || '',
+          seo_content: res.data.seo_content || '',
+          faq_content: typeof res.data.faq_content === 'object' ? JSON.stringify(res.data.faq_content, null, 2) : (res.data.faq_content || ''),
           og_title: res.data.og_title || '',
           og_description: res.data.og_description || '',
           og_image: res.data.og_image || '',
@@ -223,7 +249,18 @@ export default function PageSeoEditorModal({
             }`}
           >
             <Tag className="h-3.5 w-3.5" />
-            Core Meta &amp; Content
+            Core Meta
+          </button>
+          <button
+            onClick={() => setActiveTab('geo')}
+            className={`py-3 text-xs font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
+              activeTab === 'geo'
+                ? 'border-[#A82F19] text-[#A82F19]'
+                : 'border-transparent text-neutral-500 hover:text-neutral-800'
+            }`}
+          >
+            <Sparkles className="h-3.5 w-3.5" />
+            GEO &amp; Entities
           </button>
           <button
             onClick={() => setActiveTab('social')}
@@ -452,7 +489,141 @@ export default function PageSeoEditorModal({
             </div>
           )}
 
-          {/* TAB 2: OPEN GRAPH & TWITTER */}
+          {/* TAB 2: GEO & TOPICAL ENTITIES */}
+          {activeTab === 'geo' && (
+            <div className="space-y-5">
+              {/* Intent and Entities Card */}
+              <div className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-4">
+                <div className="flex items-center gap-2 mb-1">
+                  <Sparkles className="h-4 w-4 text-[#A82F19]" />
+                  <h3 className="font-bold text-xs text-neutral-800">
+                    Search Intent &amp; Knowledge Graph Entities
+                  </h3>
+                </div>
+                <p className="text-[11px] text-neutral-500">
+                  Align this URL with generative AI discovery engines (ChatGPT, Perplexity, Google AI Overviews) and Google Knowledge Graph.
+                </p>
+              </div>
+
+              {/* Search Intent & Focus Entity */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-neutral-800 mb-1.5">
+                    Search Intent
+                  </label>
+                  <select
+                    value={formData.search_intent}
+                    onChange={(e) => handleInputChange('search_intent', e.target.value)}
+                    className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs text-neutral-900 font-bold focus:border-[#A82F19] focus:outline-none"
+                  >
+                    <option value="Commercial">Commercial (Evaluating printing/packaging suppliers)</option>
+                    <option value="Transactional">Transactional (Ready to order, request quote, or purchase)</option>
+                    <option value="Informational">Informational (Educational guides, specs, techniques)</option>
+                    <option value="Navigational">Navigational (Direct brand or portal lookup)</option>
+                  </select>
+                  <p className="mt-1 text-[11px] text-neutral-400">
+                    Determines content tone, depth, and CTA placement.
+                  </p>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-neutral-800 mb-1.5">
+                    Focus Entity
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.focus_entity}
+                    onChange={(e) => handleInputChange('focus_entity', e.target.value)}
+                    placeholder="e.g., Luxury Business Card Printing Dubai"
+                    className="w-full rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19] focus:outline-none"
+                  />
+                  <p className="mt-1 text-[11px] text-neutral-400">
+                    Primary real-world topic/entity recognized by search engines.
+                  </p>
+                </div>
+              </div>
+
+              {/* Related Semantic Entities */}
+              <div>
+                <label className="block text-xs font-bold text-neutral-800 mb-1.5">
+                  Related Semantic Entities
+                </label>
+                <textarea
+                  rows={2}
+                  value={formData.related_entities}
+                  onChange={(e) => handleInputChange('related_entities', e.target.value)}
+                  placeholder="e.g., Al Quoz Industrial Area 3, Heidelberg Speedmaster, 450gsm silk artboard, Hot foil stamping, Spot UV, Blind debossing, DIFC corporate stationery"
+                  className="w-full rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19] focus:outline-none"
+                />
+                <p className="mt-1 text-[11px] text-neutral-400">
+                  Comma-separated co-occurring entities, machinery, certifications, materials, and Dubai geographic entities.
+                </p>
+              </div>
+
+              {/* Long-form SEO / GEO Body Content */}
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="text-xs font-bold text-neutral-800">
+                    SEO &amp; GEO Deep Body Content
+                  </label>
+                  <span className="text-[11px] font-mono text-neutral-400">
+                    {formData.seo_content?.length || 0} characters
+                  </span>
+                </div>
+                <textarea
+                  rows={6}
+                  value={formData.seo_content}
+                  onChange={(e) => handleInputChange('seo_content', e.target.value)}
+                  placeholder="Comprehensive, authoritative content block highlighting Dubai production capabilities, technical specs, turnaround times, and local relevance..."
+                  className="w-full rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19] focus:outline-none"
+                />
+                <p className="mt-1 text-[11px] text-neutral-400">
+                  Authoritative paragraphs addressing search intent, answering technical specifications, and strengthening topical coverage.
+                </p>
+              </div>
+
+              {/* FAQ Content (JSON Array) */}
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="text-xs font-bold text-neutral-800">
+                    Page FAQ Content (JSON Array)
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (!formData.faq_content || formData.faq_content.trim() === '') {
+                        const sampleFaq = [
+                          {
+                            question: `What is the turnaround time for this service in Dubai?`,
+                            answer: `Standard production takes 24 to 48 hours at our Al Quoz industrial press. Same-day express printing is also available across Dubai for print-ready files approved by 11:00 AM.`,
+                          },
+                          {
+                            question: `Can I inspect physical material samples before placing an order?`,
+                            answer: `Yes, you can visit our facility in Al Quoz Industrial Area 3, Dubai, or request a free ONPRINT sample kit delivered to your UAE office.`,
+                          },
+                        ]
+                        handleInputChange('faq_content', JSON.stringify(sampleFaq, null, 2))
+                      }
+                    }}
+                    className="text-[11px] font-bold text-[#A82F19] hover:underline cursor-pointer"
+                  >
+                    Insert Sample FAQ Template
+                  </button>
+                </div>
+                <textarea
+                  rows={6}
+                  value={formData.faq_content}
+                  onChange={(e) => handleInputChange('faq_content', e.target.value)}
+                  placeholder={`[\n  {\n    "question": "What is the turnaround time?",\n    "answer": "Standard turnaround is 24-48 hours in Dubai."\n  }\n]`}
+                  className="w-full font-mono text-xs rounded-xl border border-neutral-300 p-3.5 bg-neutral-900 text-amber-300 focus:border-[#A82F19] focus:outline-none leading-relaxed"
+                />
+                <p className="mt-1 text-[11px] text-neutral-400">
+                  Formatted answer-first Q&amp;A pairs automatically injected into page schema and visible FAQ sections.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: OPEN GRAPH & TWITTER */}
           {activeTab === 'social' && (
             <div className="space-y-5">
               <div className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-4">

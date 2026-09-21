@@ -481,3 +481,46 @@ export async function getMonthlyReport(year, month) {
   const { data } = await api.get('/seo/monthly-report', { params: { year, month } })
   return data
 }
+
+// Auto-Fix Safe Audit Issues (Requirement 1 & 22)
+export async function autoFixAuditIssues() {
+  const { data } = await api.post('/seo/audit/auto-fix')
+  return data
+}
+
+// SEO Tasks Management (Requirement 22 & 38)
+export async function getSeoTasks(params = {}) {
+  const { data } = await api.get('/seo/tasks', { params })
+  return data
+}
+
+export async function createSeoTask(payload) {
+  const { data } = await api.post('/seo/tasks', payload)
+  return data
+}
+
+export async function updateSeoTask(id, payload) {
+  const { data } = await api.put(`/seo/tasks/${id}`, payload)
+  return data
+}
+
+export async function deleteSeoTask(id) {
+  const { data } = await api.delete(`/seo/tasks/${id}`)
+  return data
+}
+
+export async function generateSeoTasks() {
+  const { data } = await api.post('/seo/tasks/generate')
+  return data
+}
+
+// AI GEO & SEO Content / FAQ Generators (Requirement 7, 12 & 27)
+export async function generateContentBrief(payload) {
+  const { data } = await api.post('/seo/ai/content-brief', payload)
+  return data
+}
+
+export async function generateFaqIdeas(payload) {
+  const { data } = await api.post('/seo/ai/faq-ideas', payload)
+  return data
+}

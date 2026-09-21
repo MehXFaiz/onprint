@@ -396,6 +396,11 @@ class PageSeoService {
       twitter_image: page.twitter_image || page.og_image || `${SITE_URL}/logo_icon.png`,
       schema_type: page.schema_type,
       schema_markup: page.schema_markup,
+      search_intent: page.search_intent || 'Commercial',
+      focus_entity: page.focus_entity || null,
+      related_entities: page.related_entities || null,
+      seo_content: page.seo_content || null,
+      faq_content: page.faq_content || null,
       seo_score: page.seo_score,
       readability_score: page.readability_score,
     }
@@ -429,6 +434,10 @@ class PageSeoService {
       'twitter_image',
       'schema_type',
       'schema_markup',
+      'search_intent',
+      'focus_entity',
+      'related_entities',
+      'faq_content',
     ]
 
     const changes = []

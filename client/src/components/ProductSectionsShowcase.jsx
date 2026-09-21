@@ -34,6 +34,25 @@ function isProductInCategory(product, category) {
     }
   }
 
+  // Strict guard & match for dedicated Mug Printing category
+  const isMugCategory = catSlug.includes('mug') || catName.includes('mug')
+  const isMugProduct = pName.includes('mug') || pSlug.includes('mug') || pName.includes('tumbler') || pSlug.includes('tumbler')
+  if (isMugCategory) {
+    return isMugProduct
+  }
+
+  // Strict guard & match for dedicated Bottle Printing category
+  const isBottleCategory = catSlug.includes('bottle') || catName.includes('bottle')
+  const isBottleProduct = pName.includes('bottle') || pSlug.includes('bottle') || pName.includes('flask') || pSlug.includes('flask') || pName.includes('shaker') || pSlug.includes('shaker')
+  if (isBottleCategory) {
+    return isBottleProduct
+  }
+
+  // Prevent mugs and bottles from polluting other sections (like lanyards or stationery)
+  if (isMugProduct || isBottleProduct) {
+    return false
+  }
+
   const prodCat = product.category
   if (prodCat && typeof prodCat === 'object') {
     const pCatId = String(prodCat._id || prodCat.id || '')

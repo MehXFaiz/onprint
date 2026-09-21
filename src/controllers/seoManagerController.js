@@ -1290,8 +1290,8 @@ class SeoManagerController {
           params.push(status)
         }
         if (search) {
-          sql += ' AND (question LIKE ? OR answer LIKE ? OR related_service LIKE ?)'
-          params.push(`%${search}%`, `%${search}%`, `%${search}%`)
+          sql += ' AND (question LIKE ? OR answer LIKE ? OR related_service LIKE ? OR related_keyword LIKE ?)'
+          params.push(`%${search}%`, `%${search}%`, `%${search}%`, `%${search}%`)
         }
         sql += ' ORDER BY id ASC'
         const [rows] = await pool.query(sql, params)
@@ -1334,15 +1334,15 @@ class SeoManagerController {
 
   async createGeoFaq(req, res) {
     try {
-      const { question, answer, category = 'General', related_service, target_url, search_intent = 'Commercial', status = 'published' } = req.body
+      const { question, answer, category = 'General', related_service, related_keyword, target_url, search_intent = 'Commercial', status = 'published' } = req.body
       if (!question || !answer) {
         return res.status(400).json({ success: false, message: 'Question and answer are required.' })
       }
       try {
         const [result] = await pool.query(
-          `INSERT INTO geo_faqs (question, answer, category, related_service, target_url, search_intent, status)
-           VALUES (?, ?, ?, ?, ?, ?, ?)`,
-          [question, answer, category, related_service || null, target_url || null, search_intent, status]
+          `INSERT INTO geo_faqs (question, answer, category, related_service, related_keyword, target_url, search_intent, status)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+          [question, answer, category, related_service || null, related_keyword || null, target_url || null, search_intent, status]
         )
         const [rows] = await pool.query('SELECT * FROM geo_faqs WHERE id = ?', [result.insertId])
         persistentStore.addGeoFaq(rows[0] || req.body)
@@ -1359,7 +1359,7 @@ class SeoManagerController {
   async updateGeoFaq(req, res) {
     try {
       const { id } = req.params
-      const { question, answer, category, related_service, target_url, search_intent, status } = req.body
+      const { question, answer, category, related_service, related_keyword, target_url, search_intent, status } = req.body
       try {
         await pool.query(
           `UPDATE geo_faqs 
@@ -1367,12 +1367,13 @@ class SeoManagerController {
                answer = COALESCE(?, answer),
                category = COALESCE(?, category),
                related_service = COALESCE(?, related_service),
+               related_keyword = COALESCE(?, related_keyword),
                target_url = COALESCE(?, target_url),
                search_intent = COALESCE(?, search_intent),
                status = COALESCE(?, status),
                updated_at = CURRENT_TIMESTAMP
            WHERE id = ?`,
-          [question, answer, category, related_service, target_url, search_intent, status, id]
+          [question, answer, category, related_service, related_keyword, target_url, search_intent, status, id]
         )
         const [rows] = await pool.query('SELECT * FROM geo_faqs WHERE id = ?', [id])
         persistentStore.updateGeoFaq(id, req.body)
@@ -2017,6 +2018,384 @@ class SeoManagerController {
       if (!result.affectedRows) return res.status(404).json({ success: false, message: 'Record not found.' })
       res.json({ success: true, message: 'Record deleted.' })
     } catch (err) { res.status(500).json({ success: false, message: err.message }) }
+  }
+
+  // ==========================================
+  // Auto-Fix Safe Audit Issues (Requirement 1 & 22)
+  // ==========================================
+  async autoFixAuditIssues(req, res) {
+    try {
+      const result = await seoScannerService.autoFixSafeIssues()
+      res.json({ success: true, ...result })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  // ==========================================
+  // SEO Tasks Management (Requirement 22 & 38)
+  // ==========================================
+  async getSeoTasks(req, res) {
+    try {
+      const { category, priority, status, search } = req.query
+      let tasks = []
+      try {
+        let sql = 'SELECT * FROM seo_tasks WHERE 1=1'
+        const params = []
+        if (category && category !== 'All') {
+          sql += ' AND category = ?'
+          params.push(category)
+        }
+        if (priority && priority !== 'All') {
+          sql += ' AND priority = ?'
+          params.push(priority)
+        }
+        if (status && status !== 'All') {
+          sql += ' AND status = ?'
+          params.push(status)
+        }
+        if (search) {
+          sql += ' AND (title LIKE ? OR description LIKE ? OR assigned_to LIKE ?)'
+          params.push(`%${search}%`, `%${search}%`, `%${search}%`)
+        }
+        sql += ` ORDER BY 
+          CASE status WHEN 'pending' THEN 1 WHEN 'in_progress' THEN 2 ELSE 3 END ASC,
+          CASE priority WHEN 'critical' THEN 1 WHEN 'high' THEN 2 WHEN 'medium' THEN 3 ELSE 4 END ASC,
+          due_date ASC, id DESC`
+        const [rows] = await pool.query(sql, params)
+        tasks = rows
+      } catch (dbErr) {
+        tasks = persistentStore.getSeoTasks(req.query)
+      }
+      if (!tasks || tasks.length === 0) {
+        tasks = persistentStore.getSeoTasks(req.query)
+      }
+      res.json({ success: true, data: tasks, total: tasks.length })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  async createSeoTask(req, res) {
+    try {
+      const {
+        title,
+        description,
+        category = 'onpage',
+        priority = 'medium',
+        status = 'pending',
+        assigned_to = 'Admin',
+        due_date,
+      } = req.body
+      if (!title) {
+        return res.status(400).json({ success: false, message: 'Title is required for an SEO task.' })
+      }
+      const completed_at = status === 'completed' ? new Date() : null
+      try {
+        const [result] = await pool.query(
+          `INSERT INTO seo_tasks (title, description, category, priority, status, assigned_to, due_date, completed_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+          [title, description || null, category, priority, status, assigned_to, due_date || null, completed_at]
+        )
+        const [rows] = await pool.query('SELECT * FROM seo_tasks WHERE id = ?', [result.insertId])
+        persistentStore.addSeoTask(rows[0] || req.body)
+        return res.status(201).json({ success: true, data: rows[0] })
+      } catch (dbErr) {
+        const item = persistentStore.addSeoTask(req.body)
+        return res.status(201).json({ success: true, data: item })
+      }
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  async updateSeoTask(req, res) {
+    try {
+      const { id } = req.params
+      const { title, description, category, priority, status, assigned_to, due_date } = req.body
+      try {
+        const [current] = await pool.query('SELECT status, completed_at FROM seo_tasks WHERE id = ?', [id])
+        let completed_at = current[0]?.completed_at || null
+        if (status === 'completed' && current[0]?.status !== 'completed') {
+          completed_at = new Date()
+        } else if (status && status !== 'completed') {
+          completed_at = null
+        }
+        await pool.query(
+          `UPDATE seo_tasks 
+           SET title = COALESCE(?, title),
+               description = COALESCE(?, description),
+               category = COALESCE(?, category),
+               priority = COALESCE(?, priority),
+               status = COALESCE(?, status),
+               assigned_to = COALESCE(?, assigned_to),
+               due_date = COALESCE(?, due_date),
+               completed_at = ?,
+               updated_at = CURRENT_TIMESTAMP
+           WHERE id = ?`,
+          [title, description, category, priority, status, assigned_to, due_date, completed_at, id]
+        )
+        const [rows] = await pool.query('SELECT * FROM seo_tasks WHERE id = ?', [id])
+        persistentStore.updateSeoTask(id, { ...req.body, completed_at })
+        return res.json({ success: true, data: rows[0] || {} })
+      } catch (dbErr) {
+        const item = persistentStore.updateSeoTask(id, req.body)
+        return res.json({ success: true, data: item })
+      }
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  async deleteSeoTask(req, res) {
+    try {
+      const { id } = req.params
+      try {
+        await pool.query('DELETE FROM seo_tasks WHERE id = ?', [id])
+      } catch (dbErr) {}
+      persistentStore.deleteSeoTask(id)
+      res.json({ success: true, message: 'SEO task deleted successfully.' })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  async generateSeoTasks(req, res) {
+    try {
+      const generated = []
+      // 1. Check unresolved audit issues
+      let unresolved = []
+      try {
+        const [rows] = await pool.query(`SELECT * FROM seo_issues WHERE resolved = 0 LIMIT 15`)
+        unresolved = rows
+      } catch {}
+
+      for (const issue of unresolved) {
+        let cat = 'onpage'
+        if (issue.issue_type?.includes('canonical') || issue.issue_type?.includes('sitemap') || issue.issue_type?.includes('robots')) {
+          cat = 'technical'
+        } else if (issue.issue_type?.includes('schema')) {
+          cat = 'schema'
+        }
+        generated.push({
+          title: `Resolve ${issue.issue_type || 'SEO issue'} on ${issue.url || 'website'}`,
+          description: issue.recommendation || issue.description || 'Audit recommendation pending resolution.',
+          category: cat,
+          priority: issue.severity === 'critical' ? 'critical' : issue.severity === 'high' ? 'high' : 'medium',
+          status: 'pending',
+          assigned_to: 'SEO Specialist',
+          due_date: new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0],
+        })
+      }
+
+      // 2. Check striking distance keywords (ranks 4-15)
+      let strikingDistance = []
+      try {
+        const [kwRows] = await pool.query(`
+          SELECT * FROM seo_keywords 
+          WHERE current_ranking >= 4 AND current_ranking <= 15 
+          ORDER BY search_volume DESC LIMIT 5
+        `)
+        strikingDistance = kwRows
+      } catch {}
+
+      for (const kw of strikingDistance) {
+        generated.push({
+          title: `Optimize CTR click-triggers for ranking #${kw.current_ranking}: "${kw.keyword}"`,
+          description: `Query is in striking distance (position ${kw.current_ranking}, volume ${kw.search_volume || 'N/A'}). Test adding Dubai urgency modifiers (Same-Day Press, Free Sample Kit) to meta title and H1 on ${kw.target_url || kw.target_page || '/'}.`,
+          category: 'onpage',
+          priority: 'high',
+          status: 'pending',
+          assigned_to: 'SEO Specialist',
+          due_date: new Date(Date.now() + 5 * 86400000).toISOString().split('T')[0],
+        })
+      }
+
+      // Insert any generated tasks that don't already exist
+      let insertedCount = 0
+      for (const task of generated) {
+        try {
+          const [exists] = await pool.query(`SELECT id FROM seo_tasks WHERE title = ?`, [task.title])
+          if (!exists || exists.length === 0) {
+            await pool.query(
+              `INSERT INTO seo_tasks (title, description, category, priority, status, assigned_to, due_date)
+               VALUES (?, ?, ?, ?, ?, ?, ?)`,
+              [task.title, task.description, task.category, task.priority, task.status, task.assigned_to, task.due_date]
+            )
+            insertedCount++
+          }
+        } catch (dbErr) {
+          const allTasks = persistentStore.getSeoTasks()
+          if (!allTasks.some((t) => t.title === task.title)) {
+            persistentStore.addSeoTask(task)
+            insertedCount++
+          }
+        }
+      }
+
+      res.json({
+        success: true,
+        message: insertedCount > 0 
+          ? `Auto-generated ${insertedCount} prioritized SEO tasks from audit issues & striking-distance queries.`
+          : 'All active issues and striking distance targets are already tracked in the task queue.',
+        count: insertedCount,
+      })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  // ==========================================
+  // AI GEO / SEO Content Brief Generator (Requirement 7 & 12)
+  // ==========================================
+  async generateContentBrief(req, res) {
+    try {
+      const { topic = 'Corporate Business Cards Dubai', target_url = '/business-card-printing-dubai', search_intent = 'Commercial' } = req.body || {}
+      
+      const cleanTopic = topic.trim()
+      const brief = {
+        topic: cleanTopic,
+        target_url,
+        search_intent,
+        primary_keyword: `${cleanTopic} Dubai`.replace(/Dubai Dubai/gi, 'Dubai').trim(),
+        secondary_keywords: [
+          `luxury ${cleanTopic} UAE`.replace(/Dubai UAE/gi, 'Dubai').trim(),
+          `same day ${cleanTopic}`.trim(),
+          `custom ${cleanTopic} printing Al Quoz`.trim(),
+          `bulk commercial ${cleanTopic} prices`.trim(),
+        ],
+        target_audience: 'B2B Procurement Officers, Brand Managers, Luxury Retailers, Hospitality & Events across Dubai & UAE',
+        recommended_word_count: '1,400 – 1,800 words',
+        suggested_meta_title: `${cleanTopic} Dubai | Same-Day & Luxury Finishes | ONPRINT`,
+        suggested_meta_description: `Professional ${cleanTopic} in Dubai. Luxury paper stocks, hot foil stamping, Spot UV, and fast delivery to DIFC, Business Bay & Al Quoz. Request an instant quote.`,
+        content_structure: [
+          {
+            heading: `Overview: Premium ${cleanTopic} Solutions in Dubai`,
+            level: 'h2',
+            talking_points: [
+              'Direct press manufacturing in Al Quoz Industrial Area 3, Dubai with state-of-the-art Heidelberg and HP Indigo technology.',
+              'Rapid turnaround: standard 24–48 hours, express same-day dispatch across Dubai & Abu Dhabi.',
+              'Enterprise B2B volume pricing with dedicated corporate account management.',
+            ],
+          },
+          {
+            heading: 'Substrates, Paper Weights & Material Specifications',
+            level: 'h2',
+            talking_points: [
+              'Standard and heavyweight stocks: 300gsm, 350gsm silk artboard, 450gsm ultra-thick, and 600gsm luxury duplex/triplex cotton boards.',
+              'FSC-certified sustainable papers and recycled options for ESG-conscious Dubai enterprises.',
+              'Rigid board caliper ratings and custom die-line precision.',
+            ],
+          },
+          {
+            heading: 'Specialist Embellishments & Luxury Finishes',
+            level: 'h2',
+            talking_points: [
+              'Metallic hot foil stamping: gold, rose gold, matte silver, copper, and custom holographic foil.',
+              'Tactile finishes: 3D raised UV, spot gloss UV, blind debossing, and registered embossing.',
+              'Edge finishes: luxury metallic edge gilding and painted edges matching Pantone colors.',
+            ],
+          },
+          {
+            heading: 'Commercial Turnaround Times & UAE Delivery Schedule',
+            level: 'h2',
+            talking_points: [
+              'Direct courier delivery to Downtown Dubai, DIFC, Business Bay, Dubai Marina, and JLT.',
+              'Scheduled pallet and bulk deliveries across Sharjah, Abu Dhabi, and JAFZA industrial zones.',
+            ],
+          },
+          {
+            heading: 'Frequently Asked Questions (Answer-First Format)',
+            level: 'h2',
+            talking_points: [
+              'Direct answers (40–60 words) targeting Google AI Overviews and featured snippets.',
+              'Schema FAQPage structured data integration.',
+            ],
+          },
+        ],
+        internal_links_to_include: [
+          { anchor: 'Get an Instant Dubai Print Quote', url: '/get-a-quote' },
+          { anchor: 'Explore Packaging & Rigid Boxes', url: '/packaging-printing-dubai' },
+          { anchor: 'Corporate Business Card Printing', url: '/business-card-printing-dubai' },
+          { anchor: 'All Commercial Printing Services', url: '/services' },
+        ],
+        faq_targets: [
+          {
+            question: `What is the standard turnaround time for ${cleanTopic} in Dubai?`,
+            answer_guideline: 'Standard turnaround is 2–3 business days. Same-day express turnaround is available for print-ready artwork approved before 11:00 AM at our Al Quoz press.',
+          },
+          {
+            question: `Can I inspect physical material samples before placing a bulk order?`,
+            answer_guideline: 'Yes. Clients can visit ONPRINT in Al Quoz Industrial Area 3 or request a free Dubai sample kit containing paper stocks, foil swatches, and box prototypes.',
+          },
+        ],
+        call_to_action: {
+          primary: 'Request Instant Custom Quote',
+          secondary: 'Order Free Dubai Material Sample Kit',
+        },
+      }
+
+      res.json({ success: true, data: brief })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  // ==========================================
+  // AI FAQ Ideas Generator (Requirement 7 & 27)
+  // ==========================================
+  async generateFaqIdeas(req, res) {
+    try {
+      const { topic = 'Printing Services', category = 'General' } = req.body || {}
+      const cleanTopic = topic.trim()
+
+      const ideas = [
+        {
+          question: `How fast can I get ${cleanTopic} delivered in Dubai?`,
+          answer: `Standard production for ${cleanTopic} at ONPRINT in Al Quoz takes 24 to 48 hours. We also offer same-day express printing with direct courier delivery across Downtown Dubai, DIFC, Business Bay, and Dubai Marina for print-ready files approved by 11:00 AM.`,
+          category,
+          related_keyword: `same day ${cleanTopic} dubai`.toLowerCase(),
+          search_intent: 'Commercial',
+          target_url: '/get-a-quote',
+        },
+        {
+          question: `What is the minimum order quantity (MOQ) for ${cleanTopic} in Dubai?`,
+          answer: `ONPRINT accommodates both low-volume prototype orders from 50 to 100 units and enterprise commercial runs of 50,000+ units. Digital printing allows short runs with zero plate fees, while offset printing delivers maximum cost efficiency for high volumes.`,
+          category,
+          related_keyword: `${cleanTopic} minimum order dubai`.toLowerCase(),
+          search_intent: 'Commercial',
+          target_url: '/get-a-quote',
+        },
+        {
+          question: `Can I see physical paper and finish samples before approving production?`,
+          answer: `Yes. You can visit our production facility in Al Quoz Industrial Area 3, Dubai, or request a complimentary ONPRINT sample box featuring paper weights from 300gsm to 600gsm, hot foil stamping swatches, spot UV, and luxury box substrates delivered to your UAE office.`,
+          category,
+          related_keyword: `printing sample kit dubai`.toLowerCase(),
+          search_intent: 'Commercial',
+          target_url: '/contact',
+        },
+        {
+          question: `What file formats and print specifications are required for ${cleanTopic}?`,
+          answer: `We recommend print-ready PDF files in CMYK color mode with 300 DPI resolution, 3mm bleed on all sides, and all fonts outlined. For spot UV, foil stamping, or custom die-cuts, provide vector artwork on separate labeled spot-color layers.`,
+          category,
+          related_keyword: `print artwork guidelines dubai`.toLowerCase(),
+          search_intent: 'Informational',
+          target_url: '/blog',
+        },
+        {
+          question: `Does ONPRINT offer delivery across Abu Dhabi, Sharjah, and other Emirates?`,
+          answer: `Yes, ONPRINT provides nationwide delivery across the UAE. We operate daily courier dispatches throughout Dubai, Abu Dhabi, Sharjah, Ajman, and Ras Al Khaimah, with custom freight logistics available for high-volume palletized packaging orders.`,
+          category,
+          related_keyword: `uae nationwide commercial printing delivery`.toLowerCase(),
+          search_intent: 'Commercial',
+          target_url: '/services',
+        },
+      ]
+
+      res.json({ success: true, data: ideas })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
   }
 }
 

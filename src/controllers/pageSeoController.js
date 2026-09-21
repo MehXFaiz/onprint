@@ -76,6 +76,10 @@ class PageSeoController {
         twitter_image,
         schema_type = 'WebPage',
         schema_markup,
+        search_intent = 'Commercial',
+        focus_entity = null,
+        related_entities = null,
+        faq_content = null,
       } = req.body
 
       if (!url) {
@@ -104,8 +108,8 @@ class PageSeoController {
 
       const [insertRes] = await pool.query(
         `INSERT INTO page_seo 
-         (page_type, page_id, url, slug, meta_title, meta_description, focus_keyword, secondary_keywords, h1, seo_content, canonical_url, robots_index, robots_follow, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, schema_type, schema_markup, seo_score, readability_score)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         (page_type, page_id, url, slug, meta_title, meta_description, focus_keyword, secondary_keywords, h1, seo_content, canonical_url, robots_index, robots_follow, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, schema_type, schema_markup, search_intent, focus_entity, related_entities, faq_content, seo_score, readability_score)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           page_type,
           page_id,
@@ -128,6 +132,10 @@ class PageSeoController {
           twitter_image || og_image,
           schema_type,
           schema_markup,
+          search_intent,
+          focus_entity,
+          related_entities,
+          faq_content,
           scoreResult.score,
           80,
         ]

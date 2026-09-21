@@ -257,6 +257,8 @@ const COMMERCIAL_STATIC_PATHS = new Set([
   '/large-format-printing-dubai',
   '/corporate-printing-dubai',
   '/promotional-printing-dubai',
+  '/mug-printing-dubai',
+  '/bottle-printing-dubai',
 ])
 
 const PUBLIC_STATIC_PATHS = new Set([
@@ -385,6 +387,20 @@ function createApp() {
   app.get('/product/:slug', (req, res) => res.redirect(301, `/products/${req.params.slug}`))
   app.get(['/track', '/orders/track', '/order-tracking', '/customer', '/account'], (req, res) => res.redirect(301, '/track-order'))
   app.get(['/login', '/register'], (req, res) => res.redirect(301, '/admin/login'))
+  app.get(['/quote', '/get-quote', '/quote-request', '/pricing'], (req, res) => res.redirect(301, '/get-a-quote'))
+
+  // Commercial Landing Page Aliases 301 Permanent Redirects
+  app.get('/business-card-printing', (req, res) => res.redirect(301, '/business-card-printing-dubai'))
+  app.get('/custom-packaging', (req, res) => res.redirect(301, '/custom-packaging-dubai'))
+  app.get('/packaging-printing', (req, res) => res.redirect(301, '/packaging-printing-dubai'))
+  app.get('/brochure-printing', (req, res) => res.redirect(301, '/brochure-printing-dubai'))
+  app.get('/flyer-printing', (req, res) => res.redirect(301, '/flyer-printing-dubai'))
+  app.get('/sticker-printing', (req, res) => res.redirect(301, '/sticker-printing-dubai'))
+  app.get('/label-printing', (req, res) => res.redirect(301, '/label-printing-dubai'))
+  app.get('/signage-printing', (req, res) => res.redirect(301, '/signage-printing-dubai'))
+  app.get('/large-format-printing', (req, res) => res.redirect(301, '/large-format-printing-dubai'))
+  app.get('/corporate-printing', (req, res) => res.redirect(301, '/corporate-printing-dubai'))
+  app.get('/promotional-printing', (req, res) => res.redirect(301, '/promotional-printing-dubai'))
 
   // Dynamic Database-Driven 301/302 Redirect Manager (Requirement 28)
   app.use(async (req, res, next) => {

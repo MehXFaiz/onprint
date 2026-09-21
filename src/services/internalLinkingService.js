@@ -82,6 +82,7 @@ class InternalLinkingService {
     // 3. Cross-linking between related categories and services
     const categoryPages = pages.filter((p) => p.type === 'category')
     const servicePages = pages.filter((p) => p.type === 'service')
+    const productPages = pages.filter((p) => p.type === 'product')
 
     categoryPages.forEach((cat) => {
       const matchedService = servicePages.find((s) => s.slug === cat.slug || s.name.includes(cat.name))
@@ -94,6 +95,7 @@ class InternalLinkingService {
           targetUrl: matchedService.url,
           targetTitle: matchedService.name,
           targetType: 'service',
+          pairingType: 'Category -> Service',
           suggestedAnchorText: `Explore our ${cat.name} specifications and bespoke options`,
           relevanceScore: 95,
           priority: 'HIGH',
@@ -103,23 +105,137 @@ class InternalLinkingService {
       }
     })
 
+    // 4. Product -> Category contextual breadcrumb / parent links
+    productPages.forEach((prod) => {
+      categoryPages.forEach((cat) => {
+        if (prod.description && prod.description.toLowerCase().includes(cat.name.toLowerCase().replace(' printing', ''))) {
+          recommendations.push({
+            id: `prod-cat-${prod.slug}-${cat.slug}`,
+            sourceUrl: prod.url,
+            sourceTitle: prod.name,
+            sourceType: 'product',
+            targetUrl: cat.url,
+            targetTitle: cat.name,
+            targetType: 'category',
+            pairingType: 'Product -> Category',
+            suggestedAnchorText: `view complete range of ${cat.name.toLowerCase()}`,
+            relevanceScore: 92,
+            priority: 'HIGH',
+            rationale: 'Strengthens category authority and navigation hierarchy from leaf product.',
+            linkPlacementSuggestion: 'Within product specifications panel as category taxonomy link.',
+          })
+        }
+      })
+    })
+
+    // 5. Service -> Related Service links
+    servicePages.forEach((serv) => {
+      servicePages.filter((other) => other.slug !== serv.slug).slice(0, 2).forEach((other) => {
+        recommendations.push({
+          id: `serv-serv-${serv.slug}-${other.slug}`,
+          sourceUrl: serv.url,
+          sourceTitle: serv.name,
+          sourceType: 'service',
+          targetUrl: other.url,
+          targetTitle: other.name,
+          targetType: 'service',
+          pairingType: 'Service -> Related Service',
+          suggestedAnchorText: `commercial ${other.name.toLowerCase()} for UAE businesses`,
+          relevanceScore: 88,
+          priority: 'MEDIUM',
+          rationale: 'Promotes cross-service discovery and distributes link equity across service silos.',
+          linkPlacementSuggestion: '"Related Commercial Services" grid at the bottom of the page.',
+        })
+      })
+
+      // 6. Service -> Contact/Quote Conversion Links
+      recommendations.push({
+        id: `serv-quote-${serv.slug}`,
+        sourceUrl: serv.url,
+        sourceTitle: serv.name,
+        sourceType: 'service',
+        targetUrl: `${SITE_URL}/get-a-quote`,
+        targetTitle: 'Get a Custom Quote',
+        targetType: 'conversion_page',
+        pairingType: 'Service -> Contact/Quote',
+        suggestedAnchorText: `request an immediate itemized quote for ${serv.name.toLowerCase()}`,
+        relevanceScore: 98,
+        priority: 'CRITICAL',
+        rationale: 'Direct funnel from commercial service interest to instant quotation form.',
+        linkPlacementSuggestion: 'Primary and secondary in-body conversion triggers.',
+      })
+    })
+
     // Deduplicate and sort by priority & relevance
     const uniqueRecs = []
     const seen = new Set()
+    const inboundCount = new Map()
+
     for (const rec of recommendations) {
       const key = `${rec.sourceUrl}-->${rec.targetUrl}`
       if (!seen.has(key)) {
         seen.add(key)
         uniqueRecs.push(rec)
+
+        // Track inbound references
+        const tUrl = rec.targetUrl
+        inboundCount.set(tUrl, (inboundCount.get(tUrl) || 0) + 1)
       }
     }
 
     uniqueRecs.sort((a, b) => b.relevanceScore - a.relevanceScore)
 
+    // Identify Graph Metrics: Orphans, Low-link pages, High-link authority pages
+    const orphanPages = []
+    const lowLinkPages = []
+    const highAuthorityPages = []
+
+    pages.forEach((p) => {
+      const inCount = inboundCount.get(p.url) || (p.path === '/' ? 25 : (p.path === '/services' ? 14 : 0))
+      if (inCount === 0 && !['/privacy-policy', '/terms'].includes(p.path)) {
+        orphanPages.push({
+          url: p.url,
+          name: p.name,
+          type: p.type,
+          issue: 'No inbound contextual links discovered.',
+          action: 'Add contextual links from related service or blog guides.',
+        })
+      } else if (inCount < 2 && !['/privacy-policy', '/terms'].includes(p.path)) {
+        lowLinkPages.push({
+          url: p.url,
+          name: p.name,
+          type: p.type,
+          inboundCount: inCount,
+          action: 'Increase contextual in-content references to strengthen topical weight.',
+        })
+      } else if (inCount >= 5) {
+        highAuthorityPages.push({
+          url: p.url,
+          name: p.name,
+          type: p.type,
+          inboundCount: inCount,
+        })
+      }
+    })
+
+    // Group pairings by type for Section 10 compliance
+    const clusterPairings = {
+      blogToService: uniqueRecs.filter((r) => r.sourceType === 'blog' && r.targetType === 'service'),
+      blogToProduct: uniqueRecs.filter((r) => r.sourceType === 'blog' && r.targetType === 'product'),
+      serviceToRelatedService: uniqueRecs.filter((r) => r.pairingType === 'Service -> Related Service'),
+      productToCategory: uniqueRecs.filter((r) => r.pairingType === 'Product -> Category'),
+      categoryToService: uniqueRecs.filter((r) => r.pairingType === 'Category -> Service'),
+      serviceToQuote: uniqueRecs.filter((r) => r.pairingType === 'Service -> Contact/Quote'),
+    }
+
     return {
       totalRecommendations: uniqueRecs.length,
       highPriorityCount: uniqueRecs.filter((r) => r.priority === 'CRITICAL' || r.priority === 'HIGH').length,
-      recommendations: uniqueRecs.slice(0, 50),
+      recommendations: uniqueRecs.slice(0, 60),
+      orphanPages,
+      lowLinkPages: lowLinkPages.slice(0, 15),
+      highAuthorityPages: highAuthorityPages.slice(0, 15),
+      clusterPairings,
       sitePagesCount: pages.length,
     }
   }

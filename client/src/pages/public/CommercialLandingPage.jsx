@@ -85,7 +85,7 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
           <Reveal delay={0.15}>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
-                to="/quote"
+                to="/get-a-quote"
                 className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-accent/90 hover:shadow-lg active:scale-[0.98]"
               >
                 <span>Request Custom Quote</span>
@@ -380,7 +380,7 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
             </div>
             <div className="flex flex-shrink-0 flex-col gap-3 sm:flex-row">
               <Link
-                to="/quote"
+                to="/get-a-quote"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-accent/90 active:scale-[0.98]"
               >
                 <span>Submit Quote Request</span>

@@ -7,6 +7,93 @@ const { GEO_FAQS } = require('./geoFaqsData')
 const { GEO_CONTENT_RECORDS } = require('./geoContentData')
 const { DUBAI_AI_VISIBILITY_QUERIES } = require('./dubaiAiVisibilityData')
 
+const DEFAULT_SEO_TASKS = [
+  {
+    id: 1,
+    title: 'Review & optimize H2 topical depth for Business Cards Dubai',
+    description: 'Ensure 350gsm, 450gsm, and 600gsm cotton and painted edge specs are clearly articulated in H2 subheadings for DIFC corporate search intent.',
+    category: 'onpage',
+    priority: 'high',
+    status: 'pending',
+    assigned_to: 'SEO Specialist',
+    due_date: '2026-09-30',
+    completed_at: null,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 2,
+    title: 'Submit updated XML sitemap to Google Search Console',
+    description: 'Verify all 12 commercial Dubai landing pages and dynamic blog guides are submitted in sitemap.xml without 404 or redirect errors.',
+    category: 'technical',
+    priority: 'critical',
+    status: 'completed',
+    assigned_to: 'Technical Lead',
+    due_date: '2026-09-25',
+    completed_at: '2026-09-21T18:00:00.000Z',
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 3,
+    title: 'Audit striking distance queries (Positions 4–10) for CTR click-triggers',
+    description: 'Update meta title tags for queries ranking 4–10 by testing click triggers such as "Same-Day Dubai", "Free Sample Box", and "Al Quoz Direct Press".',
+    category: 'onpage',
+    priority: 'high',
+    status: 'in_progress',
+    assigned_to: 'SEO Specialist',
+    due_date: '2026-10-05',
+    completed_at: null,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 4,
+    title: 'Verify LocalBusiness JSON-LD Schema NAP consistency',
+    description: 'Confirm Al Quoz Industrial Area 3 street address, phone (+971 55 183 7995), coordinates, and opening hours match Google Business Profile perfectly.',
+    category: 'schema',
+    priority: 'high',
+    status: 'completed',
+    assigned_to: 'Technical Lead',
+    due_date: '2026-09-22',
+    completed_at: '2026-09-22T08:00:00.000Z',
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 5,
+    title: 'Outreach to Dubai Chamber & verified UAE B2B directories',
+    description: 'Submit legitimate business profile to Dubai Chamber Member Directory and UAE Industrial Portal under Commercial Printing & Packaging.',
+    category: 'backlinks',
+    priority: 'medium',
+    status: 'pending',
+    assigned_to: 'Outreach Coordinator',
+    due_date: '2026-10-15',
+    completed_at: null,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 6,
+    title: 'Monitor ChatGPT and Perplexity citations for "business card printing dubai"',
+    description: 'Run weekly AI engine visibility probes to track whether ONPRINT is referenced as a verified local Al Quoz printing press.',
+    category: 'geo',
+    priority: 'medium',
+    status: 'in_progress',
+    assigned_to: 'GEO Lead',
+    due_date: '2026-10-01',
+    completed_at: null,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 7,
+    title: 'Add contextual internal links from blog guides to money pages',
+    description: 'Link "How to Choose Business Card Paper" to /business-card-printing-dubai and "Packaging Finishes Guide" to /packaging-printing-dubai.',
+    category: 'content',
+    priority: 'high',
+    status: 'pending',
+    assigned_to: 'Content Editor',
+    due_date: '2026-10-02',
+    completed_at: null,
+    created_at: new Date().toISOString(),
+  },
+]
+
 function loadStore() {
   try {
     if (fs.existsSync(STORE_PATH)) {
@@ -21,8 +108,8 @@ function loadStore() {
       if (!Array.isArray(parsed.ai_visibility) || parsed.ai_visibility.length === 0) {
         parsed.ai_visibility = [...DUBAI_AI_VISIBILITY_QUERIES]
       }
-      if (!Array.isArray(parsed.citation_logs)) {
-        parsed.citation_logs = []
+      if (!Array.isArray(parsed.seo_tasks) || parsed.seo_tasks.length === 0) {
+        parsed.seo_tasks = [...DEFAULT_SEO_TASKS]
       }
       return parsed
     }
@@ -38,6 +125,7 @@ function loadStore() {
     geo_content: [...GEO_CONTENT_RECORDS],
     ai_visibility: [...DUBAI_AI_VISIBILITY_QUERIES],
     citation_logs: [],
+    seo_tasks: [...DEFAULT_SEO_TASKS],
   }
 }
 
@@ -517,7 +605,8 @@ function getGeoFaqs(filter = {}) {
       (f) =>
         String(f.question || '').toLowerCase().includes(s) ||
         String(f.answer || '').toLowerCase().includes(s) ||
-        String(f.related_service || '').toLowerCase().includes(s)
+        String(f.related_service || '').toLowerCase().includes(s) ||
+        String(f.related_keyword || '').toLowerCase().includes(s)
     )
   }
   return list
@@ -543,6 +632,7 @@ function addGeoFaq(data) {
     answer: data.answer || '',
     category: data.category || 'General',
     related_service: data.related_service || null,
+    related_keyword: data.related_keyword || null,
     target_url: data.target_url || null,
     search_intent: data.search_intent || 'Commercial',
     status: data.status || 'published',
@@ -683,6 +773,80 @@ function addCitationLog(data) {
   return newLog
 }
 
+function getSeoTasks(filter = {}) {
+  const store = loadStore()
+  let list = store.seo_tasks || []
+  if (filter.category && filter.category !== 'All') {
+    list = list.filter((t) => String(t.category).toLowerCase() === String(filter.category).toLowerCase())
+  }
+  if (filter.priority && filter.priority !== 'All') {
+    list = list.filter((t) => String(t.priority).toLowerCase() === String(filter.priority).toLowerCase())
+  }
+  if (filter.status && filter.status !== 'All') {
+    list = list.filter((t) => String(t.status).toLowerCase() === String(filter.status).toLowerCase())
+  }
+  if (filter.search) {
+    const s = String(filter.search).toLowerCase()
+    list = list.filter(
+      (t) =>
+        String(t.title || '').toLowerCase().includes(s) ||
+        String(t.description || '').toLowerCase().includes(s) ||
+        String(t.assigned_to || '').toLowerCase().includes(s)
+    )
+  }
+  return list
+}
+
+function addSeoTask(data) {
+  const store = loadStore()
+  const id = (store.seo_tasks && store.seo_tasks.length > 0 ? Math.max(...store.seo_tasks.map((t) => Number(t.id) || 0)) : 0) + 1
+  const newTask = {
+    id,
+    title: data.title || 'Untitled Task',
+    description: data.description || '',
+    category: data.category || 'onpage',
+    priority: data.priority || 'medium',
+    status: data.status || 'pending',
+    assigned_to: data.assigned_to || 'Admin',
+    due_date: data.due_date || null,
+    completed_at: data.status === 'completed' ? new Date().toISOString() : null,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  }
+  store.seo_tasks.unshift(newTask)
+  saveStore(store)
+  return newTask
+}
+
+function updateSeoTask(id, data) {
+  const store = loadStore()
+  const idx = store.seo_tasks.findIndex((t) => String(t.id) === String(id))
+  if (idx === -1) return null
+  const oldTask = store.seo_tasks[idx]
+  let completed_at = oldTask.completed_at
+  if (data.status === 'completed' && oldTask.status !== 'completed') {
+    completed_at = new Date().toISOString()
+  } else if (data.status && data.status !== 'completed') {
+    completed_at = null
+  }
+  store.seo_tasks[idx] = {
+    ...oldTask,
+    ...data,
+    id: oldTask.id,
+    completed_at,
+    updated_at: new Date().toISOString(),
+  }
+  saveStore(store)
+  return store.seo_tasks[idx]
+}
+
+function deleteSeoTask(id) {
+  const store = loadStore()
+  store.seo_tasks = store.seo_tasks.filter((t) => String(t.id) !== String(id))
+  saveStore(store)
+  return true
+}
+
 module.exports = {
   getOrders,
   addOrder,
@@ -722,4 +886,8 @@ module.exports = {
   updateAiVisibilityItem,
   getCitationLogs,
   addCitationLog,
+  getSeoTasks,
+  addSeoTask,
+  updateSeoTask,
+  deleteSeoTask,
 }

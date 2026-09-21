@@ -54,11 +54,16 @@ export default function GeoFaqManagerTab({ showToast }) {
     category: 'General',
     target_url: '/',
     question: '',
+    answer: '',
     direct_answer: '',
     expanded_answer: '',
+    related_service: '',
+    related_keyword: '',
     keywords: '',
+    search_intent: 'Commercial',
     display_order: 0,
     is_active: 1,
+    status: 'published',
   }
   const [formData, setFormData] = useState(initialForm)
 
@@ -86,16 +91,18 @@ export default function GeoFaqManagerTab({ showToast }) {
       const matchSearch =
         !q ||
         faq.question?.toLowerCase().includes(q) ||
+        faq.answer?.toLowerCase().includes(q) ||
         faq.direct_answer?.toLowerCase().includes(q) ||
         faq.expanded_answer?.toLowerCase().includes(q) ||
         faq.target_url?.toLowerCase().includes(q) ||
+        faq.related_keyword?.toLowerCase().includes(q) ||
         faq.keywords?.toLowerCase().includes(q)
 
       const matchCat = categoryFilter === 'All' || faq.category === categoryFilter
       const matchStatus =
         statusFilter === 'All' ||
-        (statusFilter === 'Active' && (faq.is_active === 1 || faq.is_active === true)) ||
-        (statusFilter === 'Inactive' && (faq.is_active === 0 || faq.is_active === false))
+        (statusFilter === 'Active' && (faq.status === 'published' || faq.is_active === 1 || faq.is_active === true)) ||
+        (statusFilter === 'Inactive' && (faq.status !== 'published' && (faq.is_active === 0 || faq.is_active === false)))
 
       return matchSearch && matchCat && matchStatus
     })
@@ -103,13 +110,21 @@ export default function GeoFaqManagerTab({ showToast }) {
 
   const handleCreate = async (e) => {
     e.preventDefault()
-    if (!formData.question.trim() || !formData.direct_answer.trim()) {
+    const ans = (formData.answer || formData.direct_answer || '').trim()
+    if (!formData.question.trim() || !ans) {
       showToast?.('Please enter both question and direct answer', 'error')
       return
     }
     setActionLoading(true)
     try {
-      const res = await createGeoFaq(formData)
+      const payload = {
+        ...formData,
+        answer: ans,
+        direct_answer: ans,
+        related_keyword: formData.related_keyword || formData.keywords,
+        status: formData.is_active ? 'published' : 'draft',
+      }
+      const res = await createGeoFaq(payload)
       if (res?.success) {
         showToast?.('GEO FAQ created successfully!')
         setShowAddModal(false)
@@ -125,13 +140,21 @@ export default function GeoFaqManagerTab({ showToast }) {
 
   const handleUpdate = async (e) => {
     e.preventDefault()
-    if (!formData.question.trim() || !formData.direct_answer.trim()) {
+    const ans = (formData.answer || formData.direct_answer || '').trim()
+    if (!formData.question.trim() || !ans) {
       showToast?.('Please enter both question and direct answer', 'error')
       return
     }
     setActionLoading(true)
     try {
-      const res = await updateGeoFaq(editingItem.id, formData)
+      const payload = {
+        ...formData,
+        answer: ans,
+        direct_answer: ans,
+        related_keyword: formData.related_keyword || formData.keywords,
+        status: formData.is_active ? 'published' : 'draft',
+      }
+      const res = await updateGeoFaq(editingItem.id, payload)
       if (res?.success) {
         showToast?.('GEO FAQ updated successfully!')
         setEditingItem(null)
@@ -167,11 +190,16 @@ export default function GeoFaqManagerTab({ showToast }) {
       category: faq.category || 'General',
       target_url: faq.target_url || '/',
       question: faq.question || '',
-      direct_answer: faq.direct_answer || '',
+      answer: faq.answer || faq.direct_answer || '',
+      direct_answer: faq.answer || faq.direct_answer || '',
       expanded_answer: faq.expanded_answer || '',
-      keywords: faq.keywords || '',
+      related_service: faq.related_service || '',
+      related_keyword: faq.related_keyword || faq.keywords || '',
+      keywords: faq.related_keyword || faq.keywords || '',
+      search_intent: faq.search_intent || 'Commercial',
       display_order: faq.display_order || 0,
-      is_active: faq.is_active ? 1 : 0,
+      is_active: faq.status === 'published' || faq.is_active ? 1 : 0,
+      status: faq.status || 'published',
     })
   }
 
@@ -318,7 +346,18 @@ export default function GeoFaqManagerTab({ showToast }) {
                           <Globe className="h-3 w-3" />
                           {faq.target_url}
                         </span>
-                        {!faq.is_active && (
+                        {(faq.related_keyword || faq.keywords) && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-bold text-amber-800 border border-amber-200">
+                            <Tag className="h-3 w-3" />
+                            {faq.related_keyword || faq.keywords}
+                          </span>
+                        )}
+                        {faq.search_intent && (
+                          <span className="rounded-full bg-purple-50 px-2 py-0.5 text-[10px] font-medium text-purple-700 border border-purple-200">
+                            {faq.search_intent}
+                          </span>
+                        )}
+                        {!faq.is_active && faq.status !== 'published' && (
                           <span className="rounded-full bg-neutral-200 px-2 py-0.5 text-[10px] font-bold text-neutral-600">
                             Inactive
                           </span>
@@ -332,7 +371,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       {/* Direct Answer Preview (AEO) */}
                       <p className="text-xs text-neutral-700 leading-relaxed bg-neutral-50 p-3 rounded-xl border border-neutral-100">
                         <strong className="text-[#A82F19] font-bold">Direct Snippet: </strong>
-                        {faq.direct_answer}
+                        {faq.answer || faq.direct_answer}
                       </p>
                     </div>
 
@@ -506,27 +545,42 @@ export default function GeoFaqManagerTab({ showToast }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">Target Keywords (comma-separated)</label>
+                  <label className="font-bold text-neutral-700 block mb-1">Related Target Keyword</label>
                   <input
                     type="text"
-                    value={formData.keywords}
-                    onChange={(e) => setFormData({ ...formData, keywords: e.target.value })}
-                    placeholder="e.g. business cards dubai, same day cards"
+                    value={formData.related_keyword}
+                    onChange={(e) => setFormData({ ...formData, related_keyword: e.target.value, keywords: e.target.value })}
+                    placeholder="e.g. business card printing dubai"
                     className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#A82F19]"
                   />
+                  <p className="text-[10px] text-neutral-400 mt-0.5">Primary query targeted by this answer</p>
                 </div>
 
-                <div className="flex items-center gap-4 pt-5">
-                  <label className="flex items-center gap-2 cursor-pointer font-bold text-neutral-700">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(formData.is_active)}
-                      onChange={(e) => setFormData({ ...formData, is_active: e.target.checked ? 1 : 0 })}
-                      className="rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]"
-                    />
-                    <span>Active &amp; Published in Schema</span>
-                  </label>
+                <div>
+                  <label className="font-bold text-neutral-700 block mb-1">Search Intent</label>
+                  <select
+                    value={formData.search_intent}
+                    onChange={(e) => setFormData({ ...formData, search_intent: e.target.value })}
+                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#A82F19]"
+                  >
+                    <option value="Commercial">Commercial</option>
+                    <option value="Transactional">Transactional</option>
+                    <option value="Informational">Informational</option>
+                    <option value="Local">Local</option>
+                  </select>
                 </div>
+              </div>
+
+              <div className="pt-2">
+                <label className="flex items-center gap-2 cursor-pointer font-bold text-neutral-700">
+                  <input
+                    type="checkbox"
+                    checked={Boolean(formData.is_active)}
+                    onChange={(e) => setFormData({ ...formData, is_active: e.target.checked ? 1 : 0 })}
+                    className="rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]"
+                  />
+                  <span>Active &amp; Published in Schema</span>
+                </label>
               </div>
 
               <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-neutral-100">

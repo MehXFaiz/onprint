@@ -105,10 +105,17 @@ async function listProducts(req, res, next) {
         const catQuery = String(category).toLowerCase()
         filtered = filtered.filter(
           (p) =>
-            p.category &&
-            (String(p.category._id).toLowerCase() === catQuery ||
-              String(p.category.slug).toLowerCase() === catQuery ||
-              String(p.category.name).toLowerCase().includes(catQuery))
+            (p.category &&
+              (String(p.category._id).toLowerCase() === catQuery ||
+                String(p.category.slug).toLowerCase() === catQuery ||
+                String(p.category.name).toLowerCase().includes(catQuery))) ||
+            (Array.isArray(p.categories) &&
+              p.categories.some(
+                (c) =>
+                  (c.slug && String(c.slug).toLowerCase() === catQuery) ||
+                  (c._id && String(c._id).toLowerCase() === catQuery) ||
+                  (c.name && String(c.name).toLowerCase().includes(catQuery))
+              ))
         )
       }
       if (featured === 'true' || featured === '1') filtered = filtered.filter((p) => p.featured)

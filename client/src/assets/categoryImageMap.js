@@ -1,835 +1,1570 @@
 export const categoryImageMap = {
   'digital-offset-printing': {
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Digital%20%20Offset%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Digital%20%20Offset%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Digital%20%20Offset%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/service_digital_offset.jpg',
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/carefree_production.jpg'
     ],
-    'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Digital%20%20Offset%20Printing%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Digital%20%20Offset%20Printing%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Digital%20%20Offset%20Printing%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
     ],
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Digital%20%20Offset%20Printing%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Digital%20%20Offset%20Printing%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Digital%20%20Offset%20Printing%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
+    ],
+    'business-cards-printing': [
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ]
   },
   'luxury-packaging-custom-boxes': {
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Luxury%20Packaging%20%20Custom%20Boxes%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Luxury%20Packaging%20%20Custom%20Boxes%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Luxury%20Packaging%20%20Custom%20Boxes%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Luxury%20Packaging%20%20Custom%20Boxes%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Luxury%20Packaging%20%20Custom%20Boxes%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Luxury%20Packaging%20%20Custom%20Boxes%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Luxury%20Packaging%20%20Custom%20Boxes%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Luxury%20Packaging%20%20Custom%20Boxes%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Luxury%20Packaging%20%20Custom%20Boxes%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'business-cards-printing': [
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
+    ],
+    'stickers-labels-printing': [
+      '/assets/products/service_stickers_labels.jpg',
+      '/assets/products/stickers.jpg',
+      '/assets/products/1 (6).jpg'
     ]
   },
   'custom-branded-tote-bags': {
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Branded%20Tote%20Bags%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Branded%20Tote%20Bags%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/tote_bags.jpg',
+      '/assets/products/1 (3).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Branded%20Tote%20Bags%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Branded%20Tote%20Bags%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'custom-apparel-printing': [
+      '/assets/products/1 (3).jpg',
+      '/assets/products/1 (4).jpg',
+      '/assets/products/tote_bags.jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Branded%20Tote%20Bags%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Branded%20Tote%20Bags%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Branded%20Tote%20Bags%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
+    ],
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/mugs.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ]
   },
   'personalized-water-bottles': {
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/mugs.jpg',
+      '/assets/products/luxury_corporate_gifts_dubai.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'custom-apparel-printing': [
+      '/assets/products/1 (3).jpg',
+      '/assets/products/1 (4).jpg',
+      '/assets/products/tote_bags.jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
+    ],
     'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Personalized%20Water%20Bottles%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Personalized%20Water%20Bottles%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Personalized%20Water%20Bottles%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/id_cards.jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Personalized%20Water%20Bottles%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Personalized%20Water%20Bottles%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Personalized%20Water%20Bottles%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Personalized%20Water%20Bottles%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Personalized%20Water%20Bottles%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Personalized%20Water%20Bottles%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ]
   },
   'custom-printed-mugs': {
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Printed%20Mugs%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Printed%20Mugs%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Printed%20Mugs%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'promotional-drinkware-tech': [
+      '/assets/products/mugs.jpg',
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/1 (2).jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Printed%20Mugs%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Printed%20Mugs%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Printed%20Mugs%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
     ],
-    'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Printed%20Mugs%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Printed%20Mugs%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Printed%20Mugs%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
+    'custom-apparel-printing': [
+      '/assets/products/1 (3).jpg',
+      '/assets/products/1 (4).jpg',
+      '/assets/products/tote_bags.jpg'
     ]
   },
   'premium-business-cards': {
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Premium%20Business%20Cards%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Premium%20Business%20Cards%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Premium%20Business%20Cards%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/luxury_business_cards_dubai.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
     ],
     'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Premium%20Business%20Cards%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Premium%20Business%20Cards%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Premium%20Business%20Cards%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/name_badges.jpg',
+      '/assets/products/name_plates.jpg',
+      '/assets/products/1 (2).jpg'
     ],
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Premium%20Business%20Cards%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Premium%20Business%20Cards%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Premium%20Business%20Cards%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'letterheads-printing-dubai': [
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
     ]
   },
   'standard-business-cards': {
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Standard%20Business%20Cards%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Standard%20Business%20Cards%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Standard%20Business%20Cards%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/card-soft-touch.jpg',
+      '/assets/products/service_executive_stationery.jpg'
     ],
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Standard%20Business%20Cards%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Standard%20Business%20Cards%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Standard%20Business%20Cards%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ],
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Standard%20Business%20Cards%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Standard%20Business%20Cards%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Standard%20Business%20Cards%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
+    ],
+    'letterheads-printing-dubai': [
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'brochures-printing': [
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
     ]
   },
   'premium-soft-touch-business-cards': {
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Premium%20Soft-Touch%20Business%20Cards%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Premium%20Soft-Touch%20Business%20Cards%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/card-soft-touch.jpg',
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/service_luxury_packaging.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Premium%20Soft-Touch%20Business%20Cards%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Premium%20Soft-Touch%20Business%20Cards%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Premium%20Soft-Touch%20Business%20Cards%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Premium%20Soft-Touch%20Business%20Cards%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Premium%20Soft-Touch%20Business%20Cards%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'letterheads-printing-dubai': [
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
     ]
   },
   'velvet-foil-business-cards': {
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Velvet%20Foil%20Business%20Cards%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Velvet%20Foil%20Business%20Cards%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg',
+      '/assets/products/luxury_business_cards_dubai.jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Velvet%20Foil%20Business%20Cards%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Velvet%20Foil%20Business%20Cards%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ],
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Velvet%20Foil%20Business%20Cards%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Velvet%20Foil%20Business%20Cards%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Velvet%20Foil%20Business%20Cards%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'name-badges-printing-dubai': [
+      '/assets/products/name_badges.jpg',
+      '/assets/products/name_plates.jpg',
+      '/assets/products/1 (2).jpg'
     ]
   },
   'luxury-painted-edge-business-cards': {
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Luxury%20Painted-Edge%20Business%20Cards%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Luxury%20Painted-Edge%20Business%20Cards%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/card-painted-edge.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/luxury_business_cards_dubai.jpg'
     ],
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Luxury%20Painted-Edge%20Business%20Cards%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Luxury%20Painted-Edge%20Business%20Cards%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ],
     'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Luxury%20Painted-Edge%20Business%20Cards%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Luxury%20Painted-Edge%20Business%20Cards%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Luxury%20Painted-Edge%20Business%20Cards%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
     ]
   },
   'acrylic-nameplates': {
     'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Acrylic%20Nameplates%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Acrylic%20Nameplates%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Acrylic%20Nameplates%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/name_plates.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/service_exhibition_signage.jpg'
     ],
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Acrylic%20Nameplates%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Acrylic%20Nameplates%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Acrylic%20Nameplates%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Acrylic%20Nameplates%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Acrylic%20Nameplates%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Acrylic%20Nameplates%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'id-card-printing-dubai': [
+      '/assets/products/id_cards.jpg',
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/1 (4).jpg'
     ]
   },
   'roll-up-banners': {
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Roll-Up%20Banners%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Roll-Up%20Banners%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Roll-Up%20Banners%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'signage-banners-printing': [
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/flags.jpg'
     ],
-    'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Roll-Up%20Banners%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Roll-Up%20Banners%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Roll-Up%20Banners%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
     ],
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Roll-Up%20Banners%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Roll-Up%20Banners%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Roll-Up%20Banners%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
+    ],
+    'lanyard-printing-dubai': [
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/id_cards.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
     ]
   },
   'beach-flags': {
+    'signage-banners-printing': [
+      '/assets/products/flags.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/service_exhibition_signage.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'custom-apparel-printing': [
+      '/assets/products/1 (3).jpg',
+      '/assets/products/1 (4).jpg',
+      '/assets/products/tote_bags.jpg'
+    ],
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Beach%20Flags%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Beach%20Flags%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Beach%20Flags%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
     ],
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Beach%20Flags%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Beach%20Flags%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Beach%20Flags%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Beach%20Flags%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Beach%20Flags%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Beach%20Flags%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
     ]
   },
   'die-cut-stickers': {
+    'stickers-labels-printing': [
+      '/assets/products/stickers.jpg',
+      '/assets/products/service_stickers_labels.jpg',
+      '/assets/products/1 (6).jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Die-Cut%20Stickers%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Die-Cut%20Stickers%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Die-Cut%20Stickers%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
     ],
-    'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Die-Cut%20Stickers%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Die-Cut%20Stickers%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Die-Cut%20Stickers%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'custom-apparel-printing': [
+      '/assets/products/1 (3).jpg',
+      '/assets/products/1 (4).jpg',
+      '/assets/products/tote_bags.jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Die-Cut%20Stickers%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Die-Cut%20Stickers%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Die-Cut%20Stickers%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/mugs.jpg',
+      '/assets/products/1 (2).jpg'
     ]
   },
   'engraved-keychains': {
+    'corporate-gift-items': [
+      '/assets/products/wooden_keychain.jpg',
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg'
+    ],
+    'name-badges-printing-dubai': [
+      '/assets/products/name_badges.jpg',
+      '/assets/products/name_plates.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/mugs.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
     'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Engraved%20Keychains%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Engraved%20Keychains%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Engraved%20Keychains%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/id_cards.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Engraved%20Keychains%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Engraved%20Keychains%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Engraved%20Keychains%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Engraved%20Keychains%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Engraved%20Keychains%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Engraved%20Keychains%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ]
   },
   'executive-notebooks': {
+    'office-stationery-printing': [
+      '/assets/products/1 (5).jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/luxury_corporate_gifts_dubai.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
     'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Executive%20Notebooks%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Executive%20Notebooks%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Executive%20Notebooks%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Executive%20Notebooks%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Executive%20Notebooks%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Executive%20Notebooks%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
     ],
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Executive%20Notebooks%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Executive%20Notebooks%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Executive%20Notebooks%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'business-cards-printing': [
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
     ]
   },
   'catalogs-booklets-printing': {
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/service_digital_offset.jpg'
+    ],
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Catalogs%20%20Booklets%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Catalogs%20%20Booklets%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Catalogs%20%20Booklets%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Catalogs%20%20Booklets%20Printing%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Catalogs%20%20Booklets%20Printing%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Catalogs%20%20Booklets%20Printing%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ],
-    'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Catalogs%20%20Booklets%20Printing%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Catalogs%20%20Booklets%20Printing%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Catalogs%20%20Booklets%20Printing%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
     ]
   },
   'presentation-folders': {
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Presentation%20Folders%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Presentation%20Folders%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Presentation%20Folders%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/1 (9).jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/brochure_bifold.jpg'
     ],
-    'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Presentation%20Folders%20Printing%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Presentation%20Folders%20Printing%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Presentation%20Folders%20Printing%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'brochures-printing': [
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
+    ],
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
     ],
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Presentation%20Folders%20Printing%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Presentation%20Folders%20Printing%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Presentation%20Folders%20Printing%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'letterheads-printing-dubai': [
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
     ]
   },
   'annual-reports-printing': {
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/service_digital_offset.jpg',
+      '/assets/products/service_executive_stationery.jpg'
+    ],
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Annual%20Reports%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Annual%20Reports%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Annual%20Reports%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
     ],
-    'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Annual%20Reports%20Printing%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Annual%20Reports%20Printing%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Annual%20Reports%20Printing%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Annual%20Reports%20Printing%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Annual%20Reports%20Printing%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Annual%20Reports%20Printing%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'letterheads-printing-dubai': [
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ]
   },
   'raised-ink-business-cards': {
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Raised%20Ink%20Business%20Cards%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Raised%20Ink%20Business%20Cards%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg',
+      '/assets/products/luxury_business_cards_dubai.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Raised%20Ink%20Business%20Cards%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Raised%20Ink%20Business%20Cards%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Raised%20Ink%20Business%20Cards%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Raised%20Ink%20Business%20Cards%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
+    'letterheads-printing-dubai': [
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ]
   },
   'plastic-pvc-business-cards': {
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Plastic%20PVC%20Business%20Cards%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Plastic%20PVC%20Business%20Cards%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/id_cards.jpg',
+      '/assets/products/card-soft-touch.jpg',
+      '/assets/products/luxury_business_cards_dubai.jpg'
     ],
     'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Plastic%20PVC%20Business%20Cards%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Plastic%20PVC%20Business%20Cards%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/id_cards.jpg',
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/1 (4).jpg'
     ],
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Plastic%20PVC%20Business%20Cards%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Plastic%20PVC%20Business%20Cards%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'name-badges-printing-dubai': [
+      '/assets/products/name_badges.jpg',
+      '/assets/products/name_plates.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ]
   },
   'large-format-posters': {
+    'signage-banners-printing': [
+      '/assets/products/1 (9).jpg',
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg'
+    ],
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Large%20Format%20Posters%20Printing%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Large%20Format%20Posters%20Printing%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
     ],
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Large%20Format%20Posters%20Printing%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Large%20Format%20Posters%20Printing%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'brochures-printing': [
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Large%20Format%20Posters%20Printing%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Large%20Format%20Posters%20Printing%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Large%20Format%20Posters%20Printing%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
     ]
   },
   'door-hangers-printing': {
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Door%20Hangers%20Printing%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Door%20Hangers%20Printing%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Door%20Hangers%20Printing%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/1 (14).jpg',
+      '/assets/products/brochures.jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Door%20Hangers%20Printing%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Door%20Hangers%20Printing%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Door%20Hangers%20Printing%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ],
-    'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Door%20Hangers%20Printing%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Door%20Hangers%20Printing%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Door%20Hangers%20Printing%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'brochures-printing': [
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'stickers-labels-printing': [
+      '/assets/products/service_stickers_labels.jpg',
+      '/assets/products/stickers.jpg',
+      '/assets/products/1 (6).jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
     ]
   },
   'postcards-printing': {
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Postcards%20%20Direct%20Mail%20Printing%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Postcards%20%20Direct%20Mail%20Printing%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Postcards%20%20Direct%20Mail%20Printing%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/1 (3).jpg',
+      '/assets/products/flyers.jpg',
+      '/assets/products/luxury_business_cards_dubai.jpg'
     ],
-    'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Postcards%20%20Direct%20Mail%20Printing%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Postcards%20%20Direct%20Mail%20Printing%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Postcards%20%20Direct%20Mail%20Printing%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ],
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Postcards%20%20Direct%20Mail%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Postcards%20%20Direct%20Mail%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Postcards%20%20Direct%20Mail%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'business-cards-printing': [
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
     ]
   },
   'student-id-cards': {
     'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Student%20ID%20Cards%20Printing%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Student%20ID%20Cards%20Printing%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/id_cards.jpg',
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg'
     ],
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Student%20ID%20Cards%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Student%20ID%20Cards%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'lanyard-printing-dubai': [
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/id_cards.jpg'
+    ],
+    'name-badges-printing-dubai': [
+      '/assets/products/name_badges.jpg',
+      '/assets/products/name_plates.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ],
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Student%20ID%20Cards%20Printing%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Student%20ID%20Cards%20Printing%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Student%20ID%20Cards%20Printing%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
     ]
   },
   'access-control-cards': {
     'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20RFID%20Access%20Control%20Cards%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20RFID%20Access%20Control%20Cards%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/1 (4).jpg',
+      '/assets/products/id_cards.jpg',
+      '/assets/products/custom_branded_lanyards.jpg'
+    ],
+    'lanyard-printing-dubai': [
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/id_cards.jpg'
+    ],
+    'name-badges-printing-dubai': [
+      '/assets/products/name_badges.jpg',
+      '/assets/products/name_plates.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ],
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20RFID%20Access%20Control%20Cards%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20RFID%20Access%20Control%20Cards%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20RFID%20Access%20Control%20Cards%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20RFID%20Access%20Control%20Cards%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20RFID%20Access%20Control%20Cards%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/mugs.jpg',
+      '/assets/products/1 (2).jpg'
     ]
   },
   'visitor-pass-cards': {
     'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Visitor%20Pass%20Cards%20%20Badges%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Visitor%20Pass%20Cards%20%20Badges%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Visitor%20Pass%20Cards%20%20Badges%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Visitor%20Pass%20Cards%20%20Badges%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Visitor%20Pass%20Cards%20%20Badges%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Visitor%20Pass%20Cards%20%20Badges%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/name_badges.jpg',
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/id_cards.jpg'
     ],
     'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Visitor%20Pass%20Cards%20%20Badges%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Visitor%20Pass%20Cards%20%20Badges%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Visitor%20Pass%20Cards%20%20Badges%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/id_cards.jpg'
+    ],
+    'name-badges-printing-dubai': [
+      '/assets/products/name_badges.jpg',
+      '/assets/products/name_plates.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
     ]
   },
   'custom-usb-flash-drives': {
+    'promotional-drinkware-tech': [
+      '/assets/products/1 (2).jpg',
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
     'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Branded%20USB%20Flash%20Drives%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Branded%20USB%20Flash%20Drives%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Branded%20USB%20Flash%20Drives%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Branded%20USB%20Flash%20Drives%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Branded%20USB%20Flash%20Drives%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Branded%20USB%20Flash%20Drives%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Branded%20USB%20Flash%20Drives%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/id_cards.jpg'
     ]
   },
   'corporate-gift-sets': {
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Premium%20Corporate%20Gift%20Sets%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Premium%20Corporate%20Gift%20Sets%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/1 (5).jpg',
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_luxury_packaging.jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Premium%20Corporate%20Gift%20Sets%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Premium%20Corporate%20Gift%20Sets%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ],
-    'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Premium%20Corporate%20Gift%20Sets%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Premium%20Corporate%20Gift%20Sets%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Premium%20Corporate%20Gift%20Sets%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/mugs.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'business-cards-printing': [
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ]
   },
   'power-banks-printing': {
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
+    ],
     'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Branded%20Power%20Banks%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Branded%20Power%20Banks%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Branded%20Power%20Banks%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Branded%20Power%20Banks%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Branded%20Power%20Banks%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Branded%20Power%20Banks%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Branded%20Power%20Banks%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/id_cards.jpg'
     ]
   },
   'printed-envelopes': {
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Corporate%20Envelopes%20Printing%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Corporate%20Envelopes%20Printing%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/luxury_business_cards_dubai.jpg'
     ],
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Corporate%20Envelopes%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Corporate%20Envelopes%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'letterheads-printing-dubai': [
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
     ],
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Corporate%20Envelopes%20Printing%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Corporate%20Envelopes%20Printing%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'brochures-printing': [
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
     ]
   },
   'desk-pads-printing': {
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Desk%20Pads%20%20Desk%20Calendars%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Desk%20Pads%20%20Desk%20Calendars%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Desk%20Pads%20%20Desk%20Calendars%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/1 (2).jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (7).jpg'
     ],
-    'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Desk%20Pads%20%20Desk%20Calendars%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Desk%20Pads%20%20Desk%20Calendars%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Desk%20Pads%20%20Desk%20Calendars%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/mugs.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'letterheads-printing-dubai': [
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
     ],
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Desk%20Pads%20%20Desk%20Calendars%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Desk%20Pads%20%20Desk%20Calendars%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Desk%20Pads%20%20Desk%20Calendars%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
     ]
   },
   'stationery-gift-sets': {
+    'office-stationery-printing': [
+      '/assets/products/1 (11).jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/luxury_corporate_gifts_dubai.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
     'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Complete%20Stationery%20Gift%20Sets%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Complete%20Stationery%20Gift%20Sets%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Complete%20Stationery%20Gift%20Sets%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Complete%20Stationery%20Gift%20Sets%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'business-cards-printing': [
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Complete%20Stationery%20Gift%20Sets%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Complete%20Stationery%20Gift%20Sets%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ]
   },
   'foam-board-signage': {
+    'signage-banners-printing': [
+      '/assets/products/1 (9).jpg',
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg'
+    ],
     'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Foam%20Board%20Signage%20Printing%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Foam%20Board%20Signage%20Printing%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/name_badges.jpg',
+      '/assets/products/name_plates.jpg',
+      '/assets/products/1 (2).jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Foam%20Board%20Signage%20Printing%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Foam%20Board%20Signage%20Printing%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ],
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Foam%20Board%20Signage%20Printing%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Foam%20Board%20Signage%20Printing%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Foam%20Board%20Signage%20Printing%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
+    ],
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
     ]
   },
   'metal-name-signs': {
     'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Metal%20Name%20Signs%20%20Plaques%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Metal%20Name%20Signs%20%20Plaques%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Metal%20Name%20Signs%20%20Plaques%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/name_plates.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/service_exhibition_signage.jpg'
     ],
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Metal%20Name%20Signs%20%20Plaques%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Metal%20Name%20Signs%20%20Plaques%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Metal%20Name%20Signs%20%20Plaques%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Metal%20Name%20Signs%20%20Plaques%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Metal%20Name%20Signs%20%20Plaques%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Metal%20Name%20Signs%20%20Plaques%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ]
   },
   'wall-acrylic-signage': {
+    'signage-banners-printing': [
+      '/assets/products/1 (12).jpg',
+      '/assets/products/name_plates.jpg',
+      '/assets/products/service_exhibition_signage.jpg'
+    ],
     'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Frosted%20%20Clear%20Acrylic%20Wall%20Signs%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Frosted%20%20Clear%20Acrylic%20Wall%20Signs%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Frosted%20%20Clear%20Acrylic%20Wall%20Signs%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/name_badges.jpg',
+      '/assets/products/name_plates.jpg',
+      '/assets/products/1 (2).jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Frosted%20%20Clear%20Acrylic%20Wall%20Signs%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Frosted%20%20Clear%20Acrylic%20Wall%20Signs%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Frosted%20%20Clear%20Acrylic%20Wall%20Signs%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ],
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Frosted%20%20Clear%20Acrylic%20Wall%20Signs%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Frosted%20%20Clear%20Acrylic%20Wall%20Signs%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Frosted%20%20Clear%20Acrylic%20Wall%20Signs%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ]
   },
   'calendars-printing': {
+    'office-stationery-printing': [
+      '/assets/products/1 (7).jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/brochure_booklet_catalog.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
+    ],
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Wall%20%20Desk%20Calendars%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Wall%20%20Desk%20Calendars%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Wall%20%20Desk%20Calendars%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
     ],
-    'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Wall%20%20Desk%20Calendars%20Printing%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Wall%20%20Desk%20Calendars%20Printing%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Wall%20%20Desk%20Calendars%20Printing%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Wall%20%20Desk%20Calendars%20Printing%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Wall%20%20Desk%20Calendars%20Printing%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Wall%20%20Desk%20Calendars%20Printing%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/mugs.jpg',
+      '/assets/products/1 (2).jpg'
     ]
   },
   'greeting-cards-printing': {
+    'hospitality-event-printing': [
+      '/assets/products/1 (6).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/card-velvet-foil.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Greeting%20Cards%20%20Invitation%20Cards%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Greeting%20Cards%20%20Invitation%20Cards%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Greeting%20Cards%20%20Invitation%20Cards%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Greeting%20Cards%20%20Invitation%20Cards%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Greeting%20Cards%20%20Invitation%20Cards%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Greeting%20Cards%20%20Invitation%20Cards%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Greeting%20Cards%20%20Invitation%20Cards%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Greeting%20Cards%20%20Invitation%20Cards%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Greeting%20Cards%20%20Invitation%20Cards%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'business-cards-printing': [
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
     ]
   },
   'printed-paper-bags': {
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Printed%20Kraft%20Paper%20Bags%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Printed%20Kraft%20Paper%20Bags%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/tote_bags.jpg',
+      '/assets/products/carefree_shopping.jpg',
+      '/assets/products/service_luxury_packaging.jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Printed%20Kraft%20Paper%20Bags%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Printed%20Kraft%20Paper%20Bags%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
     ],
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Printed%20Kraft%20Paper%20Bags%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Printed%20Kraft%20Paper%20Bags%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
+    ],
+    'custom-apparel-printing': [
+      '/assets/products/1 (3).jpg',
+      '/assets/products/1 (4).jpg',
+      '/assets/products/tote_bags.jpg'
+    ],
+    'stickers-labels-printing': [
+      '/assets/products/service_stickers_labels.jpg',
+      '/assets/products/stickers.jpg',
+      '/assets/products/1 (6).jpg'
     ]
   },
   'food-packaging-boxes': {
+    'luxury-packaging-boxes': [
+      '/assets/products/1 (13).jpg',
+      '/assets/products/1 (14).jpg',
+      '/assets/products/service_luxury_packaging.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'stickers-labels-printing': [
+      '/assets/products/service_stickers_labels.jpg',
+      '/assets/products/stickers.jpg',
+      '/assets/products/1 (6).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
+    ],
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Food%20Packaging%20Boxes%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Food%20Packaging%20Boxes%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Food%20Packaging%20Boxes%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Food%20Packaging%20Boxes%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Food%20Packaging%20Boxes%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Food%20Packaging%20Boxes%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
     ]
   },
   'restaurant-menus-printing': {
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/brochure_bifold.jpg'
+    ],
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Restaurant%20Menus%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Restaurant%20Menus%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Restaurant%20Menus%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_gatefold.jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Restaurant%20Menus%20Printing%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Restaurant%20Menus%20Printing%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Restaurant%20Menus%20Printing%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
     ],
-    'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Restaurant%20Menus%20Printing%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Restaurant%20Menus%20Printing%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Restaurant%20Menus%20Printing%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ]
   },
   'wedding-invitation-suites': {
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Luxury%20Wedding%20Invitation%20Suites%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Luxury%20Wedding%20Invitation%20Suites%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (15).jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
     ],
-    'name-badges-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20for%20Name%20Badges%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Luxury%20Wedding%20Invitation%20Suites%20in%20Name%20Badges%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Luxury%20Wedding%20Invitation%20Suites%20for%20Name%20Badges%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
     ],
     'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Luxury%20Wedding%20Invitation%20Suites%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Luxury%20Wedding%20Invitation%20Suites%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Luxury%20Wedding%20Invitation%20Suites%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/luxury_business_cards_dubai.jpg',
+      '/assets/products/card-velvet-foil.jpg',
+      '/assets/products/card-painted-edge.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'letterheads-printing-dubai': [
+      '/uploads/categories/letterheads-printing-dubai.jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (2).jpg'
     ]
   },
   'tshirt-screen-printing': {
+    'custom-apparel-printing': [
+      '/assets/products/1 (3).jpg',
+      '/assets/products/1 (4).jpg',
+      '/assets/products/tote_bags.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
+    ],
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/mugs.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
     'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%20DTG%20Printing%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20T-Shirt%20Screen%20%20DTG%20Printing%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20T-Shirt%20Screen%20%20DTG%20Printing%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%20DTG%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20T-Shirt%20Screen%20%20DTG%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20T-Shirt%20Screen%20%20DTG%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20T-Shirt%20Screen%20%20DTG%20Printing%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20T-Shirt%20Screen%20%20DTG%20Printing%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20T-Shirt%20Screen%20%20DTG%20Printing%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/id_cards.jpg'
     ]
   },
   'custom-cap-printing': {
+    'custom-apparel-printing': [
+      '/assets/products/1 (4).jpg',
+      '/assets/products/1 (3).jpg',
+      '/assets/products/tote_bags.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
+    ],
+    'promotional-drinkware-tech': [
+      '/assets/products/water_bottles.jpg',
+      '/assets/products/mugs.jpg',
+      '/assets/products/1 (2).jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
     'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Cap%20%20Hat%20Printing%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Cap%20%20Hat%20Printing%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Cap%20%20Hat%20Printing%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'business-cards-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Cap%20%20Hat%20Printing%20for%20Business%20Cards%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Cap%20%20Hat%20Printing%20in%20Business%20Cards%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Cap%20%20Hat%20Printing%20for%20Business%20Cards%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Cap%20%20Hat%20Printing%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Cap%20%20Hat%20Printing%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Cap%20%20Hat%20Printing%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/custom_branded_lanyards.jpg',
+      '/assets/products/name_badges.jpg',
+      '/assets/products/id_cards.jpg'
     ]
   },
   'mouse-pad-printing': {
-    'lanyard-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Mouse%20Pads%20%20Desk%20Mats%20for%20Lanyard%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Mouse%20Pads%20%20Desk%20Mats%20in%20Lanyard%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Mouse%20Pads%20%20Desk%20Mats%20for%20Lanyard%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'promotional-drinkware-tech': [
+      '/assets/products/1 (2).jpg',
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/water_bottles.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Mouse%20Pads%20%20Desk%20Mats%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Mouse%20Pads%20%20Desk%20Mats%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Mouse%20Pads%20%20Desk%20Mats%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ],
-    'id-card-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Custom%20Mouse%20Pads%20%20Desk%20Mats%20for%20ID%20Card%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Custom%20Mouse%20Pads%20%20Desk%20Mats%20in%20ID%20Card%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Custom%20Mouse%20Pads%20%20Desk%20Mats%20for%20ID%20Card%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
+    ],
+    'stickers-labels-printing': [
+      '/assets/products/service_stickers_labels.jpg',
+      '/assets/products/stickers.jpg',
+      '/assets/products/1 (6).jpg'
+    ],
+    'custom-apparel-printing': [
+      '/assets/products/1 (3).jpg',
+      '/assets/products/1 (4).jpg',
+      '/assets/products/tote_bags.jpg'
     ]
   },
   'bi-fold-brochures-printing': {
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Bi-Fold%20Brochures%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Bi-Fold%20Brochures%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Bi-Fold%20Brochures%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/service_digital_offset.jpg'
     ],
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Bi-Fold%20Brochures%20Printing%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Bi-Fold%20Brochures%20Printing%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Bi-Fold%20Brochures%20Printing%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Bi-Fold%20Brochures%20Printing%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Bi-Fold%20Brochures%20Printing%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Bi-Fold%20Brochures%20Printing%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
     ]
   },
   'tri-fold-brochures-printing': {
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Tri-Fold%20Brochures%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Tri-Fold%20Brochures%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Tri-Fold%20Brochures%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/flyers.jpg'
     ],
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Tri-Fold%20Brochures%20Printing%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Tri-Fold%20Brochures%20Printing%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Tri-Fold%20Brochures%20Printing%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Tri-Fold%20Brochures%20Printing%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Tri-Fold%20Brochures%20Printing%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Tri-Fold%20Brochures%20Printing%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
     ]
   },
   'gate-fold-brochures-printing': {
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Gate-Fold%20Brochures%20Printing%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Gate-Fold%20Brochures%20Printing%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Gate-Fold%20Brochures%20Printing%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_gatefold.jpg',
+      '/assets/products/brochure_bifold.jpg',
+      '/assets/products/service_luxury_packaging.jpg'
+    ],
+    'luxury-packaging-boxes': [
+      '/assets/products/service_luxury_packaging.jpg',
+      '/assets/products/1 (13).jpg',
+      '/assets/products/carefree_shopping.jpg'
+    ],
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
+    ],
+    'corporate-gift-items': [
+      '/assets/products/luxury_corporate_gifts_dubai.jpg',
+      '/assets/products/service_corporate_gifts.jpg',
+      '/assets/products/wooden_keychain.jpg'
     ],
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Gate-Fold%20Brochures%20Printing%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Gate-Fold%20Brochures%20Printing%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Gate-Fold%20Brochures%20Printing%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
-    ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Gate-Fold%20Brochures%20Printing%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Gate-Fold%20Brochures%20Printing%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Gate-Fold%20Brochures%20Printing%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
     ]
   },
   'z-fold-leaflets-printing': {
     'brochures-printing': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Z-Fold%20Brochures%20%20Leaflets%20for%20Brochures%20Printing%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Z-Fold%20Brochures%20%20Leaflets%20in%20Brochures%20Printing%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Z-Fold%20Brochures%20%20Leaflets%20for%20Brochures%20Printing%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/brochure_trifold.jpg',
+      '/assets/products/flyers.jpg'
     ],
     'flyers-printing-in-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Z-Fold%20Brochures%20%20Leaflets%20for%20Flyers%20Printing%20In%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Z-Fold%20Brochures%20%20Leaflets%20in%20Flyers%20Printing%20In%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Z-Fold%20Brochures%20%20Leaflets%20for%20Flyers%20Printing%20In%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+      '/assets/products/flyers.jpg',
+      '/assets/products/brochures.jpg',
+      '/assets/products/1 (8).jpg'
     ],
-    'letterheads-printing-dubai': [
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%20of%20Z-Fold%20Brochures%20%20Leaflets%20for%20Letterheads%20Printing%20Dubai%20category%20by%20ONPRINT%20Dubai%20printing%2C%20hero%20front%20eye-level%20view%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20box%20lighting%2C%20premium%20luxury%20quality%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Close-up%20detail%20shot%20of%20Z-Fold%20Brochures%20%20Leaflets%20in%20Letterheads%20Printing%20Dubai%20category%2C%20macro%20photography%20showing%20print%20texture%20coating%20and%20finish%2C%20razor%20sharp%20detail%2C%20clean%20white%20studio%20background%2C%20professional%20commercial%20lighting%2C%20Dubai%20premium%20printing%20quality%2C%20high-end%20catalog%20detail%20photo&image_size=square_hd',
-      'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Lifestyle%20usage%20shot%20of%20Z-Fold%20Brochures%20%20Leaflets%20for%20Letterheads%20Printing%20Dubai%2C%20modern%20corporate%20office%20setting%20in%20Dubai%2C%20natural%20soft%20window%20lighting%2C%20professional%20commercial%20marketing%20composition%2C%20premium%20branded%20atmosphere%2C%20high-quality%20commercial%20photography%2C%20ONPRINT%20print%20quality%20showcase&image_size=square_hd'
+    'hospitality-event-printing': [
+      '/assets/products/1 (14).jpg',
+      '/assets/products/1 (15).jpg',
+      '/assets/products/1 (16).jpg'
+    ],
+    'catalogs-booklets-printing': [
+      '/assets/products/brochure_booklet_catalog.jpg',
+      '/assets/products/brochure_zfold.jpg',
+      '/assets/products/service_digital_offset.jpg'
+    ],
+    'signage-banners-printing': [
+      '/assets/products/service_exhibition_signage.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/flags.jpg'
+    ],
+    'office-stationery-printing': [
+      '/assets/products/service_executive_stationery.jpg',
+      '/assets/products/1 (5).jpg',
+      '/assets/products/1 (9).jpg'
     ]
   }
 };
@@ -847,8 +1582,12 @@ export function getAllCategoryImages(productSlug) {
   if (!productCats) return [];
   const result = [];
   for (const catSlug of Object.keys(productCats)) {
-    for (const img of productCats[catSlug]) {
-      result.push({ categorySlug: catSlug, url: img });
+    for (let i = 0; i < (productCats[catSlug] || []).length; i++) {
+      result.push({
+        categorySlug: catSlug,
+        url: productCats[catSlug][i],
+        imageIndex: i,
+      });
     }
   }
   return result;

@@ -187,6 +187,40 @@ const seedCategoriesList = [
     canonical_url: 'https://0nprint.com/categories/name-badges-printing-dubai',
     image_alt: 'Professional magnetic metal and acrylic name badges in Dubai',
   },
+  {
+    category_key: 'cat-mug-printing-dubai',
+    name: 'Mug Printing Dubai',
+    slug: 'mug-printing-dubai',
+    description: 'Custom printed ceramic mugs, magic heat-sensitive mugs, executive matte black coffee mugs, stainless travel tumblers, and vintage enamel mugs printed in Dubai.',
+    image: '/assets/products/mug_white_ceramic.jpg',
+    image_url: '/assets/products/mug_white_ceramic.jpg',
+    status: 'active',
+    display_order: 17,
+    active: 1,
+    seo_title: 'Mug Printing Dubai | Custom Branded Ceramic & Travel Mugs | ONPRINT',
+    seo_description: 'Professional mug printing in Dubai. Custom ceramic mugs, magic color-changing mugs, executive matte black mugs, and travel tumblers with fast UAE delivery.',
+    seo_keywords: 'mug printing dubai, custom mugs dubai, printed mugs uae, personalized coffee mugs dubai, magic mugs dubai, ceramic mug printing',
+    seo_heading: 'Custom Mug Printing Solutions in Dubai',
+    canonical_url: 'https://0nprint.com/categories/mug-printing-dubai',
+    image_alt: 'Custom printed corporate ceramic mugs and drinkware in Dubai',
+  },
+  {
+    category_key: 'cat-bottle-printing-dubai',
+    name: 'Water Bottle Printing Dubai',
+    slug: 'bottle-printing-dubai',
+    description: 'Custom printed & laser-engraved water bottles, smart LED temperature display flasks, double-wall stainless steel thermal bottles, and aluminium sports bottles in Dubai.',
+    image: '/assets/products/bottle_smart_led.jpg',
+    image_url: '/assets/products/bottle_smart_led.jpg',
+    status: 'active',
+    display_order: 18,
+    active: 1,
+    seo_title: 'Water Bottle Printing Dubai | Custom Branded Flasks & Sports Bottles | ONPRINT',
+    seo_description: 'Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.',
+    seo_keywords: 'bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai, smart led temperature bottle dubai',
+    seo_heading: 'Custom Water Bottle Printing & Laser Engraving Dubai',
+    canonical_url: 'https://0nprint.com/categories/bottle-printing-dubai',
+    image_alt: 'Custom printed and laser engraved water bottles in Dubai',
+  },
 ]
 
 const seedServicesList = [
@@ -308,6 +342,40 @@ const seedServicesList = [
     seo_heading: 'Professional Magnetic Name Badges Printing Dubai',
     canonical_url: 'https://0nprint.com/services/name-badges-printing-dubai',
     image_alt: 'Professional magnetic metal and acrylic name badges in Dubai',
+  },
+  {
+    service_key: 'serv-mug-printing-dubai',
+    category_slug: 'mug-printing-dubai',
+    name: 'Mug Printing Dubai',
+    slug: 'mug-printing-dubai',
+    short_description: 'Custom branded ceramic mugs, magic color-reveal mugs, matte black executive tumblers, and vintage enamel drinkware.',
+    description: 'Bespoke corporate mug printing services in Dubai. Full-color vibrant sublimation on 11oz/15oz ceramic mugs, thermochromic heat-reveal mugs, luxury engraved travel tumblers, and enamel camping mugs.',
+    image: '/assets/products/mug_white_ceramic.jpg',
+    display_order: 17,
+    active: 1,
+    seo_title: 'Custom Mug Printing Services Dubai | Corporate Drinkware | ONPRINT',
+    seo_description: 'Custom mug printing services in Dubai. High-resolution ceramic, magic heat reveal, matte black gold foil, and travel tumblers with express delivery.',
+    seo_keywords: 'mug printing dubai, custom mugs dubai, promotional mugs uae, ceramic mug printing',
+    seo_heading: 'Custom Mug Printing Services in Dubai',
+    canonical_url: 'https://0nprint.com/services/mug-printing-dubai',
+    image_alt: 'Custom printed corporate ceramic mugs in Dubai',
+  },
+  {
+    service_key: 'serv-bottle-printing-dubai',
+    category_slug: 'bottle-printing-dubai',
+    name: 'Water Bottle Printing Dubai',
+    slug: 'bottle-printing-dubai',
+    short_description: 'Laser-engraved thermal insulated flasks, smart LED display bottles, aluminium sports bottles, and glass drinkware.',
+    description: 'Commercial custom water bottle printing and precision laser engraving in Dubai. Double-wall vacuum stainless steel, smart LED temperature readout caps, gym shakers, and eco-friendly bamboo glass bottles.',
+    image: '/assets/products/bottle_smart_led.jpg',
+    display_order: 18,
+    active: 1,
+    seo_title: 'Custom Water Bottle Printing Dubai | Laser Engraved Flasks | ONPRINT',
+    seo_description: 'Custom water bottle printing and laser engraving in Dubai. Double-wall stainless steel, smart LED flasks, sports bottles, and shaker bottles.',
+    seo_keywords: 'bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai',
+    seo_heading: 'Custom Water Bottle Printing & Laser Engraving Dubai',
+    canonical_url: 'https://0nprint.com/services/bottle-printing-dubai',
+    image_alt: 'Custom laser engraved water bottles in Dubai',
   },
 ]
 
@@ -620,7 +688,7 @@ const seedProductsList = [
   },
   {
     product_key: 'prod-personalized-water-bottles',
-    category_slug: 'lanyard-printing-dubai',
+    category_slug: 'bottle-printing-dubai',
     name: 'Personalized Water Bottles',
     slug: 'personalized-water-bottles',
     short_description: 'Custom stainless steel and insulated water bottles for branded gifting.',
@@ -638,7 +706,7 @@ const seedProductsList = [
   },
   {
     product_key: 'prod-custom-printed-mugs',
-    category_slug: 'lanyard-printing-dubai',
+    category_slug: 'mug-printing-dubai',
     name: 'Custom Printed Mugs',
     slug: 'custom-printed-mugs',
     short_description: 'Elegant employee and client gift mugs with personalized print and finish options.',
@@ -779,6 +847,222 @@ const seedProductsList = [
     canonical_url: 'https://0nprint.com/products/executive-notebooks',
     image_alt: 'Executive branded notebooks in Dubai',
     images: ['/assets/products/1 (5).jpg'],
+  },
+  {
+    product_key: 'prod-classic-white-ceramic-mugs',
+    category_slug: 'mug-printing-dubai',
+    name: "Classic White Ceramic Sublimation Mugs (11oz)",
+    slug: 'classic-white-ceramic-mugs',
+    short_description: "11oz premium AAA-grade white ceramic mugs with full-wrap 360° photo sublimation printing.",
+    description: "High-gloss white ceramic mugs manufactured from premium AAA-grade ceramic. Dishwasher and microwave safe with vibrant, fade-resistant sublimation printing from edge to edge.",
+    price: 18.00,
+    minimum_quantity: 25,
+    featured: 1,
+    seo_title: "Classic White Ceramic Mug Printing Dubai | 11oz Coffee Mugs | ONPRINT",
+    seo_description: "High-gloss 11oz white ceramic coffee mug printing in Dubai. Dishwasher safe, full-color 360-degree sublimation printing with express UAE delivery.",
+    seo_keywords: "white ceramic mug printing dubai, sublimation mugs dubai, custom coffee mugs uae",
+    seo_heading: "Classic White Ceramic Sublimation Mugs (11oz) in Dubai",
+    canonical_url: 'https://0nprint.com/products/classic-white-ceramic-mugs',
+    image_alt: "Classic white ceramic sublimation mug with corporate logo in Dubai",
+    images: ["/assets/products/mug_white_ceramic.jpg"],
+  },
+  {
+    product_key: 'prod-two-tone-ceramic-mugs',
+    category_slug: 'mug-printing-dubai',
+    name: "Two-Tone Color Accent Ceramic Mugs",
+    slug: 'two-tone-ceramic-mugs',
+    short_description: "White exterior ceramic mug with vibrant colored interior and matching colored handle.",
+    description: "Add corporate contrast with two-tone ceramic mugs. Featuring a crisp white exterior branded with your logo and a high-gloss rich colored interior and matching handle.",
+    price: 22.00,
+    minimum_quantity: 25,
+    featured: 1,
+    seo_title: "Two-Tone Accent Ceramic Mug Printing Dubai | ONPRINT",
+    seo_description: "Custom two-tone ceramic mugs in Dubai. White exterior with colored handle and interior, printed with high-resolution corporate branding.",
+    seo_keywords: "two tone mugs dubai, accent coffee mugs uae, custom printed color mugs",
+    seo_heading: "Two-Tone Color Accent Ceramic Mugs in Dubai",
+    canonical_url: 'https://0nprint.com/products/two-tone-ceramic-mugs',
+    image_alt: "Two-tone ceramic coffee mug with colored interior in Dubai",
+    images: ["/assets/products/mug_two_tone.jpg"],
+  },
+  {
+    product_key: 'prod-magic-heat-sensitive-mugs',
+    category_slug: 'mug-printing-dubai',
+    name: "Magic Color-Changing Heat-Sensitive Mugs",
+    slug: 'magic-heat-sensitive-mugs',
+    short_description: "Matte black mug that magically reveals hidden colorful graphics when filled with hot liquid.",
+    description: "Interactive thermochromic magic mugs. In cool state, the exterior is a sleek matte black; pour in hot coffee or tea to watch the black coating magically fade and reveal your custom full-color graphics.",
+    price: 28.00,
+    minimum_quantity: 20,
+    featured: 1,
+    seo_title: "Magic Heat Changing Mug Printing Dubai | Thermochromic Mugs | ONPRINT",
+    seo_description: "Custom magic color-changing mugs in Dubai. Thermochromic coating reveals custom graphics with hot beverages. Express turnaround across UAE.",
+    seo_keywords: "magic mug printing dubai, heat sensitive mugs uae, color changing mugs dubai",
+    seo_heading: "Magic Color-Changing Heat-Sensitive Mugs in Dubai",
+    canonical_url: 'https://0nprint.com/products/magic-heat-sensitive-mugs',
+    image_alt: "Magic heat sensitive color changing coffee mug in Dubai",
+    images: ["/assets/products/mug_magic_heat.jpg"],
+  },
+  {
+    product_key: 'prod-executive-matte-black-mugs',
+    category_slug: 'mug-printing-dubai',
+    name: "Executive Matte Black Ceramic Mugs with Gold Foil",
+    slug: 'executive-matte-black-mugs',
+    short_description: "Velvety matte black ceramic mug with metallic embossed gold logo print for executive gifting.",
+    description: "Crafted for boardrooms and VIP client gifting, our executive matte black ceramic mugs feature an anti-glare soft-touch finish with embossed metallic gold foil crest typography.",
+    price: 35.00,
+    minimum_quantity: 20,
+    featured: 1,
+    seo_title: "Executive Matte Black Mugs Dubai | Gold Foil Printing | ONPRINT",
+    seo_description: "Luxury executive matte black coffee mugs with embossed metallic gold foil printing in Dubai. Premium corporate and VIP boardroom gifting.",
+    seo_keywords: "matte black mug dubai, gold foil mug printing uae, luxury corporate mugs dubai",
+    seo_heading: "Executive Matte Black Ceramic Mugs with Gold Foil in Dubai",
+    canonical_url: 'https://0nprint.com/products/executive-matte-black-mugs',
+    image_alt: "Executive matte black ceramic mug with embossed gold foil in Dubai",
+    images: ["/assets/products/mug_matte_black_gold.jpg"],
+  },
+  {
+    product_key: 'prod-stainless-steel-travel-mugs',
+    category_slug: 'mug-printing-dubai',
+    name: "Stainless Steel Insulated Travel Tumblers (16oz)",
+    slug: 'stainless-steel-travel-mugs',
+    short_description: "Double-wall vacuum insulated coffee tumbler with leak-proof flip lid and laser etching.",
+    description: "Double-wall vacuum insulated 304 food-grade stainless steel travel mug keeping beverages piping hot for 6 hours or ice-cold for 12 hours. Ergonomic silhouette with laser-etched branding.",
+    price: 45.00,
+    minimum_quantity: 15,
+    featured: 1,
+    seo_title: "Custom Travel Mug Printing Dubai | Stainless Steel Tumblers | ONPRINT",
+    seo_description: "Laser engraved stainless steel travel tumblers and insulated coffee mugs in Dubai. 16oz double-wall vacuum insulation with flip-lock lid.",
+    seo_keywords: "travel mug printing dubai, stainless tumbler uae, custom insulated travel mugs",
+    seo_heading: "Stainless Steel Insulated Travel Tumblers (16oz) in Dubai",
+    canonical_url: 'https://0nprint.com/products/stainless-steel-travel-mugs',
+    image_alt: "Stainless steel insulated travel coffee tumbler in Dubai",
+    images: ["/assets/products/mug_travel_tumbler.jpg"],
+  },
+  {
+    product_key: 'prod-vintage-enamel-camping-mugs',
+    category_slug: 'mug-printing-dubai',
+    name: "Vintage Enamel Rolled-Rim Camping Mugs",
+    slug: 'vintage-enamel-camping-mugs',
+    short_description: "Retro rolled-steel enamel coffee mug with stainless rim and durable silkscreen print.",
+    description: "Authentic retro lightweight rolled-steel enamel camping mugs with protective enamel coating and stainless steel rim. Scratch-resistant, shatter-proof, and custom printed for cafés and brands.",
+    price: 25.00,
+    minimum_quantity: 30,
+    featured: 1,
+    seo_title: "Vintage Enamel Camping Mug Printing Dubai | Retro Mugs | ONPRINT",
+    seo_description: "Retro enamel camping mug printing in Dubai. Rolled steel with stainless rim, durable scratch-resistant prints for outdoor brands and cafés.",
+    seo_keywords: "enamel mug printing dubai, vintage camping mugs uae, custom enamel cups dubai",
+    seo_heading: "Vintage Enamel Rolled-Rim Camping Mugs in Dubai",
+    canonical_url: 'https://0nprint.com/products/vintage-enamel-camping-mugs',
+    image_alt: "Vintage enamel outdoor camping coffee mug in Dubai",
+    images: ["/assets/products/mug_vintage_enamel.jpg"],
+  },
+  {
+    product_key: 'prod-smart-led-temperature-bottles',
+    category_slug: 'bottle-printing-dubai',
+    name: "Smart LED Temperature Display Vacuum Flasks (500ml)",
+    slug: 'smart-led-temperature-bottles',
+    short_description: "Double-wall vacuum flask with touch-activated smart LED temperature cap and laser etching.",
+    description: "Smart 500ml vacuum insulated water bottle featuring a touch-sensitive LCD display cap showing real-time water temperature. Double-wall 304 stainless steel with rotary laser engraving.",
+    price: 48.00,
+    minimum_quantity: 15,
+    featured: 1,
+    seo_title: "Smart LED Temperature Bottle Printing Dubai | Digital Flasks | ONPRINT",
+    seo_description: "Custom smart LED temperature flasks in Dubai. Touch-display digital temperature cap, 304 stainless steel, laser engraved with company logo.",
+    seo_keywords: "smart led bottle dubai, temperature flask printing uae, smart water bottle dubai",
+    seo_heading: "Smart LED Temperature Display Vacuum Flasks (500ml) in Dubai",
+    canonical_url: 'https://0nprint.com/products/smart-led-temperature-bottles',
+    image_alt: "Smart LED digital temperature display vacuum bottle in Dubai",
+    images: ["/assets/products/bottle_smart_led.jpg"],
+  },
+  {
+    product_key: 'prod-matte-stainless-steel-bottles',
+    category_slug: 'bottle-printing-dubai',
+    name: "Matte Powder-Coated Thermal Water Bottles (500ml)",
+    slug: 'matte-stainless-steel-bottles',
+    short_description: "Anti-scratch matte finish double-wall insulated water bottle with precision laser engraving.",
+    description: "Engineered for durability, this double-wall stainless steel bottle keeps liquids chilled for 24 hours. Finished with an anti-scratch powder coat and high-precision laser-etched corporate logos.",
+    price: 38.00,
+    minimum_quantity: 20,
+    featured: 1,
+    seo_title: "Matte Stainless Steel Bottle Printing Dubai | Thermal Bottles | ONPRINT",
+    seo_description: "Order custom matte thermal water bottles in Dubai. Powder-coated 304 stainless steel with precision laser engraving and 24h cold insulation.",
+    seo_keywords: "thermal water bottle printing dubai, matte bottle engraving uae, custom stainless bottles",
+    seo_heading: "Matte Powder-Coated Thermal Water Bottles (500ml) in Dubai",
+    canonical_url: 'https://0nprint.com/products/matte-stainless-steel-bottles',
+    image_alt: "Matte black thermal stainless steel water bottle in Dubai",
+    images: ["/assets/products/bottle_matte_thermal.jpg"],
+  },
+  {
+    product_key: 'prod-aluminium-sports-water-bottles',
+    category_slug: 'bottle-printing-dubai',
+    name: "Aluminium Sports Bottles with Carabiner Clip (600ml)",
+    slug: 'aluminium-sports-water-bottles',
+    short_description: "Lightweight single-wall aluminium drink bottle with screw top and metal carabiner.",
+    description: "Ultra-lightweight food-safe aluminium sports bottle with leak-proof screw cap and carabiner clip. Ideal for sports activations, marathons, gyms, and outdoor corporate wellness days.",
+    price: 22.00,
+    minimum_quantity: 30,
+    featured: 1,
+    seo_title: "Aluminium Sports Water Bottle Printing Dubai | ONPRINT",
+    seo_description: "Lightweight aluminium sports water bottles in Dubai with screw cap and carabiner clip. Custom screen printing for fitness events, marathons, and schools.",
+    seo_keywords: "aluminium sports bottles dubai, marathon drink bottles uae, branded gym bottles dubai",
+    seo_heading: "Aluminium Sports Bottles with Carabiner Clip (600ml) in Dubai",
+    canonical_url: 'https://0nprint.com/products/aluminium-sports-water-bottles',
+    image_alt: "Aluminium sports water bottle with carabiner clip in Dubai",
+    images: ["/assets/products/bottle_sports_aluminium.jpg"],
+  },
+  {
+    product_key: 'prod-borosilicate-glass-bamboo-bottles',
+    category_slug: 'bottle-printing-dubai',
+    name: "Borosilicate Glass Bottles with Bamboo Lid & Silicone Sleeve",
+    slug: 'borosilicate-glass-bamboo-bottles',
+    short_description: "Eco-friendly clear glass bottle with natural bamboo lid and non-slip silicone sleeve.",
+    description: "Sustainable luxury hydration. High-clarity thermal shock resistant borosilicate glass bottle featuring a natural bamboo screw-on cap with jute carrying loop and a non-slip silicone grip sleeve.",
+    price: 42.00,
+    minimum_quantity: 20,
+    featured: 1,
+    seo_title: "Glass Water Bottle with Bamboo Lid Printing Dubai | Eco Bottles | ONPRINT",
+    seo_description: "Custom eco-friendly borosilicate glass water bottles in Dubai. Natural bamboo cap, non-slip silicone sleeve, custom branded for sustainable corporate gifts.",
+    seo_keywords: "glass water bottle dubai, bamboo lid bottles uae, eco friendly corporate bottles dubai",
+    seo_heading: "Borosilicate Glass Bottles with Bamboo Lid & Silicone Sleeve in Dubai",
+    canonical_url: 'https://0nprint.com/products/borosilicate-glass-bamboo-bottles',
+    image_alt: "Borosilicate glass water bottle with bamboo lid and silicone sleeve in Dubai",
+    images: ["/assets/products/bottle_glass_bamboo.jpg"],
+  },
+  {
+    product_key: 'prod-ergonomic-gym-protein-shakers',
+    category_slug: 'bottle-printing-dubai',
+    name: "Ergonomic Gym Protein Shakers with Whisk Ball (700ml)",
+    slug: 'ergonomic-gym-protein-shakers',
+    short_description: "BPA-free protein shaker bottle with embossed measurement markings and stainless wire whisk ball.",
+    description: "700ml leak-proof sports shaker bottle with measurement scale in oz and ml, flip cap carry loop, and surgical-grade stainless steel wire blending ball. Screen printed with vibrant brand graphics.",
+    price: 26.00,
+    minimum_quantity: 25,
+    featured: 1,
+    seo_title: "Custom Protein Shaker Bottle Printing Dubai | Gym Bottles | ONPRINT",
+    seo_description: "Custom branded gym protein shaker bottles in Dubai. BPA-free 700ml bottle with wire whisk ball, embossed measurement scale, and leak-proof lid.",
+    seo_keywords: "protein shaker printing dubai, gym bottle printing uae, fitness shaker bottles dubai",
+    seo_heading: "Ergonomic Gym Protein Shakers with Whisk Ball (700ml) in Dubai",
+    canonical_url: 'https://0nprint.com/products/ergonomic-gym-protein-shakers',
+    image_alt: "Gym protein shaker bottle with wire whisk ball in Dubai",
+    images: ["/assets/products/bottle_protein_shaker.jpg"],
+  },
+  {
+    product_key: 'prod-luxury-copper-insulated-flasks',
+    category_slug: 'bottle-printing-dubai',
+    name: "Executive Copper-Vacuum Luxury Thermal Flask (650ml)",
+    slug: 'luxury-copper-insulated-flasks',
+    short_description: "VIP copper-vacuum insulated thermal flask with rose copper accents and silicone carry handle.",
+    description: "The flagship of corporate drinkware. Features copper-plated inner wall vacuum insulation, brushed rose copper collar and base, matte graphite body, silicone carry loop, and metallic gold branding.",
+    price: 55.00,
+    minimum_quantity: 15,
+    featured: 1,
+    seo_title: "Executive Copper Vacuum Flask Printing Dubai | VIP Gift Bottles | ONPRINT",
+    seo_description: "Luxury copper vacuum insulated flasks in Dubai. Rose copper accents, silicone handle, 650ml capacity with metallic gold corporate monogram printing.",
+    seo_keywords: "copper thermal flask dubai, executive gift bottles uae, luxury drinkware printing dubai",
+    seo_heading: "Executive Copper-Vacuum Luxury Thermal Flask (650ml) in Dubai",
+    canonical_url: 'https://0nprint.com/products/luxury-copper-insulated-flasks',
+    image_alt: "Executive copper-vacuum luxury thermal flask in Dubai",
+    images: ["/assets/products/bottle_luxury_copper.jpg"],
   },
 ]
 
@@ -1666,6 +1950,90 @@ async function seedContentDecayIfEmpty(connection) {
     }
   } catch (err) {
     console.warn('[Content Decay Seed Note]:', err.message)
+  }
+}
+
+async function seedSeoTasksIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_tasks')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0) {
+      const defaultTasks = [
+        {
+          title: 'Review & optimize H2 topical depth for Business Cards Dubai',
+          description: 'Ensure 350gsm, 450gsm, and 600gsm cotton and painted edge specs are clearly articulated in H2 subheadings for DIFC corporate search intent.',
+          category: 'onpage',
+          priority: 'high',
+          status: 'pending',
+          assigned_to: 'SEO Specialist',
+          due_date: '2026-09-30',
+        },
+        {
+          title: 'Submit updated XML sitemap to Google Search Console',
+          description: 'Verify all 12 commercial Dubai landing pages and dynamic blog guides are submitted in sitemap.xml without 404 or redirect errors.',
+          category: 'technical',
+          priority: 'critical',
+          status: 'completed',
+          assigned_to: 'Technical Lead',
+          due_date: '2026-09-25',
+        },
+        {
+          title: 'Audit striking distance queries (Positions 4–10) for CTR click-triggers',
+          description: 'Update meta title tags for queries ranking 4–10 by testing click triggers such as "Same-Day Dubai", "Free Sample Box", and "Al Quoz Direct Press".',
+          category: 'onpage',
+          priority: 'high',
+          status: 'in_progress',
+          assigned_to: 'SEO Specialist',
+          due_date: '2026-10-05',
+        },
+        {
+          title: 'Verify LocalBusiness JSON-LD Schema NAP consistency',
+          description: 'Confirm Al Quoz Industrial Area 3 street address, phone (+971 55 183 7995), coordinates, and opening hours match Google Business Profile perfectly.',
+          category: 'schema',
+          priority: 'high',
+          status: 'completed',
+          assigned_to: 'Technical Lead',
+          due_date: '2026-09-22',
+        },
+        {
+          title: 'Outreach to Dubai Chamber & verified UAE B2B directories',
+          description: 'Submit legitimate business profile to Dubai Chamber Member Directory and UAE Industrial Portal under Commercial Printing & Packaging.',
+          category: 'backlinks',
+          priority: 'medium',
+          status: 'pending',
+          assigned_to: 'Outreach Coordinator',
+          due_date: '2026-10-15',
+        },
+        {
+          title: 'Monitor ChatGPT and Perplexity citations for "business card printing dubai"',
+          description: 'Run weekly AI engine visibility probes to track whether ONPRINT is referenced as a verified local Al Quoz printing press.',
+          category: 'geo',
+          priority: 'medium',
+          status: 'in_progress',
+          assigned_to: 'GEO Lead',
+          due_date: '2026-10-01',
+        },
+        {
+          title: 'Add contextual internal links from blog guides to money pages',
+          description: 'Link "How to Choose Business Card Paper" to /business-card-printing-dubai and "Packaging Finishes Guide" to /packaging-printing-dubai.',
+          category: 'content',
+          priority: 'high',
+          status: 'pending',
+          assigned_to: 'Content Editor',
+          due_date: '2026-10-02',
+        },
+      ]
+      for (const t of defaultTasks) {
+        await connection.query(
+          `INSERT INTO seo_tasks (title, description, category, priority, status, assigned_to, due_date, completed_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+          [t.title, t.description, t.category, t.priority, t.status, t.assigned_to, t.due_date, t.status === 'completed' ? new Date() : null]
+        )
+      }
+      console.log('[SEO Tasks] Seeded 7 actionable SEO workflow tasks into MySQL.')
+    }
+  } catch (err) {
+    console.warn('[SEO Tasks Seed Note]:', err.message)
   }
 }
 
@@ -2655,6 +3023,33 @@ async function initDatabase() {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
 
+    // Dynamic column migrations for page_seo & geo_faqs
+    await addColumnIfMissing(connection, 'page_seo', 'search_intent', "VARCHAR(100) DEFAULT 'Commercial'")
+    await addColumnIfMissing(connection, 'page_seo', 'focus_entity', 'VARCHAR(255) DEFAULT NULL')
+    await addColumnIfMissing(connection, 'page_seo', 'related_entities', 'TEXT DEFAULT NULL')
+    await addColumnIfMissing(connection, 'page_seo', 'faq_content', 'LONGTEXT DEFAULT NULL')
+    await addColumnIfMissing(connection, 'geo_faqs', 'related_keyword', 'VARCHAR(255) DEFAULT NULL')
+
+    // 11.22 SEO Tasks Tracking Table (Requirement 25)
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_tasks (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        description TEXT DEFAULT NULL,
+        category ENUM('technical', 'onpage', 'content', 'geo', 'backlinks', 'schema') DEFAULT 'onpage',
+        priority ENUM('critical', 'high', 'medium', 'low') DEFAULT 'medium',
+        status ENUM('pending', 'in_progress', 'completed') DEFAULT 'pending',
+        assigned_to VARCHAR(100) DEFAULT 'Admin',
+        due_date DATE DEFAULT NULL,
+        completed_at DATETIME DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_task_status (status),
+        INDEX idx_task_priority (priority),
+        INDEX idx_task_category (category)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
     // Seed/Synchronize all SEO and GEO datasets
     await seedPageSeoIfEmpty(connection)
     await seedBlogsIfEmpty(connection)
@@ -2671,6 +3066,7 @@ async function initDatabase() {
     await seedExperimentsIfEmpty(connection)
     await seedConversionsIfEmpty(connection)
     await seedContentDecayIfEmpty(connection)
+    await seedSeoTasksIfEmpty(connection)
 
 
     // 12. Automatically Seed/Verify Admin User in DB

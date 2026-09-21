@@ -71,6 +71,7 @@ router.get('/cannibalization', (req, res) => pageSeoController.getCannibalizatio
 // Technical & On-Page Audits
 router.get('/audit-details', (req, res) => seoManagerController.getAudit(req, res))
 router.post('/audit-trigger', (req, res) => seoManagerController.triggerAudit(req, res))
+router.post('/audit/auto-fix', (req, res) => seoManagerController.autoFixAuditIssues(req, res))
 
 // Content Opportunities Finder
 router.get('/opportunities', (req, res) => seoManagerController.getOpportunities(req, res))
@@ -165,7 +166,16 @@ router.get('/geo-scorecard', (req, res) => seoManagerController.getGeoScorecard(
 // Google Search Console Integration
 router.get('/search-console/status', (req, res) => seoManagerController.getSearchConsoleStatus(req, res))
 router.post('/search-console/connect', (req, res) => seoManagerController.connectSearchConsole(req, res))
-router.post('/search-console/sync', (req, res) => seoManagerController.syncSearchConsole(req, res))
+// SEO Tasks Tracker (Requirement 22 & 38)
+router.get('/tasks', (req, res) => seoManagerController.getSeoTasks(req, res))
+router.post('/tasks', (req, res) => seoManagerController.createSeoTask(req, res))
+router.put('/tasks/:id', (req, res) => seoManagerController.updateSeoTask(req, res))
+router.delete('/tasks/:id', (req, res) => seoManagerController.deleteSeoTask(req, res))
+router.post('/tasks/generate', (req, res) => seoManagerController.generateSeoTasks(req, res))
+
+// AI Content & FAQ Generators (Requirement 7, 12 & 27)
+router.post('/ai/content-brief', (req, res) => seoManagerController.generateContentBrief(req, res))
+router.post('/ai/faq-ideas', (req, res) => seoManagerController.generateFaqIdeas(req, res))
 
 // Settings
 router.get('/settings', (req, res) => seoManagerController.getSettings(req, res))

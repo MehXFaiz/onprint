@@ -119,6 +119,10 @@ function App() {
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/get-a-quote" element={<GetQuotePage />} />
+            <Route path="/quote" element={<Navigate to="/get-a-quote" replace />} />
+            <Route path="/get-quote" element={<Navigate to="/get-a-quote" replace />} />
+            <Route path="/quote-request" element={<Navigate to="/get-a-quote" replace />} />
+            <Route path="/pricing" element={<Navigate to="/get-a-quote" replace />} />
             <Route path="/track-order" element={<TrackOrderPage />} />
             <Route path="/track" element={<Navigate to="/track-order" replace />} />
             <Route path="/orders/track" element={<Navigate to="/track-order" replace />} />

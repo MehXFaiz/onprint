@@ -27,6 +27,8 @@ const serviceLinks = [
   { to: '/services/lanyard-printing-dubai', label: 'Lanyard Printing Service' },
   { to: '/services/letterheads-printing-dubai', label: 'Letterheads Printing Service' },
   { to: '/services/name-badges-printing-dubai', label: 'Name Badges Printing Service' },
+  { to: '/categories/mug-printing-dubai', label: 'Mug Printing Dubai' },
+  { to: '/categories/bottle-printing-dubai', label: 'Water Bottle Printing Dubai' },
 ]
 
 export default function SiteFooter() {

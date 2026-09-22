@@ -113,13 +113,47 @@ export const defaultServices = [
     seoDescription: 'Professional staff name badges printing in Dubai. Brushed silver, gold, and acrylic magnetic badges with domed epoxy resin.',
     seoKeywords: 'name badges printing dubai, magnetic name badges dubai, staff badge printing uae',
   },
+  {
+    _id: 'serv-mug-printing-dubai',
+    id: 8,
+    name: 'Mug Printing Dubai',
+    slug: 'mug-printing-dubai',
+    category: { name: 'Mug Printing Dubai' },
+    shortDescription: 'Custom branded ceramic coffee mugs, magic heat-reveal mugs, matte black executive tumblers, and vintage enamel mugs.',
+    description: 'Bespoke corporate mug printing services in Dubai. Full-color vibrant dye-sublimation on 11oz/15oz ceramic mugs, thermochromic heat-reveal mugs, luxury engraved travel tumblers, and enamel camping mugs with fast UAE delivery.',
+    image: '/assets/products/mug_white_ceramic.jpg',
+    image_url: '/assets/products/mug_white_ceramic.jpg',
+    order: 8,
+    active: true,
+    seoTitle: 'Mug Printing Dubai | Custom Branded Ceramic & Travel Mugs | ONPRINT',
+    seoDescription: 'Professional mug printing in Dubai. Custom ceramic mugs, magic color-changing mugs, executive matte black mugs, and travel tumblers with fast UAE delivery.',
+    seoKeywords: 'mug printing dubai, custom mugs dubai, printed mugs uae, personalized coffee mugs dubai, magic mugs dubai, ceramic mug printing',
+  },
+  {
+    _id: 'serv-bottle-printing-dubai',
+    id: 9,
+    name: 'Water Bottle Printing Dubai',
+    slug: 'bottle-printing-dubai',
+    category: { name: 'Water Bottle Printing Dubai' },
+    shortDescription: 'Custom printed & laser-engraved water bottles, smart LED temperature display flasks, double-wall stainless thermal bottles, and sports bottles.',
+    description: 'Custom water bottle printing and laser engraving in Dubai. Double-wall vacuum insulated flasks, smart LED digital temp bottles, aluminium sports bottles, and bamboo glass tumblers with fast UAE delivery.',
+    image: '/assets/products/bottle_smart_led.jpg',
+    image_url: '/assets/products/bottle_smart_led.jpg',
+    order: 9,
+    active: true,
+    seoTitle: 'Water Bottle Printing Dubai | Custom Branded Flasks & Sports Bottles | ONPRINT',
+    seoDescription: 'Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.',
+    seoKeywords: 'bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai, smart led temperature bottle dubai',
+  },
 ]
 
 export async function getServices() {
   try {
     const { data } = await api.get('/services')
-    if (data?.data && data.data.length > 0) {
-      return data.data
+    if (data?.data && Array.isArray(data.data) && data.data.length > 0) {
+      const existingSlugs = new Set(data.data.map((s) => s.slug))
+      const missing = defaultServices.filter((ds) => !existingSlugs.has(ds.slug))
+      return missing.length > 0 ? [...data.data, ...missing] : data.data
     }
     return defaultServices
   } catch {

@@ -128,177 +128,15 @@ export const initialCategories = [
     "imageAlt": "Professional magnetic metal and acrylic name badges in Dubai"
   },
   {
-    "_id": "cat-luxury-packaging-boxes",
-    "id": 8,
-    "name": "Luxury Packaging & Boxes",
-    "slug": "luxury-packaging-boxes",
-    "description": "Custom rigid presentation boxes, magnetic closure gift boxes, corrugated mailers, and premium boutique packaging crafted with embossed finishes.",
-    "image": "/assets/products/service_luxury_packaging.jpg",
-    "image_url": "/assets/products/service_luxury_packaging.jpg",
-    "status": "active",
-    "display_order": 8,
-    "active": true,
-    "seoTitle": "Luxury Packaging & Custom Box Printing Dubai | ONPRINT",
-    "seoDescription": "Bespoke custom packaging and luxury boxes manufactured in Dubai. Rigid gift boxes, magnetic closure boxes, cosmetic packaging with foil embossing.",
-    "seoKeywords": "luxury packaging dubai, custom boxes printing dubai, rigid box manufacturing uae, gift box printing dubai, boutique packaging",
-    "seoHeading": "Luxury Custom Packaging & Presentation Boxes in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/luxury-packaging-boxes",
-    "imageAlt": "Luxury gold embossed custom packaging boxes in Dubai"
-  },
-  {
-    "_id": "cat-corporate-gift-items",
-    "id": 9,
-    "name": "Corporate Gifts & Merchandise",
-    "slug": "corporate-gift-items",
-    "description": "VIP corporate executive gifts, customized branded gift sets, luxury desktop accessories, and curated event giveaways for Dubai organizations.",
-    "image": "/assets/products/luxury_corporate_gifts_dubai.jpg",
-    "image_url": "/assets/products/luxury_corporate_gifts_dubai.jpg",
-    "status": "active",
-    "display_order": 9,
-    "active": true,
-    "seoTitle": "Corporate Gifts & VIP Merchandise Printing Dubai | ONPRINT",
-    "seoDescription": "Premium corporate gifts and branded merchandise in Dubai. Executive gift sets, leather items, engraved pens, and VIP presentation boxes.",
-    "seoKeywords": "corporate gifts dubai, promotional merchandise dubai, executive gift sets uae, custom branded gifts dubai",
-    "seoHeading": "Executive Corporate Gifts & VIP Merchandise Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/corporate-gift-items",
-    "imageAlt": "Luxury corporate executive gift sets in Dubai"
-  },
-  {
-    "_id": "cat-signage-banners-printing",
-    "id": 10,
-    "name": "Signage & Exhibition Banners",
-    "slug": "signage-banners-printing",
-    "description": "Roll-up pull banners, teardrop beach flags, acrylic wall signs, and rigid foam board displays engineered for Dubai trade shows and offices.",
-    "image": "/assets/products/service_exhibition_signage.jpg",
-    "image_url": "/assets/products/service_exhibition_signage.jpg",
-    "status": "active",
-    "display_order": 10,
-    "active": true,
-    "seoTitle": "Signage & Exhibition Banner Printing Dubai | ONPRINT",
-    "seoDescription": "Large format printing and exhibition signage in Dubai. High-impact roll-up banners, outdoor flags, foam boards, and acrylic wall displays.",
-    "seoKeywords": "signage printing dubai, exhibition banners dubai, roll up banner dubai, trade show displays uae, acrylic signs dubai",
-    "seoHeading": "High-Impact Signage & Exhibition Banners in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/signage-banners-printing",
-    "imageAlt": "Commercial exhibition banners and trade show signage in Dubai"
-  },
-  {
-    "_id": "cat-custom-apparel-printing",
-    "id": 11,
-    "name": "Custom Apparel & Wearables",
-    "slug": "custom-apparel-printing",
-    "description": "High-density screen printed and embroidered cotton corporate t-shirts, polo uniforms, hoodies, and promotional embroidered caps.",
-    "image": "/assets/products/1 (3).jpg",
-    "image_url": "/assets/products/1 (3).jpg",
-    "status": "active",
-    "display_order": 11,
-    "active": true,
-    "seoTitle": "Custom Apparel & T-Shirt Screen Printing Dubai | ONPRINT",
-    "seoDescription": "Custom branded t-shirts, corporate polos, embroidered caps, and staff uniforms in Dubai with screen printing and DTG precision.",
-    "seoKeywords": "t shirt printing dubai, custom apparel dubai, corporate uniform printing uae, embroidered caps dubai",
-    "seoHeading": "Custom Corporate Apparel & Branded Wearables Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/custom-apparel-printing",
-    "imageAlt": "Custom screen printed corporate t-shirts and apparel in Dubai"
-  },
-  {
-    "_id": "cat-stickers-labels-printing",
-    "id": 12,
-    "name": "Stickers & Product Labels",
-    "slug": "stickers-labels-printing",
-    "description": "Waterproof die-cut vinyl stickers, foil metallic roll labels, holographic stickers, and embossed packaging seal stickers with UV durability.",
-    "image": "/assets/products/service_stickers_labels.jpg",
-    "image_url": "/assets/products/service_stickers_labels.jpg",
-    "status": "active",
-    "display_order": 12,
-    "active": true,
-    "seoTitle": "Stickers & Product Label Printing Dubai | ONPRINT",
-    "seoDescription": "Precision die-cut stickers and product roll labels in Dubai. Waterproof vinyl, metallic foil, holographic, and transparent packaging stickers.",
-    "seoKeywords": "sticker printing dubai, custom labels dubai, die cut stickers uae, packaging labels dubai",
-    "seoHeading": "Precision Die-Cut Stickers & Product Labels Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/stickers-labels-printing",
-    "imageAlt": "Custom die cut vinyl stickers and foil labels in Dubai"
-  },
-  {
-    "_id": "cat-catalogs-booklets-printing",
-    "id": 13,
-    "name": "Catalogs & Booklets Printing",
-    "slug": "catalogs-booklets-printing",
-    "description": "Multi-page corporate product catalogs, lookbooks, company profiles, and annual reports with saddle-stitch, wire-o, or PUR perfect binding.",
-    "image": "/assets/products/brochure_booklet_catalog.jpg",
-    "image_url": "/assets/products/brochure_booklet_catalog.jpg",
-    "status": "active",
-    "display_order": 13,
-    "active": true,
-    "seoTitle": "Catalogs & Corporate Booklets Printing Dubai | ONPRINT",
-    "seoDescription": "Executive multi-page booklet and catalog printing in Dubai. Saddle-stitched and perfect-bound company profiles, annual reports, and product lookbooks.",
-    "seoKeywords": "catalog printing dubai, booklet printing uae, annual report printing dubai, company profile printing",
-    "seoHeading": "Corporate Booklets, Catalogs & Annual Reports Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/catalogs-booklets-printing",
-    "imageAlt": "Multi-page executive corporate booklets and catalogs in Dubai"
-  },
-  {
-    "_id": "cat-office-stationery-printing",
-    "id": 14,
-    "name": "Office Stationery & Envelopes",
-    "slug": "office-stationery-printing",
-    "description": "Complete corporate identity suites: executive notebooks, foiled presentation folders, branded window envelopes, and desk writing pads.",
-    "image": "/assets/products/service_executive_stationery.jpg",
-    "image_url": "/assets/products/service_executive_stationery.jpg",
-    "status": "active",
-    "display_order": 14,
-    "active": true,
-    "seoTitle": "Office Stationery & Envelope Printing Dubai | ONPRINT",
-    "seoDescription": "Executive office stationery sets in Dubai. Foil-stamped presentation folders, corporate envelopes, desk pads, and luxury notebooks for corporate identity.",
-    "seoKeywords": "office stationery dubai, presentation folder printing dubai, corporate envelopes uae, desk pads printing",
-    "seoHeading": "Executive Corporate Stationery & Envelopes in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/office-stationery-printing",
-    "imageAlt": "Executive corporate stationery and presentation folders in Dubai"
-  },
-  {
-    "_id": "cat-hospitality-event-printing",
-    "id": 15,
-    "name": "Hospitality & Event Stationery",
-    "slug": "hospitality-event-printing",
-    "description": "Waterproof restaurant menus, luxury wedding invitation suites, table talkers, event badges, and embossed greeting card stationery.",
-    "image": "/assets/products/1 (14).jpg",
-    "image_url": "/assets/products/1 (14).jpg",
-    "status": "active",
-    "display_order": 15,
-    "active": true,
-    "seoTitle": "Hospitality & Event Stationery Printing Dubai | ONPRINT",
-    "seoDescription": "Luxury hospitality and event print solutions in Dubai. Spill-resistant restaurant menus, luxury wedding invitations, and VIP event collaterals.",
-    "seoKeywords": "restaurant menu printing dubai, wedding invitation printing dubai, event stationery uae, hospitality printing dubai",
-    "seoHeading": "Hospitality, Menus & Event Stationery Solutions Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/hospitality-event-printing",
-    "imageAlt": "Luxury restaurant menus and wedding invitation suites in Dubai"
-  },
-  {
-    "_id": "cat-promotional-drinkware-tech",
-    "id": 16,
-    "name": "Promotional Drinkware & Tech",
-    "slug": "promotional-drinkware-tech",
-    "description": "Laser-engraved thermal insulated water bottles, ceramic coffee mugs, wireless power banks, USB drives, and ergonomic desk mouse mats.",
-    "image": "/assets/products/water_bottles.jpg",
-    "image_url": "/assets/products/water_bottles.jpg",
-    "status": "active",
-    "display_order": 16,
-    "active": true,
-    "seoTitle": "Promotional Drinkware & Branded Tech Dubai | ONPRINT",
-    "seoDescription": "Custom printed mugs, insulated stainless steel water bottles, branded USB flash drives, and power banks for corporate promotional campaigns in Dubai.",
-    "seoKeywords": "mug printing dubai, custom water bottles dubai, promotional tech items uae, branded power banks dubai",
-    "seoHeading": "Promotional Branded Drinkware & Tech Accessories Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/promotional-drinkware-tech",
-    "imageAlt": "Custom branded drinkware and promotional tech accessories in Dubai"
-  },
-  {
     "_id": "cat-mug-printing-dubai",
-    "id": 17,
+    "id": 8,
     "name": "Mug Printing Dubai",
     "slug": "mug-printing-dubai",
     "description": "Custom printed ceramic mugs, magic heat-sensitive mugs, executive matte black coffee mugs, stainless travel tumblers, and vintage enamel mugs printed in Dubai.",
     "image": "/assets/products/mug_white_ceramic.jpg",
     "image_url": "/assets/products/mug_white_ceramic.jpg",
     "status": "active",
-    "display_order": 17,
+    "display_order": 8,
     "active": true,
     "seoTitle": "Mug Printing Dubai | Custom Branded Ceramic & Travel Mugs | ONPRINT",
     "seoDescription": "Professional mug printing in Dubai. Custom ceramic mugs, magic color-changing mugs, executive matte black mugs, and travel tumblers with fast UAE delivery.",
@@ -309,14 +147,14 @@ export const initialCategories = [
   },
   {
     "_id": "cat-bottle-printing-dubai",
-    "id": 18,
+    "id": 9,
     "name": "Water Bottle Printing Dubai",
     "slug": "bottle-printing-dubai",
     "description": "Custom printed & laser-engraved water bottles, smart LED temperature display flasks, double-wall stainless steel thermal bottles, and aluminium sports bottles in Dubai.",
     "image": "/assets/products/bottle_smart_led.jpg",
     "image_url": "/assets/products/bottle_smart_led.jpg",
     "status": "active",
-    "display_order": 18,
+    "display_order": 9,
     "active": true,
     "seoTitle": "Water Bottle Printing Dubai | Custom Branded Flasks & Sports Bottles | ONPRINT",
     "seoDescription": "Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.",
@@ -324,10 +162,172 @@ export const initialCategories = [
     "seoHeading": "Custom Water Bottle Printing & Laser Engraving Dubai",
     "canonicalUrl": "https://0nprint.com/categories/bottle-printing-dubai",
     "imageAlt": "Custom printed and laser engraved water bottles in Dubai"
+  },
+  {
+    "_id": "cat-luxury-packaging-boxes",
+    "id": 10,
+    "name": "Luxury Packaging & Boxes",
+    "slug": "luxury-packaging-boxes",
+    "description": "Custom rigid presentation boxes, magnetic closure gift boxes, corrugated mailers, and premium boutique packaging crafted with embossed finishes.",
+    "image": "/assets/products/service_luxury_packaging.jpg",
+    "image_url": "/assets/products/service_luxury_packaging.jpg",
+    "status": "active",
+    "display_order": 10,
+    "active": true,
+    "seoTitle": "Luxury Packaging & Custom Box Printing Dubai | ONPRINT",
+    "seoDescription": "Bespoke custom packaging and luxury boxes manufactured in Dubai. Rigid gift boxes, magnetic closure boxes, cosmetic packaging with foil embossing.",
+    "seoKeywords": "luxury packaging dubai, custom boxes printing dubai, rigid box manufacturing uae, gift box printing dubai, boutique packaging",
+    "seoHeading": "Luxury Custom Packaging & Presentation Boxes in Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/luxury-packaging-boxes",
+    "imageAlt": "Luxury gold embossed custom packaging boxes in Dubai"
+  },
+  {
+    "_id": "cat-corporate-gift-items",
+    "id": 11,
+    "name": "Corporate Gifts & Merchandise",
+    "slug": "corporate-gift-items",
+    "description": "VIP corporate executive gifts, customized branded gift sets, luxury desktop accessories, and curated event giveaways for Dubai organizations.",
+    "image": "/assets/products/luxury_corporate_gifts_dubai.jpg",
+    "image_url": "/assets/products/luxury_corporate_gifts_dubai.jpg",
+    "status": "active",
+    "display_order": 11,
+    "active": true,
+    "seoTitle": "Corporate Gifts & VIP Merchandise Printing Dubai | ONPRINT",
+    "seoDescription": "Premium corporate gifts and branded merchandise in Dubai. Executive gift sets, leather items, engraved pens, and VIP presentation boxes.",
+    "seoKeywords": "corporate gifts dubai, promotional merchandise dubai, executive gift sets uae, custom branded gifts dubai",
+    "seoHeading": "Executive Corporate Gifts & VIP Merchandise Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/corporate-gift-items",
+    "imageAlt": "Luxury corporate executive gift sets in Dubai"
+  },
+  {
+    "_id": "cat-signage-banners-printing",
+    "id": 12,
+    "name": "Signage & Exhibition Banners",
+    "slug": "signage-banners-printing",
+    "description": "Roll-up pull banners, teardrop beach flags, acrylic wall signs, and rigid foam board displays engineered for Dubai trade shows and offices.",
+    "image": "/assets/products/service_exhibition_signage.jpg",
+    "image_url": "/assets/products/service_exhibition_signage.jpg",
+    "status": "active",
+    "display_order": 12,
+    "active": true,
+    "seoTitle": "Signage & Exhibition Banner Printing Dubai | ONPRINT",
+    "seoDescription": "Large format printing and exhibition signage in Dubai. High-impact roll-up banners, outdoor flags, foam boards, and acrylic wall displays.",
+    "seoKeywords": "signage printing dubai, exhibition banners dubai, roll up banner dubai, trade show displays uae, acrylic signs dubai",
+    "seoHeading": "High-Impact Signage & Exhibition Banners in Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/signage-banners-printing",
+    "imageAlt": "Commercial exhibition banners and trade show signage in Dubai"
+  },
+  {
+    "_id": "cat-custom-apparel-printing",
+    "id": 13,
+    "name": "Custom Apparel & Wearables",
+    "slug": "custom-apparel-printing",
+    "description": "High-density screen printed and embroidered cotton corporate t-shirts, polo uniforms, hoodies, and promotional embroidered caps.",
+    "image": "/assets/products/1 (3).jpg",
+    "image_url": "/assets/products/1 (3).jpg",
+    "status": "active",
+    "display_order": 13,
+    "active": true,
+    "seoTitle": "Custom Apparel & T-Shirt Screen Printing Dubai | ONPRINT",
+    "seoDescription": "Custom branded t-shirts, corporate polos, embroidered caps, and staff uniforms in Dubai with screen printing and DTG precision.",
+    "seoKeywords": "t shirt printing dubai, custom apparel dubai, corporate uniform printing uae, embroidered caps dubai",
+    "seoHeading": "Custom Corporate Apparel & Branded Wearables Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/custom-apparel-printing",
+    "imageAlt": "Custom screen printed corporate t-shirts and apparel in Dubai"
+  },
+  {
+    "_id": "cat-stickers-labels-printing",
+    "id": 14,
+    "name": "Stickers & Product Labels",
+    "slug": "stickers-labels-printing",
+    "description": "Waterproof die-cut vinyl stickers, foil metallic roll labels, holographic stickers, and embossed packaging seal stickers with UV durability.",
+    "image": "/assets/products/service_stickers_labels.jpg",
+    "image_url": "/assets/products/service_stickers_labels.jpg",
+    "status": "active",
+    "display_order": 14,
+    "active": true,
+    "seoTitle": "Stickers & Product Label Printing Dubai | ONPRINT",
+    "seoDescription": "Precision die-cut stickers and product roll labels in Dubai. Waterproof vinyl, metallic foil, holographic, and transparent packaging stickers.",
+    "seoKeywords": "sticker printing dubai, custom labels dubai, die cut stickers uae, packaging labels dubai",
+    "seoHeading": "Precision Die-Cut Stickers & Product Labels Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/stickers-labels-printing",
+    "imageAlt": "Custom die cut vinyl stickers and foil labels in Dubai"
+  },
+  {
+    "_id": "cat-catalogs-booklets-printing",
+    "id": 15,
+    "name": "Catalogs & Booklets Printing",
+    "slug": "catalogs-booklets-printing",
+    "description": "Multi-page corporate product catalogs, lookbooks, company profiles, and annual reports with saddle-stitch, wire-o, or PUR perfect binding.",
+    "image": "/assets/products/brochure_booklet_catalog.jpg",
+    "image_url": "/assets/products/brochure_booklet_catalog.jpg",
+    "status": "active",
+    "display_order": 15,
+    "active": true,
+    "seoTitle": "Catalogs & Corporate Booklets Printing Dubai | ONPRINT",
+    "seoDescription": "Executive multi-page booklet and catalog printing in Dubai. Saddle-stitched and perfect-bound company profiles, annual reports, and product lookbooks.",
+    "seoKeywords": "catalog printing dubai, booklet printing uae, annual report printing dubai, company profile printing",
+    "seoHeading": "Corporate Booklets, Catalogs & Annual Reports Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/catalogs-booklets-printing",
+    "imageAlt": "Multi-page executive corporate booklets and catalogs in Dubai"
+  },
+  {
+    "_id": "cat-office-stationery-printing",
+    "id": 16,
+    "name": "Office Stationery & Envelopes",
+    "slug": "office-stationery-printing",
+    "description": "Complete corporate identity suites: executive notebooks, foiled presentation folders, branded window envelopes, and desk writing pads.",
+    "image": "/assets/products/service_executive_stationery.jpg",
+    "image_url": "/assets/products/service_executive_stationery.jpg",
+    "status": "active",
+    "display_order": 16,
+    "active": true,
+    "seoTitle": "Office Stationery & Envelope Printing Dubai | ONPRINT",
+    "seoDescription": "Executive office stationery sets in Dubai. Foil-stamped presentation folders, corporate envelopes, desk pads, and luxury notebooks for corporate identity.",
+    "seoKeywords": "office stationery dubai, presentation folder printing dubai, corporate envelopes uae, desk pads printing",
+    "seoHeading": "Executive Corporate Stationery & Envelopes in Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/office-stationery-printing",
+    "imageAlt": "Executive corporate stationery and presentation folders in Dubai"
+  },
+  {
+    "_id": "cat-hospitality-event-printing",
+    "id": 17,
+    "name": "Hospitality & Event Stationery",
+    "slug": "hospitality-event-printing",
+    "description": "Waterproof restaurant menus, luxury wedding invitation suites, table talkers, event badges, and embossed greeting card stationery.",
+    "image": "/assets/products/1 (14).jpg",
+    "image_url": "/assets/products/1 (14).jpg",
+    "status": "active",
+    "display_order": 17,
+    "active": true,
+    "seoTitle": "Hospitality & Event Stationery Printing Dubai | ONPRINT",
+    "seoDescription": "Luxury hospitality and event print solutions in Dubai. Spill-resistant restaurant menus, luxury wedding invitations, and VIP event collaterals.",
+    "seoKeywords": "restaurant menu printing dubai, wedding invitation printing dubai, event stationery uae, hospitality printing dubai",
+    "seoHeading": "Hospitality, Menus & Event Stationery Solutions Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/hospitality-event-printing",
+    "imageAlt": "Luxury restaurant menus and wedding invitation suites in Dubai"
+  },
+  {
+    "_id": "cat-promotional-drinkware-tech",
+    "id": 18,
+    "name": "Promotional Drinkware & Tech",
+    "slug": "promotional-drinkware-tech",
+    "description": "Laser-engraved thermal insulated water bottles, ceramic coffee mugs, wireless power banks, USB drives, and ergonomic desk mouse mats.",
+    "image": "/assets/products/water_bottles.jpg",
+    "image_url": "/assets/products/water_bottles.jpg",
+    "status": "active",
+    "display_order": 18,
+    "active": true,
+    "seoTitle": "Promotional Drinkware & Branded Tech Dubai | ONPRINT",
+    "seoDescription": "Custom printed mugs, insulated stainless steel water bottles, branded USB flash drives, and power banks for corporate promotional campaigns in Dubai.",
+    "seoKeywords": "mug printing dubai, custom water bottles dubai, promotional tech items uae, branded power banks dubai",
+    "seoHeading": "Promotional Branded Drinkware & Tech Accessories Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/promotional-drinkware-tech",
+    "imageAlt": "Custom branded drinkware and promotional tech accessories in Dubai"
   }
 ]
 
-const STORAGE_KEY = 'onprint_categories_data'
+const STORAGE_KEY = 'onprint_categories_data_v2'
 
 function getStoredCategories() {
   try {
@@ -362,17 +362,23 @@ function saveStoredCategories(data) {
 }
 
 export async function getCategories(params = {}) {
+  let list = []
   try {
     const { data } = await api.get('/categories', { params })
     if (data?.data && Array.isArray(data.data) && data.data.length > 0) {
-      saveStoredCategories(data.data)
-      return data.data
+      const existingSlugs = new Set(data.data.map((c) => c.slug))
+      const missing = initialCategories.filter((ic) => !existingSlugs.has(ic.slug))
+      list = missing.length > 0 ? [...data.data, ...missing] : data.data
+      saveStoredCategories(list)
     }
   } catch (err) {
     console.warn('[Categories] Fetch note:', err.message)
   }
 
-  let list = getStoredCategories()
+  if (!list || list.length === 0) {
+    list = getStoredCategories()
+  }
+
   if (params.status && params.status !== 'all') {
     list = list.filter((c) => (params.status === 'active' ? c.status === 'active' || c.active : c.status === 'inactive' || !c.active))
   }
@@ -394,7 +400,9 @@ export async function getCategoryById(id) {
   const all = getStoredCategories()
   const found = all.find((c) => String(c.id) === String(id) || c._id === id || c.slug === id)
   if (found) return found
-  return all[0] || null
+  const fallback = initialCategories.find((c) => String(c.id) === String(id) || c._id === id || c.slug === id)
+  if (fallback) return fallback
+  return all[0] || initialCategories[0] || null
 }
 
 export async function createCategory(categoryData) {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown, Clock, ArrowRight, Package, Layers, MapPin, Info } from 'lucide-react'
+import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown, Clock, ArrowRight, Package, Layers, MapPin, Info, Star } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import ArrowLink from '../../components/ArrowLink'
@@ -114,7 +114,7 @@ const homeFaqs = [
   {
     question: 'How do I request a custom quotation for bulk printing?',
     answer:
-      'You can request an instant quote online via our Get a Quote page, call our Al Quoz press desk directly at +971 55 183 7995, message our team on WhatsApp, or email us at 0nprint183@gmail.com. Our print specialists provide itemized quotations within 2 hours.',
+      'You can request an instant quote online via our Get a Quote page, message our team on WhatsApp, or email us at 0nprint183@gmail.com. Our print specialists provide itemized quotations within 2 hours.',
   },
 ]
 
@@ -165,51 +165,76 @@ export default function HomePage() {
         faqList={homeFaqs}
       />
 
-      {/* 1. Hero Section */}
-      <section className="relative isolate overflow-hidden border-b border-slate-200/80 bg-white py-14 sm:py-20 lg:py-24">
-        {/* Subtle Architectural Print Grid Background */}
+      {/* 1. Hero Section - Luxury Atelier Edition */}
+      <section className="relative isolate overflow-hidden border-b border-neutral-200/80 bg-white py-14 sm:py-20 lg:py-24">
+        {/* Luxury Cotton Micro-Dot Canvas Texture (Replaces sterile wireframe grid) */}
         <div
-          className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_60%,transparent_100%)]"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(#0000000f_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_35%,#000_25%,transparent_85%)]"
           aria-hidden="true"
         />
 
-        {/* Subtle Ambient Color Lighting in strict ONPRINT theme */}
+        {/* Multi-Layered Ambient Studio Lighting (Obsidian & Garnet Bloom) */}
         <div
-          className="pointer-events-none absolute -left-16 top-10 z-0 h-64 w-64 rounded-full bg-[#A82F19]/5 blur-[90px]"
+          className="pointer-events-none absolute -top-24 left-1/4 -z-10 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-[#A82F19]/8 via-[#c9361e]/4 to-transparent blur-[120px]"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute -right-16 bottom-10 z-0 h-72 w-72 rounded-full bg-slate-900/5 blur-[100px]"
+          className="pointer-events-none absolute top-1/3 -right-16 -z-10 h-[560px] w-[560px] rounded-full bg-gradient-to-bl from-amber-500/5 via-[#A82F19]/4 to-transparent blur-[130px]"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -bottom-10 left-10 -z-10 h-64 w-64 rounded-full bg-slate-900/5 blur-[100px]"
           aria-hidden="true"
         />
 
-        {/* Subtle Technical Print Registration Marks */}
-        <div className="pointer-events-none absolute top-6 left-8 hidden xl:block opacity-20 text-slate-500">
+        {/* Atelier Technical Registration Marks & Precision Millimeter Scales */}
+        <div className="pointer-events-none absolute top-6 left-8 hidden xl:block opacity-25 text-neutral-400">
           <CornerMarks className="h-6 w-6" />
         </div>
-        <div className="pointer-events-none absolute top-6 right-8 hidden xl:block opacity-20 text-slate-500">
+        <div className="pointer-events-none absolute top-6 right-8 hidden xl:block opacity-25 text-neutral-400">
           <CornerMarks className="h-6 w-6" />
+        </div>
+        <div className="pointer-events-none absolute top-1/2 left-6 hidden 2xl:flex flex-col items-center gap-2 opacity-25 text-neutral-400 -translate-y-1/2">
+          <div className="h-10 w-[1px] bg-neutral-300" />
+          <span className="font-mono text-[8px] uppercase tracking-[0.25em] rotate-90 text-neutral-400">
+            0mm • CMYK
+          </span>
+          <div className="h-10 w-[1px] bg-neutral-300" />
         </div>
 
         <Container className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           {/* LEFT COLUMN */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Small Premium Badge */}
+            {/* Bespoke Atelier Seal Badge */}
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19]/20 bg-[#fcf1ef] px-3.5 py-1.5 text-xs font-bold text-[#A82F19]">
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-neutral-900/10 bg-white/95 px-4 py-1.5 shadow-[0_2px_12px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-md ring-1 ring-black/[0.04] transition-all hover:border-[#A82F19]/30 hover:shadow-[0_4px_16px_rgba(168,47,25,0.08)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A82F19] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A82F19]"></span>
+                </span>
                 <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
-                <span className="uppercase tracking-widest text-[11px] font-extrabold">
+                <span className="uppercase tracking-[0.22em] text-[10.5px] font-black text-neutral-900">
                   Dubai’s Premier Print &amp; Branding Press
+                </span>
+                <span className="hidden sm:inline-block h-3 w-[1px] bg-neutral-200" aria-hidden="true" />
+                <span className="hidden sm:inline-block font-mono text-[9px] font-bold text-neutral-400 tracking-wider">
+                  AL QUOZ 3
                 </span>
               </div>
             </Reveal>
 
-            {/* Large Headline */}
+            {/* Monumental Editorial Headline */}
             <Reveal delay={0.1}>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-black leading-[1.08] tracking-tight text-black">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-black leading-[1.07] tracking-tight text-neutral-950">
                 Custom Packaging &amp;{' '}
-                <span className="text-[#A82F19]">
-                  Printing Services
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-[#A82F19] via-[#cf3a22] to-[#882210] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(168,47,25,0.18)]">
+                    Printing Services
+                  </span>
+                  <span
+                    className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-gradient-to-r from-[#A82F19] via-[#e2553b] to-transparent opacity-85"
+                    aria-hidden="true"
+                  />
                 </span>{' '}
                 in Dubai, UAE
               </h1>
@@ -217,149 +242,237 @@ export default function HomePage() {
 
             {/* Supporting Paragraph */}
             <Reveal delay={0.18}>
-              <p className="text-base sm:text-lg leading-relaxed text-slate-600 font-normal max-w-xl">
-                ONPRINT is a commercial printing press and custom packaging studio located in Al Quoz Industrial Area 3, Dubai. We deliver precision digital and offset printing, bespoke luxury packaging, fast-turnaround business stationery, and corporate merchandise across Dubai and the UAE.
+              <p className="text-base sm:text-lg leading-[1.75] text-neutral-600 font-normal max-w-xl">
+                ONPRINT is a commercial printing press and custom packaging studio located in{' '}
+                <strong className="font-semibold text-neutral-900">Al Quoz Industrial Area 3, Dubai</strong>. We deliver{' '}
+                <strong className="font-semibold text-neutral-900">precision digital and offset printing</strong>,{' '}
+                <strong className="font-semibold text-neutral-900">bespoke luxury packaging</strong>, fast-turnaround business stationery, and corporate merchandise across Dubai and the UAE.
               </p>
             </Reveal>
 
-            {/* 4 Compact Trust/Value Indicators */}
+            {/* 4 Luxury Atelier Value Pillars */}
             <Reveal delay={0.24}>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-                <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 shadow-2xs">
-                  <Award className="h-4 w-4 text-[#A82F19] shrink-0" />
-                  <span className="text-xs font-bold text-slate-900">Premium Quality</span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                <div className="group relative rounded-xl border border-neutral-200/90 bg-white/95 p-3 sm:p-3.5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-[0_12px_24px_rgba(168,47,25,0.08)] hover:-translate-y-0.5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#fdf2f0] to-[#fbf0ee] border border-[#A82F19]/15 text-[#A82F19] shadow-2xs group-hover:bg-[#A82F19] group-hover:text-white transition-colors duration-300">
+                      <Award className="h-4.5 w-4.5" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-xs font-black text-neutral-900 tracking-tight group-hover:text-[#A82F19] transition-colors truncate">
+                        Premium Quality
+                      </span>
+                      <span className="block text-[10px] font-semibold text-neutral-400 mt-0.5 tracking-normal truncate">
+                        ISO 12647-2 Press
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 shadow-2xs">
-                  <Clock className="h-4 w-4 text-[#A82F19] shrink-0" />
-                  <span className="text-xs font-bold text-slate-900">Fast Turnaround</span>
+
+                <div className="group relative rounded-xl border border-neutral-200/90 bg-white/95 p-3 sm:p-3.5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-[0_12px_24px_rgba(168,47,25,0.08)] hover:-translate-y-0.5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#fdf2f0] to-[#fbf0ee] border border-[#A82F19]/15 text-[#A82F19] shadow-2xs group-hover:bg-[#A82F19] group-hover:text-white transition-colors duration-300">
+                      <Clock className="h-4.5 w-4.5" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-xs font-black text-neutral-900 tracking-tight group-hover:text-[#A82F19] transition-colors truncate">
+                        Fast Turnaround
+                      </span>
+                      <span className="block text-[10px] font-semibold text-neutral-400 mt-0.5 tracking-normal truncate">
+                        24h Express Available
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 shadow-2xs">
-                  <Layers className="h-4 w-4 text-[#A82F19] shrink-0" />
-                  <span className="text-xs font-bold text-slate-900">Custom Solutions</span>
+
+                <div className="group relative rounded-xl border border-neutral-200/90 bg-white/95 p-3 sm:p-3.5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-[0_12px_24px_rgba(168,47,25,0.08)] hover:-translate-y-0.5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#fdf2f0] to-[#fbf0ee] border border-[#A82F19]/15 text-[#A82F19] shadow-2xs group-hover:bg-[#A82F19] group-hover:text-white transition-colors duration-300">
+                      <Layers className="h-4.5 w-4.5" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-xs font-black text-neutral-900 tracking-tight group-hover:text-[#A82F19] transition-colors truncate">
+                        Custom Solutions
+                      </span>
+                      <span className="block text-[10px] font-semibold text-neutral-400 mt-0.5 tracking-normal truncate">
+                        Bespoke Finishes
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 shadow-2xs">
-                  <Users className="h-4 w-4 text-[#A82F19] shrink-0" />
-                  <span className="text-xs font-bold text-slate-900">Expert Support</span>
+
+                <div className="group relative rounded-xl border border-neutral-200/90 bg-white/95 p-3 sm:p-3.5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-[0_12px_24px_rgba(168,47,25,0.08)] hover:-translate-y-0.5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#fdf2f0] to-[#fbf0ee] border border-[#A82F19]/15 text-[#A82F19] shadow-2xs group-hover:bg-[#A82F19] group-hover:text-white transition-colors duration-300">
+                      <Users className="h-4.5 w-4.5" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-xs font-black text-neutral-900 tracking-tight group-hover:text-[#A82F19] transition-colors truncate">
+                        Expert Support
+                      </span>
+                      <span className="block text-[10px] font-semibold text-neutral-400 mt-0.5 tracking-normal truncate">
+                        Pre-Press Concierge
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </Reveal>
 
-            {/* Two CTA Buttons */}
+            {/* Two CTA Buttons with Luxury Styling */}
             <Reveal delay={0.3}>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
-                <Button
-                  to="/products"
-                  variant="accent"
-                  size="lg"
-                  className="!bg-[#A82F19] hover:!bg-[#8f2513] text-white font-bold shadow-md shadow-[#A82F19]/20 transition-all text-center justify-center !px-6 group"
-                >
-                  <span>Explore Our Products</span>
-                  <ArrowRight className="h-4 w-4 ml-1.5 inline-block transition-transform group-hover:translate-x-1" />
-                </Button>
-                <Button
-                  to="/get-a-quote"
-                  variant="secondary"
-                  size="lg"
-                  className="border-2 border-black text-black hover:border-[#A82F19] hover:text-[#A82F19] font-bold text-center justify-center !px-6 transition-colors"
-                  onClick={() => trackGetQuoteClick({ source_page: 'homepage_hero' })}
-                >
-                  Get a Quote
-                </Button>
+              <div className="space-y-4 pt-2">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
+                  <Button
+                    to="/products"
+                    variant="accent"
+                    size="lg"
+                    className="relative overflow-hidden !rounded-xl !bg-gradient-to-r !from-[#A82F19] !via-[#b8311a] !to-[#8c2211] hover:!from-[#932814] hover:!via-[#a22b16] hover:!to-[#7a1c0d] text-white font-extrabold shadow-[0_10px_26px_rgba(168,47,25,0.32)] hover:shadow-[0_14px_34px_rgba(168,47,25,0.45)] hover:-translate-y-0.5 transition-all text-center justify-center !px-7 !py-4 group"
+                  >
+                    <span
+                      className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"
+                      aria-hidden="true"
+                    />
+                    <span className="relative z-10 tracking-wide">Explore Our Products</span>
+                    <ArrowRight className="relative z-10 h-4 w-4 ml-1.5 inline-block transition-transform duration-300 group-hover:translate-x-1.5" />
+                  </Button>
+
+                  <Button
+                    to="/get-a-quote"
+                    variant="secondary"
+                    size="lg"
+                    className="relative !rounded-xl border-2 border-neutral-950 bg-neutral-950 text-white hover:bg-neutral-800 hover:border-neutral-800 font-extrabold text-center justify-center !px-7 !py-4 transition-all shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:-translate-y-0.5"
+                    onClick={() => trackGetQuoteClick({ source_page: 'homepage_hero' })}
+                  >
+                    <span className="tracking-wide">Get a Quote</span>
+                  </Button>
+                </div>
+
+                {/* Luxury Client Proof Ribbon */}
+                <div className="flex flex-wrap items-center gap-y-2 gap-x-4 pt-1 text-xs text-neutral-600">
+                  <div className="flex items-center gap-1.5">
+                    <div className="flex text-amber-500">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <span className="font-extrabold text-neutral-900">4.9/5</span>
+                    <span className="text-neutral-400">(Verified UAE Client Reviews)</span>
+                  </div>
+                  <span className="hidden sm:inline-block text-neutral-300">•</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#A82F19]" />
+                    <span className="font-bold text-neutral-800">500+ Corporate Clients</span>
+                  </div>
+                  <span className="hidden sm:inline-block text-neutral-300">•</span>
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle className="h-3.5 w-3.5 text-[#A82F19]" />
+                    <span className="font-bold text-neutral-800">Direct Al Quoz Pressroom</span>
+                  </div>
+                </div>
               </div>
             </Reveal>
           </div>
 
-          {/* RIGHT COLUMN: Premium Commercial Product Visual Composition */}
+          {/* RIGHT COLUMN: Luxury Atelier Vitrine Product Showcase */}
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
-              <div className="relative mx-auto flex h-[440px] sm:h-[480px] w-full max-w-[450px] items-center justify-center">
-                {/* Clean Studio Mat Base with Heidelberg Calibration */}
-                <div className="absolute inset-2 sm:inset-4 rounded-3xl border border-slate-200/80 bg-gradient-to-br from-slate-50 via-white to-slate-100/60 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
-                  <div className="flex items-center justify-between border-b border-slate-200/70 pb-2 text-[10px] font-black uppercase tracking-wider text-slate-500">
-                    <div className="flex items-center gap-1.5">
-                      <span className="h-2 w-2 rounded-full bg-[#A82F19]" />
-                      <span>ONPRINT Studio • Dubai</span>
+              <div className="relative mx-auto flex h-[480px] sm:h-[530px] w-full max-w-[480px] items-center justify-center">
+                {/* Studio Pedestal Base Frame */}
+                <div className="absolute inset-1 sm:inset-3 rounded-3xl border border-neutral-200/90 bg-gradient-to-br from-white/95 via-neutral-50/90 to-neutral-100/70 p-4 sm:p-5 shadow-[0_30px_90px_rgba(0,0,0,0.1),0_10px_30px_rgba(168,47,25,0.05)] ring-1 ring-black/[0.04]">
+                  {/* Top Studio Calibration Bar */}
+                  <div className="flex items-center justify-between border-b border-neutral-200/80 pb-3 text-[10px] font-black uppercase tracking-wider text-neutral-500">
+                    <div className="flex items-center gap-2">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A82F19] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A82F19]"></span>
+                      </span>
+                      <span className="tracking-widest font-black text-neutral-800">ONPRINT ATELIER • DUBAI</span>
                     </div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-2">
                       <CmykDots />
-                      <span className="font-mono text-[9px] text-slate-400">ISO 12647-2</span>
+                      <span className="font-mono text-[9px] font-bold text-neutral-400">ISO 12647-2</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Layer 1: Luxury Shopping Bags & Packaging (Top Right) */}
+                {/* Layer 1: Luxury Shopping Bags & Bespoke Packaging (Top Right) */}
                 <motion.div
                   animate={{ y: [0, 8, 0] }}
                   transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute right-2 top-8 sm:right-4 sm:top-10 w-48 sm:w-56 overflow-hidden rounded-2xl border border-slate-200 bg-white p-2.5 shadow-[0_16px_36px_rgba(0,0,0,0.1)]"
+                  className="absolute right-1 sm:right-3 top-7 sm:top-9 z-10 w-48 sm:w-56 overflow-hidden rounded-2xl border border-neutral-200/90 bg-white p-2.5 shadow-[0_18px_40px_rgba(0,0,0,0.1)] hover:shadow-[0_22px_45px_rgba(0,0,0,0.14)] transition-shadow duration-300"
                 >
-                  <div className="relative h-28 sm:h-32 w-full overflow-hidden rounded-xl bg-slate-100">
+                  <div className="relative h-28 sm:h-32 w-full overflow-hidden rounded-xl bg-neutral-100">
                     <img
                       src="/assets/products/tote_bags.jpg"
                       alt="Luxury Branded Packaging and Bags in Dubai"
-                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                       loading="eager"
                     />
-                    <span className="absolute bottom-2 left-2 rounded bg-black/75 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+                    <span className="absolute bottom-2 left-2 rounded-md bg-black/85 px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">
                       Bespoke Packaging
                     </span>
                   </div>
-                  <div className="mt-2 flex items-center justify-between text-[9px] font-bold text-slate-700">
-                    <span>Embossed Foil Bags</span>
-                    <span className="text-[#A82F19] font-black">Luxury Grade</span>
+                  <div className="mt-2.5 flex items-center justify-between text-[9.5px] font-bold text-neutral-800">
+                    <span className="truncate">Embossed Foil Bags</span>
+                    <span className="text-[#A82F19] font-black shrink-0 ml-1">Luxury Grade</span>
                   </div>
                 </motion.div>
 
-                {/* Layer 2: Centerpiece - 600 GSM Luxury Business Cards & Foil Press */}
+                {/* Layer 2: Centerpiece - 600 GSM Velvet Card & Gold Hot Foil (Center / Left) */}
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute left-2 sm:left-4 top-16 sm:top-20 z-10 w-56 sm:w-64 overflow-hidden rounded-2xl border border-black/10 bg-white p-3 shadow-[0_25px_55px_rgba(0,0,0,0.12)]"
+                  className="absolute left-1 sm:left-3 top-14 sm:top-18 z-20 w-60 sm:w-68 overflow-hidden rounded-2xl border border-black/10 bg-white p-3 sm:p-3.5 shadow-[0_28px_60px_rgba(0,0,0,0.14),0_8px_20px_rgba(168,47,25,0.06)] hover:shadow-[0_32px_70px_rgba(0,0,0,0.18)] transition-shadow duration-300"
                 >
-                  <div className="relative h-36 sm:h-44 w-full overflow-hidden rounded-xl bg-slate-100">
+                  <div className="relative h-38 sm:h-44 w-full overflow-hidden rounded-xl bg-neutral-100">
                     <img
                       src="/assets/products/luxury_business_cards.jpg"
                       alt="Executive Cotton Business Cards Dubai"
-                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                       loading="eager"
                     />
                     <div className="absolute top-2 left-2">
-                      <span className="rounded-md bg-[#A82F19] px-2 py-0.5 text-[8px] font-black uppercase tracking-wider text-white shadow-xs">
+                      <span className="rounded-md bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 px-2.5 py-1 text-[8px] font-black uppercase tracking-wider text-white shadow-xs">
                         Hot Foil &amp; Spot UV
                       </span>
                     </div>
-                    <span className="absolute bottom-2 right-2 rounded bg-black/80 px-1.5 py-0.5 text-[8px] font-bold text-white">
+                    <span className="absolute bottom-2 right-2 rounded-md bg-black/85 px-2 py-0.5 text-[8px] font-black text-white backdrop-blur-xs">
                       600 GSM
                     </span>
                   </div>
 
-                  <div className="mt-2.5 space-y-1">
-                    <div className="flex items-center justify-between text-[9px] font-extrabold uppercase tracking-wider text-slate-500">
+                  <div className="mt-3 space-y-1">
+                    <div className="flex items-center justify-between text-[9px] font-extrabold uppercase tracking-wider text-neutral-500">
                       <span>Executive Press</span>
                       <span className="text-[#A82F19] font-black">FSC Certified</span>
                     </div>
-                    <p className="text-xs font-black text-black leading-snug">
+                    <p className="text-xs sm:text-[13px] font-black text-neutral-950 leading-snug">
                       Luxury Cotton Card Stock
                     </p>
                   </div>
 
-                  <div className="mt-2 flex items-center justify-between border-t border-slate-100 pt-2 text-[9px] font-bold text-slate-600">
-                    <span>Precision Bleed</span>
+                  <div className="mt-2.5 flex items-center justify-between border-t border-neutral-100 pt-2 text-[9px] font-bold text-neutral-600">
+                    <span className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      Precision Laser Bleed
+                    </span>
                     <span className="text-[#A82F19] font-black">Passed QC ✓</span>
                   </div>
                 </motion.div>
 
-                {/* Layer 3: Executive Brochures & Corporate Materials (Bottom Right / Underlay) */}
+                {/* Layer 3: Executive Brochures & Corporate Materials (Bottom Right) */}
                 <motion.div
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute right-3 sm:right-6 bottom-4 sm:bottom-6 z-10 w-44 sm:w-52 overflow-hidden rounded-2xl border border-slate-200 bg-white p-2.5 shadow-[0_16px_36px_rgba(0,0,0,0.1)]"
+                  className="absolute right-2 sm:right-4 bottom-4 sm:bottom-6 z-15 w-46 sm:w-52 overflow-hidden rounded-2xl border border-neutral-200/90 bg-white p-2.5 shadow-[0_18px_40px_rgba(0,0,0,0.1)] hover:shadow-[0_22px_45px_rgba(0,0,0,0.14)] transition-shadow duration-300"
                 >
-                  <div className="relative h-20 sm:h-24 w-full overflow-hidden rounded-lg bg-slate-100">
+                  <div className="relative h-20 sm:h-24 w-full overflow-hidden rounded-xl bg-neutral-100">
                     <img
                       src="/assets/products/brochures.jpg"
                       alt="Corporate Marketing Brochures Dubai"
-                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                       loading="eager"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -367,9 +480,9 @@ export default function HomePage() {
                       Multi-Page Brochures
                     </span>
                   </div>
-                  <div className="mt-1.5 flex items-center justify-between text-[9px] font-bold text-slate-700">
+                  <div className="mt-2 flex items-center justify-between text-[9px] font-bold text-neutral-700">
                     <span>Art Paper 300 GSM</span>
-                    <span className="text-slate-900 font-extrabold">Heidelberg</span>
+                    <span className="text-neutral-950 font-extrabold">Heidelberg</span>
                   </div>
                 </motion.div>
 
@@ -377,15 +490,25 @@ export default function HomePage() {
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute bottom-2 left-4 z-20 flex h-14 w-36 items-center gap-2 rounded-xl border border-slate-200 bg-white/95 px-2.5 py-1.5 shadow-[0_10px_25px_rgba(0,0,0,0.1)] backdrop-blur-xs"
+                  className="absolute -bottom-2 sm:bottom-2 left-2 sm:left-4 z-30 flex h-14 items-center gap-2.5 rounded-xl border border-neutral-200/90 bg-white/95 px-3 py-1.5 shadow-[0_12px_28px_rgba(0,0,0,0.1)] backdrop-blur-md"
                 >
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#A82F19] text-white">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#A82F19] text-white shadow-xs">
                     <Award className="h-4 w-4" />
                   </div>
-                  <div className="min-w-0">
-                    <div className="text-[11px] font-black text-black leading-tight">1200 DPI</div>
+                  <div className="min-w-0 pr-1">
+                    <div className="text-[11px] font-black text-neutral-950 leading-tight">1200 DPI</div>
                     <div className="text-[8px] font-bold uppercase tracking-wider text-[#A82F19]">HD Digital Press</div>
                   </div>
+                </motion.div>
+
+                {/* Floating Dispatch Badge: Same-Day Dubai Courier */}
+                <motion.div
+                  animate={{ y: [0, 5, 0] }}
+                  transition={{ duration: 7.5, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute top-2 -right-1 sm:right-1 z-30 hidden sm:flex items-center gap-1.5 rounded-full border border-neutral-900/10 bg-neutral-950 text-white px-3 py-1 text-[9px] font-bold shadow-lg"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>SAME-DAY EXPRESS • DUBAI</span>
                 </motion.div>
               </div>
             </Reveal>
@@ -393,24 +516,85 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* 1.2 What is ONPRINT - Clear Business Definition for AI/GEO */}
-      <section className="border-b border-slate-200/80 bg-white py-12 sm:py-16">
+      {/* 1.5 Floating Category Quick-Access Panel (Overlapping bottom of Hero) */}
+      <div className="relative -mt-10 sm:-mt-14 z-20 pb-4">
+        <Container>
+          <div className="rounded-2xl border border-neutral-200/90 bg-white/95 p-3.5 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.06)] backdrop-blur-md ring-1 ring-black/[0.03]">
+            <div className="flex items-center justify-between pb-3 mb-3 border-b border-neutral-100">
+              <div className="flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-[#A82F19] ring-2 ring-[#A82F19]/25 animate-pulse" />
+                <span className="text-xs font-black uppercase tracking-wider text-neutral-900">
+                  Popular Print Categories
+                </span>
+              </div>
+              <Link
+                to="/categories"
+                className="text-xs font-extrabold text-[#A82F19] hover:text-[#882210] flex items-center gap-1 transition-colors"
+              >
+                <span>All Categories {categories ? `(${categories.length})` : ''}</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            {/* Categories scrollable container: Horizontal scroll on mobile, responsive grid on desktop */}
+            <div className="flex sm:grid sm:grid-cols-4 lg:grid-cols-7 xl:grid-cols-8 gap-2.5 overflow-x-auto no-scrollbar scroll-smooth py-1">
+              {categories && categories.length > 0 ? (
+                categories.map((cat) => (
+                  <Link
+                    key={cat.id || cat.slug}
+                    to={`/categories/${cat.slug}`}
+                    className="group flex sm:flex-col items-center gap-2.5 sm:gap-2 rounded-xl border border-neutral-100 bg-neutral-50/70 p-2 sm:p-2.5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/40 hover:bg-white hover:shadow-md shrink-0 min-w-[140px] sm:min-w-0"
+                  >
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg overflow-hidden bg-white border border-neutral-200/80 p-1 flex items-center justify-center shrink-0 group-hover:border-[#A82F19]/40 transition-transform duration-300 group-hover:scale-105">
+                      {cat.image_url ? (
+                        <img
+                          src={cat.image_url}
+                          alt={cat.name}
+                          className="h-full w-full object-cover rounded"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <Package className="h-5 w-5 text-[#A82F19]" />
+                      )}
+                    </div>
+                    <span className="text-[11px] sm:text-xs font-bold text-neutral-800 group-hover:text-[#A82F19] transition-colors line-clamp-1">
+                      {cat.name}
+                    </span>
+                  </Link>
+                ))
+              ) : (
+                Array.from({ length: 7 }).map((_, idx) => (
+                  <div key={idx} className="h-16 sm:h-20 rounded-xl bg-neutral-100 animate-pulse min-w-[140px] sm:min-w-0 shrink-0" />
+                ))
+              )}
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      {/* 1.8 What is ONPRINT - Clear Business Definition for AI/GEO */}
+      <section className="border-b border-neutral-200/80 bg-white py-12 sm:py-16">
         <Container>
           <Reveal>
             <div className="mx-auto max-w-4xl">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-700">
-                <Info className="h-3.5 w-3.5" />
-                <span>About ONPRINT</span>
+              <div className="mb-6 flex flex-wrap items-center gap-2.5">
+                <div className="inline-flex items-center gap-2 rounded-full bg-neutral-100 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-neutral-700">
+                  <Info className="h-3.5 w-3.5" />
+                  <span>About ONPRINT</span>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 px-3 py-1 text-xs font-bold text-[#A82F19]">
+                  Verified Business Profile
+                </span>
+                <span className="text-xs font-semibold text-neutral-500">Al Quoz 3, Dubai, UAE</span>
               </div>
               
-              <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-black mb-4">
+              <h2 className="font-display text-2xl sm:text-3xl font-black tracking-tight text-neutral-950 mb-4">
                 What is ONPRINT?
               </h2>
               
-              <div className="space-y-4 text-slate-700 leading-relaxed">
-                <p className="text-base sm:text-lg font-medium text-slate-900">
-                  ONPRINT is a professional commercial printing company based in Al Quoz Industrial Area 3, Dubai, 
-                  serving businesses across the United Arab Emirates with comprehensive printing and branding solutions.
+              <div className="space-y-4 text-neutral-700 leading-relaxed">
+                <p className="text-base sm:text-lg font-medium text-neutral-900">
+                  <strong>ONPRINT</strong> (also known as <strong>0nprint</strong>) is a commercial printing company, custom packaging atelier, and corporate branding press located in Al Quoz Industrial Area 3, Dubai, serving businesses across the United Arab Emirates with comprehensive printing and branding solutions.
                 </p>
                 
                 <p className="text-sm sm:text-base">
@@ -421,10 +605,18 @@ export default function HomePage() {
                 </p>
               </div>
 
+              {/* Quick Business Specs Grid */}
+              <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 rounded-xl border border-neutral-200/80 bg-neutral-50/80 p-3.5 text-xs text-neutral-600">
+                <div><span className="font-extrabold text-neutral-900 block">Facility:</span> Al Quoz Ind. Area 3, Dubai</div>
+                <div><span className="font-extrabold text-neutral-900 block">Support:</span> WhatsApp Concierge</div>
+                <div><span className="font-extrabold text-neutral-900 block">Hours:</span> Mon–Sat 8:30–18:30</div>
+                <div><span className="font-extrabold text-neutral-900 block">Delivery:</span> All 7 Emirates (Express 24h)</div>
+              </div>
+
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Our Services</h3>
-                  <ul className="space-y-1.5 text-sm text-slate-700">
+                <div className="rounded-xl border border-neutral-200 bg-neutral-50/60 p-4">
+                  <h3 className="text-xs font-extrabold uppercase tracking-wider text-neutral-700 mb-2.5">Our Services</h3>
+                  <ul className="space-y-2 text-sm text-neutral-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
                       <span>Digital & Offset Printing</span>
@@ -452,9 +644,9 @@ export default function HomePage() {
                   </ul>
                 </div>
 
-                <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Why Choose ONPRINT?</h3>
-                  <ul className="space-y-1.5 text-sm text-slate-700">
+                <div className="rounded-xl border border-neutral-200 bg-neutral-50/60 p-4">
+                  <h3 className="text-xs font-extrabold uppercase tracking-wider text-neutral-700 mb-2.5">Why Choose ONPRINT?</h3>
+                  <ul className="space-y-2 text-sm text-neutral-700">
                     <li className="flex items-start gap-2">
                       <Award className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
                       <span><strong>10+ Years Experience</strong> in commercial printing</span>
@@ -484,110 +676,18 @@ export default function HomePage() {
               </div>
 
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Button to="/about" variant="secondary" size="md" className="text-center justify-center">
+                <Button to="/about" variant="secondary" size="md" className="text-center justify-center font-bold">
                   Learn More About Us
                 </Button>
-                <Button to="/services" variant="outline" size="md" className="text-center justify-center">
+                <Button to="/services" variant="outline" size="md" className="text-center justify-center border-neutral-900 text-neutral-900 hover:border-[#A82F19] hover:text-[#A82F19] font-bold">
                   View All Services
                 </Button>
-              </div>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* 1.5 Floating Category Quick-Access Panel (Overlapping bottom of Hero) */}
-      <div className="relative -mt-10 sm:-mt-14 z-20 pb-4">
-        <Container>
-          <div className="rounded-2xl border border-slate-200/90 bg-white p-3.5 sm:p-5 shadow-[0_16px_40px_rgba(0,0,0,0.06)]">
-            <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
-              <div className="flex items-center gap-2">
-                <span className="flex h-2 w-2 rounded-full bg-[#A82F19]" />
-                <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900">
-                  Popular Print Categories
-                </span>
-              </div>
-              <Link
-                to="/categories"
-                className="text-xs font-bold text-[#A82F19] hover:underline flex items-center gap-1 transition-colors"
-              >
-                <span>All Categories {categories ? `(${categories.length})` : ''}</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-
-            {/* Categories scrollable container: Horizontal scroll on mobile, responsive grid on desktop */}
-            <div className="flex sm:grid sm:grid-cols-4 lg:grid-cols-7 xl:grid-cols-8 gap-2.5 overflow-x-auto no-scrollbar scroll-smooth py-1">
-              {categories && categories.length > 0 ? (
-                categories.map((cat) => (
-                  <Link
-                    key={cat.id || cat.slug}
-                    to={`/categories/${cat.slug}`}
-                    className="group flex sm:flex-col items-center gap-2.5 sm:gap-2 rounded-xl border border-slate-100 bg-slate-50/60 p-2 sm:p-2.5 text-center transition-all duration-200 hover:-translate-y-1 hover:border-[#A82F19]/40 hover:bg-white hover:shadow-md shrink-0 min-w-[140px] sm:min-w-0"
-                  >
-                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg overflow-hidden bg-white border border-slate-200/60 p-1 flex items-center justify-center shrink-0 group-hover:border-[#A82F19]/30 transition-transform group-hover:scale-105">
-                      {cat.image_url ? (
-                        <img
-                          src={cat.image_url}
-                          alt={cat.name}
-                          className="h-full w-full object-cover rounded"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <Package className="h-5 w-5 text-[#A82F19]" />
-                      )}
-                    </div>
-                    <span className="text-[11px] sm:text-xs font-bold text-slate-800 group-hover:text-[#A82F19] transition-colors line-clamp-1">
-                      {cat.name}
-                    </span>
-                  </Link>
-                ))
-              ) : (
-                Array.from({ length: 7 }).map((_, idx) => (
-                  <div key={idx} className="h-16 sm:h-20 rounded-xl bg-slate-100 animate-pulse min-w-[140px] sm:min-w-0 shrink-0" />
-                ))
-              )}
-            </div>
-          </div>
-        </Container>
-      </div>
-
-      {/* What is ONPRINT? — Generative Engine Answer Card */}
-      <section className="border-b border-border/80 bg-slate-50 py-8">
-        <Container>
-          <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-xs">
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-              <div className="space-y-3 max-w-3xl">
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-md bg-[#A82F19]/10 px-2.5 py-1 text-xs font-bold text-[#A82F19]">
-                    <Info className="h-3.5 w-3.5" />
-                    Verified Business Profile
-                  </span>
-                  <span className="text-xs font-semibold text-slate-500">Al Quoz 3, Dubai, UAE</span>
-                </div>
-                <h2 className="font-display text-xl sm:text-2xl font-black text-black">
-                  What is ONPRINT?
-                </h2>
-                <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-                  <strong>ONPRINT</strong> (also known as <strong>0nprint</strong>) is a commercial printing, packaging, and corporate branding press located in Al Quoz Industrial Area 3, Dubai, United Arab Emirates. We specialize in digital printing, offset lithography, bespoke rigid boxes, product labels, and corporate stationery for UAE businesses.
-                </p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs text-slate-600">
-                  <div><span className="font-bold text-slate-900 block">Facility:</span> Al Quoz Ind. Area 3</div>
-                  <div><span className="font-bold text-slate-900 block">Phone:</span> +971 55 183 7995</div>
-                  <div><span className="font-bold text-slate-900 block">Hours:</span> Mon–Sat 8:30–18:30</div>
-                  <div><span className="font-bold text-slate-900 block">Delivery:</span> All 7 Emirates</div>
-                </div>
-              </div>
-              <div className="shrink-0 flex flex-col gap-2">
-                <Button to="/about" variant="outline" size="sm" className="border-black text-black hover:border-[#A82F19] hover:text-[#A82F19]">
-                  Company Background
-                </Button>
-                <Button to="/contact" variant="ghost" size="sm" className="text-xs text-[#A82F19] font-bold">
+                <Button to="/contact" variant="ghost" size="md" className="text-xs text-[#A82F19] hover:text-[#882210] font-bold">
                   Visit Pressroom →
                 </Button>
               </div>
             </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
 

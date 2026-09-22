@@ -753,6 +753,30 @@ class SeoManagerController {
   }
 
   /**
+   * 14b. DLXPrint Competitor Intelligence & Gap Analysis (Phase 2 & Phase 27)
+   */
+  async getDlxprintGapAnalysis(req, res) {
+    try {
+      const data = await competitorGapService.getDlxprintCompetitorAnalysis()
+      res.json({ success: true, data })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
+   * 14c. DLXPrint 10-Column Competitor Gap Matrix (Phase 2 Master Architecture)
+   */
+  async getCompetitorGaps(req, res) {
+    try {
+      const data = await competitorGapService.getCompetitorGaps()
+      res.json({ success: true, count: data.length, data })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  /**
    * 15. Image SEO Audit
    */
   async getImageAudit(req, res) {
@@ -852,7 +876,7 @@ class SeoManagerController {
 
   async getKeywordTargets(req, res) {
     try {
-      const { cluster, intent, priority, status, search, limit = 100, offset = 0 } = req.query
+      const { cluster, intent, priority, status, search, group, limit = 100, offset = 0 } = req.query
       const filters = []
       const params = []
       if (cluster) { filters.push('cluster = ?'); params.push(cluster) }
@@ -876,10 +900,13 @@ class SeoManagerController {
       if (!rows || rows.length === 0) {
         const DUBAI_KEYWORDS = require('../data/dubaiKeywordsData')
         let filtered = [...DUBAI_KEYWORDS]
-        if (cluster) filtered = filtered.filter(k => k.cluster === cluster)
-        if (intent) filtered = filtered.filter(k => (k.search_intent || '').toLowerCase() === intent.toLowerCase())
-        if (priority) filtered = filtered.filter(k => (k.priority || '').toLowerCase() === priority.toLowerCase())
-        if (status) filtered = filtered.filter(k => (k.status || '').toLowerCase() === status.toLowerCase())
+        if (group && group !== 'all') {
+          filtered = filtered.filter(k => (k.keyword_group || '').toUpperCase() === group.toUpperCase())
+        }
+        if (cluster && cluster !== 'all') filtered = filtered.filter(k => k.cluster === cluster)
+        if (intent && intent !== 'all') filtered = filtered.filter(k => (k.search_intent || '').toLowerCase() === intent.toLowerCase())
+        if (priority && priority !== 'all') filtered = filtered.filter(k => (k.priority || '').toLowerCase() === priority.toLowerCase())
+        if (status && status !== 'all') filtered = filtered.filter(k => (k.status || '').toLowerCase() === status.toLowerCase())
         if (search) {
           const s = search.toLowerCase()
           filtered = filtered.filter(k => (k.keyword || '').toLowerCase().includes(s) || (k.target_page || '').toLowerCase().includes(s))
@@ -897,6 +924,10 @@ class SeoManagerController {
           city: k.city || 'Dubai',
           priority: k.priority || 'Medium',
           status: k.status || 'Planned',
+          keyword_group: k.keyword_group || 'A',
+          keyword_group_name: k.keyword_group_name || 'Core commercial keywords',
+          conversion_value: k.conversion_value || 'High',
+          content_status: k.content_status || 'Tracking',
           current_ranking: k.current_ranking ?? null,
           previous_ranking: k.previous_ranking ?? null,
           search_volume: k.search_volume ?? null,
@@ -1663,7 +1694,7 @@ class SeoManagerController {
           description: 'ONPRINT identity consistency across all channels',
           details: [
             'Brand Name: ONPRINT (Alternative: 0nprint) verified across Header, Footer, and Schemas',
-            'NAP verified: Al Quoz Industrial Area 3, Dubai, UAE (+971 55 183 7995, 0nprint183@gmail.com)',
+            'NAP verified: Al Quoz Industrial Area 3, Dubai, UAE (+44 7344 546056, 0nprint183@gmail.com)',
             'Operating Hours: Mon–Sat 8:30 AM – 6:30 PM consistent on Contact, Footer, and Schema.org',
             'No fabricated business locations or credentials',
           ],

@@ -205,7 +205,7 @@ class SeoInventoryCrawlerService {
         path: '/categories',
         type: 'Directory',
         title: 'Commercial Print Categories Dubai | ONPRINT Press',
-        metaDescription: 'Browse all printing disciplines and product categories available from our Al Quoz industrial press facility.',
+        metaDescription: 'Browse all printing disciplines and product categories available from ONPRINT Dubai. High-capacity offset, digital short runs, luxury packaging, and signage.',
         h1: 'Commercial Printing Categories & Product Ranges',
         h2s: ['Stationery & Cards', 'Marketing & Flyers', 'Event & Large Format', 'Custom Boxes & Packaging'],
         wordCount: 650,
@@ -216,7 +216,7 @@ class SeoInventoryCrawlerService {
       {
         path: '/products',
         type: 'Directory',
-        title: 'Online Print Products Dubai | Corporate Stationery & Merchandise | ONPRINT',
+        title: 'Online Print Products Dubai | Corporate Stationery | ONPRINT',
         metaDescription: 'Order custom printed products online in Dubai. Business cards, branded mugs, tote bags, roll-up banners, flyers, and premium packaging.',
         h1: 'Printed Products & Corporate Merchandise Catalog',
         h2s: ['Corporate Stationery', 'Promotional Giveaways', 'Packaging Solutions'],
@@ -229,7 +229,7 @@ class SeoInventoryCrawlerService {
         path: '/blog',
         type: 'Blog Directory',
         title: 'Dubai Printing & Packaging Blog | Expert Technical Insights | ONPRINT',
-        metaDescription: 'Technical prepress guides, paper GSM selection, spot UV tutorials, and Dubai commercial printing industry updates.',
+        metaDescription: 'Expert Dubai commercial printing insights: prepress guides, paper GSM selection, foil embellishments, and luxury rigid packaging engineering.',
         h1: 'Commercial Printing, Packaging & Prepress Insights',
         h2s: ['Latest Print Guides', 'Packaging Material Comparisons', 'Event Branding Advice'],
         wordCount: 720,
@@ -253,7 +253,7 @@ class SeoInventoryCrawlerService {
         path: '/contact',
         type: 'Contact',
         title: 'Contact ONPRINT Dubai | Al Quoz 3 Pressroom & Showroom',
-        metaDescription: 'Contact ONPRINT Dubai. Located at Warehouse 4, 24th Street, Al Quoz Industrial Area 3. Call +971 55 183 7995 or visit our production plant.',
+        metaDescription: 'Contact ONPRINT Dubai. Located at Warehouse 4, 24th Street, Al Quoz Industrial Area 3. Contact our production team on WhatsApp or visit our plant.',
         h1: 'Contact ONPRINT Commercial Pressroom & Production Plant',
         h2s: ['Visit Our Al Quoz Facility', 'Direct Pressroom Phone & WhatsApp', 'Request Urgent Dispatch'],
         wordCount: 540,
@@ -276,7 +276,7 @@ class SeoInventoryCrawlerService {
       {
         path: '/faq',
         type: 'FAQ',
-        title: 'Frequently Asked Questions | Dubai Commercial Printing & Delivery | ONPRINT',
+        title: 'Printing FAQs Dubai | Delivery, Files & Proofs | ONPRINT',
         metaDescription: 'Answers to common questions about turnaround times, minimum order quantities, paper weights, artwork file specs, and Dubai delivery terms.',
         h1: 'Frequently Asked Questions — Commercial Printing Dubai',
         h2s: ['Turnaround & Delivery Times', 'Artwork & File Preparation', 'Paper Stocks & Finishes', 'Payment & Bulk Terms'],
@@ -291,18 +291,18 @@ class SeoInventoryCrawlerService {
 
     // 2. 12 Dedicated Commercial Landing Pages
     const commercialPages = [
-      { path: '/printing-services-dubai', keyword: 'printing services Dubai', title: 'Printing Services in Dubai | Full-Service Commercial Press | ONPRINT', h1: 'Commercial Digital & Offset Printing Services in Dubai', type: 'Commercial Landing', wordCount: 1250 },
-      { path: '/business-card-printing-dubai', keyword: 'business card printing Dubai', title: 'Business Card Printing Dubai | Luxury Executive Visiting Cards | ONPRINT', h1: 'Bespoke Executive Business Card Printing in Dubai', type: 'Commercial Landing', wordCount: 1320 },
-      { path: '/brochure-printing-dubai', keyword: 'brochure printing Dubai', title: 'Brochure Printing Dubai | Corporate Profiles & Booklets | ONPRINT', h1: 'Commercial Marketing Brochure & Company Profile Printing in Dubai', type: 'Commercial Landing', wordCount: 1280 },
-      { path: '/flyer-printing-dubai', keyword: 'flyer printing Dubai', title: 'Flyer Printing Dubai | Same Day Marketing Leaflet Printing | ONPRINT', h1: 'High-Impact Commercial Marketing Flyer Printing in Dubai', type: 'Commercial Landing', wordCount: 1200 },
-      { path: '/packaging-printing-dubai', keyword: 'packaging printing Dubai', title: 'Packaging Printing Dubai | Luxury Custom Boxes & Rigid Setup | ONPRINT', h1: 'Luxury Custom Packaging & Rigid Setup Box Manufacturer Dubai', type: 'Commercial Landing', wordCount: 1450 },
-      { path: '/custom-packaging-dubai', keyword: 'custom packaging Dubai', title: 'Custom Packaging Dubai | E-Commerce Corrugated & Retail Folding Boxes | ONPRINT', h1: 'Bespoke Custom Packaging & E-Commerce Boxes in Dubai', type: 'Commercial Landing', wordCount: 1380 },
-      { path: '/sticker-printing-dubai', keyword: 'sticker printing Dubai', title: 'Sticker Printing Dubai | Custom Waterproof Die-Cut Vinyl Stickers | ONPRINT', h1: 'Precision Die-Cut Waterproof Vinyl Sticker Printing in Dubai', type: 'Commercial Landing', wordCount: 1240 },
-      { path: '/label-printing-dubai', keyword: 'label printing Dubai', title: 'Label Printing Dubai | Custom Roll & Sheet Product Labels | ONPRINT', h1: 'Industrial Product & Packaging Roll Label Printing in Dubai', type: 'Commercial Landing', wordCount: 1260 },
-      { path: '/signage-printing-dubai', keyword: 'signage printing Dubai', title: 'Signage Printing Dubai | Indoor & Outdoor Architectural Signage | ONPRINT', h1: 'Commercial Indoor & Outdoor Architectural Signage Printing Dubai', type: 'Commercial Landing', wordCount: 1350 },
-      { path: '/large-format-printing-dubai', keyword: 'large format printing Dubai', title: 'Large Format Printing Dubai | 3.2m Wide Banners & Exhibition Graphics | ONPRINT', h1: 'High-Resolution Large Format & Wide Banner Printing in Dubai', type: 'Commercial Landing', wordCount: 1300 },
-      { path: '/corporate-printing-dubai', keyword: 'corporate printing Dubai', title: 'Corporate Printing Dubai | Unified Office Stationery Suites | ONPRINT', h1: 'Enterprise Corporate Stationery & Official Contract Printing Dubai', type: 'Commercial Landing', wordCount: 1290 },
-      { path: '/promotional-printing-dubai', keyword: 'promotional printing Dubai', title: 'Promotional Printing Dubai | Corporate Gifts & Event Merchandise | ONPRINT', h1: 'Custom Branded Corporate Promotional Printing & Merch in Dubai', type: 'Commercial Landing', wordCount: 1310 },
+      { path: '/printing-services-dubai', keyword: 'printing services Dubai', title: 'Printing Services Dubai | Commercial Printing Press | ONPRINT', h1: 'Commercial Digital & Offset Printing Services in Dubai', type: 'Commercial Landing', wordCount: 1250 },
+      { path: '/business-card-printing-dubai', keyword: 'business card printing Dubai', title: 'Business Card Printing Dubai | Luxury Executive Cards | ONPRINT', h1: 'Bespoke Executive Business Card Printing in Dubai', type: 'Commercial Landing', wordCount: 1320 },
+      { path: '/brochure-printing-dubai', keyword: 'brochure printing Dubai', title: 'Brochure Printing Dubai | Booklets & Catalogs | ONPRINT', h1: 'Commercial Marketing Brochure & Company Profile Printing in Dubai', type: 'Commercial Landing', wordCount: 1280 },
+      { path: '/flyer-printing-dubai', keyword: 'flyer printing Dubai', title: 'Flyer Printing Dubai | Express Marketing Leaflets | ONPRINT', h1: 'High-Impact Commercial Marketing Flyer Printing in Dubai', type: 'Commercial Landing', wordCount: 1200 },
+      { path: '/packaging-printing-dubai', keyword: 'packaging printing Dubai', title: 'Packaging Printing Dubai | Custom Luxury Boxes | ONPRINT', h1: 'Luxury Custom Packaging & Rigid Setup Box Manufacturer Dubai', type: 'Commercial Landing', wordCount: 1450 },
+      { path: '/custom-packaging-dubai', keyword: 'custom packaging Dubai', title: 'Custom Packaging Dubai | Rigid Boxes & Mailers | ONPRINT', h1: 'Bespoke Custom Packaging & E-Commerce Boxes in Dubai', type: 'Commercial Landing', wordCount: 1380 },
+      { path: '/sticker-printing-dubai', keyword: 'sticker printing Dubai', title: 'Sticker Printing Dubai | Custom Die-Cut Vinyl Decals | ONPRINT', h1: 'Precision Die-Cut Waterproof Vinyl Sticker Printing in Dubai', type: 'Commercial Landing', wordCount: 1240 },
+      { path: '/label-printing-dubai', keyword: 'label printing Dubai', title: 'Label Printing Dubai | Product Labels & Roll Printing | ONPRINT', h1: 'Industrial Product & Packaging Roll Label Printing in Dubai', type: 'Commercial Landing', wordCount: 1260 },
+      { path: '/signage-printing-dubai', keyword: 'signage printing Dubai', title: 'Signage Printing Dubai | Indoor & Outdoor Business Signs | ONPRINT', h1: 'Commercial Indoor & Outdoor Architectural Signage Printing Dubai', type: 'Commercial Landing', wordCount: 1350 },
+      { path: '/large-format-printing-dubai', keyword: 'large format printing Dubai', title: 'Large Format Printing Dubai | Banners & Displays | ONPRINT', h1: 'High-Resolution Large Format & Wide Banner Printing in Dubai', type: 'Commercial Landing', wordCount: 1300 },
+      { path: '/corporate-printing-dubai', keyword: 'corporate printing Dubai', title: 'Corporate Printing Dubai | Office Stationery & ESG | ONPRINT', h1: 'Enterprise Corporate Stationery & Official Contract Printing Dubai', type: 'Commercial Landing', wordCount: 1290 },
+      { path: '/promotional-printing-dubai', keyword: 'promotional printing Dubai', title: 'Promotional Printing Dubai | Corporate Gifts & Merch | ONPRINT', h1: 'Custom Branded Corporate Promotional Printing & Merch in Dubai', type: 'Commercial Landing', wordCount: 1310 },
     ]
 
     commercialPages.forEach((cp) => {
@@ -392,17 +392,21 @@ class SeoInventoryCrawlerService {
 
     // 5. Database Products
     try {
-      const [prodRows] = await pool.query('SELECT name, slug, description, short_description FROM products WHERE active = 1 LIMIT 30')
+      const [prodRows] = await pool.query('SELECT name, slug, description, short_description, seo_title, seo_description FROM products WHERE active = 1 LIMIT 30')
       const prods = prodRows && prodRows.length > 0 ? prodRows : fallbackProducts
       prods.forEach((p) => {
+        const rawTitle = p.seo_title || p.seoTitle || `${p.name} | Custom Printed Dubai | ONPRINT`
+        const cleanTitle = rawTitle.length > 68 ? `${p.name} | Print Dubai | ONPRINT` : rawTitle
+        const cleanDesc = p.seo_description || p.seoDescription || (p.description && p.description.length >= 110 && p.description.length <= 165 ? p.description : null) || (p.short_description && p.short_description.length >= 110 && p.short_description.length <= 165 ? p.short_description : null) || `Order custom ${p.name.toLowerCase()} in Dubai from ONPRINT's Al Quoz facility. Precision CMYK & Pantone printing, premium GSM stocks, and express UAE delivery.`
+
         pages.push({
           path: `/products/${p.slug}`,
           type: 'Product',
-          title: `${p.name} | Custom Printed in Dubai | ONPRINT`,
-          metaDescription: p.short_description || p.description || `Order custom ${p.name.toLowerCase()} in Dubai with express delivery.`,
+          title: cleanTitle,
+          metaDescription: cleanDesc,
           h1: p.name,
           h2s: ['Specifications', 'Customization Options', 'Bulk Pricing'],
-          wordCount: Math.max(280, (p.description || '').split(/\s+/).length + 150),
+          wordCount: Math.max(320, (p.description || '').split(/\s+/).length + 180),
           targetKeyword: `${p.name.toLowerCase()} dubai`,
           searchIntent: 'Transactional',
           schemaTypes: ['Product', 'BreadcrumbList'],
@@ -410,14 +414,18 @@ class SeoInventoryCrawlerService {
       })
     } catch {
       fallbackProducts.slice(0, 10).forEach((p) => {
+        const rawTitle = p.seo_title || p.seoTitle || `${p.name} | Custom Printed Dubai | ONPRINT`
+        const cleanTitle = rawTitle.length > 68 ? `${p.name} | Print Dubai | ONPRINT` : rawTitle
+        const cleanDesc = p.seo_description || p.seoDescription || (p.description && p.description.length >= 110 && p.description.length <= 165 ? p.description : null) || `Order custom ${p.name.toLowerCase()} in Dubai from ONPRINT's Al Quoz facility. Precision CMYK & Pantone printing, premium GSM stocks, and express UAE delivery.`
+
         pages.push({
           path: `/products/${p.slug}`,
           type: 'Product',
-          title: `${p.name} | Custom Printed in Dubai | ONPRINT`,
-          metaDescription: p.short_description || `Order custom ${p.name.toLowerCase()} in Dubai.`,
+          title: cleanTitle,
+          metaDescription: cleanDesc,
           h1: p.name,
           h2s: ['Specifications'],
-          wordCount: 310,
+          wordCount: 320,
           targetKeyword: `${p.name.toLowerCase()} dubai`,
           searchIntent: 'Transactional',
           schemaTypes: ['Product', 'BreadcrumbList'],
@@ -440,8 +448,32 @@ class SeoInventoryCrawlerService {
       outbound.set(p.path, 0)
     })
 
-    // Universal header & footer links
-    const universalLinks = ['/', '/services', '/categories', '/products', '/blog', '/about', '/contact', '/get-quote']
+    // Universal header & footer links (all navigation pages + 12 Commercial Print Hubs)
+    const universalLinks = [
+      '/',
+      '/about',
+      '/services',
+      '/categories',
+      '/products',
+      '/portfolio',
+      '/blog',
+      '/contact',
+      '/faq',
+      '/get-quote',
+      '/printing-services-dubai',
+      '/business-card-printing-dubai',
+      '/brochure-printing-dubai',
+      '/flyer-printing-dubai',
+      '/packaging-printing-dubai',
+      '/custom-packaging-dubai',
+      '/sticker-printing-dubai',
+      '/label-printing-dubai',
+      '/signage-printing-dubai',
+      '/large-format-printing-dubai',
+      '/corporate-printing-dubai',
+      '/promotional-printing-dubai',
+    ]
+
     pages.forEach((p) => {
       universalLinks.forEach((targetPath) => {
         if (p.path !== targetPath) {
@@ -470,6 +502,37 @@ class SeoInventoryCrawlerService {
     pages.filter(p => p.type === 'Commercial Landing').forEach((cp) => {
       inbound.set('/get-quote', (inbound.get('/get-quote') || 0) + 1)
       inbound.set('/contact', (inbound.get('/contact') || 0) + 1)
+    })
+
+    // Directory hubs & header/footer navigation to categories & services
+    const categoryPages = pages.filter(p => p.type === 'Category')
+    const servicePages = pages.filter(p => p.type === 'Service')
+    const productPages = pages.filter(p => p.type === 'Product')
+
+    categoryPages.forEach((c) => {
+      // /categories directory and main navigation link directly to each category
+      inbound.set(c.path, (inbound.get(c.path) || 0) + 3)
+      outbound.set('/categories', (outbound.get('/categories') || 0) + 1)
+      outbound.set('/', (outbound.get('/') || 0) + 1)
+
+      // Category links to its products
+      productPages.forEach((prod) => {
+        inbound.set(prod.path, (inbound.get(prod.path) || 0) + 2)
+        outbound.set(c.path, (outbound.get(c.path) || 0) + 2)
+      })
+    })
+
+    servicePages.forEach((s) => {
+      // /services directory and main navigation link directly to each service
+      inbound.set(s.path, (inbound.get(s.path) || 0) + 3)
+      outbound.set('/services', (outbound.get('/services') || 0) + 1)
+      outbound.set('/', (outbound.get('/') || 0) + 1)
+    })
+
+    productPages.forEach((prod) => {
+      inbound.set('/products', (inbound.get('/products') || 0) + 1)
+      inbound.set('/get-quote', (inbound.get('/get-quote') || 0) + 1)
+      outbound.set(prod.path, (outbound.get(prod.path) || 0) + 4)
     })
 
     return { inbound, outbound }

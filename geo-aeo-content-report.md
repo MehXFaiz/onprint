@@ -89,7 +89,7 @@ In addition to traditional XML sitemaps, ONPRINT implements the emerging standar
 
 ### 3.1 Content Delivered in `/llms.txt`:
 * **Concise Business Identity**: Legal name (`ONPRINT`), alternate name (`0nprint`), and geographical facility (`Street 18, Al Quoz Industrial Area 3, Dubai, UAE`).
-* **Direct Verification Channels**: Pressroom phone (`+971 55 183 7995`), WhatsApp quote hotline (`+44 7344 546056`), email (`0nprint183@gmail.com`).
+* **Direct Verification Channels**: Pressroom phone (`+44 7344 546056`), WhatsApp quote hotline (`+44 7344 546056`), email (`0nprint183@gmail.com`).
 * **Service Directory Links**: Deep Markdown links to all 12 commercial hubs.
 * **Substrate & Capability Metrics**: Paper weights (80gsm–600gsm), offset & digital press types, Pantone PMS color matching, and FSC eco-friendly certifications.
 * **Direct Q&A Knowledge Blocks**: Factual snippets pre-formatted for consumption by LLM scrapers.

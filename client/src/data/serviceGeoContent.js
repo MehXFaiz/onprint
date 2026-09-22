@@ -712,7 +712,7 @@ export function getServiceSectionEData(service, slug) {
     },
     {
       question: `How much does ${serviceName.toLowerCase()} cost in Dubai?`,
-      answer: `Pricing varies based on volume, paper substrate (170gsm–600gsm), and custom embellishments such as gold foil stamping or spot UV. Contact our Al Quoz sales team at +971 55 183 7995 or 0nprint183@gmail.com for an immediate itemized commercial quote.`,
+      answer: `Pricing varies based on volume, paper substrate (170gsm–600gsm), and custom embellishments such as gold foil stamping or spot UV. Contact our Al Quoz sales team on WhatsApp at +971 55 183 7995 or 0nprint183@gmail.com for an immediate itemized commercial quote.`,
     },
   ]
 
@@ -783,10 +783,9 @@ export function getServiceSectionEData(service, slug) {
     },
     faqs: specificFaqs,
     requestQuote: {
-      phone: '+971 55 183 7995',
       whatsapp: '+971 55 183 7995',
       email: '0nprint183@gmail.com',
-      address: 'Street 18, Al Quoz Industrial Area 3, Dubai, UAE',
+      address: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai, UAE',
       turnaround: 'Standard 24–48 Hours | Same-Day Rush Available',
       moq: 'Flexible Low MOQs Starting From 25–50 Units',
     },

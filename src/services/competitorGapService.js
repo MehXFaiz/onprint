@@ -105,6 +105,104 @@ class CompetitorGapService {
       ],
     }
   }
+
+  /**
+   * Complete Head-to-Head Competitive Intelligence against DLXPrint (dlxprint.com)
+   * Implements Phase 2 & Phase 27 of the Elite SEO System.
+   */
+  async getDlxprintCompetitorAnalysis() {
+    const {
+      DLXPRINT_PROFILE,
+      ONPRINT_DIFFERENTIATION_MATRIX,
+      DLXPRINT_COMPETITOR_GAPS,
+    } = require('../data/dlxprintCompetitorData')
+
+    const categoryCounts = {}
+    let criticalCount = 0
+    let highCount = 0
+
+    DLXPRINT_COMPETITOR_GAPS.forEach((gap) => {
+      categoryCounts[gap.category] = (categoryCounts[gap.category] || 0) + 1
+      if (gap.priority === 'Critical') criticalCount++
+      if (gap.priority === 'High') highCount++
+    })
+
+    const avgAdvantageScore = Math.round(
+      ONPRINT_DIFFERENTIATION_MATRIX.reduce((acc, curr) => acc + curr.onprintAdvantageScore, 0) /
+        ONPRINT_DIFFERENTIATION_MATRIX.length
+    )
+
+    return {
+      profile: DLXPRINT_PROFILE,
+      differentiationMatrix: ONPRINT_DIFFERENTIATION_MATRIX,
+      gaps: DLXPRINT_COMPETITOR_GAPS,
+      categoryCounts,
+      summary: {
+        totalGaps: DLXPRINT_COMPETITOR_GAPS.length,
+        criticalGaps: criticalCount,
+        highGaps: highCount,
+        averageAdvantageScore: avgAdvantageScore,
+        competitorDomain: 'dlxprint.com',
+        competitorLocation: 'Al Qusais Industrial Area 1, Dubai',
+        onprintLocation: 'Al Quoz Industrial Area 3, Dubai',
+        keyDifferentiator: 'Direct proximity to DIFC/Downtown/Business Bay + In-House Luxury Rigid Packaging & 600gsm Cotton Craftsmanship',
+      },
+      topCompetitiveActions: [
+        {
+          priority: 'Critical',
+          gap_id: 'gap-kw-1',
+          title: 'Dominate Luxury Business Cards in DIFC & Downtown',
+          action: 'Promote 450gsm velvet soft-touch and 600gsm painted edge cards with instant courier delivery to DIFC financial firms.',
+          target_page: '/business-card-printing-dubai',
+        },
+        {
+          priority: 'Critical',
+          gap_id: 'gap-kw-2',
+          title: 'Capture Homegrown Perfume & Jewelry Box Market',
+          action: 'Advertise 50-unit low-MOQ luxury rigid box production with magnetic closures and custom foam inserts.',
+          target_page: '/luxury-packaging-dubai',
+        },
+        {
+          priority: 'Critical',
+          gap_id: 'gap-service-1',
+          title: 'Launch DWTC Emergency Exhibitor Desk',
+          action: 'Guarantee 4-hour direct-to-booth replacement prints and banner delivery for international exhibitors at Dubai World Trade Centre.',
+          target_page: '/exhibition-stands-dubai',
+        },
+        {
+          priority: 'High',
+          gap_id: 'gap-local-1',
+          title: 'Leverage Al Quoz Strategic Geographic Advantage',
+          action: 'Emphasize 15-minute dispatch radius across Sheikh Zayed Road, Business Bay, JLT, and Dubai Marina vs. Al Qusais competitors.',
+          target_page: '/same-day-printing-dubai',
+        },
+        {
+          priority: 'High',
+          gap_id: 'gap-geo-1',
+          title: 'Solidify Generative Engine Optimization (GEO)',
+          action: 'Maintain active /llms.txt and semantic schema so ChatGPT, Perplexity, and Google AI Overviews cite ONPRINT as Dubai’s premier press.',
+          target_page: '/llms.txt',
+        },
+      ],
+    }
+  }
+
+  /**
+   * 10-Column DLXPrint Competitor Gap Matrix (Phase 2 Master Architecture)
+   */
+  async getCompetitorGaps() {
+    const { pool } = require('../config/database')
+    const { DLX_COMPETITOR_GAPS } = require('../data/dlxCompetitorGapData')
+    try {
+      const [rows] = await pool.query('SELECT * FROM seo_competitor_gaps ORDER BY FIELD(priority, "High", "Medium", "Low"), id ASC')
+      if (rows && rows.length > 0) {
+        return rows
+      }
+    } catch (err) {
+      console.warn('[CompetitorGapService] MySQL query note:', err.message)
+    }
+    return DLX_COMPETITOR_GAPS
+  }
 }
 
 module.exports = new CompetitorGapService()

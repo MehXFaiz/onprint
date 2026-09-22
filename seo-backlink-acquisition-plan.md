@@ -4,7 +4,7 @@
 **Brand Identity:** ONPRINT / 0nprint  
 **Geographic Target:** Dubai, United Arab Emirates (UAE)  
 **Primary Facility:** Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai  
-**Contact:** +971 55 183 7995 | 0nprint183@gmail.com  
+**Contact:** +44 7344 546056 | 0nprint183@gmail.com  
 
 ---
 
@@ -18,7 +18,7 @@ To scale ONPRINT's organic authority from Domain Rating (DR) 6 to a dominant ind
    - **Business Name:** ONPRINT (or ONPRINT Printing & Packaging Solutions)
    - **Street Address:** Warehouse 4, 24th Street, Al Quoz Industrial Area 3
    - **City / Emirate:** Dubai, United Arab Emirates
-   - **Telephone:** `+971 55 183 7995`
+   - **Telephone:** `+44 7344 546056`
    - **Website:** `https://0nprint.com`
 
 ---
@@ -265,7 +265,7 @@ pie title Natural UAE Backlink Anchor Distribution
 > Best regards,  
 > **ONPRINT Corporate Team**  
 > Warehouse 4, 24th Street, Al Quoz 3, Dubai, UAE  
-> Tel: +971 55 183 7995 | Web: https://0nprint.com  
+> Tel: +44 7344 546056 | Web: https://0nprint.com  
 
 ---
 

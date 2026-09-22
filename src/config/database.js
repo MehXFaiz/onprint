@@ -9,6 +9,8 @@ const { BACKLINK_OPPORTUNITIES_200 } = require('../data/dubaiBacklinkOpportuniti
 const { DUBAI_AI_VISIBILITY_QUERIES } = require('../data/dubaiAiVisibilityData')
 const { GEO_FAQS } = require('../data/geoFaqsData')
 const { GEO_CONTENT_RECORDS } = require('../data/geoContentData')
+const { DLX_COMPETITOR_GAPS } = require('../data/dlxCompetitorGapData')
+const { DLX_220_KEYWORDS } = require('../data/dlx220KeywordsData')
 
 let pool
 
@@ -195,7 +197,7 @@ const seedCategoriesList = [
     image: '/assets/products/mug_white_ceramic.jpg',
     image_url: '/assets/products/mug_white_ceramic.jpg',
     status: 'active',
-    display_order: 17,
+    display_order: 8,
     active: 1,
     seo_title: 'Mug Printing Dubai | Custom Branded Ceramic & Travel Mugs | ONPRINT',
     seo_description: 'Professional mug printing in Dubai. Custom ceramic mugs, magic color-changing mugs, executive matte black mugs, and travel tumblers with fast UAE delivery.',
@@ -212,7 +214,7 @@ const seedCategoriesList = [
     image: '/assets/products/bottle_smart_led.jpg',
     image_url: '/assets/products/bottle_smart_led.jpg',
     status: 'active',
-    display_order: 18,
+    display_order: 9,
     active: 1,
     seo_title: 'Water Bottle Printing Dubai | Custom Branded Flasks & Sports Bottles | ONPRINT',
     seo_description: 'Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.',
@@ -351,7 +353,7 @@ const seedServicesList = [
     short_description: 'Custom branded ceramic mugs, magic color-reveal mugs, matte black executive tumblers, and vintage enamel drinkware.',
     description: 'Bespoke corporate mug printing services in Dubai. Full-color vibrant sublimation on 11oz/15oz ceramic mugs, thermochromic heat-reveal mugs, luxury engraved travel tumblers, and enamel camping mugs.',
     image: '/assets/products/mug_white_ceramic.jpg',
-    display_order: 17,
+    display_order: 8,
     active: 1,
     seo_title: 'Custom Mug Printing Services Dubai | Corporate Drinkware | ONPRINT',
     seo_description: 'Custom mug printing services in Dubai. High-resolution ceramic, magic heat reveal, matte black gold foil, and travel tumblers with express delivery.',
@@ -368,7 +370,7 @@ const seedServicesList = [
     short_description: 'Laser-engraved thermal insulated flasks, smart LED display bottles, aluminium sports bottles, and glass drinkware.',
     description: 'Commercial custom water bottle printing and precision laser engraving in Dubai. Double-wall vacuum stainless steel, smart LED temperature readout caps, gym shakers, and eco-friendly bamboo glass bottles.',
     image: '/assets/products/bottle_smart_led.jpg',
-    display_order: 18,
+    display_order: 9,
     active: 1,
     seo_title: 'Custom Water Bottle Printing Dubai | Laser Engraved Flasks | ONPRINT',
     seo_description: 'Custom water bottle printing and laser engraving in Dubai. Double-wall stainless steel, smart LED flasks, sports bottles, and shaker bottles.',
@@ -1068,37 +1070,38 @@ const seedProductsList = [
 
 async function seedCategoriesIfEmpty(connection) {
   try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM categories')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      console.log('[Categories] Seeding initial high-quality Dubai printing categories in MySQL...')
-      for (const cat of seedCategoriesList) {
-        await connection.query(
-          `INSERT INTO categories 
-           (category_key, name, slug, description, image, image_url, status, display_order, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE name=VALUES(name), image_url=VALUES(image_url), image=VALUES(image)`,
-          [
-            cat.category_key,
-            cat.name,
-            cat.slug,
-            cat.description,
-            cat.image,
-            cat.image_url,
-            cat.status,
-            cat.display_order,
-            cat.active,
-            cat.seo_title,
-            cat.seo_description,
-            cat.seo_keywords,
-            cat.seo_heading,
-            cat.canonical_url,
-            cat.image_alt,
-          ]
-        )
-      }
-      console.log('[Categories] Seeded 7 professional printing categories successfully.')
+    for (const cat of seedCategoriesList) {
+      await connection.query(
+        `INSERT INTO categories 
+         (category_key, name, slug, description, image, image_url, status, display_order, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         ON DUPLICATE KEY UPDATE 
+           name=VALUES(name), 
+           image_url=VALUES(image_url), 
+           image=VALUES(image),
+           display_order=VALUES(display_order),
+           active=VALUES(active),
+           status=VALUES(status)`,
+        [
+          cat.category_key,
+          cat.name,
+          cat.slug,
+          cat.description,
+          cat.image,
+          cat.image_url,
+          cat.status,
+          cat.display_order,
+          cat.active,
+          cat.seo_title,
+          cat.seo_description,
+          cat.seo_keywords,
+          cat.seo_heading,
+          cat.canonical_url,
+          cat.image_alt,
+        ]
+      )
     }
+    console.log('[Categories] Synchronized all categories in MySQL.')
   } catch (err) {
     console.warn('[Categories Seed Check Note]:', err.message)
   }
@@ -1106,41 +1109,42 @@ async function seedCategoriesIfEmpty(connection) {
 
 async function seedServicesIfEmpty(connection) {
   try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM services')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      console.log('[Services] Seeding initial high-quality Dubai printing services in MySQL...')
-      const [cats] = await connection.query('SELECT id, slug FROM categories')
-      const catMap = Object.fromEntries(cats.map((c) => [c.slug, c.id]))
+    const [cats] = await connection.query('SELECT id, slug FROM categories')
+    const catMap = Object.fromEntries(cats.map((c) => [c.slug, c.id]))
 
-      for (const serv of seedServicesList) {
-        const catId = catMap[serv.category_slug] || null
-        await connection.query(
-          `INSERT INTO services 
-           (service_key, category_id, name, slug, short_description, description, image, display_order, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE name=VALUES(name), description=VALUES(description), image=VALUES(image)`,
-          [
-            serv.service_key,
-            catId,
-            serv.name,
-            serv.slug,
-            serv.short_description,
-            serv.description,
-            serv.image,
-            serv.display_order,
-            serv.active,
-            serv.seo_title,
-            serv.seo_description,
-            serv.seo_keywords,
-            serv.seo_heading,
-            serv.canonical_url,
-            serv.image_alt,
-          ]
-        )
-      }
-      console.log('[Services] Seeded 7 professional printing services successfully.')
+    for (const serv of seedServicesList) {
+      const catId = catMap[serv.category_slug] || null
+      await connection.query(
+        `INSERT INTO services 
+         (service_key, category_id, name, slug, short_description, description, image, display_order, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         ON DUPLICATE KEY UPDATE 
+           name=VALUES(name), 
+           description=VALUES(description), 
+           image=VALUES(image),
+           category_id=COALESCE(VALUES(category_id), services.category_id),
+           display_order=VALUES(display_order),
+           active=VALUES(active)`,
+        [
+          serv.service_key,
+          catId,
+          serv.name,
+          serv.slug,
+          serv.short_description,
+          serv.description,
+          serv.image,
+          serv.display_order,
+          serv.active,
+          serv.seo_title,
+          serv.seo_description,
+          serv.seo_keywords,
+          serv.seo_heading,
+          serv.canonical_url,
+          serv.image_alt,
+        ]
+      )
     }
+    console.log('[Services] Synchronized all printing services successfully.')
   } catch (err) {
     console.warn('[Services Seed Check Note]:', err.message)
   }
@@ -1148,106 +1152,55 @@ async function seedServicesIfEmpty(connection) {
 
 async function seedProductsIfEmpty(connection) {
   try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM products')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      console.log('[Products] Seeding initial authentic Dubai printing products in MySQL...')
-      const [cats] = await connection.query('SELECT id, slug FROM categories')
-      const catMap = Object.fromEntries(cats.map((c) => [c.slug, c.id]))
+    const [cats] = await connection.query('SELECT id, slug FROM categories')
+    const catMap = Object.fromEntries(cats.map((c) => [c.slug, c.id]))
 
-      for (const prod of seedProductsList) {
-        const catId = catMap[prod.category_slug] || null
-        const [res] = await connection.query(
-          `INSERT INTO products 
-           (product_key, category_id, name, slug, short_description, description, price, minimum_quantity, featured, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE name=VALUES(name), price=VALUES(price), description=VALUES(description)`,
-          [
-            prod.product_key,
-            catId,
-            prod.name,
-            prod.slug,
-            prod.short_description,
-            prod.description,
-            prod.price,
-            prod.minimum_quantity,
-            prod.featured,
-            1,
-            prod.seo_title,
-            prod.seo_description,
-            prod.seo_keywords,
-            prod.seo_heading,
-            prod.canonical_url,
-            prod.image_alt,
-          ]
-        )
+    for (const prod of seedProductsList) {
+      const catId = catMap[prod.category_slug] || null
+      await connection.query(
+        `INSERT INTO products 
+         (product_key, category_id, name, slug, short_description, description, price, minimum_quantity, featured, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         ON DUPLICATE KEY UPDATE 
+           name=VALUES(name), 
+           price=VALUES(price), 
+           description=VALUES(description),
+           category_id=COALESCE(VALUES(category_id), products.category_id)`,
+        [
+          prod.product_key,
+          catId,
+          prod.name,
+          prod.slug,
+          prod.short_description,
+          prod.description,
+          prod.price,
+          prod.minimum_quantity,
+          prod.featured,
+          1,
+          prod.seo_title,
+          prod.seo_description,
+          prod.seo_keywords,
+          prod.seo_heading,
+          prod.canonical_url,
+          prod.image_alt,
+        ]
+      )
 
-        const insertedId = res.insertId
-        if (insertedId && prod.images && prod.images.length > 0) {
-          for (let i = 0; i < prod.images.length; i++) {
-            await connection.query(
-              `INSERT INTO product_images (product_id, image_url, alt_text, display_order) VALUES (?, ?, ?, ?)`,
-              [insertedId, prod.images[i], prod.image_alt, i + 1]
-            )
-          }
-        }
-      }
-      console.log('[Products] Seeded 7 professional printing products successfully.')
-    }
-
-    // Add newly introduced business-card quality tiers to existing installations
-    // without replacing or fabricating any products already managed by the admin.
-    const businessCardQualitySlugs = new Set([
-      'standard-business-cards',
-      'premium-soft-touch-business-cards',
-      'velvet-foil-business-cards',
-      'luxury-painted-edge-business-cards',
-    ])
-    const [businessCardCategoryRows] = await connection.query(
-      `SELECT id FROM categories WHERE slug = 'business-cards-printing' LIMIT 1`
-    )
-    const businessCardCategoryId = businessCardCategoryRows[0]?.id || null
-
-    if (businessCardCategoryId) {
-      for (const prod of seedProductsList.filter((item) => businessCardQualitySlugs.has(item.slug))) {
-        await connection.query(
-          `INSERT INTO products
-           (product_key, category_id, name, slug, short_description, description, price, minimum_quantity, featured, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE category_id = VALUES(category_id), image_alt = VALUES(image_alt)`,
-          [
-            prod.product_key,
-            businessCardCategoryId,
-            prod.name,
-            prod.slug,
-            prod.short_description,
-            prod.description,
-            prod.price,
-            prod.minimum_quantity,
-            prod.featured,
-            1,
-            prod.seo_title,
-            prod.seo_description,
-            prod.seo_keywords,
-            prod.seo_heading,
-            prod.canonical_url,
-            prod.image_alt,
-          ]
-        )
-
-        const [productRows] = await connection.query('SELECT id FROM products WHERE slug = ? LIMIT 1', [prod.slug])
-        const productId = productRows[0]?.id
-        if (productId && prod.images?.length) {
-          const [imageRows] = await connection.query('SELECT id FROM product_images WHERE product_id = ? LIMIT 1', [productId])
+      const [productRows] = await connection.query('SELECT id FROM products WHERE slug = ? LIMIT 1', [prod.slug])
+      const productId = productRows[0]?.id
+      if (productId && prod.images && prod.images.length > 0) {
+        for (let i = 0; i < prod.images.length; i++) {
+          const [imageRows] = await connection.query('SELECT id FROM product_images WHERE product_id = ? AND image_url = ? LIMIT 1', [productId, prod.images[i]])
           if (imageRows.length === 0) {
             await connection.query(
               'INSERT INTO product_images (product_id, image_url, alt_text, display_order) VALUES (?, ?, ?, ?)',
-              [productId, prod.images[0], prod.image_alt, 1]
+              [productId, prod.images[i], prod.image_alt, i + 1]
             )
           }
         }
       }
     }
+    console.log('[Products] Synchronized all printing products successfully.')
   } catch (err) {
     console.warn('[Products Seed Check Note]:', err.message)
   }
@@ -1450,6 +1403,37 @@ async function seedKeywordsIfEmpty(connection) {
           ]
         )
       }
+            if (Array.isArray(DLX_220_KEYWORDS) && DLX_220_KEYWORDS.length > 0) {
+        console.log(`[Keywords] Seeding ${DLX_220_KEYWORDS.length} DLX competitor-mapped keywords into MySQL...`)
+        for (const kw of DLX_220_KEYWORDS) {
+          await connection.query(
+            `INSERT INTO seo_keywords 
+             (keyword, keyword_type, search_intent, cluster, category, target_url, target_page, priority, status, country, city, notes)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+             ON DUPLICATE KEY UPDATE 
+               cluster=VALUES(cluster), 
+               category=COALESCE(VALUES(category), category),
+               target_url=VALUES(target_url), 
+               target_page=COALESCE(VALUES(target_page), target_page),
+               priority=VALUES(priority), 
+               status=VALUES(status)`,
+            [
+              kw.keyword,
+              kw.keyword_type || 'primary',
+              kw.search_intent || 'Commercial',
+              kw.cluster,
+              kw.cluster,
+              kw.target_url,
+              kw.target_page,
+              kw.priority || 'Medium',
+              kw.status || 'Published',
+              'UAE',
+              'Dubai',
+              `Cluster: ${kw.cluster} | Value: ${kw.conversion_value || 'High'}`,
+            ]
+          )
+        }
+      }
       console.log(`[Keywords] Successfully seeded/updated Dubai printing keywords into MySQL.`)
     }
   } catch (err) {
@@ -1514,6 +1498,38 @@ async function seedBacklinksIfEmpty(connection) {
     }
   } catch (err) {
     console.warn('[Backlinks Seed Check Note]:', err.message)
+  }
+}
+
+async function seedCompetitorGapsIfEmpty(connection) {
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_competitor_gaps')
+    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
+    if (count === 0 && Array.isArray(DLX_COMPETITOR_GAPS) && DLX_COMPETITOR_GAPS.length > 0) {
+      console.log(`[Competitor Gaps] Seeding ${DLX_COMPETITOR_GAPS.length} 10-column DLXPrint competitor gap records...`)
+      for (const g of DLX_COMPETITOR_GAPS) {
+        await connection.query(
+          `INSERT INTO seo_competitor_gaps
+           (competitor_url, competitor_topic, onprint_url, missing_topic, keyword_opportunity, search_intent, recommended_content, internal_link_opportunity, geo_opportunity, priority)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            g.competitor_url,
+            g.competitor_topic,
+            g.onprint_url,
+            g.missing_topic,
+            g.keyword_opportunity,
+            g.search_intent,
+            g.recommended_content,
+            g.internal_link_opportunity,
+            g.geo_opportunity,
+            g.priority,
+          ]
+        )
+      }
+      console.log(`[Competitor Gaps] Successfully seeded ${DLX_COMPETITOR_GAPS.length} competitor gap records into MySQL.`)
+    }
+  } catch (err) {
+    console.warn('[Competitor Gaps Seed Note]:', err.message)
   }
 }
 
@@ -1988,7 +2004,7 @@ async function seedSeoTasksIfEmpty(connection) {
         },
         {
           title: 'Verify LocalBusiness JSON-LD Schema NAP consistency',
-          description: 'Confirm Al Quoz Industrial Area 3 street address, phone (+971 55 183 7995), coordinates, and opening hours match Google Business Profile perfectly.',
+          description: 'Confirm Al Quoz Industrial Area 3 street address, phone (+44 7344 546056), coordinates, and opening hours match Google Business Profile perfectly.',
           category: 'schema',
           priority: 'high',
           status: 'completed',
@@ -3056,6 +3072,7 @@ async function initDatabase() {
     await seedKeywordsIfEmpty(connection)
     await seedBacklinksIfEmpty(connection)
     await seedCompetitorsIfEmpty(connection)
+    await seedCompetitorGapsIfEmpty(connection)
     await seedBacklinkOpportunitiesIfEmpty(connection)
     await seedBacklinkOpportunities200IfEmpty(connection)
     await seedAiVisibilityIfEmpty(connection)
@@ -3073,7 +3090,7 @@ async function initDatabase() {
     const adminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
     const adminName = process.env.ADMIN_NAME || 'ONPRINT Admin'
-    const adminPhone = process.env.ADMIN_PHONE || '+971 55 183 7995'
+    const adminPhone = process.env.ADMIN_PHONE || '+44 7344 546056'
 
     const [adminRows] = await connection.query(
       'SELECT id, password_hash, role FROM users WHERE email = ? LIMIT 1',

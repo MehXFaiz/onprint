@@ -97,7 +97,7 @@ Procurement in the UAE operates heavily via direct mobile communications. ONPRIN
 ### 4.1 Sticky Direct-Communication Action Bar
 * On mobile viewports (`< 768px`), users have persistent access to high-conversion direct communication channels:
   * **WhatsApp VIP Concierge**: One-tap launch to `+44 7344 546056` with pre-filled quote template: *"Hello ONPRINT, I would like to request a quote for printing in Dubai..."*
-  * **Direct Pressroom Call**: One-tap telephone link to `+971 55 183 7995` for immediate urgent inquiries.
+  * **Direct Pressroom Call**: One-tap telephone link to `+44 7344 546056` for immediate urgent inquiries.
 
 ### 4.2 Responsive Technical Tables
 * Specifications for paper GSM, print dimensions, and quantity price breaks are wrapped in touch-friendly horizontal overflow containers (`overflow-x-auto -webkit-overflow-scrolling: touch`) with smooth scroll snapping, ensuring wide technical matrices remain legible on narrow screens without breaking parent layouts.

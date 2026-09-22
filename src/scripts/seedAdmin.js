@@ -7,7 +7,7 @@ async function seedAdmin() {
   const adminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()
   const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
   const adminName = process.env.ADMIN_NAME || 'ONPRINT Admin'
-  const adminPhone = process.env.ADMIN_PHONE || '+971 55 183 7995'
+  const adminPhone = process.env.ADMIN_PHONE || '+44 7344 546056'
 
   try {
     // Ensure all tables exist first

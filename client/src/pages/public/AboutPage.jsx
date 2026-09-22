@@ -115,7 +115,7 @@ export default function AboutPage() {
       email: '0nprint183@gmail.com',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Al Quoz Industrial Area 3',
+        streetAddress: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3',
         addressLocality: 'Dubai',
         addressCountry: 'AE',
       },
@@ -285,11 +285,10 @@ export default function AboutPage() {
                 <div className="rounded-xl border border-border bg-surface p-5 space-y-2">
                   <div className="flex items-center gap-2 text-primary font-bold text-sm">
                     <Phone className="h-4 w-4 text-accent" />
-                    <span>Pressroom Direct &amp; WhatsApp</span>
+                    <span>WhatsApp Concierge</span>
                   </div>
                   <p className="text-xs text-secondary leading-relaxed">
-                    Phone: +971 55 183 7995<br />
-                    WhatsApp: +44 7344 546056
+                    WhatsApp: +971 55 183 7995
                   </p>
                   <span className="inline-block text-[11px] font-semibold text-accent">Quotes in 2 Hours</span>
                 </div>

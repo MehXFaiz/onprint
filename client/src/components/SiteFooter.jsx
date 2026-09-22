@@ -31,17 +31,32 @@ const serviceLinks = [
   { to: '/categories/bottle-printing-dubai', label: 'Water Bottle Printing Dubai' },
 ]
 
+const commercialHubs = [
+  { to: '/printing-services-dubai', label: 'Printing Services Dubai' },
+  { to: '/business-card-printing-dubai', label: 'Business Card Printing Dubai' },
+  { to: '/packaging-printing-dubai', label: 'Custom Packaging & Boxes' },
+  { to: '/custom-packaging-dubai', label: 'Luxury Rigid Boxes Dubai' },
+  { to: '/large-format-printing-dubai', label: 'Large Format & Rollup Banners' },
+  { to: '/signage-printing-dubai', label: 'Signage & 3D Letters Dubai' },
+  { to: '/sticker-printing-dubai', label: 'Custom Sticker Printing Dubai' },
+  { to: '/label-printing-dubai', label: 'Product & Roll Label Printing' },
+  { to: '/brochure-printing-dubai', label: 'Brochure & Catalogue Printing' },
+  { to: '/flyer-printing-dubai', label: 'Corporate Flyer Printing' },
+  { to: '/promotional-printing-dubai', label: 'Promotional Corporate Gifts' },
+  { to: '/corporate-printing-dubai', label: 'Corporate Stationery & Eco Print' },
+]
+
 export default function SiteFooter() {
   return (
     <footer className="border-t border-[#000000] bg-[#000000] text-[#FFFFFF]/80">
-      <Container className="grid grid-cols-1 gap-10 sm:gap-12 py-10 sm:py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+      <Container className="grid grid-cols-1 gap-8 sm:gap-10 py-10 sm:py-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.85fr_1fr_1.15fr_1.25fr]">
         {/* Col 1: Brand Info */}
         <div className="space-y-4">
           <Link to="/" className="inline-block">
             <Logo variant="light" size="md" />
           </Link>
           <p className="max-w-xs text-sm leading-relaxed text-[#FFFFFF]/70">
-            ONPRINT is Dubai’s premier physical branding &amp; print studio. Delivering flawless precision across office stationery, packaging, and high-impact print collateral.
+            ONPRINT is Dubai’s premier physical branding &amp; commercial print studio located in Al Quoz Industrial Area 3. Delivering industrial precision across bespoke packaging, luxury stationery, and large-format exhibition displays.
           </p>
           <div className="pt-2">
             <CmykDots className="mt-2" />
@@ -62,7 +77,7 @@ export default function SiteFooter() {
           </ul>
         </nav>
 
-        {/* Col 3: Services */}
+        {/* Col 3: Services & Categories */}
         <nav aria-label="Footer services">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A82F19]">Services &amp; Categories</p>
           <ul className="mt-4 space-y-2.5 text-sm font-semibold">
@@ -76,28 +91,39 @@ export default function SiteFooter() {
           </ul>
         </nav>
 
-        {/* Col 4: Contact */}
+        {/* Col 4: Commercial Print Hubs */}
+        <nav aria-label="Commercial Print Hubs">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A82F19]">Commercial Print Hubs</p>
+          <ul className="mt-4 space-y-2.5 text-sm font-semibold">
+            {commercialHubs.slice(0, 8).map((link) => (
+              <li key={link.to}>
+                <Link to={link.to} className="transition-colors hover:text-[#A82F19] hover:underline underline-offset-4">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Col 5: Dubai Headquarters */}
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A82F19]">Dubai Headquarters</p>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-center gap-2.5">
               <PhoneCall className="h-4 w-4 text-[#A82F19] shrink-0" />
-              <a
-                href="tel:+971551837995"
-                className="transition-colors hover:text-white"
-              >
-                +971 55 183 7995 (Pressroom)
+              <a href="tel:+971551837995" className="transition-colors hover:text-[#A82F19] font-medium">
+                +971 55 183 7995
               </a>
             </li>
             <li className="flex items-center gap-2.5">
               <WhatsAppIcon className="h-4 w-4 text-[#25D366] shrink-0 fill-[#25D366]" />
               <a
-                href="https://wa.me/447344546056"
+                href="https://wa.me/971551837995?text=Hello%20ONPRINT%2C%20I%20would%20like%20to%20request%20a%20commercial%20printing%20quote"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-[#25D366]"
+                className="transition-colors hover:text-[#25D366] font-medium"
               >
-                WhatsApp Concierge
+                WhatsApp Direct (+971 55 183 7995)
               </a>
             </li>
             <li className="flex items-center gap-2.5">
@@ -108,7 +134,9 @@ export default function SiteFooter() {
             </li>
             <li className="flex items-start gap-2.5">
               <MapPin className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
-              <span className="text-[#FFFFFF]/80">Al Quoz Industrial Area 3, Dubai, UAE</span>
+              <span className="text-[#FFFFFF]/80 leading-snug">
+                Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai, UAE
+              </span>
             </li>
             <li className="flex items-center gap-2.5 text-xs text-[#FFFFFF]/60 pt-1">
               <Clock className="h-3.5 w-3.5 text-[#A82F19] shrink-0" />
@@ -118,10 +146,30 @@ export default function SiteFooter() {
         </div>
       </Container>
 
+      {/* Commercial Hubs Directory / SEO Link Graph */}
+      <div className="border-t border-[#FFFFFF]/10 bg-[#050505] py-6">
+        <Container>
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#A82F19] mb-3">
+            Dubai Commercial Printing Hubs &amp; Industrial Production
+          </p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-[#FFFFFF]/70">
+            {commercialHubs.map((hub) => (
+              <Link
+                key={hub.to}
+                to={hub.to}
+                className="transition-colors hover:text-[#A82F19] hover:underline underline-offset-4"
+              >
+                {hub.label}
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </div>
+
       {/* Bottom Bar */}
       <div className="border-t border-[#FFFFFF]/10 bg-[#000000] py-6">
         <Container className="flex flex-col items-center justify-between gap-4 text-xs text-[#FFFFFF]/60 text-center sm:flex-row sm:text-left">
-          <p>&copy; {new Date().getFullYear()} ONPRINT Printing &amp; Creative Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ONPRINT Printing &amp; Creative Solutions. Warehouse 4, 24th Street, Al Quoz 3, Dubai, UAE. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-semibold sm:justify-end">
             <Link to="/privacy-policy" className="hover:text-[#FFFFFF] hover:underline">
               Privacy Policy
@@ -145,4 +193,3 @@ export default function SiteFooter() {
     </footer>
   )
 }
-

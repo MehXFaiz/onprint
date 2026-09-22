@@ -2194,5 +2194,100 @@ for (const kw of DUBAI_KEYWORDS_200) {
   }
 }
 
+// Ensure every keyword is categorized into Groups A-N according to Phase 3 & 4
+const KEYWORD_GROUPS = {
+  A: 'Core commercial keywords',
+  B: 'Dubai local keywords',
+  C: 'Service keywords',
+  D: 'Product keywords',
+  E: 'Long-tail keywords',
+  F: 'Question keywords',
+  G: 'Transactional keywords',
+  H: 'Informational keywords',
+  I: 'Comparison keywords',
+  J: 'AI/GEO queries',
+  K: 'Corporate printing keywords',
+  L: 'Packaging keywords',
+  M: 'Branding keywords',
+  N: 'Event/exhibition keywords',
+}
+
+function classifyKeywordGroup(kwText = '', cluster = '', searchIntent = '', kwType = '', url = '') {
+  const k = kwText.toLowerCase().trim()
+  const c = cluster.toLowerCase()
+
+  // 1. Question keywords (Group F)
+  if (k.startsWith('how') || k.startsWith('what') || k.startsWith('where') || k.startsWith('which') || k.startsWith('why') || k.includes('?')) {
+    return 'F'
+  }
+  // 2. Comparison keywords (Group I)
+  if (k.includes(' vs ') || k.includes(' versus ') || k.includes('difference between') || k.includes('compare ') || k.includes('comparison')) {
+    return 'I'
+  }
+  // 3. AI / GEO queries (Group J)
+  if (k.includes('chatgpt') || k.includes('perplexity') || k.includes('ai overviews') || k.includes('top rated printing') || k.includes('best printing press in dubai for')) {
+    return 'J'
+  }
+  // 4. Packaging keywords (Group L)
+  if (k.includes('packaging') || k.includes('box') || k.includes('carton') || k.includes('bag') || k.includes('pouch') || c.includes('packaging')) {
+    return 'L'
+  }
+  // 5. Event & Exhibition keywords (Group N)
+  if (k.includes('exhibition') || k.includes('event') || k.includes('trade show') || k.includes('dwtc') || k.includes('rollup') || k.includes('banner') || k.includes('backdrop') || k.includes('stand') || k.includes('flag') || c.includes('exhibition')) {
+    return 'N'
+  }
+  // 6. Corporate printing keywords (Group K)
+  if (k.includes('stationery') || k.includes('letterhead') || k.includes('envelope') || k.includes('business card') || k.includes('presentation folder') || c.includes('stationery') || c.includes('business card')) {
+    return 'K'
+  }
+  // 7. Branding & Merchandise keywords (Group M)
+  if (k.includes('branding') || k.includes('corporate gift') || k.includes('giveaway') || k.includes('uniform') || k.includes('polo') || k.includes('tshirt') || k.includes('mug') || k.includes('bottle') || c.includes('branding') || c.includes('gifts')) {
+    return 'M'
+  }
+  // 8. Dubai Local keywords (Group B)
+  if (k.includes('near me') || k.includes('al quoz') || k.includes('difc') || k.includes('business bay') || k.includes('deira') || k.includes('marina') || k.includes('downtown') || k.includes('jlt') || searchIntent === 'Local') {
+    return 'B'
+  }
+  // 9. Transactional keywords (Group G)
+  if (searchIntent === 'Transactional' || k.includes('order') || k.includes('price') || k.includes('cost') || k.includes('quote') || k.includes('cheap') || k.includes('rate') || k.includes('urgent') || k.includes('same day')) {
+    return 'G'
+  }
+  // 10. Long-tail keywords (Group E)
+  if (kwType === 'long-tail' || k.split(/\s+/).length >= 5) {
+    return 'E'
+  }
+  // 11. Informational keywords (Group H)
+  if (searchIntent === 'Informational' || k.includes('guide') || k.includes('tips') || k.includes('process') || k.includes('tutorial') || k.includes('paper size')) {
+    return 'H'
+  }
+  // 12. Product keywords (Group D)
+  if (c.includes('product') || url.includes('/products/')) {
+    return 'D'
+  }
+  // 13. Service keywords (Group C)
+  if (c.includes('service') || url.includes('/services/')) {
+    return 'C'
+  }
+  // 14. Fallback: Core commercial keywords (Group A)
+  return 'A'
+}
+
+DUBAI_KEYWORDS.forEach((item, idx) => {
+  const groupKey = classifyKeywordGroup(item.keyword, item.cluster, item.search_intent, item.keyword_type, item.target_url)
+  item.keyword_group = groupKey
+  item.keyword_group_name = KEYWORD_GROUPS[groupKey]
+  if (!item.conversion_value) {
+    item.conversion_value = ['G', 'A', 'K', 'L', 'N'].includes(groupKey) ? 'High' : ['C', 'D', 'B', 'M'].includes(groupKey) ? 'Medium' : 'Standard'
+  }
+  if (!item.content_status) {
+    item.content_status = item.status === 'Published' ? 'Published' : 'Tracking'
+  }
+  if (item.impressions === undefined) item.impressions = 0
+  if (item.clicks === undefined) item.clicks = 0
+  if (item.ctr === undefined) item.ctr = 0.0
+  if (item.position === undefined) item.position = null
+})
+
 module.exports = DUBAI_KEYWORDS
+
 

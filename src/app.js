@@ -120,7 +120,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Al Quoz Industrial Area 3',
+      streetAddress: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3',
       addressLocality: 'Dubai',
       addressRegion: 'Dubai',
       postalCode: '00000',
@@ -149,7 +149,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
       },
       {
         '@type': 'ContactPoint',
-        telephone: '+44 7344 546056',
+        telephone: '+971 55 183 7995',
         contactType: 'concierge / WhatsApp quotes',
         areaServed: 'AE',
         availableLanguage: ['English', 'Urdu'],

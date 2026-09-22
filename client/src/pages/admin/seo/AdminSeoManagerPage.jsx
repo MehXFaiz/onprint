@@ -63,6 +63,7 @@ import SeoBrandMentionsTab from './SeoBrandMentionsTab'
 import SeoMonthlyReportTab from './SeoMonthlyReportTab'
 import SeoTasksTab from './SeoTasksTab'
 import TopicalAuthorityTab from './TopicalAuthorityTab'
+import CompeteWithDlxPrintTab from './CompeteWithDlxPrintTab'
 import {
   getSeoDashboard,
   getSeoAudit,
@@ -134,7 +135,7 @@ const SCHEMA_TEMPLATES = {
       "contactPoint": [
         {
           "@type": "ContactPoint",
-          "telephone": "+971 55 183 7995",
+          "telephone": "+44 7344 546056",
           "contactType": "customer service / pressroom",
           "areaServed": "AE",
           "availableLanguage": ["English", "Arabic", "Urdu"]
@@ -160,7 +161,7 @@ const SCHEMA_TEMPLATES = {
       "alternateName": "0nprint",
       "image": "https://0nprint.com/logo_icon.png",
       "priceRange": "$$",
-      "telephone": "+971 55 183 7995",
+      "telephone": "+44 7344 546056",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Al Quoz Industrial Area 3",
@@ -1121,6 +1122,7 @@ export default function AdminSeoManagerPage() {
 
   const tabs = [
     { id: 'overview', label: 'Overview & Health', icon: BarChart3 },
+    { id: 'compete-dlxprint', label: 'Compete with DLXPrint', icon: Target },
     { id: 'tasks', label: 'SEO Tasks Queue', icon: CheckCircle2 },
     { id: 'topical-map', label: 'Topical Map (Clusters A–T)', icon: Layers },
     { id: 'inventory', label: 'Site Inventory & Crawl', icon: Layers },
@@ -4967,6 +4969,13 @@ export default function AdminSeoManagerPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAB: COMPETE WITH DLXPRINT (Phase 2 & Phase 27)                           */}
+      {/* ========================================================================= */}
+      {activeTab === 'compete-dlxprint' && (
+        <CompeteWithDlxPrintTab showToast={showToast} />
       )}
 
       {/* ========================================================================= */}

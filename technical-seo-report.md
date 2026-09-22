@@ -72,7 +72,7 @@ This machine-readable markdown file provides AI crawlers with clean, structured 
 * Primary Capabilities: Luxury business cards, rigid packaging, corporate gifts, exhibition banners.
 * Production Turnaround: 24–48 hours standard; same-day rush available.
 * MOQ Guidelines: Starting from 25–50 units.
-* Contact & NAP: Street 18, Al Quoz Industrial Area 3, Dubai, UAE (+971 55 183 7995).
+* Contact & NAP: Street 18, Al Quoz Industrial Area 3, Dubai, UAE (+44 7344 546056).
 
 ---
 

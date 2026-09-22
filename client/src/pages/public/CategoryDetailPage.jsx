@@ -158,6 +158,7 @@ export default function CategoryDetailPage() {
       email: '0nprint183@gmail.com',
       address: {
         '@type': 'PostalAddress',
+        streetAddress: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3',
         addressLocality: 'Dubai',
         addressRegion: 'Dubai',
         addressCountry: 'AE',

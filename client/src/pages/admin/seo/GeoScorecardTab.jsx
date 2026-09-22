@@ -47,7 +47,7 @@ export default function GeoScorecardTab({ showToast }) {
       icon: ShieldCheck,
       score: 100,
       status: 'VERIFIED',
-      details: 'Identical Name (ONPRINT / 0nprint), Address (Al Quoz Industrial Area 3), Phone (+971 55 183 7995), Hours across all pages, footers, and schema.',
+      details: 'Identical Name (ONPRINT / 0nprint), Address (Al Quoz Industrial Area 3), Phone (+44 7344 546056), Hours across all pages, footers, and schema.',
     },
     {
       pillar_id: 2,

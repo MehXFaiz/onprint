@@ -595,7 +595,7 @@ export const COMMERCIAL_LANDING_PAGES = {
   'large-format-printing-dubai': {
     slug: 'large-format-printing-dubai',
     path: '/large-format-printing-dubai',
-    title: 'Large Format Printing Dubai | Exhibition Banners & Displays | ONPRINT',
+    title: 'Large Format Printing Dubai | Banners & Displays | ONPRINT',
     metaDescription: 'Large format printing in Dubai. Roll-up banners, pop-up backdrops, foam board posters, vinyl banners & exhibition graphics. Express DWTC delivery.',
     focusKeyword: 'large format printing dubai',
     secondaryKeywords: 'roll up banner printing dubai, exhibition printing dubai, pop up banner dubai, poster printing dubai, foam board printing dubai, banner printing dubai',
@@ -720,7 +720,7 @@ export const COMMERCIAL_LANDING_PAGES = {
   'promotional-printing-dubai': {
     slug: 'promotional-printing-dubai',
     path: '/promotional-printing-dubai',
-    title: 'Promotional Printing Dubai | Branded Corporate Merchandise | ONPRINT',
+    title: 'Promotional Printing Dubai | Corporate Gifts & Merch | ONPRINT',
     metaDescription: 'Custom promotional printing in Dubai. Branded executive gifts, custom notebooks, pens, drinkware, tote bags & corporate giveaways. Fast UAE delivery.',
     focusKeyword: 'promotional printing dubai',
     secondaryKeywords: 'corporate gifts printing dubai, branded merchandise uae, promotional merchandise dubai, custom promotional items dubai, corporate giveaways dubai',

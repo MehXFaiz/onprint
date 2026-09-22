@@ -282,11 +282,13 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
                 <span>View on Google Maps</span>
               </a>
               <a
-                href="tel:+971551837995"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/90"
+                href="https://wa.me/447344546056"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
               >
-                <Phone className="h-4 w-4" />
-                <span>+971 55 183 7995</span>
+                <MessageSquare className="h-4 w-4" />
+                <span>Contact on WhatsApp</span>
               </a>
             </div>
           </div>
@@ -387,7 +389,7 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai,%20I%20need%20an%20urgent%20quote."
+                href="https://wa.me/447344546056?text=Hello%20ONPRINT%20Dubai,%20I%20need%20an%20urgent%20quote."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/20 active:scale-[0.98]"

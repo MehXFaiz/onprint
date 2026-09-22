@@ -48,7 +48,7 @@ The entity markup establishes ONPRINT as a premier commercial printing facility 
   "logo": "https://0nprint.com/logo_icon.png",
   "image": "https://0nprint.com/logo_icon.png",
   "description": "ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz Industrial Area 3, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.",
-  "telephone": "+971 55 183 7995",
+  "telephone": "+44 7344 546056",
   "email": "0nprint183@gmail.com",
   "priceRange": "$$",
   "address": {
@@ -75,7 +75,7 @@ The entity markup establishes ONPRINT as a premier commercial printing facility 
   "contactPoint": [
     {
       "@type": "ContactPoint",
-      "telephone": "+971 55 183 7995",
+      "telephone": "+44 7344 546056",
       "contactType": "customer service / sales",
       "areaServed": "AE",
       "availableLanguage": ["English", "Arabic", "Urdu"]

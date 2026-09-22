@@ -751,7 +751,7 @@ const products = [
     "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Printed%20Mugs%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
     "imageAlt": "Custom printed ceramic mugs in Dubai",
     "seoTitle": "Custom Printed Mugs Dubai | Corporate Gift Mugs | ONPRINT",
-    "seoDescription": "Personalized ceramic mugs in Dubai for marketing campaigns, company gifting, and hospitality promotions.",
+    "seoDescription": "Personalized ceramic mugs in Dubai for marketing campaigns, corporate gifting, and hospitality promotions with full-color sublimation print and fast delivery.",
     "seoKeywords": "custom mugs dubai, printed mugs uae, corporate gift mugs dubai",
     "price": 30,
     "minimumQuantity": 50,

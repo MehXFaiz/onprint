@@ -62,7 +62,7 @@ ONPRINT's identity is established through:
 **Verified Information:**
 - **Name:** ONPRINT / ONPRINT Printing & Branding Solutions ✅
 - **Address:** Al Quoz Industrial Area 3, Dubai, UAE ✅
-- **Phone:** +971551837995 (schema) | +44 7344546056 (WhatsApp on Contact) ⚠️
+- **Phone:** +447344546056 (schema) | +44 7344546056 (WhatsApp on Contact) ⚠️
 - **Email:** 0nprint183@gmail.com ✅
 - **Hours:** Mon-Sat 8:30 AM - 6:30 PM ✅
 

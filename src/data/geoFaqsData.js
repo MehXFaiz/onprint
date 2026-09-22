@@ -54,7 +54,7 @@ const GEO_FAQS = [
   {
     id: 5,
     question: 'How can I request a quote from ONPRINT?',
-    answer: 'You can request an itemized quotation by using the Get a Quote form on 0nprint.com, calling our Al Quoz press desk directly at +971 55 183 7995, sending a message to our WhatsApp concierge (+44 7344 546056), or emailing your specifications and artwork to 0nprint183@gmail.com.',
+    answer: 'You can request an itemized quotation by using the Get a Quote form on 0nprint.com, sending a message to our WhatsApp concierge (+971 55 183 7995), or emailing your specifications and artwork to 0nprint183@gmail.com.',
     category: 'General',
     related_service: 'Quotation Desk',
     target_url: `${SITE_URL}/get-a-quote`,
@@ -64,7 +64,7 @@ const GEO_FAQS = [
   {
     id: 6,
     question: 'How can I contact ONPRINT?',
-    answer: 'You can contact ONPRINT via phone at +971 55 183 7995, via WhatsApp concierge at +44 7344 546056, via email at 0nprint183@gmail.com, or in person at our press facility in Al Quoz Industrial Area 3, Dubai, UAE. Operating hours are Monday through Saturday from 8:30 AM to 6:30 PM.',
+    answer: 'You can contact ONPRINT via WhatsApp concierge at +971 55 183 7995, via email at 0nprint183@gmail.com, or in person at our press facility in Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai, UAE. Operating hours are Monday through Saturday from 8:30 AM to 6:30 PM.',
     category: 'General',
     related_service: 'Contact Desk',
     target_url: `${SITE_URL}/contact`,
@@ -138,7 +138,7 @@ const GEO_FAQS = [
   {
     id: 13,
     question: 'How can I order business cards from ONPRINT in Dubai?',
-    answer: 'You can order directly online by selecting your desired card specifications on 0nprint.com, submitting your PDF artwork through our quote form, or contacting our press desk on WhatsApp at +44 7344 546056. A digital pre-press proof will be provided for your review and approval prior to production.',
+    answer: 'You can order directly online by selecting your desired card specifications on 0nprint.com, submitting your PDF artwork through our quote form, or contacting our press desk on WhatsApp at +971 55 183 7995. A digital pre-press proof will be provided for your review and approval prior to production.',
     category: 'Business Cards',
     related_service: 'Business Card Printing',
     target_url: `${SITE_URL}/business-card-printing-dubai`,

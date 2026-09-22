@@ -35,9 +35,29 @@ import { getCategories } from '../services/categories'
 
 const NAV_GROUPS = [
   {
+    key: 'drinkware',
+    label: 'Mugs & Water Bottles',
+    keywords: ['mug', 'bottle', 'flask', 'tumbler', 'shaker', 'drinkware', 'cup'],
+  },
+  {
     key: 'printing',
-    label: 'Printing',
-    keywords: ['brochure', 'business card', 'letterhead', 'envelope', 'invoice', 'receipt', 'voucher', 'folder', 'notepad', 'calendar', 'certificate', 'printing'],
+    label: 'Paper & Commercial Print',
+    keywords: ['brochure', 'business card', 'letterhead', 'flyer', 'envelope', 'invoice', 'receipt', 'voucher', 'folder', 'notepad', 'calendar', 'certificate', 'catalog', 'booklet'],
+  },
+  {
+    key: 'badges',
+    label: 'ID Cards & Badges',
+    keywords: ['id card', 'lanyard', 'name badge', 'badge'],
+  },
+  {
+    key: 'packaging',
+    label: 'Packaging & Boxes',
+    keywords: ['packaging', 'box', 'mailer', 'bag'],
+  },
+  {
+    key: 'promotional',
+    label: 'Corporate Gifts & Promo',
+    keywords: ['gift', 'promo', 'merchandise', 'keychain', 'pen', 'tech', 'power bank'],
   },
   {
     key: 'stickers',
@@ -47,32 +67,12 @@ const NAV_GROUPS = [
   {
     key: 'signs',
     label: 'Signs & Displays',
-    keywords: ['banner', 'poster', 'sign', 'foam', 'acrylic', 'display', 'roll-up', 'x-banner'],
-  },
-  {
-    key: 'packaging',
-    label: 'Packaging',
-    keywords: ['bag', 'box', 'packaging', 'tag', 'gift'],
+    keywords: ['banner', 'poster', 'sign', 'foam', 'acrylic', 'display', 'roll-up', 'x-banner', 'flag'],
   },
   {
     key: 'apparel',
-    label: 'Apparel & Textile',
-    keywords: ['shirt', 'polo', 'hoodie', 'cap', 'jersey', 'uniform', 'fabric'],
-  },
-  {
-    key: 'promotional',
-    label: 'Promotional Products',
-    keywords: ['pen', 'keychain', 'lanyard', 'mug', 'bottle', 'trophy', 'award', 'gift', 'promo', 'merchandise'],
-  },
-  {
-    key: 'events',
-    label: 'Events & Branding',
-    keywords: ['event', 'flag', 'backdrop', 'table', 'badge', 'id card', 'exhibition', 'display'],
-  },
-  {
-    key: 'design',
-    label: 'Design Services',
-    keywords: ['logo', 'branding', 'design'],
+    label: 'Apparel & Uniforms',
+    keywords: ['shirt', 'polo', 'hoodie', 'cap', 'jersey', 'uniform', 'fabric', 'wearable'],
   },
 ]
 
@@ -252,14 +252,6 @@ export default function SiteHeader() {
             </Link>
             <span className="h-3 w-[1px] bg-slate-200" />
             <a
-              href="tel:+971551837995"
-              className="hidden lg:flex items-center gap-1.5 transition-colors hover:text-[#A82F19]"
-            >
-              <PhoneCall className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span>+971 55 183 7995</span>
-            </a>
-            <span className="hidden lg:inline-block h-3 w-[1px] bg-slate-200" />
-            <a
               href="https://wa.me/447344546056"
               target="_blank"
               rel="noopener noreferrer"
@@ -350,23 +342,52 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute left-0 top-full mt-1.5 w-[min(740px,calc(100vw-32px))] rounded-2xl border border-slate-200 bg-white p-4 shadow-xl z-50"
+                    className="absolute left-0 top-full mt-1.5 w-[min(780px,calc(100vw-32px))] rounded-2xl border border-slate-200 bg-white p-4 shadow-xl z-50"
                   >
                     <div className="flex gap-5">
                       {/* Left Hub Banner */}
-                      <div className="w-56 shrink-0 rounded-xl border border-slate-100 bg-slate-50 p-4 flex flex-col justify-between">
+                      <div className="w-60 shrink-0 rounded-xl border border-slate-100 bg-slate-50 p-3.5 flex flex-col justify-between">
                         <div>
                           <span className="inline-block rounded-full bg-[#A82F19]/10 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-widest text-[#A82F19]">
                             Dubai Pressroom
                           </span>
-                          <h4 className="mt-2 text-sm font-black text-slate-900 leading-snug">
+                          <h4 className="mt-1.5 text-sm font-black text-slate-900 leading-snug">
                             Commercial Print Catalog
                           </h4>
-                          <p className="mt-1.5 text-[11px] leading-relaxed text-slate-600">
-                            FSC-certified paper stocks, custom Pantone matching, and same-day digital proofs.
+                          <p className="mt-1 text-[11px] leading-relaxed text-slate-600">
+                            FSC-certified paper stocks, Pantone matching, and fast UAE delivery.
                           </p>
+
+                          {/* Quick Trending Badges */}
+                          <div className="mt-3 pt-2.5 border-t border-slate-200/60 space-y-1.5">
+                            <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
+                              Featured Drinkware
+                            </span>
+                            <Link
+                              to="/categories/mug-printing-dubai"
+                              onClick={() => setActiveDropdown(null)}
+                              className="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200/80 hover:border-[#A82F19] hover:text-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs group"
+                            >
+                              <span className="flex items-center gap-1.5">
+                                <span>☕</span>
+                                <span>Mug Printing Dubai</span>
+                              </span>
+                              <ArrowUpRight className="h-3 w-3 text-slate-400 group-hover:text-[#A82F19]" />
+                            </Link>
+                            <Link
+                              to="/categories/bottle-printing-dubai"
+                              onClick={() => setActiveDropdown(null)}
+                              className="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200/80 hover:border-[#A82F19] hover:text-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs group"
+                            >
+                              <span className="flex items-center gap-1.5">
+                                <span>💧</span>
+                                <span>Water Bottle Printing</span>
+                              </span>
+                              <ArrowUpRight className="h-3 w-3 text-slate-400 group-hover:text-[#A82F19]" />
+                            </Link>
+                          </div>
                         </div>
-                        <div className="pt-4 border-t border-slate-200/60">
+                        <div className="pt-3 border-t border-slate-200/60">
                           <Link
                             to="/categories"
                             onClick={() => setActiveDropdown(null)}
@@ -379,14 +400,14 @@ export default function SiteHeader() {
                       </div>
 
                       {/* Right Grid of Category Groups */}
-                      <div className="flex-1 grid grid-cols-2 gap-4 max-h-[340px] overflow-y-auto pr-1">
+                      <div className="flex-1 grid grid-cols-2 gap-4 max-h-[360px] overflow-y-auto pr-1">
                         {megaMenuGroups.map((group) => (
                           <div key={group.key} className="space-y-1.5">
                             <h5 className="text-[11px] font-black uppercase tracking-wider text-slate-400">
                               {group.label}
                             </h5>
                             <ul className="space-y-1">
-                              {group.items.slice(0, 4).map((item) => (
+                              {group.items.slice(0, 8).map((item) => (
                                 <li key={item.slug || item.id}>
                                   <Link
                                     to={`/categories/${item.slug}`}
@@ -486,15 +507,6 @@ export default function SiteHeader() {
             >
               <ShoppingBag className="h-4 w-4" />
             </Link>
-
-            <a
-              href="tel:+971551837995"
-              className="hidden xl:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#A82F19] transition-colors py-1.5 px-2 whitespace-nowrap"
-              aria-label="Call +971 55 183 7995"
-            >
-              <PhoneCall className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span>+971 55 183 7995</span>
-            </a>
 
             <a
               href="https://wa.me/447344546056"
@@ -642,6 +654,26 @@ export default function SiteHeader() {
                 <span>Categories</span>
               </NavLink>
 
+              {/* Mobile Quick Featured Drinkware Pills */}
+              <div className="flex gap-2 px-3 py-1.5 overflow-x-auto no-scrollbar">
+                <Link
+                  to="/categories/mug-printing-dubai"
+                  onClick={() => setMenuOpen(false)}
+                  className="shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-[#A82F19]/10 text-xs font-bold text-slate-700 hover:text-[#A82F19] transition-colors border border-slate-200/60"
+                >
+                  <span>☕</span>
+                  <span>Mug Printing</span>
+                </Link>
+                <Link
+                  to="/categories/bottle-printing-dubai"
+                  onClick={() => setMenuOpen(false)}
+                  className="shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-[#A82F19]/10 text-xs font-bold text-slate-700 hover:text-[#A82F19] transition-colors border border-slate-200/60"
+                >
+                  <span>💧</span>
+                  <span>Bottle Printing</span>
+                </Link>
+              </div>
+
               {/* Accordion: Dynamic database-driven category groups */}
               {megaMenuGroups.map((group) => (
                 <div key={`mobile-${group.key}`} className="border-y border-slate-100 py-1">
@@ -769,14 +801,6 @@ export default function SiteHeader() {
 
               {/* Mobile CTA */}
               <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
-                <a
-                  href="tel:+971551837995"
-                  className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 py-2.5 text-xs font-bold text-slate-800 shadow-xs active:bg-slate-100"
-                >
-                  <PhoneCall className="h-4 w-4 text-[#A82F19]" />
-                  <span>Call: +971 55 183 7995</span>
-                </a>
-
                 <a
                   href="https://wa.me/447344546056"
                   target="_blank"

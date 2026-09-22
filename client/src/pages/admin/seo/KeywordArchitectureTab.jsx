@@ -29,6 +29,7 @@ export default function KeywordArchitectureTab({
   showToast,
 }) {
   const [search, setSearch] = useState('')
+  const [groupFilter, setGroupFilter] = useState('all')
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [intentFilter, setIntentFilter] = useState('all')
   const [priorityFilter, setPriorityFilter] = useState('all')
@@ -37,6 +38,23 @@ export default function KeywordArchitectureTab({
   const [sortDirection, setSortDirection] = useState('asc')
   const [currentPage, setCurrentPage] = useState(1)
   const pageSize = 50
+
+  const KEYWORD_GROUPS_LIST = [
+    { key: 'A', name: 'Group A: Core commercial' },
+    { key: 'B', name: 'Group B: Dubai local' },
+    { key: 'C', name: 'Group C: Service keywords' },
+    { key: 'D', name: 'Group D: Product keywords' },
+    { key: 'E', name: 'Group E: Long-tail keywords' },
+    { key: 'F', name: 'Group F: Question keywords' },
+    { key: 'G', name: 'Group G: Transactional' },
+    { key: 'H', name: 'Group H: Informational' },
+    { key: 'I', name: 'Group I: Comparison' },
+    { key: 'J', name: 'Group J: AI/GEO queries' },
+    { key: 'K', name: 'Group K: Corporate printing' },
+    { key: 'L', name: 'Group L: Packaging keywords' },
+    { key: 'M', name: 'Group M: Branding keywords' },
+    { key: 'N', name: 'Group N: Event/exhibition' },
+  ]
 
   // Modals state
   const [showAddModal, setShowAddModal] = useState(false)
@@ -81,6 +99,10 @@ export default function KeywordArchitectureTab({
           (item.target_page || '').toLowerCase().includes(search.toLowerCase()) ||
           (item.target_url || '').toLowerCase().includes(search.toLowerCase())
 
+        const matchesGroup =
+          groupFilter === 'all' ||
+          (item.keyword_group || '').toUpperCase() === groupFilter.toUpperCase()
+
         const matchesCat =
           categoryFilter === 'all' ||
           (item.category || item.cluster) === categoryFilter
@@ -99,6 +121,7 @@ export default function KeywordArchitectureTab({
 
         return (
           matchesSearch &&
+          matchesGroup &&
           matchesCat &&
           matchesIntent &&
           matchesPriority &&
@@ -353,7 +376,7 @@ export default function KeywordArchitectureTab({
         </div>
 
         {/* Quick Filter & Search Bar */}
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
           <div className="relative">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-neutral-400" />
             <input
@@ -367,6 +390,22 @@ export default function KeywordArchitectureTab({
               className="w-full rounded-xl border border-neutral-200 pl-9 pr-3 py-2 text-xs focus:border-[#A82F19] focus:outline-none"
             />
           </div>
+
+          <select
+            value={groupFilter}
+            onChange={(e) => {
+              setGroupFilter(e.target.value)
+              setCurrentPage(1)
+            }}
+            className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs focus:border-[#A82F19] focus:outline-none"
+          >
+            <option value="all">All Groups (A–N)</option>
+            {KEYWORD_GROUPS_LIST.map((g) => (
+              <option key={g.key} value={g.key}>
+                {g.name}
+              </option>
+            ))}
+          </select>
 
           <select
             value={categoryFilter}
@@ -519,6 +558,22 @@ export default function KeywordArchitectureTab({
                             {item.notes}
                           </div>
                         )}
+                        <div className="flex items-center gap-1.5 mt-1">
+                          {item.keyword_group && (
+                            <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-extrabold uppercase bg-neutral-100 text-neutral-700 border border-neutral-200">
+                              Grp {item.keyword_group}
+                            </span>
+                          )}
+                          {item.conversion_value && (
+                            <span className={`inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-bold ${
+                              item.conversion_value === 'High'
+                                ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                : 'bg-neutral-100 text-neutral-600 border border-neutral-200'
+                            }`}>
+                              {item.conversion_value}
+                            </span>
+                          )}
+                        </div>
                       </td>
 
                       {/* Intent */}

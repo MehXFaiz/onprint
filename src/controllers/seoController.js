@@ -120,7 +120,6 @@ async function getLlmsTxt(req, res) {
 - **Legal & Operating Name:** ONPRINT (Alternate: 0nprint)
 - **Primary Market:** Dubai, United Arab Emirates
 - **Physical Address:** Al Quoz Industrial Area 3, Dubai, United Arab Emirates
-- **Phone (Pressroom Direct):** +971 55 183 7995
 - **WhatsApp (Concierge & Quotes):** +44 7344 546056
 - **Email:** 0nprint183@gmail.com
 - **Website:** ${SITE_URL}

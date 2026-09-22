@@ -81,6 +81,8 @@ router.get('/internal-links', (req, res) => seoManagerController.getInternalLink
 
 // Competitor Gap Analysis
 router.get('/competitor-analysis', (req, res) => seoManagerController.getCompetitorAnalysis(req, res))
+router.get('/competitor/dlxprint', (req, res) => seoManagerController.getDlxprintGapAnalysis(req, res))
+router.get('/competitor-gaps', (req, res) => seoManagerController.getCompetitorGaps(req, res))
 
 // Image SEO Audit & Alt Tag Updater
 router.get('/image-audit', (req, res) => seoManagerController.getImageAudit(req, res))

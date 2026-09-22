@@ -169,6 +169,16 @@ export async function getCompetitorAnalysis() {
   return data
 }
 
+export async function getDlxprintGapAnalysis() {
+  const { data } = await api.get('/seo/competitor/dlxprint')
+  return data
+}
+
+export async function getCompetitorGaps() {
+  const { data } = await api.get('/seo/competitor-gaps')
+  return data
+}
+
 export async function getImageAudit() {
   const { data } = await api.get('/seo/image-audit')
   return data
@@ -524,3 +534,4 @@ export async function generateFaqIdeas(payload) {
   const { data } = await api.post('/seo/ai/faq-ideas', payload)
   return data
 }
+

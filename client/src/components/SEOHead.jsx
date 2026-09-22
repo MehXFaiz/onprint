@@ -27,7 +27,7 @@ export const organizationSchema = {
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Street 18, Al Quoz Industrial Area 3',
+    streetAddress: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3',
     addressLocality: 'Dubai',
     addressRegion: 'Dubai',
     postalCode: '00000',
@@ -413,7 +413,7 @@ export default function SEOHead({
           email: '0nprint183@gmail.com',
           address: {
             '@type': 'PostalAddress',
-            streetAddress: 'Street 18, Al Quoz Industrial Area 3',
+            streetAddress: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3',
             addressLocality: 'Dubai',
             addressRegion: 'Dubai',
             addressCountry: 'AE',

@@ -94,6 +94,22 @@ const categoryMeta = {
       'Heavy-duty aluminum roll-ups, outdoor beach flags, die-cut vinyl stickers, and acrylic executive desk & door nameplates manufactured in Dubai.',
     keywords: 'large format printing dubai, roll up printing dubai, sticker printing dubai, beach flags dubai, acrylic nameplates uae',
   },
+  'mug-printing-dubai': {
+    eyebrow: 'MUG PRINTING DUBAI',
+    heading: 'Custom Ceramic & Travel Mug Printing Dubai',
+    title: 'Mug Printing Dubai | Custom Ceramic & Magic Mugs | ONPRINT',
+    description:
+      'High-quality custom ceramic mug printing, magic heat-reveal mugs, travel tumblers, and vintage enamel mugs in Dubai with vibrant dye-sublimation.',
+    keywords: 'mug printing dubai, custom mugs dubai, magic mug printing uae, ceramic mug printing dubai',
+  },
+  'bottle-printing-dubai': {
+    eyebrow: 'WATER BOTTLE PRINTING DUBAI',
+    heading: 'Custom Water Bottle Printing & Laser Engraving Dubai',
+    title: 'Water Bottle Printing Dubai | Custom Flasks & Sports Bottles | ONPRINT',
+    description:
+      'Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.',
+    keywords: 'bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai',
+  },
 }
 
 export default function ProductsPage() {

@@ -21,6 +21,7 @@ import Container from '../../components/Container'
 import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getProgrammaticPage } from '../../services/seo'
 import { getCategories } from '../../services/categories'
 
@@ -154,10 +155,10 @@ export default function ProgrammaticLandingPage() {
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:+971551837995">
+              <a href="https://wa.me/447344546056" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="lg" className="border-neutral-700 text-white hover:bg-neutral-900 font-bold">
-                  <PhoneCall className="h-4 w-4 mr-2 text-[#A82F19]" />
-                  +971 55 183 7995
+                  <WhatsAppIcon className="h-4 w-4 mr-2 text-[#25D366]" />
+                  WhatsApp Support
                 </Button>
               </a>
             </div>
@@ -353,10 +354,10 @@ export default function ProgrammaticLandingPage() {
                     </Button>
                   </Link>
 
-                  <a href="tel:+971551837995" className="block w-full">
+                  <a href="https://wa.me/447344546056" target="_blank" rel="noopener noreferrer" className="block w-full">
                     <Button variant="outline" size="md" className="w-full border-neutral-700 text-white hover:bg-neutral-900 text-xs font-bold">
-                      <PhoneCall className="h-3.5 w-3.5 mr-2 text-[#A82F19]" />
-                      Direct Line: +971 55 183 7995
+                      <WhatsAppIcon className="h-3.5 w-3.5 mr-2 text-[#25D366]" />
+                      WhatsApp Concierge
                     </Button>
                   </a>
                 </div>

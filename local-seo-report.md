@@ -37,7 +37,7 @@ Google Search Essentials and Local Pack ranking algorithms strictly penalize inc
 * **Physical Street Address**: Street 18, Al Quoz Industrial Area 3, Dubai, United Arab Emirates
 * **Postal Code**: 00000 (Dubai Standard)
 * **Country Code**: AE (United Arab Emirates)
-* **Direct Pressroom Phone**: `+971 55 183 7995`
+* **Direct Pressroom Phone**: `+44 7344 546056`
 * **VIP Concierge & WhatsApp Quotes**: `+44 7344 546056`
 * **Official Commercial Email**: `0nprint183@gmail.com`
 * **Official Website**: `https://0nprint.com`

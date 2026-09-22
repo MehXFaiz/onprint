@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown, Clock, ArrowRight, Package, Layers, MapPin, Info, Star } from 'lucide-react'
+import { ShieldCheck, Zap, Award, Users, CheckCircle, Sparkles, ChevronDown, Clock, ArrowRight, Package, Layers, MapPin, Info, Star, Printer } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import ArrowLink from '../../components/ArrowLink'
@@ -16,7 +16,7 @@ import ProductSectionsShowcase from '../../components/ProductSectionsShowcase'
 import CarefreeShoppingSection from '../../components/CarefreeShoppingSection'
 import ProductDetailModal from '../../components/ProductDetailModal'
 import SEOHead from '../../components/SEOHead'
-import { CornerMarks, CmykDots, RegistrationMark } from '../../components/PrintMarks'
+import { CornerMarks, CmykDots } from '../../components/PrintMarks'
 import { getServices } from '../../services/services'
 import { getProducts } from '../../services/products'
 import { getCategories } from '../../services/categories'
@@ -63,6 +63,21 @@ const stats = [
   { value: 24, suffix: '–48h', label: 'Standard Digital Turnaround' },
   { value: 7, suffix: ' Emirates', label: 'Direct UAE Delivery Coverage' },
   { value: 100, suffix: '%', label: 'Pre-Press Pre-Flight Inspection' },
+]
+
+const heroMarquee = [
+  'Hot Foil Stamping',
+  'Spot UV',
+  'Soft-Touch Lamination',
+  'Debossing',
+  'Pantone Matching',
+  'Rigid Boxes',
+  'Heidelberg Offset',
+  'HP Indigo Digital',
+  'Same-Day Dubai',
+  '600 GSM Cotton Stock',
+  'FSC Certified Papers',
+  'Large Format Signage',
 ]
 
 const homeFaqs = [
@@ -165,361 +180,250 @@ export default function HomePage() {
         faqList={homeFaqs}
       />
 
-      {/* 1. Hero Section - Luxury Atelier Edition */}
-      <section className="relative isolate overflow-hidden border-b border-neutral-200/80 bg-white py-14 sm:py-20 lg:py-24">
-        {/* Luxury Cotton Micro-Dot Canvas Texture (Replaces sterile wireframe grid) */}
-        <div
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(#0000000f_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_35%,#000_25%,transparent_85%)]"
-          aria-hidden="true"
-        />
+      {/* 1. Hero Section */}
+      <section className="relative isolate overflow-hidden bg-[#F4EFE8] pt-12 sm:pt-16 lg:pt-20">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_12%,rgba(168,47,25,0.16),transparent_34%),radial-gradient(circle_at_86%_8%,rgba(245,158,11,0.14),transparent_32%),radial-gradient(circle_at_72%_78%,rgba(14,116,144,0.1),transparent_36%),linear-gradient(180deg,#F8F3EC_0%,#F1E9DF_55%,#EDE4D8_100%)]" aria-hidden="true" />
+        <div className="hero-paper-grain pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(rgba(20,16,12,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(20,16,12,0.035)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_30%,#000_20%,transparent_80%)]" aria-hidden="true" />
 
-        {/* Multi-Layered Ambient Studio Lighting (Obsidian & Garnet Bloom) */}
-        <div
-          className="pointer-events-none absolute -top-24 left-1/4 -z-10 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-[#A82F19]/8 via-[#c9361e]/4 to-transparent blur-[120px]"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute top-1/3 -right-16 -z-10 h-[560px] w-[560px] rounded-full bg-gradient-to-bl from-amber-500/5 via-[#A82F19]/4 to-transparent blur-[130px]"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute -bottom-10 left-10 -z-10 h-64 w-64 rounded-full bg-slate-900/5 blur-[100px]"
-          aria-hidden="true"
-        />
+        <div className="pointer-events-none absolute left-0 top-0 hidden h-full w-2 sm:flex flex-col" aria-hidden="true">
+          <span className="h-1/4 bg-[#00AEEF]" />
+          <span className="h-1/4 bg-[#EC008C]" />
+          <span className="h-1/4 bg-[#FFF200]" />
+          <span className="h-1/4 bg-[#231F20]" />
+        </div>
 
-        {/* Atelier Technical Registration Marks & Precision Millimeter Scales */}
-        <div className="pointer-events-none absolute top-6 left-8 hidden xl:block opacity-25 text-neutral-400">
+        <p className="pointer-events-none absolute -right-6 top-16 hidden select-none font-display text-[9.5rem] font-black leading-none tracking-tighter text-[#A82F19]/[0.06] xl:block" aria-hidden="true">
+          PRINT
+        </p>
+
+        <div className="pointer-events-none absolute top-7 left-10 hidden xl:block opacity-40 text-neutral-500">
           <CornerMarks className="h-6 w-6" />
         </div>
-        <div className="pointer-events-none absolute top-6 right-8 hidden xl:block opacity-25 text-neutral-400">
+        <div className="pointer-events-none absolute top-7 right-10 hidden xl:block opacity-40 text-neutral-500">
           <CornerMarks className="h-6 w-6" />
         </div>
-        <div className="pointer-events-none absolute top-1/2 left-6 hidden 2xl:flex flex-col items-center gap-2 opacity-25 text-neutral-400 -translate-y-1/2">
-          <div className="h-10 w-[1px] bg-neutral-300" />
-          <span className="font-mono text-[8px] uppercase tracking-[0.25em] rotate-90 text-neutral-400">
-            0mm • CMYK
-          </span>
-          <div className="h-10 w-[1px] bg-neutral-300" />
-        </div>
 
-        <Container className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-          {/* LEFT COLUMN */}
-          <div className="lg:col-span-7 space-y-6">
-            {/* Bespoke Atelier Seal Badge */}
+        <Container className="relative z-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-6 space-y-6">
             <Reveal>
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-neutral-900/10 bg-white/95 px-4 py-1.5 shadow-[0_2px_12px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-md ring-1 ring-black/[0.04] transition-all hover:border-[#A82F19]/30 hover:shadow-[0_4px_16px_rgba(168,47,25,0.08)]">
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-[#A82F19]/20 bg-white/80 px-4 py-1.5 shadow-[0_8px_30px_rgba(168,47,25,0.08)] backdrop-blur-md">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A82F19] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A82F19]"></span>
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#A82F19] opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#A82F19]" />
                 </span>
                 <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
-                <span className="uppercase tracking-[0.22em] text-[10.5px] font-black text-neutral-900">
+                <span className="uppercase tracking-[0.2em] text-[10.5px] font-black text-neutral-900">
                   Dubai’s Premier Print &amp; Branding Press
                 </span>
-                <span className="hidden sm:inline-block h-3 w-[1px] bg-neutral-200" aria-hidden="true" />
-                <span className="hidden sm:inline-block font-mono text-[9px] font-bold text-neutral-400 tracking-wider">
+                <span className="hidden sm:inline-block h-3 w-px bg-neutral-300" />
+                <span className="hidden sm:inline-block font-mono text-[9px] font-bold tracking-wider text-neutral-500">
                   AL QUOZ 3
                 </span>
               </div>
             </Reveal>
 
-            {/* Monumental Editorial Headline */}
-            <Reveal delay={0.1}>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-black leading-[1.07] tracking-tight text-neutral-950">
+            <Reveal delay={0.08}>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.65rem] xl:text-[4.15rem] font-black leading-[1.05] tracking-tight text-neutral-950">
                 Custom Packaging &amp;{' '}
                 <span className="relative inline-block">
-                  <span className="bg-gradient-to-r from-[#A82F19] via-[#cf3a22] to-[#882210] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(168,47,25,0.18)]">
+                  <span className="bg-gradient-to-r from-[#7A1C0D] via-[#A82F19] to-[#E08A3C] bg-clip-text text-transparent">
                     Printing Services
                   </span>
-                  <span
-                    className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-gradient-to-r from-[#A82F19] via-[#e2553b] to-transparent opacity-85"
-                    aria-hidden="true"
-                  />
+                  <span className="absolute -bottom-1 left-0 h-[5px] w-full rounded-full bg-gradient-to-r from-[#A82F19] via-amber-400 to-transparent" aria-hidden="true" />
                 </span>{' '}
                 in Dubai, UAE
               </h1>
             </Reveal>
 
-            {/* Supporting Paragraph */}
-            <Reveal delay={0.18}>
-              <p className="text-base sm:text-lg leading-[1.75] text-neutral-600 font-normal max-w-xl">
+            <Reveal delay={0.14}>
+              <p className="max-w-xl text-base sm:text-lg leading-[1.75] text-neutral-700">
                 ONPRINT is a commercial printing press and custom packaging studio located in{' '}
-                <strong className="font-semibold text-neutral-900">Al Quoz Industrial Area 3, Dubai</strong>. We deliver{' '}
-                <strong className="font-semibold text-neutral-900">precision digital and offset printing</strong>,{' '}
-                <strong className="font-semibold text-neutral-900">bespoke luxury packaging</strong>, fast-turnaround business stationery, and corporate merchandise across Dubai and the UAE.
+                <strong className="font-semibold text-neutral-950">Al Quoz Industrial Area 3, Dubai</strong>. We deliver{' '}
+                <strong className="font-semibold text-neutral-950">precision digital and offset printing</strong>,{' '}
+                <strong className="font-semibold text-neutral-950">bespoke luxury packaging</strong>, fast-turnaround business stationery, and corporate merchandise across Dubai and the UAE.
               </p>
             </Reveal>
 
-            {/* 4 Luxury Atelier Value Pillars */}
-            <Reveal delay={0.24}>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                <div className="group relative rounded-xl border border-neutral-200/90 bg-white/95 p-3 sm:p-3.5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-[0_12px_24px_rgba(168,47,25,0.08)] hover:-translate-y-0.5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#fdf2f0] to-[#fbf0ee] border border-[#A82F19]/15 text-[#A82F19] shadow-2xs group-hover:bg-[#A82F19] group-hover:text-white transition-colors duration-300">
-                      <Award className="h-4.5 w-4.5" />
-                    </div>
-                    <div className="min-w-0">
-                      <span className="block text-xs font-black text-neutral-900 tracking-tight group-hover:text-[#A82F19] transition-colors truncate">
-                        Premium Quality
-                      </span>
-                      <span className="block text-[10px] font-semibold text-neutral-400 mt-0.5 tracking-normal truncate">
-                        ISO 12647-2 Press
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="group relative rounded-xl border border-neutral-200/90 bg-white/95 p-3 sm:p-3.5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-[0_12px_24px_rgba(168,47,25,0.08)] hover:-translate-y-0.5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#fdf2f0] to-[#fbf0ee] border border-[#A82F19]/15 text-[#A82F19] shadow-2xs group-hover:bg-[#A82F19] group-hover:text-white transition-colors duration-300">
-                      <Clock className="h-4.5 w-4.5" />
-                    </div>
-                    <div className="min-w-0">
-                      <span className="block text-xs font-black text-neutral-900 tracking-tight group-hover:text-[#A82F19] transition-colors truncate">
-                        Fast Turnaround
-                      </span>
-                      <span className="block text-[10px] font-semibold text-neutral-400 mt-0.5 tracking-normal truncate">
-                        24h Express Available
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="group relative rounded-xl border border-neutral-200/90 bg-white/95 p-3 sm:p-3.5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-[0_12px_24px_rgba(168,47,25,0.08)] hover:-translate-y-0.5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#fdf2f0] to-[#fbf0ee] border border-[#A82F19]/15 text-[#A82F19] shadow-2xs group-hover:bg-[#A82F19] group-hover:text-white transition-colors duration-300">
-                      <Layers className="h-4.5 w-4.5" />
-                    </div>
-                    <div className="min-w-0">
-                      <span className="block text-xs font-black text-neutral-900 tracking-tight group-hover:text-[#A82F19] transition-colors truncate">
-                        Custom Solutions
-                      </span>
-                      <span className="block text-[10px] font-semibold text-neutral-400 mt-0.5 tracking-normal truncate">
-                        Bespoke Finishes
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="group relative rounded-xl border border-neutral-200/90 bg-white/95 p-3 sm:p-3.5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-[0_12px_24px_rgba(168,47,25,0.08)] hover:-translate-y-0.5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#fdf2f0] to-[#fbf0ee] border border-[#A82F19]/15 text-[#A82F19] shadow-2xs group-hover:bg-[#A82F19] group-hover:text-white transition-colors duration-300">
-                      <Users className="h-4.5 w-4.5" />
-                    </div>
-                    <div className="min-w-0">
-                      <span className="block text-xs font-black text-neutral-900 tracking-tight group-hover:text-[#A82F19] transition-colors truncate">
-                        Expert Support
-                      </span>
-                      <span className="block text-[10px] font-semibold text-neutral-400 mt-0.5 tracking-normal truncate">
-                        Pre-Press Concierge
-                      </span>
-                    </div>
-                  </div>
-                </div>
+            <Reveal delay={0.2}>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                <Button
+                  to="/products"
+                  variant="accent"
+                  size="lg"
+                  className="relative overflow-hidden !rounded-2xl !bg-[#A82F19] hover:!bg-[#8c2211] text-white font-extrabold shadow-[0_14px_34px_rgba(168,47,25,0.38)] hover:-translate-y-0.5 !px-7 !py-4 justify-center"
+                >
+                  Explore Our Products
+                </Button>
+                <Button
+                  to="/get-a-quote"
+                  variant="secondary"
+                  size="lg"
+                  className="!rounded-2xl !border-2 !border-neutral-950 !bg-neutral-950 !text-white hover:!bg-[#1a1a1a] font-extrabold justify-center !px-7 !py-4 hover:-translate-y-0.5"
+                  onClick={() => trackGetQuoteClick({ source_page: 'homepage_hero' })}
+                >
+                  Get a Quote
+                </Button>
               </div>
             </Reveal>
 
-            {/* Two CTA Buttons with Luxury Styling */}
-            <Reveal delay={0.3}>
-              <div className="space-y-4 pt-2">
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
-                  <Button
-                    to="/products"
-                    variant="accent"
-                    size="lg"
-                    className="relative overflow-hidden !rounded-xl !bg-gradient-to-r !from-[#A82F19] !via-[#b8311a] !to-[#8c2211] hover:!from-[#932814] hover:!via-[#a22b16] hover:!to-[#7a1c0d] text-white font-extrabold shadow-[0_10px_26px_rgba(168,47,25,0.32)] hover:shadow-[0_14px_34px_rgba(168,47,25,0.45)] hover:-translate-y-0.5 transition-all text-center justify-center !px-7 !py-4 group"
-                  >
-                    <span
-                      className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"
-                      aria-hidden="true"
-                    />
-                    <span className="relative z-10 tracking-wide">Explore Our Products</span>
-                    <ArrowRight className="relative z-10 h-4 w-4 ml-1.5 inline-block transition-transform duration-300 group-hover:translate-x-1.5" />
-                  </Button>
-
-                  <Button
-                    to="/get-a-quote"
-                    variant="secondary"
-                    size="lg"
-                    className="relative !rounded-xl border-2 border-neutral-950 bg-neutral-950 text-white hover:bg-neutral-800 hover:border-neutral-800 font-extrabold text-center justify-center !px-7 !py-4 transition-all shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:-translate-y-0.5"
-                    onClick={() => trackGetQuoteClick({ source_page: 'homepage_hero' })}
-                  >
-                    <span className="tracking-wide">Get a Quote</span>
-                  </Button>
-                </div>
-
-                {/* Luxury Client Proof Ribbon */}
-                <div className="flex flex-wrap items-center gap-y-2 gap-x-4 pt-1 text-xs text-neutral-600">
-                  <div className="flex items-center gap-1.5">
-                    <div className="flex text-amber-500">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                      ))}
+            <Reveal delay={0.26}>
+              <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+                {[
+                  { icon: Award, label: 'Premium Quality', sub: 'ISO 12647-2 Press' },
+                  { icon: Clock, label: 'Fast Turnaround', sub: '24h Express' },
+                  { icon: Layers, label: 'Custom Solutions', sub: 'Bespoke Finishes' },
+                  { icon: Users, label: 'Expert Support', sub: 'Pre-Press Team' },
+                ].map((item) => {
+                  const Icon = item.icon
+                  return (
+                    <div
+                      key={item.label}
+                      className="group rounded-2xl border border-white/70 bg-white/70 p-3 shadow-[0_10px_28px_rgba(40,24,12,0.06)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/35 hover:shadow-[0_16px_32px_rgba(168,47,25,0.12)]"
+                    >
+                      <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#A82F19] to-[#7A1C0D] text-white shadow-sm">
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      <span className="block text-[11px] font-black leading-tight text-neutral-950">{item.label}</span>
+                      <span className="mt-0.5 block text-[10px] font-semibold text-neutral-500">{item.sub}</span>
                     </div>
-                    <span className="font-extrabold text-neutral-900">4.9/5</span>
-                    <span className="text-neutral-400">(Verified UAE Client Reviews)</span>
+                  )
+                })}
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-neutral-600">
+                <div className="flex items-center gap-1.5">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                    ))}
                   </div>
-                  <span className="hidden sm:inline-block text-neutral-300">•</span>
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#A82F19]" />
-                    <span className="font-bold text-neutral-800">500+ Corporate Clients</span>
-                  </div>
-                  <span className="hidden sm:inline-block text-neutral-300">•</span>
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle className="h-3.5 w-3.5 text-[#A82F19]" />
-                    <span className="font-bold text-neutral-800">Direct Al Quoz Pressroom</span>
-                  </div>
+                  <span className="font-extrabold text-neutral-900">4.9/5</span>
+                  <span className="text-neutral-500">Verified UAE reviews</span>
                 </div>
+                <span className="hidden sm:inline text-neutral-300">•</span>
+                <span className="font-bold text-neutral-800">500+ Corporate Clients</span>
+                <span className="hidden sm:inline text-neutral-300">•</span>
+                <span className="inline-flex items-center gap-1 font-bold text-neutral-800">
+                  <CheckCircle className="h-3.5 w-3.5 text-[#A82F19]" />
+                  Direct Al Quoz Pressroom
+                </span>
               </div>
             </Reveal>
           </div>
 
-          {/* RIGHT COLUMN: Luxury Atelier Vitrine Product Showcase */}
-          <div className="lg:col-span-5">
-            <Reveal delay={0.2}>
-              <div className="relative mx-auto flex h-[480px] sm:h-[530px] w-full max-w-[480px] items-center justify-center">
-                {/* Studio Pedestal Base Frame */}
-                <div className="absolute inset-1 sm:inset-3 rounded-3xl border border-neutral-200/90 bg-gradient-to-br from-white/95 via-neutral-50/90 to-neutral-100/70 p-4 sm:p-5 shadow-[0_30px_90px_rgba(0,0,0,0.1),0_10px_30px_rgba(168,47,25,0.05)] ring-1 ring-black/[0.04]">
-                  {/* Top Studio Calibration Bar */}
-                  <div className="flex items-center justify-between border-b border-neutral-200/80 pb-3 text-[10px] font-black uppercase tracking-wider text-neutral-500">
-                    <div className="flex items-center gap-2">
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A82F19] opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A82F19]"></span>
-                      </span>
-                      <span className="tracking-widest font-black text-neutral-800">ONPRINT ATELIER • DUBAI</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CmykDots />
-                      <span className="font-mono text-[9px] font-bold text-neutral-400">ISO 12647-2</span>
-                    </div>
-                  </div>
+          <div className="lg:col-span-6">
+            <Reveal delay={0.16}>
+              <div className="relative mx-auto h-[430px] w-full max-w-[560px] sm:h-[520px]">
+                <div className="absolute inset-x-6 inset-y-8 rounded-[2rem] bg-gradient-to-br from-[#1c120e] via-[#3a1c14] to-[#A82F19] shadow-[0_40px_90px_rgba(88,24,12,0.35)]" />
+                <div className="absolute inset-x-6 inset-y-8 overflow-hidden rounded-[2rem]">
+                  <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-amber-300/20 blur-3xl" />
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
 
-                {/* Layer 1: Luxury Shopping Bags & Bespoke Packaging (Top Right) */}
+                <div className="absolute left-10 top-12 z-10 hidden items-center gap-2 text-[10px] font-black uppercase tracking-[0.22em] text-white/80 sm:flex">
+                  <Printer className="h-3.5 w-3.5" />
+                  ONPRINT Studio • Dubai
+                  <CmykDots />
+                </div>
+
                 <motion.div
-                  animate={{ y: [0, 8, 0] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute right-1 sm:right-3 top-7 sm:top-9 z-10 w-48 sm:w-56 overflow-hidden rounded-2xl border border-neutral-200/90 bg-white p-2.5 shadow-[0_18px_40px_rgba(0,0,0,0.1)] hover:shadow-[0_22px_45px_rgba(0,0,0,0.14)] transition-shadow duration-300"
+                  animate={{ y: [0, -12, 0], rotate: [-7, -5, -7] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                  className="hero-card-sheen absolute left-2 top-20 z-20 w-[58%] overflow-hidden rounded-2xl border border-white/20 bg-white p-2.5 shadow-[0_30px_60px_rgba(0,0,0,0.28)] sm:left-4 sm:top-24"
                 >
-                  <div className="relative h-28 sm:h-32 w-full overflow-hidden rounded-xl bg-neutral-100">
-                    <img
-                      src="/assets/products/tote_bags.jpg"
-                      alt="Luxury Branded Packaging and Bags in Dubai"
-                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                      loading="eager"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
-                    <span className="absolute bottom-2 left-2 rounded-md bg-black/85 px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">
+                  <div className="relative h-40 overflow-hidden rounded-xl sm:h-52">
+                    <img src="/assets/products/luxury_business_cards.jpg" alt="Executive Cotton Business Cards Dubai" className="h-full w-full object-cover" loading="eager" />
+                    <span className="absolute left-2 top-2 rounded-md bg-gradient-to-r from-amber-600 to-amber-500 px-2 py-0.5 text-[8px] font-black uppercase tracking-wider text-white">
+                      Hot Foil &amp; Spot UV
+                    </span>
+                    <span className="absolute bottom-2 right-2 rounded-md bg-black/80 px-2 py-0.5 text-[8px] font-black text-white">600 GSM</span>
+                  </div>
+                  <div className="mt-2 flex items-center justify-between px-0.5">
+                    <p className="text-xs font-black text-neutral-950">Luxury Cotton Card Stock</p>
+                    <span className="text-[10px] font-black text-[#A82F19]">FSC</span>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, 10, 0], rotate: [8, 11, 8] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+                  className="hero-card-sheen absolute right-1 top-8 z-30 w-[46%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2 shadow-[0_24px_50px_rgba(0,0,0,0.22)] sm:right-3 sm:top-10"
+                >
+                  <div className="relative h-28 overflow-hidden rounded-xl sm:h-32">
+                    <img src="/assets/products/tote_bags.jpg" alt="Luxury Branded Packaging and Bags in Dubai" className="h-full w-full object-cover" loading="eager" />
+                    <span className="absolute bottom-2 left-2 rounded-md bg-black/80 px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider text-white">
                       Bespoke Packaging
                     </span>
                   </div>
-                  <div className="mt-2.5 flex items-center justify-between text-[9.5px] font-bold text-neutral-800">
-                    <span className="truncate">Embossed Foil Bags</span>
-                    <span className="text-[#A82F19] font-black shrink-0 ml-1">Luxury Grade</span>
+                  <div className="mt-2 flex items-center justify-between text-[10px] font-bold">
+                    <span>Foil Bags</span>
+                    <span className="text-[#A82F19]">Luxury Grade</span>
                   </div>
                 </motion.div>
 
-                {/* Layer 2: Centerpiece - 600 GSM Velvet Card & Gold Hot Foil (Center / Left) */}
+                <motion.div
+                  animate={{ y: [0, 8, 0], rotate: [4, 2, 4] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+                  className="hero-card-sheen absolute bottom-8 right-4 z-20 w-[48%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2 shadow-[0_22px_46px_rgba(0,0,0,0.22)] sm:bottom-10 sm:right-8"
+                >
+                  <div className="relative h-24 overflow-hidden rounded-xl sm:h-28">
+                    <img src="/assets/products/brochures.jpg" alt="Corporate Marketing Brochures Dubai" className="h-full w-full object-cover" loading="eager" />
+                    <span className="absolute bottom-2 left-2 text-[8px] font-bold text-white drop-shadow">Multi-Page Brochures</span>
+                  </div>
+                  <div className="mt-2 flex items-center justify-between text-[10px] font-bold">
+                    <span>Art Paper 300 GSM</span>
+                    <span>Heidelberg</span>
+                  </div>
+                </motion.div>
+
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute left-1 sm:left-3 top-14 sm:top-18 z-20 w-60 sm:w-68 overflow-hidden rounded-2xl border border-black/10 bg-white p-3 sm:p-3.5 shadow-[0_28px_60px_rgba(0,0,0,0.14),0_8px_20px_rgba(168,47,25,0.06)] hover:shadow-[0_32px_70px_rgba(0,0,0,0.18)] transition-shadow duration-300"
+                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute bottom-6 left-4 z-40 flex items-center gap-2.5 rounded-2xl border border-white/70 bg-white/95 px-3 py-2 shadow-[0_16px_32px_rgba(0,0,0,0.18)] backdrop-blur-md sm:left-8"
                 >
-                  <div className="relative h-38 sm:h-44 w-full overflow-hidden rounded-xl bg-neutral-100">
-                    <img
-                      src="/assets/products/luxury_business_cards.jpg"
-                      alt="Executive Cotton Business Cards Dubai"
-                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                      loading="eager"
-                    />
-                    <div className="absolute top-2 left-2">
-                      <span className="rounded-md bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 px-2.5 py-1 text-[8px] font-black uppercase tracking-wider text-white shadow-xs">
-                        Hot Foil &amp; Spot UV
-                      </span>
-                    </div>
-                    <span className="absolute bottom-2 right-2 rounded-md bg-black/85 px-2 py-0.5 text-[8px] font-black text-white backdrop-blur-xs">
-                      600 GSM
-                    </span>
-                  </div>
-
-                  <div className="mt-3 space-y-1">
-                    <div className="flex items-center justify-between text-[9px] font-extrabold uppercase tracking-wider text-neutral-500">
-                      <span>Executive Press</span>
-                      <span className="text-[#A82F19] font-black">FSC Certified</span>
-                    </div>
-                    <p className="text-xs sm:text-[13px] font-black text-neutral-950 leading-snug">
-                      Luxury Cotton Card Stock
-                    </p>
-                  </div>
-
-                  <div className="mt-2.5 flex items-center justify-between border-t border-neutral-100 pt-2 text-[9px] font-bold text-neutral-600">
-                    <span className="flex items-center gap-1">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                      Precision Laser Bleed
-                    </span>
-                    <span className="text-[#A82F19] font-black">Passed QC ✓</span>
-                  </div>
-                </motion.div>
-
-                {/* Layer 3: Executive Brochures & Corporate Materials (Bottom Right) */}
-                <motion.div
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute right-2 sm:right-4 bottom-4 sm:bottom-6 z-15 w-46 sm:w-52 overflow-hidden rounded-2xl border border-neutral-200/90 bg-white p-2.5 shadow-[0_18px_40px_rgba(0,0,0,0.1)] hover:shadow-[0_22px_45px_rgba(0,0,0,0.14)] transition-shadow duration-300"
-                >
-                  <div className="relative h-20 sm:h-24 w-full overflow-hidden rounded-xl bg-neutral-100">
-                    <img
-                      src="/assets/products/brochures.jpg"
-                      alt="Corporate Marketing Brochures Dubai"
-                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                      loading="eager"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                    <span className="absolute bottom-1.5 left-2 text-[8px] font-bold text-white">
-                      Multi-Page Brochures
-                    </span>
-                  </div>
-                  <div className="mt-2 flex items-center justify-between text-[9px] font-bold text-neutral-700">
-                    <span>Art Paper 300 GSM</span>
-                    <span className="text-neutral-950 font-extrabold">Heidelberg</span>
-                  </div>
-                </motion.div>
-
-                {/* Floating Technical Badge: 1200 DPI HD Digital Press */}
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute -bottom-2 sm:bottom-2 left-2 sm:left-4 z-30 flex h-14 items-center gap-2.5 rounded-xl border border-neutral-200/90 bg-white/95 px-3 py-1.5 shadow-[0_12px_28px_rgba(0,0,0,0.1)] backdrop-blur-md"
-                >
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#A82F19] text-white shadow-xs">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#A82F19] text-white">
                     <Award className="h-4 w-4" />
                   </div>
-                  <div className="min-w-0 pr-1">
-                    <div className="text-[11px] font-black text-neutral-950 leading-tight">1200 DPI</div>
-                    <div className="text-[8px] font-bold uppercase tracking-wider text-[#A82F19]">HD Digital Press</div>
+                  <div>
+                    <div className="text-[12px] font-black leading-tight text-neutral-950">1200 DPI</div>
+                    <div className="text-[9px] font-bold uppercase tracking-wider text-[#A82F19]">HD Digital Press</div>
                   </div>
                 </motion.div>
 
-                {/* Floating Dispatch Badge: Same-Day Dubai Courier */}
                 <motion.div
-                  animate={{ y: [0, 5, 0] }}
+                  animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 7.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute top-2 -right-1 sm:right-1 z-30 hidden sm:flex items-center gap-1.5 rounded-full border border-neutral-900/10 bg-neutral-950 text-white px-3 py-1 text-[9px] font-bold shadow-lg"
+                  className="absolute right-6 top-2 z-40 hidden items-center gap-1.5 rounded-full bg-neutral-950 px-3 py-1.5 text-[9px] font-bold text-white shadow-lg sm:flex"
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>SAME-DAY EXPRESS • DUBAI</span>
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+                  SAME-DAY EXPRESS • DUBAI
                 </motion.div>
               </div>
             </Reveal>
           </div>
         </Container>
+
+        <div className="relative mt-8 border-y border-[#A82F19]/15 bg-neutral-950 py-3 text-white">
+          <div className="overflow-hidden">
+            <div className="hero-marquee-track gap-8 pr-8">
+              {[...heroMarquee, ...heroMarquee].map((item, i) => (
+                <span key={`${item}-${i}`} className="flex shrink-0 items-center gap-8 text-[11px] font-extrabold uppercase tracking-[0.22em]">
+                  <span className="text-white/85">{item}</span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#A82F19]" />
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* 1.5 Floating Category Quick-Access Panel (Overlapping bottom of Hero) */}
-      <div className="relative -mt-10 sm:-mt-14 z-20 pb-4">
+      {/* 1.5 Floating Category Quick-Access Panel */}
+      <div className="relative z-20 bg-gradient-to-b from-[#EDE4D8] to-white pb-6 pt-8">
         <Container>
-          <div className="rounded-2xl border border-neutral-200/90 bg-white/95 p-3.5 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.06)] backdrop-blur-md ring-1 ring-black/[0.03]">
+          <div className="rounded-3xl border border-[#A82F19]/15 bg-white/90 p-3.5 sm:p-5 shadow-[0_24px_60px_rgba(88,32,16,0.1)] backdrop-blur-md">
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-neutral-100">
               <div className="flex items-center gap-2">
                 <span className="flex h-2 w-2 rounded-full bg-[#A82F19] ring-2 ring-[#A82F19]/25 animate-pulse" />
@@ -692,28 +596,19 @@ export default function HomePage() {
       </section>
 
       {/* 2. Trust Badges Banner */}
-      <section className="border-b border-[#000000]/10 bg-[#FFFFFF] py-6 sm:py-8">
+      <section className="border-y border-[#A82F19]/15 bg-[#1C120E] py-7 sm:py-9">
         <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
             {trustBadges.map((item) => {
               const Icon = item.icon
-              const renderBadgeIcon = () => {
-                if (!Icon) return null
-                if (React.isValidElement(Icon)) return Icon
-                if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon !== null && Icon.$$typeof)) {
-                  const IconComp = Icon
-                  return <IconComp className="h-5 w-5" />
-                }
-                return null
-              }
               return (
                 <div key={item.label} className="flex items-center gap-3.5 text-left">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
-                    {renderBadgeIcon()}
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#A82F19] text-white shadow-[0_8px_20px_rgba(168,47,25,0.35)]">
+                    {Icon ? <Icon className="h-5 w-5" /> : null}
                   </div>
                   <div>
-                    <span className="block text-xs font-black text-[#000000] leading-snug">{item.label}</span>
-                    {item.sub && <span className="block text-[11px] font-semibold text-[#000000]/60 mt-0.5">{item.sub}</span>}
+                    <span className="block text-xs font-black leading-snug text-white">{item.label}</span>
+                    {item.sub && <span className="mt-0.5 block text-[11px] font-semibold text-white/60">{item.sub}</span>}
                   </div>
                 </div>
               )

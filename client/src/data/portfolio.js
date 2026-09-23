@@ -1,4 +1,4 @@
-export const portfolioCategories = ['All', 'Packaging', 'Branding', 'Stationery', 'Promotional', 'Labels']
+export const portfolioCategories = ['All', 'Branding', 'Stationery', 'Promotional', 'Labels']
 
 export const portfolioItems = [
   {
@@ -18,24 +18,6 @@ export const portfolioItems = [
     treatment: 'paper',
     aspect: 'aspect-[4/3]',
     relatedService: { name: 'Business Cards Printing', url: '/categories/business-cards-printing' },
-  },
-  {
-    id: 'custom-magnetic-rigid-packaging',
-    title: 'Executive Matte Black Rigid Gift Boxes',
-    projectName: 'Bespoke VIP Investor Presentation Box',
-    category: 'Packaging',
-    clientSector: 'Corporate Banking & Wealth Management',
-    industry: 'Financial Services',
-    serviceProvided: 'Custom Rigid Box Packaging',
-    challenge: 'The institution needed a premium presentation box to house an investor prospectus and weighted keepsake token, requiring secure magnetic closure and zero visible glue seams.',
-    solution: 'Designed and prototyped a bespoke CAD dieline using 1200 GSM greyboard wrapped in anti-scuff soft-touch black paper. Integrated hidden dual neodymium magnets and laser-cut high-density EVA foam inserts.',
-    materialsAndFinishes: '1200 GSM Heavy Solid Greyboard, 150 GSM Soft-Touch Coated Wrap, Dual Neodymium Magnets, Custom EVA Insert',
-    result: 'Passed strict durability drop tests; 500 units assembled by hand and delivered to DIFC financial hub.',
-    specs: '1200 GSM Heavy Greyboard • Soft-Touch Matte • Magnetic Clasp',
-    image: '/assets/products/service_luxury_packaging.jpg',
-    treatment: 'dark',
-    aspect: 'aspect-[4/3]',
-    relatedService: { name: 'Corporate Gift Items', url: '/categories/corporate-gift-items' },
   },
   {
     id: 'corporate-brochures-annual-reports',

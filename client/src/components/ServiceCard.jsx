@@ -24,7 +24,7 @@ const serviceIconMap = {
   'letterhead-printing-dubai': FileSpreadsheet,
   'name-badges-printing-dubai': UserCheck,
   'digital-offset-printing': FileText,
-  'luxury-packaging-custom-boxes': Sparkles,
+
   'corporate-gift-customization': Award,
   'custom-labels-die-cut-stickers': Sparkles,
   'executive-business-stationery': CreditCard,

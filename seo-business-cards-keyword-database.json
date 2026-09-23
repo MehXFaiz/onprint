@@ -1,0 +1,80 @@
+{
+  "brand": "ONPRINT",
+  "website": "https://0nprint.com",
+  "primary_target_page": "https://0nprint.com/business-card-printing-dubai",
+  "total_keywords": 305,
+  "market": "Dubai, United Arab Emirates",
+  "currency": "AED",
+  "last_updated": "2026-09-24",
+  "clusters": {
+    "core_commercial": [
+      { "keyword": "business card printing dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "business cards dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "business card printing company dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "professional business card printing dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "business card printer dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "business card printing service dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "visiting card printing dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "custom visiting cards dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "company business cards dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "branded business cards dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "personalized business cards dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "best business card printing in dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "MOFU", "conversion_potential": "HIGH" }
+    ],
+    "dubai_local": [
+      { "keyword": "business card printing al quoz", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "business card printing business bay", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "business card printing difc", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "business card printing downtown dubai", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "business card printing dubai marina", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "business card printing jlt dubai", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "business card printing deira dubai", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "business card printing bur dubai", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "business card printing al barsha", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "business card printing jumeirah", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "business card printing near me dubai", "intent": "local", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" }
+    ],
+    "premium_luxury": [
+      { "keyword": "luxury business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "premium business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "600 gsm business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "gold foil business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "rose gold foil business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "velvet soft touch business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "spot uv business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "embossed business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "debossed business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "painted edge business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "gilded edge business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "cotton business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "black card gold foil printing dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" }
+    ],
+    "urgent_fast": [
+      { "keyword": "same day business card printing dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "urgent business cards dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "emergency business card printing dubai", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "express business cards dubai 24 hours", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "fast business card printer al quoz", "intent": "transactional", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" }
+    ],
+    "corporate_b2b": [
+      { "keyword": "corporate business card printing dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "CRITICAL", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "bulk business card printing dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "multi employee business card printing dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "executive stationery and business cards uae", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" }
+    ],
+    "industry_specific": [
+      { "keyword": "real estate business cards dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "lawyer business cards dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "doctor clinic visiting cards dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "hotel concierge cards dubai", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" },
+      { "keyword": "startup business card printing uae", "intent": "commercial", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "BOFU", "conversion_potential": "HIGH" }
+    ],
+    "question_informational": [
+      { "keyword": "how much does business card printing cost in dubai", "intent": "informational", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "TOFU", "conversion_potential": "HIGH" },
+      { "keyword": "where to print business cards in dubai", "intent": "informational", "target_url": "/business-card-printing-dubai", "priority": "HIGH", "funnel": "TOFU", "conversion_potential": "VERY HIGH" },
+      { "keyword": "what is standard business card size in dubai", "intent": "informational", "target_url": "/business-card-printing-dubai", "priority": "MEDIUM", "funnel": "TOFU", "conversion_potential": "MEDIUM" },
+      { "keyword": "best paper weight for business cards gsm", "intent": "informational", "target_url": "/business-card-printing-dubai", "priority": "MEDIUM", "funnel": "TOFU", "conversion_potential": "MEDIUM" },
+      { "keyword": "matte vs soft touch business card lamination", "intent": "informational", "target_url": "/business-card-printing-dubai", "priority": "MEDIUM", "funnel": "TOFU", "conversion_potential": "MEDIUM" }
+    ]
+  }
+}

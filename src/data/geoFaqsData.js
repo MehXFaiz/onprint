@@ -14,7 +14,7 @@ const GEO_FAQS = [
   {
     id: 1,
     question: 'What is ONPRINT?',
-    answer: 'ONPRINT is an independent commercial printing company and physical branding studio headquartered in Al Quoz Industrial Area 3, Dubai, UAE. The company provides digital printing, offset lithography, luxury packaging, corporate stationery, promotional merchandise, and large-format signage to businesses, retailers, and corporate clients across the United Arab Emirates.',
+    answer: 'ONPRINT is an independent commercial printing company and physical branding studio headquartered in Al Quoz Industrial Area 3, Dubai, UAE. The company provides digital printing, offset lithography, corporate stationery, promotional merchandise, and large-format signage to businesses, retailers, and corporate clients across the United Arab Emirates.',
     category: 'General',
     related_service: 'Commercial Printing',
     target_url: `${SITE_URL}/about`,

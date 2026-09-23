@@ -29,7 +29,6 @@ import softTouchBusinessCardImg from './products/card-soft-touch.jpg'
 import velvetFoilBusinessCardImg from './products/card-velvet-foil.jpg'
 import paintedEdgeBusinessCardImg from './products/card-painted-edge.jpg'
 import serviceDigitalOffsetImg from './products/service_digital_offset.jpg'
-import serviceLuxuryPackagingImg from './products/service_luxury_packaging.jpg'
 import serviceCorporateGiftsImg from './products/service_corporate_gifts.jpg'
 import serviceStickersLabelsImg from './products/service_stickers_labels.jpg'
 import serviceExecutiveStationeryImg from './products/service_executive_stationery.jpg'
@@ -87,7 +86,6 @@ export const productImages = {
   velvetFoilCard: velvetFoilBusinessCardImg,
   paintedEdgeCard: paintedEdgeBusinessCardImg,
   serviceDigitalOffset: serviceDigitalOffsetImg,
-  serviceLuxuryPackaging: serviceLuxuryPackagingImg,
   serviceCorporateGifts: serviceCorporateGiftsImg,
   serviceStickersLabels: serviceStickersLabelsImg,
   serviceExecutiveStationery: serviceExecutiveStationeryImg,
@@ -129,7 +127,6 @@ export const productSlugImageMap = {
   'water-bottle-printing-dubai': bottleSmartLedImg,
   'water-bottles-printing-dubai': bottleSmartLedImg,
   'digital-offset-printing': serviceDigitalOffsetImg,
-  'luxury-packaging-custom-boxes': serviceLuxuryPackagingImg,
   'corporate-gift-customization': luxuryCorporateGiftsDubaiImg,
   'corporate-gift-items': luxuryCorporateGiftsDubaiImg,
   'corporate-gifts-dubai': luxuryCorporateGiftsDubaiImg,
@@ -142,8 +139,6 @@ export const productSlugImageMap = {
   'executive-business-stationery': serviceExecutiveStationeryImg,
   'office-stationery-printing': serviceExecutiveStationeryImg,
   'large-format-exhibition-signage': serviceExhibitionSignageImg,
-  'packaging-printing-dubai': serviceLuxuryPackagingImg,
-  'custom-packaging-dubai': serviceLuxuryPackagingImg,
   'custom-branded-tote-bags': toteBagsImg,
 
   // Mug Products
@@ -256,7 +251,6 @@ export const categorySlugImageMap = {
   'name-badges-printing-dubai': badgesImg,
   'mug-printing-dubai': mugWhiteCeramicImg,
   'bottle-printing-dubai': bottleSmartLedImg,
-  'luxury-packaging-boxes': serviceLuxuryPackagingImg,
   'corporate-gift-items': luxuryCorporateGiftsDubaiImg,
   'signage-banners-printing': serviceExhibitionSignageImg,
   'custom-apparel-printing': img3,
@@ -274,7 +268,6 @@ export const categorySlugImageMap = {
  */
 const slugKeywordImageMap = [
   [['digital & offset', 'digital offset', 'offset printing', 'digital printing'], serviceDigitalOffsetImg],
-  [['luxury packaging', 'packaging & custom', 'custom boxes', 'custom box', 'rigid box', 'rigid packaging'], serviceLuxuryPackagingImg],
   [['corporate gift', 'gift customization', 'corporate gifts', 'merchandise'], serviceCorporateGiftsImg],
   [['custom labels', 'die-cut stickers', 'die cut stickers', 'labels & die-cut', 'stickers & labels'], serviceStickersLabelsImg],
   [['executive business stationery', 'business stationery', 'office stationery', 'stationery suite'], serviceExecutiveStationeryImg],

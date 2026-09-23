@@ -97,11 +97,6 @@ class CompetitorGapService {
           action: 'Create dedicated DWTC Exhibition Turnkey Package landing section.',
           expectedImpact: 'Capture seasonal surges during major Dubai trade exhibitions (GITEX, Arab Health, The Big 5).',
         },
-        {
-          priority: 'HIGH',
-          action: 'Feature low-MOQ (100 units) luxury packaging options on custom box and bag pages.',
-          expectedImpact: 'Directly win boutique orders currently turned away by high-MOQ commercial competitors.',
-        },
       ],
     }
   }
@@ -154,13 +149,6 @@ class CompetitorGapService {
           title: 'Dominate Luxury Business Cards in DIFC & Downtown',
           action: 'Promote 450gsm velvet soft-touch and 600gsm painted edge cards with instant courier delivery to DIFC financial firms.',
           target_page: '/business-card-printing-dubai',
-        },
-        {
-          priority: 'Critical',
-          gap_id: 'gap-kw-2',
-          title: 'Capture Homegrown Perfume & Jewelry Box Market',
-          action: 'Advertise 50-unit low-MOQ luxury rigid box production with magnetic closures and custom foam inserts.',
-          target_page: '/luxury-packaging-dubai',
         },
         {
           priority: 'Critical',

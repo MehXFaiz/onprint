@@ -24,43 +24,6 @@ export const categoryImageMap = {
       '/assets/products/service_executive_stationery.jpg',
       '/assets/products/1 (5).jpg',
       '/assets/products/1 (9).jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ]
-  },
-  'luxury-packaging-custom-boxes': {
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
-    ],
-    'stickers-labels-printing': [
-      '/assets/products/service_stickers_labels.jpg',
-      '/assets/products/stickers.jpg',
-      '/assets/products/1 (6).jpg'
     ]
   },
   'custom-branded-tote-bags': {
@@ -73,11 +36,6 @@ export const categoryImageMap = {
       '/assets/products/1 (3).jpg',
       '/assets/products/1 (4).jpg',
       '/assets/products/tote_bags.jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ],
     'signage-banners-printing': [
       '/assets/products/service_exhibition_signage.jpg',
@@ -148,11 +106,6 @@ export const categoryImageMap = {
       '/assets/products/1 (15).jpg',
       '/assets/products/1 (16).jpg'
     ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
     'custom-apparel-printing': [
       '/assets/products/1 (3).jpg',
       '/assets/products/1 (4).jpg',
@@ -169,11 +122,6 @@ export const categoryImageMap = {
       '/assets/products/service_executive_stationery.jpg',
       '/assets/products/1 (5).jpg',
       '/assets/products/1 (9).jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ],
     'corporate-gift-items': [
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
@@ -229,11 +177,6 @@ export const categoryImageMap = {
       '/assets/products/luxury_business_cards_dubai.jpg',
       '/assets/products/service_luxury_packaging.jpg'
     ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',
       '/assets/products/1 (5).jpg',
@@ -261,11 +204,6 @@ export const categoryImageMap = {
       '/assets/products/card-painted-edge.jpg',
       '/assets/products/luxury_business_cards_dubai.jpg'
     ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
     'corporate-gift-items': [
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
       '/assets/products/service_corporate_gifts.jpg',
@@ -292,11 +230,6 @@ export const categoryImageMap = {
       '/assets/products/card-painted-edge.jpg',
       '/assets/products/card-velvet-foil.jpg',
       '/assets/products/luxury_business_cards_dubai.jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',
@@ -421,11 +354,6 @@ export const categoryImageMap = {
       '/assets/products/service_stickers_labels.jpg',
       '/assets/products/1 (6).jpg'
     ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
     'corporate-gift-items': [
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
       '/assets/products/service_corporate_gifts.jpg',
@@ -468,11 +396,6 @@ export const categoryImageMap = {
       '/assets/products/name_badges.jpg',
       '/assets/products/id_cards.jpg'
     ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',
       '/assets/products/1 (15).jpg',
@@ -489,11 +412,6 @@ export const categoryImageMap = {
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
       '/assets/products/service_corporate_gifts.jpg',
       '/assets/products/wooden_keychain.jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ],
     'letterheads-printing-dubai': [
       '/uploads/categories/letterheads-printing-dubai.jpg',
@@ -531,11 +449,6 @@ export const categoryImageMap = {
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
       '/assets/products/service_corporate_gifts.jpg',
       '/assets/products/wooden_keychain.jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ],
     'signage-banners-printing': [
       '/assets/products/service_exhibition_signage.jpg',
@@ -600,11 +513,6 @@ export const categoryImageMap = {
       '/uploads/categories/letterheads-printing-dubai.jpg',
       '/assets/products/service_executive_stationery.jpg',
       '/assets/products/1 (2).jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ]
   },
   'raised-ink-business-cards': {
@@ -617,11 +525,6 @@ export const categoryImageMap = {
       '/assets/products/service_executive_stationery.jpg',
       '/assets/products/1 (5).jpg',
       '/assets/products/1 (9).jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ],
     'letterheads-printing-dubai': [
       '/uploads/categories/letterheads-printing-dubai.jpg',
@@ -884,11 +787,6 @@ export const categoryImageMap = {
       '/assets/products/brochure_zfold.jpg',
       '/assets/products/service_digital_offset.jpg'
     ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
     'lanyard-printing-dubai': [
       '/assets/products/custom_branded_lanyards.jpg',
       '/assets/products/name_badges.jpg',
@@ -900,11 +798,6 @@ export const categoryImageMap = {
       '/assets/products/1 (5).jpg',
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
       '/assets/products/service_luxury_packaging.jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',
@@ -942,11 +835,6 @@ export const categoryImageMap = {
       '/assets/products/service_executive_stationery.jpg',
       '/assets/products/1 (5).jpg',
       '/assets/products/1 (9).jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ],
     'signage-banners-printing': [
       '/assets/products/service_exhibition_signage.jpg',
@@ -1034,11 +922,6 @@ export const categoryImageMap = {
       '/assets/products/service_corporate_gifts.jpg',
       '/assets/products/wooden_keychain.jpg'
     ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
     'letterheads-printing-dubai': [
       '/uploads/categories/letterheads-printing-dubai.jpg',
       '/assets/products/service_executive_stationery.jpg',
@@ -1112,11 +995,6 @@ export const categoryImageMap = {
       '/assets/products/1 (14).jpg',
       '/assets/products/1 (15).jpg',
       '/assets/products/1 (16).jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ]
   },
   'wall-acrylic-signage': {
@@ -1144,11 +1022,6 @@ export const categoryImageMap = {
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
       '/assets/products/service_corporate_gifts.jpg',
       '/assets/products/wooden_keychain.jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ]
   },
   'calendars-printing': {
@@ -1199,11 +1072,6 @@ export const categoryImageMap = {
       '/assets/products/1 (5).jpg',
       '/assets/products/1 (9).jpg'
     ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
     'brochures-printing': [
       '/assets/products/brochure_bifold.jpg',
       '/assets/products/brochure_trifold.jpg',
@@ -1216,11 +1084,6 @@ export const categoryImageMap = {
     ]
   },
   'printed-paper-bags': {
-    'luxury-packaging-boxes': [
-      '/assets/products/tote_bags.jpg',
-      '/assets/products/carefree_shopping.jpg',
-      '/assets/products/service_luxury_packaging.jpg'
-    ],
     'corporate-gift-items': [
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
       '/assets/products/service_corporate_gifts.jpg',
@@ -1248,11 +1111,6 @@ export const categoryImageMap = {
     ]
   },
   'food-packaging-boxes': {
-    'luxury-packaging-boxes': [
-      '/assets/products/1 (13).jpg',
-      '/assets/products/1 (14).jpg',
-      '/assets/products/service_luxury_packaging.jpg'
-    ],
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',
       '/assets/products/1 (15).jpg',
@@ -1295,11 +1153,6 @@ export const categoryImageMap = {
       '/assets/products/brochures.jpg',
       '/assets/products/1 (8).jpg'
     ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
     'catalogs-booklets-printing': [
       '/assets/products/brochure_booklet_catalog.jpg',
       '/assets/products/brochure_zfold.jpg',
@@ -1316,11 +1169,6 @@ export const categoryImageMap = {
       '/assets/products/1 (15).jpg',
       '/assets/products/card-velvet-foil.jpg',
       '/assets/products/card-painted-edge.jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ],
     'business-cards-printing': [
       '/assets/products/luxury_business_cards_dubai.jpg',
@@ -1508,11 +1356,6 @@ export const categoryImageMap = {
       '/assets/products/brochure_gatefold.jpg',
       '/assets/products/brochure_bifold.jpg',
       '/assets/products/service_luxury_packaging.jpg'
-    ],
-    'luxury-packaging-boxes': [
-      '/assets/products/service_luxury_packaging.jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/carefree_shopping.jpg'
     ],
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',

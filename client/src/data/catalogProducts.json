@@ -87,125 +87,12 @@
           "/assets/products/1 (5).jpg",
           "/assets/products/1 (9).jpg"
         ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      }
-    ]
-  },
-  {
-    "_id": "prod-luxury-packaging-custom-boxes",
-    "id": 2,
-    "name": "Luxury Packaging & Custom Boxes",
-    "slug": "luxury-packaging-custom-boxes",
-    "category": {
-      "_id": "cat-luxury-packaging-boxes",
-      "id": 8,
-      "name": "Luxury Packaging & Boxes",
-      "slug": "luxury-packaging-boxes"
-    },
-    "shortDescription": "Custom rigid boxes, magnetic gift boxes, and premium packaging for retail, gifting, and luxury branding.",
-    "description": "Bespoke luxury packaging and custom boxes with rigid construction, hot foil finishing, matte lamination, and premium inserts for retail and corporate gifting.",
-    "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Luxury%20Packaging%20%26%20Custom%20Boxes%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Luxury%20Packaging%20%26%20Custom%20Boxes%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "imageAlt": "Luxury custom packaging gift boxes in Dubai",
-    "seoTitle": "Luxury Packaging & Custom Boxes Dubai | Premium Rigid Box Printing | ONPRINT",
-    "seoDescription": "Luxury custom boxes in Dubai for premium retail packaging, corporate gifting, and event presentation. Bespoke rigid boxes with foil finish and inserts.",
-    "seoKeywords": "luxury packaging dubai, custom boxes dubai, rigid box printing uae, premium packaging boxes",
-    "price": 220,
-    "minimumQuantity": 25,
-    "featured": true,
-    "active": true,
-    "images360": [
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Luxury%20Packaging%20%26%20Custom%20Boxes%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-    ],
-    "categories": [
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
-        "_id": "cat-corporate-gift-items",
-        "id": 9,
-        "name": "Corporate Gifts & Merchandise",
-        "slug": "corporate-gift-items",
-        "images": [
-          "/assets/products/luxury_corporate_gifts_dubai.jpg",
-          "/assets/products/service_corporate_gifts.jpg",
-          "/assets/products/wooden_keychain.jpg"
-        ]
-      },
-      {
-        "_id": "cat-hospitality-event-printing",
-        "id": 15,
-        "name": "Hospitality & Event Stationery",
-        "slug": "hospitality-event-printing",
-        "images": [
-          "/assets/products/1 (14).jpg",
-          "/assets/products/1 (15).jpg",
-          "/assets/products/1 (16).jpg"
-        ]
-      },
-      {
-        "_id": "cat-office-stationery-printing",
-        "id": 14,
-        "name": "Office Stationery & Envelopes",
-        "slug": "office-stationery-printing",
-        "images": [
-          "/assets/products/service_executive_stationery.jpg",
-          "/assets/products/1 (5).jpg",
-          "/assets/products/1 (9).jpg"
-        ]
-      },
-      {
-        "_id": "cat-business-cards-printing",
-        "id": 1,
-        "name": "Business Cards Printing",
-        "slug": "business-cards-printing",
-        "images": [
-          "/assets/products/luxury_business_cards_dubai.jpg",
-          "/assets/products/card-velvet-foil.jpg",
-          "/assets/products/card-painted-edge.jpg"
-        ]
-      },
-      {
-        "_id": "cat-stickers-labels-printing",
-        "id": 12,
-        "name": "Stickers & Product Labels",
-        "slug": "stickers-labels-printing",
-        "images": [
-          "/assets/products/service_stickers_labels.jpg",
-          "/assets/products/stickers.jpg",
-          "/assets/products/1 (6).jpg"
-        ]
       }
     ]
   },
   {
     "_id": "prod-custom-branded-tote-bags",
-    "id": 3,
+    "id": 2,
     "name": "Custom Branded Tote Bags",
     "slug": "custom-branded-tote-bags",
     "category": {
@@ -260,17 +147,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-signage-banners-printing",
         "id": 10,
         "name": "Signage & Exhibition Banners",
@@ -307,7 +183,7 @@
   },
   {
     "_id": "prod-personalized-water-bottles",
-    "id": 4,
+    "id": 3,
     "name": "Personalized Water Bottles",
     "slug": "personalized-water-bottles",
     "category": {
@@ -409,7 +285,7 @@
   },
   {
     "_id": "prod-custom-mugs",
-    "id": 5,
+    "id": 4,
     "name": "Custom Printed Mugs",
     "slug": "custom-printed-mugs",
     "category": {
@@ -486,17 +362,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-custom-apparel-printing",
         "id": 11,
         "name": "Custom Apparel & Wearables",
@@ -511,7 +376,7 @@
   },
   {
     "_id": "prod-premium-business-cards",
-    "id": 6,
+    "id": 5,
     "name": "Premium Business Cards",
     "slug": "premium-business-cards",
     "category": {
@@ -566,17 +431,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-corporate-gift-items",
         "id": 9,
         "name": "Corporate Gifts & Merchandise",
@@ -613,7 +467,7 @@
   },
   {
     "_id": "prod-standard-business-cards",
-    "id": 13,
+    "id": 6,
     "name": "Standard Business Cards",
     "slug": "standard-business-cards",
     "category": {
@@ -716,7 +570,7 @@
   },
   {
     "_id": "prod-premium-soft-touch-business-cards",
-    "id": 14,
+    "id": 7,
     "name": "Premium Soft-Touch Business Cards",
     "slug": "premium-soft-touch-business-cards",
     "category": {
@@ -758,17 +612,6 @@
           "/assets/products/card-soft-touch.jpg",
           "/assets/products/luxury_business_cards_dubai.jpg",
           "/assets/products/service_luxury_packaging.jpg"
-        ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
         ]
       },
       {
@@ -819,7 +662,7 @@
   },
   {
     "_id": "prod-velvet-foil-business-cards",
-    "id": 15,
+    "id": 8,
     "name": "Velvet Foil Business Cards",
     "slug": "velvet-foil-business-cards",
     "category": {
@@ -861,17 +704,6 @@
           "/assets/products/card-velvet-foil.jpg",
           "/assets/products/card-painted-edge.jpg",
           "/assets/products/luxury_business_cards_dubai.jpg"
-        ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
         ]
       },
       {
@@ -922,7 +754,7 @@
   },
   {
     "_id": "prod-luxury-painted-edge-business-cards",
-    "id": 16,
+    "id": 9,
     "name": "Luxury Painted-Edge Business Cards",
     "slug": "luxury-painted-edge-business-cards",
     "category": {
@@ -964,17 +796,6 @@
           "/assets/products/card-painted-edge.jpg",
           "/assets/products/card-velvet-foil.jpg",
           "/assets/products/luxury_business_cards_dubai.jpg"
-        ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
         ]
       },
       {
@@ -1025,7 +846,7 @@
   },
   {
     "_id": "prod-acrylic-nameplates",
-    "id": 7,
+    "id": 10,
     "name": "Acrylic Nameplates",
     "slug": "acrylic-nameplates",
     "category": {
@@ -1127,7 +948,7 @@
   },
   {
     "_id": "prod-roll-up-banners",
-    "id": 8,
+    "id": 11,
     "name": "Roll-Up Banners",
     "slug": "roll-up-banners",
     "category": {
@@ -1229,7 +1050,7 @@
   },
   {
     "_id": "prod-beach-flags",
-    "id": 9,
+    "id": 12,
     "name": "Beach Flags",
     "slug": "beach-flags",
     "category": {
@@ -1331,7 +1152,7 @@
   },
   {
     "_id": "prod-die-cut-stickers",
-    "id": 10,
+    "id": 13,
     "name": "Die-Cut Stickers",
     "slug": "die-cut-stickers",
     "category": {
@@ -1372,17 +1193,6 @@
           "/assets/products/stickers.jpg",
           "/assets/products/service_stickers_labels.jpg",
           "/assets/products/1 (6).jpg"
-        ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
         ]
       },
       {
@@ -1433,7 +1243,7 @@
   },
   {
     "_id": "prod-engraved-keychains",
-    "id": 11,
+    "id": 14,
     "name": "Engraved Keychains",
     "slug": "engraved-keychains",
     "category": {
@@ -1510,17 +1320,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-hospitality-event-printing",
         "id": 15,
         "name": "Hospitality & Event Stationery",
@@ -1535,7 +1334,7 @@
   },
   {
     "_id": "prod-executive-notebooks",
-    "id": 12,
+    "id": 15,
     "name": "Executive Notebooks",
     "slug": "executive-notebooks",
     "category": {
@@ -1590,17 +1389,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-letterheads-printing-dubai",
         "id": 6,
         "name": "Letterheads Printing Dubai",
@@ -1637,7 +1425,7 @@
   },
   {
     "_id": "prod-catalogs-booklets-printing",
-    "id": 17,
+    "id": 16,
     "name": "Catalogs & Booklets Printing",
     "slug": "catalogs-booklets-printing",
     "category": {
@@ -1714,17 +1502,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-signage-banners-printing",
         "id": 10,
         "name": "Signage & Exhibition Banners",
@@ -1739,7 +1516,7 @@
   },
   {
     "_id": "prod-presentation-folders",
-    "id": 18,
+    "id": 17,
     "name": "Presentation Folders Printing",
     "slug": "presentation-folders",
     "category": {
@@ -1841,7 +1618,7 @@
   },
   {
     "_id": "prod-annual-reports-printing",
-    "id": 19,
+    "id": 18,
     "name": "Annual Reports Printing",
     "slug": "annual-reports-printing",
     "category": {
@@ -1927,23 +1704,12 @@
           "/assets/products/service_executive_stationery.jpg",
           "/assets/products/1 (2).jpg"
         ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
       }
     ]
   },
   {
     "_id": "prod-raised-ink-business-cards",
-    "id": 20,
+    "id": 19,
     "name": "Raised Ink Business Cards",
     "slug": "raised-ink-business-cards",
     "category": {
@@ -1998,17 +1764,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-letterheads-printing-dubai",
         "id": 6,
         "name": "Letterheads Printing Dubai",
@@ -2045,7 +1800,7 @@
   },
   {
     "_id": "prod-plastic-pvc-business-cards",
-    "id": 21,
+    "id": 20,
     "name": "Plastic PVC Business Cards",
     "slug": "plastic-pvc-business-cards",
     "category": {
@@ -2147,7 +1902,7 @@
   },
   {
     "_id": "prod-large-format-posters",
-    "id": 22,
+    "id": 21,
     "name": "Large Format Posters Printing",
     "slug": "large-format-posters",
     "category": {
@@ -2249,7 +2004,7 @@
   },
   {
     "_id": "prod-door-hangers-printing",
-    "id": 23,
+    "id": 22,
     "name": "Door Hangers Printing",
     "slug": "door-hangers-printing",
     "category": {
@@ -2351,7 +2106,7 @@
   },
   {
     "_id": "prod-postcards-printing",
-    "id": 24,
+    "id": 23,
     "name": "Postcards & Direct Mail Printing",
     "slug": "postcards-printing",
     "category": {
@@ -2453,7 +2208,7 @@
   },
   {
     "_id": "prod-student-id-cards",
-    "id": 25,
+    "id": 24,
     "name": "Student ID Cards Printing",
     "slug": "student-id-cards",
     "category": {
@@ -2555,7 +2310,7 @@
   },
   {
     "_id": "prod-access-control-cards",
-    "id": 26,
+    "id": 25,
     "name": "RFID Access Control Cards",
     "slug": "access-control-cards",
     "category": {
@@ -2657,7 +2412,7 @@
   },
   {
     "_id": "prod-visitor-pass-cards",
-    "id": 27,
+    "id": 26,
     "name": "Visitor Pass Cards & Badges",
     "slug": "visitor-pass-cards",
     "category": {
@@ -2759,7 +2514,7 @@
   },
   {
     "_id": "prod-custom-usb-flash-drives",
-    "id": 28,
+    "id": 27,
     "name": "Custom Branded USB Flash Drives",
     "slug": "custom-usb-flash-drives",
     "category": {
@@ -2836,17 +2591,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-lanyard-printing-dubai",
         "id": 5,
         "name": "Lanyard Printing Dubai",
@@ -2861,7 +2605,7 @@
   },
   {
     "_id": "prod-corporate-gift-sets",
-    "id": 29,
+    "id": 28,
     "name": "Premium Corporate Gift Sets",
     "slug": "corporate-gift-sets",
     "category": {
@@ -2902,17 +2646,6 @@
           "/assets/products/1 (5).jpg",
           "/assets/products/luxury_corporate_gifts_dubai.jpg",
           "/assets/products/service_luxury_packaging.jpg"
-        ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
         ]
       },
       {
@@ -2963,7 +2696,7 @@
   },
   {
     "_id": "prod-power-banks-printing",
-    "id": 30,
+    "id": 29,
     "name": "Custom Branded Power Banks",
     "slug": "power-banks-printing",
     "category": {
@@ -3029,17 +2762,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-signage-banners-printing",
         "id": 10,
         "name": "Signage & Exhibition Banners",
@@ -3065,7 +2787,7 @@
   },
   {
     "_id": "prod-printed-envelopes",
-    "id": 31,
+    "id": 30,
     "name": "Corporate Envelopes Printing",
     "slug": "printed-envelopes",
     "category": {
@@ -3167,7 +2889,7 @@
   },
   {
     "_id": "prod-desk-pads-printing",
-    "id": 32,
+    "id": 31,
     "name": "Desk Pads & Desk Calendars",
     "slug": "desk-pads-printing",
     "category": {
@@ -3269,7 +2991,7 @@
   },
   {
     "_id": "prod-stationery-gift-sets",
-    "id": 33,
+    "id": 32,
     "name": "Complete Stationery Gift Sets",
     "slug": "stationery-gift-sets",
     "category": {
@@ -3324,17 +3046,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-letterheads-printing-dubai",
         "id": 6,
         "name": "Letterheads Printing Dubai",
@@ -3371,7 +3082,7 @@
   },
   {
     "_id": "prod-foam-board-signage",
-    "id": 34,
+    "id": 33,
     "name": "Foam Board Signage Printing",
     "slug": "foam-board-signage",
     "category": {
@@ -3473,7 +3184,7 @@
   },
   {
     "_id": "prod-metal-name-signs",
-    "id": 35,
+    "id": 34,
     "name": "Metal Name Signs & Plaques",
     "slug": "metal-name-signs",
     "category": {
@@ -3559,23 +3270,12 @@
           "/assets/products/1 (15).jpg",
           "/assets/products/1 (16).jpg"
         ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
       }
     ]
   },
   {
     "_id": "prod-wall-acrylic-signage",
-    "id": 36,
+    "id": 35,
     "name": "Frosted & Clear Acrylic Wall Signs",
     "slug": "wall-acrylic-signage",
     "category": {
@@ -3661,23 +3361,12 @@
           "/assets/products/service_corporate_gifts.jpg",
           "/assets/products/wooden_keychain.jpg"
         ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
       }
     ]
   },
   {
     "_id": "prod-calendars-printing",
-    "id": 37,
+    "id": 36,
     "name": "Wall & Desk Calendars Printing",
     "slug": "calendars-printing",
     "category": {
@@ -3779,7 +3468,7 @@
   },
   {
     "_id": "prod-greeting-cards-printing",
-    "id": 38,
+    "id": 37,
     "name": "Greeting Cards & Invitation Cards",
     "slug": "greeting-cards-printing",
     "category": {
@@ -3845,17 +3534,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-brochures-printing",
         "id": 2,
         "name": "Brochures Printing",
@@ -3880,212 +3558,8 @@
     ]
   },
   {
-    "_id": "prod-printed-paper-bags",
-    "id": 39,
-    "name": "Printed Kraft Paper Bags",
-    "slug": "printed-paper-bags",
-    "category": {
-      "_id": "cat-luxury-packaging-boxes",
-      "id": 8,
-      "name": "Luxury Packaging & Boxes",
-      "slug": "luxury-packaging-boxes"
-    },
-    "shortDescription": "Kraft and luxury art paper shopping bags with twisted rope handles, custom sizes, and full-color branding.",
-    "description": "Eco-friendly printed paper shopping bags in brown Kraft and premium white art card with twisted rope or ribbon handles, reinforced bottom board, and custom die-cut sizes. Full-color logo printing for retail, boutique, and restaurant takeaway brands in UAE.",
-    "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Printed%20Kraft%20Paper%20Bags%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Printed%20Kraft%20Paper%20Bags%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "imageAlt": "Printed kraft paper shopping bags in Dubai",
-    "seoTitle": "Printed Kraft Paper Bags Dubai | Branded Shopping & Takeaway Bags | ONPRINT",
-    "seoDescription": "Custom printed paper bags in Dubai. Kraft and white art paper with rope handles, reinforced bottoms and full-color retail branding.",
-    "seoKeywords": "paper bags dubai, kraft shopping bags uae, printed takeaway bags dubai, boutique paper bags",
-    "price": 9,
-    "minimumQuantity": 500,
-    "featured": true,
-    "active": true,
-    "images360": [
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Printed%20Kraft%20Paper%20Bags%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-    ],
-    "categories": [
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/tote_bags.jpg",
-          "/assets/products/carefree_shopping.jpg",
-          "/assets/products/service_luxury_packaging.jpg"
-        ]
-      },
-      {
-        "_id": "cat-corporate-gift-items",
-        "id": 9,
-        "name": "Corporate Gifts & Merchandise",
-        "slug": "corporate-gift-items",
-        "images": [
-          "/assets/products/luxury_corporate_gifts_dubai.jpg",
-          "/assets/products/service_corporate_gifts.jpg",
-          "/assets/products/wooden_keychain.jpg"
-        ]
-      },
-      {
-        "_id": "cat-hospitality-event-printing",
-        "id": 15,
-        "name": "Hospitality & Event Stationery",
-        "slug": "hospitality-event-printing",
-        "images": [
-          "/assets/products/1 (14).jpg",
-          "/assets/products/1 (15).jpg",
-          "/assets/products/1 (16).jpg"
-        ]
-      },
-      {
-        "_id": "cat-signage-banners-printing",
-        "id": 10,
-        "name": "Signage & Exhibition Banners",
-        "slug": "signage-banners-printing",
-        "images": [
-          "/assets/products/service_exhibition_signage.jpg",
-          "/assets/products/rollup_banner.jpg",
-          "/assets/products/flags.jpg"
-        ]
-      },
-      {
-        "_id": "cat-custom-apparel-printing",
-        "id": 11,
-        "name": "Custom Apparel & Wearables",
-        "slug": "custom-apparel-printing",
-        "images": [
-          "/assets/products/1 (3).jpg",
-          "/assets/products/1 (4).jpg",
-          "/assets/products/tote_bags.jpg"
-        ]
-      },
-      {
-        "_id": "cat-stickers-labels-printing",
-        "id": 12,
-        "name": "Stickers & Product Labels",
-        "slug": "stickers-labels-printing",
-        "images": [
-          "/assets/products/service_stickers_labels.jpg",
-          "/assets/products/stickers.jpg",
-          "/assets/products/1 (6).jpg"
-        ]
-      }
-    ]
-  },
-  {
-    "_id": "prod-food-packaging-boxes",
-    "id": 40,
-    "name": "Custom Food Packaging Boxes",
-    "slug": "food-packaging-boxes",
-    "category": {
-      "_id": "cat-luxury-packaging-boxes",
-      "id": 8,
-      "name": "Luxury Packaging & Boxes",
-      "slug": "luxury-packaging-boxes"
-    },
-    "shortDescription": "Burger boxes, pastry boxes, meal delivery containers, and cake boxes with grease-proof liners and custom branding.",
-    "description": "Food-safe custom printed packaging including burger boxes, pastry and bakery boxes, meal-delivery containers, sandwich wedges, and cake boxes with grease-proof PE liners. FSC-certified materials with vibrant CMYK+ print for F&B brands and cloud kitchens in Dubai.",
-    "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Food%20Packaging%20Boxes%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Food%20Packaging%20Boxes%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "imageAlt": "Food packaging boxes printing in Dubai",
-    "seoTitle": "Custom Food Packaging Boxes Dubai | Burger Bakery Meal Containers | ONPRINT",
-    "seoDescription": "Food-safe custom packaging printing in Dubai. Burger boxes, bakery boxes, meal containers and cake boxes with grease-proof liners.",
-    "seoKeywords": "food packaging dubai, burger boxes uae, bakery boxes printing dubai, meal delivery containers",
-    "price": 3,
-    "minimumQuantity": 1000,
-    "featured": true,
-    "active": true,
-    "images360": [
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Custom%20Food%20Packaging%20Boxes%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-    ],
-    "categories": [
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/1 (13).jpg",
-          "/assets/products/1 (14).jpg",
-          "/assets/products/service_luxury_packaging.jpg"
-        ]
-      },
-      {
-        "_id": "cat-hospitality-event-printing",
-        "id": 15,
-        "name": "Hospitality & Event Stationery",
-        "slug": "hospitality-event-printing",
-        "images": [
-          "/assets/products/1 (14).jpg",
-          "/assets/products/1 (15).jpg",
-          "/assets/products/1 (16).jpg"
-        ]
-      },
-      {
-        "_id": "cat-stickers-labels-printing",
-        "id": 12,
-        "name": "Stickers & Product Labels",
-        "slug": "stickers-labels-printing",
-        "images": [
-          "/assets/products/service_stickers_labels.jpg",
-          "/assets/products/stickers.jpg",
-          "/assets/products/1 (6).jpg"
-        ]
-      },
-      {
-        "_id": "cat-corporate-gift-items",
-        "id": 9,
-        "name": "Corporate Gifts & Merchandise",
-        "slug": "corporate-gift-items",
-        "images": [
-          "/assets/products/luxury_corporate_gifts_dubai.jpg",
-          "/assets/products/service_corporate_gifts.jpg",
-          "/assets/products/wooden_keychain.jpg"
-        ]
-      },
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
-        ]
-      },
-      {
-        "_id": "cat-brochures-printing",
-        "id": 2,
-        "name": "Brochures Printing",
-        "slug": "brochures-printing",
-        "images": [
-          "/assets/products/brochure_bifold.jpg",
-          "/assets/products/brochure_trifold.jpg",
-          "/assets/products/brochure_gatefold.jpg"
-        ]
-      }
-    ]
-  },
-  {
     "_id": "prod-restaurant-menus-printing",
-    "id": 41,
+    "id": 40,
     "name": "Restaurant Menus Printing",
     "slug": "restaurant-menus-printing",
     "category": {
@@ -4151,17 +3625,6 @@
         ]
       },
       {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
-        ]
-      },
-      {
         "_id": "cat-catalogs-booklets-printing",
         "id": 13,
         "name": "Catalogs & Booklets Printing",
@@ -4187,7 +3650,7 @@
   },
   {
     "_id": "prod-wedding-invitation-suites",
-    "id": 42,
+    "id": 41,
     "name": "Luxury Wedding Invitation Suites",
     "slug": "wedding-invitation-suites",
     "category": {
@@ -4228,17 +3691,6 @@
           "/assets/products/1 (15).jpg",
           "/assets/products/card-velvet-foil.jpg",
           "/assets/products/card-painted-edge.jpg"
-        ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
         ]
       },
       {
@@ -4289,7 +3741,7 @@
   },
   {
     "_id": "prod-tshirt-screen-printing",
-    "id": 43,
+    "id": 42,
     "name": "Custom T-Shirt Screen & DTG Printing",
     "slug": "tshirt-screen-printing",
     "category": {
@@ -4391,7 +3843,7 @@
   },
   {
     "_id": "prod-custom-cap-printing",
-    "id": 44,
+    "id": 43,
     "name": "Custom Cap & Hat Printing",
     "slug": "custom-cap-printing",
     "category": {
@@ -4493,7 +3945,7 @@
   },
   {
     "_id": "prod-mouse-pad-printing",
-    "id": 45,
+    "id": 44,
     "name": "Custom Mouse Pads & Desk Mats",
     "slug": "mouse-pad-printing",
     "category": {
@@ -4595,7 +4047,7 @@
   },
   {
     "_id": "prod-bi-fold-brochures",
-    "id": 46,
+    "id": 45,
     "name": "Bi-Fold Brochures Printing",
     "slug": "bi-fold-brochures-printing",
     "category": {
@@ -4697,7 +4149,7 @@
   },
   {
     "_id": "prod-tri-fold-brochures",
-    "id": 47,
+    "id": 46,
     "name": "Tri-Fold Brochures Printing",
     "slug": "tri-fold-brochures-printing",
     "category": {
@@ -4799,7 +4251,7 @@
   },
   {
     "_id": "prod-gate-fold-brochures",
-    "id": 48,
+    "id": 47,
     "name": "Gate-Fold Brochures Printing",
     "slug": "gate-fold-brochures-printing",
     "category": {
@@ -4840,17 +4292,6 @@
           "/assets/products/brochure_gatefold.jpg",
           "/assets/products/brochure_bifold.jpg",
           "/assets/products/service_luxury_packaging.jpg"
-        ]
-      },
-      {
-        "_id": "cat-luxury-packaging-boxes",
-        "id": 8,
-        "name": "Luxury Packaging & Boxes",
-        "slug": "luxury-packaging-boxes",
-        "images": [
-          "/assets/products/service_luxury_packaging.jpg",
-          "/assets/products/1 (13).jpg",
-          "/assets/products/carefree_shopping.jpg"
         ]
       },
       {
@@ -4901,7 +4342,7 @@
   },
   {
     "_id": "prod-z-fold-leaflets",
-    "id": 49,
+    "id": 48,
     "name": "Z-Fold Brochures & Leaflets",
     "slug": "z-fold-leaflets-printing",
     "category": {
@@ -5003,7 +4444,7 @@
   },
   {
     "_id": "prod-classic-white-ceramic-mugs",
-    "id": 50,
+    "id": 49,
     "name": "Classic White Ceramic Sublimation Mugs (11oz)",
     "slug": "classic-white-ceramic-mugs",
     "category": {
@@ -5038,7 +4479,7 @@
   },
   {
     "_id": "prod-two-tone-ceramic-mugs",
-    "id": 51,
+    "id": 50,
     "name": "Two-Tone Color Accent Ceramic Mugs",
     "slug": "two-tone-ceramic-mugs",
     "category": {
@@ -5073,7 +4514,7 @@
   },
   {
     "_id": "prod-magic-heat-sensitive-mugs",
-    "id": 52,
+    "id": 51,
     "name": "Magic Color-Changing Heat-Sensitive Mugs",
     "slug": "magic-heat-sensitive-mugs",
     "category": {
@@ -5108,7 +4549,7 @@
   },
   {
     "_id": "prod-executive-matte-black-mugs",
-    "id": 53,
+    "id": 52,
     "name": "Executive Matte Black Ceramic Mugs with Gold Foil",
     "slug": "executive-matte-black-mugs",
     "category": {
@@ -5143,7 +4584,7 @@
   },
   {
     "_id": "prod-stainless-steel-travel-mugs",
-    "id": 54,
+    "id": 53,
     "name": "Stainless Steel Insulated Travel Tumblers (16oz)",
     "slug": "stainless-steel-travel-mugs",
     "category": {
@@ -5178,7 +4619,7 @@
   },
   {
     "_id": "prod-vintage-enamel-camping-mugs",
-    "id": 55,
+    "id": 54,
     "name": "Vintage Enamel Rolled-Rim Camping Mugs",
     "slug": "vintage-enamel-camping-mugs",
     "category": {
@@ -5213,7 +4654,7 @@
   },
   {
     "_id": "prod-smart-led-temperature-bottles",
-    "id": 56,
+    "id": 55,
     "name": "Smart LED Temperature Display Vacuum Flasks (500ml)",
     "slug": "smart-led-temperature-bottles",
     "category": {
@@ -5248,7 +4689,7 @@
   },
   {
     "_id": "prod-matte-stainless-steel-bottles",
-    "id": 57,
+    "id": 56,
     "name": "Matte Powder-Coated Thermal Water Bottles (500ml)",
     "slug": "matte-stainless-steel-bottles",
     "category": {
@@ -5283,7 +4724,7 @@
   },
   {
     "_id": "prod-aluminium-sports-water-bottles",
-    "id": 58,
+    "id": 57,
     "name": "Aluminium Sports Bottles with Carabiner Clip (600ml)",
     "slug": "aluminium-sports-water-bottles",
     "category": {
@@ -5318,7 +4759,7 @@
   },
   {
     "_id": "prod-borosilicate-glass-bamboo-bottles",
-    "id": 59,
+    "id": 58,
     "name": "Borosilicate Glass Bottles with Bamboo Lid & Silicone Sleeve",
     "slug": "borosilicate-glass-bamboo-bottles",
     "category": {
@@ -5353,7 +4794,7 @@
   },
   {
     "_id": "prod-ergonomic-gym-protein-shakers",
-    "id": 60,
+    "id": 59,
     "name": "Ergonomic Gym Protein Shakers with Whisk Ball (700ml)",
     "slug": "ergonomic-gym-protein-shakers",
     "category": {
@@ -5388,7 +4829,7 @@
   },
   {
     "_id": "prod-luxury-copper-insulated-flasks",
-    "id": 61,
+    "id": 60,
     "name": "Executive Copper-Vacuum Luxury Thermal Flask (650ml)",
     "slug": "luxury-copper-insulated-flasks",
     "category": {

@@ -24,6 +24,7 @@ const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'))
 const TermsPage = lazy(() => import('./pages/public/TermsPage'))
 const ProgrammaticLandingPage = lazy(() => import('./pages/public/ProgrammaticLandingPage'))
 const CommercialLandingPage = lazy(() => import('./pages/public/CommercialLandingPage'))
+const BusinessCardLandingPage = lazy(() => import('./pages/public/BusinessCardLandingPage'))
 const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
 
 function CategoryRouteRedirect() {
@@ -84,7 +85,7 @@ function App() {
 
             {/* 12 Core Commercial SEO Landing Pages */}
             <Route path="/printing-services-dubai" element={<CommercialLandingPage pageKey="printing-services-dubai" />} />
-            <Route path="/business-card-printing-dubai" element={<CommercialLandingPage pageKey="business-card-printing-dubai" />} />
+            <Route path="/business-card-printing-dubai" element={<BusinessCardLandingPage />} />
             <Route path="/brochure-printing-dubai" element={<CommercialLandingPage pageKey="brochure-printing-dubai" />} />
             <Route path="/flyer-printing-dubai" element={<CommercialLandingPage pageKey="flyer-printing-dubai" />} />
             <Route path="/packaging-printing-dubai" element={<CommercialLandingPage pageKey="packaging-printing-dubai" />} />
@@ -98,6 +99,9 @@ function App() {
 
             {/* Commercial Landing Page Aliases & Redirects */}
             <Route path="/business-card-printing" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/luxury-business-cards-dubai" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/visiting-card-printing-dubai" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/custom-business-cards-dubai" element={<Navigate to="/business-card-printing-dubai" replace />} />
             <Route path="/custom-packaging" element={<Navigate to="/custom-packaging-dubai" replace />} />
             <Route path="/packaging-printing" element={<Navigate to="/packaging-printing-dubai" replace />} />
             <Route path="/brochure-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />

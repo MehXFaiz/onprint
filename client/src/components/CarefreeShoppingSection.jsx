@@ -50,7 +50,7 @@ export default function CarefreeShoppingSection() {
               <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden bg-white">
                 <img
                   src={carefreeShoppingImg}
-                  alt="Luxury Packaging, Corporate Gifts & Express Print Dispatch Dubai"
+                  alt="Corporate Gifts & Express Print Dispatch Dubai"
                   loading="lazy"
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />

@@ -44,7 +44,7 @@ export default function ServicesPage() {
             Custom Packaging &amp; Printing Services in Dubai, UAE
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-secondary sm:text-base">
-            From executive office stationery and bespoke luxury packaging to large-format exhibition signage, ONPRINT covers every commercial printing need in Dubai with guaranteed color fidelity and precision finishing.
+            From executive office stationery to large-format exhibition signage, ONPRINT covers every commercial printing need in Dubai with guaranteed color fidelity and precision finishing.
           </p>
         </div>
 

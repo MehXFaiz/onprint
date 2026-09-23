@@ -47,7 +47,7 @@ const geoQuestions = [
     keyPoints: [
       'Commercial printing press based in Al Quoz Industrial Area 3, Dubai',
       'Dual capability: Rapid digital printing & high-volume offset lithography',
-      'Specialized in custom luxury packaging, rigid boxes, and corporate collaterals',
+      'Specialized in corporate collaterals',
     ],
   },
   {
@@ -105,7 +105,7 @@ export default function AboutPage() {
     '@type': 'AboutPage',
     name: 'About ONPRINT Dubai',
     description:
-      'Information about ONPRINT, a commercial printing, luxury packaging, and physical branding press located in Al Quoz Industrial Area 3, Dubai, UAE.',
+      'Information about ONPRINT, a commercial printing and physical branding press located in Al Quoz Industrial Area 3, Dubai, UAE.',
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'ONPRINT',

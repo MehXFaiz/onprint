@@ -51,7 +51,7 @@ export default function Product360Viewer({
   const secondaryImage =
     !hasFrameRotation && product?.images && product.images.length > 1
       ? product.images[1]
-      : null
+      : (product?.back_image || product?.backImage || product?.reverse_image || null)
 
   useEffect(() => {
     if (!isPlaying || isDragging) return
@@ -272,37 +272,43 @@ export default function Product360Viewer({
                   draggable={false}
                 />
               ) : (
-                <div className="relative flex h-full w-full flex-col justify-between p-5 bg-gradient-to-br from-[#1c1a19] via-[#24211f] to-[#121110] text-white">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-2 text-[9px] font-mono tracking-widest text-white/50">
-                    <div className="flex items-center gap-1">
+                <div className="relative flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-[#1c1714] via-[#2a1d17] to-[#120e0c] text-white">
+                  {/* Subtle Background Gold Grid Watermark */}
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
+                  <div className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-[#D4AF37]/15 blur-2xl" />
+
+                  <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-2.5 text-[9px] font-mono tracking-widest text-white/60">
+                    <div className="flex items-center gap-1.5">
                       <span className="h-2 w-2 rounded-xs bg-[#00e5ff]" title="Cyan" />
                       <span className="h-2 w-2 rounded-xs bg-[#ff00ea]" title="Magenta" />
                       <span className="h-2 w-2 rounded-xs bg-[#ffee00]" title="Yellow" />
                       <span className="h-2 w-2 rounded-xs bg-black border border-white/30" title="Key/Black" />
-                      <span className="ml-1 text-[8px] font-bold text-white/70">ISO 12647-2</span>
+                      <span className="ml-1 text-[8.5px] font-bold text-[#D4AF37]">ISO 12647-2 CALIBRATED</span>
                     </div>
-                    <span className="text-[8px] font-bold tracking-widest text-[#A82F19]">
-                      ONPRINT QC PASS
+                    <span className="rounded-md bg-[#A82F19] px-1.5 py-0.5 text-[7.5px] font-black uppercase tracking-wider text-white">
+                      REVERSE PROOF
                     </span>
                   </div>
-                  <div className="my-auto flex flex-col items-center justify-center text-center px-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/5 shadow-inner">
-                      <Layers className="h-6 w-6 text-[#A82F19]" />
+
+                  <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center px-2">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D4AF37]/40 bg-gradient-to-br from-[#D4AF37]/20 to-transparent shadow-[0_8px_20px_rgba(212,175,55,0.15)]">
+                      <Layers className="h-7 w-7 text-[#D4AF37]" />
                     </div>
-                    <h4 className="mt-3 font-display text-sm font-black tracking-tight text-white line-clamp-1">
-                      {product?.name || 'Custom Print Asset'}
+                    <h4 className="mt-3.5 font-display text-sm font-black tracking-tight text-white line-clamp-1">
+                      {product?.name || 'Custom Print & Packaging'}
                     </h4>
-                    <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-white/50">
-                      Bespoke Print &amp; Packaging Dubai
+                    <p className="mt-1 text-[9.5px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]/90">
+                      ONPRINT Atelier • Dubai, UAE
                     </p>
-                    <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-2.5 py-0.5 text-[9px] font-semibold text-white/80">
-                      <ShieldCheck className="h-3 w-3 text-[#A82F19]" />
-                      <span>Certified Heidelberg Production</span>
+                    <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[9px] font-semibold text-white/90 backdrop-blur-xs">
+                      <ShieldCheck className="h-3 w-3 text-[#D4AF37]" />
+                      <span>Heidelberg Precision Offset &amp; Spot UV</span>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between border-t border-white/10 pt-2 text-[8px] font-mono uppercase tracking-wider text-white/40">
+
+                  <div className="relative z-10 flex items-center justify-between border-t border-white/10 pt-2 text-[8px] font-mono uppercase tracking-wider text-white/45">
                     <span>1200 DPI Laser Direct</span>
-                    <span>DUBAI PRESS FLOOR</span>
+                    <span className="text-[#D4AF37]/80">AL QUOZ 3 PRESSROOM</span>
                   </div>
                 </div>
               )}

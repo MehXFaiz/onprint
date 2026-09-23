@@ -100,7 +100,7 @@ export default function PortfolioPage() {
   const portfolioSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'ONPRINT Dubai Commercial Printing & Packaging Case Studies',
+    name: 'ONPRINT Dubai Commercial Printing & Press Work Case Studies',
     itemListElement: portfolioItems.map((p, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
@@ -121,9 +121,9 @@ export default function PortfolioPage() {
   return (
     <div className="py-16 sm:py-24">
       <SEOHead
-        title="Commercial Print & Packaging Case Studies Dubai | ONPRINT"
-        description="Explore verified commercial printing and custom packaging case studies produced in Al Quoz, Dubai. Executive business cards, luxury rigid boxes, and corporate collaterals."
-        keywords="printing portfolio dubai, printing case studies uae, luxury packaging showcase dubai, custom packaging case study"
+        title="Commercial Print & Press Work Case Studies Dubai | ONPRINT"
+        description="Explore verified commercial printing case studies produced in Al Quoz, Dubai. Executive business cards, corporate brochures, and branded collaterals delivered with precision."
+        keywords="printing portfolio dubai, printing case studies uae, commercial print work dubai"
         canonicalPath="/portfolio"
         breadcrumbs={[{ name: 'Portfolio', url: '/portfolio' }]}
         structuredData={portfolioSchema}
@@ -139,7 +139,7 @@ export default function PortfolioPage() {
               <span>VERIFIED CASE STUDIES &amp; PRESS WORK</span>
             </div>
             <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
-              Commercial Printing &amp; Luxury Packaging Case Studies
+              Commercial Printing &amp; Press Work Case Studies
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-secondary sm:text-base">
               A documented showcase of technical challenges, substrate engineering, and finished outcomes delivered on our Al Quoz press floor.

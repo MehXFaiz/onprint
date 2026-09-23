@@ -441,13 +441,7 @@ const USE_CASE_PAGES = [
         items: ['Custom Magnetic Closure Rigid Boxes', 'Custom Cut High-Density EVA Foam Inserts', 'Embossed Brand Monogramming', 'Satin Pull-Ribbon Details'],
       },
     ],
-    contentSections: [
-      {
-        title: 'Transforming Unboxing into an Unforgettable Brand Moment',
-        content:
-          'In the UAE luxury retail landscape, packaging is the tangible extension of your brand prestige. ONPRINT crafts custom luxury packaging using FSC-certified rigid board, artisan textured cover papers, hot foil stamping, and tactile velvet lamination.',
-      },
-    ],
+    contentSections: [],
     faqs: [
       {
         question: 'What is the minimum order quantity (MOQ) for custom retail bags in Dubai?',

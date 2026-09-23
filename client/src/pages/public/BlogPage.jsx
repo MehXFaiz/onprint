@@ -117,8 +117,8 @@ export default function BlogPage() {
     <div className="py-16 sm:py-24">
       <SEOHead
         title="Dubai Printing, Branding & Corporate Gifting Insights | ONPRINT Blog"
-        description="Expert technical guides on commercial printing, luxury packaging, business stationery, Pantone color management, and promotional gifting in Dubai, UAE."
-        keywords="printing blog dubai, commercial printing guide uae, corporate gifts dubai tips, business card printing advice dubai, luxury packaging guide"
+        description="Expert technical guides on commercial printing, business stationery, Pantone color management, and promotional gifting in Dubai, UAE."
+        keywords="printing blog dubai, commercial printing guide uae, corporate gifts dubai tips, business card printing advice dubai"
         canonicalPath="/blog"
         breadcrumbs={[{ name: 'Blog', url: '/blog' }]}
       />

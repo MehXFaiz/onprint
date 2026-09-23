@@ -361,8 +361,19 @@ export default function SiteHeader() {
                           {/* Quick Trending Badges */}
                           <div className="mt-3 pt-2.5 border-t border-slate-200/60 space-y-1.5">
                             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
-                              Featured Drinkware
+                              Featured Services
                             </span>
+                            <Link
+                              to="/business-card-printing-dubai"
+                              onClick={() => setActiveDropdown(null)}
+                              className="flex items-center justify-between p-2 rounded-lg bg-[#FAF8F5] border border-[#D4AF37]/50 hover:border-[#A82F19] hover:text-[#A82F19] text-xs font-bold text-slate-900 transition-all shadow-xs group"
+                            >
+                              <span className="flex items-center gap-1.5">
+                                <span className="text-[#A82F19] font-black">★</span>
+                                <span>Business Cards Dubai</span>
+                              </span>
+                              <ArrowUpRight className="h-3 w-3 text-slate-400 group-hover:text-[#A82F19]" />
+                            </Link>
                             <Link
                               to="/categories/mug-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
@@ -428,6 +439,23 @@ export default function SiteHeader() {
                 )}
               </AnimatePresence>
             </div>
+
+            {/* Business Cards Flagship Link */}
+            <NavLink
+              to="/business-card-printing-dubai"
+              className={({ isActive }) =>
+                `px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-tight transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+                  isActive
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                }`
+              }
+            >
+              <span>Business Cards</span>
+              <span className="rounded bg-[#A82F19]/10 px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#A82F19]">
+                Dubai
+              </span>
+            </NavLink>
 
             {/* 4. Services */}
             <NavLink
@@ -654,8 +682,32 @@ export default function SiteHeader() {
                 <span>Categories</span>
               </NavLink>
 
-              {/* Mobile Quick Featured Drinkware Pills */}
+              <NavLink
+                to="/business-card-printing-dubai"
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
+                    isActive ? 'bg-red-50 text-[#A82F19]' : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`
+                }
+              >
+                <CreditCard className="w-4 h-4 text-[#A82F19]" />
+                <span className="font-bold">Business Cards Dubai</span>
+                <span className="ml-auto rounded bg-[#A82F19] px-1.5 py-0.5 text-[9px] font-black text-white">
+                  FLAGSHIP
+                </span>
+              </NavLink>
+
+              {/* Mobile Quick Featured Pills */}
               <div className="flex gap-2 px-3 py-1.5 overflow-x-auto no-scrollbar">
+                <Link
+                  to="/business-card-printing-dubai"
+                  onClick={() => setMenuOpen(false)}
+                  className="shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] hover:bg-[#A82F19]/10 text-xs font-bold text-[#A82F19] transition-colors border border-[#D4AF37]/50"
+                >
+                  <span>★</span>
+                  <span>Business Cards</span>
+                </Link>
                 <Link
                   to="/categories/mug-printing-dubai"
                   onClick={() => setMenuOpen(false)}

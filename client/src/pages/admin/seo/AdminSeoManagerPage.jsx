@@ -64,6 +64,7 @@ import SeoMonthlyReportTab from './SeoMonthlyReportTab'
 import SeoTasksTab from './SeoTasksTab'
 import TopicalAuthorityTab from './TopicalAuthorityTab'
 import CompeteWithDlxPrintTab from './CompeteWithDlxPrintTab'
+import BusinessCardSeoTab from './BusinessCardSeoTab'
 import {
   getSeoDashboard,
   getSeoAudit,
@@ -1122,6 +1123,7 @@ export default function AdminSeoManagerPage() {
 
   const tabs = [
     { id: 'overview', label: 'Overview & Health', icon: BarChart3 },
+    { id: 'business-cards-seo', label: 'Business Card SEO (1,050+)', icon: CreditCard },
     { id: 'compete-dlxprint', label: 'Compete with DLXPrint', icon: Target },
     { id: 'tasks', label: 'SEO Tasks Queue', icon: CheckCircle2 },
     { id: 'topical-map', label: 'Topical Map (Clusters A–T)', icon: Layers },
@@ -4969,6 +4971,13 @@ export default function AdminSeoManagerPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAB: BUSINESS CARD SEO (1,050+ Keywords & Flagship CRO)                   */}
+      {/* ========================================================================= */}
+      {activeTab === 'business-cards-seo' && (
+        <BusinessCardSeoTab showToast={showToast} />
       )}
 
       {/* ========================================================================= */}

@@ -11,6 +11,7 @@ const { GEO_FAQS } = require('../data/geoFaqsData')
 const { GEO_CONTENT_RECORDS } = require('../data/geoContentData')
 const { DLX_COMPETITOR_GAPS } = require('../data/dlxCompetitorGapData')
 const { DLX_220_KEYWORDS } = require('../data/dlx220KeywordsData')
+const { DUBAI_BUSINESS_CARD_KEYWORDS } = require('../data/dubaiBusinessCardsKeywordsData')
 
 let pool
 
@@ -1433,6 +1434,38 @@ async function seedKeywordsIfEmpty(connection) {
             ]
           )
         }
+      }
+      if (Array.isArray(DUBAI_BUSINESS_CARD_KEYWORDS) && DUBAI_BUSINESS_CARD_KEYWORDS.length > 0) {
+        console.log(`[Business Card SEO] Seeding ${DUBAI_BUSINESS_CARD_KEYWORDS.length} business card master keywords into MySQL...`)
+        const chunkSize = 200
+        for (let i = 0; i < DUBAI_BUSINESS_CARD_KEYWORDS.length; i += chunkSize) {
+          const chunk = DUBAI_BUSINESS_CARD_KEYWORDS.slice(i, i + chunkSize)
+          const placeholders = chunk.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(', ')
+          const values = []
+          for (const kw of chunk) {
+            values.push(
+              kw.keyword,
+              kw.keyword_type || 'secondary',
+              kw.search_intent || 'Commercial',
+              kw.cluster || 'Business Cards',
+              'Business Cards',
+              kw.target_url || 'https://0nprint.com/business-card-printing-dubai',
+              'Business Card Printing Dubai',
+              kw.priority || 'Medium',
+              'Published',
+              'UAE',
+              'Dubai',
+              `Cluster: ${kw.cluster} | Funnel: ${kw.funnel_stage || 'BOFU'}`
+            )
+          }
+          await connection.query(
+            `INSERT IGNORE INTO seo_keywords 
+             (keyword, keyword_type, search_intent, cluster, category, target_url, target_page, priority, status, country, city, notes)
+             VALUES ${placeholders}`,
+            values
+          )
+        }
+        console.log(`[Business Card SEO] Successfully seeded ${DUBAI_BUSINESS_CARD_KEYWORDS.length} business card master keywords into MySQL.`)
       }
       console.log(`[Keywords] Successfully seeded/updated Dubai printing keywords into MySQL.`)
     }

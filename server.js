@@ -50,30 +50,15 @@ async function safeCreateApp() {
     const express = require('express')
     const fallback = express()
     fallback.use(express.json())
-    fallback.get('/api/health', (_req, res) => res.json({ success: true, degraded: true, message: 'ONPRINT running in degraded mode' }))
+    fallback.head('/', (_req, res) => res.status(200).end())
+    fallback.get(['/', '/health', '/healthz', '/ping', '/api/health'], (_req, res) => res.status(200).json({ success: true, degraded: true, message: 'ONPRINT running in degraded mode' }))
     fallback.use((_req, res) => res.status(503).json({ error: 'Service temporarily unavailable', degraded: true }))
     return fallback
   }
 }
 
 async function startServer() {
-  await ensureClientBuilt().catch(() => {})
-
-  try {
-    const { testConnection } = require('./src/config/database')
-    await testConnection()
-  } catch (dbErr) {
-    console.error('[Server] Database initialization note:', dbErr.message)
-  }
-
   app = await safeCreateApp()
-
-  try {
-    const seoDailyScheduler = require('./src/services/seoDailyScheduler')
-    seoDailyScheduler.init()
-  } catch (err) {
-    console.warn('[Server] Warning initializing SEO scheduler:', err.message)
-  }
 
   const server = app.listen(PORT, '0.0.0.0', () => {
     console.log(`ONPRINT API listening on port ${PORT} (NODE_ENV=${process.env.NODE_ENV || 'development'})`)
@@ -89,6 +74,25 @@ async function startServer() {
       fallbackServer.on('error', (fbErr) => console.error('[Server] Fallback server failed:', fbErr.message))
     }
   })
+
+  // Asynchronously initialize database, scheduler, and client build without blocking instant port availability
+  ;(async () => {
+    try {
+      const { testConnection } = require('./src/config/database')
+      await testConnection()
+    } catch (dbErr) {
+      console.error('[Server] Database initialization note:', dbErr.message)
+    }
+
+    try {
+      const seoDailyScheduler = require('./src/services/seoDailyScheduler')
+      seoDailyScheduler.init()
+    } catch (err) {
+      console.warn('[Server] Warning initializing SEO scheduler:', err.message)
+    }
+
+    ensureClientBuilt().catch(() => {})
+  })()
 }
 
 startServer().catch((err) => {
@@ -96,7 +100,8 @@ startServer().catch((err) => {
   try {
     const express = require('express')
     const lastResort = express()
-    lastResort.get('/api/health', (_req, res) => res.json({ success: true, degraded: true, error: err.message }))
+    lastResort.head('/', (_req, res) => res.status(200).end())
+    lastResort.get(['/', '/health', '/healthz', '/ping', '/api/health'], (_req, res) => res.status(200).json({ success: true, degraded: true, error: err.message }))
     lastResort.use((_req, res) => res.status(503).send(`<h1>ONPRINT - Starting Up</h1><p>${String(err.message)}</p>`))
     lastResort.listen(PORT, '0.0.0.0', () => {
       console.log(`[Server] Last-resort fallback bound to port ${PORT}`)

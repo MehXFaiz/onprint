@@ -115,7 +115,7 @@ const CARD_VARIATIONS = [
     category: 'luxury',
     gsm: '400 GSM',
     badge: 'Sensory Matte',
-    image: softTouchCardImg,
+    image: '/assets/products/business-cards/bc_matte_softtouch.jpg',
     description:
       'Silky smooth peach-skin texture that completely eliminates glare and resists fingerprints. Ideal for sophisticated minimalist typographic designs.',
     specs: '400 GSM Artboard • 30μ Anti-Scuff Velvet • Double-Sided Coating',
@@ -128,7 +128,7 @@ const CARD_VARIATIONS = [
     category: 'corporate',
     gsm: '350 GSM',
     badge: 'Same-Day Dispatch',
-    image: luxuryBusinessCardsImg,
+    image: '/assets/products/business-cards/bc_standard_silk.jpg',
     description:
       'High-definition digital press printing on dense 350 GSM silk-coated artboard. Our fastest, most cost-effective solution for high-volume team batches.',
     specs: '350 GSM Silk • CMYK Heidelberg Calibrated • Same-Day 4h Rush Available',
@@ -141,7 +141,7 @@ const CARD_VARIATIONS = [
     category: 'corporate',
     gsm: '400 GSM',
     badge: 'Executive Standard',
-    image: luxuryBusinessCardsImg,
+    image: '/assets/products/business-cards/bc_premium_matte.jpg',
     description:
       'Sturdy 400 GSM premium artboard sealed with dual-sided protective matte coating for crisp typography, deep black contrast, and zero edge curling.',
     specs: '400 GSM Artboard • Double Matte Sealed • Crisp Die-Trim • Pantone Accurate',
@@ -154,7 +154,7 @@ const CARD_VARIATIONS = [
     category: 'corporate',
     gsm: '350–400 GSM',
     badge: 'Bulk Discount',
-    image: luxuryBusinessCardsImg,
+    image: '/assets/products/business-cards/bc_corporate_batches.jpg',
     description:
       'Unified brand printing for companies ordering 5 to 500 employee name sets. Color-calibrated to exact brand Pantone standards with centralized re-ordering.',
     specs: 'Multi-Name Split • Central Brand Asset Management • Volume Tier Pricing',
@@ -167,7 +167,7 @@ const CARD_VARIATIONS = [
     category: 'corporate',
     gsm: '350 GSM',
     badge: 'Vibrant Colors',
-    image: luxuryBusinessCardsImg,
+    image: '/assets/products/business-cards/bc_glossy.jpg',
     description:
       'Ultra-gloss thermal lamination that enhances photograph color saturation, deep rich tones, and vibrant graphics with durable water and dirt resistance.',
     specs: '350 GSM Artboard • High-Gloss UV / Thermal Lamination • Photo Saturation',
@@ -180,7 +180,7 @@ const CARD_VARIATIONS = [
     category: 'finishes',
     gsm: '450–600 GSM',
     badge: 'Tactile Relief',
-    image: velvetFoilCardImg,
+    image: '/assets/products/business-cards/bc_embossed.jpg',
     description:
       'Raised tactile relief created with precision CNC male/female brass dies. Lifts your corporate emblem or monogram outward from the card surface.',
     specs: 'Multi-Level Emboss • 3D Relief Effect • Compatible with Foil Stamping',
@@ -193,7 +193,7 @@ const CARD_VARIATIONS = [
     category: 'luxury',
     gsm: '600 GSM',
     badge: 'Letterpress Depth',
-    image: luxuryBusinessCardsImg,
+    image: '/assets/products/business-cards/bc_debossed.jpg',
     description:
       'Heavily pressed letterpress depression stamped deep into thick 600 GSM uncalendered cotton paper, creating dramatic shadows and antique craftsmanship.',
     specs: 'Deep Letterpress Impression • Archival Italian Cotton • Pillowy Touch',
@@ -206,7 +206,7 @@ const CARD_VARIATIONS = [
     category: 'eco',
     gsm: '350–400 GSM',
     badge: 'Eco-Friendly FSC',
-    image: luxuryBusinessCardsImg,
+    image: '/assets/products/business-cards/bc_textured_kraft.jpg',
     description:
       'Authentic European Fedrigoni textured stocks, cross-hatch fine linen, and tactile hammered laid paper for organic, artisanal, and heritage brands.',
     specs: '350–400 GSM • Natural Texture • Unbleached Kraft • Vegetable Inks',
@@ -219,7 +219,7 @@ const CARD_VARIATIONS = [
     category: 'specialty',
     gsm: '400 GSM',
     badge: 'Custom Silhouette',
-    image: paintedEdgeCardImg,
+    image: '/assets/products/business-cards/bc_diecut.jpg',
     description:
       'Precision steel die cutting into bespoke brand shapes, geometric outlines, interior window cutouts, or custom silhouette contours that stand out instantly.',
     specs: 'Bespoke CNC Steel Rule Die • Crisp Clean Margins • Custom Silhouette',
@@ -232,7 +232,7 @@ const CARD_VARIATIONS = [
     category: 'corporate',
     gsm: '350–450 GSM',
     badge: 'Modern Arc',
-    image: softTouchCardImg,
+    image: '/assets/products/business-cards/bc_rounded_corners.jpg',
     description:
       'Die-cut rounded corners with smooth 3mm (subtle credit card style) or 6mm (bold curvature) radii that eliminate pocket dog-ears and snagging.',
     specs: '3mm / 6mm Precision Radii • 4 Corners Die-Trimmed • Smooth Edges',
@@ -245,7 +245,7 @@ const CARD_VARIATIONS = [
     category: 'luxury',
     gsm: '450–600 GSM',
     badge: 'Understated Luxury',
-    image: luxuryBusinessCardsImg,
+    image: '/assets/products/business-cards/bc_minimalist.jpg',
     description:
       'High-contrast monochromatic aesthetics with pure typographical precision. Black foil on white cotton or white pigment on deep black pulp-dyed stock.',
     specs: 'Pulp-Dyed Solid Black / Pure Cotton White • Micro-Typographic Precision',
@@ -258,7 +258,7 @@ const CARD_VARIATIONS = [
     category: 'specialty',
     gsm: '650 GSM',
     badge: 'Color Sandwich',
-    image: paintedEdgeCardImg,
+    image: '/assets/products/business-cards/bc_triplex.jpg',
     description:
       'Three thick paper layers laminated together with a vibrant colored middle seam (Red, Cyan, Yellow, Black) visible along the card profile edge.',
     specs: '650 GSM Triplex Sandwich • Colored Internal Core Seam • Ultra-Rigid',
@@ -271,7 +271,7 @@ const CARD_VARIATIONS = [
     category: 'corporate',
     gsm: '350–450 GSM',
     badge: 'Complete Info',
-    image: luxuryBusinessCardsImg,
+    image: '/assets/products/business-cards/bc_bilingual.jpg',
     description:
       'Full-bleed color printing on both front and back. Ideal for showcasing English on side A and Arabic typography on side B for UAE commercial business.',
     specs: 'Bilingual English/Arabic Ready • Full Color Both Sides • Balanced Bleed',
@@ -284,7 +284,7 @@ const CARD_VARIATIONS = [
     category: 'corporate',
     gsm: '350 GSM',
     badge: 'Budget Friendly',
-    image: luxuryBusinessCardsImg,
+    image: '/assets/products/service_executive_stationery.jpg',
     description:
       'Crisp full-color front with an uncoated, absorbent reverse side perfect for handwritten notes, client appointments, or stamp loyalty programs.',
     specs: 'Coated Silk Front • Uncoated Absorbent Back • Pen & Pencil Writable',
@@ -297,7 +297,7 @@ const CARD_VARIATIONS = [
     category: 'specialty',
     gsm: 'Bespoke',
     badge: 'Unlimited Choice',
-    image: velvetFoilCardImg,
+    image: '/uploads/categories/business-cards-printing.jpg',
     description:
       'Combine multiple finishes without limits: duplex cotton, dual-color foils, beveled gilded edges, Scodix Spot UV, and custom CNC silhouettes.',
     specs: 'Custom Die Creation • Specialty Substrates • Exact Technical Prototyping',
@@ -310,7 +310,7 @@ const CARD_VARIATIONS = [
     category: 'corporate',
     gsm: '400 GSM',
     badge: 'Brand Compliant',
-    image: luxuryBusinessCardsImg,
+    image: '/assets/products/1 (7).jpg',
     description:
       'Printed with genuine Pantone Matching System (PMS) spot inks on Heidelberg offset presses for 100% strict corporate brand identity compliance.',
     specs: 'Genuine PMS Inks • Zero CMYK Color Shift • ISO 12647-2 Certified',
@@ -323,7 +323,7 @@ const CARD_VARIATIONS = [
     category: 'specialty',
     gsm: '400–700 GSM',
     badge: 'Smart / Loyalty',
-    image: softTouchCardImg,
+    image: '/assets/products/service_luxury_packaging.jpg',
     description:
       'Dual-purpose appointment cards with writable grids, luxury VIP membership cards with metallic foil numbers, or embedded NTAG213/216 NFC smart cards.',
     specs: 'Writable Grids / Member Numbering / Encrypted NFC Chip Options',

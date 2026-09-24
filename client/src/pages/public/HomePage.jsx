@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   ShieldCheck,
   Zap,
@@ -155,6 +155,65 @@ const homeFaqs = [
   },
 ]
 
+const atelierShowcaseItems = [
+  {
+    id: 'cotton-foil',
+    category: 'Cotton Foil Cards',
+    title: '24K Hot Foil & Raised 3D Spot UV',
+    subtitle: 'Presidential 600 GSM Italian Archival Cotton Stock',
+    badge: 'Signature Craft',
+    specs: ['Brass Die-Cast', 'Zero Flaking', 'Heidelberg Calibrated'],
+    accent: '#D4AF37',
+    tag: 'Same-Day Dubai',
+    image: '/assets/products/luxury_business_cards.jpg',
+    thumb: '/assets/products/luxury_business_cards.jpg',
+    metric: '600 GSM',
+    metricLabel: 'Cotton Board',
+  },
+  {
+    id: 'rigid-packaging',
+    category: 'Rigid Gift Boxes',
+    title: 'Bespoke Hand-Assembled Rigid Packaging',
+    subtitle: 'Custom Die-Cut Magnetic Boxes with Gold Foil Debossing',
+    badge: 'Bespoke Luxury',
+    specs: ['Architectural Core', 'Velvet Foam Inlay', 'Magnetic Flap'],
+    accent: '#E5C365',
+    tag: 'Custom Die-Cut',
+    image: '/assets/products/service_luxury_packaging.jpg',
+    thumb: '/assets/products/service_luxury_packaging.jpg',
+    metric: '1200 GSM',
+    metricLabel: 'Rigid Core',
+  },
+  {
+    id: 'velvet-foil',
+    category: 'Velvet Soft-Touch',
+    title: 'Velvet Soft-Touch Business Cards',
+    subtitle: 'Peach-Skin Matte Finish with 360° Gilded Metallic Edges',
+    badge: 'Sensory Tactile',
+    specs: ['Anti-Fingerprint', '100% Anti-Scuff', 'Pantone Gilded'],
+    accent: '#A82F19',
+    tag: 'Spot Gloss UV',
+    image: '/assets/products/card-velvet-foil.jpg',
+    thumb: '/assets/products/card-velvet-foil.jpg',
+    metric: '700 GSM',
+    metricLabel: 'Duplexed Stock',
+  },
+  {
+    id: 'copper-gifting',
+    category: 'VIP Corporate Gifts',
+    title: 'VIP Laser-Etched Executive Drinkware',
+    subtitle: 'Double-Wall Thermal Copper Flask & Milestone Gift Sets',
+    badge: 'Fiber Laser Etch',
+    specs: ['Food-Grade Steel', 'Micron Precision', 'Silk Presentation Box'],
+    accent: '#D4AF37',
+    tag: 'Express 24h',
+    image: '/assets/products/bottle_luxury_copper.jpg',
+    thumb: '/assets/products/bottle_luxury_copper.jpg',
+    metric: '24-Hour',
+    metricLabel: 'Dispatch',
+  },
+]
+
 export default function HomePage() {
   const [services, setServices] = useState(null)
   const [categories, setCategories] = useState(null)
@@ -162,6 +221,16 @@ export default function HomePage() {
   const [featuredProducts, setFeaturedProducts] = useState(null)
   const [blogs, setBlogs] = useState([])
   const [quickViewProduct, setQuickViewProduct] = useState(null)
+  const [activeAtelierIdx, setActiveAtelierIdx] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+
+  useEffect(() => {
+    if (!isAutoPlaying) return
+    const timer = setInterval(() => {
+      setActiveAtelierIdx((prev) => (prev + 1) % atelierShowcaseItems.length)
+    }, 4500)
+    return () => clearInterval(timer)
+  }, [isAutoPlaying])
 
   useEffect(() => {
     trackViewHomepage()
@@ -190,6 +259,8 @@ export default function HomePage() {
       .then((res) => setBlogs(res?.data || []))
       .catch(() => setBlogs([]))
   }, [])
+
+  const activeAtelierItem = atelierShowcaseItems[activeAtelierIdx] || atelierShowcaseItems[0]
 
   return (
     <div className="bg-[#FFFFFF] text-[#000000]">
@@ -352,143 +423,191 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          {/* Right Column: Master Luxury 3D Multi-Layer Atelier Showcase (ADDRESSING THE EMPTY BACKSIDE) */}
-          <div className="lg:col-span-6">
+          {/* Right Column: Master Luxury Atelier Showcase Stage */}
+          <div className="lg:col-span-6 flex items-center justify-center">
             <Reveal delay={0.16}>
-              <div className="relative mx-auto h-[480px] w-full max-w-[580px] sm:h-[550px] lg:h-[570px]">
-                {/* Main Dark Obsidian & Warm Mahogany Backdrop Canvas */}
-                <div className="absolute inset-2 sm:inset-x-4 sm:inset-y-4 rounded-[2.5rem] bg-gradient-to-br from-[#1c1410] via-[#321c15] to-[#120c09] shadow-[0_40px_100px_rgba(40,16,10,0.45)] border border-amber-900/30 overflow-hidden">
-                  {/* Glowing Ambient Lights in Backdrop */}
-                  <div className="pointer-events-none absolute -top-12 -right-12 h-64 w-64 rounded-full bg-[#D4AF37]/25 blur-3xl" />
-                  <div className="pointer-events-none absolute -bottom-16 -left-12 h-64 w-64 rounded-full bg-[#A82F19]/35 blur-3xl" />
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />
-                  <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 to-transparent" />
+              <div
+                className="relative mx-auto w-full max-w-[620px] rounded-[2.2rem] border border-[#D4AF37]/35 bg-gradient-to-br from-[#18120e] via-[#120c09] to-[#090605] p-3.5 sm:p-5 shadow-[0_32px_90px_rgba(20,10,5,0.55)] overflow-hidden"
+                onMouseEnter={() => setIsAutoPlaying(false)}
+                onMouseLeave={() => setIsAutoPlaying(true)}
+              >
+                {/* Glowing Specular Luxury Backdrop Lights */}
+                <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-[#D4AF37]/18 blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-[#A82F19]/25 blur-3xl" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
+
+                {/* 1. Header Bar: Atelier Identity & Express Status */}
+                <div className="relative z-10 flex items-center justify-between border-b border-amber-900/30 pb-3 mb-3.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-[#D4AF37] to-[#8C6D1F] text-black shadow-[0_4px_12px_rgba(212,175,55,0.3)]">
+                      <Printer className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[11px] font-black uppercase tracking-[0.22em] text-white">
+                          ONPRINT HAUTE IMPRIMERIE
+                        </span>
+                        <CmykDots />
+                      </div>
+                      <span className="text-[9px] font-bold tracking-widest text-[#D4AF37]/80 uppercase">
+                        Al Quoz 3 • Dubai Pressroom
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/50 px-3 py-1 text-[9.5px] font-bold text-emerald-300 shadow-sm backdrop-blur-md">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+                    SAME-DAY EXPRESS • DUBAI
+                  </div>
                 </div>
 
-                {/* Top Studio Registration Bar inside Container */}
-                <div className="absolute left-7 top-7 z-20 hidden items-center gap-2.5 text-[10px] font-black uppercase tracking-[0.24em] text-white/85 sm:flex">
-                  <Printer className="h-3.5 w-3.5 text-[#D4AF37]" />
-                  <span>ONPRINT ATELIER • DUBAI</span>
-                  <CmykDots />
+                {/* 2. Interactive Luxury Finish Selector Tabs */}
+                <div className="relative z-10 mb-3 grid grid-cols-4 gap-1.5 rounded-xl bg-black/50 p-1 border border-white/10 backdrop-blur-md">
+                  {atelierShowcaseItems.map((item, idx) => {
+                    const isActive = activeAtelierIdx === idx
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => {
+                          setActiveAtelierIdx(idx)
+                          setIsAutoPlaying(false)
+                        }}
+                        className={`relative rounded-lg py-2 px-1 text-center transition-all duration-300 ${
+                          isActive
+                            ? 'bg-gradient-to-b from-[#D4AF37] to-[#A37E1C] text-neutral-950 font-black shadow-[0_4px_16px_rgba(212,175,55,0.4)]'
+                            : 'text-neutral-400 hover:text-white hover:bg-white/5 font-bold'
+                        }`}
+                      >
+                        <span className="block text-[10px] sm:text-[11px] leading-tight truncate">
+                          {item.category}
+                        </span>
+                      </button>
+                    )
+                  })}
                 </div>
 
-                <div className="absolute right-7 top-7 z-20 hidden items-center gap-1.5 rounded-full bg-black/70 border border-white/15 px-3 py-1 text-[9px] font-bold text-white shadow-lg backdrop-blur-md sm:flex">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
-                  SAME-DAY EXPRESS • DUBAI
+                {/* 3. Featured Masterpiece Stage with Gold Foil Sheen */}
+                <div className="relative z-10 overflow-hidden rounded-2xl border border-white/20 bg-neutral-950 shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+                  <div className="relative h-60 sm:h-72 lg:h-[290px] w-full overflow-hidden bg-neutral-900">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeAtelierItem.id}
+                        initial={{ opacity: 0, scale: 1.04 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.98 }}
+                        transition={{ duration: 0.4, ease: 'easeOut' }}
+                        className="relative h-full w-full"
+                      >
+                        <img
+                          src={activeAtelierItem.image}
+                          alt={activeAtelierItem.title}
+                          className="h-full w-full object-cover"
+                          loading="eager"
+                        />
+                        {/* Metallic Light Sheen Sweep Overlay */}
+                        <div className="hero-card-sheen absolute inset-0 pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20" />
+
+                        {/* Top Overlay Badges */}
+                        <div className="absolute left-3 top-3 flex items-center gap-2">
+                          <span className="rounded-lg bg-[#A82F19] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-md">
+                            {activeAtelierItem.badge}
+                          </span>
+                        </div>
+                        <div className="absolute right-3 top-3">
+                          <span className="flex items-center gap-1.5 rounded-lg border border-[#D4AF37]/50 bg-black/85 px-2.5 py-1 text-[9px] font-black text-[#D4AF37] backdrop-blur-md shadow-md">
+                            <Sparkles className="h-3 w-3 text-[#D4AF37]" />
+                            {activeAtelierItem.metric}
+                          </span>
+                        </div>
+
+                        {/* Bottom Overlay Title & Details */}
+                        <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D4AF37]">
+                            {activeAtelierItem.metricLabel}
+                          </p>
+                          <h3 className="text-sm sm:text-base font-black text-white leading-tight drop-shadow-md">
+                            {activeAtelierItem.title}
+                          </h3>
+                          <p className="mt-0.5 text-[11px] font-medium text-neutral-300 line-clamp-1">
+                            {activeAtelierItem.subtitle}
+                          </p>
+
+                          {/* Live Specs Badges */}
+                          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                            {activeAtelierItem.specs.map((spec) => (
+                              <span
+                                key={spec}
+                                className="rounded-md border border-white/15 bg-white/10 px-2 py-0.5 text-[9px] font-bold text-white/90 backdrop-blur-sm"
+                              >
+                                {spec}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
                 </div>
 
-                {/* 1. TOP-LEFT / FRONT LAYER: 600 GSM COTTON BUSINESS CARDS */}
-                <motion.div
-                  animate={{ y: [0, -10, 0], rotate: [-7, -5, -7] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-                  className="hero-card-sheen absolute left-1 sm:left-3 top-20 sm:top-24 z-30 w-[54%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2.5 shadow-[0_34px_70px_rgba(0,0,0,0.4)]"
-                >
-                  <div className="relative h-36 sm:h-44 overflow-hidden rounded-xl bg-neutral-100">
-                    <img
-                      src="/assets/products/luxury_business_cards.jpg"
-                      alt="Executive Cotton Business Cards Dubai"
-                      className="h-full w-full object-cover"
-                      loading="eager"
-                    />
-                    <span className="absolute left-2 top-2 rounded-md bg-[#A82F19] px-2 py-0.5 text-[8px] font-black uppercase tracking-wider text-white shadow-sm">
-                      Hot Foil &amp; Spot UV 3D
-                    </span>
-                    <span className="absolute bottom-2 right-2 rounded-md bg-black/85 px-2 py-0.5 text-[8px] font-black text-white">
-                      600 GSM
-                    </span>
-                  </div>
-                  <div className="mt-2 flex items-center justify-between px-0.5">
-                    <p className="text-xs font-black text-neutral-950">Italian Cotton Card Stock</p>
-                    <span className="text-[10px] font-black text-[#A82F19]">FSC</span>
-                  </div>
-                </motion.div>
+                {/* 4. Interactive Material Swatch Library (Bottom Row) */}
+                <div className="relative z-10 mt-3 grid grid-cols-4 gap-2">
+                  {atelierShowcaseItems.map((item, idx) => {
+                    const isActive = activeAtelierIdx === idx
+                    return (
+                      <button
+                        key={`thumb-${item.id}`}
+                        type="button"
+                        onClick={() => {
+                          setActiveAtelierIdx(idx)
+                          setIsAutoPlaying(false)
+                        }}
+                        className={`group relative overflow-hidden rounded-xl border p-1 text-left transition-all duration-300 ${
+                          isActive
+                            ? 'border-[#D4AF37] bg-white/10 shadow-[0_0_16px_rgba(212,175,55,0.35)] scale-[1.02]'
+                            : 'border-white/10 bg-black/30 hover:border-white/30 hover:bg-white/5 opacity-70 hover:opacity-100'
+                        }`}
+                      >
+                        <div className="relative h-12 w-full overflow-hidden rounded-lg bg-neutral-900">
+                          <img
+                            src={item.thumb}
+                            alt={item.title}
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          {isActive && (
+                            <div className="absolute inset-0 border-2 border-[#D4AF37] rounded-lg" />
+                          )}
+                        </div>
+                        <div className="mt-1 px-0.5">
+                          <span className="block truncate text-[9px] font-black text-white">
+                            {item.category}
+                          </span>
+                          <span className="block truncate text-[8px] font-semibold text-[#D4AF37]">
+                            {item.metric}
+                          </span>
+                        </div>
+                      </button>
+                    )
+                  })}
+                </div>
 
-                {/* 2. TOP-RIGHT / ACCENT LAYER: BESPOKE LUXURY RIGID BOX PACKAGING (FILLS PREVIOUSLY EMPTY AREA) */}
-                <motion.div
-                  animate={{ y: [0, -8, 0], rotate: [4, 6, 4] }}
-                  transition={{ duration: 7.8, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
-                  className="hero-card-sheen absolute right-2 sm:right-4 top-16 sm:top-20 z-20 w-[47%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2 shadow-[0_28px_60px_rgba(0,0,0,0.35)]"
-                >
-                  <div className="relative h-28 sm:h-36 overflow-hidden rounded-xl bg-neutral-900">
-                    <img
-                      src="/assets/products/service_luxury_packaging.jpg"
-                      alt="Bespoke Luxury Rigid Packaging and Gift Boxes Dubai"
-                      className="h-full w-full object-cover"
-                      loading="eager"
-                    />
-                    <span className="absolute left-2 top-2 rounded-md bg-[#D4AF37] px-2 py-0.5 text-[7.5px] font-black uppercase tracking-wider text-neutral-950 shadow-sm">
-                      Rigid Box &amp; Foil
-                    </span>
-                    <span className="absolute bottom-2 right-2 rounded-md bg-black/85 px-2 py-0.5 text-[7.5px] font-bold text-white">
-                      Bespoke
-                    </span>
+                {/* 5. Bottom Atelier Guarantee Bar */}
+                <div className="relative z-10 mt-3 flex items-center justify-between rounded-xl border border-white/10 bg-black/50 px-3 py-2 text-[10px] text-neutral-300 backdrop-blur-md">
+                  <div className="flex items-center gap-2">
+                    <Award className="h-4 w-4 text-[#D4AF37]" />
+                    <span className="font-bold text-white">Heidelberg Speedmaster</span>
+                    <span className="text-neutral-500">•</span>
+                    <span className="text-neutral-400">1200 DPI Ultra-HD</span>
                   </div>
-                  <div className="mt-1.5 flex items-center justify-between text-[10px] font-black px-0.5">
-                    <span className="text-neutral-950">Luxury Gift Boxes</span>
-                    <span className="text-[#A82F19]">Custom Die-Cut</span>
-                  </div>
-                </motion.div>
-
-                {/* 3. BOTTOM-RIGHT / BACK-MID LAYER: VIP COPPER FLASK & CORPORATE GIFTING */}
-                <motion.div
-                  animate={{ y: [0, -7, 0], rotate: [2, 0, 2] }}
-                  transition={{ duration: 8.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="hero-card-sheen absolute right-2 sm:right-4 bottom-12 sm:bottom-14 z-25 w-[48%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2 shadow-[0_26px_55px_rgba(0,0,0,0.3)]"
-                >
-                  <div className="relative h-24 sm:h-32 overflow-hidden rounded-xl bg-neutral-900">
-                    <img
-                      src="/assets/products/bottle_luxury_copper.jpg"
-                      alt="VIP Corporate Gifts and Laser Engraved Drinkware Dubai"
-                      className="h-full w-full object-cover"
-                      loading="eager"
-                    />
-                    <span className="absolute bottom-2 left-2 rounded-md bg-black/85 px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider text-amber-300">
-                      VIP Corporate Gifting
-                    </span>
-                  </div>
-                  <div className="mt-1.5 flex items-center justify-between text-[10px] font-black px-0.5">
-                    <span className="text-neutral-950">Copper Thermal Flask</span>
-                    <span className="text-[#A82F19]">Laser Etched</span>
-                  </div>
-                </motion.div>
-
-                {/* 3. BOTTOM-LEFT / MID LAYER: LUXURY BROCHURES & MULTI-PAGE CATALOGS */}
-                <motion.div
-                  animate={{ y: [0, 8, 0], rotate: [-4, -2, -4] }}
-                  transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-                  className="hero-card-sheen absolute left-3 sm:left-6 bottom-8 sm:bottom-10 z-20 w-[46%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2 shadow-[0_24px_50px_rgba(0,0,0,0.25)]"
-                >
-                  <div className="relative h-22 sm:h-28 overflow-hidden rounded-xl bg-neutral-100">
-                    <img
-                      src="/assets/products/brochure_gatefold.jpg"
-                      alt="Luxury Gatefold Brochures Dubai"
-                      className="h-full w-full object-cover"
-                      loading="eager"
-                    />
-                    <span className="absolute bottom-2 left-2 rounded-md bg-[#A82F19]/90 px-2 py-0.5 text-[7.5px] font-bold text-white shadow-xs">
-                      Gatefold Brochures
-                    </span>
-                  </div>
-                  <div className="mt-1.5 flex items-center justify-between text-[9.5px] font-bold px-0.5">
-                    <span className="text-neutral-950">350 GSM Silk</span>
-                    <span className="text-neutral-600">Spot Gloss</span>
-                  </div>
-                </motion.div>
-
-                {/* Center Floating Glassmorphic Quality Stamp */}
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute bottom-4 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 rounded-2xl border border-[#D4AF37]/50 bg-neutral-950/95 px-4 py-2.5 shadow-[0_20px_40px_rgba(0,0,0,0.4)] backdrop-blur-md"
-                >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#D4AF37] to-[#8c701e] text-black font-black">
-                    <Award className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-[12px] font-black leading-tight text-white">1200 DPI Ultra-HD</div>
-                    <div className="text-[9px] font-bold uppercase tracking-wider text-[#D4AF37]">Heidelberg Speedmaster</div>
-                  </div>
-                </motion.div>
+                  <Link
+                    to="/products"
+                    className="flex items-center gap-1 font-black text-[#D4AF37] hover:text-[#f3e5ab] text-[10px] transition-colors"
+                  >
+                    <span>View Finishes</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
               </div>
             </Reveal>
           </div>

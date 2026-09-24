@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Velvet foil business card design</title>
+  <desc id="desc">A black luxury business card with a copper foil circular emblem and elegant typography.</desc>
+  <defs>
+    <linearGradient id="foil" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#8d4b2e"/><stop offset=".45" stop-color="#efb77c"/><stop offset="1" stop-color="#8b4328"/></linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="28" fill="#eee9e3"/>
+  <rect x="86" y="118" width="1028" height="564" rx="20" fill="#101010"/>
+  <circle cx="930" cy="270" r="118" fill="none" stroke="url(#foil)" stroke-width="8"/>
+  <circle cx="930" cy="270" r="78" fill="none" stroke="#b9784c" stroke-width="2"/>
+  <path d="M930 195v150M855 270h150" stroke="url(#foil)" stroke-width="3"/>
+  <text x="150" y="270" fill="url(#foil)" font-family="Georgia,serif" font-size="38" letter-spacing="7">MERCER</text>
+  <text x="150" y="315" fill="#d8c7ba" font-family="Arial,sans-serif" font-size="17" letter-spacing="5">PRIVATE ADVISORY</text>
+  <line x1="150" y1="470" x2="650" y2="470" stroke="#8d4b2e" stroke-width="3"/>
+  <text x="150" y="530" fill="#fff" font-family="Georgia,serif" font-size="45">Alex Morgan</text>
+  <text x="150" y="575" fill="#c8b7aa" font-family="Arial,sans-serif" font-size="20">Principal Consultant</text>
+  <text x="150" y="625" fill="url(#foil)" font-family="Arial,sans-serif" font-size="18" letter-spacing="2">+971 50 000 0000  •  mercer.ae</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Soft-touch business card design</title>
+  <desc id="desc">A deep charcoal soft-touch business card with a minimal red monogram and fine lines.</desc>
+  <rect width="1200" height="800" rx="28" fill="#e8e3dd"/>
+  <rect x="86" y="118" width="1028" height="564" rx="20" fill="#171717"/>
+  <rect x="124" y="156" width="952" height="488" rx="12" fill="none" stroke="#a82f19" stroke-width="2" opacity=".75"/>
+  <circle cx="220" cy="250" r="62" fill="#a82f19"/>
+  <text x="188" y="272" fill="#fff" font-family="Georgia,serif" font-size="52" font-weight="700">A</text>
+  <text x="360" y="245" fill="#fff" font-family="Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="5">AURELIA</text>
+  <text x="360" y="285" fill="#d8cbc2" font-family="Arial,sans-serif" font-size="18" letter-spacing="4">CREATIVE STUDIO</text>
+  <text x="150" y="500" fill="#fff" font-family="Arial,sans-serif" font-size="44" font-weight="700">Alex Morgan</text>
+  <text x="150" y="545" fill="#c7b9af" font-family="Arial,sans-serif" font-size="20">Brand strategy &amp; visual identity</text>
+  <text x="150" y="600" fill="#a82f19" font-family="Arial,sans-serif" font-size="21" letter-spacing="2">DUBAI  /  UAE</text>
+</svg>

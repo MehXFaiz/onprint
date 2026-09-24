@@ -381,7 +381,7 @@ export default function HomePage() {
                 <motion.div
                   animate={{ y: [0, -10, 0], rotate: [-7, -5, -7] }}
                   transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-                  className="hero-card-sheen absolute left-1 sm:left-3 top-20 sm:top-24 z-30 w-[56%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2.5 shadow-[0_34px_70px_rgba(0,0,0,0.4)]"
+                  className="hero-card-sheen absolute left-1 sm:left-3 top-20 sm:top-24 z-30 w-[54%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2.5 shadow-[0_34px_70px_rgba(0,0,0,0.4)]"
                 >
                   <div className="relative h-36 sm:h-44 overflow-hidden rounded-xl bg-neutral-100">
                     <img
@@ -403,11 +403,37 @@ export default function HomePage() {
                   </div>
                 </motion.div>
 
-                {/* 2. BOTTOM-RIGHT / BACK-MID LAYER: VIP COPPER FLASK & CORPORATE GIFTING (FILLS LOWER RIGHT) */}
+                {/* 2. TOP-RIGHT / ACCENT LAYER: BESPOKE LUXURY RIGID BOX PACKAGING (FILLS PREVIOUSLY EMPTY AREA) */}
                 <motion.div
-                  animate={{ y: [0, -7, 0], rotate: [3, 1, 3] }}
+                  animate={{ y: [0, -8, 0], rotate: [4, 6, 4] }}
+                  transition={{ duration: 7.8, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
+                  className="hero-card-sheen absolute right-2 sm:right-4 top-16 sm:top-20 z-20 w-[47%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2 shadow-[0_28px_60px_rgba(0,0,0,0.35)]"
+                >
+                  <div className="relative h-28 sm:h-36 overflow-hidden rounded-xl bg-neutral-900">
+                    <img
+                      src="/assets/products/service_luxury_packaging.jpg"
+                      alt="Bespoke Luxury Rigid Packaging and Gift Boxes Dubai"
+                      className="h-full w-full object-cover"
+                      loading="eager"
+                    />
+                    <span className="absolute left-2 top-2 rounded-md bg-[#D4AF37] px-2 py-0.5 text-[7.5px] font-black uppercase tracking-wider text-neutral-950 shadow-sm">
+                      Rigid Box &amp; Foil
+                    </span>
+                    <span className="absolute bottom-2 right-2 rounded-md bg-black/85 px-2 py-0.5 text-[7.5px] font-bold text-white">
+                      Bespoke
+                    </span>
+                  </div>
+                  <div className="mt-1.5 flex items-center justify-between text-[10px] font-black px-0.5">
+                    <span className="text-neutral-950">Luxury Gift Boxes</span>
+                    <span className="text-[#A82F19]">Custom Die-Cut</span>
+                  </div>
+                </motion.div>
+
+                {/* 3. BOTTOM-RIGHT / BACK-MID LAYER: VIP COPPER FLASK & CORPORATE GIFTING */}
+                <motion.div
+                  animate={{ y: [0, -7, 0], rotate: [2, 0, 2] }}
                   transition={{ duration: 8.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="hero-card-sheen absolute right-2 sm:right-4 bottom-14 sm:bottom-16 z-25 w-[50%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2 shadow-[0_26px_55px_rgba(0,0,0,0.3)]"
+                  className="hero-card-sheen absolute right-2 sm:right-4 bottom-12 sm:bottom-14 z-25 w-[48%] overflow-hidden rounded-2xl border border-white/40 bg-white p-2 shadow-[0_26px_55px_rgba(0,0,0,0.3)]"
                 >
                   <div className="relative h-24 sm:h-32 overflow-hidden rounded-xl bg-neutral-900">
                     <img

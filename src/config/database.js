@@ -1503,6 +1503,25 @@ async function seedBacklinksIfEmpty(connection) {
 
 async function seedCompetitorGapsIfEmpty(connection) {
   try {
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_competitor_gaps (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        competitor_url VARCHAR(500) NOT NULL,
+        competitor_topic VARCHAR(255) NOT NULL,
+        onprint_url VARCHAR(500) NOT NULL,
+        missing_topic VARCHAR(500) NOT NULL,
+        keyword_opportunity VARCHAR(255) NOT NULL,
+        search_intent VARCHAR(100) DEFAULT 'Commercial',
+        recommended_content TEXT DEFAULT NULL,
+        internal_link_opportunity TEXT DEFAULT NULL,
+        geo_opportunity TEXT DEFAULT NULL,
+        priority ENUM('High', 'Medium', 'Low') DEFAULT 'Medium',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_scg_priority (priority),
+        INDEX idx_scg_keyword (keyword_opportunity)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
     const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_competitor_gaps')
     const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
     if (count === 0 && Array.isArray(DLX_COMPETITOR_GAPS) && DLX_COMPETITOR_GAPS.length > 0) {
@@ -1518,11 +1537,11 @@ async function seedCompetitorGapsIfEmpty(connection) {
             g.onprint_url,
             g.missing_topic,
             g.keyword_opportunity,
-            g.search_intent,
-            g.recommended_content,
-            g.internal_link_opportunity,
-            g.geo_opportunity,
-            g.priority,
+            g.search_intent || 'Commercial',
+            g.recommended_content || null,
+            g.internal_link_opportunity || null,
+            g.geo_opportunity || null,
+            g.priority || 'Medium',
           ]
         )
       }
@@ -1575,8 +1594,8 @@ async function seedBacklinkOpportunitiesIfEmpty(connection) {
             b.website || b.website_name || b.domain,
             b.domain,
             b.url || b.website_url,
-            b.category,
-            b.submission_method,
+            b.category || 'Local Directory',
+            b.submission_method || b.method || (b.submission_url ? 'Online Form' : (b.contact_url ? 'Contact Form / Outreach' : 'Direct Submission')),
             b.da || b.domain_authority || 30,
             b.priority || 'Medium',
             b.country || 'UAE',
@@ -2775,13 +2794,33 @@ async function initDatabase() {
     `)
 
     await connection.query(`
+      CREATE TABLE IF NOT EXISTS seo_competitor_gaps (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        competitor_url VARCHAR(500) NOT NULL,
+        competitor_topic VARCHAR(255) NOT NULL,
+        onprint_url VARCHAR(500) NOT NULL,
+        missing_topic VARCHAR(500) NOT NULL,
+        keyword_opportunity VARCHAR(255) NOT NULL,
+        search_intent VARCHAR(100) DEFAULT 'Commercial',
+        recommended_content TEXT DEFAULT NULL,
+        internal_link_opportunity TEXT DEFAULT NULL,
+        geo_opportunity TEXT DEFAULT NULL,
+        priority ENUM('High', 'Medium', 'Low') DEFAULT 'Medium',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_scg_priority (priority),
+        INDEX idx_scg_keyword (keyword_opportunity)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `)
+
+    await connection.query(`
       CREATE TABLE IF NOT EXISTS backlink_opportunities (
         id INT AUTO_INCREMENT PRIMARY KEY,
         website_name VARCHAR(255) NOT NULL,
         domain VARCHAR(255) NOT NULL,
         website_url VARCHAR(1000) NOT NULL,
         category VARCHAR(150) NOT NULL,
-        submission_method VARCHAR(150) NOT NULL,
+        submission_method VARCHAR(150) NULL DEFAULT 'Online Form',
         domain_authority INT DEFAULT 0,
         priority ENUM('High', 'Medium', 'Low') DEFAULT 'Medium',
         country VARCHAR(100) DEFAULT 'UAE',
@@ -2807,6 +2846,9 @@ async function initDatabase() {
         INDEX idx_bo_priority (priority)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `)
+    try {
+      await connection.query(`ALTER TABLE backlink_opportunities MODIFY COLUMN submission_method VARCHAR(150) NULL DEFAULT 'Online Form'`)
+    } catch (_) {}
 
     await connection.query(`
       CREATE TABLE IF NOT EXISTS seo_ai_visibility_tracking (

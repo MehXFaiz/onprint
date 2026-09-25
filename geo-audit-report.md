@@ -1,7 +1,7 @@
 # ONPRINT Generative Engine Optimization (GEO) Audit Report
 
 **Company:** ONPRINT (0nprint.com)  
-**Location:** Al Quoz Industrial Area 3, Dubai, UAE  
+**Location:** Al Quoz, Dubai, UAE  
 **Audit Date:** September 15, 2026  
 **Audit Scope:** AI Search Visibility for Google AI Overviews, ChatGPT Search, Gemini, Perplexity, Microsoft Copilot
 
@@ -61,7 +61,7 @@ ONPRINT's identity is established through:
 
 **Verified Information:**
 - **Name:** ONPRINT / ONPRINT Printing & Branding Solutions ✅
-- **Address:** Al Quoz Industrial Area 3, Dubai, UAE ✅
+- **Address:** Al Quoz, Dubai, UAE ✅
 - **Phone:** +447344546056 (schema) | +44 7344546056 (WhatsApp on Contact) ⚠️
 - **Email:** 0nprint183@gmail.com ✅
 - **Hours:** Mon-Sat 8:30 AM - 6:30 PM ✅
@@ -777,7 +777,7 @@ PRINTING (Pillar)
 
 **Strengths:**
 - LocalBusiness schema complete ✅
-- "Al Quoz Industrial Area 3, Dubai, UAE" consistently mentioned ✅
+- "Al Quoz, Dubai, UAE" consistently mentioned ✅
 - "Dubai" and "UAE" in titles, descriptions, headings ✅
 - Service areas listed in schema (Dubai, Abu Dhabi, Sharjah, UAE) ✅
 - Location-specific pages exist (programmatic landing pages) ✅

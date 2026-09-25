@@ -47,7 +47,7 @@ const DLXPRINT_PROFILE = {
 const ONPRINT_DIFFERENTIATION_MATRIX = [
   {
     pillar: 'Geographic Location & Delivery Speed',
-    onprint: 'Al Quoz Industrial Area 3 facility: 10–15 mins to DIFC, Downtown, Business Bay, Jumeirah, and DWTC. 4-hour same-day rush delivery across central Dubai.',
+    onprint: 'Al Quoz facility: 10–15 mins to DIFC, Downtown, Business Bay, Jumeirah, and DWTC. 4-hour same-day rush delivery across central Dubai.',
     dlxprint: 'Al Qusais Industrial Area 1: 35–50 mins in traffic to central Dubai business districts; standard 24–48hr lead times.',
     onprintAdvantageScore: 94,
     strategicAngle: 'Target urgent corporate orders in DIFC and Downtown with "Central Dubai Express Press / Al Quoz Same-Day".',
@@ -75,7 +75,7 @@ const ONPRINT_DIFFERENTIATION_MATRIX = [
   },
   {
     pillar: 'Digital Quoting & Online Customer Flow',
-    onprint: 'Instant multi-step quote request builder (/get-a-quote), dedicated WhatsApp pressroom concierge (+971 55 183 7995), sample pack request program.',
+    onprint: 'Instant multi-step quote request builder (/get-a-quote), dedicated pressroom email concierge (0nprint183@gmail.com), sample pack request program.',
     dlxprint: 'Traditional static inquiry forms and manual email requests.',
     onprintAdvantageScore: 88,
     strategicAngle: 'Frictionless B2B procurement workflow converting mobile and urgent web searchers in under 60 seconds.',
@@ -263,7 +263,7 @@ const DLXPRINT_COMPETITOR_GAPS = [
     recommended_keyword: 'commercial printing press schema dubai',
     search_intent: 'Commercial',
     priority: 'Critical',
-    action: 'Validate all JSON-LD schemas with complete areaServed (Dubai, UAE), openingHours, priceCurrency (AED), and telephone (+971 55 183 7995).',
+    action: 'Validate all JSON-LD schemas with complete areaServed (Dubai, UAE), openingHours, priceCurrency (AED), and email (0nprint183@gmail.com).',
   },
 
   // 8. LOCAL SEO GAPS

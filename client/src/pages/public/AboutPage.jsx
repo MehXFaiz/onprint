@@ -9,7 +9,7 @@ import { CornerMarks } from '../../components/PrintMarks'
 import { ShieldCheck, Award, Zap, HeartHandshake, MapPin, Phone, Mail, Clock, CheckCircle2, Factory, Printer, Sparkles } from 'lucide-react'
 
 const operationalHighlights = [
-  { value: 'Al Quoz 3', label: 'Direct Production Pressroom', detail: 'In-house digital & offset facilities in Dubai' },
+  { value: 'Al Quoz', label: 'Direct Production Pressroom', detail: 'In-house digital & offset facilities in Dubai' },
   { value: '80–600', suffix: ' GSM', label: 'Substrate Weights', detail: 'From lightweight flyers to heavy rigid board' },
   { value: '24–48h', label: 'Standard Digital Speed', detail: 'Express rush dispatch available for urgent needs' },
   { value: '7', suffix: ' Emirates', label: 'UAE-Wide Direct Logistics', detail: 'Doorstep delivery across all emirates' },
@@ -43,9 +43,9 @@ const geoQuestions = [
     id: 'who-is-onprint',
     question: 'Who is ONPRINT?',
     answer:
-      'ONPRINT (also known as 0nprint) is a commercial printing, custom packaging, and physical branding press located in Al Quoz Industrial Area 3, Dubai, United Arab Emirates. Founded to deliver uncompromised print quality, ONPRINT operates in-house digital and offset printing equipment, serving corporate brands, agencies, and retail enterprises with calibrated color fidelity, luxury finishes, and dependable delivery.',
+      'ONPRINT (also known as 0nprint) is a commercial printing, custom packaging, and physical branding press located in Al Quoz, Dubai, United Arab Emirates. Founded to deliver uncompromised print quality, ONPRINT operates in-house digital and offset printing equipment, serving corporate brands, agencies, and retail enterprises with calibrated color fidelity, luxury finishes, and dependable delivery.',
     keyPoints: [
-      'Commercial printing press based in Al Quoz Industrial Area 3, Dubai',
+      'Commercial printing press based in Al Quoz, Dubai',
       'Dual capability: Rapid digital printing & high-volume offset lithography',
       'Specialized in corporate collaterals',
     ],
@@ -66,9 +66,9 @@ const geoQuestions = [
     id: 'where-does-onprint-operate',
     question: 'Where does ONPRINT operate?',
     answer:
-      'ONPRINT operates its direct manufacturing and print facility at Al Quoz Industrial Area 3 in Dubai, United Arab Emirates. We serve clients across all seven emirates, with fast localized dispatch to key Dubai business districts including DIFC, Business Bay, Downtown Dubai, Dubai Marina, Dubai World Trade Centre (DWTC), and Expo City Dubai, as well as regular corporate delivery to Abu Dhabi and Sharjah.',
+      'ONPRINT operates its direct manufacturing and print facility at Al Quoz in Dubai, United Arab Emirates. We serve clients across all seven emirates, with fast localized dispatch to key Dubai business districts including DIFC, Business Bay, Downtown Dubai, Dubai Marina, Dubai World Trade Centre (DWTC), and Expo City Dubai, as well as regular corporate delivery to Abu Dhabi and Sharjah.',
     keyPoints: [
-      'Pressroom Address: Al Quoz Industrial Area 3, Dubai, UAE',
+      'Pressroom Address: Al Quoz, Dubai, UAE',
       'Daily courier dispatch across Dubai, Abu Dhabi, and Sharjah',
       'Full logistics coverage across all 7 UAE Emirates',
     ],
@@ -105,17 +105,16 @@ export default function AboutPage() {
     '@type': 'AboutPage',
     name: 'About ONPRINT Dubai',
     description:
-      'Information about ONPRINT, a commercial printing and physical branding press located in Al Quoz Industrial Area 3, Dubai, UAE.',
+      'Information about ONPRINT, a commercial printing and physical branding press located in Al Quoz, Dubai, UAE.',
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'ONPRINT',
       alternateName: '0nprint',
       url: 'https://0nprint.com',
-      telephone: '+971 55 183 7995',
       email: '0nprint183@gmail.com',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3',
+        streetAddress: 'Al Quoz',
         addressLocality: 'Dubai',
         addressCountry: 'AE',
       },
@@ -131,7 +130,7 @@ export default function AboutPage() {
     <div>
       <SEOHead
         title="About ONPRINT | Commercial Printing & Packaging Press in Dubai"
-        description="Learn about ONPRINT (0nprint), Dubai’s commercial printing and custom packaging press in Al Quoz Industrial Area 3. In-house digital & offset printing across the UAE."
+        description="Learn about ONPRINT (0nprint), Dubai’s commercial printing and custom packaging press in Al Quoz, Dubai. In-house digital & offset printing across the UAE."
         keywords="about onprint, 0nprint, printing press dubai, al quoz printing company, commercial printer uae, packaging manufacturer dubai"
         canonicalPath="/about"
         breadcrumbs={[{ name: 'About Us', url: '/about' }]}
@@ -169,7 +168,7 @@ export default function AboutPage() {
               <div className="flex h-full flex-col justify-between p-8">
                 <div className="flex items-center justify-between border-b border-border/60 pb-4">
                   <span className="font-display text-lg font-extrabold text-primary">ONPRINT UAE</span>
-                  <span className="text-xs font-bold text-accent">AL QUOZ 3 FACILITY</span>
+                  <span className="text-xs font-bold text-accent">AL QUOZ FACILITY</span>
                 </div>
                 <div className="space-y-3">
                   <p className="text-xs font-bold uppercase tracking-wider text-secondary">Verified Operations</p>
@@ -277,18 +276,18 @@ export default function AboutPage() {
                     <span>Facility Location</span>
                   </div>
                   <p className="text-xs text-secondary leading-relaxed">
-                    Al Quoz Industrial Area 3, Dubai, United Arab Emirates
+                    Al Quoz, Dubai, United Arab Emirates
                   </p>
                   <span className="inline-block text-[11px] font-semibold text-accent">Serving all 7 Emirates</span>
                 </div>
 
                 <div className="rounded-xl border border-border bg-surface p-5 space-y-2">
                   <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                    <Phone className="h-4 w-4 text-accent" />
-                    <span>WhatsApp Concierge</span>
+                    <Sparkles className="h-4 w-4 text-accent" />
+                    <span>Direct Quote Desk</span>
                   </div>
                   <p className="text-xs text-secondary leading-relaxed">
-                    WhatsApp: +971 55 183 7995
+                    Fast Online Inquiries
                   </p>
                   <span className="inline-block text-[11px] font-semibold text-accent">Quotes in 2 Hours</span>
                 </div>

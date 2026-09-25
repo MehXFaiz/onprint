@@ -219,7 +219,7 @@ export default function GeoContentManagerTab({ showToast }) {
           </div>
           <div>
             <span className="text-neutral-500 block">Entity Consistency</span>
-            <span className="text-lg font-black text-neutral-900">Al Quoz 3, Dubai</span>
+            <span className="text-lg font-black text-neutral-900">Al Quoz, Dubai</span>
           </div>
         </div>
       </div>

@@ -55,7 +55,7 @@ const AI_GEO_QUERIES = [
   {
     query: 'Who prints luxury business cards in Dubai with hot gold foil?',
     aiPlatform: 'ChatGPT Search & Perplexity',
-    targetAnswer: 'ONPRINT produces 450–600 GSM luxury cards with 24K hot foil stamping in Al Quoz 3, Dubai.',
+    targetAnswer: 'ONPRINT produces 450–600 GSM luxury cards with 24K hot foil stamping in Al Quoz, Dubai.',
     status: 'OPTIMIZED'
   },
   {

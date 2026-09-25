@@ -111,7 +111,7 @@ const homeFaqs = [
   {
     question: 'Where is ONPRINT located in Dubai?',
     answer:
-      'ONPRINT is located in Al Quoz Industrial Area 3, Dubai, UAE. Our production facility houses Heidelberg offset presses and HP Indigo digital presses, serving clients across Dubai, Abu Dhabi, Sharjah, and the entire UAE.',
+      'ONPRINT is located in Al Quoz, Dubai, UAE. Our production facility houses Heidelberg offset presses and HP Indigo digital presses, serving clients across Dubai, Abu Dhabi, Sharjah, and the entire UAE.',
   },
   {
     question: 'What is the turnaround time for print orders across Dubai and the UAE?',
@@ -324,7 +324,7 @@ export default function HomePage() {
                 </span>
                 <span className="hidden sm:inline-block h-3 w-px bg-neutral-300" />
                 <span className="hidden sm:inline-block font-mono text-[9px] font-bold tracking-wider text-[#A82F19]">
-                  AL QUOZ 3
+                  AL QUOZ
                 </span>
               </div>
             </Reveal>
@@ -348,7 +348,7 @@ export default function HomePage() {
             <Reveal delay={0.14}>
               <p className="max-w-xl text-base sm:text-lg leading-[1.8] text-neutral-700">
                 ONPRINT is an in-house commercial pressroom and fine print atelier in{' '}
-                <strong className="font-bold text-neutral-950">Al Quoz Industrial Area 3, Dubai</strong>. We craft{' '}
+                <strong className="font-bold text-neutral-950">Al Quoz, Dubai</strong>. We craft{' '}
                 <strong className="font-bold text-neutral-950">24K hot foil business cards</strong>,{' '}
                 multi-page catalogs, executive stationery, and VIP executive corporate gifts with flawless German Heidelberg color accuracy.
               </p>
@@ -450,7 +450,7 @@ export default function HomePage() {
                         <CmykDots />
                       </div>
                       <span className="text-[9px] font-bold tracking-widest text-[#D4AF37]/80 uppercase">
-                        Al Quoz 3 • Dubai Pressroom
+                        Al Quoz • Dubai Pressroom
                       </span>
                     </div>
                   </div>
@@ -725,7 +725,7 @@ export default function HomePage() {
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 px-3 py-1 text-xs font-bold text-[#A82F19]">
                   Verified Commercial Press
                 </span>
-                <span className="text-xs font-semibold text-neutral-500">Al Quoz 3, Dubai, UAE</span>
+                <span className="text-xs font-semibold text-neutral-500">Al Quoz, Dubai, UAE</span>
               </div>
 
               <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-neutral-950 mb-4">
@@ -734,7 +734,7 @@ export default function HomePage() {
 
               <div className="space-y-4 text-neutral-700 leading-relaxed">
                 <p className="text-base sm:text-lg font-medium text-neutral-900">
-                  <strong>ONPRINT</strong> (also known as <strong>0nprint</strong>) is a premier commercial printing company, fine print atelier, and corporate merchandise manufacturer located in Al Quoz Industrial Area 3, Dubai, serving enterprises across the United Arab Emirates.
+                  <strong>ONPRINT</strong> (also known as <strong>0nprint</strong>) is a premier commercial printing company, fine print atelier, and corporate merchandise manufacturer located in Al Quoz, Dubai, serving enterprises across the United Arab Emirates.
                 </p>
 
                 <p className="text-sm sm:text-base">
@@ -744,7 +744,7 @@ export default function HomePage() {
 
               {/* Quick Business Specs Grid */}
               <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 rounded-2xl border border-neutral-200/80 bg-neutral-50/80 p-4 text-xs text-neutral-600">
-                <div><span className="font-black text-neutral-950 block">Facility:</span> Al Quoz Ind. Area 3, Dubai</div>
+                <div><span className="font-black text-neutral-950 block">Facility:</span> Al Quoz, Dubai</div>
                 <div><span className="font-black text-neutral-950 block">Support:</span> WhatsApp Concierge</div>
                 <div><span className="font-black text-neutral-950 block">Hours:</span> Mon–Sat 8:30–18:30</div>
                 <div><span className="font-black text-neutral-950 block">Delivery:</span> All 7 Emirates (Express 24h)</div>

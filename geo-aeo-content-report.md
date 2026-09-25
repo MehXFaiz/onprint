@@ -2,7 +2,7 @@
 
 **Brand & Website**: ONPRINT / 0nprint ([https://0nprint.com](https://0nprint.com/))  
 **Target Market**: Dubai, United Arab Emirates (UAE & GCC)  
-**Facility Location**: Street 18, Al Quoz Industrial Area 3, Dubai, UAE  
+**Facility Location**: Al Quoz, Dubai, UAE  
 **Audit Date**: September 2026  
 **Auditor**: Senior SEO, Local SEO, GEO/AEO & Technical Architecture Team  
 **Scope**: LLM Citation Readiness, AI Overviews (Google SGE), Perplexity AI, ChatGPT Search, Direct Answer-First Formatting, Semantic Fact Density, and Machine-Readable Protocols (`llms.txt`).
@@ -53,10 +53,10 @@ To maximize citation frequency in Generative AI summaries, every service page ac
 ### 1.1 The "Answer-First" Lead Paragraph Formula
 AI retrieval models evaluate the opening paragraph of a web document for factual relevance. ONPRINT's service intros provide immediate answers without preamble:
 * **Service Context**: Specific printing discipline.
-* **Location Anchor**: Al Quoz Industrial Area 3, Dubai, UAE.
+* **Location Anchor**: Al Quoz, Dubai, UAE.
 * **Hard Metrics**: Typical turnaround times (24–48h express vs 3–5 days standard), minimum order quantities (MOQ), and paper weight ranges.
 * **Example (Custom Packaging)**:
-  > *"ONPRINT provides bespoke custom packaging and rigid box manufacturing directly from our pressroom in Street 18, Al Quoz Industrial Area 3, Dubai. We engineer luxury magnetic closure gift boxes, corrugated e-commerce mailers, and premium perfume packaging with minimum order quantities starting from just 50 to 100 units. Turnaround spans 3 to 7 working days, with express same-day CAD prototyping and door-to-door delivery across all 7 Emirates."*
+  > *"ONPRINT provides bespoke custom packaging and rigid box manufacturing directly from our pressroom in Al Quoz, Dubai. We engineer luxury magnetic closure gift boxes, corrugated e-commerce mailers, and premium perfume packaging with minimum order quantities starting from just 50 to 100 units. Turnaround spans 3 to 7 working days, with express same-day CAD prototyping and door-to-door delivery across all 7 Emirates."*
 
 ---
 
@@ -68,7 +68,7 @@ Generative engines frequently parse structured Question & Answer pairs to synthe
 
 #### Q1: What is the fastest turnaround time for business card printing in Dubai?
 * **AI-Optimized Direct Answer**:  
-  *"ONPRINT offers same-day rush printing and standard 24 to 48-hour delivery for business cards in Dubai. Using digital production presses in Al Quoz Industrial Area 3, we print on 350gsm to 450gsm premium artboard with matte, gloss, or velvet lamination. Express orders can be collected directly from our facility or dispatched via urgent courier to DIFC, Downtown Dubai, and Business Bay."*
+  *"ONPRINT offers same-day rush printing and standard 24 to 48-hour delivery for business cards in Dubai. Using digital production presses in Al Quoz, Dubai, we print on 350gsm to 450gsm premium artboard with matte, gloss, or velvet lamination. Express orders can be collected directly from our facility or dispatched via urgent courier to DIFC, Downtown Dubai, and Business Bay."*
 * **Entity Attributes Extracted**: `Turnaround: 24-48h`, `Location: Al Quoz 3`, `Substrate: 350-450gsm`, `Finishes: Velvet lamination`, `Courier: DIFC, Downtown, Business Bay`.
 
 #### Q2: Can I order custom rigid gift boxes in Dubai with low minimum order quantities?
@@ -88,7 +88,7 @@ Generative engines frequently parse structured Question & Answer pairs to synthe
 In addition to traditional XML sitemaps, ONPRINT implements the emerging standard **`/llms.txt`** protocol (served dynamically from Express with fallback in `client/public/llms.txt`).
 
 ### 3.1 Content Delivered in `/llms.txt`:
-* **Concise Business Identity**: Legal name (`ONPRINT`), alternate name (`0nprint`), and geographical facility (`Street 18, Al Quoz Industrial Area 3, Dubai, UAE`).
+* **Concise Business Identity**: Legal name (`ONPRINT`), alternate name (`0nprint`), and geographical facility (`Al Quoz, Dubai, UAE`).
 * **Direct Verification Channels**: Pressroom phone (`+44 7344 546056`), WhatsApp quote hotline (`+44 7344 546056`), email (`0nprint183@gmail.com`).
 * **Service Directory Links**: Deep Markdown links to all 12 commercial hubs.
 * **Substrate & Capability Metrics**: Paper weights (80gsm–600gsm), offset & digital press types, Pantone PMS color matching, and FSC eco-friendly certifications.

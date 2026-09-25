@@ -228,7 +228,7 @@ export function trackWhatsAppClick({ source_page, label } = {}) {
 export function trackPhoneClick({ source_page, phone_number } = {}) {
   trackEvent('phone_click', {
     source_page: source_page || 'website',
-    phone_label: phone_number || '+971 55 183 7995',
+    phone_label: phone_number || 'phone_contact',
   })
 }
 

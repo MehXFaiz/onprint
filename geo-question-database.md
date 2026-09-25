@@ -263,7 +263,7 @@
 
 | # | Question | Target Page | Answer Status | Priority |
 |---|----------|-------------|---------------|----------|
-| M1 | Where is ONPRINT located in Dubai? | Homepage GEO section | ✅ Answered (Al Quoz Industrial Area 3) | Critical |
+| M1 | Where is ONPRINT located in Dubai? | Homepage GEO section | ✅ Answered (Al Quoz, Dubai) | Critical |
 | M2 | Do you serve all of Dubai? | Homepage FAQ | ✅ Answered | High |
 | M3 | Do you serve Abu Dhabi? | Homepage FAQ | ✅ Answered | High |
 | M4 | Do you serve Sharjah? | Homepage FAQ | ✅ Answered | High |

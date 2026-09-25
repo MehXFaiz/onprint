@@ -467,7 +467,7 @@ const BACKLINK_OPPORTUNITIES = [
     date_submitted: null,
     target_onprint_url: `${SITE_URL}/contact`,
     anchor_text: 'printing services Al Quoz',
-    notes: 'Hyper-local citation directly highlighting ONPRINT Al Quoz Industrial Area 3 facility.',
+    notes: 'Hyper-local citation directly highlighting ONPRINT Al Quoz, Dubai facility.',
   },
   {
     website: 'JLT Community Portal',
@@ -1033,7 +1033,7 @@ const BACKLINK_OPPORTUNITIES = [
     date_submitted: null,
     target_onprint_url: `${SITE_URL}/`,
     anchor_text: 'ONPRINT Website',
-    notes: 'Crucial Local Pack ranking factor. Exact NAP in Al Quoz Industrial Area 3.',
+    notes: 'Crucial Local Pack ranking factor. Exact NAP in Al Quoz, Dubai.',
   },
   {
     website: 'Bing Places for Business',

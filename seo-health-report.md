@@ -3,7 +3,7 @@
 **Brand & Website**: ONPRINT / 0nprint ([https://0nprint.com](https://0nprint.com/))  
 **Target Market**: Dubai, United Arab Emirates (UAE & GCC)  
 **Industry**: Commercial Printing, Custom Packaging, Luxury Corporate Stationery & Branding  
-**Facility Location**: Street 18, Al Quoz Industrial Area 3, Dubai, UAE  
+**Facility Location**: Al Quoz, Dubai, UAE  
 **Audit Date**: September 2026  
 **Audit Scope**: Core Web Vitals, On-Page SEO, 350+ Keyword SERP Architecture, 350+ White-Hat Backlink Pipeline, Schema Structured Data, GEO/AEO Answer-First Optimization, Technical Backend & MySQL Architecture.
 
@@ -92,7 +92,7 @@ ONPRINT's keyword strategy is organized across **10 distinct commercial clusters
 
 * **NAP Standard**: 100% unified across site layouts, database records, and schema markup:
   * **Name**: ONPRINT (Alternate: 0nprint)
-  * **Physical Address**: Street 18, Al Quoz Industrial Area 3, Dubai, UAE
+  * **Physical Address**: Al Quoz, Dubai, UAE
   * **Phone**: +44 7344 546056
   * **Email**: 0nprint183@gmail.com
   * **Website**: `https://0nprint.com`

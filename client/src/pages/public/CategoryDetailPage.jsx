@@ -154,11 +154,10 @@ export default function CategoryDetailPage() {
     provider: {
       '@type': 'LocalBusiness',
       name: 'ONPRINT Printing & Branding Solutions',
-      telephone: '+971 55 183 7995',
       email: '0nprint183@gmail.com',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3',
+        streetAddress: 'Al Quoz',
         addressLocality: 'Dubai',
         addressRegion: 'Dubai',
         addressCountry: 'AE',

@@ -155,12 +155,12 @@ export default function ProgrammaticLandingPage() {
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>
-              <a href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai%2C%20I%20need%20a%20printing%20quote" target="_blank" rel="noopener noreferrer">
+              <Link to="/contact">
                 <Button variant="outline" size="lg" className="border-neutral-700 text-white hover:bg-neutral-900 font-bold">
-                  <WhatsAppIcon className="h-4 w-4 mr-2 text-[#25D366]" />
-                  WhatsApp Support
+                  <Mail className="h-4 w-4 mr-2" />
+                  Contact Studio
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </Container>
@@ -354,12 +354,12 @@ export default function ProgrammaticLandingPage() {
                     </Button>
                   </Link>
 
-                  <a href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai%2C%20I%20need%20a%20printing%20quote" target="_blank" rel="noopener noreferrer" className="block w-full">
+                  <Link to="/contact" className="block w-full">
                     <Button variant="outline" size="md" className="w-full border-neutral-700 text-white hover:bg-neutral-900 text-xs font-bold">
-                      <WhatsAppIcon className="h-3.5 w-3.5 mr-2 text-[#25D366]" />
-                      WhatsApp Concierge
+                      <Mail className="h-3.5 w-3.5 mr-2" />
+                      Contact Studio
                     </Button>
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="mt-6 pt-5 border-t border-neutral-800 text-[11px] text-neutral-400 space-y-1.5">

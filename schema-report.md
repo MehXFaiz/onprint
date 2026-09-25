@@ -2,7 +2,7 @@
 
 **Brand & Website**: ONPRINT / 0nprint ([https://0nprint.com](https://0nprint.com/))  
 **Target Market**: Dubai, United Arab Emirates (UAE & GCC)  
-**Facility Location**: Street 18, Al Quoz Industrial Area 3, Dubai, UAE  
+**Facility Location**: Al Quoz, Dubai, UAE  
 **Audit Date**: September 2026  
 **Auditor**: Senior Technical SEO & Structured Data Specialist  
 **Scope**: Schema.org Validation, Google Rich Results Eligibility, Dual SSR/Client Schema Architecture, Knowledge Graph Optimization, and Merchant/Service Markup.
@@ -47,13 +47,13 @@ The entity markup establishes ONPRINT as a premier commercial printing facility 
   "url": "https://0nprint.com",
   "logo": "https://0nprint.com/logo_icon.png",
   "image": "https://0nprint.com/logo_icon.png",
-  "description": "ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz Industrial Area 3, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.",
+  "description": "ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.",
   "telephone": "+44 7344 546056",
   "email": "0nprint183@gmail.com",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Street 18, Al Quoz Industrial Area 3",
+    "streetAddress": "Al Quoz",
     "addressLocality": "Dubai",
     "addressRegion": "Dubai",
     "postalCode": "00000",

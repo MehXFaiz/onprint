@@ -1,10 +1,10 @@
 # ONPRINT — Dubai & UAE 150-Keyword Architecture & Mapping Database
 
 **Brand:** ONPRINT / 0nprint  
-**Primary Market:** Dubai, UAE (Al Quoz Industrial Area 3, DIFC, Business Bay, Dubai Marina, Downtown, DAFZA, JAFZA, Deira, Bur Dubai)  
+**Primary Market:** Dubai, UAE (Al Quoz, Dubai, DIFC, Business Bay, Dubai Marina, Downtown, DAFZA, JAFZA, Deira, Bur Dubai)  
 **Industry:** Digital & Offset Printing, Luxury Packaging, Corporate Stationery, Signage & Promotional Branding  
 **Target Domain:** `https://0nprint.com`  
-**Official NAP:** ONPRINT, Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai, UAE | +44 7344 546056 | 0nprint183@gmail.com  
+**Official NAP:** ONPRINT, Al Quoz, Dubai, UAE | +44 7344 546056 | 0nprint183@gmail.com  
 
 ---
 
@@ -190,7 +190,7 @@ graph TD
 | 147 | printing services Dubai Marina | Local Neighborhoods | Local / Comm | `https://0nprint.com/printing-services-dubai` | High | Fast Hospitality & Retail Printing Dubai Marina | `Service` |
 | 148 | printing press JLT Dubai | Local Neighborhoods | Local / Comm | `https://0nprint.com/corporate-printing-dubai` | High | Jumeirah Lakes Towers Corporate Printing Press | `Service` |
 | 149 | printing services Downtown Dubai | Local Neighborhoods | Local / Comm | `https://0nprint.com/corporate-printing-dubai` | High | Luxury Retail & Corporate Printing Downtown Dubai | `Service` |
-| 150 | printing press near Al Quoz 3 | Local Neighborhoods | Local / Trans | `https://0nprint.com/contact` | Critical | ONPRINT Production Plant Al Quoz Industrial Area 3 | `LocalBusiness` |
+| 150 | printing press near Al Quoz 3 | Local Neighborhoods | Local / Trans | `https://0nprint.com/contact` | Critical | ONPRINT Production Plant Al Quoz, Dubai | `LocalBusiness` |
 
 ---
 

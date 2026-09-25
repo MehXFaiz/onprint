@@ -128,7 +128,7 @@ const SCHEMA_TEMPLATES = {
       "logo": "https://0nprint.com/logo_icon.png",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Al Quoz Industrial Area 3",
+        "streetAddress": "Al Quoz",
         "addressLocality": "Dubai",
         "addressRegion": "Dubai",
         "addressCountry": "AE"
@@ -165,7 +165,7 @@ const SCHEMA_TEMPLATES = {
       "telephone": "+44 7344 546056",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Al Quoz Industrial Area 3",
+        "streetAddress": "Al Quoz",
         "addressLocality": "Dubai",
         "addressRegion": "Dubai",
         "postalCode": "00000",

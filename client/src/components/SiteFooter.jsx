@@ -75,7 +75,7 @@ export default function SiteFooter() {
             <Logo variant="light" size="md" />
           </Link>
           <p className="max-w-xs text-sm leading-relaxed text-[#FFFFFF]/70">
-            ONPRINT is Dubai’s premier physical branding &amp; commercial print studio located in Al Quoz Industrial Area 3. Delivering industrial precision across bespoke packaging, luxury stationery, and large-format exhibition displays.
+            ONPRINT is Dubai’s premier physical branding &amp; commercial print studio located in Al Quoz, Dubai. Delivering industrial precision across bespoke packaging, luxury stationery, and large-format exhibition displays.
           </p>
           <div className="pt-2">
             <CmykDots className="mt-2" />
@@ -129,23 +129,6 @@ export default function SiteFooter() {
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#A82F19]">Dubai Headquarters</p>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-center gap-2.5">
-              <PhoneCall className="h-4 w-4 text-[#A82F19] shrink-0" />
-              <a href="tel:+971551837995" className="transition-colors hover:text-[#A82F19] font-medium">
-                +971 55 183 7995
-              </a>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <WhatsAppIcon className="h-4 w-4 text-[#25D366] shrink-0 fill-[#25D366]" />
-              <a
-                href="https://wa.me/971551837995?text=Hello%20ONPRINT%2C%20I%20would%20like%20to%20request%20a%20commercial%20printing%20quote"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-[#25D366] font-medium"
-              >
-                WhatsApp Direct (+971 55 183 7995)
-              </a>
-            </li>
-            <li className="flex items-center gap-2.5">
               <Mail className="h-4 w-4 text-[#A82F19] shrink-0" />
               <a href="mailto:0nprint183@gmail.com" className="transition-colors hover:text-[#A82F19]">
                 0nprint183@gmail.com
@@ -154,7 +137,7 @@ export default function SiteFooter() {
             <li className="flex items-start gap-2.5">
               <MapPin className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
               <span className="text-[#FFFFFF]/80 leading-snug">
-                Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai, UAE
+                Al Quoz, Dubai, UAE
               </span>
             </li>
             <li className="flex items-center gap-2.5 text-xs text-[#FFFFFF]/60 pt-1">
@@ -213,7 +196,7 @@ export default function SiteFooter() {
       {/* Bottom Bar */}
       <div className="border-t border-[#FFFFFF]/10 bg-[#000000] py-6">
         <Container className="flex flex-col items-center justify-between gap-4 text-xs text-[#FFFFFF]/60 text-center sm:flex-row sm:text-left">
-          <p>&copy; {new Date().getFullYear()} ONPRINT Printing &amp; Creative Solutions. Warehouse 4, 24th Street, Al Quoz 3, Dubai, UAE. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ONPRINT Printing &amp; Creative Solutions. Al Quoz, Dubai, UAE. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-semibold sm:justify-end">
             <Link to="/privacy-policy" className="hover:text-[#FFFFFF] hover:underline">
               Privacy Policy

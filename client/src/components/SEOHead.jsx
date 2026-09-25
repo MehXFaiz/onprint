@@ -21,13 +21,12 @@ export const organizationSchema = {
   logo: `${SITE_URL}/logo_icon.png`,
   image: `${SITE_URL}/logo_icon.png`,
   description:
-    'ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz Industrial Area 3, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.',
-  telephone: '+971 55 183 7995',
+    'ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.',
   email: '0nprint183@gmail.com',
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3',
+    streetAddress: 'Al Quoz',
     addressLocality: 'Dubai',
     addressRegion: 'Dubai',
     postalCode: '00000',
@@ -49,15 +48,8 @@ export const organizationSchema = {
   contactPoint: [
     {
       '@type': 'ContactPoint',
-      telephone: '+971 55 183 7995',
+      email: '0nprint183@gmail.com',
       contactType: 'customer service / sales',
-      areaServed: 'AE',
-      availableLanguage: ['English', 'Arabic', 'Urdu'],
-    },
-    {
-      '@type': 'ContactPoint',
-      telephone: '+971 55 183 7995',
-      contactType: 'concierge / WhatsApp quotes',
       areaServed: 'AE',
       availableLanguage: ['English', 'Arabic', 'Urdu'],
     },
@@ -409,11 +401,10 @@ export default function SEOHead({
           name: 'ONPRINT',
           alternateName: '0nprint',
           url: SITE_URL,
-          telephone: '+971 55 183 7995',
           email: '0nprint183@gmail.com',
           address: {
             '@type': 'PostalAddress',
-            streetAddress: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3',
+            streetAddress: 'Al Quoz',
             addressLocality: 'Dubai',
             addressRegion: 'Dubai',
             addressCountry: 'AE',

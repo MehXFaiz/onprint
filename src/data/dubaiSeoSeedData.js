@@ -123,7 +123,7 @@ const UAE_BACKLINKS = [
     linking_domain: 'zoomlocal.ae',
     linking_url: 'https://www.zoomlocal.ae/biz/onprint-al-quoz-3',
     target_url: `${SITE_URL}/contact`,
-    anchor_text: 'ONPRINT Al Quoz Industrial Area 3',
+    anchor_text: 'ONPRINT Al Quoz',
     link_type: 'follow',
     status: 'active',
     authority: 48.0,

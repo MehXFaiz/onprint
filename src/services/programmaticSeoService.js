@@ -180,12 +180,12 @@ const LOCATION_PAGES = [
     name: 'Al Quoz Industrial Area',
     type: 'location',
     title: 'Al Quoz Printing Press Dubai | Direct Factory Commercial Printing | ONPRINT',
-    metaDescription: 'Direct-from-factory commercial printing press in Al Quoz 3, Dubai. High-capacity offset, large format signage, and instant client collection.',
+    metaDescription: 'Direct-from-factory commercial printing press in Al Quoz, Dubai. High-capacity offset, large format signage, and instant client collection.',
     h1: 'Direct-From-Press Commercial Printing in Al Quoz, Dubai',
-    subheading: 'Large-format UV printing, high-volume offset runs, and express factory pickup from our production headquarters in Al Quoz Industrial Area 3.',
+    subheading: 'Large-format UV printing, high-volume offset runs, and express factory pickup from our production headquarters in Al Quoz, Dubai.',
     logistics: {
       turnaround: 'Instant factory pickup or express 1-hour courier across Dubai',
-      dispatchHub: 'Production Press Headquarters: Al Quoz Industrial Area 3',
+      dispatchHub: 'Production Press Headquarters: Al Quoz, Dubai',
       deliveryFee: 'Complimentary factory pickup 6 days a week',
     },
     popularProducts: [
@@ -197,14 +197,14 @@ const LOCATION_PAGES = [
       {
         title: 'State-of-the-Art Production Facility in Central Dubai',
         content:
-          'Located in Al Quoz Industrial Area 3, ONPRINT operates an advanced commercial printing press equipped with high-speed offset machinery, wide-format UV flatbed printers, digital finishing cutters, and automated foil stamping lines. Clients are welcome to visit our sample showroom or review live press proofs before large production runs.',
+          'Located in Al Quoz, Dubai, ONPRINT operates an advanced commercial printing press equipped with high-speed offset machinery, wide-format UV flatbed printers, digital finishing cutters, and automated foil stamping lines. Clients are welcome to visit our sample showroom or review live press proofs before large production runs.',
       },
     ],
     faqs: [
       {
         question: 'Can I pick up my print order directly from your Al Quoz press?',
         answer:
-          'Yes. You can collect your finished print orders directly from our Al Quoz 3 production facility Monday through Saturday from 8:30 AM to 6:30 PM.',
+          'Yes. You can collect your finished print orders directly from our Al Quoz production facility Monday through Saturday from 8:30 AM to 6:30 PM.',
       },
     ],
   },
@@ -303,7 +303,7 @@ const LOCATION_PAGES = [
       {
         question: 'Can I inspect print proofs before final production from Al Barsha?',
         answer:
-          'Yes. Because our factory is located just across First Al Khail Road in Al Quoz 3, clients from Al Barsha can visit our showroom or receive a same-day hardcopy proof.',
+          'Yes. Because our factory is located just across First Al Khail Road in Al Quoz, clients from Al Barsha can visit our showroom or receive a same-day hardcopy proof.',
       },
     ],
   },

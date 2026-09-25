@@ -47,7 +47,7 @@ export default function GeoScorecardTab({ showToast }) {
       icon: ShieldCheck,
       score: 100,
       status: 'VERIFIED',
-      details: 'Identical Name (ONPRINT / 0nprint), Address (Al Quoz Industrial Area 3), Phone (+44 7344 546056), Hours across all pages, footers, and schema.',
+      details: 'Identical Name (ONPRINT / 0nprint), Address (Al Quoz, Dubai), Phone (+44 7344 546056), Hours across all pages, footers, and schema.',
     },
     {
       pillar_id: 2,
@@ -79,7 +79,7 @@ export default function GeoScorecardTab({ showToast }) {
       icon: Printer,
       score: 95,
       status: 'VERIFIED',
-      details: 'Accurate pressroom specs: Heidelberg Speedmaster offset, HP Indigo digital, rotary laser marking, hot foil stamping, and optical die-cutting in Al Quoz 3.',
+      details: 'Accurate pressroom specs: Heidelberg Speedmaster offset, HP Indigo digital, rotary laser marking, hot foil stamping, and optical die-cutting in Al Quoz.',
     },
     {
       pillar_id: 6,

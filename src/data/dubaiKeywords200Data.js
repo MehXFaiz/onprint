@@ -149,7 +149,7 @@ const DUBAI_KEYWORDS_200 = [
     competition: null,
     last_checked: null,
     ranking_change: null,
-    notes: 'Local 3-Pack and proximity search targeting Al Quoz Industrial Area 3.',
+    notes: 'Local 3-Pack and proximity search targeting Al Quoz.',
   },
   {
     keyword: 'local printing services Dubai',

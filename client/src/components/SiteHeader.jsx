@@ -251,17 +251,6 @@ export default function SiteHeader() {
               <span className="font-semibold text-[11px]">Track Order</span>
             </Link>
             <span className="h-3 w-[1px] bg-slate-200" />
-            <a
-              href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai%2C%20I%20would%20like%20to%20inquire%20about%20printing%20services"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#25D366]"
-              aria-label="WhatsApp"
-            >
-              <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
-              <span>WhatsApp Chat</span>
-            </a>
-            <span className="h-3 w-[1px] bg-slate-200" />
             <a href="mailto:0nprint183@gmail.com" className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19]">
               <Mail className="h-3.5 w-3.5 text-[#A82F19]" />
               <span>0nprint183@gmail.com</span>
@@ -536,17 +525,6 @@ export default function SiteHeader() {
               <ShoppingBag className="h-4 w-4" />
             </Link>
 
-            <a
-              href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai%2C%20I%20would%20like%20to%20inquire%20about%20printing%20services"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden xl:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#25D366] transition-colors py-1.5 px-2 whitespace-nowrap"
-              aria-label="WhatsApp Chat"
-            >
-              <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
-              <span>WhatsApp</span>
-            </a>
-
             {isAuthenticated && isAdmin ? (
               <div className="relative">
                 <button
@@ -653,7 +631,7 @@ export default function SiteHeader() {
                     <PinterestIcon />
                   </a>
                 </div>
-                <span className="text-xs font-semibold text-slate-500">Al Quoz 3, Dubai</span>
+                <span className="text-xs font-semibold text-slate-500">Al Quoz, Dubai</span>
               </div>
 
               {/* Direct links */}
@@ -853,16 +831,6 @@ export default function SiteHeader() {
 
               {/* Mobile CTA */}
               <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
-                <a
-                  href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai%2C%20I%20would%20like%20to%20inquire%20about%20printing%20services"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-50 py-2.5 text-xs font-bold text-emerald-800 shadow-xs active:bg-emerald-100"
-                >
-                  <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
-                  <span>WhatsApp Concierge</span>
-                </a>
-
                 <Button
                   to="/get-a-quote"
                   variant="accent"

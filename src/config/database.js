@@ -1828,7 +1828,7 @@ async function seedBrandMentionsIfEmpty(connection) {
           mention_source: 'Dubai Chamber Business Directory',
           source_url: 'https://www.dubaichamber.com/en/business-directory/',
           brand_query: 'ONPRINT',
-          snippet: 'ONPRINT is a licensed commercial digital and offset printing facility operating in Al Quoz Industrial Area 3, Dubai.',
+          snippet: 'ONPRINT is a licensed commercial digital and offset printing facility operating in Al Quoz, Dubai.',
           has_link: 1,
           linking_url: 'https://0nprint.com/',
           domain_authority: 84,
@@ -2056,7 +2056,7 @@ async function seedSeoTasksIfEmpty(connection) {
         },
         {
           title: 'Verify LocalBusiness JSON-LD Schema NAP consistency',
-          description: 'Confirm Al Quoz Industrial Area 3 street address, phone (+971 55 183 7995), coordinates, and opening hours match Google Business Profile perfectly.',
+          description: 'Confirm Al Quoz, Dubai address, coordinates, and opening hours match Google Business Profile perfectly.',
           category: 'schema',
           priority: 'high',
           status: 'completed',
@@ -3165,7 +3165,7 @@ async function initDatabase() {
     const adminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
     const adminName = process.env.ADMIN_NAME || 'ONPRINT Admin'
-    const adminPhone = process.env.ADMIN_PHONE || '+971 55 183 7995'
+    const adminPhone = process.env.ADMIN_PHONE || ''
 
     const [adminRows] = await connection.query(
       'SELECT id, password_hash, role FROM users WHERE email = ? LIMIT 1',

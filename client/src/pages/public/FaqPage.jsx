@@ -33,7 +33,7 @@ const faqs = [
   {
     question: 'Do you offer rush or express same-day printing in Dubai?',
     answer:
-      'Yes, express rush printing is available for business cards, flyers, roll-up banner stands, and brochures subject to daily press schedule. Contact our sales desk on WhatsApp at +971 55 183 7995 for urgent requests.',
+      'Yes, express rush printing is available for business cards, flyers, roll-up banner stands, and brochures subject to daily press schedule. Contact our sales desk at 0nprint183@gmail.com or submit our online quote form for urgent requests.',
   },
   {
     question: 'What are your payment and corporate invoicing terms?',

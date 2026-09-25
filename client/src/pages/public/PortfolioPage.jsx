@@ -283,7 +283,7 @@ export default function PortfolioPage() {
             {/* Modal Actions */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border pt-6">
               <span className="text-xs text-slate-500">
-                Facility: Al Quoz Industrial Area 3, Dubai
+                Facility: Al Quoz, Dubai
               </span>
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <Button

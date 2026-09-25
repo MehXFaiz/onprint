@@ -37,7 +37,7 @@ This report outlines the acquisition strategy for the **200 additional backlink 
 
 ### B1 — Dubai Chambers & Verified Registries
 * **Dubai Chamber of Commerce Directory** (`dubaichamber.com`): Official corporate membership directory. Requires active mainland commercial trade license. Highly authoritative local trust signal.
-* **Dubai Economic Development (DED) Business Directory** (`ded.ae`): Direct verification of physical premises in Street 18, Al Quoz Industrial Area 3.
+* **Dubai Economic Development (DED) Business Directory** (`ded.ae`): Direct verification of physical premises in Al Quoz.
 * **Dubai Exports Directory** (`dubai-exports.ae`): Listing under commercial packaging and paper manufacturing.
 
 ### B2 — UAE Free Zone & National Trade Portals

@@ -551,7 +551,7 @@ export default function PageSeoEditorModal({
                   rows={2}
                   value={formData.related_entities}
                   onChange={(e) => handleInputChange('related_entities', e.target.value)}
-                  placeholder="e.g., Al Quoz Industrial Area 3, Heidelberg Speedmaster, 450gsm silk artboard, Hot foil stamping, Spot UV, Blind debossing, DIFC corporate stationery"
+                  placeholder="e.g., Al Quoz, Dubai, Heidelberg Speedmaster, 450gsm silk artboard, Hot foil stamping, Spot UV, Blind debossing, DIFC corporate stationery"
                   className="w-full rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19] focus:outline-none"
                 />
                 <p className="mt-1 text-[11px] text-neutral-400">
@@ -598,7 +598,7 @@ export default function PageSeoEditorModal({
                           },
                           {
                             question: `Can I inspect physical material samples before placing an order?`,
-                            answer: `Yes, you can visit our facility in Al Quoz Industrial Area 3, Dubai, or request a free ONPRINT sample kit delivered to your UAE office.`,
+                            answer: `Yes, you can visit our facility in Al Quoz, Dubai, or request a free ONPRINT sample kit delivered to your UAE office.`,
                           },
                         ]
                         handleInputChange('faq_content', JSON.stringify(sampleFaq, null, 2))

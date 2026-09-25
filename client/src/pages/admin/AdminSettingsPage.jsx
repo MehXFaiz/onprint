@@ -14,7 +14,7 @@ export default function AdminSettingsPage() {
     salesEmail: 'sales@onprint.ae',
     phone: '+44 7344 546056',
     whatsapp: '+44 7344546056',
-    address: 'Warehouse 14, Al Quoz Industrial Area 3, Dubai, United Arab Emirates',
+    address: 'Al Quoz, Dubai, United Arab Emirates',
     currency: 'AED',
     minOrderAmount: '100',
     vatRate: '5',

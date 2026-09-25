@@ -9,10 +9,8 @@ import { trackContactFormSubmit } from '../../utils/analytics'
 import { submitContactInquiry } from '../../services/contact'
 
 const contactDetails = [
-  { icon: PhoneCall, label: 'Pressroom Call', value: '+971 55 183 7995', href: 'tel:+971551837995' },
-  { icon: WhatsAppIcon, label: 'WhatsApp Concierge', value: '+971 55 183 7995', href: 'https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai%2C%20I%20would%20like%20to%20inquire%20about%20printing%20services', isWhatsApp: true },
   { icon: Mail, label: 'Email Inquiry', value: '0nprint183@gmail.com', href: 'mailto:0nprint183@gmail.com' },
-  { icon: MapPin, label: 'Studio & Press', value: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai, UAE' },
+  { icon: MapPin, label: 'Studio & Press', value: 'Al Quoz, Dubai, UAE' },
   { icon: Clock, label: 'Working Hours', value: 'Mon–Sat: 8:30 AM – 6:30 PM' },
 ]
 
@@ -101,7 +99,7 @@ export default function ContactPage() {
     <div className="py-16 sm:py-24">
       <SEOHead
         title="Contact ONPRINT | Printing Services in Dubai | Al Quoz Studio"
-        description="Contact ONPRINT printing company in Dubai. Located in Al Quoz Industrial Area 3. Get in touch for custom quotes, prepress consultations, and express UAE delivery."
+        description="Contact ONPRINT printing company in Dubai. Located in Al Quoz, Dubai. Get in touch for custom quotes, prepress consultations, and express UAE delivery."
         keywords="contact onprint, printing services dubai contact, al quoz print shop, dubai printing press contact"
         canonicalPath="/contact"
         breadcrumbs={[{ name: 'Contact Us', url: '/contact' }]}

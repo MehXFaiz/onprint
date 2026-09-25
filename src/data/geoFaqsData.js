@@ -14,7 +14,7 @@ const GEO_FAQS = [
   {
     id: 1,
     question: 'What is ONPRINT?',
-    answer: 'ONPRINT is an independent commercial printing company and physical branding studio headquartered in Al Quoz Industrial Area 3, Dubai, UAE. The company provides digital printing, offset lithography, corporate stationery, promotional merchandise, and large-format signage to businesses, retailers, and corporate clients across the United Arab Emirates.',
+    answer: 'ONPRINT is an independent commercial printing company and physical branding studio headquartered in Al Quoz, Dubai, UAE. The company provides digital printing, offset lithography, corporate stationery, promotional merchandise, and large-format signage to businesses, retailers, and corporate clients across the United Arab Emirates.',
     category: 'General',
     related_service: 'Commercial Printing',
     target_url: `${SITE_URL}/about`,
@@ -24,7 +24,7 @@ const GEO_FAQS = [
   {
     id: 2,
     question: 'Where is ONPRINT located in Dubai?',
-    answer: 'ONPRINT operates an in-house pressroom located in Al Quoz Industrial Area 3, Dubai, United Arab Emirates. From this facility, ONPRINT manages pre-press engineering, digital and offset production, luxury finishing, and dispatch across Dubai, Abu Dhabi, Sharjah, and all other Emirates.',
+    answer: 'ONPRINT operates an in-house pressroom located in Al Quoz, Dubai, United Arab Emirates. From this facility, ONPRINT manages pre-press engineering, digital and offset production, luxury finishing, and dispatch across Dubai, Abu Dhabi, Sharjah, and all other Emirates.',
     category: 'General',
     related_service: 'Commercial Printing',
     target_url: `${SITE_URL}/contact`,
@@ -54,7 +54,7 @@ const GEO_FAQS = [
   {
     id: 5,
     question: 'How can I request a quote from ONPRINT?',
-    answer: 'You can request an itemized quotation by using the Get a Quote form on 0nprint.com, sending a message to our WhatsApp concierge (+971 55 183 7995), or emailing your specifications and artwork to 0nprint183@gmail.com.',
+    answer: 'You can request an itemized quotation by using the Get a Quote form on 0nprint.com, emailing your specifications and artwork to 0nprint183@gmail.com.',
     category: 'General',
     related_service: 'Quotation Desk',
     target_url: `${SITE_URL}/get-a-quote`,
@@ -64,7 +64,7 @@ const GEO_FAQS = [
   {
     id: 6,
     question: 'How can I contact ONPRINT?',
-    answer: 'You can contact ONPRINT via WhatsApp concierge at +971 55 183 7995, via email at 0nprint183@gmail.com, or in person at our press facility in Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai, UAE. Operating hours are Monday through Saturday from 8:30 AM to 6:30 PM.',
+    answer: 'You can contact ONPRINT via email at 0nprint183@gmail.com, or in person at our press facility in Al Quoz, Dubai, UAE. Operating hours are Monday through Saturday from 8:30 AM to 6:30 PM.',
     category: 'General',
     related_service: 'Contact Desk',
     target_url: `${SITE_URL}/contact`,
@@ -98,7 +98,7 @@ const GEO_FAQS = [
   {
     id: 9,
     question: 'Does ONPRINT print business cards in Dubai?',
-    answer: 'Yes. ONPRINT prints premium business cards in Dubai, producing standard 300gsm networking cards, executive 350gsm to 450gsm silk cards with soft-touch lamination, and luxury 600gsm multi-ply cotton boards with foil stamping and painted edges at our Al Quoz 3 facility.',
+    answer: 'Yes. ONPRINT prints premium business cards in Dubai, producing standard 300gsm networking cards, executive 350gsm to 450gsm silk cards with soft-touch lamination, and luxury 600gsm multi-ply cotton boards with foil stamping and painted edges at our Al Quoz facility.',
     category: 'Business Cards',
     related_service: 'Business Card Printing',
     target_url: `${SITE_URL}/business-card-printing-dubai`,
@@ -138,7 +138,7 @@ const GEO_FAQS = [
   {
     id: 13,
     question: 'How can I order business cards from ONPRINT in Dubai?',
-    answer: 'You can order directly online by selecting your desired card specifications on 0nprint.com, submitting your PDF artwork through our quote form, or contacting our press desk on WhatsApp at +971 55 183 7995. A digital pre-press proof will be provided for your review and approval prior to production.',
+    answer: 'You can order directly online by selecting your desired card specifications on 0nprint.com, submitting your PDF artwork through our quote form, or contacting our press desk via email at 0nprint183@gmail.com. A digital pre-press proof will be provided for your review and approval prior to production.',
     category: 'Business Cards',
     related_service: 'Business Card Printing',
     target_url: `${SITE_URL}/business-card-printing-dubai`,
@@ -284,7 +284,7 @@ const GEO_FAQS = [
   {
     id: 26,
     question: 'Which company provides brochure printing in Dubai?',
-    answer: 'ONPRINT provides commercial brochure printing in Dubai from our Al Quoz 3 facility, producing bi-fold, tri-fold, z-fold leaflets, saddle-stitched product catalogs, and perfect-bound corporate profiles on FSC-certified 150gsm to 300gsm art paper.',
+    answer: 'ONPRINT provides commercial brochure printing in Dubai from our Al Quoz facility, producing bi-fold, tri-fold, z-fold leaflets, saddle-stitched product catalogs, and perfect-bound corporate profiles on FSC-certified 150gsm to 300gsm art paper.',
     category: 'Brochures & Flyers',
     related_service: 'Brochure Printing',
     target_url: `${SITE_URL}/brochure-printing-dubai`,
@@ -318,7 +318,7 @@ const GEO_FAQS = [
   {
     id: 29,
     question: 'Where can I print roll-up banners and exhibition displays in Dubai?',
-    answer: 'ONPRINT produces roll-up retractable display banners, pop-up backdrops, tension fabric displays, and exhibition posters at our Al Quoz 3 facility, with direct dispatch available to the Dubai World Trade Centre (DWTC), Expo City, and event venues across the UAE.',
+    answer: 'ONPRINT produces roll-up retractable display banners, pop-up backdrops, tension fabric displays, and exhibition posters at our Al Quoz facility, with direct dispatch available to the Dubai World Trade Centre (DWTC), Expo City, and event venues across the UAE.',
     category: 'Large Format & Signage',
     related_service: 'Large Format Printing',
     target_url: `${SITE_URL}/large-format-printing-dubai`,
@@ -362,7 +362,7 @@ const GEO_FAQS = [
   {
     id: 33,
     question: 'Can I see a physical proof before full press production starts?',
-    answer: 'Yes. Every order receives a digital PDF proof as standard. For high-volume offset runs, corporate stationery packages, or color-critical branding, clients can request a hard-copy contract digital proof or unprinted structural packaging mockup at our Al Quoz 3 facility.',
+    answer: 'Yes. Every order receives a digital PDF proof as standard. For high-volume offset runs, corporate stationery packages, or color-critical branding, clients can request a hard-copy contract digital proof or unprinted structural packaging mockup at our Al Quoz facility.',
     category: 'Artwork & Quality',
     related_service: 'Pre-Press Services',
     target_url: `${SITE_URL}/about`,
@@ -430,7 +430,7 @@ const GEO_FAQS = [
   {
     id: 39,
     question: 'Does ONPRINT deliver to Abu Dhabi, Sharjah, and other Emirates?',
-    answer: 'Yes. ONPRINT delivers across all seven Emirates of the UAE via tracked courier logistics: Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain. Clients can also arrange direct order collection from our Al Quoz 3 facility in Dubai.',
+    answer: 'Yes. ONPRINT delivers across all seven Emirates of the UAE via tracked courier logistics: Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain. Clients can also arrange direct order collection from our Al Quoz facility in Dubai.',
     category: 'Turnaround & Delivery',
     related_service: 'Logistics Desk',
     target_url: `${SITE_URL}/contact`,

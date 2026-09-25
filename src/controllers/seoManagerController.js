@@ -1640,7 +1640,7 @@ class SeoManagerController {
           'Absence of FAQPage schema markup for rich snippets',
         ],
         differentiation_opportunities: [
-          'Direct Al Quoz Industrial Area 3 pressroom with in-house Heidelberg presses',
+          'Direct Al Quoz, Dubai pressroom with in-house Heidelberg presses',
           'Ultra-thick stock capabilities up to 600 GSM (cotton & duplexed board)',
           'Guaranteed same-day and 24-48 hour turnaround with pre-flight file checks',
           'Low MOQs starting from 100 units for luxury packaging without broker markups',
@@ -1648,7 +1648,7 @@ class SeoManagerController {
         recommendations: [
           'Publish an answer-first definition card addressing the primary query.',
           'Include technical substrate table (Woodfree, Coated Art, Cotton, Greyboard).',
-          'Add verified NAP and hours block (Al Quoz Industrial Area 3, Mon–Sat 8:30–18:30).',
+          'Add verified NAP and hours block (Al Quoz, Dubai, Mon–Sat 8:30–18:30).',
           'Inject FAQPage structured data with direct 40–80 word answer snippets.',
         ],
         originalContentRecommendations: [
@@ -1694,7 +1694,7 @@ class SeoManagerController {
           description: 'ONPRINT identity consistency across all channels',
           details: [
             'Brand Name: ONPRINT (Alternative: 0nprint) verified across Header, Footer, and Schemas',
-            'NAP verified: Al Quoz Industrial Area 3, Dubai, UAE (+971 55 183 7995, 0nprint183@gmail.com)',
+            'NAP verified: Al Quoz, Dubai, UAE (0nprint183@gmail.com)',
             'Operating Hours: Mon–Sat 8:30 AM – 6:30 PM consistent on Contact, Footer, and Schema.org',
             'No fabricated business locations or credentials',
           ],
@@ -2304,7 +2304,7 @@ class SeoManagerController {
             heading: `Overview: Premium ${cleanTopic} Solutions in Dubai`,
             level: 'h2',
             talking_points: [
-              'Direct press manufacturing in Al Quoz Industrial Area 3, Dubai with state-of-the-art Heidelberg and HP Indigo technology.',
+              'Direct press manufacturing in Al Quoz, Dubai, Dubai with state-of-the-art Heidelberg and HP Indigo technology.',
               'Rapid turnaround: standard 24–48 hours, express same-day dispatch across Dubai & Abu Dhabi.',
               'Enterprise B2B volume pricing with dedicated corporate account management.',
             ],
@@ -2357,7 +2357,7 @@ class SeoManagerController {
           },
           {
             question: `Can I inspect physical material samples before placing a bulk order?`,
-            answer_guideline: 'Yes. Clients can visit ONPRINT in Al Quoz Industrial Area 3 or request a free Dubai sample kit containing paper stocks, foil swatches, and box prototypes.',
+            answer_guideline: 'Yes. Clients can visit ONPRINT in Al Quoz, Dubai or request a free Dubai sample kit containing paper stocks, foil swatches, and box prototypes.',
           },
         ],
         call_to_action: {
@@ -2399,7 +2399,7 @@ class SeoManagerController {
         },
         {
           question: `Can I see physical paper and finish samples before approving production?`,
-          answer: `Yes. You can visit our production facility in Al Quoz Industrial Area 3, Dubai, or request a complimentary ONPRINT sample box featuring paper weights from 300gsm to 600gsm, hot foil stamping swatches, spot UV, and luxury box substrates delivered to your UAE office.`,
+          answer: `Yes. You can visit our production facility in Al Quoz, Dubai, Dubai, or request a complimentary ONPRINT sample box featuring paper weights from 300gsm to 600gsm, hot foil stamping swatches, spot UV, and luxury box substrates delivered to your UAE office.`,
           category,
           related_keyword: `printing sample kit dubai`.toLowerCase(),
           search_intent: 'Commercial',

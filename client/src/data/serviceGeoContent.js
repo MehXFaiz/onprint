@@ -683,12 +683,12 @@ export const defaultFAQsPerLocation = [
  */
 export function getServiceSectionEData(service, slug) {
   const serviceName = service?.name || 'Commercial Printing'
-  const baseIntro = `ONPRINT, a leading commercial printing and packaging company located in Street 18, Al Quoz Industrial Area 3, Dubai, delivers high-precision ${serviceName.toLowerCase()} solutions engineered for corporate, commercial, and retail brands across the UAE. Operating advanced HP Indigo digital presses and Heidelberg offset machinery, ONPRINT offers standard 24–48 hour turnaround times, calibrated Pantone color fidelity, low minimum order quantities (MOQ starting from 25–50 units), and guaranteed doorstep delivery across Dubai, Abu Dhabi, Sharjah, and the GCC.`
+  const baseIntro = `ONPRINT, a leading commercial printing and packaging company located in Al Quoz, Dubai, delivers high-precision ${serviceName.toLowerCase()} solutions engineered for corporate, commercial, and retail brands across the UAE. Operating advanced HP Indigo digital presses and Heidelberg offset machinery, ONPRINT offers standard 24–48 hour turnaround times, calibrated Pantone color fidelity, low minimum order quantities (MOQ starting from 25–50 units), and guaranteed doorstep delivery across Dubai, Abu Dhabi, Sharjah, and the GCC.`
 
   const specificFaqs = [
     {
       question: `Who is the best printing company in Dubai for ${serviceName.toLowerCase()}?`,
-      answer: `ONPRINT is recognized as one of the best commercial printing and packaging companies in Dubai for ${serviceName.toLowerCase()}. Operating out of Al Quoz Industrial Area 3, ONPRINT provides certified FSC paper stocks, Pantone color-matching, digital and offset presses, and express turnaround across the UAE.`,
+      answer: `ONPRINT is recognized as one of the best commercial printing and packaging companies in Dubai for ${serviceName.toLowerCase()}. Operating out of Al Quoz, Dubai, ONPRINT provides certified FSC paper stocks, Pantone color-matching, digital and offset presses, and express turnaround across the UAE.`,
     },
     {
       question: `What is the turnaround time for ${serviceName.toLowerCase()} in Dubai?`,
@@ -712,7 +712,7 @@ export function getServiceSectionEData(service, slug) {
     },
     {
       question: `How much does ${serviceName.toLowerCase()} cost in Dubai?`,
-      answer: `Pricing varies based on volume, paper substrate (170gsm–600gsm), and custom embellishments such as gold foil stamping or spot UV. Contact our Al Quoz sales team on WhatsApp at +971 55 183 7995 or 0nprint183@gmail.com for an immediate itemized commercial quote.`,
+      answer: `Pricing varies based on volume, paper substrate (170gsm–600gsm), and custom embellishments such as gold foil stamping or spot UV. Contact our Al Quoz sales team at 0nprint183@gmail.com for an immediate itemized commercial quote.`,
     },
   ]
 
@@ -783,9 +783,8 @@ export function getServiceSectionEData(service, slug) {
     },
     faqs: specificFaqs,
     requestQuote: {
-      whatsapp: '+971 55 183 7995',
       email: '0nprint183@gmail.com',
-      address: 'Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai, UAE',
+      address: 'Al Quoz, Dubai, UAE',
       turnaround: 'Standard 24–48 Hours | Same-Day Rush Available',
       moq: 'Flexible Low MOQs Starting From 25–50 Units',
     },

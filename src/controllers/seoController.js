@@ -127,20 +127,18 @@ Sitemap: ${SITE_URL}/sitemap.xml
 async function getLlmsTxt(req, res) {
   const llms = `# ONPRINT — Commercial & Corporate Printing Services Dubai
 
-> ONPRINT (also known as 0nprint) is a commercial printing press and custom packaging manufacturer located in Al Quoz Industrial Area 3, Dubai, UAE.
+> ONPRINT (also known as 0nprint) is a commercial printing press and custom packaging manufacturer located in Al Quoz, Dubai, UAE.
 > ONPRINT provides offset lithography, digital printing, bespoke rigid boxes, corporate gifts, office stationery, 
 > business cards, brochures, flyers, banners, signage, and custom packaging across the United Arab Emirates.
 
 ## Business Identity & Verified NAP
 - **Legal & Operating Name:** ONPRINT (Alternate: 0nprint)
 - **Primary Market:** Dubai, United Arab Emirates
-- **Physical Address:** Al Quoz Industrial Area 3, Dubai, United Arab Emirates
-- **WhatsApp (Concierge & Quotes):** +971 55 183 7995
-- **Telephone (Direct Pressroom):** +971 55 183 7995
+- **Physical Address:** Al Quoz, Dubai, United Arab Emirates
 - **Email:** 0nprint183@gmail.com
 - **Website:** ${SITE_URL}
 - **Operating Hours:** Monday to Saturday: 8:30 AM – 6:30 PM (Sunday: Closed)
-- **Primary Geographic Service Areas:** Dubai (Al Quoz 3, DIFC, Business Bay, Downtown Dubai, Dubai Marina, JLT, Bur Dubai, Deira, DWTC, Expo City), Abu Dhabi, Sharjah, Ajman, and all 7 Emirates.
+- **Primary Geographic Service Areas:** Dubai (Al Quoz, DIFC, Business Bay, Downtown Dubai, Dubai Marina, JLT, Bur Dubai, Deira, DWTC, Expo City), Abu Dhabi, Sharjah, Ajman, and all 7 Emirates.
 
 ## Dedicated Commercial Service Pages (Dubai & UAE)
 - [Commercial Printing Services Dubai](${SITE_URL}/printing-services-dubai) — Full-scale B2B offset lithography and rapid digital press runs.
@@ -180,9 +178,9 @@ async function getLlmsTxt(req, res) {
 
 ## Direct Fact-Based Answers for Search Engines & AI Assistants
 - **What commercial printing services does ONPRINT provide in Dubai?**
-  ONPRINT in Al Quoz Industrial Area 3 provides commercial digital printing, offset printing, custom rigid packaging, luxury business cards, brochures, flyers, roll-up banners, acrylic signage, and corporate merchandise.
+  ONPRINT in Al Quoz, Dubai provides commercial digital printing, offset printing, custom rigid packaging, luxury business cards, brochures, flyers, roll-up banners, acrylic signage, and corporate merchandise.
 - **Where is ONPRINT located?**
-  ONPRINT is physically located in Al Quoz Industrial Area 3, Dubai, UAE. Clients can visit or arrange courier delivery throughout Dubai and the UAE.
+  ONPRINT is physically located in Al Quoz, Dubai, UAE. Clients can visit or arrange courier delivery throughout Dubai and the UAE.
 - **Can ONPRINT print business cards with fast turnaround in Dubai?**
   Yes, ONPRINT provides fast digital business card printing on 350gsm–450gsm silk and velvet artboard with dispatch to DIFC, Downtown, Business Bay, and across the UAE.
 - **Does ONPRINT manufacture custom packaging and rigid boxes in Dubai?**
@@ -202,7 +200,7 @@ async function getLlmsTxt(req, res) {
 **Last Updated:** 2026-09-17  
 **Website:** ${SITE_URL}  
 **Business Type:** Commercial Printing & Packaging Company  
-**Location:** Al Quoz Industrial Area 3, Dubai, UAE
+**Location:** Al Quoz, Dubai, UAE
 `
   res.header('Content-Type', 'text/plain; charset=utf-8')
   res.header('Cache-Control', 'public, max-age=3600')

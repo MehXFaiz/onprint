@@ -2,7 +2,7 @@
 
 **Brand & Website**: ONPRINT / 0nprint ([https://0nprint.com](https://0nprint.com/))  
 **Target Market**: Dubai, United Arab Emirates (UAE & GCC)  
-**Facility Location**: Street 18, Al Quoz Industrial Area 3, Dubai, UAE  
+**Facility Location**: Al Quoz, Dubai, UAE  
 **Audit Date**: September 2026  
 **Auditor**: Senior Local SEO & Regional Commercial Strategist  
 **Scope**: Google Business Profile (GBP) Optimization, Local Map Pack Dominance, Hyper-Local Commercial Clusters, Strict NAP Standardization, Multi-Emirate Logistics, and Regional Directory Citations.
@@ -20,7 +20,7 @@ This audit assesses ONPRINT’s **Local SEO infrastructure**, verifying its phys
 | Core Assessment Area | Score | Status | Key Determinants |
 | :--- | :---: | :---: | :--- |
 | **NAP Consistency** | 100/100 | Perfect | 100% unified NAP across site metadata, schemas, directories, and footer |
-| **GBP & Map Pack Alignment** | 96/100 | Optimal | Verified coordinates (25.1328° N, 55.2348° E) anchored in Al Quoz Industrial Area 3 |
+| **GBP & Map Pack Alignment** | 96/100 | Optimal | Verified coordinates (25.1328° N, 55.2348° E) anchored in Al Quoz, Dubai |
 | **Hyper-Local Clustering** | 98/100 | Optimal | Explicit coverage of 10+ core commercial districts (DIFC, Business Bay, DWTC, etc.) |
 | **Multi-Emirate Logistics** | 95/100 | Optimal | Express dispatch across Dubai; scheduled next-day distribution to all 7 Emirates |
 | **Citation Profile Hygiene** | 96/100 | Clean | Genuine UAE trade directories (Dubai Chamber, YellowPages, Yalwa); 0% fake citations |
@@ -34,7 +34,7 @@ Google Search Essentials and Local Pack ranking algorithms strictly penalize inc
 * **Official Business Name**: ONPRINT
 * **Recognized Alternate Brand**: 0nprint
 * **Corporate Entity Name**: ONPRINT Printing & Branding Solutions
-* **Physical Street Address**: Street 18, Al Quoz Industrial Area 3, Dubai, United Arab Emirates
+* **Physical Street Address**: Al Quoz, Dubai, United Arab Emirates
 * **Postal Code**: 00000 (Dubai Standard)
 * **Country Code**: AE (United Arab Emirates)
 * **Direct Pressroom Phone**: `+44 7344 546056`
@@ -48,11 +48,11 @@ Google Search Essentials and Local Pack ranking algorithms strictly penalize inc
 
 ## 2. Hyper-Local Commercial & District Clusters
 
-ONPRINT’s facility in **Al Quoz Industrial Area 3** positions the company at the logistical center of Dubai. The website content, keyword targeting, and delivery routing are organized around high-value district clusters:
+ONPRINT’s facility in **Al Quoz, Dubai** positions the company at the logistical center of Dubai. The website content, keyword targeting, and delivery routing are organized around high-value district clusters:
 
 ```
                                [ ONPRINT PRESSROOM ]
-                        Street 18, Al Quoz Industrial Area 3
+                        Al Quoz
                                          │
         ┌───────────────────┬────────────┴───────────┬────────────────────┐
         ▼                   ▼                        ▼                    ▼

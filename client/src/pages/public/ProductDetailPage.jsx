@@ -440,17 +440,6 @@ export default function ProductDetailPage() {
                 <Button onClick={handleRequestQuote} variant="accent" size="lg" className="w-full justify-center sm:w-auto">
                   Request Official Quote
                 </Button>
-                <a
-                  href={`https://wa.me/971551837995?text=${encodeURIComponent(
-                    `Hello ONPRINT Dubai, I would like to get a fast quote for ${product.name} (Qty: ${quantity}, Size: ${size?.label || 'Standard'}, Paper: ${material?.label || 'Standard'}, Finish: ${finish?.label || 'Standard'}).`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1ebd5a] px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-md shadow-[#25D366]/20 transition-all hover:-translate-y-0.5 cursor-pointer"
-                >
-                  <WhatsAppIcon className="h-4 w-4 fill-white" />
-                  <span>WhatsApp Quick Quote</span>
-                </a>
                 <Button
                   to="/contact"
                   variant="secondary"

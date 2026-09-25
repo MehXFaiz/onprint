@@ -41,6 +41,7 @@ import {
   Eye,
   FileCheck,
   AlertCircle,
+  Mail,
 } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
@@ -412,10 +413,10 @@ const INDUSTRY_SOLUTIONS = [
 // 12 Legitimate Dubai & UAE Service & Delivery Hubs
 const DUBAI_AREAS = [
   {
-    name: 'Al Quoz Industrial Area 3',
+    name: 'Al Quoz, Dubai',
     hub: 'Direct Production Pressroom',
     dispatch: '2-Hour Express Pickup / Same-Day Courier',
-    desc: 'Warehouse 4, 24th Street. Central Heidelberg offset & HP Indigo press facility with walk-in client proofing lounge.',
+    desc: 'Central Heidelberg offset & HP Indigo press facility with client proofing lounge in Al Quoz, Dubai.',
   },
   {
     name: 'DIFC & Downtown Dubai',
@@ -495,7 +496,7 @@ const BUSINESS_CARD_FAQS = [
   {
     question: 'Where can I print business cards in Dubai?',
     answer:
-      'ONPRINT operates directly from Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai. You can order online through our website with live quotation, visit our production facility for physical paper swatch checks, or request same-day courier delivery directly to your Dubai office.',
+      'ONPRINT operates directly from Al Quoz, Dubai. You can order online through our website with live quotation, visit our production facility for physical paper swatch checks, or request same-day courier delivery directly to your Dubai office.',
   },
   {
     question: 'What is the best paper for business cards?',
@@ -761,23 +762,13 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     <ArrowRight className="h-4 w-4" />
                   </button>
 
-                  <a
-                    href={`https://wa.me/971551837995?text=${encodeURIComponent(pageData.whatsappText || 'Hello ONPRINT Dubai, I want to inquire about Business Card Printing.')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-emerald-600/30 bg-emerald-500/10 hover:bg-emerald-500/20 px-6 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-700 transition-all cursor-pointer"
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-900 bg-white hover:bg-neutral-900 hover:text-white px-6 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-900 transition-all cursor-pointer"
                   >
-                    <MessageSquare className="h-4 w-4 text-emerald-600" />
-                    <span>WhatsApp Concierge</span>
-                  </a>
-
-                  <a
-                    href="tel:+971551837995"
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-900 bg-white hover:bg-neutral-900 hover:text-white px-5 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-900 transition-all cursor-pointer"
-                  >
-                    <Phone className="h-4 w-4" />
-                    <span>Call Pressroom</span>
-                  </a>
+                    <Mail className="h-4 w-4" />
+                    <span>Inquire Studio</span>
+                  </Link>
                 </div>
               </Reveal>
 
@@ -830,19 +821,8 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     </h4>
                     <p className="text-xs text-neutral-600 leading-relaxed">
                       Thank you. Your inquiry reference is{' '}
-                      <strong className="font-mono text-[#A82F19]">{quoteNumber}</strong>. Our print specialist is preparing your itemized specification.
+                      <strong className="font-mono text-[#A82F19]">{quoteNumber}</strong>. Our print specialist is preparing your itemized specification and will email you shortly.
                     </p>
-                    <div className="pt-2">
-                      <a
-                        href={`https://wa.me/971551837995?text=Hello%20ONPRINT,%20following%20up%20on%20my%20business%20card%20quote%20${quoteNumber}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-emerald-700"
-                      >
-                        <MessageSquare className="h-3.5 w-3.5" />
-                        <span>Instant WhatsApp Follow-Up</span>
-                      </a>
-                    </div>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleQuoteSubmit} className="space-y-3">
@@ -1489,7 +1469,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs">
               <h4 className="font-display text-sm font-black text-neutral-950">What is ONPRINT?</h4>
               <p className="mt-2 text-xs text-neutral-600 leading-relaxed">
-                ONPRINT is a licensed commercial printing atelier located at Warehouse 4, 24th Street, Al Quoz Industrial Area 3, Dubai, UAE, specializing in luxury business cards, rigid packaging, and corporate merchandise.
+                ONPRINT is a licensed commercial printing atelier located in Al Quoz, Dubai, UAE, specializing in luxury business cards, rigid packaging, and corporate merchandise.
               </p>
             </div>
 
@@ -1802,13 +1782,11 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 Request Custom Quotation
               </button>
               <a
-                href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai,%20I%20am%20ready%20to%20order%20business%20cards."
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:0nprint183@gmail.com"
                 className="w-full sm:w-auto rounded-2xl border border-white/20 bg-white/10 hover:bg-white/20 px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer flex items-center justify-center gap-2"
               >
-                <MessageSquare className="h-4 w-4" />
-                <span>Chat on WhatsApp</span>
+                <Mail className="h-4 w-4" />
+                <span>Email: 0nprint183@gmail.com</span>
               </a>
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 **Brand & Website**: ONPRINT / 0nprint ([https://0nprint.com](https://0nprint.com/))  
 **Target Market**: Dubai, United Arab Emirates (UAE & GCC)  
-**Facility Location**: Street 18, Al Quoz Industrial Area 3, Dubai, UAE  
+**Facility Location**: Al Quoz, Dubai, UAE  
 **Audit Date**: September 2026  
 **Auditor**: Senior Technical SEO & Infrastructure Architect  
 **Scope**: Server-Side Pre-Rendering Shells, Dynamic XML Sitemap Generation, Robots.txt Hygiene, Canonical Directives, Hreflang Alignment, and Crawl Budget Optimization.

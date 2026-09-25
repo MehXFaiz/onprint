@@ -278,7 +278,7 @@ class SeoOpportunityService {
           { type: 'Informational', question: 'What paper GSM is best for luxury corporate business cards in Dubai?', status: 'Answered in FAQ', action: 'Expand with comparison table' },
           { type: 'Commercial', question: 'Which printing company offers same-day executive business cards in Al Quoz?', status: 'High Opportunity', action: 'Create dedicated rush section' },
           { type: 'Transactional', question: 'How can I upload custom vector artwork for gold foil stamping?', status: 'Answered', action: 'Add prepress artwork template' },
-          { type: 'Local', question: 'Can I pick up printed visiting cards directly from your Al Quoz 3 warehouse?', status: 'Answered in Logistics', action: 'Add Google Maps directions link' },
+          { type: 'Local', question: 'Can I pick up printed visiting cards directly from your Al Quoz facility?', status: 'Answered in Logistics', action: 'Add Google Maps directions link' },
           { type: 'Comparison', question: 'Soft-touch velvet lamination vs matte lamination: Which lasts longer in UAE humidity?', status: 'Content Gap', action: 'Publish technical blog guide' },
           { type: 'Pricing', question: 'What is the average cost for 500 premium embossed business cards in Dubai?', status: 'Content Gap', action: 'Add pricing tier table' },
           { type: 'How-to', question: 'How to prepare bleed and safety margin in Adobe Illustrator for die-cut cards?', status: 'Content Gap', action: 'Create downloadable PDF guide' },

@@ -189,7 +189,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
               </p>
               <ul className="space-y-2.5 text-xs">
                 {(analysisResult.differentiation_opportunities || [
-                  'Direct Al Quoz Industrial Area 3 pressroom with in-house Heidelberg presses',
+                  'Direct Al Quoz, Dubai pressroom with in-house Heidelberg presses',
                   'Ultra-thick stock capabilities up to 600 GSM (cotton & duplexed board)',
                   'Guaranteed same-day and 24-48 hour turnaround with pre-flight file checks',
                   'Low MOQs starting from 100 units for luxury packaging without broker markups',
@@ -215,7 +215,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
               {(analysisResult.recommendations || [
                 'Publish an answer-first definition card addressing the primary query.',
                 'Include technical substrate table (Woodfree, Coated Art, Cotton, Greyboard).',
-                'Add verified NAP and hours block (Al Quoz Industrial Area 3, Mon–Sat 8:30–18:30).',
+                'Add verified NAP and hours block (Al Quoz, Dubai, Mon–Sat 8:30–18:30).',
                 'Inject FAQPage structured data with direct 40–80 word answer snippets.',
               ]).map((rec, idx) => (
                 <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-neutral-50 border border-neutral-100">

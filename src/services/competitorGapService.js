@@ -139,7 +139,7 @@ class CompetitorGapService {
         averageAdvantageScore: avgAdvantageScore,
         competitorDomain: 'dlxprint.com',
         competitorLocation: 'Al Qusais Industrial Area 1, Dubai',
-        onprintLocation: 'Al Quoz Industrial Area 3, Dubai',
+        onprintLocation: 'Al Quoz, Dubai',
         keyDifferentiator: 'Direct proximity to DIFC/Downtown/Business Bay + In-House Luxury Rigid Packaging & 600gsm Cotton Craftsmanship',
       },
       topCompetitiveActions: [

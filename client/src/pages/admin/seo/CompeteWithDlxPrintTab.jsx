@@ -191,7 +191,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
               Head-to-Head Competitor Gap Matrix
             </h2>
             <p className="text-sm text-neutral-300 leading-relaxed">
-              Exhaustive competitive architecture mapping ONPRINT (Al Quoz Industrial Area 3) against Deluxe Printing (Al Qusais).
+              Exhaustive competitive architecture mapping ONPRINT (Al Quoz, Dubai) against Deluxe Printing (Al Qusais).
               Leveraging central Dubai proximity, low-MOQ luxury packaging, and same-day express turnaround to capture high-value corporate demand.
             </p>
           </div>

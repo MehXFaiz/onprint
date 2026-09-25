@@ -91,15 +91,13 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
                 <span>Request Custom Quote</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href={`https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai,%20I%20am%20inquiring%20about%20${encodeURIComponent(pageData.h1)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-6 py-3 text-sm font-semibold text-emerald-600 transition-all duration-200 hover:bg-emerald-500/20 active:scale-[0.98]"
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-white px-6 py-3 text-sm font-semibold text-neutral-800 transition-all duration-200 hover:bg-neutral-50 active:scale-[0.98]"
               >
-                <MessageSquare className="h-4 w-4 text-emerald-600" />
-                <span>WhatsApp Concierge (+971 55 183 7995)</span>
-              </a>
+                <Mail className="h-4 w-4" />
+                <span>Contact Press Studio</span>
+              </Link>
             </div>
           </Reveal>
 
@@ -186,7 +184,7 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
                 How Your Order Moves from Concept to Doorstep
               </h2>
               <p className="mx-auto mt-2 max-w-2xl text-sm text-secondary sm:text-base">
-                Transparent 4-step B2B fulfillment managed directly inside our Al Quoz Industrial Area 3 facility.
+                Transparent 4-step B2B fulfillment managed directly inside our Al Quoz, Dubai facility.
               </p>
             </div>
           </Reveal>
@@ -251,10 +249,10 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
                 <span>DUBAI PRODUCTION &amp; FULFILLMENT HUB</span>
               </div>
               <h2 className="font-display mt-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-                Al Quoz Industrial Area 3 Logistics
+                Al Quoz, Dubai Logistics
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-secondary sm:text-base">
-                Strategically positioned in Al Quoz 3 with rapid highway connectivity to Sheikh Zayed Road and Al Khail Road. We offer scheduled client walk-ins for material inspection, paper swatch selection, and emergency same-day pickups.
+                Strategically positioned in Al Quoz, Dubai with rapid highway connectivity to Sheikh Zayed Road and Al Khail Road. We offer scheduled client walk-ins for material inspection, paper swatch selection, and emergency same-day pickups.
               </p>
               <div className="mt-4 flex flex-wrap gap-4 text-xs font-semibold text-secondary sm:text-sm">
                 <span className="inline-flex items-center gap-1.5">
@@ -273,7 +271,7 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href="https://maps.google.com/?q=Al+Quoz+Industrial+Area+3+Dubai"
+                href="https://maps.google.com/?q=Al+Quoz+Dubai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-surface px-5 py-3 text-sm font-semibold text-primary transition hover:bg-surface-alt"
@@ -281,15 +279,13 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
                 <MapPin className="h-4 w-4 text-accent" />
                 <span>View on Google Maps</span>
               </a>
-              <a
-                href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai,%20I%20am%20inquiring%20about%20commercial%20printing%20services."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-white transition hover:bg-accent/90"
               >
-                <MessageSquare className="h-4 w-4" />
-                <span>Contact on WhatsApp</span>
-              </a>
+                <Mail className="h-4 w-4" />
+                <span>Contact Pressroom</span>
+              </Link>
             </div>
           </div>
         </section>
@@ -389,13 +385,11 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai,%20I%20need%20an%20urgent%20quote."
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:0nprint183@gmail.com"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/20 active:scale-[0.98]"
               >
-                <MessageSquare className="h-4 w-4 text-emerald-400" />
-                <span>Chat via WhatsApp</span>
+                <Mail className="h-4 w-4" />
+                <span>Email 0nprint183@gmail.com</span>
               </a>
             </div>
           </div>

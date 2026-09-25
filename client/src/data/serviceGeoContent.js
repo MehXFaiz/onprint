@@ -23,7 +23,7 @@ export const serviceGeoContent = {
       ],
     },
     keyInfo: {
-      cost: 'Digital printing costs start from AED 120 for 100 business cards. Pricing varies by size, paper stock, and finishing. Generally more economical than offset for quantities under 1,000 units due to no plate setup fees.',
+      cost: 'Digital printing costs start from AED 45 for 100 standard business cards. Pricing varies by size, paper stock, and finishing. Generally more economical than offset for quantities under 1,000 units due to no plate setup fees.',
       turnaround: 'Standard turnaround is 24-48 hours after artwork approval. Same-day service available for rush orders placed before 10 AM.',
       minimumOrder: 'As low as 25 units for most products. No minimum for proof samples.',
       materials:
@@ -251,7 +251,7 @@ export const serviceGeoContent = {
       ],
     },
     keyInfo: {
-      cost: 'From AED 120 for 100 standard 350gsm cards. Luxury 600gsm cotton with foil + painted edges starts at AED 1,600 for 500 pieces.',
+      cost: 'From AED 45 for 100 standard 300/350gsm cards. Executive soft-touch starts from AED 75. Luxury 600gsm cotton with foil + painted edges starts at AED 1,600 for 500 pieces.',
       turnaround: 'Standard 2–3 working days. Express same-day for 350gsm matte only (before 10 AM).',
       minimumOrder: 'As low as 50 pieces for standard cards, 200 for luxury cotton foil variants.',
       materials:

@@ -392,7 +392,7 @@ const seedProductsList = [
     description: 'Reliable 300gsm business cards printed on smooth matte or silk stock with crisp full-colour artwork and practical finishing for everyday business networking.',
     price: 45.00,
     minimum_quantity: 100,
-    featured: 0,
+    featured: 1,
     seo_title: 'Standard Business Cards Dubai | 300gsm Card Printing | ONPRINT',
     seo_description: 'Order clean 300gsm standard business cards in Dubai with crisp colour printing and practical matte or silk finishes for everyday networking.',
     seo_keywords: 'standard business cards dubai, 300gsm business cards, affordable card printing dubai',

@@ -56,15 +56,75 @@ import softTouchCardImg from '../../assets/products/card-soft-touch.jpg'
 import velvetFoilCardImg from '../../assets/products/card-velvet-foil.jpg'
 import paintedEdgeCardImg from '../../assets/products/card-painted-edge.jpg'
 import brochuresImg from '../../assets/products/brochures.jpg'
+import standardSilkImg from '../../assets/products/business-cards/bc_standard_silk.jpg'
+import premiumMatteImg from '../../assets/products/business-cards/bc_premium_matte.jpg'
+import minimalistImg from '../../assets/products/business-cards/bc_minimalist.jpg'
 
-// 21 Comprehensive Business Card Options
+// 22 Comprehensive Business Card Options - Basic & Standard Prioritized
 const CARD_VARIATIONS = [
+  {
+    id: 'standard-silk-350',
+    title: 'Standard Business Cards (350 GSM Silk / Matte)',
+    category: 'basic',
+    gsm: '350 GSM',
+    badge: 'Most Popular • From AED 45',
+    priceHint: 'From AED 45 / 100 Cards',
+    image: standardSilkImg,
+    description:
+      'Clean, crisp digital printing on durable 350 GSM silk-coated art card with protective matte or gloss lamination. Our most economical and popular choice for everyday business networking, sales teams, and startups.',
+    specs: '350 GSM Art Card • Double-Sided CMYK • Matte or Gloss Finish • Starting AED 45 / 100 Cards',
+    suitableFor: 'Startups, Small Businesses, Sales Reps, Retail Staff, Daily Networking, Trade Fairs',
+    popularFinishes: ['Smooth Matte', 'Protective Gloss', 'Clean Uncoated'],
+  },
+  {
+    id: 'basic-economy-300',
+    title: 'Simple Economy Visiting Cards (300 GSM)',
+    category: 'basic',
+    gsm: '300 GSM',
+    badge: 'Budget Friendly • From AED 45',
+    priceHint: 'From AED 45 / 100 Cards',
+    image: minimalistImg,
+    description:
+      'Lightweight, practical 300 GSM cardstock with sharp typography and vivid colors. Perfect for fast marketing handouts, event promotions, and budget-conscious bulk orders with low minimums.',
+    specs: '300 GSM Cardstock • Full Color CMYK • Fast 24h Turnaround • Starting AED 45 / 100 Cards',
+    suitableFor: 'Exhibitions, Event Handouts, Field Staff, Freelancers, Startup Launches',
+    popularFinishes: ['Single Sided', 'Double Sided', 'Square Cut'],
+  },
+  {
+    id: 'premium-business-cards',
+    title: 'Premium Business Cards (400 GSM Matte)',
+    category: 'basic',
+    gsm: '400 GSM',
+    badge: 'Sturdy Matte • From AED 65',
+    priceHint: 'From AED 65 / 100 Cards',
+    image: premiumMatteImg,
+    description:
+      'Sturdy 400 GSM premium artboard sealed with dual-sided protective matte coating for crisp typography, deep black contrast, and zero edge curling.',
+    specs: '400 GSM Artboard • Double Matte Sealed • Crisp Die-Trim • Starting AED 65 / 100 Cards',
+    suitableFor: 'Corporate Companies, Real Estate Agencies, Law Offices, Financial Advisors',
+    popularFinishes: ['Matte Coating', 'Crisp Square Cut', 'Rounded Corners'],
+  },
+  {
+    id: 'soft-touch-matte-400',
+    title: 'Soft-Touch Velvet Cards (350–400 GSM)',
+    category: 'basic',
+    gsm: '350–400 GSM',
+    badge: 'Popular Upgrade • From AED 75',
+    priceHint: 'From AED 75 / 100 Cards',
+    image: softTouchCardImg,
+    description:
+      'Silky smooth peach-skin texture that completely eliminates glare and resists fingerprints. An affordable tactile upgrade that feels premium in hand without the heavy luxury price tag.',
+    specs: '350–400 GSM Artboard • 30μ Anti-Scuff Velvet • Starting AED 75 / 100 Cards',
+    suitableFor: 'Corporate Executives, Marketing Agencies, Financial Advisors, Consultants',
+    popularFinishes: ['Velvet Soft-Touch', 'Spot UV 3D', 'Curved Rounded Corners'],
+  },
   {
     id: 'luxury-cotton-600',
     title: 'Luxury 600 GSM Cotton Cards',
     category: 'luxury',
     gsm: '600 GSM',
     badge: 'Executive Flagship',
+    priceHint: 'From AED 220 / 100 Cards',
     image: luxuryBusinessCardsImg,
     description:
       'Triple-ply 100% Italian archival tree-free cotton board with an ultra-soft, pillowy tactile finish. Engineered specifically for deep architectural blind debossing and 24K hot foil stamping.',
@@ -78,6 +138,7 @@ const CARD_VARIATIONS = [
     category: 'finishes',
     gsm: '450 GSM',
     badge: 'Best Seller',
+    priceHint: 'From AED 150 / 100 Cards',
     image: velvetFoilCardImg,
     description:
       'Heavyweight 450 GSM artboard laminated with 30-micron velvet soft-touch film and stamped with heated brass dies in reflective Gold, Rose Gold, Champagne, or Silver metallic foil.',
@@ -91,6 +152,7 @@ const CARD_VARIATIONS = [
     category: 'finishes',
     gsm: '400 GSM',
     badge: 'Tactile Contrast',
+    priceHint: 'From AED 130 / 100 Cards',
     image: softTouchCardImg,
     description:
       'Features high-build 100-micron clear gloss liquid polymer cured with UV light over a smooth matte or soft-touch velvet background, creating striking dimensional contrast.',
@@ -104,51 +166,12 @@ const CARD_VARIATIONS = [
     category: 'luxury',
     gsm: '700 GSM',
     badge: '360° Profile',
+    priceHint: 'From AED 280 / 100 Cards',
     image: paintedEdgeCardImg,
     description:
       'Ultra-thick multi-ply card stacks hand-beveled with mirror metallic foil (Gold/Silver) or custom Pantone-matched painted borders for a dramatic 360-degree edge appearance.',
     specs: '700 GSM Duplex • Mirror Foil Edges • Pantone Tint • Multilayer Core',
     suitableFor: 'VIP Club Members, Creative Directors, Luxury Hotel Concierges, High-Net-Worth Brokers',
-    popularFinishes: ['Mirror Gold Edge', 'Pantone Red Edge', 'Double-Sided Foil'],
-  },
-  {
-    id: 'soft-touch-matte-400',
-    title: 'Matte Business Cards (Velvet Soft-Touch)',
-    category: 'luxury',
-    gsm: '400 GSM',
-    badge: 'Sensory Matte',
-    image: '/assets/products/business-cards/bc_matte_softtouch.jpg',
-    description:
-      'Silky smooth peach-skin texture that completely eliminates glare and resists fingerprints. Ideal for sophisticated minimalist typographic designs.',
-    specs: '400 GSM Artboard • 30μ Anti-Scuff Velvet • Double-Sided Coating',
-    suitableFor: 'Corporate Executives, Marketing Agencies, Financial Advisors, Consultants',
-    popularFinishes: ['Velvet Soft-Touch', 'Spot UV 3D', 'Curved Rounded Corners'],
-  },
-  {
-    id: 'standard-silk-350',
-    title: 'Standard Business Cards (350 GSM Silk)',
-    category: 'corporate',
-    gsm: '350 GSM',
-    badge: 'Same-Day Dispatch',
-    image: '/assets/products/business-cards/bc_standard_silk.jpg',
-    description:
-      'High-definition digital press printing on dense 350 GSM silk-coated artboard. Our fastest, most cost-effective solution for high-volume team batches.',
-    specs: '350 GSM Silk • CMYK Heidelberg Calibrated • Same-Day 4h Rush Available',
-    suitableFor: 'Sales Teams, Startups, Event Handouts, Retail Staff, Multi-Employee Batches',
-    popularFinishes: ['Matte Lamination', 'Gloss Lamination', 'Square Corners'],
-  },
-  {
-    id: 'premium-business-cards',
-    title: 'Premium Business Cards (400 GSM Matte)',
-    category: 'corporate',
-    gsm: '400 GSM',
-    badge: 'Executive Standard',
-    image: '/assets/products/business-cards/bc_premium_matte.jpg',
-    description:
-      'Sturdy 400 GSM premium artboard sealed with dual-sided protective matte coating for crisp typography, deep black contrast, and zero edge curling.',
-    specs: '400 GSM Artboard • Double Matte Sealed • Crisp Die-Trim • Pantone Accurate',
-    suitableFor: 'Corporate Companies, Real Estate Agencies, Law Offices, Financial Advisors',
-    popularFinishes: ['Matte Coating', 'Spot UV Logo', 'Rounded Corners'],
   },
   {
     id: 'corporate-business-cards',
@@ -491,7 +514,7 @@ const BUSINESS_CARD_FAQS = [
   {
     question: 'How much does business card printing cost in Dubai?',
     answer:
-      'Standard 350 GSM silk business cards start from approximately AED 120 for 100 cards with digital printing. Premium 450 GSM velvet soft-touch cards with 24K hot gold foil stamping start from AED 280 for 100 cards. Large corporate volume orders (1,000+ cards) and multi-employee batches enjoy significant volume discounts down to AED 0.45 per card.',
+      'Simple, standard 300–350 GSM business cards start from just AED 45 to AED 50 for 100 cards with full-colour digital printing (and AED 120 for 500 cards). If you wish to upgrade to premium soft-touch lamination, cards start at AED 75. For luxury embellishments like 24K hot foil stamping or raised 3D spot UV, executive cards start from AED 150. Large corporate volume orders (1,000+ cards) drop down to AED 0.19 per card.',
   },
   {
     question: 'Where can I print business cards in Dubai?',
@@ -580,16 +603,16 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const [activeGuideTab, setActiveGuideTab] = useState('size')
   const [openFaq, setOpenFaq] = useState(0)
 
-  // Form State
+  // Form State - Standard / Basic defaults
   const [formState, setFormState] = useState({
     name: '',
     company: '',
     phone: '',
     email: '',
-    quantity: '250',
-    cardType: '24K Metallic Foil & Velvet Cards (450 GSM)',
-    paper: '450 GSM Velvet Soft-Touch Artboard',
-    finish: '24K Gold Foil Stamping',
+    quantity: '100',
+    cardType: 'Standard Business Cards (350 GSM Silk / Matte)',
+    paper: '350 GSM Standard Silk / Matte Card',
+    finish: 'Matte Lamination (Simple & Clean)',
     designStatus: 'Have Print-Ready PDF',
     deliveryDate: 'Standard 24-48 Hours',
     notes: '',
@@ -599,12 +622,13 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [quoteNumber, setQuoteNumber] = useState('')
 
-  const scrollToQuote = (prefillType = null, prefillPaper = null) => {
-    if (prefillType) {
+  const scrollToQuote = (prefillType = null, prefillPaper = null, prefillQty = null) => {
+    if (prefillType || prefillQty) {
       setFormState((prev) => ({
         ...prev,
-        cardType: prefillType,
+        ...(prefillType ? { cardType: prefillType } : {}),
         ...(prefillPaper ? { paper: prefillPaper } : {}),
+        ...(prefillQty ? { quantity: String(prefillQty) } : {}),
       }))
     }
     quoteFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -633,7 +657,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         phone: formState.phone,
         email: formState.email,
         productName: `Business Cards: ${formState.cardType}`,
-        quantity: Number(formState.quantity) || 250,
+        quantity: Number(formState.quantity) || 100,
         specs: `Paper: ${formState.paper} | Finish: ${formState.finish} | Design: ${formState.designStatus} | Timeline: ${formState.deliveryDate}${artworkFile ? ` | File: ${artworkFile.name}` : ''}`,
         notes: formState.notes,
         totalPrice: 0,
@@ -673,7 +697,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const productSchema = {
     name: `${pageData.h1} - ONPRINT Dubai`,
     description: pageData.metaDescription,
-    price: '120.00',
+    price: '45.00',
     currency: 'AED',
     image: '/assets/products/luxury_business_cards.jpg',
   }
@@ -936,11 +960,12 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           onChange={handleFormChange}
                           className="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2 text-xs text-neutral-900 focus:border-[#A82F19] focus:bg-white focus:outline-none"
                         >
+                          <option value="350 GSM Standard Silk / Matte Card">350 GSM Standard Silk / Matte (Popular - From AED 45)</option>
+                          <option value="300 GSM Economy Artboard">300 GSM Economy Artboard (Budget Friendly - From AED 45)</option>
+                          <option value="400 GSM Silk Artboard (Matte)">400 GSM Heavyweight Matte Card</option>
                           <option value="450 GSM Velvet Soft-Touch Artboard">450 GSM Velvet Soft-Touch</option>
                           <option value="600 GSM Archival Pure Cotton (Triple-Ply)">600 GSM Archival Italian Cotton</option>
                           <option value="700 GSM Ultra-Thick Duplex Board">700 GSM Ultra-Thick Duplex</option>
-                          <option value="400 GSM Silk Artboard (Matte)">400 GSM Silk Artboard</option>
-                          <option value="350 GSM Standard Silk Board">350 GSM Standard Silk</option>
                           <option value="Fedrigoni Textured Linen Board">Fedrigoni Textured Linen</option>
                           <option value="100% Recycled Kraft Eco Stock">100% Recycled Kraft Eco Stock</option>
                           <option value="Waterproof Frosted PVC / Plastic">Waterproof Frosted PVC</option>
@@ -956,14 +981,16 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           onChange={handleFormChange}
                           className="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2 text-xs text-neutral-900 focus:border-[#A82F19] focus:bg-white focus:outline-none"
                         >
+                          <option value="Matte Lamination (Simple & Clean)">Matte Lamination (Simple &amp; Clean - Recommended)</option>
+                          <option value="Gloss Lamination (Vibrant & Protective)">Gloss Lamination (Vibrant &amp; Protective)</option>
+                          <option value="Uncoated / Natural (Easy to write on)">Uncoated / Natural (Easy to write on)</option>
+                          <option value="Velvet Soft-Touch Only">Velvet Soft-Touch Only</option>
                           <option value="24K Gold Foil Stamping">24K Gold Hot Foil</option>
                           <option value="Rose Gold Foil">Rose Gold Foil</option>
                           <option value="Silver Mirror Foil">Silver Mirror Foil</option>
                           <option value="Raised 3D Spot UV">Raised 3D Spot UV (Scodix)</option>
                           <option value="Blind Debossing">Sculptural Blind Debossing</option>
                           <option value="Painted Gilded Edges">Painted / Gilded Edges</option>
-                          <option value="Velvet Soft-Touch Only">Velvet Soft-Touch Only</option>
-                          <option value="Matte Lamination Only">Matte Lamination Only</option>
                         </select>
                       </div>
                     </div>
@@ -1060,7 +1087,88 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
         </section>
 
-        {/* 2. COMPREHENSIVE BUSINESS CARD OPTIONS & FINISHES SHOWCASE (21 OPTIONS) */}
+        {/* AFFORDABLE EVERYDAY BUSINESS CARDS SPOTLIGHT */}
+        <section className="mt-12 sm:mt-16">
+          <div className="rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-neutral-100">
+              <div>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-xs font-bold text-emerald-800">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                  Simple &amp; Affordable Everyday Option
+                </span>
+                <h2 className="font-display text-2xl sm:text-3xl font-black text-neutral-950 mt-2">
+                  Simple &amp; Basic Business Cards — Clear, Affordable Pricing
+                </h2>
+                <p className="text-xs sm:text-sm text-neutral-600 mt-1 max-w-2xl leading-relaxed">
+                  Looking for clean, professional business cards without expensive luxury add-ons? Our standard 300 &amp; 350 GSM business cards feature crisp high-definition color, smooth protective lamination, and the most competitive pricing in Dubai.
+                </p>
+              </div>
+              <div className="flex items-baseline gap-2 bg-neutral-50 px-4 py-3 rounded-2xl border border-neutral-200 shrink-0">
+                <span className="text-xs text-neutral-500 font-medium">Starting at</span>
+                <span className="font-display text-3xl font-black text-[#A82F19]">AED 45</span>
+                <span className="text-xs text-neutral-500 font-medium">/ 100 pcs</span>
+              </div>
+            </div>
+
+            {/* 4 Transparent Quantity Tiers */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 mt-6">
+              {[
+                { qty: '100', price: 'AED 45', unit: 'AED 0.45 / card', label: 'Starter Pack', popular: false },
+                { qty: '250', price: 'AED 75', unit: 'AED 0.30 / card', label: 'Most Popular', popular: true },
+                { qty: '500', price: 'AED 120', unit: 'AED 0.24 / card', label: 'Best Value', popular: false },
+                { qty: '1000', price: 'AED 195', unit: 'AED 0.19 / card', label: 'Corporate Batch', popular: false },
+              ].map((tier) => (
+                <div
+                  key={tier.qty}
+                  className={`relative rounded-2xl border p-4 text-center transition-all ${
+                    tier.popular
+                      ? 'border-[#A82F19] bg-gradient-to-b from-[#A82F19]/5 to-white shadow-md'
+                      : 'border-neutral-200 bg-neutral-50/70 hover:border-neutral-300'
+                  }`}
+                >
+                  {tier.popular && (
+                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white">
+                      {tier.label}
+                    </span>
+                  )}
+                  <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider">{tier.qty} Cards</div>
+                  <div className="mt-1 font-display text-2xl font-black text-neutral-950">{tier.price}</div>
+                  <div className="text-[10px] text-neutral-500 mt-0.5">{tier.unit}</div>
+                  <button
+                    type="button"
+                    onClick={() => scrollToQuote('Standard Business Cards (350 GSM Silk / Matte)', '350 GSM Standard Silk / Matte Card', tier.qty)}
+                    className="mt-3 w-full rounded-xl bg-neutral-900 hover:bg-[#A82F19] py-2 text-[11px] font-bold text-white transition-colors cursor-pointer"
+                  >
+                    Select {tier.qty} Cards
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-neutral-100 text-xs text-neutral-600">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+                <span className="inline-flex items-center gap-1.5 font-medium text-neutral-800">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                  Sturdy 350 GSM Artboard
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-medium text-neutral-800">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                  Matte or Gloss Protective Coating
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-medium text-neutral-800">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                  Full Color Both Sides (CMYK)
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-medium text-neutral-800">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                  Same-Day or 24h Al Quoz Pickup
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 2. COMPREHENSIVE BUSINESS CARD OPTIONS & FINISHES SHOWCASE */}
         <section className="mt-16 sm:mt-24 border-t border-neutral-200/80 pt-12 sm:pt-16">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end mb-8">
             <div>
@@ -1071,17 +1179,18 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 Business Card Materials &amp; Finish Variations
               </h2>
               <p className="mt-2 text-sm text-neutral-600 max-w-xl">
-                Choose the exact substrate and embellishment engineered to command respect in the UAE corporate landscape.
+                From simple everyday standard cards to executive luxury finishes, choose the exact substrate for your brand.
               </p>
             </div>
 
             {/* Category Filter Pills */}
             <div className="flex flex-wrap items-center gap-1.5 bg-neutral-100 p-1.5 rounded-2xl">
               {[
-                { id: 'all', label: 'All Cards (21)' },
-                { id: 'luxury', label: 'Luxury & Velvet' },
+                { id: 'all', label: 'All Cards' },
+                { id: 'basic', label: 'Simple & Basic (From AED 45)' },
+                { id: 'corporate', label: 'Corporate & Teams' },
                 { id: 'finishes', label: 'Spot UV & Foil' },
-                { id: 'corporate', label: 'Corporate Batch' },
+                { id: 'luxury', label: 'Luxury & Velvet' },
                 { id: 'eco', label: 'Textured & Eco' },
                 { id: 'specialty', label: 'Specialty & Shapes' },
               ].map((tab) => (
@@ -1129,6 +1238,11 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     <h3 className="font-display text-base font-black text-neutral-950 group-hover:text-[#A82F19] transition-colors line-clamp-1">
                       {card.title}
                     </h3>
+                    {card.priceHint && (
+                      <span className="inline-block mt-1 text-xs font-black text-[#A82F19]">
+                        {card.priceHint}
+                      </span>
+                    )}
                     <p className="mt-2 text-xs text-neutral-600 leading-relaxed line-clamp-3">
                       {card.description}
                     </p>

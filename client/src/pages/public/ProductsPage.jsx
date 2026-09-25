@@ -24,11 +24,11 @@ const categoryMeta = {
   },
   'business-cards-printing': {
     eyebrow: 'BUSINESS CARDS PRINTING',
-    heading: 'Luxury Executive Business Card Printing Dubai',
-    title: 'Business Card Printing in Dubai | Luxury Business Cards | ONPRINT',
+    heading: 'Standard & Executive Business Card Printing Dubai',
+    title: 'Business Card Printing in Dubai | Standard & Executive Cards | ONPRINT',
     description:
-      'Make an undeniable first impression with luxury business cards in Dubai. 350gsm–600gsm cotton stocks, gold foil stamping, and spot UV varnishing.',
-    keywords: 'business cards printing dubai, luxury business cards dubai, executive visiting cards uae',
+      'From clean, affordable 300gsm/350gsm everyday standard business cards starting at AED 45 to executive soft-touch, 24K hot foil stamping, and luxury cotton finishes in Dubai.',
+    keywords: 'standard business cards dubai, basic business cards dubai, affordable card printing uae, luxury business cards dubai',
   },
   'flyers-printing-in-dubai': {
     eyebrow: 'FLYERS PRINTING IN DUBAI',

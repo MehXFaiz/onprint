@@ -252,7 +252,7 @@ export default function SiteHeader() {
             </Link>
             <span className="h-3 w-[1px] bg-slate-200" />
             <a
-              href="https://wa.me/447344546056"
+              href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai%2C%20I%20would%20like%20to%20inquire%20about%20printing%20services"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 transition-colors hover:text-[#25D366]"
@@ -537,7 +537,7 @@ export default function SiteHeader() {
             </Link>
 
             <a
-              href="https://wa.me/447344546056"
+              href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai%2C%20I%20would%20like%20to%20inquire%20about%20printing%20services"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden xl:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#25D366] transition-colors py-1.5 px-2 whitespace-nowrap"
@@ -854,7 +854,7 @@ export default function SiteHeader() {
               {/* Mobile CTA */}
               <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
                 <a
-                  href="https://wa.me/447344546056"
+                  href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai%2C%20I%20would%20like%20to%20inquire%20about%20printing%20services"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-50 py-2.5 text-xs font-bold text-emerald-800 shadow-xs active:bg-emerald-100"

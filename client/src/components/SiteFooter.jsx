@@ -46,6 +46,25 @@ const commercialHubs = [
   { to: '/corporate-printing-dubai', label: 'Corporate Stationery & Eco Print' },
 ]
 
+const businessCardLinks = [
+  { to: '/business-card-printing-dubai', label: 'Business Card Printing Dubai' },
+  { to: '/business-card-printing-uae', label: 'Business Card Printing UAE' },
+  { to: '/visiting-card-printing-dubai', label: 'Visiting Card Printing Dubai' },
+  { to: '/premium-business-cards', label: 'Premium Business Cards' },
+  { to: '/luxury-business-cards', label: 'Luxury Business Cards' },
+  { to: '/foil-business-cards', label: 'Foil Stamped Business Cards' },
+  { to: '/spot-uv-business-cards', label: 'Raised 3D Spot UV Cards' },
+  { to: '/velvet-business-cards', label: 'Velvet Soft-Touch Cards' },
+  { to: '/soft-touch-business-cards', label: 'Soft Touch Business Cards' },
+  { to: '/embossed-business-cards', label: 'Embossed & Debossed Cards' },
+  { to: '/corporate-business-cards', label: 'Corporate Batch Business Cards' },
+  { to: '/business-card-design', label: 'Business Card Design Dubai' },
+  { to: '/same-day-business-card-printing', label: 'Same Day Business Cards' },
+  { to: '/business-card-printing-abu-dhabi', label: 'Business Cards Abu Dhabi' },
+  { to: '/business-card-printing-sharjah', label: 'Business Cards Sharjah' },
+  { to: '/business-card-printing-ajman', label: 'Business Cards Ajman' },
+]
+
 export default function SiteFooter() {
   return (
     <footer className="border-t border-[#000000] bg-[#000000] text-[#FFFFFF]/80">
@@ -145,6 +164,31 @@ export default function SiteFooter() {
           </ul>
         </div>
       </Container>
+
+      {/* Business Cards Dubai & UAE Topical Cluster / SEO Link Graph */}
+      <div className="border-t border-[#FFFFFF]/10 bg-[#080808] py-6">
+        <Container>
+          <div className="flex items-center justify-between gap-4 mb-3">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
+              Business Cards Dubai &amp; UAE Specialized Production
+            </p>
+            <span className="hidden sm:inline-block text-[10px] uppercase tracking-wider text-[#FFFFFF]/40 font-mono">
+              Al Quoz Pressroom • 350–700 GSM Stocks
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-[#FFFFFF]/70">
+            {businessCardLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="transition-colors hover:text-[#D4AF37] hover:underline underline-offset-4"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </div>
 
       {/* Commercial Hubs Directory / SEO Link Graph */}
       <div className="border-t border-[#FFFFFF]/10 bg-[#050505] py-6">

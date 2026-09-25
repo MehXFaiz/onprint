@@ -22,6 +22,7 @@ const uploadRoutes = require('./routes/uploadRoutes')
 const blogRoutes = require('./routes/blogRoutes')
 const seoRoutes = require('./routes/seoRoutes')
 const { getRobotsTxt, getSitemapXml, getLlmsTxt, getAdsTxt } = require('./controllers/seoController')
+const { BUSINESS_CARDS_LANDING_DATA } = require('./data/businessCardsLandingData')
 
 const CLIENT_DIST = path.join(__dirname, '..', 'dist')
 
@@ -61,8 +62,11 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
 
   seo = seo || {}
 
-  const title = seo.meta_title || 'Printing Company in Dubai | ONPRINT'
-  const description = seo.meta_description || ''
+  const cleanPathKey = requestPath.replace(/^\//, '')
+  const bcData = BUSINESS_CARDS_LANDING_DATA[cleanPathKey]
+
+  const title = seo.meta_title || bcData?.title || 'Printing Company in Dubai | ONPRINT'
+  const description = seo.meta_description || bcData?.metaDescription || ''
   const canonical = seo.canonical_url || `${siteUrl}${requestPath === '/' ? '' : requestPath}`
   const ogImage = absoluteSeoUrl(seo.og_image, siteUrl)
   const twitterImage = absoluteSeoUrl(seo.twitter_image || seo.og_image, siteUrl)
@@ -70,9 +74,14 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     ? 'noindex, nofollow'
     : `${seo.robots_index || 'index'}, ${seo.robots_follow || 'follow'}, max-image-preview:large`
 
+  const keywordsString = [
+    seo.focus_keyword || bcData?.focusKeyword,
+    seo.secondary_keywords || bcData?.secondaryKeywords,
+  ].filter(Boolean).join(', ')
+
   let rendered = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(title)}</title>`)
   rendered = replaceMeta(rendered, 'name', 'description', description)
-  rendered = replaceMeta(rendered, 'name', 'keywords', [seo.focus_keyword, seo.secondary_keywords].filter(Boolean).join(', '))
+  rendered = replaceMeta(rendered, 'name', 'keywords', keywordsString)
   rendered = replaceMeta(rendered, 'name', 'robots', robots)
   rendered = replaceMeta(rendered, 'property', 'og:title', seo.og_title || title)
   rendered = replaceMeta(rendered, 'property', 'og:description', seo.og_description || description)
@@ -215,6 +224,12 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
       { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
       { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Article', item: canonical },
     ]
+  } else if (bcData) {
+    breadcrumbItems = [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Business Card Printing Dubai', item: `${siteUrl}/business-card-printing-dubai` },
+      { '@type': 'ListItem', position: 3, name: bcData.h1, item: canonical },
+    ]
   } else if (COMMERCIAL_STATIC_PATHS.has(requestPath)) {
     breadcrumbItems = [
       { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
@@ -232,6 +247,44 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>\n  </head>`)
   }
 
+  // Inject FAQPage Schema for Business Card Landing Pages if available
+  if (bcData && bcData.faqs && bcData.faqs.length > 0 && !rendered.includes('"@type":"FAQPage"')) {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: bcData.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.answer,
+        },
+      })),
+    }
+    rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>\n  </head>`)
+  }
+
+  // Inject Service Schema for Business Card Landing Pages
+  if (bcData) {
+    const serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: bcData.h1,
+      description: bcData.metaDescription,
+      provider: {
+        '@id': `${siteUrl}/#organization`,
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Dubai' },
+        { '@type': 'City', name: 'Abu Dhabi' },
+        { '@type': 'City', name: 'Sharjah' },
+        { '@type': 'Country', name: 'United Arab Emirates' },
+      ],
+      serviceType: 'Business Card Printing',
+    }
+    rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(serviceSchema)}</script>\n  </head>`)
+  }
+
   if (seo.schema_markup) {
     try {
       const schemaMarkup = JSON.stringify(JSON.parse(seo.schema_markup))
@@ -247,6 +300,21 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
 const COMMERCIAL_STATIC_PATHS = new Set([
   '/printing-services-dubai',
   '/business-card-printing-dubai',
+  '/business-card-printing-uae',
+  '/visiting-card-printing-dubai',
+  '/premium-business-cards',
+  '/luxury-business-cards',
+  '/foil-business-cards',
+  '/spot-uv-business-cards',
+  '/velvet-business-cards',
+  '/soft-touch-business-cards',
+  '/embossed-business-cards',
+  '/corporate-business-cards',
+  '/business-card-design',
+  '/same-day-business-card-printing',
+  '/business-card-printing-abu-dhabi',
+  '/business-card-printing-sharjah',
+  '/business-card-printing-ajman',
   '/brochure-printing-dubai',
   '/flyer-printing-dubai',
   '/packaging-printing-dubai',

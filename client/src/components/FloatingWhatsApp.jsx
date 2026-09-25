@@ -2,7 +2,7 @@ import React from 'react'
 import WhatsAppIcon from './WhatsAppIcon'
 
 export default function FloatingWhatsApp() {
-  const waLink = 'https://wa.me/447344546056?text=Hello%20ONPRINT%20Team%2C%20I%20would%20like%20to%20inquire%20about%20printing%20services'
+  const waLink = 'https://wa.me/971551837995?text=Hello%20ONPRINT%20Team%2C%20I%20would%20like%20to%20inquire%20about%20printing%20services'
 
   return (
     <div className="fixed bottom-6 right-6 z-50">

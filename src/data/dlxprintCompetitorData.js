@@ -75,7 +75,7 @@ const ONPRINT_DIFFERENTIATION_MATRIX = [
   },
   {
     pillar: 'Digital Quoting & Online Customer Flow',
-    onprint: 'Instant multi-step quote request builder (/get-a-quote), dedicated WhatsApp pressroom concierge (+44 7344 546056), sample pack request program.',
+    onprint: 'Instant multi-step quote request builder (/get-a-quote), dedicated WhatsApp pressroom concierge (+971 55 183 7995), sample pack request program.',
     dlxprint: 'Traditional static inquiry forms and manual email requests.',
     onprintAdvantageScore: 88,
     strategicAngle: 'Frictionless B2B procurement workflow converting mobile and urgent web searchers in under 60 seconds.',
@@ -263,7 +263,7 @@ const DLXPRINT_COMPETITOR_GAPS = [
     recommended_keyword: 'commercial printing press schema dubai',
     search_intent: 'Commercial',
     priority: 'Critical',
-    action: 'Validate all JSON-LD schemas with complete areaServed (Dubai, UAE), openingHours, priceCurrency (AED), and telephone (+44 7344 546056).',
+    action: 'Validate all JSON-LD schemas with complete areaServed (Dubai, UAE), openingHours, priceCurrency (AED), and telephone (+971 55 183 7995).',
   },
 
   // 8. LOCAL SEO GAPS

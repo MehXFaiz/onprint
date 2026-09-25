@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { BUSINESS_CARDS_LANDING_DATA } from '../../data/businessCardsLandingData'
 import {
   Sparkles,
   Award,
@@ -568,9 +569,13 @@ const BUSINESS_CARD_FAQS = [
   },
 ]
 
-export default function BusinessCardLandingPage() {
+export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const quoteFormRef = useRef(null)
-  const [activeCategory, setActiveCategory] = useState('all')
+  const location = useLocation()
+  const derivedKey = propKey || location.pathname.replace(/^\//, '') || 'business-card-printing-dubai'
+  const pageData = BUSINESS_CARDS_LANDING_DATA[derivedKey] || BUSINESS_CARDS_LANDING_DATA['business-card-printing-dubai']
+
+  const [activeCategory, setActiveCategory] = useState(pageData.cardCategory || 'all')
   const [activeGuideTab, setActiveGuideTab] = useState('size')
   const [openFaq, setOpenFaq] = useState(0)
 
@@ -618,7 +623,7 @@ export default function BusinessCardLandingPage() {
   const handleQuoteSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    trackGetQuoteClick({ source_page: 'business_card_flagship_landing' })
+    trackGetQuoteClick({ source_page: `business_card_${derivedKey}` })
 
     try {
       const quotePayload = {
@@ -652,20 +657,21 @@ export default function BusinessCardLandingPage() {
 
   const breadcrumbs = [
     { name: 'Services', url: '/services' },
-    { name: 'Business Card Printing Dubai', url: '/business-card-printing-dubai' },
+    ...(derivedKey !== 'business-card-printing-dubai'
+      ? [{ name: 'Business Card Printing Dubai', url: '/business-card-printing-dubai' }]
+      : []),
+    { name: pageData.title.split('|')[0].trim(), url: pageData.path },
   ]
 
   const serviceSchema = {
-    name: 'Business Card Printing Dubai',
-    description:
-      'Professional business card printing in Dubai. 350gsm–700gsm cotton & velvet stocks, 24K hot foil stamping, raised 3D spot UV, painted edges. Same-day Al Quoz dispatch.',
+    name: pageData.h1,
+    description: pageData.metaDescription,
     image: '/assets/products/luxury_business_cards.jpg',
   }
 
   const productSchema = {
-    name: 'Luxury Executive Business Cards Dubai',
-    description:
-      'Bespoke 600 GSM Italian cotton and 450 GSM velvet business cards with 24K hot foil stamping and Spot UV in Dubai, UAE.',
+    name: `${pageData.h1} - ONPRINT Dubai`,
+    description: pageData.metaDescription,
     price: '120.00',
     currency: 'AED',
     image: '/assets/products/luxury_business_cards.jpg',
@@ -675,12 +681,12 @@ export default function BusinessCardLandingPage() {
     <div className="bg-[#FFFFFF] text-[#000000] py-8 sm:py-12">
       {/* Dynamic SEO & Schema Engine */}
       <SEOHead
-        title="Business Card Printing Dubai | Luxury & Executive Visiting Cards | ONPRINT"
-        description="Professional business card printing in Dubai. 350gsm–700gsm cotton & velvet stocks, 24K hot foil stamping, raised 3D spot UV, painted edges. Same-day Al Quoz dispatch."
-        keywords="business card printing dubai, luxury business cards dubai, visiting card printing dubai, custom business cards dubai, corporate business cards dubai, foil business cards dubai, 600 gsm cotton cards dubai"
-        canonicalPath="/business-card-printing-dubai"
+        title={pageData.title}
+        description={pageData.metaDescription}
+        keywords={pageData.secondaryKeywords}
+        canonicalPath={pageData.path}
         breadcrumbs={breadcrumbs}
-        faqList={BUSINESS_CARD_FAQS}
+        faqList={pageData.faqs || BUSINESS_CARD_FAQS}
         service={serviceSchema}
         product={productSchema}
       />
@@ -700,7 +706,7 @@ export default function BusinessCardLandingPage() {
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/50 bg-white/90 px-4 py-1.5 shadow-xs backdrop-blur-md">
                   <Sparkles className="h-3.5 w-3.5 text-[#D4AF37]" />
                   <span className="text-[11px] font-black uppercase tracking-[0.22em] text-neutral-900">
-                    Dubai’s Premier Executive Business Card Press
+                    {pageData.badge}
                   </span>
                   <span className="hidden sm:inline-block h-3 w-px bg-neutral-300" />
                   <span className="hidden sm:inline-block font-mono text-[9.5px] font-bold text-[#A82F19]">
@@ -711,36 +717,25 @@ export default function BusinessCardLandingPage() {
 
               <Reveal delay={0.06}>
                 <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight text-neutral-950">
-                  Business Card Printing in{' '}
-                  <span className="relative inline-block">
-                    <span className="bg-gradient-to-r from-[#7A1C0D] via-[#A82F19] to-[#D4AF37] bg-clip-text text-transparent">
-                      Dubai, UAE
-                    </span>
-                    <span
-                      className="absolute -bottom-1.5 left-0 h-[5px] w-full rounded-full bg-gradient-to-r from-[#A82F19] via-[#D4AF37] to-transparent"
-                      aria-hidden="true"
-                    />
-                  </span>
+                  {pageData.h1}
                 </h1>
               </Reveal>
 
               <Reveal delay={0.12}>
                 <p className="text-base sm:text-lg text-neutral-700 leading-relaxed max-w-2xl">
-                  Make an unforgettable executive impression in every boardroom meeting. ONPRINT crafts{' '}
-                  <strong className="font-bold text-neutral-950">bespoke luxury business cards</strong> in Dubai on{' '}
-                  <strong className="font-bold text-neutral-950">350 GSM to 700 GSM Italian cotton boards</strong>, complete with 24K hot foil stamping, velvet soft-touch lamination, raised 3D Spot UV, and painted gilded edges.
+                  {pageData.subheading}
                 </p>
               </Reveal>
 
               {/* Live Technical Trust Strip */}
               <Reveal delay={0.18}>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-                  {[
+                  {(pageData.heroStats || [
                     { label: 'Paper Stocks', val: '350 – 700 GSM' },
                     { label: 'Same-Day Rush', val: '4-Hour Express' },
                     { label: 'Standard Sizes', val: '85x55 & 90x50' },
                     { label: 'Color Matching', val: '100% Pantone' },
-                  ].map((item) => (
+                  ]).map((item) => (
                     <div
                       key={item.label}
                       className="rounded-2xl border border-white/80 bg-white/85 p-3 shadow-xs backdrop-blur-md"
@@ -762,18 +757,18 @@ export default function BusinessCardLandingPage() {
                     onClick={() => scrollToQuote()}
                     className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#A82F19] hover:bg-[#8c2211] px-7 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl shadow-[#A82F19]/35 transition-all hover:-translate-y-0.5 cursor-pointer"
                   >
-                    <span>Get a Free Quote</span>
+                    <span>{pageData.ctaText || 'Get a Free Quote'}</span>
                     <ArrowRight className="h-4 w-4" />
                   </button>
 
                   <a
-                    href="https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai,%20I%20want%20to%20inquire%20about%20Business%20Card%20Printing."
+                    href={`https://wa.me/971551837995?text=${encodeURIComponent(pageData.whatsappText || 'Hello ONPRINT Dubai, I want to inquire about Business Card Printing.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-2xl border border-emerald-600/30 bg-emerald-500/10 hover:bg-emerald-500/20 px-6 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-700 transition-all cursor-pointer"
                   >
                     <MessageSquare className="h-4 w-4 text-emerald-600" />
-                    <span>WhatsApp Us</span>
+                    <span>WhatsApp Concierge</span>
                   </a>
 
                   <a
@@ -1622,6 +1617,161 @@ export default function BusinessCardLandingPage() {
                 </div>
               )
             })}
+          </div>
+        </section>
+
+        {/* 8.5. TOPICAL CLUSTER INTERLINKING DIRECTORY */}
+        <section className="mt-16 sm:mt-24 border-t border-neutral-200/80 pt-12 sm:pt-16">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-xs font-black uppercase tracking-widest text-[#A82F19]">
+              BUSINESS CARDS TOPICAL CLUSTER
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black text-neutral-950">
+              Explore Specialized Business Card Finishes &amp; UAE Coverage
+            </h2>
+            <p className="mt-2 text-sm text-neutral-600">
+              Select your specific board finish, enterprise corporate tier, or regional emirate dispatch hub.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Column 1: Luxury & Tactile Finishes */}
+            <div className="rounded-2xl border border-neutral-200 bg-neutral-50/70 p-6 space-y-3">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#A82F19]">
+                <Sparkles className="h-4 w-4" />
+                <span>Luxury &amp; Tactile Finishes</span>
+              </div>
+              <ul className="space-y-2.5 text-xs sm:text-sm">
+                <li>
+                  <Link to="/foil-business-cards" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>24K Gold &amp; Metallic Foil Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/spot-uv-business-cards" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Raised 3D Spot UV (Scodix) Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/velvet-business-cards" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Velvet Soft-Touch Business Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/soft-touch-business-cards" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Silk Soft-Touch Artboard Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/embossed-business-cards" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Embossed &amp; Blind Debossed Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/luxury-business-cards" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>600 GSM Archival Cotton Luxury Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 2: Formats, Speed & Corporate Tiers */}
+            <div className="rounded-2xl border border-neutral-200 bg-neutral-50/70 p-6 space-y-3">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#A82F19]">
+                <Briefcase className="h-4 w-4" />
+                <span>Executive &amp; Corporate Tiers</span>
+              </div>
+              <ul className="space-y-2.5 text-xs sm:text-sm">
+                <li>
+                  <Link to="/premium-business-cards" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Premium Business Cards (400 GSM)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/corporate-business-cards" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Corporate Multi-Name Batches (PMS)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/same-day-business-card-printing" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Same-Day 4-Hour Express Cards</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/visiting-card-printing-dubai" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Visiting Card Printing Dubai</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/business-card-design" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Business Card Design &amp; Pre-Press</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/business-card-printing-dubai" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Dubai Central Hub (Al Quoz 3)</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: UAE Regional Coverage */}
+            <div className="rounded-2xl border border-neutral-200 bg-neutral-50/70 p-6 space-y-3">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#A82F19]">
+                <MapPin className="h-4 w-4" />
+                <span>Emirates Regional Dispatch</span>
+              </div>
+              <ul className="space-y-2.5 text-xs sm:text-sm">
+                <li>
+                  <Link to="/business-card-printing-uae" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>All UAE Emirates Doorstep Delivery</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/business-card-printing-abu-dhabi" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Abu Dhabi Capital &amp; ADGM Express</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/business-card-printing-sharjah" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Sharjah Industrial &amp; Free Zones</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/business-card-printing-ajman" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Ajman Commercial District Courier</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/business-cards-printing" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Standard Business Cards Service</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/blog" className="font-semibold text-neutral-900 hover:text-[#A82F19] flex items-center justify-between group">
+                    <span>Business Card Paper &amp; Specs Guides</span>
+                    <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#A82F19]" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 

@@ -45,6 +45,21 @@ Allow: /printing-solutions
 Allow: /printing-solutions/
 Allow: /printing-services-dubai
 Allow: /business-card-printing-dubai
+Allow: /business-card-printing-uae
+Allow: /visiting-card-printing-dubai
+Allow: /premium-business-cards
+Allow: /luxury-business-cards
+Allow: /foil-business-cards
+Allow: /spot-uv-business-cards
+Allow: /velvet-business-cards
+Allow: /soft-touch-business-cards
+Allow: /embossed-business-cards
+Allow: /corporate-business-cards
+Allow: /business-card-design
+Allow: /same-day-business-card-printing
+Allow: /business-card-printing-abu-dhabi
+Allow: /business-card-printing-sharjah
+Allow: /business-card-printing-ajman
 Allow: /brochure-printing-dubai
 Allow: /flyer-printing-dubai
 Allow: /packaging-printing-dubai
@@ -120,15 +135,31 @@ async function getLlmsTxt(req, res) {
 - **Legal & Operating Name:** ONPRINT (Alternate: 0nprint)
 - **Primary Market:** Dubai, United Arab Emirates
 - **Physical Address:** Al Quoz Industrial Area 3, Dubai, United Arab Emirates
-- **WhatsApp (Concierge & Quotes):** +44 7344 546056
+- **WhatsApp (Concierge & Quotes):** +971 55 183 7995
+- **Telephone (Direct Pressroom):** +971 55 183 7995
 - **Email:** 0nprint183@gmail.com
 - **Website:** ${SITE_URL}
 - **Operating Hours:** Monday to Saturday: 8:30 AM – 6:30 PM (Sunday: Closed)
-- **Primary Geographic Service Areas:** Dubai (Al Quoz, DIFC, Business Bay, Downtown Dubai, Dubai Marina, DWTC, Expo City), Abu Dhabi, Sharjah, and all 7 Emirates.
+- **Primary Geographic Service Areas:** Dubai (Al Quoz 3, DIFC, Business Bay, Downtown Dubai, Dubai Marina, JLT, Bur Dubai, Deira, DWTC, Expo City), Abu Dhabi, Sharjah, Ajman, and all 7 Emirates.
 
-## Dedicated Commercial Service Pages (Dubai, UAE)
+## Dedicated Commercial Service Pages (Dubai & UAE)
 - [Commercial Printing Services Dubai](${SITE_URL}/printing-services-dubai) — Full-scale B2B offset lithography and rapid digital press runs.
-- [Business Card Printing Dubai](${SITE_URL}/business-card-printing-dubai) — Executive 350gsm–600gsm cotton and silk cards, gold foil, spot UV, and velvet lamination.
+- [Business Card Printing Dubai](${SITE_URL}/business-card-printing-dubai) — Flagship executive 350gsm–700gsm cotton and silk cards, gold foil, spot UV, and velvet lamination.
+- [Business Card Printing UAE](${SITE_URL}/business-card-printing-uae) — Corporate business card printing and delivery across all seven Emirates.
+- [Visiting Card Printing Dubai](${SITE_URL}/visiting-card-printing-dubai) — Premium custom visiting cards with bilingual English-Arabic typography.
+- [Premium Business Cards Dubai](${SITE_URL}/premium-business-cards) — Heavy 400–450 GSM matte and silk artboard executive cards.
+- [Luxury Business Cards Dubai](${SITE_URL}/luxury-business-cards) — 600–700 GSM Italian cotton board with gilded metallic edges and debossing.
+- [Foil Business Cards Dubai](${SITE_URL}/foil-business-cards) — 24K mirror gold, rose gold, silver, and copper hot stamped metallic foil cards.
+- [Spot UV Business Cards Dubai](${SITE_URL}/spot-uv-business-cards) — Raised 3D Scodix polymer gloss contrast over matte velvet cards.
+- [Velvet Business Cards Dubai](${SITE_URL}/velvet-business-cards) — 30-micron velvet soft-touch anti-scuff laminated business cards.
+- [Soft Touch Business Cards Dubai](${SITE_URL}/soft-touch-business-cards) — Sensory peach-skin matte luxury cards for executives and agencies.
+- [Embossed Business Cards Dubai](${SITE_URL}/embossed-business-cards) — 3D sculptural raised relief and deep letterpress debossed cards.
+- [Corporate Business Cards Dubai](${SITE_URL}/corporate-business-cards) — Centralized multi-employee name batch printing with 100% Pantone consistency.
+- [Business Card Design Dubai](${SITE_URL}/business-card-design) — Professional print-ready vector design, dielines, and pre-press file preparation.
+- [Same Day Business Card Printing Dubai](${SITE_URL}/same-day-business-card-printing) — Urgent 4-hour rush printing with same-day courier across Dubai.
+- [Business Card Printing Abu Dhabi](${SITE_URL}/business-card-printing-abu-dhabi) — Executive business cards with insured doorstep delivery to ADGM and Abu Dhabi.
+- [Business Card Printing Sharjah](${SITE_URL}/business-card-printing-sharjah) — Express corporate visiting cards for Sharjah business districts.
+- [Business Card Printing Ajman](${SITE_URL}/business-card-printing-ajman) — High-volume commercial visiting cards for Ajman Free Zone and commercial firms.
 - [Brochure Printing Dubai](${SITE_URL}/brochure-printing-dubai) — Saddle stitch and PUR perfect bound corporate brochures, lookbooks, and annual reports.
 - [Flyer Printing Dubai](${SITE_URL}/flyer-printing-dubai) — A4, A5, A6, DL promotional marketing leaflets on 150gsm–300gsm coated art paper with express delivery options.
 - [Packaging Printing Dubai](${SITE_URL}/packaging-printing-dubai) — Custom rigid boxes, folding retail cartons, and cosmetic packaging with hot foil and spot UV.
@@ -264,6 +295,21 @@ async function getSitemapXml(req, res) {
         { path: '/services', priority: '0.9', changefreq: 'weekly' },
         { path: '/printing-services-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/business-card-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/business-card-printing-uae', priority: '0.9', changefreq: 'weekly' },
+        { path: '/visiting-card-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/premium-business-cards', priority: '0.9', changefreq: 'weekly' },
+        { path: '/luxury-business-cards', priority: '0.9', changefreq: 'weekly' },
+        { path: '/foil-business-cards', priority: '0.9', changefreq: 'weekly' },
+        { path: '/spot-uv-business-cards', priority: '0.9', changefreq: 'weekly' },
+        { path: '/velvet-business-cards', priority: '0.9', changefreq: 'weekly' },
+        { path: '/soft-touch-business-cards', priority: '0.9', changefreq: 'weekly' },
+        { path: '/embossed-business-cards', priority: '0.9', changefreq: 'weekly' },
+        { path: '/corporate-business-cards', priority: '0.9', changefreq: 'weekly' },
+        { path: '/business-card-design', priority: '0.9', changefreq: 'weekly' },
+        { path: '/same-day-business-card-printing', priority: '0.9', changefreq: 'weekly' },
+        { path: '/business-card-printing-abu-dhabi', priority: '0.9', changefreq: 'weekly' },
+        { path: '/business-card-printing-sharjah', priority: '0.9', changefreq: 'weekly' },
+        { path: '/business-card-printing-ajman', priority: '0.9', changefreq: 'weekly' },
         { path: '/brochure-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/flyer-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/packaging-printing-dubai', priority: '0.9', changefreq: 'weekly' },

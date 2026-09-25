@@ -1694,7 +1694,7 @@ class SeoManagerController {
           description: 'ONPRINT identity consistency across all channels',
           details: [
             'Brand Name: ONPRINT (Alternative: 0nprint) verified across Header, Footer, and Schemas',
-            'NAP verified: Al Quoz Industrial Area 3, Dubai, UAE (+44 7344 546056, 0nprint183@gmail.com)',
+            'NAP verified: Al Quoz Industrial Area 3, Dubai, UAE (+971 55 183 7995, 0nprint183@gmail.com)',
             'Operating Hours: Mon–Sat 8:30 AM – 6:30 PM consistent on Contact, Footer, and Schema.org',
             'No fabricated business locations or credentials',
           ],

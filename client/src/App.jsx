@@ -83,9 +83,26 @@ function App() {
             <Route path="/printing-services/:slug" element={<ProgrammaticLandingPage />} />
             <Route path="/printing-solutions/:slug" element={<ProgrammaticLandingPage />} />
 
-            {/* 12 Core Commercial SEO Landing Pages */}
+            {/* 16 Dedicated Business Card Topical Cluster Landing Pages */}
+            <Route path="/business-card-printing-dubai" element={<BusinessCardLandingPage pageKey="business-card-printing-dubai" />} />
+            <Route path="/business-card-printing-uae" element={<BusinessCardLandingPage pageKey="business-card-printing-uae" />} />
+            <Route path="/visiting-card-printing-dubai" element={<BusinessCardLandingPage pageKey="visiting-card-printing-dubai" />} />
+            <Route path="/premium-business-cards" element={<BusinessCardLandingPage pageKey="premium-business-cards" />} />
+            <Route path="/luxury-business-cards" element={<BusinessCardLandingPage pageKey="luxury-business-cards" />} />
+            <Route path="/foil-business-cards" element={<BusinessCardLandingPage pageKey="foil-business-cards" />} />
+            <Route path="/spot-uv-business-cards" element={<BusinessCardLandingPage pageKey="spot-uv-business-cards" />} />
+            <Route path="/velvet-business-cards" element={<BusinessCardLandingPage pageKey="velvet-business-cards" />} />
+            <Route path="/soft-touch-business-cards" element={<BusinessCardLandingPage pageKey="soft-touch-business-cards" />} />
+            <Route path="/embossed-business-cards" element={<BusinessCardLandingPage pageKey="embossed-business-cards" />} />
+            <Route path="/corporate-business-cards" element={<BusinessCardLandingPage pageKey="corporate-business-cards" />} />
+            <Route path="/business-card-design" element={<BusinessCardLandingPage pageKey="business-card-design" />} />
+            <Route path="/same-day-business-card-printing" element={<BusinessCardLandingPage pageKey="same-day-business-card-printing" />} />
+            <Route path="/business-card-printing-abu-dhabi" element={<BusinessCardLandingPage pageKey="business-card-printing-abu-dhabi" />} />
+            <Route path="/business-card-printing-sharjah" element={<BusinessCardLandingPage pageKey="business-card-printing-sharjah" />} />
+            <Route path="/business-card-printing-ajman" element={<BusinessCardLandingPage pageKey="business-card-printing-ajman" />} />
+
+            {/* Core Commercial SEO Landing Pages */}
             <Route path="/printing-services-dubai" element={<CommercialLandingPage pageKey="printing-services-dubai" />} />
-            <Route path="/business-card-printing-dubai" element={<BusinessCardLandingPage />} />
             <Route path="/brochure-printing-dubai" element={<CommercialLandingPage pageKey="brochure-printing-dubai" />} />
             <Route path="/flyer-printing-dubai" element={<CommercialLandingPage pageKey="flyer-printing-dubai" />} />
             <Route path="/packaging-printing-dubai" element={<CommercialLandingPage pageKey="packaging-printing-dubai" />} />
@@ -99,9 +116,13 @@ function App() {
 
             {/* Commercial Landing Page Aliases & Redirects */}
             <Route path="/business-card-printing" element={<Navigate to="/business-card-printing-dubai" replace />} />
-            <Route path="/luxury-business-cards-dubai" element={<Navigate to="/business-card-printing-dubai" replace />} />
-            <Route path="/visiting-card-printing-dubai" element={<Navigate to="/business-card-printing-dubai" replace />} />
-            <Route path="/custom-business-cards-dubai" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/business-cards-dubai" element={<Navigate to="/business-card-printing-dubai" replace />} />
+            <Route path="/luxury-business-cards-dubai" element={<Navigate to="/luxury-business-cards" replace />} />
+            <Route path="/custom-business-cards-dubai" element={<Navigate to="/premium-business-cards" replace />} />
+            <Route path="/visiting-cards-dubai" element={<Navigate to="/visiting-card-printing-dubai" replace />} />
+            <Route path="/foil-business-cards-dubai" element={<Navigate to="/foil-business-cards" replace />} />
+            <Route path="/spot-uv-business-cards-dubai" element={<Navigate to="/spot-uv-business-cards" replace />} />
+            <Route path="/embossed-business-cards-dubai" element={<Navigate to="/embossed-business-cards" replace />} />
             <Route path="/custom-packaging" element={<Navigate to="/custom-packaging-dubai" replace />} />
             <Route path="/packaging-printing" element={<Navigate to="/packaging-printing-dubai" replace />} />
             <Route path="/brochure-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />

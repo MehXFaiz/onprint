@@ -138,7 +138,7 @@ async function login(req, res, next) {
           id: 1,
           name: process.env.ADMIN_NAME || 'ONPRINT Admin',
           email: cleanEmail,
-          phone: process.env.ADMIN_PHONE || '+44 7344 546056',
+          phone: process.env.ADMIN_PHONE || '+971 55 183 7995',
           role: 'admin',
           status: 'active',
         },

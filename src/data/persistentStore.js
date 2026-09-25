@@ -47,7 +47,7 @@ const DEFAULT_SEO_TASKS = [
   {
     id: 4,
     title: 'Verify LocalBusiness JSON-LD Schema NAP consistency',
-    description: 'Confirm Al Quoz Industrial Area 3 street address, phone (+44 7344 546056), coordinates, and opening hours match Google Business Profile perfectly.',
+    description: 'Confirm Al Quoz Industrial Area 3 street address, phone (+971 55 183 7995), coordinates, and opening hours match Google Business Profile perfectly.',
     category: 'schema',
     priority: 'high',
     status: 'completed',

@@ -2056,7 +2056,7 @@ async function seedSeoTasksIfEmpty(connection) {
         },
         {
           title: 'Verify LocalBusiness JSON-LD Schema NAP consistency',
-          description: 'Confirm Al Quoz Industrial Area 3 street address, phone (+44 7344 546056), coordinates, and opening hours match Google Business Profile perfectly.',
+          description: 'Confirm Al Quoz Industrial Area 3 street address, phone (+971 55 183 7995), coordinates, and opening hours match Google Business Profile perfectly.',
           category: 'schema',
           priority: 'high',
           status: 'completed',
@@ -3165,7 +3165,7 @@ async function initDatabase() {
     const adminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
     const adminName = process.env.ADMIN_NAME || 'ONPRINT Admin'
-    const adminPhone = process.env.ADMIN_PHONE || '+44 7344 546056'
+    const adminPhone = process.env.ADMIN_PHONE || '+971 55 183 7995'
 
     const [adminRows] = await connection.query(
       'SELECT id, password_hash, role FROM users WHERE email = ? LIMIT 1',

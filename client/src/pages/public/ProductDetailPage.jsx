@@ -12,6 +12,28 @@ import Product360Viewer from '../../components/Product360Viewer'
 import { getProductBySlug, getProducts } from '../../services/products'
 import { getProductImage, getProductCategoriesWithImages, getAllProductCategoryImages } from '../../assets/productImages'
 import { trackViewProduct, trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
+
+const CARD_FALLBACK_SIZES = [
+  { label: 'EU Standard (85 × 55 mm)', priceModifier: 0 },
+  { label: 'US Standard (90 × 50 mm)', priceModifier: 0 },
+  { label: 'Square (65 × 65 mm)', priceModifier: 15 },
+]
+
+const CARD_FALLBACK_MATERIALS = [
+  { label: '350 GSM Premium Silk Artboard', priceModifier: 0 },
+  { label: '400 GSM Heavyweight Matte', priceModifier: 25 },
+  { label: '450 GSM Velvet Soft-Touch', priceModifier: 50 },
+  { label: '600 GSM Archival Italian Cotton', priceModifier: 95 },
+]
+
+const CARD_FALLBACK_FINISHES = [
+  { label: 'Standard Matte Lamination', priceModifier: 0 },
+  { label: '24K Hot Stamped Gold Foil', priceModifier: 75 },
+  { label: 'Raised 3D Spot UV (Scodix)', priceModifier: 65 },
+  { label: 'Blind Letterpress Debossing', priceModifier: 85 },
+  { label: 'Gold Gilded / Painted Edges', priceModifier: 95 },
+]
 
 function OptionGroup({ label, options, selected, onSelect }) {
   if (!options?.length) return null
@@ -57,15 +79,47 @@ export default function ProductDetailPage() {
   const [activeCategoryTab, setActiveCategoryTab] = useState(0)
   const [categoryLightbox, setCategoryLightbox] = useState(null)
 
+  const isCardOrPrint = useMemo(() => {
+    if (!product) return false
+    return /card|visiting|stationery|print|luxury|cotton|foil|uv|box|packaging|brochure|flyer/i.test(
+      `${product.name || ''} ${product.slug || ''} ${product.category?.name || ''}`
+    )
+  }, [product])
+
+  const resolvedSizes = useMemo(() => {
+    if (product?.specifications?.sizes?.length) return product.specifications.sizes
+    if (isCardOrPrint) return CARD_FALLBACK_SIZES
+    return []
+  }, [product, isCardOrPrint])
+
+  const resolvedMaterials = useMemo(() => {
+    if (product?.specifications?.materials?.length) return product.specifications.materials
+    if (isCardOrPrint) return CARD_FALLBACK_MATERIALS
+    return []
+  }, [product, isCardOrPrint])
+
+  const resolvedFinishes = useMemo(() => {
+    if (product?.specifications?.finishes?.length) return product.specifications.finishes
+    if (isCardOrPrint) return CARD_FALLBACK_FINISHES
+    return []
+  }, [product, isCardOrPrint])
+
   useEffect(() => {
     setStatus('loading')
     getProductBySlug(slug)
       .then((data) => {
         setProduct(data)
         setQuantity(data.minimumQuantity || 1)
-        setSize(data.specifications?.sizes?.[0] || null)
-        setMaterial(data.specifications?.materials?.[0] || null)
-        setFinish(data.specifications?.finishes?.[0] || null)
+        const isCard = /card|visiting|stationery|print|luxury|cotton|foil|uv|box|packaging|brochure|flyer/i.test(
+          `${data.name || ''} ${data.slug || ''} ${data.category?.name || ''}`
+        )
+        const initSizes = data.specifications?.sizes?.length ? data.specifications.sizes : (isCard ? CARD_FALLBACK_SIZES : [])
+        const initMaterials = data.specifications?.materials?.length ? data.specifications.materials : (isCard ? CARD_FALLBACK_MATERIALS : [])
+        const initFinishes = data.specifications?.finishes?.length ? data.specifications.finishes : (isCard ? CARD_FALLBACK_FINISHES : [])
+
+        setSize(initSizes[0] || null)
+        setMaterial(initMaterials[0] || null)
+        setFinish(initFinishes[0] || null)
         setActiveImage(0)
         setStatus('ready')
 
@@ -325,26 +379,26 @@ export default function ProductDetailPage() {
 
             {/* Specification Option Selectors */}
             <div className="mt-6 space-y-6">
-              {product.specifications?.sizes && (
+              {resolvedSizes.length > 0 && (
                 <OptionGroup
                   label="Available Sizes / Dimensions"
-                  options={product.specifications.sizes}
+                  options={resolvedSizes}
                   selected={size}
                   onSelect={setSize}
                 />
               )}
-              {product.specifications?.materials && (
+              {resolvedMaterials.length > 0 && (
                 <OptionGroup
                   label="Paper & Material Stocks"
-                  options={product.specifications.materials}
+                  options={resolvedMaterials}
                   selected={material}
                   onSelect={setMaterial}
                 />
               )}
-              {product.specifications?.finishes && (
+              {resolvedFinishes.length > 0 && (
                 <OptionGroup
                   label="Specialty Coatings & Finishes"
-                  options={product.specifications.finishes}
+                  options={resolvedFinishes}
                   selected={finish}
                   onSelect={setFinish}
                 />
@@ -381,11 +435,22 @@ export default function ProductDetailPage() {
                 />
               </div>
 
-              {/* Quote CTA */}
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+              {/* High-Converting Multi-Channel Conversion CTAs */}
+              <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
                 <Button onClick={handleRequestQuote} variant="accent" size="lg" className="w-full justify-center sm:w-auto">
-                  Request Quote for {product.name}
+                  Request Official Quote
                 </Button>
+                <a
+                  href={`https://wa.me/971551837995?text=${encodeURIComponent(
+                    `Hello ONPRINT Dubai, I would like to get a fast quote for ${product.name} (Qty: ${quantity}, Size: ${size?.label || 'Standard'}, Paper: ${material?.label || 'Standard'}, Finish: ${finish?.label || 'Standard'}).`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1ebd5a] px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-md shadow-[#25D366]/20 transition-all hover:-translate-y-0.5 cursor-pointer"
+                >
+                  <WhatsAppIcon className="h-4 w-4 fill-white" />
+                  <span>WhatsApp Quick Quote</span>
+                </a>
                 <Button
                   to="/contact"
                   variant="secondary"

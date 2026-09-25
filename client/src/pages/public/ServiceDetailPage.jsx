@@ -442,7 +442,7 @@ export default function ServiceDetailPage() {
                 Configure Custom Quote
               </Button>
               <a
-                href={`https://wa.me/447344546056?text=Hello%20ONPRINT%2C%20I%20would%20like%20a%20commercial%20quote%20for%20${encodeURIComponent(service.name)}.`}
+                href={`https://wa.me/971551837995?text=Hello%20ONPRINT%20Dubai%2C%20I%20would%20like%20a%20commercial%20quote%20for%20${encodeURIComponent(service.name)}.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-7 py-3.5 text-base font-bold text-white shadow-md hover:bg-emerald-700 transition-colors"

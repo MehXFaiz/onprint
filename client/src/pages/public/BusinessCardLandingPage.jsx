@@ -173,6 +173,7 @@ const CARD_VARIATIONS = [
       'Ultra-thick multi-ply card stacks hand-beveled with mirror metallic foil (Gold/Silver) or custom Pantone-matched painted borders for a dramatic 360-degree edge appearance.',
     specs: '700 GSM Duplex • Mirror Foil Edges • Pantone Tint • Multilayer Core',
     suitableFor: 'VIP Club Members, Creative Directors, Luxury Hotel Concierges, High-Net-Worth Brokers',
+    popularFinishes: ['Mirror Gilded Edges', 'Custom Pantone Painted', 'Triplex Multi-Ply'],
   },
   {
     id: 'corporate-business-cards',
@@ -1254,7 +1255,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     </div>
 
                     <div className="mt-2.5 flex flex-wrap gap-1">
-                      {card.popularFinishes.map((f) => (
+                      {(card.popularFinishes || []).map((f) => (
                         <span
                           key={f}
                           className="rounded-md bg-neutral-100 px-2 py-0.5 text-[9.5px] font-bold text-neutral-700"

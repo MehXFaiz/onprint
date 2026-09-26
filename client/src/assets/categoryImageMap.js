@@ -16,9 +16,9 @@ export const categoryImageMap = {
       '/assets/products/1 (8).jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',
@@ -115,8 +115,8 @@ export const categoryImageMap = {
   'premium-business-cards': {
     'business-cards-printing': [
       '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/luxury_business_cards_dubai.jpg'
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',
@@ -142,8 +142,8 @@ export const categoryImageMap = {
   'standard-business-cards': {
     'business-cards-printing': [
       '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/card-soft-touch.jpg',
-      '/assets/products/service_executive_stationery.jpg'
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',
@@ -173,9 +173,9 @@ export const categoryImageMap = {
   },
   'premium-soft-touch-business-cards': {
     'business-cards-printing': [
-      '/assets/products/card-soft-touch.jpg',
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/service_luxury_packaging.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',
@@ -200,9 +200,9 @@ export const categoryImageMap = {
   },
   'velvet-foil-business-cards': {
     'business-cards-printing': [
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg',
-      '/assets/products/luxury_business_cards_dubai.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'corporate-gift-items': [
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
@@ -227,9 +227,9 @@ export const categoryImageMap = {
   },
   'luxury-painted-edge-business-cards': {
     'business-cards-printing': [
-      '/assets/products/card-painted-edge.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/luxury_business_cards_dubai.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',
@@ -424,9 +424,9 @@ export const categoryImageMap = {
       '/assets/products/service_digital_offset.jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ]
   },
   'catalogs-booklets-printing': {
@@ -473,9 +473,9 @@ export const categoryImageMap = {
       '/assets/products/service_digital_offset.jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'corporate-gift-items': [
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
@@ -517,9 +517,9 @@ export const categoryImageMap = {
   },
   'raised-ink-business-cards': {
     'business-cards-printing': [
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg',
-      '/assets/products/luxury_business_cards_dubai.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',
@@ -544,9 +544,9 @@ export const categoryImageMap = {
   },
   'plastic-pvc-business-cards': {
     'business-cards-printing': [
-      '/assets/products/id_cards.jpg',
-      '/assets/products/card-soft-touch.jpg',
-      '/assets/products/luxury_business_cards_dubai.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'id-card-printing-dubai': [
       '/assets/products/id_cards.jpg',
@@ -665,9 +665,9 @@ export const categoryImageMap = {
       '/assets/products/wooden_keychain.jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ]
   },
   'student-id-cards': {
@@ -692,9 +692,9 @@ export const categoryImageMap = {
       '/assets/products/1 (9).jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'corporate-gift-items': [
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
@@ -724,9 +724,9 @@ export const categoryImageMap = {
       '/assets/products/1 (9).jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'promotional-drinkware-tech': [
       '/assets/products/water_bottles.jpg',
@@ -810,9 +810,9 @@ export const categoryImageMap = {
       '/assets/products/1 (2).jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',
@@ -859,9 +859,9 @@ export const categoryImageMap = {
       '/assets/products/1 (2).jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',
@@ -928,9 +928,9 @@ export const categoryImageMap = {
       '/assets/products/1 (2).jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',
@@ -1078,9 +1078,9 @@ export const categoryImageMap = {
       '/assets/products/brochure_gatefold.jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ]
   },
   'printed-paper-bags': {
@@ -1171,9 +1171,9 @@ export const categoryImageMap = {
       '/assets/products/card-painted-edge.jpg'
     ],
     'business-cards-printing': [
-      '/assets/products/luxury_business_cards_dubai.jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
+      '/uploads/categories/business-cards-printing.jpg',
+      '/assets/products/business-cards/bc_standard_silk.jpg',
+      '/assets/products/business-cards/bc_corporate_batches.jpg'
     ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',

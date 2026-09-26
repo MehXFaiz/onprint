@@ -163,7 +163,7 @@ module.exports = {
       "shortDescription": "Executive 350gsm–600gsm cotton & silk business cards with soft-touch velvet lamination and metallic gold foil stamping.",
       "description": "Make an undeniable first impression with bespoke luxury business cards. Choose from 350gsm to 600gsm cotton stocks, embossed foil stamping, painted colored edges, and tactile spot UV.",
       "image": "/uploads/categories/business-cards-printing.jpg",
-      "imageAlt": "Luxury gold foil executive business cards in Dubai",
+      "imageAlt": "Standard commercial business cards printing in Dubai",
       "seoTitle": "Business Cards Printing in Dubai | Luxury Executive Cards | ONPRINT",
       "seoDescription": "Executive business card printing in Dubai. 350gsm-600gsm cotton card stocks, soft-touch matte lamination, gold foil, and spot UV.",
       "seoKeywords": "business cards printing dubai, luxury business cards dubai, visiting cards uae",

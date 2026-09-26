@@ -59,6 +59,7 @@ import brochuresImg from '../../assets/products/brochures.jpg'
 import standardSilkImg from '../../assets/products/business-cards/bc_standard_silk.jpg'
 import premiumMatteImg from '../../assets/products/business-cards/bc_premium_matte.jpg'
 import minimalistImg from '../../assets/products/business-cards/bc_minimalist.jpg'
+import basicBusinessCardsImg from '../../assets/products/basic_business_cards.jpg'
 
 // 22 Comprehensive Business Card Options - Basic & Standard Prioritized
 const CARD_VARIATIONS = [
@@ -69,7 +70,7 @@ const CARD_VARIATIONS = [
     gsm: '350 GSM',
     badge: 'Most Popular • From AED 45',
     priceHint: 'From AED 45 / 100 Cards',
-    image: standardSilkImg,
+    image: basicBusinessCardsImg,
     description:
       'Clean, crisp digital printing on durable 350 GSM silk-coated art card with protective matte or gloss lamination. Our most economical and popular choice for everyday business networking, sales teams, and startups.',
     specs: '350 GSM Art Card • Double-Sided CMYK • Matte or Gloss Finish • Starting AED 45 / 100 Cards',
@@ -83,7 +84,7 @@ const CARD_VARIATIONS = [
     gsm: '300 GSM',
     badge: 'Budget Friendly • From AED 45',
     priceHint: 'From AED 45 / 100 Cards',
-    image: minimalistImg,
+    image: '/assets/products/business-cards/bc_corporate_batches.jpg',
     description:
       'Lightweight, practical 300 GSM cardstock with sharp typography and vivid colors. Perfect for fast marketing handouts, event promotions, and budget-conscious bulk orders with low minimums.',
     specs: '300 GSM Cardstock • Full Color CMYK • Fast 24h Turnaround • Starting AED 45 / 100 Cards',
@@ -97,7 +98,7 @@ const CARD_VARIATIONS = [
     gsm: '400 GSM',
     badge: 'Sturdy Matte • From AED 65',
     priceHint: 'From AED 65 / 100 Cards',
-    image: premiumMatteImg,
+    image: standardSilkImg,
     description:
       'Sturdy 400 GSM premium artboard sealed with dual-sided protective matte coating for crisp typography, deep black contrast, and zero edge curling.',
     specs: '400 GSM Artboard • Double Matte Sealed • Crisp Die-Trim • Starting AED 65 / 100 Cards',
@@ -309,7 +310,7 @@ const CARD_VARIATIONS = [
     category: 'corporate',
     gsm: '350 GSM',
     badge: 'Budget Friendly',
-    image: '/assets/products/service_executive_stationery.jpg',
+    image: standardSilkImg,
     description:
       'Crisp full-color front with an uncoated, absorbent reverse side perfect for handwritten notes, client appointments, or stamp loyalty programs.',
     specs: 'Coated Silk Front • Uncoated Absorbent Back • Pen & Pencil Writable',
@@ -691,7 +692,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const serviceSchema = {
     name: pageData.h1,
     description: pageData.metaDescription,
-    image: '/assets/products/luxury_business_cards.jpg',
+    image: '/uploads/categories/business-cards-printing.jpg',
   }
 
   const productSchema = {
@@ -699,7 +700,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
     description: pageData.metaDescription,
     price: '45.00',
     currency: 'AED',
-    image: '/assets/products/luxury_business_cards.jpg',
+    image: '/uploads/categories/business-cards-printing.jpg',
   }
 
   return (

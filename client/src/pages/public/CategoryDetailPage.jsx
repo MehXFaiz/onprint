@@ -61,7 +61,27 @@ export default function CategoryDetailPage() {
         // Fetch products matching category
         const prodsRes = await getProducts({ category: slug, pageSize: 20 })
         if (isMounted) {
-          setProducts(prodsRes.data || [])
+          // Filter out specific categories from brochures-printing
+          const excludedCategoryIds = [
+            'cat-mug-printing-dubai',
+            'cat-bottle-printing-dubai', 
+            'cat-custom-apparel-printing',
+            'cat-promotional-drinkware-tech'
+          ]
+          
+          const filteredProducts = (prodsRes.data || []).filter(product => {
+            // Check if product has any of the excluded categories in its categories array
+            const productCategories = product.categories || []
+            const hasExcludedCategory = productCategories.some(cat => 
+              excludedCategoryIds.includes(cat._id) || excludedCategoryIds.includes(cat.slug)
+            )
+            // Also check main category
+            const mainCategoryExcluded = excludedCategoryIds.includes(product.category?._id) || 
+                                          excludedCategoryIds.includes(product.category?.slug)
+            return !hasExcludedCategory && !mainCategoryExcluded
+          })
+          
+          setProducts(filteredProducts)
         }
       } catch (err) {
         console.error('Failed to load category:', err)

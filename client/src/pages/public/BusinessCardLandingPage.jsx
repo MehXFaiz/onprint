@@ -599,9 +599,9 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const quoteFormRef = useRef(null)
   const location = useLocation()
   const derivedKey = propKey || location.pathname.replace(/^\//, '') || 'business-card-printing-dubai'
-  const pageData = BUSINESS_CARDS_LANDING_DATA[derivedKey] || BUSINESS_CARDS_LANDING_DATA['business-card-printing-dubai']
+  const pageData = BUSINESS_CARDS_LANDING_DATA?.[derivedKey] || BUSINESS_CARDS_LANDING_DATA?.['business-card-printing-dubai'] || {}
 
-  const [activeCategory, setActiveCategory] = useState(pageData.cardCategory || 'all')
+  const [activeCategory, setActiveCategory] = useState(pageData?.cardCategory || 'all')
   const [activeGuideTab, setActiveGuideTab] = useState('size')
   const [openFaq, setOpenFaq] = useState(0)
 
@@ -680,7 +680,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const filteredCards =
     activeCategory === 'all'
       ? CARD_VARIATIONS
-      : CARD_VARIATIONS.filter((card) => card.category === activeCategory)
+      : CARD_VARIATIONS.filter((card) => card.category === activeCategory) || []
 
   const breadcrumbs = [
     { name: 'Services', url: '/services' },
@@ -762,7 +762,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     { label: 'Same-Day Rush', val: '4-Hour Express' },
                     { label: 'Standard Sizes', val: '85x55 & 90x50' },
                     { label: 'Color Matching', val: '100% Pantone' },
-                  ]).map((item) => (
+                  ])?.map((item) => (
                     <div
                       key={item.label}
                       className="rounded-2xl border border-white/80 bg-white/85 p-3 shadow-xs backdrop-blur-md"
@@ -802,7 +802,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               <Reveal delay={0.26}>
                 <div className="flex flex-wrap items-center gap-3 text-xs text-neutral-600 pt-2">
                   <div className="flex items-center gap-1 text-amber-500">
-                    {[...Array(5)].map((_, i) => (
+                    {[...Array(5)]?.map((_, i) => (
                       <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                     ))}
                     <span className="ml-1 font-black text-neutral-900">4.9/5</span>
@@ -942,7 +942,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           onChange={handleFormChange}
                           className="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2 text-xs text-neutral-900 focus:border-[#A82F19] focus:bg-white focus:outline-none"
                         >
-                          {CARD_VARIATIONS.map((c) => (
+                          {CARD_VARIATIONS?.map((c) => (
                             <option key={c.id} value={c.title}>
                               {c.title} ({c.gsm})
                             </option>
@@ -1119,7 +1119,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 { qty: '250', price: 'AED 75', unit: 'AED 0.30 / card', label: 'Most Popular', popular: true },
                 { qty: '500', price: 'AED 120', unit: 'AED 0.24 / card', label: 'Best Value', popular: false },
                 { qty: '1000', price: 'AED 195', unit: 'AED 0.19 / card', label: 'Corporate Batch', popular: false },
-              ].map((tier) => (
+              ])?.map((tier) => (
                 <div
                   key={tier.qty}
                   className={`relative rounded-2xl border p-4 text-center transition-all ${
@@ -1195,7 +1195,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 { id: 'luxury', label: 'Luxury & Velvet' },
                 { id: 'eco', label: 'Textured & Eco' },
                 { id: 'specialty', label: 'Specialty & Shapes' },
-              ].map((tab) => (
+              ])?.map((tab) => (
                 <button
                   key={tab.id}
                   type="button"
@@ -1213,7 +1213,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {filteredCards.map((card) => (
+            {filteredCards?.map((card) => (
               <div
                 key={card.id}
                 className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-neutral-200/90 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#A82F19] hover:shadow-xl"
@@ -1255,7 +1255,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     </div>
 
                     <div className="mt-2.5 flex flex-wrap gap-1">
-                      {(card.popularFinishes || []).map((f) => (
+                      {(card?.popularFinishes || []).map((f) => (
                         <span
                           key={f}
                           className="rounded-md bg-neutral-100 px-2 py-0.5 text-[9.5px] font-bold text-neutral-700"
@@ -1297,7 +1297,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {INDUSTRY_SOLUTIONS.map((item) => {
+            {INDUSTRY_SOLUTIONS?.map((item) => {
               const Icon = item.icon
               return (
                 <div
@@ -1342,7 +1342,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 { id: 'finishes', label: 'Finishes Explained' },
                 { id: 'corporate', label: 'Multi-Employee' },
                 { id: 'bleed', label: '3mm Bleed Checklist' },
-              ].map((g) => (
+              ])?.map((g) => (
                 <button
                   key={g.id}
                   type="button"
@@ -1426,7 +1426,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     { gsm: '400 GSM', name: 'Premium Matte', role: 'Executive Solid', desc: 'Substantial rigidity with double-sided matte protection. Zero flimsiness.' },
                     { gsm: '450 GSM', name: 'Velvet Soft-Touch', role: 'Luxury Atelier', desc: 'Dense artboard wrapped in suede-like soft touch film. Stiff and luxurious.' },
                     { gsm: '600–700 GSM', name: 'Italian Cotton / Duplex', role: 'Flagship Pinnacle', desc: 'Multi-ply archival board built for deep letterpress debossing and painted edges.' },
-                  ].map((item) => (
+                  ])?.map((item) => (
                     <div key={item.gsm} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs">
                       <span className="font-mono text-lg font-black text-[#A82F19]">{item.gsm}</span>
                       <h4 className="font-display text-sm font-black text-neutral-950 mt-1">{item.name}</h4>
@@ -1546,7 +1546,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {DUBAI_AREAS.map((area) => (
+              {DUBAI_AREAS?.map((area) => (
                 <div
                   key={area.name}
                   className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs transition-colors hover:border-[#D4AF37]/40 hover:bg-white/10"
@@ -1683,7 +1683,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
 
           <div className="divide-y divide-neutral-200 border-t border-b border-neutral-200">
-            {BUSINESS_CARD_FAQS.map((faq, index) => {
+            {BUSINESS_CARD_FAQS?.map((faq, index) => {
               const isOpen = openFaq === index
               return (
                 <div key={faq.question} className="py-5">

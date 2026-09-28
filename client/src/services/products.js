@@ -104,7 +104,29 @@ export async function getProducts(params = {}) {
   }
   
   if (params.featured) list = list.filter((p) => p.featured)
-  if (params.category) list = list.filter((p) => p.category?.slug === params.category || p.category?._id === params.category || p.category?.name?.toLowerCase().includes(params.category.toLowerCase()))
+  if (params.category) {
+    const categoryParam = params.category.toLowerCase()
+    list = list.filter((p) => {
+      const catSlug = p.category?.slug?.toLowerCase() || ''
+      const catId = p.category?._id?.toLowerCase() || ''
+      const catName = p.category?.name?.toLowerCase() || ''
+      
+      // Exact match first
+      if (catSlug === categoryParam || catId === categoryParam) return true
+      
+      // Partial name match only if it's a clear match (not just containing the word)
+      if (catName === categoryParam) return true
+      
+      // Check secondary categories
+      const secondaryCats = p.categories || []
+      const hasSecondaryMatch = secondaryCats.some(cat => 
+        cat.slug?.toLowerCase() === categoryParam || 
+        cat._id?.toLowerCase() === categoryParam ||
+        cat.name?.toLowerCase() === categoryParam
+      )
+      return hasSecondaryMatch
+    })
+  }
   if (params.q) {
     const q = params.q.toLowerCase()
     list = list.filter((p) => p.name.toLowerCase().includes(q) || p.shortDescription?.toLowerCase().includes(q))

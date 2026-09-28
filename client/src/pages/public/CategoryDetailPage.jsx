@@ -69,15 +69,27 @@ export default function CategoryDetailPage() {
             'cat-promotional-drinkware-tech'
           ]
           
+          const excludedCategorySlugs = [
+            'mug-printing-dubai',
+            'bottle-printing-dubai',
+            'custom-apparel-printing',
+            'promotional-drinkware-tech'
+          ]
+          
           const filteredProducts = (prodsRes.data || []).filter(product => {
             // Check if product has any of the excluded categories in its categories array
             const productCategories = product.categories || []
             const hasExcludedCategory = productCategories.some(cat => 
-              excludedCategoryIds.includes(cat._id) || excludedCategoryIds.includes(cat.slug)
+              excludedCategoryIds.includes(cat._id) || 
+              excludedCategorySlugs.includes(cat.slug) ||
+              excludedCategoryIds.includes(cat.slug) ||
+              excludedCategorySlugs.includes(cat._id)
             )
             // Also check main category
-            const mainCategoryExcluded = excludedCategoryIds.includes(product.category?._id) || 
-                                          excludedCategoryIds.includes(product.category?.slug)
+            const mainCategoryId = product.category?._id || ''
+            const mainCategorySlug = product.category?.slug || ''
+            const mainCategoryExcluded = excludedCategoryIds.includes(mainCategoryId) || 
+                                          excludedCategorySlugs.includes(mainCategorySlug)
             return !hasExcludedCategory && !mainCategoryExcluded
           })
           

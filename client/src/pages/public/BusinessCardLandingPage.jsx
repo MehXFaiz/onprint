@@ -762,7 +762,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     { label: 'Same-Day Rush', val: '4-Hour Express' },
                     { label: 'Standard Sizes', val: '85x55 & 90x50' },
                     { label: 'Color Matching', val: '100% Pantone' },
-                  ])?.map((item) => (
+                  ]).map((item) => (
                     <div
                       key={item.label}
                       className="rounded-2xl border border-white/80 bg-white/85 p-3 shadow-xs backdrop-blur-md"
@@ -802,7 +802,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               <Reveal delay={0.26}>
                 <div className="flex flex-wrap items-center gap-3 text-xs text-neutral-600 pt-2">
                   <div className="flex items-center gap-1 text-amber-500">
-                    {[...Array(5)]?.map((_, i) => (
+                    {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                     ))}
                     <span className="ml-1 font-black text-neutral-900">4.9/5</span>
@@ -1119,7 +1119,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 { qty: '250', price: 'AED 75', unit: 'AED 0.30 / card', label: 'Most Popular', popular: true },
                 { qty: '500', price: 'AED 120', unit: 'AED 0.24 / card', label: 'Best Value', popular: false },
                 { qty: '1000', price: 'AED 195', unit: 'AED 0.19 / card', label: 'Corporate Batch', popular: false },
-              ])?.map((tier) => (
+              ].map((tier) => (
                 <div
                   key={tier.qty}
                   className={`relative rounded-2xl border p-4 text-center transition-all ${
@@ -1195,7 +1195,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 { id: 'luxury', label: 'Luxury & Velvet' },
                 { id: 'eco', label: 'Textured & Eco' },
                 { id: 'specialty', label: 'Specialty & Shapes' },
-              ])?.map((tab) => (
+              ].map((tab) => (
                 <button
                   key={tab.id}
                   type="button"
@@ -1342,7 +1342,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 { id: 'finishes', label: 'Finishes Explained' },
                 { id: 'corporate', label: 'Multi-Employee' },
                 { id: 'bleed', label: '3mm Bleed Checklist' },
-              ])?.map((g) => (
+              ].map((g) => (
                 <button
                   key={g.id}
                   type="button"
@@ -1426,7 +1426,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     { gsm: '400 GSM', name: 'Premium Matte', role: 'Executive Solid', desc: 'Substantial rigidity with double-sided matte protection. Zero flimsiness.' },
                     { gsm: '450 GSM', name: 'Velvet Soft-Touch', role: 'Luxury Atelier', desc: 'Dense artboard wrapped in suede-like soft touch film. Stiff and luxurious.' },
                     { gsm: '600–700 GSM', name: 'Italian Cotton / Duplex', role: 'Flagship Pinnacle', desc: 'Multi-ply archival board built for deep letterpress debossing and painted edges.' },
-                  ])?.map((item) => (
+                  ].map((item) => (
                     <div key={item.gsm} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs">
                       <span className="font-mono text-lg font-black text-[#A82F19]">{item.gsm}</span>
                       <h4 className="font-display text-sm font-black text-neutral-950 mt-1">{item.name}</h4>

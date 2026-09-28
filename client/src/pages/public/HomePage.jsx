@@ -240,15 +240,38 @@ export default function HomePage() {
       .catch(() => setServices([]))
 
     getCategories({ status: 'active', sort: 'display_order_asc' })
-      .then((data) => setCategories(data || []))
+      .then((data) => {
+        const filteredCategories = (data || []).filter(
+          (cat) => 
+            !cat.slug?.includes('custom-packaging') && 
+            !cat.slug?.includes('luxury-packaging') &&
+            !cat.name?.toLowerCase().includes('custom packaging') &&
+            !cat.name?.toLowerCase().includes('luxury packaging')
+        )
+        setCategories(filteredCategories)
+      })
       .catch(() => setCategories([]))
 
     getProducts()
       .then((res) => {
         const list = res?.data || []
-        setAllProducts(list)
-        const feat = list.filter((p) => p.featured)
-        setFeaturedProducts(feat.length > 0 ? feat.slice(0, 4) : list.slice(0, 4))
+        const filteredProducts = list.filter((p) => {
+          const catSlug = typeof p.category === 'object' ? p.category?.slug : p.category
+          const catName = typeof p.category === 'object' ? p.category?.name : p.category
+          return (
+            !catSlug?.includes('custom-packaging') &&
+            !catSlug?.includes('luxury-packaging') &&
+            !catName?.toLowerCase().includes('custom packaging') &&
+            !catName?.toLowerCase().includes('luxury packaging')
+          )
+        })
+        // Remove duplicates based on product ID or slug
+        const uniqueProducts = Array.from(
+          new Map(filteredProducts.map(p => [p._id || p.slug, p])).values()
+        )
+        setAllProducts(uniqueProducts)
+        const feat = uniqueProducts.filter((p) => p.featured)
+        setFeaturedProducts(feat.length > 0 ? feat.slice(0, 4) : uniqueProducts.slice(0, 4))
       })
       .catch(() => {
         setAllProducts([])

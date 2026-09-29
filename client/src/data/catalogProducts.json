@@ -88,6 +88,10 @@
           "/assets/products/1 (9).jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/brochures.jpg",
+      "/assets/products/brochure_bifold.jpg"
     ]
   },
   {
@@ -1512,6 +1516,9 @@
           "/assets/products/flags.jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/brochure_booklet_catalog.jpg"
     ]
   },
   {
@@ -2102,6 +2109,9 @@
           "/assets/products/flags.jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/flyer-door-hanger.jpg"
     ]
   },
   {
@@ -2204,6 +2214,9 @@
           "/assets/products/business-cards/bc_corporate_batches.jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/flyer-postcard.jpg"
     ]
   },
   {
@@ -2306,6 +2319,10 @@
           "/assets/products/wooden_keychain.jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/id-cards/standard-pvc-id.jpg",
+      "/assets/products/id-cards/photo-id-cards.jpg"
     ]
   },
   {
@@ -2408,6 +2425,10 @@
           "/assets/products/1 (2).jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/id-cards/rfid-proximity-cards.jpg",
+      "/assets/products/id-cards/smart-nfc-id-cards.jpg"
     ]
   },
   {
@@ -2510,6 +2531,10 @@
           "/assets/products/flags.jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/id_cards.jpg",
+      "/assets/products/id-cards/variable-data-id-cards.jpg"
     ]
   },
   {
@@ -4145,6 +4170,9 @@
           "/assets/products/flags.jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/brochure_bifold.jpg"
     ]
   },
   {
@@ -4247,6 +4275,9 @@
           "/assets/products/flags.jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/brochure_trifold.jpg"
     ]
   },
   {
@@ -4338,6 +4369,9 @@
           "/assets/products/1 (8).jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/brochure_gatefold.jpg"
     ]
   },
   {
@@ -4440,6 +4474,9 @@
           "/assets/products/1 (9).jpg"
         ]
       }
+    ],
+    "images": [
+      "/assets/products/brochure_zfold.jpg"
     ]
   },
   {
@@ -4861,5 +4898,196 @@
         "slug": "bottle-printing-dubai"
       }
     ]
+  },
+  {
+    "_id": "prod-a5-promotional-flyers",
+    "id": 101,
+    "name": "Standard A5 Promotional Flyers",
+    "slug": "a5-promotional-flyers",
+    "description": "High-impact commercial single and double-sided A5 marketing flyers printed on 170gsm to 300gsm gloss or silk art paper in Dubai.",
+    "price": 95,
+    "min_quantity": 250,
+    "unit": "250 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyer-a5-promotional.jpg",
+      "/assets/products/flyers.jpg"
+    ],
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    }
+  },
+  {
+    "_id": "prod-a4-business-flyers",
+    "id": 102,
+    "name": "Standard A4 Business Advertising Flyers",
+    "slug": "a4-business-flyers",
+    "description": "Full-page A4 commercial marketing leaflets and flyers with vivid CMYK precision on premium art paper.",
+    "price": 130,
+    "min_quantity": 250,
+    "unit": "250 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyer-a4-business.jpg"
+    ],
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    }
+  },
+  {
+    "_id": "prod-dl-event-flyers",
+    "id": 103,
+    "name": "DL Slim Event & Menu Flyers",
+    "slug": "dl-event-flyers",
+    "description": "Compact 99x210mm DL flyers perfect for restaurant menus, promotional inserts, voucher distribution, and trade events.",
+    "price": 85,
+    "min_quantity": 250,
+    "unit": "250 pcs",
+    "featured": false,
+    "active": true,
+    "images": [
+      "/assets/products/flyer-dl-event.jpg"
+    ],
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    }
+  },
+  {
+    "_id": "prod-standard-polyester-lanyards",
+    "id": 104,
+    "name": "Standard Polyester Neck Lanyards (20mm)",
+    "slug": "standard-polyester-lanyards",
+    "description": "Durable ribbed polyester neck lanyards with custom screen-printed company logo and heavy-duty metal swivel lobster hook.",
+    "price": 3.5,
+    "min_quantity": 100,
+    "unit": "piece",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/lanyard-polyester-standard.jpg",
+      "/assets/products/custom_branded_lanyards.jpg"
+    ],
+    "category": {
+      "_id": "cat-lanyard-printing-dubai",
+      "id": 5,
+      "name": "Lanyard Printing Dubai",
+      "slug": "lanyard-printing-dubai"
+    }
+  },
+  {
+    "_id": "prod-satin-dye-sublimation-lanyards",
+    "id": 105,
+    "name": "Full Color Satin Dye-Sublimation Lanyards",
+    "slug": "satin-dye-sublimation-lanyards",
+    "description": "Silky smooth high-density satin heat-transfer printed lanyards with edge-to-edge vibrant full-color CMYK artwork.",
+    "price": 4.5,
+    "min_quantity": 100,
+    "unit": "piece",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/lanyard-sublimation-satin.jpg"
+    ],
+    "category": {
+      "_id": "cat-lanyard-printing-dubai",
+      "id": 5,
+      "name": "Lanyard Printing Dubai",
+      "slug": "lanyard-printing-dubai"
+    }
+  },
+  {
+    "_id": "prod-safety-breakaway-lanyards",
+    "id": 106,
+    "name": "Safety Breakaway Buckle Lanyards",
+    "slug": "safety-breakaway-lanyards",
+    "description": "Workplace safety compliant neck lanyards featuring an automatic quick-release breakaway buckle at the neck.",
+    "price": 4.2,
+    "min_quantity": 100,
+    "unit": "piece",
+    "featured": false,
+    "active": true,
+    "images": [
+      "/assets/products/lanyard-safety-breakaway.jpg"
+    ],
+    "category": {
+      "_id": "cat-lanyard-printing-dubai",
+      "id": 5,
+      "name": "Lanyard Printing Dubai",
+      "slug": "lanyard-printing-dubai"
+    }
+  },
+  {
+    "_id": "prod-double-clip-conference-lanyards",
+    "id": 107,
+    "name": "Double-Ended Conference Badge Lanyards",
+    "slug": "double-clip-conference-lanyards",
+    "description": "Anti-twist dual clip neck lanyards with two metal swivel clips designed for wide conference name badge pouches.",
+    "price": 5,
+    "min_quantity": 100,
+    "unit": "piece",
+    "featured": false,
+    "active": true,
+    "images": [
+      "/assets/products/lanyard-double-clip.jpg"
+    ],
+    "category": {
+      "_id": "cat-lanyard-printing-dubai",
+      "id": 5,
+      "name": "Lanyard Printing Dubai",
+      "slug": "lanyard-printing-dubai"
+    }
+  },
+  {
+    "_id": "prod-woven-jacquard-lanyards",
+    "id": 108,
+    "name": "Durable Woven Jacquard Fabric Lanyards",
+    "slug": "woven-jacquard-lanyards",
+    "description": "Heavy-duty woven thread jacquard lanyards where your brand name is intricately stitched directly into the strap.",
+    "price": 5.5,
+    "min_quantity": 200,
+    "unit": "piece",
+    "featured": false,
+    "active": true,
+    "images": [
+      "/assets/products/lanyard-woven.jpg"
+    ],
+    "category": {
+      "_id": "cat-lanyard-printing-dubai",
+      "id": 5,
+      "name": "Lanyard Printing Dubai",
+      "slug": "lanyard-printing-dubai"
+    }
+  },
+  {
+    "_id": "prod-retractable-badge-reel-lanyards",
+    "id": 109,
+    "name": "Retractable Badge Reel Lanyard Set",
+    "slug": "retractable-badge-reel-lanyards",
+    "description": "Integrated neck lanyard with heavy-duty retractable spring reel and snap-in clear PVC ID card badge holder.",
+    "price": 6,
+    "min_quantity": 50,
+    "unit": "piece",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/lanyard-retractable-reel.jpg"
+    ],
+    "category": {
+      "_id": "cat-lanyard-printing-dubai",
+      "id": 5,
+      "name": "Lanyard Printing Dubai",
+      "slug": "lanyard-printing-dubai"
+    }
   }
 ]

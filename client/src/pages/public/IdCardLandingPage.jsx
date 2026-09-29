@@ -46,7 +46,7 @@ const ID_CARD_TYPES = [
     thickness: '0.76mm (CR80)',
     badge: 'Most Popular • From AED 5',
     priceHint: 'From AED 5 / card',
-    image: '/assets/products/id_cards.jpg',
+    image: '/assets/products/id-cards/standard-pvc-id.jpg',
     description:
       'Durable 30mil PVC cards with full-color printing, perfect for employee badges, student IDs, and membership cards. Water-resistant and long-lasting.',
     specs: '30mil PVC • Full Color CMYK • Standard CR80 Size • Magnetic Stripe Available',
@@ -60,7 +60,7 @@ const ID_CARD_TYPES = [
     thickness: '0.76mm',
     badge: 'High Security',
     priceHint: 'From AED 8 / card',
-    image: '/assets/products/luxury_business_cards.jpg',
+    image: '/assets/products/id-cards/holographic-id-cards.jpg',
     description:
       'Enhanced security with embedded holographic overlay that prevents counterfeiting and tampering. Ideal for high-security environments.',
     specs: '30mil PVC • Holographic Overlay • UV Features • Anti-Counterfeit',
@@ -74,7 +74,7 @@ const ID_CARD_TYPES = [
     thickness: '0.86mm',
     badge: 'Contactless',
     priceHint: 'From AED 12 / card',
-    image: '/assets/products/card-velvet-foil.jpg',
+    image: '/assets/products/id-cards/smart-nfc-id-cards.jpg',
     description:
       'Embedded NFC chip for contactless access control, payment systems, and data storage. Compatible with modern access control systems.',
     specs: 'NFC Chip Embedded • 13.56MHz Frequency • Contactless • Data Storage',
@@ -88,7 +88,7 @@ const ID_CARD_TYPES = [
     thickness: '1.8mm',
     badge: 'Long Range',
     priceHint: 'From AED 10 / card',
-    image: '/assets/products/card-painted-edge.jpg',
+    image: '/assets/products/id-cards/rfid-proximity-cards.jpg',
     description:
       '125kHz RFID technology for long-range access control. Reliable and compatible with most proximity readers in the UAE.',
     specs: '125kHz RFID • Long Range • Proximity Reader Compatible • Durable',
@@ -102,7 +102,7 @@ const ID_CARD_TYPES = [
     thickness: '0.76mm',
     badge: 'Payment Ready',
     priceHint: 'From AED 6 / card',
-    image: '/assets/products/card-soft-touch.jpg',
+    image: '/assets/products/id-cards/magnetic-stripe-cards.jpg',
     description:
       'High-coercivity magnetic stripe for payment systems, time tracking, and access control. Compatible with standard magnetic readers.',
     specs: 'HiCo Magnetic Stripe • 3-Track Encoding • Swipe Compatible • Durable',
@@ -116,7 +116,7 @@ const ID_CARD_TYPES = [
     thickness: '0.76mm',
     badge: 'Professional',
     priceHint: 'From AED 7 / card',
-    image: '/assets/products/basic_business_cards.jpg',
+    image: '/assets/products/id-cards/photo-id-cards.jpg',
     description:
       'Professional photo ID cards with protective lamination. Includes employee photo, name, designation, and company branding.',
     specs: 'Photo Printing • Laminated Protection • Custom Branding • QR Code Optional',
@@ -130,7 +130,7 @@ const ID_CARD_TYPES = [
     thickness: '0.76mm',
     badge: 'Unique Design',
     priceHint: 'From AED 15 / card',
-    image: '/assets/products/business-cards/bc_diecut.jpg',
+    image: '/assets/products/id-cards/custom-shaped-id-cards.jpg',
     description:
       'Stand out with custom-shaped ID cards. Die-cut to your specifications with unique contours and brand-aligned designs.',
     specs: 'Custom Die-Cut • Brand Aligned • Full Color • Premium PVC',
@@ -144,7 +144,7 @@ const ID_CARD_TYPES = [
     thickness: '0.5mm',
     badge: 'Executive',
     priceHint: 'From AED 35 / card',
-    image: '/assets/products/luxury_business_cards_dubai.jpg',
+    image: '/assets/products/id-cards/metal-id-cards.jpg',
     description:
       'Premium metal ID cards for executive access and VIP membership. Laser-etched with precision for lasting impressions.',
     specs: 'Stainless Steel • Laser Etched • Durable • Premium Finish',
@@ -158,7 +158,7 @@ const ID_CARD_TYPES = [
     thickness: '0.76mm',
     badge: 'Sustainable',
     priceHint: 'From AED 8 / card',
-    image: '/assets/products/business-cards/bc_textured_kraft.jpg',
+    image: '/assets/products/id-cards/eco-friendly-id-cards.jpg',
     description:
       'Environmentally conscious ID cards made from bio-based PVC. Same durability as traditional cards with reduced environmental impact.',
     specs: 'Bio-Based PVC • FSC Certified • Recyclable • Full Color',
@@ -172,7 +172,7 @@ const ID_CARD_TYPES = [
     thickness: '0.76mm',
     badge: 'Modern',
     priceHint: 'From AED 9 / card',
-    image: '/assets/products/business-cards/bc_minimalist.jpg',
+    image: '/assets/products/id-cards/transparent-id-cards.jpg',
     description:
       'Modern transparent ID cards with clear PVC material. Unique aesthetic with printed elements visible through the card.',
     specs: 'Clear PVC • Transparent • Full Color Printing • Modern Design',
@@ -186,7 +186,7 @@ const ID_CARD_TYPES = [
     thickness: '0.76mm',
     badge: 'Information Rich',
     priceHint: 'From AED 6 / card',
-    image: '/assets/products/business-cards/bc_bilingual.jpg',
+    image: '/assets/products/id-cards/dual-sided-id-cards.jpg',
     description:
       'Maximize information with dual-sided printing. Front for photo and basic info, back for terms, conditions, and additional data.',
     specs: 'Dual-Sided Printing • Full Color • Matte/Gloss Options • Magnetic Stripe',
@@ -200,7 +200,7 @@ const ID_CARD_TYPES = [
     thickness: '0.76mm',
     badge: 'Personalized',
     priceHint: 'From AED 5 / card',
-    image: '/assets/products/business-cards/bc_corporate_batches.jpg',
+    image: '/assets/products/id-cards/variable-data-id-cards.jpg',
     description:
       'Personalized ID cards with variable data printing. Each card unique with individual names, photos, numbers, and barcodes.',
     specs: 'Variable Data • Personalized • Barcode/QR • Sequential Numbering',

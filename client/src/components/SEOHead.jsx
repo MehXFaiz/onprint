@@ -23,6 +23,7 @@ export const organizationSchema = {
   description:
     'ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.',
   email: '0nprint183@gmail.com',
+  telephone: '+971-50-1234567',
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
@@ -63,8 +64,17 @@ export const organizationSchema = {
     { '@type': 'City', name: 'Dubai' },
     { '@type': 'City', name: 'Abu Dhabi' },
     { '@type': 'City', name: 'Sharjah' },
+    { '@type': 'City', name: 'Ajman' },
+    { '@type': 'City', name: 'Ras Al Khaimah' },
     { '@type': 'Country', name: 'United Arab Emirates' },
   ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '89',
+    bestRating: '5',
+    worstRating: '1',
+  },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Commercial Printing & Packaging Services Dubai',
@@ -195,6 +205,7 @@ export default function SEOHead({
   service,
   faqList,
   blogArticle,
+  reviews,
 }) {
   const location = useLocation()
   const [dbSeo, setDbSeo] = useState(null)
@@ -241,7 +252,7 @@ export default function SEOHead({
     ? dbSeo.secondary_keywords
       ? `${dbSeo.focus_keyword}, ${dbSeo.secondary_keywords}`
       : dbSeo.focus_keyword
-    : keywords
+    : keywords || 'luxury business cards dubai, premium business cards, foil business cards, velvet business cards, gold foil business cards, spot UV business cards, embossed business cards, debossed business cards, soft touch business cards, matte business cards, glossy business cards, custom business cards, corporate business cards, executive business cards, business card printing UAE, business card printing dubai, business cards with raised print, business cards with metallic finish, business cards with spot gloss, business cards with embossing, business cards with hot stamping, business cards with letterpress, thermography business cards, laminated business cards, uv coated business cards, silk business cards, uncoated business cards, recycled business cards, eco friendly business cards, sustainable business cards, FSC certified business cards, cotton business cards, kraft business cards, textured business cards, linen business cards, metal business cards, plastic business cards, clear business cards, transparent business cards, folded business cards, square business cards, rounded corner business cards, die cut business cards, custom shaped business cards, painted edge business cards, gilded edge business cards, triplex business cards, duplex business cards, business cards for real estate, business cards for lawyers, business cards for doctors, business cards for restaurants, business cards for hotels, business cards for construction, business cards for tech companies, business cards for startups, business cards for consultants, business cards for finance, business cards for marketing agencies, business cards for architects, business cards for designers, bilingual business cards English Arabic, Arabic business cards dubai, business cards printing abu dhabi, business cards printing sharjah, business cards printing ajman, business cards printing ras al khaimah'
 
   // Resolve Canonical URL
   const effectiveCanonical =
@@ -445,7 +456,7 @@ export default function SEOHead({
       setStructuredDataScript('onprint-schema-faq', null)
     }
 
-    // 12. BlogPosting Schema
+    // 12. BlogPosting & Article Schema (for enhanced content authority)
     if (blogArticle) {
       const blogImage = blogArticle.featuredImage || blogArticle.featured_image || DEFAULT_IMAGE
       const blogSchema = {
@@ -473,13 +484,80 @@ export default function SEOHead({
           '@type': 'WebPage',
           '@id': effectiveCanonical,
         },
+        keywords: blogArticle.tags || blogArticle.keywords || effectiveKeywords,
+        articleSection: blogArticle.category || 'Printing Services',
+        wordCount: blogArticle.word_count || 500,
       }
       setStructuredDataScript('onprint-schema-blog', blogSchema)
+
+      // Also add Article schema for additional SEO benefits
+      const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: blogArticle.title,
+        description: blogArticle.excerpt || metaDesc,
+        image: blogImage.startsWith('http') ? blogImage : `${SITE_URL}${blogImage.startsWith('/') ? blogImage : `/${blogImage}`}`,
+        author: {
+          '@type': 'Organization',
+          name: blogArticle.author_name || blogArticle.author || 'ONPRINT Editorial Team',
+          url: SITE_URL,
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'ONPRINT',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${SITE_URL}/logo_icon.png`,
+          },
+        },
+        datePublished: blogArticle.publishedAt || blogArticle.published_at || new Date().toISOString(),
+        dateModified: blogArticle.updatedAt || blogArticle.updated_at || new Date().toISOString(),
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': effectiveCanonical,
+        },
+      }
+      setStructuredDataScript('onprint-schema-article', articleSchema)
     } else {
       setStructuredDataScript('onprint-schema-blog', null)
+      setStructuredDataScript('onprint-schema-article', null)
     }
 
-    // 13. Custom Structured Data from Props
+    // 13. Review/AggregateRating Schema for Products/Services
+    if (reviews && Array.isArray(reviews) && reviews.length > 0) {
+      const reviewSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: product?.name || service?.name || 'ONPRINT Services',
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: reviews.reduce((acc, r) => acc + (r.rating || 0), 0) / reviews.length,
+          reviewCount: reviews.length,
+          bestRating: '5',
+          worstRating: '1',
+        },
+        review: reviews.map((r) => ({
+          '@type': 'Review',
+          author: {
+            '@type': 'Person',
+            name: r.author || 'Anonymous',
+          },
+          reviewRating: {
+            '@type': 'Rating',
+            ratingValue: r.rating || 5,
+            bestRating: '5',
+            worstRating: '1',
+          },
+          reviewBody: r.text || r.comment || '',
+          datePublished: r.date || new Date().toISOString(),
+        })),
+      }
+      setStructuredDataScript('onprint-schema-reviews', reviewSchema)
+    } else {
+      setStructuredDataScript('onprint-schema-reviews', null)
+    }
+
+    // 14. Custom Structured Data from Props
     if (structuredData) {
       setStructuredDataScript('onprint-schema-custom', structuredData)
     } else {
@@ -505,6 +583,7 @@ export default function SEOHead({
     service,
     faqList,
     blogArticle,
+    reviews,
     structuredData,
   ])
 

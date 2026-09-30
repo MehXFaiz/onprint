@@ -48,11 +48,20 @@ export function getStoredProducts() {
         return p
       })
 
-      // 3. Ensure all default products (including new mugs and bottles) are always available in stored list
+      // 3. Ensure all default products (including new ID cards, mugs and bottles) are always available in stored list
+      const defaultIdCardSlugs = new Set(defaultProducts.filter((p) => p.category?.slug === 'id-card-printing-dubai').map((p) => p.slug))
+      const cleanIdCardSlugs = new Set(clean.filter((p) => p.category?.slug === 'id-card-printing-dubai').map((p) => p.slug))
+      
+      const missingIdCards = defaultProducts.filter((p) => defaultIdCardSlugs.has(p.slug) && !cleanIdCardSlugs.has(p.slug))
       const existingSlugs = new Set(clean.map((p) => p.slug))
       const missingProducts = defaultProducts.filter((p) => !existingSlugs.has(p.slug))
-      if (missingProducts.length > 0) {
-        clean = [...clean, ...missingProducts]
+      
+      if (missingProducts.length > 0 || missingIdCards.length > 0) {
+        // Refresh with latest default ID cards and missing catalog products
+        clean = [...defaultProducts.filter((p) => defaultIdCardSlugs.has(p.slug)), ...clean.filter((p) => !defaultIdCardSlugs.has(p.slug))]
+        const currentSlugs = new Set(clean.map((p) => p.slug))
+        const remainingMissing = defaultProducts.filter((p) => !currentSlugs.has(p.slug))
+        clean = [...clean, ...remainingMissing]
         saveProducts(clean)
       }
       return clean

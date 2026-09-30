@@ -52,10 +52,18 @@ import mugVintageEnamelImg from './products/mug_vintage_enamel.jpg'
 // Dedicated high-resolution Water Bottle variety images
 import bottleSmartLedImg from './products/bottle_smart_led.jpg'
 import bottleMatteThermalImg from './products/bottle_matte_thermal.jpg'
-import bottleSportsAluminiumImg from './products/bottle_sports_aluminium.jpg'
-import bottleGlassBambooImg from './products/bottle_glass_bamboo.jpg'
 import bottleProteinShakerImg from './products/bottle_protein_shaker.jpg'
 import bottleLuxuryCopperImg from './products/bottle_luxury_copper.jpg'
+
+// Dedicated high-resolution ID Card variety images
+import smartNfcIdCardImg from './products/id-cards/smart-nfc-pvc-id.svg'
+import rfidAccessCardImg from './products/id-cards/rfid-proximity-cards.svg'
+import holographicSecurityIdCardImg from './products/id-cards/holographic-security-cards.svg'
+import magneticStripeIdCardImg from './products/id-cards/magnetic-stripe-cards.svg'
+import photoIdStaffCardImg from './products/id-cards/photo-id-staff-cards.svg'
+import studentCampusIdCardImg from './products/id-cards/student-campus-id-cards.svg'
+import visitorPassHoldersImg from './products/id-cards/visitor-pass-holders.svg'
+import executiveVipMetalCardImg from './products/id-cards/executive-vip-metal-cards.svg'
 
 import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
@@ -106,6 +114,16 @@ export const productImages = {
   bottleGlassBamboo: bottleGlassBambooImg,
   bottleProteinShaker: bottleProteinShakerImg,
   bottleLuxuryCopper: bottleLuxuryCopperImg,
+
+  // Dedicated ID Cards
+  smartNfcIdCard: smartNfcIdCardImg,
+  rfidAccessCard: rfidAccessCardImg,
+  holographicSecurityIdCard: holographicSecurityIdCardImg,
+  magneticStripeIdCard: magneticStripeIdCardImg,
+  photoIdStaffCard: photoIdStaffCardImg,
+  studentCampusIdCard: studentCampusIdCardImg,
+  visitorPassHolders: visitorPassHoldersImg,
+  executiveVipMetalCard: executiveVipMetalCardImg,
 }
 
 export const productSlugImageMap = {
@@ -199,17 +217,23 @@ export const productSlugImageMap = {
   'large-format-posters': img9,
   'door-hangers-printing': flyersImg,
   'postcards-printing': img3,
-  'secure-smart-nfc-pvc-id-cards': idCardsImg,
-  'rfid-proximity-access-cards': idCardsImg,
-  'holographic-security-id-cards': idCardsImg,
-  'magnetic-stripe-corporate-id-cards': idCardsImg,
-  'photo-id-staff-cards': idCardsImg,
-  'student-campus-id-cards': idCardsImg,
-  'visitor-pass-cards-holders': badgesImg,
-  'executive-metallic-vip-id-cards': idCardsImg,
-  'student-id-cards': idCardsImg,
-  'access-control-cards': img4,
-  'visitor-pass-cards': badgesImg,
+  'secure-smart-nfc-pvc-id-cards': smartNfcIdCardImg,
+  'smart-nfc-id-cards': smartNfcIdCardImg,
+  'rfid-proximity-access-cards': rfidAccessCardImg,
+  'rfid-proximity-cards': rfidAccessCardImg,
+  'holographic-security-id-cards': holographicSecurityIdCardImg,
+  'holographic-id-cards': holographicSecurityIdCardImg,
+  'magnetic-stripe-corporate-id-cards': magneticStripeIdCardImg,
+  'magnetic-stripe-cards': magneticStripeIdCardImg,
+  'photo-id-staff-cards': photoIdStaffCardImg,
+  'photo-id-cards': photoIdStaffCardImg,
+  'student-campus-id-cards': studentCampusIdCardImg,
+  'student-id-cards': studentCampusIdCardImg,
+  'visitor-pass-cards-holders': visitorPassHoldersImg,
+  'visitor-pass-cards': visitorPassHoldersImg,
+  'executive-metallic-vip-id-cards': executiveVipMetalCardImg,
+  'metal-id-cards': executiveVipMetalCardImg,
+  'access-control-cards': rfidAccessCardImg,
   'custom-usb-flash-drives': img2,
   'corporate-gift-sets': img5,
   'power-banks-printing': bottlesImg,

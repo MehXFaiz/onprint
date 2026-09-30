@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="RFID Proximity Access Control Cards">
+  <defs>
+    <radialGradient id="bgGradRfid" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </radialGradient>
+    <linearGradient id="cardGradRfid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <filter id="shadowRfid" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="25" stdDeviation="35" flood-color="#000000" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#0284c7" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bgGradRfid)"/>
+  
+  <!-- Subtle Wave Antenna Rings -->
+  <circle cx="600" cy="450" r="380" fill="none" stroke="#0284c7" stroke-opacity="0.08" stroke-width="2"/>
+  <circle cx="600" cy="450" r="520" fill="none" stroke="#0284c7" stroke-opacity="0.04" stroke-width="2"/>
+
+  <!-- Main Card Group -->
+  <g transform="translate(340, 150)" filter="url(#shadowRfid)">
+    <rect width="520" height="600" rx="26" fill="url(#cardGradRfid)"/>
+    <rect width="520" height="600" rx="26" fill="none" stroke="#ffffff" stroke-width="2"/>
+
+    <!-- Header Navy / Blue -->
+    <path d="M 0 26 C 0 11.64 11.64 0 26 0 L 494 0 C 508.36 0 520 11.64 520 26 L 520 85 L 0 85 Z" fill="#0f172a"/>
+    <text x="35" y="52" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="22" font-weight="900" letter-spacing="2">ACCESS CONTROL</text>
+    <rect x="365" y="32" width="120" height="28" rx="6" fill="#0284c7"/>
+    <text x="425" y="51" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="middle" letter-spacing="1">125 kHz RFID</text>
+
+    <!-- RFID Antenna Internal Coil Overlay Graphic -->
+    <g transform="translate(45, 120)">
+      <!-- Antenna Loop Wire Graphic -->
+      <rect x="0" y="0" width="430" height="260" rx="18" fill="none" stroke="#0284c7" stroke-width="2" stroke-dasharray="8 6" stroke-opacity="0.4"/>
+      <rect x="8" y="8" width="414" height="244" rx="14" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="6 4" stroke-opacity="0.3"/>
+      
+      <!-- Center Sensor Icon -->
+      <circle cx="215" cy="100" r="45" fill="#0284c7" fill-opacity="0.1"/>
+      <circle cx="215" cy="100" r="30" fill="#0284c7" fill-opacity="0.2"/>
+      <!-- Waves -->
+      <path d="M 195 100 A 20 20 0 0 1 235 100" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M 185 100 A 30 30 0 0 1 245 100" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M 175 100 A 40 40 0 0 1 255 100" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="215" cy="100" r="6" fill="#0284c7"/>
+
+      <text x="215" y="180" fill="#0f172a" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="900" text-anchor="middle">PROXIMITY CREDENTIAL</text>
+      <text x="215" y="205" fill="#64748b" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">EM4100 / TK4100 / HID Compatible</text>
+      <text x="215" y="235" fill="#0284c7" font-family="'Roboto Mono', monospace" font-size="16" font-weight="900" text-anchor="middle" letter-spacing="4">0008924017  136,11185</text>
+    </g>
+
+    <!-- Facility & Serial Grid -->
+    <g transform="translate(45, 415)">
+      <rect width="430" height="100" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <g transform="translate(25, 25)">
+        <text x="0" y="16" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">FACILITY CODE</text>
+        <text x="0" y="42" fill="#0f172a" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="22" font-weight="900">FC-136</text>
+      </g>
+      <line x1="160" y1="20" x2="160" y2="80" stroke="#e2e8f0" stroke-width="2"/>
+      <g transform="translate(185, 25)">
+        <text x="0" y="16" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">CARD ID RANGE</text>
+        <text x="0" y="42" fill="#0f172a" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="22" font-weight="900">0008900–0008999</text>
+      </g>
+    </g>
+
+    <!-- Bottom Footer -->
+    <text x="45" y="565" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="800">STANDARD CR80 ISO 0.84mm • WATERPROOF</text>
+    <text x="475" y="565" fill="#A82F19" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="end">ONPRINT DUBAI</text>
+  </g>
+</svg>

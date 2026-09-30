@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Secure Smart NFC PVC ID Cards">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a2e39"/>
+      <stop offset="100%" stop-color="#12151c"/>
+    </radialGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0f2f5"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A82F19"/>
+      <stop offset="100%" stop-color="#d9482b"/>
+    </linearGradient>
+    <linearGradient id="chipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5d77f"/>
+      <stop offset="50%" stop-color="#dfad38"/>
+      <stop offset="100%" stop-color="#9a7114"/>
+    </linearGradient>
+    <linearGradient id="nfcWave" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A82F19" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#d9482b" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="25" stdDeviation="35" flood-color="#000000" flood-opacity="0.55"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="1200" height="900" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle lighting grid reflection -->
+  <circle cx="600" cy="450" r="420" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1.5"/>
+  <circle cx="600" cy="450" r="560" fill="none" stroke="#ffffff" stroke-opacity="0.02" stroke-width="1.5"/>
+
+  <!-- CR80 Smart NFC Card -->
+  <g transform="translate(340, 150)" filter="url(#dropShadow)">
+    <!-- Main Card Body (Standard CR80 Ratio: 520x720 rounded) -->
+    <rect width="520" height="600" rx="26" fill="url(#cardGrad)"/>
+    <rect width="520" height="600" rx="26" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="0.8"/>
+    
+    <!-- Top Header Ribbon -->
+    <path d="M 0 26 C 0 11.64 11.64 0 26 0 L 494 0 C 508.36 0 520 11.64 520 26 L 520 85 L 0 85 Z" fill="url(#accentGrad)"/>
+    <text x="35" y="52" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="22" font-weight="900" letter-spacing="2.5">ONPRINT CORPORATE</text>
+    <text x="485" y="52" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="end" opacity="0.85">DUBAI HQ</text>
+
+    <!-- Smart NFC Contactless Indicator -->
+    <g transform="translate(425, 115)">
+      <circle cx="28" cy="28" r="28" fill="#A82F19" fill-opacity="0.1"/>
+      <!-- NFC Waves -->
+      <path d="M 18 36 A 14 14 0 0 1 18 20" fill="none" stroke="#A82F19" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 24 40 A 20 20 0 0 1 24 16" fill="none" stroke="#A82F19" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 30 44 A 26 26 0 0 1 30 12" fill="none" stroke="#A82F19" stroke-width="3" stroke-linecap="round"/>
+      <text x="28" y="70" fill="#A82F19" font-family="system-ui, sans-serif" font-size="10" font-weight="900" text-anchor="middle" letter-spacing="1">NFC TAP</text>
+    </g>
+
+    <!-- Embedded Smart EMV / NFC Microchip -->
+    <g transform="translate(50, 115)">
+      <rect width="68" height="52" rx="8" fill="url(#chipGrad)"/>
+      <rect width="68" height="52" rx="8" fill="none" stroke="#795304" stroke-width="1.5"/>
+      <path d="M 0 26 h 68 M 24 0 v 52 M 44 0 v 52 M 24 18 h 20 M 24 34 h 20" stroke="#795304" stroke-width="1.5" fill="none"/>
+    </g>
+
+    <!-- Photo Portrait Container -->
+    <g transform="translate(50, 205)">
+      <rect width="160" height="195" rx="14" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+      <!-- Stylized Silhouette Avatar -->
+      <circle cx="80" cy="70" r="38" fill="#94a3b8"/>
+      <path d="M 22 175 C 22 125 50 115 80 115 C 110 115 138 125 138 175 Z" fill="#64748b"/>
+      <!-- Security Watermark Over Portrait -->
+      <rect x="10" y="160" width="140" height="22" rx="4" fill="#0f172a" fill-opacity="0.75"/>
+      <text x="80" y="175" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10" font-weight="900" text-anchor="middle" letter-spacing="2">VERIFIED IDENTITY</text>
+    </g>
+
+    <!-- Employee Details Info Block -->
+    <g transform="translate(235, 225)">
+      <text x="0" y="24" fill="#0f172a" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="900">Tariq Al-Mansoor</text>
+      <text x="0" y="52" fill="#A82F19" font-family="system-ui, sans-serif" font-size="16" font-weight="800" letter-spacing="1">VP OF TECHNOLOGY</text>
+      
+      <line x1="0" y1="75" x2="235" y2="75" stroke="#e2e8f0" stroke-width="2"/>
+
+      <text x="0" y="105" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="700">EMPLOYEE ID</text>
+      <text x="0" y="125" fill="#0f172a" font-family="'Roboto Mono', monospace" font-size="15" font-weight="800">DXB-8839-NFC</text>
+
+      <text x="0" y="155" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="700">ACCESS LEVEL</text>
+      <text x="0" y="175" fill="#0f172a" font-family="system-ui, sans-serif" font-size="14" font-weight="800">TIER-1 • ALL ZONES</text>
+    </g>
+
+    <!-- Bottom Barcode & Security Strip -->
+    <g transform="translate(50, 440)">
+      <rect width="420" height="85" rx="12" fill="#0f172a"/>
+      <!-- Digital Barcode Graphic -->
+      <g transform="translate(25, 20)">
+        <rect x="0" y="0" width="4" height="45" fill="#ffffff"/>
+        <rect x="8" y="0" width="2" height="45" fill="#ffffff"/>
+        <rect x="14" y="0" width="6" height="45" fill="#ffffff"/>
+        <rect x="24" y="0" width="3" height="45" fill="#ffffff"/>
+        <rect x="31" y="0" width="8" height="45" fill="#ffffff"/>
+        <rect x="43" y="0" width="3" height="45" fill="#ffffff"/>
+        <rect x="50" y="0" width="5" height="45" fill="#ffffff"/>
+        <rect x="59" y="0" width="2" height="45" fill="#ffffff"/>
+        <rect x="65" y="0" width="7" height="45" fill="#ffffff"/>
+        <rect x="76" y="0" width="4" height="45" fill="#ffffff"/>
+        <rect x="84" y="0" width="3" height="45" fill="#ffffff"/>
+        <rect x="91" y="0" width="6" height="45" fill="#ffffff"/>
+        <rect x="101" y="0" width="2" height="45" fill="#ffffff"/>
+        <rect x="107" y="0" width="5" height="45" fill="#ffffff"/>
+        <rect x="116" y="0" width="4" height="45" fill="#ffffff"/>
+        <rect x="124" y="0" width="8" height="45" fill="#ffffff"/>
+        <rect x="136" y="0" width="3" height="45" fill="#ffffff"/>
+        <rect x="143" y="0" width="5" height="45" fill="#ffffff"/>
+        <rect x="152" y="0" width="4" height="45" fill="#ffffff"/>
+        <rect x="160" y="0" width="6" height="45" fill="#ffffff"/>
+        <rect x="170" y="0" width="3" height="45" fill="#ffffff"/>
+        <rect x="177" y="0" width="5" height="45" fill="#ffffff"/>
+        <rect x="186" y="0" width="2" height="45" fill="#ffffff"/>
+        <rect x="192" y="0" width="7" height="45" fill="#ffffff"/>
+      </g>
+      <!-- NFC Encrypted Tag Badge -->
+      <g transform="translate(245, 22)">
+        <rect width="150" height="42" rx="8" fill="#A82F19"/>
+        <text x="75" y="26" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="900" text-anchor="middle" letter-spacing="1.5">NTAG216 ENCRYPTED</text>
+      </g>
+    </g>
+
+    <!-- Footer Copyright & Hologram dot -->
+    <circle cx="65" cy="565" r="12" fill="url(#chipGrad)"/>
+    <text x="90" y="570" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="700">CR80 0.86mm PVC • ISO/IEC 14443 Type A</text>
+    <text x="470" y="570" fill="#A82F19" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="end">ONPRINT UAE</text>
+  </g>
+</svg>

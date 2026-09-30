@@ -283,8 +283,8 @@ module.exports = {
       },
       "shortDescription": "CR80 standard PVC identity cards with embedded NFC/RFID chips, high-definition photo print and security overlay.",
       "description": "High-security corporate employee ID cards manufactured from durable CR80 PVC with integrated contactless NTAG213/216 smart chips, QR codes, magnetic stripes, and anti-scratch protective lamination. Perfect for digital tap-to-share business cards and modern IoT office access in Dubai.",
-      "image": "/uploads/categories/id-card-printing-dubai.jpg",
-      "image_url": "/uploads/categories/id-card-printing-dubai.jpg",
+      "image": "/assets/products/id-cards/smart-nfc-pvc-id.svg",
+      "image_url": "/assets/products/id-cards/smart-nfc-pvc-id.svg",
       "imageAlt": "Secure smart NFC PVC employee ID cards in Dubai",
       "seoTitle": "Secure Smart NFC PVC ID Cards Dubai | Contactless Smart Badges | ONPRINT",
       "seoDescription": "High-security corporate PVC ID cards with embedded NFC smart chips in Dubai. High-resolution photo printing, barcodes, and custom security overlays.",
@@ -353,7 +353,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/uploads/categories/id-card-printing-dubai.jpg",
+        "/assets/products/id-cards/smart-nfc-pvc-id.svg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -370,8 +370,8 @@ module.exports = {
       },
       "shortDescription": "125kHz EM4100 & HID compatible proximity identity cards for contactless turnstiles, parking gates, and biometric door systems.",
       "description": "Commercial 125kHz RFID proximity cards engineered for seamless compatibility with UAE office biometric turnstiles, automated barrier gates, and secure zone readers. Features durable composite core with crisp edge-to-edge full-color surface printing.",
-      "image": "/assets/products/id_cards.jpg",
-      "image_url": "/assets/products/id_cards.jpg",
+      "image": "/assets/products/id-cards/rfid-proximity-cards.svg",
+      "image_url": "/assets/products/id-cards/rfid-proximity-cards.svg",
       "imageAlt": "RFID proximity access control cards in Dubai",
       "seoTitle": "RFID Proximity Access Cards Dubai | 125kHz Turnstile & Door Badges | ONPRINT",
       "seoDescription": "Order custom printed 125kHz RFID proximity access cards in Dubai. High durability, long-range barrier scanning, and custom corporate branding.",
@@ -434,8 +434,8 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id_cards.jpg",
-        "/uploads/categories/id-card-printing-dubai.jpg"
+        "/assets/products/id-cards/rfid-proximity-cards.svg",
+        "/assets/products/id_cards.jpg"
       ]
     },
     {
@@ -451,8 +451,8 @@ module.exports = {
       },
       "shortDescription": "Anti-counterfeit employee identity cards with embedded 3D optical holographic foil, microtext patterns, and UV invisible ink.",
       "description": "Bank-grade high-security identification cards featuring optical variable holographic overlays, microscopic guilloche security borders, and UV ultraviolet invisible watermarks. Engineered to eliminate forgery and unauthorized replication for government, defense, and high-security enterprise facilities across the UAE.",
-      "image": "/assets/products/id_cards.jpg",
-      "image_url": "/assets/products/id_cards.jpg",
+      "image": "/assets/products/id-cards/holographic-security-cards.svg",
+      "image_url": "/assets/products/id-cards/holographic-security-cards.svg",
       "imageAlt": "Holographic security employee ID badges in Dubai",
       "seoTitle": "Holographic Security ID Cards Dubai | Anti-Counterfeit Badges | ONPRINT",
       "seoDescription": "High-security holographic ID card printing in Dubai. 3D holographic overlays, UV invisible security printing, and tamper-evident lamination.",
@@ -515,8 +515,8 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id_cards.jpg",
-        "/uploads/categories/id-card-printing-dubai.jpg"
+        "/assets/products/id-cards/holographic-security-cards.svg",
+        "/assets/products/id_cards.jpg"
       ]
     },
     {
@@ -532,8 +532,8 @@ module.exports = {
       },
       "shortDescription": "High-coercivity 2750 Oe 3-track magnetic stripe cards for time-attendance logging, hotel key locks, and POS terminals.",
       "description": "Heavy-duty magnetic stripe identity cards equipped with 2750 Oe High Coercivity (HiCo) 3-track magnetic bands. Ideal for Dubai corporate time & attendance terminals, hotel electronic key card locks, gym memberships, and cafeteria POS payment swiping.",
-      "image": "/assets/products/standard-pvc-id.jpg",
-      "image_url": "/assets/products/standard-pvc-id.jpg",
+      "image": "/assets/products/id-cards/magnetic-stripe-cards.svg",
+      "image_url": "/assets/products/id-cards/magnetic-stripe-cards.svg",
       "imageAlt": "HiCo magnetic stripe corporate ID cards in Dubai",
       "seoTitle": "HiCo Magnetic Stripe ID Cards Dubai | Hotel Keys & Time Attendance | ONPRINT",
       "seoDescription": "Order HiCo magnetic stripe ID cards in Dubai. 3-track encoded magnetic cards for hotel key systems, time attendance clocks, and POS swiping.",
@@ -596,7 +596,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/standard-pvc-id.jpg",
+        "/assets/products/id-cards/magnetic-stripe-cards.svg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -613,8 +613,8 @@ module.exports = {
       },
       "shortDescription": "600 DPI edge-to-edge retransfer photo ID badges with crystal-clear lamination and optional lanyard slot punching.",
       "description": "Commercial grade photographic employee badges printed with 600 DPI edge-to-edge dye-sublimation technology for razor-sharp portraits and true corporate color reproduction. Finished with tough gloss or satin matte scratch-proof overlay, pre-punched for crocodile clips or neck lanyards.",
-      "image": "/assets/products/id-cards/standard-pvc-id.jpg",
-      "image_url": "/assets/products/id-cards/standard-pvc-id.jpg",
+      "image": "/assets/products/id-cards/photo-id-staff-cards.svg",
+      "image_url": "/assets/products/id-cards/photo-id-staff-cards.svg",
       "imageAlt": "Full color laminated photo staff ID cards in Dubai",
       "seoTitle": "Photo ID Staff Cards Dubai | Full Color Retransfer Employee Badges | ONPRINT",
       "seoDescription": "Professional photo ID card printing in Dubai. 600 DPI high-definition portrait printing, durable lamination, and lanyard slot punching.",
@@ -677,7 +677,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/standard-pvc-id.jpg",
+        "/assets/products/id-cards/photo-id-staff-cards.svg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -694,8 +694,8 @@ module.exports = {
       },
       "shortDescription": "Durable CR80 school and university student identity cards with barcodes, QR codes, photo portraits, and library access.",
       "description": "Robust, tamper-resistant student ID cards designed for UAE schools, colleges, and universities. Features high-resolution photo portraits, unique student roll numbers, 1D/2D barcodes for library checkout, QR verification, and optional MIFARE campus smart canteen integration.",
-      "image": "/assets/products/id_cards.jpg",
-      "image_url": "/assets/products/id_cards.jpg",
+      "image": "/assets/products/id-cards/student-campus-id-cards.svg",
+      "image_url": "/assets/products/id-cards/student-campus-id-cards.svg",
       "imageAlt": "Student and university campus ID cards in Dubai",
       "seoTitle": "Student ID Cards Printing Dubai | School & University Campus Badges | ONPRINT",
       "seoDescription": "Custom student ID card printing in Dubai. School and university identity cards with barcodes, QR codes, photo portraits, and library access.",
@@ -758,8 +758,8 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id_cards.jpg",
-        "/assets/products/id-cards/standard-pvc-id.jpg"
+        "/assets/products/id-cards/student-campus-id-cards.svg",
+        "/assets/products/id_cards.jpg"
       ]
     },
     {
@@ -775,8 +775,8 @@ module.exports = {
       },
       "shortDescription": "Reusable color-coded corporate visitor badges with bold sequential numbering and heavy-duty transparent acrylic holders.",
       "description": "Comprehensive visitor management cards featuring bold color-coded security zone stripes, sequential numbering, high-gloss reusable wipe-clean PVC surfaces, and transparent acrylic protective badge holders with swivel clips or safety breakaway neck straps.",
-      "image": "/assets/products/name_badges.jpg",
-      "image_url": "/assets/products/name_badges.jpg",
+      "image": "/assets/products/id-cards/visitor-pass-holders.svg",
+      "image_url": "/assets/products/id-cards/visitor-pass-holders.svg",
       "imageAlt": "Visitor pass cards and clear badge holders in Dubai",
       "seoTitle": "Visitor Pass Cards & Badges Dubai | Reusable Office Visitor Badges | ONPRINT",
       "seoDescription": "Visitor pass cards and badge printing in Dubai. Reusable color-coded PVC passes, sequential numbering, and rigid acrylic badge holders.",
@@ -845,7 +845,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/name_badges.jpg",
+        "/assets/products/id-cards/visitor-pass-holders.svg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -862,8 +862,8 @@ module.exports = {
       },
       "shortDescription": "Ultra-luxury executive VIP membership cards with matte black velvet finish, laser engraving, and metallic gold/silver foil.",
       "description": "Bespoke VIP and executive membership identity cards crafted from solid black matte PVC or precision-milled stainless steel. Features luxury metallic hot-foil stamping, laser-engraved serial numbers, custom embossing, and magnetic stripe or smart chip integration for exclusive Dubai clubs and executive suites.",
-      "image": "/assets/products/id-cards/metal-id-cards.jpg",
-      "image_url": "/assets/products/id-cards/metal-id-cards.jpg",
+      "image": "/assets/products/id-cards/executive-vip-metal-cards.svg",
+      "image_url": "/assets/products/id-cards/executive-vip-metal-cards.svg",
       "imageAlt": "Executive matte black and metallic VIP ID cards in Dubai",
       "seoTitle": "Executive VIP & Metal ID Cards Dubai | Luxury Membership Cards | ONPRINT",
       "seoDescription": "Luxury executive VIP and metal ID card printing in Dubai. Matte black finish, gold foil stamping, laser engraving, and bespoke club membership cards.",
@@ -926,7 +926,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/metal-id-cards.jpg",
+        "/assets/products/id-cards/executive-vip-metal-cards.svg",
         "/assets/products/id_cards.jpg"
       ]
     },

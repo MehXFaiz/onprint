@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Student and University Campus ID Cards">
+  <defs>
+    <radialGradient id="bgGradStudent" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
+    <linearGradient id="cardGradStudent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="academicHeader" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#4338ca"/>
+    </linearGradient>
+    <filter id="shadowStudent" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="25" stdDeviation="35" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bgGradStudent)"/>
+
+  <g transform="translate(340, 150)" filter="url(#shadowStudent)">
+    <rect width="520" height="600" rx="26" fill="url(#cardGradStudent)"/>
+    <rect width="520" height="600" rx="26" fill="none" stroke="#ffffff" stroke-width="2"/>
+
+    <!-- University Banner Header -->
+    <path d="M 0 26 C 0 11.64 11.64 0 26 0 L 494 0 C 508.36 0 520 11.64 520 26 L 520 90 L 0 90 Z" fill="url(#academicHeader)"/>
+    
+    <!-- University Crest Graphic -->
+    <g transform="translate(30, 20)">
+      <polygon points="25,0 50,10 50,35 25,50 0,35 0,10" fill="#fbbf24"/>
+      <polygon points="25,6 44,14 44,32 25,44 6,32 6,14" fill="#312e81"/>
+      <text x="25" y="30" fill="#fbbf24" font-family="'Times New Roman', serif" font-size="16" font-weight="bold" text-anchor="middle">DU</text>
+    </g>
+
+    <text x="95" y="45" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="18" font-weight="900" letter-spacing="1.5">DUBAI UNIVERSITY</text>
+    <text x="95" y="68" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="12" font-weight="800" letter-spacing="2">ACADEMIC YEAR 2026–2027</text>
+
+    <rect x="385" y="32" width="105" height="28" rx="6" fill="#fbbf24"/>
+    <text x="437.5" y="51" fill="#1e1b4b" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="middle" letter-spacing="1">STUDENT ID</text>
+
+    <!-- Student Photo Area -->
+    <g transform="translate(50, 125)">
+      <rect width="165" height="205" rx="14" fill="#e0e7ff" stroke="#4338ca" stroke-width="2.5"/>
+      <circle cx="82.5" cy="75" r="42" fill="#6366f1"/>
+      <path d="M 22 185 C 22 135 50 125 82.5 125 C 115 125 143 135 143 185 Z" fill="#3730a3"/>
+      <rect x="12" y="165" width="141" height="24" rx="4" fill="#1e1b4b"/>
+      <text x="82.5" y="181" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="10" font-weight="900" text-anchor="middle" letter-spacing="1">UNDERGRADUATE</text>
+    </g>
+
+    <!-- Student Credentials -->
+    <g transform="translate(245, 135)">
+      <text x="0" y="26" fill="#0f172a" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="26" font-weight="900">Omar Al-Hashimi</text>
+      <text x="0" y="52" fill="#4338ca" font-family="system-ui, sans-serif" font-size="15" font-weight="800">B.Sc. COMPUTER SCIENCE</text>
+      
+      <line x1="0" y1="72" x2="225" y2="72" stroke="#e0e7ff" stroke-width="2"/>
+
+      <text x="0" y="100" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">STUDENT ID NUMBER</text>
+      <text x="0" y="120" fill="#0f172a" font-family="'Roboto Mono', monospace" font-size="16" font-weight="800">STU-2026-9941</text>
+
+      <text x="0" y="150" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">CAMPUS PRIVILEGES</text>
+      <text x="0" y="170" fill="#0f172a" font-family="system-ui, sans-serif" font-size="13" font-weight="800">LIBRARY • LABS • CANTEEN</text>
+    </g>
+
+    <!-- Barcode & Campus Access Block -->
+    <g transform="translate(50, 365)">
+      <rect width="420" height="150" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      
+      <!-- Code 128 Barcode -->
+      <g transform="translate(30, 20)">
+        <rect x="0" y="0" width="3" height="48" fill="#0f172a"/>
+        <rect x="5" y="0" width="6" height="48" fill="#0f172a"/>
+        <rect x="14" y="0" width="2" height="48" fill="#0f172a"/>
+        <rect x="18" y="0" width="7" height="48" fill="#0f172a"/>
+        <rect x="28" y="0" width="4" height="48" fill="#0f172a"/>
+        <rect x="35" y="0" width="2" height="48" fill="#0f172a"/>
+        <rect x="40" y="0" width="8" height="48" fill="#0f172a"/>
+        <rect x="51" y="0" width="3" height="48" fill="#0f172a"/>
+        <rect x="57" y="0" width="6" height="48" fill="#0f172a"/>
+        <rect x="66" y="0" width="4" height="48" fill="#0f172a"/>
+        <rect x="73" y="0" width="3" height="48" fill="#0f172a"/>
+        <rect x="79" y="0" width="8" height="48" fill="#0f172a"/>
+        <rect x="90" y="0" width="2" height="48" fill="#0f172a"/>
+        <rect x="95" y="0" width="7" height="48" fill="#0f172a"/>
+        <rect x="105" y="0" width="4" height="48" fill="#0f172a"/>
+        <rect x="112" y="0" width="5" height="48" fill="#0f172a"/>
+        <rect x="120" y="0" width="3" height="48" fill="#0f172a"/>
+        <rect x="126" y="0" width="6" height="48" fill="#0f172a"/>
+        <rect x="135" y="0" width="4" height="48" fill="#0f172a"/>
+        <rect x="142" y="0" width="7" height="48" fill="#0f172a"/>
+        <rect x="152" y="0" width="3" height="48" fill="#0f172a"/>
+        <rect x="158" y="0" width="5" height="48" fill="#0f172a"/>
+        <rect x="166" y="0" width="3" height="48" fill="#0f172a"/>
+        <rect x="172" y="0" width="7" height="48" fill="#0f172a"/>
+        <rect x="182" y="0" width="4" height="48" fill="#0f172a"/>
+        <rect x="189" y="0" width="5" height="48" fill="#0f172a"/>
+        <rect x="197" y="0" width="8" height="48" fill="#0f172a"/>
+        <rect x="208" y="0" width="3" height="48" fill="#0f172a"/>
+      </g>
+
+      <!-- QR Code on right -->
+      <g transform="translate(325, 18)">
+        <rect width="65" height="65" rx="6" fill="#1e1b4b"/>
+        <rect x="6" y="6" width="18" height="18" fill="#ffffff"/>
+        <rect x="10" y="10" width="10" height="10" fill="#1e1b4b"/>
+        <rect x="41" y="6" width="18" height="18" fill="#ffffff"/>
+        <rect x="45" y="10" width="10" height="10" fill="#1e1b4b"/>
+        <rect x="6" y="41" width="18" height="18" fill="#ffffff"/>
+        <rect x="10" y="45" width="10" height="10" fill="#1e1b4b"/>
+      </g>
+
+      <text x="30" y="92" fill="#0f172a" font-family="'Roboto Mono', monospace" font-size="13" font-weight="700">*2026-9941-DU-EDU*</text>
+      
+      <line x1="20" y1="108" x2="400" y2="108" stroke="#e2e8f0" stroke-width="1.5"/>
+      
+      <text x="30" y="132" fill="#4338ca" font-family="system-ui, sans-serif" font-size="12" font-weight="800">AUTOMATED TURNS &amp; LIBRARY SYSTEM COMPATIBLE</text>
+    </g>
+
+    <!-- Footer -->
+    <text x="50" y="565" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="800">CR80 0.76mm PVC • HIGH DURABILITY ANTI-GLARE FINISH</text>
+    <text x="470" y="565" fill="#A82F19" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="end">ONPRINT UAE</text>
+  </g>
+</svg>

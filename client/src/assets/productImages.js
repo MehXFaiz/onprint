@@ -52,6 +52,8 @@ import mugVintageEnamelImg from './products/mug_vintage_enamel.jpg'
 // Dedicated high-resolution Water Bottle variety images
 import bottleSmartLedImg from './products/bottle_smart_led.jpg'
 import bottleMatteThermalImg from './products/bottle_matte_thermal.jpg'
+import bottleSportsAluminiumImg from './products/bottle_sports_aluminium.jpg'
+import bottleGlassBambooImg from './products/bottle_glass_bamboo.jpg'
 import bottleProteinShakerImg from './products/bottle_protein_shaker.jpg'
 import bottleLuxuryCopperImg from './products/bottle_luxury_copper.jpg'
 

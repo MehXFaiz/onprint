@@ -1328,17 +1328,6 @@ const initialPageSeoRecords = [
     seo_score: 95,
     readability_score: 86,
   },
-      offers: {
-        '@type': 'Offer',
-        price: '25.00',
-        priceCurrency: 'AED',
-        availability: 'https://schema.org/InStock',
-        url: `${SITE_URL}/products/secure-smart-nfc-pvc-id-cards`,
-      },
-    }),
-    seo_score: 93,
-    readability_score: 84,
-  },
   {
     page_type: 'product',
     page_id: 5,

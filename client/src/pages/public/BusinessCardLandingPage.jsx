@@ -60,6 +60,7 @@ import standardSilkImg from '../../assets/products/business-cards/bc_standard_si
 import premiumMatteImg from '../../assets/products/business-cards/bc_premium_matte.jpg'
 import minimalistImg from '../../assets/products/business-cards/bc_minimalist.jpg'
 import basicBusinessCardsImg from '../../assets/products/basic_business_cards.jpg'
+import embossedCardImg from '../../assets/products/business-cards/bc_embossed.jpg'
 
 // 22 Comprehensive Business Card Options - Basic & Standard Prioritized
 const CARD_VARIATIONS = [
@@ -154,7 +155,7 @@ const CARD_VARIATIONS = [
     gsm: '400 GSM',
     badge: 'Tactile Contrast',
     priceHint: 'From AED 130 / 100 Cards',
-    image: softTouchCardImg,
+    image: embossedCardImg,
     description:
       'Features high-build 100-micron clear gloss liquid polymer cured with UV light over a smooth matte or soft-touch velvet background, creating striking dimensional contrast.',
     specs: '400 GSM • Matte / Velvet Base • 100μ Raised Gloss • Pinpoint Trap',
@@ -687,18 +688,18 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
     ...(derivedKey !== 'business-card-printing-dubai'
       ? [{ name: 'Business Card Printing Dubai', url: '/business-card-printing-dubai' }]
       : []),
-    { name: pageData.title.split('|')[0].trim(), url: pageData.path },
+    { name: pageData?.title ? pageData.title.split('|')[0].trim() : 'Business Cards', url: pageData?.path || '/business-card-printing-dubai' },
   ]
 
   const serviceSchema = {
-    name: pageData.h1,
-    description: pageData.metaDescription,
+    name: pageData?.h1 || 'Business Card Printing Dubai',
+    description: pageData?.metaDescription || 'Professional business card printing in Dubai.',
     image: '/uploads/categories/business-cards-printing.jpg',
   }
 
   const productSchema = {
-    name: `${pageData.h1} - ONPRINT Dubai`,
-    description: pageData.metaDescription,
+    name: `${pageData?.h1 || 'Business Cards'} - ONPRINT Dubai`,
+    description: pageData?.metaDescription || 'Business card printing in Dubai.',
     price: '45.00',
     currency: 'AED',
     image: '/uploads/categories/business-cards-printing.jpg',
@@ -708,12 +709,12 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
     <div className="bg-[#FFFFFF] text-[#000000] py-8 sm:py-12">
       {/* Dynamic SEO & Schema Engine */}
       <SEOHead
-        title={pageData.title}
-        description={pageData.metaDescription}
-        keywords={pageData.secondaryKeywords}
-        canonicalPath={pageData.path}
+        title={pageData?.title || 'Business Card Printing Dubai | ONPRINT'}
+        description={pageData?.metaDescription || 'Business card printing in Dubai from AED 45.'}
+        keywords={pageData?.secondaryKeywords || 'business cards dubai'}
+        canonicalPath={pageData?.path || '/business-card-printing-dubai'}
         breadcrumbs={breadcrumbs}
-        faqList={pageData.faqs || BUSINESS_CARD_FAQS}
+        faqList={pageData?.faqs || BUSINESS_CARD_FAQS || []}
         service={serviceSchema}
         product={productSchema}
       />

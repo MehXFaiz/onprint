@@ -48,13 +48,15 @@ export function getStoredProducts() {
         return p
       })
 
-      // 3. Ensure all default products and their latest images (Name Badges, ID cards, Mugs, Brochures, Lanyards, Flyers) are always up to date
+      // 3. Ensure all default products and their latest images, prices and order are always up to date
       const defaultMap = new Map(defaultProducts.map((p) => [p.slug, p]))
+      const defaultOrderMap = new Map(defaultProducts.map((p, idx) => [p.slug, idx]))
       clean = clean.map((p) => {
         const def = defaultMap.get(p.slug)
         if (def) {
           return {
             ...p,
+            price: def.price !== undefined ? def.price : p.price,
             image: def.image || p.image,
             image_url: def.image_url || p.image_url,
             images: def.images || p.images,
@@ -71,6 +73,7 @@ export function getStoredProducts() {
       if (missingProducts.length > 0) {
         clean = [...clean, ...missingProducts]
       }
+      clean.sort((a, b) => (defaultOrderMap.get(a.slug) ?? 9999) - (defaultOrderMap.get(b.slug) ?? 9999))
       saveProducts(clean)
       return clean
     }

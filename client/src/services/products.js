@@ -48,22 +48,30 @@ export function getStoredProducts() {
         return p
       })
 
-      // 3. Ensure all default products (including new ID cards, mugs and bottles) are always available in stored list
-      const defaultIdCardSlugs = new Set(defaultProducts.filter((p) => p.category?.slug === 'id-card-printing-dubai').map((p) => p.slug))
-      const cleanIdCardSlugs = new Set(clean.filter((p) => p.category?.slug === 'id-card-printing-dubai').map((p) => p.slug))
-      
-      const missingIdCards = defaultProducts.filter((p) => defaultIdCardSlugs.has(p.slug) && !cleanIdCardSlugs.has(p.slug))
+      // 3. Ensure all default products and their latest images (Name Badges, ID cards, Mugs, Brochures, Lanyards, Flyers) are always up to date
+      const defaultMap = new Map(defaultProducts.map((p) => [p.slug, p]))
+      clean = clean.map((p) => {
+        const def = defaultMap.get(p.slug)
+        if (def) {
+          return {
+            ...p,
+            image: def.image || p.image,
+            image_url: def.image_url || p.image_url,
+            images: def.images || p.images,
+            name: def.name || p.name,
+            shortDescription: def.shortDescription || p.shortDescription,
+            category: def.category || p.category,
+          }
+        }
+        return p
+      })
+
       const existingSlugs = new Set(clean.map((p) => p.slug))
       const missingProducts = defaultProducts.filter((p) => !existingSlugs.has(p.slug))
-      
-      if (missingProducts.length > 0 || missingIdCards.length > 0) {
-        // Refresh with latest default ID cards and missing catalog products
-        clean = [...defaultProducts.filter((p) => defaultIdCardSlugs.has(p.slug)), ...clean.filter((p) => !defaultIdCardSlugs.has(p.slug))]
-        const currentSlugs = new Set(clean.map((p) => p.slug))
-        const remainingMissing = defaultProducts.filter((p) => !currentSlugs.has(p.slug))
-        clean = [...clean, ...remainingMissing]
-        saveProducts(clean)
+      if (missingProducts.length > 0) {
+        clean = [...clean, ...missingProducts]
       }
+      saveProducts(clean)
       return clean
     }
   } catch {

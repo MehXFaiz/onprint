@@ -283,8 +283,8 @@ module.exports = {
       },
       "shortDescription": "CR80 standard PVC identity cards with embedded NFC/RFID chips, high-definition photo print and security overlay.",
       "description": "High-security corporate employee ID cards manufactured from durable CR80 PVC with integrated contactless NTAG213/216 smart chips, QR codes, magnetic stripes, and anti-scratch protective lamination. Perfect for digital tap-to-share business cards and modern IoT office access in Dubai.",
-      "image": "/assets/products/id-cards/smart-nfc-pvc-id.svg",
-      "image_url": "/assets/products/id-cards/smart-nfc-pvc-id.svg",
+      "image": "/assets/products/id-cards/smart-nfc-pvc-id.png",
+      "image_url": "/assets/products/id-cards/smart-nfc-pvc-id.png",
       "imageAlt": "Secure smart NFC PVC employee ID cards in Dubai",
       "seoTitle": "Secure Smart NFC PVC ID Cards Dubai | Contactless Smart Badges | ONPRINT",
       "seoDescription": "High-security corporate PVC ID cards with embedded NFC smart chips in Dubai. High-resolution photo printing, barcodes, and custom security overlays.",
@@ -353,7 +353,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/smart-nfc-pvc-id.svg",
+        "/assets/products/id-cards/smart-nfc-pvc-id.png",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -370,8 +370,8 @@ module.exports = {
       },
       "shortDescription": "125kHz EM4100 & HID compatible proximity identity cards for contactless turnstiles, parking gates, and biometric door systems.",
       "description": "Commercial 125kHz RFID proximity cards engineered for seamless compatibility with UAE office biometric turnstiles, automated barrier gates, and secure zone readers. Features durable composite core with crisp edge-to-edge full-color surface printing.",
-      "image": "/assets/products/id-cards/rfid-proximity-cards.svg",
-      "image_url": "/assets/products/id-cards/rfid-proximity-cards.svg",
+      "image": "/assets/products/id-cards/rfid-proximity-access-cards.jpg",
+      "image_url": "/assets/products/id-cards/rfid-proximity-access-cards.jpg",
       "imageAlt": "RFID proximity access control cards in Dubai",
       "seoTitle": "RFID Proximity Access Cards Dubai | 125kHz Turnstile & Door Badges | ONPRINT",
       "seoDescription": "Order custom printed 125kHz RFID proximity access cards in Dubai. High durability, long-range barrier scanning, and custom corporate branding.",
@@ -434,7 +434,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/rfid-proximity-cards.svg",
+        "/assets/products/id-cards/rfid-proximity-access-cards.jpg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -451,8 +451,8 @@ module.exports = {
       },
       "shortDescription": "Anti-counterfeit employee identity cards with embedded 3D optical holographic foil, microtext patterns, and UV invisible ink.",
       "description": "Bank-grade high-security identification cards featuring optical variable holographic overlays, microscopic guilloche security borders, and UV ultraviolet invisible watermarks. Engineered to eliminate forgery and unauthorized replication for government, defense, and high-security enterprise facilities across the UAE.",
-      "image": "/assets/products/id-cards/holographic-security-cards.svg",
-      "image_url": "/assets/products/id-cards/holographic-security-cards.svg",
+      "image": "/assets/products/id-cards/holographic-security-id-cards.jpg",
+      "image_url": "/assets/products/id-cards/holographic-security-id-cards.jpg",
       "imageAlt": "Holographic security employee ID badges in Dubai",
       "seoTitle": "Holographic Security ID Cards Dubai | Anti-Counterfeit Badges | ONPRINT",
       "seoDescription": "High-security holographic ID card printing in Dubai. 3D holographic overlays, UV invisible security printing, and tamper-evident lamination.",
@@ -515,7 +515,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/holographic-security-cards.svg",
+        "/assets/products/id-cards/holographic-security-id-cards.jpg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -532,8 +532,8 @@ module.exports = {
       },
       "shortDescription": "High-coercivity 2750 Oe 3-track magnetic stripe cards for time-attendance logging, hotel key locks, and POS terminals.",
       "description": "Heavy-duty magnetic stripe identity cards equipped with 2750 Oe High Coercivity (HiCo) 3-track magnetic bands. Ideal for Dubai corporate time & attendance terminals, hotel electronic key card locks, gym memberships, and cafeteria POS payment swiping.",
-      "image": "/assets/products/id-cards/magnetic-stripe-cards.svg",
-      "image_url": "/assets/products/id-cards/magnetic-stripe-cards.svg",
+      "image": "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg",
+      "image_url": "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg",
       "imageAlt": "HiCo magnetic stripe corporate ID cards in Dubai",
       "seoTitle": "HiCo Magnetic Stripe ID Cards Dubai | Hotel Keys & Time Attendance | ONPRINT",
       "seoDescription": "Order HiCo magnetic stripe ID cards in Dubai. 3-track encoded magnetic cards for hotel key systems, time attendance clocks, and POS swiping.",
@@ -596,7 +596,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/magnetic-stripe-cards.svg",
+        "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -613,8 +613,8 @@ module.exports = {
       },
       "shortDescription": "600 DPI edge-to-edge retransfer photo ID badges with crystal-clear lamination and optional lanyard slot punching.",
       "description": "Commercial grade photographic employee badges printed with 600 DPI edge-to-edge dye-sublimation technology for razor-sharp portraits and true corporate color reproduction. Finished with tough gloss or satin matte scratch-proof overlay, pre-punched for crocodile clips or neck lanyards.",
-      "image": "/assets/products/id-cards/photo-id-staff-cards.svg",
-      "image_url": "/assets/products/id-cards/photo-id-staff-cards.svg",
+      "image": "/assets/products/id-cards/photo-id-staff-cards.jpg",
+      "image_url": "/assets/products/id-cards/photo-id-staff-cards.jpg",
       "imageAlt": "Full color laminated photo staff ID cards in Dubai",
       "seoTitle": "Photo ID Staff Cards Dubai | Full Color Retransfer Employee Badges | ONPRINT",
       "seoDescription": "Professional photo ID card printing in Dubai. 600 DPI high-definition portrait printing, durable lamination, and lanyard slot punching.",
@@ -677,7 +677,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/photo-id-staff-cards.svg",
+        "/assets/products/id-cards/photo-id-staff-cards.jpg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -694,8 +694,8 @@ module.exports = {
       },
       "shortDescription": "Durable CR80 school and university student identity cards with barcodes, QR codes, photo portraits, and library access.",
       "description": "Robust, tamper-resistant student ID cards designed for UAE schools, colleges, and universities. Features high-resolution photo portraits, unique student roll numbers, 1D/2D barcodes for library checkout, QR verification, and optional MIFARE campus smart canteen integration.",
-      "image": "/assets/products/id-cards/student-campus-id-cards.svg",
-      "image_url": "/assets/products/id-cards/student-campus-id-cards.svg",
+      "image": "/assets/products/id-cards/student-campus-id-cards.jpg",
+      "image_url": "/assets/products/id-cards/student-campus-id-cards.jpg",
       "imageAlt": "Student and university campus ID cards in Dubai",
       "seoTitle": "Student ID Cards Printing Dubai | School & University Campus Badges | ONPRINT",
       "seoDescription": "Custom student ID card printing in Dubai. School and university identity cards with barcodes, QR codes, photo portraits, and library access.",
@@ -758,7 +758,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/student-campus-id-cards.svg",
+        "/assets/products/id-cards/student-campus-id-cards.jpg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -775,8 +775,8 @@ module.exports = {
       },
       "shortDescription": "Reusable color-coded corporate visitor badges with bold sequential numbering and heavy-duty transparent acrylic holders.",
       "description": "Comprehensive visitor management cards featuring bold color-coded security zone stripes, sequential numbering, high-gloss reusable wipe-clean PVC surfaces, and transparent acrylic protective badge holders with swivel clips or safety breakaway neck straps.",
-      "image": "/assets/products/id-cards/visitor-pass-holders.svg",
-      "image_url": "/assets/products/id-cards/visitor-pass-holders.svg",
+      "image": "/assets/products/id-cards/visitor-pass-cards-holders.jpg",
+      "image_url": "/assets/products/id-cards/visitor-pass-cards-holders.jpg",
       "imageAlt": "Visitor pass cards and clear badge holders in Dubai",
       "seoTitle": "Visitor Pass Cards & Badges Dubai | Reusable Office Visitor Badges | ONPRINT",
       "seoDescription": "Visitor pass cards and badge printing in Dubai. Reusable color-coded PVC passes, sequential numbering, and rigid acrylic badge holders.",
@@ -845,7 +845,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/visitor-pass-holders.svg",
+        "/assets/products/id-cards/visitor-pass-cards-holders.jpg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -862,8 +862,8 @@ module.exports = {
       },
       "shortDescription": "Ultra-luxury executive VIP membership cards with matte black velvet finish, laser engraving, and metallic gold/silver foil.",
       "description": "Bespoke VIP and executive membership identity cards crafted from solid black matte PVC or precision-milled stainless steel. Features luxury metallic hot-foil stamping, laser-engraved serial numbers, custom embossing, and magnetic stripe or smart chip integration for exclusive Dubai clubs and executive suites.",
-      "image": "/assets/products/id-cards/executive-vip-metal-cards.svg",
-      "image_url": "/assets/products/id-cards/executive-vip-metal-cards.svg",
+      "image": "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg",
+      "image_url": "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg",
       "imageAlt": "Executive matte black and metallic VIP ID cards in Dubai",
       "seoTitle": "Executive VIP & Metal ID Cards Dubai | Luxury Membership Cards | ONPRINT",
       "seoDescription": "Luxury executive VIP and metal ID card printing in Dubai. Matte black finish, gold foil stamping, laser engraving, and bespoke club membership cards.",
@@ -926,7 +926,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/executive-vip-metal-cards.svg",
+        "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg",
         "/assets/products/id_cards.jpg"
       ]
     },
@@ -5581,127 +5581,625 @@ module.exports = {
       "id": 104,
       "name": "Standard Polyester Neck Lanyards (20mm)",
       "slug": "standard-polyester-lanyards",
-      "description": "Durable ribbed polyester neck lanyards with custom screen-printed company logo and heavy-duty metal swivel lobster hook.",
-      "price": 3.5,
-      "min_quantity": 100,
-      "unit": "piece",
-      "featured": true,
-      "active": true,
-      "images": [
-        "/assets/products/lanyard-polyester-standard.jpg",
-        "/assets/products/custom_branded_lanyards.jpg"
-      ],
       "category": {
         "_id": "cat-lanyard-printing-dubai",
         "id": 5,
         "name": "Lanyard Printing Dubai",
         "slug": "lanyard-printing-dubai"
-      }
+      },
+      "shortDescription": "Durable ribbed polyester neck lanyards with custom screen-printed company logo and heavy-duty metal swivel lobster hook.",
+      "description": "Cost-effective and durable flat ribbed polyester neck lanyards with vibrant spot-color screen printing. Fitted with a heavy-duty metal swivel lobster clasp, ideal for corporate staff, large exhibitions, trade shows, and daily office access in Dubai.",
+      "image": "/assets/products/lanyards/standard-polyester-lanyard.jpg",
+      "image_url": "/assets/products/lanyards/standard-polyester-lanyard.jpg",
+      "imageAlt": "Standard polyester neck lanyards printing in Dubai",
+      "seoTitle": "Standard Polyester Neck Lanyards Dubai | Custom Screen Printed | ONPRINT",
+      "seoDescription": "Order custom screen printed flat polyester neck lanyards in Dubai. Durable 20mm ribbed polyester with metal swivel lobster hooks and safety breakaways.",
+      "seoKeywords": "polyester lanyards dubai, screen printed neck straps uae, corporate lanyards dubai, custom lanyards printing",
+      "seoHeading": "Standard Polyester Neck Lanyards Dubai",
+      "canonicalUrl": "https://0nprint.com/products/standard-polyester-lanyards",
+      "price": 3.5,
+      "minimumQuantity": 100,
+      "min_quantity": 100,
+      "unit": "piece",
+      "featured": true,
+      "active": true,
+      "features": [
+        "Min. Order: 100 units",
+        "1-3 Spot Color Screen Print",
+        "Heavy-Duty Swivel Lobster Clasp",
+        "20mm Ribbed Polyester Strap"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "20mm Premium Flat Polyester",
+            "value": "polyester-20mm"
+          },
+          {
+            "label": "15mm Standard Flat Polyester",
+            "value": "polyester-15mm"
+          },
+          {
+            "label": "25mm Wide Flat Polyester",
+            "value": "polyester-25mm"
+          }
+        ],
+        "attachments": [
+          {
+            "label": "Metal Lobster Swivel Hook",
+            "value": "lobster-hook"
+          },
+          {
+            "label": "Crocodile Bulldog Clip",
+            "value": "bulldog-clip"
+          },
+          {
+            "label": "Oval Hook with Safety Clip",
+            "value": "oval-hook"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Express 48-Hour Service",
+            "value": "express-48h"
+          },
+          {
+            "label": "Standard 4–5 Days",
+            "value": "standard"
+          }
+        ]
+      },
+      "categories": [
+        {
+          "_id": "cat-lanyard-printing-dubai",
+          "id": 5,
+          "name": "Lanyard Printing Dubai",
+          "slug": "lanyard-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/lanyards/standard-polyester-lanyard.jpg",
+        "/assets/products/custom_branded_lanyards.jpg"
+      ]
     },
     {
       "_id": "prod-satin-dye-sublimation-lanyards",
       "id": 105,
       "name": "Full Color Satin Dye-Sublimation Lanyards",
       "slug": "satin-dye-sublimation-lanyards",
-      "description": "Silky smooth high-density satin heat-transfer printed lanyards with edge-to-edge vibrant full-color CMYK artwork.",
-      "price": 4.5,
-      "min_quantity": 100,
-      "unit": "piece",
-      "featured": true,
-      "active": true,
-      "images": [
-        "/assets/products/lanyard-sublimation-satin.jpg"
-      ],
       "category": {
         "_id": "cat-lanyard-printing-dubai",
         "id": 5,
         "name": "Lanyard Printing Dubai",
         "slug": "lanyard-printing-dubai"
-      }
+      },
+      "shortDescription": "Silky smooth high-density satin heat-transfer printed lanyards with edge-to-edge vibrant full-color CMYK artwork.",
+      "description": "Silky-smooth, ultra-soft high-density satin lanyards printed with edge-to-edge full-color dye sublimation. Perfect for complex multi-color company logos, gradients, and photographic brand artwork with vivid clarity and comfort.",
+      "image": "/assets/products/lanyards/satin-dye-sublimation-lanyard.jpg",
+      "image_url": "/assets/products/lanyards/satin-dye-sublimation-lanyard.jpg",
+      "imageAlt": "Full color satin dye sublimation lanyards in Dubai",
+      "seoTitle": "Full Color Satin Dye-Sublimation Lanyards Dubai | ONPRINT",
+      "seoDescription": "High-definition full color dye sublimation satin neck lanyards in Dubai. Silky smooth texture with full color edge-to-edge printing and chrome hardware.",
+      "seoKeywords": "satin lanyards dubai, dye sublimation neck straps, full color lanyards uae, custom heat transfer lanyards",
+      "seoHeading": "Full Color Satin Dye-Sublimation Lanyards Dubai",
+      "canonicalUrl": "https://0nprint.com/products/satin-dye-sublimation-lanyards",
+      "price": 4.5,
+      "minimumQuantity": 100,
+      "min_quantity": 100,
+      "unit": "piece",
+      "featured": true,
+      "active": true,
+      "features": [
+        "Min. Order: 100 units",
+        "Edge-to-Edge HD CMYK Sublimation",
+        "Ultra-Soft Silk Satin Texture",
+        "Chrome Metal Trigger Hook"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "20mm High-Density Smooth Satin",
+            "value": "satin-20mm"
+          },
+          {
+            "label": "25mm Deluxe Smooth Satin",
+            "value": "satin-25mm"
+          }
+        ],
+        "attachments": [
+          {
+            "label": "Heavy-Duty Chrome Trigger Snap Hook",
+            "value": "chrome-trigger"
+          },
+          {
+            "label": "Metal Swivel Lobster Clasp",
+            "value": "lobster-clasp"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Express 48-Hour Service",
+            "value": "express-48h"
+          },
+          {
+            "label": "Standard 3–5 Days",
+            "value": "standard"
+          }
+        ]
+      },
+      "categories": [
+        {
+          "_id": "cat-lanyard-printing-dubai",
+          "id": 5,
+          "name": "Lanyard Printing Dubai",
+          "slug": "lanyard-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/lanyards/satin-dye-sublimation-lanyard.jpg"
+      ]
     },
     {
       "_id": "prod-safety-breakaway-lanyards",
       "id": 106,
       "name": "Safety Breakaway Buckle Lanyards",
       "slug": "safety-breakaway-lanyards",
-      "description": "Workplace safety compliant neck lanyards featuring an automatic quick-release breakaway buckle at the neck.",
-      "price": 4.2,
-      "min_quantity": 100,
-      "unit": "piece",
-      "featured": false,
-      "active": true,
-      "images": [
-        "/assets/products/lanyard-safety-breakaway.jpg"
-      ],
       "category": {
         "_id": "cat-lanyard-printing-dubai",
         "id": 5,
         "name": "Lanyard Printing Dubai",
         "slug": "lanyard-printing-dubai"
-      }
+      },
+      "shortDescription": "Workplace safety compliant neck lanyards featuring an automatic quick-release breakaway buckle at the neck.",
+      "description": "Workplace health and safety compliant neck lanyards equipped with a quick-release plastic breakaway connector at the back of the neck and detachable buckle. Ideal for hospitals, schools, manufacturing plants, and active work environments in the UAE.",
+      "image": "/assets/products/lanyards/safety-breakaway-lanyard.jpg",
+      "image_url": "/assets/products/lanyards/safety-breakaway-lanyard.jpg",
+      "imageAlt": "Safety breakaway buckle neck lanyards Dubai",
+      "seoTitle": "Safety Breakaway Buckle Lanyards Dubai | Quick Release | ONPRINT",
+      "seoDescription": "Workplace safety compliant breakaway neck lanyards in Dubai. Features quick-release safety neck buckle and custom logo printing for UAE enterprises.",
+      "seoKeywords": "safety breakaway lanyards dubai, quick release neck strap uae, hospital staff lanyards, safety compliance lanyard",
+      "seoHeading": "Safety Breakaway Buckle Lanyards Dubai",
+      "canonicalUrl": "https://0nprint.com/products/safety-breakaway-lanyards",
+      "price": 4.2,
+      "minimumQuantity": 100,
+      "min_quantity": 100,
+      "unit": "piece",
+      "featured": false,
+      "active": true,
+      "features": [
+        "Min. Order: 100 units",
+        "Safety Quick-Release Breakaway",
+        "Detachable Snap-Buckle",
+        "Durable Flat Polyester Strap"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "20mm Ribbed Polyester with Neck Breakaway",
+            "value": "poly-breakaway-20"
+          },
+          {
+            "label": "15mm Flat Polyester with Neck Breakaway",
+            "value": "poly-breakaway-15"
+          }
+        ],
+        "attachments": [
+          {
+            "label": "Standard Metal Lobster Clasp",
+            "value": "lobster-clasp"
+          },
+          {
+            "label": "Quick-Detach Lower Buckle",
+            "value": "detach-buckle"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Express 48-Hour Service",
+            "value": "express-48h"
+          },
+          {
+            "label": "Standard 4–5 Days",
+            "value": "standard"
+          }
+        ]
+      },
+      "categories": [
+        {
+          "_id": "cat-lanyard-printing-dubai",
+          "id": 5,
+          "name": "Lanyard Printing Dubai",
+          "slug": "lanyard-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/lanyards/safety-breakaway-lanyard.jpg"
+      ]
     },
     {
       "_id": "prod-double-clip-conference-lanyards",
       "id": 107,
       "name": "Double-Ended Conference Badge Lanyards",
       "slug": "double-clip-conference-lanyards",
-      "description": "Anti-twist dual clip neck lanyards with two metal swivel clips designed for wide conference name badge pouches.",
-      "price": 5,
-      "min_quantity": 100,
-      "unit": "piece",
-      "featured": false,
-      "active": true,
-      "images": [
-        "/assets/products/lanyard-double-clip.jpg"
-      ],
       "category": {
         "_id": "cat-lanyard-printing-dubai",
         "id": 5,
         "name": "Lanyard Printing Dubai",
         "slug": "lanyard-printing-dubai"
-      }
+      },
+      "shortDescription": "Anti-twist dual clip neck lanyards with two metal swivel clips designed for wide conference name badge pouches.",
+      "description": "No-twist double-clip conference lanyards engineered with dual metal swivel hooks to keep oversized event passes and badge pouches facing forward at all times during trade shows, expos, and summits in Dubai.",
+      "image": "/assets/products/lanyards/double-clip-conference-lanyard.jpg",
+      "image_url": "/assets/products/lanyards/double-clip-conference-lanyard.jpg",
+      "imageAlt": "Double-ended conference badge lanyards in Dubai",
+      "seoTitle": "Double-Ended Conference Badge Lanyards Dubai | Anti-Twist | ONPRINT",
+      "seoDescription": "Dual clip conference neck lanyards in Dubai. Prevents badge flipping with two heavy-duty swivel clips for corporate summits and exhibitions.",
+      "seoKeywords": "double clip lanyards dubai, conference badge neck strap, anti twist lanyards uae, exhibition lanyard printing",
+      "seoHeading": "Double-Ended Conference Badge Lanyards Dubai",
+      "canonicalUrl": "https://0nprint.com/products/double-clip-conference-lanyards",
+      "price": 5,
+      "minimumQuantity": 100,
+      "min_quantity": 100,
+      "unit": "piece",
+      "featured": false,
+      "active": true,
+      "features": [
+        "Min. Order: 100 units",
+        "Dual Swivel Metal Lobster Clips",
+        "Anti-Twist Event Pass Display",
+        "High-Density Satin or Polyester"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "20mm Full Color Satin (Dual Clip)",
+            "value": "satin-20mm-dual"
+          },
+          {
+            "label": "20mm Woven Polyester (Dual Clip)",
+            "value": "poly-20mm-dual"
+          }
+        ],
+        "attachments": [
+          {
+            "label": "Twin Metal Lobster Clasps",
+            "value": "twin-lobster"
+          },
+          {
+            "label": "Twin Bulldog Badge Clips",
+            "value": "twin-bulldog"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Express 48-Hour Service",
+            "value": "express-48h"
+          },
+          {
+            "label": "Standard 3–5 Days",
+            "value": "standard"
+          }
+        ]
+      },
+      "categories": [
+        {
+          "_id": "cat-lanyard-printing-dubai",
+          "id": 5,
+          "name": "Lanyard Printing Dubai",
+          "slug": "lanyard-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/lanyards/double-clip-conference-lanyard.jpg"
+      ]
     },
     {
       "_id": "prod-woven-jacquard-lanyards",
       "id": 108,
       "name": "Durable Woven Jacquard Fabric Lanyards",
       "slug": "woven-jacquard-lanyards",
-      "description": "Heavy-duty woven thread jacquard lanyards where your brand name is intricately stitched directly into the strap.",
-      "price": 5.5,
-      "min_quantity": 200,
-      "unit": "piece",
-      "featured": false,
-      "active": true,
-      "images": [
-        "/assets/products/lanyard-woven.jpg"
-      ],
       "category": {
         "_id": "cat-lanyard-printing-dubai",
         "id": 5,
         "name": "Lanyard Printing Dubai",
         "slug": "lanyard-printing-dubai"
-      }
+      },
+      "shortDescription": "Heavy-duty woven thread jacquard lanyards where your brand name is intricately stitched directly into the strap.",
+      "description": "Premium textured woven jacquard neck lanyards where brand typography and logos are stitched directly into the high-tensile fabric threads. Unmatched durability that never fades, flakes, or peels.",
+      "image": "/assets/products/lanyards/woven-jacquard-lanyard.jpg",
+      "image_url": "/assets/products/lanyards/woven-jacquard-lanyard.jpg",
+      "imageAlt": "Durable woven jacquard fabric lanyards Dubai",
+      "seoTitle": "Durable Woven Jacquard Fabric Lanyards Dubai | ONPRINT",
+      "seoDescription": "Embroidered and woven jacquard neck lanyards in Dubai. High-end stitched threads for permanent brand visibility and durability.",
+      "seoKeywords": "woven lanyards dubai, jacquard neck straps uae, stitched logo lanyards, durable fabric lanyard printing",
+      "seoHeading": "Durable Woven Jacquard Fabric Lanyards Dubai",
+      "canonicalUrl": "https://0nprint.com/products/woven-jacquard-lanyards",
+      "price": 5.5,
+      "minimumQuantity": 200,
+      "min_quantity": 200,
+      "unit": "piece",
+      "featured": false,
+      "active": true,
+      "features": [
+        "Min. Order: 200 units",
+        "Stitched Thread Jacquard Texture",
+        "Fade-Proof & Scratch-Proof",
+        "Heavy-Duty Zinc Alloy Clasp"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "20mm High-Tensile Woven Jacquard",
+            "value": "jacquard-20mm"
+          },
+          {
+            "label": "25mm Heavy-Duty Woven Jacquard",
+            "value": "jacquard-25mm"
+          }
+        ],
+        "attachments": [
+          {
+            "label": "Heavy-Duty Zinc Alloy Lobster Hook",
+            "value": "zinc-lobster"
+          },
+          {
+            "label": "Premium Gunmetal Carabiner Clasp",
+            "value": "gunmetal-clasp"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Standard 5–7 Days",
+            "value": "standard"
+          }
+        ]
+      },
+      "categories": [
+        {
+          "_id": "cat-lanyard-printing-dubai",
+          "id": 5,
+          "name": "Lanyard Printing Dubai",
+          "slug": "lanyard-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/lanyards/woven-jacquard-lanyard.jpg"
+      ]
     },
     {
       "_id": "prod-retractable-badge-reel-lanyards",
       "id": 109,
       "name": "Retractable Badge Reel Lanyard Set",
       "slug": "retractable-badge-reel-lanyards",
-      "description": "Integrated neck lanyard with heavy-duty retractable spring reel and snap-in clear PVC ID card badge holder.",
-      "price": 6,
-      "min_quantity": 50,
-      "unit": "piece",
-      "featured": true,
-      "active": true,
-      "images": [
-        "/assets/products/lanyard-retractable-reel.jpg"
-      ],
       "category": {
         "_id": "cat-lanyard-printing-dubai",
         "id": 5,
         "name": "Lanyard Printing Dubai",
         "slug": "lanyard-printing-dubai"
-      }
+      },
+      "shortDescription": "Integrated neck lanyard with heavy-duty retractable spring reel and snap-in clear PVC ID card badge holder.",
+      "description": "All-in-one corporate lanyard system featuring a custom-branded retractable spring reel with 70cm nylon-steel pull cord and heavy-duty transparent PVC card holder pouch for seamless tap-to-enter access.",
+      "image": "/assets/products/lanyards/retractable-badge-reel-lanyard.jpg",
+      "image_url": "/assets/products/lanyards/retractable-badge-reel-lanyard.jpg",
+      "imageAlt": "Retractable badge reel lanyard set Dubai",
+      "seoTitle": "Retractable Badge Reel Lanyard Set Dubai | Yo-Yo Pass Holder | ONPRINT",
+      "seoDescription": "Custom branded retractable badge reel neck lanyards in Dubai. Integrated 70cm pull-cord yo-yo reel with clear PVC card pouch for corporate access.",
+      "seoKeywords": "retractable lanyard dubai, badge reel neck strap uae, yo-yo pass holder dubai, corporate id lanyard set",
+      "seoHeading": "Retractable Badge Reel Lanyard Set Dubai",
+      "canonicalUrl": "https://0nprint.com/products/retractable-badge-reel-lanyards",
+      "price": 6,
+      "minimumQuantity": 50,
+      "min_quantity": 50,
+      "unit": "piece",
+      "featured": true,
+      "active": true,
+      "features": [
+        "Min. Order: 50 units",
+        "70cm Heavy-Duty Retractable Cord",
+        "Integrated ID Badge Pass Holder",
+        "Branded Epoxy Dome Badge Reel"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "20mm Satin Lanyard + ABS Retractable Reel",
+            "value": "satin-reel-set"
+          },
+          {
+            "label": "15mm Polyester Lanyard + Metallic Reel",
+            "value": "poly-metal-reel"
+          }
+        ],
+        "attachments": [
+          {
+            "label": "Epoxy Dome Retractable Reel + Vinyl Snap Strap",
+            "value": "epoxy-snap"
+          },
+          {
+            "label": "Carabiner Spring Reel + Heavy-Duty ID Slot",
+            "value": "carabiner-slot"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Express 48-Hour Service",
+            "value": "express-48h"
+          },
+          {
+            "label": "Standard 3–5 Days",
+            "value": "standard"
+          }
+        ]
+      },
+      "categories": [
+        {
+          "_id": "cat-lanyard-printing-dubai",
+          "id": 5,
+          "name": "Lanyard Printing Dubai",
+          "slug": "lanyard-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/lanyards/retractable-badge-reel-lanyard.jpg"
+      ]
+    },
+    {
+      "_id": "prod-eco-friendly-rpet-lanyards",
+      "id": 110,
+      "name": "Eco-Friendly RPET Recycled Polyester Lanyards",
+      "slug": "eco-friendly-rpet-lanyards",
+      "category": {
+        "_id": "cat-lanyard-printing-dubai",
+        "id": 5,
+        "name": "Lanyard Printing Dubai",
+        "slug": "lanyard-printing-dubai"
+      },
+      "shortDescription": "Sustainable eco-conscious neck lanyards spun from 100% recycled plastic bottles (RPET) with eco ink branding.",
+      "description": "Sustainable, planet-friendly neck lanyards manufactured from 100% recycled plastic water bottles (RPET) and organic fiber. Includes eco cert tag and water-based eco printing for green corporate sustainability initiatives and environmental conferences in the UAE.",
+      "image": "/assets/products/lanyards/eco-friendly-rpet-lanyard.jpg",
+      "image_url": "/assets/products/lanyards/eco-friendly-rpet-lanyard.jpg",
+      "imageAlt": "Eco-friendly recycled RPET neck lanyards Dubai",
+      "seoTitle": "Eco-Friendly RPET Recycled Polyester Lanyards Dubai | ONPRINT",
+      "seoDescription": "Green eco-friendly RPET recycled polyester neck lanyards in Dubai. Made from 100% recycled plastic bottles with certified water-based printing.",
+      "seoKeywords": "eco friendly lanyards dubai, rpet recycled lanyards uae, green corporate neck straps, sustainable event lanyards",
+      "seoHeading": "Eco-Friendly RPET Recycled Polyester Lanyards Dubai",
+      "canonicalUrl": "https://0nprint.com/products/eco-friendly-rpet-lanyards",
+      "price": 4.8,
+      "minimumQuantity": 100,
+      "min_quantity": 100,
+      "unit": "piece",
+      "featured": false,
+      "active": true,
+      "features": [
+        "Min. Order: 100 units",
+        "100% Recycled Post-Consumer RPET",
+        "Eco-Friendly Water-Based Inks",
+        "Biodegradable Clip Options"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "20mm 100% Post-Consumer RPET Recycled Fabric",
+            "value": "rpet-20mm"
+          },
+          {
+            "label": "20mm 100% Organic Bamboo Fiber",
+            "value": "bamboo-20mm"
+          }
+        ],
+        "attachments": [
+          {
+            "label": "Recyclable Steel Swivel Clip",
+            "value": "steel-clip"
+          },
+          {
+            "label": "Biodegradable Wheat-Straw Clip",
+            "value": "wheat-straw-clip"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Express 48-Hour Service",
+            "value": "express-48h"
+          },
+          {
+            "label": "Standard 4–5 Days",
+            "value": "standard"
+          }
+        ]
+      },
+      "categories": [
+        {
+          "_id": "cat-lanyard-printing-dubai",
+          "id": 5,
+          "name": "Lanyard Printing Dubai",
+          "slug": "lanyard-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/lanyards/eco-friendly-rpet-lanyard.jpg"
+      ]
+    },
+    {
+      "_id": "prod-reflective-hi-vis-lanyards",
+      "id": 111,
+      "name": "Reflective High-Visibility Safety Lanyards",
+      "slug": "reflective-hi-vis-lanyards",
+      "category": {
+        "_id": "cat-lanyard-printing-dubai",
+        "id": 5,
+        "name": "Lanyard Printing Dubai",
+        "slug": "lanyard-printing-dubai"
+      },
+      "shortDescription": "High-visibility fluorescent safety neck lanyards woven with a continuous 3M reflective silver center strip.",
+      "description": "High-visibility fluorescent safety neck lanyards woven with a continuous 3M reflective silver center strip. Essential for night shift staff, airport logistics, construction management, and emergency response teams requiring high daytime and nighttime visibility.",
+      "image": "/assets/products/lanyards/reflective-hi-vis-lanyard.jpg",
+      "image_url": "/assets/products/lanyards/reflective-hi-vis-lanyard.jpg",
+      "imageAlt": "Reflective high-visibility safety neck lanyards Dubai",
+      "seoTitle": "Reflective High-Visibility Safety Lanyards Dubai | ONPRINT",
+      "seoDescription": "High-visibility reflective safety neck lanyards in Dubai. Fluorescent neon fabric with 3M reflective silver stripes for airport and site workers.",
+      "seoKeywords": "reflective lanyards dubai, hi vis safety neck strap uae, airport security lanyards, neon reflective badge holder",
+      "seoHeading": "Reflective High-Visibility Safety Lanyards Dubai",
+      "canonicalUrl": "https://0nprint.com/products/reflective-hi-vis-lanyards",
+      "price": 5.2,
+      "minimumQuantity": 100,
+      "min_quantity": 100,
+      "unit": "piece",
+      "featured": false,
+      "active": true,
+      "features": [
+        "Min. Order: 100 units",
+        "High-Luminance 3M Reflective Strip",
+        "Fluorescent Neon Base Straps",
+        "Industrial Breakaway Clasp"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "20mm Neon Yellow / Silver Reflective",
+            "value": "neon-yellow-ref"
+          },
+          {
+            "label": "20mm Neon Orange / Silver Reflective",
+            "value": "neon-orange-ref"
+          },
+          {
+            "label": "20mm Black / Silver Reflective",
+            "value": "black-ref"
+          }
+        ],
+        "attachments": [
+          {
+            "label": "Heavy-Duty Metal Lobster Clasp + Safety Buckle",
+            "value": "lobster-safety"
+          },
+          {
+            "label": "Heavy-Duty Quick Release Metal Snap",
+            "value": "metal-snap"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Express 48-Hour Service",
+            "value": "express-48h"
+          },
+          {
+            "label": "Standard 4–5 Days",
+            "value": "standard"
+          }
+        ]
+      },
+      "categories": [
+        {
+          "_id": "cat-lanyard-printing-dubai",
+          "id": 5,
+          "name": "Lanyard Printing Dubai",
+          "slug": "lanyard-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/lanyards/reflective-hi-vis-lanyard.jpg"
+      ]
     }
   ],
   "orders": [],

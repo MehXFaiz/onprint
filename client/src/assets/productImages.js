@@ -56,14 +56,14 @@ import bottleProteinShakerImg from './products/bottle_protein_shaker.jpg'
 import bottleLuxuryCopperImg from './products/bottle_luxury_copper.jpg'
 
 // Dedicated high-resolution ID Card variety images
-import smartNfcIdCardImg from './products/id-cards/smart-nfc-pvc-id.svg'
-import rfidAccessCardImg from './products/id-cards/rfid-proximity-cards.svg'
-import holographicSecurityIdCardImg from './products/id-cards/holographic-security-cards.svg'
-import magneticStripeIdCardImg from './products/id-cards/magnetic-stripe-cards.svg'
-import photoIdStaffCardImg from './products/id-cards/photo-id-staff-cards.svg'
-import studentCampusIdCardImg from './products/id-cards/student-campus-id-cards.svg'
-import visitorPassHoldersImg from './products/id-cards/visitor-pass-holders.svg'
-import executiveVipMetalCardImg from './products/id-cards/executive-vip-metal-cards.svg'
+import smartNfcIdCardImg from './products/id-cards/smart-nfc-pvc-id.png'
+import rfidAccessCardImg from './products/id-cards/rfid-proximity-access-cards.jpg'
+import holographicSecurityIdCardImg from './products/id-cards/holographic-security-id-cards.jpg'
+import magneticStripeIdCardImg from './products/id-cards/magnetic-stripe-corporate-id-cards.jpg'
+import photoIdStaffCardImg from './products/id-cards/photo-id-staff-cards.jpg'
+import studentCampusIdCardImg from './products/id-cards/student-campus-id-cards.jpg'
+import visitorPassHoldersImg from './products/id-cards/visitor-pass-cards-holders.jpg'
+import executiveVipMetalCardImg from './products/id-cards/executive-metallic-vip-id-cards.jpg'
 
 import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 

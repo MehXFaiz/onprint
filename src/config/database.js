@@ -597,7 +597,7 @@ const seedProductsList = [
     seo_heading: 'Secure Smart NFC PVC ID Cards Dubai',
     canonical_url: 'https://0nprint.com/products/secure-smart-nfc-pvc-id-cards',
     image_alt: 'Secure smart NFC PVC employee ID cards in Dubai',
-    images: ['/uploads/categories/id-card-printing-dubai.jpg', '/assets/products/id_cards.jpg'],
+    images: ['/assets/products/id-cards/smart-nfc-pvc-id.png', '/assets/products/id_cards.jpg'],
   },
   {
     product_key: 'prod-rfid-proximity-access-cards',
@@ -615,7 +615,7 @@ const seedProductsList = [
     seo_heading: 'RFID Proximity Access Control ID Cards Dubai',
     canonical_url: 'https://0nprint.com/products/rfid-proximity-access-cards',
     image_alt: 'RFID proximity access control cards in Dubai',
-    images: ['/assets/products/id_cards.jpg', '/uploads/categories/id-card-printing-dubai.jpg'],
+    images: ['/assets/products/id-cards/rfid-proximity-access-cards.jpg', '/assets/products/id_cards.jpg'],
   },
   {
     product_key: 'prod-holographic-security-id-cards',
@@ -633,7 +633,7 @@ const seedProductsList = [
     seo_heading: 'High-Security Holographic Employee ID Cards Dubai',
     canonical_url: 'https://0nprint.com/products/holographic-security-id-cards',
     image_alt: 'Holographic security employee ID badges in Dubai',
-    images: ['/assets/products/id_cards.jpg', '/uploads/categories/id-card-printing-dubai.jpg'],
+    images: ['/assets/products/id-cards/holographic-security-id-cards.jpg', '/assets/products/id_cards.jpg'],
   },
   {
     product_key: 'prod-magnetic-stripe-corporate-id-cards',
@@ -651,7 +651,7 @@ const seedProductsList = [
     seo_heading: 'HiCo Magnetic Stripe Corporate ID Cards Dubai',
     canonical_url: 'https://0nprint.com/products/magnetic-stripe-corporate-id-cards',
     image_alt: 'HiCo magnetic stripe corporate ID cards in Dubai',
-    images: ['/assets/products/standard-pvc-id.jpg', '/assets/products/id_cards.jpg'],
+    images: ['/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg', '/assets/products/id_cards.jpg'],
   },
   {
     product_key: 'prod-photo-id-staff-cards',
@@ -669,7 +669,7 @@ const seedProductsList = [
     seo_heading: 'Full-Color Laminated Photo Staff ID Cards Dubai',
     canonical_url: 'https://0nprint.com/products/photo-id-staff-cards',
     image_alt: 'Full color laminated photo staff ID cards in Dubai',
-    images: ['/assets/products/id-cards/standard-pvc-id.jpg', '/assets/products/id_cards.jpg'],
+    images: ['/assets/products/id-cards/photo-id-staff-cards.jpg', '/assets/products/id_cards.jpg'],
   },
   {
     product_key: 'prod-student-campus-id-cards',
@@ -687,7 +687,7 @@ const seedProductsList = [
     seo_heading: 'Student & University Campus ID Cards Dubai',
     canonical_url: 'https://0nprint.com/products/student-campus-id-cards',
     image_alt: 'Student and university campus ID cards in Dubai',
-    images: ['/assets/products/id_cards.jpg', '/assets/products/id-cards/standard-pvc-id.jpg'],
+    images: ['/assets/products/id-cards/student-campus-id-cards.jpg', '/assets/products/id_cards.jpg'],
   },
   {
     product_key: 'prod-visitor-pass-cards-holders',
@@ -705,7 +705,7 @@ const seedProductsList = [
     seo_heading: 'Visitor Pass Cards & Clear Badge Holders Dubai',
     canonical_url: 'https://0nprint.com/products/visitor-pass-cards-holders',
     image_alt: 'Visitor pass cards and clear badge holders in Dubai',
-    images: ['/assets/products/name_badges.jpg', '/assets/products/id_cards.jpg'],
+    images: ['/assets/products/id-cards/visitor-pass-cards-holders.jpg', '/assets/products/id_cards.jpg'],
   },
   {
     product_key: 'prod-executive-metallic-vip-id-cards',
@@ -723,7 +723,7 @@ const seedProductsList = [
     seo_heading: 'Executive Matte Black & Metallic VIP ID Cards Dubai',
     canonical_url: 'https://0nprint.com/products/executive-metallic-vip-id-cards',
     image_alt: 'Executive matte black and metallic VIP ID cards in Dubai',
-    images: ['/assets/products/id-cards/metal-id-cards.jpg', '/assets/products/id_cards.jpg'],
+    images: ['/assets/products/id-cards/executive-metallic-vip-id-cards.jpg', '/assets/products/id_cards.jpg'],
   },
   {
     product_key: 'prod-custom-branded-satin-neck-lanyards',

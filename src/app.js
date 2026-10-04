@@ -342,6 +342,9 @@ const PUBLIC_STATIC_PATHS = new Set([
   '/terms',
   '/printing-services',
   '/printing-solutions',
+  '/quote/business-cards',
+  '/quote/stickers',
+  '/quote/mugs',
   ...COMMERCIAL_STATIC_PATHS,
 ])
 

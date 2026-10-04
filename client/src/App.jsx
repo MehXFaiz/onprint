@@ -25,6 +25,9 @@ const TermsPage = lazy(() => import('./pages/public/TermsPage'))
 const ProgrammaticLandingPage = lazy(() => import('./pages/public/ProgrammaticLandingPage'))
 const CommercialLandingPage = lazy(() => import('./pages/public/CommercialLandingPage'))
 const BusinessCardLandingPage = lazy(() => import('./pages/public/BusinessCardLandingPage'))
+const BusinessCardsLeadPage = lazy(() => import('./pages/public/BusinessCardsLeadPage'))
+const StickersLeadPage = lazy(() => import('./pages/public/StickersLeadPage'))
+const MugsLeadPage = lazy(() => import('./pages/public/MugsLeadPage'))
 const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
 
 function CategoryRouteRedirect() {
@@ -156,6 +159,12 @@ function App() {
             <Route path="/customer" element={<Navigate to="/track-order" replace />} />
             <Route path="/account/*" element={<Navigate to="/track-order" replace />} />
             <Route path="/account" element={<Navigate to="/track-order" replace />} />
+
+            {/* Lead Generation Pages */}
+            <Route path="/quote/business-cards" element={<BusinessCardsLeadPage />} />
+            <Route path="/quote/stickers" element={<StickersLeadPage />} />
+            <Route path="/quote/mugs" element={<MugsLeadPage />} />
+
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsPage />} />

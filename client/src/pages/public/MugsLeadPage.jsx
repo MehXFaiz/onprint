@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Phone, Mail, Clock, CheckCircle, Sparkles, Award, Shield, Zap } from 'lucide-react'
-import SEOHead from '../SEOHead'
+import SEOHead from '../../components/SEOHead'
 
 const MugsLeadPage = () => {
   // Add Service and ContactPoint schema markup for lead generation

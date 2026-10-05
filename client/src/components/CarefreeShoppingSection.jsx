@@ -10,166 +10,106 @@ const features = [
   {
     icon: ShieldCheck,
     title: 'Secured UAE Shipping',
-    description: 'We offer white-glove doorstep delivery anywhere across Dubai, Abu Dhabi, and all 7 Emirates with real-time tracking.',
+    description: 'White-glove doorstep delivery anywhere across Dubai, Abu Dhabi, and all 7 Emirates with real-time tracking.',
     badge: '100% Insured',
   },
   {
     icon: Truck,
     title: 'Next-Day Express Delivery',
-    description: 'Explore our printing services, place your order, and enjoy rapid 24-hour turnaround & same-day priority dispatch!',
+    description: 'Rapid 24-hour turnaround & same-day priority dispatch from our Al Quoz pressfloor.',
     badge: 'Priority Press',
   },
   {
     icon: BadgePercent,
     title: 'Guaranteed Best Prices',
-    description: 'Transparent bulk pricing with zero hidden fees. Free artwork pre-flight verification included with every order.',
-    badge: 'Best Value',
+    description: 'Direct manufacturer pricing with zero broker fees. Free vector pre-flight verification with every order.',
+    badge: 'Direct Pressfloor',
   },
 ]
 
 export default function CarefreeShoppingSection() {
   return (
-    <section className="relative overflow-hidden border-t border-[#000000]/10 bg-[#FFFFFF] py-20 sm:py-28">
+    <section className="relative overflow-hidden border-t border-white/[0.08] bg-[#090A0D] py-20 sm:py-28 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          
-          {/* Left Column: High-Impact Visual Studio Showcase */}
+          {/* Left Column: Studio Showcase */}
           <div className="lg:col-span-6 relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="relative mx-auto overflow-hidden rounded-3xl border border-[#000000]/15 bg-[#000000] shadow-2xl group"
+              className="relative mx-auto overflow-hidden rounded-3xl border border-white/[0.12] bg-neutral-950 shadow-2xl group"
             >
               {/* Corner Crop Marks */}
-              <CornerMarks className="absolute top-4 left-4 z-20 h-6 w-6 text-[#FFFFFF]/60" />
-              <CornerMarks className="absolute bottom-4 right-4 z-20 h-6 w-6 rotate-180 text-[#FFFFFF]/60" />
+              <CornerMarks className="absolute top-4 left-4 z-20 h-6 w-6 text-white/40" />
+              <CornerMarks className="absolute bottom-4 right-4 z-20 h-6 w-6 rotate-180 text-white/40" />
 
-              {/* Main Visual Luxury Print & Packaging Photography */}
-              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden bg-white">
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden bg-neutral-900">
                 <img
                   src={carefreeShoppingImg}
                   alt="Corporate Gifts & Express Print Dispatch Dubai"
                   loading="lazy"
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                
-                {/* Subtle Bottom Ambient Gradient for Badge Legibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-              </div>
-
-              {/* Floating Quality Badge Overlay */}
-              <div className="absolute bottom-3 left-3 right-3 z-20 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF]/95 p-3.5 backdrop-blur-md shadow-xl sm:bottom-6 sm:left-6 sm:right-6 sm:p-5">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2.5 sm:gap-3">
-                    <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
-                      <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-display text-xs sm:text-sm font-black text-[#000000]">Dubai Express Production</h4>
-                      <p className="text-[10px] sm:text-[11px] font-bold text-[#000000]/60">Passed 100% Quality Pre-flight</p>
-                    </div>
-                  </div>
-                  <span className="shrink-0 rounded-full bg-[#A82F19] px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-[#FFFFFF] shadow-xs">
-                    Verified
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
               </div>
             </motion.div>
-
-            {/* Decorative Offset Backing Card */}
-            <div className="pointer-events-none absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-3xl border border-[#A82F19]/30 bg-[#A82F19]/5 hidden sm:block" />
           </div>
 
-          {/* Right Column: Luxury Feature & Carefree Shopping Content */}
-          <div className="lg:col-span-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-            >
-              {/* Eyebrow Pill */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19] bg-[#FFFFFF] px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-widest text-[#A82F19] mb-3">
-                <Sparkles className="h-3 w-3 text-[#A82F19]" />
-                Seamless &amp; Express Service
-              </div>
+          {/* Right Column: Copy & Feature Grid */}
+          <div className="lg:col-span-6 space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D4AF37]">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>Carefree Production Guarantee</span>
+            </div>
 
-              {/* Main Title */}
-              <h2 className="font-display text-2xl font-black tracking-tight text-[#000000] sm:text-4xl lg:text-5xl">
-                Carefree Shopping
-              </h2>
+            <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
+              Commercial Printing Made Simple, Fast &amp; Flawless.
+            </h2>
 
-              {/* Dual Accent Bar Line */}
-              <div className="mt-3 flex items-center gap-1.5 mb-8">
-                <span className="h-1.5 w-20 rounded-full bg-[#A82F19]" />
-                <span className="h-1.5 w-3 rounded-full bg-[#A82F19]/40" />
-                <span className="h-1.5 w-1.5 rounded-full bg-[#A82F19]/20" />
-              </div>
+            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
+              Experience seamless printing in Dubai. From pre-press artwork proofing to rapid delivery, our Al Quoz pressroom guarantees precision at every step.
+            </p>
 
-              {/* Feature List Cards (3 Rows) */}
-              <div className="space-y-4">
-                {features.map((item, idx) => {
-                  const Icon = item.icon
-                  return (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: idx * 0.1 }}
-                      className="group flex items-start gap-3.5 sm:gap-4 rounded-2xl border border-[#000000]/15 bg-[#FFFFFF] p-3.5 sm:p-5 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#A82F19] hover:shadow-md"
-                    >
-                      <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19] transition-transform group-hover:scale-110">
-                        {React.isValidElement(Icon) ? (
-                          Icon
-                        ) : Icon && (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon.$$typeof)) ? (
-                          <Icon className="h-5 w-5" />
-                        ) : null}
+            <div className="space-y-4 pt-2">
+              {features.map((feat) => {
+                const Icon = feat.icon
+                return (
+                  <div
+                    key={feat.title}
+                    className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4.5 transition-all hover:border-[#D4AF37]/40 backdrop-blur-md"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#A82F19] to-[#7A1C0D] text-white shadow-md">
+                        <Icon className="h-5 w-5" />
                       </div>
-
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h3 className="font-display text-sm sm:text-base font-extrabold text-[#000000] group-hover:text-[#A82F19] transition-colors truncate">
-                            {item.title}
-                          </h3>
-                          <span className="shrink-0 rounded-full bg-[#FFFFFF] border border-[#000000]/15 px-2.5 py-0.5 text-[10px] font-bold text-[#000000]/60">
-                            {item.badge}
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <h4 className="font-display text-sm font-black text-white">{feat.title}</h4>
+                          <span className="rounded-md bg-white/[0.06] border border-white/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#D4AF37]">
+                            {feat.badge}
                           </span>
                         </div>
-                        <p className="mt-1 text-xs leading-relaxed text-[#000000]/70 sm:text-sm">
-                          {item.description}
-                        </p>
+                        <p className="text-xs text-neutral-400 leading-relaxed">{feat.description}</p>
                       </div>
-                    </motion.div>
-                  )
-                })}
-              </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
 
-              {/* Call to Action Row */}
-              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#A82F19] px-7 py-3.5 sm:py-4 text-xs font-black uppercase tracking-wider text-[#FFFFFF] shadow-lg shadow-[#A82F19]/25 transition-all hover:bg-[#8f2513] hover:scale-[1.02] cursor-pointer active:scale-95 sm:text-sm"
-                  onClick={() => trackProductInquiry({ source_page: 'carefree_shopping_section' })}
-                >
-                  <span>Contact Sales Now</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-
-                <Link
-                  to="/get-a-quote"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#000000] bg-[#FFFFFF] px-6 py-3.5 sm:py-4 text-xs font-extrabold uppercase tracking-wider text-[#000000] shadow-xs transition-all hover:border-[#A82F19] hover:text-[#A82F19] cursor-pointer active:scale-95 sm:text-sm"
-                  onClick={() => trackGetQuoteClick({ source_page: 'carefree_shopping_section' })}
-                >
-                  <MessageCircle className="h-4 w-4 text-[#A82F19]" />
-                  <span>Get Instant Quote</span>
-                </Link>
-              </div>
-            </motion.div>
+            <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              <Link
+                to="/get-a-quote"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#A82F19] to-[#C7371E] px-6 py-3.5 text-xs font-black uppercase tracking-wider text-white shadow-lg transition-all hover:brightness-110"
+                onClick={() => trackGetQuoteClick({ source_page: 'carefree_section' })}
+              >
+                <span>Request Custom Quote</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
-
         </div>
       </div>
     </section>

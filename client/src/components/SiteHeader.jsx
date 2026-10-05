@@ -7,54 +7,50 @@ import {
   X,
   LogOut,
   ShieldCheck,
-  Home,
-  Info,
-  LayoutGrid,
   Printer,
-  BookOpen,
-  CreditCard,
   FileText,
-  UserCheck,
-  Award,
-  FileSpreadsheet,
-  PhoneCall,
   Truck,
   ShoppingBag,
   Layers,
   ArrowUpRight,
   Search,
   Sparkles,
-  MessageCircle,
+  PhoneCall,
+  Clock,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
 import Button from './Button'
 import Logo from './Logo'
-import WhatsAppIcon from './WhatsAppIcon'
 import { useAuth } from '../context/AuthContext'
 import { trackGetQuoteClick } from '../utils/analytics'
 import { getCategories } from '../services/categories'
 
 const NAV_GROUPS = [
   {
+    key: 'printing',
+    label: 'Business Cards & Paper Print',
+    keywords: ['brochure', 'business card', 'letterhead', 'flyer', 'envelope', 'invoice', 'folder', 'notepad', 'catalog', 'booklet'],
+  },
+  {
+    key: 'packaging',
+    label: 'Custom Packaging & Boxes',
+    keywords: ['packaging', 'box', 'mailer', 'bag', 'rigid'],
+  },
+  {
     key: 'drinkware',
     label: 'Mugs & Water Bottles',
     keywords: ['mug', 'bottle', 'flask', 'tumbler', 'shaker', 'drinkware', 'cup'],
   },
   {
-    key: 'printing',
-    label: 'Paper & Commercial Print',
-    keywords: ['brochure', 'business card', 'letterhead', 'flyer', 'envelope', 'invoice', 'receipt', 'voucher', 'folder', 'notepad', 'calendar', 'certificate', 'catalog', 'booklet'],
+    key: 'stickers',
+    label: 'Stickers & Product Labels',
+    keywords: ['sticker', 'label', 'vinyl', 'decal'],
   },
   {
     key: 'badges',
-    label: 'ID Cards & Badges',
+    label: 'ID Cards & Lanyards',
     keywords: ['id card', 'lanyard', 'name badge', 'badge'],
-  },
-  {
-    key: 'packaging',
-    label: 'Packaging & Boxes',
-    keywords: ['packaging', 'box', 'mailer', 'bag'],
   },
   {
     key: 'promotional',
@@ -62,19 +58,14 @@ const NAV_GROUPS = [
     keywords: ['gift', 'promo', 'merchandise', 'keychain', 'pen', 'tech', 'power bank'],
   },
   {
-    key: 'stickers',
-    label: 'Stickers & Labels',
-    keywords: ['sticker', 'label'],
-  },
-  {
     key: 'signs',
-    label: 'Signs & Displays',
+    label: 'Signage & Displays',
     keywords: ['banner', 'poster', 'sign', 'foam', 'acrylic', 'display', 'roll-up', 'x-banner', 'flag'],
   },
   {
     key: 'apparel',
     label: 'Apparel & Uniforms',
-    keywords: ['shirt', 'polo', 'hoodie', 'cap', 'jersey', 'uniform', 'fabric', 'wearable'],
+    keywords: ['shirt', 'polo', 'hoodie', 'cap', 'jersey', 'uniform'],
   },
 ]
 
@@ -111,14 +102,6 @@ function buildMegaMenuGroups(categories = []) {
   return grouped
 }
 
-function chunkArray(array, size) {
-  const chunks = []
-  for (let i = 0; i < array.length; i += size) {
-    chunks.push(array.slice(i, i + size))
-  }
-  return chunks
-}
-
 function FacebookIcon(props) {
   return (
     <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -137,21 +120,12 @@ function InstagramIcon(props) {
   )
 }
 
-function PinterestIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.182-.78 1.172-4.97 1.172-4.97s-.299-.6-.299-1.486c0-1.39.806-2.428 1.81-2.428.854 0 1.265.641 1.265 1.41 0 .859-.546 2.144-.829 3.335-.236.997.5 1.81 1.484 1.81 1.782 0 3.151-1.879 3.151-4.59 0-2.399-1.724-4.077-4.187-4.077-2.853 0-4.527 2.14-4.527 4.35 0 .862.332 1.787.747 2.29.082.1.094.188.069.29-.076.315-.245.998-.278 1.139-.044.183-.146.222-.338.134-1.264-.588-2.054-2.435-2.054-3.918 0-3.187 2.316-6.115 6.678-6.115 3.506 0 6.231 2.498 6.231 5.839 0 3.484-2.197 6.287-5.246 6.287-1.024 0-1.987-.532-2.317-1.161l-.63 2.4c-.228.877-.845 1.977-1.258 2.645C9.728 21.847 10.84 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
-    </svg>
-  )
-}
-
 export default function SiteHeader() {
   const { user, isAuthenticated, isAdmin, logout } = useAuth()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
-  const [mobileExpanded, setMobileExpanded] = useState({})
   const [categories, setCategories] = useState([])
 
   const location = useLocation()
@@ -180,7 +154,7 @@ export default function SiteHeader() {
 
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 12)
+      setScrolled(window.scrollY > 10)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -199,23 +173,19 @@ export default function SiteHeader() {
     }
   }, [menuOpen])
 
-  const toggleMobileCategory = (key) => {
-    setMobileExpanded((prev) => ({ ...prev, [key]: !prev[key] }))
-  }
-
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
-      {/* 1. 2026 Executive Top Utility Bar */}
-      <div className="hidden border-b border-white/[0.06] bg-[#06070A] py-1.5 text-[11px] text-neutral-400 lg:block">
+      {/* 1. Clean Light Top Announcement Bar */}
+      <div className="hidden border-b border-slate-200/70 bg-slate-50/90 py-1.5 text-[11px] text-slate-600 lg:block">
         <Container className="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12">
-          {/* Social Icons + Atelier Status */}
+          {/* Social Icons + Status */}
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2.5 text-neutral-400">
+            <div className="flex items-center gap-2.5 text-slate-500">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-[#D4AF37]"
+                className="transition-colors hover:text-[#A82F19]"
                 aria-label="Facebook"
               >
                 <FacebookIcon />
@@ -224,59 +194,50 @@ export default function SiteHeader() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-[#D4AF37]"
+                className="transition-colors hover:text-[#A82F19]"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
               </a>
-              <a
-                href="https://pinterest.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-[#D4AF37]"
-                aria-label="Pinterest"
-              >
-                <PinterestIcon />
-              </a>
             </div>
-            <span className="h-3 w-px bg-white/10" />
-            <div className="flex items-center gap-1.5 font-medium text-neutral-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Al Quoz Pressfloor • Same-Day &amp; Express 24h UAE Turnaround</span>
+            <span className="h-3 w-px bg-slate-300" />
+            <div className="flex items-center gap-1.5 font-medium text-slate-700">
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Al Quoz Production Pressfloor • Same-Day &amp; Express 24h UAE Delivery</span>
             </div>
           </div>
 
-          {/* Quick Contact & WhatsApp Concierge */}
-          <div className="flex items-center gap-4 font-medium text-neutral-400">
+          {/* Quick Contact & Order Tracking */}
+          <div className="flex items-center gap-4 font-medium text-slate-600">
             <Link
               to="/track-order"
-              className="flex items-center gap-1.5 transition-colors hover:text-white px-2 py-0.5 rounded text-neutral-300"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-700"
             >
-              <Truck className="h-3.5 w-3.5 text-[#D4AF37]" />
+              <Truck className="h-3.5 w-3.5 text-[#A82F19]" />
               <span className="font-semibold text-[11px]">Track Order</span>
             </Link>
-            <span className="h-3 w-px bg-white/10" />
+            <span className="h-3 w-px bg-slate-300" />
             <a
               href="mailto:0nprint183@gmail.com"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#D4AF37]"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-700"
             >
-              <Mail className="h-3.5 w-3.5 text-[#D4AF37]" />
+              <Mail className="h-3.5 w-3.5 text-[#A82F19]" />
               <span>0nprint183@gmail.com</span>
             </a>
           </div>
         </Container>
       </div>
 
-      {/* 2. Main Luxury Floating Navigation Bar */}
+      {/* 2. Main Clean Light Navigation Bar */}
       <div
-        className={`border-b border-white/[0.08] bg-[#090A0D]/90 backdrop-blur-2xl transition-all duration-300 ${
-          scrolled ? 'py-2.5 shadow-[0_12px_40px_rgba(0,0,0,0.7)]' : 'py-3.5 shadow-[0_8px_30px_rgba(0,0,0,0.5)]'
+        className={`border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all duration-300 ${
+          scrolled ? 'py-2.5 shadow-md shadow-slate-200/50' : 'py-3.5 shadow-xs'
         }`}
       >
         <Container className="flex items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 xl:px-12">
           {/* Logo */}
-          <Link to="/" onClick={() => setMenuOpen(false)} className="shrink-0 flex items-center group">
-            <Logo variant="light" size="md" />
+          <Link to="/" onClick={() => setMenuOpen(false)} className="shrink-0 flex items-center">
+            <Logo variant="default" size="md" />
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -288,8 +249,8 @@ export default function SiteHeader() {
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'text-white bg-white/[0.08] border border-white/15 font-bold shadow-xs'
-                    : 'text-neutral-300 hover:text-white hover:bg-white/[0.05]'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
@@ -302,15 +263,15 @@ export default function SiteHeader() {
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'text-white bg-white/[0.08] border border-white/15 font-bold shadow-xs'
-                    : 'text-neutral-300 hover:text-white hover:bg-white/[0.05]'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
               Products
             </NavLink>
 
-            {/* 3. Categories with Luxury Mega Menu Dropdown */}
+            {/* 3. Categories with Clean Light Mega Menu */}
             <div
               className="relative py-1"
               onMouseEnter={() => setActiveDropdown('categories')}
@@ -322,16 +283,16 @@ export default function SiteHeader() {
                 className={({ isActive }) =>
                   `flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap cursor-pointer ${
                     isActive || activeDropdown === 'categories' || location.pathname.startsWith('/categories')
-                      ? 'text-white bg-white/[0.08] border border-white/15 font-bold shadow-xs'
-                      : 'text-neutral-300 hover:text-white hover:bg-white/[0.05]'
+                      ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                      : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                   }`
                 }
               >
                 <span>Categories</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'categories' ? 'rotate-180 text-[#D4AF37]' : 'text-neutral-500'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'categories' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
               </NavLink>
 
-              {/* 2026 Mega Menu Overlay */}
+              {/* Clean Light Mega Menu */}
               <AnimatePresence>
                 {activeDropdown === 'categories' && (
                   <motion.div
@@ -339,56 +300,56 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute left-0 top-full mt-2 w-[min(820px,calc(100vw-32px))] rounded-2xl border border-white/[0.12] bg-[#0F1118]/98 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.85)] backdrop-blur-3xl z-50"
+                    className="absolute left-0 top-full mt-2 w-[min(820px,calc(100vw-32px))] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl z-50"
                   >
                     <div className="flex gap-6">
-                      {/* Left Hub Banner */}
-                      <div className="w-64 shrink-0 rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 flex flex-col justify-between">
+                      {/* Left Spotlight Banner */}
+                      <div className="w-64 shrink-0 rounded-xl border border-slate-100 bg-slate-50/80 p-4 flex flex-col justify-between">
                         <div>
-                          <span className="inline-block rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-widest text-[#D4AF37]">
-                            Dubai Pressfloor
+                          <span className="inline-block rounded-full bg-[#A82F19]/10 border border-[#A82F19]/20 px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-widest text-[#A82F19]">
+                            Dubai Pressroom
                           </span>
-                          <h4 className="mt-2 text-sm font-black text-white leading-snug">
+                          <h4 className="mt-2 text-sm font-black text-slate-900 leading-snug">
                             Commercial Print Catalog
                           </h4>
-                          <p className="mt-1 text-[11px] leading-relaxed text-neutral-400">
-                            FSC-certified paper stocks, Pantone PMS matching, and express UAE delivery.
+                          <p className="mt-1 text-[11px] leading-relaxed text-slate-600">
+                            FSC-certified paper stocks, Pantone PMS matching, and fast UAE delivery.
                           </p>
 
-                          {/* Quick Trending Links */}
-                          <div className="mt-3.5 pt-3 border-t border-white/[0.08] space-y-2">
-                            <span className="text-[10px] font-extrabold uppercase tracking-wider text-neutral-400 block">
-                              Signature Crafts
+                          {/* Quick Highlight Links */}
+                          <div className="mt-3.5 pt-3 border-t border-slate-200/70 space-y-2">
+                            <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
+                              Popular Services
                             </span>
                             <Link
                               to="/business-card-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="flex items-center justify-between p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] hover:border-[#D4AF37] hover:bg-white/[0.08] text-xs font-bold text-white transition-all group"
+                              className="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200 hover:border-[#A82F19] hover:text-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs group"
                             >
                               <span className="flex items-center gap-1.5">
-                                <span className="text-[#D4AF37]">★</span>
+                                <span className="text-[#A82F19]">★</span>
                                 <span>Business Cards Dubai</span>
                               </span>
-                              <ArrowUpRight className="h-3 w-3 text-neutral-400 group-hover:text-[#D4AF37]" />
+                              <ArrowUpRight className="h-3 w-3 text-slate-400 group-hover:text-[#A82F19]" />
                             </Link>
                             <Link
                               to="/categories/mug-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="flex items-center justify-between p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] hover:border-[#D4AF37] hover:bg-white/[0.08] text-xs font-bold text-white transition-all group"
+                              className="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200 hover:border-[#A82F19] hover:text-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs group"
                             >
                               <span className="flex items-center gap-1.5">
                                 <span>☕</span>
                                 <span>Mug Printing Dubai</span>
                               </span>
-                              <ArrowUpRight className="h-3 w-3 text-neutral-400 group-hover:text-[#D4AF37]" />
+                              <ArrowUpRight className="h-3 w-3 text-slate-400 group-hover:text-[#A82F19]" />
                             </Link>
                           </div>
                         </div>
-                        <div className="pt-3 border-t border-white/[0.08]">
+                        <div className="pt-3 border-t border-slate-200/70">
                           <Link
                             to="/categories"
                             onClick={() => setActiveDropdown(null)}
-                            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF37] hover:underline"
+                            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A82F19] hover:underline"
                           >
                             <span>View All Categories</span>
                             <ArrowUpRight className="h-3.5 w-3.5" />
@@ -400,7 +361,7 @@ export default function SiteHeader() {
                       <div className="flex-1 grid grid-cols-2 gap-4 max-h-[380px] overflow-y-auto pr-1">
                         {megaMenuGroups.map((group) => (
                           <div key={group.key} className="space-y-1.5">
-                            <h5 className="text-[11px] font-black uppercase tracking-wider text-[#D4AF37]">
+                            <h5 className="text-[11px] font-black uppercase tracking-wider text-[#A82F19]">
                               {group.label}
                             </h5>
                             <ul className="space-y-1">
@@ -409,10 +370,10 @@ export default function SiteHeader() {
                                   <Link
                                     to={`/categories/${item.slug}`}
                                     onClick={() => setActiveDropdown(null)}
-                                    className="group flex items-center justify-between py-1 text-xs font-medium text-neutral-300 hover:text-white transition-colors"
+                                    className="group flex items-center justify-between py-1 text-xs font-medium text-slate-700 hover:text-[#A82F19] transition-colors"
                                   >
                                     <span className="truncate">{item.name}</span>
-                                    <ChevronDown className="h-3 w-3 -rotate-90 opacity-0 transition-opacity group-hover:opacity-100 text-[#D4AF37]" />
+                                    <ChevronDown className="h-3 w-3 -rotate-90 opacity-0 transition-opacity group-hover:opacity-100 text-[#A82F19]" />
                                   </Link>
                                 </li>
                               ))}
@@ -432,67 +393,81 @@ export default function SiteHeader() {
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap flex items-center gap-1.5 ${
                   isActive
-                    ? 'text-white bg-white/[0.08] border border-white/15 font-bold shadow-xs'
-                    : 'text-neutral-300 hover:text-white hover:bg-white/[0.05]'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
               <span>Business Cards</span>
-              <span className="rounded bg-[#D4AF37]/20 border border-[#D4AF37]/30 px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#D4AF37]">
+              <span className="rounded bg-[#A82F19]/10 px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#A82F19]">
                 Dubai
               </span>
             </NavLink>
 
-            {/* 4. Services */}
+            {/* Packaging Link */}
+            <NavLink
+              to="/packaging-printing-dubai"
+              className={({ isActive }) =>
+                `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                  isActive
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                }`
+              }
+            >
+              Packaging
+            </NavLink>
+
+            {/* Services */}
             <NavLink
               to="/services"
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'text-white bg-white/[0.08] border border-white/15 font-bold shadow-xs'
-                    : 'text-neutral-300 hover:text-white hover:bg-white/[0.05]'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
               Services
             </NavLink>
 
-            {/* 5. About Us */}
+            {/* About Us */}
             <NavLink
               to="/about"
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'text-white bg-white/[0.08] border border-white/15 font-bold shadow-xs'
-                    : 'text-neutral-300 hover:text-white hover:bg-white/[0.05]'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
               About Us
             </NavLink>
 
-            {/* 6. Blogs */}
+            {/* Blogs */}
             <NavLink
               to="/blog"
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'text-white bg-white/[0.08] border border-white/15 font-bold shadow-xs'
-                    : 'text-neutral-300 hover:text-white hover:bg-white/[0.05]'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
-              Blogs
+              Blog
             </NavLink>
 
-            {/* 7. Contact */}
+            {/* Contact */}
             <NavLink
               to="/contact"
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'text-white bg-white/[0.08] border border-white/15 font-bold shadow-xs'
-                    : 'text-neutral-300 hover:text-white hover:bg-white/[0.05]'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
+                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
@@ -500,22 +475,20 @@ export default function SiteHeader() {
             </NavLink>
           </nav>
 
-          {/* Right CTA, Icons & Account Menu */}
+          {/* Right Action Icons & Quote CTA */}
           <div className="hidden items-center gap-3 lg:flex shrink-0">
-            {/* Search Icon Link */}
             <Link
               to="/products"
-              className="flex items-center justify-center h-8 w-8 rounded-lg text-neutral-300 hover:text-white hover:bg-white/10 transition-colors"
+              className="flex items-center justify-center h-9 w-9 rounded-lg text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors"
               title="Search products"
               aria-label="Search products"
             >
               <Search className="h-4 w-4" />
             </Link>
 
-            {/* Cart / Orders Icon Link */}
             <Link
               to="/track-order"
-              className="flex items-center justify-center h-8 w-8 rounded-lg text-neutral-300 hover:text-white hover:bg-white/10 transition-colors"
+              className="flex items-center justify-center h-9 w-9 rounded-lg text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors"
               title="Track Order"
               aria-label="Track Order"
             >
@@ -527,13 +500,13 @@ export default function SiteHeader() {
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-2 rounded-lg border border-white/15 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/10 cursor-pointer"
+                  className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-50 cursor-pointer shadow-xs"
                 >
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#A82F19] text-white text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
                   <span className="max-w-[90px] truncate">{user?.name || 'Admin'}</span>
-                  <ChevronDown className={`h-3.5 w-3.5 text-neutral-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`h-3.5 w-3.5 text-slate-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 <AnimatePresence>
@@ -543,12 +516,12 @@ export default function SiteHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-white/15 bg-[#12141D] p-2 shadow-2xl z-50 backdrop-blur-2xl"
+                      className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-slate-200 bg-white p-2 shadow-xl z-50"
                     >
-                      <div className="px-3 py-2 border-b border-white/10 mb-1">
-                        <div className="font-bold text-xs text-white truncate">{user?.name || 'Administrator'}</div>
-                        <div className="text-[10px] text-neutral-400 truncate">{user?.email}</div>
-                        <span className="mt-1 inline-block rounded bg-[#A82F19]/20 border border-[#A82F19]/40 px-1.5 py-0.5 text-[9px] font-bold uppercase text-[#FF8573]">
+                      <div className="px-3 py-2 border-b border-slate-100 mb-1">
+                        <div className="font-bold text-xs text-slate-900 truncate">{user?.name || 'Administrator'}</div>
+                        <div className="text-[10px] text-slate-500 truncate">{user?.email}</div>
+                        <span className="mt-1 inline-block rounded bg-red-50 px-1.5 py-0.5 text-[9px] font-bold uppercase text-[#A82F19]">
                           Administrator
                         </span>
                       </div>
@@ -556,10 +529,10 @@ export default function SiteHeader() {
                       <Link
                         to="/admin"
                         onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-neutral-200 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-slate-700 hover:text-[#A82F19] hover:bg-slate-50 rounded-lg transition-colors"
                       >
-                        <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
-                        <span>Admin Control Panel</span>
+                        <ShieldCheck className="w-4 h-4 text-slate-400" />
+                        <span>Admin Dashboard</span>
                       </Link>
 
                       <button
@@ -568,7 +541,7 @@ export default function SiteHeader() {
                           setUserMenuOpen(false)
                           logout()
                         }}
-                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-400 hover:bg-red-950/40 rounded-lg transition-colors mt-1 border-t border-white/10 cursor-pointer"
+                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors mt-1 border-t border-slate-100 cursor-pointer"
                       >
                         <LogOut className="w-4 h-4" />
                         <span>Sign Out</span>
@@ -579,12 +552,12 @@ export default function SiteHeader() {
               </div>
             ) : null}
 
-            {/* Glowing CTA Button */}
+            {/* High-Converting Red CTA Button */}
             <Button
               to="/get-a-quote"
               variant="accent"
               icon={false}
-              className="!rounded-xl !bg-gradient-to-r !from-[#A82F19] !to-[#C7371E] hover:!from-[#8f2513] hover:!to-[#A82F19] !px-4 xl:!px-5 !py-2 text-xs xl:text-sm font-black shadow-md shadow-[#A82F19]/40 hover:-translate-y-0.5 transition-all whitespace-nowrap"
+              className="!rounded-xl !bg-[#A82F19] hover:!bg-[#8F2412] !px-5 !py-2.5 text-xs xl:text-sm font-bold text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all whitespace-nowrap"
               onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
             >
               Get a Quote
@@ -596,7 +569,7 @@ export default function SiteHeader() {
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 bg-white/[0.06] text-white transition-colors hover:bg-white/10 lg:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-700 transition-colors hover:bg-slate-100 lg:hidden"
           >
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -611,89 +584,96 @@ export default function SiteHeader() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="border-b border-white/10 bg-[#090A0D]/98 backdrop-blur-2xl lg:hidden max-h-[85vh] overflow-y-auto"
+            className="border-b border-slate-200 bg-white/98 backdrop-blur-md lg:hidden max-h-[85vh] overflow-y-auto shadow-xl"
           >
             <Container className="py-5 space-y-4 px-4">
               <nav className="flex flex-col space-y-1">
                 <Link
                   to="/"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-neutral-200 hover:bg-white/10 hover:text-white"
+                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   Home
                 </Link>
                 <Link
                   to="/products"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-neutral-200 hover:bg-white/10 hover:text-white"
+                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   Products
                 </Link>
                 <Link
                   to="/categories"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-neutral-200 hover:bg-white/10 hover:text-white"
+                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   All Categories
                 </Link>
                 <Link
                   to="/business-card-printing-dubai"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-bold text-[#D4AF37] hover:bg-white/10"
+                  className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-bold text-[#A82F19] bg-[#A82F19]/5"
                 >
                   <span>Business Cards Dubai</span>
-                  <span className="rounded bg-[#D4AF37]/20 px-1.5 py-0.5 text-[9px] font-black uppercase">
+                  <span className="rounded bg-[#A82F19] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
                     Signature
                   </span>
                 </Link>
                 <Link
+                  to="/packaging-printing-dubai"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                >
+                  Packaging &amp; Boxes
+                </Link>
+                <Link
                   to="/services"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-neutral-200 hover:bg-white/10 hover:text-white"
+                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   Services
                 </Link>
                 <Link
                   to="/about"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-neutral-200 hover:bg-white/10 hover:text-white"
+                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   About Us
                 </Link>
                 <Link
                   to="/blog"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-neutral-200 hover:bg-white/10 hover:text-white"
+                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   Blog &amp; Guides
                 </Link>
                 <Link
                   to="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-neutral-200 hover:bg-white/10 hover:text-white"
+                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   Contact
                 </Link>
               </nav>
 
-              <div className="border-t border-white/10 pt-4 space-y-2">
+              <div className="border-t border-slate-200 pt-4 space-y-2">
                 <Button
                   to="/get-a-quote"
                   variant="accent"
-                  className="w-full !rounded-xl justify-center font-black !py-3 !bg-gradient-to-r !from-[#A82F19] !to-[#C7371E]"
+                  className="w-full !rounded-xl justify-center font-bold !py-3 !bg-[#A82F19] hover:!bg-[#8F2412]"
                   onClick={() => {
                     setMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile' })
                   }}
                 >
-                  Request Bespoke Quote
+                  Request a Quote
                 </Button>
                 <Link
                   to="/track-order"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.05] py-2.5 text-xs font-bold text-white hover:bg-white/10 transition-colors"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
                 >
-                  <Truck className="h-4 w-4 text-[#D4AF37]" />
+                  <Truck className="h-4 w-4 text-[#A82F19]" />
                   <span>Track Existing Order</span>
                 </Link>
               </div>

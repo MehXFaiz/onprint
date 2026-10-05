@@ -29,7 +29,6 @@ export default function ProductCard({
     }
   }
 
-  // Derive 2–3 key features dynamically
   const deriveFeatures = () => {
     if (Array.isArray(product.features) && product.features.length > 0) {
       return product.features.slice(0, 3)
@@ -58,7 +57,7 @@ export default function ProductCard({
     const bounds = event.currentTarget.getBoundingClientRect()
     const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2
     const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2
-    setMockupTilt({ x: y * -7, y: x * 9 })
+    setMockupTilt({ x: y * -6, y: x * 8 })
   }
 
   const resetMockup = () => {
@@ -67,10 +66,10 @@ export default function ProductCard({
   }
 
   return (
-    <div className="group relative flex flex-col h-full w-full min-w-0 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#10121A] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/60 hover:shadow-[0_16px_36px_rgba(212,175,55,0.15)] hover:z-10">
-      {/* Product Image */}
+    <div className="group relative flex flex-col h-full w-full min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#A82F19]/50 hover:shadow-lg hover:z-10">
+      {/* Product Image Stage */}
       <div
-        className="product-mockup-stage group/mockup relative w-full aspect-[4/3] shrink-0 overflow-hidden bg-neutral-900 flex items-center justify-center"
+        className="product-mockup-stage group/mockup relative w-full aspect-[4/3] shrink-0 overflow-hidden bg-slate-50 flex items-center justify-center border-b border-slate-100"
         onPointerEnter={() => setIsMockupActive(true)}
         onPointerMove={handleMockupMove}
         onPointerLeave={resetMockup}
@@ -82,43 +81,41 @@ export default function ProductCard({
               transform: `perspective(900px) rotateX(${mockupTilt.x}deg) rotateY(${mockupTilt.y}deg)`,
             }}
           >
-            <div className="product-mockup-shadow absolute inset-[8%] rounded-[1.25rem] bg-black/50 blur-xl" />
-            <div className="product-mockup-face relative h-full w-full overflow-hidden rounded-[1.25rem] border border-white/20 bg-neutral-950 shadow-[12px_16px_28px_rgba(0,0,0,0.5)]">
+            <div className="product-mockup-shadow absolute inset-[8%] rounded-[1.25rem] bg-slate-900/10 blur-lg" />
+            <div className="product-mockup-face relative h-full w-full overflow-hidden rounded-[1.25rem] border border-slate-200/80 bg-white shadow-md">
               <img
                 src={productImage}
                 alt={product.imageAlt || product.name}
                 loading="lazy"
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/30" />
             </div>
-            <div className="product-mockup-edge absolute right-[-3%] top-[6%] h-[88%] w-[5%] rounded-r-lg bg-[#3a3530]" />
           </div>
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-black/40 text-[11px] font-black uppercase tracking-widest text-neutral-500">
+          <div className="flex h-full w-full items-center justify-center bg-slate-100 text-[11px] font-black uppercase tracking-widest text-slate-400">
             ONPRINT PRESS
           </div>
         )}
 
-        <div className="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full border border-white/20 bg-black/80 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.16em] text-neutral-300 shadow-sm backdrop-blur-md transition-all duration-300 group-hover/mockup:-translate-y-1 group-hover/mockup:text-white">
+        <div className="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full border border-slate-200 bg-white/90 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-slate-600 shadow-xs backdrop-blur-xs">
           {isMockupActive ? '3D Active' : 'Hover 3D'}
         </div>
 
-        {/* Top-left badges */}
+        {/* Top-left badge */}
         {isFeatured && (
           <div className="absolute left-3 top-3 z-10 pointer-events-none">
-            <span className="inline-flex items-center gap-1 rounded-md bg-[#A82F19] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white shadow-sm">
+            <span className="inline-flex items-center gap-1 rounded-md bg-[#A82F19] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-xs">
               <Sparkles className="h-3 w-3" />
               Featured
             </span>
           </div>
         )}
 
-        {/* Price badge — top-right */}
+        {/* Price badge */}
         {product.price && Number(product.price) > 0 && (
           <div className="absolute right-3 top-3 z-10 pointer-events-none">
-            <span className="inline-flex items-center gap-1 rounded-lg bg-black/90 border border-white/10 px-2.5 py-1 text-[11px] font-extrabold tracking-wider text-[#D4AF37] backdrop-blur-sm shadow-xs">
-              <Tag className="h-3 w-3 text-[#D4AF37]" />
+            <span className="inline-flex items-center gap-1 rounded-md bg-slate-900 px-2 py-0.5 text-[10px] font-bold text-white shadow-xs">
+              <Tag className="h-3 w-3 text-amber-400" />
               AED {product.price}+
             </span>
           </div>
@@ -126,36 +123,32 @@ export default function ProductCard({
       </div>
 
       {/* Content */}
-      <div className="flex flex-1 flex-col p-5 min-w-0">
-        <div className="min-w-0 space-y-2">
-          {/* Category pill */}
+      <div className="flex flex-1 flex-col p-4.5 min-w-0">
+        <div className="min-w-0 space-y-1.5">
           {categoryName ? (
             <div>
-              <span className="inline-block rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-[#D4AF37] truncate max-w-full">
+              <span className="inline-block rounded-full bg-[#A82F19]/10 px-2 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#A82F19] truncate max-w-full">
                 {categoryName}
               </span>
             </div>
           ) : null}
 
           {/* Product name */}
-          <h3 className="font-display text-base font-black leading-snug tracking-tight text-white transition-colors duration-200 group-hover:text-[#D4AF37] line-clamp-2 break-words">
+          <h3 className="font-display text-sm sm:text-base font-bold leading-snug tracking-tight text-slate-900 transition-colors duration-200 group-hover:text-[#A82F19] line-clamp-1 break-words">
             {product.name}
           </h3>
 
           {/* Short description */}
-          <p className="text-xs leading-relaxed text-neutral-400 line-clamp-2 break-words">
+          <p className="text-xs leading-relaxed text-slate-500 line-clamp-2 break-words">
             {product.shortDescription || product.description}
           </p>
 
           {/* Features */}
           {featuresList.length > 0 && (
-            <div className="pt-2.5 border-t border-white/[0.08] space-y-1.5 min-w-0">
-              <span className="block text-[9px] font-extrabold uppercase tracking-wider text-neutral-400">
-                Key Features
-              </span>
+            <div className="pt-2 border-t border-slate-100 space-y-1 min-w-0">
               {featuresList.map((feat, idx) => (
-                <div key={idx} className="flex items-start gap-1.5 text-[11px] font-medium text-neutral-300 min-w-0">
-                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#D4AF37]" />
+                <div key={idx} className="flex items-start gap-1.5 text-[11px] font-medium text-slate-600 min-w-0">
+                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#A82F19]" />
                   <span className="line-clamp-1 break-words min-w-0">{feat}</span>
                 </div>
               ))}
@@ -163,11 +156,11 @@ export default function ProductCard({
           )}
         </div>
 
-        {/* Action CTA Bar — pinned to bottom via mt-auto */}
-        <div className="mt-auto pt-4 border-t border-white/[0.08] flex items-center gap-2">
+        {/* Action Buttons */}
+        <div className="mt-auto pt-3.5 border-t border-slate-100 flex items-center gap-2">
           <Link
             to={`/products/${product.slug}`}
-            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-[#A82F19] to-[#C7371E] hover:from-[#8f2513] hover:to-[#A82F19] px-4 py-2.5 text-[11px] font-extrabold uppercase tracking-wider text-white transition-all duration-200 shadow-md cursor-pointer"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#A82F19] hover:bg-[#8F2412] px-3.5 py-2 text-[11px] font-bold uppercase tracking-wider text-white transition-all duration-200 shadow-xs cursor-pointer"
           >
             <span>Explore</span>
             <ArrowUpRight className="h-3.5 w-3.5" />
@@ -178,16 +171,13 @@ export default function ProductCard({
               type="button"
               onClick={handleQuickView}
               aria-label={`Quick View ${product.name}`}
-              className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/[0.05] p-2.5 text-neutral-200 transition-all hover:border-[#D4AF37] hover:bg-white/10 hover:text-white active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 p-2 text-slate-700 transition-all hover:border-[#A82F19] hover:bg-[#A82F19] hover:text-white active:scale-95 cursor-pointer"
             >
               <Eye className="h-4 w-4" />
             </button>
           )}
         </div>
       </div>
-
-      {/* Bottom accent line */}
-      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#A82F19] to-[#D4AF37] transition-all duration-300 ease-out group-hover:w-full pointer-events-none" />
     </div>
   )
 }

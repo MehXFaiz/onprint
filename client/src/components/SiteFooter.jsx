@@ -72,13 +72,13 @@ export default function SiteFooter() {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a
-                href="https://wa.me/971501234567?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+                href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:shadow cursor-pointer"
               >
                 <WhatsAppIcon className="h-4 w-4 fill-current" />
-                <span>WhatsApp Instant Proof</span>
+                <span>WhatsApp: +44 7344 546056</span>
               </a>
               <Link
                 to="/get-a-quote"
@@ -153,7 +153,20 @@ export default function SiteFooter() {
         {/* Col 5: Dubai Headquarters */}
         <div>
           <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-900">Dubai Atelier</p>
-          <ul className="mt-4 space-y-3.5 text-xs sm:text-sm">
+          <ul className="mt-4 space-y-3 text-xs sm:text-sm">
+            <li className="flex items-center gap-2.5">
+              <div className="flex h-6 w-6 items-center justify-center rounded-md bg-emerald-100 text-emerald-700 shrink-0">
+                <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
+              </div>
+              <a
+                href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-emerald-800 transition-colors hover:text-emerald-600"
+              >
+                +44 7344 546056
+              </a>
+            </li>
             <li className="flex items-center gap-2.5">
               <Mail className="h-4 w-4 text-[#A82F19] shrink-0" />
               <a href="mailto:0nprint183@gmail.com" className="transition-colors hover:text-slate-900">

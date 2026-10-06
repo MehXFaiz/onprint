@@ -23,7 +23,7 @@ export const organizationSchema = {
   description:
     'ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.',
   email: '0nprint183@gmail.com',
-  telephone: '+971-50-1234567',
+  telephone: '+44 7344 546056',
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',

@@ -22,6 +22,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
 import Button from './Button'
 import Logo from './Logo'
+import WhatsAppIcon from './WhatsAppIcon'
 import { useAuth } from '../context/AuthContext'
 import { trackGetQuoteClick } from '../utils/analytics'
 import { getCategories } from '../services/categories'
@@ -207,8 +208,25 @@ export default function SiteHeader() {
             </div>
           </div>
 
-          {/* Quick Contact & Order Tracking */}
-          <div className="flex items-center gap-4 font-medium text-slate-600">
+          {/* Quick Contact, WhatsApp Hotline & Order Tracking */}
+          <div className="flex items-center gap-3.5 font-medium text-slate-600">
+            <a
+              href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100/90 border border-emerald-200/90 px-2.5 py-0.5 text-emerald-800 transition-all font-bold shadow-2xs hover:shadow-xs"
+              aria-label="WhatsApp Hotline +44 7344 546056"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              <WhatsAppIcon className="h-3.5 w-3.5 text-emerald-600 group-hover:scale-110 transition-transform fill-current" />
+              <span className="text-[11px] tracking-tight">+44 7344 546056</span>
+            </a>
+
+            <span className="h-3 w-px bg-slate-300" />
+
             <Link
               to="/track-order"
               className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-700"
@@ -216,7 +234,9 @@ export default function SiteHeader() {
               <Truck className="h-3.5 w-3.5 text-[#A82F19]" />
               <span className="font-semibold text-[11px]">Track Order</span>
             </Link>
+
             <span className="h-3 w-px bg-slate-300" />
+
             <a
               href="mailto:0nprint183@gmail.com"
               className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-700"
@@ -476,7 +496,25 @@ export default function SiteHeader() {
           </nav>
 
           {/* Right Action Icons & Quote CTA */}
-          <div className="hidden items-center gap-3 lg:flex shrink-0">
+          <div className="hidden items-center gap-2.5 lg:flex shrink-0">
+            {/* WhatsApp Direct Hotline Pill */}
+            <a
+              href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:inline-flex items-center gap-2 rounded-xl border border-emerald-200/90 bg-emerald-50/70 hover:bg-emerald-100/90 px-3 py-1.5 text-xs font-bold text-emerald-900 transition-all hover:shadow-xs group"
+              title="Direct WhatsApp Hotline (+44 7344 546056)"
+              aria-label="Direct WhatsApp Hotline"
+            >
+              <div className="relative flex h-5 w-5 items-center justify-center rounded-lg bg-emerald-500 text-white shadow-2xs group-hover:scale-110 transition-transform">
+                <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
+              </div>
+              <div className="flex flex-col text-left leading-none">
+                <span className="text-[9px] font-black uppercase text-emerald-600 tracking-wider">WhatsApp</span>
+                <span className="text-[11.5px] font-extrabold text-emerald-950 mt-0.5">+44 7344 546056</span>
+              </div>
+            </a>
+
             <Link
               to="/products"
               className="flex items-center justify-center h-9 w-9 rounded-lg text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors"
@@ -587,6 +625,30 @@ export default function SiteHeader() {
             className="border-b border-slate-200 bg-white/98 backdrop-blur-md lg:hidden max-h-[85vh] overflow-y-auto shadow-xl"
           >
             <Container className="py-5 space-y-4 px-4">
+              {/* WhatsApp Mobile Quick Contact Banner */}
+              <a
+                href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50/90 p-3.5 text-emerald-950 transition-all hover:bg-emerald-100 shadow-xs"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-sm">
+                    <WhatsAppIcon className="h-5 w-5 fill-current" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs font-bold text-emerald-950">WhatsApp Concierge</span>
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    </div>
+                    <span className="text-xs font-black text-emerald-800 tracking-tight">+44 7344 546056</span>
+                  </div>
+                </div>
+                <span className="rounded-lg bg-[#25D366] text-white px-3 py-1.5 text-[11px] font-bold shadow-xs">
+                  Chat Now
+                </span>
+              </a>
+
               <nav className="flex flex-col space-y-1">
                 <Link
                   to="/"

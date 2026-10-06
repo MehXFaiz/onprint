@@ -31,6 +31,7 @@ import {
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import ArrowLink from '../../components/ArrowLink'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
 import SectionHeading from '../../components/SectionHeading'
 import Reveal from '../../components/Reveal'
 import StatCounter from '../../components/StatCounter'
@@ -305,7 +306,7 @@ export default function HomePage() {
     const text = encodeURIComponent(
       `Hello ONPRINT Dubai, I would like an express quotation for:\n• Product: ${selectedCalcCategory.name}\n• Finish/Spec: ${selectedFinish}\n• Minimum Qty: ${selectedCalcCategory.minQty}\n• Delivery Location: Dubai/UAE\n\nPlease provide pricing and turnaround.`
     )
-    return `https://wa.me/971501234567?text=${text}`
+    return `https://wa.me/447344546056?text=${text}`
   }
 
   return (
@@ -392,15 +393,15 @@ export default function HomePage() {
 
             {/* Primary Action Buttons */}
             <Reveal delay={0.2}>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
                 <Button
                   to="/products"
                   variant="accent"
                   size="lg"
-                  className="relative group overflow-hidden !rounded-xl !bg-[#A82F19] hover:!bg-[#8F2412] text-white font-bold shadow-lg shadow-[#A82F19]/25 hover:shadow-xl hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 !px-8 !py-4 justify-center transition-all duration-200"
+                  className="relative group overflow-hidden !rounded-xl !bg-[#A82F19] hover:!bg-[#8F2412] text-white font-bold shadow-lg shadow-[#A82F19]/25 hover:shadow-xl hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 !px-7 !py-4 justify-center transition-all duration-200"
                 >
                   <span className="flex items-center gap-2">
-                    <span>Explore Print Collections</span>
+                    <span>Explore Collections</span>
                     <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                   </span>
                 </Button>
@@ -409,11 +410,22 @@ export default function HomePage() {
                   to="/get-a-quote"
                   variant="secondary"
                   size="lg"
-                  className="!rounded-xl !border !border-slate-300 !bg-white hover:!bg-slate-50 !text-slate-900 font-bold justify-center !px-7 !py-4 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
+                  className="!rounded-xl !border !border-slate-300 !bg-white hover:!bg-slate-50 !text-slate-900 font-bold justify-center !px-6 !py-4 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
                   onClick={() => trackGetQuoteClick({ source_page: 'homepage_hero' })}
                 >
                   Request Instant Quote
                 </Button>
+
+                <a
+                  href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-300/80 bg-emerald-50/90 hover:bg-emerald-100/90 text-emerald-900 font-extrabold px-5 py-3.5 shadow-xs hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 group"
+                  aria-label="Direct WhatsApp Hotline (+44 7344 546056)"
+                >
+                  <WhatsAppIcon className="h-4 w-4 text-emerald-600 fill-current group-hover:scale-110 transition-transform" />
+                  <span className="text-xs font-bold tracking-tight">+44 7344 546056</span>
+                </a>
               </div>
             </Reveal>
 
@@ -724,10 +736,10 @@ export default function HomePage() {
                   href={getWhatsAppCalcLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-5 py-3 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-5 py-3 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 group"
                 >
-                  <MessageCircle className="h-4 w-4" />
-                  <span>Get Quote on WhatsApp</span>
+                  <WhatsAppIcon className="h-4 w-4 fill-current group-hover:scale-110 transition-transform" />
+                  <span>Get Quote on WhatsApp (+44 7344 546056)</span>
                 </a>
               </div>
             </div>

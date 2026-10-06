@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
   /* ONPRINT Clean Light Modern Design System */
@@ -32,6 +32,7 @@
   --color-accent-soft: var(--accent-soft);
 
   --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, Cambria, serif;
   --font-sans: 'Plus Jakarta Sans', 'Poppins', ui-sans-serif, system-ui, sans-serif;
 
   --color-ink-900: #0F172A;
@@ -42,6 +43,10 @@
   --color-brand-600: var(--accent);
   --color-brand-700: var(--accent-hover);
   --color-accent-500: var(--accent);
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, Cambria, serif;
 }
 
 html {

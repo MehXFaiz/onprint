@@ -7,20 +7,18 @@ import {
   X,
   LogOut,
   ShieldCheck,
-  Printer,
-  FileText,
   Truck,
   ShoppingBag,
-  Layers,
   ArrowUpRight,
   Search,
   Sparkles,
-  PhoneCall,
-  Clock,
+  MapPin,
+  Copy,
+  Check,
+  ArrowRight,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
-import Button from './Button'
 import Logo from './Logo'
 import WhatsAppIcon from './WhatsAppIcon'
 import { useAuth } from '../context/AuthContext'
@@ -121,6 +119,16 @@ function InstagramIcon(props) {
   )
 }
 
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  )
+}
+
 export default function SiteHeader() {
   const { user, isAuthenticated, isAdmin, logout } = useAuth()
   const [scrolled, setScrolled] = useState(false)
@@ -128,8 +136,18 @@ export default function SiteHeader() {
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [categories, setCategories] = useState([])
+  const [whatsappPopoverOpen, setWhatsappPopoverOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
 
   const location = useLocation()
+
+  const handleCopyNumber = () => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText('+44 7344 546056')
+    }
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   useEffect(() => {
     let isMounted = true
@@ -165,6 +183,7 @@ export default function SiteHeader() {
   useEffect(() => {
     setMenuOpen(false)
     setActiveDropdown(null)
+    setWhatsappPopoverOpen(false)
   }, [location.pathname])
 
   useEffect(() => {
@@ -176,12 +195,46 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
-      {/* 1. Clean Light Top Announcement Bar */}
-      <div className="hidden border-b border-slate-200/70 bg-slate-50/90 py-1.5 text-[11px] text-slate-600 lg:block">
+      {/* 1. SLIM BLACK TOP ANNOUNCEMENT BAR */}
+      <div className="hidden border-b border-white/10 bg-[#0A0A0A] py-2 text-[11px] text-slate-300 lg:block">
         <Container className="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12">
-          {/* Social Icons + Status */}
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2.5 text-slate-500">
+          {/* Left: Location + Delivery Info */}
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5 font-semibold text-slate-200">
+              <MapPin className="h-3.5 w-3.5 text-[#A82F19]" />
+              <span>Al Quoz, Dubai</span>
+            </div>
+            <span className="h-3 w-px bg-white/20" />
+            <div className="flex items-center gap-1.5 font-medium text-slate-300">
+              <Truck className="h-3.5 w-3.5 text-[#A82F19]" />
+              <span>Same-Day &amp; Express 24h UAE Delivery</span>
+            </div>
+          </div>
+
+          {/* Right: Track Order + Email + Socials + WhatsApp */}
+          <div className="flex items-center gap-4 font-medium text-slate-300">
+            <Link
+              to="/track-order"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-200"
+            >
+              <Truck className="h-3.5 w-3.5 text-[#A82F19]" />
+              <span className="font-semibold text-[11px]">Track Order</span>
+            </Link>
+
+            <span className="h-3 w-px bg-white/20" />
+
+            <a
+              href="mailto:0nprint183@gmail.com"
+              className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-200"
+            >
+              <Mail className="h-3.5 w-3.5 text-[#A82F19]" />
+              <span>0nprint183@gmail.com</span>
+            </a>
+
+            <span className="h-3 w-px bg-white/20" />
+
+            {/* Social icons with orange hover & WhatsApp Icon */}
+            <div className="flex items-center gap-3 text-slate-400">
               <a
                 href="https://facebook.com"
                 target="_blank"
@@ -200,58 +253,33 @@ export default function SiteHeader() {
               >
                 <InstagramIcon />
               </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-[#A82F19]"
+                aria-label="LinkedIn"
+              >
+                <LinkedInIcon />
+              </a>
+              <button
+                type="button"
+                onClick={() => setWhatsappPopoverOpen((v) => !v)}
+                className="transition-colors text-emerald-400 hover:text-emerald-300 cursor-pointer flex items-center"
+                aria-label="WhatsApp Hotline"
+                title="WhatsApp Contact"
+              >
+                <WhatsAppIcon className="h-3.5 w-3.5 fill-current transition-transform hover:scale-110" />
+              </button>
             </div>
-            <span className="h-3 w-px bg-slate-300" />
-            <div className="flex items-center gap-1.5 font-medium text-slate-700">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Al Quoz Production Pressfloor • Same-Day &amp; Express 24h UAE Delivery</span>
-            </div>
-          </div>
-
-          {/* Quick Contact, WhatsApp Hotline & Order Tracking */}
-          <div className="flex items-center gap-3.5 font-medium text-slate-600">
-            <a
-              href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100/90 border border-emerald-200/90 px-2.5 py-0.5 text-emerald-800 transition-all font-bold shadow-2xs hover:shadow-xs"
-              aria-label="WhatsApp Hotline +44 7344 546056"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-              </span>
-              <WhatsAppIcon className="h-3.5 w-3.5 text-emerald-600 group-hover:scale-110 transition-transform fill-current" />
-              <span className="text-[11px] tracking-tight">+44 7344 546056</span>
-            </a>
-
-            <span className="h-3 w-px bg-slate-300" />
-
-            <Link
-              to="/track-order"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-700"
-            >
-              <Truck className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span className="font-semibold text-[11px]">Track Order</span>
-            </Link>
-
-            <span className="h-3 w-px bg-slate-300" />
-
-            <a
-              href="mailto:0nprint183@gmail.com"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-700"
-            >
-              <Mail className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span>0nprint183@gmail.com</span>
-            </a>
           </div>
         </Container>
       </div>
 
-      {/* 2. Main Clean Light Navigation Bar */}
+      {/* 2. MAIN PREMIUM WHITE NAVIGATION BAR */}
       <div
-        className={`border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all duration-300 ${
-          scrolled ? 'py-2.5 shadow-md shadow-slate-200/50' : 'py-3.5 shadow-xs'
+        className={`border-b border-slate-200/90 bg-white/98 backdrop-blur-md transition-all duration-300 ${
+          scrolled ? 'py-2.5 shadow-md shadow-slate-200/60' : 'py-3.5 shadow-xs'
         }`}
       >
         <Container className="flex items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 xl:px-12">
@@ -270,7 +298,7 @@ export default function SiteHeader() {
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
                     ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
@@ -284,14 +312,14 @@ export default function SiteHeader() {
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
                     ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
               Products
             </NavLink>
 
-            {/* 3. Categories with Clean Light Mega Menu */}
+            {/* 3. Categories with Clean Mega Menu */}
             <div
               className="relative py-1"
               onMouseEnter={() => setActiveDropdown('categories')}
@@ -304,7 +332,7 @@ export default function SiteHeader() {
                   `flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap cursor-pointer ${
                     isActive || activeDropdown === 'categories' || location.pathname.startsWith('/categories')
                       ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                      : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                      : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
                   }`
                 }
               >
@@ -312,7 +340,7 @@ export default function SiteHeader() {
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'categories' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
               </NavLink>
 
-              {/* Clean Light Mega Menu */}
+              {/* Mega Menu Dropdown */}
               <AnimatePresence>
                 {activeDropdown === 'categories' && (
                   <motion.div
@@ -320,11 +348,11 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute left-0 top-full mt-2 w-[min(820px,calc(100vw-32px))] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl z-50"
+                    className="absolute left-0 top-full mt-2 w-[min(840px,calc(100vw-32px))] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl z-50"
                   >
                     <div className="flex gap-6">
                       {/* Left Spotlight Banner */}
-                      <div className="w-64 shrink-0 rounded-xl border border-slate-100 bg-slate-50/80 p-4 flex flex-col justify-between">
+                      <div className="w-64 shrink-0 rounded-xl border border-slate-100 bg-slate-50/90 p-4 flex flex-col justify-between">
                         <div>
                           <span className="inline-block rounded-full bg-[#A82F19]/10 border border-[#A82F19]/20 px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-widest text-[#A82F19]">
                             Dubai Pressroom
@@ -336,7 +364,6 @@ export default function SiteHeader() {
                             FSC-certified paper stocks, Pantone PMS matching, and fast UAE delivery.
                           </p>
 
-                          {/* Quick Highlight Links */}
                           <div className="mt-3.5 pt-3 border-t border-slate-200/70 space-y-2">
                             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
                               Popular Services
@@ -353,13 +380,13 @@ export default function SiteHeader() {
                               <ArrowUpRight className="h-3 w-3 text-slate-400 group-hover:text-[#A82F19]" />
                             </Link>
                             <Link
-                              to="/categories/mug-printing-dubai"
+                              to="/packaging-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
                               className="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200 hover:border-[#A82F19] hover:text-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs group"
                             >
                               <span className="flex items-center gap-1.5">
-                                <span>☕</span>
-                                <span>Mug Printing Dubai</span>
+                                <span>📦</span>
+                                <span>Custom Packaging</span>
                               </span>
                               <ArrowUpRight className="h-3 w-3 text-slate-400 group-hover:text-[#A82F19]" />
                             </Link>
@@ -407,87 +434,87 @@ export default function SiteHeader() {
               </AnimatePresence>
             </div>
 
-            {/* Business Cards Flagship Link */}
+            {/* 4. Business Cards (with DUBAI badge) */}
             <NavLink
               to="/business-card-printing-dubai"
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap flex items-center gap-1.5 ${
                   isActive
                     ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
               <span>Business Cards</span>
-              <span className="rounded bg-[#A82F19]/10 px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#A82F19]">
-                Dubai
+              <span className="rounded bg-[#A82F19] text-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider">
+                DUBAI
               </span>
             </NavLink>
 
-            {/* Packaging Link */}
+            {/* 5. Packaging */}
             <NavLink
               to="/packaging-printing-dubai"
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
                     ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
               Packaging
             </NavLink>
 
-            {/* Services */}
+            {/* 6. Services */}
             <NavLink
               to="/services"
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
                     ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
               Services
             </NavLink>
 
-            {/* About Us */}
+            {/* 7. About Us */}
             <NavLink
               to="/about"
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
                     ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
               About Us
             </NavLink>
 
-            {/* Blogs */}
+            {/* 8. Blog */}
             <NavLink
               to="/blog"
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
                     ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
               Blog
             </NavLink>
 
-            {/* Contact */}
+            {/* 9. Contact */}
             <NavLink
               to="/contact"
               className={({ isActive }) =>
                 `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                   isActive
                     ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-700 hover:text-[#A82F19] hover:bg-slate-50'
+                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
                 }`
               }
             >
@@ -497,42 +524,123 @@ export default function SiteHeader() {
 
           {/* Right Action Icons & Quote CTA */}
           <div className="hidden items-center gap-2.5 lg:flex shrink-0">
-            {/* WhatsApp Direct Hotline Pill */}
-            <a
-              href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden xl:inline-flex items-center gap-2 rounded-xl border border-emerald-200/90 bg-emerald-50/70 hover:bg-emerald-100/90 px-3 py-1.5 text-xs font-bold text-emerald-900 transition-all hover:shadow-xs group"
-              title="Direct WhatsApp Hotline (+44 7344 546056)"
-              aria-label="Direct WhatsApp Hotline"
-            >
-              <div className="relative flex h-5 w-5 items-center justify-center rounded-lg bg-emerald-500 text-white shadow-2xs group-hover:scale-110 transition-transform">
-                <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
-              </div>
-              <div className="flex flex-col text-left leading-none">
-                <span className="text-[9px] font-black uppercase text-emerald-600 tracking-wider">WhatsApp</span>
-                <span className="text-[11.5px] font-extrabold text-emerald-950 mt-0.5">+44 7344 546056</span>
-              </div>
-            </a>
-
+            {/* Search Icon */}
             <Link
               to="/products"
-              className="flex items-center justify-center h-9 w-9 rounded-lg text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors"
-              title="Search products"
-              aria-label="Search products"
+              className="flex items-center justify-center h-9 w-9 rounded-xl text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors border border-transparent hover:border-slate-200"
+              title="Search Products"
+              aria-label="Search Products"
             >
               <Search className="h-4 w-4" />
             </Link>
 
+            {/* Shopping / Cart Icon with small item counter */}
             <Link
               to="/track-order"
-              className="flex items-center justify-center h-9 w-9 rounded-lg text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors"
-              title="Track Order"
-              aria-label="Track Order"
+              className="relative flex items-center justify-center h-9 w-9 rounded-xl text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors border border-transparent hover:border-slate-200"
+              title="Track Orders / Cart"
+              aria-label="Track Orders / Cart"
             >
               <ShoppingBag className="h-4 w-4" />
+              <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#A82F19] text-[9px] font-bold text-white shadow-xs">
+                0
+              </span>
             </Link>
 
+            {/* WhatsApp Icon Button (Click to reveal number) */}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => {
+                  setWhatsappPopoverOpen((v) => !v)
+                  setUserMenuOpen(false)
+                }}
+                className={`flex items-center justify-center h-9 w-9 rounded-xl transition-all cursor-pointer ${
+                  whatsappPopoverOpen
+                    ? 'bg-[#25D366] text-white shadow-md shadow-emerald-600/30 ring-2 ring-emerald-500/20'
+                    : 'text-emerald-700 bg-emerald-50 hover:bg-emerald-100 hover:text-emerald-900 border border-emerald-200/80'
+                }`}
+                title="WhatsApp Contact"
+                aria-label="WhatsApp Contact"
+              >
+                <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
+              </button>
+
+              <AnimatePresence>
+                {whatsappPopoverOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                    transition={{ duration: 0.16 }}
+                    className="absolute right-0 top-full mt-2.5 w-72 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl z-50 ring-1 ring-black/5 text-slate-800"
+                  >
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+                      <div className="flex items-center gap-2.5">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-sm">
+                          <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-slate-900 leading-tight">WhatsApp Concierge</div>
+                          <div className="flex items-center gap-1 text-[10px] font-medium text-emerald-600">
+                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            <span>Online • Fast response</span>
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setWhatsappPopoverOpen(false)}
+                        className="text-slate-400 hover:text-slate-600 p-1 rounded-md hover:bg-slate-100 transition-colors cursor-pointer"
+                        aria-label="Close"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    </div>
+
+                    {/* Revealed Number Box */}
+                    <div className="rounded-xl bg-slate-50 p-3 border border-slate-200/80 mb-3">
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Direct Hotline</span>
+                      <div className="mt-1.5 flex items-center justify-between">
+                        <span className="text-sm font-black tracking-tight text-slate-900">+44 7344 546056</span>
+                        <button
+                          type="button"
+                          onClick={handleCopyNumber}
+                          className="flex items-center gap-1 rounded-lg bg-white px-2.5 py-1 text-[11px] font-bold text-slate-700 shadow-2xs border border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer"
+                          title="Copy number"
+                        >
+                          {copied ? (
+                            <>
+                              <Check className="h-3 w-3 text-emerald-600" />
+                              <span className="text-emerald-700">Copied!</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="h-3 w-3 text-slate-500" />
+                              <span>Copy</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Chat Action Button */}
+                    <a
+                      href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setWhatsappPopoverOpen(false)}
+                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all hover:shadow-lg cursor-pointer"
+                    >
+                      <WhatsAppIcon className="h-4 w-4 fill-current" />
+                      <span>Chat on WhatsApp</span>
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Admin Menu */}
             {isAuthenticated && isAdmin ? (
               <div className="relative">
                 <button
@@ -590,16 +698,15 @@ export default function SiteHeader() {
               </div>
             ) : null}
 
-            {/* High-Converting Red CTA Button */}
-            <Button
+            {/* Large Rounded "Get a Quote →" Button */}
+            <Link
               to="/get-a-quote"
-              variant="accent"
-              icon={false}
-              className="!rounded-xl !bg-[#A82F19] hover:!bg-[#8F2412] !px-5 !py-2.5 text-xs xl:text-sm font-bold text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all whitespace-nowrap"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#A82F19] hover:bg-[#8F2412] px-5 py-2.5 text-xs xl:text-sm font-bold text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all whitespace-nowrap"
               onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
             >
-              Get a Quote
-            </Button>
+              <span>Get a Quote</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -614,7 +721,7 @@ export default function SiteHeader() {
         </Container>
       </div>
 
-      {/* 3. Mobile Navigation Drawer */}
+      {/* 3. MOBILE NAVIGATION DRAWER */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -676,9 +783,9 @@ export default function SiteHeader() {
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-bold text-[#A82F19] bg-[#A82F19]/5"
                 >
-                  <span>Business Cards Dubai</span>
+                  <span>Business Cards</span>
                   <span className="rounded bg-[#A82F19] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
-                    Signature
+                    DUBAI
                   </span>
                 </Link>
                 <Link
@@ -686,7 +793,7 @@ export default function SiteHeader() {
                   onClick={() => setMenuOpen(false)}
                   className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
-                  Packaging &amp; Boxes
+                  Packaging
                 </Link>
                 <Link
                   to="/services"
@@ -707,7 +814,7 @@ export default function SiteHeader() {
                   onClick={() => setMenuOpen(false)}
                   className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
-                  Blog &amp; Guides
+                  Blog
                 </Link>
                 <Link
                   to="/contact"
@@ -719,17 +826,17 @@ export default function SiteHeader() {
               </nav>
 
               <div className="border-t border-slate-200 pt-4 space-y-2">
-                <Button
+                <Link
                   to="/get-a-quote"
-                  variant="accent"
-                  className="w-full !rounded-xl justify-center font-bold !py-3 !bg-[#A82F19] hover:!bg-[#8F2412]"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#A82F19] hover:bg-[#8F2412] py-3 text-sm font-bold text-white shadow-md shadow-[#A82F19]/25"
                   onClick={() => {
                     setMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile' })
                   }}
                 >
-                  Request a Quote
-                </Button>
+                  <span>Get a Quote</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
                 <Link
                   to="/track-order"
                   onClick={() => setMenuOpen(false)}

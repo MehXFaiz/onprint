@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { ArrowUpRight, Sparkles, Eye, Check, Tag } from 'lucide-react'
+import WhatsAppIcon from './WhatsAppIcon'
 import { getProductImage } from '../assets/productImages'
 
 export default function ProductCard({
@@ -157,14 +158,26 @@ export default function ProductCard({
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-auto pt-3.5 border-t border-slate-100 flex items-center gap-2">
+        <div className="mt-auto pt-3.5 border-t border-slate-100 flex items-center gap-1.5">
           <Link
             to={`/products/${product.slug}`}
-            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#A82F19] hover:bg-[#8F2412] px-3.5 py-2 text-[11px] font-bold uppercase tracking-wider text-white transition-all duration-200 shadow-xs cursor-pointer"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#A82F19] hover:bg-[#8F2412] px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-white transition-all duration-200 shadow-xs cursor-pointer"
           >
             <span>Explore</span>
             <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
+
+          <a
+            href={`https://wa.me/447344546056?text=${encodeURIComponent(
+              `Hello ONPRINT Dubai, I would like to inquire about "${product.name}"${product.price ? ` (from AED ${product.price})` : ''}. Please confirm turnaround and pricing.`
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Inquire about ${product.name} on WhatsApp`}
+            className="inline-flex items-center justify-center rounded-xl border border-emerald-200 bg-emerald-50 p-2 text-emerald-600 transition-all hover:border-emerald-500 hover:bg-[#25D366] hover:text-white active:scale-95 cursor-pointer"
+          >
+            <WhatsAppIcon className="h-4 w-4 fill-current" />
+          </a>
 
           {onQuickView && (
             <button

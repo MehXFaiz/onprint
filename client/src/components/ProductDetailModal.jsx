@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Package, Tag, Compass, Image as ImageIcon } from 'lucide-react'
 import Button from './Button'
+import WhatsAppIcon from './WhatsAppIcon'
 import Product360Viewer from './Product360Viewer'
 import { getProductImage } from '../assets/productImages'
 import { trackViewProduct, trackGetQuoteClick } from '../utils/analytics'
@@ -189,28 +190,42 @@ export default function ProductDetailModal({ product, onClose }) {
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-8 flex flex-col gap-3">
-                <Button
-                  to={`/get-a-quote?product=${product.slug}`}
-                  variant="accent"
-                  size="md"
-                  className="w-full justify-center text-sm font-bold shadow-md shadow-accent/20"
-                  onClick={() => {
-                    trackGetQuoteClick({
-                      source_page: 'product_quick_view_modal',
-                      product_name: product.name,
-                      category_name: categoryName,
-                    })
-                    onClose()
-                  }}
-                >
-                  Request Quote for Product
-                </Button>
+              <div className="mt-8 flex flex-col gap-2.5">
+                <div className="flex flex-col sm:flex-row gap-2.5">
+                  <Button
+                    to={`/get-a-quote?product=${product.slug}`}
+                    variant="accent"
+                    size="md"
+                    className="flex-1 justify-center text-xs sm:text-sm font-bold shadow-md shadow-accent/20"
+                    onClick={() => {
+                      trackGetQuoteClick({
+                        source_page: 'product_quick_view_modal',
+                        product_name: product.name,
+                        category_name: categoryName,
+                      })
+                      onClose()
+                    }}
+                  >
+                    Request Official Quote
+                  </Button>
+
+                  <a
+                    href={`https://wa.me/447344546056?text=${encodeURIComponent(
+                      `Hello ONPRINT Dubai, I would like to inquire about ${product.name}${product.price ? ` (from AED ${product.price})` : ''}. Please confirm turnaround and pricing.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-4 py-2.5 text-xs font-bold text-white shadow-xs transition-all hover:-translate-y-0.5 cursor-pointer shrink-0"
+                  >
+                    <WhatsAppIcon className="h-4 w-4 fill-white" />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
 
                 <Link
                   to={`/products/${product.slug}`}
                   onClick={onClose}
-                  className="inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold uppercase tracking-wider text-primary transition-colors hover:text-accent cursor-pointer"
+                  className="inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold uppercase tracking-wider text-primary transition-colors hover:text-accent cursor-pointer text-center"
                 >
                   <span>View Complete Specifications</span>
                   <ArrowRight className="h-3.5 w-3.5" />

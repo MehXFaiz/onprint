@@ -436,10 +436,23 @@ export default function ProductDetailPage() {
               </div>
 
               {/* High-Converting Multi-Channel Conversion CTAs */}
-              <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
-                <Button onClick={handleRequestQuote} variant="accent" size="lg" className="w-full justify-center sm:w-auto">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Button onClick={handleRequestQuote} variant="accent" size="lg" className="w-full justify-center sm:w-auto font-bold">
                   Request Official Quote
                 </Button>
+
+                <a
+                  href={`https://wa.me/447344546056?text=${encodeURIComponent(
+                    `Hello ONPRINT Dubai, I would like an express quotation for:\n• Product: ${product.name}\n• Quantity: ${quantity} units\n• Size: ${size?.label || 'Standard'}\n• Material: ${material?.label || 'Standard'}\n• Finish: ${finish?.label || 'Standard'}\n${notes ? `• Custom Notes: ${notes}\n` : ''}${estimatedPrice ? `• Estimated Price: AED ${estimatedPrice}\n` : ''}\nPlease confirm express turnaround and delivery to Dubai.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
+                >
+                  <WhatsAppIcon className="h-4 w-4 fill-white" />
+                  <span>Inquire on WhatsApp</span>
+                </a>
+
                 <Button
                   to="/contact"
                   variant="secondary"
@@ -450,7 +463,7 @@ export default function ProductDetailPage() {
                     product_name: product.name,
                   })}
                 >
-                  Inquire Custom Specs
+                  Contact Studio
                 </Button>
               </div>
             </div>

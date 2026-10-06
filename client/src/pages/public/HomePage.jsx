@@ -301,9 +301,9 @@ export default function HomePage() {
     <div className="bg-[#FFFFFF] text-[#0F172A] selection:bg-[#A82F19] selection:text-white">
       {/* SEO Head Management & Structured Data */}
       <SEOHead
-        title="Printing Company in Dubai | ONPRINT – Commercial Printing Solutions"
-        description="ONPRINT is Dubai’s premier commercial printing company. Precision digital & offset printing, corporate gifts, business cards, brochures, and luxury packaging in UAE."
-        keywords="printing company in dubai, commercial printing dubai, digital printing dubai, business card printing dubai, brochure printing dubai, sticker printing dubai, corporate gifts dubai"
+        title="Printing Company in Dubai | ONPRINT – Commercial & Luxury Printing UAE"
+        description="ONPRINT is Dubai's leading commercial pressroom in Al Quoz. Precision digital & Heidelberg offset printing, luxury 600 GSM business cards, rigid packaging, stickers, brochures, and corporate gifts with same-day express UAE delivery."
+        keywords="printing company in dubai, printing services dubai, commercial printing dubai, luxury business cards dubai, business card printing dubai, custom packaging dubai, sticker printing dubai, brochure printing dubai, same day printing dubai, corporate gifts dubai, offset printing dubai, digital printing press uae"
         canonicalPath="/"
         faqList={homeFaqs}
       />

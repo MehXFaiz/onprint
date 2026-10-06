@@ -5,6 +5,7 @@ import Container from '../../components/Container'
 import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getProductBySlug } from '../../services/products'
 import { getCategories } from '../../services/categories'
 import { createQuote } from '../../services/quotes'
@@ -264,7 +265,19 @@ export default function GetQuotePage() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a
+            href={`https://wa.me/447344546056?text=${encodeURIComponent(
+              `Hello ONPRINT Dubai, I just submitted Order Request #${orderNum} for:\n• Product: ${prodName}\n• Quantity: ${orderQty} units\n• Name: ${form.name}\n• Phone: ${form.phone || 'N/A'}\n\nPlease confirm quote and express delivery schedule.`
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3 text-xs font-bold text-white shadow-md transition-all cursor-pointer w-full sm:w-auto"
+          >
+            <WhatsAppIcon className="h-4 w-4 fill-white" />
+            <span>Fast-Track on WhatsApp</span>
+          </a>
+
           <Button to={`/track-order?order=${orderNum}`} variant="accent" icon={false}>
             Track Your Order
           </Button>
@@ -547,6 +560,24 @@ export default function GetQuotePage() {
                     </div>
                   ))}
               </dl>
+
+              <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-xl bg-emerald-50 border border-emerald-200">
+                <div className="flex items-center gap-2.5 text-xs text-emerald-900 font-medium text-left">
+                  <WhatsAppIcon className="h-5 w-5 fill-emerald-600 shrink-0" />
+                  <span>Prefer an instant quotation? Send these specifications directly to our prepress engineer on WhatsApp.</span>
+                </div>
+                <a
+                  href={`https://wa.me/447344546056?text=${encodeURIComponent(
+                    `Hello ONPRINT Dubai, I would like an express quotation for:\n• Project: ${form.product || 'Commercial Printing'}\n• Quantity: ${form.quantity || '100'}\n• Dimensions: ${form.size || 'Standard'}\n• Material: ${form.material || 'Standard'}\n• Finish: ${form.finish || 'Standard'}\n${form.notes ? `• Notes: ${form.notes}\n` : ''}• Contact: ${form.name} (${form.phone || form.email})\n\nPlease provide fast pricing and turnaround.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] px-4 py-2 text-xs font-bold text-white shadow-xs transition-all w-full sm:w-auto justify-center"
+                >
+                  <WhatsAppIcon className="h-3.5 w-3.5 fill-white" />
+                  <span>Send via WhatsApp</span>
+                </a>
+              </div>
             </div>
           )}
         </div>

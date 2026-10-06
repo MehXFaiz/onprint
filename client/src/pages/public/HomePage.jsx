@@ -446,153 +446,149 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          {/* Right Column: Ultra-Luxury Atelier Showcase */}
-          <div className="lg:col-span-6 flex items-center justify-center">
+          {/* Right Column: Multi-Layered Editorial Atelier Collage */}
+          <div className="lg:col-span-6 relative flex items-center justify-center pt-6 lg:pt-0">
             <Reveal delay={0.16}>
-              <div
-                className="relative mx-auto w-full max-w-[590px] rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white via-white to-slate-50/90 p-5 sm:p-7 shadow-2xl shadow-slate-200/60 overflow-hidden transition-all duration-300 hover:shadow-slate-300/70"
-                onMouseEnter={() => setIsAutoPlaying(false)}
-                onMouseLeave={() => setIsAutoPlaying(true)}
-              >
-                {/* Top Atelier Bar */}
-                <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#A82F19] to-[#8F2412] text-white shadow-md shadow-[#A82F19]/25">
-                      <Printer className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-slate-900">
-                          ONPRINT ATELIER
-                        </span>
-                        <CmykDots />
-                      </div>
-                      <span className="text-[10px] font-bold tracking-wider text-slate-500 uppercase">
-                        Heidelberg Speedmaster XL 106 • Dubai
-                      </span>
-                    </div>
-                  </div>
+              <div className="relative w-full max-w-[560px] mx-auto">
+                {/* Decorative Ambient Aura Behind Artwork */}
+                <div className="pointer-events-none absolute -top-10 -right-10 h-72 w-72 rounded-full bg-[#A82F19]/10 blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-10 -left-10 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl" />
 
-                  <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[10px] font-extrabold text-emerald-800 shadow-2xs">
-                    <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
-                    SAME-DAY EXPRESS
-                  </div>
-                </div>
-
-                {/* Interactive Luxury Material Swatches */}
-                <div className="mb-4 grid grid-cols-4 gap-1.5 rounded-2xl bg-slate-100/80 p-1.5 border border-slate-200/60">
-                  {atelierShowcaseItems.map((item, idx) => {
-                    const isActive = activeAtelierIdx === idx
-                    return (
-                      <button
-                        key={item.id}
-                        type="button"
-                        onClick={() => {
-                          setActiveAtelierIdx(idx)
-                          setIsAutoPlaying(false)
-                        }}
-                        className={`relative rounded-xl py-2 px-1 text-center transition-all duration-200 cursor-pointer ${
-                          isActive
-                            ? 'bg-[#A82F19] text-white font-extrabold shadow-md shadow-[#A82F19]/25 scale-[1.02]'
-                            : 'text-slate-700 hover:text-slate-900 hover:bg-white/60 font-bold'
-                        }`}
-                      >
-                        <span className="block text-[10px] sm:text-[11.5px] leading-tight truncate">
-                          {item.category}
-                        </span>
-                      </button>
-                    )
-                  })}
-                </div>
-
-                {/* Main Visual Showcase Stage with Floating Glass Overlay */}
-                <div className="relative overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-100 shadow-lg group">
-                  <div className="relative h-64 sm:h-76 lg:h-[300px] w-full overflow-hidden">
+                {/* Main Hero Visual Card */}
+                <div className="relative z-10 overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-3 shadow-2xl shadow-slate-300/60 transition-all duration-300 hover:shadow-slate-400/50">
+                  <div className="relative h-[290px] sm:h-[340px] w-full overflow-hidden rounded-2xl bg-slate-100">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={activeAtelierItem.id}
-                        initial={{ opacity: 0, scale: 1.04 }}
+                        initial={{ opacity: 0, scale: 1.05 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.97 }}
-                        transition={{ duration: 0.35, ease: 'easeOut' }}
+                        exit={{ opacity: 0, scale: 0.96 }}
+                        transition={{ duration: 0.4, ease: 'easeOut' }}
                         className="relative h-full w-full"
                       >
                         <img
                           src={activeAtelierItem.image}
                           alt={activeAtelierItem.title}
-                          className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                          className="h-full w-full object-cover object-center"
                           loading="eager"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
-                        {/* Subtle ambient vignette for high readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-black/20 to-transparent" />
-
-                        {/* Top Floating Glass Badges */}
+                        {/* Top Badges inside the frame */}
                         <div className="absolute left-3.5 top-3.5 flex items-center gap-2">
-                          <span className="rounded-lg bg-[#A82F19] px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-md">
+                          <span className="rounded-full bg-[#A82F19] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-md">
                             {activeAtelierItem.badge}
                           </span>
-                          <span className="hidden sm:inline-flex items-center gap-1 rounded-lg bg-white/90 border border-white/40 px-2 py-1 text-[10px] font-bold text-slate-800 shadow-sm backdrop-blur-md">
-                            <Sparkles className="h-3 w-3 text-amber-500" />
+                        </div>
+
+                        <div className="absolute right-3.5 top-3.5">
+                          <span className="flex items-center gap-1 rounded-full bg-black/75 border border-white/20 px-3 py-1 text-[10px] font-bold text-amber-300 backdrop-blur-md shadow-md">
+                            <Sparkles className="h-3 w-3" />
                             {activeAtelierItem.metric} {activeAtelierItem.metricLabel}
                           </span>
                         </div>
 
-                        <div className="absolute right-3.5 top-3.5 flex items-center gap-2">
-                          <span className="flex items-center gap-1 rounded-lg bg-slate-900/90 border border-white/20 px-2.5 py-1 text-[10px] font-extrabold text-amber-300 shadow-md backdrop-blur-md">
-                            From AED {activeAtelierItem.price}+
-                          </span>
-                        </div>
-
-                        {/* Bottom Floating Translucent Details Card */}
-                        <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-white/95 border border-white/60 p-3.5 sm:p-4 text-slate-900 shadow-xl backdrop-blur-md">
-                          <div className="flex items-center justify-between gap-2">
-                            <h3 className="font-serif text-sm sm:text-base font-bold text-slate-900 truncate">
-                              {activeAtelierItem.title}
-                            </h3>
+                        {/* Bottom Overlay Info */}
+                        <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white">
+                          <div className="flex items-end justify-between gap-2">
+                            <div>
+                              <span className="text-[10px] font-black uppercase tracking-widest text-amber-300">
+                                DUBAI PRESSROOM FINISH
+                              </span>
+                              <h3 className="font-serif text-lg sm:text-xl font-bold leading-snug drop-shadow-sm">
+                                {activeAtelierItem.title}
+                              </h3>
+                              <p className="mt-0.5 text-xs text-slate-200 line-clamp-1">
+                                {activeAtelierItem.subtitle}
+                              </p>
+                            </div>
                             <Link
                               to="/get-a-quote"
-                              className="shrink-0 inline-flex items-center gap-1 text-[11px] font-extrabold text-[#A82F19] hover:underline"
+                              className="shrink-0 inline-flex items-center gap-1 rounded-xl bg-white px-3 py-1.5 text-xs font-bold text-slate-900 shadow-md hover:bg-slate-100 transition-colors"
                             >
                               <span>Quote</span>
-                              <ArrowUpRight className="h-3.5 w-3.5" />
+                              <ArrowUpRight className="h-3.5 w-3.5 text-[#A82F19]" />
                             </Link>
-                          </div>
-
-                          <p className="mt-0.5 text-[11px] text-slate-600 line-clamp-1">
-                            {activeAtelierItem.subtitle}
-                          </p>
-
-                          {/* Live Specs Badges */}
-                          <div className="mt-2.5 flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100">
-                            {activeAtelierItem.specs.map((spec) => (
-                              <span
-                                key={spec}
-                                className="inline-flex items-center gap-1 rounded-md bg-slate-100 border border-slate-200/80 px-2 py-0.5 text-[9.5px] font-bold text-slate-700"
-                              >
-                                <CheckCircle className="h-3 w-3 text-[#A82F19]" />
-                                {spec}
-                              </span>
-                            ))}
                           </div>
                         </div>
                       </motion.div>
                     </AnimatePresence>
                   </div>
+
+                  {/* Interactive Finish Switcher Bar */}
+                  <div className="mt-3 grid grid-cols-4 gap-1.5 p-1 rounded-xl bg-slate-50 border border-slate-100">
+                    {atelierShowcaseItems.map((item, idx) => {
+                      const isActive = activeAtelierIdx === idx
+                      return (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => {
+                            setActiveAtelierIdx(idx)
+                            setIsAutoPlaying(false)
+                          }}
+                          className={`rounded-lg py-1.5 px-1 text-center transition-all cursor-pointer ${
+                            isActive
+                              ? 'bg-[#A82F19] text-white font-black shadow-xs text-[10px] sm:text-xs'
+                              : 'text-slate-600 hover:text-slate-900 hover:bg-white text-[10px] sm:text-xs font-semibold'
+                          }`}
+                        >
+                          <span className="block truncate">{item.category}</span>
+                        </button>
+                      )
+                    })}
+                  </div>
                 </div>
 
-                {/* Bottom UAE Trust & Quick CTA Strip */}
-                <div className="mt-4 flex items-center justify-between rounded-2xl bg-slate-50 border border-slate-200/80 px-4 py-3 text-xs">
+                {/* Floating Glassmorphic Spec Card 1 (Top-Left Offset) */}
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  className="hidden sm:flex absolute -top-5 -left-6 z-20 items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-3.5 py-2.5 shadow-xl backdrop-blur-md"
+                >
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#A82F19]/10 text-[#A82F19]">
+                    <Printer className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[11px] font-black text-slate-900">Heidelberg Speedmaster</span>
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    </div>
+                    <p className="text-[9.5px] font-medium text-slate-500">ΔE &lt; 1.0 German Color Fidelity</p>
+                  </div>
+                </motion.div>
+
+                {/* Floating Glassmorphic Spec Card 2 (Bottom-Right Offset) */}
+                <motion.div
+                  initial={{ opacity: 0, y: -15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  className="hidden sm:flex absolute -bottom-5 -right-6 z-20 items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-3.5 py-2.5 shadow-xl backdrop-blur-md"
+                >
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                    <Zap className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1">
+                      <span className="text-[11px] font-black text-slate-900">Same-Day UAE Delivery</span>
+                    </div>
+                    <p className="text-[9.5px] font-medium text-slate-500">Direct Al Quoz Pressroom Dispatch</p>
+                  </div>
+                </motion.div>
+
+                {/* Bottom UAE Serving Tag */}
+                <div className="mt-4 flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200/80 px-3.5 py-2 text-xs">
                   <div className="flex items-center gap-2 font-bold text-slate-800">
-                    <span className="text-lg leading-none">🇦🇪</span>
-                    <span className="text-xs">Proudly Serving Businesses Across UAE</span>
+                    <span className="text-base leading-none">🇦🇪</span>
+                    <span className="text-xs">Proudly Serving Dubai, Abu Dhabi &amp; Northern Emirates</span>
                   </div>
                   <Link
                     to="/products"
-                    className="inline-flex items-center gap-1 font-extrabold text-[#A82F19] hover:underline text-xs shrink-0"
+                    className="inline-flex items-center gap-1 font-bold text-[#A82F19] hover:underline text-xs"
                   >
-                    <span>Explore Products</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <span>Catalog</span>
+                    <ArrowRight className="h-3 w-3" />
                   </Link>
                 </div>
               </div>

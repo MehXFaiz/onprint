@@ -151,60 +151,60 @@ const homeFaqs = [
 
 const atelierShowcaseItems = [
   {
-    id: 'cotton-foil',
-    category: 'Cotton Foil Cards',
-    title: '24K Hot Foil & Raised 3D Spot UV',
-    subtitle: 'Presidential 600 GSM Italian Archival Cotton Stock',
-    badge: 'Signature Craft',
-    specs: ['Brass Die-Cast', 'Zero Flaking', 'Heidelberg Calibrated'],
+    id: 'gold-foil',
+    category: '24K Gold Foil',
+    title: '24K Gold Foil & Embossed Cards',
+    subtitle: 'Presidential 600 GSM Italian Cotton with Raised 3D Foil & Sculptural Monogram',
+    badge: 'Signature Luxury',
+    specs: ['24K Gold Foil', '600 GSM Italian Cotton', 'Heidelberg Calibrated'],
     accent: '#A82F19',
     tag: 'Same-Day Dubai',
-    image: '/assets/products/luxury_business_cards.jpg',
-    thumb: '/assets/products/luxury_business_cards.jpg',
+    image: '/assets/products/luxury_business_cards_dubai.jpg',
     metric: '600 GSM',
-    metricLabel: 'Cotton Board',
+    metricLabel: 'Cotton Duplex',
+    price: '120',
+  },
+  {
+    id: 'painted-edge',
+    category: 'Painted Edge',
+    title: 'Gilded Metallic Painted Edge Cards',
+    subtitle: '700 GSM Triplexed Velvet Cards with Custom Metallic Foil Edges',
+    badge: 'Triplex Edge',
+    specs: ['Mirror Gold Edge', '700 GSM Triplex', 'Velvet Soft-Touch'],
+    accent: '#A82F19',
+    tag: 'Hand-Gilded',
+    image: '/assets/products/card-painted-edge.jpg',
+    metric: '700 GSM',
+    metricLabel: 'Triplex Stock',
+    price: '160',
   },
   {
     id: 'rigid-packaging',
-    category: 'Rigid Gift Boxes',
-    title: 'Bespoke Rigid Magnetic Luxury Packaging',
-    subtitle: '1200 GSM Greyboard with Custom Velvet Foam Insets',
-    badge: 'Luxury Packaging',
-    specs: ['Magnetic Closure', 'Debossed Foil', 'Anti-Scratch Matte'],
+    category: 'Luxury Packaging',
+    title: 'Bespoke Rigid Magnetic Packaging',
+    subtitle: '1200 GSM Greyboard with Custom Die-Cut Velvet Foam Insets',
+    badge: 'Atelier Packaging',
+    specs: ['Magnetic Closure', 'Debossed Gold Foil', 'Custom Foam Die'],
     accent: '#A82F19',
     tag: 'Custom Die-Line',
-    image: '/assets/products/1 (7).jpg',
-    thumb: '/assets/products/1 (7).jpg',
+    image: '/assets/products/service_luxury_packaging.jpg',
     metric: '1200 GSM',
     metricLabel: 'Rigid Greyboard',
+    price: '250',
   },
   {
-    id: 'velvet-cards',
+    id: 'velvet-foil',
     category: 'Velvet Soft-Touch',
     title: 'Velvet Soft-Touch Silk Business Cards',
-    subtitle: 'Tactile Peach-Skin Feel with Precision Spot UV Highlights',
+    subtitle: 'Tactile Peach-Skin Feel with Precision 3D Spot UV Highlights',
     badge: 'Executive Suite',
-    specs: ['450 GSM Silk', 'Polymer Coating', 'Pantone Solid Trap'],
+    specs: ['Velvet Soft-Touch', 'Raised 3D Spot UV', 'Pantone Solid Trap'],
     accent: '#A82F19',
     tag: 'Spot Gloss UV',
     image: '/assets/products/card-velvet-foil.jpg',
-    thumb: '/assets/products/card-velvet-foil.jpg',
-    metric: '700 GSM',
-    metricLabel: 'Duplexed Stock',
-  },
-  {
-    id: 'copper-gifting',
-    category: 'VIP Corporate Gifts',
-    title: 'VIP Laser-Etched Executive Drinkware',
-    subtitle: 'Double-Wall Thermal Copper Flask & Milestone Gift Sets',
-    badge: 'Fiber Laser Etch',
-    specs: ['Food-Grade Steel', 'Micron Precision', 'Silk Presentation Box'],
-    accent: '#A82F19',
-    tag: 'Express 24h',
-    image: '/assets/products/bottle_luxury_copper.jpg',
-    thumb: '/assets/products/bottle_luxury_copper.jpg',
-    metric: '24-Hour',
-    metricLabel: 'Dispatch',
+    metric: '450 GSM',
+    metricLabel: 'Silk Duplex',
+    price: '140',
   },
 ]
 
@@ -446,41 +446,41 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          {/* Right Column: Layered Premium Product Visual */}
+          {/* Right Column: Ultra-Luxury Atelier Showcase */}
           <div className="lg:col-span-6 flex items-center justify-center">
             <Reveal delay={0.16}>
               <div
-                className="relative mx-auto w-full max-w-[580px] rounded-3xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xl overflow-hidden"
+                className="relative mx-auto w-full max-w-[590px] rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white via-white to-slate-50/90 p-5 sm:p-7 shadow-2xl shadow-slate-200/60 overflow-hidden transition-all duration-300 hover:shadow-slate-300/70"
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
               >
                 {/* Top Atelier Bar */}
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3.5 mb-3.5">
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#A82F19] text-white shadow-sm">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#A82F19] to-[#8F2412] text-white shadow-md shadow-[#A82F19]/25">
                       <Printer className="h-4 w-4" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-900">
-                          ONPRINT PRESSROOM
+                        <span className="text-xs font-black uppercase tracking-[0.2em] text-slate-900">
+                          ONPRINT ATELIER
                         </span>
                         <CmykDots />
                       </div>
-                      <span className="text-[9px] font-bold tracking-widest text-slate-400 uppercase">
-                        Al Quoz, Dubai Facility
+                      <span className="text-[10px] font-bold tracking-wider text-slate-500 uppercase">
+                        Heidelberg Speedmaster XL 106 • Dubai
                       </span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[9.5px] font-bold text-emerald-700">
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
+                  <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[10px] font-extrabold text-emerald-800 shadow-2xs">
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
                     SAME-DAY EXPRESS
                   </div>
                 </div>
 
-                {/* Material Finish Tabs */}
-                <div className="mb-3.5 grid grid-cols-4 gap-1.5 rounded-xl bg-slate-100 p-1">
+                {/* Interactive Luxury Material Swatches */}
+                <div className="mb-4 grid grid-cols-4 gap-1.5 rounded-2xl bg-slate-100/80 p-1.5 border border-slate-200/60">
                   {atelierShowcaseItems.map((item, idx) => {
                     const isActive = activeAtelierIdx === idx
                     return (
@@ -491,13 +491,13 @@ export default function HomePage() {
                           setActiveAtelierIdx(idx)
                           setIsAutoPlaying(false)
                         }}
-                        className={`relative rounded-lg py-2 px-1 text-center transition-all duration-200 cursor-pointer ${
+                        className={`relative rounded-xl py-2 px-1 text-center transition-all duration-200 cursor-pointer ${
                           isActive
-                            ? 'bg-white text-slate-900 font-black shadow-sm'
-                            : 'text-slate-600 hover:text-slate-900 font-semibold'
+                            ? 'bg-[#A82F19] text-white font-extrabold shadow-md shadow-[#A82F19]/25 scale-[1.02]'
+                            : 'text-slate-700 hover:text-slate-900 hover:bg-white/60 font-bold'
                         }`}
                       >
-                        <span className="block text-[10px] sm:text-[11px] leading-tight truncate">
+                        <span className="block text-[10px] sm:text-[11.5px] leading-tight truncate">
                           {item.category}
                         </span>
                       </button>
@@ -505,58 +505,72 @@ export default function HomePage() {
                   })}
                 </div>
 
-                {/* Active Visual Stage */}
-                <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-md">
-                  <div className="relative h-60 sm:h-72 lg:h-[280px] w-full overflow-hidden">
+                {/* Main Visual Showcase Stage with Floating Glass Overlay */}
+                <div className="relative overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-100 shadow-lg group">
+                  <div className="relative h-64 sm:h-76 lg:h-[300px] w-full overflow-hidden">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={activeAtelierItem.id}
-                        initial={{ opacity: 0, scale: 1.03 }}
+                        initial={{ opacity: 0, scale: 1.04 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.98 }}
-                        transition={{ duration: 0.3, ease: 'easeOut' }}
+                        exit={{ opacity: 0, scale: 0.97 }}
+                        transition={{ duration: 0.35, ease: 'easeOut' }}
                         className="relative h-full w-full"
                       >
                         <img
                           src={activeAtelierItem.image}
                           alt={activeAtelierItem.title}
-                          className="h-full w-full object-cover"
+                          className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                           loading="eager"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
 
-                        {/* Top Badges */}
-                        <div className="absolute left-3 top-3 flex items-center gap-2">
-                          <span className="rounded-md bg-[#A82F19] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-sm">
+                        {/* Subtle ambient vignette for high readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-black/20 to-transparent" />
+
+                        {/* Top Floating Glass Badges */}
+                        <div className="absolute left-3.5 top-3.5 flex items-center gap-2">
+                          <span className="rounded-lg bg-[#A82F19] px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-md">
                             {activeAtelierItem.badge}
                           </span>
-                        </div>
-                        <div className="absolute right-3 top-3">
-                          <span className="flex items-center gap-1 rounded-md bg-black/80 border border-white/20 px-2.5 py-1 text-[9px] font-black text-amber-300 shadow-sm backdrop-blur-xs">
-                            <Sparkles className="h-3 w-3" />
-                            {activeAtelierItem.metric}
+                          <span className="hidden sm:inline-flex items-center gap-1 rounded-lg bg-white/90 border border-white/40 px-2 py-1 text-[10px] font-bold text-slate-800 shadow-sm backdrop-blur-md">
+                            <Sparkles className="h-3 w-3 text-amber-500" />
+                            {activeAtelierItem.metric} {activeAtelierItem.metricLabel}
                           </span>
                         </div>
 
-                        {/* Bottom Overlay Details */}
-                        <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white">
-                          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-300">
-                            {activeAtelierItem.metricLabel}
-                          </p>
-                          <h3 className="text-sm sm:text-base font-black leading-tight drop-shadow-sm">
-                            {activeAtelierItem.title}
-                          </h3>
-                          <p className="mt-0.5 text-[11px] font-medium text-slate-200 line-clamp-1">
+                        <div className="absolute right-3.5 top-3.5 flex items-center gap-2">
+                          <span className="flex items-center gap-1 rounded-lg bg-slate-900/90 border border-white/20 px-2.5 py-1 text-[10px] font-extrabold text-amber-300 shadow-md backdrop-blur-md">
+                            From AED {activeAtelierItem.price}+
+                          </span>
+                        </div>
+
+                        {/* Bottom Floating Translucent Details Card */}
+                        <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-white/95 border border-white/60 p-3.5 sm:p-4 text-slate-900 shadow-xl backdrop-blur-md">
+                          <div className="flex items-center justify-between gap-2">
+                            <h3 className="font-serif text-sm sm:text-base font-bold text-slate-900 truncate">
+                              {activeAtelierItem.title}
+                            </h3>
+                            <Link
+                              to="/get-a-quote"
+                              className="shrink-0 inline-flex items-center gap-1 text-[11px] font-extrabold text-[#A82F19] hover:underline"
+                            >
+                              <span>Quote</span>
+                              <ArrowUpRight className="h-3.5 w-3.5" />
+                            </Link>
+                          </div>
+
+                          <p className="mt-0.5 text-[11px] text-slate-600 line-clamp-1">
                             {activeAtelierItem.subtitle}
                           </p>
 
                           {/* Live Specs Badges */}
-                          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                          <div className="mt-2.5 flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100">
                             {activeAtelierItem.specs.map((spec) => (
                               <span
                                 key={spec}
-                                className="rounded-md bg-white/15 border border-white/20 px-2 py-0.5 text-[9px] font-bold text-white backdrop-blur-xs"
+                                className="inline-flex items-center gap-1 rounded-md bg-slate-100 border border-slate-200/80 px-2 py-0.5 text-[9.5px] font-bold text-slate-700"
                               >
+                                <CheckCircle className="h-3 w-3 text-[#A82F19]" />
                                 {spec}
                               </span>
                             ))}
@@ -567,18 +581,18 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Floating UAE Badge per reference */}
-                <div className="mt-3.5 flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200/80 px-3.5 py-2.5 text-xs">
+                {/* Bottom UAE Trust & Quick CTA Strip */}
+                <div className="mt-4 flex items-center justify-between rounded-2xl bg-slate-50 border border-slate-200/80 px-4 py-3 text-xs">
                   <div className="flex items-center gap-2 font-bold text-slate-800">
-                    <span className="text-base leading-none">🇦🇪</span>
-                    <span>Proudly Serving Businesses Across UAE</span>
+                    <span className="text-lg leading-none">🇦🇪</span>
+                    <span className="text-xs">Proudly Serving Businesses Across UAE</span>
                   </div>
                   <Link
                     to="/products"
-                    className="flex items-center gap-1 font-black text-[#A82F19] hover:underline text-xs"
+                    className="inline-flex items-center gap-1 font-extrabold text-[#A82F19] hover:underline text-xs shrink-0"
                   >
-                    <span>Explore</span>
-                    <ArrowRight className="h-3 w-3" />
+                    <span>Explore Products</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </div>

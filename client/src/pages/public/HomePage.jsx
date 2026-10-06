@@ -1098,21 +1098,21 @@ export default function HomePage() {
       {/* ========================================================================= */}
       {/* 13. BOTTOM CONVERSION CALL TO ACTION                                      */}
       {/* ========================================================================= */}
-      <section className="border-t border-slate-200/80 bg-slate-900 py-16 sm:py-20 text-white relative overflow-hidden">
-        <div className="pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-[#A82F19]/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-[#A82F19]/20 blur-3xl" />
+      <section className="border-t border-slate-200/80 bg-gradient-to-b from-slate-50 to-white py-16 sm:py-20 text-slate-900 relative overflow-hidden">
+        <div className="pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-[#A82F19]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-[#A82F19]/5 blur-3xl" />
 
         <Container className="relative z-10 flex flex-col items-center gap-6 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-xs">
-            <Sparkles className="h-3.5 w-3.5 text-amber-300" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19]/20 bg-[#A82F19]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
+            <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
             Ready to Bring Your Brand to Life?
           </div>
 
-          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl text-white">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl text-slate-900">
             Let’s Print Your Next Project with Perfection.
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             From 600 GSM cotton business cards to bespoke rigid gift packaging and large-format exhibition signage, ONPRINT delivers unmatched precision across Dubai.
           </p>
 
@@ -1121,7 +1121,7 @@ export default function HomePage() {
               to="/get-a-quote"
               variant="accent"
               size="lg"
-              className="!rounded-xl !bg-[#A82F19] hover:!bg-[#8F2412] shadow-lg shadow-[#A82F19]/40 text-center justify-center font-bold !py-3.5 !px-8 text-white"
+              className="!rounded-xl !bg-[#A82F19] hover:!bg-[#8F2412] shadow-lg shadow-[#A82F19]/25 text-center justify-center font-bold !py-3.5 !px-8 text-white"
               onClick={() => trackGetQuoteClick({ source_page: 'homepage_bottom_cta' })}
             >
               Request a Custom Quote
@@ -1130,7 +1130,7 @@ export default function HomePage() {
               to="/contact"
               variant="outline"
               size="lg"
-              className="!rounded-xl border-white/30 text-white hover:bg-white/10 text-center justify-center font-bold !py-3.5 !px-8"
+              className="!rounded-xl border-slate-300 bg-white text-slate-800 hover:bg-slate-50 text-center justify-center font-bold !py-3.5 !px-8 shadow-xs"
             >
               Contact Our Studio
             </Button>

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useEffect, useMemo, useState, useRef } from 'react'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import {
   ChevronDown,
   Menu,
@@ -16,6 +16,17 @@ import {
   Copy,
   Check,
   ArrowRight,
+  Phone,
+  Layers,
+  Box,
+  FileText,
+  CreditCard,
+  Building2,
+  HelpCircle,
+  BookOpen,
+  Info,
+  ChevronRight,
+  ExternalLink
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
@@ -24,47 +35,50 @@ import WhatsAppIcon from './WhatsAppIcon'
 import { useAuth } from '../context/AuthContext'
 import { trackGetQuoteClick } from '../utils/analytics'
 import { getCategories } from '../services/categories'
+import { getProducts } from '../services/products'
 
 const NAV_GROUPS = [
   {
     key: 'printing',
-    label: 'Business Cards & Paper Print',
+    label: 'Cards & Commercial Print',
+    description: 'Business cards, letterheads, brochures & marketing collaterals',
+    icon: CreditCard,
     keywords: ['brochure', 'business card', 'letterhead', 'flyer', 'envelope', 'invoice', 'folder', 'notepad', 'catalog', 'booklet'],
   },
   {
     key: 'packaging',
     label: 'Custom Packaging & Boxes',
+    description: 'Rigid luxury boxes, mailers, product cartons & bags',
+    icon: Box,
     keywords: ['packaging', 'box', 'mailer', 'bag', 'rigid'],
   },
   {
-    key: 'drinkware',
-    label: 'Mugs & Water Bottles',
-    keywords: ['mug', 'bottle', 'flask', 'tumbler', 'shaker', 'drinkware', 'cup'],
+    key: 'stationery',
+    label: 'Corporate Stationery',
+    description: '120gsm letterheads, presentation folders & executive envelopes',
+    icon: FileText,
+    keywords: ['letterhead', 'stationery', 'folder', 'envelope', 'notebook'],
   },
   {
     key: 'stickers',
     label: 'Stickers & Product Labels',
+    description: 'Die-cut vinyl, waterproof roll labels & metallic foils',
+    icon: Layers,
     keywords: ['sticker', 'label', 'vinyl', 'decal'],
   },
   {
     key: 'badges',
     label: 'ID Cards & Lanyards',
+    description: 'NFC PVC smart badges, magnetic name tags & custom neck straps',
+    icon: ShieldCheck,
     keywords: ['id card', 'lanyard', 'name badge', 'badge'],
   },
   {
     key: 'promotional',
-    label: 'Corporate Gifts & Promo',
-    keywords: ['gift', 'promo', 'merchandise', 'keychain', 'pen', 'tech', 'power bank'],
-  },
-  {
-    key: 'signs',
-    label: 'Signage & Displays',
-    keywords: ['banner', 'poster', 'sign', 'foam', 'acrylic', 'display', 'roll-up', 'x-banner', 'flag'],
-  },
-  {
-    key: 'apparel',
-    label: 'Apparel & Uniforms',
-    keywords: ['shirt', 'polo', 'hoodie', 'cap', 'jersey', 'uniform'],
+    label: 'Corporate Gifts & Drinkware',
+    description: 'Custom ceramic mugs, smart LED bottles & promotional merchandise',
+    icon: Sparkles,
+    keywords: ['mug', 'bottle', 'flask', 'gift', 'promo', 'keychain', 'tumbler'],
   },
 ]
 
@@ -94,6 +108,8 @@ function buildMegaMenuGroups(categories = []) {
     return [{
       key: 'all',
       label: 'All Categories',
+      description: 'Explore full commercial printing solutions',
+      icon: Layers,
       items: activeCategories.slice(0, 8).sort((a, b) => (Number(a.displayOrder ?? a.display_order ?? 0) - Number(b.displayOrder ?? b.display_order ?? 0))),
     }]
   }
@@ -136,10 +152,15 @@ export default function SiteHeader() {
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [categories, setCategories] = useState([])
+  const [products, setProducts] = useState([])
   const [whatsappPopoverOpen, setWhatsappPopoverOpen] = useState(false)
+  const [searchModalOpen, setSearchModalOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
   const [copied, setCopied] = useState(false)
 
   const location = useLocation()
+  const navigate = useNavigate()
+  const searchInputRef = useRef(null)
 
   const handleCopyNumber = () => {
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
@@ -152,17 +173,22 @@ export default function SiteHeader() {
   useEffect(() => {
     let isMounted = true
 
-    async function loadCategories() {
+    async function loadData() {
       try {
-        const list = await getCategories({ status: 'active', sort: 'display_order_asc' })
-        if (isMounted) setCategories(list || [])
+        const [catList, prodList] = await Promise.all([
+          getCategories({ status: 'active', sort: 'display_order_asc' }).catch(() => []),
+          getProducts({ active: true, limit: 30 }).catch(() => ({ products: [] })),
+        ])
+        if (isMounted) {
+          setCategories(catList || [])
+          setProducts(Array.isArray(prodList) ? prodList : prodList?.products || [])
+        }
       } catch (error) {
-        console.warn('[Header] Failed to load categories:', error)
-        if (isMounted) setCategories([])
+        console.warn('[Header] Failed to load header catalog data:', error)
       }
     }
 
-    loadCategories()
+    loadData()
 
     return () => {
       isMounted = false
@@ -171,9 +197,25 @@ export default function SiteHeader() {
 
   const megaMenuGroups = useMemo(() => buildMegaMenuGroups(categories), [categories])
 
+  // Quick search filtered list
+  const searchResults = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase()
+    if (!q) return { products: [], categories: [] }
+
+    const matchedProds = (products || [])
+      .filter((p) => (p.name || '').toLowerCase().includes(q) || (p.shortDescription || '').toLowerCase().includes(q))
+      .slice(0, 5)
+
+    const matchedCats = (categories || [])
+      .filter((c) => (c.name || '').toLowerCase().includes(q) || (c.description || '').toLowerCase().includes(q))
+      .slice(0, 4)
+
+    return { products: matchedProds, categories: matchedCats }
+  }, [searchQuery, products, categories])
+
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 10)
+      setScrolled(window.scrollY > 15)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -184,62 +226,71 @@ export default function SiteHeader() {
     setMenuOpen(false)
     setActiveDropdown(null)
     setWhatsappPopoverOpen(false)
+    setSearchModalOpen(false)
+    setSearchQuery('')
   }, [location.pathname])
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    document.body.style.overflow = (menuOpen || searchModalOpen) ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
-  }, [menuOpen])
+  }, [menuOpen, searchModalOpen])
+
+  useEffect(() => {
+    if (searchModalOpen && searchInputRef.current) {
+      setTimeout(() => searchInputRef.current?.focus(), 50)
+    }
+  }, [searchModalOpen])
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
-      {/* 1. SLIM BLACK TOP ANNOUNCEMENT BAR */}
-      <div className="hidden border-b border-white/10 bg-[#0A0A0A] py-2 text-[11px] text-slate-300 lg:block">
+      {/* 1. ULTRA-SLEEK TOP ANNOUNCEMENT TICKER */}
+      <div className="hidden border-b border-slate-800/80 bg-[#0B0F17] py-2 text-[11px] text-slate-300 lg:block transition-all">
         <Container className="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12">
-          {/* Left: Location + Delivery Info */}
+          {/* Left: Location Badge + Express UAE Delivery */}
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5 font-semibold text-slate-200">
-              <MapPin className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span>Al Quoz, Dubai</span>
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-2.5 py-0.5 font-medium text-slate-200">
+              <MapPin className="h-3 w-3 text-[#A82F19]" />
+              <span>Al Quoz, Dubai Pressroom</span>
             </div>
-            <span className="h-3 w-px bg-white/20" />
-            <div className="flex items-center gap-1.5 font-medium text-slate-300">
-              <Truck className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span>Same-Day &amp; Express 24h UAE Delivery</span>
+
+            <div className="flex items-center gap-1.5 text-slate-300">
+              <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="font-semibold text-white">Same-Day &amp; Express 24h</span>
+              <span>UAE Delivery</span>
             </div>
           </div>
 
-          {/* Right: Track Order + Email + Socials + WhatsApp */}
-          <div className="flex items-center gap-4 font-medium text-slate-300">
+          {/* Right: Direct Hotline + Track Order + Email + Socials */}
+          <div className="flex items-center gap-4 text-slate-300">
             <Link
               to="/track-order"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-200"
+              className="inline-flex items-center gap-1.5 font-semibold text-slate-200 hover:text-white transition-colors"
             >
               <Truck className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span className="font-semibold text-[11px]">Track Order</span>
+              <span>Track Order</span>
             </Link>
 
-            <span className="h-3 w-px bg-white/20" />
+            <span className="h-3 w-px bg-white/15" />
 
             <a
               href="mailto:0nprint183@gmail.com"
-              className="flex items-center gap-1.5 transition-colors hover:text-[#A82F19] text-slate-200"
+              className="inline-flex items-center gap-1.5 font-medium text-slate-300 hover:text-white transition-colors"
             >
-              <Mail className="h-3.5 w-3.5 text-[#A82F19]" />
+              <Mail className="h-3.5 w-3.5 text-slate-400" />
               <span>0nprint183@gmail.com</span>
             </a>
 
-            <span className="h-3 w-px bg-white/20" />
+            <span className="h-3 w-px bg-white/15" />
 
-            {/* Social icons with orange hover & WhatsApp Icon */}
-            <div className="flex items-center gap-3 text-slate-400">
+            {/* Social Icons with Smooth Glow */}
+            <div className="flex items-center gap-2.5 text-slate-400">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-[#A82F19]"
+                className="p-1 rounded hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="Facebook"
               >
                 <FacebookIcon />
@@ -248,7 +299,7 @@ export default function SiteHeader() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-[#A82F19]"
+                className="p-1 rounded hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -257,198 +308,168 @@ export default function SiteHeader() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-[#A82F19]"
+                className="p-1 rounded hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon />
               </a>
-              <button
-                type="button"
-                onClick={() => setWhatsappPopoverOpen((v) => !v)}
-                className="transition-colors text-emerald-400 hover:text-emerald-300 cursor-pointer flex items-center"
-                aria-label="WhatsApp Hotline"
-                title="WhatsApp Contact"
-              >
-                <WhatsAppIcon className="h-3.5 w-3.5 fill-current transition-transform hover:scale-110" />
-              </button>
             </div>
           </div>
         </Container>
       </div>
 
-      {/* 2. MAIN PREMIUM WHITE NAVIGATION BAR */}
+      {/* 2. MAIN 2026 LUXURY LIGHT NAVBAR */}
       <div
-        className={`border-b border-slate-200/90 bg-white/98 backdrop-blur-md transition-all duration-300 ${
-          scrolled ? 'py-3 shadow-md shadow-slate-200/50' : 'py-4 shadow-xs'
+        className={`border-b border-slate-200/90 bg-white/95 backdrop-blur-xl transition-all duration-300 ${
+          scrolled ? 'py-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.06)]' : 'py-3.5 shadow-2xs'
         }`}
       >
-        <Container className="flex items-center justify-between gap-3 sm:gap-6 px-4 sm:px-6 lg:px-8 xl:px-12">
-          {/* Logo with clear breathing room */}
-          <Link to="/" onClick={() => setMenuOpen(false)} className="shrink-0 flex items-center pr-4 xl:pr-6 border-r border-slate-200/70">
+        <Container className="flex items-center justify-between gap-2 sm:gap-4 px-4 sm:px-6 lg:px-8 xl:px-12">
+          {/* Brand Logo with Pressroom Subtitle */}
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className="group shrink-0 flex items-center gap-3 pr-3 xl:pr-5 border-r border-slate-200/80"
+          >
             <Logo variant="default" size="md" />
+            <div className="hidden xl:flex flex-col text-left leading-tight">
+              <span className="text-[10px] font-black uppercase tracking-wider text-slate-900 group-hover:text-[#A82F19] transition-colors">
+                ONPRINT DUBAI
+              </span>
+              <span className="text-[9px] font-semibold text-slate-400 tracking-tight">
+                Commercial Press
+              </span>
+            </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-1.5 flex-1 min-w-0" aria-label="Primary">
-            {/* 1. Home */}
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <span>Home</span>
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
-
-            {/* 2. Products */}
-            <NavLink
-              to="/products"
-              className={({ isActive }) =>
-                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <span>Products</span>
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
-
-            {/* 3. Categories with Clean Mega Menu */}
+          {/* Desktop Navigation Segmented Capsule Hub */}
+          <nav
+            className="hidden lg:flex items-center gap-1 xl:gap-1.5 rounded-full bg-slate-100/80 p-1 border border-slate-200/70 shadow-inner"
+            aria-label="Primary Navigation"
+          >
+            {/* 1. All Products / Catalog Mega-Menu Trigger */}
             <div
-              className="relative py-1"
-              onMouseEnter={() => setActiveDropdown('categories')}
+              className="relative"
+              onMouseEnter={() => setActiveDropdown('catalog')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <NavLink
-                to="/categories"
-                onClick={() => setActiveDropdown(null)}
-                className={({ isActive }) =>
-                  `relative flex items-center gap-1 px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap cursor-pointer ${
-                    isActive || activeDropdown === 'categories' || location.pathname.startsWith('/categories')
-                      ? 'text-[#A82F19] font-bold'
-                      : 'text-slate-800 hover:text-[#A82F19]'
-                  }`
-                }
+              <button
+                type="button"
+                onClick={() => setActiveDropdown((prev) => (prev === 'catalog' ? null : 'catalog'))}
+                className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 cursor-pointer ${
+                  activeDropdown === 'catalog' || location.pathname === '/products' || location.pathname === '/categories'
+                    ? 'bg-white text-[#A82F19] shadow-xs'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
+                }`}
               >
-                <span>Categories</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'categories' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
-                {(location.pathname.startsWith('/categories') || activeDropdown === 'categories') && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
-                  />
-                )}
-              </NavLink>
+                <Layers className="h-3.5 w-3.5 text-[#A82F19]" />
+                <span>Catalog</span>
+                <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeDropdown === 'catalog' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
+              </button>
 
               {/* Mega Menu Dropdown */}
               <AnimatePresence>
-                {activeDropdown === 'categories' && (
+                {activeDropdown === 'catalog' && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[min(840px,calc(100vw-32px))] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl z-50"
+                    className="absolute left-0 top-full mt-2.5 w-[min(880px,calc(100vw-40px))] rounded-3xl border border-slate-200/90 bg-white p-6 shadow-2xl z-50 text-slate-800"
                   >
-                    <div className="flex gap-6">
+                    <div className="grid grid-cols-12 gap-6">
                       {/* Left Spotlight Banner */}
-                      <div className="w-64 shrink-0 rounded-xl border border-slate-100 bg-slate-50/90 p-4 flex flex-col justify-between">
+                      <div className="col-span-4 rounded-2xl border border-slate-100 bg-gradient-to-b from-slate-50 to-slate-100/80 p-5 flex flex-col justify-between">
                         <div>
-                          <span className="inline-block rounded-full bg-[#A82F19]/10 border border-[#A82F19]/20 px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-widest text-[#A82F19]">
-                            Dubai Pressroom
-                          </span>
-                          <h4 className="mt-2 text-sm font-black text-slate-900 leading-snug">
-                            Commercial Print Catalog
+                          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 border border-[#A82F19]/20 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#A82F19]">
+                            <Sparkles className="h-2.5 w-2.5" />
+                            <span>Pressroom Suite</span>
+                          </div>
+                          <h4 className="mt-2.5 text-base font-black text-slate-900 leading-snug">
+                            Precision Commercial Printing
                           </h4>
-                          <p className="mt-1 text-[11px] leading-relaxed text-slate-600">
-                            FSC-certified paper stocks, Pantone PMS matching, and fast UAE delivery.
+                          <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+                            FSC certified papers, Pantone precision color fidelity, and hot foil finishes.
                           </p>
 
-                          <div className="mt-3.5 pt-3 border-t border-slate-200/70 space-y-2">
+                          <div className="mt-4 pt-3.5 border-t border-slate-200/80 space-y-2">
                             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
-                              Popular Services
+                              Fast Track Shortcuts
                             </span>
                             <Link
                               to="/business-card-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200 hover:border-[#A82F19] hover:text-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs group"
+                              className="group flex items-center justify-between p-2.5 rounded-xl bg-white border border-slate-200/80 hover:border-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs"
                             >
-                              <span className="flex items-center gap-1.5">
-                                <span className="text-[#A82F19]">★</span>
-                                <span>Business Cards Dubai</span>
+                              <span className="flex items-center gap-2">
+                                <span className="h-2 w-2 rounded-full bg-[#A82F19]" />
+                                <span>Luxury Business Cards</span>
                               </span>
-                              <ArrowUpRight className="h-3 w-3 text-slate-400 group-hover:text-[#A82F19]" />
+                              <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19] transition-colors" />
                             </Link>
                             <Link
                               to="/packaging-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200 hover:border-[#A82F19] hover:text-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs group"
+                              className="group flex items-center justify-between p-2.5 rounded-xl bg-white border border-slate-200/80 hover:border-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs"
                             >
-                              <span className="flex items-center gap-1.5">
-                                <span>📦</span>
-                                <span>Custom Packaging</span>
+                              <span className="flex items-center gap-2">
+                                <span className="h-2 w-2 rounded-full bg-amber-500" />
+                                <span>Custom Packaging Boxes</span>
                               </span>
-                              <ArrowUpRight className="h-3 w-3 text-slate-400 group-hover:text-[#A82F19]" />
+                              <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
                             </Link>
                           </div>
                         </div>
-                        <div className="pt-3 border-t border-slate-200/70">
+
+                        <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
                           <Link
-                            to="/categories"
+                            to="/products"
                             onClick={() => setActiveDropdown(null)}
-                            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A82F19] hover:underline"
+                            className="text-xs font-black text-[#A82F19] hover:underline flex items-center gap-1"
                           >
-                            <span>View All Categories</span>
-                            <ArrowUpRight className="h-3.5 w-3.5" />
+                            <span>Browse All Products</span>
+                            <ArrowRight className="h-3.5 w-3.5" />
                           </Link>
                         </div>
                       </div>
 
-                      {/* Right Grid of Category Groups */}
-                      <div className="flex-1 grid grid-cols-2 gap-4 max-h-[380px] overflow-y-auto pr-1">
-                        {megaMenuGroups.map((group) => (
-                          <div key={group.key} className="space-y-1.5">
-                            <h5 className="text-[11px] font-black uppercase tracking-wider text-[#A82F19]">
-                              {group.label}
-                            </h5>
-                            <ul className="space-y-1">
-                              {group.items.slice(0, 8).map((item) => (
-                                <li key={item.slug || item.id}>
-                                  <Link
-                                    to={`/categories/${item.slug}`}
-                                    onClick={() => setActiveDropdown(null)}
-                                    className="group flex items-center justify-between py-1 text-xs font-medium text-slate-700 hover:text-[#A82F19] transition-colors"
-                                  >
-                                    <span className="truncate">{item.name}</span>
-                                    <ChevronDown className="h-3 w-3 -rotate-90 opacity-0 transition-opacity group-hover:opacity-100 text-[#A82F19]" />
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
+                      {/* Right Categories Grid */}
+                      <div className="col-span-8 grid grid-cols-2 gap-x-6 gap-y-4 max-h-[390px] overflow-y-auto pr-2">
+                        {megaMenuGroups.map((group) => {
+                          const Icon = group.icon || Layers
+                          return (
+                            <div key={group.key} className="space-y-1.5 p-2 rounded-xl hover:bg-slate-50/80 transition-colors">
+                              <div className="flex items-center gap-2">
+                                <div className="flex h-6 w-6 items-center justify-center rounded-md bg-[#A82F19]/10 text-[#A82F19]">
+                                  <Icon className="h-3.5 w-3.5" />
+                                </div>
+                                <div>
+                                  <h5 className="text-xs font-bold text-slate-900 leading-none">
+                                    {group.label}
+                                  </h5>
+                                  <p className="text-[10px] text-slate-400 leading-tight line-clamp-1">
+                                    {group.description}
+                                  </p>
+                                </div>
+                              </div>
+
+                              <ul className="mt-2 space-y-1 pl-8">
+                                {group.items.slice(0, 6).map((item) => (
+                                  <li key={item.slug || item.id}>
+                                    <Link
+                                      to={`/categories/${item.slug}`}
+                                      onClick={() => setActiveDropdown(null)}
+                                      className="group/link flex items-center justify-between text-xs font-medium text-slate-600 hover:text-[#A82F19] transition-colors"
+                                    >
+                                      <span className="truncate">{item.name}</span>
+                                      <ChevronRight className="h-3 w-3 opacity-0 group-hover/link:opacity-100 text-[#A82F19] transition-opacity" />
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )
+                        })}
                       </div>
                     </div>
                   </motion.div>
@@ -456,168 +477,175 @@ export default function SiteHeader() {
               </AnimatePresence>
             </div>
 
-            {/* 4. Business Cards (with DUBAI badge) */}
+            {/* 2. Business Cards Highlight */}
             <NavLink
               to="/business-card-printing-dubai"
               className={({ isActive }) =>
-                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap flex items-center gap-1.5 ${
-                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
+                `flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                  isActive
+                    ? 'bg-white text-[#A82F19] shadow-xs'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
                 }`
               }
             >
-              {({ isActive }) => (
-                <>
-                  <span>Business Cards</span>
-                  <span className="rounded-md bg-[#A82F19] text-white px-1.5 py-0.5 text-[8.5px] font-extrabold uppercase tracking-wider">
-                    DUBAI
-                  </span>
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
-                    />
-                  )}
-                </>
-              )}
+              <span>Business Cards</span>
+              <span className="rounded-full bg-[#A82F19] text-white px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
+                Dubai
+              </span>
             </NavLink>
 
-            {/* 5. Packaging */}
+            {/* 3. Packaging */}
             <NavLink
               to="/packaging-printing-dubai"
               className={({ isActive }) =>
-                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
+                `flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                  isActive
+                    ? 'bg-white text-[#A82F19] shadow-xs'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
                 }`
               }
             >
-              {({ isActive }) => (
-                <>
-                  <span>Packaging</span>
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
-                    />
-                  )}
-                </>
-              )}
+              <span>Packaging</span>
             </NavLink>
 
-            {/* 6. Services */}
+            {/* 4. Stickers */}
             <NavLink
-              to="/services"
+              to="/categories/stickers-printing-dubai"
               className={({ isActive }) =>
-                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
+                `flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                  isActive
+                    ? 'bg-white text-[#A82F19] shadow-xs'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
                 }`
               }
             >
-              {({ isActive }) => (
-                <>
-                  <span>Services</span>
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
-                    />
-                  )}
-                </>
-              )}
+              <span>Stickers</span>
             </NavLink>
 
-            {/* 7. About Us */}
+            {/* 5. Letterheads & Stationery */}
             <NavLink
-              to="/about"
+              to="/categories/letterheads-printing-dubai"
               className={({ isActive }) =>
-                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
+                `flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                  isActive
+                    ? 'bg-white text-[#A82F19] shadow-xs'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
                 }`
               }
             >
-              {({ isActive }) => (
-                <>
-                  <span>About Us</span>
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
-                    />
-                  )}
-                </>
-              )}
+              <span>Letterheads</span>
             </NavLink>
 
-            {/* 8. Blog */}
-            <NavLink
-              to="/blog"
-              className={({ isActive }) =>
-                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
-                }`
-              }
+            {/* 6. Company & Services Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveDropdown('company')}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
-              {({ isActive }) => (
-                <>
-                  <span>Blog</span>
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
+              <button
+                type="button"
+                onClick={() => setActiveDropdown((prev) => (prev === 'company' ? null : 'company'))}
+                className={`flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 cursor-pointer ${
+                  activeDropdown === 'company' || ['/services', '/about', '/blog', '/contact'].includes(location.pathname)
+                    ? 'bg-white text-[#A82F19] shadow-xs'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
+                }`}
+              >
+                <span>Company</span>
+                <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeDropdown === 'company' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
+              </button>
 
-            {/* 9. Contact */}
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <span>Contact</span>
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
+              <AnimatePresence>
+                {activeDropdown === 'company' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                    transition={{ duration: 0.16 }}
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-2.5 w-60 rounded-2xl border border-slate-200/90 bg-white p-2.5 shadow-xl z-50"
+                  >
+                    <Link
+                      to="/services"
+                      onClick={() => setActiveDropdown(null)}
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
+                    >
+                      <Sparkles className="h-4 w-4 text-[#A82F19]" />
+                      <div>
+                        <div className="leading-none">All Services</div>
+                        <span className="text-[10px] font-normal text-slate-400">Offset &amp; Digital</span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      to="/about"
+                      onClick={() => setActiveDropdown(null)}
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
+                    >
+                      <Building2 className="h-4 w-4 text-slate-400" />
+                      <div>
+                        <div className="leading-none">About ONPRINT</div>
+                        <span className="text-[10px] font-normal text-slate-400">Dubai Pressroom &amp; Mission</span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      to="/blog"
+                      onClick={() => setActiveDropdown(null)}
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
+                    >
+                      <BookOpen className="h-4 w-4 text-slate-400" />
+                      <div>
+                        <div className="leading-none">Printing Insights &amp; Blog</div>
+                        <span className="text-[10px] font-normal text-slate-400">Guides &amp; Finishes</span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      to="/contact"
+                      onClick={() => setActiveDropdown(null)}
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
+                    >
+                      <MapPin className="h-4 w-4 text-slate-400" />
+                      <div>
+                        <div className="leading-none">Contact &amp; Location</div>
+                        <span className="text-[10px] font-normal text-slate-400">Al Quoz, Dubai Facility</span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </nav>
 
-          {/* Right Action Icons & Quote CTA */}
-          <div className="hidden items-center gap-2 xl:gap-3 lg:flex shrink-0">
-            {/* Search Icon */}
-            <Link
-              to="/products"
-              className="flex items-center justify-center h-9 w-9 rounded-full bg-slate-50 border border-slate-200/80 text-slate-700 hover:text-[#A82F19] hover:border-[#A82F19] hover:bg-white transition-all shadow-2xs"
-              title="Search Products"
-              aria-label="Search Products"
+          {/* Right Action Control Hub */}
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
+            {/* Quick Search Button Pill */}
+            <button
+              type="button"
+              onClick={() => setSearchModalOpen(true)}
+              className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/90 px-3.5 py-1.5 text-xs text-slate-500 hover:text-slate-900 hover:border-slate-300 hover:bg-white transition-all shadow-2xs cursor-pointer"
+              title="Search products (Press /)"
             >
-              <Search className="h-4 w-4" />
-            </Link>
+              <Search className="h-3.5 w-3.5 text-slate-400" />
+              <span className="hidden xl:inline text-[11px] font-medium">Search print catalog...</span>
+              <kbd className="hidden xl:inline-block rounded bg-slate-200/80 px-1.5 py-0.5 text-[9px] font-bold text-slate-600">
+                /
+              </kbd>
+            </button>
 
-            {/* Shopping / Cart Icon with small item counter */}
+            {/* Shopping Bag / Orders Button */}
             <Link
               to="/track-order"
-              className="relative flex items-center justify-center h-9 w-9 rounded-full bg-slate-50 border border-slate-200/80 text-slate-700 hover:text-[#A82F19] hover:border-[#A82F19] hover:bg-white transition-all shadow-2xs"
-              title="Track Orders / Cart"
-              aria-label="Track Orders / Cart"
+              className="relative flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700 hover:bg-white hover:text-[#A82F19] hover:border-[#A82F19]/40 transition-all shadow-2xs"
+              title="Track Orders"
             >
               <ShoppingBag className="h-4 w-4" />
-              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#A82F19] text-[9px] font-bold text-white shadow-xs">
+              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#A82F19] text-[9px] font-extrabold text-white shadow-xs">
                 0
               </span>
             </Link>
 
-            {/* WhatsApp Icon Button (Click to reveal number) */}
+            {/* WhatsApp VIP Concierge Pill */}
             <div className="relative">
               <button
                 type="button"
@@ -625,15 +653,16 @@ export default function SiteHeader() {
                   setWhatsappPopoverOpen((v) => !v)
                   setUserMenuOpen(false)
                 }}
-                className={`flex items-center justify-center h-9 w-9 rounded-full transition-all cursor-pointer shadow-2xs ${
+                className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-2xs ${
                   whatsappPopoverOpen
-                    ? 'bg-[#25D366] text-white shadow-md shadow-emerald-600/30 ring-2 ring-emerald-500/20'
-                    : 'text-emerald-700 bg-emerald-50 hover:bg-[#25D366] hover:text-white border border-emerald-200/80'
+                    ? 'bg-[#25D366] text-white shadow-md shadow-emerald-500/20'
+                    : 'bg-emerald-50 text-emerald-800 border border-emerald-200/90 hover:bg-[#25D366] hover:text-white'
                 }`}
-                title="WhatsApp Contact"
-                aria-label="WhatsApp Contact"
+                title="WhatsApp Direct Hotline"
               >
-                <WhatsAppIcon className="h-4 w-4 fill-current" />
+                <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
+                <span className="hidden xl:inline text-[11px]">WhatsApp</span>
+                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
               </button>
 
               <AnimatePresence>
@@ -643,7 +672,7 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute right-0 top-full mt-2.5 w-72 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl z-50 ring-1 ring-black/5 text-slate-800"
+                    className="absolute right-0 top-full mt-2.5 w-76 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl z-50 text-slate-800"
                   >
                     <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
                       <div className="flex items-center gap-2.5">
@@ -654,7 +683,7 @@ export default function SiteHeader() {
                           <div className="text-xs font-bold text-slate-900 leading-tight">WhatsApp Concierge</div>
                           <div className="flex items-center gap-1 text-[10px] font-medium text-emerald-600">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                            <span>Online • Fast response</span>
+                            <span>Online • Instant Reply</span>
                           </div>
                         </div>
                       </div>
@@ -668,10 +697,10 @@ export default function SiteHeader() {
                       </button>
                     </div>
 
-                    {/* Revealed Number Box */}
+                    {/* Hotline Box */}
                     <div className="rounded-xl bg-slate-50 p-3 border border-slate-200/80 mb-3">
                       <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Direct Hotline</span>
-                      <div className="mt-1.5 flex items-center justify-between">
+                      <div className="mt-1 flex items-center justify-between">
                         <span className="text-sm font-black tracking-tight text-slate-900">+44 7344 546056</span>
                         <button
                           type="button"
@@ -700,29 +729,29 @@ export default function SiteHeader() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setWhatsappPopoverOpen(false)}
-                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all hover:shadow-lg cursor-pointer"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all cursor-pointer"
                     >
                       <WhatsAppIcon className="h-4 w-4 fill-current" />
-                      <span>Chat on WhatsApp</span>
+                      <span>Start Chat on WhatsApp</span>
                     </a>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* Admin Menu */}
+            {/* Admin Menu when authenticated */}
             {isAuthenticated && isAdmin ? (
               <div className="relative">
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-100 cursor-pointer shadow-2xs"
+                  className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-100 cursor-pointer shadow-2xs"
                 >
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#A82F19] text-white text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
-                  <span className="max-w-[75px] truncate">{user?.name || 'Admin'}</span>
-                  <ChevronDown className={`h-3.5 w-3.5 text-slate-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
+                  <span className="max-w-[70px] truncate">{user?.name || 'Admin'}</span>
+                  <ChevronDown className={`h-3 w-3 text-slate-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 <AnimatePresence>
@@ -732,14 +761,11 @@ export default function SiteHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-slate-200 bg-white p-2 shadow-xl z-50"
+                      className="absolute right-0 top-full mt-2 w-52 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-50"
                     >
                       <div className="px-3 py-2 border-b border-slate-100 mb-1">
                         <div className="font-bold text-xs text-slate-900 truncate">{user?.name || 'Administrator'}</div>
                         <div className="text-[10px] text-slate-500 truncate">{user?.email}</div>
-                        <span className="mt-1 inline-block rounded bg-red-50 px-1.5 py-0.5 text-[9px] font-bold uppercase text-[#A82F19]">
-                          Administrator
-                        </span>
                       </div>
 
                       <Link
@@ -768,46 +794,216 @@ export default function SiteHeader() {
               </div>
             ) : null}
 
-            {/* Large Rounded "Get a Quote →" Button */}
+            {/* High-Converting Primary CTA Button */}
             <Link
               to="/get-a-quote"
-              className="inline-flex items-center gap-2 rounded-full bg-[#A82F19] hover:bg-[#8F2412] px-5 xl:px-6 py-2.5 text-xs xl:text-[13px] font-bold text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all whitespace-nowrap"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#A82F19] to-[#C0392B] hover:from-[#932511] hover:to-[#A82F19] px-5 xl:px-6 py-2.5 text-xs xl:text-[13px] font-black text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all whitespace-nowrap"
               onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
             >
-              <span>Get a Quote</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <span>Get Instant Quote</span>
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <button
-            type="button"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-700 transition-colors hover:bg-slate-100 lg:hidden"
-          >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          {/* Mobile Right Controls: Search + Hamburger */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              type="button"
+              onClick={() => setSearchModalOpen(true)}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700"
+              aria-label="Search"
+            >
+              <Search className="h-4 w-4" />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700 transition-colors hover:bg-slate-100"
+            >
+              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </Container>
       </div>
 
-      {/* 3. MOBILE NAVIGATION DRAWER */}
+      {/* 3. INTERACTIVE SEARCH MODAL OVERLAY */}
+      <AnimatePresence>
+        {searchModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/60 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -10 }}
+              transition={{ duration: 0.18 }}
+              className="w-full max-w-2xl rounded-3xl border border-slate-200 bg-white p-5 sm:p-6 shadow-2xl text-slate-800"
+            >
+              {/* Search Bar Input */}
+              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+                <div className="flex items-center gap-3 flex-1">
+                  <Search className="h-5 w-5 text-[#A82F19]" />
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search 200+ products, categories, or finishes..."
+                    className="w-full bg-transparent text-sm sm:text-base font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSearchModalOpen(false)}
+                  className="rounded-full p-1.5 text-slate-400 hover:text-slate-600 hover:bg-slate-100"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              {/* Search Results / Suggestions */}
+              <div className="mt-4 max-h-[60vh] overflow-y-auto space-y-4 pr-1">
+                {searchQuery.trim() === '' ? (
+                  <div className="py-4">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-2.5">
+                      Popular Print Categories
+                    </span>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      <Link
+                        to="/business-card-printing-dubai"
+                        onClick={() => setSearchModalOpen(false)}
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                      >
+                        <span>Business Cards</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                      </Link>
+                      <Link
+                        to="/packaging-printing-dubai"
+                        onClick={() => setSearchModalOpen(false)}
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                      >
+                        <span>Custom Packaging</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                      </Link>
+                      <Link
+                        to="/categories/letterheads-printing-dubai"
+                        onClick={() => setSearchModalOpen(false)}
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                      >
+                        <span>Letterheads</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                      </Link>
+                      <Link
+                        to="/categories/stickers-printing-dubai"
+                        onClick={() => setSearchModalOpen(false)}
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                      >
+                        <span>Stickers &amp; Labels</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                      </Link>
+                      <Link
+                        to="/categories/brochures-printing"
+                        onClick={() => setSearchModalOpen(false)}
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                      >
+                        <span>Brochures</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                      </Link>
+                      <Link
+                        to="/categories/mug-printing-dubai"
+                        onClick={() => setSearchModalOpen(false)}
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                      >
+                        <span>Mugs &amp; Tumblers</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    {searchResults.products.length > 0 && (
+                      <div className="mb-4">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#A82F19] block mb-2">
+                          Matching Products ({searchResults.products.length})
+                        </span>
+                        <div className="space-y-1.5">
+                          {searchResults.products.map((p) => (
+                            <Link
+                              key={p._id || p.id}
+                              to={`/products/${p.slug}`}
+                              onClick={() => setSearchModalOpen(false)}
+                              className="group flex items-center justify-between p-2.5 rounded-xl border border-slate-100 hover:border-[#A82F19]/40 hover:bg-slate-50 transition-all"
+                            >
+                              <div>
+                                <h6 className="text-xs font-bold text-slate-900 group-hover:text-[#A82F19]">{p.name}</h6>
+                                <p className="text-[10px] text-slate-400 line-clamp-1">{p.shortDescription}</p>
+                              </div>
+                              <span className="text-xs font-black text-slate-900">
+                                {p.price ? `${p.price} AED` : 'Quote'}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {searchResults.categories.length > 0 && (
+                      <div>
+                        <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block mb-2">
+                          Matching Categories
+                        </span>
+                        <div className="grid grid-cols-2 gap-2">
+                          {searchResults.categories.map((c) => (
+                            <Link
+                              key={c.id || c._id}
+                              to={`/categories/${c.slug}`}
+                              onClick={() => setSearchModalOpen(false)}
+                              className="p-2.5 rounded-xl border border-slate-200 hover:border-[#A82F19] text-xs font-bold text-slate-800"
+                            >
+                              {c.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {searchResults.products.length === 0 && searchResults.categories.length === 0 && (
+                      <div className="py-8 text-center">
+                        <p className="text-xs text-slate-500">No direct matches found for "{searchQuery}".</p>
+                        <Link
+                          to={`/products?search=${encodeURIComponent(searchQuery)}`}
+                          onClick={() => setSearchModalOpen(false)}
+                          className="mt-2 inline-block text-xs font-bold text-[#A82F19] underline"
+                        >
+                          Search entire store catalog
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* 4. MODERN MOBILE NAVIGATION DRAWER */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="border-b border-slate-200 bg-white/98 backdrop-blur-md lg:hidden max-h-[85vh] overflow-y-auto shadow-xl"
+            transition={{ duration: 0.22 }}
+            className="border-b border-slate-200 bg-white/98 backdrop-blur-xl lg:hidden max-h-[85vh] overflow-y-auto shadow-2xl"
           >
             <Container className="py-5 space-y-4 px-4">
-              {/* WhatsApp Mobile Quick Contact Banner */}
+              {/* WhatsApp Quick Concierge Bar */}
               <a
                 href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50/90 p-3.5 text-emerald-950 transition-all hover:bg-emerald-100 shadow-xs"
+                className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50/90 p-3.5 text-emerald-950 transition-all shadow-xs"
               >
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-sm">
@@ -826,32 +1022,33 @@ export default function SiteHeader() {
                 </span>
               </a>
 
+              {/* Navigation Links */}
               <nav className="flex flex-col space-y-1">
                 <Link
                   to="/"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   Home
                 </Link>
                 <Link
                   to="/products"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
-                  Products
+                  All Products
                 </Link>
                 <Link
                   to="/categories"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   All Categories
                 </Link>
                 <Link
                   to="/business-card-printing-dubai"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-bold text-[#A82F19] bg-[#A82F19]/5"
+                  className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#A82F19] bg-[#A82F19]/5"
                 >
                   <span>Business Cards</span>
                   <span className="rounded bg-[#A82F19] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
@@ -861,35 +1058,42 @@ export default function SiteHeader() {
                 <Link
                   to="/packaging-printing-dubai"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
-                  Packaging
+                  Packaging &amp; Custom Boxes
+                </Link>
+                <Link
+                  to="/categories/letterheads-printing-dubai"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                >
+                  Letterheads &amp; Stationery
                 </Link>
                 <Link
                   to="/services"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   Services
                 </Link>
                 <Link
                   to="/about"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
-                  About Us
+                  About ONPRINT
                 </Link>
                 <Link
                   to="/blog"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
-                  Blog
+                  Blog &amp; Insights
                 </Link>
                 <Link
                   to="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
                 >
                   Contact
                 </Link>
@@ -898,13 +1102,13 @@ export default function SiteHeader() {
               <div className="border-t border-slate-200 pt-4 space-y-2">
                 <Link
                   to="/get-a-quote"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#A82F19] hover:bg-[#8F2412] py-3 text-sm font-bold text-white shadow-md shadow-[#A82F19]/25"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#A82F19] to-[#C0392B] py-3 text-sm font-bold text-white shadow-md shadow-[#A82F19]/25"
                   onClick={() => {
                     setMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile' })
                   }}
                 >
-                  <span>Get a Quote</span>
+                  <span>Get Instant Quote</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link

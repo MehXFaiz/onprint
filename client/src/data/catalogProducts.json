@@ -31,17 +31,38 @@
     ],
     "specifications": {
       "materials": [
-        { "label": "120gsm Premium Smooth Uncoated Bond", "value": "120gsm-uncoated" },
-        { "label": "100gsm Standard Laser Stock", "value": "100gsm-standard" },
-        { "label": "130gsm FSC Certified Recycled Stock", "value": "130gsm-recycled" }
+        {
+          "label": "120gsm Premium Smooth Uncoated Bond",
+          "value": "120gsm-uncoated"
+        },
+        {
+          "label": "100gsm Standard Laser Stock",
+          "value": "100gsm-standard"
+        },
+        {
+          "label": "130gsm FSC Certified Recycled Stock",
+          "value": "130gsm-recycled"
+        }
       ],
       "sizes": [
-        { "label": "A4 (210 x 297 mm)", "value": "a4" },
-        { "label": "US Letter (8.5 x 11 in)", "value": "us-letter" }
+        {
+          "label": "A4 (210 x 297 mm)",
+          "value": "a4"
+        },
+        {
+          "label": "US Letter (8.5 x 11 in)",
+          "value": "us-letter"
+        }
       ],
       "turnaround": [
-        { "label": "Express 24-Hour Dispatch", "value": "express-24h" },
-        { "label": "Standard 2–3 Days", "value": "standard" }
+        {
+          "label": "Express 24-Hour Dispatch",
+          "value": "express-24h"
+        },
+        {
+          "label": "Standard 2–3 Days",
+          "value": "standard"
+        }
       ]
     }
   },
@@ -77,18 +98,42 @@
     ],
     "specifications": {
       "materials": [
-        { "label": "140gsm Luxury Textured Linen", "value": "140gsm-linen" },
-        { "label": "120gsm Ultra-Smooth Conqueror Bond", "value": "120gsm-conqueror" },
-        { "label": "150gsm Cotton Texture Off-White", "value": "150gsm-cotton" }
+        {
+          "label": "140gsm Luxury Textured Linen",
+          "value": "140gsm-linen"
+        },
+        {
+          "label": "120gsm Ultra-Smooth Conqueror Bond",
+          "value": "120gsm-conqueror"
+        },
+        {
+          "label": "150gsm Cotton Texture Off-White",
+          "value": "150gsm-cotton"
+        }
       ],
       "finishes": [
-        { "label": "Metallic Gold Hot Foil", "value": "gold-foil" },
-        { "label": "Metallic Silver Hot Foil", "value": "silver-foil" },
-        { "label": "Rose Gold Metallic Foil", "value": "rose-gold-foil" }
+        {
+          "label": "Metallic Gold Hot Foil",
+          "value": "gold-foil"
+        },
+        {
+          "label": "Metallic Silver Hot Foil",
+          "value": "silver-foil"
+        },
+        {
+          "label": "Rose Gold Metallic Foil",
+          "value": "rose-gold-foil"
+        }
       ],
       "turnaround": [
-        { "label": "Standard 3–4 Days (Foil Tooling)", "value": "standard-foil" },
-        { "label": "Express 48-Hour Priority", "value": "express-48h" }
+        {
+          "label": "Standard 3–4 Days (Foil Tooling)",
+          "value": "standard-foil"
+        },
+        {
+          "label": "Express 48-Hour Priority",
+          "value": "express-48h"
+        }
       ]
     }
   },
@@ -124,17 +169,38 @@
     ],
     "specifications": {
       "sizes": [
-        { "label": "DL Envelope (110 x 220 mm)", "value": "dl-size" },
-        { "label": "C5 Envelope (162 x 229 mm)", "value": "c5-size" },
-        { "label": "C4 Envelope (229 x 324 mm)", "value": "c4-size" }
+        {
+          "label": "DL Envelope (110 x 220 mm)",
+          "value": "dl-size"
+        },
+        {
+          "label": "C5 Envelope (162 x 229 mm)",
+          "value": "c5-size"
+        },
+        {
+          "label": "C4 Envelope (229 x 324 mm)",
+          "value": "c4-size"
+        }
       ],
       "materials": [
-        { "label": "120gsm Smooth Matching White", "value": "120gsm-smooth" },
-        { "label": "130gsm Textured Kraft Eco Paper", "value": "130gsm-kraft" }
+        {
+          "label": "120gsm Smooth Matching White",
+          "value": "120gsm-smooth"
+        },
+        {
+          "label": "130gsm Textured Kraft Eco Paper",
+          "value": "130gsm-kraft"
+        }
       ],
       "turnaround": [
-        { "label": "Express 24-Hour Dispatch", "value": "express-24h" },
-        { "label": "Standard 2–3 Days", "value": "standard" }
+        {
+          "label": "Express 24-Hour Dispatch",
+          "value": "express-24h"
+        },
+        {
+          "label": "Standard 2–3 Days",
+          "value": "standard"
+        }
       ]
     }
   },
@@ -170,17 +236,38 @@
     ],
     "specifications": {
       "materials": [
-        { "label": "350gsm Coated Silk Cardboard", "value": "350gsm-silk" },
-        { "label": "400gsm Heavyweight Art Board", "value": "400gsm-heavy" }
+        {
+          "label": "350gsm Coated Silk Cardboard",
+          "value": "350gsm-silk"
+        },
+        {
+          "label": "400gsm Heavyweight Art Board",
+          "value": "400gsm-heavy"
+        }
       ],
       "finishes": [
-        { "label": "Soft-Touch Matte + Spot UV", "value": "softtouch-spotuv" },
-        { "label": "Gold Foil Stamped Logo", "value": "gold-foil" },
-        { "label": "Matte Anti-Scratch Lamination", "value": "matte-antiscratch" }
+        {
+          "label": "Soft-Touch Matte + Spot UV",
+          "value": "softtouch-spotuv"
+        },
+        {
+          "label": "Gold Foil Stamped Logo",
+          "value": "gold-foil"
+        },
+        {
+          "label": "Matte Anti-Scratch Lamination",
+          "value": "matte-antiscratch"
+        }
       ],
       "turnaround": [
-        { "label": "Express 48-Hour Dispatch", "value": "express-48h" },
-        { "label": "Standard 3–4 Days", "value": "standard" }
+        {
+          "label": "Express 48-Hour Dispatch",
+          "value": "express-48h"
+        },
+        {
+          "label": "Standard 3–4 Days",
+          "value": "standard"
+        }
       ]
     }
   },
@@ -261,8 +348,7 @@
       }
     ],
     "images": [
-      "/assets/products/id-cards/smart-nfc-pvc-id.png",
-      "/assets/products/id_cards.jpg"
+      "/assets/products/id-cards/smart-nfc-pvc-id.png"
     ]
   },
   {
@@ -336,8 +422,7 @@
       }
     ],
     "images": [
-      "/assets/products/id-cards/rfid-proximity-access-cards.jpg",
-      "/assets/products/id_cards.jpg"
+      "/assets/products/id-cards/rfid-proximity-access-cards.jpg"
     ]
   },
   {
@@ -411,8 +496,7 @@
       }
     ],
     "images": [
-      "/assets/products/id-cards/holographic-security-id-cards.jpg",
-      "/assets/products/id_cards.jpg"
+      "/assets/products/id-cards/holographic-security-id-cards.jpg"
     ]
   },
   {
@@ -486,8 +570,7 @@
       }
     ],
     "images": [
-      "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg",
-      "/assets/products/id_cards.jpg"
+      "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg"
     ]
   },
   {
@@ -561,8 +644,7 @@
       }
     ],
     "images": [
-      "/assets/products/id-cards/photo-id-staff-cards.jpg",
-      "/assets/products/id_cards.jpg"
+      "/assets/products/id-cards/photo-id-staff-cards.jpg"
     ]
   },
   {
@@ -636,8 +718,7 @@
       }
     ],
     "images": [
-      "/assets/products/id-cards/student-campus-id-cards.jpg",
-      "/assets/products/id_cards.jpg"
+      "/assets/products/id-cards/student-campus-id-cards.jpg"
     ]
   },
   {
@@ -717,8 +798,7 @@
       }
     ],
     "images": [
-      "/assets/products/id-cards/visitor-pass-cards-holders.jpg",
-      "/assets/products/id_cards.jpg"
+      "/assets/products/id-cards/visitor-pass-cards-holders.jpg"
     ]
   },
   {
@@ -798,8 +878,7 @@
       }
     ],
     "images": [
-      "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg",
-      "/assets/products/id_cards.jpg"
+      "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg"
     ]
   },
   {
@@ -6171,6 +6250,90 @@
     ],
     "images": [
       "/assets/products/lanyards/reflective-hi-vis-lanyard.jpg"
+    ]
+  },
+  {
+    "_id": "prod-frosted-translucent-pvc-id-cards",
+    "id": 409,
+    "name": "Frosted Translucent Designer PVC Cards",
+    "slug": "frosted-translucent-pvc-id-cards",
+    "category": {
+      "_id": "cat-id-card-printing-dubai",
+      "id": 4,
+      "name": "ID Card Printing Dubai",
+      "slug": "id-card-printing-dubai"
+    },
+    "shortDescription": "Semi-transparent frosted matte CR80 PVC cards with opaque spot white underlay, vibrant CMYK color, and waterproof durability.",
+    "description": "Premium semi-transparent frosted translucent PVC cards designed for modern creative agencies, luxury VIP passes, and high-end executive memberships in Dubai. Features textured anti-scratch surface and custom spot white print backing.",
+    "image": "/assets/products/id-cards/holographic-security-id-cards.jpg",
+    "image_url": "/assets/products/id-cards/holographic-security-id-cards.jpg",
+    "imageAlt": "Frosted translucent designer PVC cards in Dubai",
+    "seoTitle": "Frosted Translucent PVC Cards Dubai | Clear Member Badges | ONPRINT",
+    "seoDescription": "Semi-transparent frosted PVC card printing in Dubai. Distinctive frosted matte texture, spot white print layer, and waterproof durability.",
+    "seoKeywords": "frosted id cards dubai, translucent pvc cards uae, clear member badges dubai",
+    "seoHeading": "Frosted Translucent Designer PVC Cards Dubai",
+    "canonicalUrl": "https://0nprint.com/products/frosted-translucent-pvc-id-cards",
+    "price": 22,
+    "minimumQuantity": 15,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Min. Order: 15 units",
+      "Matte Frosted Translucent PVC",
+      "Spot White & CMYK Overlay"
+    ],
+    "categories": [
+      {
+        "_id": "cat-id-card-printing-dubai",
+        "id": 4,
+        "name": "ID Card Printing Dubai",
+        "slug": "id-card-printing-dubai"
+      }
+    ],
+    "images": [
+      "/assets/products/id-cards/holographic-security-id-cards.jpg"
+    ]
+  },
+  {
+    "_id": "prod-eco-bamboo-wood-nfc-cards",
+    "id": 410,
+    "name": "Eco-Friendly Bamboo & Wood Smart NFC Cards",
+    "slug": "eco-bamboo-wood-nfc-cards",
+    "category": {
+      "_id": "cat-id-card-printing-dubai",
+      "id": 4,
+      "name": "ID Card Printing Dubai",
+      "slug": "id-card-printing-dubai"
+    },
+    "shortDescription": "Sustainable laser-engraved birch and bamboo smart identification cards with embedded contactless NFC microchips.",
+    "description": "Eco-conscious luxury smart identity cards crafted from 100% natural FSC-certified bamboo and birch wood. Embedded with contactless NTAG213/216 chips for digital tap-to-share business cards, modern office turnstiles, and zero-plastic sustainability initiatives across the UAE.",
+    "image": "/assets/products/id-cards/smart-nfc-pvc-id.png",
+    "image_url": "/assets/products/id-cards/smart-nfc-pvc-id.png",
+    "imageAlt": "Eco-friendly bamboo and wood smart NFC cards in Dubai",
+    "seoTitle": "Eco-Friendly Bamboo Smart NFC Cards Dubai | Wooden Badges | ONPRINT",
+    "seoDescription": "Sustainable wooden and bamboo NFC smart cards in Dubai. Laser engraving, embedded contactless microchips, and 100% biodegradable natural wood.",
+    "seoKeywords": "wooden nfc cards dubai, bamboo id cards uae, eco friendly smart badges dubai",
+    "seoHeading": "Eco-Friendly Bamboo & Wood Smart NFC Cards Dubai",
+    "canonicalUrl": "https://0nprint.com/products/eco-bamboo-wood-nfc-cards",
+    "price": 28,
+    "minimumQuantity": 10,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Min. Order: 10 units",
+      "100% FSC Bamboo & Birch",
+      "Contactless NFC Tap-to-Share"
+    ],
+    "categories": [
+      {
+        "_id": "cat-id-card-printing-dubai",
+        "id": 4,
+        "name": "ID Card Printing Dubai",
+        "slug": "id-card-printing-dubai"
+      }
+    ],
+    "images": [
+      "/assets/products/id-cards/smart-nfc-pvc-id.png"
     ]
   }
 ]

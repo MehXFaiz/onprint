@@ -279,44 +279,60 @@ export default function SiteHeader() {
       {/* 2. MAIN PREMIUM WHITE NAVIGATION BAR */}
       <div
         className={`border-b border-slate-200/90 bg-white/98 backdrop-blur-md transition-all duration-300 ${
-          scrolled ? 'py-2.5 shadow-md shadow-slate-200/60' : 'py-3.5 shadow-xs'
+          scrolled ? 'py-3 shadow-md shadow-slate-200/50' : 'py-4 shadow-xs'
         }`}
       >
-        <Container className="flex items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 xl:px-12">
-          {/* Logo */}
-          <Link to="/" onClick={() => setMenuOpen(false)} className="shrink-0 flex items-center">
+        <Container className="flex items-center justify-between gap-3 sm:gap-6 px-4 sm:px-6 lg:px-8 xl:px-12">
+          {/* Logo with clear breathing room */}
+          <Link to="/" onClick={() => setMenuOpen(false)} className="shrink-0 flex items-center pr-4 xl:pr-6 border-r border-slate-200/70">
             <Logo variant="default" size="md" />
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 flex-1 min-w-0" aria-label="Primary">
+          <nav className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-1.5 flex-1 min-w-0" aria-label="Primary">
             {/* 1. Home */}
             <NavLink
               to="/"
               end
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
+                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
                 }`
               }
             >
-              Home
+              {({ isActive }) => (
+                <>
+                  <span>Home</span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
 
             {/* 2. Products */}
             <NavLink
               to="/products"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
+                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
                 }`
               }
             >
-              Products
+              {({ isActive }) => (
+                <>
+                  <span>Products</span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
 
             {/* 3. Categories with Clean Mega Menu */}
@@ -329,15 +345,21 @@ export default function SiteHeader() {
                 to="/categories"
                 onClick={() => setActiveDropdown(null)}
                 className={({ isActive }) =>
-                  `flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap cursor-pointer ${
+                  `relative flex items-center gap-1 px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap cursor-pointer ${
                     isActive || activeDropdown === 'categories' || location.pathname.startsWith('/categories')
-                      ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                      : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
+                      ? 'text-[#A82F19] font-bold'
+                      : 'text-slate-800 hover:text-[#A82F19]'
                   }`
                 }
               >
                 <span>Categories</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'categories' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
+                {(location.pathname.startsWith('/categories') || activeDropdown === 'categories') && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
+                  />
+                )}
               </NavLink>
 
               {/* Mega Menu Dropdown */}
@@ -348,7 +370,7 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute left-0 top-full mt-2 w-[min(840px,calc(100vw-32px))] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl z-50"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[min(840px,calc(100vw-32px))] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl z-50"
                   >
                     <div className="flex gap-6">
                       {/* Left Spotlight Banner */}
@@ -438,96 +460,144 @@ export default function SiteHeader() {
             <NavLink
               to="/business-card-printing-dubai"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap flex items-center gap-1.5 ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
+                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap flex items-center gap-1.5 ${
+                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
                 }`
               }
             >
-              <span>Business Cards</span>
-              <span className="rounded bg-[#A82F19] text-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider">
-                DUBAI
-              </span>
+              {({ isActive }) => (
+                <>
+                  <span>Business Cards</span>
+                  <span className="rounded-md bg-[#A82F19] text-white px-1.5 py-0.5 text-[8.5px] font-extrabold uppercase tracking-wider">
+                    DUBAI
+                  </span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
 
             {/* 5. Packaging */}
             <NavLink
               to="/packaging-printing-dubai"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
+                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
                 }`
               }
             >
-              Packaging
+              {({ isActive }) => (
+                <>
+                  <span>Packaging</span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
 
             {/* 6. Services */}
             <NavLink
               to="/services"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
+                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
                 }`
               }
             >
-              Services
+              {({ isActive }) => (
+                <>
+                  <span>Services</span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
 
             {/* 7. About Us */}
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
+                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
                 }`
               }
             >
-              About Us
+              {({ isActive }) => (
+                <>
+                  <span>About Us</span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
 
             {/* 8. Blog */}
             <NavLink
               to="/blog"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
+                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
                 }`
               }
             >
-              Blog
+              {({ isActive }) => (
+                <>
+                  <span>Blog</span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
 
             {/* 9. Contact */}
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-bold'
-                    : 'text-slate-800 hover:text-[#A82F19] hover:bg-slate-50'
+                `relative px-2.5 xl:px-3 py-2 text-xs xl:text-[13px] font-semibold tracking-tight transition-colors duration-200 whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-bold' : 'text-slate-800 hover:text-[#A82F19]'
                 }`
               }
             >
-              Contact
+              {({ isActive }) => (
+                <>
+                  <span>Contact</span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#A82F19] rounded-full"
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
           </nav>
 
           {/* Right Action Icons & Quote CTA */}
-          <div className="hidden items-center gap-2.5 lg:flex shrink-0">
+          <div className="hidden items-center gap-2 xl:gap-3 lg:flex shrink-0">
             {/* Search Icon */}
             <Link
               to="/products"
-              className="flex items-center justify-center h-9 w-9 rounded-xl text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors border border-transparent hover:border-slate-200"
+              className="flex items-center justify-center h-9 w-9 rounded-full bg-slate-50 border border-slate-200/80 text-slate-700 hover:text-[#A82F19] hover:border-[#A82F19] hover:bg-white transition-all shadow-2xs"
               title="Search Products"
               aria-label="Search Products"
             >
@@ -537,12 +607,12 @@ export default function SiteHeader() {
             {/* Shopping / Cart Icon with small item counter */}
             <Link
               to="/track-order"
-              className="relative flex items-center justify-center h-9 w-9 rounded-xl text-slate-700 hover:text-[#A82F19] hover:bg-slate-100 transition-colors border border-transparent hover:border-slate-200"
+              className="relative flex items-center justify-center h-9 w-9 rounded-full bg-slate-50 border border-slate-200/80 text-slate-700 hover:text-[#A82F19] hover:border-[#A82F19] hover:bg-white transition-all shadow-2xs"
               title="Track Orders / Cart"
               aria-label="Track Orders / Cart"
             >
               <ShoppingBag className="h-4 w-4" />
-              <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#A82F19] text-[9px] font-bold text-white shadow-xs">
+              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#A82F19] text-[9px] font-bold text-white shadow-xs">
                 0
               </span>
             </Link>
@@ -555,15 +625,15 @@ export default function SiteHeader() {
                   setWhatsappPopoverOpen((v) => !v)
                   setUserMenuOpen(false)
                 }}
-                className={`flex items-center justify-center h-9 w-9 rounded-xl transition-all cursor-pointer ${
+                className={`flex items-center justify-center h-9 w-9 rounded-full transition-all cursor-pointer shadow-2xs ${
                   whatsappPopoverOpen
                     ? 'bg-[#25D366] text-white shadow-md shadow-emerald-600/30 ring-2 ring-emerald-500/20'
-                    : 'text-emerald-700 bg-emerald-50 hover:bg-emerald-100 hover:text-emerald-900 border border-emerald-200/80'
+                    : 'text-emerald-700 bg-emerald-50 hover:bg-[#25D366] hover:text-white border border-emerald-200/80'
                 }`}
                 title="WhatsApp Contact"
                 aria-label="WhatsApp Contact"
               >
-                <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
+                <WhatsAppIcon className="h-4 w-4 fill-current" />
               </button>
 
               <AnimatePresence>
@@ -646,12 +716,12 @@ export default function SiteHeader() {
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-50 cursor-pointer shadow-xs"
+                  className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-100 cursor-pointer shadow-2xs"
                 >
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#A82F19] text-white text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
-                  <span className="max-w-[90px] truncate">{user?.name || 'Admin'}</span>
+                  <span className="max-w-[75px] truncate">{user?.name || 'Admin'}</span>
                   <ChevronDown className={`h-3.5 w-3.5 text-slate-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -701,11 +771,11 @@ export default function SiteHeader() {
             {/* Large Rounded "Get a Quote →" Button */}
             <Link
               to="/get-a-quote"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#A82F19] hover:bg-[#8F2412] px-5 py-2.5 text-xs xl:text-sm font-bold text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all whitespace-nowrap"
+              className="inline-flex items-center gap-2 rounded-full bg-[#A82F19] hover:bg-[#8F2412] px-5 xl:px-6 py-2.5 text-xs xl:text-[13px] font-bold text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all whitespace-nowrap"
               onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
             >
               <span>Get a Quote</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
 

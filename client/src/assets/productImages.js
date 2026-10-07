@@ -67,11 +67,17 @@ import studentCampusIdCardImg from './products/id-cards/student-campus-id-cards.
 import visitorPassHoldersImg from './products/id-cards/visitor-pass-cards-holders.jpg'
 import executiveVipMetalCardImg from './products/id-cards/executive-metallic-vip-id-cards.jpg'
 
+// Dedicated high-resolution Letterhead & Stationery variety images
+import letterheadExecutive120gsmImg from './products/letterhead_executive_120gsm.jpg'
+import letterheadGoldFoilImg from './products/letterhead_gold_foil.jpg'
+import letterheadEnvelopesSuiteImg from './products/letterhead_envelopes_suite.jpg'
+import letterheadPresentationFoldersImg from './products/letterhead_presentation_folders.jpg'
+
 import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
 const penPrintingImg = '/uploads/categories/letterheads-printing-dubai.jpg'
-const letterheadImg = '/assets/products/letterhead-printing.svg'
+const letterheadImg = letterheadGoldFoilImg
 const standardBusinessCardImg = '/assets/products/business-card-standard.svg'
 
 export const productImages = {
@@ -100,6 +106,12 @@ export const productImages = {
   serviceStickersLabels: serviceStickersLabelsImg,
   serviceExecutiveStationery: serviceExecutiveStationeryImg,
   serviceExhibitionSignage: serviceExhibitionSignageImg,
+
+  // Letterheads & Stationery
+  letterheadExecutive120gsm: letterheadExecutive120gsmImg,
+  letterheadGoldFoil: letterheadGoldFoilImg,
+  letterheadEnvelopesSuite: letterheadEnvelopesSuiteImg,
+  letterheadPresentationFolders: letterheadPresentationFoldersImg,
 
   // Mugs
   mugWhiteCeramic: mugWhiteCeramicImg,
@@ -147,8 +159,8 @@ export const productSlugImageMap = {
   'promotional-flyers': flyersImg,
   'id-card-printing-dubai': idCardsImg,
   'lanyard-printing-dubai': badgesImg,
-  'letterheads-printing-dubai': letterheadImg,
-  'letterhead-printing-dubai': letterheadImg,
+  'letterheads-printing-dubai': letterheadGoldFoilImg,
+  'letterhead-printing-dubai': letterheadGoldFoilImg,
   'name-badges-printing-dubai': badgesImg,
   'mug-printing-dubai': mugWhiteCeramicImg,
   'mugs-printing-dubai': mugWhiteCeramicImg,
@@ -189,6 +201,16 @@ export const productSlugImageMap = {
   'luxury-copper-insulated-flasks': bottleLuxuryCopperImg,
 
   // Cards & Stationery
+  'executive-120gsm-letterheads': letterheadExecutive120gsmImg,
+  'executive-stationery-letterheads': letterheadExecutive120gsmImg,
+  'luxury-gold-foil-letterheads': letterheadGoldFoilImg,
+  'luxury-foil-stamped-letterheads': letterheadGoldFoilImg,
+  'matching-corporate-envelopes': letterheadEnvelopesSuiteImg,
+  'printed-envelopes': letterheadEnvelopesSuiteImg,
+  'corporate-presentation-folders': letterheadPresentationFoldersImg,
+  'presentation-folders': letterheadPresentationFoldersImg,
+  'textured-linen-letterheads': letterheadGoldFoilImg,
+  'continuation-sheets-invoices': letterheadExecutive120gsmImg,
   'premium-business-cards': businessCardsImg,
   'standard-business-cards': businessCardsImg,
   'premium-soft-touch-business-cards': softTouchBusinessCardImg,

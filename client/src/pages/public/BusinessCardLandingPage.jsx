@@ -825,10 +825,21 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     <h4 className="font-display text-lg font-black text-neutral-950">
                       Quote Request Received!
                     </h4>
-                    <p className="text-xs text-neutral-600 leading-relaxed">
+                    <p className="text-xs text-neutral-600 leading-relaxed max-w-sm mx-auto">
                       Thank you. Your inquiry reference is{' '}
                       <strong className="font-mono text-[#A82F19]">{quoteNumber}</strong>. Our print specialist is preparing your itemized specification and will email you shortly.
                     </p>
+                    <div className="pt-2">
+                      <a
+                        href={`https://wa.me/447344546056?text=${encodeURIComponent(`Hello ONPRINT Dubai, I submitted a business card quote with Ref #${quoteNumber}. Name: ${formState.name}, Card: ${formState.cardType}, Qty: ${formState.quantity}. Please fast-track.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-3 px-6 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"
+                      >
+                        <WhatsAppIcon className="h-4 w-4 fill-current" />
+                        <span>Fast-Track on WhatsApp (+44 7344 546056)</span>
+                      </a>
+                    </div>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleQuoteSubmit} className="space-y-3">
@@ -1045,20 +1056,32 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full rounded-2xl bg-[#A82F19] hover:bg-[#8c2211] py-3.5 text-xs font-black uppercase tracking-wider text-white shadow-lg shadow-[#A82F19]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
-                    >
-                      {isSubmitting ? (
-                        <span>Processing Instant Quote...</span>
-                      ) : (
-                        <>
-                          <Send className="h-3.5 w-3.5" />
-                          <span>Submit Quote Request</span>
-                        </>
-                      )}
-                    </button>
+                    <div className="space-y-2 pt-1">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full rounded-2xl bg-[#A82F19] hover:bg-[#8c2211] py-3.5 text-xs font-black uppercase tracking-wider text-white shadow-lg shadow-[#A82F19]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
+                      >
+                        {isSubmitting ? (
+                          <span>Processing Instant Quote...</span>
+                        ) : (
+                          <>
+                            <Send className="h-3.5 w-3.5" />
+                            <span>Submit Quote Request</span>
+                          </>
+                        )}
+                      </button>
+
+                      <a
+                        href={`https://wa.me/447344546056?text=${encodeURIComponent(`Hello ONPRINT Dubai, I would like an express business card quotation:\n• Card: ${formState.cardType}\n• Paper: ${formState.paper}\n• Finish: ${formState.finish}\n• Qty: ${formState.quantity} cards\n• Delivery: ${formState.deliveryDate}`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] py-3 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"
+                      >
+                        <WhatsAppIcon className="h-4 w-4 fill-current" />
+                        <span>Fast-Track on WhatsApp (+44 7344 546056)</span>
+                      </a>
+                    </div>
                     <p className="text-[10px] text-center text-neutral-500">
                       Free Pre-Press Artwork Inspection Included with Every Order.
                     </p>

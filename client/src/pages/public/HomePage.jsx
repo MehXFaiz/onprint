@@ -43,43 +43,43 @@ import { portfolioItems } from '../../data/portfolio'
 import { getBlogCoverImage } from '../../assets/productImages'
 
 const trustBadges = [
-  { label: 'German Offset & Digital Press', sub: 'Calibrated CMYK & Pantone accuracy', icon: ShieldCheck },
-  { label: 'Express Dubai Turnaround', sub: 'Same-day & 24h rapid dispatch', icon: Zap },
-  { label: 'Luxury Finishing Techniques', sub: 'Spot UV, hot foil & debossing', icon: Award },
-  { label: 'Al Quoz Production Facility', sub: 'Direct UAE commercial pressroom', icon: Users },
+  { label: 'German Heidelberg & Indigo Press', sub: 'Calibrated CMYK & Pantone accuracy', icon: ShieldCheck },
+  { label: 'Express Dubai Turnaround', sub: 'Same-day & 24h rapid UAE dispatch', icon: Zap },
+  { label: 'Luxury Finishing Techniques', sub: '24K Hot foil, 3D Spot UV & debossing', icon: Award },
+  { label: 'Direct Al Quoz Atelier', sub: 'In-house UAE commercial pressroom', icon: Users },
 ]
 
 const heroFeatures = [
-  { label: 'Same-Day Express Delivery', icon: Zap },
+  { label: 'Same-Day Express Dubai Delivery', icon: Zap },
   { label: 'German Heidelberg Color Accuracy', icon: ShieldCheck },
-  { label: 'Premium Quality & Finish', icon: Award },
-  { label: 'Dedicated Support For Your Brand', icon: Users },
+  { label: '600+ GSM Cotton & 24K Foil Finishes', icon: Award },
+  { label: 'Direct Pressroom (No Broker Markups)', icon: Users },
 ]
 
 const whyUs = [
   {
-    title: 'Calibrated Color Fidelity',
-    description: 'Heidelberg & HP Indigo press calibration profiles guarantee true-to-brand CMYK and Pantone precision on every run.',
+    title: 'Calibrated Heidelberg & Indigo Precision',
+    description: 'Operating under strict ISO color management, our German Heidelberg and HP Indigo presses guarantee pinpoint Pantone matching and vibrant CMYK consistency on every single print run.',
   },
   {
-    title: 'Certified Luxury Substrates',
-    description: 'Extensive inventory of 300–600 GSM FSC-certified stocks, cotton boards, soft-touch laminates, and metallic foils.',
+    title: 'Certified Luxury European Substrates',
+    description: 'Direct access to an extensive inventory of 300–700 GSM Italian cotton boards, velvet soft-touch laminates, mirror metallic foils, and sustainable FSC-certified papers.',
   },
   {
-    title: 'Direct Al Quoz Pressroom',
-    description: 'In-house commercial printing in Dubai eliminates broker markups and guarantees rapid turnaround for urgent deadlines.',
+    title: 'Direct Al Quoz Pressroom (Zero Broker Fees)',
+    description: 'By manufacturing everything in-house in Al Quoz, Dubai, we eliminate middleman markups, provide direct pre-press advice, and guarantee express turnaround for urgent deadlines.',
   },
   {
-    title: 'Pre-Press Specialist Proofing',
-    description: 'Every file is pre-flight checked by dedicated print engineers for bleed, resolution, and vector trap accuracy before plating.',
+    title: 'Rigorous Pre-Flight Engineering',
+    description: 'Every design file undergoes thorough pre-press inspection by dedicated print engineers for vector trap, bleed margins, resolution fidelity, and color separation before plating.',
   },
 ]
 
 const processSteps = [
-  { step: '01', title: 'Consultation & Spec', description: 'Select your stock, dimensions, finishes, and quantity with instant quote clarity.' },
-  { step: '02', title: 'Pre-flight Artwork', description: 'Our prepress studio inspects bleed, resolution, and CMYK color profiles.' },
-  { step: '03', title: 'Press Production', description: 'Printed on high-precision offset and digital presses with multi-stage quality control.' },
-  { step: '04', title: 'Inspected & Delivered', description: 'Hand-checked, packaged in protective covers, and delivered straight to your door in Dubai & UAE.' },
+  { step: '01', title: 'Consultation & Instant Spec', description: 'Select your stock, dimensions, finishes, and quantity with transparent tiered pricing.' },
+  { step: '02', title: 'Pre-Flight File Curation', description: 'Our pre-press engineers inspect bleed, high-res rasterization, and Pantone separations.' },
+  { step: '03', title: 'Mastercraft Press Run', description: 'Printed on high-precision Heidelberg & HP Indigo presses with continuous density control.' },
+  { step: '04', title: 'Hand Inspection & Dispatch', description: 'Every piece is hand-inspected, moisture-sealed, and delivered via express courier across Dubai & the UAE.' },
 ]
 
 const heroMarquee = [
@@ -98,54 +98,49 @@ const heroMarquee = [
 
 const homeFaqs = [
   {
-    question: 'What printing services does ONPRINT offer in Dubai?',
+    question: 'What commercial printing services does ONPRINT offer in Dubai?',
     answer:
-      'ONPRINT provides a comprehensive suite of commercial printing solutions in Dubai, including digital press printing, high-volume offset printing, executive office stationery, corporate gift items, die-cut vinyl stickers, and large-format exhibition signage.',
+      'ONPRINT operates a full-scale commercial pressroom in Al Quoz, Dubai. We provide high-volume German Heidelberg offset printing, rapid HP Indigo digital press printing, luxury 600 GSM business cards, bespoke rigid and folding packaging, marketing brochures, flyers, die-cut waterproof vinyl stickers, corporate stationery, and VIP corporate gifts.',
   },
   {
-    question: 'Where is ONPRINT located in Dubai?',
+    question: 'Where is your printing facility located in Dubai?',
     answer:
-      'ONPRINT is located in Al Quoz, Dubai, UAE. Our production facility houses Heidelberg offset presses and HP Indigo digital presses, serving clients across Dubai, Abu Dhabi, Sharjah, and the entire UAE.',
+      'Our dedicated production atelier is located in Al Quoz, Dubai, UAE. We welcome corporate clients by appointment for press proofs and material consultations, and we provide rapid daily dispatch across Dubai, Abu Dhabi, Sharjah, and all seven Emirates.',
   },
   {
-    question: 'What is the turnaround time for print orders across Dubai and the UAE?',
+    question: 'What is your turnaround time for urgent print orders in Dubai?',
     answer:
-      'Standard digital printing runs (business cards, flyers, brochures) typically take 24 to 48 hours once artwork is approved. Large offset runs and specialty foil-embossed projects take 3 to 7 business days. Express same-day production is available for urgent requirements.',
+      'Digital printing jobs (business cards, flyers, brochures, stickers) can be dispatched same-day or within 24 hours once artwork is approved. Bespoke rigid packaging, heavy multi-ply duplexed cotton cards, and multi-stage foil/embossed projects typically require 3 to 5 business days. Express priority press scheduling is available for time-sensitive corporate events and trade shows.',
   },
   {
-    question: 'What is the difference between digital and offset printing?',
+    question: 'What makes ONPRINT different from print brokers and digital agencies?',
     answer:
-      'Digital printing is ideal for small to medium quantities (up to 1,000 units) with faster turnaround and no plate setup costs. Offset printing is more cost-effective for large volume runs (1,000+ units) and offers superior color consistency for brand-critical projects. Both methods are available at ONPRINT.',
+      'ONPRINT is a direct manufacturer with its own pressfloor in Al Quoz. When you work with us, you deal directly with print engineers and press operators—eliminating agency markups, preventing communication delays, and ensuring strict color calibration on every run.',
   },
   {
-    question: 'Do you offer corporate gift printing and branded merchandise?',
+    question: 'Do you offer custom corporate gifts and branded VIP merchandise?',
     answer:
-      'Yes. We specialize in custom corporate gifts in Dubai, including laser-engraved thermal smart water bottles, ceramic mugs, executive hardcover notebooks, custom polo shirts, embroidered caps, and curated VIP executive gift sets.',
+      'Yes. We specialize in luxury corporate gifting across Dubai and the UAE, including laser-engraved copper and stainless steel thermal bottles, custom ceramic mugs, executive hardcover notebooks with debossed logos, luxury pen sets, and curated onboarding gift boxes.',
   },
   {
-    question: 'What paper stocks and materials do you offer?',
+    question: 'What luxury paper stocks and specialty finishes are available?',
     answer:
-      'ONPRINT maintains an extensive inventory of FSC-certified paper stocks ranging from 120gsm to 600gsm, including smooth uncoated white, glossy art paper, matte coated stock, premium cotton business card stock, and specialty papers. We also offer luxury finishing options like soft-touch lamination, spot UV, and metallic foil stamping.',
+      'We maintain an extensive inventory of European FSC-certified papers ranging from 120 GSM to 800 GSM, including 100% Italian Cotton, Gmund textured stocks, and heavyweight duplex/triplex boards. Finishing techniques include 24K hot foil stamping (gold, silver, copper, holographic), raised 3D spot UV polymer, velvet soft-touch lamination, blind sculptural debossing, and metallic painted edges.',
   },
   {
-    question: 'How much does printing cost in Dubai?',
+    question: 'Can I approve a physical proof before my project goes to full production?',
     answer:
-      'Printing costs vary based on quantity, material, size, and finishing options. Products are quoted based on your exact volume and specifications with transparent tiered pricing. Contact us for a detailed instant quote tailored to your requirements.',
+      'Yes. In addition to our complimentary digital pre-flight PDF proof, we offer physical press proofs on your exact specified paper stock and finish for high-volume offset runs and color-critical corporate branding projects.',
   },
   {
-    question: 'Can I see a proof before my project goes to press?',
+    question: 'Do you deliver across all Emirates in the UAE?',
     answer:
-      'Every order includes a thorough pre-flight artwork review and a digital PDF proof for approval before production begins. Physical printed proofs on your chosen paper stock are also available upon request for high-volume or color-critical runs.',
+      'Yes, we provide insured doorstep courier delivery across Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain. Dubai and Sharjah deliveries typically arrive within 24 hours of completion.',
   },
   {
-    question: 'Do you deliver across Dubai and the UAE?',
+    question: 'How do I request an instant quotation for my print project?',
     answer:
-      'Yes, ONPRINT delivers to all areas of Dubai, Abu Dhabi, Sharjah, Ajman, RAK, and across the UAE. Dubai and Sharjah deliveries typically arrive within 24 hours, while Abu Dhabi and other emirates receive delivery within 48 hours of dispatch.',
-  },
-  {
-    question: 'How do I request a custom quotation for bulk printing?',
-    answer:
-      'You can request an instant quote online via our Get a Quote page, message our team on WhatsApp, or email us at 0nprint183@gmail.com. Our print specialists provide itemized quotations within 2 hours.',
+      'You can request a custom quote via our online quote builder, chat with our print specialists directly on WhatsApp at +44 7344 546056, or email us at 0nprint183@gmail.com. We provide itemized, transparent quotations within 2 hours.',
   },
 ]
 
@@ -369,7 +364,7 @@ export default function HomePage() {
             {/* Supporting Text */}
             <Reveal delay={0.14}>
               <p className="max-w-xl text-base sm:text-lg leading-[1.75] text-slate-600 font-normal">
-                Direct in-house pressroom in <strong className="text-slate-900 font-bold">Al Quoz, Dubai</strong>. Delivering flawless German Heidelberg color accuracy, <strong className="text-slate-900 font-bold">luxury business cards</strong>, packaging, brochures, and VIP corporate gifts with express UAE turnaround.
+                Direct in-house pressroom in <strong className="text-slate-900 font-bold">Al Quoz, Dubai</strong>. Delivering calibrated German Heidelberg color accuracy, <strong className="text-slate-900 font-bold">luxury 600 GSM business cards</strong>, bespoke packaging, marketing collateral, and VIP corporate gifts with express UAE turnaround.
               </p>
             </Reveal>
 
@@ -465,8 +460,12 @@ export default function HomePage() {
                       <img
                         src="/assets/products/luxury_business_cards_dubai.jpg"
                         alt="Luxury Business Card Printing Dubai"
+                        width="480"
+                        height="400"
                         className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                         loading="eager"
+                        fetchPriority="high"
+                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       <div className="absolute top-3 left-3">
@@ -499,8 +498,12 @@ export default function HomePage() {
                         <img
                           src="/assets/products/service_luxury_packaging.jpg"
                           alt="Luxury Rigid Packaging Dubai"
+                          width="300"
+                          height="192"
                           className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                           loading="eager"
+                          fetchPriority="high"
+                          decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                         <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
@@ -523,8 +526,11 @@ export default function HomePage() {
                         <img
                           src="/assets/products/card-painted-edge.jpg"
                           alt="Painted Edge Business Cards Dubai"
+                          width="300"
+                          height="192"
                           className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                          loading="eager"
+                          loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                         <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
@@ -571,8 +577,11 @@ export default function HomePage() {
                 CORE PRINT DISCIPLINES
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mt-1">
-                Explore Print Collections
+                Mastercrafted Print Collections
               </h2>
+              <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl">
+                From tactile 600 GSM cotton business cards to bespoke rigid packaging — precision engineered in our Dubai pressroom.
+              </p>
             </div>
             <Link
               to="/categories"
@@ -618,7 +627,7 @@ export default function HomePage() {
                     <span className="text-amber-300 italic">First Impression</span>
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-slate-200 leading-relaxed max-w-sm">
-                    Premium cards. Multiple finishes. Endless possibilities. 600 GSM Italian cotton, 24K hot foil &amp; raised 3D spot UV.
+                    Architectural business cards crafted on 600 GSM Italian cotton, accented with 24K hot foil stamping, raised 3D spot UV, and mirror painted edges.
                   </p>
                   <div className="mt-5 inline-flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-amber-300 group-hover:underline">
                     <span>Shop Business Cards</span>
@@ -855,13 +864,13 @@ export default function HomePage() {
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end mb-10">
             <div>
               <span className="text-xs font-black uppercase tracking-wider text-[#A82F19]">
-                SELECTED WORK
+                SELECTED ATELIER WORK
               </span>
               <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
                 Crafted in Dubai. Delivered Across the UAE.
               </h2>
               <p className="mt-1 max-w-xl text-sm text-slate-600">
-                A selection of executive stationery, corporate merchandise, and high-impact print collateral produced in Al Quoz.
+                A curated look at bespoke rigid packaging, executive stationery suites, and VIP corporate gifts produced in our Al Quoz pressroom.
               </p>
             </div>
             <ArrowLink to="/portfolio" className="shrink-0 text-[#A82F19] font-bold">
@@ -917,12 +926,12 @@ export default function HomePage() {
       <section id="production-process" className="py-16 sm:py-24 bg-white border-t border-slate-200/80">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-black uppercase tracking-wider text-[#A82F19]">WHY ONPRINT</span>
+            <span className="text-xs font-black uppercase tracking-wider text-[#A82F19]">THE ONPRINT ADVANTAGE</span>
             <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
               Why Leading UAE Enterprises Choose ONPRINT
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              The standard behind every press run for corporations, luxury hotels, agencies, and government entities across the UAE.
+              The benchmark in Heidelberg offset precision, tactile luxury finishing, and express UAE dispatch for corporations, luxury hotels, agencies, and government entities.
             </p>
           </div>
 
@@ -943,7 +952,7 @@ export default function HomePage() {
           {/* Process Steps */}
           <div className="mt-16 pt-12 border-t border-slate-200/80">
             <div className="text-center max-w-xl mx-auto mb-10">
-              <span className="text-xs font-black uppercase tracking-wider text-[#A82F19]">DISCIPLINED PROCESS</span>
+              <span className="text-xs font-black uppercase tracking-wider text-[#A82F19]">DISCIPLINED WORKFLOW</span>
               <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mt-1">
                 Our 4-Step Production Pipeline
               </h3>
@@ -973,13 +982,13 @@ export default function HomePage() {
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end mb-10">
               <div>
                 <span className="text-xs font-black uppercase tracking-wider text-[#A82F19]">
-                  PRINTING KNOWLEDGE &amp; GUIDES
+                  PRINTING KNOWLEDGE &amp; INSIGHTS
                 </span>
                 <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
-                  Commercial Printing &amp; Branding Insights
+                  Commercial Printing &amp; Luxury Branding Guides
                 </h2>
                 <p className="mt-1 max-w-xl text-sm text-slate-600">
-                  Expert advice on substrate selection, hot foiling, Pantone CMYK matching, and pre-press standards in Dubai.
+                  Expert advice on substrate selection, hot foiling, Pantone CMYK matching, and pre-press standards from our Dubai pressroom.
                 </p>
               </div>
               <ArrowLink to="/blog" className="shrink-0 text-[#A82F19] font-bold">
@@ -1078,15 +1087,15 @@ export default function HomePage() {
         <Container className="relative z-10 flex flex-col items-center gap-6 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19]/20 bg-[#A82F19]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
             <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
-            Ready to Bring Your Brand to Life?
+            Ready to Elevate Your Brand's Physical Presence?
           </div>
 
           <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl text-slate-900">
-            Let’s Print Your Next Project with Perfection.
+            Let’s Engineer Your Next Print Project with Flawless Precision.
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            From 600 GSM cotton business cards to bespoke rigid gift packaging and large-format exhibition signage, ONPRINT delivers unmatched precision across Dubai.
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
+            From 100 presidential cotton business cards to 10,000 bespoke rigid packaging units, our Al Quoz pressroom delivers perfection on deadline with same-day express delivery across Dubai.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto pt-2">
@@ -1097,16 +1106,17 @@ export default function HomePage() {
               className="!rounded-xl !bg-[#A82F19] hover:!bg-[#8F2412] shadow-lg shadow-[#A82F19]/25 text-center justify-center font-bold !py-3.5 !px-8 text-white"
               onClick={() => trackGetQuoteClick({ source_page: 'homepage_bottom_cta' })}
             >
-              Request a Custom Quote
+              Request a Custom Quote →
             </Button>
-            <Button
-              to="/contact"
-              variant="outline"
-              size="lg"
-              className="!rounded-xl border-slate-300 bg-white text-slate-800 hover:bg-slate-50 text-center justify-center font-bold !py-3.5 !px-8 shadow-xs"
+            <a
+              href="https://wa.me/447344546056?text=Hello%20ONPRINT%20Dubai%2C%20I%20would%20like%20to%20discuss%20a%20commercial%20print%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white text-slate-800 hover:bg-slate-50 text-center font-bold !py-3.5 !px-8 shadow-xs hover:-translate-y-0.5 transition-all group"
             >
-              Contact Our Studio
-            </Button>
+              <WhatsAppIcon className="h-4 w-4 fill-emerald-600 group-hover:scale-110 transition-transform" />
+              <span>Fast-Track on WhatsApp</span>
+            </a>
           </div>
         </Container>
       </section>

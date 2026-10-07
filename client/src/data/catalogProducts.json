@@ -1,5 +1,190 @@
 [
   {
+    "_id": "prod-executive-120gsm-letterheads",
+    "id": 501,
+    "name": "Executive 120gsm Letterheads",
+    "slug": "executive-120gsm-letterheads",
+    "category": {
+      "_id": "cat-letterheads-printing-dubai",
+      "id": 6,
+      "name": "Letterheads Printing Dubai",
+      "slug": "letterheads-printing-dubai"
+    },
+    "shortDescription": "120gsm ultra-smooth laser-guaranteed corporate letterheads with precision corporate branding and crisp ink fidelity.",
+    "description": "Premium corporate stationery printed on 120gsm ultra-smooth laser-guaranteed uncoated paper. Engineered for seamless feeding through desktop office laser/inkjet printers with high-density Pantone color fidelity for official contracts, proposals, and corporate correspondence in Dubai.",
+    "image": "/assets/products/letterhead_executive_120gsm.jpg",
+    "image_url": "/assets/products/letterhead_executive_120gsm.jpg",
+    "imageAlt": "Executive 120gsm corporate stationery letterheads in Dubai",
+    "seoTitle": "Executive 120gsm Letterheads Dubai | Laser Guaranteed Stationery | ONPRINT",
+    "seoDescription": "Order executive 120gsm corporate letterheads in Dubai. Smooth laser-guaranteed uncoated stock with sharp full-color logo printing.",
+    "seoKeywords": "letterhead printing dubai, corporate letterheads uae, 120gsm letterhead paper, executive stationery dubai",
+    "seoHeading": "Executive 120gsm Corporate Letterheads Dubai",
+    "canonicalUrl": "https://0nprint.com/products/executive-120gsm-letterheads",
+    "price": 180,
+    "minimumQuantity": 250,
+    "featured": true,
+    "active": true,
+    "features": [
+      "120gsm Smooth Laser-Guaranteed Stock",
+      "Ultra-Sharp Pantone & CMYK Printing",
+      "Compatible with All Office Desktop Printers"
+    ],
+    "specifications": {
+      "materials": [
+        { "label": "120gsm Premium Smooth Uncoated Bond", "value": "120gsm-uncoated" },
+        { "label": "100gsm Standard Laser Stock", "value": "100gsm-standard" },
+        { "label": "130gsm FSC Certified Recycled Stock", "value": "130gsm-recycled" }
+      ],
+      "sizes": [
+        { "label": "A4 (210 x 297 mm)", "value": "a4" },
+        { "label": "US Letter (8.5 x 11 in)", "value": "us-letter" }
+      ],
+      "turnaround": [
+        { "label": "Express 24-Hour Dispatch", "value": "express-24h" },
+        { "label": "Standard 2–3 Days", "value": "standard" }
+      ]
+    }
+  },
+  {
+    "_id": "prod-luxury-gold-foil-letterheads",
+    "id": 502,
+    "name": "Luxury Gold Foil Letterheads",
+    "slug": "luxury-gold-foil-letterheads",
+    "category": {
+      "_id": "cat-letterheads-printing-dubai",
+      "id": 6,
+      "name": "Letterheads Printing Dubai",
+      "slug": "letterheads-printing-dubai"
+    },
+    "shortDescription": "Bespoke executive letterheads featuring metallic gold or silver hot-foil stamped corporate crests on luxury linen stock.",
+    "description": "Distinguished executive corporate letterheads featuring metallic hot-foil stamping in gold, silver, rose gold, or copper. Printed on textured linen or extra-heavy 140gsm premium watermarked stock for luxury brands, legal chambers, royal family offices, and C-level executive suites across the UAE.",
+    "image": "/assets/products/letterhead_gold_foil.jpg",
+    "image_url": "/assets/products/letterhead_gold_foil.jpg",
+    "imageAlt": "Luxury gold foil embossed corporate letterheads in Dubai",
+    "seoTitle": "Luxury Gold Foil Letterheads Dubai | Foil Stamped Stationery | ONPRINT",
+    "seoDescription": "Order luxury gold foil letterheads in Dubai. Metallic foil stamped crests, textured linen paper, and premium corporate executive stationery.",
+    "seoKeywords": "gold foil letterheads dubai, luxury stationery uae, foil stamped letterhead paper, embossed letterheads dubai",
+    "seoHeading": "Luxury Gold Foil Corporate Letterheads Dubai",
+    "canonicalUrl": "https://0nprint.com/products/luxury-gold-foil-letterheads",
+    "price": 290,
+    "minimumQuantity": 100,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Metallic Gold / Silver Hot-Foil Stamping",
+      "Luxury 140gsm Textured Linen Paper",
+      "Blind Embossing & Debossing Available"
+    ],
+    "specifications": {
+      "materials": [
+        { "label": "140gsm Luxury Textured Linen", "value": "140gsm-linen" },
+        { "label": "120gsm Ultra-Smooth Conqueror Bond", "value": "120gsm-conqueror" },
+        { "label": "150gsm Cotton Texture Off-White", "value": "150gsm-cotton" }
+      ],
+      "finishes": [
+        { "label": "Metallic Gold Hot Foil", "value": "gold-foil" },
+        { "label": "Metallic Silver Hot Foil", "value": "silver-foil" },
+        { "label": "Rose Gold Metallic Foil", "value": "rose-gold-foil" }
+      ],
+      "turnaround": [
+        { "label": "Standard 3–4 Days (Foil Tooling)", "value": "standard-foil" },
+        { "label": "Express 48-Hour Priority", "value": "express-48h" }
+      ]
+    }
+  },
+  {
+    "_id": "prod-matching-corporate-envelopes",
+    "id": 503,
+    "name": "Matching Corporate Envelopes",
+    "slug": "matching-corporate-envelopes",
+    "category": {
+      "_id": "cat-letterheads-printing-dubai",
+      "id": 6,
+      "name": "Letterheads Printing Dubai",
+      "slug": "letterheads-printing-dubai"
+    },
+    "shortDescription": "Custom branded corporate envelopes in DL, C5, and C4 formats with peel-and-seal adhesive flaps and interior privacy tint.",
+    "description": "Complete your corporate stationery suite with custom branded envelopes manufactured from premium 120gsm matching paper stock. Available in standard business DL (with or without window), C5 (for folded A4), and large C4 (for flat A4 documents) with high-adhesion peel & seal closures and optional interior security pattern printing.",
+    "image": "/assets/products/letterhead_envelopes_suite.jpg",
+    "image_url": "/assets/products/letterhead_envelopes_suite.jpg",
+    "imageAlt": "Matching corporate envelopes DL C5 C4 in Dubai",
+    "seoTitle": "Custom Corporate Envelopes Dubai | DL, C5, C4 Envelopes | ONPRINT",
+    "seoDescription": "Order custom branded business envelopes in Dubai. DL, C5, C4 envelope printing with peel-and-seal strips and full-color corporate branding.",
+    "seoKeywords": "envelope printing dubai, custom corporate envelopes uae, dl envelope printing, c4 envelopes dubai",
+    "seoHeading": "Matching Custom Corporate Envelopes Dubai",
+    "canonicalUrl": "https://0nprint.com/products/matching-corporate-envelopes",
+    "price": 120,
+    "minimumQuantity": 250,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Available in DL, C5, and C4 Sizes",
+      "Ultra-Strong Peel & Seal Closure Flap",
+      "Optional Window & Interior Privacy Tint"
+    ],
+    "specifications": {
+      "sizes": [
+        { "label": "DL Envelope (110 x 220 mm)", "value": "dl-size" },
+        { "label": "C5 Envelope (162 x 229 mm)", "value": "c5-size" },
+        { "label": "C4 Envelope (229 x 324 mm)", "value": "c4-size" }
+      ],
+      "materials": [
+        { "label": "120gsm Smooth Matching White", "value": "120gsm-smooth" },
+        { "label": "130gsm Textured Kraft Eco Paper", "value": "130gsm-kraft" }
+      ],
+      "turnaround": [
+        { "label": "Express 24-Hour Dispatch", "value": "express-24h" },
+        { "label": "Standard 2–3 Days", "value": "standard" }
+      ]
+    }
+  },
+  {
+    "_id": "prod-corporate-presentation-folders",
+    "id": 504,
+    "name": "Corporate Presentation Folders",
+    "slug": "corporate-presentation-folders",
+    "category": {
+      "_id": "cat-letterheads-printing-dubai",
+      "id": 6,
+      "name": "Letterheads Printing Dubai",
+      "slug": "letterheads-printing-dubai"
+    },
+    "shortDescription": "Heavy 350gsm matte laminated presentation folders with document pocket, business card slot, and spot UV accents.",
+    "description": "Elevate tenders, client proposals, and executive sales pitches with custom die-cut corporate presentation folders. Crafted from heavy 350gsm rigid art card with velvet soft-touch lamination, metallic foil detailing, interior document pockets, and precision die-cut business card slits.",
+    "image": "/assets/products/letterhead_presentation_folders.jpg",
+    "image_url": "/assets/products/letterhead_presentation_folders.jpg",
+    "imageAlt": "Luxury corporate presentation folders with document pocket in Dubai",
+    "seoTitle": "Corporate Presentation Folders Dubai | Custom Pocket Folders | ONPRINT",
+    "seoDescription": "Order luxury corporate presentation folders in Dubai. Heavy 350gsm card, velvet lamination, business card slots, and spot UV finish.",
+    "seoKeywords": "presentation folders dubai, document folder printing uae, corporate pocket folders dubai, custom die cut folders",
+    "seoHeading": "Corporate Presentation Folders Dubai",
+    "canonicalUrl": "https://0nprint.com/products/corporate-presentation-folders",
+    "price": 140,
+    "minimumQuantity": 50,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Heavy 350gsm Rigid Art Board",
+      "Velvet Soft-Touch & Spot UV Detailing",
+      "Die-Cut Interior Pockets & Card Slits"
+    ],
+    "specifications": {
+      "materials": [
+        { "label": "350gsm Coated Silk Cardboard", "value": "350gsm-silk" },
+        { "label": "400gsm Heavyweight Art Board", "value": "400gsm-heavy" }
+      ],
+      "finishes": [
+        { "label": "Soft-Touch Matte + Spot UV", "value": "softtouch-spotuv" },
+        { "label": "Gold Foil Stamped Logo", "value": "gold-foil" },
+        { "label": "Matte Anti-Scratch Lamination", "value": "matte-antiscratch" }
+      ],
+      "turnaround": [
+        { "label": "Express 48-Hour Dispatch", "value": "express-48h" },
+        { "label": "Standard 3–4 Days", "value": "standard" }
+      ]
+    }
+  },
+  {
     "_id": "prod-secure-smart-nfc-pvc-id-cards",
     "id": 401,
     "name": "Secure Smart NFC PVC ID Cards",
@@ -67,12 +252,6 @@
         "id": 4,
         "name": "ID Card Printing Dubai",
         "slug": "id-card-printing-dubai"
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai"
       },
       {
         "_id": "cat-name-badges-printing-dubai",
@@ -154,12 +333,6 @@
         "id": 4,
         "name": "ID Card Printing Dubai",
         "slug": "id-card-printing-dubai"
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai"
       }
     ],
     "images": [
@@ -235,12 +408,6 @@
         "id": 4,
         "name": "ID Card Printing Dubai",
         "slug": "id-card-printing-dubai"
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai"
       }
     ],
     "images": [
@@ -316,12 +483,6 @@
         "id": 4,
         "name": "ID Card Printing Dubai",
         "slug": "id-card-printing-dubai"
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai"
       }
     ],
     "images": [
@@ -397,12 +558,6 @@
         "id": 4,
         "name": "ID Card Printing Dubai",
         "slug": "id-card-printing-dubai"
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai"
       }
     ],
     "images": [
@@ -478,12 +633,6 @@
         "id": 4,
         "name": "ID Card Printing Dubai",
         "slug": "id-card-printing-dubai"
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai"
       }
     ],
     "images": [
@@ -559,12 +708,6 @@
         "id": 4,
         "name": "ID Card Printing Dubai",
         "slug": "id-card-printing-dubai"
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai"
       },
       {
         "_id": "cat-name-badges-printing-dubai",
@@ -921,17 +1064,6 @@
           "/assets/products/service_exhibition_signage.jpg",
           "/assets/products/rollup_banner.jpg",
           "/assets/products/flags.jpg"
-        ]
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai",
-        "images": [
-          "/assets/products/custom_branded_lanyards.jpg",
-          "/assets/products/name_badges.jpg",
-          "/assets/products/id_cards.jpg"
         ]
       },
       {
@@ -1902,17 +2034,6 @@
         ]
       },
       {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai",
-        "images": [
-          "/assets/products/custom_branded_lanyards.jpg",
-          "/assets/products/name_badges.jpg",
-          "/assets/products/id_cards.jpg"
-        ]
-      },
-      {
         "_id": "cat-hospitality-event-printing",
         "id": 15,
         "name": "Hospitality & Event Stationery",
@@ -2194,17 +2315,6 @@
           "/assets/products/water_bottles.jpg",
           "/assets/products/mugs.jpg",
           "/assets/products/1 (2).jpg"
-        ]
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai",
-        "images": [
-          "/assets/products/custom_branded_lanyards.jpg",
-          "/assets/products/name_badges.jpg",
-          "/assets/products/id_cards.jpg"
         ]
       },
       {
@@ -2987,17 +3097,6 @@
           "/assets/products/brochure_zfold.jpg",
           "/assets/products/service_digital_offset.jpg"
         ]
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai",
-        "images": [
-          "/assets/products/custom_branded_lanyards.jpg",
-          "/assets/products/name_badges.jpg",
-          "/assets/products/id_cards.jpg"
-        ]
       }
     ]
   },
@@ -3168,17 +3267,6 @@
           "/assets/products/service_exhibition_signage.jpg",
           "/assets/products/rollup_banner.jpg",
           "/assets/products/flags.jpg"
-        ]
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai",
-        "images": [
-          "/assets/products/custom_branded_lanyards.jpg",
-          "/assets/products/name_badges.jpg",
-          "/assets/products/id_cards.jpg"
         ]
       }
     ]
@@ -4225,17 +4313,6 @@
           "/assets/products/1 (15).jpg",
           "/assets/products/1 (16).jpg"
         ]
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai",
-        "images": [
-          "/assets/products/custom_branded_lanyards.jpg",
-          "/assets/products/name_badges.jpg",
-          "/assets/products/id_cards.jpg"
-        ]
       }
     ]
   },
@@ -4326,17 +4403,6 @@
           "/assets/products/1 (14).jpg",
           "/assets/products/1 (15).jpg",
           "/assets/products/1 (16).jpg"
-        ]
-      },
-      {
-        "_id": "cat-lanyard-printing-dubai",
-        "id": 5,
-        "name": "Lanyard Printing Dubai",
-        "slug": "lanyard-printing-dubai",
-        "images": [
-          "/assets/products/custom_branded_lanyards.jpg",
-          "/assets/products/name_badges.jpg",
-          "/assets/products/id_cards.jpg"
         ]
       }
     ]

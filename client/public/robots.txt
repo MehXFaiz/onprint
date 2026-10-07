@@ -5,6 +5,8 @@ Allow: /services
 Allow: /services/
 Allow: /products
 Allow: /products/
+Allow: /categories
+Allow: /categories/
 Allow: /portfolio
 Allow: /portfolio/
 Allow: /blog
@@ -29,4 +31,5 @@ Disallow: /login
 Disallow: /register
 Disallow: /account
 
+Host: https://0nprint.com
 Sitemap: https://0nprint.com/sitemap.xml

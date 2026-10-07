@@ -61,7 +61,31 @@ function isProductInCategory(product, category) {
     }
   }
 
-  // 5. Mugs & Bottles Category Guards
+  // 5. Lanyard Category Guard: ONLY genuine neck lanyards, NEVER keychains, mugs, badges, or apparel
+  const isLanyardCategory = catSlug.includes('lanyard') || catName.includes('lanyard')
+  const isLanyardProduct = pName.includes('lanyard') || pSlug.includes('lanyard') || pName.includes('neck strap')
+  if (isLanyardCategory) {
+    const nonLanyardKeywords = [
+      'keychain', 'key ring', 'badge', 'nameplate', 'mug', 'bottle', 'flask',
+      'tote', 'cap', 'hat', 'shirt', 'sticker', 'label', 'flyer', 'brochure',
+      'letterhead', 'box', 'packaging', 'standee', 'banner', 'flag'
+    ]
+    if (nonLanyardKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
+      return false
+    }
+    if (isLanyardProduct) return true
+  }
+  if (!isLanyardCategory && isLanyardProduct) {
+    return false
+  }
+
+  // 6. Keychain Product Guard: NEVER allow keychains in Lanyard, Flyer, Brochure, or ID card categories
+  const isKeychainProduct = pName.includes('keychain') || pSlug.includes('keychain') || pName.includes('key ring')
+  if (isKeychainProduct && !catSlug.includes('corporate-gift') && !catName.includes('gift')) {
+    return false
+  }
+
+  // 7. Mugs & Bottles Category Guards
   const isMugCategory = catSlug.includes('mug') || catName.includes('mug')
   const isMugProduct = pName.includes('mug') || pSlug.includes('mug') || pName.includes('tumbler') || pSlug.includes('tumbler')
   if (isMugCategory) {
@@ -78,7 +102,21 @@ function isProductInCategory(product, category) {
     return false
   }
 
-  // 6. General Category Matching
+  // 8. Letterheads Category Guard
+  const isLetterheadCategory = catSlug.includes('letterhead') || catName.includes('letterhead')
+  const isLetterheadProduct = pName.includes('letterhead') || pSlug.includes('letterhead') || pName.includes('stationery') || pName.includes('envelope') || pName.includes('presentation folder') || pSlug.includes('envelope') || pSlug.includes('presentation-folder')
+  if (isLetterheadCategory) {
+    const nonLetterheadKeywords = ['mug', 'bottle', 'lanyard', 'tote', 'cap', 'id card', 'flyer', 'sticker', 'label', 'banner', 'notebook']
+    if (nonLetterheadKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
+      return false
+    }
+    if (isLetterheadProduct) return true
+  }
+  if (!isLetterheadCategory && isLetterheadProduct) {
+    return false
+  }
+
+  // 9. General Category Matching
   const prodCat = product.category
   if (prodCat && typeof prodCat === 'object') {
     const pCatId = String(prodCat._id || prodCat.id || '')

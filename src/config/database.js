@@ -889,7 +889,7 @@ const seedProductsList = [
   },
   {
     product_key: 'prod-roll-up-banners',
-    category_slug: 'flyers-printing-in-dubai',
+    category_slug: 'signage-banners-printing',
     name: 'Roll-Up Banners',
     slug: 'roll-up-banners',
     short_description: 'Retractable banners for events, exhibitions, and retail features.',
@@ -907,7 +907,7 @@ const seedProductsList = [
   },
   {
     product_key: 'prod-beach-flags',
-    category_slug: 'flyers-printing-in-dubai',
+    category_slug: 'signage-banners-printing',
     name: 'Beach Flags',
     slug: 'beach-flags',
     short_description: 'Outdoor promotional beach flags for roadshows and retail frontage branding.',
@@ -925,7 +925,7 @@ const seedProductsList = [
   },
   {
     product_key: 'prod-die-cut-stickers',
-    category_slug: 'flyers-printing-in-dubai',
+    category_slug: 'stickers-labels-printing',
     name: 'Die-Cut Stickers',
     slug: 'die-cut-stickers',
     short_description: 'Waterproof vinyl stickers for branding, packaging, and retail POP display essentials.',
@@ -943,7 +943,7 @@ const seedProductsList = [
   },
   {
     product_key: 'prod-engraved-keychains',
-    category_slug: 'lanyard-printing-dubai',
+    category_slug: 'corporate-gift-items',
     name: 'Engraved Keychains',
     slug: 'engraved-keychains',
     short_description: 'Premium engraved keychains and accessories for corporate gifting and loyalty campaigns.',
@@ -961,7 +961,7 @@ const seedProductsList = [
   },
   {
     product_key: 'prod-executive-notebooks',
-    category_slug: 'letterheads-printing-dubai',
+    category_slug: 'office-stationery-printing',
     name: 'Executive Notebooks',
     slug: 'executive-notebooks',
     short_description: 'Hardcover executive notebooks with premium covers and logo embossing for gifting and branding.',

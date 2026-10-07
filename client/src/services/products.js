@@ -45,6 +45,54 @@ export function getStoredProducts() {
           }
         }
 
+        if (name.includes('sticker') || slug.includes('sticker') || name.includes('label') || slug.includes('label')) {
+          return {
+            ...p,
+            category: {
+              _id: 'cat-stickers-labels-printing',
+              id: 13,
+              name: 'Stickers & Product Labels',
+              slug: 'stickers-labels-printing'
+            }
+          }
+        }
+
+        if (name.includes('flyer') || slug.includes('flyer') || name.includes('leaflet') || slug.includes('leaflet')) {
+          return {
+            ...p,
+            category: {
+              _id: 'cat-flyers-printing-in-dubai',
+              id: 3,
+              name: 'Flyers Printing In Dubai',
+              slug: 'flyers-printing-in-dubai'
+            }
+          }
+        }
+
+        if (name.includes('banner') || slug.includes('banner') || name.includes('flag') || slug.includes('flag')) {
+          return {
+            ...p,
+            category: {
+              _id: 'cat-signage-banners-printing',
+              id: 10,
+              name: 'Signage & Exhibition Banners',
+              slug: 'signage-banners-printing'
+            }
+          }
+        }
+
+        if (name.includes('tote') || slug.includes('tote') || name.includes('keychain') || slug.includes('keychain')) {
+          return {
+            ...p,
+            category: {
+              _id: 'cat-corporate-gift-items',
+              id: 9,
+              name: 'Corporate Gifts & Merchandise',
+              slug: 'corporate-gift-items'
+            }
+          }
+        }
+
         return p
       })
 

@@ -15,23 +15,53 @@ function isProductInCategory(product, category) {
   const pName = String(product.name || '').toLowerCase()
   const pSlug = String(product.slug || '').toLowerCase()
 
-  if (catSlug.includes('brochure') || catName.includes('brochure')) {
+  // 1. Flyers Category Guard: ONLY actual flyers/leaflets, NEVER stickers, banners, mugs, etc.
+  const isFlyerCategory = catSlug.includes('flyer') || catName.includes('flyer')
+  const isFlyerProduct = pName.includes('flyer') || pSlug.includes('flyer') || pName.includes('leaflet') || pSlug.includes('leaflet') || pName.includes('handbill')
+  if (isFlyerCategory) {
+    const nonFlyerKeywords = ['sticker', 'label', 'decal', 'banner', 'flag', 'mug', 'bottle', 'flask', 'tote', 'badge', 'keychain', 'nameplate', 'signage', 'id card', 'lanyard', 'box']
+    if (nonFlyerKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
+      return false
+    }
+    if (isFlyerProduct) return true
+  }
+  if (!isFlyerCategory && isFlyerProduct) {
+    return false
+  }
+
+  // 2. Stickers & Labels Category Guard
+  const isStickerCategory = catSlug.includes('sticker') || catName.includes('sticker') || catSlug.includes('label') || catName.includes('label')
+  const isStickerProduct = pName.includes('sticker') || pSlug.includes('sticker') || pName.includes('label') || pSlug.includes('label') || pName.includes('decal') || pSlug.includes('decal')
+  if (isStickerCategory) {
+    return isStickerProduct
+  }
+  if (!isStickerCategory && isStickerProduct) {
+    return false
+  }
+
+  // 3. Brochures Category Guard
+  const isBrochureCategory = catSlug.includes('brochure') || catName.includes('brochure')
+  if (isBrochureCategory) {
     const nonBrochureKeywords = [
       'mug', 'cup', 'bottle', 'flask', 'tote', 'bag', 't-shirt', 'tshirt',
-      'cap', 'hat', 'badge', 'keychain', 'nameplate', 'signage', 'banner', 'flag', 'box', 'packaging'
+      'cap', 'hat', 'badge', 'keychain', 'nameplate', 'signage', 'banner', 'flag', 'box', 'packaging',
+      'sticker', 'label', 'decal', 'flyer'
     ]
     if (nonBrochureKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
       return false
     }
   }
 
-  if (catSlug.includes('business-card') || catName.includes('business card')) {
-    const nonCardKeywords = ['mug', 'bottle', 'tote', 'banner', 'box', 'brochure', 'booklet']
+  // 4. Business Cards Category Guard
+  const isBusinessCardCategory = catSlug.includes('business-card') || catName.includes('business card')
+  if (isBusinessCardCategory) {
+    const nonCardKeywords = ['mug', 'bottle', 'tote', 'banner', 'box', 'brochure', 'booklet', 'sticker', 'label', 'flyer', 'signage']
     if (nonCardKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
       return false
     }
   }
 
+  // 5. Mugs & Bottles Category Guards
   const isMugCategory = catSlug.includes('mug') || catName.includes('mug')
   const isMugProduct = pName.includes('mug') || pSlug.includes('mug') || pName.includes('tumbler') || pSlug.includes('tumbler')
   if (isMugCategory) {
@@ -48,6 +78,7 @@ function isProductInCategory(product, category) {
     return false
   }
 
+  // 6. General Category Matching
   const prodCat = product.category
   if (prodCat && typeof prodCat === 'object') {
     const pCatId = String(prodCat._id || prodCat.id || '')

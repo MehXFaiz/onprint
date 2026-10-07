@@ -5284,9 +5284,10 @@
     "featured": true,
     "active": true,
     "images": [
-      "/assets/products/flyer-a5-promotional.jpg",
       "/assets/products/flyers.jpg"
     ],
+    "image": "/assets/products/flyers.jpg",
+    "image_url": "/assets/products/flyers.jpg",
     "category": {
       "_id": "cat-flyers-printing-in-dubai",
       "id": 3,
@@ -5306,8 +5307,10 @@
     "featured": true,
     "active": true,
     "images": [
-      "/assets/products/flyer-a4-business.jpg"
+      "/assets/products/flyers.jpg"
     ],
+    "image": "/assets/products/flyers.jpg",
+    "image_url": "/assets/products/flyers.jpg",
     "category": {
       "_id": "cat-flyers-printing-in-dubai",
       "id": 3,
@@ -5327,8 +5330,10 @@
     "featured": false,
     "active": true,
     "images": [
-      "/assets/products/flyer-dl-event.jpg"
+      "/assets/products/flyers.jpg"
     ],
+    "image": "/assets/products/flyers.jpg",
+    "image_url": "/assets/products/flyers.jpg",
     "category": {
       "_id": "cat-flyers-printing-in-dubai",
       "id": 3,

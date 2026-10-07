@@ -130,7 +130,7 @@ const homeFaqs = [
   {
     question: 'How much does printing cost in Dubai?',
     answer:
-      'Printing costs vary based on quantity, material, size, and finishing options. Standard business cards start from just AED 45 for 100 cards, while custom packaging, exhibition banners, and large format printing are quoted based on exact specifications. Contact us for a detailed instant quote tailored to your requirements.',
+      'Printing costs vary based on quantity, material, size, and finishing options. Products are quoted based on your exact volume and specifications with transparent tiered pricing. Contact us for a detailed instant quote tailored to your requirements.',
   },
   {
     question: 'Can I see a proof before my project goes to press?',

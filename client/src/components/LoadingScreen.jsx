@@ -2,21 +2,11 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import logoIconLight from '../assets/logo_icon_light.png'
 
-const SESSION_KEY = 'onprint-luxury-splash-2026'
-
-const particles = [
-  { top: '30%', left: '20%', delay: 0.2, size: 3 },
-  { top: '38%', left: '78%', delay: 0.4, size: 2.5 },
-  { top: '65%', left: '25%', delay: 0.6, size: 3 },
-  { top: '70%', left: '75%', delay: 0.3, size: 2 },
-  { top: '22%', left: '50%', delay: 0.5, size: 3.5 },
-  { top: '78%', left: '48%', delay: 0.7, size: 2.5 },
-]
+const SESSION_KEY = 'onprint-splash-smooth-v3'
 
 export default function LoadingScreen() {
   const reduce = useReducedMotion()
   const [visible, setVisible] = useState(false)
-  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     // Show splash screen on first visit per session
@@ -27,25 +17,11 @@ export default function LoadingScreen() {
 
     setVisible(true)
 
-    // Smooth progress bar animation
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(progressInterval)
-          return 100
-        }
-        return prev + 2
-      })
-    }, 45)
-
     const timer = setTimeout(() => {
       setVisible(false)
-    }, 2800)
+    }, 2600)
 
-    return () => {
-      clearInterval(progressInterval)
-      clearTimeout(timer)
-    }
+    return () => clearTimeout(timer)
   }, [reduce])
 
   if (!visible) return null
@@ -54,183 +30,137 @@ export default function LoadingScreen() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          key="onprint-logo-splash"
+          key="onprint-smooth-splash"
           onClick={() => setVisible(false)}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#07090E] text-white overflow-hidden select-none cursor-pointer"
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            scale: 1.04,
-            filter: 'blur(10px)',
-            transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+            scale: 1.02,
+            filter: 'blur(8px)',
+            transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
           }}
           aria-label="ONPRINT Intro Splash Screen"
         >
-          {/* 1. Deep Ambient Radial Aura */}
+          {/* Subtle Ambient Radial Glow */}
           <motion.div
-            className="absolute w-[500px] sm:w-[750px] h-[500px] sm:h-[750px] rounded-full pointer-events-none"
+            className="absolute w-[450px] sm:w-[650px] h-[450px] sm:h-[650px] rounded-full pointer-events-none"
             style={{
               background:
-                'radial-gradient(circle, rgba(168,47,25,0.22) 0%, rgba(168,47,25,0.04) 50%, rgba(7,9,14,0) 75%)',
+                'radial-gradient(circle, rgba(168,47,25,0.18) 0%, rgba(168,47,25,0.03) 50%, rgba(7,9,14,0) 75%)',
             }}
-            initial={{ opacity: 0, scale: 0.6 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{
-              opacity: [0, 0.9, 1, 0.4],
-              scale: [0.6, 1, 1.08, 1.15],
+              opacity: [0, 1, 0.85],
+              scale: [0.8, 1, 1.05],
             }}
             transition={{
-              duration: 2.7,
-              times: [0, 0.3, 0.8, 1],
-              ease: 'easeOut',
+              duration: 2.2,
+              ease: [0.22, 1, 0.36, 1],
             }}
           />
 
-          {/* 2. Precision Press Guidelines & Status */}
-          <div className="absolute inset-6 sm:inset-10 pointer-events-none opacity-30 flex justify-between flex-col text-[10px] font-mono tracking-[0.25em] text-slate-400 uppercase">
+          {/* Minimal Corner Technical Accents */}
+          <motion.div
+            className="absolute inset-6 sm:inset-10 pointer-events-none flex justify-between flex-col text-[10px] font-mono tracking-[0.25em] text-slate-500 uppercase"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.4 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
             <div className="flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#A82F19] animate-ping" />
-                <span className="text-white font-bold">ONPRINT // PRESSROOM</span>
-              </div>
-              <span>DUBAI, UAE • 1200 DPI</span>
+              <span className="flex items-center gap-1.5 text-slate-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#A82F19]" />
+                ONPRINT PRESSROOM
+              </span>
+              <span>DUBAI • UAE</span>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-slate-500">COMMERCIAL OFFSET &amp; DIGITAL</span>
-              <span className="text-slate-300 font-semibold">TAP TO SKIP →</span>
+            <div className="flex justify-between items-center text-[9px] text-slate-600">
+              <span>COMMERCIAL PRINT</span>
+              <span className="text-slate-400">CLICK TO ENTER →</span>
             </div>
-          </div>
+          </motion.div>
 
-          {/* 3. Floating Light Particles */}
-          {particles.map((p, i) => (
-            <motion.span
-              key={i}
-              className="absolute rounded-full bg-[#A82F19] shadow-[0_0_12px_#A82F19] pointer-events-none"
-              style={{
-                top: p.top,
-                left: p.left,
-                width: `${p.size}px`,
-                height: `${p.size}px`,
-              }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{
-                opacity: [0, 0.9, 0],
-                scale: [0, 1.8, 0],
-                y: [0, -25],
-              }}
-              transition={{
-                duration: 1.8,
-                delay: p.delay,
-                ease: 'easeOut',
-              }}
-            />
-          ))}
-
-          {/* 4. Center Logo & Brand Presentation */}
+          {/* Center Stage: Smooth Logo & Company Name Sequence */}
           <div className="relative z-10 flex flex-col items-center justify-center px-4 text-center">
-            {/* Logo Emblem in Glowing Circular Stage */}
-            <div className="relative flex items-center justify-center mb-6">
-              {/* Animated Glowing Ring Draw */}
-              <svg className="w-28 h-28 sm:w-36 sm:h-36 -rotate-90 pointer-events-none">
-                <circle
-                  cx="50%"
-                  cy="50%"
-                  r="44%"
-                  className="stroke-white/10 fill-none"
-                  strokeWidth="2"
-                />
-                <motion.circle
-                  cx="50%"
-                  cy="50%"
-                  r="44%"
-                  className="stroke-[#A82F19] fill-none"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                />
-              </svg>
-
-              {/* Pulsing Backlight */}
+            {/* 1. Logo Emblem: Appears First, Ultra Smoothly */}
+            <motion.div
+              className="relative flex items-center justify-center mb-6"
+              initial={{ opacity: 0, scale: 0.86, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{
+                duration: 0.9,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              {/* Soft Radiant Halo */}
               <motion.div
-                className="absolute inset-3 rounded-full bg-gradient-to-tr from-[#A82F19]/30 to-[#F36621]/20 blur-md pointer-events-none"
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: [0.8, 1.15, 1], opacity: [0, 0.8, 0.5] }}
-                transition={{ duration: 1.4, ease: 'easeOut' }}
+                className="absolute inset-0 rounded-full bg-[#A82F19]/25 blur-xl pointer-events-none"
+                initial={{ opacity: 0, scale: 0.6 }}
+                animate={{ opacity: 0.7, scale: 1.2 }}
+                transition={{ duration: 1.2, ease: 'easeOut' }}
               />
 
-              {/* Central Logo Icon Badge */}
-              <motion.div
-                className="absolute flex items-center justify-center h-18 w-18 sm:h-24 sm:w-24 rounded-full bg-[#0E131E] border border-white/20 shadow-2xl overflow-hidden"
-                initial={{ scale: 0, rotate: -30, opacity: 0 }}
-                animate={{ scale: 1, rotate: 0, opacity: 1 }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 260,
-                  damping: 20,
-                  delay: 0.2,
-                }}
-              >
+              {/* Logo Emblem Icon */}
+              <div className="relative flex items-center justify-center h-20 w-20 sm:h-24 sm:w-24 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-white/15 shadow-2xl backdrop-blur-md p-4">
                 <img
                   src={logoIconLight}
                   alt="ONPRINT Logo"
-                  className="h-10 w-10 sm:h-14 sm:w-14 object-contain"
+                  className="h-full w-full object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
                 />
-              </motion.div>
-            </div>
-
-            {/* Company Name Reveal */}
-            <div className="relative overflow-hidden py-1">
-              <motion.div
-                initial={{ y: 35, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.6,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="flex items-center justify-center font-black tracking-[0.2em] sm:tracking-[0.25em] text-4xl sm:text-6xl text-white"
-              >
-                <span>ON</span>
-                <span className="text-[#A82F19] ml-0.5">PRINT</span>
-              </motion.div>
-            </div>
-
-            {/* Subtitle & Quality Tagline */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.95,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mt-3 flex flex-col items-center gap-1.5"
-            >
-              <div className="text-[11px] sm:text-xs font-black uppercase tracking-[0.35em] text-slate-300">
-                DUBAI COMMERCIAL PRESS
-              </div>
-              <div className="text-[9px] sm:text-[10px] font-semibold tracking-[0.25em] text-slate-500 uppercase">
-                Premium Printing &amp; Luxury Packaging
               </div>
             </motion.div>
 
-            {/* Progress Bar & Loader Indicator */}
+            {/* 2. Company Name: Appears Second, Extremely Smooth */}
             <motion.div
+              className="flex items-center justify-center text-4xl sm:text-6xl font-black uppercase tracking-[0.22em] text-white"
+              initial={{ opacity: 0, y: 14, filter: 'blur(6px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{
+                duration: 0.85,
+                delay: 0.55,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <span>ON</span>
+              <span className="text-[#A82F19] ml-0.5">PRINT</span>
+            </motion.div>
+
+            {/* 3. Subtitle / Tagline: Fades In Smoothly */}
+            <motion.div
+              className="mt-3 flex flex-col items-center gap-1 text-center"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.75,
+                delay: 0.85,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.35em] text-slate-300">
+                DUBAI COMMERCIAL PRESS
+              </span>
+              <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.25em] text-slate-500 uppercase">
+                Premium Printing &amp; Luxury Packaging
+              </span>
+            </motion.div>
+
+            {/* 4. Elegant Minimal Loading Line */}
+            <motion.div
+              className="mt-8 h-[2px] w-28 sm:w-36 rounded-full bg-white/10 overflow-hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.1, duration: 0.4 }}
-              className="mt-8 flex flex-col items-center w-48 sm:w-56"
+              transition={{ duration: 0.5, delay: 0.9 }}
             >
-              <div className="h-1 w-full rounded-full bg-white/10 overflow-hidden">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-[#A82F19] to-[#F36621] rounded-full"
-                  style={{ width: `${progress}%` }}
-                />
-              </div>
-              <div className="mt-2 text-[9px] font-mono tracking-widest text-slate-400">
-                LOADING PRESSROOM {progress}%
-              </div>
+              <motion.div
+                className="h-full bg-gradient-to-r from-transparent via-[#A82F19] to-white rounded-full"
+                initial={{ x: '-100%' }}
+                animate={{ x: '100%' }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1.2,
+                  ease: 'easeInOut',
+                }}
+              />
             </motion.div>
           </div>
         </motion.div>

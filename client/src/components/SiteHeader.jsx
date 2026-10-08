@@ -22,11 +22,10 @@ import {
   FileText,
   CreditCard,
   Building2,
-  HelpCircle,
   BookOpen,
-  Info,
   ChevronRight,
-  ExternalLink
+  Plus,
+  Minus
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
@@ -148,7 +147,7 @@ function LinkedInIcon(props) {
 export default function SiteHeader() {
   const { user, isAuthenticated, isAdmin, logout } = useAuth()
   const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [categories, setCategories] = useState([])
@@ -157,10 +156,12 @@ export default function SiteHeader() {
   const [searchModalOpen, setSearchModalOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [copied, setCopied] = useState(false)
+  const [mobileAccordion, setMobileAccordion] = useState({ catalog: false, services: false, company: false })
 
   const location = useLocation()
   const navigate = useNavigate()
   const searchInputRef = useRef(null)
+  const dropdownTimeoutRef = useRef(null)
 
   const handleCopyNumber = () => {
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
@@ -168,6 +169,17 @@ export default function SiteHeader() {
     }
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
+  }
+
+  const handleMouseEnterDropdown = (key) => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current)
+    setActiveDropdown(key)
+  }
+
+  const handleMouseLeaveDropdown = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null)
+    }, 150)
   }
 
   useEffect(() => {
@@ -215,55 +227,75 @@ export default function SiteHeader() {
 
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 15)
+      setScrolled(window.scrollY > 20)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Close menus on route navigation
   useEffect(() => {
-    setMenuOpen(false)
+    setMobileMenuOpen(false)
     setActiveDropdown(null)
     setWhatsappPopoverOpen(false)
     setSearchModalOpen(false)
+    setUserMenuOpen(false)
     setSearchQuery('')
   }, [location.pathname])
 
+  // Prevent background scroll when mobile drawer or search is open
   useEffect(() => {
-    document.body.style.overflow = (menuOpen || searchModalOpen) ? 'hidden' : ''
+    document.body.style.overflow = (mobileMenuOpen || searchModalOpen) ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
-  }, [menuOpen, searchModalOpen])
+  }, [mobileMenuOpen, searchModalOpen])
 
+  // Focus search input
   useEffect(() => {
     if (searchModalOpen && searchInputRef.current) {
-      setTimeout(() => searchInputRef.current?.focus(), 50)
+      setTimeout(() => searchInputRef.current?.focus(), 80)
     }
   }, [searchModalOpen])
 
+  // Keyboard shortcut for search
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+        e.preventDefault()
+        setSearchModalOpen(true)
+      } else if (e.key === 'Escape') {
+        setSearchModalOpen(false)
+        setActiveDropdown(null)
+        setWhatsappPopoverOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 w-full transition-all duration-300">
-      {/* 1. ULTRA-SLEEK TOP ANNOUNCEMENT TICKER */}
-      <div className="hidden border-b border-slate-800/80 bg-[#0B0F17] py-2 text-[11px] text-slate-300 lg:block transition-all">
-        <Container className="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12">
-          {/* Left: Location Badge + Express UAE Delivery */}
-          <div className="flex items-center gap-3">
+    <header className="sticky top-0 z-50 w-full select-none transition-all duration-300">
+      {/* 1. TOP ANNOUNCEMENT / UTILITY BAR */}
+      <div className="hidden md:block border-b border-slate-800 bg-[#0B0F17] py-1.5 text-[11px] text-slate-300">
+        <Container className="flex items-center justify-between gap-4">
+          {/* Left: Location & Delivery Guarantee */}
+          <div className="flex items-center gap-3 shrink-0">
             <div className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-2.5 py-0.5 font-medium text-slate-200">
               <MapPin className="h-3 w-3 text-[#A82F19]" />
-              <span>Al Quoz, Dubai Pressroom</span>
+              <span className="truncate max-w-[150px] lg:max-w-none">Al Quoz, Dubai Pressroom</span>
             </div>
 
-            <div className="flex items-center gap-1.5 text-slate-300">
-              <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-semibold text-white">Same-Day &amp; Express 24h</span>
-              <span>UAE Delivery</span>
+            <div className="hidden sm:flex items-center gap-1.5 text-slate-300">
+              <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              <span className="font-bold text-white">Same-Day &amp; Express 24h</span>
+              <span className="text-slate-400">UAE Delivery</span>
             </div>
           </div>
 
           {/* Right: Direct Hotline + Track Order + Email + Socials */}
-          <div className="flex items-center gap-4 text-slate-300">
+          <div className="flex items-center gap-3 lg:gap-4 shrink-0 text-slate-300">
             <Link
               to="/track-order"
               className="inline-flex items-center gap-1.5 font-semibold text-slate-200 hover:text-white transition-colors"
@@ -272,20 +304,20 @@ export default function SiteHeader() {
               <span>Track Order</span>
             </Link>
 
-            <span className="h-3 w-px bg-white/15" />
+            <span className="hidden lg:inline h-3 w-px bg-white/15" />
 
             <a
               href="mailto:0nprint183@gmail.com"
-              className="inline-flex items-center gap-1.5 font-medium text-slate-300 hover:text-white transition-colors"
+              className="hidden lg:inline-flex items-center gap-1.5 font-medium text-slate-300 hover:text-white transition-colors"
             >
               <Mail className="h-3.5 w-3.5 text-slate-400" />
               <span>0nprint183@gmail.com</span>
             </a>
 
-            <span className="h-3 w-px bg-white/15" />
+            <span className="hidden xl:inline h-3 w-px bg-white/15" />
 
-            {/* Social Icons with Smooth Glow */}
-            <div className="flex items-center gap-2.5 text-slate-400">
+            {/* Social Icons */}
+            <div className="hidden xl:flex items-center gap-2 text-slate-400">
               <a
                 href="https://facebook.com"
                 target="_blank"
@@ -318,21 +350,21 @@ export default function SiteHeader() {
         </Container>
       </div>
 
-      {/* 2. MAIN 2026 LUXURY LIGHT NAVBAR */}
+      {/* 2. MAIN HEADER NAVIGATION BAR */}
       <div
         className={`border-b border-slate-200/90 bg-white/95 backdrop-blur-xl transition-all duration-300 ${
-          scrolled ? 'py-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.06)]' : 'py-3.5 shadow-2xs'
+          scrolled ? 'py-2 shadow-md shadow-slate-900/5' : 'py-3 shadow-2xs'
         }`}
       >
-        <Container className="flex items-center justify-between gap-2 sm:gap-4 px-4 sm:px-6 lg:px-8 xl:px-12">
-          {/* Brand Logo with Pressroom Subtitle */}
+        <Container className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-6">
+          {/* Brand Logo & Subtitle */}
           <Link
             to="/"
-            onClick={() => setMenuOpen(false)}
-            className="group shrink-0 flex items-center gap-3 pr-3 xl:pr-5 border-r border-slate-200/80"
+            onClick={() => setMobileMenuOpen(false)}
+            className="group shrink-0 flex items-center gap-2.5 sm:gap-3"
           >
             <Logo variant="default" size="md" />
-            <div className="hidden xl:flex flex-col text-left leading-tight">
+            <div className="hidden 2xl:flex flex-col text-left leading-tight pl-3 border-l border-slate-200">
               <span className="text-[10px] font-black uppercase tracking-wider text-slate-900 group-hover:text-[#A82F19] transition-colors">
                 ONPRINT DUBAI
               </span>
@@ -342,32 +374,36 @@ export default function SiteHeader() {
             </div>
           </Link>
 
-          {/* Desktop Navigation Segmented Capsule Hub */}
+          {/* Desktop Navigation Links */}
           <nav
-            className="hidden lg:flex items-center gap-1 xl:gap-1.5 rounded-full bg-slate-100/80 p-1 border border-slate-200/70 shadow-inner"
-            aria-label="Primary Navigation"
+            className="hidden lg:flex items-center gap-1 xl:gap-1.5 text-xs font-bold text-slate-700"
+            aria-label="Main Navigation"
           >
-            {/* 1. All Products / Catalog Mega-Menu Trigger */}
+            {/* Catalog Mega-Menu Trigger */}
             <div
               className="relative"
-              onMouseEnter={() => setActiveDropdown('catalog')}
-              onMouseLeave={() => setActiveDropdown(null)}
+              onMouseEnter={() => handleMouseEnterDropdown('catalog')}
+              onMouseLeave={handleMouseLeaveDropdown}
             >
               <button
                 type="button"
                 onClick={() => setActiveDropdown((prev) => (prev === 'catalog' ? null : 'catalog'))}
-                className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 cursor-pointer ${
+                className={`flex items-center gap-1.5 rounded-xl px-3 py-2 transition-all cursor-pointer ${
                   activeDropdown === 'catalog' || location.pathname === '/products' || location.pathname === '/categories'
-                    ? 'bg-white text-[#A82F19] shadow-xs'
-                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
+                    : 'hover:text-slate-900 hover:bg-slate-100/70'
                 }`}
               >
-                <Layers className="h-3.5 w-3.5 text-[#A82F19]" />
+                <Layers className="h-4 w-4 text-[#A82F19]" />
                 <span>Catalog</span>
-                <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeDropdown === 'catalog' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                    activeDropdown === 'catalog' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'
+                  }`}
+                />
               </button>
 
-              {/* Mega Menu Dropdown */}
+              {/* Mega-Menu Dropdown Panel */}
               <AnimatePresence>
                 {activeDropdown === 'catalog' && (
                   <motion.div
@@ -375,7 +411,7 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute left-0 top-full mt-2.5 w-[min(880px,calc(100vw-40px))] rounded-3xl border border-slate-200/90 bg-white p-6 shadow-2xl z-50 text-slate-800"
+                    className="absolute left-0 top-full mt-2 w-[min(840px,calc(100vw-32px))] rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl z-50 text-slate-800"
                   >
                     <div className="grid grid-cols-12 gap-6">
                       {/* Left Spotlight Banner */}
@@ -385,21 +421,21 @@ export default function SiteHeader() {
                             <Sparkles className="h-2.5 w-2.5" />
                             <span>Pressroom Suite</span>
                           </div>
-                          <h4 className="mt-2.5 text-base font-black text-slate-900 leading-snug">
+                          <h4 className="mt-2.5 text-sm font-black text-slate-900 leading-snug">
                             Precision Commercial Printing
                           </h4>
                           <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
                             FSC certified papers, Pantone precision color fidelity, and hot foil finishes.
                           </p>
 
-                          <div className="mt-4 pt-3.5 border-t border-slate-200/80 space-y-2">
+                          <div className="mt-4 pt-3.5 border-t border-slate-200 space-y-2">
                             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
-                              Fast Track Shortcuts
+                              Popular Categories
                             </span>
                             <Link
                               to="/business-card-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl bg-white border border-slate-200/80 hover:border-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs"
+                              className="group flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/80 hover:border-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-2xs"
                             >
                               <span className="flex items-center gap-2">
                                 <span className="h-2 w-2 rounded-full bg-[#A82F19]" />
@@ -410,11 +446,11 @@ export default function SiteHeader() {
                             <Link
                               to="/packaging-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl bg-white border border-slate-200/80 hover:border-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-xs"
+                              className="group flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/80 hover:border-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-2xs"
                             >
                               <span className="flex items-center gap-2">
                                 <span className="h-2 w-2 rounded-full bg-amber-500" />
-                                <span>Custom Packaging Boxes</span>
+                                <span>Custom Packaging</span>
                               </span>
                               <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
                             </Link>
@@ -434,27 +470,24 @@ export default function SiteHeader() {
                       </div>
 
                       {/* Right Categories Grid */}
-                      <div className="col-span-8 grid grid-cols-2 gap-x-6 gap-y-4 max-h-[390px] overflow-y-auto pr-2">
+                      <div className="col-span-8 grid grid-cols-2 gap-x-5 gap-y-4 max-h-[380px] overflow-y-auto pr-1">
                         {megaMenuGroups.map((group) => {
                           const Icon = group.icon || Layers
                           return (
-                            <div key={group.key} className="space-y-1.5 p-2 rounded-xl hover:bg-slate-50/80 transition-colors">
+                            <div key={group.key} className="p-2.5 rounded-xl hover:bg-slate-50/90 transition-colors">
                               <div className="flex items-center gap-2">
-                                <div className="flex h-6 w-6 items-center justify-center rounded-md bg-[#A82F19]/10 text-[#A82F19]">
+                                <div className="flex h-6 w-6 items-center justify-center rounded-md bg-[#A82F19]/10 text-[#A82F19] shrink-0">
                                   <Icon className="h-3.5 w-3.5" />
                                 </div>
-                                <div>
-                                  <h5 className="text-xs font-bold text-slate-900 leading-none">
+                                <div className="min-w-0">
+                                  <h5 className="text-xs font-bold text-slate-900 truncate">
                                     {group.label}
                                   </h5>
-                                  <p className="text-[10px] text-slate-400 leading-tight line-clamp-1">
-                                    {group.description}
-                                  </p>
                                 </div>
                               </div>
 
                               <ul className="mt-2 space-y-1 pl-8">
-                                {group.items.slice(0, 6).map((item) => (
+                                {group.items.slice(0, 5).map((item) => (
                                   <li key={item.slug || item.id}>
                                     <Link
                                       to={`/categories/${item.slug}`}
@@ -462,7 +495,7 @@ export default function SiteHeader() {
                                       className="group/link flex items-center justify-between text-xs font-medium text-slate-600 hover:text-[#A82F19] transition-colors"
                                     >
                                       <span className="truncate">{item.name}</span>
-                                      <ChevronRight className="h-3 w-3 opacity-0 group-hover/link:opacity-100 text-[#A82F19] transition-opacity" />
+                                      <ChevronRight className="h-3 w-3 opacity-0 group-hover/link:opacity-100 text-[#A82F19] transition-opacity shrink-0" />
                                     </Link>
                                   </li>
                                 ))}
@@ -477,14 +510,14 @@ export default function SiteHeader() {
               </AnimatePresence>
             </div>
 
-            {/* 2. Business Cards Highlight */}
+            {/* Business Cards Link */}
             <NavLink
               to="/business-card-printing-dubai"
               className={({ isActive }) =>
-                `flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                `flex items-center gap-1.5 rounded-xl px-3 py-2 transition-all whitespace-nowrap ${
                   isActive
-                    ? 'bg-white text-[#A82F19] shadow-xs'
-                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
+                    : 'hover:text-slate-900 hover:bg-slate-100/70'
                 }`
               }
             >
@@ -494,65 +527,69 @@ export default function SiteHeader() {
               </span>
             </NavLink>
 
-            {/* 3. Packaging */}
+            {/* Custom Packaging Link */}
             <NavLink
               to="/packaging-printing-dubai"
               className={({ isActive }) =>
-                `flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                `flex items-center gap-1.5 rounded-xl px-3 py-2 transition-all whitespace-nowrap ${
                   isActive
-                    ? 'bg-white text-[#A82F19] shadow-xs'
-                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
+                    : 'hover:text-slate-900 hover:bg-slate-100/70'
                 }`
               }
             >
               <span>Packaging</span>
             </NavLink>
 
-            {/* 4. Stickers */}
+            {/* Stickers & Labels (Visible on xl+, moved to More on lg) */}
             <NavLink
               to="/categories/stickers-printing-dubai"
               className={({ isActive }) =>
-                `flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                `hidden xl:flex items-center gap-1.5 rounded-xl px-3 py-2 transition-all whitespace-nowrap ${
                   isActive
-                    ? 'bg-white text-[#A82F19] shadow-xs'
-                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
+                    : 'hover:text-slate-900 hover:bg-slate-100/70'
                 }`
               }
             >
               <span>Stickers</span>
             </NavLink>
 
-            {/* 5. Letterheads & Stationery */}
+            {/* Letterheads (Visible on 2xl+, moved to More on lg/xl) */}
             <NavLink
               to="/categories/letterheads-printing-dubai"
               className={({ isActive }) =>
-                `flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 whitespace-nowrap ${
+                `hidden 2xl:flex items-center gap-1.5 rounded-xl px-3 py-2 transition-all whitespace-nowrap ${
                   isActive
-                    ? 'bg-white text-[#A82F19] shadow-xs'
-                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
+                    : 'hover:text-slate-900 hover:bg-slate-100/70'
                 }`
               }
             >
               <span>Letterheads</span>
             </NavLink>
 
-            {/* 6. Company & Services Dropdown */}
+            {/* Company & Services Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setActiveDropdown('company')}
-              onMouseLeave={() => setActiveDropdown(null)}
+              onMouseEnter={() => handleMouseEnterDropdown('company')}
+              onMouseLeave={handleMouseLeaveDropdown}
             >
               <button
                 type="button"
                 onClick={() => setActiveDropdown((prev) => (prev === 'company' ? null : 'company'))}
-                className={`flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-tight transition-all duration-200 cursor-pointer ${
+                className={`flex items-center gap-1 rounded-xl px-3 py-2 transition-all cursor-pointer ${
                   activeDropdown === 'company' || ['/services', '/about', '/blog', '/contact'].includes(location.pathname)
-                    ? 'bg-white text-[#A82F19] shadow-xs'
-                    : 'text-slate-700 hover:text-slate-900 hover:bg-white/60'
+                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
+                    : 'hover:text-slate-900 hover:bg-slate-100/70'
                 }`}
               >
                 <span>Company</span>
-                <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeDropdown === 'company' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'}`} />
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                    activeDropdown === 'company' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'
+                  }`}
+                />
               </button>
 
               <AnimatePresence>
@@ -562,7 +599,7 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-2.5 w-60 rounded-2xl border border-slate-200/90 bg-white p-2.5 shadow-xl z-50"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl z-50 text-slate-800"
                   >
                     <Link
                       to="/services"
@@ -571,8 +608,32 @@ export default function SiteHeader() {
                     >
                       <Sparkles className="h-4 w-4 text-[#A82F19]" />
                       <div>
-                        <div className="leading-none">All Services</div>
-                        <span className="text-[10px] font-normal text-slate-400">Offset &amp; Digital</span>
+                        <div className="leading-tight">All Printing Services</div>
+                        <span className="text-[10px] font-normal text-slate-400">Offset, Digital &amp; Large Format</span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      to="/categories/stickers-printing-dubai"
+                      onClick={() => setActiveDropdown(null)}
+                      className="xl:hidden flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
+                    >
+                      <Layers className="h-4 w-4 text-slate-400" />
+                      <div>
+                        <div className="leading-tight">Stickers &amp; Labels</div>
+                        <span className="text-[10px] font-normal text-slate-400">Vinyl, roll labels &amp; foil</span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      to="/categories/letterheads-printing-dubai"
+                      onClick={() => setActiveDropdown(null)}
+                      className="2xl:hidden flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
+                    >
+                      <FileText className="h-4 w-4 text-slate-400" />
+                      <div>
+                        <div className="leading-tight">Letterheads &amp; Stationery</div>
+                        <span className="text-[10px] font-normal text-slate-400">Executive folders &amp; envelopes</span>
                       </div>
                     </Link>
 
@@ -583,7 +644,7 @@ export default function SiteHeader() {
                     >
                       <Building2 className="h-4 w-4 text-slate-400" />
                       <div>
-                        <div className="leading-none">About ONPRINT</div>
+                        <div className="leading-tight">About ONPRINT</div>
                         <span className="text-[10px] font-normal text-slate-400">Dubai Pressroom &amp; Mission</span>
                       </div>
                     </Link>
@@ -595,8 +656,8 @@ export default function SiteHeader() {
                     >
                       <BookOpen className="h-4 w-4 text-slate-400" />
                       <div>
-                        <div className="leading-none">Printing Insights &amp; Blog</div>
-                        <span className="text-[10px] font-normal text-slate-400">Guides &amp; Finishes</span>
+                        <div className="leading-tight">Printing Insights &amp; Blog</div>
+                        <span className="text-[10px] font-normal text-slate-400">Guides, materials &amp; finishes</span>
                       </div>
                     </Link>
 
@@ -607,7 +668,7 @@ export default function SiteHeader() {
                     >
                       <MapPin className="h-4 w-4 text-slate-400" />
                       <div>
-                        <div className="leading-none">Contact &amp; Location</div>
+                        <div className="leading-tight">Contact &amp; Location</div>
                         <span className="text-[10px] font-normal text-slate-400">Al Quoz, Dubai Facility</span>
                       </div>
                     </Link>
@@ -617,17 +678,17 @@ export default function SiteHeader() {
             </div>
           </nav>
 
-          {/* Right Action Control Hub */}
-          <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
-            {/* Quick Search Button Pill */}
+          {/* Right Action Hub */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            {/* Quick Search Button */}
             <button
               type="button"
               onClick={() => setSearchModalOpen(true)}
-              className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/90 px-3.5 py-1.5 text-xs text-slate-500 hover:text-slate-900 hover:border-slate-300 hover:bg-white transition-all shadow-2xs cursor-pointer"
+              className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2.5 sm:px-3 py-1.5 text-xs text-slate-600 hover:text-slate-900 hover:border-slate-300 hover:bg-white transition-all shadow-2xs cursor-pointer"
               title="Search products (Press /)"
             >
-              <Search className="h-3.5 w-3.5 text-slate-400" />
-              <span className="hidden xl:inline text-[11px] font-medium">Search print catalog...</span>
+              <Search className="h-3.5 w-3.5 text-slate-500" />
+              <span className="hidden xl:inline text-[11px] font-medium text-slate-500">Search print catalog...</span>
               <kbd className="hidden xl:inline-block rounded bg-slate-200/80 px-1.5 py-0.5 text-[9px] font-bold text-slate-600">
                 /
               </kbd>
@@ -636,11 +697,11 @@ export default function SiteHeader() {
             {/* Shopping Bag / Orders Button */}
             <Link
               to="/track-order"
-              className="relative flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700 hover:bg-white hover:text-[#A82F19] hover:border-[#A82F19]/40 transition-all shadow-2xs"
+              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700 hover:bg-white hover:text-[#A82F19] hover:border-[#A82F19]/40 transition-all shadow-2xs"
               title="Track Orders"
             >
               <ShoppingBag className="h-4 w-4" />
-              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#A82F19] text-[9px] font-extrabold text-white shadow-xs">
+              <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#A82F19] text-[8px] font-extrabold text-white">
                 0
               </span>
             </Link>
@@ -653,18 +714,19 @@ export default function SiteHeader() {
                   setWhatsappPopoverOpen((v) => !v)
                   setUserMenuOpen(false)
                 }}
-                className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-2xs ${
+                className={`flex items-center gap-1.5 rounded-full px-2.5 sm:px-3 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-2xs ${
                   whatsappPopoverOpen
                     ? 'bg-[#25D366] text-white shadow-md shadow-emerald-500/20'
                     : 'bg-emerald-50 text-emerald-800 border border-emerald-200/90 hover:bg-[#25D366] hover:text-white'
                 }`}
-                title="WhatsApp Direct Hotline"
+                title="WhatsApp Concierge"
               >
-                <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
-                <span className="hidden xl:inline text-[11px]">WhatsApp</span>
-                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
+                <span className="hidden md:inline text-[11px]">WhatsApp</span>
+                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
               </button>
 
+              {/* WhatsApp Dropdown Popover */}
               <AnimatePresence>
                 {whatsappPopoverOpen && (
                   <motion.div
@@ -672,11 +734,11 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute right-0 top-full mt-2.5 w-76 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl z-50 text-slate-800"
+                    className="absolute right-0 top-full mt-2 w-72 sm:w-76 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl z-50 text-slate-800"
                   >
                     <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
                       <div className="flex items-center gap-2.5">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-sm">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs">
                           <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
                         </div>
                         <div>
@@ -697,7 +759,6 @@ export default function SiteHeader() {
                       </button>
                     </div>
 
-                    {/* Hotline Box */}
                     <div className="rounded-xl bg-slate-50 p-3 border border-slate-200/80 mb-3">
                       <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Direct Hotline</span>
                       <div className="mt-1 flex items-center justify-between">
@@ -705,8 +766,7 @@ export default function SiteHeader() {
                         <button
                           type="button"
                           onClick={handleCopyNumber}
-                          className="flex items-center gap-1 rounded-lg bg-white px-2.5 py-1 text-[11px] font-bold text-slate-700 shadow-2xs border border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer"
-                          title="Copy number"
+                          className="flex items-center gap-1 rounded-lg bg-white px-2 py-1 text-[11px] font-bold text-slate-700 shadow-2xs border border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer"
                         >
                           {copied ? (
                             <>
@@ -723,7 +783,6 @@ export default function SiteHeader() {
                       </div>
                     </div>
 
-                    {/* Chat Action Button */}
                     <a
                       href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
                       target="_blank"
@@ -739,18 +798,18 @@ export default function SiteHeader() {
               </AnimatePresence>
             </div>
 
-            {/* Admin Menu when authenticated */}
+            {/* Authenticated Admin Badge */}
             {isAuthenticated && isAdmin ? (
               <div className="relative">
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-100 cursor-pointer shadow-2xs"
+                  className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer shadow-2xs"
                 >
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#A82F19] text-white text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
-                  <span className="max-w-[70px] truncate">{user?.name || 'Admin'}</span>
+                  <span className="hidden xl:inline max-w-[70px] truncate">{user?.name || 'Admin'}</span>
                   <ChevronDown className={`h-3 w-3 text-slate-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -761,7 +820,7 @@ export default function SiteHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2 w-52 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-50"
+                      className="absolute right-0 top-full mt-2 w-52 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-50 text-slate-800"
                     >
                       <div className="px-3 py-2 border-b border-slate-100 mb-1">
                         <div className="font-bold text-xs text-slate-900 truncate">{user?.name || 'Administrator'}</div>
@@ -794,41 +853,30 @@ export default function SiteHeader() {
               </div>
             ) : null}
 
-            {/* High-Converting Primary CTA Button */}
+            {/* Primary High-Converting CTA Button (Hidden on tiny mobile < 400px to avoid squishing) */}
             <Link
               to="/get-a-quote"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#A82F19] to-[#C0392B] hover:from-[#932511] hover:to-[#A82F19] px-5 xl:px-6 py-2.5 text-xs xl:text-[13px] font-black text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all whitespace-nowrap"
+              className="hidden sm:inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-[#A82F19] to-[#C0392B] hover:from-[#932511] hover:to-[#A82F19] px-3.5 sm:px-4.5 py-1.5 sm:py-2 text-xs font-black text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all whitespace-nowrap"
               onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
             >
-              <span>Get Instant Quote</span>
-              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+              <span>Get Quote</span>
+              <ArrowRight className="h-3.5 w-3.5" />
             </Link>
-          </div>
 
-          {/* Mobile Right Controls: Search + Hamburger */}
-          <div className="flex items-center gap-2 lg:hidden">
+            {/* Mobile / Tablet Hamburger Toggle */}
             <button
               type="button"
-              onClick={() => setSearchModalOpen(true)}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700"
-              aria-label="Search"
+              onClick={() => setMobileMenuOpen((v) => !v)}
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              className="flex lg:hidden h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
             >
-              <Search className="h-4 w-4" />
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setMenuOpen((v) => !v)}
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700 transition-colors hover:bg-slate-100"
-            >
-              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </Container>
       </div>
 
-      {/* 3. INTERACTIVE SEARCH MODAL OVERLAY */}
+      {/* 3. UNIVERSAL SEARCH MODAL */}
       <AnimatePresence>
         {searchModalOpen && (
           <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/60 backdrop-blur-sm">
@@ -855,16 +903,16 @@ export default function SiteHeader() {
                 <button
                   type="button"
                   onClick={() => setSearchModalOpen(false)}
-                  className="rounded-full p-1.5 text-slate-400 hover:text-slate-600 hover:bg-slate-100"
+                  className="rounded-full p-1.5 text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
                 >
                   <X className="h-5 w-5" />
                 </button>
               </div>
 
-              {/* Search Results / Suggestions */}
+              {/* Suggestions / Results */}
               <div className="mt-4 max-h-[60vh] overflow-y-auto space-y-4 pr-1">
                 {searchQuery.trim() === '' ? (
-                  <div className="py-4">
+                  <div className="py-2">
                     <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-2.5">
                       Popular Print Categories
                     </span>
@@ -987,141 +1035,271 @@ export default function SiteHeader() {
         )}
       </AnimatePresence>
 
-      {/* 4. MODERN MOBILE NAVIGATION DRAWER */}
+      {/* 4. MODERN MOBILE & TABLET DRAWER (OFF-CANVAS SHEET) */}
       <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.22 }}
-            className="border-b border-slate-200 bg-white/98 backdrop-blur-xl lg:hidden max-h-[85vh] overflow-y-auto shadow-2xl"
-          >
-            <Container className="py-5 space-y-4 px-4">
-              {/* WhatsApp Quick Concierge Bar */}
-              <a
-                href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50/90 p-3.5 text-emerald-950 transition-all shadow-xs"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-sm">
-                    <WhatsAppIcon className="h-5 w-5 fill-current" />
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-50 lg:hidden flex">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs"
+            />
+
+            {/* Slide-in Drawer Container */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+              className="relative ml-auto flex h-full w-full max-w-md flex-col bg-white shadow-2xl z-50 overflow-hidden"
+            >
+              {/* Drawer Header */}
+              <div className="flex items-center justify-between border-b border-slate-100 p-4 shrink-0">
+                <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2">
+                  <Logo variant="default" size="sm" />
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors cursor-pointer"
+                  aria-label="Close menu"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              {/* Drawer Body (Scrollable) */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                {/* Search Box Trigger */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false)
+                    setSearchModalOpen(true)
+                  }}
+                  className="flex w-full items-center justify-between rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs text-slate-500 hover:bg-slate-100 transition-all cursor-pointer"
+                >
+                  <div className="flex items-center gap-2">
+                    <Search className="h-4 w-4 text-[#A82F19]" />
+                    <span>Search 200+ print products...</span>
                   </div>
-                  <div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-xs font-bold text-emerald-950">WhatsApp Concierge</span>
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
+                </button>
+
+                {/* WhatsApp Concierge Card */}
+                <a
+                  href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50/90 p-3 text-emerald-950 transition-all shadow-2xs"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs shrink-0">
+                      <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
                     </div>
-                    <span className="text-xs font-black text-emerald-800 tracking-tight">+44 7344 546056</span>
+                    <div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-xs font-bold text-emerald-950">WhatsApp Concierge</span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      </div>
+                      <span className="text-[11px] font-bold text-emerald-800">+44 7344 546056</span>
+                    </div>
                   </div>
-                </div>
-                <span className="rounded-lg bg-[#25D366] text-white px-3 py-1.5 text-[11px] font-bold shadow-xs">
-                  Chat Now
-                </span>
-              </a>
-
-              {/* Navigation Links */}
-              <nav className="flex flex-col space-y-1">
-                <Link
-                  to="/"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/products"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
-                >
-                  All Products
-                </Link>
-                <Link
-                  to="/categories"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
-                >
-                  All Categories
-                </Link>
-                <Link
-                  to="/business-card-printing-dubai"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#A82F19] bg-[#A82F19]/5"
-                >
-                  <span>Business Cards</span>
-                  <span className="rounded bg-[#A82F19] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
-                    DUBAI
+                  <span className="rounded-lg bg-[#25D366] text-white px-2.5 py-1 text-[11px] font-bold shadow-xs">
+                    Chat
                   </span>
-                </Link>
-                <Link
-                  to="/packaging-printing-dubai"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
-                >
-                  Packaging &amp; Custom Boxes
-                </Link>
-                <Link
-                  to="/categories/letterheads-printing-dubai"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
-                >
-                  Letterheads &amp; Stationery
-                </Link>
-                <Link
-                  to="/services"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
-                >
-                  Services
-                </Link>
-                <Link
-                  to="/about"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
-                >
-                  About ONPRINT
-                </Link>
-                <Link
-                  to="/blog"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
-                >
-                  Blog &amp; Insights
-                </Link>
-                <Link
-                  to="/contact"
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
-                >
-                  Contact
-                </Link>
-              </nav>
+                </a>
 
-              <div className="border-t border-slate-200 pt-4 space-y-2">
+                {/* Navigation Items & Accordions */}
+                <div className="space-y-1">
+                  {/* Home */}
+                  <Link
+                    to="/"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  >
+                    <span>Home</span>
+                  </Link>
+
+                  {/* Business Cards (Highlighted) */}
+                  <Link
+                    to="/business-card-printing-dubai"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#A82F19] bg-[#A82F19]/5"
+                  >
+                    <div className="flex items-center gap-2">
+                      <CreditCard className="h-4 w-4" />
+                      <span>Business Cards</span>
+                    </div>
+                    <span className="rounded bg-[#A82F19] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
+                      DUBAI
+                    </span>
+                  </Link>
+
+                  {/* Packaging */}
+                  <Link
+                    to="/packaging-printing-dubai"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Box className="h-4 w-4 text-slate-400" />
+                      <span>Custom Packaging Boxes</span>
+                    </div>
+                  </Link>
+
+                  {/* Stickers */}
+                  <Link
+                    to="/categories/stickers-printing-dubai"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Layers className="h-4 w-4 text-slate-400" />
+                      <span>Stickers &amp; Labels</span>
+                    </div>
+                  </Link>
+
+                  {/* Letterheads & Stationery */}
+                  <Link
+                    to="/categories/letterheads-printing-dubai"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  >
+                    <div className="flex items-center gap-2">
+                      <FileText className="h-4 w-4 text-slate-400" />
+                      <span>Letterheads &amp; Stationery</span>
+                    </div>
+                  </Link>
+
+                  {/* Product Catalog Accordion */}
+                  <div className="border-t border-b border-slate-100 py-1 my-1">
+                    <button
+                      type="button"
+                      onClick={() => setMobileAccordion((p) => ({ ...p, catalog: !p.catalog }))}
+                      className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 cursor-pointer"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Layers className="h-4 w-4 text-[#A82F19]" />
+                        <span>All Print Categories</span>
+                      </div>
+                      {mobileAccordion.catalog ? (
+                        <Minus className="h-4 w-4 text-slate-400" />
+                      ) : (
+                        <Plus className="h-4 w-4 text-slate-400" />
+                      )}
+                    </button>
+
+                    <AnimatePresence>
+                      {mobileAccordion.catalog && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="pl-4 pr-2 pb-2 space-y-1 overflow-hidden"
+                        >
+                          <Link
+                            to="/products"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-bold text-[#A82F19] hover:bg-[#A82F19]/5"
+                          >
+                            <span>Browse All Products Catalog</span>
+                            <ArrowRight className="h-3 w-3" />
+                          </Link>
+                          {categories.slice(0, 10).map((cat) => (
+                            <Link
+                              key={cat.slug || cat.id}
+                              to={`/categories/${cat.slug}`}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-medium text-slate-600 hover:bg-slate-50 hover:text-[#A82F19]"
+                            >
+                              <span>{cat.name}</span>
+                              <ChevronRight className="h-3 w-3 text-slate-300" />
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Services */}
+                  <Link
+                    to="/services"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="h-4 w-4 text-slate-400" />
+                      <span>Printing Services</span>
+                    </div>
+                  </Link>
+
+                  {/* About */}
+                  <Link
+                    to="/about"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Building2 className="h-4 w-4 text-slate-400" />
+                      <span>About ONPRINT</span>
+                    </div>
+                  </Link>
+
+                  {/* Blog */}
+                  <Link
+                    to="/blog"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  >
+                    <div className="flex items-center gap-2">
+                      <BookOpen className="h-4 w-4 text-slate-400" />
+                      <span>Blog &amp; Insights</span>
+                    </div>
+                  </Link>
+
+                  {/* Contact */}
+                  <Link
+                    to="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                  >
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-slate-400" />
+                      <span>Contact &amp; Pressroom</span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Drawer Footer Actions */}
+              <div className="border-t border-slate-200 p-4 space-y-2 shrink-0 bg-slate-50/50">
                 <Link
                   to="/get-a-quote"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#A82F19] to-[#C0392B] py-3 text-sm font-bold text-white shadow-md shadow-[#A82F19]/25"
                   onClick={() => {
-                    setMenuOpen(false)
-                    trackGetQuoteClick({ source_page: 'header_mobile' })
+                    setMobileMenuOpen(false)
+                    trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#A82F19] to-[#C0392B] py-3 text-sm font-black text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg transition-all"
                 >
                   <span>Get Instant Quote</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
+
                 <Link
                   to="/track-order"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs"
                 >
                   <Truck className="h-4 w-4 text-[#A82F19]" />
                   <span>Track Existing Order</span>
                 </Link>
               </div>
-            </Container>
-          </motion.div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </header>

@@ -48,6 +48,150 @@ function replaceMeta(html, attribute, name, content) {
   return pattern.test(html) ? html.replace(pattern, replacement) : html.replace('</head>', `    ${replacement}\n  </head>`)
 }
 
+
+function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, seo, siteUrl }) {
+  let pageHeading = h1 || bcData?.h1 || seo?.h1
+  if (!pageHeading) {
+    if (requestPath === '/' || requestPath === '') {
+      pageHeading = 'Commercial & Luxury Printing Company in Dubai, UAE'
+    } else if (requestPath.startsWith('/services')) {
+      pageHeading = 'Custom Packaging & Commercial Printing Services Dubai, UAE'
+    } else if (requestPath.startsWith('/products')) {
+      pageHeading = 'Commercial Print Products & Marketing Collateral Dubai'
+    } else if (requestPath.startsWith('/categories')) {
+      pageHeading = 'Commercial Printing Categories & Packaging Solutions Dubai'
+    } else if (requestPath.startsWith('/about')) {
+      pageHeading = 'About ONPRINT — Commercial Pressroom in Al Quoz, Dubai'
+    } else if (requestPath.startsWith('/contact')) {
+      pageHeading = 'Contact ONPRINT Dubai — Commercial Printing Facility'
+    } else if (requestPath.startsWith('/faq')) {
+      pageHeading = 'Frequently Asked Questions — Commercial Printing Dubai'
+    } else if (requestPath.startsWith('/terms')) {
+      pageHeading = 'Terms & Conditions — ONPRINT Commercial Press Dubai'
+    } else if (requestPath.startsWith('/privacy-policy')) {
+      pageHeading = 'Privacy Policy & Data Protection — ONPRINT Dubai'
+    } else {
+      pageHeading = (title ? title.split('|')[0].trim() : '') || 'Commercial Printing Dubai'
+    }
+  }
+  const metaDesc = description || bcData?.metaDescription || seo?.meta_description || 'Commercial printing company in Al Quoz, Dubai. Luxury business cards, custom packaging, stickers, letterheads, and corporate gifts with same-day UAE delivery.'
+
+  let dynamicBody = ''
+
+  if (bcData) {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>${escapeHtml(bcData.h1 || 'Commercial Printing Specifications')}</h2>
+        <p>${escapeHtml(bcData.metaDescription || '')}</p>
+        <p>Manufactured in-house at our Al Quoz, Dubai facility using certified Heidelberg offset and high-definition digital press technology. Available with premium finishes including 24K hot foil stamping, raised dimensional spot UV, soft-touch velvet lamination, and precision die-cutting.</p>
+      </section>
+      ${bcData.faqs && bcData.faqs.length > 0 ? `
+      <section style="margin-bottom: 2rem;">
+        <h2>Frequently Asked Questions</h2>
+        ${bcData.faqs.map(f => `
+          <div style="margin-bottom: 1.25rem;">
+            <h3 style="font-weight: 700; margin-bottom: 0.25rem;">${escapeHtml(f.question)}</h3>
+            <p style="color: #475569;">${escapeHtml(f.answer)}</p>
+          </div>
+        `).join('')}
+      </section>` : ''}
+    `
+  } else if (requestPath === '/' || requestPath === '') {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>Dubai's Leading Commercial Printing Pressroom</h2>
+        <p>ONPRINT is a premier commercial printing, luxury packaging, and corporate branding production facility located in Al Quoz, Dubai, UAE. We combine Heidelberg offset precision with high-definition digital presses to deliver standard and bespoke print solutions for enterprises, government entities, luxury brands, and local businesses across Dubai, Abu Dhabi, Sharjah, and all seven Emirates.</p>
+        <p>Our core services encompass luxury 600 GSM business cards with painted edges, custom rigid gift boxes, product packaging, waterproof die-cut vinyl stickers and labels, multi-page corporate brochures, 120 GSM executive letterheads, promotional ceramic drinkware, smart NFC PVC badges, and exhibition display signage.</p>
+      </section>
+      <section style="margin-bottom: 2rem;">
+        <h2>Why UAE Businesses Choose ONPRINT</h2>
+        <ul>
+          <li><strong>Guaranteed Color Fidelity:</strong> Calibrated ISO 12647 offset printing with spectrophotometer Pantone PMS spot matching.</li>
+          <li><strong>Luxury Finishing Capabilities:</strong> In-house 24K metallic gold & silver hot foiling, raised dimensional spot UV, blind debossing, and soft-touch velvet lamination.</li>
+          <li><strong>Same-Day & Express 24h Turnaround:</strong> Dedicated urgent print lines for critical corporate deadlines, exhibitions, and trade shows.</li>
+          <li><strong>Direct Pressroom Pricing:</strong> Zero middlemen, zero agent markups — direct factory pricing with free pre-press digital proofing.</li>
+        </ul>
+      </section>
+      <section style="margin-bottom: 2rem;">
+        <h2>Popular Commercial Printing Categories</h2>
+        <p><a href="/business-card-printing-dubai">Luxury Business Cards Dubai</a> | <a href="/packaging-printing-dubai">Custom Packaging & Rigid Boxes</a> | <a href="/categories/letterheads-printing-dubai">Executive Letterheads & Stationery</a> | <a href="/categories/stickers-printing-dubai">Custom Stickers & Product Labels</a> | <a href="/categories/brochures-printing">Corporate Brochures & Catalogs</a> | <a href="/services">Full Printing Services</a></p>
+      </section>
+    `
+  } else if (requestPath.startsWith('/products')) {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>Commercial Product Catalog & Ordering</h2>
+        <p>Explore our complete catalog of commercial print products manufactured in Al Quoz, Dubai. Every product is produced using FSC-certified sustainable papers, heavy-weight rigid card stocks (300gsm to 600gsm duplex), and premium food-grade packaging boards.</p>
+        <p>Order luxury business cards, custom die-cut product boxes, laminated flyers, branded neck lanyards, NFC proximity badges, ceramic mugs, and corporate presentation folders with fast dispatch across Dubai and the UAE.</p>
+      </section>
+    `
+  } else if (requestPath.startsWith('/categories')) {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>Comprehensive Printing Categories</h2>
+        <p>ONPRINT delivers specialized commercial printing across 15+ dedicated production categories. Whether you require promotional marketing collateral, executive corporate stationery, retail packaging, or trade show exhibition displays, our Dubai pressroom delivers high-volume consistency and rapid express turnaround.</p>
+      </section>
+    `
+  } else if (requestPath.startsWith('/services')) {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>Offset, Digital & Specialty Press Services</h2>
+        <p>Our Al Quoz facility houses multi-color Heidelberg offset presses for high-volume commercial runs, next-generation digital presses for short-run rapid dispatch, and automated finishing lines for hot foil stamping, spot UV varnishing, die-cutting, folding, and binding.</p>
+      </section>
+    `
+  } else {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>Commercial Printing Solutions in Dubai, UAE</h2>
+        <p>${escapeHtml(metaDesc)}</p>
+        <p>ONPRINT delivers high-precision commercial printing, bespoke packaging, and branding merchandise with express same-day and 24h delivery across Dubai, Abu Dhabi, and the wider UAE.</p>
+      </section>
+    `
+  }
+
+  return `
+    <div style="font-family: system-ui, -apple-system, sans-serif; color: #0f172a; background: #ffffff; max-width: 1200px; margin: 0 auto; padding: 20px;">
+      <header style="border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <a href="/" style="font-size: 1.5rem; font-weight: 900; color: #0f172a; text-decoration: none; letter-spacing: 0.1em;">
+          ON<span style="color: #A82F19;">PRINT</span>
+        </a>
+        <nav style="display: flex; gap: 14px; font-size: 0.875rem; font-weight: 600; flex-wrap: wrap;">
+          <a href="/" style="color: #0f172a; text-decoration: none;">Home</a>
+          <a href="/products" style="color: #0f172a; text-decoration: none;">Products</a>
+          <a href="/categories" style="color: #0f172a; text-decoration: none;">Categories</a>
+          <a href="/business-card-printing-dubai" style="color: #A82F19; text-decoration: none;">Business Cards</a>
+          <a href="/packaging-printing-dubai" style="color: #0f172a; text-decoration: none;">Packaging</a>
+          <a href="/services" style="color: #0f172a; text-decoration: none;">Services</a>
+          <a href="/about" style="color: #0f172a; text-decoration: none;">About</a>
+          <a href="/contact" style="color: #0f172a; text-decoration: none;">Contact</a>
+          <a href="/get-a-quote" style="color: #ffffff; background: #A82F19; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">Get a Quote</a>
+        </nav>
+      </header>
+
+      <main id="main-content">
+        <article>
+          <h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2;">${escapeHtml(pageHeading)}</h1>
+          <p style="font-size: 1.125rem; color: #475569; line-height: 1.6; margin-bottom: 2rem;">${escapeHtml(metaDesc)}</p>
+          ${dynamicBody}
+        </article>
+      </main>
+
+      <footer style="border-top: 1px solid #e2e8f0; margin-top: 40px; padding-top: 24px; font-size: 0.875rem; color: #64748b; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <strong>ONPRINT Printing &amp; Branding Solutions LLC</strong><br />
+          Al Quoz Industrial Area, Dubai, United Arab Emirates<br />
+          Email: <a href="mailto:0nprint183@gmail.com" style="color: #A82F19;">0nprint183@gmail.com</a> | WhatsApp: +44 7344 546056
+        </div>
+        <div>
+          <a href="/privacy-policy" style="color: #64748b; margin-right: 12px;">Privacy Policy</a>
+          <a href="/terms" style="color: #64748b; margin-right: 12px;">Terms &amp; Conditions</a>
+          <a href="/faq" style="color: #64748b;">FAQ</a>
+        </div>
+      </footer>
+    </div>
+  `
+}
+
 async function renderSeoShell(requestPath, { noindex = false } = {}) {
   const indexPath = path.join(CLIENT_DIST, 'index.html')
   const html = await fs.promises.readFile(indexPath, 'utf8')
@@ -289,6 +433,19 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     } catch {
       // Ignore invalid stored schema; the client-side SEO layer also rejects it.
     }
+  }
+
+    const prerenderedBody = buildPrerenderedHtml(requestPath, {
+    h1: seo.h1 || bcData?.h1,
+    title,
+    description,
+    bcData,
+    seo,
+    siteUrl,
+  })
+
+  if (rendered.includes('<div id="root"></div>')) {
+    rendered = rendered.replace('<div id="root"></div>', `<div id="root">${prerenderedBody}</div>`)
   }
 
   return rendered
@@ -581,6 +738,7 @@ function createApp() {
   app.use('/assets', express.static(path.join(CLIENT_DIST, 'assets'), staticCacheOptions))
   app.use(
     express.static(CLIENT_DIST, {
+      index: false,
       maxAge: '1h',
       setHeaders: (res, filePath) => {
         if (filePath.endsWith('.html')) {

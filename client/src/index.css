@@ -149,6 +149,7 @@ body {
   animation-play-state: paused;
 }
 
+/* Light Sheen Effect */
 @keyframes onprint-sheen {
   0% { transform: translateX(-120%); }
   100% { transform: translateX(120%); }
@@ -169,6 +170,78 @@ body {
   animation: onprint-sheen 6s ease-in-out infinite;
 }
 
+/* Luxury Shimmer Sweep for Buttons & Badges */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-150%); }
+  50%, 100% { transform: translateX(150%); }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: translateX(-150%);
+  animation: shimmer-sweep 3.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Radar Pulse / Live Status Ping */
+@keyframes radar-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-radar-ring {
+  animation: radar-ring 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Floating Slow Animation */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+/* Glassmorphism Classes */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-dropdown {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -179,3 +252,4 @@ body {
     scroll-behavior: auto !important;
   }
 }
+

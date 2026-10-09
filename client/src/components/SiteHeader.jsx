@@ -25,7 +25,11 @@ import {
   BookOpen,
   ChevronRight,
   Plus,
-  Minus
+  Minus,
+  Zap,
+  Tag,
+  Palette,
+  Clock
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
@@ -40,8 +44,9 @@ const NAV_GROUPS = [
   {
     key: 'printing',
     label: 'Cards & Commercial Print',
-    description: 'Business cards, letterheads, brochures & marketing collaterals',
+    description: 'Luxury business cards, letterheads, brochures & marketing collaterals',
     icon: CreditCard,
+    badge: 'Popular',
     keywords: ['brochure', 'business card', 'letterhead', 'flyer', 'envelope', 'invoice', 'folder', 'notepad', 'catalog', 'booklet'],
   },
   {
@@ -49,6 +54,7 @@ const NAV_GROUPS = [
     label: 'Custom Packaging & Boxes',
     description: 'Rigid luxury boxes, mailers, product cartons & bags',
     icon: Box,
+    badge: 'Bespoke',
     keywords: ['packaging', 'box', 'mailer', 'bag', 'rigid'],
   },
   {
@@ -56,6 +62,7 @@ const NAV_GROUPS = [
     label: 'Corporate Stationery',
     description: '120gsm letterheads, presentation folders & executive envelopes',
     icon: FileText,
+    badge: 'Executive',
     keywords: ['letterhead', 'stationery', 'folder', 'envelope', 'notebook'],
   },
   {
@@ -63,6 +70,7 @@ const NAV_GROUPS = [
     label: 'Stickers & Product Labels',
     description: 'Die-cut vinyl, waterproof roll labels & metallic foils',
     icon: Layers,
+    badge: 'Die-Cut',
     keywords: ['sticker', 'label', 'vinyl', 'decal'],
   },
   {
@@ -70,6 +78,7 @@ const NAV_GROUPS = [
     label: 'ID Cards & Lanyards',
     description: 'NFC PVC smart badges, magnetic name tags & custom neck straps',
     icon: ShieldCheck,
+    badge: 'Security',
     keywords: ['id card', 'lanyard', 'name badge', 'badge'],
   },
   {
@@ -77,6 +86,7 @@ const NAV_GROUPS = [
     label: 'Corporate Gifts & Drinkware',
     description: 'Custom ceramic mugs, smart LED bottles & promotional merchandise',
     icon: Sparkles,
+    badge: 'Merchandise',
     keywords: ['mug', 'bottle', 'flask', 'gift', 'promo', 'keychain', 'tumbler'],
   },
 ]
@@ -149,6 +159,7 @@ export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [hoveredNav, setHoveredNav] = useState(null)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
@@ -179,7 +190,7 @@ export default function SiteHeader() {
   const handleMouseLeaveDropdown = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null)
-    }, 150)
+    }, 180)
   }
 
   useEffect(() => {
@@ -242,6 +253,7 @@ export default function SiteHeader() {
     setSearchModalOpen(false)
     setUserMenuOpen(false)
     setSearchQuery('')
+    setHoveredNav(null)
   }, [location.pathname])
 
   // Prevent background scroll when mobile drawer or search is open
@@ -262,7 +274,7 @@ export default function SiteHeader() {
   // Keyboard shortcut for search
   useEffect(() => {
     function handleKeyDown(e) {
-      if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+      if ((e.key === '/' || (e.key === 'k' && (e.metaKey || e.ctrlKey))) && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
         e.preventDefault()
         setSearchModalOpen(true)
       } else if (e.key === 'Escape') {
@@ -276,26 +288,47 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full select-none transition-all duration-300">
-      {/* 1. TOP ANNOUNCEMENT / UTILITY BAR */}
-      <div className="hidden md:block border-b border-slate-800 bg-[#0B0F17] py-1.5 text-[11px] text-slate-300">
+    <header className="sticky top-0 z-50 w-full select-none">
+      {/* 1. TOP EXECUTIVE UTILITY BAR */}
+      <div className="hidden md:block bg-gradient-to-r from-[#07090E] via-[#0E1524] to-[#07090E] border-b border-white/[0.08] py-1.5 text-[11px] text-slate-300">
         <Container className="flex items-center justify-between gap-4">
-          {/* Left: Location & Delivery Guarantee */}
+          {/* Left: Pressroom Live Badge & UAE Turnaround */}
           <div className="flex items-center gap-3 shrink-0">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-2.5 py-0.5 font-medium text-slate-200">
-              <MapPin className="h-3 w-3 text-[#A82F19]" />
-              <span className="truncate max-w-[150px] lg:max-w-none">Al Quoz, Dubai Pressroom</span>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] border border-white/[0.12] px-2.5 py-0.5 font-medium text-slate-200">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="font-bold text-white tracking-wide">Pressroom Active:</span>
+              <span className="text-slate-300 truncate max-w-[140px] lg:max-w-none">Al Quoz, Dubai</span>
             </div>
 
-            <div className="hidden sm:flex items-center gap-1.5 text-slate-300">
-              <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-              <span className="font-bold text-white">Same-Day &amp; Express 24h</span>
+            <div className="hidden sm:flex items-center gap-2 text-slate-300">
+              <Zap className="h-3.5 w-3.5 text-amber-400 animate-pulse" />
+              <span className="font-extrabold text-white">Same-Day Express 24H</span>
               <span className="text-slate-400">UAE Delivery</span>
+            </div>
+
+            <span className="hidden xl:inline h-3 w-px bg-white/15" />
+
+            <div className="hidden xl:flex items-center gap-1.5 text-slate-400">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
+              <span>Complimentary File Pre-Flight Check</span>
             </div>
           </div>
 
           {/* Right: Direct Hotline + Track Order + Email + Socials */}
           <div className="flex items-center gap-3 lg:gap-4 shrink-0 text-slate-300">
+            <a
+              href="tel:+447344546056"
+              className="inline-flex items-center gap-1.5 font-semibold text-slate-200 hover:text-white transition-colors"
+            >
+              <Phone className="h-3.5 w-3.5 text-[#A82F19]" />
+              <span>+44 7344 546056</span>
+            </a>
+
+            <span className="hidden sm:inline h-3 w-px bg-white/15" />
+
             <Link
               to="/track-order"
               className="inline-flex items-center gap-1.5 font-semibold text-slate-200 hover:text-white transition-colors"
@@ -316,13 +349,13 @@ export default function SiteHeader() {
 
             <span className="hidden xl:inline h-3 w-px bg-white/15" />
 
-            {/* Social Icons */}
+            {/* Social Icons with subtle glow */}
             <div className="hidden xl:flex items-center gap-2 text-slate-400">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1 rounded hover:text-white hover:bg-white/10 transition-colors"
+                className="p-1 rounded-md hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="Facebook"
               >
                 <FacebookIcon />
@@ -331,7 +364,7 @@ export default function SiteHeader() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1 rounded hover:text-white hover:bg-white/10 transition-colors"
+                className="p-1 rounded-md hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -340,7 +373,7 @@ export default function SiteHeader() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1 rounded hover:text-white hover:bg-white/10 transition-colors"
+                className="p-1 rounded-md hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon />
@@ -350,120 +383,145 @@ export default function SiteHeader() {
         </Container>
       </div>
 
-      {/* 2. MAIN HEADER NAVIGATION BAR */}
+      {/* 2. MAIN MODERN GLASS NAVIGATION BAR */}
       <div
-        className={`border-b border-slate-200/90 bg-white/95 backdrop-blur-xl transition-all duration-300 ${
-          scrolled ? 'py-2 shadow-md shadow-slate-900/5' : 'py-3 shadow-2xs'
+        className={`border-b border-slate-200/80 bg-white/92 backdrop-blur-xl transition-all duration-300 ${
+          scrolled ? 'py-2 shadow-[0_8px_30px_rgb(0,0,0,0.06)]' : 'py-3 shadow-xs'
         }`}
       >
-        <Container className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-6">
-          {/* Brand Logo & Subtitle */}
+        <Container className="flex items-center justify-between gap-3 lg:gap-6">
+          {/* Brand Logo & Commercial Press Badge */}
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="group shrink-0 flex items-center gap-2.5 sm:gap-3"
+            className="group shrink-0 flex items-center gap-3"
           >
-            <Logo variant="default" size="md" />
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Logo variant="default" size="md" />
+            </motion.div>
             <div className="hidden 2xl:flex flex-col text-left leading-tight pl-3 border-l border-slate-200">
-              <span className="text-[10px] font-black uppercase tracking-wider text-slate-900 group-hover:text-[#A82F19] transition-colors">
-                ONPRINT DUBAI
-              </span>
-              <span className="text-[9px] font-semibold text-slate-400 tracking-tight">
-                Commercial Press
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10.5px] font-black uppercase tracking-wider text-slate-900 group-hover:text-[#A82F19] transition-colors">
+                  ONPRINT DUBAI
+                </span>
+                <span className="h-1.5 w-1.5 rounded-full bg-[#A82F19]" />
+              </div>
+              <span className="text-[9px] font-semibold text-slate-400 tracking-tight uppercase">
+                Commercial Press • Al Quoz
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links with Smooth Animated Hover Pill */}
           <nav
-            className="hidden lg:flex items-center gap-1 xl:gap-1.5 text-xs font-bold text-slate-700"
+            className="hidden lg:flex items-center gap-0.5 xl:gap-1 text-xs font-bold text-slate-700 relative"
             aria-label="Main Navigation"
+            onMouseLeave={() => setHoveredNav(null)}
           >
             {/* Catalog Mega-Menu Trigger */}
             <div
               className="relative"
-              onMouseEnter={() => handleMouseEnterDropdown('catalog')}
+              onMouseEnter={() => {
+                handleMouseEnterDropdown('catalog')
+                setHoveredNav('catalog')
+              }}
               onMouseLeave={handleMouseLeaveDropdown}
             >
               <button
                 type="button"
                 onClick={() => setActiveDropdown((prev) => (prev === 'catalog' ? null : 'catalog'))}
-                className={`flex items-center gap-1.5 rounded-xl px-3 py-2 transition-all cursor-pointer ${
+                className={`relative z-10 flex items-center gap-1.5 rounded-xl px-3 py-2 transition-colors cursor-pointer ${
                   activeDropdown === 'catalog' || location.pathname === '/products' || location.pathname === '/categories'
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
-                    : 'hover:text-slate-900 hover:bg-slate-100/70'
+                    ? 'text-[#A82F19] font-extrabold'
+                    : 'text-slate-700 hover:text-slate-900'
                 }`}
               >
-                <Layers className="h-4 w-4 text-[#A82F19]" />
+                <Layers className={`h-4 w-4 transition-colors ${activeDropdown === 'catalog' ? 'text-[#A82F19]' : 'text-[#A82F19]/80'}`} />
                 <span>Catalog</span>
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-200 ${
                     activeDropdown === 'catalog' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'
                   }`}
                 />
+
+                {/* Animated hover background pill */}
+                {(hoveredNav === 'catalog' || activeDropdown === 'catalog') && (
+                  <motion.div
+                    layoutId="navHoverCapsule"
+                    className="absolute inset-0 rounded-xl bg-slate-100 -z-10"
+                    transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+                  />
+                )}
               </button>
 
-              {/* Mega-Menu Dropdown Panel */}
+              {/* Mega-Menu Dropdown Panel with Luxury Cards */}
               <AnimatePresence>
                 {activeDropdown === 'catalog' && (
                   <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                    initial={{ opacity: 0, y: 12, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute left-0 top-full mt-2 w-[min(840px,calc(100vw-32px))] rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl z-50 text-slate-800"
+                    className="absolute left-0 top-full mt-2.5 w-[min(880px,calc(100vw-32px))] rounded-3xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-6 shadow-2xl z-50 text-slate-800"
                   >
                     <div className="grid grid-cols-12 gap-6">
                       {/* Left Spotlight Banner */}
-                      <div className="col-span-4 rounded-2xl border border-slate-100 bg-gradient-to-b from-slate-50 to-slate-100/80 p-5 flex flex-col justify-between">
-                        <div>
-                          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 border border-[#A82F19]/20 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#A82F19]">
+                      <div className="col-span-4 rounded-2xl border border-slate-200/80 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 p-5 flex flex-col justify-between text-white relative overflow-hidden shadow-lg">
+                        {/* Shimmer overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[#A82F19]/20 via-transparent to-transparent pointer-events-none" />
+
+                        <div className="relative z-10">
+                          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-white shadow-xs">
                             <Sparkles className="h-2.5 w-2.5" />
                             <span>Pressroom Suite</span>
                           </div>
-                          <h4 className="mt-2.5 text-sm font-black text-slate-900 leading-snug">
-                            Precision Commercial Printing
+                          <h4 className="mt-3 text-base font-extrabold text-white leading-tight">
+                            Dubai High-Precision Printing
                           </h4>
-                          <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
-                            FSC certified papers, Pantone precision color fidelity, and hot foil finishes.
+                          <p className="mt-1.5 text-xs leading-relaxed text-slate-300">
+                            Heidelberg offset, HP Indigo digital, 24K hot foil stamping, and luxury embossed textures.
                           </p>
 
-                          <div className="mt-4 pt-3.5 border-t border-slate-200 space-y-2">
-                            <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
-                              Popular Categories
+                          <div className="mt-4 pt-3.5 border-t border-white/15 space-y-2">
+                            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block">
+                              Fast Turnaround
                             </span>
                             <Link
                               to="/business-card-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="group flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/80 hover:border-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-2xs"
+                              className="group flex items-center justify-between p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs font-bold text-white transition-all backdrop-blur-xs"
                             >
                               <span className="flex items-center gap-2">
                                 <span className="h-2 w-2 rounded-full bg-[#A82F19]" />
                                 <span>Luxury Business Cards</span>
                               </span>
-                              <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19] transition-colors" />
+                              <ArrowUpRight className="h-3.5 w-3.5 text-slate-300 group-hover:text-white transition-colors" />
                             </Link>
                             <Link
                               to="/packaging-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="group flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200/80 hover:border-[#A82F19] text-xs font-bold text-slate-800 transition-all shadow-2xs"
+                              className="group flex items-center justify-between p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs font-bold text-white transition-all backdrop-blur-xs"
                             >
                               <span className="flex items-center gap-2">
-                                <span className="h-2 w-2 rounded-full bg-amber-500" />
-                                <span>Custom Packaging</span>
+                                <span className="h-2 w-2 rounded-full bg-amber-400" />
+                                <span>Custom Packaging &amp; Boxes</span>
                               </span>
-                              <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
+                              <ArrowUpRight className="h-3.5 w-3.5 text-slate-300 group-hover:text-white transition-colors" />
                             </Link>
                           </div>
                         </div>
 
-                        <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
+                        <div className="pt-4 border-t border-white/15 flex items-center justify-between relative z-10">
                           <Link
                             to="/products"
                             onClick={() => setActiveDropdown(null)}
-                            className="text-xs font-black text-[#A82F19] hover:underline flex items-center gap-1"
+                            className="text-xs font-black text-amber-400 hover:text-white transition-colors flex items-center gap-1.5"
                           >
-                            <span>Browse All Products</span>
+                            <span>Browse All 200+ Products</span>
                             <ArrowRight className="h-3.5 w-3.5" />
                           </Link>
                         </div>
@@ -474,27 +532,32 @@ export default function SiteHeader() {
                         {megaMenuGroups.map((group) => {
                           const Icon = group.icon || Layers
                           return (
-                            <div key={group.key} className="p-2.5 rounded-xl hover:bg-slate-50/90 transition-colors">
-                              <div className="flex items-center gap-2">
-                                <div className="flex h-6 w-6 items-center justify-center rounded-md bg-[#A82F19]/10 text-[#A82F19] shrink-0">
-                                  <Icon className="h-3.5 w-3.5" />
-                                </div>
-                                <div className="min-w-0">
-                                  <h5 className="text-xs font-bold text-slate-900 truncate">
+                            <div key={group.key} className="p-3 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200/80 transition-all">
+                              <div className="flex items-center justify-between mb-2">
+                                <div className="flex items-center gap-2">
+                                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#A82F19]/10 text-[#A82F19] shrink-0">
+                                    <Icon className="h-4 w-4" />
+                                  </div>
+                                  <h5 className="text-xs font-extrabold text-slate-900 truncate">
                                     {group.label}
                                   </h5>
                                 </div>
+                                {group.badge && (
+                                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[9px] font-bold text-slate-600">
+                                    {group.badge}
+                                  </span>
+                                )}
                               </div>
 
-                              <ul className="mt-2 space-y-1 pl-8">
-                                {group.items.slice(0, 5).map((item) => (
+                              <ul className="space-y-1 pl-9">
+                                {group.items.slice(0, 4).map((item) => (
                                   <li key={item.slug || item.id}>
                                     <Link
                                       to={`/categories/${item.slug}`}
                                       onClick={() => setActiveDropdown(null)}
-                                      className="group/link flex items-center justify-between text-xs font-medium text-slate-600 hover:text-[#A82F19] transition-colors"
+                                      className="group/link flex items-center justify-between text-xs font-medium text-slate-600 hover:text-[#A82F19] transition-colors py-0.5"
                                     >
-                                      <span className="truncate">{item.name}</span>
+                                      <span className="truncate group-hover/link:translate-x-1 transition-transform">{item.name}</span>
                                       <ChevronRight className="h-3 w-3 opacity-0 group-hover/link:opacity-100 text-[#A82F19] transition-opacity shrink-0" />
                                     </Link>
                                   </li>
@@ -513,75 +576,107 @@ export default function SiteHeader() {
             {/* Business Cards Link */}
             <NavLink
               to="/business-card-printing-dubai"
+              onMouseEnter={() => setHoveredNav('cards')}
               className={({ isActive }) =>
-                `flex items-center gap-1.5 rounded-xl px-3 py-2 transition-all whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
-                    : 'hover:text-slate-900 hover:bg-slate-100/70'
+                `relative z-10 flex items-center gap-1.5 rounded-xl px-3 py-2 transition-colors whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-extrabold' : 'text-slate-700 hover:text-slate-900'
                 }`
               }
             >
               <span>Business Cards</span>
-              <span className="rounded-full bg-[#A82F19] text-white px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
+              <span className="rounded-full bg-gradient-to-r from-[#A82F19] to-[#C83419] text-white px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider animate-pulse">
                 Dubai
               </span>
+
+              {hoveredNav === 'cards' && (
+                <motion.div
+                  layoutId="navHoverCapsule"
+                  className="absolute inset-0 rounded-xl bg-slate-100 -z-10"
+                  transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+                />
+              )}
             </NavLink>
 
             {/* Custom Packaging Link */}
             <NavLink
               to="/packaging-printing-dubai"
+              onMouseEnter={() => setHoveredNav('packaging')}
               className={({ isActive }) =>
-                `flex items-center gap-1.5 rounded-xl px-3 py-2 transition-all whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
-                    : 'hover:text-slate-900 hover:bg-slate-100/70'
+                `relative z-10 flex items-center gap-1.5 rounded-xl px-3 py-2 transition-colors whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-extrabold' : 'text-slate-700 hover:text-slate-900'
                 }`
               }
             >
               <span>Packaging</span>
+
+              {hoveredNav === 'packaging' && (
+                <motion.div
+                  layoutId="navHoverCapsule"
+                  className="absolute inset-0 rounded-xl bg-slate-100 -z-10"
+                  transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+                />
+              )}
             </NavLink>
 
-            {/* Stickers & Labels (Visible on xl+, moved to More on lg) */}
+            {/* Stickers & Labels */}
             <NavLink
               to="/categories/stickers-printing-dubai"
+              onMouseEnter={() => setHoveredNav('stickers')}
               className={({ isActive }) =>
-                `hidden xl:flex items-center gap-1.5 rounded-xl px-3 py-2 transition-all whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
-                    : 'hover:text-slate-900 hover:bg-slate-100/70'
+                `relative z-10 hidden xl:flex items-center gap-1.5 rounded-xl px-3 py-2 transition-colors whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-extrabold' : 'text-slate-700 hover:text-slate-900'
                 }`
               }
             >
               <span>Stickers</span>
+
+              {hoveredNav === 'stickers' && (
+                <motion.div
+                  layoutId="navHoverCapsule"
+                  className="absolute inset-0 rounded-xl bg-slate-100 -z-10"
+                  transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+                />
+              )}
             </NavLink>
 
-            {/* Letterheads (Visible on 2xl+, moved to More on lg/xl) */}
+            {/* Services & Finishes Link */}
             <NavLink
-              to="/categories/letterheads-printing-dubai"
+              to="/services"
+              onMouseEnter={() => setHoveredNav('services')}
               className={({ isActive }) =>
-                `hidden 2xl:flex items-center gap-1.5 rounded-xl px-3 py-2 transition-all whitespace-nowrap ${
-                  isActive
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
-                    : 'hover:text-slate-900 hover:bg-slate-100/70'
+                `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-xl px-3 py-2 transition-colors whitespace-nowrap ${
+                  isActive ? 'text-[#A82F19] font-extrabold' : 'text-slate-700 hover:text-slate-900'
                 }`
               }
             >
-              <span>Letterheads</span>
+              <Palette className="h-3.5 w-3.5 text-slate-400" />
+              <span>Finishes &amp; Services</span>
+
+              {hoveredNav === 'services' && (
+                <motion.div
+                  layoutId="navHoverCapsule"
+                  className="absolute inset-0 rounded-xl bg-slate-100 -z-10"
+                  transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+                />
+              )}
             </NavLink>
 
-            {/* Company & Services Dropdown */}
+            {/* Company Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => handleMouseEnterDropdown('company')}
+              onMouseEnter={() => {
+                handleMouseEnterDropdown('company')
+                setHoveredNav('company')
+              }}
               onMouseLeave={handleMouseLeaveDropdown}
             >
               <button
                 type="button"
                 onClick={() => setActiveDropdown((prev) => (prev === 'company' ? null : 'company'))}
-                className={`flex items-center gap-1 rounded-xl px-3 py-2 transition-all cursor-pointer ${
+                className={`relative z-10 flex items-center gap-1 rounded-xl px-3 py-2 transition-colors cursor-pointer ${
                   activeDropdown === 'company' || ['/services', '/about', '/blog', '/contact'].includes(location.pathname)
-                    ? 'text-[#A82F19] bg-[#A82F19]/8 font-extrabold'
-                    : 'hover:text-slate-900 hover:bg-slate-100/70'
+                    ? 'text-[#A82F19] font-extrabold'
+                    : 'text-slate-700 hover:text-slate-900'
                 }`}
               >
                 <span>Company</span>
@@ -590,6 +685,14 @@ export default function SiteHeader() {
                     activeDropdown === 'company' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'
                   }`}
                 />
+
+                {(hoveredNav === 'company' || activeDropdown === 'company') && (
+                  <motion.div
+                    layoutId="navHoverCapsule"
+                    className="absolute inset-0 rounded-xl bg-slate-100 -z-10"
+                    transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+                  />
+                )}
               </button>
 
               <AnimatePresence>
@@ -599,7 +702,7 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl z-50 text-slate-800"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-2.5 w-68 rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-2.5 shadow-2xl z-50 text-slate-800"
                   >
                     <Link
                       to="/services"
@@ -614,30 +717,6 @@ export default function SiteHeader() {
                     </Link>
 
                     <Link
-                      to="/categories/stickers-printing-dubai"
-                      onClick={() => setActiveDropdown(null)}
-                      className="xl:hidden flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
-                    >
-                      <Layers className="h-4 w-4 text-slate-400" />
-                      <div>
-                        <div className="leading-tight">Stickers &amp; Labels</div>
-                        <span className="text-[10px] font-normal text-slate-400">Vinyl, roll labels &amp; foil</span>
-                      </div>
-                    </Link>
-
-                    <Link
-                      to="/categories/letterheads-printing-dubai"
-                      onClick={() => setActiveDropdown(null)}
-                      className="2xl:hidden flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
-                    >
-                      <FileText className="h-4 w-4 text-slate-400" />
-                      <div>
-                        <div className="leading-tight">Letterheads &amp; Stationery</div>
-                        <span className="text-[10px] font-normal text-slate-400">Executive folders &amp; envelopes</span>
-                      </div>
-                    </Link>
-
-                    <Link
                       to="/about"
                       onClick={() => setActiveDropdown(null)}
                       className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
@@ -645,7 +724,7 @@ export default function SiteHeader() {
                       <Building2 className="h-4 w-4 text-slate-400" />
                       <div>
                         <div className="leading-tight">About ONPRINT</div>
-                        <span className="text-[10px] font-normal text-slate-400">Dubai Pressroom &amp; Mission</span>
+                        <span className="text-[10px] font-normal text-slate-400">Dubai Pressroom &amp; Facilities</span>
                       </div>
                     </Link>
 
@@ -657,7 +736,7 @@ export default function SiteHeader() {
                       <BookOpen className="h-4 w-4 text-slate-400" />
                       <div>
                         <div className="leading-tight">Printing Insights &amp; Blog</div>
-                        <span className="text-[10px] font-normal text-slate-400">Guides, materials &amp; finishes</span>
+                        <span className="text-[10px] font-normal text-slate-400">Materials, papers &amp; finishes</span>
                       </div>
                     </Link>
 
@@ -669,7 +748,7 @@ export default function SiteHeader() {
                       <MapPin className="h-4 w-4 text-slate-400" />
                       <div>
                         <div className="leading-tight">Contact &amp; Location</div>
-                        <span className="text-[10px] font-normal text-slate-400">Al Quoz, Dubai Facility</span>
+                        <span className="text-[10px] font-normal text-slate-400">Al Quoz Industrial 3, Dubai</span>
                       </div>
                     </Link>
                   </motion.div>
@@ -681,50 +760,59 @@ export default function SiteHeader() {
           {/* Right Action Hub */}
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
             {/* Quick Search Button */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
               type="button"
               onClick={() => setSearchModalOpen(true)}
-              className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2.5 sm:px-3 py-1.5 text-xs text-slate-600 hover:text-slate-900 hover:border-slate-300 hover:bg-white transition-all shadow-2xs cursor-pointer"
-              title="Search products (Press /)"
+              className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 sm:px-3 py-1.5 text-xs text-slate-600 hover:text-slate-900 hover:border-slate-300 hover:bg-white transition-all shadow-2xs cursor-pointer"
+              title="Search products (Press / or ⌘K)"
             >
               <Search className="h-3.5 w-3.5 text-slate-500" />
               <span className="hidden xl:inline text-[11px] font-medium text-slate-500">Search print catalog...</span>
               <kbd className="hidden xl:inline-block rounded bg-slate-200/80 px-1.5 py-0.5 text-[9px] font-bold text-slate-600">
-                /
+                ⌘K
               </kbd>
-            </button>
+            </motion.button>
 
             {/* Shopping Bag / Orders Button */}
             <Link
               to="/track-order"
-              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700 hover:bg-white hover:text-[#A82F19] hover:border-[#A82F19]/40 transition-all shadow-2xs"
+              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-slate-200 bg-slate-50/80 text-slate-700 hover:bg-white hover:text-[#A82F19] hover:border-[#A82F19]/40 transition-all shadow-2xs group"
               title="Track Orders"
             >
-              <ShoppingBag className="h-4 w-4" />
-              <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#A82F19] text-[8px] font-extrabold text-white">
+              <ShoppingBag className="h-4 w-4 group-hover:scale-110 transition-transform" />
+              <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#A82F19] text-[8px] font-black text-white shadow-xs animate-bounce">
                 0
               </span>
             </Link>
 
-            {/* WhatsApp VIP Concierge Pill */}
+            {/* WhatsApp VIP Concierge Pill with Radar Pulse Ring */}
             <div className="relative">
-              <button
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
                 type="button"
                 onClick={() => {
                   setWhatsappPopoverOpen((v) => !v)
                   setUserMenuOpen(false)
                 }}
-                className={`flex items-center gap-1.5 rounded-full px-2.5 sm:px-3 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-2xs ${
+                className={`relative flex items-center gap-1.5 rounded-full px-2.5 sm:px-3 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-xs ${
                   whatsappPopoverOpen
-                    ? 'bg-[#25D366] text-white shadow-md shadow-emerald-500/20'
-                    : 'bg-emerald-50 text-emerald-800 border border-emerald-200/90 hover:bg-[#25D366] hover:text-white'
+                    ? 'bg-[#25D366] text-white shadow-md shadow-emerald-500/25'
+                    : 'bg-emerald-50 text-emerald-900 border border-emerald-200 hover:bg-[#25D366] hover:text-white'
                 }`}
                 title="WhatsApp Concierge"
               >
                 <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
                 <span className="hidden md:inline text-[11px]">WhatsApp</span>
-                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-              </button>
+                
+                {/* Live Radar Pulse Indicator */}
+                <span className="relative flex h-2 w-2 ml-0.5">
+                  <span className="animate-radar-ring absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+              </motion.button>
 
               {/* WhatsApp Dropdown Popover */}
               <AnimatePresence>
@@ -734,7 +822,7 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute right-0 top-full mt-2 w-72 sm:w-76 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl z-50 text-slate-800"
+                    className="absolute right-0 top-full mt-2.5 w-72 sm:w-76 rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-4 shadow-2xl z-50 text-slate-800"
                   >
                     <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
                       <div className="flex items-center gap-2.5">
@@ -745,7 +833,7 @@ export default function SiteHeader() {
                           <div className="text-xs font-bold text-slate-900 leading-tight">WhatsApp Concierge</div>
                           <div className="flex items-center gap-1 text-[10px] font-medium text-emerald-600">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                            <span>Online • Instant Reply</span>
+                            <span>Online • Instant Turnaround</span>
                           </div>
                         </div>
                       </div>
@@ -784,7 +872,7 @@ export default function SiteHeader() {
                     </div>
 
                     <a
-                      href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+                      href="https://wa.me/447344546056?text=Hi%20ONPRINT%20Dubai%2C%20I%20need%20a%20commercial%20printing%20quote"
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setWhatsappPopoverOpen(false)}
@@ -820,7 +908,7 @@ export default function SiteHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2 w-52 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-50 text-slate-800"
+                      className="absolute right-0 top-full mt-2.5 w-52 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-50 text-slate-800"
                     >
                       <div className="px-3 py-2 border-b border-slate-100 mb-1">
                         <div className="font-bold text-xs text-slate-900 truncate">{user?.name || 'Administrator'}</div>
@@ -853,15 +941,21 @@ export default function SiteHeader() {
               </div>
             ) : null}
 
-            {/* Primary High-Converting CTA Button (Hidden on tiny mobile < 400px to avoid squishing) */}
-            <Link
-              to="/get-a-quote"
-              className="hidden sm:inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-[#A82F19] to-[#C0392B] hover:from-[#932511] hover:to-[#A82F19] px-3.5 sm:px-4.5 py-1.5 sm:py-2 text-xs font-black text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/35 hover:-translate-y-0.5 transition-all whitespace-nowrap"
-              onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
+            {/* Primary High-Converting CTA Button with Luxury Shimmer */}
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.2 }}
             >
-              <span>Get Quote</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+              <Link
+                to="/get-a-quote"
+                className="group relative inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-[#A82F19] via-[#BE321B] to-[#A82F19] px-4 sm:px-5 py-2 text-xs font-black text-white shadow-md shadow-[#A82F19]/30 hover:shadow-lg hover:shadow-[#A82F19]/45 transition-all whitespace-nowrap animate-shimmer overflow-hidden"
+                onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
+              >
+                <span>Get Instant Quote</span>
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            </motion.div>
 
             {/* Mobile / Tablet Hamburger Toggle */}
             <button
@@ -876,15 +970,15 @@ export default function SiteHeader() {
         </Container>
       </div>
 
-      {/* 3. UNIVERSAL SEARCH MODAL */}
+      {/* 3. UNIVERSAL SEARCH MODAL WITH SPRING ANIMATION */}
       <AnimatePresence>
         {searchModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/60 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/65 backdrop-blur-md">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: -10 }}
+              initial={{ opacity: 0, scale: 0.95, y: -16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -10 }}
-              transition={{ duration: 0.18 }}
+              exit={{ opacity: 0, scale: 0.95, y: -16 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="w-full max-w-2xl rounded-3xl border border-slate-200 bg-white p-5 sm:p-6 shadow-2xl text-slate-800"
             >
               {/* Search Bar Input */}
@@ -896,7 +990,7 @@ export default function SiteHeader() {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search 200+ products, categories, or finishes..."
+                    placeholder="Search 200+ products, categories, or luxury finishes..."
                     className="w-full bg-transparent text-sm sm:text-base font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none"
                   />
                 </div>
@@ -914,56 +1008,56 @@ export default function SiteHeader() {
                 {searchQuery.trim() === '' ? (
                   <div className="py-2">
                     <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-2.5">
-                      Popular Print Categories
+                      Popular Print Categories in Dubai
                     </span>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       <Link
                         to="/business-card-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
                       >
-                        <span>Business Cards</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                        <span className="group-hover:text-[#A82F19] transition-colors">Business Cards</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
                       </Link>
                       <Link
                         to="/packaging-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
                       >
-                        <span>Custom Packaging</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                        <span className="group-hover:text-[#A82F19] transition-colors">Custom Packaging</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
                       </Link>
                       <Link
                         to="/categories/letterheads-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
                       >
-                        <span>Letterheads</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                        <span className="group-hover:text-[#A82F19] transition-colors">Letterheads</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
                       </Link>
                       <Link
                         to="/categories/stickers-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
                       >
-                        <span>Stickers &amp; Labels</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                        <span className="group-hover:text-[#A82F19] transition-colors">Stickers &amp; Labels</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
                       </Link>
                       <Link
                         to="/categories/brochures-printing"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
                       >
-                        <span>Brochures</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                        <span className="group-hover:text-[#A82F19] transition-colors">Brochures &amp; Flyers</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
                       </Link>
                       <Link
                         to="/categories/mug-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between"
+                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
                       >
-                        <span>Mugs &amp; Tumblers</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                        <span className="group-hover:text-[#A82F19] transition-colors">Corporate Gifts</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
                       </Link>
                     </div>
                   </div>
@@ -1006,7 +1100,7 @@ export default function SiteHeader() {
                               key={c.id || c._id}
                               to={`/categories/${c.slug}`}
                               onClick={() => setSearchModalOpen(false)}
-                              className="p-2.5 rounded-xl border border-slate-200 hover:border-[#A82F19] text-xs font-bold text-slate-800"
+                              className="p-2.5 rounded-xl border border-slate-200 hover:border-[#A82F19] text-xs font-bold text-slate-800 hover:text-[#A82F19] transition-colors"
                             >
                               {c.name}
                             </Link>
@@ -1035,7 +1129,7 @@ export default function SiteHeader() {
         )}
       </AnimatePresence>
 
-      {/* 4. MODERN MOBILE & TABLET DRAWER (OFF-CANVAS SHEET) */}
+      {/* 4. MODERN MOBILE & TABLET DRAWER WITH STAGGERED SPRING ANIMATION */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-50 lg:hidden flex">
@@ -1045,7 +1139,7 @@ export default function SiteHeader() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs"
+              className="fixed inset-0 bg-slate-950/65 backdrop-blur-sm"
             />
 
             {/* Slide-in Drawer Container */}
@@ -1053,7 +1147,7 @@ export default function SiteHeader() {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+              transition={{ type: 'spring', damping: 26, stiffness: 280 }}
               className="relative ml-auto flex h-full w-full max-w-md flex-col bg-white shadow-2xl z-50 overflow-hidden"
             >
               {/* Drawer Header */}
@@ -1091,10 +1185,10 @@ export default function SiteHeader() {
 
                 {/* WhatsApp Concierge Card */}
                 <a
-                  href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+                  href="https://wa.me/447344546056?text=Hi%20ONPRINT%20Dubai%2C%20I%20need%20a%20printing%20quote"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50/90 p-3 text-emerald-950 transition-all shadow-2xs"
+                  className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50/90 p-3 text-emerald-950 transition-all shadow-xs"
                 >
                   <div className="flex items-center gap-2.5">
                     <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs shrink-0">
@@ -1233,7 +1327,7 @@ export default function SiteHeader() {
                   >
                     <div className="flex items-center gap-2">
                       <Sparkles className="h-4 w-4 text-slate-400" />
-                      <span>Printing Services</span>
+                      <span>Printing Services &amp; Finishes</span>
                     </div>
                   </Link>
 
@@ -1245,7 +1339,7 @@ export default function SiteHeader() {
                   >
                     <div className="flex items-center gap-2">
                       <Building2 className="h-4 w-4 text-slate-400" />
-                      <span>About ONPRINT</span>
+                      <span>About ONPRINT Pressroom</span>
                     </div>
                   </Link>
 
@@ -1283,7 +1377,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#A82F19] to-[#C0392B] py-3 text-sm font-black text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg transition-all"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#A82F19] to-[#C0392B] py-3 text-sm font-black text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg transition-all animate-shimmer"
                 >
                   <span>Get Instant Quote</span>
                   <ArrowRight className="h-4 w-4" />

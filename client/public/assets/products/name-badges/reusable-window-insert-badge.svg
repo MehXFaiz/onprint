@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Reusable Window Magnetic Name Badges">
+  <defs>
+    <!-- Studio Radial Gradient Background -->
+    <radialGradient id="winStudioBg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="55%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+
+    <!-- Brushed Silver Aluminum Gradient -->
+    <linearGradient id="silverGrain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="20%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="80%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+
+    <!-- Paper Insert Card Gradient -->
+    <linearGradient id="paperCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+
+    <!-- Transparent Window Acetate Cover -->
+    <linearGradient id="windowAcetate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <filter id="winShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="25" stdDeviation="22" flood-color="#0f172a" flood-opacity="0.25"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+
+    <filter id="paperShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#winStudioBg)"/>
+
+  <!-- Pedestal Shadow -->
+  <ellipse cx="600" cy="620" rx="440" ry="65" fill="#cbd5e1" fill-opacity="0.45"/>
+
+  <!-- MAIN REUSABLE WINDOW BADGE (700 x 280) -->
+  <g transform="translate(250, 290)" filter="url(#winShadow)">
+    
+    <!-- Outer Metal Body with Rounded Corners -->
+    <rect width="700" height="280" rx="20" fill="url(#silverGrain)" stroke="#94a3b8" stroke-width="2"/>
+
+    <!-- Fine Brushed Grain Lines -->
+    <line x1="10" y1="40" x2="690" y2="40" stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.4"/>
+    <line x1="10" y1="90" x2="690" y2="90" stroke="#475569" stroke-width="0.3" stroke-opacity="0.2"/>
+    <line x1="10" y1="140" x2="690" y2="140" stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.4"/>
+    <line x1="10" y1="190" x2="690" y2="190" stroke="#475569" stroke-width="0.3" stroke-opacity="0.2"/>
+    <line x1="10" y1="240" x2="690" y2="240" stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.4"/>
+
+    <!-- Permanent Header Branding Strip (Top 85px) -->
+    <g transform="translate(30, 20)">
+      <!-- ONPRINT Red Crest -->
+      <rect width="45" height="45" rx="10" fill="#A82F19"/>
+      <polygon points="22.5,8 35,22.5 22.5,37 10,22.5" fill="#ffffff"/>
+      
+      <!-- Brand Name -->
+      <text x="60" y="24" fill="#0f172a" font-family="'Cinzel', Georgia, serif" font-size="18" font-weight="bold" letter-spacing="3">GRAND HYATT HOTELS & RESORTS</text>
+      <text x="60" y="42" fill="#A82F19" font-family="system-ui, sans-serif" font-size="11" font-weight="800" letter-spacing="2">HOSPITALITY SERVICES • DUBAI</text>
+    </g>
+
+    <!-- REUSABLE WINDOW SLOT AREA (Inset Window 640 x 140) -->
+    <g transform="translate(30, 85)">
+      <!-- Window Frame Inset Bezel / Recess -->
+      <rect width="640" height="155" rx="12" fill="#0f172a" stroke="#64748b" stroke-width="1.5"/>
+      <rect x="2" y="2" width="636" height="151" rx="10" fill="#1e293b"/>
+
+      <!-- Reusable Paper Name Insert Card (Partially sliding in with Paper Texture) -->
+      <g transform="translate(8, 8)" filter="url(#paperShadow)">
+        <rect width="620" height="135" rx="8" fill="url(#paperCard)" stroke="#e2e8f0" stroke-width="1"/>
+        
+        <!-- Inserted Name Typography -->
+        <text x="35" y="55" fill="#0f172a" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="900" letter-spacing="1">EMILY CHEN</text>
+        <line x1="35" y1="75" x2="480" y2="75" stroke="#A82F19" stroke-width="2.5"/>
+        <text x="35" y="105" fill="#A82F19" font-family="system-ui, sans-serif" font-size="16" font-weight="800" letter-spacing="2">GUEST RELATIONS MANAGER</text>
+
+        <!-- Right Side Language Pill -->
+        <g transform="translate(480, 45)">
+          <rect width="105" height="28" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+          <text x="52.5" y="18" fill="#475569" font-family="system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">EN • FR • AR</text>
+        </g>
+      </g>
+
+      <!-- Transparent Acetate Window Lens Protective Cover -->
+      <rect x="2" y="2" width="636" height="151" rx="10" fill="url(#windowAcetate)"/>
+
+      <!-- Slide-in Notch Indicator on Right Edge -->
+      <path d="M 640 60 C 625 60 625 100 640 100 Z" fill="#64748b"/>
+    </g>
+
+    <!-- Metallic Glint -->
+    <path d="M 120 0 L 220 0 L 140 280 L 40 280 Z" fill="#ffffff" fill-opacity="0.2"/>
+  </g>
+
+  <!-- Spec Tag -->
+  <g transform="translate(860, 790)">
+    <rect width="280" height="65" rx="12" fill="#ffffff" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="28" fill="#0f172a" font-family="system-ui, sans-serif" font-size="14" font-weight="800">Reusable Window Badge</text>
+    <text x="20" y="48" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Interchangeable Paper Insert Slot</text>
+  </g>
+</svg>

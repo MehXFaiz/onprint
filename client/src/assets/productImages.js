@@ -591,8 +591,7 @@ function isGenericOrDuplicateImage(url) {
     u.includes('/uploads/categories/letterheads-printing-dubai.jpg') ||
     u.includes('name_badges.jpg') ||
     u.includes('name_plates.jpg') ||
-    u.includes('business-card-standard.svg') ||
-    u.endsWith('.svg')
+    u.includes('business-card-standard.svg')
   )
 }
 

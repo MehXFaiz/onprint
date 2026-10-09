@@ -17,6 +17,7 @@ export default function ProductCard({
 
   const isFeatured = featured || product.featured
   const productImage = getProductImage(product)
+  const [currentImg, setCurrentImg] = useState(productImage)
   const categoryName =
     typeof product.category === 'object'
       ? product.category?.name
@@ -85,10 +86,15 @@ export default function ProductCard({
             <div className="product-mockup-shadow absolute inset-[8%] rounded-[1.25rem] bg-slate-900/10 blur-lg" />
             <div className="product-mockup-face relative h-full w-full overflow-hidden rounded-[1.25rem] border border-slate-200/80 bg-white shadow-md">
               <img
-                src={productImage}
+                src={currentImg || productImage}
                 alt={product.imageAlt || product.name}
                 loading="lazy"
                 decoding="async"
+                onError={() => {
+                  if (currentImg !== '/assets/products/name_plates.jpg') {
+                    setCurrentImg('/assets/products/name_plates.jpg')
+                  }
+                }}
                 className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
               />
             </div>

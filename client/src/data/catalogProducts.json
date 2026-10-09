@@ -1953,8 +1953,8 @@
     },
     "shortDescription": "Executive acrylic door and desk nameplates with polished finishes and strong mounting hardware.",
     "description": "Acrylic nameplates for offices, retail reception, and corporate interiors with premium engraving, polished edges, and secure mounting.",
-    "image": "/assets/products/acrylic_desk_nameplate.jpg",
-    "image_url": "/assets/products/acrylic_desk_nameplate.jpg",
+    "image": "/assets/products/name-badges/acrylic-desk-nameplate.svg",
+    "image_url": "/assets/products/name-badges/acrylic-desk-nameplate.svg",
     "imageAlt": "Acrylic office nameplates in Dubai",
     "seoTitle": "Acrylic Nameplates Dubai | Office Door Signage | ONPRINT",
     "seoDescription": "Custom acrylic nameplates in Dubai for office reception, desk signage, and branded door titles with polished finishes.",
@@ -3760,8 +3760,8 @@
     },
     "shortDescription": "Brushed aluminum, stainless steel, and brass engraved wall plaques and directional signs.",
     "description": "Premium metal signs and wall plaques fabricated in brushed aluminum, stainless steel, and solid brass with deep laser engraving, chemical etching, or UV-printed graphics. Ideal for executive office names, building directories, and award plaques across UAE.",
-    "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Metal%20Name%20Signs%20%26%20Plaques%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Metal%20Name%20Signs%20%26%20Plaques%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+    "image": "/assets/products/name-badges/metal-architectural-wall-plaque.svg",
+    "image_url": "/assets/products/name-badges/metal-architectural-wall-plaque.svg",
     "imageAlt": "Metal name signs and plaques in Dubai",
     "seoTitle": "Metal Name Signs & Plaques Dubai | Aluminum Stainless Brass | ONPRINT",
     "seoDescription": "Engraved metal signs and plaques in Dubai. Brushed aluminum, stainless steel and brass for office names, directories and awards.",
@@ -5499,8 +5499,8 @@
     },
     "shortDescription": "Executive brushed gold and silver metal magnetic staff badges with ultra-strong triple-magnet backings and laser-engraved logos.",
     "description": "Bespoke corporate magnetic name badges designed for Dubai luxury hotels, corporate offices, clinics, and VIP retail staff. Precision-crafted from brushed champagne gold, brushed silver aluminum, or mirror-finished stainless steel with razor-sharp full-color UV print or permanent laser engraving. Comes equipped with powerful 3-neodymium magnetic fasteners that protect luxury garments and uniforms without pinholes.",
-    "image": "/assets/products/name_badges.jpg",
-    "image_url": "/assets/products/name_badges.jpg",
+    "image": "/assets/products/name-badges/brushed-gold-magnetic-badge.svg",
+    "image_url": "/assets/products/name-badges/brushed-gold-magnetic-badge.svg",
     "imageAlt": "Professional magnetic metal name badges in Dubai",
     "seoTitle": "Professional Magnetic Metal Name Badges Dubai | Staff Badges | ONPRINT",
     "seoDescription": "Order executive magnetic metal name badges in Dubai. Brushed gold, silver, and stainless steel staff badges with strong magnetic backing and express UAE delivery.",
@@ -5512,9 +5512,7 @@
     "featured": true,
     "active": true,
     "images": [
-      "/assets/products/name_badges.jpg",
-      "/assets/products/badge_magnetic_gold.jpg",
-      "/assets/products/badge_magnetic_silver.jpg"
+      "/assets/products/name-badges/brushed-gold-magnetic-badge.svg"
     ],
     "features": [
       "Min. Order: 5 units",
@@ -5535,8 +5533,8 @@
     },
     "shortDescription": "High-gloss 3D crystal resin domed magnetic name badges with scratch-resistant surface and vibrant Pantone colors.",
     "description": "Premium 3D crystal epoxy domed name badges popular across Dubai hospitality, restaurants, airlines, and exhibition teams. Features a polyurethane clear lens coating that magnifies print clarity, resists scratches, and prevents fading under UAE sunlight, complete with magnetic clip attachment.",
-    "image": "/assets/products/badge_domed_epoxy.jpg",
-    "image_url": "/assets/products/badge_domed_epoxy.jpg",
+    "image": "/assets/products/name-badges/domed-epoxy-resin-badge.svg",
+    "image_url": "/assets/products/name-badges/domed-epoxy-resin-badge.svg",
     "imageAlt": "Custom domed epoxy magnetic staff badges in Dubai",
     "seoTitle": "Domed Epoxy Magnetic Name Badges Dubai | 3D Resin Badges | ONPRINT",
     "seoDescription": "Order custom domed epoxy magnetic name tags in Dubai. Scratch-proof 3D resin badges with strong magnetic fastener and fast turnaround.",
@@ -5548,8 +5546,7 @@
     "featured": true,
     "active": true,
     "images": [
-      "/assets/products/badge_domed_epoxy.jpg",
-      "/assets/products/name_badges.jpg"
+      "/assets/products/name-badges/domed-epoxy-resin-badge.svg"
     ],
     "features": [
       "Min. Order: 10 units",
@@ -5570,8 +5567,8 @@
     },
     "shortDescription": "Cost-effective reusable name badges with interchangeable paper slide windows and permanent corporate logo branding.",
     "description": "Smart and eco-friendly reusable staff badges featuring permanent branded company logos on premium aluminum backing with a transparent slide-in window for fast employee name updates. The ideal solution for high-turnover hospitality, events, and seasonal retail staff across Dubai.",
-    "image": "/assets/products/badge_reusable_window.jpg",
-    "image_url": "/assets/products/badge_reusable_window.jpg",
+    "image": "/assets/products/name-badges/reusable-window-insert-badge.svg",
+    "image_url": "/assets/products/name-badges/reusable-window-insert-badge.svg",
     "imageAlt": "Reusable window magnetic name badges in Dubai",
     "seoTitle": "Reusable Window Magnetic Badges Dubai | Interchangeable Name Tags | ONPRINT",
     "seoDescription": "Buy reusable window magnetic name badges in Dubai. Permanent corporate logo print with slide-in paper name inserts and magnetic backing.",
@@ -5583,8 +5580,7 @@
     "featured": true,
     "active": true,
     "images": [
-      "/assets/products/badge_reusable_window.jpg",
-      "/assets/products/name_badges.jpg"
+      "/assets/products/name-badges/reusable-window-insert-badge.svg"
     ],
     "features": [
       "Min. Order: 10 units",
@@ -5605,8 +5601,8 @@
     },
     "shortDescription": "Modern minimalist anodized matte black aluminum badges with precision laser-engraved gold or white typography.",
     "description": "Sleek, high-contrast anodized matte black metal name badges tailored for modern tech firms, luxury boutiques, fine dining venues, and executive management in Dubai. Permanent precision laser etching reveals brilliant silver or gold underlayers that never wear off.",
-    "image": "/assets/products/badge_matte_black.jpg",
-    "image_url": "/assets/products/badge_matte_black.jpg",
+    "image": "/assets/products/name-badges/executive-matte-black-badge.svg",
+    "image_url": "/assets/products/name-badges/executive-matte-black-badge.svg",
     "imageAlt": "Executive matte black magnetic name badges in Dubai",
     "seoTitle": "Matte Black Magnetic Badges Dubai | Executive Laser Engraved Tags | ONPRINT",
     "seoDescription": "Order executive matte black magnetic name badges in Dubai. Anodized aluminum with laser-etched gold lettering and clothing-safe magnets.",
@@ -5618,8 +5614,7 @@
     "featured": true,
     "active": true,
     "images": [
-      "/assets/products/badge_matte_black.jpg",
-      "/assets/products/badge_magnetic_gold.jpg"
+      "/assets/products/name-badges/executive-matte-black-badge.svg"
     ],
     "features": [
       "Min. Order: 5 units",

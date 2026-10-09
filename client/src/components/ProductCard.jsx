@@ -18,6 +18,12 @@ export default function ProductCard({
   const isFeatured = featured || product.featured
   const productImage = getProductImage(product)
   const [currentImg, setCurrentImg] = useState(productImage)
+
+  // Keep state in sync with props/product resolution
+  useEffect(() => {
+    setCurrentImg(productImage)
+  }, [productImage, product?.slug, product?.image])
+
   const categoryName =
     typeof product.category === 'object'
       ? product.category?.name
@@ -91,8 +97,8 @@ export default function ProductCard({
                 loading="lazy"
                 decoding="async"
                 onError={() => {
-                  if (currentImg !== '/assets/products/name_plates.jpg') {
-                    setCurrentImg('/assets/products/name_plates.jpg')
+                  if (currentImg !== productImage) {
+                    setCurrentImg(productImage)
                   }
                 }}
                 className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"

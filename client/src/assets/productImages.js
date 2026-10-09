@@ -25,14 +25,33 @@ import img12 from './products/1 (12).jpg'
 import img13 from './products/1 (13).jpg'
 import img14 from './products/1 (14).jpg'
 import img15 from './products/1 (15).jpg'
+
+// Business Card Varieties
 import softTouchBusinessCardImg from './products/card-soft-touch.jpg'
 import velvetFoilBusinessCardImg from './products/card-velvet-foil.jpg'
 import paintedEdgeBusinessCardImg from './products/card-painted-edge.jpg'
+import bcStandardSilkImg from './products/business-cards/bc_standard_silk.jpg'
+import bcPremiumMatteImg from './products/business-cards/bc_premium_matte.jpg'
+import bcMatteSofttouchImg from './products/business-cards/bc_matte_softtouch.jpg'
+import bcGlossyImg from './products/business-cards/bc_glossy.jpg'
+import bcEmbossedImg from './products/business-cards/bc_embossed.jpg'
+import bcDebossedImg from './products/business-cards/bc_debossed.jpg'
+import bcDiecutImg from './products/business-cards/bc_diecut.jpg'
+import bcTriplexImg from './products/business-cards/bc_triplex.jpg'
+import bcTexturedKraftImg from './products/business-cards/bc_textured_kraft.jpg'
+import bcRoundedCornersImg from './products/business-cards/bc_rounded_corners.jpg'
+import bcMinimalistImg from './products/business-cards/bc_minimalist.jpg'
+import bcCorporateBatchesImg from './products/business-cards/bc_corporate_batches.jpg'
+import bcBilingualImg from './products/business-cards/bc_bilingual.jpg'
+
+// Services
 import serviceDigitalOffsetImg from './products/service_digital_offset.jpg'
 import serviceCorporateGiftsImg from './products/service_corporate_gifts.jpg'
 import serviceStickersLabelsImg from './products/service_stickers_labels.jpg'
 import serviceExecutiveStationeryImg from './products/service_executive_stationery.jpg'
 import serviceExhibitionSignageImg from './products/service_exhibition_signage.jpg'
+
+// Brochures
 import brochureBifoldImg from './products/brochure_bifold.jpg'
 import brochureTrifoldImg from './products/brochure_trifold.jpg'
 import brochureBookletImg from './products/brochure_booklet_catalog.jpg'
@@ -67,6 +86,16 @@ import studentCampusIdCardImg from './products/id-cards/student-campus-id-cards.
 import visitorPassHoldersImg from './products/id-cards/visitor-pass-cards-holders.jpg'
 import executiveVipMetalCardImg from './products/id-cards/executive-metallic-vip-id-cards.jpg'
 
+// Dedicated high-resolution Lanyard variety images
+import standardPolyesterLanyardImg from './products/lanyards/standard-polyester-lanyard.jpg'
+import satinDyeSublimationLanyardImg from './products/lanyards/satin-dye-sublimation-lanyard.jpg'
+import safetyBreakawayLanyardImg from './products/lanyards/safety-breakaway-lanyard.jpg'
+import wovenJacquardLanyardImg from './products/lanyards/woven-jacquard-lanyard.jpg'
+import ecoFriendlyRpetLanyardImg from './products/lanyards/eco-friendly-rpet-lanyard.jpg'
+import doubleClipLanyardImg from './products/lanyards/double-clip-conference-lanyard.jpg'
+import retractableBadgeReelLanyardImg from './products/lanyards/retractable-badge-reel-lanyard.jpg'
+import reflectiveHiVisLanyardImg from './products/lanyards/reflective-hi-vis-lanyard.jpg'
+
 // Dedicated high-resolution Letterhead & Stationery variety images
 import letterheadExecutive120gsmImg from './products/letterhead_executive_120gsm.jpg'
 import letterheadGoldFoilImg from './products/letterhead_gold_foil.jpg'
@@ -78,7 +107,6 @@ import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './c
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
 const penPrintingImg = '/uploads/categories/letterheads-printing-dubai.jpg'
 const letterheadImg = letterheadGoldFoilImg
-const standardBusinessCardImg = '/assets/products/business-card-standard.svg'
 
 export const productImages = {
   toteBags: toteBagsImg,
@@ -106,6 +134,21 @@ export const productImages = {
   serviceStickersLabels: serviceStickersLabelsImg,
   serviceExecutiveStationery: serviceExecutiveStationeryImg,
   serviceExhibitionSignage: serviceExhibitionSignageImg,
+
+  // Business Cards
+  bcStandardSilk: bcStandardSilkImg,
+  bcPremiumMatte: bcPremiumMatteImg,
+  bcMatteSofttouch: bcMatteSofttouchImg,
+  bcGlossy: bcGlossyImg,
+  bcEmbossed: bcEmbossedImg,
+  bcDebossed: bcDebossedImg,
+  bcDiecut: bcDiecutImg,
+  bcTriplex: bcTriplexImg,
+  bcTexturedKraft: bcTexturedKraftImg,
+  bcRoundedCorners: bcRoundedCornersImg,
+  bcMinimalist: bcMinimalistImg,
+  bcCorporateBatches: bcCorporateBatchesImg,
+  bcBilingual: bcBilingualImg,
 
   // Letterheads & Stationery
   letterheadExecutive120gsm: letterheadExecutive120gsmImg,
@@ -138,6 +181,16 @@ export const productImages = {
   studentCampusIdCard: studentCampusIdCardImg,
   visitorPassHolders: visitorPassHoldersImg,
   executiveVipMetalCard: executiveVipMetalCardImg,
+
+  // Dedicated Lanyards
+  standardPolyesterLanyard: standardPolyesterLanyardImg,
+  satinDyeSublimationLanyard: satinDyeSublimationLanyardImg,
+  safetyBreakawayLanyard: safetyBreakawayLanyardImg,
+  wovenJacquardLanyard: wovenJacquardLanyardImg,
+  ecoFriendlyRpetLanyard: ecoFriendlyRpetLanyardImg,
+  doubleClipLanyard: doubleClipLanyardImg,
+  retractableBadgeReelLanyard: retractableBadgeReelLanyardImg,
+  reflectiveHiVisLanyard: reflectiveHiVisLanyardImg,
 }
 
 export const productSlugImageMap = {
@@ -158,7 +211,7 @@ export const productSlugImageMap = {
   'commercial-marketing-flyers': flyersImg,
   'promotional-flyers': flyersImg,
   'id-card-printing-dubai': idCardsImg,
-  'lanyard-printing-dubai': badgesImg,
+  'lanyard-printing-dubai': standardPolyesterLanyardImg,
   'letterheads-printing-dubai': letterheadGoldFoilImg,
   'letterhead-printing-dubai': letterheadGoldFoilImg,
   'name-badges-printing-dubai': badgesImg,
@@ -181,6 +234,67 @@ export const productSlugImageMap = {
   'office-stationery-printing': serviceExecutiveStationeryImg,
   'large-format-exhibition-signage': serviceExhibitionSignageImg,
   'custom-branded-tote-bags': toteBagsImg,
+
+  // Dedicated Lanyard Products
+  'standard-polyester-lanyards': standardPolyesterLanyardImg,
+  'standard-polyester-neck-lanyards': standardPolyesterLanyardImg,
+  'satin-dye-sublimation-lanyards': satinDyeSublimationLanyardImg,
+  'full-color-satin-dye-sublimation-lanyards': satinDyeSublimationLanyardImg,
+  'safety-breakaway-lanyards': safetyBreakawayLanyardImg,
+  'safety-breakaway-buckle-lanyards': safetyBreakawayLanyardImg,
+  'double-clip-conference-lanyards': doubleClipLanyardImg,
+  'vip-double-clip-event-lanyards': doubleClipLanyardImg,
+  'woven-jacquard-lanyards': wovenJacquardLanyardImg,
+  'durable-woven-jacquard-fabric-lanyards': wovenJacquardLanyardImg,
+  'durable-woven-jacquard-lanyards': wovenJacquardLanyardImg,
+  'retractable-badge-reel-lanyards': retractableBadgeReelLanyardImg,
+  'eco-friendly-rpet-lanyards': ecoFriendlyRpetLanyardImg,
+  'reflective-hi-vis-lanyards': reflectiveHiVisLanyardImg,
+  'custom-branded-lanyards': standardPolyesterLanyardImg,
+
+  // Dedicated Business Card Products
+  'standard-silk-business-cards': bcStandardSilkImg,
+  'standard-business-cards': bcStandardSilkImg,
+  'premium-matte-business-cards': bcPremiumMatteImg,
+  'premium-business-cards': bcPremiumMatteImg,
+  'premium-soft-touch-business-cards': softTouchBusinessCardImg,
+  'soft-touch-business-cards': softTouchBusinessCardImg,
+  'velvet-foil-business-cards': velvetFoilBusinessCardImg,
+  'luxury-velvet-business-cards': velvetFoilBusinessCardImg,
+  'luxury-painted-edge-business-cards': paintedEdgeBusinessCardImg,
+  'painted-edge-business-cards': paintedEdgeBusinessCardImg,
+  'glossy-uv-business-cards': bcGlossyImg,
+  'embossed-business-cards': bcEmbossedImg,
+  'debossed-letterpress-business-cards': bcDebossedImg,
+  'die-cut-custom-shape-business-cards': bcDiecutImg,
+  'ultra-thick-triplex-sandwich-cards': bcTriplexImg,
+  'triplex-business-cards': bcTriplexImg,
+  'kraft-textured-eco-cards': bcTexturedKraftImg,
+  'rounded-corner-modern-cards': bcRoundedCornersImg,
+  'minimalist-scandinavian-cards': bcMinimalistImg,
+  'corporate-team-multi-set-cards': bcCorporateBatchesImg,
+  'bilingual-arabic-english-cards': bcBilingualImg,
+  'raised-ink-business-cards': velvetFoilBusinessCardImg,
+  'plastic-pvc-business-cards': softTouchBusinessCardImg,
+
+  // Dedicated ID Card Products
+  'secure-smart-nfc-pvc-id-cards': smartNfcIdCardImg,
+  'smart-nfc-id-cards': smartNfcIdCardImg,
+  'rfid-proximity-access-cards': rfidAccessCardImg,
+  'rfid-proximity-cards': rfidAccessCardImg,
+  'holographic-security-id-cards': holographicSecurityIdCardImg,
+  'holographic-id-cards': holographicSecurityIdCardImg,
+  'magnetic-stripe-corporate-id-cards': magneticStripeIdCardImg,
+  'magnetic-stripe-cards': magneticStripeIdCardImg,
+  'photo-id-staff-cards': photoIdStaffCardImg,
+  'photo-id-cards': photoIdStaffCardImg,
+  'student-campus-id-cards': studentCampusIdCardImg,
+  'student-id-cards': studentCampusIdCardImg,
+  'visitor-pass-cards-holders': visitorPassHoldersImg,
+  'visitor-pass-cards': visitorPassHoldersImg,
+  'executive-metallic-vip-id-cards': executiveVipMetalCardImg,
+  'metal-id-cards': executiveVipMetalCardImg,
+  'access-control-cards': rfidAccessCardImg,
 
   // Mug Products
   'classic-white-ceramic-mugs': mugWhiteCeramicImg,
@@ -211,14 +325,6 @@ export const productSlugImageMap = {
   'presentation-folders': letterheadPresentationFoldersImg,
   'textured-linen-letterheads': letterheadGoldFoilImg,
   'continuation-sheets-invoices': letterheadExecutive120gsmImg,
-  'premium-business-cards': businessCardsImg,
-  'standard-business-cards': businessCardsImg,
-  'premium-soft-touch-business-cards': softTouchBusinessCardImg,
-  'soft-touch-business-cards': softTouchBusinessCardImg,
-  'velvet-foil-business-cards': velvetFoilBusinessCardImg,
-  'luxury-velvet-business-cards': velvetFoilBusinessCardImg,
-  'luxury-painted-edge-business-cards': paintedEdgeBusinessCardImg,
-  'painted-edge-business-cards': paintedEdgeBusinessCardImg,
   'acrylic-nameplates': namePlatesImg,
   'roll-up-banners': rollupImg,
   'beach-flags': flagsImg,
@@ -244,33 +350,12 @@ export const productSlugImageMap = {
   'catalogs-booklets-printing': brochureBookletImg,
   'multipage-booklet-brochures': brochureBookletImg,
   'annual-reports-printing': brochureBookletImg,
-  'presentation-folders': img9,
-  'raised-ink-business-cards': velvetFoilBusinessCardImg,
-  'plastic-pvc-business-cards': softTouchBusinessCardImg,
   'large-format-posters': img9,
   'door-hangers-printing': flyersImg,
   'postcards-printing': img3,
-  'secure-smart-nfc-pvc-id-cards': smartNfcIdCardImg,
-  'smart-nfc-id-cards': smartNfcIdCardImg,
-  'rfid-proximity-access-cards': rfidAccessCardImg,
-  'rfid-proximity-cards': rfidAccessCardImg,
-  'holographic-security-id-cards': holographicSecurityIdCardImg,
-  'holographic-id-cards': holographicSecurityIdCardImg,
-  'magnetic-stripe-corporate-id-cards': magneticStripeIdCardImg,
-  'magnetic-stripe-cards': magneticStripeIdCardImg,
-  'photo-id-staff-cards': photoIdStaffCardImg,
-  'photo-id-cards': photoIdStaffCardImg,
-  'student-campus-id-cards': studentCampusIdCardImg,
-  'student-id-cards': studentCampusIdCardImg,
-  'visitor-pass-cards-holders': visitorPassHoldersImg,
-  'visitor-pass-cards': visitorPassHoldersImg,
-  'executive-metallic-vip-id-cards': executiveVipMetalCardImg,
-  'metal-id-cards': executiveVipMetalCardImg,
-  'access-control-cards': rfidAccessCardImg,
   'custom-usb-flash-drives': img2,
   'corporate-gift-sets': img5,
   'power-banks-printing': bottlesImg,
-  'printed-envelopes': letterheadImg,
   'desk-pads-printing': img2,
   'stationery-gift-sets': img11,
   'foam-board-signage': img9,
@@ -311,7 +396,7 @@ export const categorySlugImageMap = {
   'business-cards-printing': businessCardsImg,
   'flyers-printing-in-dubai': flyersImg,
   'id-card-printing-dubai': idCardsImg,
-  'lanyard-printing-dubai': badgesImg,
+  'lanyard-printing-dubai': standardPolyesterLanyardImg,
   'letterheads-printing-dubai': letterheadImg,
   'name-badges-printing-dubai': badgesImg,
   'mug-printing-dubai': mugWhiteCeramicImg,
@@ -329,17 +414,51 @@ export const categorySlugImageMap = {
 
 /**
  * Keyword fragments in product slug/name → image.
- * Used as last-resort before the generic placeholder.
  */
 const slugKeywordImageMap = [
+  // Lanyard Specific Matching (Checked first to avoid generic matches)
+  [['breakaway', 'safety breakaway', 'quick release', 'safety buckle'], safetyBreakawayLanyardImg],
+  [['satin dye', 'dye-sublimation', 'sublimation lanyard', 'full color satin', 'satin lanyard', 'satin dye-sublimation'], satinDyeSublimationLanyardImg],
+  [['woven jacquard', 'jacquard', 'woven fabric lanyard', 'stitched thread', 'woven lanyard'], wovenJacquardLanyardImg],
+  [['double clip', 'conference lanyard', 'dual clip', 'double-clip', 'event lanyard', 'vip double clip'], doubleClipLanyardImg],
+  [['retractable', 'badge reel', 'badge-reel', 'pull reel'], retractableBadgeReelLanyardImg],
+  [['rpet', 'eco-friendly lanyard', 'eco friendly lanyard', 'recycled polyester'], ecoFriendlyRpetLanyardImg],
+  [['reflective', 'hi-vis', 'high visibility lanyard'], reflectiveHiVisLanyardImg],
+  [['standard polyester', 'polyester neck', 'ribbed polyester', 'screen printed lanyard', 'polyester lanyard', 'polyester lanyards'], standardPolyesterLanyardImg],
+
+  // Business Card Specific Matching
+  [['painted edge', 'painted-edge', 'painted-edges', 'painted edges'], paintedEdgeBusinessCardImg],
+  [['velvet foil', 'velvet-foil', 'foil card', 'gold foil card'], velvetFoilBusinessCardImg],
+  [['soft touch', 'soft-touch', 'matte softtouch'], softTouchBusinessCardImg],
+  [['embossed', 'embossing'], bcEmbossedImg],
+  [['debossed', 'letterpress'], bcDebossedImg],
+  [['die-cut card', 'diecut', 'custom shape card'], bcDiecutImg],
+  [['triplex', 'sandwich card', 'multi-layer'], bcTriplexImg],
+  [['kraft', 'textured kraft', 'eco card'], bcTexturedKraftImg],
+  [['rounded corner', 'rounded corners'], bcRoundedCornersImg],
+  [['minimalist'], bcMinimalistImg],
+  [['corporate team', 'corporate batches', 'multi-set'], bcCorporateBatchesImg],
+  [['bilingual', 'arabic english'], bcBilingualImg],
+  [['glossy uv', 'glossy business card'], bcGlossyImg],
+  [['premium matte', 'matte card'], bcPremiumMatteImg],
+  [['standard silk', 'silk business card'], bcStandardSilkImg],
+
+  // ID Cards
+  [['smart nfc', 'nfc pvc', 'nfc smart'], smartNfcIdCardImg],
+  [['rfid', 'proximity card', 'access control'], rfidAccessCardImg],
+  [['holographic', 'security id', 'hologram'], holographicSecurityIdCardImg],
+  [['magnetic stripe', 'magnetic strip', 'magstripe'], magneticStripeIdCardImg],
+  [['photo id', 'staff card', 'employee id'], photoIdStaffCardImg],
+  [['student id', 'campus card', 'student pass'], studentCampusIdCardImg],
+  [['visitor pass', 'pass holder', 'visitor badge'], visitorPassHoldersImg],
+  [['metal id', 'metallic vip', 'vip card'], executiveVipMetalCardImg],
+
+  // Printing & Finishes
   [['digital & offset', 'digital offset', 'offset printing', 'digital printing'], serviceDigitalOffsetImg],
   [['corporate gift', 'gift customization', 'corporate gifts', 'merchandise'], serviceCorporateGiftsImg],
   [['custom labels', 'die-cut stickers', 'die cut stickers', 'labels & die-cut', 'stickers & labels'], serviceStickersLabelsImg],
   [['executive business stationery', 'business stationery', 'office stationery', 'stationery suite'], serviceExecutiveStationeryImg],
   [['exhibition signage', 'large format', 'exhibition displays', 'trade show display'], serviceExhibitionSignageImg],
-  [['painted edge', 'painted-edge', 'painted-edges', 'painted edges'], paintedEdgeBusinessCardImg],
-  [['velvet foil', 'velvet-foil', 'foil card', 'gold foil card'], velvetFoilBusinessCardImg],
-  [['soft touch', 'soft-touch'], softTouchBusinessCardImg],
   [['bi-fold', 'bifold', '4-panel brochure', 'bi fold'], brochureBifoldImg],
   [['tri-fold', 'trifold', '6-panel brochure', 'tri fold', 'letter-fold'], brochureTrifoldImg],
   [['gate-fold', 'gatefold', 'gate fold'], brochureGatefoldImg],
@@ -365,84 +484,61 @@ const slugKeywordImageMap = [
   [['copper insulated', 'copper flask', 'executive edition', 'luxury bottle', 'copper bottle'], bottleLuxuryCopperImg],
   [['bottle', 'flask', 'drinkware', 'water bottle'], bottleSmartLedImg],
 
-  [['business card', 'visiting card', 'card printing'], businessCardsImg],
+  [['business card', 'visiting card', 'card printing'], bcPremiumMatteImg],
   [['flyer', 'leaflet', 'handbill'], flyersImg],
   [['tote bag', 'canvas bag', 'shopping bag', 'cotton bag'], toteBagsImg],
   [['roll-up', 'rollup', 'pull-up banner', 'retractable banner'], rollupImg],
   [['id card', 'pvc card', 'badge card', 'smart card'], idCardsImg],
-  [['lanyard', 'neck strap', 'ribbon'], badgesImg],
+  [['lanyard', 'neck strap', 'ribbon'], standardPolyesterLanyardImg],
   [['name badge', 'name tag', 'magnetic badge', 'staff badge'], badgesImg],
   [['nameplate', 'name plate', 'door sign', 'desk sign'], namePlatesImg],
   [['sticker', 'label', 'decal'], serviceStickersLabelsImg],
   [['flag', 'beach flag', 'feather flag', 'teardrop'], flagsImg],
   [['keychain', 'key ring', 'keyring'], keychainImg],
-  [['letterhead', 'stationery', 'official paper'], letterheadImg],
+  [['letterhead', 'stationery', 'official paper'], letterheadGoldFoilImg],
 ]
+
+function isGenericOrDuplicateImage(url) {
+  if (!url || typeof url !== 'string') return true
+  const u = url.toLowerCase()
+  return (
+    u.includes('trae.ai') ||
+    u.includes('1 (1).jpg') ||
+    u.includes('1%20(1).jpg') ||
+    u.includes('1 (5).jpg') ||
+    u.includes('/assets/products/1 (') ||
+    u.includes('custom_branded_lanyards.jpg') ||
+    u.includes('satin_event_lanyards.jpg') ||
+    u.includes('/uploads/categories/lanyard-printing-dubai.jpg') ||
+    u.includes('/uploads/categories/business-cards-printing.jpg') ||
+    u.includes('/uploads/categories/brochures-printing.jpg') ||
+    u.includes('/uploads/categories/flyers-printing-in-dubai.jpg') ||
+    u.includes('/uploads/categories/letterheads-printing-dubai.jpg') ||
+    u.includes('name_badges.jpg') ||
+    u.includes('business-card-standard.svg') ||
+    u.endsWith('.svg')
+  )
+}
 
 /**
  * Robust product image resolver.
  * Priority order:
- *  1. If product has a dedicated slug mapping AND raw image is a generic seed/placeholder, prefer slug mapping
- *  2. Explicit URL on product (if valid, non-placeholder, and non-generic)
+ *  1. Product slug exact match in productSlugImageMap
+ *  2. Keyword fuzzy match in slug/name
  *  3. Explicit imageKey matching productImages
- *  4. Product slug exact match in productSlugImageMap
- *  5. Keyword fuzzy match in slug/name
- *  6. Category slug match in categorySlugImageMap
- *  7. Fallback to generic product shot
+ *  4. Explicit non-generic DB image URL
+ *  5. Category slug match in categorySlugImageMap
+ *  6. Fallback to generic product shot
  */
 export function resolveProductImage(product) {
   if (!product) return img1
 
-  // 1. If we have a dedicated product slug mapping, check whether the raw image is a known generic placeholder
-  if (product.slug && productSlugImageMap[product.slug]) {
-    const slugImg = productSlugImageMap[product.slug]
-    const rawImg = product.image_url || product.image || (product.images && product.images[0])
-    // If rawImg is empty, placeholder, SVG, generic category hero, or default seed, return dedicated slug image
-    if (
-      !rawImg ||
-      typeof rawImg !== 'string' ||
-      rawImg === businessCardsImg ||
-      rawImg.includes('/uploads/categories/') ||
-      rawImg.includes('business-cards-printing.jpg') ||
-      rawImg.includes('brochures-printing.jpg') ||
-      rawImg.includes('flyers-printing-in-dubai.jpg') ||
-      rawImg.includes('trae.ai') ||
-      rawImg.includes('1 (1).jpg') ||
-      rawImg.includes('1%20(1).jpg') ||
-      rawImg.includes('1 (5).jpg') ||
-      rawImg.includes('/assets/products/1 (') ||
-      rawImg.endsWith('.svg')
-    ) {
-      return slugImg
-    }
-  }
-
-  // 2. Prefer explicit URL already on the product (from DB upload)
-  //    Skip generic DB default placeholder images, duplicate category images for specific cards, or old SVGs
-  const rawImg = product.image_url || product.image || (product.images && product.images[0])
-  if (
-    typeof rawImg === 'string' &&
-    rawImg.trim() !== '' &&
-    !rawImg.includes('trae.ai') &&
-    !rawImg.includes('1 (1).jpg') &&
-    !rawImg.includes('1%20(1).jpg') &&
-    !rawImg.includes('/assets/products/1 (') &&
-    !rawImg.endsWith('.svg')
-  ) {
-    return rawImg
-  }
-
-  // 3. Explicit imageKey set on product object
-  if (product.imageKey && productImages[product.imageKey]) {
-    return productImages[product.imageKey]
-  }
-
-  // 4. Product slug exact match
+  // 1. Direct Slug Match (Highest Priority for distinct, verified product photography)
   if (product.slug && productSlugImageMap[product.slug]) {
     return productSlugImageMap[product.slug]
   }
 
-  // 5. Keyword-in-slug/name fuzzy match (e.g. "painted edge", "velvet foil", "soft touch")
+  // 2. Keyword-in-slug/name fuzzy match (e.g. "breakaway", "satin dye", "woven jacquard", "painted edge")
   const combinedText = `${product.slug || ''} ${product.name || ''}`.toLowerCase()
   for (const [keywords, img] of slugKeywordImageMap) {
     if (keywords.some((kw) => combinedText.includes(kw))) {
@@ -450,7 +546,18 @@ export function resolveProductImage(product) {
     }
   }
 
-  // 6. Category slug exact match
+  // 3. Explicit imageKey set on product object
+  if (product.imageKey && productImages[product.imageKey]) {
+    return productImages[product.imageKey]
+  }
+
+  // 4. Explicit non-generic URL from DB
+  const rawImg = product.image_url || product.image || (product.images && product.images[0])
+  if (typeof rawImg === 'string' && rawImg.trim() !== '' && !isGenericOrDuplicateImage(rawImg)) {
+    return rawImg
+  }
+
+  // 5. Category slug exact match
   const catSlug =
     (typeof product.category === 'object' ? product.category?.slug : null) ||
     product.categorySlug ||
@@ -459,7 +566,7 @@ export function resolveProductImage(product) {
     return categorySlugImageMap[catSlug]
   }
 
-  // 7. Absolute last resort — generic image
+  // 6. Absolute last resort
   return img1
 }
 
@@ -513,14 +620,13 @@ export function getBlogCoverImage(post) {
   if (typeof raw === 'string' && raw.trim() !== '' && !raw.includes('trae.ai')) {
     return raw
   }
-  if (post.category_slug && categorySlugImageMap[post.category_slug]) {
-    return categorySlugImageMap[post.category_slug]
-  }
   if (post.product_slug && productSlugImageMap[post.product_slug]) {
     return productSlugImageMap[post.product_slug]
+  }
+  if (post.category_slug && categorySlugImageMap[post.category_slug]) {
+    return categorySlugImageMap[post.category_slug]
   }
   return img1
 }
 
 export default resolveProductImage
-

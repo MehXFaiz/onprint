@@ -1,4 +1,11 @@
 export const categoryImageMap = {
+  'rollup-banners': {
+    'rollup-banners': [
+      '/assets/products/rollup_banner_showcase.jpg',
+      '/assets/products/rollup_banner.jpg',
+      '/assets/products/service_exhibition_signage.jpg'
+    ]
+  },
   'digital-offset-printing': {
     'brochures-printing': [
       '/assets/products/service_digital_offset.jpg',

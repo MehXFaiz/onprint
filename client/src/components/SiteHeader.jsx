@@ -89,6 +89,14 @@ const NAV_GROUPS = [
     badge: 'Merchandise',
     keywords: ['mug', 'bottle', 'flask', 'gift', 'promo', 'keychain', 'tumbler'],
   },
+  {
+    key: 'signage',
+    label: 'Rollup Banners & Signage',
+    description: 'Retractable roll-up stands, pull-up banners & exhibition displays',
+    icon: Layers,
+    badge: 'Exhibition',
+    keywords: ['banner', 'rollup', 'roll up', 'roll-up', 'pull up', 'stand', 'signage'],
+  },
 ]
 
 function normalizeText(value = '') {

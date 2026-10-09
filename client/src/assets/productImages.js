@@ -102,6 +102,14 @@ import letterheadGoldFoilImg from './products/letterhead_gold_foil.jpg'
 import letterheadEnvelopesSuiteImg from './products/letterhead_envelopes_suite.jpg'
 import letterheadPresentationFoldersImg from './products/letterhead_presentation_folders.jpg'
 
+// Dedicated high-resolution Name Badge & Nameplate variety images
+import acrylicDeskNameplateImg from './products/name-badges/acrylic-desk-nameplate.svg'
+import metalArchitecturalPlaqueImg from './products/name-badges/metal-architectural-wall-plaque.svg'
+import brushedGoldMagneticBadgeImg from './products/name-badges/brushed-gold-magnetic-badge.svg'
+import domedEpoxyResinBadgeImg from './products/name-badges/domed-epoxy-resin-badge.svg'
+import reusableWindowBadgeImg from './products/name-badges/reusable-window-insert-badge.svg'
+import executiveMatteBlackBadgeImg from './products/name-badges/executive-matte-black-badge.svg'
+
 import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
@@ -109,6 +117,12 @@ const penPrintingImg = '/uploads/categories/letterheads-printing-dubai.jpg'
 const letterheadImg = letterheadGoldFoilImg
 
 export const productImages = {
+  acrylicDeskNameplate: acrylicDeskNameplateImg,
+  metalArchitecturalPlaque: metalArchitecturalPlaqueImg,
+  brushedGoldMagneticBadge: brushedGoldMagneticBadgeImg,
+  domedEpoxyResinBadge: domedEpoxyResinBadgeImg,
+  reusableWindowBadge: reusableWindowBadgeImg,
+  executiveMatteBlackBadge: executiveMatteBlackBadgeImg,
   toteBags: toteBagsImg,
   keychain: keychainImg,
   mugs: mugsImg,

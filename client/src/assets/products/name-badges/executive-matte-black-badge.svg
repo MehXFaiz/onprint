@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Executive Matte Black Magnetic Name Badges">
+  <defs>
+    <!-- Studio Radial Background -->
+    <radialGradient id="blkStudioBg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="55%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+
+    <!-- Matte Black Anodized Metal Gradient -->
+    <linearGradient id="matteBlackAlloy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="40%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Brilliant Laser Engraved Gold Gradient -->
+    <linearGradient id="laserGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#bf953f"/>
+      <stop offset="25%" stop-color="#fcf6ba"/>
+      <stop offset="50%" stop-color="#b38728"/>
+      <stop offset="75%" stop-color="#fbf5b7"/>
+      <stop offset="100%" stop-color="#aa771c"/>
+    </linearGradient>
+
+    <filter id="matteShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#020617" flood-opacity="0.45"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="1200" height="900" fill="url(#blkStudioBg)"/>
+
+  <!-- Pedestal Shadow -->
+  <ellipse cx="600" cy="620" rx="440" ry="65" fill="#cbd5e1" fill-opacity="0.45"/>
+
+  <!-- MAIN MATTE BLACK & GOLD BADGE (700 x 280) -->
+  <g transform="translate(250, 290)" filter="url(#matteShadow)">
+    
+    <!-- Outer Stealth Matte Black Body with Gold Bevel Rim -->
+    <rect width="700" height="280" rx="22" fill="url(#matteBlackAlloy)" stroke="url(#laserGold)" stroke-width="2"/>
+
+    <!-- Inset Fine Gold Laser Chamfer Line -->
+    <rect x="12" y="12" width="676" height="256" rx="14" fill="none" stroke="url(#laserGold)" stroke-width="1.2" stroke-opacity="0.8"/>
+    <rect x="18" y="18" width="664" height="244" rx="10" fill="none" stroke="url(#laserGold)" stroke-width="0.5" stroke-opacity="0.4"/>
+
+    <!-- Gold Crest / Monogram Emblem on Left -->
+    <g transform="translate(60, 55)">
+      <circle cx="50" cy="50" r="45" fill="#020617" stroke="url(#laserGold)" stroke-width="2"/>
+      <circle cx="50" cy="50" r="38" fill="none" stroke="url(#laserGold)" stroke-width="0.75" stroke-dasharray="4 3"/>
+      <!-- Crown / Diamond Emblem -->
+      <polygon points="50,22 65,37 50,52 35,37" fill="url(#laserGold)"/>
+      <text x="50" y="74" fill="url(#laserGold)" font-family="'Cinzel', Georgia, serif" font-size="16" font-weight="bold" text-anchor="middle" letter-spacing="2">VIP</text>
+    </g>
+
+    <!-- Executive Gold Laser Typography -->
+    <g transform="translate(195, 65)">
+      <!-- Company -->
+      <text x="0" y="24" fill="url(#laserGold)" font-family="'Cinzel', Georgia, serif" font-size="16" font-weight="bold" letter-spacing="4">AL-MAKTOUM CAPITAL PARTNERS</text>
+      
+      <!-- Name -->
+      <text x="0" y="70" fill="#ffffff" font-family="'Cinzel', Georgia, serif" font-size="36" font-weight="bold" letter-spacing="3">MARCUS VANCE</text>
+      
+      <line x1="0" y1="92" x2="440" y2="92" stroke="url(#laserGold)" stroke-width="2"/>
+
+      <!-- Role -->
+      <text x="0" y="122" fill="url(#laserGold)" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="4">MANAGING PARTNER</text>
+      <text x="0" y="148" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="2">PRIVATE ASSET MANAGEMENT • DUBAI</text>
+    </g>
+
+    <!-- Magnetic Fastener Badge in Bottom Left -->
+    <g transform="translate(60, 205)">
+      <rect width="170" height="28" rx="6" fill="#020617" stroke="url(#laserGold)" stroke-width="0.75"/>
+      <circle cx="16" cy="14" r="4" fill="url(#laserGold)"/>
+      <text x="30" y="18" fill="url(#laserGold)" font-family="system-ui, sans-serif" font-size="9" font-weight="800" letter-spacing="1.5">CLOTHING SAFE MAGNET</text>
+    </g>
+
+    <!-- Sleek Diagonal Light Reflection across Matte Surface -->
+    <path d="M 140 12 L 240 12 L 170 268 L 70 268 Z" fill="#ffffff" fill-opacity="0.06"/>
+  </g>
+
+  <!-- Spec Tag -->
+  <g transform="translate(860, 790)">
+    <rect width="280" height="65" rx="12" fill="#ffffff" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="28" fill="#0f172a" font-family="system-ui, sans-serif" font-size="14" font-weight="800">Matte Black Anodized</text>
+    <text x="20" y="48" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Laser Etched Metallic Gold</text>
+  </g>
+</svg>

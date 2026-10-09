@@ -6,18 +6,18 @@
   "framework": null,
   "outputDirectory": "dist",
   "functions": {
-    "server.js": {
+    "api/index.js": {
       "includeFiles": "dist/**"
     }
   },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/server.js"
+      "destination": "/api/index.js"
     },
     {
       "source": "/(.*)",
-      "destination": "/server.js"
+      "destination": "/api/index.js"
     }
   ]
 }

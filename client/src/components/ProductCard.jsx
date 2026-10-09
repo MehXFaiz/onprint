@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ArrowUpRight, Sparkles, Eye, Check, Tag } from 'lucide-react'
 import WhatsAppIcon from './WhatsAppIcon'
 import { getProductImage } from '../assets/productImages'

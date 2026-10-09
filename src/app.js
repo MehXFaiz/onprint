@@ -589,9 +589,12 @@ function createApp() {
   app.use((req, res, next) => {
     if (req.method !== 'GET' && req.method !== 'HEAD') return next()
 
-    // Host canonicalization (www -> non-www)
+    // Host canonicalization (www -> non-www for page visits, preserve /api direct calls)
     const host = req.headers.host || ''
     if (host.startsWith('www.')) {
+      if (req.path.startsWith('/api') || req.originalUrl.startsWith('/api')) {
+        return next()
+      }
       const nonWwwHost = host.slice(4)
       const proto = req.headers['x-forwarded-proto'] || req.protocol || 'https'
       return res.redirect(301, `${proto}://${nonWwwHost}${req.originalUrl}`)

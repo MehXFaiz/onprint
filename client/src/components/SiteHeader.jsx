@@ -29,7 +29,8 @@ import {
   Zap,
   Tag,
   Palette,
-  Clock
+  Clock,
+  Stamp
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from './Container'
@@ -56,6 +57,14 @@ const NAV_GROUPS = [
     icon: Box,
     badge: 'Bespoke',
     keywords: ['packaging', 'box', 'mailer', 'bag', 'rigid'],
+  },
+  {
+    key: 'stamps',
+    label: 'Company Stamps & Seals',
+    description: 'Self-inking Trodat stamps, pocket stamps, dater machines & wax seals',
+    icon: Stamp,
+    badge: 'Express 2h',
+    keywords: ['stamp', 'seal', 'dater', 'wax seal', 'rubber stamp', 'self-inking'],
   },
   {
     key: 'stationery',

@@ -127,6 +127,24 @@ module.exports = {
       "imageAlt": "Professional magnetic metal and acrylic name badges in Dubai"
     },
     {
+      "_id": "cat-stamps-printing-dubai",
+      "id": 8,
+      "name": "Custom Stamps & Seals",
+      "slug": "stamps-printing-dubai",
+      "description": "High-precision laser engraved self-inking company rubber stamps, official corporate seals, pocket mobile stamps, heavy-duty dater stamps, and luxury brass wax seals in Dubai.",
+      "image": "/uploads/categories/stamps-printing-dubai.jpg",
+      "image_url": "/uploads/categories/stamps-printing-dubai.jpg",
+      "status": "active",
+      "display_order": 8,
+      "active": true,
+      "seoTitle": "Custom Rubber Stamp Making in Dubai | Self-Inking Company Stamps | ONPRINT",
+      "seoDescription": "Official company stamp making in Dubai. Self-inking rubber stamps, round company seals, pocket mobile stamps, and luxury wax seal stamps with 2-hour express delivery.",
+      "seoKeywords": "rubber stamp dubai, company stamp maker dubai, self inking stamps dubai, official seal stamp uae, pocket stamp dubai, dater stamp dubai, wax seal stamp",
+      "seoHeading": "Custom Company Rubber Stamps & Official Seals Dubai",
+      "canonicalUrl": "https://0nprint.com/categories/stamps-printing-dubai",
+      "imageAlt": "Official custom company rubber stamps and corporate seals in Dubai"
+    },
+    {
       "_id": "cat-rollup-banners-dubai",
       "id": 10,
       "name": "Rollup Banners",
@@ -6500,6 +6518,154 @@ module.exports = {
           "id": 10,
           "name": "Rollup Banners",
           "slug": "rollup-banners"
+        }
+      ]
+    },
+    {
+      "_id": "prod-self-inking-company-stamps",
+      "id": 109,
+      "name": "Self-Inking Official Company Rubber Stamp",
+      "slug": "self-inking-company-stamps",
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 8,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "shortDescription": "High-precision laser engraved self-inking rubber stamp with integrated ink pad for official company logos, trade license numbers, and signatures.",
+      "description": "Premium self-inking corporate rubber stamps engineered for crisp, smudge-free daily document authentication. Featuring high-precision laser-etched vulcanized rubber text plates with pre-loaded ink pads delivering 10,000+ flawless impressions before re-inking. Ideal for official UAE company trade license approvals, invoices, contracts, and signatures.",
+      "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "images": [
+        "/assets/products/stamps/self-inking-company-stamp.jpg"
+      ],
+      "features": [
+        "Ultra-sharp 1000 DPI Laser Rubber Engraving",
+        "Built-in Self-Inking Mechanism (10,000+ Impressions)",
+        "Choice of Blue, Black, Red, or Green High-Density Ink",
+        "Available in Round 40mm, Rectangular 58×22mm & 70×25mm",
+        "Express 2-Hour Turnaround in Dubai"
+      ],
+      "price": 45,
+      "minimumQuantity": 1,
+      "featured": true,
+      "active": true,
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 8,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-pocket-mobile-stamps",
+      "id": 110,
+      "name": "Compact Pocket Mobile Stamp",
+      "slug": "pocket-mobile-stamps",
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 8,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "shortDescription": "Ultra-portable slim folding pocket stamp designed for doctors, engineers, and mobile executives on the go.",
+      "description": "Ergonomic, ultra-compact folding pocket stamp engineered with an automatic one-click push-button opening mechanism. 100% leak-proof protective casing designed to fit effortlessly into doctor coat pockets, briefcase compartments, or lanyards. Delivers razor-sharp impressions of medical license numbers, engineer approvals, and executive sign-offs.",
+      "image": "/assets/products/stamps/pocket-mobile-stamp.jpg",
+      "images": [
+        "/assets/products/stamps/pocket-mobile-stamp.jpg"
+      ],
+      "features": [
+        "One-Handed Push-Button Opening Action",
+        "100% Leak-Proof Compact Executive Case",
+        "Sharp Medical Doctor & Engineer License Stamps",
+        "Fits Easily in Shirt & Lab Coat Pockets",
+        "Pre-Inked Long-Life Re-Inkable Cartridge"
+      ],
+      "price": 55,
+      "minimumQuantity": 1,
+      "featured": true,
+      "active": true,
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 8,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-heavy-duty-dater-stamps",
+      "id": 111,
+      "name": "Heavy-Duty Metal Date & Status Stamp",
+      "slug": "heavy-duty-dater-stamps",
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 8,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "shortDescription": "Industrial-grade reinforced steel frame self-inking stamp with smooth rotating date bands and two-color red/blue text.",
+      "description": "Heavy-duty commercial dater stamp built with a robust brushed stainless steel frame and ergonomic impact-resistant rubber handle. Features 10-year rotating date band wheels combined with custom surrounding corporate text (e.g. 'RECEIVED', 'PAID', 'APPROVED', 'DISPATCHED') in striking two-color red and blue ink.",
+      "image": "/assets/products/stamps/heavy-duty-dater-stamp.jpg",
+      "images": [
+        "/assets/products/stamps/heavy-duty-dater-stamp.jpg"
+      ],
+      "features": [
+        "Reinforced Heavy-Duty Stainless Steel Chassis",
+        "10-Year Smooth Rotating Date Wheel Mechanism",
+        "Dual-Color Red Text & Blue Date Impressions",
+        "Heavy-Duty Cushion Grip for High-Volume Office Stamping",
+        "Customizable Top & Bottom Corporate Text Bands"
+      ],
+      "price": 85,
+      "minimumQuantity": 1,
+      "featured": true,
+      "active": true,
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 8,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-luxury-brass-wax-seal-stamps",
+      "id": 112,
+      "name": "Artisanal Brass Wax Seal Stamp Kit",
+      "slug": "luxury-brass-wax-seal-stamps",
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 8,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "shortDescription": "Custom laser-engraved solid brass stamp head with rich mahogany handle, complimentary sealing wax beads, and melting spoon.",
+      "description": "Bespoke vintage-inspired solid brass wax seal stamp crafted for luxury event stationery, wedding invitations, certificate sealing, and executive gift packaging. Precision CNC 3D micro-engraved brass coin head paired with a polished dark mahogany handle, complete with flexible sealing wax beads in metallic gold, burgundy, and emerald.",
+      "image": "/assets/products/stamps/luxury-wax-seal-stamp.jpg",
+      "images": [
+        "/assets/products/stamps/luxury-wax-seal-stamp.jpg"
+      ],
+      "features": [
+        "Solid Heavy-Weight Polished Brass Seal Die",
+        "Turned Natural Dark Mahogany Wood Handle",
+        "3D Relief Micro-Engraved Monogram & Crests",
+        "Includes Sealing Wax Beads & Brass Melting Spoon",
+        "Ideal for Luxury Envelopes, Gift Boxes & Certificates"
+      ],
+      "price": 95,
+      "minimumQuantity": 1,
+      "featured": true,
+      "active": true,
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 8,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
         }
       ]
     }

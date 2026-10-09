@@ -7,10 +7,7 @@
   "outputDirectory": "dist",
   "functions": {
     "api/index.js": {
-      "includeFiles": [
-        "dist/**",
-        "uploads/**"
-      ]
+      "includeFiles": "dist/**"
     }
   },
   "rewrites": [

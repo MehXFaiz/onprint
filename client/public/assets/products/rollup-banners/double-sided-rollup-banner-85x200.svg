@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Double-Sided 360 Degree Retractable Roll-Up Banner">
+  <defs>
+    <radialGradient id="studioBg5" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </radialGradient>
+    <linearGradient id="frontGraphic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="backGraphic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+    <linearGradient id="dsSilver" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <filter id="dsShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="25" stdDeviation="20" flood-color="#064e3b" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#studioBg5)"/>
+  <ellipse cx="600" cy="815" rx="460" ry="45" fill="#94a3b8" fill-opacity="0.5"/>
+
+  <!-- DUAL SIDED 3D PERSPECTIVE SETUP -->
+  <!-- Back Face Angled -->
+  <g transform="translate(520, 90) skewY(-8)" opacity="0.85">
+    <rect x="0" y="0" width="280" height="660" fill="url(#backGraphic)" stroke="#047857"/>
+    <text x="140" y="160" fill="#a7f3d0" font-family="'Playfair Display', serif" font-size="24" font-weight="bold" text-anchor="middle">REAR GRAPHIC</text>
+    <text x="140" y="200" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">WALKWAY VIEW (180°)</text>
+    <rect x="30" y="280" width="220" height="80" rx="10" fill="#022c22" fill-opacity="0.7"/>
+    <text x="140" y="325" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">DUAL ROLLER MECHANISM</text>
+  </g>
+
+  <!-- Front Face Main -->
+  <g transform="translate(360, 75)" filter="url(#dsShadow)">
+    <rect x="0" y="0" width="320" height="18" rx="4" fill="url(#dsSilver)" stroke="#64748b"/>
+    <rect x="6" y="16" width="308" height="670" fill="url(#frontGraphic)"/>
+    
+    <g transform="translate(30, 60)">
+      <text x="0" y="24" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="11" font-weight="900" letter-spacing="2">DUBAI MALL &amp; AIRPORT DISPLAY</text>
+      <text x="0" y="65" fill="#ffffff" font-family="'Playfair Display', serif" font-size="30" font-weight="bold">360° TWO-WAY</text>
+      <text x="0" y="98" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="18" font-weight="800">TRAFFIC ENGAGEMENT</text>
+      <line x1="0" y1="115" x2="250" y2="115" stroke="#6ee7b7" stroke-width="3"/>
+    </g>
+
+    <g transform="translate(25, 240)">
+      <rect width="260" height="150" rx="12" fill="#022c22" fill-opacity="0.8" stroke="#6ee7b7" stroke-width="1.5"/>
+      <text x="15" y="30" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="12" font-weight="900">DUAL-GRAPHIC CASSETTE</text>
+      <text x="15" y="58" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="600">• Two Independent Rollers</text>
+      <text x="15" y="82" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="600">• Back-to-Back 85×200cm Print</text>
+      <text x="15" y="106" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="600">• 360° Hallway &amp; Aisle Visibility</text>
+      <text x="15" y="130" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="600">• Heavyweight Balanced Base</text>
+    </g>
+
+    <!-- Heavy Dual Roller Base -->
+    <rect x="-10" y="684" width="340" height="42" rx="6" fill="url(#dsSilver)" stroke="#334155" stroke-width="1.5"/>
+  </g>
+
+  <!-- Spec Callout -->
+  <g transform="translate(850, 160)" filter="url(#dsShadow)">
+    <rect width="250" height="140" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="20" y="32" fill="#059669" font-family="system-ui, sans-serif" font-size="11" font-weight="900">DUAL SIDED 360°</text>
+    <text x="20" y="64" fill="#0f172a" font-family="system-ui, sans-serif" font-size="16" font-weight="900">85 × 200 cm (Double)</text>
+    <text x="20" y="88" fill="#475569" font-family="system-ui, sans-serif" font-size="12" font-weight="600">• 2 Banners in 1 Stand</text>
+    <text x="20" y="115" fill="#059669" font-family="system-ui, sans-serif" font-size="14" font-weight="800">290 AED • High Traffic</text>
+  </g>
+</svg>

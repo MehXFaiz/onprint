@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Standard Retractable Roll-Up Banner 85x200cm">
+  <defs>
+    <radialGradient id="studioBg1" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </radialGradient>
+    <linearGradient id="aluSilver" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="25%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="75%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <linearGradient id="bannerGraphic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="40%" stop-color="#1E293B"/>
+      <stop offset="75%" stop-color="#A82F19"/>
+      <stop offset="100%" stop-color="#831F0F"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Studio Floor & Lighting -->
+  <rect width="1200" height="900" fill="url(#studioBg1)"/>
+  <ellipse cx="600" cy="810" rx="420" ry="45" fill="#94a3b8" fill-opacity="0.45"/>
+  <ellipse cx="600" cy="805" rx="300" ry="25" fill="#475569" fill-opacity="0.35"/>
+
+  <!-- STAND STRUCTURE -->
+  <g transform="translate(430, 80)" filter="url(#dropShadow)">
+    
+    <!-- Top Clamping Aluminum Rail (340 x 18) -->
+    <rect x="0" y="0" width="340" height="18" rx="4" fill="url(#aluSilver)" stroke="#64748b" stroke-width="1"/>
+    
+    <!-- BANNER GRAPHIC FACE (340 x 680) - Represents 85cm x 200cm proportion -->
+    <rect x="5" y="16" width="330" height="670" fill="url(#bannerGraphic)"/>
+    
+    <!-- Graphic Elements & Artwork -->
+    <!-- Geometric Overlay lines -->
+    <polygon points="5,16 335,16 335,280 5,140" fill="#ffffff" fill-opacity="0.04"/>
+    <circle cx="280" cy="200" r="90" fill="#A82F19" fill-opacity="0.2"/>
+    <polygon points="5,380 335,260 335,520 5,620" fill="#000000" fill-opacity="0.2"/>
+
+    <!-- Header / Brand -->
+    <g transform="translate(35, 60)">
+      <rect width="40" height="40" rx="8" fill="#A82F19" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="20" y="26" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="900" text-anchor="middle">ON</text>
+      <text x="50" y="24" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="1">ONPRINT DUBAI</text>
+      <text x="50" y="38" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="9" font-weight="600" letter-spacing="2">COMMERCIAL PRESS</text>
+    </g>
+
+    <!-- Headline -->
+    <text x="35" y="160" fill="#f8fafc" font-family="'Playfair Display', Georgia, serif" font-size="26" font-weight="bold" letter-spacing="0.5">ELEVATE YOUR</text>
+    <text x="35" y="195" fill="#facc15" font-family="'Playfair Display', Georgia, serif" font-size="30" font-weight="bold" letter-spacing="1">EXHIBITION</text>
+    <text x="35" y="225" fill="#f8fafc" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="600">PRESENCE</text>
+    <line x1="35" y1="240" x2="160" y2="240" stroke="#facc15" stroke-width="3"/>
+
+    <!-- Key Bullet Points -->
+    <g transform="translate(35, 275)" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="600">
+      <circle cx="6" cy="6" r="4" fill="#facc15"/>
+      <text x="20" y="10">1440 DPI Ultra HD Print Fidelity</text>
+      
+      <circle cx="6" cy="32" r="4" fill="#facc15"/>
+      <text x="20" y="36">220μm Anti-Curl Greyback Film</text>
+      
+      <circle cx="6" cy="58" r="4" fill="#facc15"/>
+      <text x="20" y="62">Fast Same-Day Dubai Dispatch</text>
+
+      <circle cx="6" cy="84" r="4" fill="#facc15"/>
+      <text x="20" y="88">Anodized Lightweight Cassette</text>
+    </g>
+
+    <!-- Bottom Action Ribbon -->
+    <g transform="translate(25, 540)">
+      <rect width="290" height="90" rx="12" fill="#0B0F17" fill-opacity="0.85" stroke="#ffffff" stroke-width="1" stroke-opacity="0.15"/>
+      <text x="20" y="30" fill="#facc15" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1.5">STANDARD DIMENSIONS</text>
+      <text x="20" y="54" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="800">85 cm (W) × 200 cm (H)</text>
+      <text x="20" y="74" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Includes Travel Bag • Easy 30s Setup</text>
+    </g>
+
+    <!-- Specular Highlight Sweep -->
+    <path d="M 40 16 L 120 16 L 70 686 L -10 686 Z" fill="#ffffff" fill-opacity="0.08"/>
+
+    <!-- BASE CASSETTE (Main Aluminum Body 360 x 36) -->
+    <rect x="-10" y="682" width="360" height="38" rx="6" fill="url(#aluSilver)" stroke="#475569" stroke-width="1.5"/>
+    <line x1="-8" y1="692" x2="348" y2="692" stroke="#ffffff" stroke-width="1" stroke-opacity="0.8"/>
+    <line x1="-8" y1="708" x2="348" y2="708" stroke="#334155" stroke-width="1" stroke-opacity="0.6"/>
+
+    <!-- Twin Stabilizing Swing Feet -->
+    <!-- Left Foot -->
+    <polygon points="-5,710 45,710 25,745 -25,745" fill="url(#aluSilver)" stroke="#475569" stroke-width="1"/>
+    <polygon points="-25,745 25,745 20,750 -30,750" fill="#334155"/>
+    
+    <!-- Right Foot -->
+    <polygon points="295,710 345,710 365,745 315,745" fill="url(#aluSilver)" stroke="#475569" stroke-width="1"/>
+    <polygon points="315,745 365,745 360,750 310,750" fill="#334155"/>
+  </g>
+
+  <!-- PADDED CARRY BAG (Lying beside on floor) -->
+  <g transform="translate(140, 710) rotate(-6)" filter="url(#dropShadow)">
+    <rect width="240" height="65" rx="14" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+    <path d="M 30 20 Q 120 -10 210 20" fill="none" stroke="#A82F19" stroke-width="4"/>
+    <line x1="20" y1="33" x2="220" y2="33" stroke="#475569" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="120" y="52" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="800" text-anchor="middle" letter-spacing="1">OXFORD NYLON CARRY BAG</text>
+  </g>
+
+  <!-- Spec Badge Callout -->
+  <g transform="translate(820, 160)" filter="url(#dropShadow)">
+    <rect width="260" height="150" rx="16" fill="#ffffff" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="2"/>
+    <rect x="16" y="16" width="130" height="24" rx="6" fill="#A82F19"/>
+    <text x="81" y="32" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10" font-weight="900" text-anchor="middle" letter-spacing="1">BEST SELLER</text>
+    
+    <text x="16" y="66" fill="#0f172a" font-family="system-ui, sans-serif" font-size="15" font-weight="900">Standard 85 × 200 cm</text>
+    <text x="16" y="88" fill="#475569" font-family="system-ui, sans-serif" font-size="12" font-weight="600">• Anodized Aluminum Stand</text>
+    <text x="16" y="108" fill="#475569" font-family="system-ui, sans-serif" font-size="12" font-weight="600">• Anti-Curl Blockout PET</text>
+    <text x="16" y="128" fill="#16a34a" font-family="system-ui, sans-serif" font-size="13" font-weight="800">From 145 AED • Same-Day</text>
+  </g>
+</svg>

@@ -1,3 +1,12 @@
+// Roll-Up Banner Varieties
+import standardRollupBannerImg from './products/rollup-banners/standard-rollup-banner-85x200.svg'
+import luxuryTeardropRollupBannerImg from './products/rollup-banners/luxury-teardrop-rollup-banner-85x200.svg'
+import wideExhibitionRollupBannerImg from './products/rollup-banners/wide-exhibition-rollup-banner-100x200.svg'
+import giantBackdropRollupBannerImg from './products/rollup-banners/giant-backdrop-rollup-banner-120x200.svg'
+import doubleSidedRollupBannerImg from './products/rollup-banners/double-sided-rollup-banner-85x200.svg'
+import desktopMiniRollupBannerImg from './products/rollup-banners/desktop-mini-tabletop-rollup-banner.svg'
+import rollupShowcaseImg from './products/rollup_banner_showcase.jpg'
+
 import toteBagsImg from './products/tote_bags.jpg'
 import keychainImg from './products/wooden_keychain.jpg'
 import mugsImg from './products/mugs.jpg'
@@ -110,6 +119,12 @@ import domedEpoxyResinBadgeImg from './products/name-badges/domed-epoxy-resin-ba
 import reusableWindowBadgeImg from './products/name-badges/reusable-window-insert-badge.svg'
 import executiveMatteBlackBadgeImg from './products/name-badges/executive-matte-black-badge.svg'
 
+// Dedicated high-resolution Stamp variety images
+import selfInkingStampImg from './products/stamps/self-inking-company-stamp.jpg'
+import pocketMobileStampImg from './products/stamps/pocket-mobile-stamp.jpg'
+import heavyDutyDaterStampImg from './products/stamps/heavy-duty-dater-stamp.jpg'
+import luxuryWaxSealStampImg from './products/stamps/luxury-wax-seal-stamp.jpg'
+
 import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
@@ -205,9 +220,23 @@ export const productImages = {
   doubleClipLanyard: doubleClipLanyardImg,
   retractableBadgeReelLanyard: retractableBadgeReelLanyardImg,
   reflectiveHiVisLanyard: reflectiveHiVisLanyardImg,
+
+  // Dedicated Stamps
+  selfInkingStamp: selfInkingStampImg,
+  pocketMobileStamp: pocketMobileStampImg,
+  heavyDutyDaterStamp: heavyDutyDaterStampImg,
+  luxuryWaxSealStamp: luxuryWaxSealStampImg,
 }
 
 export const productSlugImageMap = {
+  // Stamps Category and Products
+  'stamps-printing-dubai': selfInkingStampImg,
+  'custom-stamps-dubai': selfInkingStampImg,
+  'self-inking-company-stamps': selfInkingStampImg,
+  'pocket-mobile-stamps': pocketMobileStampImg,
+  'heavy-duty-dater-stamps': heavyDutyDaterStampImg,
+  'luxury-brass-wax-seal-stamps': luxuryWaxSealStampImg,
+
   // Service / category-page slug mappings
   'brochures-printing': brochuresImg,
   'brochures-printing-dubai': brochuresImg,
@@ -339,7 +368,24 @@ export const productSlugImageMap = {
   'presentation-folders': letterheadPresentationFoldersImg,
   'textured-linen-letterheads': letterheadGoldFoilImg,
   'continuation-sheets-invoices': letterheadExecutive120gsmImg,
-  'acrylic-nameplates': namePlatesImg,
+
+  // Dedicated Name Badges & Nameplates (Distinct per product)
+  'acrylic-nameplates': acrylicDeskNameplateImg,
+  'acrylic-desk-nameplates': acrylicDeskNameplateImg,
+  'metal-name-signs': metalArchitecturalPlaqueImg,
+  'metal-name-signs-plaques': metalArchitecturalPlaqueImg,
+  'professional-magnetic-metal-name-badges': brushedGoldMagneticBadgeImg,
+  'magnetic-metal-name-badges': brushedGoldMagneticBadgeImg,
+  'custom-domed-epoxy-magnetic-staff-badges': domedEpoxyResinBadgeImg,
+  'domed-epoxy-magnetic-staff-badges': domedEpoxyResinBadgeImg,
+  'domed-epoxy-badges': domedEpoxyResinBadgeImg,
+  'reusable-window-magnetic-name-badges': reusableWindowBadgeImg,
+  'reusable-window-magnetic-badges': reusableWindowBadgeImg,
+  'reusable-window-badges': reusableWindowBadgeImg,
+  'executive-matte-black-magnetic-name-badges': executiveMatteBlackBadgeImg,
+  'executive-matte-black-magnetic-badges': executiveMatteBlackBadgeImg,
+  'matte-black-magnetic-badges': executiveMatteBlackBadgeImg,
+
   'roll-up-banners': rollupImg,
   'beach-flags': flagsImg,
   'die-cut-stickers': serviceStickersLabelsImg,
@@ -373,7 +419,6 @@ export const productSlugImageMap = {
   'desk-pads-printing': img2,
   'stationery-gift-sets': img11,
   'foam-board-signage': img9,
-  'metal-name-signs': namePlatesImg,
   'wall-acrylic-signage': img12,
   'calendars-printing': img7,
   'greeting-cards-printing': img6,
@@ -411,6 +456,8 @@ export const categorySlugImageMap = {
   'flyers-printing-in-dubai': flyersImg,
   'id-card-printing-dubai': idCardsImg,
   'lanyard-printing-dubai': standardPolyesterLanyardImg,
+  'stamps-printing-dubai': selfInkingStampImg,
+  'custom-stamps-dubai': selfInkingStampImg,
   'letterheads-printing-dubai': letterheadImg,
   'name-badges-printing-dubai': badgesImg,
   'mug-printing-dubai': mugWhiteCeramicImg,
@@ -430,6 +477,12 @@ export const categorySlugImageMap = {
  * Keyword fragments in product slug/name → image.
  */
 const slugKeywordImageMap = [
+  // Stamps Specific Matching
+  [['wax seal', 'wax stamp', 'brass seal', 'sealing wax'], luxuryWaxSealStampImg],
+  [['dater', 'date stamp', 'heavy duty stamp', 'received stamp'], heavyDutyDaterStampImg],
+  [['pocket stamp', 'mobile stamp', 'portable stamp', 'pocket printy'], pocketMobileStampImg],
+  [['self-inking', 'self inking', 'rubber stamp', 'company stamp', 'seal stamp', 'stamp maker', 'stamp', 'stamps'], selfInkingStampImg],
+
   // Lanyard Specific Matching (Checked first to avoid generic matches)
   [['breakaway', 'safety breakaway', 'quick release', 'safety buckle'], safetyBreakawayLanyardImg],
   [['satin dye', 'dye-sublimation', 'sublimation lanyard', 'full color satin', 'satin lanyard', 'satin dye-sublimation'], satinDyeSublimationLanyardImg],
@@ -498,14 +551,22 @@ const slugKeywordImageMap = [
   [['copper insulated', 'copper flask', 'executive edition', 'luxury bottle', 'copper bottle'], bottleLuxuryCopperImg],
   [['bottle', 'flask', 'drinkware', 'water bottle'], bottleSmartLedImg],
 
+  // Specific Name Badge & Nameplate Keywords
+  [['acrylic nameplate', 'acrylic-nameplate', 'desk nameplate', 'acrylic block plate'], acrylicDeskNameplateImg],
+  [['metal name sign', 'metal-name-sign', 'wall plaque', 'architectural plaque', 'metal sign plaque', 'door plaque'], metalArchitecturalPlaqueImg],
+  [['professional magnetic', 'champagne gold badge', 'brushed gold badge', 'magnetic metal badge', 'magnetic metal name'], brushedGoldMagneticBadgeImg],
+  [['domed epoxy', 'epoxy magnetic', 'resin badge', '3d domed', 'crystal dome'], domedEpoxyResinBadgeImg],
+  [['reusable window', 'window magnetic', 'window badge', 'paper insert badge', 'interchangeable name'], reusableWindowBadgeImg],
+  [['matte black badge', 'executive matte black', 'black magnetic badge', 'anodized matte black'], executiveMatteBlackBadgeImg],
+
   [['business card', 'visiting card', 'card printing'], bcPremiumMatteImg],
   [['flyer', 'leaflet', 'handbill'], flyersImg],
   [['tote bag', 'canvas bag', 'shopping bag', 'cotton bag'], toteBagsImg],
   [['roll-up', 'rollup', 'pull-up banner', 'retractable banner'], rollupImg],
   [['id card', 'pvc card', 'badge card', 'smart card'], idCardsImg],
   [['lanyard', 'neck strap', 'ribbon'], standardPolyesterLanyardImg],
-  [['name badge', 'name tag', 'magnetic badge', 'staff badge'], badgesImg],
-  [['nameplate', 'name plate', 'door sign', 'desk sign'], namePlatesImg],
+  [['name badge', 'name tag', 'magnetic badge', 'staff badge'], brushedGoldMagneticBadgeImg],
+  [['nameplate', 'name plate', 'door sign', 'desk sign'], acrylicDeskNameplateImg],
   [['sticker', 'label', 'decal'], serviceStickersLabelsImg],
   [['flag', 'beach flag', 'feather flag', 'teardrop'], flagsImg],
   [['keychain', 'key ring', 'keyring'], keychainImg],
@@ -529,6 +590,7 @@ function isGenericOrDuplicateImage(url) {
     u.includes('/uploads/categories/flyers-printing-in-dubai.jpg') ||
     u.includes('/uploads/categories/letterheads-printing-dubai.jpg') ||
     u.includes('name_badges.jpg') ||
+    u.includes('name_plates.jpg') ||
     u.includes('business-card-standard.svg') ||
     u.endsWith('.svg')
   )

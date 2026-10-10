@@ -11,4 +11,7 @@ dist/
 .claude/
 uploads/
 *.backup
+*.backup*
+*.godaddy_mysql_backup
+*.godaddy_mysql_backup*
 

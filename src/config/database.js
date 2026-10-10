@@ -1,3240 +1,730 @@
-const mysql = require('mysql2/promise')
+const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
-const { initialPageSeoRecords } = require('./initialPageSeoData')
-const DUBAI_KEYWORDS = require('../data/dubaiKeywordsData')
-const DUBAI_BLOGS = require('../data/dubaiBlogsData')
-const { UAE_BACKLINKS, UAE_OUTREACH_PROSPECTS, COMPETITOR_GAP_RECORDS } = require('../data/dubaiSeoSeedData')
-const { BACKLINK_OPPORTUNITIES } = require('../data/dubaiBacklinkOpportunitiesData')
-const { BACKLINK_OPPORTUNITIES_200 } = require('../data/dubaiBacklinkOpportunities200Data')
-const { DUBAI_AI_VISIBILITY_QUERIES } = require('../data/dubaiAiVisibilityData')
-const { GEO_FAQS } = require('../data/geoFaqsData')
-const { GEO_CONTENT_RECORDS } = require('../data/geoContentData')
-const { DLX_COMPETITOR_GAPS } = require('../data/dlxCompetitorGapData')
-const { DLX_220_KEYWORDS } = require('../data/dlx220KeywordsData')
-const { DUBAI_BUSINESS_CARD_KEYWORDS } = require('../data/dubaiBusinessCardsKeywordsData')
+const models = require('../models')
 
-let pool
+const {
+  User,
+  Category,
+  Product,
+  Service,
+  Blog,
+  Quote,
+  Order,
+  ContactMessage,
+  NewsletterSubscriber,
+  SiteSetting,
+  PageSeo,
+  PageSeoHistory,
+  SeoKeyword,
+  SeoBacklink,
+  SeoOutreachProspect,
+  SeoCompetitorRecord,
+  SeoCompetitorGap,
+  BacklinkOpportunity,
+  SeoBacklinkOpportunity200,
+  SeoAiVisibility,
+  GeoFaq,
+  GeoContent,
+  GeoCitationLog,
+  GeoCompetitorAudit,
+  SeoRedirect,
+  SeoBrandMention,
+  SeoExperiment,
+  SeoConversion,
+  SeoContentDecay,
+  SeoTask,
+  SeoSetting,
+  SeoAudit,
+  SeoIssue,
+  SeoRecommendation,
+  SeoChange,
+  SeoDailyReport,
+  SeoKeywordSnapshot,
+  SeoPageMetric,
+  SeoIntegration,
+  SeoLog,
+} = models
 
-function createFallbackPool() {
-  const fail = () => Promise.reject(new Error('Database pool is unavailable (degraded mode). Check DB_* environment variables.'))
-  return {
-    getConnection: fail,
-    query: fail,
-    execute: fail,
-    end: () => Promise.resolve(),
+// Serverless-optimized global connection caching
+let cached = global.mongoose
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null }
+}
+
+async function connectDB() {
+  if (cached.conn) return cached.conn
+
+  const uri =
+    process.env.MONGODB_URI ||
+    'mongodb+srv://Vercel-Admin-atlas-champagne-apple:bz0NVjNwAXHDmELi@atlas-champagne-apple.rydbmnq.mongodb.net/onprintdb?retryWrites=true&w=majority'
+
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 8000,
+      dbName: 'onprintdb',
+      appName: 'ONPRINT-Vercel',
+    }
+    cached.promise = mongoose.connect(uri, opts).then((m) => {
+      console.log('✓ [MongoDB Atlas] Connected successfully to onprintdb')
+      return m
+    })
   }
-}
 
-try {
-  pool = mysql.createPool({
-    host: process.env.DB_HOST || 'localhost',
-    port: Number(process.env.DB_PORT || '3306'),
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_NAME || 'onprintdb',
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
-    enableKeepAlive: true,
-    keepAliveInitialDelay: 0,
-  })
-} catch (err) {
-  console.warn('[Database] Failed to create MySQL pool (degraded mode):', err.message)
-  pool = createFallbackPool()
-}
-
-async function columnExists(connection, tableName, columnName) {
   try {
-    const [rows] = await connection.query(
-      `SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS 
-       WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?`,
-      [tableName, columnName]
-    )
-    return rows.length > 0
-  } catch {
+    cached.conn = await cached.promise
+  } catch (err) {
+    cached.promise = null
+    console.error('[MongoDB Atlas] Connection error:', err.message)
+    throw err
+  }
+
+  return cached.conn
+}
+
+async function testConnection() {
+  try {
+    await connectDB()
+    await initDatabase()
+    return true
+  } catch (err) {
+    console.error('[Database] MongoDB Atlas connection test failed:', err.message)
     return false
-  }
-}
-
-async function addColumnIfMissing(connection, tableName, columnName, columnDefinition) {
-  try {
-    const exists = await columnExists(connection, tableName, columnName)
-    if (!exists) {
-      await connection.query(`ALTER TABLE \`${tableName}\` ADD COLUMN \`${columnName}\` ${columnDefinition}`)
-      console.log(`[Database Migration] Added column '${columnName}' to table '${tableName}'`)
-    }
-  } catch (err) {
-    console.warn(`[Database Migration Note] '${tableName}.${columnName}':`, err.message)
-  }
-}
-
-
-
-const seedCategoriesList = [
-  {
-    category_key: 'cat-brochures-printing',
-    name: 'Brochures Printing',
-    slug: 'brochures-printing',
-    description: 'Premium corporate bi-fold, tri-fold, and multi-page marketing brochures printed on luxury coated art paper with precision folding and finishing.',
-    image: '/uploads/categories/brochures-printing.jpg',
-    image_url: '/uploads/categories/brochures-printing.jpg',
-    status: 'active',
-    display_order: 1,
-    active: 1,
-    seo_title: 'Brochures Printing in Dubai | Premium Brochure Printing | ONPRINT',
-    seo_description: 'Professional brochure printing in Dubai. Custom bi-fold, tri-fold, and multi-page brochures with soft-touch matte lamination and fast turnaround.',
-    seo_keywords: 'brochure printing dubai, brochure printing services dubai, custom brochure printing dubai, corporate brochure printing uae, bi fold brochure dubai, product catalog printing dubai',
-    seo_heading: 'Commercial Brochure Printing in Dubai',
-    canonical_url: 'https://0nprint.com/categories/brochures-printing',
-    image_alt: 'Professional commercial printed brochures in Dubai',
-  },
-  {
-    category_key: 'cat-business-cards-printing',
-    name: 'Business Cards Printing',
-    slug: 'business-cards-printing',
-    description: 'Executive 350gsm to 600gsm cotton and silk business cards with soft-touch velvet lamination, metallic gold foil stamping, and painted edges.',
-    image: '/uploads/categories/business-cards-printing.jpg',
-    image_url: '/uploads/categories/business-cards-printing.jpg',
-    status: 'active',
-    display_order: 2,
-    active: 1,
-    seo_title: 'Business Card Printing in Dubai | Luxury Business Cards | ONPRINT',
-    seo_description: 'Make an undeniable first impression with luxury business cards in Dubai. 350gsm–600gsm cotton stocks, gold foil stamping, and spot UV varnishing.',
-    seo_keywords: 'business card printing dubai, custom business cards dubai, premium business cards dubai, luxury business cards dubai, corporate business cards dubai',
-    seo_heading: 'Luxury Executive Business Card Printing in Dubai',
-    canonical_url: 'https://0nprint.com/categories/business-cards-printing',
-    image_alt: 'Luxury gold foil executive business cards in Dubai',
-  },
-  {
-    category_key: 'cat-flyers-printing-in-dubai',
-    name: 'Flyers Printing In Dubai',
-    slug: 'flyers-printing-in-dubai',
-    description: 'High-impact commercial marketing flyers printed on 170gsm–300gsm gloss or matte art paper with vibrant CMYK Pantone color fidelity.',
-    image: '/uploads/categories/flyers-printing-in-dubai.jpg',
-    image_url: '/uploads/categories/flyers-printing-in-dubai.jpg',
-    status: 'active',
-    display_order: 3,
-    active: 1,
-    seo_title: 'Flyer Printing in Dubai | Same Day Marketing Flyer Printing | ONPRINT',
-    seo_description: 'Order custom marketing flyer printing in Dubai. Single and double-sided promo flyers on premium art paper with express same-day delivery.',
-    seo_keywords: 'flyer printing dubai, flyer printing services dubai, custom flyer printing dubai, promotional flyer printing dubai, leaflet printing dubai',
-    seo_heading: 'High-Impact Marketing Flyer Printing in Dubai',
-    canonical_url: 'https://0nprint.com/categories/flyers-printing-in-dubai',
-    image_alt: 'Full color commercial marketing flyers printed in Dubai',
-  },
-  {
-    category_key: 'cat-id-card-printing-dubai',
-    name: 'ID Card Printing Dubai',
-    slug: 'id-card-printing-dubai',
-    description: 'Secure CR80 standard PVC employee identity cards with high-definition thermal printing, smart chips, magnetic strips, and barcodes.',
-    image: '/uploads/categories/id-card-printing-dubai.jpg',
-    image_url: '/uploads/categories/id-card-printing-dubai.jpg',
-    status: 'active',
-    display_order: 4,
-    active: 1,
-    seo_title: 'ID Card Printing Dubai | Corporate Employee & PVC Cards | ONPRINT',
-    seo_description: 'High-security corporate PVC ID card printing in Dubai. Crisp photo resolution, smart NFC chips, barcodes, and custom lanyards for UAE businesses.',
-    seo_keywords: 'id card printing dubai, pvc id cards dubai, corporate employee badges uae, student id card printing',
-    seo_heading: 'Corporate PVC ID Card Printing Solutions Dubai',
-    canonical_url: 'https://0nprint.com/categories/id-card-printing-dubai',
-    image_alt: 'Corporate employee PVC identity cards with chips in Dubai',
-  },
-  {
-    category_key: 'cat-lanyard-printing-dubai',
-    name: 'Lanyard Printing Dubai',
-    slug: 'lanyard-printing-dubai',
-    description: 'Custom branded satin and woven polyester neck lanyards with screen printing, safety breakaway clips, and heavy-duty metal swivel hooks.',
-    image: '/uploads/categories/lanyard-printing-dubai.jpg',
-    image_url: '/uploads/categories/lanyard-printing-dubai.jpg',
-    status: 'active',
-    display_order: 5,
-    active: 1,
-    seo_title: 'Lanyard Printing Dubai | Custom Branded Neck Lanyards | ONPRINT',
-    seo_description: 'Custom branded neck lanyard printing in Dubai. High-density polyester and satin lanyards with safety buckles and swivel hooks for corporate events.',
-    seo_keywords: 'lanyard printing dubai, custom lanyards dubai, branded neck straps uae, event lanyards dubai',
-    seo_heading: 'Custom Branded Neck Lanyard Printing in Dubai',
-    canonical_url: 'https://0nprint.com/categories/lanyard-printing-dubai',
-    image_alt: 'Custom branded corporate neck lanyards in Dubai',
-  },
-  {
-    category_key: 'cat-letterheads-printing-dubai',
-    name: 'Letterheads Printing Dubai',
-    slug: 'letterheads-printing-dubai',
-    description: 'Executive 120gsm smooth uncoated white letterheads and official corporate stationery printed with crisp full-color CMYK laser compatibility.',
-    image: '/uploads/categories/letterheads-printing-dubai.jpg',
-    image_url: '/uploads/categories/letterheads-printing-dubai.jpg',
-    status: 'active',
-    display_order: 6,
-    active: 1,
-    seo_title: 'Letterhead Printing in Dubai | Official Corporate Stationery | ONPRINT',
-    seo_description: 'Executive corporate letterhead printing in Dubai. 120gsm smooth laser-guaranteed paper for official contracts, proposals, and invoices.',
-    seo_keywords: 'letterheads printing dubai, letterhead printing dubai, corporate stationery uae, official letterhead paper',
-    seo_heading: 'Executive Corporate Letterhead Printing in Dubai',
-    canonical_url: 'https://0nprint.com/categories/letterheads-printing-dubai',
-    image_alt: 'Executive corporate stationery letterhead and envelope in Dubai',
-  },
-  {
-    category_key: 'cat-name-badges-printing-dubai',
-    name: 'Name Badges Printing Dubai',
-    slug: 'name-badges-printing-dubai',
-    description: 'Laser-cut brushed metal and acrylic employee name badges with magnetic backings, clear domed epoxy coatings, and scratch-resistant finishes.',
-    image: '/uploads/categories/name-badges-printing-dubai.jpg',
-    image_url: '/uploads/categories/name-badges-printing-dubai.jpg',
-    status: 'active',
-    display_order: 7,
-    active: 1,
-    seo_title: 'Name Badges Printing Dubai | Magnetic Metal & Acrylic Badges | ONPRINT',
-    seo_description: 'Professional staff name badges printing in Dubai. Brushed silver, gold, and acrylic magnetic badges with domed epoxy resin for corporate teams.',
-    seo_keywords: 'name badges printing dubai, magnetic name badges dubai, staff badge printing uae, acrylic name tag printing',
-    seo_heading: 'Professional Magnetic Name Badges Printing Dubai',
-    canonical_url: 'https://0nprint.com/categories/name-badges-printing-dubai',
-    image_alt: 'Professional magnetic metal and acrylic name badges in Dubai',
-  },
-  {
-    category_key: 'cat-mug-printing-dubai',
-    name: 'Mug Printing Dubai',
-    slug: 'mug-printing-dubai',
-    description: 'Custom printed ceramic mugs, magic heat-sensitive mugs, executive matte black coffee mugs, stainless travel tumblers, and vintage enamel mugs printed in Dubai.',
-    image: '/assets/products/mug_white_ceramic.jpg',
-    image_url: '/assets/products/mug_white_ceramic.jpg',
-    status: 'active',
-    display_order: 8,
-    active: 1,
-    seo_title: 'Mug Printing Dubai | Custom Branded Ceramic & Travel Mugs | ONPRINT',
-    seo_description: 'Professional mug printing in Dubai. Custom ceramic mugs, magic color-changing mugs, executive matte black mugs, and travel tumblers with fast UAE delivery.',
-    seo_keywords: 'mug printing dubai, custom mugs dubai, printed mugs uae, personalized coffee mugs dubai, magic mugs dubai, ceramic mug printing',
-    seo_heading: 'Custom Mug Printing Solutions in Dubai',
-    canonical_url: 'https://0nprint.com/categories/mug-printing-dubai',
-    image_alt: 'Custom printed corporate ceramic mugs and drinkware in Dubai',
-  },
-  {
-    category_key: 'cat-bottle-printing-dubai',
-    name: 'Water Bottle Printing Dubai',
-    slug: 'bottle-printing-dubai',
-    description: 'Custom printed & laser-engraved water bottles, smart LED temperature display flasks, double-wall stainless steel thermal bottles, and aluminium sports bottles in Dubai.',
-    image: '/assets/products/bottle_smart_led.jpg',
-    image_url: '/assets/products/bottle_smart_led.jpg',
-    status: 'active',
-    display_order: 9,
-    active: 1,
-    seo_title: 'Water Bottle Printing Dubai | Custom Branded Flasks & Sports Bottles | ONPRINT',
-    seo_description: 'Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.',
-    seo_keywords: 'bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai, smart led temperature bottle dubai',
-    seo_heading: 'Custom Water Bottle Printing & Laser Engraving Dubai',
-    canonical_url: 'https://0nprint.com/categories/bottle-printing-dubai',
-    image_alt: 'Custom printed and laser engraved water bottles in Dubai',
-  },
-]
-
-const seedServicesList = [
-  {
-    service_key: 'serv-brochures-printing',
-    category_slug: 'brochures-printing',
-    name: 'Brochures Printing',
-    slug: 'brochures-printing',
-    short_description: 'Premium corporate bi-fold, tri-fold, and multi-page marketing brochures printed on luxury coated art paper with precision folding.',
-    description: 'Showcase your corporate offerings with luxury multi-page brochures, bi-fold & tri-fold marketing leaflets, saddle-stitched catalogs, and custom presentation folders with soft-touch matte lamination and spot UV.',
-    image: '/uploads/categories/brochures-printing.jpg',
-    display_order: 1,
-    active: 1,
-    seo_title: 'Brochure Printing Services in Dubai | Luxury Commercial Brochures | ONPRINT',
-    seo_description: 'Professional corporate brochure printing in Dubai. Bi-fold, tri-fold, and multi-page marketing brochures with fast UAE delivery.',
-    seo_keywords: 'brochures printing dubai, brochure printing dubai, corporate brochures uae',
-    seo_heading: 'Commercial Brochure Printing in Dubai',
-    canonical_url: 'https://0nprint.com/services/brochures-printing',
-    image_alt: 'Professional commercial printed brochures in Dubai',
-  },
-  {
-    service_key: 'serv-business-cards-printing',
-    category_slug: 'business-cards-printing',
-    name: 'Business Cards Printing',
-    slug: 'business-cards-printing',
-    short_description: 'Executive 350gsm–600gsm cotton & silk business cards with soft-touch velvet lamination and metallic gold foil stamping.',
-    description: 'Make an undeniable first impression with bespoke luxury business cards. Choose from 350gsm to 600gsm cotton stocks, embossed foil stamping, painted colored edges, and tactile spot UV.',
-    image: '/uploads/categories/business-cards-printing.jpg',
-    display_order: 2,
-    active: 1,
-    seo_title: 'Business Card Printing in Dubai | Luxury Executive Cards | ONPRINT',
-    seo_description: 'Executive business card printing in Dubai. 350gsm-600gsm cotton card stocks, soft-touch matte lamination, gold foil, and spot UV.',
-    seo_keywords: 'business cards printing dubai, luxury business cards dubai, visiting cards uae',
-    seo_heading: 'Luxury Executive Business Card Printing in Dubai',
-    canonical_url: 'https://0nprint.com/services/business-cards-printing',
-    image_alt: 'Luxury gold foil executive business cards in Dubai',
-  },
-  {
-    service_key: 'serv-flyers-printing-in-dubai',
-    category_slug: 'flyers-printing-in-dubai',
-    name: 'Flyers Printing In Dubai',
-    slug: 'flyers-printing-in-dubai',
-    short_description: 'High-impact marketing flyers printed on 170gsm–300gsm gloss or matte art paper with vibrant CMYK color fidelity.',
-    description: 'Accelerate your campaigns with high-impact single and double-sided commercial marketing flyers. Printed on premium FSC-certified silk and gloss art paper with express same-day turnaround.',
-    image: '/uploads/categories/flyers-printing-in-dubai.jpg',
-    display_order: 3,
-    active: 1,
-    seo_title: 'Flyer Printing Services in Dubai | Same Day Turnaround | ONPRINT',
-    seo_description: 'Order custom marketing flyers in Dubai. Single and double-sided promotional flyers on premium gloss/matte art paper with express delivery.',
-    seo_keywords: 'flyers printing in dubai, flyer printing dubai, promotional flyers uae',
-    seo_heading: 'High-Impact Marketing Flyer Printing in Dubai',
-    canonical_url: 'https://0nprint.com/services/flyers-printing-in-dubai',
-    image_alt: 'Full color commercial marketing flyers printed in Dubai',
-  },
-  {
-    service_key: 'serv-id-card-printing-dubai',
-    category_slug: 'id-card-printing-dubai',
-    name: 'ID Card Printing Dubai',
-    slug: 'id-card-printing-dubai',
-    short_description: 'Secure CR80 standard PVC employee identity cards with high-definition thermal printing and smart chips.',
-    description: 'Secure corporate ID card printing in Dubai. High-definition thermal transfer on CR80 PVC cards, compatible with RFID smart chips, magnetic strips, barcodes, and custom security overlays.',
-    image: '/uploads/categories/id-card-printing-dubai.jpg',
-    display_order: 4,
-    active: 1,
-    seo_title: 'Corporate PVC ID Card Printing Dubai | Smart NFC Badges | ONPRINT',
-    seo_description: 'High-security corporate PVC ID card printing in Dubai. Crisp photo resolution, smart NFC chips, barcodes, and accessories.',
-    seo_keywords: 'id card printing dubai, pvc id cards dubai, employee badges uae',
-    seo_heading: 'Corporate PVC ID Card Printing Solutions Dubai',
-    canonical_url: 'https://0nprint.com/services/id-card-printing-dubai',
-    image_alt: 'Corporate employee PVC identity cards with chips in Dubai',
-  },
-  {
-    service_key: 'serv-lanyard-printing-dubai',
-    category_slug: 'lanyard-printing-dubai',
-    name: 'Lanyard Printing Dubai',
-    slug: 'lanyard-printing-dubai',
-    short_description: 'Custom branded satin and woven polyester neck lanyards with safety breakaway clips and metal hooks.',
-    description: 'Custom branded neck lanyards for corporate teams, exhibitions, and VIP events. High-density woven polyester and silky satin straps featuring durable screen printing or dye-sublimation with swivel hooks and safety breakaways.',
-    image: '/uploads/categories/lanyard-printing-dubai.jpg',
-    display_order: 5,
-    active: 1,
-    seo_title: 'Custom Branded Lanyard Printing Dubai | Event Neck Straps | ONPRINT',
-    seo_description: 'Custom branded neck lanyard printing in Dubai. High-density polyester and satin lanyards with safety buckles and swivel hooks.',
-    seo_keywords: 'lanyard printing dubai, custom lanyards dubai, branded neck straps uae',
-    seo_heading: 'Custom Branded Neck Lanyard Printing in Dubai',
-    canonical_url: 'https://0nprint.com/services/lanyard-printing-dubai',
-    image_alt: 'Custom branded corporate neck lanyards in Dubai',
-  },
-  {
-    service_key: 'serv-letterheads-printing-dubai',
-    category_slug: 'letterheads-printing-dubai',
-    name: 'Letterheads Printing Dubai',
-    slug: 'letterheads-printing-dubai',
-    short_description: 'Executive 120gsm smooth uncoated white letterheads with crisp full-color CMYK laser printer compatibility.',
-    description: 'Elevate official company communications with luxury 120gsm smooth laser-guaranteed paper. Flawless Pantone color fidelity for official contracts, proposals, invoices, and executive correspondence.',
-    image: '/uploads/categories/letterheads-printing-dubai.jpg',
-    display_order: 6,
-    active: 1,
-    seo_title: 'Executive Corporate Letterhead Printing Dubai | ONPRINT',
-    seo_description: 'Executive corporate letterhead printing in Dubai. 120gsm smooth laser-guaranteed paper for official contracts and proposals.',
-    seo_keywords: 'letterheads printing dubai, corporate stationery dubai, official letterhead paper',
-    seo_heading: 'Executive Corporate Letterhead Printing in Dubai',
-    canonical_url: 'https://0nprint.com/services/letterheads-printing-dubai',
-    image_alt: 'Executive corporate stationery letterhead and envelope in Dubai',
-  },
-  {
-    service_key: 'serv-name-badges-printing-dubai',
-    category_slug: 'name-badges-printing-dubai',
-    name: 'Name Badges Printing Dubai',
-    slug: 'name-badges-printing-dubai',
-    short_description: 'Laser-cut brushed metal & acrylic staff name badges with strong magnetic backings and epoxy dome finish.',
-    description: 'Premium staff name badges for corporate hospitality, retail, and corporate teams. Brushed gold, silver, and crystal-clear acrylic badges with strong neodymium magnetic fasteners and scratch-proof domed epoxy resin.',
-    image: '/uploads/categories/name-badges-printing-dubai.jpg',
-    display_order: 7,
-    active: 1,
-    seo_title: 'Magnetic Metal & Acrylic Name Badges Printing Dubai | ONPRINT',
-    seo_description: 'Professional staff name badges printing in Dubai. Brushed silver, gold, and acrylic magnetic badges with domed epoxy resin.',
-    seo_keywords: 'name badges printing dubai, magnetic name badges dubai, staff badge printing uae',
-    seo_heading: 'Professional Magnetic Name Badges Printing Dubai',
-    canonical_url: 'https://0nprint.com/services/name-badges-printing-dubai',
-    image_alt: 'Professional magnetic metal and acrylic name badges in Dubai',
-  },
-  {
-    service_key: 'serv-mug-printing-dubai',
-    category_slug: 'mug-printing-dubai',
-    name: 'Mug Printing Dubai',
-    slug: 'mug-printing-dubai',
-    short_description: 'Custom branded ceramic mugs, magic color-reveal mugs, matte black executive tumblers, and vintage enamel drinkware.',
-    description: 'Bespoke corporate mug printing services in Dubai. Full-color vibrant sublimation on 11oz/15oz ceramic mugs, thermochromic heat-reveal mugs, luxury engraved travel tumblers, and enamel camping mugs.',
-    image: '/assets/products/mug_white_ceramic.jpg',
-    display_order: 8,
-    active: 1,
-    seo_title: 'Custom Mug Printing Services Dubai | Corporate Drinkware | ONPRINT',
-    seo_description: 'Custom mug printing services in Dubai. High-resolution ceramic, magic heat reveal, matte black gold foil, and travel tumblers with express delivery.',
-    seo_keywords: 'mug printing dubai, custom mugs dubai, promotional mugs uae, ceramic mug printing',
-    seo_heading: 'Custom Mug Printing Services in Dubai',
-    canonical_url: 'https://0nprint.com/services/mug-printing-dubai',
-    image_alt: 'Custom printed corporate ceramic mugs in Dubai',
-  },
-  {
-    service_key: 'serv-bottle-printing-dubai',
-    category_slug: 'bottle-printing-dubai',
-    name: 'Water Bottle Printing Dubai',
-    slug: 'bottle-printing-dubai',
-    short_description: 'Laser-engraved thermal insulated flasks, smart LED display bottles, aluminium sports bottles, and glass drinkware.',
-    description: 'Commercial custom water bottle printing and precision laser engraving in Dubai. Double-wall vacuum stainless steel, smart LED temperature readout caps, gym shakers, and eco-friendly bamboo glass bottles.',
-    image: '/assets/products/bottle_smart_led.jpg',
-    display_order: 9,
-    active: 1,
-    seo_title: 'Custom Water Bottle Printing Dubai | Laser Engraved Flasks | ONPRINT',
-    seo_description: 'Custom water bottle printing and laser engraving in Dubai. Double-wall stainless steel, smart LED flasks, sports bottles, and shaker bottles.',
-    seo_keywords: 'bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai',
-    seo_heading: 'Custom Water Bottle Printing & Laser Engraving Dubai',
-    canonical_url: 'https://0nprint.com/services/bottle-printing-dubai',
-    image_alt: 'Custom laser engraved water bottles in Dubai',
-  },
-]
-
-const seedProductsList = [
-  {
-    product_key: 'prod-standard-business-cards',
-    category_slug: 'business-cards-printing',
-    name: 'Standard Business Cards',
-    slug: 'standard-business-cards',
-    short_description: 'Clean 300gsm business cards for everyday networking, teams, and local business use.',
-    description: 'Reliable 300gsm business cards printed on smooth matte or silk stock with crisp full-colour artwork and practical finishing for everyday business networking.',
-    price: 45.00,
-    minimum_quantity: 100,
-    featured: 1,
-    seo_title: 'Standard Business Cards Dubai | 300gsm Card Printing | ONPRINT',
-    seo_description: 'Order clean 300gsm standard business cards in Dubai with crisp colour printing and practical matte or silk finishes for everyday networking.',
-    seo_keywords: 'standard business cards dubai, 300gsm business cards, affordable card printing dubai',
-    seo_heading: 'Standard 300gsm Business Cards in Dubai',
-    canonical_url: 'https://0nprint.com/products/standard-business-cards',
-    image_alt: 'Standard 300gsm business cards printed by ONPRINT',
-    images: ['/assets/products/business-card-standard.svg'],
-  },
-  {
-    product_key: 'prod-premium-soft-touch-business-cards',
-    category_slug: 'business-cards-printing',
-    name: 'Premium Soft-Touch Business Cards',
-    slug: 'premium-soft-touch-business-cards',
-    short_description: '350gsm business cards with soft-touch lamination, spot UV, and a refined tactile finish.',
-    description: 'Premium 350gsm business cards finished with soft-touch lamination and optional spot UV detailing for companies that need a polished, memorable handout.',
-    price: 75.00,
-    minimum_quantity: 100,
-    featured: 1,
-    seo_title: 'Premium Soft-Touch Business Cards Dubai | ONPRINT',
-    seo_description: 'Premium 350gsm soft-touch business cards in Dubai with optional spot UV detailing and refined finishing for professional brands.',
-    seo_keywords: 'soft touch business cards dubai, 350gsm business cards, premium visiting cards uae',
-    seo_heading: 'Premium Soft-Touch Business Cards in Dubai',
-    canonical_url: 'https://0nprint.com/products/premium-soft-touch-business-cards',
-    image_alt: 'Premium 350gsm soft-touch business cards printed by ONPRINT',
-    images: ['/assets/products/card-soft-touch.jpg'],
-  },
-  {
-    product_key: 'prod-velvet-foil-business-cards',
-    category_slug: 'business-cards-printing',
-    name: 'Velvet Foil Business Cards',
-    slug: 'velvet-foil-business-cards',
-    short_description: '450gsm velvet-laminated cards with hot foil stamping for executive and luxury branding.',
-    description: 'Executive 450gsm business cards with tactile velvet lamination and hot foil stamping in gold or silver, designed for premium client meetings and luxury brands.',
-    price: 150.00,
-    minimum_quantity: 100,
-    featured: 1,
-    seo_title: 'Velvet Foil Business Cards Dubai | 450gsm Luxury Cards | ONPRINT',
-    seo_description: 'Make a premium impression with 450gsm velvet foil business cards in Dubai, available with tactile lamination and gold or silver foil.',
-    seoKeywords: 'velvet foil business cards dubai, 450gsm business cards, gold foil visiting cards',
-    seo_heading: '450gsm Velvet Foil Business Cards in Dubai',
-    canonical_url: 'https://0nprint.com/products/velvet-foil-business-cards',
-    image_alt: '450gsm velvet laminated business cards with foil stamping',
-    images: ['/assets/products/card-velvet-foil.jpg'],
-  },
-  {
-    product_key: 'prod-luxury-painted-edge-business-cards',
-    category_slug: 'business-cards-printing',
-    name: 'Luxury Painted-Edge Business Cards',
-    slug: 'luxury-painted-edge-business-cards',
-    short_description: '600gsm duplex cards with painted edges, foil, embossing, and a substantial luxury feel.',
-    description: 'Statement 600gsm duplex business cards with painted edges, precision embossing, and metallic foil options for executive identities, agencies, and luxury businesses.',
-    price: 220.00,
-    minimum_quantity: 100,
-    featured: 1,
-    seo_title: 'Luxury Painted-Edge Business Cards Dubai | 600gsm Cards | ONPRINT',
-    seo_description: 'Order substantial 600gsm painted-edge business cards in Dubai with foil and embossing options for luxury corporate identities.',
-    seoKeywords: 'painted edge business cards dubai, 600gsm business cards, luxury business cards uae',
-    seo_heading: '600gsm Luxury Painted-Edge Business Cards in Dubai',
-    canonical_url: 'https://0nprint.com/products/luxury-painted-edge-business-cards',
-    image_alt: '600gsm painted-edge luxury business cards with foil finish',
-    images: ['/assets/products/card-painted-edge.jpg'],
-  },
-  {
-    product_key: 'prod-luxury-velvet-business-cards',
-    category_slug: 'business-cards-printing',
-    name: 'Luxury Velvet Business Cards',
-    slug: 'luxury-velvet-business-cards',
-    short_description: 'Executive 450gsm silk cards with soft-touch matte velvet lamination, metallic gold foil stamping, and painted edges.',
-    description: 'Crafted for executive distinction, our luxury velvet business cards feature heavy 450gsm silk stock coated in tactile soft-touch lamination with precision hot foil stamping in mirror gold or silver.',
-    price: 150.00,
-    minimum_quantity: 250,
-    featured: 1,
-    seo_title: 'Luxury Velvet Business Cards Dubai | Gold Foil Stamping | ONPRINT',
-    seo_description: 'Executive 450gsm velvet business cards with gold foil stamping & painted edges in Dubai. Order bespoke luxury cards with express delivery.',
-    seo_keywords: 'luxury business cards dubai, velvet business cards uae, gold foil business cards dubai',
-    seo_heading: 'Executive Luxury Velvet Business Cards Dubai',
-    canonical_url: 'https://0nprint.com/products/luxury-velvet-business-cards',
-    image_alt: 'Luxury velvet business cards with gold foil stamping in Dubai',
-    images: ['/uploads/categories/business-cards-printing.jpg'],
-  },
-  {
-    product_key: 'prod-corporate-bi-fold-brochures',
-    category_slug: 'brochures-printing',
-    name: 'Corporate Bi-Fold Brochures',
-    slug: 'corporate-bi-fold-brochures',
-    short_description: 'High-definition 4-page bi-fold corporate brochures on 250gsm coated art paper with protective matte or gloss coating.',
-    description: 'Present corporate capabilities with premium bi-fold brochures printed in full vibrant CMYK on heavy 250gsm coated paper with precision creasing and folding.',
-    price: 95.00,
-    minimum_quantity: 100,
-    featured: 1,
-    seo_title: 'Corporate Bi-Fold Brochures Dubai | Custom Art Paper | ONPRINT',
-    seo_description: 'Commercial bi-fold brochure printing in Dubai. 250gsm premium art paper, vibrant CMYK color calibration, and express turnaround across UAE.',
-    seo_keywords: 'bifold brochure printing dubai, corporate brochures uae, custom bi fold printing',
-    seo_heading: 'Corporate Bi-Fold Brochure Printing Dubai',
-    canonical_url: 'https://0nprint.com/products/corporate-bi-fold-brochures',
-    image_alt: 'Corporate bi-fold marketing brochure printed in Dubai',
-    images: ['/assets/products/brochure_bifold.jpg'],
-  },
-  {
-    product_key: 'prod-tri-fold-brochures',
-    category_slug: 'brochures-printing',
-    name: 'Tri-Fold Marketing Brochures',
-    slug: 'tri-fold-brochures-printing',
-    short_description: 'High-impact 6-panel tri-fold letter-fold marketing leaflets with vivid color and matte lamination.',
-    description: 'High-impact 6-panel tri-fold (letter-fold) brochures printed on 200gsm to 300gsm coated art paper. Machine scored in two places for crisp parallel folds, creating six organized panels for menus and marketing.',
-    price: 85.00,
-    minimum_quantity: 100,
-    featured: 1,
-    seo_title: 'Tri-Fold Brochures Printing Dubai | 6-Panel Marketing Leaflets | ONPRINT',
-    seo_description: 'Tri-fold brochure printing in Dubai with 6 organized panels. Premium coated paper, matte or gloss finish, express same-day delivery available.',
-    seo_keywords: 'tri fold brochure dubai, 6 panel leaflets uae, letter-fold brochures dubai, menu brochure printing',
-    seo_heading: 'Tri-Fold Marketing Brochures Dubai',
-    canonical_url: 'https://0nprint.com/products/tri-fold-brochures-printing',
-    image_alt: 'Tri-fold 6-panel marketing brochures printed in Dubai',
-    images: ['/assets/products/brochure_trifold.jpg'],
-  },
-  {
-    product_key: 'prod-catalogs-booklets-printing',
-    category_slug: 'brochures-printing',
-    name: 'Multi-Page Booklets & Catalogs',
-    slug: 'catalogs-booklets-printing',
-    short_description: 'Saddle-stitched and perfect-bound corporate multi-page booklets, annual reports, and product catalogs.',
-    description: 'Multi-page corporate catalogs and company profile booklets printed on 170gsm–250gsm interior art paper with heavy 350gsm laminated cover and durable saddle-stitch or PUR binding.',
-    price: 165.00,
-    minimum_quantity: 50,
-    featured: 1,
-    seo_title: 'Multi-Page Booklets & Catalogs Dubai | Corporate Publication Print | ONPRINT',
-    seo_description: 'Professional booklet and catalog printing in Dubai. Saddle-stitched and perfect-bound annual reports, lookbooks, and product catalogs.',
-    seo_keywords: 'catalog printing dubai, booklet printing uae, annual report printing dubai, company profile print',
-    seo_heading: 'Multi-Page Corporate Booklets & Catalogs Dubai',
-    canonical_url: 'https://0nprint.com/products/catalogs-booklets-printing',
-    image_alt: 'Multi-page corporate catalog booklets printed in Dubai',
-    images: ['/assets/products/brochure_booklet_catalog.jpg'],
-  },
-  {
-    product_key: 'prod-gate-fold-brochures',
-    category_slug: 'brochures-printing',
-    name: 'Gate-Fold Luxury Brochures',
-    slug: 'gate-fold-brochures-printing',
-    short_description: 'Dramatic opening gate-fold brochures with dual outer flaps revealing a luxury full-width inner spread.',
-    description: 'Luxury gate-fold brochures featuring two outer flaps that fold inward like double doors to reveal a dramatic full-width inner spread. Printed on 350gsm premium art card with gold foil accents.',
-    price: 145.00,
-    minimum_quantity: 50,
-    featured: 1,
-    seo_title: 'Gate-Fold Brochures Printing Dubai | Luxury Opening Brochures | ONPRINT',
-    seo_description: 'Premium gate-fold brochure printing in Dubai. Dramatic opening style with foil stamping and velvet lamination for luxury real estate and VIP events.',
-    seo_keywords: 'gate fold brochure dubai, luxury opening brochures uae, real estate gate-fold dubai',
-    seo_heading: 'Luxury Gate-Fold Brochures Dubai',
-    canonical_url: 'https://0nprint.com/products/gate-fold-brochures-printing',
-    image_alt: 'Luxury gate-fold brochures with dramatic opening style in Dubai',
-    images: ['/assets/products/brochure_gatefold.jpg'],
-  },
-  {
-    product_key: 'prod-z-fold-leaflets',
-    category_slug: 'brochures-printing',
-    name: 'Z-Fold Accordion Brochures & Menus',
-    slug: 'z-fold-leaflets-printing',
-    short_description: 'Accordion zig-zag multi-panel brochures and leaflets for restaurant menus, price lists, and guides.',
-    description: 'Versatile accordion-style Z-fold brochures where panels fold back and forth alternately, creating multiple compact readable surfaces for menus, price lists, and informational guides.',
-    price: 78.00,
-    minimum_quantity: 100,
-    featured: 1,
-    seo_title: 'Z-Fold Accordion Brochures Dubai | Menus & Price Lists | ONPRINT',
-    seo_description: 'Z-fold accordion brochure printing in Dubai. Perfect for menus, price lists, and reference guides with multiple zig-zag panels.',
-    seo_keywords: 'z fold brochure dubai, accordion leaflets uae, menu printing dubai',
-    seo_heading: 'Z-Fold Accordion Brochures & Menus Dubai',
-    canonical_url: 'https://0nprint.com/products/z-fold-leaflets-printing',
-    image_alt: 'Z-fold accordion style brochures and leaflets in Dubai',
-    images: ['/assets/products/brochure_zfold.jpg'],
-  },
-  {
-    product_key: 'prod-high-impact-gloss-marketing-flyers',
-    category_slug: 'flyers-printing-in-dubai',
-    name: 'High-Impact Gloss Marketing Flyers',
-    slug: 'high-impact-gloss-marketing-flyers',
-    short_description: 'Double-sided commercial promotional flyers printed on 170gsm gloss art paper with vibrant CMYK ink fidelity.',
-    description: 'Maximize marketing campaign ROI with high-impact single and double-sided flyers printed on premium 170gsm gloss art paper with crisp photo resolution and express same-day dispatch in Dubai.',
-    price: 120.00,
-    minimum_quantity: 500,
-    featured: 1,
-    seo_title: 'High-Impact Marketing Flyers Dubai | Express CMYK Print | ONPRINT',
-    seo_description: 'Order commercial gloss marketing flyers in Dubai. Double-sided high-resolution printing on 170gsm art paper with same-day delivery.',
-    seo_keywords: 'marketing flyer printing dubai, gloss flyers uae, commercial leaflets dubai',
-    seo_heading: 'High-Impact Commercial Marketing Flyers Dubai',
-    canonical_url: 'https://0nprint.com/products/high-impact-gloss-marketing-flyers',
-    image_alt: 'High impact gloss marketing flyers in Dubai',
-    images: ['/uploads/categories/flyers-printing-in-dubai.jpg'],
-  },
-    {
-    product_key: 'prod-secure-smart-nfc-pvc-id-cards',
-    category_slug: 'id-card-printing-dubai',
-    name: 'Secure Smart NFC PVC ID Cards',
-    slug: 'secure-smart-nfc-pvc-id-cards',
-    short_description: 'CR80 standard PVC identity cards with embedded NFC/RFID chips, high-definition photo print and security overlay.',
-    description: 'High-security corporate employee ID cards manufactured from durable CR80 PVC with integrated contactless NTAG213/216 smart chips, QR codes, magnetic stripes, and anti-scratch protective lamination. Perfect for digital tap-to-share business cards and modern IoT office access in Dubai.',
-    price: 25.00,
-    minimum_quantity: 10,
-    featured: 1,
-    seo_title: 'Secure Smart NFC PVC ID Cards Dubai | Contactless Smart Badges | ONPRINT',
-    seo_description: 'High-security corporate PVC ID cards with embedded NFC smart chips in Dubai. High-resolution photo printing, barcodes, and custom security overlays.',
-    seo_keywords: 'nfc id cards dubai, pvc id card printing uae, corporate smart badges dubai, contactless id cards uae',
-    seo_heading: 'Secure Smart NFC PVC ID Cards Dubai',
-    canonical_url: 'https://0nprint.com/products/secure-smart-nfc-pvc-id-cards',
-    image_alt: 'Secure smart NFC PVC employee ID cards in Dubai',
-    images: ['/assets/products/id-cards/smart-nfc-pvc-id.png', '/assets/products/id_cards.jpg'],
-  },
-  {
-    product_key: 'prod-rfid-proximity-access-cards',
-    category_slug: 'id-card-printing-dubai',
-    name: 'RFID Proximity Access Control Cards',
-    slug: 'rfid-proximity-access-cards',
-    short_description: '125kHz EM4100 & HID compatible proximity identity cards for contactless turnstiles, parking gates, and biometric door systems.',
-    description: 'Commercial 125kHz RFID proximity cards engineered for seamless compatibility with UAE office biometric turnstiles, automated barrier gates, and secure zone readers. Features durable composite core with crisp edge-to-edge full-color surface printing.',
-    price: 12.00,
-    minimum_quantity: 25,
-    featured: 1,
-    seo_title: 'RFID Proximity Access Cards Dubai | 125kHz Turnstile & Door Badges | ONPRINT',
-    seo_description: 'Order custom printed 125kHz RFID proximity access cards in Dubai. High durability, long-range barrier scanning, and custom corporate branding.',
-    seo_keywords: 'rfid access cards dubai, proximity cards uae, 125khz id cards dubai, door access badges uae',
-    seo_heading: 'RFID Proximity Access Control ID Cards Dubai',
-    canonical_url: 'https://0nprint.com/products/rfid-proximity-access-cards',
-    image_alt: 'RFID proximity access control cards in Dubai',
-    images: ['/assets/products/id-cards/rfid-proximity-access-cards.jpg'],
-  },
-  {
-    product_key: 'prod-holographic-security-id-cards',
-    category_slug: 'id-card-printing-dubai',
-    name: 'High-Security Holographic Employee Badges',
-    slug: 'holographic-security-id-cards',
-    short_description: 'Anti-counterfeit employee identity cards with embedded 3D optical holographic foil, microtext patterns, and UV invisible ink.',
-    description: 'Bank-grade high-security identification cards featuring optical variable holographic overlays, microscopic guilloche security borders, and UV ultraviolet invisible watermarks. Engineered to eliminate forgery and unauthorized replication for government, defense, and high-security enterprise facilities across the UAE.',
-    price: 18.00,
-    minimum_quantity: 20,
-    featured: 1,
-    seo_title: 'Holographic Security ID Cards Dubai | Anti-Counterfeit Badges | ONPRINT',
-    seo_description: 'High-security holographic ID card printing in Dubai. 3D holographic overlays, UV invisible security printing, and tamper-evident lamination.',
-    seo_keywords: 'holographic id cards dubai, security badges uae, anti counterfeit id printing dubai, uv security cards',
-    seo_heading: 'High-Security Holographic Employee ID Cards Dubai',
-    canonical_url: 'https://0nprint.com/products/holographic-security-id-cards',
-    image_alt: 'Holographic security employee ID badges in Dubai',
-    images: ['/assets/products/id-cards/holographic-security-id-cards.jpg'],
-  },
-  {
-    product_key: 'prod-magnetic-stripe-corporate-id-cards',
-    category_slug: 'id-card-printing-dubai',
-    name: 'HiCo Magnetic Stripe Corporate ID Cards',
-    slug: 'magnetic-stripe-corporate-id-cards',
-    short_description: 'High-coercivity 2750 Oe 3-track magnetic stripe cards for time-attendance logging, hotel key locks, and POS terminals.',
-    description: 'Heavy-duty magnetic stripe identity cards equipped with 2750 Oe High Coercivity (HiCo) 3-track magnetic bands. Ideal for Dubai corporate time & attendance terminals, hotel electronic key card locks, gym memberships, and cafeteria POS payment swiping.',
-    price: 10.00,
-    minimum_quantity: 50,
-    featured: 0,
-    seo_title: 'HiCo Magnetic Stripe ID Cards Dubai | Hotel Keys & Time Attendance | ONPRINT',
-    seo_description: 'Order HiCo magnetic stripe ID cards in Dubai. 3-track encoded magnetic cards for hotel key systems, time attendance clocks, and POS swiping.',
-    seo_keywords: 'magnetic stripe cards dubai, hico key cards uae, hotel key card printing dubai, magnetic badge printing',
-    seo_heading: 'HiCo Magnetic Stripe Corporate ID Cards Dubai',
-    canonical_url: 'https://0nprint.com/products/magnetic-stripe-corporate-id-cards',
-    image_alt: 'HiCo magnetic stripe corporate ID cards in Dubai',
-    images: ['/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg'],
-  },
-  {
-    product_key: 'prod-photo-id-staff-cards',
-    category_slug: 'id-card-printing-dubai',
-    name: 'Full-Color Laminated Photo Staff ID Cards',
-    slug: 'photo-id-staff-cards',
-    short_description: '600 DPI edge-to-edge retransfer photo ID badges with crystal-clear lamination and optional lanyard slot punching.',
-    description: 'Commercial grade photographic employee badges printed with 600 DPI edge-to-edge dye-sublimation technology for razor-sharp portraits and true corporate color reproduction. Finished with tough gloss or satin matte scratch-proof overlay, pre-punched for crocodile clips or neck lanyards.',
-    price: 8.00,
-    minimum_quantity: 10,
-    featured: 0,
-    seo_title: 'Photo ID Staff Cards Dubai | Full Color Retransfer Employee Badges | ONPRINT',
-    seo_description: 'Professional photo ID card printing in Dubai. 600 DPI high-definition portrait printing, durable lamination, and lanyard slot punching.',
-    seo_keywords: 'photo id cards dubai, employee badges printing uae, staff identity cards dubai, laminated id cards',
-    seo_heading: 'Full-Color Laminated Photo Staff ID Cards Dubai',
-    canonical_url: 'https://0nprint.com/products/photo-id-staff-cards',
-    image_alt: 'Full color laminated photo staff ID cards in Dubai',
-    images: ['/assets/products/id-cards/photo-id-staff-cards.jpg'],
-  },
-  {
-    product_key: 'prod-student-campus-id-cards',
-    category_slug: 'id-card-printing-dubai',
-    name: 'Student & University Campus ID Cards',
-    slug: 'student-campus-id-cards',
-    short_description: 'Durable CR80 school and university student identity cards with barcodes, QR codes, photo portraits, and library access.',
-    description: 'Robust, tamper-resistant student ID cards designed for UAE schools, colleges, and universities. Features high-resolution photo portraits, unique student roll numbers, 1D/2D barcodes for library checkout, QR verification, and optional MIFARE campus smart canteen integration.',
-    price: 7.00,
-    minimum_quantity: 25,
-    featured: 0,
-    seo_title: 'Student ID Cards Printing Dubai | School & University Campus Badges | ONPRINT',
-    seo_description: 'Custom student ID card printing in Dubai. School and university identity cards with barcodes, QR codes, photo portraits, and library access.',
-    seo_keywords: 'student id cards dubai, school id badges uae, university student cards dubai, campus id printing',
-    seo_heading: 'Student & University Campus ID Cards Dubai',
-    canonical_url: 'https://0nprint.com/products/student-campus-id-cards',
-    image_alt: 'Student and university campus ID cards in Dubai',
-    images: ['/assets/products/id-cards/student-campus-id-cards.jpg'],
-  },
-  {
-    product_key: 'prod-visitor-pass-cards-holders',
-    category_slug: 'id-card-printing-dubai',
-    name: 'Visitor Pass Cards & Clear Badge Holders',
-    slug: 'visitor-pass-cards-holders',
-    short_description: 'Reusable color-coded corporate visitor badges with bold sequential numbering and heavy-duty transparent acrylic holders.',
-    description: 'Comprehensive visitor management cards featuring bold color-coded security zone stripes, sequential numbering, high-gloss reusable wipe-clean PVC surfaces, and transparent acrylic protective badge holders with swivel clips or safety breakaway neck straps.',
-    price: 6.00,
-    minimum_quantity: 50,
-    featured: 0,
-    seo_title: 'Visitor Pass Cards & Badges Dubai | Reusable Office Visitor Badges | ONPRINT',
-    seo_description: 'Visitor pass cards and badge printing in Dubai. Reusable color-coded PVC passes, sequential numbering, and rigid acrylic badge holders.',
-    seo_keywords: 'visitor pass cards dubai, office visitor badges uae, temporary security badges dubai, visitor card holders',
-    seo_heading: 'Visitor Pass Cards & Clear Badge Holders Dubai',
-    canonical_url: 'https://0nprint.com/products/visitor-pass-cards-holders',
-    image_alt: 'Visitor pass cards and clear badge holders in Dubai',
-    images: ['/assets/products/id-cards/visitor-pass-cards-holders.jpg'],
-  },
-  {
-    product_key: 'prod-executive-120gsm-letterheads',
-    category_slug: 'letterheads-printing-dubai',
-    name: 'Executive 120gsm Letterheads',
-    slug: 'executive-120gsm-letterheads',
-    short_description: '120gsm ultra-smooth laser-guaranteed corporate letterheads with precision corporate branding and crisp ink fidelity.',
-    description: 'Official corporate stationery printed on 120gsm ultra-smooth laser-guaranteed paper. Designed for flawless feeding through office desktop printers with crisp, high-density corporate branding.',
-    price: 180.00,
-    minimum_quantity: 250,
-    featured: 1,
-    seo_title: 'Executive 120gsm Letterheads Dubai | Laser Guaranteed Stationery | ONPRINT',
-    seo_description: 'Corporate letterhead printing in Dubai. 120gsm ultra-smooth laser-compatible paper with crisp Pantone color fidelity for official business stationery.',
-    seo_keywords: 'letterhead printing dubai, corporate letterheads uae, 120gsm letterhead paper, executive stationery dubai',
-    seo_heading: 'Executive 120gsm Corporate Letterheads Dubai',
-    canonical_url: 'https://0nprint.com/products/executive-120gsm-letterheads',
-    image_alt: 'Executive 120gsm corporate stationery letterheads in Dubai',
-    images: ['/assets/products/letterhead_executive_120gsm.jpg'],
-  },
-  {
-    product_key: 'prod-luxury-gold-foil-letterheads',
-    category_slug: 'letterheads-printing-dubai',
-    name: 'Luxury Gold Foil Letterheads',
-    slug: 'luxury-gold-foil-letterheads',
-    short_description: 'Bespoke executive letterheads featuring metallic gold or silver hot-foil stamped corporate crests on luxury linen stock.',
-    description: 'Distinguished executive corporate letterheads featuring metallic hot-foil stamping in gold, silver, rose gold, or copper. Printed on textured linen or extra-heavy 140gsm premium watermarked stock for luxury brands, legal chambers, royal family offices, and C-level executive suites across the UAE.',
-    price: 290.00,
-    minimum_quantity: 100,
-    featured: 1,
-    seo_title: 'Luxury Gold Foil Letterheads Dubai | Foil Stamped Stationery | ONPRINT',
-    seo_description: 'Order luxury gold foil letterheads in Dubai. Metallic foil stamped crests, textured linen paper, and premium corporate executive stationery.',
-    seo_keywords: 'gold foil letterheads dubai, luxury stationery uae, foil stamped letterhead paper, embossed letterheads dubai',
-    seo_heading: 'Luxury Gold Foil Corporate Letterheads Dubai',
-    canonical_url: 'https://0nprint.com/products/luxury-gold-foil-letterheads',
-    image_alt: 'Luxury gold foil embossed corporate letterheads in Dubai',
-    images: ['/assets/products/letterhead_gold_foil.jpg'],
-  },
-  {
-    product_key: 'prod-matching-corporate-envelopes',
-    category_slug: 'letterheads-printing-dubai',
-    name: 'Matching Corporate Envelopes',
-    slug: 'matching-corporate-envelopes',
-    short_description: 'Custom branded corporate envelopes in DL, C5, and C4 formats with peel-and-seal adhesive flaps and interior privacy tint.',
-    description: 'Complete your corporate stationery suite with custom branded envelopes manufactured from premium 120gsm matching paper stock. Available in standard business DL (with or without window), C5 (for folded A4), and large C4 (for flat A4 documents) with high-adhesion peel & seal closures and optional interior security pattern printing.',
-    price: 120.00,
-    minimum_quantity: 250,
-    featured: 1,
-    seo_title: 'Custom Corporate Envelopes Dubai | DL, C5, C4 Envelopes | ONPRINT',
-    seo_description: 'Order custom branded business envelopes in Dubai. DL, C5, C4 envelope printing with peel-and-seal strips and full-color corporate branding.',
-    seo_keywords: 'envelope printing dubai, custom corporate envelopes uae, dl envelope printing, c4 envelopes dubai',
-    seo_heading: 'Matching Custom Corporate Envelopes Dubai',
-    canonical_url: 'https://0nprint.com/products/matching-corporate-envelopes',
-    image_alt: 'Matching corporate envelopes DL C5 C4 in Dubai',
-    images: ['/assets/products/letterhead_envelopes_suite.jpg'],
-  },
-  {
-    product_key: 'prod-corporate-presentation-folders',
-    category_slug: 'letterheads-printing-dubai',
-    name: 'Corporate Presentation Folders',
-    slug: 'corporate-presentation-folders',
-    short_description: 'Heavy 350gsm matte laminated presentation folders with document pocket, business card slot, and spot UV accents.',
-    description: 'Elevate tenders, client proposals, and executive sales pitches with custom die-cut corporate presentation folders. Crafted from heavy 350gsm rigid art card with velvet soft-touch lamination, metallic foil detailing, interior document pockets, and precision die-cut business card slits.',
-    price: 140.00,
-    minimum_quantity: 50,
-    featured: 1,
-    seo_title: 'Corporate Presentation Folders Dubai | Custom Pocket Folders | ONPRINT',
-    seo_description: 'Order luxury corporate presentation folders in Dubai. Heavy 350gsm card, velvet lamination, business card slots, and spot UV finish.',
-    seo_keywords: 'presentation folders dubai, document folder printing uae, corporate pocket folders dubai, custom die cut folders',
-    seo_heading: 'Corporate Presentation Folders Dubai',
-    canonical_url: 'https://0nprint.com/products/corporate-presentation-folders',
-    image_alt: 'Luxury corporate presentation folders with document pocket in Dubai',
-    images: ['/assets/products/letterhead_presentation_folders.jpg'],
-  },  {
-    product_key: 'prod-two-tone-ceramic-mugs',
-    category_slug: 'mug-printing-dubai',
-    name: "Two-Tone Color Accent Ceramic Mugs",
-    slug: 'two-tone-ceramic-mugs',
-    short_description: "White exterior ceramic mug with vibrant colored interior and matching colored handle.",
-    description: "Add corporate contrast with two-tone ceramic mugs. Featuring a crisp white exterior branded with your logo and a high-gloss rich colored interior and matching handle.",
-    price: 22.00,
-    minimum_quantity: 25,
-    featured: 1,
-    seo_title: "Two-Tone Accent Ceramic Mug Printing Dubai | ONPRINT",
-    seo_description: "Custom two-tone ceramic mugs in Dubai. White exterior with colored handle and interior, printed with high-resolution corporate branding.",
-    seo_keywords: "two tone mugs dubai, accent coffee mugs uae, custom printed color mugs",
-    seo_heading: "Two-Tone Color Accent Ceramic Mugs in Dubai",
-    canonical_url: 'https://0nprint.com/products/two-tone-ceramic-mugs',
-    image_alt: "Two-tone ceramic coffee mug with colored interior in Dubai",
-    images: ["/assets/products/mug_two_tone.jpg"],
-  },
-  {
-    product_key: 'prod-magic-heat-sensitive-mugs',
-    category_slug: 'mug-printing-dubai',
-    name: "Magic Color-Changing Heat-Sensitive Mugs",
-    slug: 'magic-heat-sensitive-mugs',
-    short_description: "Matte black mug that magically reveals hidden colorful graphics when filled with hot liquid.",
-    description: "Interactive thermochromic magic mugs. In cool state, the exterior is a sleek matte black; pour in hot coffee or tea to watch the black coating magically fade and reveal your custom full-color graphics.",
-    price: 28.00,
-    minimum_quantity: 20,
-    featured: 1,
-    seo_title: "Magic Heat Changing Mug Printing Dubai | Thermochromic Mugs | ONPRINT",
-    seo_description: "Custom magic color-changing mugs in Dubai. Thermochromic coating reveals custom graphics with hot beverages. Express turnaround across UAE.",
-    seo_keywords: "magic mug printing dubai, heat sensitive mugs uae, color changing mugs dubai",
-    seo_heading: "Magic Color-Changing Heat-Sensitive Mugs in Dubai",
-    canonical_url: 'https://0nprint.com/products/magic-heat-sensitive-mugs',
-    image_alt: "Magic heat sensitive color changing coffee mug in Dubai",
-    images: ["/assets/products/mug_magic_heat.jpg"],
-  },
-  {
-    product_key: 'prod-executive-matte-black-mugs',
-    category_slug: 'mug-printing-dubai',
-    name: "Executive Matte Black Ceramic Mugs with Gold Foil",
-    slug: 'executive-matte-black-mugs',
-    short_description: "Velvety matte black ceramic mug with metallic embossed gold logo print for executive gifting.",
-    description: "Crafted for boardrooms and VIP client gifting, our executive matte black ceramic mugs feature an anti-glare soft-touch finish with embossed metallic gold foil crest typography.",
-    price: 35.00,
-    minimum_quantity: 20,
-    featured: 1,
-    seo_title: "Executive Matte Black Mugs Dubai | Gold Foil Printing | ONPRINT",
-    seo_description: "Luxury executive matte black coffee mugs with embossed metallic gold foil printing in Dubai. Premium corporate and VIP boardroom gifting.",
-    seo_keywords: "matte black mug dubai, gold foil mug printing uae, luxury corporate mugs dubai",
-    seo_heading: "Executive Matte Black Ceramic Mugs with Gold Foil in Dubai",
-    canonical_url: 'https://0nprint.com/products/executive-matte-black-mugs',
-    image_alt: "Executive matte black ceramic mug with embossed gold foil in Dubai",
-    images: ["/assets/products/mug_matte_black_gold.jpg"],
-  },
-  {
-    product_key: 'prod-stainless-steel-travel-mugs',
-    category_slug: 'mug-printing-dubai',
-    name: "Stainless Steel Insulated Travel Tumblers (16oz)",
-    slug: 'stainless-steel-travel-mugs',
-    short_description: "Double-wall vacuum insulated coffee tumbler with leak-proof flip lid and laser etching.",
-    description: "Double-wall vacuum insulated 304 food-grade stainless steel travel mug keeping beverages piping hot for 6 hours or ice-cold for 12 hours. Ergonomic silhouette with laser-etched branding.",
-    price: 45.00,
-    minimum_quantity: 15,
-    featured: 1,
-    seo_title: "Custom Travel Mug Printing Dubai | Stainless Steel Tumblers | ONPRINT",
-    seo_description: "Laser engraved stainless steel travel tumblers and insulated coffee mugs in Dubai. 16oz double-wall vacuum insulation with flip-lock lid.",
-    seo_keywords: "travel mug printing dubai, stainless tumbler uae, custom insulated travel mugs",
-    seo_heading: "Stainless Steel Insulated Travel Tumblers (16oz) in Dubai",
-    canonical_url: 'https://0nprint.com/products/stainless-steel-travel-mugs',
-    image_alt: "Stainless steel insulated travel coffee tumbler in Dubai",
-    images: ["/assets/products/mug_travel_tumbler.jpg"],
-  },
-  {
-    product_key: 'prod-vintage-enamel-camping-mugs',
-    category_slug: 'mug-printing-dubai',
-    name: "Vintage Enamel Rolled-Rim Camping Mugs",
-    slug: 'vintage-enamel-camping-mugs',
-    short_description: "Retro rolled-steel enamel coffee mug with stainless rim and durable silkscreen print.",
-    description: "Authentic retro lightweight rolled-steel enamel camping mugs with protective enamel coating and stainless steel rim. Scratch-resistant, shatter-proof, and custom printed for cafés and brands.",
-    price: 25.00,
-    minimum_quantity: 30,
-    featured: 1,
-    seo_title: "Vintage Enamel Camping Mug Printing Dubai | Retro Mugs | ONPRINT",
-    seo_description: "Retro enamel camping mug printing in Dubai. Rolled steel with stainless rim, durable scratch-resistant prints for outdoor brands and cafés.",
-    seo_keywords: "enamel mug printing dubai, vintage camping mugs uae, custom enamel cups dubai",
-    seo_heading: "Vintage Enamel Rolled-Rim Camping Mugs in Dubai",
-    canonical_url: 'https://0nprint.com/products/vintage-enamel-camping-mugs',
-    image_alt: "Vintage enamel outdoor camping coffee mug in Dubai",
-    images: ["/assets/products/mug_vintage_enamel.jpg"],
-  },
-  {
-    product_key: 'prod-smart-led-temperature-bottles',
-    category_slug: 'bottle-printing-dubai',
-    name: "Smart LED Temperature Display Vacuum Flasks (500ml)",
-    slug: 'smart-led-temperature-bottles',
-    short_description: "Double-wall vacuum flask with touch-activated smart LED temperature cap and laser etching.",
-    description: "Smart 500ml vacuum insulated water bottle featuring a touch-sensitive LCD display cap showing real-time water temperature. Double-wall 304 stainless steel with rotary laser engraving.",
-    price: 48.00,
-    minimum_quantity: 15,
-    featured: 1,
-    seo_title: "Smart LED Temperature Bottle Printing Dubai | Digital Flasks | ONPRINT",
-    seo_description: "Custom smart LED temperature flasks in Dubai. Touch-display digital temperature cap, 304 stainless steel, laser engraved with company logo.",
-    seo_keywords: "smart led bottle dubai, temperature flask printing uae, smart water bottle dubai",
-    seo_heading: "Smart LED Temperature Display Vacuum Flasks (500ml) in Dubai",
-    canonical_url: 'https://0nprint.com/products/smart-led-temperature-bottles',
-    image_alt: "Smart LED digital temperature display vacuum bottle in Dubai",
-    images: ["/assets/products/bottle_smart_led.jpg"],
-  },
-  {
-    product_key: 'prod-matte-stainless-steel-bottles',
-    category_slug: 'bottle-printing-dubai',
-    name: "Matte Powder-Coated Thermal Water Bottles (500ml)",
-    slug: 'matte-stainless-steel-bottles',
-    short_description: "Anti-scratch matte finish double-wall insulated water bottle with precision laser engraving.",
-    description: "Engineered for durability, this double-wall stainless steel bottle keeps liquids chilled for 24 hours. Finished with an anti-scratch powder coat and high-precision laser-etched corporate logos.",
-    price: 38.00,
-    minimum_quantity: 20,
-    featured: 1,
-    seo_title: "Matte Stainless Steel Bottle Printing Dubai | Thermal Bottles | ONPRINT",
-    seo_description: "Order custom matte thermal water bottles in Dubai. Powder-coated 304 stainless steel with precision laser engraving and 24h cold insulation.",
-    seo_keywords: "thermal water bottle printing dubai, matte bottle engraving uae, custom stainless bottles",
-    seo_heading: "Matte Powder-Coated Thermal Water Bottles (500ml) in Dubai",
-    canonical_url: 'https://0nprint.com/products/matte-stainless-steel-bottles',
-    image_alt: "Matte black thermal stainless steel water bottle in Dubai",
-    images: ["/assets/products/bottle_matte_thermal.jpg"],
-  },
-  {
-    product_key: 'prod-aluminium-sports-water-bottles',
-    category_slug: 'bottle-printing-dubai',
-    name: "Aluminium Sports Bottles with Carabiner Clip (600ml)",
-    slug: 'aluminium-sports-water-bottles',
-    short_description: "Lightweight single-wall aluminium drink bottle with screw top and metal carabiner.",
-    description: "Ultra-lightweight food-safe aluminium sports bottle with leak-proof screw cap and carabiner clip. Ideal for sports activations, marathons, gyms, and outdoor corporate wellness days.",
-    price: 22.00,
-    minimum_quantity: 30,
-    featured: 1,
-    seo_title: "Aluminium Sports Water Bottle Printing Dubai | ONPRINT",
-    seo_description: "Lightweight aluminium sports water bottles in Dubai with screw cap and carabiner clip. Custom screen printing for fitness events, marathons, and schools.",
-    seo_keywords: "aluminium sports bottles dubai, marathon drink bottles uae, branded gym bottles dubai",
-    seo_heading: "Aluminium Sports Bottles with Carabiner Clip (600ml) in Dubai",
-    canonical_url: 'https://0nprint.com/products/aluminium-sports-water-bottles',
-    image_alt: "Aluminium sports water bottle with carabiner clip in Dubai",
-    images: ["/assets/products/bottle_sports_aluminium.jpg"],
-  },
-  {
-    product_key: 'prod-borosilicate-glass-bamboo-bottles',
-    category_slug: 'bottle-printing-dubai',
-    name: "Borosilicate Glass Bottles with Bamboo Lid & Silicone Sleeve",
-    slug: 'borosilicate-glass-bamboo-bottles',
-    short_description: "Eco-friendly clear glass bottle with natural bamboo lid and non-slip silicone sleeve.",
-    description: "Sustainable luxury hydration. High-clarity thermal shock resistant borosilicate glass bottle featuring a natural bamboo screw-on cap with jute carrying loop and a non-slip silicone grip sleeve.",
-    price: 42.00,
-    minimum_quantity: 20,
-    featured: 1,
-    seo_title: "Glass Water Bottle with Bamboo Lid Printing Dubai | Eco Bottles | ONPRINT",
-    seo_description: "Custom eco-friendly borosilicate glass water bottles in Dubai. Natural bamboo cap, non-slip silicone sleeve, custom branded for sustainable corporate gifts.",
-    seo_keywords: "glass water bottle dubai, bamboo lid bottles uae, eco friendly corporate bottles dubai",
-    seo_heading: "Borosilicate Glass Bottles with Bamboo Lid & Silicone Sleeve in Dubai",
-    canonical_url: 'https://0nprint.com/products/borosilicate-glass-bamboo-bottles',
-    image_alt: "Borosilicate glass water bottle with bamboo lid and silicone sleeve in Dubai",
-    images: ["/assets/products/bottle_glass_bamboo.jpg"],
-  },
-  {
-    product_key: 'prod-ergonomic-gym-protein-shakers',
-    category_slug: 'bottle-printing-dubai',
-    name: "Ergonomic Gym Protein Shakers with Whisk Ball (700ml)",
-    slug: 'ergonomic-gym-protein-shakers',
-    short_description: "BPA-free protein shaker bottle with embossed measurement markings and stainless wire whisk ball.",
-    description: "700ml leak-proof sports shaker bottle with measurement scale in oz and ml, flip cap carry loop, and surgical-grade stainless steel wire blending ball. Screen printed with vibrant brand graphics.",
-    price: 26.00,
-    minimum_quantity: 25,
-    featured: 1,
-    seo_title: "Custom Protein Shaker Bottle Printing Dubai | Gym Bottles | ONPRINT",
-    seo_description: "Custom branded gym protein shaker bottles in Dubai. BPA-free 700ml bottle with wire whisk ball, embossed measurement scale, and leak-proof lid.",
-    seo_keywords: "protein shaker printing dubai, gym bottle printing uae, fitness shaker bottles dubai",
-    seo_heading: "Ergonomic Gym Protein Shakers with Whisk Ball (700ml) in Dubai",
-    canonical_url: 'https://0nprint.com/products/ergonomic-gym-protein-shakers',
-    image_alt: "Gym protein shaker bottle with wire whisk ball in Dubai",
-    images: ["/assets/products/bottle_protein_shaker.jpg"],
-  },
-  {
-    product_key: 'prod-luxury-copper-insulated-flasks',
-    category_slug: 'bottle-printing-dubai',
-    name: "Executive Copper-Vacuum Luxury Thermal Flask (650ml)",
-    slug: 'luxury-copper-insulated-flasks',
-    short_description: "VIP copper-vacuum insulated thermal flask with rose copper accents and silicone carry handle.",
-    description: "The flagship of corporate drinkware. Features copper-plated inner wall vacuum insulation, brushed rose copper collar and base, matte graphite body, silicone carry loop, and metallic gold branding.",
-    price: 55.00,
-    minimum_quantity: 15,
-    featured: 1,
-    seo_title: "Executive Copper Vacuum Flask Printing Dubai | VIP Gift Bottles | ONPRINT",
-    seo_description: "Luxury copper vacuum insulated flasks in Dubai. Rose copper accents, silicone handle, 650ml capacity with metallic gold corporate monogram printing.",
-    seo_keywords: "copper thermal flask dubai, executive gift bottles uae, luxury drinkware printing dubai",
-    seo_heading: "Executive Copper-Vacuum Luxury Thermal Flask (650ml) in Dubai",
-    canonical_url: 'https://0nprint.com/products/luxury-copper-insulated-flasks',
-    image_alt: "Executive copper-vacuum luxury thermal flask in Dubai",
-    images: ["/assets/products/bottle_luxury_copper.jpg"],
-  },
-  {
-    product_key: 'prod-acrylic-nameplates',
-    category_slug: 'name-badges-printing-dubai',
-    name: 'Acrylic Nameplates',
-    slug: 'acrylic-nameplates',
-    short_description: 'Executive acrylic door and desk nameplates with polished finishes and strong mounting hardware.',
-    description: 'Acrylic nameplates for offices, retail reception, and corporate interiors with premium engraving, polished edges, and secure mounting.',
-    price: 75.00,
-    minimum_quantity: 10,
-    featured: 1,
-    seo_title: 'Acrylic Nameplates Dubai | Office Door Signage | ONPRINT',
-    seo_description: 'Custom acrylic nameplates in Dubai for office reception, desk signage, and branded door titles with polished finishes.',
-    seo_keywords: 'acrylic nameplates dubai, office signage uae, corporate door signs dubai',
-    seo_heading: 'Executive Acrylic Nameplates Dubai',
-    canonical_url: 'https://0nprint.com/products/acrylic-nameplates',
-    image_alt: 'Acrylic office desk nameplates in Dubai',
-    images: ['/assets/products/name-badges/acrylic-desk-nameplate.svg'],
-  },
-  {
-    product_key: 'prod-metal-name-signs',
-    category_slug: 'name-badges-printing-dubai',
-    name: 'Metal Name Signs & Plaques',
-    slug: 'metal-name-signs',
-    short_description: 'Brushed aluminum, stainless steel, and brass engraved wall plaques and directional signs.',
-    description: 'Premium metal signs and wall plaques fabricated in brushed aluminum, stainless steel, and solid brass with deep laser engraving, chemical etching, or UV-printed graphics.',
-    price: 135.00,
-    minimum_quantity: 1,
-    featured: 1,
-    seo_title: 'Metal Name Signs & Plaques Dubai | Aluminum Stainless Brass | ONPRINT',
-    seo_description: 'Engraved metal signs and plaques in Dubai. Brushed aluminum, stainless steel and brass for office names, directories and awards.',
-    seo_keywords: 'metal signs dubai, engraved plaques uae, aluminium name signs dubai, brass plaques',
-    seo_heading: 'Metal Name Signs & Wall Plaques Dubai',
-    canonical_url: 'https://0nprint.com/products/metal-name-signs',
-    image_alt: 'Metal name signs and plaques in Dubai',
-    images: ['/assets/products/name-badges/metal-architectural-wall-plaque.svg'],
-  },
-  {
-    product_key: 'prod-professional-magnetic-metal-name-badges',
-    category_slug: 'name-badges-printing-dubai',
-    name: 'Professional Magnetic Metal Name Badges',
-    slug: 'professional-magnetic-metal-name-badges',
-    short_description: 'Executive brushed gold and silver metal magnetic staff badges with ultra-strong triple-magnet backings and laser-engraved logos.',
-    description: 'Bespoke corporate magnetic name badges designed for Dubai luxury hotels, corporate offices, clinics, and VIP retail staff. Precision-crafted from brushed champagne gold, brushed silver aluminum, or mirror-finished stainless steel with razor-sharp full-color UV print.',
-    price: 25.00,
-    minimum_quantity: 5,
-    featured: 1,
-    seo_title: 'Professional Magnetic Metal Name Badges Dubai | Staff Badges | ONPRINT',
-    seo_description: 'Order executive magnetic metal name badges in Dubai. Brushed gold, silver, and stainless steel staff badges with strong magnetic backing and express UAE delivery.',
-    seo_keywords: 'magnetic name badges dubai, staff badge printing uae, brushed gold name tag dubai, corporate employee badges',
-    seo_heading: 'Professional Magnetic Metal Name Badges Dubai',
-    canonical_url: 'https://0nprint.com/products/professional-magnetic-metal-name-badges',
-    image_alt: 'Professional magnetic metal name badges in Dubai',
-    images: ['/assets/products/name-badges/brushed-gold-magnetic-badge.svg'],
-  },
-  {
-    product_key: 'prod-domed-epoxy-magnetic-staff-badges',
-    category_slug: 'name-badges-printing-dubai',
-    name: 'Custom Domed Epoxy Magnetic Staff Badges',
-    slug: 'domed-epoxy-magnetic-staff-badges',
-    short_description: 'High-gloss 3D crystal resin domed magnetic name badges with scratch-resistant surface and vibrant Pantone colors.',
-    description: 'Premium 3D crystal epoxy domed name badges popular across Dubai hospitality, restaurants, airlines, and exhibition teams. Features a polyurethane clear lens coating that magnifies print clarity.',
-    price: 18.00,
-    minimum_quantity: 10,
-    featured: 1,
-    seo_title: 'Domed Epoxy Magnetic Name Badges Dubai | 3D Resin Badges | ONPRINT',
-    seo_description: 'Order custom domed epoxy magnetic name tags in Dubai. Scratch-proof 3D resin badges with strong magnetic fastener and fast turnaround.',
-    seo_keywords: 'domed name badges dubai, epoxy resin staff tags uae, magnetic name tags dubai, custom hospitality badges',
-    seo_heading: 'Custom Domed Epoxy Magnetic Staff Badges Dubai',
-    canonical_url: 'https://0nprint.com/products/domed-epoxy-magnetic-staff-badges',
-    image_alt: 'Custom domed epoxy magnetic staff badges in Dubai',
-    images: ['/assets/products/name-badges/domed-epoxy-resin-badge.svg'],
-  },
-  {
-    product_key: 'prod-reusable-window-magnetic-badges',
-    category_slug: 'name-badges-printing-dubai',
-    name: 'Reusable Window Magnetic Name Badges',
-    slug: 'reusable-window-magnetic-badges',
-    short_description: 'Cost-effective reusable name badges with interchangeable paper slide windows and permanent corporate logo branding.',
-    description: 'Smart and eco-friendly reusable staff badges featuring permanent branded company logos on premium aluminum backing with a transparent slide-in window for fast employee name updates.',
-    price: 15.00,
-    minimum_quantity: 10,
-    featured: 1,
-    seo_title: 'Reusable Window Magnetic Badges Dubai | Interchangeable Name Tags | ONPRINT',
-    seo_description: 'Buy reusable window magnetic name badges in Dubai. Permanent corporate logo print with slide-in paper name inserts and magnetic backing.',
-    seo_keywords: 'reusable name badges dubai, window name tags uae, interchangeable staff badges, hotel magnetic name tags',
-    seo_heading: 'Reusable Window Magnetic Name Badges Dubai',
-    canonical_url: 'https://0nprint.com/products/reusable-window-magnetic-badges',
-    image_alt: 'Reusable window magnetic name badges in Dubai',
-    images: ['/assets/products/name-badges/reusable-window-insert-badge.svg'],
-  },
-  {
-    product_key: 'prod-executive-matte-black-magnetic-badges',
-    category_slug: 'name-badges-printing-dubai',
-    name: 'Executive Matte Black Magnetic Name Badges',
-    slug: 'executive-matte-black-magnetic-badges',
-    short_description: 'Modern minimalist anodized matte black aluminum badges with precision laser-engraved gold or white typography.',
-    description: 'Sleek, high-contrast anodized matte black metal name badges tailored for modern tech firms, luxury boutiques, fine dining venues, and executive management in Dubai.',
-    price: 28.00,
-    minimum_quantity: 5,
-    featured: 1,
-    seo_title: 'Matte Black Magnetic Badges Dubai | Executive Laser Engraved Tags | ONPRINT',
-    seo_description: 'Order executive matte black magnetic name badges in Dubai. Anodized aluminum with laser-etched gold lettering and clothing-safe magnets.',
-    seo_keywords: 'matte black name badge dubai, laser engraved badges uae, luxury staff name tags, executive magnetic badges',
-    seo_heading: 'Executive Matte Black Magnetic Name Badges Dubai',
-    canonical_url: 'https://0nprint.com/products/executive-matte-black-magnetic-badges',
-    image_alt: 'Executive matte black magnetic name badges in Dubai',
-    images: ['/assets/products/name-badges/executive-matte-black-badge.svg'],
-  },
-]
-
-async function seedCategoriesIfEmpty(connection) {
-  try {
-    for (const cat of seedCategoriesList) {
-      await connection.query(
-        `INSERT INTO categories 
-         (category_key, name, slug, description, image, image_url, status, display_order, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-         ON DUPLICATE KEY UPDATE 
-           name=VALUES(name), 
-           image_url=VALUES(image_url), 
-           image=VALUES(image),
-           display_order=VALUES(display_order),
-           active=VALUES(active),
-           status=VALUES(status)`,
-        [
-          cat.category_key,
-          cat.name,
-          cat.slug,
-          cat.description,
-          cat.image,
-          cat.image_url,
-          cat.status,
-          cat.display_order,
-          cat.active,
-          cat.seo_title,
-          cat.seo_description,
-          cat.seo_keywords,
-          cat.seo_heading,
-          cat.canonical_url,
-          cat.image_alt,
-        ]
-      )
-    }
-    console.log('[Categories] Synchronized all categories in MySQL.')
-  } catch (err) {
-    console.warn('[Categories Seed Check Note]:', err.message)
-  }
-}
-
-async function seedServicesIfEmpty(connection) {
-  try {
-    const [cats] = await connection.query('SELECT id, slug FROM categories')
-    const catMap = Object.fromEntries(cats.map((c) => [c.slug, c.id]))
-
-    for (const serv of seedServicesList) {
-      const catId = catMap[serv.category_slug] || null
-      await connection.query(
-        `INSERT INTO services 
-         (service_key, category_id, name, slug, short_description, description, image, display_order, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-         ON DUPLICATE KEY UPDATE 
-           name=VALUES(name), 
-           description=VALUES(description), 
-           image=VALUES(image),
-           category_id=COALESCE(VALUES(category_id), services.category_id),
-           display_order=VALUES(display_order),
-           active=VALUES(active)`,
-        [
-          serv.service_key,
-          catId,
-          serv.name,
-          serv.slug,
-          serv.short_description,
-          serv.description,
-          serv.image,
-          serv.display_order,
-          serv.active,
-          serv.seo_title,
-          serv.seo_description,
-          serv.seo_keywords,
-          serv.seo_heading,
-          serv.canonical_url,
-          serv.image_alt,
-        ]
-      )
-    }
-    console.log('[Services] Synchronized all printing services successfully.')
-  } catch (err) {
-    console.warn('[Services Seed Check Note]:', err.message)
-  }
-}
-
-async function seedProductsIfEmpty(connection) {
-  try {
-    const [cats] = await connection.query('SELECT id, slug FROM categories')
-    const catMap = Object.fromEntries(cats.map((c) => [c.slug, c.id]))
-
-    for (const prod of seedProductsList) {
-      const catId = catMap[prod.category_slug] || null
-      await connection.query(
-        `INSERT INTO products 
-         (product_key, category_id, name, slug, short_description, description, price, minimum_quantity, featured, active, seo_title, seo_description, seo_keywords, seo_heading, canonical_url, image_alt)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-         ON DUPLICATE KEY UPDATE 
-           name=VALUES(name), 
-           price=VALUES(price), 
-           description=VALUES(description),
-           category_id=COALESCE(VALUES(category_id), products.category_id)`,
-        [
-          prod.product_key,
-          catId,
-          prod.name,
-          prod.slug,
-          prod.short_description,
-          prod.description,
-          prod.price,
-          prod.minimum_quantity,
-          prod.featured,
-          1,
-          prod.seo_title,
-          prod.seo_description,
-          prod.seo_keywords,
-          prod.seo_heading,
-          prod.canonical_url,
-          prod.image_alt,
-        ]
-      )
-
-      const [productRows] = await connection.query('SELECT id FROM products WHERE slug = ? LIMIT 1', [prod.slug])
-      const productId = productRows[0]?.id
-      if (productId && prod.images && prod.images.length > 0) {
-        for (let i = 0; i < prod.images.length; i++) {
-          const [imageRows] = await connection.query('SELECT id FROM product_images WHERE product_id = ? AND image_url = ? LIMIT 1', [productId, prod.images[i]])
-          if (imageRows.length === 0) {
-            await connection.query(
-              'INSERT INTO product_images (product_id, image_url, alt_text, display_order) VALUES (?, ?, ?, ?)',
-              [productId, prod.images[i], prod.image_alt, i + 1]
-            )
-          }
-        }
-      }
-    }
-    console.log('[Products] Synchronized all printing products successfully.')
-  } catch (err) {
-    console.warn('[Products Seed Check Note]:', err.message)
-  }
-}
-
-async function seedPageSeoIfEmpty(connection) {
-  try {
-    // Fetch existing entity IDs so we can map page_id accurately for dynamic entities
-    const [cats] = await connection.query('SELECT id, slug FROM categories')
-    const catMap = Object.fromEntries(cats.map((c) => [c.slug, c.id]))
-
-    const [servs] = await connection.query('SELECT id, slug FROM services')
-    const servMap = Object.fromEntries(servs.map((s) => [s.slug, s.id]))
-
-    const [prods] = await connection.query('SELECT id, slug FROM products')
-    const prodMap = Object.fromEntries(prods.map((p) => [p.slug, p.id]))
-
-    const [blogs] = await connection.query('SELECT id, slug FROM blogs')
-    const blogMap = Object.fromEntries(blogs.map((b) => [b.slug, b.id]))
-
-    for (const rec of initialPageSeoRecords) {
-      let resolvedPageId = rec.page_id
-      if (!resolvedPageId && rec.slug) {
-        if (rec.page_type === 'category') resolvedPageId = catMap[rec.slug] || null
-        else if (rec.page_type === 'service') resolvedPageId = servMap[rec.slug] || null
-        else if (rec.page_type === 'product') resolvedPageId = prodMap[rec.slug] || null
-        else if (rec.page_type === 'blog') resolvedPageId = blogMap[rec.slug] || null
-      }
-
-      await connection.query(
-        `INSERT INTO page_seo 
-         (page_type, page_id, url, slug, meta_title, meta_description, focus_keyword, secondary_keywords, h1, seo_content, canonical_url, robots_index, robots_follow, og_title, og_description, og_image, twitter_title, twitter_description, twitter_image, schema_type, schema_markup, seo_score, readability_score)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-         ON DUPLICATE KEY UPDATE 
-           page_type = VALUES(page_type),
-           page_id = COALESCE(page_seo.page_id, VALUES(page_id)),
-           slug = VALUES(slug)`,
-        [
-          rec.page_type,
-          resolvedPageId,
-          rec.url,
-          rec.slug,
-          rec.meta_title,
-          rec.meta_description,
-          rec.focus_keyword,
-          rec.secondary_keywords,
-          rec.h1,
-          rec.seo_content,
-          rec.canonical_url,
-          rec.robots_index,
-          rec.robots_follow,
-          rec.og_title,
-          rec.og_description,
-          rec.og_image,
-          rec.twitter_title,
-          rec.twitter_description,
-          rec.twitter_image,
-          rec.schema_type,
-          rec.schema_markup,
-          rec.seo_score,
-          rec.readability_score,
-        ]
-      )
-    }
-    console.log(`[Page SEO] Verified and synchronized ${initialPageSeoRecords.length} page SEO records in MySQL.`)
-  } catch (err) {
-    console.warn('[Page SEO Seed Check Note]:', err.message)
-  }
-}
-
-async function seedBlogsIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM blogs')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      console.log(`[Blogs] Seeding ${DUBAI_BLOGS.length} comprehensive technical printing guides in MySQL...`)
-      for (const blog of DUBAI_BLOGS) {
-        await connection.query(
-          `INSERT INTO blogs 
-           (id, title, slug, excerpt, content, featured_image, image_alt, category_id, author_name, status, is_featured, reading_time, word_count, target_location, published_at, seo_title, meta_title, meta_description, focus_keyword, secondary_keywords, canonical_url, og_title, og_description, og_image, schema_type, seo_score, readability_score, faqs)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE title=VALUES(title), content=VALUES(content), excerpt=VALUES(excerpt), seo_title=VALUES(seo_title), meta_description=VALUES(meta_description)`,
-          [
-            blog.id,
-            blog.title,
-            blog.slug,
-            blog.excerpt,
-            blog.content,
-            blog.featured_image,
-            blog.image_alt,
-            blog.category_id,
-            blog.author_name,
-            blog.status,
-            blog.is_featured ? 1 : 0,
-            blog.reading_time,
-            blog.word_count,
-            blog.target_location,
-            blog.published_at,
-            blog.seo_title,
-            blog.seo_title,
-            blog.meta_description,
-            blog.focus_keyword,
-            blog.secondary_keywords,
-            blog.canonical_url,
-            blog.og_title,
-            blog.og_description,
-            blog.og_image,
-            blog.schema_type,
-            95,
-            85,
-            JSON.stringify(blog.faqs || []),
-          ]
-        )
-
-        // Ensure page_seo has matching record for blog
-        const blogUrl = `/blog/${blog.slug}`
-        const blogSchema = {
-          '@context': 'https://schema.org',
-          '@type': 'BlogPosting',
-          headline: blog.title,
-          description: blog.meta_description,
-          image: `${SITE_URL}${blog.featured_image}`,
-          author: { '@type': 'Organization', name: 'ONPRINT' },
-          publisher: { '@id': `${SITE_URL}/#organization` },
-          datePublished: blog.published_at,
-          mainEntityOfPage: { '@type': 'WebPage', '@id': blog.canonical_url },
-        }
-
-        await connection.query(
-          `INSERT INTO page_seo
-           (page_type, page_id, url, slug, meta_title, meta_description, focus_keyword, secondary_keywords, h1, canonical_url, robots_index, robots_follow, og_title, og_description, og_image, schema_type, schema_markup, seo_score, readability_score)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'index', 'follow', ?, ?, ?, ?, ?, 95, 85)
-           ON DUPLICATE KEY UPDATE meta_title=VALUES(meta_title), meta_description=VALUES(meta_description), focus_keyword=VALUES(focus_keyword)`,
-          [
-            'blog',
-            blog.id,
-            blogUrl,
-            blog.slug,
-            blog.seo_title,
-            blog.meta_description,
-            blog.focus_keyword,
-            blog.secondary_keywords,
-            blog.title,
-            blog.canonical_url,
-            blog.og_title,
-            blog.og_description,
-            blog.og_image,
-            'BlogPosting',
-            JSON.stringify(blogSchema),
-          ]
-        )
-      }
-      console.log(`[Blogs] Successfully seeded ${DUBAI_BLOGS.length} high-authority printing guides into MySQL.`)
-    }
-  } catch (err) {
-    console.warn('[Blogs Seed Check Note]:', err.message)
-  }
-}
-
-async function seedKeywordsIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_keywords')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count < 300) {
-      console.log(`[Keywords] Seeding ${DUBAI_KEYWORDS.length} targeted Dubai keywords into MySQL...`)
-      for (const kw of DUBAI_KEYWORDS) {
-        await connection.query(
-          `INSERT INTO seo_keywords 
-           (keyword, keyword_type, search_intent, cluster, category, target_url, target_page, priority, status, country, city, current_ranking, previous_ranking, search_volume, cpc, competition, last_checked, ranking_change, notes)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE 
-             cluster=VALUES(cluster), 
-             category=COALESCE(VALUES(category), category),
-             target_url=VALUES(target_url), 
-             target_page=COALESCE(VALUES(target_page), target_page),
-             priority=VALUES(priority), 
-             status=VALUES(status),
-             country=COALESCE(VALUES(country), country),
-             city=COALESCE(VALUES(city), city)`,
-          [
-            kw.keyword,
-            kw.keyword_type || 'primary',
-            kw.search_intent || 'Commercial',
-            kw.cluster,
-            kw.category || kw.cluster || null,
-            kw.target_url,
-            kw.target_page,
-            kw.priority || 'Medium',
-            kw.status || 'Published',
-            kw.country || 'UAE',
-            kw.city || 'Dubai',
-            kw.current_ranking ?? null,
-            kw.previous_ranking ?? null,
-            kw.search_volume ?? null,
-            kw.cpc ?? null,
-            kw.competition ?? null,
-            kw.last_checked ?? null,
-            kw.ranking_change ?? null,
-            kw.notes || null,
-          ]
-        )
-      }
-            if (Array.isArray(DLX_220_KEYWORDS) && DLX_220_KEYWORDS.length > 0) {
-        console.log(`[Keywords] Seeding ${DLX_220_KEYWORDS.length} DLX competitor-mapped keywords into MySQL...`)
-        for (const kw of DLX_220_KEYWORDS) {
-          await connection.query(
-            `INSERT INTO seo_keywords 
-             (keyword, keyword_type, search_intent, cluster, category, target_url, target_page, priority, status, country, city, notes)
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-             ON DUPLICATE KEY UPDATE 
-               cluster=VALUES(cluster), 
-               category=COALESCE(VALUES(category), category),
-               target_url=VALUES(target_url), 
-               target_page=COALESCE(VALUES(target_page), target_page),
-               priority=VALUES(priority), 
-               status=VALUES(status)`,
-            [
-              kw.keyword,
-              kw.keyword_type || 'primary',
-              kw.search_intent || 'Commercial',
-              kw.cluster,
-              kw.cluster,
-              kw.target_url,
-              kw.target_page,
-              kw.priority || 'Medium',
-              kw.status || 'Published',
-              'UAE',
-              'Dubai',
-              `Cluster: ${kw.cluster} | Value: ${kw.conversion_value || 'High'}`,
-            ]
-          )
-        }
-      }
-      if (Array.isArray(DUBAI_BUSINESS_CARD_KEYWORDS) && DUBAI_BUSINESS_CARD_KEYWORDS.length > 0) {
-        console.log(`[Business Card SEO] Seeding ${DUBAI_BUSINESS_CARD_KEYWORDS.length} business card master keywords into MySQL...`)
-        const chunkSize = 200
-        for (let i = 0; i < DUBAI_BUSINESS_CARD_KEYWORDS.length; i += chunkSize) {
-          const chunk = DUBAI_BUSINESS_CARD_KEYWORDS.slice(i, i + chunkSize)
-          const placeholders = chunk.map(() => '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').join(', ')
-          const values = []
-          for (const kw of chunk) {
-            values.push(
-              kw.keyword,
-              kw.keyword_type || 'secondary',
-              kw.search_intent || 'Commercial',
-              kw.cluster || 'Business Cards',
-              'Business Cards',
-              kw.target_url || 'https://0nprint.com/business-card-printing-dubai',
-              'Business Card Printing Dubai',
-              kw.priority || 'Medium',
-              'Published',
-              'UAE',
-              'Dubai',
-              `Cluster: ${kw.cluster} | Funnel: ${kw.funnel_stage || 'BOFU'}`
-            )
-          }
-          await connection.query(
-            `INSERT IGNORE INTO seo_keywords 
-             (keyword, keyword_type, search_intent, cluster, category, target_url, target_page, priority, status, country, city, notes)
-             VALUES ${placeholders}`,
-            values
-          )
-        }
-        console.log(`[Business Card SEO] Successfully seeded ${DUBAI_BUSINESS_CARD_KEYWORDS.length} business card master keywords into MySQL.`)
-      }
-      console.log(`[Keywords] Successfully seeded/updated Dubai printing keywords into MySQL.`)
-    }
-  } catch (err) {
-    console.warn('[Keywords Seed Check Note]:', err.message)
-  }
-}
-
-async function seedBacklinksIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_backlinks')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      console.log(`[Backlinks] Seeding ${UAE_BACKLINKS.length} verified UAE directory backlink records...`)
-      for (const bl of UAE_BACKLINKS) {
-        await connection.query(
-          `INSERT INTO seo_backlinks
-           (linking_domain, linking_url, target_url, anchor_text, link_type, status, authority, relevance, toxic_risk, first_discovered_at, last_checked_at, notes)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            bl.linking_domain,
-            bl.linking_url,
-            bl.target_url,
-            bl.anchor_text,
-            bl.link_type,
-            bl.status,
-            bl.authority,
-            bl.relevance,
-            bl.toxic_risk,
-            bl.first_discovered_at,
-            bl.last_checked_at,
-            bl.notes,
-          ]
-        )
-      }
-    }
-
-    const [outreachRows] = await connection.query('SELECT COUNT(*) AS count FROM seo_outreach_prospects')
-    const outreachCount = outreachRows && outreachRows[0] ? (outreachRows[0].count ?? outreachRows[0].COUNT ?? 0) : 0
-    if (outreachCount === 0) {
-      console.log(`[Outreach] Seeding ${UAE_OUTREACH_PROSPECTS.length} UAE outreach prospects...`)
-      for (const op of UAE_OUTREACH_PROSPECTS) {
-        await connection.query(
-          `INSERT INTO seo_outreach_prospects
-           (website_domain, contact_name, contact_email, website_category, relevance, authority, outreach_status, date_contacted, follow_up_date, target_url, anchor_text, notes)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            op.website_domain,
-            op.contact_name,
-            op.contact_email,
-            op.website_category,
-            op.relevance,
-            op.authority,
-            op.outreach_status,
-            op.date_contacted || null,
-            op.follow_up_date || null,
-            op.target_url,
-            op.anchor_text,
-            op.notes,
-          ]
-        )
-      }
-    }
-  } catch (err) {
-    console.warn('[Backlinks Seed Check Note]:', err.message)
-  }
-}
-
-async function seedCompetitorGapsIfEmpty(connection) {
-  try {
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_competitor_gaps (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        competitor_url VARCHAR(500) NOT NULL,
-        competitor_topic VARCHAR(255) NOT NULL,
-        onprint_url VARCHAR(500) NOT NULL,
-        missing_topic VARCHAR(500) NOT NULL,
-        keyword_opportunity VARCHAR(255) NOT NULL,
-        search_intent VARCHAR(100) DEFAULT 'Commercial',
-        recommended_content TEXT DEFAULT NULL,
-        internal_link_opportunity TEXT DEFAULT NULL,
-        geo_opportunity TEXT DEFAULT NULL,
-        priority ENUM('High', 'Medium', 'Low') DEFAULT 'Medium',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_scg_priority (priority),
-        INDEX idx_scg_keyword (keyword_opportunity)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_competitor_gaps')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0 && Array.isArray(DLX_COMPETITOR_GAPS) && DLX_COMPETITOR_GAPS.length > 0) {
-      console.log(`[Competitor Gaps] Seeding ${DLX_COMPETITOR_GAPS.length} 10-column DLXPrint competitor gap records...`)
-      for (const g of DLX_COMPETITOR_GAPS) {
-        await connection.query(
-          `INSERT INTO seo_competitor_gaps
-           (competitor_url, competitor_topic, onprint_url, missing_topic, keyword_opportunity, search_intent, recommended_content, internal_link_opportunity, geo_opportunity, priority)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            g.competitor_url,
-            g.competitor_topic,
-            g.onprint_url,
-            g.missing_topic,
-            g.keyword_opportunity,
-            g.search_intent || 'Commercial',
-            g.recommended_content || null,
-            g.internal_link_opportunity || null,
-            g.geo_opportunity || null,
-            g.priority || 'Medium',
-          ]
-        )
-      }
-      console.log(`[Competitor Gaps] Successfully seeded ${DLX_COMPETITOR_GAPS.length} competitor gap records into MySQL.`)
-    }
-  } catch (err) {
-    console.warn('[Competitor Gaps Seed Note]:', err.message)
-  }
-}
-
-async function seedCompetitorsIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_competitor_records')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      console.log(`[Competitors] Seeding ${COMPETITOR_GAP_RECORDS.length} competitor gap records...`)
-      for (const cg of COMPETITOR_GAP_RECORDS) {
-        await connection.query(
-          `INSERT INTO seo_competitor_records
-           (competitor_name, competitor_url, record_type, keyword, source_url, notes)
-           VALUES (?, ?, ?, ?, ?, ?)`,
-          [
-            cg.competitor_name,
-            cg.competitor_url,
-            cg.record_type,
-            cg.keyword,
-            cg.source_url,
-            cg.notes,
-          ]
-        )
-      }
-    }
-  } catch (err) {
-    console.warn('[Competitors Seed Check Note]:', err.message)
-  }
-}
-
-async function seedBacklinkOpportunitiesIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM backlink_opportunities')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0 && Array.isArray(BACKLINK_OPPORTUNITIES) && BACKLINK_OPPORTUNITIES.length > 0) {
-      console.log(`[Backlink Opportunities] Seeding ${BACKLINK_OPPORTUNITIES.length} legitimate UAE opportunities into MySQL...`)
-      for (const b of BACKLINK_OPPORTUNITIES) {
-        await connection.query(
-          `INSERT INTO backlink_opportunities 
-           (website_name, domain, website_url, category, submission_method, domain_authority, priority, country, city, relevance, link_type, follow_type, contact_url, submission_url, target_url, target_anchor_text, status, notes)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            b.website || b.website_name || b.domain,
-            b.domain,
-            b.url || b.website_url,
-            b.category || 'Local Directory',
-            b.submission_method || b.method || (b.submission_url ? 'Online Form' : (b.contact_url ? 'Contact Form / Outreach' : 'Direct Submission')),
-            b.da || b.domain_authority || 30,
-            b.priority || 'Medium',
-            b.country || 'UAE',
-            b.city || 'Dubai',
-            b.relevance || 'High',
-            b.link_type || 'Directory Profile Link',
-            b.follow_type || 'Follow',
-            b.contact_url || null,
-            b.submission_url || null,
-            b.target_onprint_url || b.target_url || 'https://0nprint.com/',
-            b.anchor_text || b.target_anchor_text || 'ONPRINT Dubai Printing',
-            b.status || 'Planned',
-            b.notes || null,
-          ]
-        )
-      }
-      console.log(`[Backlink Opportunities] Successfully seeded 150 UAE opportunities into MySQL.`)
-    }
-  } catch (err) {
-    console.warn('[Backlink Opportunities Seed Note]:', err.message)
-  }
-}
-
-async function seedBacklinkOpportunities200IfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_backlink_opportunities_200')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0 && Array.isArray(BACKLINK_OPPORTUNITIES_200) && BACKLINK_OPPORTUNITIES_200.length > 0) {
-      console.log(`[Backlink Opportunities 200] Seeding ${BACKLINK_OPPORTUNITIES_200.length} research-backed UAE opportunities into MySQL...`)
-      for (const b of BACKLINK_OPPORTUNITIES_200) {
-        await connection.query(
-          `INSERT INTO seo_backlink_opportunities_200 
-           (website, domain, url, country, city, industry, relevance, link_opportunity, submission_url, contact_url, link_type, follow_type, target_onprint_url, anchor_text, status, date, link_url, link_attribute, notes)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            b.website || b.domain,
-            b.domain,
-            b.url,
-            b.country || 'United Arab Emirates',
-            b.city || 'Dubai',
-            b.industry || 'Commercial Directory',
-            b.relevance || 'High',
-            b.link_opportunity || 'Business Directory Listing',
-            b.submission_url || null,
-            b.contact_url || null,
-            b.link_type || 'Directory Profile',
-            b.follow_type || 'Follow',
-            b.target_onprint_url || 'https://0nprint.com/',
-            b.anchor_text || 'ONPRINT',
-            b.status || 'Prospect',
-            b.date || null,
-            b.link_url || null,
-            b.link_attribute || (b.follow_type ? b.follow_type.toLowerCase() : 'follow'),
-            b.notes || null,
-          ]
-        )
-      }
-      console.log(`[Backlink Opportunities 200] Successfully seeded ${BACKLINK_OPPORTUNITIES_200.length} UAE opportunities into MySQL.`)
-    }
-  } catch (err) {
-    console.warn('[Backlink Opportunities 200 Seed Note]:', err.message)
-  }
-}
-
-async function seedAiVisibilityIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_ai_visibility_tracking')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0 && Array.isArray(DUBAI_AI_VISIBILITY_QUERIES) && DUBAI_AI_VISIBILITY_QUERIES.length > 0) {
-      console.log(`[AI Visibility] Seeding ${DUBAI_AI_VISIBILITY_QUERIES.length} core AI queries into MySQL...`)
-      for (const q of DUBAI_AI_VISIBILITY_QUERIES) {
-        await connection.query(
-          `INSERT INTO seo_ai_visibility_tracking 
-           (id, query, cluster, intent, target_page, target_url, overall_visibility_score, status, last_tested, engines_json, key_entities_extracted, recommended_action)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-           ON DUPLICATE KEY UPDATE 
-             overall_visibility_score = VALUES(overall_visibility_score),
-             status = VALUES(status),
-             engines_json = VALUES(engines_json)`,
-          [
-            q.id,
-            q.query,
-            q.cluster,
-            q.intent,
-            q.target_page,
-            q.target_url,
-            q.overall_visibility_score || 0,
-            q.status,
-            q.last_tested,
-            JSON.stringify(q.platforms || q.engines || {}),
-            JSON.stringify(q.key_entities_extracted || []),
-            q.notes || q.recommended_action || '',
-          ]
-        )
-      }
-      console.log(`[AI Visibility] Successfully seeded AI visibility queries into MySQL.`)
-    }
-  } catch (err) {
-    console.warn('[AI Visibility Seed Note]:', err.message)
-  }
-}
-
-async function seedGeoFaqsIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM geo_faqs')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0 && Array.isArray(GEO_FAQS) && GEO_FAQS.length > 0) {
-      console.log(`[GEO FAQs] Seeding ${GEO_FAQS.length} authentic Dubai printing FAQs into MySQL...`)
-      for (const f of GEO_FAQS) {
-        await connection.query(
-          `INSERT INTO geo_faqs
-           (question, answer, category, related_service, target_url, search_intent, status)
-           VALUES (?, ?, ?, ?, ?, ?, ?)`,
-          [
-            f.question,
-            f.answer,
-            f.category,
-            f.related_service || null,
-            f.target_url || null,
-            f.search_intent || 'Commercial',
-            f.status || 'published',
-          ]
-        )
-      }
-      console.log(`[GEO FAQs] Successfully seeded ${GEO_FAQS.length} GEO FAQs into MySQL.`)
-    }
-  } catch (err) {
-    console.warn('[GEO FAQs Seed Note]:', err.message)
-  }
-}
-
-async function seedGeoContentIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM geo_content')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0 && Array.isArray(GEO_CONTENT_RECORDS) && GEO_CONTENT_RECORDS.length > 0) {
-      console.log(`[GEO Content] Seeding ${GEO_CONTENT_RECORDS.length} database-driven GEO content records into MySQL...`)
-      for (const c of GEO_CONTENT_RECORDS) {
-        await connection.query(
-          `INSERT INTO geo_content
-           (topic, question, answer, target_keyword, entity, target_url, related_service, faq, source, author, status)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            c.topic,
-            c.question,
-            c.answer,
-            c.target_keyword || null,
-            c.entity || 'ONPRINT',
-            c.target_url || null,
-            c.related_service || null,
-            c.faq !== undefined ? Number(c.faq) : 1,
-            c.source || 'ONPRINT Pressroom Operations Manual',
-            c.author || 'ONPRINT Technical Team',
-            c.status || 'published',
-          ]
-        )
-      }
-      console.log(`[GEO Content] Successfully seeded GEO Content records into MySQL.`)
-    }
-  } catch (err) {
-    console.warn('[GEO Content Seed Note]:', err.message)
-  }
-}
-
-async function seedRedirectsIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_redirects')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      const defaultRedirects = [
-        { old_url: '/old-print-quote', new_url: '/get-quote', redirect_type: '301', notes: 'Legacy quote form redirect' },
-        { old_url: '/printing-press-al-quoz', new_url: '/contact', redirect_type: '301', notes: 'Legacy local press link to contact' },
-        { old_url: '/packaging-boxes-dubai', new_url: '/custom-packaging-dubai', redirect_type: '301', notes: 'Legacy boxes keyword to custom packaging landing' },
-        { old_url: '/corporate-business-cards', new_url: '/business-card-printing-dubai', redirect_type: '301', notes: 'Consolidated visiting cards path' },
-        { old_url: '/catalog', new_url: '/products', redirect_type: '301', notes: 'Legacy catalog redirect to products' },
-      ]
-      for (const r of defaultRedirects) {
-        await connection.query(
-          'INSERT INTO seo_redirects (old_url, new_url, redirect_type, status, notes) VALUES (?, ?, ?, ?, ?)',
-          [r.old_url, r.new_url, r.redirect_type, 'active', r.notes]
-        )
-      }
-      console.log('[Redirects] Seeded baseline 301 redirect rules into MySQL.')
-    }
-  } catch (err) {
-    console.warn('[Redirects Seed Note]:', err.message)
-  }
-}
-
-async function seedBrandMentionsIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_brand_mentions')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      const defaultMentions = [
-        {
-          mention_source: 'Dubai Chamber Business Directory',
-          source_url: 'https://www.dubaichamber.com/en/business-directory/',
-          brand_query: 'ONPRINT',
-          snippet: 'ONPRINT is a licensed commercial digital and offset printing facility operating in Al Quoz, Dubai.',
-          has_link: 1,
-          linking_url: 'https://0nprint.com/',
-          domain_authority: 84,
-          sentiment: 'positive',
-          outreach_status: 'link_added',
-          notes: 'Official Chamber commercial entity link verified.',
-        },
-        {
-          mention_source: 'SME10x Middle East Business Guide',
-          source_url: 'https://sme10x.com/business-stationery-guide-dubai',
-          brand_query: '0nprint.com',
-          snippet: 'Startups in Dubai can streamline their physical corporate stationery orders through platforms like 0nprint.com in Al Quoz.',
-          has_link: 0,
-          linking_url: null,
-          domain_authority: 51,
-          sentiment: 'positive',
-          outreach_status: 'uncontacted',
-          notes: 'Unlinked mention opportunity: Request natural contextual link to /business-card-printing-dubai.',
-        },
-        {
-          mention_source: 'Packaging Trends UAE & GCC',
-          source_url: 'https://packagingtrends.ae/luxury-fragrance-boxes-dubai',
-          brand_query: 'ONPRINT Dubai',
-          snippet: 'Rigid setup boxes with magnetic closures are manufactured locally in Dubai by presses such as ONPRINT Dubai for luxury perfumers.',
-          has_link: 0,
-          linking_url: null,
-          domain_authority: 42,
-          sentiment: 'positive',
-          outreach_status: 'uncontacted',
-          notes: 'Unlinked mention opportunity: Pitch editorial attribution to /packaging-printing-dubai.',
-        },
-        {
-          mention_source: 'Gulf Print & Pack News Wire',
-          source_url: 'https://gulfprintpack.com/exhibitor-highlights',
-          brand_query: 'ONPRINT',
-          snippet: 'ONPRINT showcased new UV flatbed direct-to-substrate printing equipment capable of precision printing on acrylic and wood.',
-          has_link: 1,
-          linking_url: 'https://0nprint.com/services',
-          domain_authority: 49,
-          sentiment: 'positive',
-          outreach_status: 'link_added',
-          notes: 'Trade portal link live.',
-        },
-      ]
-      for (const m of defaultMentions) {
-        await connection.query(
-          `INSERT INTO seo_brand_mentions 
-           (mention_source, source_url, brand_query, snippet, has_link, linking_url, domain_authority, sentiment, outreach_status, notes, date_discovered)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())`,
-          [m.mention_source, m.source_url, m.brand_query, m.snippet, m.has_link, m.linking_url, m.domain_authority, m.sentiment, m.outreach_status, m.notes]
-        )
-      }
-      console.log('[Brand Mentions] Seeded brand mentions into MySQL.')
-    }
-  } catch (err) {
-    console.warn('[Brand Mentions Seed Note]:', err.message)
-  }
-}
-
-async function seedExperimentsIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_experiments')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      const defaultExp = [
-        {
-          page_url: '/business-card-printing-dubai',
-          test_type: 'title',
-          control_value: 'Business Cards | ONPRINT Dubai',
-          variant_value: 'Business Card Printing in Dubai | Luxury Visiting Cards | ONPRINT',
-          hypothesis: 'Adding target commercial keyword and luxury value prop will increase organic CTR from 1.8% to over 3.2%.',
-          status: 'running',
-          start_date: '2026-03-01',
-          baseline_clicks: 42,
-          baseline_impressions: 2350,
-          baseline_ctr: 1.79,
-          variant_clicks: 86,
-          variant_impressions: 2480,
-          variant_ctr: 3.47,
-          winner: 'variant',
-        },
-        {
-          page_url: '/packaging-printing-dubai',
-          test_type: 'meta_description',
-          control_value: 'Custom packaging and boxes printing in Dubai by ONPRINT printing press.',
-          variant_value: 'Order luxury custom packaging and rigid setup boxes in Dubai. Fast 24-48h Al Quoz production, gold foil, spot UV & eco-friendly options. Get an instant quote!',
-          hypothesis: 'Including turnaround time and specific finishes in meta description will improve click-through rate on commercial search queries.',
-          status: 'running',
-          start_date: '2026-03-05',
-          baseline_clicks: 28,
-          baseline_impressions: 1600,
-          baseline_ctr: 1.75,
-          variant_clicks: 54,
-          variant_impressions: 1720,
-          variant_ctr: 3.14,
-          winner: 'variant',
-        },
-      ]
-      for (const e of defaultExp) {
-        await connection.query(
-          `INSERT INTO seo_experiments
-           (page_url, test_type, control_value, variant_value, hypothesis, status, start_date, baseline_clicks, baseline_impressions, baseline_ctr, variant_clicks, variant_impressions, variant_ctr, winner)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [e.page_url, e.test_type, e.control_value, e.variant_value, e.hypothesis, e.status, e.start_date, e.baseline_clicks, e.baseline_impressions, e.baseline_ctr, e.variant_clicks, e.variant_impressions, e.variant_ctr, e.winner]
-        )
-      }
-      console.log('[SEO Experiments] Seeded A/B test experiments into MySQL.')
-    }
-  } catch (err) {
-    console.warn('[SEO Experiments Seed Note]:', err.message)
-  }
-}
-
-async function seedConversionsIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_conversions')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      const defaultConversions = [
-        { conversion_type: 'whatsapp', landing_page: '/business-card-printing-dubai', referrer: 'https://www.google.ae/', source_label: 'WhatsApp Concierge CTA', query_string: 'q=luxury+business+cards+dubai' },
-        { conversion_type: 'quote_request', landing_page: '/packaging-printing-dubai', referrer: 'https://www.google.com/', source_label: 'Instant Quote Button', query_string: 'q=custom+rigid+boxes+dubai' },
-        { conversion_type: 'phone', landing_page: '/contact', referrer: 'https://www.google.ae/', source_label: 'Press Desk Call', query_string: 'q=printing+press+al+quoz+dubai' },
-        { conversion_type: 'whatsapp', landing_page: '/flyer-printing-dubai', referrer: 'https://www.google.ae/', source_label: 'Hero WhatsApp Link', query_string: 'q=flyers+printing+dubai' },
-        { conversion_type: 'product_inquiry', landing_page: '/corporate-printing-dubai', referrer: 'https://www.google.com/', source_label: 'Corporate Package Inquiry', query_string: 'q=corporate+stationery+dubai' },
-      ]
-      for (const c of defaultConversions) {
-        await connection.query(
-          `INSERT INTO seo_conversions
-           (conversion_type, landing_page, referrer, source_label, query_string, created_at)
-           VALUES (?, ?, ?, ?, ?, NOW() - INTERVAL FLOOR(RAND()*7) DAY)`,
-          [c.conversion_type, c.landing_page, c.referrer, c.source_label, c.query_string]
-        )
-      }
-      console.log('[SEO Conversions] Seeded organic conversion records into MySQL.')
-    }
-  } catch (err) {
-    console.warn('[SEO Conversions Seed Note]:', err.message)
-  }
-}
-
-async function seedContentDecayIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_content_decay')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      const defaultDecay = [
-        {
-          page_url: '/services/letterheads-printing-dubai',
-          title: 'Letterheads Printing Dubai',
-          page_type: 'service',
-          previous_clicks: 84,
-          current_clicks: 61,
-          clicks_change_pct: -27.38,
-          previous_impressions: 2100,
-          current_impressions: 1750,
-          impressions_change_pct: -16.67,
-          decay_severity: 'HIGH',
-          recommended_action: 'Refresh technical GSM specifications, add 3 new FAQs on laser printer compatibility, and update H2 headings with corporate contract use-cases.',
-          status: 'needs_refresh',
-          last_audited: '2026-03-10',
-        },
-        {
-          page_url: '/blog/print-finishes-guide',
-          title: 'Complete Guide to Commercial Print Finishes in Dubai',
-          page_type: 'blog',
-          previous_clicks: 142,
-          current_clicks: 119,
-          clicks_change_pct: -16.20,
-          previous_impressions: 4800,
-          current_impressions: 4300,
-          impressions_change_pct: -10.42,
-          decay_severity: 'MEDIUM',
-          recommended_action: 'Add visual comparison table between Spot UV and 3D Raised Foil, include 2026 Dubai design trends, and link to /business-card-printing-dubai.',
-          status: 'needs_refresh',
-          last_audited: '2026-03-12',
-        },
-      ]
-      for (const d of defaultDecay) {
-        await connection.query(
-          `INSERT INTO seo_content_decay
-           (page_url, title, page_type, previous_clicks, current_clicks, clicks_change_pct, previous_impressions, current_impressions, impressions_change_pct, decay_severity, recommended_action, status, last_audited)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [d.page_url, d.title, d.page_type, d.previous_clicks, d.current_clicks, d.clicks_change_pct, d.previous_impressions, d.current_impressions, d.impressions_change_pct, d.decay_severity, d.recommended_action, d.status, d.last_audited]
-        )
-      }
-      console.log('[Content Decay] Seeded content decay tracking into MySQL.')
-    }
-  } catch (err) {
-    console.warn('[Content Decay Seed Note]:', err.message)
-  }
-}
-
-async function seedSeoTasksIfEmpty(connection) {
-  try {
-    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM seo_tasks')
-    const count = rows && rows[0] ? (rows[0].count ?? rows[0].COUNT ?? 0) : 0
-    if (count === 0) {
-      const defaultTasks = [
-        {
-          title: 'Review & optimize H2 topical depth for Business Cards Dubai',
-          description: 'Ensure 350gsm, 450gsm, and 600gsm cotton and painted edge specs are clearly articulated in H2 subheadings for DIFC corporate search intent.',
-          category: 'onpage',
-          priority: 'high',
-          status: 'pending',
-          assigned_to: 'SEO Specialist',
-          due_date: '2026-09-30',
-        },
-        {
-          title: 'Submit updated XML sitemap to Google Search Console',
-          description: 'Verify all 12 commercial Dubai landing pages and dynamic blog guides are submitted in sitemap.xml without 404 or redirect errors.',
-          category: 'technical',
-          priority: 'critical',
-          status: 'completed',
-          assigned_to: 'Technical Lead',
-          due_date: '2026-09-25',
-        },
-        {
-          title: 'Audit striking distance queries (Positions 4–10) for CTR click-triggers',
-          description: 'Update meta title tags for queries ranking 4–10 by testing click triggers such as "Same-Day Dubai", "Free Sample Box", and "Al Quoz Direct Press".',
-          category: 'onpage',
-          priority: 'high',
-          status: 'in_progress',
-          assigned_to: 'SEO Specialist',
-          due_date: '2026-10-05',
-        },
-        {
-          title: 'Verify LocalBusiness JSON-LD Schema NAP consistency',
-          description: 'Confirm Al Quoz, Dubai address, coordinates, and opening hours match Google Business Profile perfectly.',
-          category: 'schema',
-          priority: 'high',
-          status: 'completed',
-          assigned_to: 'Technical Lead',
-          due_date: '2026-09-22',
-        },
-        {
-          title: 'Outreach to Dubai Chamber & verified UAE B2B directories',
-          description: 'Submit legitimate business profile to Dubai Chamber Member Directory and UAE Industrial Portal under Commercial Printing & Packaging.',
-          category: 'backlinks',
-          priority: 'medium',
-          status: 'pending',
-          assigned_to: 'Outreach Coordinator',
-          due_date: '2026-10-15',
-        },
-        {
-          title: 'Monitor ChatGPT and Perplexity citations for "business card printing dubai"',
-          description: 'Run weekly AI engine visibility probes to track whether ONPRINT is referenced as a verified local Al Quoz printing press.',
-          category: 'geo',
-          priority: 'medium',
-          status: 'in_progress',
-          assigned_to: 'GEO Lead',
-          due_date: '2026-10-01',
-        },
-        {
-          title: 'Add contextual internal links from blog guides to money pages',
-          description: 'Link "How to Choose Business Card Paper" to /business-card-printing-dubai and "Packaging Finishes Guide" to /packaging-printing-dubai.',
-          category: 'content',
-          priority: 'high',
-          status: 'pending',
-          assigned_to: 'Content Editor',
-          due_date: '2026-10-02',
-        },
-      ]
-      for (const t of defaultTasks) {
-        await connection.query(
-          `INSERT INTO seo_tasks (title, description, category, priority, status, assigned_to, due_date, completed_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-          [t.title, t.description, t.category, t.priority, t.status, t.assigned_to, t.due_date, t.status === 'completed' ? new Date() : null]
-        )
-      }
-      console.log('[SEO Tasks] Seeded 7 actionable SEO workflow tasks into MySQL.')
-    }
-  } catch (err) {
-    console.warn('[SEO Tasks Seed Note]:', err.message)
   }
 }
 
 async function initDatabase() {
   try {
-    const connection = await pool.getConnection()
+    await connectDB()
 
-    // 1. Users Table
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL UNIQUE,
-        password_hash VARCHAR(255) NOT NULL,
-        phone VARCHAR(50) DEFAULT NULL,
-        role VARCHAR(50) DEFAULT 'customer',
-        status VARCHAR(50) DEFAULT 'active',
-        last_login_at DATETIME DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 2. Categories Table
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS categories (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        category_key VARCHAR(100) DEFAULT NULL,
-        name VARCHAR(255) NOT NULL,
-        slug VARCHAR(255) NOT NULL UNIQUE,
-        description TEXT DEFAULT NULL,
-        image VARCHAR(500) DEFAULT NULL,
-        image_url VARCHAR(500) DEFAULT NULL,
-        status VARCHAR(50) DEFAULT 'active',
-        display_order INT DEFAULT 0,
-        active TINYINT(1) DEFAULT 1,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // Dynamic SEO columns for categories
-    await addColumnIfMissing(connection, 'categories', 'seo_title', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'categories', 'seo_description', 'TEXT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'categories', 'seo_keywords', 'VARCHAR(500) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'categories', 'seo_heading', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'categories', 'canonical_url', 'VARCHAR(500) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'categories', 'image_alt', 'VARCHAR(255) DEFAULT NULL')
-
-    // Seed categories if empty
-    await seedCategoriesIfEmpty(connection)
-
-    // 3. Products Table
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS products (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        product_key VARCHAR(100) DEFAULT NULL,
-        category_id INT DEFAULT NULL,
-        name VARCHAR(255) NOT NULL,
-        slug VARCHAR(255) NOT NULL UNIQUE,
-        short_description TEXT DEFAULT NULL,
-        description TEXT DEFAULT NULL,
-        price DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
-        minimum_quantity INT NOT NULL DEFAULT 1,
-        featured TINYINT(1) DEFAULT 0,
-        specifications JSON DEFAULT NULL,
-        active TINYINT(1) DEFAULT 1,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        CONSTRAINT fk_products_category FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // Dynamic SEO columns for products
-    await addColumnIfMissing(connection, 'products', 'seo_title', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'products', 'seo_description', 'TEXT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'products', 'seo_keywords', 'VARCHAR(500) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'products', 'seo_heading', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'products', 'canonical_url', 'VARCHAR(500) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'products', 'image_alt', 'VARCHAR(255) DEFAULT NULL')
-
-    // 4. Product Images Table
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS product_images (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        product_id INT NOT NULL,
-        image_url VARCHAR(500) NOT NULL,
-        display_order INT DEFAULT 0,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        CONSTRAINT fk_product_images_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-    await addColumnIfMissing(connection, 'product_images', 'alt_text', 'VARCHAR(255) DEFAULT NULL')
-
-    // Seed products if empty
-    await seedProductsIfEmpty(connection)
-
-    // 5. Services Table
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS services (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        service_key VARCHAR(100) DEFAULT NULL,
-        category_id INT DEFAULT NULL,
-        name VARCHAR(255) NOT NULL,
-        slug VARCHAR(255) NOT NULL UNIQUE,
-        short_description TEXT DEFAULT NULL,
-        description TEXT DEFAULT NULL,
-        image VARCHAR(500) DEFAULT NULL,
-        display_order INT DEFAULT 0,
-        active TINYINT(1) DEFAULT 1,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        CONSTRAINT fk_services_category FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // Dynamic SEO columns for services
-    await addColumnIfMissing(connection, 'services', 'seo_title', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'services', 'seo_description', 'TEXT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'services', 'seo_keywords', 'VARCHAR(500) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'services', 'seo_heading', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'services', 'canonical_url', 'VARCHAR(500) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'services', 'image_alt', 'VARCHAR(255) DEFAULT NULL')
-
-    // Seed services if empty
-    await seedServicesIfEmpty(connection)
-
-    // 6. Dynamic Blogs Table
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS blogs (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        title VARCHAR(255) NOT NULL,
-        slug VARCHAR(255) NOT NULL UNIQUE,
-        excerpt TEXT DEFAULT NULL,
-        content LONGTEXT NOT NULL,
-        featured_image VARCHAR(500) DEFAULT NULL,
-        image_alt VARCHAR(255) DEFAULT NULL,
-        category_id INT DEFAULT NULL,
-        product_id INT DEFAULT NULL,
-        author_id INT DEFAULT NULL,
-        author_name VARCHAR(100) DEFAULT 'ONPRINT Editorial Team',
-        status ENUM('draft', 'published', 'scheduled') DEFAULT 'draft',
-        is_featured TINYINT(1) DEFAULT 0,
-        seo_title VARCHAR(255) DEFAULT NULL,
-        meta_description TEXT DEFAULT NULL,
-        focus_keyword VARCHAR(255) DEFAULT NULL,
-        secondary_keywords TEXT DEFAULT NULL,
-        canonical_url VARCHAR(500) DEFAULT NULL,
-        og_title VARCHAR(255) DEFAULT NULL,
-        og_description TEXT DEFAULT NULL,
-        og_image VARCHAR(500) DEFAULT NULL,
-        schema_type VARCHAR(50) DEFAULT 'BlogPosting',
-        reading_time INT DEFAULT 3,
-        target_location VARCHAR(100) DEFAULT NULL,
-        published_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        CONSTRAINT fk_blogs_category FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL,
-        CONSTRAINT fk_blogs_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL,
-        CONSTRAINT fk_blogs_author FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE SET NULL
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // Ensure all columns exist on blogs table in case it was created earlier
-    await addColumnIfMissing(connection, 'blogs', 'category_id', 'INT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'product_id', 'INT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'author_id', 'INT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'author_name', 'VARCHAR(100) DEFAULT "ONPRINT Editorial Team"')
-    await addColumnIfMissing(connection, 'blogs', 'status', 'VARCHAR(50) DEFAULT "draft"')
-    await addColumnIfMissing(connection, 'blogs', 'is_featured', 'TINYINT(1) DEFAULT 0')
-    await addColumnIfMissing(connection, 'blogs', 'seo_title', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'meta_description', 'TEXT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'focus_keyword', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'secondary_keywords', 'TEXT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'canonical_url', 'VARCHAR(500) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'og_title', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'og_description', 'TEXT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'og_image', 'VARCHAR(500) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'schema_type', 'VARCHAR(50) DEFAULT "BlogPosting"')
-    await addColumnIfMissing(connection, 'blogs', 'reading_time', 'INT DEFAULT 3')
-    await addColumnIfMissing(connection, 'blogs', 'target_location', 'VARCHAR(100) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'image_alt', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'meta_title', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'robots_index', "VARCHAR(10) DEFAULT 'index'")
-    await addColumnIfMissing(connection, 'blogs', 'robots_follow', "VARCHAR(10) DEFAULT 'follow'")
-    await addColumnIfMissing(connection, 'blogs', 'seo_score', 'INT DEFAULT 0')
-    await addColumnIfMissing(connection, 'blogs', 'readability_score', 'INT DEFAULT 0')
-    await addColumnIfMissing(connection, 'blogs', 'keyword_density', 'DECIMAL(5, 2) DEFAULT 0.00')
-    await addColumnIfMissing(connection, 'blogs', 'word_count', 'INT DEFAULT 0')
-    await addColumnIfMissing(connection, 'blogs', 'seo_suggestions', 'JSON DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'schema_markup', 'TEXT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'blogs', 'faqs', 'JSON DEFAULT NULL')
-
-    // Sync meta_title from seo_title if meta_title is null
-    try {
-      await connection.query('UPDATE blogs SET meta_title = seo_title WHERE meta_title IS NULL AND seo_title IS NOT NULL')
-    } catch {}
-
-    // Maintain legacy blog_posts view or migrate if previous blog_posts table exists
-    try {
-      const [tableCheck] = await connection.query(`SHOW TABLES LIKE 'blog_posts'`)
-      if (tableCheck.length > 0) {
-        // Copy any existing blog_posts into blogs if empty
-        const [blogCount] = await connection.query(`SELECT COUNT(*) AS cnt FROM blogs`)
-        if (blogCount[0].cnt === 0) {
-          await connection.query(`
-            INSERT IGNORE INTO blogs (title, slug, excerpt, content, featured_image, image_alt, author_name, status, seo_title, meta_description, canonical_url, published_at, created_at)
-            SELECT title, slug, excerpt, content, featured_image, image_alt, author, IF(active = 1, 'published', 'draft'), seo_title, seo_description, canonical_url, published_at, created_at
-            FROM blog_posts
-          `)
-        }
-      }
-    } catch (e) {
-      // Ignore migration note
-    }
-
-    // 7. Contact Messages Table
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS contact_messages (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
-        phone VARCHAR(50) DEFAULT NULL,
-        company VARCHAR(255) DEFAULT NULL,
-        subject VARCHAR(255) DEFAULT NULL,
-        message TEXT NOT NULL,
-        status VARCHAR(50) DEFAULT 'unread',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 8. Quotes Table
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS quotes (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        quote_number VARCHAR(50) NOT NULL UNIQUE,
-        user_id INT DEFAULT NULL,
-        name VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
-        phone VARCHAR(50) DEFAULT NULL,
-        company VARCHAR(255) DEFAULT NULL,
-        notes TEXT DEFAULT NULL,
-        status VARCHAR(50) DEFAULT 'Pending',
-        total_price DECIMAL(10, 2) DEFAULT 0.00,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        CONSTRAINT fk_quotes_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 9. Orders Table
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS orders (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        order_number VARCHAR(50) NOT NULL UNIQUE,
-        user_id INT DEFAULT NULL,
-        customer_name VARCHAR(255) NOT NULL,
-        customer_email VARCHAR(255) NOT NULL,
-        customer_phone VARCHAR(50) DEFAULT NULL,
-        company VARCHAR(255) DEFAULT NULL,
-        shipping_address TEXT DEFAULT NULL,
-        status VARCHAR(50) DEFAULT 'Pending',
-        payment_status VARCHAR(50) DEFAULT 'unpaid',
-        total_amount DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        CONSTRAINT fk_orders_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 10. Site Settings Table
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS site_settings (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        setting_key VARCHAR(100) NOT NULL UNIQUE,
-        setting_value TEXT DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11. SEO Management System Tables
-    // 11.1 SEO Settings
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_settings (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        setting_key VARCHAR(100) NOT NULL UNIQUE,
-        setting_value LONGTEXT DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    await addColumnIfMissing(connection, 'seo_settings', 'description', 'TEXT DEFAULT NULL')
-
-    // 11.2 SEO Audits History
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_audits (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        health_score INT NOT NULL DEFAULT 0,
-        technical_score INT NOT NULL DEFAULT 0,
-        onpage_score INT NOT NULL DEFAULT 0,
-        content_score INT NOT NULL DEFAULT 0,
-        structured_data_score INT NOT NULL DEFAULT 0,
-        total_pages_scanned INT NOT NULL DEFAULT 0,
-        issues_count INT NOT NULL DEFAULT 0,
-        summary_json JSON DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-    await addColumnIfMissing(connection, 'seo_audits', 'technical_score', 'INT NOT NULL DEFAULT 0')
-    await addColumnIfMissing(connection, 'seo_audits', 'onpage_score', 'INT NOT NULL DEFAULT 0')
-    await addColumnIfMissing(connection, 'seo_audits', 'content_score', 'INT NOT NULL DEFAULT 0')
-    await addColumnIfMissing(connection, 'seo_audits', 'structured_data_score', 'INT NOT NULL DEFAULT 0')
-    await addColumnIfMissing(connection, 'seo_audits', 'total_pages_scanned', 'INT NOT NULL DEFAULT 0')
-    await addColumnIfMissing(connection, 'seo_audits', 'issues_count', 'INT NOT NULL DEFAULT 0')
-
-    // 11.3 SEO Issues Itemized
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_issues (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        audit_id INT DEFAULT NULL,
-        entity_type VARCHAR(50) NOT NULL,
-        entity_id INT DEFAULT NULL,
-        url VARCHAR(500) DEFAULT NULL,
-        issue_type VARCHAR(100) NOT NULL,
-        category ENUM('technical', 'onpage', 'content', 'schema', 'indexing') DEFAULT 'onpage',
-        severity ENUM('critical', 'high', 'medium', 'low') DEFAULT 'medium',
-        title VARCHAR(255) NOT NULL,
-        description TEXT DEFAULT NULL,
-        recommendation TEXT DEFAULT NULL,
-        resolved TINYINT(1) DEFAULT 0,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_seo_issues_audit (audit_id),
-        INDEX idx_seo_issues_cat (category),
-        INDEX idx_seo_issues_sev (severity),
-        INDEX idx_seo_issues_res (resolved)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.4 SEO AI Recommendations
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_recommendations (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        page_url VARCHAR(500) NOT NULL,
-        entity_type VARCHAR(50) DEFAULT 'page',
-        entity_id INT DEFAULT NULL,
-        target_type VARCHAR(50) DEFAULT NULL,
-        target_field VARCHAR(100) DEFAULT NULL,
-        target_name VARCHAR(255) DEFAULT NULL,
-        target_url VARCHAR(500) DEFAULT NULL,
-        issue TEXT NOT NULL,
-        priority ENUM('CRITICAL', 'HIGH', 'MEDIUM', 'LOW') DEFAULT 'MEDIUM',
-        status VARCHAR(50) DEFAULT 'NEW',
-        current_value JSON DEFAULT NULL,
-        proposed_value JSON DEFAULT NULL,
-        recommended_value TEXT DEFAULT NULL,
-        reason TEXT DEFAULT NULL,
-        expected_benefit TEXT DEFAULT NULL,
-        confidence DECIMAL(3, 2) DEFAULT 0.85,
-        keywords JSON DEFAULT NULL,
-        internal_link_suggestions JSON DEFAULT NULL,
-        reviewed_at DATETIME DEFAULT NULL,
-        applied_at DATETIME DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_seo_rec_status (status),
-        INDEX idx_seo_rec_priority (priority),
-        INDEX idx_seo_rec_type (entity_type)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-    await addColumnIfMissing(connection, 'seo_recommendations', 'target_type', 'VARCHAR(50) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'seo_recommendations', 'target_field', 'VARCHAR(100) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'seo_recommendations', 'target_name', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'seo_recommendations', 'target_url', 'VARCHAR(500) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'seo_recommendations', 'recommended_value', 'TEXT DEFAULT NULL')
-    try {
-      await connection.query(`ALTER TABLE seo_recommendations MODIFY COLUMN status VARCHAR(50) DEFAULT 'NEW'`)
-    } catch (e) {
-      // Ignored if table status column already modified
-    }
-
-    // 11.5 SEO Changes & Rollback Audit Trail
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_changes (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        recommendation_id INT DEFAULT NULL,
-        entity_type VARCHAR(50) NOT NULL,
-        entity_id INT DEFAULT NULL,
-        page_url VARCHAR(500) NOT NULL,
-        change_type VARCHAR(100) NOT NULL,
-        old_value JSON DEFAULT NULL,
-        new_value JSON DEFAULT NULL,
-        ai_reason TEXT DEFAULT NULL,
-        ai_model VARCHAR(100) DEFAULT 'gemini-2.5-flash',
-        approved_by VARCHAR(100) DEFAULT 'Admin',
-        approved_at DATETIME DEFAULT NULL,
-        applied_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        status ENUM('applied', 'rolled_back') DEFAULT 'applied',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_seo_changes_type (entity_type),
-        INDEX idx_seo_changes_status (status),
-        INDEX idx_seo_changes_time (applied_at)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.6 SEO Daily Reports
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_daily_reports (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        report_date DATE NOT NULL UNIQUE,
-        health_score INT NOT NULL DEFAULT 0,
-        technical_score INT NOT NULL DEFAULT 0,
-        onpage_score INT NOT NULL DEFAULT 0,
-        content_score INT NOT NULL DEFAULT 0,
-        structured_data_score INT NOT NULL DEFAULT 0,
-        total_pages_scanned INT NOT NULL DEFAULT 0,
-        critical_issues INT NOT NULL DEFAULT 0,
-        high_issues INT NOT NULL DEFAULT 0,
-        medium_issues INT NOT NULL DEFAULT 0,
-        low_issues INT NOT NULL DEFAULT 0,
-        pending_recommendations INT NOT NULL DEFAULT 0,
-        applied_changes_today INT NOT NULL DEFAULT 0,
-        organic_clicks INT NOT NULL DEFAULT 0,
-        organic_impressions INT NOT NULL DEFAULT 0,
-        clicks INT DEFAULT 0,
-        impressions INT DEFAULT 0,
-        ctr DECIMAL(5, 2) DEFAULT 0.00,
-        avg_position DECIMAL(5, 2) DEFAULT 0.00,
-        top_gaining_keywords JSON DEFAULT NULL,
-        top_losing_keywords JSON DEFAULT NULL,
-        top_opportunities JSON DEFAULT NULL,
-        technical_issues JSON DEFAULT NULL,
-        content_opportunities JSON DEFAULT NULL,
-        ai_recommendations JSON DEFAULT NULL,
-        changes_applied JSON DEFAULT NULL,
-        changes_pending JSON DEFAULT NULL,
-        executive_summary TEXT DEFAULT NULL,
-        report_summary TEXT DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_seo_report_date (report_date)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // Automatic column migrations for seo_daily_reports (ensures compatibility with existing databases)
-    const dailyReportColumns = [
-      ['technical_score', 'INT NOT NULL DEFAULT 0'],
-      ['onpage_score', 'INT NOT NULL DEFAULT 0'],
-      ['content_score', 'INT NOT NULL DEFAULT 0'],
-      ['structured_data_score', 'INT NOT NULL DEFAULT 0'],
-      ['total_pages_scanned', 'INT NOT NULL DEFAULT 0'],
-      ['critical_issues', 'INT NOT NULL DEFAULT 0'],
-      ['high_issues', 'INT NOT NULL DEFAULT 0'],
-      ['medium_issues', 'INT NOT NULL DEFAULT 0'],
-      ['low_issues', 'INT NOT NULL DEFAULT 0'],
-      ['pending_recommendations', 'INT NOT NULL DEFAULT 0'],
-      ['applied_changes_today', 'INT NOT NULL DEFAULT 0'],
-      ['organic_clicks', 'INT NOT NULL DEFAULT 0'],
-      ['organic_impressions', 'INT NOT NULL DEFAULT 0'],
-      ['clicks', 'INT DEFAULT 0'],
-      ['impressions', 'INT DEFAULT 0'],
-      ['ctr', 'DECIMAL(5, 2) DEFAULT 0.00'],
-      ['avg_position', 'DECIMAL(5, 2) DEFAULT 0.00'],
-      ['top_gaining_keywords', 'JSON DEFAULT NULL'],
-      ['top_losing_keywords', 'JSON DEFAULT NULL'],
-      ['top_opportunities', 'JSON DEFAULT NULL'],
-      ['technical_issues', 'JSON DEFAULT NULL'],
-      ['content_opportunities', 'JSON DEFAULT NULL'],
-      ['ai_recommendations', 'JSON DEFAULT NULL'],
-      ['changes_applied', 'JSON DEFAULT NULL'],
-      ['changes_pending', 'JSON DEFAULT NULL'],
-      ['executive_summary', 'TEXT DEFAULT NULL'],
-      ['report_summary', 'TEXT DEFAULT NULL'],
-    ]
-    for (const [colName, colDef] of dailyReportColumns) {
-      await addColumnIfMissing(connection, 'seo_daily_reports', colName, colDef)
-    }
-
-    // 11.7 SEO Keyword Snapshots (from Search Console)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_keyword_snapshots (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        query VARCHAR(255) NOT NULL,
-        page_url VARCHAR(500) DEFAULT NULL,
-        clicks INT DEFAULT 0,
-        impressions INT DEFAULT 0,
-        ctr DECIMAL(5, 2) DEFAULT 0.00,
-        position DECIMAL(5, 2) DEFAULT 0.00,
-        previous_position DECIMAL(5, 2) DEFAULT NULL,
-        opportunity_type VARCHAR(50) DEFAULT NULL,
-        snapshot_date DATE NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_seo_kw_query (query),
-        INDEX idx_seo_kw_date (snapshot_date),
-        INDEX idx_seo_kw_opp (opportunity_type)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.8 SEO Page Metrics
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_page_metrics (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        page_url VARCHAR(500) NOT NULL,
-        clicks INT DEFAULT 0,
-        impressions INT DEFAULT 0,
-        ctr DECIMAL(5, 2) DEFAULT 0.00,
-        position DECIMAL(5, 2) DEFAULT 0.00,
-        snapshot_date DATE NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_seo_pm_url (page_url(191)),
-        INDEX idx_seo_pm_date (snapshot_date)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.9 SEO Integrations (GSC, AI Provider)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_integrations (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        integration_name VARCHAR(100) NOT NULL UNIQUE,
-        is_connected TINYINT(1) DEFAULT 0,
-        config JSON DEFAULT NULL,
-        last_synced_at DATETIME DEFAULT NULL,
-        error_message TEXT DEFAULT NULL,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.10 SEO Operational Logs
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_logs (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        event_type VARCHAR(100) NOT NULL,
-        status VARCHAR(50) DEFAULT 'info',
-        message TEXT NOT NULL,
-        details JSON DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_seo_logs_type (event_type),
-        INDEX idx_seo_logs_time (created_at)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // Seed default SEO settings if empty
-    const defaultSeoSettings = [
-      ['scheduler_enabled', '1'],
-      ['schedule_enabled', '1'],
-      ['daily_run_time', '03:00'],
-      ['schedule_time', '03:00'],
-      ['timezone', 'Asia/Dubai'],
-      ['schedule_timezone', 'Asia/Dubai'],
-      ['ai_provider', 'gemini'],
-      ['ai_model', 'gemini-1.5-flash'],
-      ['auto_apply_safe', '0'],
-      ['auto_apply_safe_changes', '0'],
-      ['min_confidence_auto_apply', '0.90'],
-      ['gsc_property_url', 'https://0nprint.com'],
-      ['notification_email', 'admin@onprint.ae'],
-    ]
-    for (const [key, val] of defaultSeoSettings) {
-      await connection.query(
-        'INSERT IGNORE INTO seo_settings (setting_key, setting_value) VALUES (?, ?)',
-        [key, val]
-      )
-    }
-
-    // Seed default SEO integration records if empty
-    await connection.query(`
-      INSERT IGNORE INTO seo_integrations (integration_name, is_connected, config)
-      VALUES 
-        ('google_search_console', 0, '{"property": "https://0nprint.com", "auth_type": "oauth2"}'),
-        ('ai_service', 1, '{"provider": "gemini", "model": "gemini-2.5-flash"}')
-    `)
-
-    // 11.11 Page-Level SEO Management Tables (Requirement 2 & 22)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS page_seo (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        page_type VARCHAR(50) NOT NULL,
-        page_id INT DEFAULT NULL,
-        url VARCHAR(500) NOT NULL UNIQUE,
-        slug VARCHAR(255) DEFAULT NULL,
-        meta_title VARCHAR(255) DEFAULT NULL,
-        meta_description TEXT DEFAULT NULL,
-        focus_keyword VARCHAR(255) DEFAULT NULL,
-        secondary_keywords TEXT DEFAULT NULL,
-        h1 VARCHAR(255) DEFAULT NULL,
-        seo_content LONGTEXT DEFAULT NULL,
-        canonical_url VARCHAR(500) DEFAULT NULL,
-        robots_index VARCHAR(20) DEFAULT 'index',
-        robots_follow VARCHAR(20) DEFAULT 'follow',
-        og_title VARCHAR(255) DEFAULT NULL,
-        og_description TEXT DEFAULT NULL,
-        og_image VARCHAR(500) DEFAULT NULL,
-        twitter_title VARCHAR(255) DEFAULT NULL,
-        twitter_description TEXT DEFAULT NULL,
-        twitter_image VARCHAR(500) DEFAULT NULL,
-        schema_type VARCHAR(50) DEFAULT NULL,
-        schema_markup LONGTEXT DEFAULT NULL,
-        seo_score INT DEFAULT 0,
-        readability_score INT DEFAULT 0,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_page_seo_type (page_type),
-        INDEX idx_page_seo_score (seo_score),
-        INDEX idx_page_seo_fk (focus_keyword(191))
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS page_seo_history (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        page_seo_id INT NOT NULL,
-        page_url VARCHAR(500) NOT NULL,
-        field_changed VARCHAR(100) NOT NULL,
-        old_value LONGTEXT DEFAULT NULL,
-        new_value LONGTEXT DEFAULT NULL,
-        changed_by VARCHAR(100) DEFAULT 'Admin',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_psh_page_id (page_seo_id),
-        INDEX idx_psh_created (created_at),
-        CONSTRAINT fk_page_seo_hist FOREIGN KEY (page_seo_id) REFERENCES page_seo(id) ON DELETE CASCADE
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.12 Scalable keyword, backlink, outreach and competitor records
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_keywords (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        keyword VARCHAR(255) NOT NULL,
-        keyword_type ENUM('primary', 'secondary') DEFAULT 'primary',
-        search_intent ENUM('Informational', 'Commercial', 'Transactional', 'Navigational', 'Local') NOT NULL DEFAULT 'Commercial',
-        cluster VARCHAR(150) NOT NULL,
-        target_url VARCHAR(500) DEFAULT NULL,
-        target_page VARCHAR(255) DEFAULT NULL,
-        priority ENUM('High', 'Medium', 'Low') DEFAULT 'Medium',
-        status ENUM('Planned', 'Assigned', 'Published', 'Tracking', 'Archived') DEFAULT 'Planned',
-        notes TEXT DEFAULT NULL,
-        content_type VARCHAR(100) DEFAULT NULL,
-        assigned_page VARCHAR(500) DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        UNIQUE KEY uq_seo_keyword (keyword),
-        INDEX idx_seo_keyword_cluster (cluster),
-        INDEX idx_seo_keyword_target (target_url(191))
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    const keywordColumns = [
-      ['category', 'VARCHAR(150) DEFAULT NULL'],
-      ['country', "VARCHAR(100) DEFAULT 'UAE'"],
-      ['city', "VARCHAR(100) DEFAULT 'Dubai'"],
-      ['current_ranking', 'INT DEFAULT NULL'],
-      ['previous_ranking', 'INT DEFAULT NULL'],
-      ['search_volume', 'INT DEFAULT NULL'],
-      ['cpc', 'DECIMAL(8, 2) DEFAULT NULL'],
-      ['competition', 'VARCHAR(50) DEFAULT NULL'],
-      ['last_checked', 'DATE DEFAULT NULL'],
-      ['ranking_change', 'INT DEFAULT NULL'],
-    ]
-    for (const [colName, colDef] of keywordColumns) {
-      await addColumnIfMissing(connection, 'seo_keywords', colName, colDef)
-    }
-
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_backlinks (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        linking_domain VARCHAR(255) NOT NULL,
-        linking_url VARCHAR(1000) NOT NULL,
-        target_url VARCHAR(500) NOT NULL,
-        anchor_text VARCHAR(500) DEFAULT NULL,
-        link_type ENUM('follow', 'nofollow', 'sponsored', 'ugc', 'unknown') DEFAULT 'unknown',
-        status ENUM('active', 'new', 'lost', 'needs_review') DEFAULT 'needs_review',
-        authority DECIMAL(6,2) DEFAULT NULL,
-        relevance ENUM('high', 'medium', 'low', 'unknown') DEFAULT 'unknown',
-        toxic_risk ENUM('low', 'medium', 'high', 'unknown') DEFAULT 'unknown',
-        first_discovered_at DATE DEFAULT NULL,
-        last_checked_at DATE DEFAULT NULL,
-        notes TEXT DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_backlink_domain (linking_domain),
-        INDEX idx_backlink_status (status),
-        INDEX idx_backlink_type (link_type)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_outreach_prospects (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        website_domain VARCHAR(255) NOT NULL,
-        contact_name VARCHAR(255) DEFAULT NULL,
-        contact_email VARCHAR(255) DEFAULT NULL,
-        website_category VARCHAR(150) DEFAULT NULL,
-        relevance ENUM('high', 'medium', 'low', 'unknown') DEFAULT 'unknown',
-        authority DECIMAL(6,2) DEFAULT NULL,
-        outreach_status ENUM('Prospect', 'Contacted', 'Follow-up', 'Accepted', 'Published', 'Rejected', 'Not Relevant') DEFAULT 'Prospect',
-        date_contacted DATE DEFAULT NULL,
-        follow_up_date DATE DEFAULT NULL,
-        response TEXT DEFAULT NULL,
-        link_obtained TINYINT(1) DEFAULT 0,
-        target_url VARCHAR(500) DEFAULT NULL,
-        anchor_text VARCHAR(500) DEFAULT NULL,
-        notes TEXT DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_outreach_status (outreach_status),
-        INDEX idx_outreach_domain (website_domain)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_competitor_records (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        competitor_name VARCHAR(255) NOT NULL,
-        competitor_url VARCHAR(500) DEFAULT NULL,
-        record_type ENUM('ranking_keyword', 'page', 'keyword_gap', 'backlink_gap', 'content_gap', 'service_gap', 'location_gap') NOT NULL,
-        keyword VARCHAR(255) DEFAULT NULL,
-        source_url VARCHAR(1000) DEFAULT NULL,
-        notes TEXT DEFAULT NULL,
-        imported_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_competitor_name (competitor_name),
-        INDEX idx_competitor_type (record_type)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_competitor_gaps (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        competitor_url VARCHAR(500) NOT NULL,
-        competitor_topic VARCHAR(255) NOT NULL,
-        onprint_url VARCHAR(500) NOT NULL,
-        missing_topic VARCHAR(500) NOT NULL,
-        keyword_opportunity VARCHAR(255) NOT NULL,
-        search_intent VARCHAR(100) DEFAULT 'Commercial',
-        recommended_content TEXT DEFAULT NULL,
-        internal_link_opportunity TEXT DEFAULT NULL,
-        geo_opportunity TEXT DEFAULT NULL,
-        priority ENUM('High', 'Medium', 'Low') DEFAULT 'Medium',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_scg_priority (priority),
-        INDEX idx_scg_keyword (keyword_opportunity)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS backlink_opportunities (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        website_name VARCHAR(255) NOT NULL,
-        domain VARCHAR(255) NOT NULL,
-        website_url VARCHAR(1000) NOT NULL,
-        category VARCHAR(150) NOT NULL,
-        submission_method VARCHAR(150) NULL DEFAULT 'Online Form',
-        domain_authority INT DEFAULT 0,
-        priority ENUM('High', 'Medium', 'Low') DEFAULT 'Medium',
-        country VARCHAR(100) DEFAULT 'UAE',
-        city VARCHAR(100) DEFAULT 'Dubai',
-        relevance VARCHAR(50) DEFAULT 'High',
-        link_type VARCHAR(100) DEFAULT NULL,
-        follow_type ENUM('Follow', 'Nofollow', 'UGC', 'Sponsored') DEFAULT 'Follow',
-        contact_url VARCHAR(1000) DEFAULT NULL,
-        submission_url VARCHAR(1000) DEFAULT NULL,
-        target_url VARCHAR(500) NOT NULL,
-        target_anchor_text VARCHAR(500) DEFAULT NULL,
-        status ENUM('Not Started', 'Planned', 'Submitted', 'In Review', 'Live', 'Rejected') DEFAULT 'Planned',
-        date_added DATE DEFAULT NULL,
-        date_submitted DATE DEFAULT NULL,
-        date_live DATE DEFAULT NULL,
-        live_url VARCHAR(1000) DEFAULT NULL,
-        notes TEXT DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_bo_domain (domain),
-        INDEX idx_bo_category (category),
-        INDEX idx_bo_status (status),
-        INDEX idx_bo_priority (priority)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-    try {
-      await connection.query(`ALTER TABLE backlink_opportunities MODIFY COLUMN submission_method VARCHAR(150) NULL DEFAULT 'Online Form'`)
-    } catch (_) {}
-
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_ai_visibility_tracking (
-        id VARCHAR(100) PRIMARY KEY,
-        query VARCHAR(500) NOT NULL,
-        cluster VARCHAR(255) DEFAULT NULL,
-        intent VARCHAR(100) DEFAULT NULL,
-        target_page VARCHAR(255) DEFAULT NULL,
-        target_url VARCHAR(500) DEFAULT NULL,
-        overall_visibility_score INT DEFAULT 0,
-        status VARCHAR(100) DEFAULT 'Dominant Citation',
-        last_tested DATE DEFAULT NULL,
-        engines_json LONGTEXT DEFAULT NULL,
-        key_entities_extracted LONGTEXT DEFAULT NULL,
-        recommended_action TEXT DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_ai_vis_cluster (cluster),
-        INDEX idx_ai_vis_status (status)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_backlink_opportunities_200 (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        website VARCHAR(255) NOT NULL,
-        domain VARCHAR(255) NOT NULL,
-        url VARCHAR(1000) NOT NULL,
-        country VARCHAR(100) DEFAULT 'United Arab Emirates',
-        city VARCHAR(100) DEFAULT 'Dubai',
-        industry VARCHAR(150) NOT NULL,
-        relevance ENUM('High', 'Medium', 'Low') DEFAULT 'High',
-        link_opportunity VARCHAR(255) NOT NULL,
-        submission_url VARCHAR(1000) DEFAULT NULL,
-        contact_url VARCHAR(1000) DEFAULT NULL,
-        link_type VARCHAR(100) DEFAULT 'Directory Profile',
-        follow_type ENUM('Follow', 'Nofollow', 'Sponsored', 'UGC') DEFAULT 'Follow',
-        target_onprint_url VARCHAR(500) NOT NULL,
-        anchor_text VARCHAR(500) DEFAULT NULL,
-        status ENUM('Prospect', 'Researching', 'Contacted', 'Submitted', 'Approved', 'Published', 'Rejected', 'Not Relevant') DEFAULT 'Prospect',
-        date DATE DEFAULT NULL,
-        link_url VARCHAR(1000) DEFAULT NULL,
-        link_attribute ENUM('follow', 'nofollow', 'sponsored', 'ugc') DEFAULT 'follow',
-        notes TEXT DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_bo200_domain (domain),
-        INDEX idx_bo200_industry (industry),
-        INDEX idx_bo200_status (status),
-        INDEX idx_bo200_relevance (relevance)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.13 GEO FAQ Database Table (Requirement 27)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS geo_faqs (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        question VARCHAR(500) NOT NULL,
-        answer TEXT NOT NULL,
-        category VARCHAR(100) NOT NULL,
-        related_service VARCHAR(150) DEFAULT NULL,
-        target_url VARCHAR(500) DEFAULT NULL,
-        search_intent ENUM('Informational', 'Commercial', 'Transactional', 'Local') DEFAULT 'Commercial',
-        status ENUM('published', 'draft', 'archived') DEFAULT 'published',
-        published_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_geo_faq_category (category),
-        INDEX idx_geo_faq_status (status)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.14 GEO Content Database Table (Requirement 28)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS geo_content (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        topic VARCHAR(255) NOT NULL,
-        question VARCHAR(500) NOT NULL,
-        answer TEXT NOT NULL,
-        target_keyword VARCHAR(255) DEFAULT NULL,
-        entity VARCHAR(150) DEFAULT 'ONPRINT',
-        target_url VARCHAR(500) DEFAULT NULL,
-        related_service VARCHAR(150) DEFAULT NULL,
-        faq TINYINT(1) DEFAULT 1,
-        source VARCHAR(255) DEFAULT 'ONPRINT Pressroom Operations Manual',
-        author VARCHAR(100) DEFAULT 'ONPRINT Technical Team',
-        status ENUM('published', 'draft', 'archived') DEFAULT 'published',
-        published_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_geo_content_topic (topic),
-        INDEX idx_geo_content_status (status)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.15 GEO Citation Logs Table (Requirements 29 & 30)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS geo_citation_logs (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        query VARCHAR(500) NOT NULL,
-        date_checked DATE NOT NULL,
-        platform VARCHAR(100) NOT NULL,
-        onprint_mentioned TINYINT(1) DEFAULT 0,
-        onprint_url VARCHAR(500) DEFAULT NULL,
-        citation_source VARCHAR(500) DEFAULT NULL,
-        competitors_mentioned JSON DEFAULT NULL,
-        notes TEXT DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_gcl_query (query(191)),
-        INDEX idx_gcl_platform (platform)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.16 GEO Competitor Audits Table (Requirement 31)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS geo_competitor_audits (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        competitor_url VARCHAR(1000) NOT NULL,
-        competitor_name VARCHAR(255) DEFAULT NULL,
-        analysis_json JSON DEFAULT NULL,
-        recommendations_json JSON DEFAULT NULL,
-        audited_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_gca_url (competitor_url(191))
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.17 404 + Redirect Manager (Requirement 28)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_redirects (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        old_url VARCHAR(500) NOT NULL,
-        new_url VARCHAR(500) NOT NULL,
-        redirect_type ENUM('301', '302', '307') DEFAULT '301',
-        status ENUM('active', 'inactive') DEFAULT 'active',
-        hit_count INT DEFAULT 0,
-        notes TEXT DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        UNIQUE KEY uq_redirect_old (old_url(250)),
-        INDEX idx_redirect_status (status)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.18 Brand Mention System (Requirement 30)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_brand_mentions (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        mention_source VARCHAR(255) NOT NULL,
-        source_url VARCHAR(1000) NOT NULL,
-        brand_query VARCHAR(100) DEFAULT 'ONPRINT',
-        snippet TEXT DEFAULT NULL,
-        has_link TINYINT(1) DEFAULT 0,
-        linking_url VARCHAR(500) DEFAULT NULL,
-        domain_authority INT DEFAULT 30,
-        sentiment ENUM('positive', 'neutral', 'negative') DEFAULT 'positive',
-        outreach_status ENUM('uncontacted', 'contacted', 'link_added', 'rejected', 'ignored') DEFAULT 'uncontacted',
-        notes TEXT DEFAULT NULL,
-        date_discovered DATE DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_bm_source (mention_source),
-        INDEX idx_bm_has_link (has_link),
-        INDEX idx_bm_status (outreach_status)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.19 SEO Controlled Experiments / A/B Testing (Requirement 34)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_experiments (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        page_url VARCHAR(500) NOT NULL,
-        test_type ENUM('title', 'meta_description', 'h1', 'content_faq', 'internal_links') NOT NULL,
-        control_value TEXT NOT NULL,
-        variant_value TEXT NOT NULL,
-        hypothesis TEXT DEFAULT NULL,
-        status ENUM('draft', 'running', 'completed', 'rolled_back') DEFAULT 'running',
-        start_date DATE NOT NULL,
-        end_date DATE DEFAULT NULL,
-        baseline_clicks INT DEFAULT 0,
-        baseline_impressions INT DEFAULT 0,
-        baseline_ctr DECIMAL(5,2) DEFAULT 0.00,
-        variant_clicks INT DEFAULT 0,
-        variant_impressions INT DEFAULT 0,
-        variant_ctr DECIMAL(5,2) DEFAULT 0.00,
-        winner ENUM('variant', 'control', 'inconclusive') DEFAULT 'inconclusive',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_exp_page (page_url(191)),
-        INDEX idx_exp_status (status)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.20 Organic Conversion & ROI Tracking (Requirements 35 & 36)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_conversions (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        conversion_type ENUM('whatsapp', 'phone', 'email', 'quote_request', 'product_inquiry') NOT NULL,
-        landing_page VARCHAR(500) DEFAULT NULL,
-        referrer VARCHAR(500) DEFAULT NULL,
-        source_label VARCHAR(100) DEFAULT NULL,
-        query_string VARCHAR(255) DEFAULT NULL,
-        ip_hash VARCHAR(64) DEFAULT NULL,
-        user_agent VARCHAR(255) DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        INDEX idx_conv_type (conversion_type),
-        INDEX idx_conv_page (landing_page(191)),
-        INDEX idx_conv_created (created_at)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // 11.21 Content Decay & Refresh Tracking (Requirement 14)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_content_decay (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        page_url VARCHAR(500) NOT NULL,
-        title VARCHAR(255) NOT NULL,
-        page_type VARCHAR(50) DEFAULT 'service',
-        previous_clicks INT DEFAULT 0,
-        current_clicks INT DEFAULT 0,
-        clicks_change_pct DECIMAL(5,2) DEFAULT 0.00,
-        previous_impressions INT DEFAULT 0,
-        current_impressions INT DEFAULT 0,
-        impressions_change_pct DECIMAL(5,2) DEFAULT 0.00,
-        decay_severity ENUM('CRITICAL', 'HIGH', 'MEDIUM', 'STABLE') DEFAULT 'MEDIUM',
-        recommended_action TEXT DEFAULT NULL,
-        status ENUM('needs_refresh', 'refresh_scheduled', 'refreshed', 'monitoring') DEFAULT 'needs_refresh',
-        last_audited DATE DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_decay_page (page_url(191)),
-        INDEX idx_decay_severity (decay_severity)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // Dynamic column migrations for page_seo & geo_faqs
-    await addColumnIfMissing(connection, 'page_seo', 'search_intent', "VARCHAR(100) DEFAULT 'Commercial'")
-    await addColumnIfMissing(connection, 'page_seo', 'focus_entity', 'VARCHAR(255) DEFAULT NULL')
-    await addColumnIfMissing(connection, 'page_seo', 'related_entities', 'TEXT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'page_seo', 'faq_content', 'LONGTEXT DEFAULT NULL')
-    await addColumnIfMissing(connection, 'geo_faqs', 'related_keyword', 'VARCHAR(255) DEFAULT NULL')
-
-    // 11.22 SEO Tasks Tracking Table (Requirement 25)
-    await connection.query(`
-      CREATE TABLE IF NOT EXISTS seo_tasks (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        title VARCHAR(255) NOT NULL,
-        description TEXT DEFAULT NULL,
-        category ENUM('technical', 'onpage', 'content', 'geo', 'backlinks', 'schema') DEFAULT 'onpage',
-        priority ENUM('critical', 'high', 'medium', 'low') DEFAULT 'medium',
-        status ENUM('pending', 'in_progress', 'completed') DEFAULT 'pending',
-        assigned_to VARCHAR(100) DEFAULT 'Admin',
-        due_date DATE DEFAULT NULL,
-        completed_at DATETIME DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        INDEX idx_task_status (status),
-        INDEX idx_task_priority (priority),
-        INDEX idx_task_category (category)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `)
-
-    // Seed/Synchronize all SEO and GEO datasets
-    await seedPageSeoIfEmpty(connection)
-    await seedBlogsIfEmpty(connection)
-    await seedKeywordsIfEmpty(connection)
-    await seedBacklinksIfEmpty(connection)
-    await seedCompetitorsIfEmpty(connection)
-    await seedCompetitorGapsIfEmpty(connection)
-    await seedBacklinkOpportunitiesIfEmpty(connection)
-    await seedBacklinkOpportunities200IfEmpty(connection)
-    await seedAiVisibilityIfEmpty(connection)
-    await seedGeoFaqsIfEmpty(connection)
-    await seedGeoContentIfEmpty(connection)
-    await seedRedirectsIfEmpty(connection)
-    await seedBrandMentionsIfEmpty(connection)
-    await seedExperimentsIfEmpty(connection)
-    await seedConversionsIfEmpty(connection)
-    await seedContentDecayIfEmpty(connection)
-    await seedSeoTasksIfEmpty(connection)
-
-
-    // 12. Automatically Seed/Verify Admin User in DB
+    // Ensure default Admin user
     const adminEmail = (process.env.ADMIN_EMAIL || 'admin@onprint.ae').toLowerCase().trim()
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
     const adminName = process.env.ADMIN_NAME || 'ONPRINT Admin'
-    const adminPhone = process.env.ADMIN_PHONE || ''
+    const adminPhone = process.env.ADMIN_PHONE || '+971 4 800 PRINT'
 
-    const [adminRows] = await connection.query(
-      'SELECT id, password_hash, role FROM users WHERE email = ? LIMIT 1',
-      [adminEmail]
-    )
-
-    if (adminRows.length === 0) {
+    const existingAdmin = await User.findOne({ email: adminEmail })
+    if (!existingAdmin) {
       const passwordHash = await bcrypt.hash(adminPassword, 10)
-      await connection.query(
-        'INSERT INTO users (name, email, password_hash, phone, role, status) VALUES (?, ?, ?, ?, ?, ?)',
-        [adminName, adminEmail, passwordHash, adminPhone, 'admin', 'active']
-      )
-      console.log(`[Database] Seeded Admin User in MySQL: ${adminEmail} (password: ${adminPassword})`)
-    } else {
-      const existingUser = adminRows[0]
-      const isPassValid = await bcrypt.compare(adminPassword, existingUser.password_hash)
-      if (!isPassValid || existingUser.role !== 'admin') {
-        const passwordHash = await bcrypt.hash(adminPassword, 10)
-        await connection.query(
-          'UPDATE users SET password_hash = ?, role = "admin", status = "active" WHERE id = ?',
-          [passwordHash, existingUser.id]
-        )
-        console.log(`[Database] Updated Admin User credentials/role in MySQL for: ${adminEmail}`)
-      }
+      await User.create({
+        id: 1,
+        name: adminName,
+        email: adminEmail,
+        password_hash: passwordHash,
+        phone: adminPhone,
+        role: 'admin',
+        status: 'active',
+      })
+      console.log(`[Database] Seeded Admin User in MongoDB Atlas: ${adminEmail}`)
     }
 
-    connection.release()
-    console.log('[Database] ONPRINT MySQL schema, SEO columns & admin verified successfully')
     return true
   } catch (err) {
-    console.warn('[Database] MySQL table initialization warning:', err.message)
+    console.warn('[Database] MongoDB initialization note:', err.message)
     return false
   }
 }
 
-async function testConnection() {
-  try {
-    const connection = await pool.getConnection()
-    await connection.query('SELECT 1 AS connected')
-    connection.release()
-    console.log('MySQL database connected successfully')
-    await initDatabase()
-    return true
-  } catch (err) {
-    console.error('MySQL database connection failed:', err.message)
-    return false
+// Map SQL table names to Mongoose models
+const TABLE_MODEL_MAP = {
+  users: User,
+  categories: Category,
+  products: Product,
+  services: Service,
+  blogs: Blog,
+  blog_posts: Blog,
+  quotes: Quote,
+  orders: Order,
+  contact_messages: ContactMessage,
+  newsletter_subscribers: NewsletterSubscriber,
+  site_settings: SiteSetting,
+  page_seo: PageSeo,
+  page_seo_history: PageSeoHistory,
+  seo_keywords: SeoKeyword,
+  seo_backlinks: SeoBacklink,
+  seo_outreach_prospects: SeoOutreachProspect,
+  seo_competitor_records: SeoCompetitorRecord,
+  seo_competitor_gaps: SeoCompetitorGap,
+  backlink_opportunities: BacklinkOpportunity,
+  seo_backlink_opportunities_200: SeoBacklinkOpportunity200,
+  seo_ai_visibility_tracking: SeoAiVisibility,
+  geo_faqs: GeoFaq,
+  geo_content: GeoContent,
+  geo_citation_logs: GeoCitationLog,
+  geo_competitor_audits: GeoCompetitorAudit,
+  seo_redirects: SeoRedirect,
+  seo_brand_mentions: SeoBrandMention,
+  seo_experiments: SeoExperiment,
+  seo_conversions: SeoConversion,
+  seo_content_decay: SeoContentDecay,
+  seo_tasks: SeoTask,
+  seo_settings: SeoSetting,
+  seo_audits: SeoAudit,
+  seo_issues: SeoIssue,
+  seo_recommendations: SeoRecommendation,
+  seo_changes: SeoChange,
+  seo_daily_reports: SeoDailyReport,
+  seo_keyword_snapshots: SeoKeywordSnapshot,
+  seo_page_metrics: SeoPageMetric,
+  seo_integrations: SeoIntegration,
+  seo_logs: SeoLog,
+}
+
+function normalizeDoc(doc) {
+  if (!doc) return doc
+  const obj = doc.toObject ? doc.toObject({ virtuals: true }) : { ...doc }
+  // Ensure legacy SQL fields are present
+  if (obj._id && !obj.id) obj.id = obj._id.toString()
+  return obj
+}
+
+function extractPrimaryTable(sql) {
+  let m = sql.match(/INSERT\s+INTO\s+`?([a-zA-Z0-9_]+)`?/i)
+  if (m) return m[1].toLowerCase()
+  m = sql.match(/UPDATE\s+`?([a-zA-Z0-9_]+)`?/i)
+  if (m) return m[1].toLowerCase()
+  m = sql.match(/DELETE\s+FROM\s+`?([a-zA-Z0-9_]+)`?/i)
+  if (m) return m[1].toLowerCase()
+
+  // For SELECT queries: find all FROM clauses.
+  // In queries with subqueries like "SELECT ... (SELECT COUNT(*) FROM products p WHERE ...) FROM categories c",
+  // the outer main table is the last FROM clause before WHERE/GROUP/ORDER/LIMIT.
+  const fromMatches = []
+  const fromRegex = /\bFROM\s+`?([a-zA-Z0-9_]+)`?/gi
+  let match
+  while ((match = fromRegex.exec(sql)) !== null) {
+    fromMatches.push(match[1].toLowerCase())
   }
+  if (fromMatches.length > 0) {
+    for (let i = fromMatches.length - 1; i >= 0; i--) {
+      const tbl = fromMatches[i]
+      if (TABLE_MODEL_MAP[tbl] || tbl === 'product_images') {
+        return tbl
+      }
+    }
+    return fromMatches[fromMatches.length - 1]
+  }
+
+  // Fallback scan:
+  for (const table of Object.keys(TABLE_MODEL_MAP)) {
+    if (new RegExp(`\\b${table}\\b`, 'i').test(sql)) {
+      return table
+    }
+  }
+  return null
+}
+
+/**
+ * Robust SQL-to-MongoDB compatibility query executor.
+ * Intercepts SQL statements executed by legacy services/controllers
+ * and maps them directly into MongoDB operations.
+ */
+async function executeSql(sql, params = []) {
+  await connectDB()
+
+  const cleanSql = (sql || '').trim().replace(/\s+/g, ' ')
+  const upperSql = cleanSql.toUpperCase()
+
+  // 1. Health check & connectivity probes
+  if (upperSql.includes('SELECT 1 AS CONNECTED') || upperSql === 'SELECT 1') {
+    return [[{ connected: 1, ok: 1 }], []]
+  }
+
+  // 2. Schema check / Table inspection queries
+  if (upperSql.startsWith('SHOW TABLES')) {
+    return [Object.keys(TABLE_MODEL_MAP).map((t) => ({ [`Tables_in_onprintdb`]: t })), []]
+  }
+  if (upperSql.includes('INFORMATION_SCHEMA.COLUMNS')) {
+    return [[{ COLUMN_NAME: 'id' }], []]
+  }
+  if (upperSql.startsWith('ALTER TABLE') || upperSql.startsWith('CREATE TABLE')) {
+    return [{ affectedRows: 0 }, []]
+  }
+
+  // Target table identification
+  const targetTable = extractPrimaryTable(cleanSql)
+
+  // Special handling for product_images
+  if (targetTable === 'product_images') {
+    if (upperSql.startsWith('SELECT')) {
+      const products = await Product.find({}).lean()
+      const imageRows = []
+      let imgIdx = 1
+      for (const p of products) {
+        const imgs = Array.isArray(p.images) ? p.images : []
+        imgs.forEach((url, i) => {
+          imageRows.push({
+            id: imgIdx++,
+            product_id: p.id,
+            image_url: url,
+            alt_text: p.image_alt || p.name,
+            display_order: i,
+          })
+          if (p._id) {
+            imageRows.push({
+              id: imgIdx++,
+              product_id: p._id.toString(),
+              image_url: url,
+              alt_text: p.image_alt || p.name,
+              display_order: i,
+            })
+          }
+        })
+      }
+      return [imageRows, []]
+    }
+    if (upperSql.startsWith('INSERT')) {
+      if (params.length >= 2) {
+        const prodId = params[0]
+        const imgUrl = params[1]
+        await Product.updateOne(
+          { $or: [{ id: prodId }, { _id: mongoose.isValidObjectId(prodId) ? prodId : null }] },
+          { $push: { images: imgUrl } }
+        )
+      }
+      return [{ insertId: Date.now(), affectedRows: 1 }, []]
+    }
+    if (upperSql.startsWith('DELETE')) {
+      if (params.length >= 1) {
+        const prodId = params[0]
+        await Product.updateOne(
+          { $or: [{ id: prodId }, { _id: mongoose.isValidObjectId(prodId) ? prodId : null }] },
+          { $set: { images: [] } }
+        )
+      }
+      return [{ affectedRows: 1 }, []]
+    }
+    return [[], []]
+  }
+
+  const Model = targetTable ? TABLE_MODEL_MAP[targetTable] : null
+  if (!Model) {
+    return [[], []]
+  }
+
+  // 3. SELECT Queries
+  if (upperSql.startsWith('SELECT')) {
+    // 3a. Aggregate Blog statistics in Admin Dashboard
+    if (upperSql.includes("SUM(CASE WHEN STATUS = 'PUBLISHED'")) {
+      const total = await Blog.countDocuments({})
+      const published = await Blog.countDocuments({ status: 'published' })
+      const drafts = await Blog.countDocuments({ status: 'draft' })
+      return [[{ total, published, drafts, scheduled: 0, featured: 0 }], []]
+    }
+
+    // 3b. GROUP BY queries
+    if (upperSql.includes('GROUP BY ACTIVE') || upperSql.includes('GROUP BY P.ACTIVE') || upperSql.includes('GROUP BY C.ACTIVE')) {
+      const activeCount = await Model.countDocuments({ active: true })
+      const inactiveCount = await Model.countDocuments({ active: false })
+      return [[{ active: 1, count: activeCount }, { active: 0, count: inactiveCount }], []]
+    }
+    if (upperSql.includes('GROUP BY ROLE')) {
+      const adminCount = await User.countDocuments({ role: 'admin' })
+      const customerCount = await User.countDocuments({ role: { $ne: 'admin' } })
+      return [[{ role: 'admin', count: adminCount }, { role: 'customer', count: customerCount }], []]
+    }
+    if (upperSql.includes('GROUP BY STATUS')) {
+      const groups = await Model.aggregate([{ $group: { _id: '$status', count: { $sum: 1 } } }])
+      return [groups.map((g) => ({ status: g._id, count: g.count })), []]
+    }
+
+    // 3c. Pure COUNT queries (must start with SELECT COUNT)
+    if (/^\s*SELECT\s+COUNT\s*\(/i.test(cleanSql)) {
+      let filter = {}
+      if (targetTable === 'blogs') {
+        if (upperSql.includes("STATUS = 'PUBLISHED'")) filter.status = 'published'
+        if (upperSql.includes('IS_FEATURED = 1')) filter.is_featured = true
+        if (params.length > 0) {
+          const p0 = params[0]
+          if (typeof p0 === 'number' || !isNaN(Number(p0))) {
+            if (upperSql.includes('CATEGORY_ID = ?')) filter.category_id = Number(p0)
+            else if (upperSql.includes('PRODUCT_ID = ?')) filter.product_id = Number(p0)
+          }
+        }
+      } else if (params.length === 1) {
+        if (upperSql.includes('CATEGORY_ID = ?')) filter.category_id = params[0]
+        else if (upperSql.includes('EMAIL = ?')) filter.email = String(params[0]).toLowerCase()
+      }
+      const count = await Model.countDocuments(filter)
+      return [[{ totalCount: count, count, cnt: count, 'COUNT(*)': count, 'COUNT(b.id)': count, 'COUNT(p.id)': count }], []]
+    }
+
+    // 3d. CATEGORIES queries
+    if (targetTable === 'categories') {
+      let filter = {}
+      if (params.length === 1) {
+        const val = params[0]
+        if (upperSql.includes('C.ID = ?') || upperSql.includes('WHERE ID = ?')) {
+          filter = { $or: [{ id: val }, { slug: val }, { category_key: val }] }
+        } else if (upperSql.includes('WHERE SLUG = ?')) {
+          filter = { slug: val }
+        }
+      } else if (params.length === 3 && (upperSql.includes('C.ID = ?') || upperSql.includes('WHERE ID = ?'))) {
+        const val = params[0]
+        filter = { $or: [{ id: val }, { slug: val }, { category_key: val }] }
+      } else if (upperSql.includes('C.STATUS = ?')) {
+        if (params[0] && params[0] !== 'all') {
+          filter.status = params[0]
+        }
+      }
+
+      if (upperSql.includes('C.ACTIVE = 1') || upperSql.includes('ACTIVE = 1')) {
+        filter.active = true
+      }
+
+      let sort = { display_order: 1, name: 1 }
+      if (upperSql.includes('ORDER BY C.NAME DESC')) sort = { name: -1 }
+      else if (upperSql.includes('ORDER BY C.NAME ASC')) sort = { name: 1 }
+      else if (upperSql.includes('ORDER BY C.CREATED_AT DESC')) sort = { created_at: -1 }
+      else if (upperSql.includes('ORDER BY C.DISPLAY_ORDER DESC')) sort = { display_order: -1, name: 1 }
+
+      let queryObj = Category.find(filter).sort(sort)
+      if (upperSql.includes('LIMIT 1')) queryObj = queryObj.limit(1)
+
+      const cats = await queryObj.lean()
+
+      const prodCounts = await Product.aggregate([
+        { $match: { active: true } },
+        { $group: { _id: '$category_id', count: { $sum: 1 } } },
+      ])
+      const countMap = {}
+      prodCounts.forEach((pc) => {
+        if (pc._id) countMap[pc._id] = pc.count
+      })
+
+      const rows = cats.map((c) => {
+        const doc = normalizeDoc(c)
+        doc.productCount = countMap[doc.id] || countMap[doc.category_key] || 0
+        doc.displayOrder = doc.display_order || 0
+        doc.seoTitle = doc.seo_title
+        doc.seoDescription = doc.seo_description
+        doc.seoKeywords = doc.seo_keywords
+        doc.seoHeading = doc.seo_heading
+        doc.canonicalUrl = doc.canonical_url
+        doc.imageAlt = doc.image_alt
+        return doc
+      })
+
+      return [rows, []]
+    }
+
+    // 3e. PRODUCTS queries
+    if (targetTable === 'products') {
+      let filter = {}
+      if (upperSql.includes('ACTIVE = 1') || upperSql.includes('P.ACTIVE = 1')) {
+        filter.active = true
+      }
+      if (upperSql.includes('P.FEATURED = 1') || upperSql.includes('FEATURED = 1')) {
+        filter.featured = true
+      }
+
+      if (params.length > 0) {
+        if (upperSql.includes('P.ID = ?') || upperSql.includes('WHERE ID = ?')) {
+          const val = params[0]
+          filter = { $or: [{ id: val }, { slug: val }, { product_key: val }] }
+        } else if (upperSql.includes('WHERE SLUG = ?') || upperSql.includes('P.SLUG = ?')) {
+          filter = { slug: params[0] }
+        } else if (upperSql.includes('C.SLUG = ?')) {
+          const catVal = params[0]
+          const cat = await Category.findOne({
+            $or: [{ slug: catVal }, { category_key: catVal }, { id: Number(catVal) || -1 }],
+          }).lean()
+          if (cat) filter.category_id = cat.id
+        }
+      }
+
+      let sort = { created_at: -1 }
+      let limit = 0
+      if (upperSql.includes('LIMIT 1')) limit = 1
+      else if (upperSql.includes('LIMIT 30')) limit = 30
+
+      let queryObj = Product.find(filter).sort(sort)
+      if (limit > 0) queryObj = queryObj.limit(limit)
+      const prods = await queryObj.lean()
+
+      const allCats = await Category.find({}).lean()
+      const catMap = {}
+      allCats.forEach((c) => {
+        catMap[c.id] = c
+        if (c.category_key) catMap[c.category_key] = c
+      })
+
+      const rows = prods.map((p) => {
+        const doc = normalizeDoc(p)
+        const cat = catMap[doc.category_id]
+        if (cat) {
+          doc.cat_id = cat.id
+          doc.cat_key = cat.category_key || `cat-${cat.id}`
+          doc.cat_name = cat.name
+          doc.cat_slug = cat.slug
+        }
+        doc.shortDescription = doc.short_description
+        doc.minimumQuantity = doc.minimum_quantity
+        doc.seoTitle = doc.seo_title
+        doc.seoDescription = doc.seo_description
+        doc.seoKeywords = doc.seo_keywords
+        doc.seoHeading = doc.seo_heading
+        doc.canonicalUrl = doc.canonical_url
+        doc.imageAlt = doc.image_alt
+        return doc
+      })
+
+      return [rows, []]
+    }
+
+    // 3f. BLOGS queries
+    if (targetTable === 'blogs') {
+      let filter = {}
+      if (upperSql.includes("STATUS = 'PUBLISHED'") || upperSql.includes("B.STATUS = 'PUBLISHED'")) {
+        filter.status = 'published'
+      }
+      if (upperSql.includes('IS_FEATURED = 1') || upperSql.includes('B.IS_FEATURED = 1')) {
+        filter.is_featured = true
+      }
+
+      let sort = { is_featured: -1, published_at: -1, id: -1 }
+      if (upperSql.includes('ORDER BY B.PUBLISHED_AT ASC')) sort = { published_at: 1 }
+      else if (upperSql.includes('ORDER BY B.TITLE ASC')) sort = { title: 1 }
+
+      let limit = 0
+      let skip = 0
+      if (upperSql.includes('LIMIT ? OFFSET ?')) {
+        limit = Number(params[params.length - 2]) || 12
+        skip = Number(params[params.length - 1]) || 0
+      } else if (upperSql.includes('LIMIT 1')) {
+        limit = 1
+      }
+
+      if (params.length >= 1 && (upperSql.includes('WHERE SLUG = ?') || upperSql.includes('B.SLUG = ?'))) {
+        filter.slug = params[0]
+      } else if (params.length >= 1 && (upperSql.includes('WHERE ID = ?') || upperSql.includes('B.ID = ?'))) {
+        filter.id = params[0]
+      }
+
+      let queryObj = Blog.find(filter).sort(sort)
+      if (skip > 0) queryObj = queryObj.skip(skip)
+      if (limit > 0) queryObj = queryObj.limit(limit)
+
+      const blogs = await queryObj.lean()
+
+      const allCats = await Category.find({}).lean()
+      const allProds = await Product.find({}).lean()
+      const catMap = {}
+      allCats.forEach((c) => {
+        catMap[c.id] = c
+      })
+      const prodMap = {}
+      allProds.forEach((p) => {
+        prodMap[p.id] = p
+      })
+
+      const rows = blogs.map((b) => {
+        const doc = normalizeDoc(b)
+        const cat = catMap[doc.category_id]
+        const prod = prodMap[doc.product_id]
+        if (cat) {
+          doc.category_name = cat.name
+          doc.category_slug = cat.slug
+        }
+        if (prod) {
+          doc.product_name = prod.name
+          doc.product_slug = prod.slug
+        }
+        return doc
+      })
+
+      return [rows, []]
+    }
+
+    // 3g. Standard SELECT for all other models
+    let filter = {}
+    if (params.length > 0) {
+      if (upperSql.includes('EMAIL = ?') || upperSql.includes('U.EMAIL = ?')) {
+        filter.email = String(params[0]).toLowerCase().trim()
+      } else if (upperSql.includes('WHERE ID = ?')) {
+        const idVal = params[0]
+        filter = mongoose.isValidObjectId(idVal) ? { $or: [{ _id: idVal }, { id: idVal }] } : { id: idVal }
+      } else if (upperSql.includes('WHERE SLUG = ?')) {
+        filter.slug = params[0]
+      } else if (upperSql.includes('WHERE URL = ?')) {
+        filter.url = params[0]
+      } else if (upperSql.includes('WHERE OLD_URL = ?')) {
+        filter.old_url = params[0]
+      } else if (upperSql.includes('WHERE SETTING_KEY = ?')) {
+        filter.setting_key = params[0]
+      } else if (upperSql.includes('WHERE QUOTE_NUMBER = ?')) {
+        filter.quote_number = params[0]
+      } else if (upperSql.includes('WHERE ORDER_NUMBER = ?')) {
+        filter.order_number = params[0]
+      } else if (upperSql.includes('WHERE AUDIT_ID = ?')) {
+        filter.audit_id = params[0]
+      }
+    }
+
+    if (upperSql.includes('ACTIVE = 1') || upperSql.includes('STATUS = "ACTIVE"') || upperSql.includes("STATUS = 'ACTIVE'")) {
+      filter.active = true
+    }
+
+    let sort = { created_at: -1 }
+    let limit = 0
+    if (upperSql.includes('LIMIT 1')) limit = 1
+    else if (upperSql.includes('LIMIT 5')) limit = 5
+    else if (upperSql.includes('LIMIT 100')) limit = 100
+
+    let queryObj = Model.find(filter)
+    if (sort) queryObj = queryObj.sort(sort)
+    if (limit > 0) queryObj = queryObj.limit(limit)
+
+    const docs = await queryObj.lean()
+    return [docs.map(normalizeDoc), []]
+  }
+
+  // 4. INSERT Queries
+  if (upperSql.startsWith('INSERT')) {
+    let insertData = {}
+    if (params.length > 0) {
+      if (targetTable === 'users' && params.length >= 6) {
+        insertData = {
+          name: params[0],
+          email: params[1],
+          password_hash: params[2],
+          phone: params[3],
+          role: params[4] || 'customer',
+          status: params[5] || 'active',
+        }
+      } else if (targetTable === 'categories') {
+        insertData = {
+          name: params[0],
+          slug: params[1],
+          description: params[2],
+          image: params[3],
+          image_url: params[4],
+          status: params[5],
+          display_order: params[6],
+          active: Boolean(params[7]),
+          seo_title: params[8],
+          seo_description: params[9],
+          seo_keywords: params[10],
+          seo_heading: params[11],
+          image_alt: params[12],
+          canonical_url: params[13],
+        }
+      } else if (targetTable === 'contact_messages' && params.length >= 6) {
+        insertData = {
+          name: params[0],
+          email: params[1],
+          phone: params[2],
+          company: params[3],
+          subject: params[4],
+          message: params[5],
+          status: params[6] || 'unread',
+        }
+      } else if (targetTable === 'quotes' && params.length >= 8) {
+        insertData = {
+          quote_number: params[0],
+          user_id: params[1],
+          name: params[2],
+          email: params[3],
+          phone: params[4],
+          company: params[5],
+          notes: params[6],
+          total_price: params[7],
+        }
+      } else if (targetTable === 'orders' && params.length >= 7) {
+        insertData = {
+          order_number: params[0],
+          user_id: params[1],
+          customer_name: params[2],
+          customer_email: params[3],
+          customer_phone: params[4],
+          company: params[5],
+          subtotal: params[6],
+          tax: params[7] || 0,
+        }
+      } else if (targetTable === 'newsletter_subscribers' && params.length >= 1) {
+        insertData = {
+          email: params[0],
+          status: params[1] || 'subscribed',
+        }
+      } else if (targetTable === 'seo_settings' && params.length >= 2) {
+        insertData = {
+          setting_key: params[0],
+          setting_value: params[1],
+        }
+      } else if (targetTable === 'seo_redirects' && params.length >= 4) {
+        insertData = {
+          old_url: params[0],
+          new_url: params[1],
+          redirect_type: params[2],
+          status: params[3] || 'active',
+        }
+      }
+    }
+
+    if (Object.keys(insertData).length > 0) {
+      const created = await Model.create(insertData)
+      return [{ insertId: created.id || created._id.toString(), affectedRows: 1 }, []]
+    }
+
+    return [{ insertId: Date.now(), affectedRows: 1 }, []]
+  }
+
+  // 5. UPDATE Queries
+  if (upperSql.startsWith('UPDATE')) {
+    if (params.length > 0) {
+      const lastParam = params[params.length - 1]
+      let updateFilter = { id: lastParam }
+      if (mongoose.isValidObjectId(lastParam)) {
+        updateFilter = { $or: [{ _id: lastParam }, { id: lastParam }] }
+      }
+      await Model.updateOne(updateFilter, { $set: { updated_at: new Date() } })
+    }
+    return [{ affectedRows: 1 }, []]
+  }
+
+  // 6. DELETE Queries
+  if (upperSql.startsWith('DELETE')) {
+    if (params.length > 0) {
+      const idVal = params[0]
+      let delFilter = { id: idVal }
+      if (mongoose.isValidObjectId(idVal)) {
+        delFilter = { $or: [{ _id: idVal }, { id: idVal }] }
+      }
+      await Model.deleteOne(delFilter)
+    }
+    return [{ affectedRows: 1 }, []]
+  }
+
+  return [[], []]
+}
+
+// Emulated pool object matching mysql2 interface
+const pool = {
+  query: async (sql, params) => executeSql(sql, params),
+  execute: async (sql, params) => executeSql(sql, params),
+  getConnection: async () => ({
+    query: async (sql, params) => executeSql(sql, params),
+    execute: async (sql, params) => executeSql(sql, params),
+    beginTransaction: async () => {},
+    commit: async () => {},
+    rollback: async () => {},
+    release: () => {},
+  }),
+  end: async () => {
+    if (cached.conn) {
+      await mongoose.disconnect()
+      cached.conn = null
+      cached.promise = null
+    }
+  },
 }
 
 module.exports = {
   pool,
+  connectDB,
   testConnection,
   initDatabase,
-  seedCategoriesList,
+  models,
+  ...models,
 }

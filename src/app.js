@@ -664,20 +664,20 @@ function createApp() {
       if (rows && rows.length > 0) {
         return res.status(200).json({
           success: true,
-          database: 'MySQL',
+          database: 'MongoDB Atlas',
           connected: true,
         })
       }
       return res.status(500).json({
         success: false,
-        database: 'MySQL',
+        database: 'MongoDB Atlas',
         connected: false,
         error: 'Database connection failed',
       })
     } catch {
       return res.status(500).json({
         success: false,
-        database: 'MySQL',
+        database: 'MongoDB Atlas',
         connected: false,
         error: 'Database connection failed',
       })

@@ -22,6 +22,7 @@ const { authenticateToken, requireAdmin } = require('../middleware/auth')
 const router = express.Router()
 
 router.get('/dashboard', authenticateToken, requireAdmin, getAdminDashboardMetrics)
+router.get('/metrics', authenticateToken, requireAdmin, getAdminDashboardMetrics)
 
 // Admin Blogs Endpoints: /api/admin/blogs/...
 const adminBlogRouter = express.Router()

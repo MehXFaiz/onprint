@@ -14,4 +14,6 @@ uploads/
 *.backup*
 *.godaddy_mysql_backup
 *.godaddy_mysql_backup*
+backups/
+
 

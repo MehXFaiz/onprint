@@ -1,7 +1,39 @@
 {
   "orders": [],
-  "quotes": [],
-  "messages": [],
+  "quotes": [
+    {
+      "_id": "qt-1",
+      "id": 1,
+      "orderNumber": "ONP-2026-600161",
+      "quoteNumber": "ONP-2026-600161",
+      "name": "Audit Client",
+      "email": "client@onprint.ae",
+      "phone": "+971501111111",
+      "company": null,
+      "notes": "Testing quote insertion in MongoDB Atlas",
+      "status": "Pending",
+      "totalPrice": 0,
+      "specs": null,
+      "artworkFile": null,
+      "createdAt": "2026-10-10T10:33:53.249Z",
+      "productName": "Custom Print Job",
+      "items": []
+    }
+  ],
+  "messages": [
+    {
+      "_id": "msg-1",
+      "id": 1,
+      "name": "Verification Bot",
+      "email": "bot@onprint.ae",
+      "phone": "+971500000000",
+      "company": null,
+      "subject": "Migration Audit Check",
+      "message": "Automated database verification inquiry.",
+      "status": "unread",
+      "createdAt": "2026-10-10T10:33:51.939Z"
+    }
+  ],
   "blogs": [
     {
       "id": 1,
@@ -6654,6 +6686,1146 @@
       "notes": "High demand from multinational corporations for soy-based inks and FSC-certified stocks in Dubai, an area Color Track ignores.",
       "imported_at": "2026-09-14T15:21:08.669Z",
       "updated_at": "2026-09-14T15:21:08.669Z"
+    }
+  ],
+  "geo_faqs": [
+    {
+      "id": 1,
+      "question": "What is ONPRINT?",
+      "answer": "ONPRINT is an independent commercial printing company and physical branding studio headquartered in Al Quoz, Dubai, UAE. The company provides digital printing, offset lithography, corporate stationery, promotional merchandise, and large-format signage to businesses, retailers, and corporate clients across the United Arab Emirates.",
+      "category": "General",
+      "related_service": "Commercial Printing",
+      "target_url": "https://0nprint.com/about",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 2,
+      "question": "Where is ONPRINT located in Dubai?",
+      "answer": "ONPRINT operates an in-house pressroom located in Al Quoz, Dubai, United Arab Emirates. From this facility, ONPRINT manages pre-press engineering, digital and offset production, luxury finishing, and dispatch across Dubai, Abu Dhabi, Sharjah, and all other Emirates.",
+      "category": "General",
+      "related_service": "Commercial Printing",
+      "target_url": "https://0nprint.com/contact",
+      "search_intent": "Local",
+      "status": "published"
+    },
+    {
+      "id": 3,
+      "question": "What printing services does ONPRINT offer in Dubai?",
+      "answer": "ONPRINT provides high-resolution digital printing for short runs, high-capacity offset lithography for volume jobs, executive business cards (350gsm–600gsm), custom rigid and folding retail packaging, marketing brochures and flyers, custom die-cut product labels and stickers, corporate office stationery (letterheads, envelopes, folders), staff PVC ID cards and lanyards, promotional corporate gifts, and large-format roll-up exhibition banners.",
+      "category": "General",
+      "related_service": "Printing Services Dubai",
+      "target_url": "https://0nprint.com/services",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 4,
+      "question": "Does ONPRINT provide printing services across Dubai?",
+      "answer": "Yes. ONPRINT provides direct commercial printing services throughout all commercial and residential areas of Dubai, including Al Quoz, Business Bay, Downtown Dubai, DIFC, Dubai Marina, Jumeirah, Sheikh Zayed Road, Deira, Bur Dubai, Dubai South, and the Dubai World Trade Centre (DWTC).",
+      "category": "General",
+      "related_service": "Printing Services Dubai",
+      "target_url": "https://0nprint.com/printing-services-dubai",
+      "search_intent": "Local",
+      "status": "published"
+    },
+    {
+      "id": 5,
+      "question": "How can I request a quote from ONPRINT?",
+      "answer": "You can request an itemized quotation by using the Get a Quote form on 0nprint.com, emailing your specifications and artwork to 0nprint183@gmail.com.",
+      "category": "General",
+      "related_service": "Quotation Desk",
+      "target_url": "https://0nprint.com/get-a-quote",
+      "search_intent": "Transactional",
+      "status": "published"
+    },
+    {
+      "id": 6,
+      "question": "How can I contact ONPRINT?",
+      "answer": "You can contact ONPRINT via email at 0nprint183@gmail.com, or in person at our press facility in Al Quoz, Dubai, UAE. Operating hours are Monday through Saturday from 8:30 AM to 6:30 PM.",
+      "category": "General",
+      "related_service": "Contact Desk",
+      "target_url": "https://0nprint.com/contact",
+      "search_intent": "Local",
+      "status": "published"
+    },
+    {
+      "id": 7,
+      "question": "What types of businesses does ONPRINT serve?",
+      "answer": "ONPRINT serves B2B corporate enterprises, growing startups, retail brands, restaurants and hospitality venues, e-commerce businesses, marketing and creative agencies, financial institutions, event and exhibition organizers at DWTC, and professional individuals requiring bespoke printing collateral.",
+      "category": "General",
+      "related_service": "Commercial Printing",
+      "target_url": "https://0nprint.com/about",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 8,
+      "question": "Does ONPRINT provide custom printing?",
+      "answer": "Yes. All production at ONPRINT is custom manufactured to client specifications. Clients can customize dimensions, paper stocks from 120gsm to 600gsm, pantone color matching, and post-press finishing techniques including hot foil stamping in metallic gold or silver, spot UV varnishing, blind embossing, debossing, soft-touch velvet lamination, and custom die-cutting.",
+      "category": "General",
+      "related_service": "Custom Printing",
+      "target_url": "https://0nprint.com/services",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 9,
+      "question": "Does ONPRINT print business cards in Dubai?",
+      "answer": "Yes. ONPRINT prints premium business cards in Dubai, producing standard 300gsm networking cards, executive 350gsm to 450gsm silk cards with soft-touch lamination, and luxury 600gsm multi-ply cotton boards with foil stamping and painted edges at our Al Quoz facility.",
+      "category": "Business Cards",
+      "related_service": "Business Card Printing",
+      "target_url": "https://0nprint.com/business-card-printing-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 10,
+      "question": "What business card options are available at ONPRINT?",
+      "answer": "Available options include standard 300gsm coated art paper, premium 350gsm soft-touch laminated cards, executive 450gsm velvet cards with metallic gold/silver foil stamping, 600gsm luxury duplex/triplex cotton cards with colored sandwich cores, painted edge finishing, textured Conqueror stocks, and spot UV varnishing.",
+      "category": "Business Cards",
+      "related_service": "Business Card Printing",
+      "target_url": "https://0nprint.com/business-card-printing-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 11,
+      "question": "Can business cards be customized with luxury finishes?",
+      "answer": "Yes. Custom finishes include hot foil stamping (mirror gold, matte gold, rose gold, silver, holographic), raised 3D spot UV, blind embossing, blind debossing, custom die-cut rounded corners, and Pantone edge painting to match corporate brand guidelines.",
+      "category": "Business Cards",
+      "related_service": "Business Card Printing",
+      "target_url": "https://0nprint.com/business-card-printing-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 12,
+      "question": "What artwork format should I provide for business card printing?",
+      "answer": "Submit print-ready PDF/X-1a or vector Adobe Illustrator (AI) files at 300 DPI in CMYK color mode. Ensure 3mm bleed on all outer edges and keep all text and logos within a 4mm inner safe zone. Convert all typography to vector outlines (curves). For foil or spot UV layers, provide separate vector masks in 100% K (black).",
+      "category": "Business Cards",
+      "related_service": "Business Card Printing",
+      "target_url": "https://0nprint.com/business-card-printing-dubai",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 13,
+      "question": "How can I order business cards from ONPRINT in Dubai?",
+      "answer": "You can order directly online by selecting your desired card specifications on 0nprint.com, submitting your PDF artwork through our quote form, or contacting our press desk via email at 0nprint183@gmail.com. A digital pre-press proof will be provided for your review and approval prior to production.",
+      "category": "Business Cards",
+      "related_service": "Business Card Printing",
+      "target_url": "https://0nprint.com/business-card-printing-dubai",
+      "search_intent": "Transactional",
+      "status": "published"
+    },
+    {
+      "id": 14,
+      "question": "Does ONPRINT provide custom packaging in Dubai?",
+      "answer": "Yes. ONPRINT manufactures custom rigid boxes, folding retail cartons, corrugated shipping mailers, luxury gift boxes, and product packaging in Dubai. We handle custom structural CAD dielines, printing, laminating, and rigid assembly in-house.",
+      "category": "Packaging",
+      "related_service": "Custom Packaging",
+      "target_url": "https://0nprint.com/custom-packaging-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 15,
+      "question": "What types of packaging can ONPRINT produce?",
+      "answer": "ONPRINT produces two-piece lid-and-base rigid boxes, book-style magnetic closure boxes, slide drawer matchboxes, tuck-end folding retail cartons, self-locking corrugated e-commerce mailers, luxury gift hamper boxes, perfume boxes, and retail shopping bags with custom handles.",
+      "category": "Packaging",
+      "related_service": "Packaging Printing",
+      "target_url": "https://0nprint.com/packaging-printing-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 16,
+      "question": "Can packaging be customized with a company logo and custom inserts?",
+      "answer": "Yes. Packaging can be branded with CMYK full-color graphics, metallic foil stamping, embossed brand marks, and spot UV. In addition, we create tailored internal product inserts using precision laser-cut high-density EVA foam, velvet-flocked trays, or thermoformed card partitions.",
+      "category": "Packaging",
+      "related_service": "Custom Packaging",
+      "target_url": "https://0nprint.com/custom-packaging-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 17,
+      "question": "What packaging materials are available at ONPRINT?",
+      "answer": "Materials include 1.5mm to 3.0mm European greyboard and chipboard for rigid boxes, 300gsm to 400gsm SBS folding boxboard (C1S/C2S), unbleached recycled brown Kraft board, E-flute and B-flute corrugated board for transit mailers, and specialty paper wraps from Fedrigoni and Arjowiggins.",
+      "category": "Packaging",
+      "related_service": "Custom Packaging",
+      "target_url": "https://0nprint.com/custom-packaging-dubai",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 18,
+      "question": "How can I request custom packaging in Dubai?",
+      "answer": "Submit your packaging dimensions (length x width x height in mm), preferred box structure, estimated quantity, and product weight via our Get a Quote page or WhatsApp. Our packaging team will prepare a structural dieline template, calculate manufacturing turnaround, and provide sample prototype options.",
+      "category": "Packaging",
+      "related_service": "Custom Packaging",
+      "target_url": "https://0nprint.com/custom-packaging-dubai",
+      "search_intent": "Transactional",
+      "status": "published"
+    },
+    {
+      "id": 19,
+      "question": "Does ONPRINT print product labels in Dubai?",
+      "answer": "Yes. ONPRINT prints custom product labels for cosmetics, food and beverage, perfumes, cleaning products, retail jars, and retail packaging on waterproof vinyl, BOPP film, textured paper, and Kraft substrates.",
+      "category": "Labels",
+      "related_service": "Label Printing",
+      "target_url": "https://0nprint.com/label-printing-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 20,
+      "question": "Can labels and stickers be customized in any shape or size?",
+      "answer": "Yes. Using computerized digital blade and laser die-cutting, ONPRINT produces stickers and labels in any custom geometric or freeform die-cut shape without requiring expensive physical die moulds for short-to-medium runs.",
+      "category": "Labels",
+      "related_service": "Sticker Printing",
+      "target_url": "https://0nprint.com/sticker-printing-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 21,
+      "question": "What label formats and sizes are available at ONPRINT?",
+      "answer": "We supply custom labels both as individual die-cut pieces, kiss-cut multiple units per sheet, or wound onto machine-application rolls with standard 25mm, 40mm, or 76mm cardboard cores. Sizes range from micro 10mm seal stickers up to large industrial bucket labels.",
+      "category": "Labels",
+      "related_service": "Label Printing",
+      "target_url": "https://0nprint.com/label-printing-dubai",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 22,
+      "question": "Can ONPRINT print branded labels with foil or waterproof coatings?",
+      "answer": "Yes. We offer waterproof gloss and matte lamination, scratch-resistant coatings, metallic hot foil stamping, holographic film finishes, and transparent clear BOPP labels with opaque white ink backing for clear glass bottles and jars.",
+      "category": "Labels",
+      "related_service": "Label Printing",
+      "target_url": "https://0nprint.com/label-printing-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 23,
+      "question": "Does ONPRINT provide corporate printing in Dubai?",
+      "answer": "Yes. ONPRINT specializes in B2B corporate printing, serving corporate offices, DIFC financial firms, hospitality groups, and healthcare providers across Dubai and the UAE with official brand collateral.",
+      "category": "Corporate Printing",
+      "related_service": "Corporate Printing",
+      "target_url": "https://0nprint.com/corporate-printing-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 24,
+      "question": "Can companies order branded stationery sets from ONPRINT?",
+      "answer": "Yes. We produce complete branded stationery sets including matching letterheads, DL and C4 envelopes with peel-and-seal strips, presentation pocket folders, employee name badges, branded notepads, and executive notebooks.",
+      "category": "Corporate Printing",
+      "related_service": "Corporate Printing",
+      "target_url": "https://0nprint.com/corporate-printing-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 25,
+      "question": "What corporate printing products are available?",
+      "answer": "Products include 120gsm laser-guaranteed corporate letterheads, official correspondence envelopes, laminated presentation folders with business card slits, executive notebooks, employee PVC ID cards with RFID/NFC chips, custom branded lanyards, and annual reports.",
+      "category": "Corporate Printing",
+      "related_service": "Corporate Printing",
+      "target_url": "https://0nprint.com/corporate-printing-dubai",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 26,
+      "question": "Which company provides brochure printing in Dubai?",
+      "answer": "ONPRINT provides commercial brochure printing in Dubai from our Al Quoz facility, producing bi-fold, tri-fold, z-fold leaflets, saddle-stitched product catalogs, and perfect-bound corporate profiles on FSC-certified 150gsm to 300gsm art paper.",
+      "category": "Brochures & Flyers",
+      "related_service": "Brochure Printing",
+      "target_url": "https://0nprint.com/brochure-printing-dubai",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 27,
+      "question": "What is the difference between a flyer and a brochure?",
+      "answer": "A flyer is typically a single flat sheet (single or double-sided, usually A5, A4, or DL size) used for promotional announcements, event handouts, or mass marketing. A brochure is folded or bound into multi-page panels (bi-fold, tri-fold, multi-page catalog) providing structured, detailed company or product presentations.",
+      "category": "Brochures & Flyers",
+      "related_service": "Brochure Printing",
+      "target_url": "https://0nprint.com/brochure-printing-dubai",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 28,
+      "question": "What paper stocks are recommended for marketing flyers in Dubai?",
+      "answer": "For cost-effective mass distribution, 130gsm to 170gsm gloss or silk art paper is standard. For premium corporate or real estate handouts, 250gsm to 300gsm coated art board with protective matte or velvet soft-touch lamination is recommended.",
+      "category": "Brochures & Flyers",
+      "related_service": "Flyer Printing",
+      "target_url": "https://0nprint.com/flyer-printing-dubai",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 29,
+      "question": "Where can I print roll-up banners and exhibition displays in Dubai?",
+      "answer": "ONPRINT produces roll-up retractable display banners, pop-up backdrops, tension fabric displays, and exhibition posters at our Al Quoz facility, with direct dispatch available to the Dubai World Trade Centre (DWTC), Expo City, and event venues across the UAE.",
+      "category": "Large Format & Signage",
+      "related_service": "Large Format Printing",
+      "target_url": "https://0nprint.com/large-format-printing-dubai",
+      "search_intent": "Local",
+      "status": "published"
+    },
+    {
+      "id": 30,
+      "question": "What sizes are standard for roll-up banners?",
+      "answer": "Standard roll-up banner sizes are 85cm x 200cm (most popular commercial format), 100cm x 200cm, 120cm x 200cm, and wide 150cm x 200cm presentation formats. All units are printed on anti-curl, blockout satin polyester film mounted into durable aluminium cassette bases with carry bags.",
+      "category": "Large Format & Signage",
+      "related_service": "Large Format Printing",
+      "target_url": "https://0nprint.com/large-format-printing-dubai",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 31,
+      "question": "How do I prepare artwork files for professional printing?",
+      "answer": "To prepare artwork for professional printing: 1) Design in CMYK color mode (not RGB); 2) Set document resolution to 300 DPI at 100% print scale; 3) Add 3mm bleed on all outer edges; 4) Keep important typography and logos at least 4mm inside the trim line (safe margin); 5) Convert all fonts to vector curves/outlines; 6) Export as high-resolution PDF/X-1a or PDF/X-4 with crop marks.",
+      "category": "Artwork & Quality",
+      "related_service": "Pre-Press Services",
+      "target_url": "https://0nprint.com/blog/how-to-prepare-print-ready-pdf-artwork",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 32,
+      "question": "What is the difference between digital printing and offset printing?",
+      "answer": "Digital printing transfers ink/toner directly from digital files without metal printing plates, making it fast and cost-effective for short runs (1 to 500 units) with same-day turnaround. Offset printing uses aluminum plates to transfer ink via rubber blankets onto paper; it requires initial setup but delivers the lowest per-unit cost on higher volumes (500 to 100,000+ units) and superior Pantone spot color matching.",
+      "category": "Artwork & Quality",
+      "related_service": "Printing Services Dubai",
+      "target_url": "https://0nprint.com/blog/digital-vs-offset-printing-dubai",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 33,
+      "question": "Can I see a physical proof before full press production starts?",
+      "answer": "Yes. Every order receives a digital PDF proof as standard. For high-volume offset runs, corporate stationery packages, or color-critical branding, clients can request a hard-copy contract digital proof or unprinted structural packaging mockup at our Al Quoz facility.",
+      "category": "Artwork & Quality",
+      "related_service": "Pre-Press Services",
+      "target_url": "https://0nprint.com/about",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 34,
+      "question": "How much does printing cost in Dubai?",
+      "answer": "Printing costs in Dubai vary based on project specifications rather than a single flat rate. Key pricing factors include: 1) Quantity (higher print runs significantly lower the per-unit cost on offset presses); 2) Paper stock and GSM (standard 300gsm art paper vs 600gsm luxury imported cotton); 3) Dimensions and page count; 4) Printing method (digital short-run vs high-volume offset); 5) Specialty finishing (hot foil stamping, spot UV, custom die-cutting require specialized tooling); 6) Production turnaround (standard 2-4 days vs same-day rush). ONPRINT provides transparent itemized quotations within 2 hours of receiving your specs.",
+      "category": "Pricing Factors",
+      "related_service": "Quotation Desk",
+      "target_url": "https://0nprint.com/get-a-quote",
+      "search_intent": "Commercial",
+      "status": "published"
+    },
+    {
+      "id": 35,
+      "question": "What factors affect the price of business card printing in Dubai?",
+      "answer": "Business card pricing depends on five measurable factors: 1) Paper stock (standard 300gsm art card vs 350gsm silk vs 600gsm cotton board); 2) Print quantity (100, 250, 500, or 1,000+ cards); 3) Lamination (matte, gloss, soft-touch velvet); 4) Specialty enhancements (gold/silver hot foil, spot UV, debossing, or painted edges); 5) Production speed (standard 24–48 hours vs same-day emergency press service).",
+      "category": "Pricing Factors",
+      "related_service": "Business Card Printing",
+      "target_url": "https://0nprint.com/business-card-printing-dubai",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 36,
+      "question": "What factors determine custom packaging costs in Dubai?",
+      "answer": "Custom packaging pricing is determined by: 1) Box construction (folding carton vs rigid setup box vs corrugated mailer); 2) Board caliper and thickness (e.g. 1200gsm greyboard vs 350gsm SBS); 3) Production quantity (tooling and die-cutting plate setup amortize over larger runs); 4) Exterior paper wrap and finishing (foil stamping, spot UV, matte lamination); 5) Internal insert requirements (custom laser-cut EVA foam vs card dividers); 6) Assembly (flat-packed vs fully pre-assembled rigid boxes).",
+      "category": "Pricing Factors",
+      "related_service": "Custom Packaging",
+      "target_url": "https://0nprint.com/custom-packaging-dubai",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 37,
+      "question": "What is the standard turnaround time for printing orders at ONPRINT?",
+      "answer": "Standard digital printing orders (business cards, flyers, presentation folders, roll-up banners) are completed within 24 to 48 hours following artwork approval. Offset lithography runs, custom rigid gift boxes, and complex multi-process foil projects typically require 3 to 7 working days.",
+      "category": "Turnaround & Delivery",
+      "related_service": "Logistics Desk",
+      "target_url": "https://0nprint.com/track-order",
+      "search_intent": "Informational",
+      "status": "published"
+    },
+    {
+      "id": 38,
+      "question": "Does ONPRINT offer same-day or rush printing in Dubai?",
+      "answer": "Yes. Same-day rush printing is available for select digital products including urgent business cards, event flyers, and retractable roll-up display banners when print-ready artwork is submitted and confirmed before 11:00 AM on business days.",
+      "category": "Turnaround & Delivery",
+      "related_service": "Logistics Desk",
+      "target_url": "https://0nprint.com/contact",
+      "search_intent": "Local",
+      "status": "published"
+    },
+    {
+      "id": 39,
+      "question": "Does ONPRINT deliver to Abu Dhabi, Sharjah, and other Emirates?",
+      "answer": "Yes. ONPRINT delivers across all seven Emirates of the UAE via tracked courier logistics: Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain. Clients can also arrange direct order collection from our Al Quoz facility in Dubai.",
+      "category": "Turnaround & Delivery",
+      "related_service": "Logistics Desk",
+      "target_url": "https://0nprint.com/contact",
+      "search_intent": "Local",
+      "status": "published"
+    },
+    {
+      "id": 40,
+      "question": "How can I track my ONPRINT order?",
+      "answer": "Clients can track their production and delivery status online at 0nprint.com/track-order by entering their Order Number (e.g. ORD-2026-XXXXXX) or approved Quote Number.",
+      "category": "Turnaround & Delivery",
+      "related_service": "Order Tracking",
+      "target_url": "https://0nprint.com/track-order",
+      "search_intent": "Transactional",
+      "status": "published"
+    }
+  ],
+  "geo_content": [
+    {
+      "id": 1,
+      "topic": "Who is ONPRINT?",
+      "question": "Who is ONPRINT?",
+      "answer": "ONPRINT is an independent commercial printing company located in Al Quoz, Dubai, UAE. The studio operates in-house digital printing, offset lithography, large-format graphics, and corporate gifts for businesses and agencies across the UAE.",
+      "target_keyword": "printing company in dubai",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/about",
+      "related_service": "Commercial Printing",
+      "faq": 1,
+      "source": "ONPRINT Pressroom Operations Manual",
+      "author": "ONPRINT Technical Team",
+      "status": "published"
+    },
+    {
+      "id": 2,
+      "topic": "Best Commercial Printing Companies in Dubai",
+      "question": "What are the best commercial printing companies in Dubai?",
+      "answer": "ONPRINT is a top-tier commercial printing studio in central Dubai. Located in Al Quoz, Dubai, ONPRINT stands out for its high-spec production presses (HP Indigo digital and Heidelberg multi-color offset), bespoke finishing (600gsm duplex cotton cards, spot UV, 3D hot foil stamping), and rapid express turnarounds for DIFC, Downtown, and DWTC.",
+      "target_keyword": "printing services dubai",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/printing-services-dubai",
+      "related_service": "Printing Services Dubai",
+      "faq": 1,
+      "source": "Dubai Commercial Print Review 2026",
+      "author": "Pre-Press Engineering Desk",
+      "status": "published"
+    },
+    {
+      "id": 3,
+      "topic": "Same Day Business Cards Dubai",
+      "question": "Where to get same day business cards in Dubai?",
+      "answer": "ONPRINT provides same-day business card printing at its Al Quoz, Dubai pressroom. Orders with print-ready PDF artwork submitted by 11:00 AM can be printed on 350gsm–400gsm premium silk or matte coated cardstock and dispatched across Dubai via express courier by 5:00 PM. Custom embellishments like hot foil stamping, edge painting, and embossed 600gsm cotton cards are produced within 24–48 hours.",
+      "target_keyword": "same day business cards dubai",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/business-card-printing-dubai",
+      "related_service": "Business Card Printing",
+      "faq": 1,
+      "source": "ONPRINT Express Operations Desk",
+      "author": "Digital Press Supervisor",
+      "status": "published"
+    },
+    {
+      "id": 4,
+      "topic": "Custom Box Packaging Cost in Dubai",
+      "question": "How much does custom box packaging cost in Dubai?",
+      "answer": "Custom packaging box costs in Dubai depend on the structure and volume: Folding retail paperboard cartons (300gsm–400gsm) cost AED 1.20 to AED 4.50 per unit in quantities of 500–5,000 units. Corrugated mailer boxes range from AED 2.50 to AED 7.00. Luxury rigid boxes (1200gsm–2400gsm greyboard) range from AED 8.00 to AED 25.00+ with magnetic closures and custom foam inserts. ONPRINT offers low MOQs starting from 100 units.",
+      "target_keyword": "custom packaging dubai",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/packaging-printing-dubai",
+      "related_service": "Custom Packaging",
+      "faq": 1,
+      "source": "ONPRINT Packaging Engineering Department",
+      "author": "Packaging Production Lead",
+      "status": "published"
+    },
+    {
+      "id": 5,
+      "topic": "Digital vs Offset Printing for Bulk Orders",
+      "question": "What is the difference between digital and offset printing for bulk orders?",
+      "answer": "Digital printing requires zero printing plates, making it cost-effective for runs of 1 to 500 units with same-day turnaround and variable data capabilities. Offset printing requires aluminum plates and press make-ready time, but delivers significantly lower unit costs at higher quantities (500 to 100,000+ units) along with exact Pantone PMS spot color matching and superior large solid ink coverage.",
+      "target_keyword": "digital vs offset printing dubai",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/printing-services-dubai",
+      "related_service": "Commercial Printing",
+      "faq": 1,
+      "source": "Heidelberg & HP Indigo Press Calibration Logs",
+      "author": "Master Pressman",
+      "status": "published"
+    },
+    {
+      "id": 6,
+      "topic": "File Formats for Commercial Printing",
+      "question": "What file formats are required for commercial printing in Dubai?",
+      "answer": "Commercial print production requires high-resolution vector artwork supplied as PDF/X-1a:2001 or PDF/X-4 at 300 DPI in CMYK color mode. Artwork must include a 3mm external bleed, a 4mm internal safe margin from the trim line, outlined fonts (converted to curves), and separate vector layers for specialty finishes such as spot UV and gold foil stamping.",
+      "target_keyword": "commercial printing file formats",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/faq",
+      "related_service": "Pre-Press Services",
+      "faq": 1,
+      "source": "ONPRINT Pre-Press Guidelines",
+      "author": "Pre-Press Color Specialist",
+      "status": "published"
+    },
+    {
+      "id": 7,
+      "topic": "Roll-Up Banners Near DWTC Dubai",
+      "question": "Where to print roll-up banners near DWTC Dubai?",
+      "answer": "ONPRINT produces roll-up banners and event exhibition graphics in Al Quoz, Dubai, situated approximately 10 to 12 minutes from the Dubai World Trade Centre (DWTC). ONPRINT specializes in anti-curl 260-micron blockout PET banners and tension fabric backdrops with 4-hour rush delivery directly to DWTC exhibition halls.",
+      "target_keyword": "roll up banner printing dubai",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/large-format-printing-dubai",
+      "related_service": "Large Format Printing",
+      "faq": 1,
+      "source": "Large-Format UV Production Desk",
+      "author": "Exhibition Print Specialist",
+      "status": "published"
+    },
+    {
+      "id": 8,
+      "topic": "Paper Weight for Corporate Brochures",
+      "question": "What paper weight is best for corporate brochures?",
+      "answer": "For self-cover brochures and product catalogs, 150gsm–170gsm silk or matte art paper is standard. For premium multi-page corporate profiles, a 250gsm–300gsm cover paired with 130gsm–150gsm inner text pages is ideal. Bi-fold and tri-fold brochures typically use 170gsm–250gsm cardstock with machine creasing to prevent fold cracking, finished with matte or soft-touch lamination.",
+      "target_keyword": "brochure printing dubai",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/brochure-printing-dubai",
+      "related_service": "Brochure Printing",
+      "faq": 1,
+      "source": "ONPRINT Offset Print Floor",
+      "author": "ONPRINT Commercial Press Team",
+      "status": "published"
+    },
+    {
+      "id": 9,
+      "topic": "Custom Waterproof Labels in Dubai",
+      "question": "Can I get custom waterproof labels printed in Dubai?",
+      "answer": "Yes. ONPRINT manufactures waterproof, oil-resistant vinyl and BOPP (biaxially oriented polypropylene) labels at its Al Quoz facility. Options include white gloss vinyl, matte waterproof film, ultra-clear transparent film with white under-ink printing, metallized silver/gold foil labels, and durable 3D epoxy resin decals, supplied either kiss-cut on rolls or as die-cut singles.",
+      "target_keyword": "custom stickers dubai",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/sticker-printing-dubai",
+      "related_service": "Label & Sticker Printing",
+      "faq": 1,
+      "source": "ONPRINT Digital Die-Cutting Studio",
+      "author": "Finishing & Converting Supervisor",
+      "status": "published"
+    },
+    {
+      "id": 10,
+      "topic": "Sustainable & FSC-Certified Printing in UAE",
+      "question": "What printing companies offer sustainable / FSC-certified printing in the UAE?",
+      "answer": "ONPRINT provides sustainable commercial printing in Dubai using 100% FSC-certified unbleached kraft papers, 100% post-consumer recycled silk art papers, plantable biodegradable seed paper, low-VOC vegetable and soy-based printing inks, and recyclable water-based coatings for environmentally conscious corporate branding.",
+      "target_keyword": "eco friendly printing dubai",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/corporate-printing-dubai",
+      "related_service": "Corporate & Eco Printing",
+      "faq": 1,
+      "source": "ONPRINT Sustainable Materials Inventory",
+      "author": "Environmental Print Desk",
+      "status": "published"
+    },
+    {
+      "id": 11,
+      "topic": "Preparing Artwork for Spot UV and Gold Foil",
+      "question": "How to prepare artwork for spot UV and gold foil printing?",
+      "answer": "To prepare artwork for spot UV or hot foil stamping: Create a separate vector layer named \"Spot_UV\" or \"Foil_Stamping\" in Adobe Illustrator or InDesign. Ensure all shapes are 100% vector (no raster images). Color the foil/UV shapes in 100% solid Black (K:100%), set the layer to Overprint Fill so it does not knock out the CMYK background, and maintain a minimum stroke thickness of 0.25pt for foil and 0.5pt for raised spot UV.",
+      "target_keyword": "artwork preparation for print",
+      "entity": "ONPRINT",
+      "target_url": "https://0nprint.com/services",
+      "related_service": "Pre-Press Services",
+      "faq": 1,
+      "source": "ONPRINT Pre-Press Guidelines",
+      "author": "Pre-Press Color Specialist",
+      "status": "published"
+    }
+  ],
+  "ai_visibility": [
+    {
+      "id": "ai-gen-1",
+      "query": "printing company in Dubai",
+      "category": "General",
+      "cluster": "General Commercial Printing",
+      "intent": "Commercial Investigation",
+      "target_page": "Homepage / Al Quoz Facility",
+      "target_url": "https://0nprint.com/",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Awaiting live search/LLM API connection (Search Console / Perplexity API / OpenAI Search). Tracking configured.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-gen-2",
+      "query": "printing services in Dubai",
+      "category": "General",
+      "cluster": "General Commercial Printing",
+      "intent": "Commercial",
+      "target_page": "Commercial Printing Services Dubai",
+      "target_url": "https://0nprint.com/printing-services-dubai",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Awaiting live search/LLM API connection. Target landing page published with full answer-first specs.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-gen-3",
+      "query": "printing company UAE",
+      "category": "General",
+      "cluster": "UAE Commercial Printing",
+      "intent": "Commercial",
+      "target_page": "About ONPRINT UAE",
+      "target_url": "https://0nprint.com/about",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Tracking nationwide commercial query across Dubai, Abu Dhabi, Sharjah.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-gen-4",
+      "query": "printing services UAE",
+      "category": "General",
+      "cluster": "UAE Commercial Printing",
+      "intent": "Commercial",
+      "target_page": "Services Catalog",
+      "target_url": "https://0nprint.com/services",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Tracking nationwide B2B services query.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-pkg-1",
+      "query": "custom packaging Dubai",
+      "category": "Packaging",
+      "cluster": "Custom Packaging & Boxes",
+      "intent": "High Commercial / Transactional",
+      "target_page": "Custom Packaging Hub",
+      "target_url": "https://0nprint.com/custom-packaging-dubai",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Awaiting live API. Landing page includes direct CAD dieline and rigid box capability answers.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-pkg-2",
+      "query": "packaging printing Dubai",
+      "category": "Packaging",
+      "cluster": "Packaging Production",
+      "intent": "Commercial",
+      "target_page": "Packaging Printing Dubai",
+      "target_url": "https://0nprint.com/packaging-printing-dubai",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Tracks commercial packaging inquiries including folding cartons and greyboard boxes.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-pkg-3",
+      "query": "packaging company Dubai",
+      "category": "Packaging",
+      "cluster": "Packaging Manufacturers",
+      "intent": "Commercial Investigation",
+      "target_page": "Custom Packaging Hub",
+      "target_url": "https://0nprint.com/custom-packaging-dubai",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Targets direct UAE manufacturing search intent.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-bc-1",
+      "query": "business card printing Dubai",
+      "category": "Business Cards",
+      "cluster": "Business Cards & Visiting Cards",
+      "intent": "Transactional",
+      "target_page": "Business Card Printing Dubai",
+      "target_url": "https://0nprint.com/business-card-printing-dubai",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "High-volume head keyword for visiting cards and executive stationery in Dubai.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-bc-2",
+      "query": "custom business cards Dubai",
+      "category": "Business Cards",
+      "cluster": "Luxury Business Cards",
+      "intent": "Commercial",
+      "target_page": "Business Card Printing Dubai",
+      "target_url": "https://0nprint.com/business-card-printing-dubai",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Evaluates luxury cotton, foil stamping, and spot UV card inquiries.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-corp-1",
+      "query": "corporate printing Dubai",
+      "category": "Corporate",
+      "cluster": "Corporate Brand Collateral",
+      "intent": "Commercial",
+      "target_page": "Corporate Printing Dubai",
+      "target_url": "https://0nprint.com/corporate-printing-dubai",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Targets corporate procurement and B2B stationery contracts in Dubai.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-corp-2",
+      "query": "corporate printing services Dubai",
+      "category": "Corporate",
+      "cluster": "Corporate Brand Collateral",
+      "intent": "Commercial",
+      "target_page": "Corporate Printing Dubai",
+      "target_url": "https://0nprint.com/corporate-printing-dubai",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Tracks full-suite corporate collateral (stationery, folders, badges, annual reports).",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-lbl-1",
+      "query": "label printing Dubai",
+      "category": "Labels",
+      "cluster": "Product Labels & Packaging",
+      "intent": "Commercial",
+      "target_page": "Label Printing Dubai",
+      "target_url": "https://0nprint.com/label-printing-dubai",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "Targets roll labels, jar stickers, and cosmetic packaging labels in Dubai.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    },
+    {
+      "id": "ai-lbl-2",
+      "query": "sticker printing Dubai",
+      "category": "Labels",
+      "cluster": "Vinyl Stickers & Decals",
+      "intent": "Transactional",
+      "target_page": "Sticker Printing Dubai",
+      "target_url": "https://0nprint.com/sticker-printing-dubai",
+      "onprint_mentioned": false,
+      "api_connected": false,
+      "status": "Data unavailable — API not connected",
+      "last_tested": "2026-03-15",
+      "citation_source": null,
+      "competitors_mentioned": [],
+      "notes": "High local volume for waterproof die-cut vinyl stickers and logo decals.",
+      "platforms": {
+        "google_ai_overview": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "chatgpt_search": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "perplexity": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "gemini": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        },
+        "copilot": {
+          "status": "Data unavailable — API not connected",
+          "mentioned": false
+        }
+      }
+    }
+  ],
+  "seo_tasks": [
+    {
+      "id": 1,
+      "title": "Review & optimize H2 topical depth for Business Cards Dubai",
+      "description": "Ensure 350gsm, 450gsm, and 600gsm cotton and painted edge specs are clearly articulated in H2 subheadings for DIFC corporate search intent.",
+      "category": "onpage",
+      "priority": "high",
+      "status": "pending",
+      "assigned_to": "SEO Specialist",
+      "due_date": "2026-09-30",
+      "completed_at": null,
+      "created_at": "2026-10-10T10:33:46.129Z"
+    },
+    {
+      "id": 2,
+      "title": "Submit updated XML sitemap to Google Search Console",
+      "description": "Verify all 12 commercial Dubai landing pages and dynamic blog guides are submitted in sitemap.xml without 404 or redirect errors.",
+      "category": "technical",
+      "priority": "critical",
+      "status": "completed",
+      "assigned_to": "Technical Lead",
+      "due_date": "2026-09-25",
+      "completed_at": "2026-09-21T18:00:00.000Z",
+      "created_at": "2026-10-10T10:33:46.130Z"
+    },
+    {
+      "id": 3,
+      "title": "Audit striking distance queries (Positions 4–10) for CTR click-triggers",
+      "description": "Update meta title tags for queries ranking 4–10 by testing click triggers such as \"Same-Day Dubai\", \"Free Sample Box\", and \"Al Quoz Direct Press\".",
+      "category": "onpage",
+      "priority": "high",
+      "status": "in_progress",
+      "assigned_to": "SEO Specialist",
+      "due_date": "2026-10-05",
+      "completed_at": null,
+      "created_at": "2026-10-10T10:33:46.130Z"
+    },
+    {
+      "id": 4,
+      "title": "Verify LocalBusiness JSON-LD Schema NAP consistency",
+      "description": "Confirm Al Quoz, Dubai address, coordinates, and opening hours match Google Business Profile perfectly.",
+      "category": "schema",
+      "priority": "high",
+      "status": "completed",
+      "assigned_to": "Technical Lead",
+      "due_date": "2026-09-22",
+      "completed_at": "2026-09-22T08:00:00.000Z",
+      "created_at": "2026-10-10T10:33:46.130Z"
+    },
+    {
+      "id": 5,
+      "title": "Outreach to Dubai Chamber & verified UAE B2B directories",
+      "description": "Submit legitimate business profile to Dubai Chamber Member Directory and UAE Industrial Portal under Commercial Printing & Packaging.",
+      "category": "backlinks",
+      "priority": "medium",
+      "status": "pending",
+      "assigned_to": "Outreach Coordinator",
+      "due_date": "2026-10-15",
+      "completed_at": null,
+      "created_at": "2026-10-10T10:33:46.130Z"
+    },
+    {
+      "id": 6,
+      "title": "Monitor ChatGPT and Perplexity citations for \"business card printing dubai\"",
+      "description": "Run weekly AI engine visibility probes to track whether ONPRINT is referenced as a verified local Al Quoz printing press.",
+      "category": "geo",
+      "priority": "medium",
+      "status": "in_progress",
+      "assigned_to": "GEO Lead",
+      "due_date": "2026-10-01",
+      "completed_at": null,
+      "created_at": "2026-10-10T10:33:46.130Z"
+    },
+    {
+      "id": 7,
+      "title": "Add contextual internal links from blog guides to money pages",
+      "description": "Link \"How to Choose Business Card Paper\" to /business-card-printing-dubai and \"Packaging Finishes Guide\" to /packaging-printing-dubai.",
+      "category": "content",
+      "priority": "high",
+      "status": "pending",
+      "assigned_to": "Content Editor",
+      "due_date": "2026-10-02",
+      "completed_at": null,
+      "created_at": "2026-10-10T10:33:46.130Z"
     }
   ]
 }

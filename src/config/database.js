@@ -54,9 +54,10 @@ if (!cached) {
 async function connectDB() {
   if (cached.conn) return cached.conn
 
-  const uri =
-    process.env.MONGODB_URI ||
-    'mongodb+srv://Vercel-Admin-atlas-champagne-apple:bz0NVjNwAXHDmELi@atlas-champagne-apple.rydbmnq.mongodb.net/onprintdb?retryWrites=true&w=majority'
+  const uri = process.env.MONGODB_URI
+  if (!uri) {
+    throw new Error('[Database] MONGODB_URI environment variable is not defined. Please set MONGODB_URI in your environment or Vercel dashboard.')
+  }
 
   if (!cached.promise) {
     const opts = {

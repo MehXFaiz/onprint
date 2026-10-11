@@ -388,7 +388,7 @@ export default function ProductsPage() {
                 Have a custom printing requirement in Dubai?
               </h2>
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-background/80">
-                Let's create something extraordinary for your brand. From custom embossing and spot UV to bespoke packaging sizes, our press team is ready in Al Quoz, Dubai.
+                Let's create something extraordinary for your brand. From custom embossing and spot UV to bespoke printing formats, our press team is ready in Al Quoz, Dubai.
               </p>
             </div>
 

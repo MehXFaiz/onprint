@@ -83,7 +83,7 @@ module.exports = {
         },
         {
           "question": "How fast can ONPRINT deliver commercial printing orders in Dubai?",
-          "answer": "Digital printing orders approved before 11:00 AM can frequently be produced and dispatched the same day or within 24 hours. Offset production runs, luxury rigid packaging, and intricate foil-stamped items typically require 2 to 4 business days."
+          "answer": "Digital printing orders approved before 11:00 AM can frequently be produced and dispatched the same day or within 24 hours. Offset production runs, presentation collaterals, and intricate foil-stamped items typically require 2 to 4 business days."
         },
         {
           "question": "Can I inspect physical proofs before full production begins?",
@@ -413,204 +413,6 @@ module.exports = {
         {
           "name": "Printing Services Dubai",
           "path": "/printing-services-dubai"
-        }
-      ]
-    },
-    "packaging-printing-dubai": {
-      "slug": "packaging-printing-dubai",
-      "path": "/packaging-printing-dubai",
-      "title": "Packaging Printing Dubai | Custom Luxury Boxes | ONPRINT",
-      "metaDescription": "Custom packaging printing in Dubai. Luxury rigid boxes, folding cartons, perfume packaging, cosmetic boxes & mailers. Direct Al Quoz manufacturer.",
-      "focusKeyword": "packaging printing dubai",
-      "secondaryKeywords": "custom packaging dubai, luxury packaging dubai, box printing dubai, perfume packaging dubai, rigid box printing dubai",
-      "badge": "LUXURY PACKAGING & BOX STUDIO",
-      "h1": "Custom Packaging & Luxury Product Box Printing in Dubai",
-      "subheading": "Elevate your retail unboxing experience with bespoke packaging engineered and manufactured directly in Dubai. From rigid perfume boxes to eco-friendly e-commerce shipping mailers.",
-      "stats": [
-        {
-          "label": "Box Structures",
-          "value": "Rigid, Cartons, Mailers"
-        },
-        {
-          "label": "Board Caliper",
-          "value": "1.2mm to 3.0mm Greyboard"
-        },
-        {
-          "label": "Finishing Options",
-          "value": "Hot Foil, Deboss, Spot UV"
-        },
-        {
-          "label": "Prototyping",
-          "value": "CAD Mockup in 48h"
-        }
-      ],
-      "highlights": [
-        {
-          "title": "Custom Luxury Rigid Boxes",
-          "description": "Magnetic flap closures, two-piece lid & base telescope boxes, and book-style presentation boxes wrapped in specialty Italian and German art papers."
-        },
-        {
-          "title": "Retail Folding Cartons",
-          "description": "Cost-effective folding boxes printed on 300gsm–450gsm food-grade virgin fiber board and FBB (Folding Box Board) for cosmetics and pharmaceuticals."
-        },
-        {
-          "title": "Custom Precision Foam Inserts",
-          "description": "High-density laser-cut EVA foam, velvet flocking, and recyclable die-cut cardboard inserts molded to secure bottles, perfumes, and jewelry."
-        },
-        {
-          "title": "E-Commerce Corrugated Mailers",
-          "description": "Sturdy E-flute and B-flute corrugated mailer boxes printed inside and outside with self-locking tabs for premium direct-to-consumer delivery."
-        }
-      ],
-      "technicalSpecs": [
-        {
-          "feature": "Box Types",
-          "detail": "Magnetic Box, Lid & Base, Drawer Box, Folding Carton, Corrugated Mailer, Pillow Box"
-        },
-        {
-          "feature": "Core Substrates",
-          "detail": "European Greyboard (800–2400gsm), SBS C1S/C2S Paperboard (300–450gsm), E-Flute Kraft"
-        },
-        {
-          "feature": "Outer Wraps",
-          "detail": "Soft-Touch Matte, Metallic Foil Paper, Linen Textured, Kraft, Pearlized Art Paper"
-        },
-        {
-          "feature": "Luxury Embellishments",
-          "detail": "Hot Foil Stamping (Gold, Silver, Copper, Holographic), Blind Debossing, Spot UV"
-        },
-        {
-          "feature": "Internal Customization",
-          "detail": "Die-cut EVA foam, Velvet flocked tray, Custom printed inner liner, Silk ribbon pulls"
-        },
-        {
-          "feature": "Certifications",
-          "detail": "Food contact safe boards, FSC-certified renewable wood pulp, Non-toxic inks"
-        }
-      ],
-      "faqs": [
-        {
-          "question": "Which printing press in Dubai manufactures custom packaging and rigid boxes?",
-          "answer": "ONPRINT is a specialized Dubai packaging manufacturer operating in Al Quoz, Dubai. We produce bespoke rigid boxes, magnetic closure gift sets, perfume packaging, and retail folding cartons with full in-house structural prototyping and embellishment lines."
-        },
-        {
-          "question": "What is the minimum order quantity (MOQ) for custom rigid boxes at ONPRINT?",
-          "answer": "Unlike overseas factories requiring thousands of units, ONPRINT supports UAE brands with low MOQ runs starting from 100 to 250 units for bespoke rigid boxes, enabling startups and boutique brands to launch without massive capital outlay."
-        },
-        {
-          "question": "Can I order a physical sample or structural mockup before placing a bulk order?",
-          "answer": "Yes. We offer structural CAD unprinted sample boxes within 48 to 72 hours so you can test product fit, bottle security, and magnetic closure tactile feel before initiating full production."
-        },
-        {
-          "question": "Are your packaging materials compliant with UAE cosmetic and food regulations?",
-          "answer": "Yes. We utilize certified food-grade paperboards and ESMA-compliant labeling specifications for cosmetics, food products, and luxury fragrances distributed across the GCC."
-        }
-      ],
-      "relatedServices": [
-        {
-          "name": "Label Printing Dubai",
-          "path": "/label-printing-dubai"
-        },
-        {
-          "name": "Sticker Printing Dubai",
-          "path": "/sticker-printing-dubai"
-        }
-      ]
-    },
-    "custom-packaging-dubai": {
-      "slug": "custom-packaging-dubai",
-      "path": "/custom-packaging-dubai",
-      "title": "Custom Packaging Dubai | Bespoke Rigid Boxes & Mailers | ONPRINT",
-      "metaDescription": "Bespoke custom packaging boxes in Dubai. Direct manufacturer for luxury rigid boxes, magnetic gift packaging & custom mailer boxes. Low MOQ in Al Quoz.",
-      "focusKeyword": "custom packaging dubai",
-      "secondaryKeywords": "custom boxes dubai, custom printed boxes uae, rigid box manufacturer dubai, bespoke packaging dubai, custom mailer boxes dubai",
-      "badge": "DIRECT FACTORY MANUFACTURER DUBAI",
-      "h1": "Bespoke Custom Packaging & Luxury Rigid Box Manufacturing Dubai",
-      "subheading": "Direct Dubai factory manufacturing for bespoke branded packaging. We design, prototype, print, die-cut, and assemble premium packaging in Al Quoz, Dubai without third-party brokers.",
-      "stats": [
-        {
-          "label": "Manufacturing",
-          "value": "100% In-House Dubai"
-        },
-        {
-          "label": "Minimum Order",
-          "value": "From 100 Units"
-        },
-        {
-          "label": "CAD Prototyping",
-          "value": "48-Hour Turnaround"
-        },
-        {
-          "label": "Insert Types",
-          "value": "EVA Foam, Flocking, Card"
-        }
-      ],
-      "highlights": [
-        {
-          "title": "Zero Broker Markups — Direct Factory",
-          "description": "Work directly with the production engineers and box makers in Al Quoz, Dubai for faster communication, exact specifications, and competitive pricing."
-        },
-        {
-          "title": "Bespoke Structural CAD Engineering",
-          "description": "Provide your product dimensions and our structural designers will generate custom vector dielines with accurate clearance tolerances."
-        },
-        {
-          "title": "Sustainable Recyclable Materials",
-          "description": "100% post-consumer recycled greyboard cores, natural unbleached kraft papers, and biodegradable vegetable starch adhesive formulations."
-        },
-        {
-          "title": "Fast Prototyping & Scalable Runs",
-          "description": "Approve physical CAD dummy samples prior to scaling from 100 VIP press kits to 50,000 mass retail units effortlessly."
-        }
-      ],
-      "technicalSpecs": [
-        {
-          "feature": "Box Geometries",
-          "detail": "Telescope Lid & Base, Clamshell Magnetic Box, Matchbox Drawer Slipcase, Octagonal Box"
-        },
-        {
-          "feature": "Board Calipers",
-          "detail": "1.5mm, 1.8mm, 2.0mm, 2.5mm, 3.0mm Density European Compressed Greyboard"
-        },
-        {
-          "feature": "Closure Mechanisms",
-          "detail": "Embedded Neodymium Rare-Earth Magnets, Ribbon Ties, Friction-Fit Bezels"
-        },
-        {
-          "feature": "Lining Options",
-          "detail": "Printed 157gsm Art Paper, Linen Wrap, Velvet Flocking, Foil Stamped Interior"
-        },
-        {
-          "feature": "Insert Solutions",
-          "detail": "High-Density EVA Foam, Sponge, Molded Pulp, Die-cut Paperboard"
-        },
-        {
-          "feature": "Production Location",
-          "detail": "Al Quoz, Dubai, United Arab Emirates"
-        }
-      ],
-      "faqs": [
-        {
-          "question": "Why choose a direct Dubai box manufacturer over overseas suppliers?",
-          "answer": "Manufacturing your custom packaging directly with ONPRINT in Dubai eliminates overseas shipping delays, customs port congestion, high sea freight costs, and language barriers. You gain hands-on quality control, rapid 48-hour prototyping, and delivery directly to your UAE warehouse."
-        },
-        {
-          "question": "How do I choose between a folding box and a rigid box for my product?",
-          "answer": "Folding cartons (300–400gsm) are shipped flat and best suited for lightweight FMCG, food items, and retail cosmetics at low per-unit costs. Rigid boxes (1200–2400gsm greyboard) do not collapse and are ideal for luxury perfumes, watches, VIP gifts, and premium electronics where structural protection and high unboxing value are essential."
-        },
-        {
-          "question": "Can you match my exact brand Pantone colors on packaging?",
-          "answer": "Yes. Our offset press lines utilize spectrophotometer-calibrated Pantone ink mixing to guarantee color uniformity across all box components, wraps, and matching stationery."
-        }
-      ],
-      "relatedServices": [
-        {
-          "name": "Label Printing Dubai",
-          "path": "/label-printing-dubai"
-        },
-        {
-          "name": "Corporate Printing Dubai",
-          "path": "/corporate-printing-dubai"
         }
       ]
     },
@@ -1112,7 +914,7 @@ module.exports = {
       "secondaryKeywords": "corporate gifts printing dubai, branded merchandise uae, promotional merchandise dubai, custom promotional items dubai, corporate giveaways dubai",
       "badge": "CORPORATE GIFTS & BRANDED MERCHANDISE",
       "h1": "Custom Promotional Merchandise & Corporate Gift Printing Dubai",
-      "subheading": "Inspire client loyalty and boost brand recall with bespoke corporate merchandise. Executive notebooks, metal engraved pens, vacuum insulated tumblers, organic tote bags, and curated VIP welcome boxes.",
+      "subheading": "Inspire client loyalty and boost brand recall with bespoke corporate merchandise. Executive notebooks, metal engraved pens, vacuum insulated tumblers, organic tote bags, and curated VIP welcome kits.",
       "stats": [
         {
           "label": "Branding Methods",
@@ -1146,7 +948,7 @@ module.exports = {
         },
         {
           "title": "Corporate Onboarding & VIP Gift Sets",
-          "description": "Complete onboarding kits packaged inside custom printed rigid presentation boxes with matching branded essentials."
+          "description": "Complete onboarding kits presented with custom corporate presentation folders and matching branded essentials."
         }
       ],
       "technicalSpecs": [
@@ -1167,8 +969,8 @@ module.exports = {
           "detail": "100% Organic Cotton Canvas (220–340gsm), Technical Polo Shirts, Satin Lanyards"
         },
         {
-          "feature": "Packaging Presentation",
-          "detail": "Custom printed rigid gift boxes with laser-cut EVA foam inserts"
+          "feature": "Presentation Sets",
+          "detail": "Custom branded presentation kits with matching corporate essentials"
         }
       ],
       "faqs": [
@@ -1181,8 +983,8 @@ module.exports = {
           "answer": "Fiber laser engraving is ideal for stainless steel and anodized aluminum because it vaporizes the outer coating to expose the metal beneath, creating a crisp, permanent mark that never peels or fades. For full-color logos, UV direct-to-object printing is utilized."
         },
         {
-          "question": "Can ONPRINT create complete corporate onboarding kits in custom boxes?",
-          "answer": "Yes. We specialize in end-to-end welcome packs containing an executive notebook, engraved pen, branded tumbler, and flash drive, all nestled inside a custom rigid magnetic box featuring your corporate branding."
+          "question": "Can ONPRINT create complete corporate onboarding kits for corporate gifts?",
+          "answer": "Yes. We specialize in end-to-end welcome packs containing an executive notebook, engraved pen, branded tumbler, and flash drive, all presented in an executive branded kit featuring your corporate identity."
         }
       ],
       "relatedServices": [

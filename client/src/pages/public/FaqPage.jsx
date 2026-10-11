@@ -8,12 +8,12 @@ const faqs = [
   {
     question: 'What printing services does ONPRINT offer in Dubai?',
     answer:
-      'ONPRINT offers digital and offset printing, executive office stationery (business cards, letterheads, presentation folders), custom packaging boxes, corporate gift items (mugs, water bottles, notebooks, apparel), large-format roll-ups, outdoor flags, and die-cut vinyl stickers.',
+      'ONPRINT offers digital and offset printing, executive office stationery (business cards, letterheads, presentation folders), corporate gift items (mugs, water bottles, notebooks, apparel), large-format roll-ups, outdoor flags, and die-cut vinyl stickers.',
   },
   {
     question: 'How long does a typical print order take across Dubai & UAE?',
     answer:
-      'Standard digital printing runs take 24 to 48 hours once artwork proof is confirmed. Large offset runs, luxury foil-embossed packaging, and custom gift boxes typically take 3 to 7 business days. Express same-day production is available for urgent deadlines.',
+      'Standard digital printing runs take 24 to 48 hours once artwork proof is confirmed. Large offset runs and multi-stage luxury foil-embossed collateral typically take 3 to 5 business days. Express same-day production is available for urgent deadlines.',
   },
   {
     question: 'What file formats and resolutions do you accept for artwork?',

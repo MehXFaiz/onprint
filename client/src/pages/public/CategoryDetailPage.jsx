@@ -159,7 +159,7 @@ export default function CategoryDetailPage() {
   const categoryFaqs = [
     {
       question: `What materials and cardstocks are available for ${categoryName} in Dubai?`,
-      answer: `ONPRINT provides an extensive selection of premium FSC-certified stocks ranging from 120gsm fine stationery papers to 450gsm heavy cotton and silk boards, as well as waterproof synthetic substrates and luxury rigid packaging boards.`
+      answer: `ONPRINT provides an extensive selection of premium FSC-certified stocks ranging from 120gsm fine stationery papers to 450gsm heavy cotton and silk boards, as well as waterproof synthetic substrates and presentation boards.`
     },
     {
       question: `What is the standard production turnaround time for ${categoryName}?`,

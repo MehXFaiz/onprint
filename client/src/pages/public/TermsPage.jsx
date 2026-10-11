@@ -5,7 +5,7 @@ import SEOHead from '../../components/SEOHead'
 const termsSections = [
   {
     title: '1. Agreement & Acceptance of Terms',
-    body: 'These Terms & Conditions ("Terms", "Agreement") constitute a legally binding agreement between ONPRINT Printing & Branding Solutions LLC ("ONPRINT", "we", "us", or "our"), operating in Al Quoz, Dubai, UAE, and any client, individual, or corporate entity ("Client", "Customer", "you") ordering custom printing, luxury packaging, promotional products, graphic preparation, or associated commercial finishing services. By requesting a quotation, approving a digital proof, submitting production files, or completing an invoice payment, you acknowledge that you have read, understood, and agreed to be bound by these Terms.',
+    body: 'These Terms & Conditions ("Terms", "Agreement") constitute a legally binding agreement between ONPRINT Printing & Branding Solutions LLC ("ONPRINT", "we", "us", or "our"), operating in Al Quoz, Dubai, UAE, and any client, individual, or corporate entity ("Client", "Customer", "you") ordering custom printing, promotional products, graphic preparation, or associated commercial finishing services. By requesting a quotation, approving a digital proof, submitting production files, or completing an invoice payment, you acknowledge that you have read, understood, and agreed to be bound by these Terms.',
   },
   {
     title: '2. Quotations, Pricing & Validity',
@@ -29,7 +29,7 @@ const termsSections = [
   },
   {
     title: '7. Cancellations, Modifications & Reprint Policies',
-    body: 'Because all custom-printed goods, tailored packaging boxes, and branded merchandise are manufactured to bespoke client specifications, orders cannot be cancelled or returned for refund once printing plates have been produced or physical substrate cutting has commenced. In the rare event of a verified manufacturing defect or significant deviation from the approved digital proof, the Client must notify ONPRINT in writing within forty-eight (48) hours of delivery with photographic evidence; upon verification, ONPRINT will promptly re-manufacture and replace the defective quantity at no additional charge.',
+    body: 'Because all custom-printed goods, corporate stationery, and branded merchandise are manufactured to bespoke client specifications, orders cannot be cancelled or returned for refund once printing plates have been produced or physical substrate cutting has commenced. In the rare event of a verified manufacturing defect or significant deviation from the approved digital proof, the Client must notify ONPRINT in writing within forty-eight (48) hours of delivery with photographic evidence; upon verification, ONPRINT will promptly re-manufacture and replace the defective quantity at no additional charge.',
   },
   {
     title: '8. Intellectual Property & Indemnification',
@@ -50,7 +50,7 @@ export default function TermsPage() {
     <div className="py-16 sm:py-24">
       <SEOHead
         title="Terms & Conditions | ONPRINT Dubai — Commercial Printing & Ordering Terms"
-        description="Comprehensive Terms & Conditions for commercial printing, packaging production, digital proof approval, and delivery with ONPRINT Dubai, UAE."
+        description="Comprehensive Terms & Conditions for commercial printing, digital proof approval, and delivery with ONPRINT Dubai, UAE."
         keywords="terms and conditions onprint, commercial printing terms dubai, proof approval policy uae, printing service agreement dubai"
         canonicalPath="/terms"
         breadcrumbs={[{ name: 'Terms & Conditions', url: '/terms' }]}

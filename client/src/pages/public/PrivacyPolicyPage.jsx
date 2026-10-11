@@ -9,7 +9,7 @@ const sections = [
   },
   {
     title: '2. Information We Collect',
-    body: 'We collect information that is strictly necessary to provide high-precision printing and packaging services. This includes: (a) Personal Identification Information: Full name, job title, company name, corporate tax registration number (TRN), email address, phone number, and physical billing/delivery address across Dubai, Abu Dhabi, Sharjah, and other Emirates; (b) Production & Artwork Files: Vector files, PDFs, high-resolution raster images, font files, color profiles, and design briefs submitted for digital or offset reproduction; (c) Transactional & Order Information: Quotation details, custom product specifications, paper stock selections, finishing choices, invoice records, and proof approval timestamps; (d) Technical & Usage Data: IP address, browser type, device information, operating system, referral source, and browsing activity collected via standard server logs to optimize site performance and security.',
+    body: 'We collect information that is strictly necessary to provide high-precision commercial printing services. This includes: (a) Personal Identification Information: Full name, job title, company name, corporate tax registration number (TRN), email address, phone number, and physical billing/delivery address across Dubai, Abu Dhabi, Sharjah, and other Emirates; (b) Production & Artwork Files: Vector files, PDFs, high-resolution raster images, font files, color profiles, and design briefs submitted for digital or offset reproduction; (c) Transactional & Order Information: Quotation details, custom product specifications, paper stock selections, finishing choices, invoice records, and proof approval timestamps; (d) Technical & Usage Data: IP address, browser type, device information, operating system, referral source, and browsing activity collected via standard server logs to optimize site performance and security.',
   },
   {
     title: '3. Legal Basis & Purpose of Processing',
@@ -50,7 +50,7 @@ export default function PrivacyPolicyPage() {
     <div className="py-16 sm:py-24">
       <SEOHead
         title="Privacy Policy | ONPRINT Dubai — Data Protection & Privacy Practices"
-        description="Comprehensive Privacy Policy and data protection standards for ONPRINT printing and packaging solutions in Al Quoz, Dubai, UAE. Compliant with UAE PDPL."
+        description="Comprehensive Privacy Policy and data protection standards for ONPRINT commercial printing solutions in Al Quoz, Dubai, UAE. Compliant with UAE PDPL."
         keywords="privacy policy onprint, data protection printing dubai, uae pdpl compliance, onprint printing terms"
         canonicalPath="/privacy-policy"
         breadcrumbs={[{ name: 'Privacy Policy', url: '/privacy-policy' }]}

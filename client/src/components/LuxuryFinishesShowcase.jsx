@@ -13,7 +13,7 @@ const luxuryFinishes = [
     description:
       'Heated brass dies apply pressure to bond ultra-reflective metallic foil onto premium paper stock. Available in Rich Gold, Rose Gold, Mirror Silver, Champagne, and Prismatic Holographic.',
     stockCompatibility: '350 – 700 GSM Cotton, Velvet Board, Kraft',
-    idealFor: 'Executive Business Cards, Rigid Gift Boxes, Invitations & VIP Menus',
+    idealFor: 'Executive Business Cards, Invitations & VIP Menus',
     image: '/assets/products/card-velvet-foil.jpg',
     accentColor: '#A82F19',
     badge: 'Signature Craft',
@@ -26,7 +26,7 @@ const luxuryFinishes = [
     description:
       'A clear, ultra-glossy liquid polymer is cured with UV light and built up to 100 microns high over matte backgrounds, creating an irresistible tactile contrast that catches light dramatically.',
     stockCompatibility: '300 – 600 GSM Matte or Soft-Touch Coated Stock',
-    idealFor: 'Luxury Book Covers, Presentation Folders, Cosmetics & Retail Boxes',
+    idealFor: 'Luxury Book Covers, Presentation Folders, Catalogs & Booklets',
     image: '/assets/products/brochure_booklet_catalog.jpg',
     accentColor: '#A82F19',
     badge: '3D Dimensional',
@@ -39,7 +39,7 @@ const luxuryFinishes = [
     description:
       'A bi-axially oriented 30-micron thermal matte film with a velvety tactile feel. Eliminates glare, resists fingerprints and scuffs, and gives printed pieces an unmistakable feeling of sheer luxury.',
     stockCompatibility: '250 – 500 GSM Art Boards & Paperboards',
-    idealFor: 'Corporate Brochures, Custom Folding Cartons, Premium Packaging',
+    idealFor: 'Corporate Brochures, Presentation Folders, Luxury Stationery',
     image: '/assets/products/card-soft-touch.jpg',
     accentColor: '#A82F19',
     badge: 'Sensory Finish',
@@ -79,7 +79,7 @@ const luxuryFinishes = [
       'Natural, chemical-free tree-friendly cotton fibers crafted with historic European papermaking techniques. Incredibly soft, weighty, and built to hold deep letterpress and foil impressions.',
     stockCompatibility: 'Available in 300, 450, 600, and 900 GSM',
     idealFor: 'Executive Stationery, Luxury Real Estate Folders, Diplomatic Invites',
-    image: '/assets/products/service_luxury_packaging.jpg',
+    image: '/assets/products/luxury_business_cards.jpg',
     accentColor: '#A82F19',
     badge: 'FSC Certified',
     specs: ['Acid-Free Archival', '100% Cotton Rag', 'Ultra-Heavyweight Feel'],

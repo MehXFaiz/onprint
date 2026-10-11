@@ -27,8 +27,8 @@ export default function ServicesPage() {
     <div className="py-16 sm:py-24">
       <SEOHead
         title="Printing Services in Dubai, UAE | Commercial & Digital Press | ONPRINT"
-        description="Professional printing services in Dubai, UAE. Custom packaging, business cards, corporate gifts, offset printing, digital press, luxury finishing. Al Quoz facility with fast turnaround."
-        keywords="printing services dubai uae, commercial printing dubai, digital printing services dubai, custom packaging dubai, corporate printing uae, business card printing dubai"
+        description="Professional printing services in Dubai, UAE. Business cards, corporate gifts, brochures, offset printing, digital press, luxury finishing. Al Quoz facility with fast turnaround."
+        keywords="printing services dubai uae, commercial printing dubai, digital printing services dubai, corporate printing uae, business card printing dubai"
         canonicalPath="/services"
         breadcrumbs={[{ name: 'Printing Services', url: '/services' }]}
       />
@@ -43,10 +43,10 @@ export default function ServicesPage() {
             <span>COMMERCIAL PRINT SOLUTIONS</span>
           </div>
           <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
-            Custom Packaging &amp; Printing Services in Dubai, UAE
+            Commercial Printing &amp; Branding Services in Dubai, UAE
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-secondary sm:text-base">
-            From executive office stationery and luxury foil-stamped business cards to bespoke rigid packaging and large-format exhibition graphics, ONPRINT provides end-to-end commercial printing services across Dubai and the UAE with guaranteed color accuracy and ISO-certified quality.
+            From executive office stationery and luxury foil-stamped business cards to premium marketing collaterals and large-format exhibition graphics, ONPRINT provides end-to-end commercial printing services across Dubai and the UAE with guaranteed color accuracy and ISO-certified quality.
           </p>
         </div>
 
@@ -84,7 +84,7 @@ export default function ServicesPage() {
               </div>
               <h3 className="font-display text-lg font-bold text-primary mb-2">High-Volume Heidelberg Offset</h3>
               <p className="text-xs sm:text-sm leading-relaxed text-secondary">
-                Engineered for medium to high-run commercial print runs. Our multi-color Heidelberg presses deliver micro-registered dot reproduction, Pantone PMS spot color matching, and exceptional cost-efficiency for corporate brochures, catalogs, and product packaging.
+                Engineered for medium to high-run commercial print runs. Our multi-color Heidelberg presses deliver micro-registered dot reproduction, Pantone PMS spot color matching, and exceptional cost-efficiency for corporate brochures, catalogs, and marketing collateral.
               </p>
               <ul className="mt-4 space-y-2 text-xs text-secondary">
                 <li className="flex items-center gap-2">
@@ -113,7 +113,7 @@ export default function ServicesPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-accent" />
-                  <span>Short-Run Prototype Packaging &amp; Samples</span>
+                  <span>Short-Run Prototype Proofs &amp; Samples</span>
                 </li>
               </ul>
             </div>

@@ -322,7 +322,7 @@ export default function ProductSectionsShowcase({
         sectionNumber: '01',
         badge: 'Dubai Flagship Print',
         title: 'Featured Print Catalog',
-        subtitle: 'Explore our precision commercial printing products, luxury corporate stationery, and custom packaging.',
+        subtitle: 'Explore our precision commercial printing products, luxury corporate stationery, and marketing collaterals.',
         items: prods,
       })
     }

@@ -293,7 +293,7 @@ export default function GetQuotePage() {
     <div className="py-16 sm:py-24">
       <SEOHead
         title="Get a Custom Printing Quote in Dubai | Fast Pricing | ONPRINT"
-        description="Request a fast custom print quotation in Dubai. Specify paper weights, finishes, dimensions, and quantities for business cards, packaging, stationery, and corporate gifts."
+        description="Request a fast custom print quotation in Dubai. Specify paper weights, finishes, dimensions, and quantities for business cards, stationery, marketing collateral, and corporate gifts."
         keywords="printing quote dubai, print price calculator dubai, custom printing quote uae"
         canonicalPath="/get-a-quote"
         breadcrumbs={[{ name: 'Get a Quote', url: '/get-a-quote' }]}
@@ -345,7 +345,7 @@ export default function GetQuotePage() {
                   type="text"
                   value={form.product}
                   onChange={updateField('product')}
-                  placeholder="e.g. Luxury Business Cards, Embossed Boxes, Rigid Envelopes…"
+                  placeholder="e.g. Luxury Business Cards, Embossed Folders, Executive Stationery…"
                   aria-invalid={Boolean(errors.product)}
                   className={inputClasses}
                 />
@@ -425,7 +425,7 @@ export default function GetQuotePage() {
                   rows={4}
                   value={form.notes}
                   onChange={updateField('notes')}
-                  placeholder="Mention packaging assembly needs, delivery deadline, or Pantone codes…"
+                  placeholder="Mention finishing specs, delivery deadline, or Pantone codes…"
                   className={inputClasses}
                 />
               </div>

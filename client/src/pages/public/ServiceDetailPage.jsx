@@ -77,7 +77,7 @@ export default function ServiceDetailPage() {
       <SEOHead
         title={service.seoTitle || `${service.name} in Dubai | ONPRINT`}
         description={service.seoDescription || sectionE.intro.slice(0, 160)}
-        keywords={service.seoKeywords || `${service.name.toLowerCase()} dubai, commercial printing dubai, custom packaging uae`}
+        keywords={service.seoKeywords || `${service.name.toLowerCase()} dubai, commercial printing dubai, commercial printing uae`}
         canonicalPath={`/services/${service.slug}`}
         service={service}
         faqList={sectionE.faqs}

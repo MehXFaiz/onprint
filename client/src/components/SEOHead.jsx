@@ -21,7 +21,7 @@ export const organizationSchema = {
   logo: `${SITE_URL}/logo_icon.png`,
   image: `${SITE_URL}/logo_icon.png`,
   description:
-    'ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.',
+    'ONPRINT is a commercial printing and corporate branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, executive stationery, product labels, marketing collaterals, and corporate gifts.',
   email: '0nprint183@gmail.com',
   telephone: '+44 7344 546056',
   priceRange: '$$',
@@ -77,14 +77,14 @@ export const organizationSchema = {
   },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Commercial Printing & Packaging Services Dubai',
+    name: 'Commercial Printing & Branding Services Dubai',
     itemListElement: [
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Luxury Business Cards Printing Dubai' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Packaging & Box Printing Dubai' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Executive Letterheads & Stationery Dubai' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Brochures & Leaflets Printing' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Large Format Signage & Exhibition Banners' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Stickers & Roll Labels Dubai' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Eco-Friendly Kraft Packaging & Bags' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Company Stamps & Official Seals Dubai' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Corporate Gifts & Branded Uniform Printing' } },
     ],
   },
@@ -245,7 +245,7 @@ export default function SEOHead({
   const metaDesc =
     dbSeo?.meta_description ||
     description ||
-    'ONPRINT is Dubai’s premier printing company. Precision digital & offset printing, corporate gifts, business cards, office stationery, packaging, and large-format signage in UAE.'
+    'ONPRINT is Dubai’s premier printing company. Precision digital & offset printing, corporate gifts, business cards, office stationery, and large-format signage in UAE.'
 
   // Resolve Focus & Secondary Keywords
   const effectiveKeywords = dbSeo?.focus_keyword

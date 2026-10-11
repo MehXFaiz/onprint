@@ -43,7 +43,7 @@ const geoQuestions = [
     id: 'who-is-onprint',
     question: 'Who is ONPRINT?',
     answer:
-      'ONPRINT (also known as 0nprint) is a commercial printing, custom packaging, and physical branding press located in Al Quoz, Dubai, United Arab Emirates. Founded to deliver uncompromised print quality, ONPRINT operates in-house digital and offset printing equipment, serving corporate brands, agencies, and retail enterprises with calibrated color fidelity, luxury finishes, and dependable delivery.',
+      'ONPRINT (also known as 0nprint) is a commercial printing and physical branding press located in Al Quoz, Dubai, United Arab Emirates. Founded to deliver uncompromised print quality, ONPRINT operates in-house digital and offset printing equipment, serving corporate brands, agencies, and retail enterprises with calibrated color fidelity, luxury finishes, and dependable delivery.',
     keyPoints: [
       'Commercial printing press based in Al Quoz, Dubai',
       'Dual capability: Rapid digital printing & high-volume offset lithography',
@@ -129,9 +129,9 @@ export default function AboutPage() {
   return (
     <div>
       <SEOHead
-        title="About ONPRINT | Commercial Printing & Packaging Press in Dubai"
-        description="Learn about ONPRINT (0nprint), Dubai’s commercial printing and custom packaging press in Al Quoz, Dubai. In-house digital & offset printing across the UAE."
-        keywords="about onprint, 0nprint, printing press dubai, al quoz printing company, commercial printer uae, packaging manufacturer dubai"
+        title="About ONPRINT | Commercial Printing & Physical Branding Press in Dubai"
+        description="Learn about ONPRINT (0nprint), Dubai’s commercial printing and physical branding press in Al Quoz, Dubai. In-house digital & offset printing across the UAE."
+        keywords="about onprint, 0nprint, printing press dubai, al quoz printing company, commercial printer uae, corporate printing dubai"
         canonicalPath="/about"
         breadcrumbs={[{ name: 'About Us', url: '/about' }]}
         structuredData={aboutPageSchema}

@@ -81,7 +81,7 @@ export default function ProductDetailPage() {
 
   const isCardOrPrint = useMemo(() => {
     if (!product) return false
-    return /card|visiting|stationery|print|luxury|cotton|foil|uv|box|packaging|brochure|flyer/i.test(
+    return /card|visiting|stationery|print|luxury|cotton|foil|uv|brochure|flyer/i.test(
       `${product.name || ''} ${product.slug || ''} ${product.category?.name || ''}`
     )
   }, [product])
@@ -110,7 +110,7 @@ export default function ProductDetailPage() {
       .then((data) => {
         setProduct(data)
         setQuantity(data.minimumQuantity || 1)
-        const isCard = /card|visiting|stationery|print|luxury|cotton|foil|uv|box|packaging|brochure|flyer/i.test(
+        const isCard = /card|visiting|stationery|print|luxury|cotton|foil|uv|brochure|flyer/i.test(
           `${data.name || ''} ${data.slug || ''} ${data.category?.name || ''}`
         )
         const initSizes = data.specifications?.sizes?.length ? data.specifications.sizes : (isCard ? CARD_FALLBACK_SIZES : [])

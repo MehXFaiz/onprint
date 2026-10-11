@@ -295,7 +295,7 @@ export default function Product360Viewer({
                       <Layers className="h-7 w-7 text-[#D4AF37]" />
                     </div>
                     <h4 className="mt-3.5 font-display text-sm font-black tracking-tight text-white line-clamp-1">
-                      {product?.name || 'Custom Print & Packaging'}
+                      {product?.name || 'Custom Print Services'}
                     </h4>
                     <p className="mt-1 text-[9.5px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]/90">
                       ONPRINT Atelier • Dubai, UAE

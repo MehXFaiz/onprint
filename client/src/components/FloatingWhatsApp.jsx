@@ -9,7 +9,7 @@ const FORMATTED_PHONE = '+44 7344 546056'
 const QUICK_PROMPTS = [
   { label: 'Instant Quote Request', text: 'Hi ONPRINT, I would like to request an instant quote for custom printing.' },
   { label: 'Luxury Business Cards', text: 'Hello, I want to inquire about luxury business cards with foil stamping & spot UV.' },
-  { label: 'Custom Packaging & Boxes', text: 'Hi ONPRINT, I am looking for custom rigid packaging boxes.' },
+  { label: 'Brochures & Flyers', text: 'Hi ONPRINT, I would like to inquire about commercial brochure & flyer printing.' },
   { label: 'Same-Day Urgent Print', text: 'Hi, I need urgent same-day printing with express UAE delivery.' },
 ]
 

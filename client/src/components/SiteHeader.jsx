@@ -51,14 +51,6 @@ const NAV_GROUPS = [
     keywords: ['brochure', 'business card', 'letterhead', 'flyer', 'envelope', 'invoice', 'folder', 'notepad', 'catalog', 'booklet'],
   },
   {
-    key: 'packaging',
-    label: 'Custom Packaging & Boxes',
-    description: 'Rigid luxury boxes, mailers, product cartons & bags',
-    icon: Box,
-    badge: 'Bespoke',
-    keywords: ['packaging', 'box', 'mailer', 'bag', 'rigid'],
-  },
-  {
     key: 'stamps',
     label: 'Company Stamps & Seals',
     description: 'Self-inking Trodat stamps, pocket stamps, dater machines & wax seals',
@@ -519,13 +511,13 @@ export default function SiteHeader() {
                               <ArrowUpRight className="h-3.5 w-3.5 text-slate-300 group-hover:text-white transition-colors" />
                             </Link>
                             <Link
-                              to="/packaging-printing-dubai"
+                              to="/categories/letterheads-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
                               className="group flex items-center justify-between p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs font-bold text-white transition-all backdrop-blur-xs"
                             >
                               <span className="flex items-center gap-2">
                                 <span className="h-2 w-2 rounded-full bg-amber-400" />
-                                <span>Custom Packaging &amp; Boxes</span>
+                                <span>Executive Stationery</span>
                               </span>
                               <ArrowUpRight className="h-3.5 w-3.5 text-slate-300 group-hover:text-white transition-colors" />
                             </Link>
@@ -614,26 +606,6 @@ export default function SiteHeader() {
               )}
             </NavLink>
 
-            {/* Custom Packaging Link */}
-            <NavLink
-              to="/packaging-printing-dubai"
-              onMouseEnter={() => setHoveredNav('packaging')}
-              className={({ isActive }) =>
-                `relative z-10 flex items-center gap-1.5 rounded-xl px-3 py-2 transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19] font-extrabold' : 'text-slate-700 hover:text-slate-900'
-                }`
-              }
-            >
-              <span>Packaging</span>
-
-              {hoveredNav === 'packaging' && (
-                <motion.div
-                  layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-xl bg-slate-100 -z-10"
-                  transition={{ type: 'spring', stiffness: 350, damping: 28 }}
-                />
-              )}
-            </NavLink>
 
             {/* Stickers & Labels */}
             <NavLink
@@ -1037,11 +1009,11 @@ export default function SiteHeader() {
                         <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
                       </Link>
                       <Link
-                        to="/packaging-printing-dubai"
+                        to="/categories/custom-stamps-seals"
                         onClick={() => setSearchModalOpen(false)}
                         className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-[#A82F19] transition-colors">Custom Packaging</span>
+                        <span className="group-hover:text-[#A82F19] transition-colors">Stamps &amp; Seals</span>
                         <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
                       </Link>
                       <Link
@@ -1250,17 +1222,6 @@ export default function SiteHeader() {
                     </span>
                   </Link>
 
-                  {/* Packaging */}
-                  <Link
-                    to="/packaging-printing-dubai"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Box className="h-4 w-4 text-slate-400" />
-                      <span>Custom Packaging Boxes</span>
-                    </div>
-                  </Link>
 
                   {/* Stickers */}
                   <Link

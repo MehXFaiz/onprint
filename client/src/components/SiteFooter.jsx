@@ -86,7 +86,7 @@ export default function SiteFooter() {
             <Logo variant="default" size="md" />
           </Link>
           <p className="text-sm leading-relaxed text-slate-500 max-w-sm">
-            ONPRINT is Dubai’s premier physical branding &amp; commercial print atelier located in Al Quoz. Delivering industrial precision across bespoke rigid packaging, 600 GSM cotton cards, and exhibition displays.
+            ONPRINT is Dubai’s premier physical branding &amp; commercial print atelier located in Al Quoz. Delivering industrial precision across 600 GSM cotton cards, corporate marketing collateral, and exhibition displays.
           </p>
 
           <div className="pt-2 flex items-center gap-3 text-slate-400">
@@ -139,8 +139,8 @@ export default function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link to="/packaging-printing-dubai" className="transition-colors hover:text-[#A82F19]">
-                Custom Packaging
+              <Link to="/categories/letterheads-printing-dubai" className="transition-colors hover:text-[#A82F19]">
+                Letterheads &amp; Stationery
               </Link>
             </li>
             <li>

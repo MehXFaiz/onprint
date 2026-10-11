@@ -100,7 +100,7 @@ const homeFaqs = [
   {
     question: 'What commercial printing services does ONPRINT offer in Dubai?',
     answer:
-      'ONPRINT operates a full-scale commercial pressroom in Al Quoz, Dubai. We provide high-volume German Heidelberg offset printing, rapid HP Indigo digital press printing, luxury 600 GSM business cards, bespoke rigid and folding packaging, marketing brochures, flyers, die-cut waterproof vinyl stickers, corporate stationery, and VIP corporate gifts.',
+      'ONPRINT operates a full-scale commercial pressroom in Al Quoz, Dubai. We provide high-volume German Heidelberg offset printing, rapid HP Indigo digital press printing, luxury 600 GSM business cards, marketing brochures, flyers, die-cut waterproof vinyl stickers, corporate stationery, and VIP corporate gifts.',
   },
   {
     question: 'Where is your printing facility located in Dubai?',
@@ -110,7 +110,7 @@ const homeFaqs = [
   {
     question: 'What is your turnaround time for urgent print orders in Dubai?',
     answer:
-      'Digital printing jobs (business cards, flyers, brochures, stickers) can be dispatched same-day or within 24 hours once artwork is approved. Bespoke rigid packaging, heavy multi-ply duplexed cotton cards, and multi-stage foil/embossed projects typically require 3 to 5 business days. Express priority press scheduling is available for time-sensitive corporate events and trade shows.',
+      'Digital printing jobs (business cards, flyers, brochures, stickers) can be dispatched same-day or within 24 hours once artwork is approved. Heavy multi-ply duplexed cotton cards and multi-stage foil/embossed projects typically require 2 to 4 business days. Express priority press scheduling is available for time-sensitive corporate events and trade shows.',
   },
   {
     question: 'What makes ONPRINT different from print brokers and digital agencies?',
@@ -120,7 +120,7 @@ const homeFaqs = [
   {
     question: 'Do you offer custom corporate gifts and branded VIP merchandise?',
     answer:
-      'Yes. We specialize in luxury corporate gifting across Dubai and the UAE, including laser-engraved copper and stainless steel thermal bottles, custom ceramic mugs, executive hardcover notebooks with debossed logos, luxury pen sets, and curated onboarding gift boxes.',
+      'Yes. We specialize in luxury corporate gifting across Dubai and the UAE, including laser-engraved copper and stainless steel thermal bottles, custom ceramic mugs, executive hardcover notebooks with debossed logos, luxury pen sets, and curated onboarding gift sets.',
   },
   {
     question: 'What luxury paper stocks and specialty finishes are available?',
@@ -174,20 +174,6 @@ const atelierShowcaseItems = [
     price: '160',
   },
   {
-    id: 'rigid-packaging',
-    category: 'Luxury Packaging',
-    title: 'Bespoke Rigid Magnetic Packaging',
-    subtitle: '1200 GSM Greyboard with Custom Die-Cut Velvet Foam Insets',
-    badge: 'Atelier Packaging',
-    specs: ['Magnetic Closure', 'Debossed Gold Foil', 'Custom Foam Die'],
-    accent: '#A82F19',
-    tag: 'Custom Die-Line',
-    image: '/assets/products/service_luxury_packaging.jpg',
-    metric: '1200 GSM',
-    metricLabel: 'Rigid Greyboard',
-    price: '250',
-  },
-  {
     id: 'velvet-foil',
     category: 'Velvet Soft-Touch',
     title: 'Velvet Soft-Touch Silk Business Cards',
@@ -205,7 +191,7 @@ const atelierShowcaseItems = [
 
 const quickCalcCategories = [
   { id: 'business-cards', name: 'Business Cards', minQty: '100 pcs', turnaround: 'Same-Day / 24h', stock: '350–600 GSM Cotton / Velvet' },
-  { id: 'rigid-boxes', name: 'Packaging & Boxes', minQty: '50 pcs', turnaround: '3–5 Days', stock: '1200 GSM Rigid Board' },
+  { id: 'stationery', name: 'Letterheads & Stationery', minQty: '100 pcs', turnaround: '24–48h', stock: '120 GSM Smooth Uncoated' },
   { id: 'brochures', name: 'Brochures & Flyers', minQty: '250 pcs', turnaround: '24–48h', stock: '170–350 GSM Silk Art' },
   { id: 'stickers', name: 'Stickers & Labels', minQty: '100 pcs', turnaround: 'Same-Day', stock: 'Waterproof Vinyl / Matte' },
   { id: 'corporate-gifts', name: 'Corporate Gifts', minQty: '25 pcs', turnaround: '24–48h', stock: 'Laser-Etched Metal / Thermal' },

@@ -108,8 +108,11 @@ function App() {
             <Route path="/printing-services-dubai" element={<CommercialLandingPage pageKey="printing-services-dubai" />} />
             <Route path="/brochure-printing-dubai" element={<CommercialLandingPage pageKey="brochure-printing-dubai" />} />
             <Route path="/flyer-printing-dubai" element={<CommercialLandingPage pageKey="flyer-printing-dubai" />} />
-            <Route path="/packaging-printing-dubai" element={<CommercialLandingPage pageKey="packaging-printing-dubai" />} />
-            <Route path="/custom-packaging-dubai" element={<CommercialLandingPage pageKey="custom-packaging-dubai" />} />
+            {/* Packaging Routes Redirected to Services */}
+            <Route path="/packaging-printing-dubai" element={<Navigate to="/services" replace />} />
+            <Route path="/custom-packaging-dubai" element={<Navigate to="/services" replace />} />
+            <Route path="/custom-packaging" element={<Navigate to="/services" replace />} />
+            <Route path="/packaging-printing" element={<Navigate to="/services" replace />} />
             <Route path="/sticker-printing-dubai" element={<CommercialLandingPage pageKey="sticker-printing-dubai" />} />
             <Route path="/label-printing-dubai" element={<CommercialLandingPage pageKey="label-printing-dubai" />} />
             <Route path="/signage-printing-dubai" element={<CommercialLandingPage pageKey="signage-printing-dubai" />} />
@@ -126,8 +129,6 @@ function App() {
             <Route path="/foil-business-cards-dubai" element={<Navigate to="/foil-business-cards" replace />} />
             <Route path="/spot-uv-business-cards-dubai" element={<Navigate to="/spot-uv-business-cards" replace />} />
             <Route path="/embossed-business-cards-dubai" element={<Navigate to="/embossed-business-cards" replace />} />
-            <Route path="/custom-packaging" element={<Navigate to="/custom-packaging-dubai" replace />} />
-            <Route path="/packaging-printing" element={<Navigate to="/packaging-printing-dubai" replace />} />
             <Route path="/brochure-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />
             <Route path="/flyer-printing" element={<Navigate to="/flyer-printing-dubai" replace />} />
             <Route path="/sticker-printing" element={<Navigate to="/sticker-printing-dubai" replace />} />

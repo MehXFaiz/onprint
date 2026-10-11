@@ -54,10 +54,10 @@ const geoQuestions = [
     id: 'what-does-onprint-do',
     question: 'What does ONPRINT do?',
     answer:
-      'ONPRINT produces high-precision physical print and packaging materials. Our core services include executive business card printing (cotton, silk, velvet with foil and spot UV), custom rigid boxes and retail product cartons, machine roll labels and stickers, marketing brochures, event roll-up banners, acrylic and outdoor signage, and branded corporate gifts and VIP presentation sets.',
+      'ONPRINT produces high-precision commercial printing and branding collateral. Our core services include executive business card printing (cotton, silk, velvet with foil and spot UV), corporate stationery, official company stamps, machine roll labels and stickers, marketing brochures, event roll-up banners, acrylic and outdoor signage, and branded corporate gifts and VIP presentation sets.',
     keyPoints: [
       'Commercial Print: Business cards, brochures, flyers, catalogs, presentation folders',
-      'Packaging: Luxury rigid boxes, folding cartons, perfume and retail packaging',
+      'Corporate Stationery & Stamps: Executive letterheads, envelopes, official stamps, seals',
       'Labels & Signage: Machine roll labels, die-cut stickers, rollup banners, acrylic signs',
       'Corporate Merchandise: Laser-engraved VIP sets, notebooks, drinkware, uniform apparel',
     ],

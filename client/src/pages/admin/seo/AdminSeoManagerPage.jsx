@@ -252,7 +252,7 @@ const SCHEMA_TEMPLATES = {
         "name": "Dubai Printing Services",
         "itemListElement": [
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Event Printing" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Retail Packaging Printing" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Executive Stationery Printing" } }
         ]
       }
     }
@@ -2988,7 +2988,7 @@ export default function AdminSeoManagerPage() {
                   150 Legitimate UAE Backlink Acquisition Directory
                 </h2>
                 <p className="mt-1 text-xs sm:text-sm text-neutral-600 max-w-3xl leading-relaxed">
-                  Engineered specifically for the UAE printing and packaging market. A strictly white-hat catalog across 6 strategic pillars: verified business registries, government portals, packaging industry hubs, local business chambers, guest editorial guides, and digital PR outlets.
+                  Engineered specifically for the UAE commercial printing market. A strictly white-hat catalog across 6 strategic pillars: verified business registries, government portals, printing industry hubs, local business chambers, guest editorial guides, and digital PR outlets.
                 </p>
               </div>
               <div className="flex items-center gap-2 shrink-0">
@@ -3011,7 +3011,7 @@ export default function AdminSeoManagerPage() {
               </div>
               <div className="rounded-xl bg-neutral-50 p-3 border border-neutral-200/60">
                 <span className="font-bold text-neutral-700">30% Partial & Topical</span>
-                <p className="text-[11px] text-neutral-500 mt-0.5">luxury packaging press, Dubai print services</p>
+                <p className="text-[11px] text-neutral-500 mt-0.5">luxury stationery press, Dubai print services</p>
               </div>
               <div className="rounded-xl bg-neutral-50 p-3 border border-neutral-200/60">
                 <span className="font-bold text-neutral-700">15% Exact Match Target</span>
@@ -3096,14 +3096,14 @@ export default function AdminSeoManagerPage() {
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
-                  <Layers className="h-4 w-4 text-emerald-600" /> 2. Printing & Packaging Trade
+                  <Layers className="h-4 w-4 text-emerald-600" /> 2. Printing & Graphic Trade
                 </span>
                 <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-600">
                   25 Targets
                 </span>
               </div>
               <p className="text-xs text-neutral-500 mt-2">
-                Gulf Print & Pack, PrintWeek MENA, Packaging Europe, Dieline. Hyper-relevant niche topical authority for packaging & digital printing.
+                Gulf Print & Pack, PrintWeek MENA, Graphic Arts Media. Hyper-relevant niche topical authority for commercial & digital printing.
               </p>
             </div>
 
@@ -3214,7 +3214,7 @@ export default function AdminSeoManagerPage() {
                 >
                   <option value="all">All 6 Pillars (All Categories)</option>
                   <option value="Local Directory">Pillar 1: Local Dubai Citations</option>
-                  <option value="Industry Portal">Pillar 2: Printing & Packaging Trade</option>
+                  <option value="Industry Portal">Pillar 2: Printing & Graphic Trade</option>
                   <option value="B2B Profile">Pillar 3: B2B & Verified Registries</option>
                   <option value="Business Partner">Pillar 4: Local Business Partnerships</option>
                   <option value="Guest Content">Pillar 5: Guest Content & Guides</option>
@@ -3595,12 +3595,12 @@ export default function AdminSeoManagerPage() {
                   ]
                 },
                 {
-                  clusterName: 'Luxury Packaging & Retail Boxes',
-                  pillarPage: '/printing-solutions/luxury-retail-packaging',
+                  clusterName: 'Official Stamps & Corporate Seals',
+                  pillarPage: '/categories/custom-stamps-seals',
                   supportingPages: [
-                    '/categories/custom-packaging',
+                    '/categories/letterheads-printing-dubai',
                     '/printing-services/dubai-marina',
-                    '/blog/eco-friendly-packaging-dubai'
+                    '/blog/corporate-stationery-branding-guide'
                   ]
                 },
                 {
@@ -4211,7 +4211,7 @@ export default function AdminSeoManagerPage() {
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-neutral-400">Commercial Solutions</span>
               <div className="text-3xl font-black text-emerald-600 mt-1">5 Solutions</div>
-              <p className="text-[11px] text-neutral-500 mt-1">Events, Retail Packaging, Restaurant Menus</p>
+              <p className="text-[11px] text-neutral-500 mt-1">Events, Official Seals, Restaurant Menus</p>
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-neutral-400">Google Compliance</span>
@@ -4355,12 +4355,12 @@ export default function AdminSeoManagerPage() {
                       recommendedAction: 'Publish comprehensive paper finish comparison matrix on /products/business-cards.'
                     },
                     {
-                      topic: 'Luxury Rigid Boxes & Retail Packaging',
-                      competitorStrength: 'Manual RFQ form only, no instant pricing',
-                      onprintAdvantage: 'Instant box sizing & dynamic quote calculator',
-                      contentGap: 'Zero dieline templates or downloadable structural guides',
+                      topic: 'Official Company Stamps & Seals',
+                      competitorStrength: 'Manual RFQ form only, slow 2-day turnaround',
+                      onprintAdvantage: 'Instant stamp customizer & same-day Al Quoz dispatch',
+                      contentGap: 'Zero legal compliance guides or sizing charts',
                       priority: 'HIGH',
-                      recommendedAction: 'Deploy free downloadable dieline templates and custom foam insert guides.'
+                      recommendedAction: 'Deploy stamp sizing guides and UAE trade license seal guidelines.'
                     },
                     {
                       topic: 'DIFC & Downtown Corporate Stationery',

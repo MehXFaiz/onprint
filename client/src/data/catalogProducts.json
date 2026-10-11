@@ -2046,97 +2046,6 @@
     ]
   },
   {
-    "_id": "prod-roll-up-banners",
-    "id": 11,
-    "name": "Roll-Up Banners",
-    "slug": "roll-up-banners",
-    "category": {
-      "_id": "cat-signage-banners-printing",
-      "id": 10,
-      "name": "Signage & Exhibition Banners",
-      "slug": "signage-banners-printing"
-    },
-    "shortDescription": "Retractable roll-up banners designed for events, exhibitions, and retail promotions.",
-    "description": "High-visibility retractable roll-up banners with durable aluminum bases and premium print finish for exhibitions and trade shows.",
-    "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Roll-Up%20Banners%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Roll-Up%20Banners%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "imageAlt": "Promotional roll-up banner in Dubai",
-    "seoTitle": "Roll-Up Banners Dubai | Exhibition Banner Printing | ONPRINT",
-    "seoDescription": "Custom roll-up banners in Dubai for exhibitions, events, and marketing activations with portable carry cases and durable signage.",
-    "seoKeywords": "roll up banners dubai, exhibition banners uae, trade show signage dubai",
-    "price": 180,
-    "minimumQuantity": 1,
-    "featured": true,
-    "active": true,
-    "images360": [
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Roll-Up%20Banners%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-    ],
-    "categories": [
-      {
-        "_id": "cat-signage-banners-printing",
-        "id": 10,
-        "name": "Signage & Exhibition Banners",
-        "slug": "signage-banners-printing",
-        "images": [
-          "/assets/products/rollup_banner.jpg",
-          "/assets/products/service_exhibition_signage.jpg",
-          "/assets/products/flags.jpg"
-        ]
-      },
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
-        ]
-      },
-      {
-        "_id": "cat-brochures-printing",
-        "id": 2,
-        "name": "Brochures Printing",
-        "slug": "brochures-printing",
-        "images": [
-          "/assets/products/brochure_bifold.jpg",
-          "/assets/products/brochure_trifold.jpg",
-          "/assets/products/brochure_gatefold.jpg"
-        ]
-      },
-      {
-        "_id": "cat-hospitality-event-printing",
-        "id": 15,
-        "name": "Hospitality & Event Stationery",
-        "slug": "hospitality-event-printing",
-        "images": [
-          "/assets/products/1 (14).jpg",
-          "/assets/products/1 (15).jpg",
-          "/assets/products/1 (16).jpg"
-        ]
-      },
-      {
-        "_id": "cat-catalogs-booklets-printing",
-        "id": 13,
-        "name": "Catalogs & Booklets Printing",
-        "slug": "catalogs-booklets-printing",
-        "images": [
-          "/assets/products/brochure_booklet_catalog.jpg",
-          "/assets/products/brochure_zfold.jpg",
-          "/assets/products/service_digital_offset.jpg"
-        ]
-      }
-    ]
-  },
-  {
     "_id": "prod-beach-flags",
     "id": 12,
     "name": "Beach Flags",
@@ -6330,5 +6239,519 @@
     "images": [
       "/assets/products/id-cards/smart-nfc-pvc-id.png"
     ]
+  },
+  {
+    "_id": "prod-standard-rollup-banner-85x200",
+    "id": 101,
+    "name": "Standard Retractable Roll-Up Banner (85cm × 200cm)",
+    "slug": "standard-rollup-banner-85x200",
+    "category": {
+      "_id": "cat-rollup-banners-dubai",
+      "id": 19,
+      "name": "Rollup Banners",
+      "slug": "rollup-banners"
+    },
+    "shortDescription": "Popular 85cm × 200cm retractable roll-up banner with twin stabilizing feet, anti-curl blockout film, and padded carry bag.",
+    "description": "The industry-standard choice for corporate seminars, retail promotions, and exhibition stands across Dubai and the UAE. Features a lightweight anodized aluminum base with two swing-out stabilizing feet, three-part bungee shock pole, and high-definition 1440 DPI UV/Eco-Solvent printed 220μm anti-curl greyback PET film that stays perfectly flat.",
+    "image": "/assets/products/rollup-banners/standard-rollup-banner-85x200.svg",
+    "image_url": "/assets/products/rollup-banners/standard-rollup-banner-85x200.svg",
+    "images": [
+      "/assets/products/rollup-banners/standard-rollup-banner-85x200.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ],
+    "imageAlt": "Standard Retractable Roll-Up Banner 85x200cm in Dubai",
+    "seoTitle": "Standard Retractable Roll-Up Banner 85x200cm Dubai | ONPRINT",
+    "seoDescription": "Order standard 85x200cm retractable roll-up banner in Dubai. Lightweight aluminum cassette with anti-curl greyback film and carry bag.",
+    "seoKeywords": "standard rollup banner dubai, roll up banner 85x200, retractable banner stand uae, pull up banner dubai",
+    "seoHeading": "Standard Retractable Roll-Up Banner Printing Dubai",
+    "canonicalUrl": "https://0nprint.com/products/standard-rollup-banner-85x200",
+    "price": 145,
+    "minimumQuantity": 1,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Standard 85cm (W) × 200cm (H) Display Size",
+      "220μm Tear-Resistant Anti-Curl Greyback Blockout Film",
+      "Anodized Aluminum Cassette with Dual Stabilizing Feet",
+      "Includes Padded Oxford Nylon Travel Carry Bag",
+      "1440 DPI High-Definition Full Color UV Printing"
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85cm × 200cm (Standard)",
+          "value": "85x200"
+        }
+      ],
+      "materials": [
+        {
+          "label": "220μm Anti-Curl Greyback Blockout PET",
+          "value": "greyback-220"
+        },
+        {
+          "label": "260μm Satin Smooth Blockout Polypropylene",
+          "value": "satin-260"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Matte Anti-Glare Finish",
+          "value": "matte"
+        },
+        {
+          "label": "Vibrant Gloss Laminated Finish",
+          "value": "gloss"
+        }
+      ],
+      "turnaround": [
+        {
+          "label": "Same-Day / Express 24h Dispatch",
+          "value": "express-24h"
+        },
+        {
+          "label": "Standard 2–3 Days Delivery",
+          "value": "standard"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "prod-luxury-teardrop-rollup-banner",
+    "id": 102,
+    "name": "Luxury Teardrop Chrome Roll-Up Banner (85cm × 200cm)",
+    "slug": "luxury-teardrop-rollup-banner",
+    "category": {
+      "_id": "cat-rollup-banners-dubai",
+      "id": 19,
+      "name": "Rollup Banners",
+      "slug": "rollup-banners"
+    },
+    "shortDescription": "Executive wide-base teardrop cassette roll-up banner with chrome end-caps (no swing feet required).",
+    "description": "Designed for luxury Dubai press conferences, 5-star hotel lobbies, and premium corporate launches. Heavyweight cast-aluminum teardrop base with high-sheen chrome side accents provides ultimate freestanding stability without floor feet. Printed on 260μm satin smooth blockout film with rich color saturation.",
+    "image": "/assets/products/rollup-banners/luxury-teardrop-rollup-banner-85x200.svg",
+    "image_url": "/assets/products/rollup-banners/luxury-teardrop-rollup-banner-85x200.svg",
+    "images": [
+      "/assets/products/rollup-banners/luxury-teardrop-rollup-banner-85x200.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ],
+    "imageAlt": "Luxury Teardrop Chrome Roll-Up Banner in Dubai",
+    "seoTitle": "Luxury Teardrop Chrome Roll-Up Banner Dubai | ONPRINT",
+    "seoDescription": "Executive teardrop roll-up banner stand with chrome accents. Footless premium wide base with satin non-curl media and padded carry bag.",
+    "seoKeywords": "luxury rollup banner dubai, teardrop roll up banner, executive pull up banner, chrome teardrop stand uae",
+    "seoHeading": "Luxury Teardrop Chrome Roll-Up Banner Printing Dubai",
+    "canonicalUrl": "https://0nprint.com/products/luxury-teardrop-rollup-banner",
+    "price": 280,
+    "minimumQuantity": 1,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Executive 85cm (W) × 200cm (H) Free-Standing Display",
+      "Luxury Teardrop Base with High-Gloss Chrome End-Caps",
+      "Footless Design with Low Center of Gravity",
+      "260μm Satin Smooth Blockout Film",
+      "Heavy-Duty Padded Zipper Bag Included"
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85cm × 200cm (Luxury Teardrop)",
+          "value": "85x200"
+        },
+        {
+          "label": "100cm × 200cm (Luxury Teardrop)",
+          "value": "100x200"
+        }
+      ],
+      "materials": [
+        {
+          "label": "260μm Premium Satin Blockout",
+          "value": "satin-260"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Matte Anti-Glare Premium Finish",
+          "value": "matte"
+        }
+      ],
+      "turnaround": [
+        {
+          "label": "Same-Day Express 24h",
+          "value": "express-24h"
+        },
+        {
+          "label": "Standard 2 Days Delivery",
+          "value": "standard"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "prod-wide-exhibition-rollup-banner-100x200",
+    "id": 103,
+    "name": "Wide Exhibition Roll-Up Banner (100cm × 200cm)",
+    "slug": "wide-exhibition-rollup-banner-100x200",
+    "category": {
+      "_id": "cat-rollup-banners-dubai",
+      "id": 19,
+      "name": "Rollup Banners",
+      "slug": "rollup-banners"
+    },
+    "shortDescription": "Expanded 100cm width roll-up banner stand for high-impact Dubai World Trade Centre (DWTC) exhibition booths.",
+    "description": "Offers 18% wider graphics coverage than standard models, perfect for sponsor walls, booth entrances, and keynote stages. Built with a reinforced aluminum cassette, top-snapping aluminum clamp rail, and 240μm anti-glare blockout PET media.",
+    "image": "/assets/products/rollup-banners/wide-exhibition-rollup-banner-100x200.svg",
+    "image_url": "/assets/products/rollup-banners/wide-exhibition-rollup-banner-100x200.svg",
+    "images": [
+      "/assets/products/rollup-banners/wide-exhibition-rollup-banner-100x200.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ],
+    "imageAlt": "Wide Exhibition Roll-Up Banner 100x200cm in Dubai",
+    "seoTitle": "Wide Exhibition Roll-Up Banner 100x200cm Dubai | ONPRINT",
+    "seoDescription": "Extra wide 100cm retractable banner stand for trade shows and exhibitions in Dubai. 240μm anti-glare blockout film.",
+    "seoKeywords": "wide rollup banner dubai, 100x200 roll up banner uae, dwtc exhibition banner stand, wide pull up banner",
+    "seoHeading": "Wide Exhibition Roll-Up Banner 100x200cm Dubai",
+    "canonicalUrl": "https://0nprint.com/products/wide-exhibition-rollup-banner-100x200",
+    "price": 195,
+    "minimumQuantity": 1,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Wide 100cm (W) × 200cm (H) Panoramic View",
+      "240μm Anti-Glare Non-Curling Blockout Film",
+      "Dual Stabilizing Feet & Top Aluminum Snapping Rail",
+      "Includes Deluxe Padded Oxford Travel Bag",
+      "1440 DPI High-Impact UV Pigment Print"
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "100cm × 200cm (Wide Exhibition)",
+          "value": "100x200"
+        }
+      ],
+      "materials": [
+        {
+          "label": "240μm Anti-Glare Blockout PET",
+          "value": "blockout-240"
+        }
+      ],
+      "turnaround": [
+        {
+          "label": "Express 24h Turnaround",
+          "value": "express-24h"
+        },
+        {
+          "label": "Standard 2–3 Days",
+          "value": "standard"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "prod-giant-backdrop-rollup-banner-120x200",
+    "id": 104,
+    "name": "Giant Backdrop Roll-Up Banner (120cm × 200cm)",
+    "slug": "giant-backdrop-rollup-banner-120x200",
+    "category": {
+      "_id": "cat-rollup-banners-dubai",
+      "id": 19,
+      "name": "Rollup Banners",
+      "slug": "rollup-banners"
+    },
+    "shortDescription": "Extra-wide 1.2m retractable display banner with dual support poles for stage and media backdrops.",
+    "description": "Command attention with a massive 120cm wide banner stand. Equipped with dual interlocking vertical support poles, heavy-duty cassette base, and non-reflective matte blockout graphic film that ensures zero flash glare during photography and video broadcasting.",
+    "image": "/assets/products/rollup-banners/giant-backdrop-rollup-banner-120x200.svg",
+    "image_url": "/assets/products/rollup-banners/giant-backdrop-rollup-banner-120x200.svg",
+    "images": [
+      "/assets/products/rollup-banners/giant-backdrop-rollup-banner-120x200.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ],
+    "imageAlt": "Giant Backdrop Roll-Up Banner 120x200cm in Dubai",
+    "seoTitle": "Giant Backdrop Roll-Up Banner 120x200cm Dubai | ONPRINT",
+    "seoDescription": "Massive 120cm wide retractable backdrop roll-up banner in Dubai. Dual pole stability, anti-flash matte finish for media events.",
+    "seoKeywords": "giant rollup banner dubai, 120x200 banner stand, stage backdrop banner, media wall banner uae",
+    "seoHeading": "Giant Backdrop Roll-Up Banner 120x200cm Dubai",
+    "canonicalUrl": "https://0nprint.com/products/giant-backdrop-rollup-banner-120x200",
+    "price": 340,
+    "minimumQuantity": 1,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Giant 120cm (W) × 200cm (H) Stage Backdrop Size",
+      "Twin Telescopic Aluminum Support Poles",
+      "Non-Reflective Matte Blockout Film for Camera Flash Protection",
+      "Heavy-Gauge Cassette with Deluxe Padded Bag"
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "120cm × 200cm (Giant Backdrop)",
+          "value": "120x200"
+        }
+      ],
+      "materials": [
+        {
+          "label": "260μm Matte Non-Reflective Blockout PET",
+          "value": "matte-260"
+        }
+      ],
+      "turnaround": [
+        {
+          "label": "Express 24h Turnaround",
+          "value": "express-24h"
+        },
+        {
+          "label": "Standard 2–3 Days",
+          "value": "standard"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "prod-double-sided-rollup-banner-85x200",
+    "id": 105,
+    "name": "Double-Sided 360° Retractable Roll-Up Banner (85cm × 200cm)",
+    "slug": "double-sided-rollup-banner-85x200",
+    "category": {
+      "_id": "cat-rollup-banners-dubai",
+      "id": 19,
+      "name": "Rollup Banners",
+      "slug": "rollup-banners"
+    },
+    "shortDescription": "Dual-graphic retractable banner stand with back-to-back graphics for 360-degree walkway visibility.",
+    "description": "Maximizes foot traffic engagement in shopping mall concourses, airport terminals, and exhibition aisles. Features dual spring-loaded rollers housing two independent full-color blockout banners inside a single heavy-duty aluminum base.",
+    "image": "/assets/products/rollup-banners/double-sided-rollup-banner-85x200.svg",
+    "image_url": "/assets/products/rollup-banners/double-sided-rollup-banner-85x200.svg",
+    "images": [
+      "/assets/products/rollup-banners/double-sided-rollup-banner-85x200.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ],
+    "imageAlt": "Double-Sided 360 Retractable Roll-Up Banner in Dubai",
+    "seoTitle": "Double-Sided 360° Retractable Roll-Up Banner Dubai | ONPRINT",
+    "seoDescription": "Double-sided pull-up banner with two back-to-back graphics. Complete 360-degree visibility for mall corridors and exhibition aisles.",
+    "seoKeywords": "double sided rollup banner dubai, 2 sided pull up banner, twin banner stand uae, 360 retractable banner",
+    "seoHeading": "Double-Sided 360° Retractable Roll-Up Banner Dubai",
+    "canonicalUrl": "https://0nprint.com/products/double-sided-rollup-banner-85x200",
+    "price": 290,
+    "minimumQuantity": 1,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Dual 85cm × 200cm Back-to-Back Graphics",
+      "360° Brand Visibility for Hallways and Aisles",
+      "Twin Roller Heavy-Duty Base Mechanism",
+      "Two Independent 220μm Anti-Curl Printed Banners",
+      "Includes Heavy-Duty Padded Travel Bag"
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85cm × 200cm (Double-Sided)",
+          "value": "85x200"
+        }
+      ],
+      "materials": [
+        {
+          "label": "Twin 220μm Anti-Curl Blockout PET",
+          "value": "twin-pet-220"
+        }
+      ],
+      "turnaround": [
+        {
+          "label": "Express 24h Turnaround",
+          "value": "express-24h"
+        },
+        {
+          "label": "Standard 2–3 Days",
+          "value": "standard"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "prod-desktop-mini-rollup-banner",
+    "id": 106,
+    "name": "Desktop Mini Tabletop Roll-Up Banner (A3 / A4)",
+    "slug": "desktop-mini-rollup-banner",
+    "category": {
+      "_id": "cat-rollup-banners-dubai",
+      "id": 19,
+      "name": "Rollup Banners",
+      "slug": "rollup-banners"
+    },
+    "shortDescription": "Compact mini pull-up banner for reception desks, cashier points, and POS counter marketing.",
+    "description": "High-impact counter display. Engineered with a miniature anodized silver pull-up stand and micro-spring roller. Printed on ultra-fine photographic synthetic film with crystal-clear text and vivid brand graphics. Available in A4 (21×29.7cm) and A3 (29.7×42cm).",
+    "image": "/assets/products/rollup-banners/desktop-mini-tabletop-rollup-banner.svg",
+    "image_url": "/assets/products/rollup-banners/desktop-mini-tabletop-rollup-banner.svg",
+    "images": [
+      "/assets/products/rollup-banners/desktop-mini-tabletop-rollup-banner.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ],
+    "imageAlt": "Desktop Mini Tabletop Roll-Up Banner in Dubai",
+    "seoTitle": "Desktop Mini Tabletop Roll-Up Banner Dubai | A3 & A4 | ONPRINT",
+    "seoDescription": "Mini desktop retractable roll-up banner stand in Dubai. Ideal for reception desks, POS counters, and retail checkouts in A3 and A4 sizes.",
+    "seoKeywords": "mini rollup banner dubai, desktop roll up stand, tabletop pull up banner, a4 a3 mini banner uae",
+    "seoHeading": "Desktop Mini Tabletop Roll-Up Banner (A3 / A4) Dubai",
+    "canonicalUrl": "https://0nprint.com/products/desktop-mini-rollup-banner",
+    "price": 65,
+    "minimumQuantity": 2,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Available in A4 (21×29.7cm) and A3 (29.7×42cm)",
+      "Anodized Aluminum Desktop Miniature Cassette",
+      "Photographic Quality 2400 DPI Micro-Print",
+      "Perfect for POS Counters, Checkouts & Hotel Receptions"
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "A4 (21cm × 29.7cm)",
+          "value": "a4"
+        },
+        {
+          "label": "A3 (29.7cm × 42cm)",
+          "value": "a3"
+        }
+      ],
+      "materials": [
+        {
+          "label": "Ultra-Fine Synthetic Micro-Film",
+          "value": "micro-film"
+        }
+      ],
+      "turnaround": [
+        {
+          "label": "Same-Day Dispatch",
+          "value": "express-same-day"
+        },
+        {
+          "label": "Standard 24h",
+          "value": "standard-24h"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "prod-outdoor-wind-resistant-rollup-banner",
+    "id": 107,
+    "name": "Outdoor Wind-Resistant Roll-Up Banner (85cm × 200cm)",
+    "slug": "outdoor-wind-resistant-rollup-banner",
+    "category": {
+      "_id": "cat-rollup-banners-dubai",
+      "id": 19,
+      "name": "Rollup Banners",
+      "slug": "rollup-banners"
+    },
+    "shortDescription": "Heavy-duty outdoor retractable banner with dual tension springs and 12kg water/sand refillable ballast base.",
+    "description": "Engineered specifically for outdoor events, sporting venues, and open-air promotional activations in the UAE. Features dual industrial tension springs that absorb wind gusts up to 38 km/h without falling, combined with a 12-liter water/sand refillable ballast base and weatherproof 510 GSM UV-cured PVC banner.",
+    "image": "/assets/products/rollup-banners/outdoor-wind-resistant-rollup-banner.svg",
+    "image_url": "/assets/products/rollup-banners/outdoor-wind-resistant-rollup-banner.svg",
+    "images": [
+      "/assets/products/rollup-banners/outdoor-wind-resistant-rollup-banner.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ],
+    "imageAlt": "Outdoor Wind-Resistant Roll-Up Banner 85x200cm in Dubai",
+    "seoTitle": "Outdoor Wind-Resistant Roll-Up Banner Dubai | Weatherproof | ONPRINT",
+    "seoDescription": "Heavy-duty wind-resistant outdoor retractable banner in Dubai. Dual spring suspension, 12kg water-fillable ballast base, and weatherproof 510 GSM PVC.",
+    "seoKeywords": "outdoor rollup banner dubai, wind resistant banner stand uae, heavy duty pull up banner, outdoor spring banner stand",
+    "seoHeading": "Outdoor Wind-Resistant Heavy-Duty Roll-Up Banner Dubai",
+    "canonicalUrl": "https://0nprint.com/products/outdoor-wind-resistant-rollup-banner",
+    "price": 320,
+    "minimumQuantity": 1,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Wind-Rated up to 38 km/h with Dual Shock Springs",
+      "12 KG Water or Sand Refillable Ballast Base Tank",
+      "510 GSM Heavy Weatherproof & Waterproof Exterior PVC",
+      "UV-Shielded Non-Fade Pigment Inks Guaranteed for Sun Exposure",
+      "Includes Heavy-Duty Reinforced Carry Bag"
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85cm × 200cm (Outdoor Heavy-Duty)",
+          "value": "85x200"
+        }
+      ],
+      "materials": [
+        {
+          "label": "510 GSM Weatherproof Exterior PVC",
+          "value": "pvc-510"
+        }
+      ],
+      "turnaround": [
+        {
+          "label": "Express 24h Turnaround",
+          "value": "express-24h"
+        },
+        {
+          "label": "Standard 2–3 Days",
+          "value": "standard"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "prod-executive-matte-black-rollup-banner",
+    "id": 108,
+    "name": "Executive Stealth Matte Black Roll-Up Banner (85cm × 200cm)",
+    "slug": "executive-matte-black-rollup-banner",
+    "category": {
+      "_id": "cat-rollup-banners-dubai",
+      "id": 19,
+      "name": "Rollup Banners",
+      "slug": "rollup-banners"
+    },
+    "shortDescription": "Ultra-sleek anodized matte black cassette roll-up banner with footless weighted base for luxury branding.",
+    "description": "Designed for premium VIP galas, luxury brand pop-ups, and modern corporate headquarters. Features a stealth matte black powder-coated aluminum teardrop cassette with polished trim, zero floor swing feet, and smooth satin non-curl textile fabric that eliminates reflection and creates striking visual elegance.",
+    "image": "/assets/products/rollup-banners/executive-matte-black-rollup-banner.svg",
+    "image_url": "/assets/products/rollup-banners/executive-matte-black-rollup-banner.svg",
+    "images": [
+      "/assets/products/rollup-banners/executive-matte-black-rollup-banner.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ],
+    "imageAlt": "Executive Stealth Matte Black Roll-Up Banner in Dubai",
+    "seoTitle": "Executive Stealth Matte Black Roll-Up Banner Dubai | ONPRINT",
+    "seoDescription": "Luxury matte black teardrop roll-up banner in Dubai. Footless solid weighted profile, satin non-curl textile banner, and executive carry case.",
+    "seoKeywords": "black rollup banner dubai, matte black pull up banner, executive black banner stand uae, luxury teardrop banner",
+    "seoHeading": "Executive Stealth Matte Black Roll-Up Banner Dubai",
+    "canonicalUrl": "https://0nprint.com/products/executive-matte-black-rollup-banner",
+    "price": 260,
+    "minimumQuantity": 1,
+    "featured": true,
+    "active": true,
+    "features": [
+      "Anodized Powder-Coated Stealth Matte Black Alloy Cassette",
+      "Footless Low-Profile Weighted Teardrop Base (6.2 kg Stability)",
+      "Non-Curl Satin Smooth Textile Fabric Media",
+      "Anti-Scratch Coating with Polished Trim Accents",
+      "Luxury Padded Hard-Shell Black Travel Case"
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85cm × 200cm (Stealth Matte Black)",
+          "value": "85x200"
+        }
+      ],
+      "materials": [
+        {
+          "label": "280μm Non-Curl Satin Textile Fabric",
+          "value": "satin-fabric-280"
+        }
+      ],
+      "turnaround": [
+        {
+          "label": "Express 24h Turnaround",
+          "value": "express-24h"
+        },
+        {
+          "label": "Standard 2 Days Delivery",
+          "value": "standard"
+        }
+      ]
+    }
   }
 ]

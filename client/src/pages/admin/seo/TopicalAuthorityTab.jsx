@@ -48,27 +48,27 @@ export const TOPICAL_CLUSTERS = [
   {
     id: 'cluster-b',
     letter: 'B',
-    name: 'Rigid Boxes & Custom Luxury Packaging',
-    focus_entity: 'Custom Luxury Packaging Manufacturer Dubai',
-    target_url: '/packaging-printing-dubai',
+    name: 'Custom Rubber Stamps & Company Seals',
+    focus_entity: 'Official Company Stamp & Seal Manufacturer Dubai',
+    target_url: '/categories/custom-stamps-seals',
     search_intent: 'Commercial',
     primary_keywords: [
-      'custom packaging dubai',
-      'rigid box manufacturer dubai',
-      'luxury perfume boxes uae',
-      'magnetic gift box printing',
-      'custom printed folding cartons',
+      'company stamp dubai',
+      'rubber stamp maker dubai',
+      'trodat stamp printing uae',
+      'official seal stamp dubai',
+      'embossing seal stamp uae',
     ],
     subtopics: [
-      'Rigid Box Caliper Ratings: 1000gsm to 2000gsm Board Selection',
-      'Custom EVA Foam and Velvet Tray Inserts for Fragrance & Jewelry',
-      'Eco-Friendly FSC-Certified Corrugated Mailer Boxes',
-      'Die-Line Creation & Structural Prototyping in Al Quoz',
+      'Self-Inking vs Pre-Inked Rubber Stamps: Trodat & Colop',
+      'Pocket Stamps & Portable Corporate Stamps for Executives',
+      'Laser-Engraved Delrin Dies for High-Detail Company Seals',
+      'Same-Day Urgent Stamp Delivery Across Dubai & UAE',
     ],
     internal_links: [
-      { text: 'Custom Retail Packaging', url: '/custom-packaging-dubai' },
+      { text: 'Company Letterheads', url: '/categories/letterheads-printing-dubai' },
       { text: 'Product Labels & Stickers', url: '/sticker-printing-dubai' },
-      { text: 'Request Packaging Prototype Kit', url: '/get-a-quote' },
+      { text: 'Order Custom Stamps', url: '/categories/custom-stamps-seals' },
     ],
   },
   {
@@ -92,7 +92,7 @@ export const TOPICAL_CLUSTERS = [
       'Metallic Foil Labels on Rolls for Automated Applicators',
     ],
     internal_links: [
-      { text: 'All Packaging Solutions', url: '/packaging-printing-dubai' },
+      { text: 'Corporate Stationery', url: '/corporate-printing-dubai' },
       { text: 'Order Sample Swatches', url: '/get-a-quote' },
     ],
   },
@@ -203,16 +203,16 @@ export const TOPICAL_CLUSTERS = [
   {
     id: 'cluster-h',
     letter: 'H',
-    name: 'Paper Bags & Eco-Friendly Retail Packaging',
+    name: 'Paper Bags & Eco-Friendly Retail Bags',
     focus_entity: 'Custom Paper Bag Manufacturer Dubai',
-    target_url: '/custom-packaging-dubai',
+    target_url: '/promotional-printing-dubai',
     search_intent: 'Commercial',
     primary_keywords: [
       'paper bag printing dubai',
       'luxury shopping bags uae',
       'kraft paper bags wholesale dubai',
       'custom boutique bags with rope handle',
-      'eco friendly retail packaging',
+      'eco friendly retail bags',
     ],
     subtopics: [
       'Kraft Paper (Brown & White) vs Coated Art Paper Bags',
@@ -221,7 +221,7 @@ export const TOPICAL_CLUSTERS = [
       'Foil Stamping on Matte Black and White Boutique Bags',
     ],
     internal_links: [
-      { text: 'Rigid Box Packaging', url: '/packaging-printing-dubai' },
+      { text: 'Custom Stickers & Labels', url: '/sticker-printing-dubai' },
       { text: 'Product Labels', url: '/sticker-printing-dubai' },
       { text: 'Request Bag Samples', url: '/get-a-quote' },
     ],
@@ -274,34 +274,34 @@ export const TOPICAL_CLUSTERS = [
     ],
     internal_links: [
       { text: 'Corporate Stationery', url: '/corporate-printing-dubai' },
-      { text: 'Custom Packaging & Boxes', url: '/packaging-printing-dubai' },
+      { text: 'Luxury Business Cards', url: '/business-card-printing-dubai' },
       { text: 'Request Corporate Gifts Catalog', url: '/get-a-quote' },
     ],
   },
   {
     id: 'cluster-k',
     letter: 'K',
-    name: 'Food & Beverage Packaging (Delivery & Retail)',
-    focus_entity: 'Food-Grade Custom Packaging Dubai',
-    target_url: '/custom-packaging-dubai',
+    name: 'Hospitality & Restaurant Menus & Collateral',
+    focus_entity: 'Hospitality & Restaurant Printing Dubai',
+    target_url: '/promotional-printing-dubai',
     search_intent: 'Commercial',
     primary_keywords: [
-      'food packaging printing dubai',
-      'greaseproof paper printing uae',
-      'custom burger boxes dubai',
-      'takeaway coffee cup printing',
-      'food grade certified paper packaging',
+      'menu printing dubai',
+      'restaurant menus uae',
+      'waterproof dining menus dubai',
+      'table tent printing',
+      'takeaway menu printing dubai',
     ],
     subtopics: [
-      'Food-Safe Inks and Barrier Coatings for Delivery Packaging',
-      'Greaseproof Wrapping Paper for Gourmet Burgers & Bakeries',
-      'Folding Kraft Takeaway Boxes with Ventilation Holes',
-      'Dubai Municipality Health & Food Contact Material Compliance',
+      'Waterproof Synthetic Papers for Restaurant & Cafe Menus',
+      'Foil-Stamped Leather and Hardcover Menu Covers',
+      'Table Talkers, Coasters, and Counter Displays',
+      'Dubai Hospitality Fast-Turnaround Menu Replacements',
     ],
     internal_links: [
       { text: 'Product Labels & Stickers', url: '/sticker-printing-dubai' },
-      { text: 'Paper Bags', url: '/custom-packaging-dubai' },
-      { text: 'Food Packaging Quote', url: '/get-a-quote' },
+      { text: 'Paper Bags', url: '/promotional-printing-dubai' },
+      { text: 'Hospitality Print Quote', url: '/get-a-quote' },
     ],
   },
   {
@@ -352,7 +352,7 @@ export const TOPICAL_CLUSTERS = [
     ],
     internal_links: [
       { text: 'Luxury Business Cards', url: '/business-card-printing-dubai' },
-      { text: 'Rigid Boxes & Packaging', url: '/packaging-printing-dubai' },
+      { text: 'Corporate Stationery', url: '/corporate-printing-dubai' },
       { text: 'Request Finish Swatch Sample Box', url: '/contact' },
     ],
   },
@@ -403,7 +403,7 @@ export const TOPICAL_CLUSTERS = [
       'Retail Supermarket (Lulu, Carrefour) Display Approval Standards',
     ],
     internal_links: [
-      { text: 'Custom Retail Packaging', url: '/custom-packaging-dubai' },
+      { text: 'Custom Display Printing', url: '/large-format-printing-dubai' },
       { text: 'Large Format Signage', url: '/large-format-printing-dubai' },
       { text: 'POS Engineering Consultation', url: '/get-a-quote' },
     ],
@@ -411,16 +411,16 @@ export const TOPICAL_CLUSTERS = [
   {
     id: 'cluster-p',
     letter: 'P',
-    name: 'Custom Hang Tags & Apparel Packaging',
+    name: 'Custom Hang Tags & Apparel Branding',
     focus_entity: 'Fashion & Retail Hang Tag Printing Dubai',
-    target_url: '/label-printing-dubai',
+    target_url: '/sticker-printing-dubai',
     search_intent: 'Commercial',
     primary_keywords: [
       'hang tag printing dubai',
       'garment swing tags uae',
       'custom clothing tags with eyelet',
       'kraft fashion tags with string',
-      'luxury apparel packaging tags',
+      'luxury apparel tags',
     ],
     subtopics: [
       'Paper Weights: 400gsm to 700gsm Rigid Board Hang Tags',
@@ -430,7 +430,7 @@ export const TOPICAL_CLUSTERS = [
     ],
     internal_links: [
       { text: 'Sticker & Label Printing', url: '/sticker-printing-dubai' },
-      { text: 'Retail Paper Bags', url: '/custom-packaging-dubai' },
+      { text: 'Retail Paper Bags', url: '/promotional-printing-dubai' },
       { text: 'Order Apparel Tag Swatches', url: '/get-a-quote' },
     ],
   },
@@ -611,7 +611,7 @@ export default function TopicalAuthorityTab({ showToast }) {
               Topical Map &amp; Pillar-Cluster Architecture
             </h2>
             <p className="mt-1 text-sm text-neutral-600 max-w-2xl">
-              20 core commercial printing and luxury packaging clusters (A–T) mapped to search intent, target landing URLs, and hub-and-spoke internal linking directives.
+              20 core commercial printing and corporate branding clusters (A–T) mapped to search intent, target landing URLs, and hub-and-spoke internal linking directives.
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">

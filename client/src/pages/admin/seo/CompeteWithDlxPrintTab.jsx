@@ -156,7 +156,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
     { name: 'Printing Services Dubai', target: '/printing-services-dubai', keywordsCount: 20, focus: 'General & Commercial Printing' },
     { name: 'Business Cards Dubai', target: '/business-card-printing-dubai', keywordsCount: 20, focus: '600gsm Cotton, Spot UV, Luxury' },
     { name: 'Large Format & Signage', target: '/large-format-printing-dubai', keywordsCount: 20, focus: 'Banners, Rollups, 3D Illuminated' },
-    { name: 'Custom Packaging & Boxes', target: '/packaging-printing-dubai', keywordsCount: 20, focus: 'Rigid Boxes, Perfume, Low-MOQ 100' },
+    { name: 'Custom Stamps & Seals', target: '/categories/custom-stamps-seals', keywordsCount: 20, focus: 'Self-Inking, Pocket, Trodat Stamps' },
     { name: 'Promotional & Corporate Gifts', target: '/promotional-printing-dubai', keywordsCount: 20, focus: 'Executive Swag, Pens, Drinkware' },
     { name: 'Custom Stickers & Labels', target: '/sticker-printing-dubai', keywordsCount: 20, focus: 'Roll Labels, White Ink, Waterproof' },
     { name: 'Flyers, Brochures & Folders', target: '/flyer-printing-dubai', keywordsCount: 20, focus: 'Corporate Marketing Collateral' },
@@ -192,7 +192,7 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
             </h2>
             <p className="text-sm text-neutral-300 leading-relaxed">
               Exhaustive competitive architecture mapping ONPRINT (Al Quoz, Dubai) against Deluxe Printing (Al Qusais).
-              Leveraging central Dubai proximity, low-MOQ luxury packaging, and same-day express turnaround to capture high-value corporate demand.
+              Leveraging central Dubai proximity, luxury finishing, and same-day express turnaround to capture high-value corporate demand.
             </p>
           </div>
 
@@ -231,11 +231,11 @@ export default function CompeteWithDlxPrintTab({ showToast }) {
 
           <div className="rounded-2xl bg-neutral-900/80 border border-neutral-800 p-4">
             <div className="flex items-center gap-2 text-neutral-400 text-xs font-semibold">
-              <Box className="h-4 w-4 text-amber-500" />
-              <span>Packaging Moat</span>
+              <Sparkles className="h-4 w-4 text-amber-500" />
+              <span>Stamps &amp; Seals Moat</span>
             </div>
-            <div className="mt-2 text-lg sm:text-xl font-black text-white">Rigid Boxes (MOQ 100)</div>
-            <p className="mt-1 text-[11px] text-neutral-400">In-house die-making vs 1,000 MOQ</p>
+            <div className="mt-2 text-lg sm:text-xl font-black text-white">Same-Day Dispatch</div>
+            <p className="mt-1 text-[11px] text-neutral-400">Laser-engraved official company seals</p>
           </div>
 
           <div className="rounded-2xl bg-neutral-900/80 border border-neutral-800 p-4">

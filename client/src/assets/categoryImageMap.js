@@ -804,7 +804,7 @@ export const categoryImageMap = {
     'corporate-gift-items': [
       '/assets/products/1 (5).jpg',
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_luxury_packaging.jpg'
+      '/assets/products/service_corporate_gifts.jpg'
     ],
     'office-stationery-printing': [
       '/assets/products/service_executive_stationery.jpg',
@@ -1117,33 +1117,7 @@ export const categoryImageMap = {
       '/assets/products/1 (6).jpg'
     ]
   },
-  'food-packaging-boxes': {
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'stickers-labels-printing': [
-      '/assets/products/service_stickers_labels.jpg',
-      '/assets/products/stickers.jpg',
-      '/assets/products/1 (6).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ]
-  },
+
   'restaurant-menus-printing': {
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',
@@ -1362,7 +1336,7 @@ export const categoryImageMap = {
     'brochures-printing': [
       '/assets/products/brochure_gatefold.jpg',
       '/assets/products/brochure_bifold.jpg',
-      '/assets/products/service_luxury_packaging.jpg'
+      '/assets/products/brochure_zfold.jpg'
     ],
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',

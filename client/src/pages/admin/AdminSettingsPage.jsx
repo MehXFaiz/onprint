@@ -8,7 +8,7 @@ export default function AdminSettingsPage() {
   const [submitting, setSubmitting] = useState(false)
 
   const [form, setForm] = useState({
-    studioName: 'ONPRINT Printing & Packaging Studio',
+    studioName: 'ONPRINT Printing & Branding Studio',
     tagline: 'Business Printing & Executive Stationery Dubai',
     supportEmail: 'support@onprint.ae',
     salesEmail: 'sales@onprint.ae',

@@ -1,4 +1,5 @@
 const { pool } = require('../config/database')
+const { categories: fallbackCategories } = require('../data/initialData')
 const ApiError = require('../utils/ApiError')
 const pageSeoService = require('../services/pageSeoService')
 
@@ -111,6 +112,12 @@ async function getCategoryById(req, res, next) {
     )
 
     if (rows.length === 0) {
+      const fallback = fallbackCategories.find(
+        (c) => c.slug === id || c._id === id || String(c.id) === id
+      )
+      if (fallback) {
+        return res.json({ success: true, data: fallback })
+      }
       throw new ApiError(404, 'Category not found')
     }
 

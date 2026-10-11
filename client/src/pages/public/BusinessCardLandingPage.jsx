@@ -1582,7 +1582,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs">
               <h4 className="font-display text-sm font-black text-neutral-950">What is ONPRINT?</h4>
               <p className="mt-2 text-xs text-neutral-600 leading-relaxed">
-                ONPRINT is a licensed commercial printing atelier located in Al Quoz, Dubai, UAE, specializing in luxury business cards, rigid packaging, and corporate merchandise.
+                ONPRINT is a licensed commercial printing atelier located in Al Quoz, Dubai, UAE, specializing in luxury business cards, corporate stationery, and corporate merchandise.
               </p>
             </div>
 

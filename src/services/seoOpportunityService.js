@@ -237,12 +237,12 @@ class SeoOpportunityService {
       currentMeta = 'Business card printing in Dubai by ONPRINT printing press.'
       suggestedMeta = 'Executive luxury business card printing in Dubai. Premium 350–600gsm cotton card, soft-touch velvet lamination, metallic gold foil & spot UV. 24h express Al Quoz dispatch!'
       rationale = 'Highlighting luxury 600gsm cotton and metallic foil directly appeals to high-value Dubai corporate clients, closing the CTR gap.'
-    } else if (q.includes('packaging') || q.includes('box')) {
-      currentTitle = 'Packaging | ONPRINT Dubai'
-      suggestedTitle = 'Custom Packaging & Box Printing Dubai | Luxury Rigid Boxes | ONPRINT'
-      currentMeta = 'Packaging printing in Dubai for businesses.'
-      suggestedMeta = 'Custom packaging manufacturer in Dubai. Bespoke rigid setup boxes, corrugated mailing boxes, and perfume packaging with magnetic closures. Low MOQ & factory pricing.'
-      rationale = 'Adding "Bespoke rigid setup boxes", "Low MOQ", and "Factory pricing" addresses key B2B decision criteria in Dubai commercial search.'
+    } else if (q.includes('stamp') || q.includes('seal')) {
+      currentTitle = 'Stamps | ONPRINT Dubai'
+      suggestedTitle = 'Official Company Stamps & Seals Dubai | Same-Day Trodat | ONPRINT'
+      currentMeta = 'Company stamps and rubber seals in Dubai.'
+      suggestedMeta = 'Official company stamps and legal seals in Dubai. Self-inking Trodat & Colop stamps, pocket stamps, and dater seals. Same-day express Al Quoz laser engraving!'
+      rationale = 'Highlighting "Official Company Stamps", "Same-Day", and "Trodat" addresses urgent legal compliance search intent in Dubai commercial search.'
     } else if (q.includes('flyer') || q.includes('leaflet')) {
       currentTitle = 'Flyers | ONPRINT'
       suggestedTitle = 'Flyer Printing Services Dubai | Same-Day 4-Hour Express | ONPRINT'
@@ -285,16 +285,16 @@ class SeoOpportunityService {
         ],
       },
       {
-        service: 'Custom Packaging & Boxes',
-        targetUrl: '/packaging-printing-dubai',
+        service: 'Custom Stamps & Seals',
+        targetUrl: '/categories/custom-stamps-seals',
         categories: [
-          { type: 'Informational', question: 'What is the difference between rigid greyboard setup boxes and folding boxboard (FBB)?', status: 'High Opportunity', action: 'Feature prominently on /packaging-printing-dubai' },
-          { type: 'Commercial', question: 'Who is the direct manufacturer of perfume and luxury chocolate boxes in Dubai?', status: 'Answered in H1', action: 'Reinforce manufacturer entity signals' },
-          { type: 'Transactional', question: 'What is the minimum order quantity (MOQ) for custom printed corrugated mailer boxes?', status: 'Answered', action: 'Highlight Low MOQ 100 units badge' },
-          { type: 'Local', question: 'Do you deliver custom retail packaging across all 7 UAE Emirates?', status: 'Answered', action: 'List Abu Dhabi, Sharjah, and Ajman freight' },
-          { type: 'Comparison', question: 'E-flute vs B-flute corrugated cardboard: Which is better for e-commerce courier shipping?', status: 'Content Gap', action: 'Publish packaging specification guide' },
-          { type: 'Pricing', question: 'How much does custom die-cut tooling cost for a bespoke luxury box in Dubai?', status: 'Content Gap', action: 'Add tooling cost explanation section' },
-          { type: 'How-to', question: 'How to design packaging dielines with spot UV and metallic foil masks?', status: 'Content Gap', action: 'Publish dieline tutorial video & article' },
+          { type: 'Informational', question: 'What is the difference between self-inking Trodat stamps and pre-inked stamps?', status: 'High Opportunity', action: 'Feature prominently on /categories/custom-stamps-seals' },
+          { type: 'Commercial', question: 'Where can I get official company stamps laser-engraved in Al Quoz Dubai?', status: 'Answered in H1', action: 'Reinforce manufacturer entity signals' },
+          { type: 'Transactional', question: 'Can I order a custom company seal stamp online with trade license upload?', status: 'Answered', action: 'Highlight Same-Day dispatch badge' },
+          { type: 'Local', question: 'Do you deliver official rubber stamps across Dubai, Abu Dhabi, and Sharjah?', status: 'Answered', action: 'List freight and courier delivery times' },
+          { type: 'Comparison', question: 'Pocket stamps vs desktop heavy-duty stamps: Which is better for executive signatures?', status: 'Content Gap', action: 'Publish stamp selection guide' },
+          { type: 'Pricing', question: 'How much does a replacement ink pad or bilingual corporate stamp cost in Dubai?', status: 'Content Gap', action: 'Add stamp pricing tier table' },
+          { type: 'How-to', question: 'How to verify legal requirements for UAE company seals and official stamps?', status: 'Content Gap', action: 'Publish regulatory guidance article' },
         ],
       },
       {
@@ -373,10 +373,10 @@ class SeoOpportunityService {
     return [
       { keyword: 'printing press Dubai', position: 5.2, previous_position: 6.8, impressions: 3420, clicks: 178, ctr: 5.2, page_url: '/', search_intent: 'Commercial' },
       { keyword: 'business card printing Dubai', position: 6.4, previous_position: 7.1, impressions: 2890, clicks: 124, ctr: 4.3, page_url: '/business-card-printing-dubai', search_intent: 'Transactional' },
-      { keyword: 'packaging printing Dubai', position: 8.1, previous_position: 9.4, impressions: 2150, clicks: 68, ctr: 3.2, page_url: '/packaging-printing-dubai', search_intent: 'Commercial' },
+      { keyword: 'company stamp Dubai', position: 8.1, previous_position: 9.4, impressions: 2150, clicks: 68, ctr: 3.2, page_url: '/categories/custom-stamps-seals', search_intent: 'Commercial' },
       { keyword: 'flyer printing Dubai', position: 4.9, previous_position: 5.2, impressions: 1980, clicks: 115, ctr: 5.8, page_url: '/flyer-printing-dubai', search_intent: 'Transactional' },
       { keyword: 'brochure printing Dubai', position: 7.3, previous_position: 8.0, impressions: 1640, clicks: 59, ctr: 3.6, page_url: '/brochure-printing-dubai', search_intent: 'Commercial' },
-      { keyword: 'custom packaging Dubai', position: 9.2, previous_position: 10.5, impressions: 1820, clicks: 45, ctr: 2.5, page_url: '/custom-packaging-dubai', search_intent: 'Transactional' },
+      { keyword: 'official seal stamp Dubai', position: 9.2, previous_position: 10.5, impressions: 1820, clicks: 45, ctr: 2.5, page_url: '/categories/custom-stamps-seals', search_intent: 'Transactional' },
       { keyword: 'sticker printing Dubai', position: 5.8, previous_position: 6.4, impressions: 2200, clicks: 108, ctr: 4.9, page_url: '/sticker-printing-dubai', search_intent: 'Transactional' },
       { keyword: 'label printing Dubai', position: 12.4, previous_position: 13.8, impressions: 1450, clicks: 26, ctr: 1.8, page_url: '/label-printing-dubai', search_intent: 'Transactional' },
       { keyword: 'signage printing Dubai', position: 14.1, previous_position: 15.6, impressions: 1380, clicks: 22, ctr: 1.6, page_url: '/signage-printing-dubai', search_intent: 'Commercial' },
@@ -385,16 +385,16 @@ class SeoOpportunityService {
       { keyword: 'same day printing Dubai', position: 6.9, previous_position: 7.8, impressions: 1920, clicks: 82, ctr: 4.3, page_url: '/printing-services-dubai', search_intent: 'Transactional' },
       { keyword: 'printing press in Al Quoz', position: 4.4, previous_position: 5.1, impressions: 1120, clicks: 88, ctr: 7.9, page_url: '/contact', search_intent: 'Local' },
       { keyword: 'luxury business cards Dubai', position: 7.8, previous_position: 9.2, impressions: 1420, clicks: 52, ctr: 3.7, page_url: '/business-card-printing-dubai', search_intent: 'Commercial' },
-      { keyword: 'rigid box manufacturer Dubai', position: 13.2, previous_position: 14.8, impressions: 980, clicks: 16, ctr: 1.6, page_url: '/packaging-printing-dubai', search_intent: 'Commercial' },
-      { keyword: 'corrugated boxes Dubai', position: 16.5, previous_position: 18.2, impressions: 1100, clicks: 14, ctr: 1.3, page_url: '/custom-packaging-dubai', search_intent: 'Commercial' },
+      { keyword: 'rubber stamp maker Dubai', position: 13.2, previous_position: 14.8, impressions: 980, clicks: 16, ctr: 1.6, page_url: '/categories/custom-stamps-seals', search_intent: 'Commercial' },
+      { keyword: 'executive letterheads Dubai', position: 16.5, previous_position: 18.2, impressions: 1100, clicks: 14, ctr: 1.3, page_url: '/categories/letterheads-printing-dubai', search_intent: 'Commercial' },
       { keyword: 'roll up banner printing Dubai', position: 8.7, previous_position: 9.6, impressions: 1650, clicks: 48, ctr: 2.9, page_url: '/large-format-printing-dubai', search_intent: 'Transactional' },
       { keyword: 'vehicle graphics Dubai', position: 22.4, previous_position: 24.1, impressions: 850, clicks: 6, ctr: 0.7, page_url: '/signage-printing-dubai', search_intent: 'Commercial' },
       { keyword: 'exhibition printing Dubai', position: 18.2, previous_position: 19.5, impressions: 920, clicks: 11, ctr: 1.2, page_url: '/large-format-printing-dubai', search_intent: 'Commercial' },
-      { keyword: 'perfume box printing Dubai', position: 24.5, previous_position: 26.0, impressions: 780, clicks: 5, ctr: 0.6, page_url: '/packaging-printing-dubai', search_intent: 'Commercial' },
+      { keyword: 'trodat stamp printing Dubai', position: 24.5, previous_position: 26.0, impressions: 780, clicks: 5, ctr: 0.6, page_url: '/categories/custom-stamps-seals', search_intent: 'Commercial' },
       { keyword: 'gold foil business cards Dubai', position: 11.2, previous_position: 12.8, impressions: 890, clicks: 18, ctr: 2.0, page_url: '/business-card-printing-dubai', search_intent: 'Commercial' },
       { keyword: 'waterproof sticker printing Dubai', position: 13.8, previous_position: 15.0, impressions: 1040, clicks: 17, ctr: 1.6, page_url: '/sticker-printing-dubai', search_intent: 'Transactional' },
       { keyword: 'company profile printing Dubai', position: 10.8, previous_position: 11.9, impressions: 1220, clicks: 28, ctr: 2.3, page_url: '/brochure-printing-dubai', search_intent: 'Commercial' },
-      { keyword: 'custom box printing Dubai', position: 9.5, previous_position: 10.8, impressions: 1480, clicks: 38, ctr: 2.6, page_url: '/custom-packaging-dubai', search_intent: 'Transactional' },
+      { keyword: 'custom self inking stamp Dubai', position: 9.5, previous_position: 10.8, impressions: 1480, clicks: 38, ctr: 2.6, page_url: '/categories/custom-stamps-seals', search_intent: 'Transactional' },
       { keyword: 'printing services DIFC', position: 21.8, previous_position: 23.5, impressions: 640, clicks: 4, ctr: 0.6, page_url: '/corporate-printing-dubai', search_intent: 'Local' },
       { keyword: 'printing press Business Bay', position: 23.1, previous_position: 25.0, impressions: 720, clicks: 5, ctr: 0.7, page_url: '/corporate-printing-dubai', search_intent: 'Local' },
       { keyword: 'urgent flyer printing Dubai', position: 12.1, previous_position: 13.4, impressions: 860, clicks: 17, ctr: 2.0, page_url: '/flyer-printing-dubai', search_intent: 'Transactional' },

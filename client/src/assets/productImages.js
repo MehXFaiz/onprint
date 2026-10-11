@@ -5,6 +5,8 @@ import wideExhibitionRollupBannerImg from './products/rollup-banners/wide-exhibi
 import giantBackdropRollupBannerImg from './products/rollup-banners/giant-backdrop-rollup-banner-120x200.svg'
 import doubleSidedRollupBannerImg from './products/rollup-banners/double-sided-rollup-banner-85x200.svg'
 import desktopMiniRollupBannerImg from './products/rollup-banners/desktop-mini-tabletop-rollup-banner.svg'
+import outdoorWindRollupBannerImg from './products/rollup-banners/outdoor-wind-resistant-rollup-banner.svg'
+import executiveMatteBlackRollupBannerImg from './products/rollup-banners/executive-matte-black-rollup-banner.svg'
 import rollupShowcaseImg from './products/rollup_banner_showcase.jpg'
 
 import toteBagsImg from './products/tote_bags.jpg'
@@ -152,6 +154,15 @@ export const productImages = {
   badges: badgesImg,
   idCards: idCardsImg,
   rollup: rollupImg,
+  rollupShowcase: rollupShowcaseImg,
+  standardRollupBanner: standardRollupBannerImg,
+  luxuryTeardropRollupBanner: luxuryTeardropRollupBannerImg,
+  wideExhibitionRollupBanner: wideExhibitionRollupBannerImg,
+  giantBackdropRollupBanner: giantBackdropRollupBannerImg,
+  doubleSidedRollupBanner: doubleSidedRollupBannerImg,
+  desktopMiniRollupBanner: desktopMiniRollupBannerImg,
+  outdoorWindRollupBanner: outdoorWindRollupBannerImg,
+  executiveMatteBlackRollupBanner: executiveMatteBlackRollupBannerImg,
   flags: flagsImg,
   stickers: stickersImg,
   namePlates: namePlatesImg,
@@ -386,7 +397,24 @@ export const productSlugImageMap = {
   'executive-matte-black-magnetic-badges': executiveMatteBlackBadgeImg,
   'matte-black-magnetic-badges': executiveMatteBlackBadgeImg,
 
-  'roll-up-banners': rollupImg,
+  // Roll-Up Banner Varieties
+  'standard-rollup-banner-85x200': standardRollupBannerImg,
+  'standard-retractable-roll-up-banner': standardRollupBannerImg,
+  'luxury-teardrop-rollup-banner': luxuryTeardropRollupBannerImg,
+  'luxury-teardrop-rollup-banner-85x200': luxuryTeardropRollupBannerImg,
+  'wide-exhibition-rollup-banner-100x200': wideExhibitionRollupBannerImg,
+  'wide-exhibition-roll-up-banner': wideExhibitionRollupBannerImg,
+  'giant-backdrop-rollup-banner-120x200': giantBackdropRollupBannerImg,
+  'giant-stage-backdrop-roll-up-banner': giantBackdropRollupBannerImg,
+  'double-sided-rollup-banner-85x200': doubleSidedRollupBannerImg,
+  'double-sided-roll-up-banner': doubleSidedRollupBannerImg,
+  'desktop-mini-rollup-banner': desktopMiniRollupBannerImg,
+  'desktop-mini-tabletop-rollup-banner': desktopMiniRollupBannerImg,
+  'outdoor-wind-resistant-rollup-banner': outdoorWindRollupBannerImg,
+  'outdoor-wind-resistant-roll-up-banner': outdoorWindRollupBannerImg,
+  'executive-matte-black-rollup-banner': executiveMatteBlackRollupBannerImg,
+  'executive-matte-black-roll-up-banner': executiveMatteBlackRollupBannerImg,
+  'roll-up-banners': standardRollupBannerImg,
   'beach-flags': flagsImg,
   'die-cut-stickers': serviceStickersLabelsImg,
   'engraved-keychains': keychainImg,
@@ -423,7 +451,6 @@ export const productSlugImageMap = {
   'calendars-printing': img7,
   'greeting-cards-printing': img6,
   'printed-paper-bags': toteBagsImg,
-  'food-packaging-boxes': img13,
   'restaurant-menus-printing': img14,
   'wedding-invitation-suites': img15,
   'tshirt-screen-printing': img3,
@@ -562,7 +589,16 @@ const slugKeywordImageMap = [
   [['business card', 'visiting card', 'card printing'], bcPremiumMatteImg],
   [['flyer', 'leaflet', 'handbill'], flyersImg],
   [['tote bag', 'canvas bag', 'shopping bag', 'cotton bag'], toteBagsImg],
-  [['roll-up', 'rollup', 'pull-up banner', 'retractable banner'], rollupImg],
+  // Specific Roll-Up Banner Keywords
+  [['luxury-teardrop', 'luxury teardrop', 'teardrop rollup', 'teardrop-rollup'], luxuryTeardropRollupBannerImg],
+  [['wide-exhibition', 'wide exhibition', '100x200', '100 x 200'], wideExhibitionRollupBannerImg],
+  [['giant-backdrop', 'giant backdrop', 'stage backdrop', '120x200', '120 x 200'], giantBackdropRollupBannerImg],
+  [['double-sided', 'double sided', '360 degree', 'two-sided rollup'], doubleSidedRollupBannerImg],
+  [['desktop-mini', 'desktop mini', 'tabletop', 'table top', 'a3-a4 rollup', 'mini rollup'], desktopMiniRollupBannerImg],
+  [['outdoor-wind', 'outdoor wind', 'wind-resistant', 'wind resistant', 'spring-loaded banner'], outdoorWindRollupBannerImg],
+  [['executive-matte-black', 'matte black rollup', 'stealth black banner'], executiveMatteBlackRollupBannerImg],
+  [['standard-rollup', 'standard retractable', 'standard roll up', 'standard-retractable'], standardRollupBannerImg],
+  [['roll-up', 'rollup', 'pull-up banner', 'retractable banner'], standardRollupBannerImg],
   [['id card', 'pvc card', 'badge card', 'smart card'], idCardsImg],
   [['lanyard', 'neck strap', 'ribbon'], standardPolyesterLanyardImg],
   [['name badge', 'name tag', 'magnetic badge', 'staff badge'], brushedGoldMagneticBadgeImg],

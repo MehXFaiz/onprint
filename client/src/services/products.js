@@ -3,7 +3,7 @@ import catalogProducts from '../data/catalogProducts.json'
 
 export const defaultProducts = catalogProducts
 
-const PRODUCTS_STORAGE_KEY = 'onprint_admin_products'
+const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v3'
 
 export function getStoredProducts() {
   try {
@@ -65,6 +65,18 @@ export function getStoredProducts() {
               id: 3,
               name: 'Flyers Printing In Dubai',
               slug: 'flyers-printing-in-dubai'
+            }
+          }
+        }
+
+        if (name.includes('rollup') || slug.includes('rollup') || name.includes('roll-up') || slug.includes('roll-up') || name.includes('pull-up') || slug.includes('retractable')) {
+          return {
+            ...p,
+            category: {
+              _id: 'cat-rollup-banners-dubai',
+              id: 19,
+              name: 'Rollup Banners',
+              slug: 'rollup-banners'
             }
           }
         }

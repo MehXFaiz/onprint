@@ -75,7 +75,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
   const contentGapMatrix = oppData?.contentGapMatrix || {
     commercial: [
       { keyword: 'luxury business card printing dubai', status: 'Covered', path: '/business-card-printing-dubai', priority: 'High' },
-      { keyword: 'custom perfume box packaging printing', status: 'Under-Optimized', path: '/perfume-box-printing-dubai', priority: 'High' },
+      { keyword: 'official company stamp maker dubai', status: 'Under-Optimized', path: '/categories/custom-stamps-seals', priority: 'High' },
       { keyword: 'corporate gift printing press dubai', status: 'Covered', path: '/corporate-gift-printing-dubai', priority: 'Medium' },
     ],
     transactional: [

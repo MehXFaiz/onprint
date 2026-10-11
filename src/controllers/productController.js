@@ -103,20 +103,28 @@ async function listProducts(req, res, next) {
       let filtered = fallbackProducts.filter((p) => p.active !== false)
       if (category) {
         const catQuery = String(category).toLowerCase()
-        filtered = filtered.filter(
-          (p) =>
-            (p.category &&
-              (String(p.category._id).toLowerCase() === catQuery ||
-                String(p.category.slug).toLowerCase() === catQuery ||
-                String(p.category.name).toLowerCase().includes(catQuery))) ||
-            (Array.isArray(p.categories) &&
-              p.categories.some(
-                (c) =>
-                  (c.slug && String(c.slug).toLowerCase() === catQuery) ||
-                  (c._id && String(c._id).toLowerCase() === catQuery) ||
-                  (c.name && String(c.name).toLowerCase().includes(catQuery))
-              ))
-        )
+        filtered = filtered.filter((p) => {
+          const pCatSlug = p.category?.slug?.toLowerCase() || ''
+          const pCatId = String(p.category?._id || '').toLowerCase()
+          const pCatNumId = String(p.category?.id || '')
+          const pCatName = p.category?.name?.toLowerCase() || ''
+
+          if (pCatSlug === catQuery || pCatId === catQuery || pCatNumId === catQuery || pCatName === catQuery) {
+            return true
+          }
+
+          if (Array.isArray(p.categories)) {
+            return p.categories.some((c) => {
+              const cSlug = c.slug?.toLowerCase() || ''
+              const cId = String(c._id || '').toLowerCase()
+              const cNumId = String(c.id || '')
+              const cName = c.name?.toLowerCase() || ''
+              return cSlug === catQuery || cId === catQuery || cNumId === catQuery || cName === catQuery
+            })
+          }
+
+          return false
+        })
       }
       if (featured === 'true' || featured === '1') filtered = filtered.filter((p) => p.featured)
       if (searchQuery) {

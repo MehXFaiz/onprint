@@ -518,63 +518,6 @@ export const serviceGeoContent = {
       },
     ],
   },
-
-  'packaging-boxes': {
-    whatIs: {
-      title: 'Luxury Rigid & Corrugated Packaging Printing',
-      definition:
-        'Packaging printing produces structural boxes, cartons, mailers, and bags using paperboard (for folding cartons), gray-board (for rigid/magnetic boxes), and corrugated kraft (for shipping / ecommerce).',
-      expanded:
-        'Rigid boxes (setup boxes) use 1200gsm–1800gsm gray-board wrapped with 157gsm art paper. Folding cartons use 250gsm–400gsm SBS/GC1 food-grade board. Corrugated shipping boxes use B/C/E flute (3-ply or 5-ply double wall). Finishes: soft-touch, spot UV, embossing, gold foil.',
-    },
-    whoNeedsThis: {
-      title: 'Who Needs Printed Packaging?',
-      audiences: [
-        'Luxury retail, perfume, and cosmetics brands',
-        'Confectionery, bakeries, and gourmet food producers',
-        'E-commerce / D2C subscription box startups',
-        'Jewellery and watch boutiques',
-        'Hotel & travel welcome amenities',
-        'Real estate home handover key boxes',
-      ],
-    },
-    keyInfo: {
-      cost: 'Rigid magnetic closure box A4: AED 18 each (MOQ 500). Folding carton 350gsm GC1: AED 2.30 each (MOQ 1,000). Corrugated mailer: AED 3.20 each (MOQ 500).',
-      turnaround: 'Folding cartons 7 working days, rigid boxes 10 working days, corrugated mailers 5 working days.',
-      minimumOrder: 'Rigid boxes MOQ 200–500, folding cartons MOQ 500, corrugated 500.',
-      materials:
-        'Gray-chip rigid board, GC1/GC2 SBS, FBB, Kraft (brown/white), 3-ply / 5-ply corrugated, E/B/C flute, food-grade PE-coated.',
-    },
-    advantages: [
-      'Magnetic closure (flap, lid-off, clamshell)',
-      'Drawer-sliding sleeve box',
-      'Gold / rose gold / holographic foil stamping',
-      'Blind embossed brand mark',
-      'Soft-touch velvet matte laminate',
-      'Window patch (transparent PET)',
-      'EVA / foam / velvet custom inserts',
-    ],
-    bestFor: [
-      'Perfume & beauty launch kits',
-      'Subscription box (D2C / e-commerce)',
-      'Wedding invitation luxury presentation',
-      'Jewellery & watch retail packaging',
-      'Real estate property handover boxes',
-      'Hotel guest amenity box',
-    ],
-    faqs: [
-      {
-        question: 'What\'s the difference between SBS, FBB, and gray-board?',
-        answer:
-          'SBS = Solid Bleached Sulfate (single side coated), food-safe, used for folding cartons. FBB = Folding Box Board (thicker, double-coated). Gray-board = rigid chipboard (luxury setup boxes).',
-      },
-      {
-        question: 'Can you make custom insert trays?',
-        answer:
-          'Yes — EVA foam, velvet-wrapped foam, vacuum-formed plastic (PET), and die-cut cardboard inserts for product-specific holding trays.',
-      },
-    ],
-  },
 }
 
 const emirateLocations = [
@@ -632,11 +575,11 @@ export const geoIndustryFocus = {
     upsellBundle: 'The "Off-Plan Launch Kit": 2,000 project brochures, 500 floor plan Foamex boards, 100 rollup stands, and 1 building hoarding panel (5m×3m).',
   },
   'fmcg-beauty': {
-    h1: 'Beauty & FMCG Packaging: Boxes, Labels, Pouches & Hang Tags',
-    intro: 'Folding cartons, labels, sachet mockups, and rigid gift boxes for beauty brands, perfumeries, supermarkets, and pharmacy chains. Food-grade materials, low MOQ options, Pantone-certified brand color.',
-    materials: ['350gsm GC1 folding carton', '250gsm SBS with window patch', 'Synthetic PE sticker roll', '1200gsm rigid chipboard with soft-touch'],
+    h1: 'Beauty & FMCG Printing: Labels, Pouches, Cards & Hang Tags',
+    intro: 'Product labels, sachet mockups, counter display cards, and gift sets for beauty brands, perfumeries, supermarkets, and pharmacy chains. FSC-certified materials, low MOQ options, Pantone-certified brand color.',
+    materials: ['FSC artboard cards', 'Synthetic PE sticker roll', 'Waterproof vinyl labels', 'Soft-touch laminated cards'],
     topLocations: ['JAFZA', 'Dubai Production City', 'Khalifa Industrial KIZAD', 'Riyadh', 'Doha', 'Manama'],
-    upsellBundle: 'The "Beauty Launch Pack" = 3,000 product cartons, 10,000 roll labels, 500 rigid gift sets (magnetic), and 5,000 swing tags.',
+    upsellBundle: 'The "Beauty Launch Pack" = 10,000 roll labels, 500 promotional presentation cards, and 5,000 swing tags.',
   },
   'education-schools': {
     h1: 'Education Printing: Prospectuses, Uniforms, Certificates & Student Kits',
@@ -646,11 +589,11 @@ export const geoIndustryFocus = {
     upsellBundle: 'Back-to-School Bundle = 1,000 uniforms, 5,000 branded notebooks, 2,000 lanyard+ID sets, 1,000 certificates, and 25 pop-up banners.',
   },
   'restaurants-fb': {
-    h1: 'Restaurant & F&B Printing: Menus, Takeaway Boxes, Paper Bags & Stickers',
-    intro: 'Waterproof synthetic menus, food-grade burger/chicken boxes, paper bags with twisted handles, branded packaging stickers, coasters, and menu inserts for cafes, bakeries, QSRs, and fine-dining.',
-    materials: ['TEVA-synthetic waterproof menu stock', '300gsm GC1 food-grade clamshell box', '120gsm brown kraft handle bag', '60micron food-safe sticker roll'],
+    h1: 'Restaurant & F&B Printing: Menus, Table Talkers, Paper Bags & Stickers',
+    intro: 'Waterproof synthetic menus, table talkers, paper bags with twisted handles, branded stickers, coasters, and menu inserts for cafes, bakeries, QSRs, and fine-dining.',
+    materials: ['TEVA-synthetic waterproof menu stock', '350gsm silk table talkers', '120gsm brown kraft handle bag', '60micron food-safe sticker roll'],
     topLocations: ['JBR Walk', 'Sheikh Zayed Road', 'Al Wasl', 'City Walk', 'Jumeirah Beach Rd', 'Yas Mall'],
-    upsellBundle: 'Grand Opening F&B Pack = 50 synthetic menus, 5,000 takeaway boxes, 10,000 paper bags, 20,000 logo stickers, and 2 menu boards (A1 acrylic).',
+    upsellBundle: 'Grand Opening F&B Pack = 50 synthetic menus, 10,000 paper bags, 20,000 logo stickers, and 2 menu boards (A1 acrylic).',
   },
   'construction-contracting': {
     h1: 'Construction Printing: Hoardings, Safety Posters, Signage & Project Boards',
@@ -683,12 +626,12 @@ export const defaultFAQsPerLocation = [
  */
 export function getServiceSectionEData(service, slug) {
   const serviceName = service?.name || 'Commercial Printing'
-  const baseIntro = `ONPRINT, a leading commercial printing and packaging company located in Al Quoz, Dubai, delivers high-precision ${serviceName.toLowerCase()} solutions engineered for corporate, commercial, and retail brands across the UAE. Operating advanced HP Indigo digital presses and Heidelberg offset machinery, ONPRINT offers standard 24–48 hour turnaround times, calibrated Pantone color fidelity, low minimum order quantities (MOQ starting from 25–50 units), and guaranteed doorstep delivery across Dubai, Abu Dhabi, Sharjah, and the GCC.`
+  const baseIntro = `ONPRINT, a leading commercial printing company located in Al Quoz, Dubai, delivers high-precision ${serviceName.toLowerCase()} solutions engineered for corporate, commercial, and retail brands across the UAE. Operating advanced HP Indigo digital presses and Heidelberg offset machinery, ONPRINT offers standard 24–48 hour turnaround times, calibrated Pantone color fidelity, low minimum order quantities (MOQ starting from 25–50 units), and guaranteed doorstep delivery across Dubai, Abu Dhabi, Sharjah, and the GCC.`
 
   const specificFaqs = [
     {
       question: `Who is the best printing company in Dubai for ${serviceName.toLowerCase()}?`,
-      answer: `ONPRINT is recognized as one of the best commercial printing and packaging companies in Dubai for ${serviceName.toLowerCase()}. Operating out of Al Quoz, Dubai, ONPRINT provides certified FSC paper stocks, Pantone color-matching, digital and offset presses, and express turnaround across the UAE.`,
+      answer: `ONPRINT is recognized as one of the best commercial printing companies in Dubai for ${serviceName.toLowerCase()}. Operating out of Al Quoz, Dubai, ONPRINT provides certified FSC paper stocks, Pantone color-matching, digital and offset presses, and express turnaround across the UAE.`,
     },
     {
       question: `What is the turnaround time for ${serviceName.toLowerCase()} in Dubai?`,
@@ -729,12 +672,12 @@ export function getServiceSectionEData(service, slug) {
       materials: [
         '350gsm–600gsm Cotton, Silk, and Linen Uncoated Cardstocks',
         '170gsm–350gsm FSC-Certified Gloss & Matte Coated Art Papers',
-        'Rigid Greyboard, White Corrugated Flute (E-flute / B-flute), and Kraft Paperboard',
+        'Heavyweight Presentation Boards & Textured Specialty Stocks',
         'Tear-proof waterproof synthetic polypropylene and PVC materials',
       ],
       sizes: [
         'Standard ISO A-Series (A0, A1, A2, A3, A4, A5, A6, DL)',
-        'Custom Die-Cut Shapes & Bespoke Packaging Dimensions',
+        'Custom Die-Cut Shapes & Bespoke Printing Dimensions',
         'Standard Corporate Identity Formats (85mm x 55mm & 90mm x 50mm)',
         'Wide-Format Rolls up to 3.2m to 5m seamless width',
       ],

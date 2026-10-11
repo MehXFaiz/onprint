@@ -55,11 +55,11 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, seo
     if (requestPath === '/' || requestPath === '') {
       pageHeading = 'Commercial & Luxury Printing Company in Dubai, UAE'
     } else if (requestPath.startsWith('/services')) {
-      pageHeading = 'Custom Packaging & Commercial Printing Services Dubai, UAE'
+      pageHeading = 'Commercial Printing Services Dubai, UAE'
     } else if (requestPath.startsWith('/products')) {
       pageHeading = 'Commercial Print Products & Marketing Collateral Dubai'
     } else if (requestPath.startsWith('/categories')) {
-      pageHeading = 'Commercial Printing Categories & Packaging Solutions Dubai'
+      pageHeading = 'Commercial Printing Categories Dubai'
     } else if (requestPath.startsWith('/about')) {
       pageHeading = 'About ONPRINT — Commercial Pressroom in Al Quoz, Dubai'
     } else if (requestPath.startsWith('/contact')) {
@@ -114,22 +114,22 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, seo
       </section>
       <section style="margin-bottom: 2rem;">
         <h2>Popular Commercial Printing Categories</h2>
-        <p><a href="/business-card-printing-dubai">Luxury Business Cards Dubai</a> | <a href="/packaging-printing-dubai">Custom Packaging & Rigid Boxes</a> | <a href="/categories/letterheads-printing-dubai">Executive Letterheads & Stationery</a> | <a href="/categories/stickers-printing-dubai">Custom Stickers & Product Labels</a> | <a href="/categories/brochures-printing">Corporate Brochures & Catalogs</a> | <a href="/services">Full Printing Services</a></p>
+        <p><a href="/business-card-printing-dubai">Luxury Business Cards Dubai</a> | <a href="/categories/letterheads-printing-dubai">Executive Letterheads & Stationery</a> | <a href="/categories/custom-stamps-seals">Custom Stamps & Official Seals</a> | <a href="/categories/stickers-printing-dubai">Custom Stickers & Product Labels</a> | <a href="/categories/brochures-printing">Corporate Brochures & Catalogs</a> | <a href="/services">Full Printing Services</a></p>
       </section>
     `
   } else if (requestPath.startsWith('/products')) {
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
         <h2>Commercial Product Catalog & Ordering</h2>
-        <p>Explore our complete catalog of commercial print products manufactured in Al Quoz, Dubai. Every product is produced using FSC-certified sustainable papers, heavy-weight rigid card stocks (300gsm to 600gsm duplex), and premium food-grade packaging boards.</p>
-        <p>Order luxury business cards, custom die-cut product boxes, laminated flyers, branded neck lanyards, NFC proximity badges, ceramic mugs, and corporate presentation folders with fast dispatch across Dubai and the UAE.</p>
+        <p>Explore our complete catalog of commercial print products manufactured in Al Quoz, Dubai. Every product is produced using FSC-certified sustainable papers, heavy-weight card stocks (300gsm to 600gsm duplex), and premium corporate stationery materials.</p>
+        <p>Order luxury business cards, branded letterheads, laminated flyers, branded neck lanyards, NFC proximity badges, ceramic mugs, and corporate presentation folders with fast dispatch across Dubai and the UAE.</p>
       </section>
     `
   } else if (requestPath.startsWith('/categories')) {
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
         <h2>Comprehensive Printing Categories</h2>
-        <p>ONPRINT delivers specialized commercial printing across 15+ dedicated production categories. Whether you require promotional marketing collateral, executive corporate stationery, retail packaging, or trade show exhibition displays, our Dubai pressroom delivers high-volume consistency and rapid express turnaround.</p>
+        <p>ONPRINT delivers specialized commercial printing across 15+ dedicated production categories. Whether you require promotional marketing collateral, executive corporate stationery, branded merchandise, or trade show exhibition displays, our Dubai pressroom delivers high-volume consistency and rapid express turnaround.</p>
       </section>
     `
   } else if (requestPath.startsWith('/services')) {
@@ -144,7 +144,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, seo
       <section style="margin-bottom: 2rem;">
         <h2>Commercial Printing Solutions in Dubai, UAE</h2>
         <p>${escapeHtml(metaDesc)}</p>
-        <p>ONPRINT delivers high-precision commercial printing, bespoke packaging, and branding merchandise with express same-day and 24h delivery across Dubai, Abu Dhabi, and the wider UAE.</p>
+        <p>ONPRINT delivers high-precision commercial printing, corporate stationery, and branding merchandise with express same-day and 24h delivery across Dubai, Abu Dhabi, and the wider UAE.</p>
       </section>
     `
   }
@@ -160,7 +160,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, seo
           <a href="/products" style="color: #0f172a; text-decoration: none;">Products</a>
           <a href="/categories" style="color: #0f172a; text-decoration: none;">Categories</a>
           <a href="/business-card-printing-dubai" style="color: #A82F19; text-decoration: none;">Business Cards</a>
-          <a href="/packaging-printing-dubai" style="color: #0f172a; text-decoration: none;">Packaging</a>
+          <a href="/categories/letterheads-printing-dubai" style="color: #0f172a; text-decoration: none;">Stationery</a>
           <a href="/services" style="color: #0f172a; text-decoration: none;">Services</a>
           <a href="/about" style="color: #0f172a; text-decoration: none;">About</a>
           <a href="/contact" style="color: #0f172a; text-decoration: none;">Contact</a>
@@ -471,8 +471,6 @@ const COMMERCIAL_STATIC_PATHS = new Set([
   '/business-card-printing-ajman',
   '/brochure-printing-dubai',
   '/flyer-printing-dubai',
-  '/packaging-printing-dubai',
-  '/custom-packaging-dubai',
   '/sticker-printing-dubai',
   '/label-printing-dubai',
   '/signage-printing-dubai',
@@ -617,6 +615,10 @@ function createApp() {
   app.get('/large-format-printing', (req, res) => res.redirect(301, '/large-format-printing-dubai'))
   app.get('/corporate-printing', (req, res) => res.redirect(301, '/corporate-printing-dubai'))
   app.get('/promotional-printing', (req, res) => res.redirect(301, '/promotional-printing-dubai'))
+  app.get('/packaging-printing-dubai', (req, res) => res.redirect(301, '/services'))
+  app.get('/custom-packaging-dubai', (req, res) => res.redirect(301, '/services'))
+  app.get('/custom-packaging', (req, res) => res.redirect(301, '/services'))
+  app.get('/packaging-printing', (req, res) => res.redirect(301, '/services'))
 
   // Dynamic Database-Driven 301/302 Redirect Manager (Requirement 28)
   app.use(async (req, res, next) => {

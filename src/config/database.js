@@ -120,6 +120,69 @@ async function initDatabase() {
       console.log(`[Database] Seeded Admin User in MongoDB Atlas: ${adminEmail}`)
     }
 
+    // Ensure Rollup Banners category has id 19 and distinct key
+    await Category.updateOne(
+      { slug: 'rollup-banners' },
+      {
+        $set: {
+          id: 19,
+          category_key: 'cat-rollup-banners-dubai',
+          name: 'Rollup Banners',
+          status: 'active',
+          active: true,
+          display_order: 19,
+        },
+      },
+      { upsert: true }
+    )
+
+    // Ensure Signage category has id 10
+    await Category.updateOne(
+      { slug: 'signage-banners-printing' },
+      {
+        $set: {
+          id: 10,
+          category_key: 'cat-signage-banners-printing',
+        },
+      }
+    )
+
+    // Update rollup banner products to category_id 19
+    const rollupSlugs = [
+      'standard-rollup-banner-85x200',
+      'luxury-teardrop-rollup-banner',
+      'wide-exhibition-rollup-banner-100x200',
+      'giant-backdrop-rollup-banner-120x200',
+      'double-sided-rollup-banner-85x200',
+      'desktop-mini-rollup-banner',
+      'outdoor-wind-resistant-rollup-banner',
+      'executive-matte-black-rollup-banner',
+    ]
+    await Product.updateMany(
+      { slug: { $in: rollupSlugs } },
+      {
+        $set: {
+          category_id: 19,
+        },
+      }
+    )
+
+    // Ensure signage products are kept under category_id 10
+    const signageSlugs = [
+      'wall-acrylic-signage',
+      'foam-board-signage',
+      'large-format-posters',
+      'beach-flags',
+    ]
+    await Product.updateMany(
+      { slug: { $in: signageSlugs } },
+      {
+        $set: {
+          category_id: 10,
+        },
+      }
+    )
+
     return true
   } catch (err) {
     console.warn('[Database] MongoDB initialization note:', err.message)
@@ -431,7 +494,14 @@ async function executeSql(sql, params = []) {
           const cat = await Category.findOne({
             $or: [{ slug: catVal }, { category_key: catVal }, { id: Number(catVal) || -1 }],
           }).lean()
-          if (cat) filter.category_id = cat.id
+          if (cat) {
+            filter.$or = [
+              { category_id: cat.id },
+              { category_id: cat.category_key },
+              { 'category.slug': cat.slug },
+              { 'category._id': cat.category_key },
+            ]
+          }
         }
       }
 

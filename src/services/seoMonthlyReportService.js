@@ -99,7 +99,7 @@ class SeoMonthlyReportService {
       topRisingPages: [
         { url: '/printing-services-dubai', keyword: 'printing services Dubai', movement: '+2.4 positions', clicks: 82 },
         { url: '/business-card-printing-dubai', keyword: 'business card printing Dubai', movement: '+1.8 positions', clicks: 68 },
-        { url: '/packaging-printing-dubai', keyword: 'packaging printing Dubai', movement: '+1.5 positions', clicks: 44 },
+        { url: '/sticker-printing-dubai', keyword: 'sticker printing Dubai', movement: '+1.5 positions', clicks: 44 },
       ],
       topDecliningPages: oppsData.opportunities?.decliningKeywords?.slice(0, 3) || [],
       roadmap: {

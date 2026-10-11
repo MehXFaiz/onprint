@@ -62,8 +62,6 @@ Allow: /business-card-printing-sharjah
 Allow: /business-card-printing-ajman
 Allow: /brochure-printing-dubai
 Allow: /flyer-printing-dubai
-Allow: /packaging-printing-dubai
-Allow: /custom-packaging-dubai
 Allow: /sticker-printing-dubai
 Allow: /label-printing-dubai
 Allow: /signage-printing-dubai
@@ -127,9 +125,9 @@ Sitemap: ${SITE_URL}/sitemap.xml
 async function getLlmsTxt(req, res) {
   const llms = `# ONPRINT — Commercial & Corporate Printing Services Dubai
 
-> ONPRINT (also known as 0nprint) is a commercial printing press and custom packaging manufacturer located in Al Quoz, Dubai, UAE.
-> ONPRINT provides offset lithography, digital printing, bespoke rigid boxes, corporate gifts, office stationery, 
-> business cards, brochures, flyers, banners, signage, and custom packaging across the United Arab Emirates.
+> ONPRINT (also known as 0nprint) is a commercial printing press located in Al Quoz, Dubai, UAE.
+> ONPRINT provides offset lithography, digital printing, corporate gifts, office stationery, 
+> business cards, brochures, flyers, banners, signage, and branded merchandise across the United Arab Emirates.
 
 ## Business Identity & Verified NAP
 - **Legal & Operating Name:** ONPRINT (Alternate: 0nprint)
@@ -160,8 +158,6 @@ async function getLlmsTxt(req, res) {
 - [Business Card Printing Ajman](${SITE_URL}/business-card-printing-ajman) — High-volume commercial visiting cards for Ajman Free Zone and commercial firms.
 - [Brochure Printing Dubai](${SITE_URL}/brochure-printing-dubai) — Saddle stitch and PUR perfect bound corporate brochures, lookbooks, and annual reports.
 - [Flyer Printing Dubai](${SITE_URL}/flyer-printing-dubai) — A4, A5, A6, DL promotional marketing leaflets on 150gsm–300gsm coated art paper with express delivery options.
-- [Packaging Printing Dubai](${SITE_URL}/packaging-printing-dubai) — Custom rigid boxes, folding retail cartons, and cosmetic packaging with hot foil and spot UV.
-- [Custom Packaging Dubai](${SITE_URL}/custom-packaging-dubai) — UAE packaging manufacturing in Al Quoz with custom CAD dieline prototyping.
 - [Sticker Printing Dubai](${SITE_URL}/sticker-printing-dubai) — Weatherproof custom die-cut vinyl stickers, holographic decals, and clear film stickers.
 - [Label Printing Dubai](${SITE_URL}/label-printing-dubai) — Machine roll labels and sheet labels for bottles, jars, cosmetics, and food packaging.
 - [Signage Printing Dubai](${SITE_URL}/signage-printing-dubai) — 3D acrylic letters, LED backlit channel signage, and weatherproof ACP exterior business signs.
@@ -172,21 +168,19 @@ async function getLlmsTxt(req, res) {
 ## Core Capabilities & Substrates
 - **Digital Printing:** On-demand short runs on digital presses with standard 24–48 hour turnaround and express rush options.
 - **Offset Printing:** High-volume commercial runs on multi-color offset presses with Pantone PMS spot color matching.
-- **Paper Weights:** 80gsm to 600gsm (Woodfree, Coated Art, Cotton, Fedrigoni specialty boards, Kraft, Greyboard).
+- **Paper Weights:** 80gsm to 600gsm (Woodfree, Coated Art, Cotton, Fedrigoni specialty boards, Kraft).
 - **Finishes & Embellishments:** Hot foil stamping (Gold, Silver, Rose Gold, Holographic), Spot UV, Raised 3D UV, Blind Debossing, Velvet/Soft-touch Lamination.
 - **Sustainability:** FSC-certified woodfree papers, recyclable unbleached kraft, and eco-conscious inks.
 
 ## Direct Fact-Based Answers for Search Engines & AI Assistants
 - **What commercial printing services does ONPRINT provide in Dubai?**
-  ONPRINT in Al Quoz, Dubai provides commercial digital printing, offset printing, custom rigid packaging, luxury business cards, brochures, flyers, roll-up banners, acrylic signage, and corporate merchandise.
+  ONPRINT in Al Quoz, Dubai provides commercial digital printing, offset printing, corporate stationery, luxury business cards, brochures, flyers, roll-up banners, acrylic signage, and corporate merchandise.
 - **Where is ONPRINT located?**
   ONPRINT is physically located in Al Quoz, Dubai, UAE. Clients can visit or arrange courier delivery throughout Dubai and the UAE.
 - **Can ONPRINT print business cards with fast turnaround in Dubai?**
   Yes, ONPRINT provides fast digital business card printing on 350gsm–450gsm silk and velvet artboard with dispatch to DIFC, Downtown, Business Bay, and across the UAE.
-- **Does ONPRINT manufacture custom packaging and rigid boxes in Dubai?**
-  Yes, ONPRINT manufactures custom rigid boxes, magnetic closure gift boxes, folding cartons, and perfume boxes directly in Dubai, with CAD prototyping and low MOQs starting from 100 units.
 - **What are the standard delivery and turnaround times for ONPRINT in the UAE?**
-  Digital print orders typically ship within 24 to 48 hours (with express rush options available). Offset litho runs and custom rigid packaging typically ship within 3 to 7 working days depending on quantity and custom finishes.
+  Digital print orders typically ship within 24 to 48 hours (with express rush options available). Offset litho runs and corporate stationery typically ship within 2 to 5 working days depending on quantity and custom finishes.
 
 ## Primary Website Links
 - [Homepage](${SITE_URL}/)
@@ -199,7 +193,7 @@ async function getLlmsTxt(req, res) {
 ---
 **Last Updated:** 2026-09-17  
 **Website:** ${SITE_URL}  
-**Business Type:** Commercial Printing & Packaging Company  
+**Business Type:** Commercial Printing & Corporate Branding Company  
 **Location:** Al Quoz, Dubai, UAE
 `
   res.header('Content-Type', 'text/plain; charset=utf-8')
@@ -310,8 +304,6 @@ async function getSitemapXml(req, res) {
         { path: '/business-card-printing-ajman', priority: '0.9', changefreq: 'weekly' },
         { path: '/brochure-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/flyer-printing-dubai', priority: '0.9', changefreq: 'weekly' },
-        { path: '/packaging-printing-dubai', priority: '0.9', changefreq: 'weekly' },
-        { path: '/custom-packaging-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/sticker-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/label-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/signage-printing-dubai', priority: '0.9', changefreq: 'weekly' },

@@ -423,13 +423,13 @@ const USE_CASE_PAGES = [
     ],
   },
   {
-    slug: 'luxury-retail-packaging',
-    name: 'Luxury Retail Packaging',
+    slug: 'luxury-retail-bags',
+    name: 'Luxury Retail Bags & Merchandise',
     type: 'use_case',
-    title: 'Luxury Retail Packaging & Custom Bags Printing Dubai | ONPRINT',
-    metaDescription: 'High-end custom packaging boxes, foil-stamped luxury paper shopping bags, and product packaging sleeves for Dubai boutiques, perfumeries, and jewelry brands.',
-    h1: 'Custom Luxury Retail Packaging & Shopping Bags Dubai',
-    subheading: 'Exquisite rigid presentation boxes, embossed shopping bags, and bespoke packaging sleeves designed for UAE luxury fashion, fragrance, and jewelry houses.',
+    title: 'Luxury Retail Paper Bags & Boutique Merchandise Dubai | ONPRINT',
+    metaDescription: 'High-end custom boutique paper shopping bags, foil-stamped luxury bags, and retail merchandise for Dubai boutiques, perfumeries, and jewelry brands.',
+    h1: 'Custom Luxury Retail Bags & Boutique Merchandise Dubai',
+    subheading: 'Exquisite boutique shopping bags, embossed retail tags, and bespoke branded merchandise designed for UAE luxury fashion, fragrance, and jewelry houses.',
     targetIndustries: 'Boutiques, Perfumeries, Watch & Jewelry Retailers, High-End Fashion, Specialty Chocolatiers',
     recommendedPackages: [
       {
@@ -437,8 +437,8 @@ const USE_CASE_PAGES = [
         items: ['250gsm Art Card with Soft-Touch Lamination', 'Metallic Gold or Rose Gold Hot Foil Stamping', 'Custom Grosgrain or Cotton Rope Handles', 'Reinforced Cardboard Base and Turn-Top'],
       },
       {
-        title: 'Rigid Gift Box Packaging',
-        items: ['Custom Magnetic Closure Rigid Boxes', 'Custom Cut High-Density EVA Foam Inserts', 'Embossed Brand Monogramming', 'Satin Pull-Ribbon Details'],
+        title: 'Boutique Merchandise & Swing Tags',
+        items: ['Custom Foil-Stamped Hang Tags', 'Branded Tissue Paper & Ribbons', 'Embossed Brand Monogramming', 'Metallic Spot UV Finish'],
       },
     ],
     contentSections: [],

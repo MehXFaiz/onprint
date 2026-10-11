@@ -306,10 +306,46 @@ export const initialCategories = [
     "seoHeading": "Promotional Branded Drinkware & Tech Accessories Dubai",
     "canonicalUrl": "https://0nprint.com/categories/promotional-drinkware-tech",
     "imageAlt": "Custom branded drinkware and promotional tech accessories in Dubai"
+  },
+  {
+    "_id": "cat-stamps-printing-dubai",
+    "id": 18,
+    "name": "Custom Stamps & Seals",
+    "slug": "stamps-printing-dubai",
+    "description": "High-precision laser engraved self-inking company rubber stamps, official corporate seals, pocket mobile stamps, heavy-duty dater stamps, and luxury brass wax seals in Dubai.",
+    "image": "/uploads/categories/stamps-printing-dubai.jpg",
+    "image_url": "/uploads/categories/stamps-printing-dubai.jpg",
+    "status": "active",
+    "display_order": 18,
+    "active": true,
+    "seoTitle": "Custom Rubber Stamp Making in Dubai | Self-Inking Company Stamps | ONPRINT",
+    "seoDescription": "Official company stamp making in Dubai. Self-inking rubber stamps, round company seals, pocket mobile stamps, and luxury wax seal stamps with 2-hour express delivery.",
+    "seoKeywords": "rubber stamp dubai, company stamp maker dubai, self inking stamps dubai, official seal stamp uae, pocket stamp dubai, dater stamp dubai, wax seal stamp",
+    "seoHeading": "Custom Company Rubber Stamps & Official Seals Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/stamps-printing-dubai",
+    "imageAlt": "Official custom company rubber stamps and corporate seals in Dubai"
+  },
+  {
+    "_id": "cat-rollup-banners-dubai",
+    "id": 19,
+    "name": "Rollup Banners",
+    "slug": "rollup-banners",
+    "description": "Premium retractable roll-up banner stands, pull-up exhibition displays, and pop-up banners printed on anti-curl blockout film with sturdy aluminium cassette bases and carry bags.",
+    "image": "/assets/products/rollup_banner_showcase.jpg",
+    "image_url": "/assets/products/rollup_banner_showcase.jpg",
+    "status": "active",
+    "display_order": 19,
+    "active": true,
+    "seoTitle": "Rollup Banner Printing Dubai | Retractable Pull-Up Banner Stands | ONPRINT",
+    "seoDescription": "High-quality roll-up banner printing in Dubai. Standard 85x200cm, Wide 100x200cm, and luxury teardrop retractable pull-up banners with express same-day delivery across UAE.",
+    "seoKeywords": "rollup banner dubai, roll up banner printing dubai, pull up banner stand dubai, retractable banner dubai, exhibition banner stands uae, popup banner dubai",
+    "seoHeading": "Premium Roll-Up Banner Printing & Retractable Stands Dubai",
+    "canonicalUrl": "https://0nprint.com/categories/rollup-banners",
+    "imageAlt": "Professional retractable roll-up banner stand printing in Dubai"
   }
 ]
 
-const STORAGE_KEY = 'onprint_categories_data_v2'
+const STORAGE_KEY = 'onprint_categories_data_v3'
 
 function getStoredCategories() {
   try {

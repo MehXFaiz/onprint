@@ -466,17 +466,17 @@ const DUBAI_BLOGS = [
   },
 
   // =========================================================================
-  // 6. CUSTOM RETAIL PACKAGING & BOXES
+  // 6. CORPORATE LETTERHEADS & EXECUTIVE STATIONERY
   // =========================================================================
   {
     id: 6,
-    title: 'Designing Custom Retail Packaging: Box Styles, Die-Lines & Materials in UAE',
-    slug: 'custom-retail-packaging-boxes-shopping-bags-uae',
-    excerpt: 'An architect’s guide to custom packaging engineering in Dubai. Compare rigid magnetic boxes, folding cartons, and luxury paper bags with low MOQs.',
+    title: 'Designing Corporate Letterheads: Paper Stocks, Watermarks & Executive Stationery in UAE',
+    slug: 'corporate-letterheads-stationery-guide-uae',
+    excerpt: 'An executive guide to corporate stationery printing in Dubai. Compare cotton papers, textured stocks, and official corporate identity suites.',
     category_id: 1,
-    category_slug: 'brochures-printing',
-    category_name: 'Luxury Packaging',
-    product_slug: 'luxury-packaging-custom-boxes',
+    category_slug: 'letterheads-printing-dubai',
+    category_name: 'Executive Stationery',
+    product_slug: 'executive-letterheads',
     author_name: 'ONPRINT Technical Print Team',
     status: 'published',
     is_featured: true,
@@ -484,46 +484,43 @@ const DUBAI_BLOGS = [
     word_count: 1490,
     target_location: 'Dubai, UAE',
     published_at: '2026-03-12 14:00:00',
-    featured_image: '/assets/products/1 (5).jpg',
-    image_alt: 'Luxury custom rigid magnetic packaging boxes and paper bags manufactured in Dubai',
-    seo_title: 'Custom Packaging Boxes Dubai: Styles, Die-Lines & Materials | ONPRINT',
-    meta_description: 'Discover custom retail packaging manufacturing in Dubai. Compare magnetic rigid gift boxes, folding cartons, and luxury paper bags with low MOQs from 100 units.',
-    focus_keyword: 'custom packaging boxes dubai',
-    secondary_keywords: 'luxury retail packaging uae, rigid box manufacturer dubai, custom paper bags with logo, perfume packaging dubai',
-    canonical_url: `${SITE_URL}/blog/custom-retail-packaging-boxes-shopping-bags-uae`,
-    og_title: 'Designing Custom Retail Packaging: Box Styles, Die-Lines & Materials in UAE',
-    og_description: 'Complete guide to luxury rigid box manufacturing, custom die-lines, and retail shopping bags in Dubai.',
-    og_image: `${SITE_URL}/assets/products/1 (5).jpg`,
+    featured_image: '/assets/products/service_executive_stationery.jpg',
+    image_alt: 'Executive corporate stationery, letterheads, and presentation folders printed in Dubai',
+    seo_title: 'Corporate Letterheads Dubai: Paper Stocks, Finishes & Stationery | ONPRINT',
+    meta_description: 'Discover corporate letterhead printing in Dubai. Compare premium FSC-certified stocks, cotton papers, and executive stationery suites with fast turnaround.',
+    focus_keyword: 'corporate letterheads dubai',
+    secondary_keywords: 'letterhead printing dubai, executive stationery uae, business letterheads, official stationery dubai',
+    canonical_url: `${SITE_URL}/blog/corporate-letterheads-stationery-guide-uae`,
+    og_title: 'Designing Corporate Letterheads: Paper Stocks, Watermarks & Executive Stationery in UAE',
+    og_description: 'Complete guide to executive corporate letterheads, official stationery, and business presentation suites in Dubai.',
+    og_image: `${SITE_URL}/assets/products/service_executive_stationery.jpg`,
     schema_type: 'BlogPosting',
     faqs: [
       {
-        question: 'What is the minimum order quantity (MOQ) for custom rigid boxes in Dubai?',
-        answer: 'Traditionally, packaging factories required 3,000 to 5,000 units. At ONPRINT, our digital cutting tables allow boutique runs starting from just 100 to 250 units, ideal for perfume, jewelry, and luxury gifting launches.',
+        question: 'What is the standard paper weight for corporate letterheads in Dubai?',
+        answer: 'Standard corporate letterheads typically use 100gsm to 120gsm premium woodfree paper that runs smoothly through desktop laser and inkjet office printers without jamming.',
         is_approved: true,
       },
       {
-        question: 'What materials are used for luxury rigid presentation boxes?',
-        answer: 'Rigid boxes use a heavy greyboard core (1,000gsm to 2,000gsm, ~1.5mm to 3mm thick) wrapped with artisan art paper, soft-touch velvet laminated sheets, or textured linen stocks with custom EVA foam inserts inside.',
+        question: 'Can you match exact corporate brand Pantone colors on letterheads?',
+        answer: 'Yes. Our Heidelberg offset presses utilize calibrated Pantone Formula Guide spot color inks to guarantee 100% color accuracy for corporate logos and official documentation.',
         is_approved: true,
       },
     ],
     content: `
-      <h2>The Packaging Revolution in the UAE Luxury Market</h2>
-      <p>In retail capitals like Dubai, unboxing is an emotional brand experience. High-end consumers buying luxury fragrance, designer apparel, premium dates, or fine jewelry judge product authenticity by the weight, sound, and magnetic snap of its packaging.</p>
-      <p>Yet for emerging brands and corporate gifting initiatives, packaging procurement used to be an uphill battle plagued by 5,000-unit minimum order quantities and 6-week sea freight timelines. Today, ONPRINT operates local packaging prototyping and short-run rigid box manufacturing in central Dubai. Here is how to engineer your custom packaging suite.</p>
+      <h2>The Importance of Executive Stationery for UAE Corporations</h2>
+      <p>In competitive markets like Dubai, corporate correspondence establishes legal authority, credibility, and brand prestige. Official company contracts, shareholder agreements, and executive proposals carry immense weight when printed on high-grade stationery.</p>
+      <p>ONPRINT delivers comprehensive corporate identity printing for multinational corporations, law firms, financial institutions, and government entities across Dubai and the UAE.</p>
 
-      <h2>The Three Primary Box Structures</h2>
-      <h3>1. Magnetic Closure Rigid Boxes</h3>
-      <p>The undisputed king of luxury presentation. Built around high-density 2mm–3mm solid greyboard, featuring concealed neodymium magnets inside the front flap that produce a satisfying tactile snap upon closing. Perfect for VIP client gifts, perfumes, watches, and confectionery.</p>
+      <h2>Premium Substrates for Corporate Letterheads</h2>
+      <h3>1. 120gsm Uncoated Woodfree Paper</h3>
+      <p>The standard benchmark for daily corporate correspondence. High opacity, crisp brightness, and smooth texture compatible with all desktop laser and inkjet office printers.</p>
 
-      <h3>2. Two-Piece Shoulder & Neck (Lid and Base) Boxes</h3>
-      <p>A classic packaging architecture featuring a separate telescoping lid that slides smoothly over a reinforced base with a visible contrasting collar (neck). Commonly used in high-end cosmetics and consumer tech.</p>
+      <h3>2. 100% Cotton & Linen Textured Paper</h3>
+      <p>Artisanal luxury papers with tactile surface texture. Used extensively by luxury real estate developers, private equity firms, and diplomatic embassies for prestigious documentation.</p>
 
-      <h3>3. Folding Carton / Tuck-End Paperboard Boxes</h3>
-      <p>Lightweight 350gsm–400gsm SBS (Solid Bleached Sulfate) folding cardstock. Delivered flat-packed to save warehouse storage space and assembled instantly on packaging lines. Ideal for cosmetics, pharmaceutical serums, and retail counter display.</p>
-
-      <h2>Custom Paper Shopping Bags with Ribbon Handles</h2>
-      <p>A luxury box deserves an equally exquisite bag. Our custom boutique shopping bags are crafted from 250gsm heavyweight coated art paper with reinforced cardboard top turnovers and base boards, finished with hot foil stamped logos and 100% cotton grosgrain ribbon handles. Discover our tailored <a href="${SITE_URL}/printing-solutions/luxury-retail-packaging">Luxury Retail Packaging Solutions</a>.</p>
+      <h3>3. Recycled FSC-Certified Eco Stocks</h3>
+      <p>Sustainable, chlorine-free papers that demonstrate corporate ESG commitment while providing exceptional print fidelity and durability.</p>
     `,
   },
 
@@ -1215,10 +1212,10 @@ const blogBlueprints = [
   {
     category: 'Product Deep-Dive',
     products: [
-      { name: 'Luxury Rigid Boxes', slug: 'luxury-rigid-boxes', landing: `${SITE_URL}/products/luxury-packaging-custom-boxes` },
+      { name: 'Custom Rubber Stamps', slug: 'custom-rubber-stamps', landing: `${SITE_URL}/categories/custom-stamps-seals` },
       { name: 'Roll-Up & Pull-Up Banners', slug: 'rollup-banners', landing: `${SITE_URL}/products/roll-up-banners` },
       { name: 'Custom PVC ID Cards', slug: 'pvc-id-cards', landing: `${SITE_URL}/services/id-card-printing-dubai` },
-      { name: 'Custom Paper Shopping Bags', slug: 'paper-shopping-bags', landing: `${SITE_URL}/printing-solutions/luxury-retail-packaging` },
+      { name: 'Custom Paper Shopping Bags', slug: 'paper-shopping-bags', landing: `${SITE_URL}/categories/bags-printing-dubai` },
       { name: '3D LED Storefront Signs', slug: '3d-led-signs', landing: `${SITE_URL}/products/3d-led-channel-letters` },
       { name: 'Fabric Step & Repeat Backdrops', slug: 'step-repeat-backdrops', landing: `${SITE_URL}/products/fabric-backdrop-banners` },
       { name: 'Die-Cut Stickers & Labels', slug: 'diecut-stickers-labels', landing: `${SITE_URL}/products/die-cut-stickers` },

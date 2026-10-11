@@ -295,8 +295,6 @@ class SeoInventoryCrawlerService {
       { path: '/business-card-printing-dubai', keyword: 'business card printing Dubai', title: 'Business Card Printing Dubai | Luxury Executive Cards | ONPRINT', h1: 'Bespoke Executive Business Card Printing in Dubai', type: 'Commercial Landing', wordCount: 1320 },
       { path: '/brochure-printing-dubai', keyword: 'brochure printing Dubai', title: 'Brochure Printing Dubai | Booklets & Catalogs | ONPRINT', h1: 'Commercial Marketing Brochure & Company Profile Printing in Dubai', type: 'Commercial Landing', wordCount: 1280 },
       { path: '/flyer-printing-dubai', keyword: 'flyer printing Dubai', title: 'Flyer Printing Dubai | Express Marketing Leaflets | ONPRINT', h1: 'High-Impact Commercial Marketing Flyer Printing in Dubai', type: 'Commercial Landing', wordCount: 1200 },
-      { path: '/packaging-printing-dubai', keyword: 'packaging printing Dubai', title: 'Packaging Printing Dubai | Custom Luxury Boxes | ONPRINT', h1: 'Luxury Custom Packaging & Rigid Setup Box Manufacturer Dubai', type: 'Commercial Landing', wordCount: 1450 },
-      { path: '/custom-packaging-dubai', keyword: 'custom packaging Dubai', title: 'Custom Packaging Dubai | Rigid Boxes & Mailers | ONPRINT', h1: 'Bespoke Custom Packaging & E-Commerce Boxes in Dubai', type: 'Commercial Landing', wordCount: 1380 },
       { path: '/sticker-printing-dubai', keyword: 'sticker printing Dubai', title: 'Sticker Printing Dubai | Custom Die-Cut Vinyl Decals | ONPRINT', h1: 'Precision Die-Cut Waterproof Vinyl Sticker Printing in Dubai', type: 'Commercial Landing', wordCount: 1240 },
       { path: '/label-printing-dubai', keyword: 'label printing Dubai', title: 'Label Printing Dubai | Product Labels & Roll Printing | ONPRINT', h1: 'Industrial Product & Packaging Roll Label Printing in Dubai', type: 'Commercial Landing', wordCount: 1260 },
       { path: '/signage-printing-dubai', keyword: 'signage printing Dubai', title: 'Signage Printing Dubai | Indoor & Outdoor Business Signs | ONPRINT', h1: 'Commercial Indoor & Outdoor Architectural Signage Printing Dubai', type: 'Commercial Landing', wordCount: 1350 },
@@ -464,8 +462,6 @@ class SeoInventoryCrawlerService {
       '/business-card-printing-dubai',
       '/brochure-printing-dubai',
       '/flyer-printing-dubai',
-      '/packaging-printing-dubai',
-      '/custom-packaging-dubai',
       '/sticker-printing-dubai',
       '/label-printing-dubai',
       '/signage-printing-dubai',
@@ -487,10 +483,8 @@ class SeoInventoryCrawlerService {
     const homepageOutbound = [
       '/printing-services-dubai',
       '/business-card-printing-dubai',
-      '/packaging-printing-dubai',
       '/brochure-printing-dubai',
       '/flyer-printing-dubai',
-      '/custom-packaging-dubai',
       '/sticker-printing-dubai',
       '/large-format-printing-dubai',
     ]

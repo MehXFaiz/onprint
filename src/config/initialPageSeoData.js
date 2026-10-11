@@ -2423,6 +2423,7 @@ const initialPageSeoRecords = [
     }),
     seo_score: 95,
     readability_score: 88,
+  },
   {
     page_type: 'commercial',
     page_id: null,

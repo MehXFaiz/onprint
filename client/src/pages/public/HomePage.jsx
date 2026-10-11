@@ -283,8 +283,8 @@ export default function HomePage() {
       {/* SEO Head Management & Structured Data */}
       <SEOHead
         title="Printing Company in Dubai | ONPRINT – Commercial & Luxury Printing UAE"
-        description="ONPRINT is Dubai's leading commercial pressroom in Al Quoz. Precision digital & Heidelberg offset printing, luxury 600 GSM business cards, rigid packaging, stickers, brochures, and corporate gifts with same-day express UAE delivery."
-        keywords="printing company in dubai, printing services dubai, commercial printing dubai, luxury business cards dubai, business card printing dubai, custom packaging dubai, sticker printing dubai, brochure printing dubai, same day printing dubai, corporate gifts dubai, offset printing dubai, digital printing press uae"
+        description="ONPRINT is Dubai's leading commercial pressroom in Al Quoz. Precision digital & Heidelberg offset printing, luxury 600 GSM business cards, stickers, brochures, and corporate gifts with same-day express UAE delivery."
+        keywords="printing company in dubai, printing services dubai, commercial printing dubai, luxury business cards dubai, business card printing dubai, sticker printing dubai, brochure printing dubai, same day printing dubai, corporate gifts dubai, offset printing dubai, digital printing press uae"
         canonicalPath="/"
         faqList={homeFaqs}
       />
@@ -350,7 +350,7 @@ export default function HomePage() {
             {/* Supporting Text */}
             <Reveal delay={0.14}>
               <p className="max-w-xl text-base sm:text-lg leading-[1.75] text-slate-600 font-normal">
-                Direct in-house pressroom in <strong className="text-slate-900 font-bold">Al Quoz, Dubai</strong>. Delivering calibrated German Heidelberg color accuracy, <strong className="text-slate-900 font-bold">luxury 600 GSM business cards</strong>, bespoke packaging, marketing collateral, and VIP corporate gifts with express UAE turnaround.
+                Direct in-house pressroom in <strong className="text-slate-900 font-bold">Al Quoz, Dubai</strong>. Delivering calibrated German Heidelberg color accuracy, <strong className="text-slate-900 font-bold">luxury 600 GSM business cards</strong>, corporate marketing collateral, and VIP corporate gifts with express UAE turnaround.
               </p>
             </Reveal>
 
@@ -475,15 +475,15 @@ export default function HomePage() {
 
                   {/* Right Stacked Visuals (Right 5 Cols) */}
                   <div className="col-span-5 flex flex-col gap-3.5 sm:gap-4">
-                    {/* Top Card: Luxury Packaging */}
+                    {/* Top Card: Executive Stationery */}
                     <Link
-                      to="/categories"
+                      to="/categories/letterheads-printing-dubai"
                       className="relative group flex-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-2 shadow-md hover:shadow-xl transition-all duration-300 block"
                     >
                       <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-slate-100">
                         <img
-                          src="/assets/products/service_luxury_packaging.jpg"
-                          alt="Luxury Rigid Packaging Dubai"
+                          src="/assets/products/service_executive_stationery.jpg"
+                          alt="Executive Corporate Stationery Dubai"
                           width="300"
                           height="192"
                           className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
@@ -494,10 +494,10 @@ export default function HomePage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                         <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
                           <span className="text-[8.5px] font-black uppercase tracking-widest text-amber-300">
-                            RIGID BOXES
+                            STATIONERY
                           </span>
                           <h4 className="font-serif text-xs sm:text-sm font-bold leading-tight mt-0.5">
-                            Magnetic Luxury Boxes
+                            Executive Corporate Suites
                           </h4>
                         </div>
                       </div>
@@ -566,7 +566,7 @@ export default function HomePage() {
                 Mastercrafted Print Collections
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl">
-                From tactile 600 GSM cotton business cards to bespoke rigid packaging — precision engineered in our Dubai pressroom.
+                From tactile 600 GSM cotton business cards to corporate brochures &amp; stationery — precision engineered in our Dubai pressroom.
               </p>
             </div>
             <Link
@@ -641,11 +641,11 @@ export default function HomePage() {
                   tag: 'Fast 24h',
                 },
                 {
-                  title: 'Custom Packaging',
-                  sub: 'Rigid Boxes & Mailers',
-                  to: '/packaging-printing-dubai',
-                  img: '/assets/products/1 (7).jpg',
-                  tag: 'Bespoke',
+                  title: 'Stationery & Folders',
+                  sub: 'Letterheads & Presentation',
+                  to: '/categories/letterheads-printing-dubai',
+                  img: '/assets/products/service_executive_stationery.jpg',
+                  tag: 'Executive',
                 },
                 {
                   title: 'Stickers & Labels',
@@ -814,7 +814,7 @@ export default function HomePage() {
                 Trending Corporate Merchandise &amp; Print Products
               </h2>
               <p className="mt-1 max-w-xl text-sm text-slate-600">
-                Browse our curated selection of premium business cards, thermal flasks, custom packaging, and exhibition rollups.
+                Browse our curated selection of premium business cards, thermal flasks, branded stationery, and exhibition rollups.
               </p>
             </div>
             <ArrowLink to="/products" className="shrink-0 text-[#A82F19] font-bold">
@@ -856,7 +856,7 @@ export default function HomePage() {
                 Crafted in Dubai. Delivered Across the UAE.
               </h2>
               <p className="mt-1 max-w-xl text-sm text-slate-600">
-                A curated look at bespoke rigid packaging, executive stationery suites, and VIP corporate gifts produced in our Al Quoz pressroom.
+                A curated look at executive stationery suites, marketing brochures, and VIP corporate gifts produced in our Al Quoz pressroom.
               </p>
             </div>
             <ArrowLink to="/portfolio" className="shrink-0 text-[#A82F19] font-bold">
@@ -1081,7 +1081,7 @@ export default function HomePage() {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
-            From 100 presidential cotton business cards to 10,000 bespoke rigid packaging units, our Al Quoz pressroom delivers perfection on deadline with same-day express delivery across Dubai.
+            From 100 presidential cotton business cards to 10,000 corporate brochures, our Al Quoz pressroom delivers perfection on deadline with same-day express delivery across Dubai.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto pt-2">

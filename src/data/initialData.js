@@ -42,8 +42,8 @@ module.exports = {
       "name": "Flyers Printing In Dubai",
       "slug": "flyers-printing-in-dubai",
       "description": "High-impact commercial marketing flyers printed on 170gsm–300gsm gloss or matte art paper with vibrant CMYK Pantone color fidelity.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Flyers%20Printing%20In%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Flyers%20Printing%20In%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
+      "image": "/uploads/categories/flyers-printing-in-dubai.jpg",
+      "image_url": "/uploads/categories/flyers-printing-in-dubai.jpg",
       "status": "active",
       "display_order": 3,
       "active": true,
@@ -327,6 +327,641 @@ module.exports = {
   ],
   "products": [
     {
+      "_id": "prod-a5-promotional-flyers",
+      "id": 101,
+      "name": "Standard A5 Promotional Flyers",
+      "slug": "a5-promotional-flyers",
+      "description": "High-impact commercial single and double-sided A5 marketing flyers printed on 170gsm to 300gsm gloss or silk art paper in Dubai.",
+      "shortDescription": "Vibrant A5 marketing flyers on 170–300gsm gloss or matte art paper.",
+      "price": 95,
+      "min_quantity": 250,
+      "minimumQuantity": 250,
+      "unit": "250 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-a5-promotional.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-a5-promotional.jpg",
+      "image_url": "/assets/products/flyers/flyer-a5-promotional.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-a4-business-flyers",
+      "id": 102,
+      "name": "Standard A4 Business Advertising Flyers",
+      "slug": "a4-business-flyers",
+      "description": "Full-size A4 corporate advertising flyers and sales data sheets printed in vivid high-definition CMYK on premium FSC coated paper.",
+      "shortDescription": "Corporate A4 presentation flyers with sharp text and infographics.",
+      "price": 140,
+      "min_quantity": 250,
+      "minimumQuantity": 250,
+      "unit": "250 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-a4-business.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-a4-business.jpg",
+      "image_url": "/assets/products/flyers/flyer-a4-business.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-dl-event-flyers",
+      "id": 103,
+      "name": "DL Slim Event & Menu Flyers",
+      "slug": "dl-event-flyers",
+      "description": "Elegant tall DL format (99x210mm) rack flyers and event cards. Ideal for restaurant menus, spa rate cards, and exhibition promotional handouts.",
+      "shortDescription": "Tall 99x210mm DL promo cards & restaurant table handouts.",
+      "price": 110,
+      "min_quantity": 250,
+      "minimumQuantity": 250,
+      "unit": "250 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-dl-event.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-dl-event.jpg",
+      "image_url": "/assets/products/flyers/flyer-dl-event.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-luxury-gold-foil-flyers",
+      "id": 104,
+      "name": "Luxury Gold Foil & Spot UV Flyers",
+      "slug": "luxury-gold-foil-flyers",
+      "description": "Executive marketing flyers with hot stamped metallic gold foil and raised tactile 3D spot UV varnish on 350gsm matte black or silk board.",
+      "shortDescription": "Metallic gold foil & raised spot UV luxury flyers on 350gsm card.",
+      "price": 220,
+      "min_quantity": 100,
+      "minimumQuantity": 100,
+      "unit": "100 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-luxury-foil.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-luxury-foil.jpg",
+      "image_url": "/assets/products/flyers/flyer-luxury-foil.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-door-hangers-printing",
+      "id": 105,
+      "name": "Door Hangers Marketing Flyers",
+      "slug": "door-hangers-printing",
+      "description": "Custom die-cut door knob hanger flyers for hotels, hospitality, real estate open houses, and local door-to-door promotions in UAE.",
+      "shortDescription": "Precision die-cut knob hook flyers for hospitality & real estate.",
+      "price": 160,
+      "min_quantity": 250,
+      "minimumQuantity": 250,
+      "unit": "250 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-door-hangers.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-door-hangers.jpg",
+      "image_url": "/assets/products/flyers/flyer-door-hangers.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-postcards-printing",
+      "id": 106,
+      "name": "Postcards & Direct Mail Flyers",
+      "slug": "postcards-printing",
+      "description": "Standard A6 & 5x7 inch direct mail postcard flyers printed with glossy UV front protection and writable uncoated back for mailing.",
+      "shortDescription": "Sturdy 350gsm marketing postcards with UV front & mailing back.",
+      "price": 125,
+      "min_quantity": 250,
+      "minimumQuantity": 250,
+      "unit": "250 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-direct-mail-postcards.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-direct-mail-postcards.jpg",
+      "image_url": "/assets/products/flyers/flyer-direct-mail-postcards.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-folded-leaflets-flyers",
+      "id": 107,
+      "name": "Folded Leaflets & Bi-Fold Flyers",
+      "slug": "folded-leaflets-flyers",
+      "description": "Multi-panel folded leaflets, bi-fold, and half-fold marketing flyers with crisp crease scoring. Perfect for corporate overviews and event guides.",
+      "shortDescription": "4-page bi-fold & half-fold marketing leaflets with crisp creasing.",
+      "price": 145,
+      "min_quantity": 100,
+      "minimumQuantity": 100,
+      "unit": "100 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-folded-leaflets.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-folded-leaflets.jpg",
+      "image_url": "/assets/products/flyers/flyer-folded-leaflets.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-gloss-matte-flyers",
+      "id": 108,
+      "name": "High-Impact Gloss & Matte Laminated Flyers",
+      "slug": "gloss-matte-flyers",
+      "description": "Durable water-resistant laminated promotional flyers available in ultra high-gloss shine or velvety soft-touch matte lamination.",
+      "shortDescription": "Dual-finish flyers: mirror high-gloss or velvety matte lamination.",
+      "price": 130,
+      "min_quantity": 250,
+      "minimumQuantity": 250,
+      "unit": "250 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-gloss-matte.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-gloss-matte.jpg",
+      "image_url": "/assets/products/flyers/flyer-gloss-matte.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-a6-pocket-flyers",
+      "id": 109,
+      "name": "A6 Pocket Marketing Flyers",
+      "slug": "a6-pocket-flyers",
+      "description": "Compact A6 size (105x148mm) promotional handbills and coupon flyers. Pocket-sized convenience for retail giveaways, cafes, and street distribution.",
+      "shortDescription": "Compact pocket-sized A6 coupon & promotional handbills.",
+      "price": 80,
+      "min_quantity": 500,
+      "minimumQuantity": 500,
+      "unit": "500 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-a6-pocket.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-a6-pocket.jpg",
+      "image_url": "/assets/products/flyers/flyer-a6-pocket.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-kraft-eco-flyers",
+      "id": 110,
+      "name": "Kraft & Eco-Friendly Recycled Flyers",
+      "slug": "kraft-eco-flyers",
+      "description": "Sustainable brown ribbed kraft and 100% post-consumer recycled paper flyers. Distinct natural texture and authentic organic aesthetic.",
+      "shortDescription": "100% recycled textured brown kraft paper eco marketing flyers.",
+      "price": 135,
+      "min_quantity": 250,
+      "minimumQuantity": 250,
+      "unit": "250 pcs",
+      "featured": false,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-kraft-eco.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-kraft-eco.jpg",
+      "image_url": "/assets/products/flyers/flyer-kraft-eco.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-die-cut-flyers",
+      "id": 111,
+      "name": "Custom Die-Cut Shaped Flyers",
+      "slug": "die-cut-flyers",
+      "description": "Bespoke custom-shaped flyers, circular marketing cards, arched handbills, and intricate contour die-cut promotional materials.",
+      "shortDescription": "Custom contoured shapes, circles & geometric die-cut flyers.",
+      "price": 190,
+      "min_quantity": 250,
+      "minimumQuantity": 250,
+      "unit": "250 pcs",
+      "featured": false,
+      "active": true,
+      "images": [
+        "/assets/products/flyers/flyer-die-cut.jpg"
+      ],
+      "image": "/assets/products/flyers/flyer-die-cut.jpg",
+      "image_url": "/assets/products/flyers/flyer-die-cut.jpg",
+      "category": {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-flyers-printing-in-dubai",
+          "id": 3,
+          "name": "Flyers Printing In Dubai",
+          "slug": "flyers-printing-in-dubai"
+        }
+      ]
+    },
+    {
+      "_id": "prod-executive-120gsm-letterheads",
+      "id": 501,
+      "name": "Executive 120gsm Letterheads",
+      "slug": "executive-120gsm-letterheads",
+      "category": {
+        "_id": "cat-letterheads-printing-dubai",
+        "id": 6,
+        "name": "Letterheads Printing Dubai",
+        "slug": "letterheads-printing-dubai"
+      },
+      "shortDescription": "120gsm ultra-smooth laser-guaranteed corporate letterheads with precision corporate branding and crisp ink fidelity.",
+      "description": "Premium corporate stationery printed on 120gsm ultra-smooth laser-guaranteed uncoated paper. Engineered for seamless feeding through desktop office laser/inkjet printers with high-density Pantone color fidelity for official contracts, proposals, and corporate correspondence in Dubai.",
+      "image": "/assets/products/letterhead_executive_120gsm.jpg",
+      "image_url": "/assets/products/letterhead_executive_120gsm.jpg",
+      "imageAlt": "Executive 120gsm corporate stationery letterheads in Dubai",
+      "seoTitle": "Executive 120gsm Letterheads Dubai | Laser Guaranteed Stationery | ONPRINT",
+      "seoDescription": "Order executive 120gsm corporate letterheads in Dubai. Smooth laser-guaranteed uncoated stock with sharp full-color logo printing.",
+      "seoKeywords": "letterhead printing dubai, corporate letterheads uae, 120gsm letterhead paper, executive stationery dubai",
+      "seoHeading": "Executive 120gsm Corporate Letterheads Dubai",
+      "canonicalUrl": "https://0nprint.com/products/executive-120gsm-letterheads",
+      "price": 180,
+      "minimumQuantity": 250,
+      "featured": true,
+      "active": true,
+      "features": [
+        "120gsm Smooth Laser-Guaranteed Stock",
+        "Ultra-Sharp Pantone & CMYK Printing",
+        "Compatible with All Office Desktop Printers"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "120gsm Premium Smooth Uncoated Bond",
+            "value": "120gsm-uncoated"
+          },
+          {
+            "label": "100gsm Standard Laser Stock",
+            "value": "100gsm-standard"
+          },
+          {
+            "label": "130gsm FSC Certified Recycled Stock",
+            "value": "130gsm-recycled"
+          }
+        ],
+        "sizes": [
+          {
+            "label": "A4 (210 x 297 mm)",
+            "value": "a4"
+          },
+          {
+            "label": "US Letter (8.5 x 11 in)",
+            "value": "us-letter"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Express 24-Hour Dispatch",
+            "value": "express-24h"
+          },
+          {
+            "label": "Standard 2–3 Days",
+            "value": "standard"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "prod-luxury-gold-foil-letterheads",
+      "id": 502,
+      "name": "Luxury Gold Foil Letterheads",
+      "slug": "luxury-gold-foil-letterheads",
+      "category": {
+        "_id": "cat-letterheads-printing-dubai",
+        "id": 6,
+        "name": "Letterheads Printing Dubai",
+        "slug": "letterheads-printing-dubai"
+      },
+      "shortDescription": "Bespoke executive letterheads featuring metallic gold or silver hot-foil stamped corporate crests on luxury linen stock.",
+      "description": "Distinguished executive corporate letterheads featuring metallic hot-foil stamping in gold, silver, rose gold, or copper. Printed on textured linen or extra-heavy 140gsm premium watermarked stock for luxury brands, legal chambers, royal family offices, and C-level executive suites across the UAE.",
+      "image": "/assets/products/letterhead_gold_foil.jpg",
+      "image_url": "/assets/products/letterhead_gold_foil.jpg",
+      "imageAlt": "Luxury gold foil embossed corporate letterheads in Dubai",
+      "seoTitle": "Luxury Gold Foil Letterheads Dubai | Foil Stamped Stationery | ONPRINT",
+      "seoDescription": "Order luxury gold foil letterheads in Dubai. Metallic foil stamped crests, textured linen paper, and premium corporate executive stationery.",
+      "seoKeywords": "gold foil letterheads dubai, luxury stationery uae, foil stamped letterhead paper, embossed letterheads dubai",
+      "seoHeading": "Luxury Gold Foil Corporate Letterheads Dubai",
+      "canonicalUrl": "https://0nprint.com/products/luxury-gold-foil-letterheads",
+      "price": 290,
+      "minimumQuantity": 100,
+      "featured": true,
+      "active": true,
+      "features": [
+        "Metallic Gold / Silver Hot-Foil Stamping",
+        "Luxury 140gsm Textured Linen Paper",
+        "Blind Embossing & Debossing Available"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "140gsm Luxury Textured Linen",
+            "value": "140gsm-linen"
+          },
+          {
+            "label": "120gsm Ultra-Smooth Conqueror Bond",
+            "value": "120gsm-conqueror"
+          },
+          {
+            "label": "150gsm Cotton Texture Off-White",
+            "value": "150gsm-cotton"
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Metallic Gold Hot Foil",
+            "value": "gold-foil"
+          },
+          {
+            "label": "Metallic Silver Hot Foil",
+            "value": "silver-foil"
+          },
+          {
+            "label": "Rose Gold Metallic Foil",
+            "value": "rose-gold-foil"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Standard 3–4 Days (Foil Tooling)",
+            "value": "standard-foil"
+          },
+          {
+            "label": "Express 48-Hour Priority",
+            "value": "express-48h"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "prod-matching-corporate-envelopes",
+      "id": 503,
+      "name": "Matching Corporate Envelopes",
+      "slug": "matching-corporate-envelopes",
+      "category": {
+        "_id": "cat-letterheads-printing-dubai",
+        "id": 6,
+        "name": "Letterheads Printing Dubai",
+        "slug": "letterheads-printing-dubai"
+      },
+      "shortDescription": "Custom branded corporate envelopes in DL, C5, and C4 formats with peel-and-seal adhesive flaps and interior privacy tint.",
+      "description": "Complete your corporate stationery suite with custom branded envelopes manufactured from premium 120gsm matching paper stock. Available in standard business DL (with or without window), C5 (for folded A4), and large C4 (for flat A4 documents) with high-adhesion peel & seal closures and optional interior security pattern printing.",
+      "image": "/assets/products/letterhead_envelopes_suite.jpg",
+      "image_url": "/assets/products/letterhead_envelopes_suite.jpg",
+      "imageAlt": "Matching corporate envelopes DL C5 C4 in Dubai",
+      "seoTitle": "Custom Corporate Envelopes Dubai | DL, C5, C4 Envelopes | ONPRINT",
+      "seoDescription": "Order custom branded business envelopes in Dubai. DL, C5, C4 envelope printing with peel-and-seal strips and full-color corporate branding.",
+      "seoKeywords": "envelope printing dubai, custom corporate envelopes uae, dl envelope printing, c4 envelopes dubai",
+      "seoHeading": "Matching Custom Corporate Envelopes Dubai",
+      "canonicalUrl": "https://0nprint.com/products/matching-corporate-envelopes",
+      "price": 120,
+      "minimumQuantity": 250,
+      "featured": true,
+      "active": true,
+      "features": [
+        "Available in DL, C5, and C4 Sizes",
+        "Ultra-Strong Peel & Seal Closure Flap",
+        "Optional Window & Interior Privacy Tint"
+      ],
+      "specifications": {
+        "sizes": [
+          {
+            "label": "DL Envelope (110 x 220 mm)",
+            "value": "dl-size"
+          },
+          {
+            "label": "C5 Envelope (162 x 229 mm)",
+            "value": "c5-size"
+          },
+          {
+            "label": "C4 Envelope (229 x 324 mm)",
+            "value": "c4-size"
+          }
+        ],
+        "materials": [
+          {
+            "label": "120gsm Smooth Matching White",
+            "value": "120gsm-smooth"
+          },
+          {
+            "label": "130gsm Textured Kraft Eco Paper",
+            "value": "130gsm-kraft"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Express 24-Hour Dispatch",
+            "value": "express-24h"
+          },
+          {
+            "label": "Standard 2–3 Days",
+            "value": "standard"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "prod-corporate-presentation-folders",
+      "id": 504,
+      "name": "Corporate Presentation Folders",
+      "slug": "corporate-presentation-folders",
+      "category": {
+        "_id": "cat-letterheads-printing-dubai",
+        "id": 6,
+        "name": "Letterheads Printing Dubai",
+        "slug": "letterheads-printing-dubai"
+      },
+      "shortDescription": "Heavy 350gsm matte laminated presentation folders with document pocket, business card slot, and spot UV accents.",
+      "description": "Elevate tenders, client proposals, and executive sales pitches with custom die-cut corporate presentation folders. Crafted from heavy 350gsm rigid art card with velvet soft-touch lamination, metallic foil detailing, interior document pockets, and precision die-cut business card slits.",
+      "image": "/assets/products/letterhead_presentation_folders.jpg",
+      "image_url": "/assets/products/letterhead_presentation_folders.jpg",
+      "imageAlt": "Luxury corporate presentation folders with document pocket in Dubai",
+      "seoTitle": "Corporate Presentation Folders Dubai | Custom Pocket Folders | ONPRINT",
+      "seoDescription": "Order luxury corporate presentation folders in Dubai. Heavy 350gsm card, velvet lamination, business card slots, and spot UV finish.",
+      "seoKeywords": "presentation folders dubai, document folder printing uae, corporate pocket folders dubai, custom die cut folders",
+      "seoHeading": "Corporate Presentation Folders Dubai",
+      "canonicalUrl": "https://0nprint.com/products/corporate-presentation-folders",
+      "price": 140,
+      "minimumQuantity": 50,
+      "featured": true,
+      "active": true,
+      "features": [
+        "Heavy 350gsm Rigid Art Board",
+        "Velvet Soft-Touch & Spot UV Detailing",
+        "Die-Cut Interior Pockets & Card Slits"
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "350gsm Coated Silk Cardboard",
+            "value": "350gsm-silk"
+          },
+          {
+            "label": "400gsm Heavyweight Art Board",
+            "value": "400gsm-heavy"
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Soft-Touch Matte + Spot UV",
+            "value": "softtouch-spotuv"
+          },
+          {
+            "label": "Gold Foil Stamped Logo",
+            "value": "gold-foil"
+          },
+          {
+            "label": "Matte Anti-Scratch Lamination",
+            "value": "matte-antiscratch"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Express 48-Hour Dispatch",
+            "value": "express-48h"
+          },
+          {
+            "label": "Standard 3–4 Days",
+            "value": "standard"
+          }
+        ]
+      }
+    },
+    {
       "_id": "prod-secure-smart-nfc-pvc-id-cards",
       "id": 401,
       "name": "Secure Smart NFC PVC ID Cards",
@@ -396,12 +1031,6 @@ module.exports = {
           "slug": "id-card-printing-dubai"
         },
         {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai"
-        },
-        {
           "_id": "cat-name-badges-printing-dubai",
           "id": 7,
           "name": "Name Badges Printing Dubai",
@@ -409,8 +1038,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/smart-nfc-pvc-id.png",
-        "/assets/products/id_cards.jpg"
+        "/assets/products/id-cards/smart-nfc-pvc-id.png"
       ]
     },
     {
@@ -481,17 +1109,10 @@ module.exports = {
           "id": 4,
           "name": "ID Card Printing Dubai",
           "slug": "id-card-printing-dubai"
-        },
-        {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai"
         }
       ],
       "images": [
-        "/assets/products/id-cards/rfid-proximity-access-cards.jpg",
-        "/assets/products/id_cards.jpg"
+        "/assets/products/id-cards/rfid-proximity-access-cards.jpg"
       ]
     },
     {
@@ -562,17 +1183,10 @@ module.exports = {
           "id": 4,
           "name": "ID Card Printing Dubai",
           "slug": "id-card-printing-dubai"
-        },
-        {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai"
         }
       ],
       "images": [
-        "/assets/products/id-cards/holographic-security-id-cards.jpg",
-        "/assets/products/id_cards.jpg"
+        "/assets/products/id-cards/holographic-security-id-cards.jpg"
       ]
     },
     {
@@ -643,17 +1257,10 @@ module.exports = {
           "id": 4,
           "name": "ID Card Printing Dubai",
           "slug": "id-card-printing-dubai"
-        },
-        {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai"
         }
       ],
       "images": [
-        "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg",
-        "/assets/products/id_cards.jpg"
+        "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg"
       ]
     },
     {
@@ -724,17 +1331,10 @@ module.exports = {
           "id": 4,
           "name": "ID Card Printing Dubai",
           "slug": "id-card-printing-dubai"
-        },
-        {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai"
         }
       ],
       "images": [
-        "/assets/products/id-cards/photo-id-staff-cards.jpg",
-        "/assets/products/id_cards.jpg"
+        "/assets/products/id-cards/photo-id-staff-cards.jpg"
       ]
     },
     {
@@ -805,17 +1405,10 @@ module.exports = {
           "id": 4,
           "name": "ID Card Printing Dubai",
           "slug": "id-card-printing-dubai"
-        },
-        {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai"
         }
       ],
       "images": [
-        "/assets/products/id-cards/student-campus-id-cards.jpg",
-        "/assets/products/id_cards.jpg"
+        "/assets/products/id-cards/student-campus-id-cards.jpg"
       ]
     },
     {
@@ -888,12 +1481,6 @@ module.exports = {
           "slug": "id-card-printing-dubai"
         },
         {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai"
-        },
-        {
           "_id": "cat-name-badges-printing-dubai",
           "id": 7,
           "name": "Name Badges Printing Dubai",
@@ -901,8 +1488,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/visitor-pass-cards-holders.jpg",
-        "/assets/products/id_cards.jpg"
+        "/assets/products/id-cards/visitor-pass-cards-holders.jpg"
       ]
     },
     {
@@ -982,8 +1568,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg",
-        "/assets/products/id_cards.jpg"
+        "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg"
       ]
     },
     {
@@ -1040,17 +1625,6 @@ module.exports = {
             "/assets/products/brochure_booklet_catalog.jpg",
             "/assets/products/brochure_zfold.jpg",
             "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
           ]
         },
         {
@@ -1251,17 +1825,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai",
-          "images": [
-            "/assets/products/custom_branded_lanyards.jpg",
-            "/assets/products/name_badges.jpg",
-            "/assets/products/id_cards.jpg"
-          ]
-        },
-        {
           "_id": "cat-office-stationery-printing",
           "id": 14,
           "name": "Office Stationery & Envelopes",
@@ -1366,9 +1929,105 @@ module.exports = {
       ]
     },
     {
+      "_id": "prod-standard-business-cards",
+      "id": 6,
+      "name": "Standard Business Cards",
+      "slug": "standard-business-cards",
+      "category": {
+        "_id": "cat-business-cards-printing",
+        "id": 1,
+        "name": "Business Cards Printing",
+        "slug": "business-cards-printing"
+      },
+      "shortDescription": "Clean 300gsm–350gsm silk/matte business cards for everyday networking, sales teams, and startups.",
+      "description": "Affordable, high-definition digital printing on sturdy 300–350 GSM European art card with smooth protective matte or gloss lamination. The most popular and budget-friendly choice for Dubai businesses.",
+      "image": "/assets/products/basic_business_cards.jpg",
+      "image_url": "/assets/products/basic_business_cards.jpg",
+      "imageAlt": "Standard clean 350gsm business cards printing Dubai",
+      "seoTitle": "Standard Business Cards Dubai | 300gsm Card Printing | ONPRINT",
+      "seoDescription": "Order clean 300gsm standard business cards in Dubai with crisp colour printing and practical matte or silk finishes for everyday networking.",
+      "seoKeywords": "standard business cards dubai, 300gsm business cards, affordable card printing dubai",
+      "seoHeading": "Standard 300gsm Business Cards in Dubai",
+      "price": 45,
+      "minimumQuantity": 100,
+      "featured": false,
+      "active": true,
+      "images360": [
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
+      ],
+      "categories": [
+        {
+          "_id": "cat-business-cards-printing",
+          "id": 1,
+          "name": "Business Cards Printing",
+          "slug": "business-cards-printing",
+          "images": [
+            "/uploads/categories/business-cards-printing.jpg",
+            "/assets/products/business-cards/bc_standard_silk.jpg",
+            "/assets/products/business-cards/bc_corporate_batches.jpg"
+          ]
+        },
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 14,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing",
+          "images": [
+            "/assets/products/service_executive_stationery.jpg",
+            "/assets/products/1 (5).jpg",
+            "/assets/products/1 (9).jpg"
+          ]
+        },
+        {
+          "_id": "cat-letterheads-printing-dubai",
+          "id": 6,
+          "name": "Letterheads Printing Dubai",
+          "slug": "letterheads-printing-dubai",
+          "images": [
+            "/uploads/categories/letterheads-printing-dubai.jpg",
+            "/assets/products/service_executive_stationery.jpg",
+            "/assets/products/1 (2).jpg"
+          ]
+        },
+        {
+          "_id": "cat-brochures-printing",
+          "id": 2,
+          "name": "Brochures Printing",
+          "slug": "brochures-printing",
+          "images": [
+            "/assets/products/brochure_bifold.jpg",
+            "/assets/products/brochure_trifold.jpg",
+            "/assets/products/brochure_gatefold.jpg"
+          ]
+        },
+        {
+          "_id": "cat-corporate-gift-items",
+          "id": 9,
+          "name": "Corporate Gifts & Merchandise",
+          "slug": "corporate-gift-items",
+          "images": [
+            "/assets/products/luxury_corporate_gifts_dubai.jpg",
+            "/assets/products/service_corporate_gifts.jpg",
+            "/assets/products/wooden_keychain.jpg"
+          ]
+        }
+      ],
+      "images": [
+        "/assets/products/basic_business_cards.jpg",
+        "/assets/products/business-cards/bc_standard_silk.jpg"
+      ]
+    },
+    {
       "_id": "prod-premium-business-cards",
       "id": 5,
-      "name": "Premium Business Cards",
+      "name": "Premium Matte Business Cards",
       "slug": "premium-business-cards",
       "category": {
         "_id": "cat-business-cards-printing",
@@ -1376,15 +2035,15 @@ module.exports = {
         "name": "Business Cards Printing",
         "slug": "business-cards-printing"
       },
-      "shortDescription": "Luxury 350gsm–600gsm business cards with foil, textured stock, and precision finishing.",
-      "description": "Premium business cards in Dubai with cotton stock, selective foil stamping, textured papers, and premium edge detailing for executive branding.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Premium%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Premium%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Luxury premium business cards in Dubai",
+      "shortDescription": "Rigid 400gsm heavyweight artboard with dual-sided anti-scuff matte coating and zero edge curl.",
+      "description": "Substantial 400 GSM artboard sealed with double-sided silky matte coating. Ensures razor-sharp black typography, vivid colors, and durable resistance to edge dog-earing.",
+      "image": "/assets/products/business-cards/bc_premium_matte.jpg",
+      "image_url": "/assets/products/business-cards/bc_premium_matte.jpg",
+      "imageAlt": "Premium 400gsm matte business cards Dubai",
       "seoTitle": "Premium Business Cards Dubai | Luxury Executive Cards | ONPRINT",
       "seoDescription": "Luxury premium business cards in Dubai with textured stock, gold foil, and custom finishing options for executives and agencies.",
       "seoKeywords": "premium business cards dubai, luxury cards uae, executive business cards dubai",
-      "price": 95,
+      "price": 65,
       "minimumQuantity": 100,
       "featured": true,
       "active": true,
@@ -1454,109 +2113,10 @@ module.exports = {
             "/assets/products/1 (2).jpg"
           ]
         }
-      ]
-    },
-    {
-      "_id": "prod-standard-business-cards",
-      "id": 6,
-      "name": "Standard Business Cards",
-      "slug": "standard-business-cards",
-      "category": {
-        "_id": "cat-business-cards-printing",
-        "id": 1,
-        "name": "Business Cards Printing",
-        "slug": "business-cards-printing"
-      },
-      "shortDescription": "Clean 300gsm business cards for everyday networking, teams, and local business use.",
-      "description": "Reliable 300gsm business cards printed on smooth matte or silk stock with crisp full-colour artwork and practical finishing for everyday business networking.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Standard%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Standard%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Standard 300gsm business cards printed by ONPRINT",
-      "seoTitle": "Standard Business Cards Dubai | 300gsm Card Printing | ONPRINT",
-      "seoDescription": "Order clean 300gsm standard business cards in Dubai with crisp colour printing and practical matte or silk finishes for everyday networking.",
-      "seoKeywords": "standard business cards dubai, 300gsm business cards, affordable card printing dubai",
-      "seoHeading": "Standard 300gsm Business Cards in Dubai",
-      "price": 45,
-      "minimumQuantity": 100,
-      "featured": false,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Standard%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
       ],
-      "categories": [
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        }
+      "images": [
+        "/assets/products/business-cards/bc_premium_matte.jpg",
+        "/assets/products/business-cards/bc_standard_silk.jpg"
       ]
     },
     {
@@ -1570,11 +2130,11 @@ module.exports = {
         "name": "Business Cards Printing",
         "slug": "business-cards-printing"
       },
-      "shortDescription": "350gsm business cards with soft-touch lamination, spot UV, and a refined tactile finish.",
-      "description": "Premium 350gsm business cards finished with soft-touch lamination and optional spot UV detailing for companies that need a polished, memorable handout.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Premium%20Soft-Touch%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Premium%20Soft-Touch%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Premium 350gsm soft-touch business cards printed by ONPRINT",
+      "shortDescription": "Silky 350–400gsm artboard with velvet peach-skin lamination and anti-fingerprint finish.",
+      "description": "Experience the distinctive suede-like peach-skin feel of thermal velvet soft-touch lamination on 400 GSM artboard. Zero light reflection, deep color density, and an immediate tactile impression.",
+      "image": "/assets/products/card-soft-touch.jpg",
+      "image_url": "/assets/products/card-soft-touch.jpg",
+      "imageAlt": "Premium soft-touch velvet business cards Dubai",
       "seoTitle": "Premium Soft-Touch Business Cards Dubai | ONPRINT",
       "seoDescription": "Premium 350gsm soft-touch business cards in Dubai with optional spot UV detailing and refined finishing for professional brands.",
       "seoKeywords": "soft touch business cards dubai, 350gsm business cards, premium visiting cards uae",
@@ -1649,6 +2209,10 @@ module.exports = {
             "/assets/products/1 (2).jpg"
           ]
         }
+      ],
+      "images": [
+        "/assets/products/card-soft-touch.jpg",
+        "/assets/products/business-cards/bc_matte_softtouch.jpg"
       ]
     },
     {
@@ -1662,11 +2226,11 @@ module.exports = {
         "name": "Business Cards Printing",
         "slug": "business-cards-printing"
       },
-      "shortDescription": "450gsm velvet-laminated cards with hot foil stamping for executive and luxury branding.",
-      "description": "Executive 450gsm business cards with tactile velvet lamination and hot foil stamping in gold or silver, designed for premium client meetings and luxury brands.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Velvet%20Foil%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Velvet%20Foil%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "450gsm velvet laminated business cards with foil stamping",
+      "shortDescription": "450gsm velvet soft-touch cards with hot-stamped 24K mirror gold, rose gold, or silver foil.",
+      "description": "Precision hot foil stamping bonded under 120°C heat and hydraulic pressure onto heavy 450 GSM velvet artboard. Radiant metallic reflection with crisp vector detail and zero foil flaking.",
+      "image": "/assets/products/card-velvet-foil.jpg",
+      "image_url": "/assets/products/card-velvet-foil.jpg",
+      "imageAlt": "24K Gold foil velvet business cards Dubai",
       "seoTitle": "Velvet Foil Business Cards Dubai | 450gsm Luxury Cards | ONPRINT",
       "seoDescription": "Make a premium impression with 450gsm velvet foil business cards in Dubai, available with tactile lamination and gold or silver foil.",
       "seoKeywords": "velvet foil business cards dubai, 450gsm business cards, gold foil visiting cards",
@@ -1741,6 +2305,105 @@ module.exports = {
             "/assets/products/1 (2).jpg"
           ]
         }
+      ],
+      "images": [
+        "/assets/products/card-velvet-foil.jpg",
+        "/assets/products/luxury_business_cards.jpg"
+      ]
+    },
+    {
+      "_id": "prod-raised-ink-business-cards",
+      "id": 19,
+      "name": "Raised Ink & 3D Spot UV Cards",
+      "slug": "raised-ink-business-cards",
+      "category": {
+        "_id": "cat-business-cards-printing",
+        "id": 1,
+        "name": "Business Cards Printing",
+        "slug": "business-cards-printing"
+      },
+      "shortDescription": "Tactile high-build 3D Scodix gloss polymer and thermography relief on 450gsm cards.",
+      "description": "Dimensional tactile gloss cured up to 100 microns high over silky matte or velvet backgrounds. Creates an irresistible touch-and-feel contrast that highlights emblems, logos, and typography.",
+      "image": "/assets/products/business-cards/bc_embossed.jpg",
+      "image_url": "/assets/products/business-cards/bc_embossed.jpg",
+      "imageAlt": "Raised ink 3D Spot UV business cards Dubai",
+      "seoTitle": "Raised Ink Business Cards Dubai | Thermography Cards | ONPRINT",
+      "seoDescription": "Tactile raised ink business cards in Dubai with thermography embossed finish on 450gsm luxury stock for executives and agencies.",
+      "seoKeywords": "raised ink business cards dubai, thermography cards uae, embossed business cards dubai",
+      "price": 165,
+      "minimumQuantity": 100,
+      "featured": true,
+      "active": true,
+      "images360": [
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
+      ],
+      "categories": [
+        {
+          "_id": "cat-business-cards-printing",
+          "id": 1,
+          "name": "Business Cards Printing",
+          "slug": "business-cards-printing",
+          "images": [
+            "/uploads/categories/business-cards-printing.jpg",
+            "/assets/products/business-cards/bc_standard_silk.jpg",
+            "/assets/products/business-cards/bc_corporate_batches.jpg"
+          ]
+        },
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 14,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing",
+          "images": [
+            "/assets/products/service_executive_stationery.jpg",
+            "/assets/products/1 (5).jpg",
+            "/assets/products/1 (9).jpg"
+          ]
+        },
+        {
+          "_id": "cat-letterheads-printing-dubai",
+          "id": 6,
+          "name": "Letterheads Printing Dubai",
+          "slug": "letterheads-printing-dubai",
+          "images": [
+            "/uploads/categories/letterheads-printing-dubai.jpg",
+            "/assets/products/service_executive_stationery.jpg",
+            "/assets/products/1 (2).jpg"
+          ]
+        },
+        {
+          "_id": "cat-corporate-gift-items",
+          "id": 9,
+          "name": "Corporate Gifts & Merchandise",
+          "slug": "corporate-gift-items",
+          "images": [
+            "/assets/products/luxury_corporate_gifts_dubai.jpg",
+            "/assets/products/service_corporate_gifts.jpg",
+            "/assets/products/wooden_keychain.jpg"
+          ]
+        },
+        {
+          "_id": "cat-hospitality-event-printing",
+          "id": 15,
+          "name": "Hospitality & Event Stationery",
+          "slug": "hospitality-event-printing",
+          "images": [
+            "/assets/products/1 (14).jpg",
+            "/assets/products/1 (15).jpg",
+            "/assets/products/1 (16).jpg"
+          ]
+        }
+      ],
+      "images": [
+        "/assets/products/business-cards/bc_embossed.jpg",
+        "/assets/products/business-cards/bc_debossed.jpg"
       ]
     },
     {
@@ -1754,11 +2417,11 @@ module.exports = {
         "name": "Business Cards Printing",
         "slug": "business-cards-printing"
       },
-      "shortDescription": "600gsm duplex cards with painted edges, foil, embossing, and a substantial luxury feel.",
-      "description": "Statement 600gsm duplex business cards with painted edges, precision embossing, and metallic foil options for executive identities, agencies, and luxury businesses.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Luxury%20Painted-Edge%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Luxury%20Painted-Edge%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "600gsm painted-edge luxury business cards with foil finish",
+      "shortDescription": "Ultra-thick 600–700gsm multi-ply cards with 360° mirror metallic gold or painted edges.",
+      "description": "Handcrafted on rigid 600–700 GSM multi-ply sandwich board with hand-burnished 360° mirror gold, silver, or custom Pantone painted edges. Built for founders, VIP clubs, and luxury real estate executives.",
+      "image": "/assets/products/card-painted-edge.jpg",
+      "image_url": "/assets/products/card-painted-edge.jpg",
+      "imageAlt": "Luxury gilded painted edge business cards Dubai",
       "seoTitle": "Luxury Painted-Edge Business Cards Dubai | 600gsm Cards | ONPRINT",
       "seoDescription": "Order substantial 600gsm painted-edge business cards in Dubai with foil and embossing options for luxury corporate identities.",
       "seoKeywords": "painted edge business cards dubai, 600gsm business cards, luxury business cards uae",
@@ -1833,6 +2496,116 @@ module.exports = {
             "/assets/products/1 (2).jpg"
           ]
         }
+      ],
+      "images": [
+        "/assets/products/card-painted-edge.jpg",
+        "/assets/products/luxury_business_cards.jpg"
+      ]
+    },
+    {
+      "_id": "prod-plastic-pvc-business-cards",
+      "id": 20,
+      "name": "Plastic PVC Business Cards",
+      "slug": "plastic-pvc-business-cards",
+      "category": {
+        "_id": "cat-business-cards-printing",
+        "id": 1,
+        "name": "Business Cards Printing",
+        "slug": "business-cards-printing"
+      },
+      "shortDescription": "Waterproof, tearproof transparent clear, frosted matte, and solid white PVC cards.",
+      "description": "Durable waterproof polymer cards in crystal clear transparent, frosted translucent, or opaque solid PVC. Resistant to water, oils, and creases with optional metallic foil accents.",
+      "image": "/assets/products/id-cards/transparent-id-cards.jpg",
+      "image_url": "/assets/products/id-cards/transparent-id-cards.jpg",
+      "imageAlt": "Waterproof clear and frosted PVC business cards Dubai",
+      "seoTitle": "Plastic PVC Business Cards Dubai | Clear Frosted Waterproof Cards | ONPRINT",
+      "seoDescription": "Waterproof plastic PVC business cards in Dubai. Clear transparent, frosted matte or solid white with optional signature panels and holograms.",
+      "seoKeywords": "pvc business cards dubai, plastic cards uae, clear transparent cards dubai, frosted business cards",
+      "price": 175,
+      "minimumQuantity": 100,
+      "featured": true,
+      "active": true,
+      "images360": [
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
+        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
+      ],
+      "categories": [
+        {
+          "_id": "cat-business-cards-printing",
+          "id": 1,
+          "name": "Business Cards Printing",
+          "slug": "business-cards-printing",
+          "images": [
+            "/uploads/categories/business-cards-printing.jpg",
+            "/assets/products/business-cards/bc_standard_silk.jpg",
+            "/assets/products/business-cards/bc_corporate_batches.jpg"
+          ]
+        },
+        {
+          "_id": "cat-id-card-printing-dubai",
+          "id": 4,
+          "name": "ID Card Printing Dubai",
+          "slug": "id-card-printing-dubai",
+          "images": [
+            "/assets/products/id_cards.jpg",
+            "/assets/products/custom_branded_lanyards.jpg",
+            "/assets/products/1 (4).jpg"
+          ]
+        },
+        {
+          "_id": "cat-corporate-gift-items",
+          "id": 9,
+          "name": "Corporate Gifts & Merchandise",
+          "slug": "corporate-gift-items",
+          "images": [
+            "/assets/products/luxury_corporate_gifts_dubai.jpg",
+            "/assets/products/service_corporate_gifts.jpg",
+            "/assets/products/wooden_keychain.jpg"
+          ]
+        },
+        {
+          "_id": "cat-name-badges-printing-dubai",
+          "id": 7,
+          "name": "Name Badges Printing Dubai",
+          "slug": "name-badges-printing-dubai",
+          "images": [
+            "/assets/products/name_badges.jpg",
+            "/assets/products/name_plates.jpg",
+            "/assets/products/1 (2).jpg"
+          ]
+        },
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 14,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing",
+          "images": [
+            "/assets/products/service_executive_stationery.jpg",
+            "/assets/products/1 (5).jpg",
+            "/assets/products/1 (9).jpg"
+          ]
+        },
+        {
+          "_id": "cat-hospitality-event-printing",
+          "id": 15,
+          "name": "Hospitality & Event Stationery",
+          "slug": "hospitality-event-printing",
+          "images": [
+            "/assets/products/1 (14).jpg",
+            "/assets/products/1 (15).jpg",
+            "/assets/products/1 (16).jpg"
+          ]
+        }
+      ],
+      "images": [
+        "/assets/products/id-cards/transparent-id-cards.jpg",
+        "/assets/products/id-cards/standard-pvc-id.jpg"
       ]
     },
     {
@@ -1848,8 +2621,8 @@ module.exports = {
       },
       "shortDescription": "Executive acrylic door and desk nameplates with polished finishes and strong mounting hardware.",
       "description": "Acrylic nameplates for offices, retail reception, and corporate interiors with premium engraving, polished edges, and secure mounting.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Acrylic%20Nameplates%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Acrylic%20Nameplates%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/name-badges/acrylic-desk-nameplate.svg",
+      "image_url": "/assets/products/name-badges/acrylic-desk-nameplate.svg",
       "imageAlt": "Acrylic office nameplates in Dubai",
       "seoTitle": "Acrylic Nameplates Dubai | Office Door Signage | ONPRINT",
       "seoDescription": "Custom acrylic nameplates in Dubai for office reception, desk signage, and branded door titles with polished finishes.",
@@ -1935,6 +2708,9 @@ module.exports = {
             "/assets/products/1 (4).jpg"
           ]
         }
+      ],
+      "images": [
+        "/assets/products/acrylic_desk_nameplate.jpg"
       ]
     },
     {
@@ -2002,17 +2778,6 @@ module.exports = {
             "/assets/products/1 (3).jpg",
             "/assets/products/1 (4).jpg",
             "/assets/products/tote_bags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
           ]
         },
         {
@@ -2093,17 +2858,6 @@ module.exports = {
             "/assets/products/luxury_corporate_gifts_dubai.jpg",
             "/assets/products/service_corporate_gifts.jpg",
             "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
           ]
         },
         {
@@ -2195,17 +2949,6 @@ module.exports = {
             "/assets/products/water_bottles.jpg",
             "/assets/products/mugs.jpg",
             "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai",
-          "images": [
-            "/assets/products/custom_branded_lanyards.jpg",
-            "/assets/products/name_badges.jpg",
-            "/assets/products/id_cards.jpg"
           ]
         },
         {
@@ -2600,199 +3343,6 @@ module.exports = {
       ]
     },
     {
-      "_id": "prod-raised-ink-business-cards",
-      "id": 19,
-      "name": "Raised Ink Business Cards",
-      "slug": "raised-ink-business-cards",
-      "category": {
-        "_id": "cat-business-cards-printing",
-        "id": 1,
-        "name": "Business Cards Printing",
-        "slug": "business-cards-printing"
-      },
-      "shortDescription": "Tactile thermography raised-ink cards with a pronounced embossed finish for ultra-premium identities.",
-      "description": "Ultra-premium raised ink (thermography) business cards with pronounced tactile texture on logos, borders, or typography. Printed on 450gsm super-thick stock for agencies, law firms, and executive brands in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Raised%20Ink%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Raised%20Ink%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Raised ink thermography business cards in Dubai",
-      "seoTitle": "Raised Ink Business Cards Dubai | Thermography Cards | ONPRINT",
-      "seoDescription": "Tactile raised ink business cards in Dubai with thermography embossed finish on 450gsm luxury stock for executives and agencies.",
-      "seoKeywords": "raised ink business cards dubai, thermography cards uae, embossed business cards dubai",
-      "price": 195,
-      "minimumQuantity": 100,
-      "featured": true,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Raised%20Ink%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-      ],
-      "categories": [
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        }
-      ]
-    },
-    {
-      "_id": "prod-plastic-pvc-business-cards",
-      "id": 20,
-      "name": "Plastic PVC Business Cards",
-      "slug": "plastic-pvc-business-cards",
-      "category": {
-        "_id": "cat-business-cards-printing",
-        "id": 1,
-        "name": "Business Cards Printing",
-        "slug": "business-cards-printing"
-      },
-      "shortDescription": "Waterproof clear, frosted, and solid PVC cards with optional signature panels and holograms.",
-      "description": "Durable waterproof PVC business cards in clear transparent, frosted matte, or solid white finish. Optional signature panels, holographic seals, magnetic stripes, and gold or silver hot foil for VIP programs in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Plastic%20PVC%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Plastic%20PVC%20Business%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Plastic PVC business cards in Dubai",
-      "seoTitle": "Plastic PVC Business Cards Dubai | Clear Frosted Waterproof Cards | ONPRINT",
-      "seoDescription": "Waterproof plastic PVC business cards in Dubai. Clear transparent, frosted matte or solid white with optional signature panels and holograms.",
-      "seoKeywords": "pvc business cards dubai, plastic cards uae, clear transparent cards dubai, frosted business cards",
-      "price": 175,
-      "minimumQuantity": 100,
-      "featured": true,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Plastic%20PVC%20Business%20Cards%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-      ],
-      "categories": [
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai",
-          "images": [
-            "/assets/products/id_cards.jpg",
-            "/assets/products/custom_branded_lanyards.jpg",
-            "/assets/products/1 (4).jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-name-badges-printing-dubai",
-          "id": 7,
-          "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai",
-          "images": [
-            "/assets/products/name_badges.jpg",
-            "/assets/products/name_plates.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        }
-      ]
-    },
-    {
       "_id": "prod-large-format-posters",
       "id": 21,
       "name": "Large Format Posters Printing",
@@ -2835,17 +3385,6 @@ module.exports = {
             "/assets/products/1 (9).jpg",
             "/assets/products/service_exhibition_signage.jpg",
             "/assets/products/rollup_banner.jpg"
-          ]
-        },
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
           ]
         },
         {
@@ -2892,216 +3431,6 @@ module.exports = {
             "/assets/products/service_digital_offset.jpg"
           ]
         }
-      ]
-    },
-    {
-      "_id": "prod-door-hangers-printing",
-      "id": 22,
-      "name": "Door Hangers Printing",
-      "slug": "door-hangers-printing",
-      "category": {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai"
-      },
-      "shortDescription": "Die-cut hotel and residential door knob hangers for hospitality, real estate, and local promotion campaigns.",
-      "description": "Die-cut door hangers with reinforced knob holes, printed on sturdy 350gsm stock with matte or UV gloss coating. Perfect for hotels, real estate door drops, restaurant delivery, and local retail campaigns in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Door%20Hangers%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Door%20Hangers%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Die cut door hangers printing in Dubai",
-      "seoTitle": "Door Hangers Printing Dubai | Hotel & Promotional Door Knob Tags | ONPRINT",
-      "seoDescription": "Custom die-cut door hanger printing in Dubai for hotels, real estate and local campaigns. Reinforced holes and UV gloss coating.",
-      "seoKeywords": "door hangers dubai, door knob tags uae, hotel door hangers printing dubai",
-      "price": 110,
-      "minimumQuantity": 250,
-      "featured": false,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-      ],
-      "categories": [
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/1 (14).jpg",
-            "/assets/products/brochures.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
-          "_id": "cat-stickers-labels-printing",
-          "id": 12,
-          "name": "Stickers & Product Labels",
-          "slug": "stickers-labels-printing",
-          "images": [
-            "/assets/products/service_stickers_labels.jpg",
-            "/assets/products/stickers.jpg",
-            "/assets/products/1 (6).jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
-        }
-      ],
-      "images": [
-        "/assets/products/flyer-door-hanger.jpg"
-      ]
-    },
-    {
-      "_id": "prod-postcards-printing",
-      "id": 23,
-      "name": "Postcards & Direct Mail Printing",
-      "slug": "postcards-printing",
-      "category": {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai"
-      },
-      "shortDescription": "A6 and A5 premium postcards with UV coating, rounded corners, and optional mail-ready addressing.",
-      "description": "A6 and A5 direct-mail postcards printed on thick 400gsm silk card with UV coating, rounded corners, perforated coupon sections, and optional variable-data addressing for bulk mail campaigns in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Postcards%20%26%20Direct%20Mail%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Postcards%20%26%20Direct%20Mail%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Postcards direct mail printing in Dubai",
-      "seoTitle": "Postcards & Direct Mail Printing Dubai | A6 A5 Promotional Cards | ONPRINT",
-      "seoDescription": "A6 and A5 postcard printing in Dubai for direct mail campaigns. Thick 400gsm stock, UV coating, rounded corners and variable data.",
-      "seoKeywords": "postcard printing dubai, direct mail uae, a6 postcards dubai, promotional mail printing",
-      "price": 130,
-      "minimumQuantity": 250,
-      "featured": true,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-      ],
-      "categories": [
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/1 (3).jpg",
-            "/assets/products/flyers.jpg",
-            "/assets/products/luxury_business_cards_dubai.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        }
-      ],
-      "images": [
-        "/assets/products/flyer-postcard.jpg"
       ]
     },
     {
@@ -3180,17 +3509,6 @@ module.exports = {
             "/assets/products/brochure_booklet_catalog.jpg",
             "/assets/products/brochure_zfold.jpg",
             "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai",
-          "images": [
-            "/assets/products/custom_branded_lanyards.jpg",
-            "/assets/products/name_badges.jpg",
-            "/assets/products/id_cards.jpg"
           ]
         }
       ]
@@ -3362,17 +3680,6 @@ module.exports = {
             "/assets/products/service_exhibition_signage.jpg",
             "/assets/products/rollup_banner.jpg",
             "/assets/products/flags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai",
-          "images": [
-            "/assets/products/custom_branded_lanyards.jpg",
-            "/assets/products/name_badges.jpg",
-            "/assets/products/id_cards.jpg"
           ]
         }
       ]
@@ -3567,17 +3874,6 @@ module.exports = {
             "/assets/products/brochure_zfold.jpg",
             "/assets/products/service_digital_offset.jpg"
           ]
-        },
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
-          ]
         }
       ]
     },
@@ -3751,17 +4047,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
-          ]
-        },
-        {
           "_id": "cat-catalogs-booklets-printing",
           "id": 13,
           "name": "Catalogs & Booklets Printing",
@@ -3787,8 +4072,8 @@ module.exports = {
       },
       "shortDescription": "Brushed aluminum, stainless steel, and brass engraved wall plaques and directional signs.",
       "description": "Premium metal signs and wall plaques fabricated in brushed aluminum, stainless steel, and solid brass with deep laser engraving, chemical etching, or UV-printed graphics. Ideal for executive office names, building directories, and award plaques across UAE.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Metal%20Name%20Signs%20%26%20Plaques%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Metal%20Name%20Signs%20%26%20Plaques%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/name-badges/metal-architectural-wall-plaque.svg",
+      "image_url": "/assets/products/name-badges/metal-architectural-wall-plaque.svg",
       "imageAlt": "Metal name signs and plaques in Dubai",
       "seoTitle": "Metal Name Signs & Plaques Dubai | Aluminum Stainless Brass | ONPRINT",
       "seoDescription": "Engraved metal signs and plaques in Dubai. Brushed aluminum, stainless steel and brass for office names, directories and awards.",
@@ -4206,17 +4491,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
-          ]
-        },
-        {
           "_id": "cat-catalogs-booklets-printing",
           "id": 13,
           "name": "Catalogs & Booklets Printing",
@@ -4419,17 +4693,6 @@ module.exports = {
             "/assets/products/1 (15).jpg",
             "/assets/products/1 (16).jpg"
           ]
-        },
-        {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai",
-          "images": [
-            "/assets/products/custom_branded_lanyards.jpg",
-            "/assets/products/name_badges.jpg",
-            "/assets/products/id_cards.jpg"
-          ]
         }
       ]
     },
@@ -4520,17 +4783,6 @@ module.exports = {
             "/assets/products/1 (14).jpg",
             "/assets/products/1 (15).jpg",
             "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-lanyard-printing-dubai",
-          "id": 5,
-          "name": "Lanyard Printing Dubai",
-          "slug": "lanyard-printing-dubai",
-          "images": [
-            "/assets/products/custom_branded_lanyards.jpg",
-            "/assets/products/name_badges.jpg",
-            "/assets/products/id_cards.jpg"
           ]
         }
       ]
@@ -4683,17 +4935,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
-          ]
-        },
-        {
           "_id": "cat-catalogs-booklets-printing",
           "id": 13,
           "name": "Catalogs & Booklets Printing",
@@ -4785,17 +5026,6 @@ module.exports = {
             "/assets/products/brochure_trifold.jpg",
             "/assets/products/brochure_bifold.jpg",
             "/assets/products/flyers.jpg"
-          ]
-        },
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
           ]
         },
         {
@@ -4924,17 +5154,6 @@ module.exports = {
             "/assets/products/service_corporate_gifts.jpg",
             "/assets/products/wooden_keychain.jpg"
           ]
-        },
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
-          ]
         }
       ],
       "images": [
@@ -4984,17 +5203,6 @@ module.exports = {
             "/assets/products/brochure_zfold.jpg",
             "/assets/products/brochure_trifold.jpg",
             "/assets/products/flyers.jpg"
-          ]
-        },
-        {
-          "_id": "cat-flyers-printing-in-dubai",
-          "id": 3,
-          "name": "Flyers Printing In Dubai",
-          "slug": "flyers-printing-in-dubai",
-          "images": [
-            "/assets/products/flyers.jpg",
-            "/assets/products/brochures.jpg",
-            "/assets/products/1 (8).jpg"
           ]
         },
         {
@@ -5467,68 +5675,140 @@ module.exports = {
       ]
     },
     {
-      "_id": "prod-a5-promotional-flyers",
-      "id": 101,
-      "name": "Standard A5 Promotional Flyers",
-      "slug": "a5-promotional-flyers",
-      "description": "High-impact commercial single and double-sided A5 marketing flyers printed on 170gsm to 300gsm gloss or silk art paper in Dubai.",
-      "price": 95,
-      "min_quantity": 250,
-      "unit": "250 pcs",
+      "_id": "prod-professional-magnetic-metal-name-badges",
+      "id": 701,
+      "name": "Professional Magnetic Metal Name Badges",
+      "slug": "professional-magnetic-metal-name-badges",
+      "category": {
+        "_id": "cat-name-badges-printing-dubai",
+        "id": 7,
+        "name": "Name Badges Printing Dubai",
+        "slug": "name-badges-printing-dubai"
+      },
+      "shortDescription": "Executive brushed gold and silver metal magnetic staff badges with ultra-strong triple-magnet backings and laser-engraved logos.",
+      "description": "Bespoke corporate magnetic name badges designed for Dubai luxury hotels, corporate offices, clinics, and VIP retail staff. Precision-crafted from brushed champagne gold, brushed silver aluminum, or mirror-finished stainless steel with razor-sharp full-color UV print or permanent laser engraving. Comes equipped with powerful 3-neodymium magnetic fasteners that protect luxury garments and uniforms without pinholes.",
+      "image": "/assets/products/name-badges/brushed-gold-magnetic-badge.svg",
+      "image_url": "/assets/products/name-badges/brushed-gold-magnetic-badge.svg",
+      "imageAlt": "Professional magnetic metal name badges in Dubai",
+      "seoTitle": "Professional Magnetic Metal Name Badges Dubai | Staff Badges | ONPRINT",
+      "seoDescription": "Order executive magnetic metal name badges in Dubai. Brushed gold, silver, and stainless steel staff badges with strong magnetic backing and express UAE delivery.",
+      "seoKeywords": "magnetic name badges dubai, staff badge printing uae, brushed gold name tag dubai, corporate employee badges",
+      "seoHeading": "Professional Magnetic Metal Name Badges Dubai",
+      "canonicalUrl": "https://0nprint.com/products/professional-magnetic-metal-name-badges",
+      "price": 25,
+      "minimumQuantity": 5,
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/flyer-a5-promotional.jpg",
-        "/assets/products/flyers.jpg"
+        "/assets/products/name-badges/brushed-gold-magnetic-badge.svg"
       ],
-      "category": {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai"
-      }
+      "features": [
+        "Min. Order: 5 units",
+        "Ultra-Strong 3-Magnet Garment-Safe Backing",
+        "Brushed Gold & Silver Metallic Finish"
+      ]
     },
     {
-      "_id": "prod-a4-business-flyers",
-      "id": 102,
-      "name": "Standard A4 Business Advertising Flyers",
-      "slug": "a4-business-flyers",
-      "description": "Full-page A4 commercial marketing leaflets and flyers with vivid CMYK precision on premium art paper.",
-      "price": 130,
-      "min_quantity": 250,
-      "unit": "250 pcs",
+      "_id": "prod-domed-epoxy-magnetic-staff-badges",
+      "id": 702,
+      "name": "Custom Domed Epoxy Magnetic Staff Badges",
+      "slug": "domed-epoxy-magnetic-staff-badges",
+      "category": {
+        "_id": "cat-name-badges-printing-dubai",
+        "id": 7,
+        "name": "Name Badges Printing Dubai",
+        "slug": "name-badges-printing-dubai"
+      },
+      "shortDescription": "High-gloss 3D crystal resin domed magnetic name badges with scratch-resistant surface and vibrant Pantone colors.",
+      "description": "Premium 3D crystal epoxy domed name badges popular across Dubai hospitality, restaurants, airlines, and exhibition teams. Features a polyurethane clear lens coating that magnifies print clarity, resists scratches, and prevents fading under UAE sunlight, complete with magnetic clip attachment.",
+      "image": "/assets/products/name-badges/domed-epoxy-resin-badge.svg",
+      "image_url": "/assets/products/name-badges/domed-epoxy-resin-badge.svg",
+      "imageAlt": "Custom domed epoxy magnetic staff badges in Dubai",
+      "seoTitle": "Domed Epoxy Magnetic Name Badges Dubai | 3D Resin Badges | ONPRINT",
+      "seoDescription": "Order custom domed epoxy magnetic name tags in Dubai. Scratch-proof 3D resin badges with strong magnetic fastener and fast turnaround.",
+      "seoKeywords": "domed name badges dubai, epoxy resin staff tags uae, magnetic name tags dubai, custom hospitality badges",
+      "seoHeading": "Custom Domed Epoxy Magnetic Staff Badges Dubai",
+      "canonicalUrl": "https://0nprint.com/products/domed-epoxy-magnetic-staff-badges",
+      "price": 18,
+      "minimumQuantity": 10,
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/flyer-a4-business.jpg"
+        "/assets/products/name-badges/domed-epoxy-resin-badge.svg"
       ],
-      "category": {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai"
-      }
+      "features": [
+        "Min. Order: 10 units",
+        "3D Polyurethane Crystal Dome",
+        "Scratch & UV Resistant Magnetic Backing"
+      ]
     },
     {
-      "_id": "prod-dl-event-flyers",
-      "id": 103,
-      "name": "DL Slim Event & Menu Flyers",
-      "slug": "dl-event-flyers",
-      "description": "Compact 99x210mm DL flyers perfect for restaurant menus, promotional inserts, voucher distribution, and trade events.",
-      "price": 85,
-      "min_quantity": 250,
-      "unit": "250 pcs",
-      "featured": false,
+      "_id": "prod-reusable-window-magnetic-badges",
+      "id": 703,
+      "name": "Reusable Window Magnetic Name Badges",
+      "slug": "reusable-window-magnetic-badges",
+      "category": {
+        "_id": "cat-name-badges-printing-dubai",
+        "id": 7,
+        "name": "Name Badges Printing Dubai",
+        "slug": "name-badges-printing-dubai"
+      },
+      "shortDescription": "Cost-effective reusable name badges with interchangeable paper slide windows and permanent corporate logo branding.",
+      "description": "Smart and eco-friendly reusable staff badges featuring permanent branded company logos on premium aluminum backing with a transparent slide-in window for fast employee name updates. The ideal solution for high-turnover hospitality, events, and seasonal retail staff across Dubai.",
+      "image": "/assets/products/name-badges/reusable-window-insert-badge.svg",
+      "image_url": "/assets/products/name-badges/reusable-window-insert-badge.svg",
+      "imageAlt": "Reusable window magnetic name badges in Dubai",
+      "seoTitle": "Reusable Window Magnetic Badges Dubai | Interchangeable Name Tags | ONPRINT",
+      "seoDescription": "Buy reusable window magnetic name badges in Dubai. Permanent corporate logo print with slide-in paper name inserts and magnetic backing.",
+      "seoKeywords": "reusable name badges dubai, window name tags uae, interchangeable staff badges, hotel magnetic name tags",
+      "seoHeading": "Reusable Window Magnetic Name Badges Dubai",
+      "canonicalUrl": "https://0nprint.com/products/reusable-window-magnetic-badges",
+      "price": 15,
+      "minimumQuantity": 10,
+      "featured": true,
       "active": true,
       "images": [
-        "/assets/products/flyer-dl-event.jpg"
+        "/assets/products/name-badges/reusable-window-insert-badge.svg"
       ],
+      "features": [
+        "Min. Order: 10 units",
+        "Slide-In Changeable Name Window",
+        "Cost-Effective Reusable Aluminum Frame"
+      ]
+    },
+    {
+      "_id": "prod-executive-matte-black-magnetic-badges",
+      "id": 704,
+      "name": "Executive Matte Black Magnetic Name Badges",
+      "slug": "executive-matte-black-magnetic-badges",
       "category": {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai"
-      }
+        "_id": "cat-name-badges-printing-dubai",
+        "id": 7,
+        "name": "Name Badges Printing Dubai",
+        "slug": "name-badges-printing-dubai"
+      },
+      "shortDescription": "Modern minimalist anodized matte black aluminum badges with precision laser-engraved gold or white typography.",
+      "description": "Sleek, high-contrast anodized matte black metal name badges tailored for modern tech firms, luxury boutiques, fine dining venues, and executive management in Dubai. Permanent precision laser etching reveals brilliant silver or gold underlayers that never wear off.",
+      "image": "/assets/products/name-badges/executive-matte-black-badge.svg",
+      "image_url": "/assets/products/name-badges/executive-matte-black-badge.svg",
+      "imageAlt": "Executive matte black magnetic name badges in Dubai",
+      "seoTitle": "Matte Black Magnetic Badges Dubai | Executive Laser Engraved Tags | ONPRINT",
+      "seoDescription": "Order executive matte black magnetic name badges in Dubai. Anodized aluminum with laser-etched gold lettering and clothing-safe magnets.",
+      "seoKeywords": "matte black name badge dubai, laser engraved badges uae, luxury staff name tags, executive magnetic badges",
+      "seoHeading": "Executive Matte Black Magnetic Name Badges Dubai",
+      "canonicalUrl": "https://0nprint.com/products/executive-matte-black-magnetic-badges",
+      "price": 28,
+      "minimumQuantity": 5,
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/name-badges/executive-matte-black-badge.svg"
+      ],
+      "features": [
+        "Min. Order: 5 units",
+        "Anodized Matte Black Aluminum",
+        "Permanent Precision Laser Etching"
+      ]
     },
     {
       "_id": "prod-standard-polyester-lanyards",
@@ -6156,6 +6436,90 @@ module.exports = {
       ]
     },
     {
+      "_id": "prod-frosted-translucent-pvc-id-cards",
+      "id": 409,
+      "name": "Frosted Translucent Designer PVC Cards",
+      "slug": "frosted-translucent-pvc-id-cards",
+      "category": {
+        "_id": "cat-id-card-printing-dubai",
+        "id": 4,
+        "name": "ID Card Printing Dubai",
+        "slug": "id-card-printing-dubai"
+      },
+      "shortDescription": "Semi-transparent frosted matte CR80 PVC cards with opaque spot white underlay, vibrant CMYK color, and waterproof durability.",
+      "description": "Premium semi-transparent frosted translucent PVC cards designed for modern creative agencies, luxury VIP passes, and high-end executive memberships in Dubai. Features textured anti-scratch surface and custom spot white print backing.",
+      "image": "/assets/products/id-cards/holographic-security-id-cards.jpg",
+      "image_url": "/assets/products/id-cards/holographic-security-id-cards.jpg",
+      "imageAlt": "Frosted translucent designer PVC cards in Dubai",
+      "seoTitle": "Frosted Translucent PVC Cards Dubai | Clear Member Badges | ONPRINT",
+      "seoDescription": "Semi-transparent frosted PVC card printing in Dubai. Distinctive frosted matte texture, spot white print layer, and waterproof durability.",
+      "seoKeywords": "frosted id cards dubai, translucent pvc cards uae, clear member badges dubai",
+      "seoHeading": "Frosted Translucent Designer PVC Cards Dubai",
+      "canonicalUrl": "https://0nprint.com/products/frosted-translucent-pvc-id-cards",
+      "price": 22,
+      "minimumQuantity": 15,
+      "featured": true,
+      "active": true,
+      "features": [
+        "Min. Order: 15 units",
+        "Matte Frosted Translucent PVC",
+        "Spot White & CMYK Overlay"
+      ],
+      "categories": [
+        {
+          "_id": "cat-id-card-printing-dubai",
+          "id": 4,
+          "name": "ID Card Printing Dubai",
+          "slug": "id-card-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/id-cards/holographic-security-id-cards.jpg"
+      ]
+    },
+    {
+      "_id": "prod-eco-bamboo-wood-nfc-cards",
+      "id": 410,
+      "name": "Eco-Friendly Bamboo & Wood Smart NFC Cards",
+      "slug": "eco-bamboo-wood-nfc-cards",
+      "category": {
+        "_id": "cat-id-card-printing-dubai",
+        "id": 4,
+        "name": "ID Card Printing Dubai",
+        "slug": "id-card-printing-dubai"
+      },
+      "shortDescription": "Sustainable laser-engraved birch and bamboo smart identification cards with embedded contactless NFC microchips.",
+      "description": "Eco-conscious luxury smart identity cards crafted from 100% natural FSC-certified bamboo and birch wood. Embedded with contactless NTAG213/216 chips for digital tap-to-share business cards, modern office turnstiles, and zero-plastic sustainability initiatives across the UAE.",
+      "image": "/assets/products/id-cards/smart-nfc-pvc-id.png",
+      "image_url": "/assets/products/id-cards/smart-nfc-pvc-id.png",
+      "imageAlt": "Eco-friendly bamboo and wood smart NFC cards in Dubai",
+      "seoTitle": "Eco-Friendly Bamboo Smart NFC Cards Dubai | Wooden Badges | ONPRINT",
+      "seoDescription": "Sustainable wooden and bamboo NFC smart cards in Dubai. Laser engraving, embedded contactless microchips, and 100% biodegradable natural wood.",
+      "seoKeywords": "wooden nfc cards dubai, bamboo id cards uae, eco friendly smart badges dubai",
+      "seoHeading": "Eco-Friendly Bamboo & Wood Smart NFC Cards Dubai",
+      "canonicalUrl": "https://0nprint.com/products/eco-bamboo-wood-nfc-cards",
+      "price": 28,
+      "minimumQuantity": 10,
+      "featured": true,
+      "active": true,
+      "features": [
+        "Min. Order: 10 units",
+        "100% FSC Bamboo & Birch",
+        "Contactless NFC Tap-to-Share"
+      ],
+      "categories": [
+        {
+          "_id": "cat-id-card-printing-dubai",
+          "id": 4,
+          "name": "ID Card Printing Dubai",
+          "slug": "id-card-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/id-cards/smart-nfc-pvc-id.png"
+      ]
+    },
+    {
       "_id": "prod-standard-rollup-banner-85x200",
       "id": 101,
       "name": "Standard Retractable Roll-Up Banner (85cm × 200cm)",
@@ -6228,16 +6592,7 @@ module.exports = {
             "value": "standard"
           }
         ]
-      },
-      "category_id": 19,
-      "categories": [
-        {
-          "_id": "cat-rollup-banners-dubai",
-          "id": 19,
-          "name": "Rollup Banners",
-          "slug": "rollup-banners"
-        }
-      ]
+      }
     },
     {
       "_id": "prod-luxury-teardrop-rollup-banner",
@@ -6308,16 +6663,7 @@ module.exports = {
             "value": "standard"
           }
         ]
-      },
-      "category_id": 19,
-      "categories": [
-        {
-          "_id": "cat-rollup-banners-dubai",
-          "id": 19,
-          "name": "Rollup Banners",
-          "slug": "rollup-banners"
-        }
-      ]
+      }
     },
     {
       "_id": "prod-wide-exhibition-rollup-banner-100x200",
@@ -6378,16 +6724,7 @@ module.exports = {
             "value": "standard"
           }
         ]
-      },
-      "category_id": 19,
-      "categories": [
-        {
-          "_id": "cat-rollup-banners-dubai",
-          "id": 19,
-          "name": "Rollup Banners",
-          "slug": "rollup-banners"
-        }
-      ]
+      }
     },
     {
       "_id": "prod-giant-backdrop-rollup-banner-120x200",
@@ -6447,16 +6784,7 @@ module.exports = {
             "value": "standard"
           }
         ]
-      },
-      "category_id": 19,
-      "categories": [
-        {
-          "_id": "cat-rollup-banners-dubai",
-          "id": 19,
-          "name": "Rollup Banners",
-          "slug": "rollup-banners"
-        }
-      ]
+      }
     },
     {
       "_id": "prod-double-sided-rollup-banner-85x200",
@@ -6517,16 +6845,7 @@ module.exports = {
             "value": "standard"
           }
         ]
-      },
-      "category_id": 19,
-      "categories": [
-        {
-          "_id": "cat-rollup-banners-dubai",
-          "id": 19,
-          "name": "Rollup Banners",
-          "slug": "rollup-banners"
-        }
-      ]
+      }
     },
     {
       "_id": "prod-desktop-mini-rollup-banner",
@@ -6590,16 +6909,7 @@ module.exports = {
             "value": "standard-24h"
           }
         ]
-      },
-      "category_id": 19,
-      "categories": [
-        {
-          "_id": "cat-rollup-banners-dubai",
-          "id": 19,
-          "name": "Rollup Banners",
-          "slug": "rollup-banners"
-        }
-      ]
+      }
     },
     {
       "_id": "prod-outdoor-wind-resistant-rollup-banner",
@@ -6660,16 +6970,7 @@ module.exports = {
             "value": "standard"
           }
         ]
-      },
-      "category_id": 19,
-      "categories": [
-        {
-          "_id": "cat-rollup-banners-dubai",
-          "id": 19,
-          "name": "Rollup Banners",
-          "slug": "rollup-banners"
-        }
-      ]
+      }
     },
     {
       "_id": "prod-executive-matte-black-rollup-banner",
@@ -6730,164 +7031,7 @@ module.exports = {
             "value": "standard"
           }
         ]
-      },
-      "category_id": 19,
-      "categories": [
-        {
-          "_id": "cat-rollup-banners-dubai",
-          "id": 19,
-          "name": "Rollup Banners",
-          "slug": "rollup-banners"
-        }
-      ]
-    },
-    {
-      "_id": "prod-self-inking-company-stamps",
-      "id": 109,
-      "name": "Self-Inking Official Company Rubber Stamp",
-      "slug": "self-inking-company-stamps",
-      "category": {
-        "_id": "cat-stamps-printing-dubai",
-        "id": 8,
-        "name": "Custom Stamps & Seals",
-        "slug": "stamps-printing-dubai"
-      },
-      "shortDescription": "High-precision laser engraved self-inking rubber stamp with integrated ink pad for official company logos, trade license numbers, and signatures.",
-      "description": "Premium self-inking corporate rubber stamps engineered for crisp, smudge-free daily document authentication. Featuring high-precision laser-etched vulcanized rubber text plates with pre-loaded ink pads delivering 10,000+ flawless impressions before re-inking. Ideal for official UAE company trade license approvals, invoices, contracts, and signatures.",
-      "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
-      "images": [
-        "/assets/products/stamps/self-inking-company-stamp.jpg"
-      ],
-      "features": [
-        "Ultra-sharp 1000 DPI Laser Rubber Engraving",
-        "Built-in Self-Inking Mechanism (10,000+ Impressions)",
-        "Choice of Blue, Black, Red, or Green High-Density Ink",
-        "Available in Round 40mm, Rectangular 58×22mm & 70×25mm",
-        "Express 2-Hour Turnaround in Dubai"
-      ],
-      "price": 45,
-      "minimumQuantity": 1,
-      "featured": true,
-      "active": true,
-      "categories": [
-        {
-          "_id": "cat-stamps-printing-dubai",
-          "id": 8,
-          "name": "Custom Stamps & Seals",
-          "slug": "stamps-printing-dubai"
-        }
-      ]
-    },
-    {
-      "_id": "prod-pocket-mobile-stamps",
-      "id": 110,
-      "name": "Compact Pocket Mobile Stamp",
-      "slug": "pocket-mobile-stamps",
-      "category": {
-        "_id": "cat-stamps-printing-dubai",
-        "id": 8,
-        "name": "Custom Stamps & Seals",
-        "slug": "stamps-printing-dubai"
-      },
-      "shortDescription": "Ultra-portable slim folding pocket stamp designed for doctors, engineers, and mobile executives on the go.",
-      "description": "Ergonomic, ultra-compact folding pocket stamp engineered with an automatic one-click push-button opening mechanism. 100% leak-proof protective casing designed to fit effortlessly into doctor coat pockets, briefcase compartments, or lanyards. Delivers razor-sharp impressions of medical license numbers, engineer approvals, and executive sign-offs.",
-      "image": "/assets/products/stamps/pocket-mobile-stamp.jpg",
-      "images": [
-        "/assets/products/stamps/pocket-mobile-stamp.jpg"
-      ],
-      "features": [
-        "One-Handed Push-Button Opening Action",
-        "100% Leak-Proof Compact Executive Case",
-        "Sharp Medical Doctor & Engineer License Stamps",
-        "Fits Easily in Shirt & Lab Coat Pockets",
-        "Pre-Inked Long-Life Re-Inkable Cartridge"
-      ],
-      "price": 55,
-      "minimumQuantity": 1,
-      "featured": true,
-      "active": true,
-      "categories": [
-        {
-          "_id": "cat-stamps-printing-dubai",
-          "id": 8,
-          "name": "Custom Stamps & Seals",
-          "slug": "stamps-printing-dubai"
-        }
-      ]
-    },
-    {
-      "_id": "prod-heavy-duty-dater-stamps",
-      "id": 111,
-      "name": "Heavy-Duty Metal Date & Status Stamp",
-      "slug": "heavy-duty-dater-stamps",
-      "category": {
-        "_id": "cat-stamps-printing-dubai",
-        "id": 8,
-        "name": "Custom Stamps & Seals",
-        "slug": "stamps-printing-dubai"
-      },
-      "shortDescription": "Industrial-grade reinforced steel frame self-inking stamp with smooth rotating date bands and two-color red/blue text.",
-      "description": "Heavy-duty commercial dater stamp built with a robust brushed stainless steel frame and ergonomic impact-resistant rubber handle. Features 10-year rotating date band wheels combined with custom surrounding corporate text (e.g. 'RECEIVED', 'PAID', 'APPROVED', 'DISPATCHED') in striking two-color red and blue ink.",
-      "image": "/assets/products/stamps/heavy-duty-dater-stamp.jpg",
-      "images": [
-        "/assets/products/stamps/heavy-duty-dater-stamp.jpg"
-      ],
-      "features": [
-        "Reinforced Heavy-Duty Stainless Steel Chassis",
-        "10-Year Smooth Rotating Date Wheel Mechanism",
-        "Dual-Color Red Text & Blue Date Impressions",
-        "Heavy-Duty Cushion Grip for High-Volume Office Stamping",
-        "Customizable Top & Bottom Corporate Text Bands"
-      ],
-      "price": 85,
-      "minimumQuantity": 1,
-      "featured": true,
-      "active": true,
-      "categories": [
-        {
-          "_id": "cat-stamps-printing-dubai",
-          "id": 8,
-          "name": "Custom Stamps & Seals",
-          "slug": "stamps-printing-dubai"
-        }
-      ]
-    },
-    {
-      "_id": "prod-luxury-brass-wax-seal-stamps",
-      "id": 112,
-      "name": "Artisanal Brass Wax Seal Stamp Kit",
-      "slug": "luxury-brass-wax-seal-stamps",
-      "category": {
-        "_id": "cat-stamps-printing-dubai",
-        "id": 8,
-        "name": "Custom Stamps & Seals",
-        "slug": "stamps-printing-dubai"
-      },
-      "shortDescription": "Custom laser-engraved solid brass stamp head with rich mahogany handle, complimentary sealing wax beads, and melting spoon.",
-      "description": "Bespoke vintage-inspired solid brass wax seal stamp crafted for luxury event stationery, wedding invitations, certificate sealing, and executive gift packaging. Precision CNC 3D micro-engraved brass coin head paired with a polished dark mahogany handle, complete with flexible sealing wax beads in metallic gold, burgundy, and emerald.",
-      "image": "/assets/products/stamps/luxury-wax-seal-stamp.jpg",
-      "images": [
-        "/assets/products/stamps/luxury-wax-seal-stamp.jpg"
-      ],
-      "features": [
-        "Solid Heavy-Weight Polished Brass Seal Die",
-        "Turned Natural Dark Mahogany Wood Handle",
-        "3D Relief Micro-Engraved Monogram & Crests",
-        "Includes Sealing Wax Beads & Brass Melting Spoon",
-        "Ideal for Luxury Envelopes, Gift Boxes & Certificates"
-      ],
-      "price": 95,
-      "minimumQuantity": 1,
-      "featured": true,
-      "active": true,
-      "categories": [
-        {
-          "_id": "cat-stamps-printing-dubai",
-          "id": 8,
-          "name": "Custom Stamps & Seals",
-          "slug": "stamps-printing-dubai"
-        }
-      ]
+      }
     }
   ],
   "orders": [],

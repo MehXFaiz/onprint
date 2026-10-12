@@ -1,4 +1,50 @@
 export const categoryImageMap = {
+  'a5-promotional-flyers': {
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers/flyer-a5-promotional.jpg'
+    ]
+  },
+  'a4-business-flyers': {
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers/flyer-a4-business.jpg'
+    ]
+  },
+  'dl-event-flyers': {
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers/flyer-dl-event.jpg'
+    ]
+  },
+  'luxury-gold-foil-flyers': {
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers/flyer-luxury-foil.jpg'
+    ]
+  },
+  'folded-leaflets-flyers': {
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers/flyer-folded-leaflets.jpg'
+    ]
+  },
+  'gloss-matte-flyers': {
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers/flyer-gloss-matte.jpg'
+    ]
+  },
+  'a6-pocket-flyers': {
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers/flyer-a6-pocket.jpg'
+    ]
+  },
+  'kraft-eco-flyers': {
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers/flyer-kraft-eco.jpg'
+    ]
+  },
+  'die-cut-flyers': {
+    'flyers-printing-in-dubai': [
+      '/assets/products/flyers/flyer-die-cut.jpg'
+    ]
+  },
+
   'rollup-banners': {
     'rollup-banners': [
       '/assets/products/rollup_banner_showcase.jpg',
@@ -16,11 +62,6 @@ export const categoryImageMap = {
       '/assets/products/brochure_booklet_catalog.jpg',
       '/assets/products/brochure_zfold.jpg',
       '/assets/products/service_digital_offset.jpg'
-    ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
     ],
     'business-cards-printing': [
       '/uploads/categories/business-cards-printing.jpg',
@@ -157,11 +198,6 @@ export const categoryImageMap = {
       '/assets/products/1 (5).jpg',
       '/assets/products/1 (9).jpg'
     ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
-    ],
     'letterheads-printing-dubai': [
       '/uploads/categories/letterheads-printing-dubai.jpg',
       '/assets/products/service_executive_stationery.jpg',
@@ -297,11 +333,6 @@ export const categoryImageMap = {
       '/assets/products/service_exhibition_signage.jpg',
       '/assets/products/flags.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
-    ],
     'brochures-printing': [
       '/assets/products/brochure_bifold.jpg',
       '/assets/products/brochure_trifold.jpg',
@@ -339,11 +370,6 @@ export const categoryImageMap = {
       '/assets/products/1 (4).jpg',
       '/assets/products/tote_bags.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
-    ],
     'corporate-gift-items': [
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
       '/assets/products/service_corporate_gifts.jpg',
@@ -365,11 +391,6 @@ export const categoryImageMap = {
       '/assets/products/luxury_corporate_gifts_dubai.jpg',
       '/assets/products/service_corporate_gifts.jpg',
       '/assets/products/wooden_keychain.jpg'
-    ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
     ],
     'custom-apparel-printing': [
       '/assets/products/1 (3).jpg',
@@ -587,11 +608,6 @@ export const categoryImageMap = {
       '/assets/products/service_exhibition_signage.jpg',
       '/assets/products/rollup_banner.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
-    ],
     'brochures-printing': [
       '/assets/products/brochure_bifold.jpg',
       '/assets/products/brochure_trifold.jpg',
@@ -615,9 +631,7 @@ export const categoryImageMap = {
   },
   'door-hangers-printing': {
     'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/1 (14).jpg',
-      '/assets/products/brochures.jpg'
+      '/assets/products/flyers/flyer-door-hangers.jpg'
     ],
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',
@@ -647,9 +661,7 @@ export const categoryImageMap = {
   },
   'postcards-printing': {
     'flyers-printing-in-dubai': [
-      '/assets/products/1 (3).jpg',
-      '/assets/products/flyers.jpg',
-      '/assets/products/luxury_business_cards_dubai.jpg'
+      '/assets/products/flyers/flyer-direct-mail-postcards.jpg'
     ],
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',
@@ -1353,22 +1365,12 @@ export const categoryImageMap = {
       '/assets/products/service_corporate_gifts.jpg',
       '/assets/products/wooden_keychain.jpg'
     ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
-    ]
   },
   'z-fold-leaflets-printing': {
     'brochures-printing': [
       '/assets/products/brochure_zfold.jpg',
       '/assets/products/brochure_trifold.jpg',
       '/assets/products/flyers.jpg'
-    ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
     ],
     'hospitality-event-printing': [
       '/assets/products/1 (14).jpg',

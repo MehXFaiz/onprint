@@ -127,6 +127,20 @@ import pocketMobileStampImg from './products/stamps/pocket-mobile-stamp.jpg'
 import heavyDutyDaterStampImg from './products/stamps/heavy-duty-dater-stamp.jpg'
 import luxuryWaxSealStampImg from './products/stamps/luxury-wax-seal-stamp.jpg'
 
+// Dedicated high-resolution Flyer variety images
+import flyerCategoryHeroImg from './products/flyers/flyer-category-hero.jpg'
+import flyerA5PromotionalImg from './products/flyers/flyer-a5-promotional.jpg'
+import flyerA4BusinessImg from './products/flyers/flyer-a4-business.jpg'
+import flyerDlEventImg from './products/flyers/flyer-dl-event.jpg'
+import flyerLuxuryFoilImg from './products/flyers/flyer-luxury-foil.jpg'
+import flyerDoorHangersImg from './products/flyers/flyer-door-hangers.jpg'
+import flyerDirectMailPostcardsImg from './products/flyers/flyer-direct-mail-postcards.jpg'
+import flyerFoldedLeafletsImg from './products/flyers/flyer-folded-leaflets.jpg'
+import flyerGlossMatteImg from './products/flyers/flyer-gloss-matte.jpg'
+import flyerA6PocketImg from './products/flyers/flyer-a6-pocket.jpg'
+import flyerKraftEcoImg from './products/flyers/flyer-kraft-eco.jpg'
+import flyerDieCutImg from './products/flyers/flyer-die-cut.jpg'
+
 import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
@@ -144,7 +158,19 @@ export const productImages = {
   keychain: keychainImg,
   mugs: mugsImg,
   bottles: bottlesImg,
-  flyers: flyersImg,
+  flyers: flyerA5PromotionalImg,
+  flyerCategoryHero: flyerCategoryHeroImg,
+  flyerA5Promotional: flyerA5PromotionalImg,
+  flyerA4Business: flyerA4BusinessImg,
+  flyerDlEvent: flyerDlEventImg,
+  flyerLuxuryFoil: flyerLuxuryFoilImg,
+  flyerDoorHangers: flyerDoorHangersImg,
+  flyerDirectMailPostcards: flyerDirectMailPostcardsImg,
+  flyerFoldedLeaflets: flyerFoldedLeafletsImg,
+  flyerGlossMatte: flyerGlossMatteImg,
+  flyerA6Pocket: flyerA6PocketImg,
+  flyerKraftEco: flyerKraftEcoImg,
+  flyerDieCut: flyerDieCutImg,
   brochures: brochuresImg,
   brochureBifold: brochureBifoldImg,
   brochureTrifold: brochureTrifoldImg,
@@ -253,17 +279,34 @@ export const productSlugImageMap = {
   'brochures-printing-dubai': brochuresImg,
   'business-cards-printing': businessCardsImg,
   'business-cards-printing-dubai': businessCardsImg,
-  'flyers-printing-in-dubai': flyersImg,
-  'flyers-printing-dubai': flyersImg,
-  'a5-promotional-flyers': flyersImg,
-  'standard-a5-promotional-flyers': flyersImg,
-  'a4-business-flyers': flyersImg,
-  'standard-a4-business-advertising-flyers': flyersImg,
-  'dl-event-flyers': flyersImg,
-  'dl-slim-event-menu-flyers': flyersImg,
-  'high-impact-gloss-marketing-flyers': flyersImg,
-  'commercial-marketing-flyers': flyersImg,
-  'promotional-flyers': flyersImg,
+  // Flyers Category and Products
+  'flyers-printing-in-dubai': flyerCategoryHeroImg,
+  'flyers-printing-dubai': flyerCategoryHeroImg,
+  'a5-promotional-flyers': flyerA5PromotionalImg,
+  'standard-a5-promotional-flyers': flyerA5PromotionalImg,
+  'a4-business-flyers': flyerA4BusinessImg,
+  'standard-a4-business-advertising-flyers': flyerA4BusinessImg,
+  'dl-event-flyers': flyerDlEventImg,
+  'dl-slim-event-menu-flyers': flyerDlEventImg,
+  'luxury-gold-foil-flyers': flyerLuxuryFoilImg,
+  'gold-foil-flyers': flyerLuxuryFoilImg,
+  'door-hangers-printing': flyerDoorHangersImg,
+  'door-hanger-flyers': flyerDoorHangersImg,
+  'postcards-printing': flyerDirectMailPostcardsImg,
+  'postcards-direct-mail-printing': flyerDirectMailPostcardsImg,
+  'folded-leaflets-flyers': flyerFoldedLeafletsImg,
+  'folded-leaflets': flyerFoldedLeafletsImg,
+  'gloss-matte-flyers': flyerGlossMatteImg,
+  'gloss-matte-laminated-flyers': flyerGlossMatteImg,
+  'a6-pocket-flyers': flyerA6PocketImg,
+  'a6-marketing-flyers': flyerA6PocketImg,
+  'kraft-eco-flyers': flyerKraftEcoImg,
+  'eco-friendly-kraft-flyers': flyerKraftEcoImg,
+  'die-cut-flyers': flyerDieCutImg,
+  'die-cut-custom-flyers': flyerDieCutImg,
+  'high-impact-gloss-marketing-flyers': flyerGlossMatteImg,
+  'commercial-marketing-flyers': flyerA4BusinessImg,
+  'promotional-flyers': flyerA5PromotionalImg,
   'id-card-printing-dubai': idCardsImg,
   'lanyard-printing-dubai': standardPolyesterLanyardImg,
   'letterheads-printing-dubai': letterheadGoldFoilImg,
@@ -439,8 +482,8 @@ export const productSlugImageMap = {
   'multipage-booklet-brochures': brochureBookletImg,
   'annual-reports-printing': brochureBookletImg,
   'large-format-posters': img9,
-  'door-hangers-printing': flyersImg,
-  'postcards-printing': img3,
+  'door-hangers-printing': flyerDoorHangersImg,
+  'postcards-printing': flyerDirectMailPostcardsImg,
   'custom-usb-flash-drives': img2,
   'corporate-gift-sets': img5,
   'power-banks-printing': bottlesImg,
@@ -480,7 +523,7 @@ export const productSlugImageMap = {
 export const categorySlugImageMap = {
   'brochures-printing': brochuresImg,
   'business-cards-printing': businessCardsImg,
-  'flyers-printing-in-dubai': flyersImg,
+  'flyers-printing-in-dubai': flyerCategoryHeroImg,
   'id-card-printing-dubai': idCardsImg,
   'lanyard-printing-dubai': standardPolyesterLanyardImg,
   'stamps-printing-dubai': selfInkingStampImg,
@@ -587,7 +630,20 @@ const slugKeywordImageMap = [
   [['matte black badge', 'executive matte black', 'black magnetic badge', 'anodized matte black'], executiveMatteBlackBadgeImg],
 
   [['business card', 'visiting card', 'card printing'], bcPremiumMatteImg],
-  [['flyer', 'leaflet', 'handbill'], flyersImg],
+
+  // Dedicated Flyer Varieties Matching
+  [['luxury-gold-foil', 'gold foil flyer', 'metallic flyer', 'spot uv flyer'], flyerLuxuryFoilImg],
+  [['door-hanger', 'door hanger', 'door knob hanger', 'door-knob'], flyerDoorHangersImg],
+  [['postcard', 'direct mail', 'direct-mail'], flyerDirectMailPostcardsImg],
+  [['folded-leaflet', 'folded leaflet', 'bi-fold flyer', 'bifold flyer', 'half-fold'], flyerFoldedLeafletsImg],
+  [['gloss-matte', 'gloss matte flyer', 'laminated flyer', 'gloss-laminated', 'matte-laminated'], flyerGlossMatteImg],
+  [['a6-pocket', 'a6 flyer', 'a6 pocket', 'pocket flyer', 'coupon handbill'], flyerA6PocketImg],
+  [['kraft-eco', 'kraft flyer', 'recycled flyer', 'eco flyer', 'organic flyer'], flyerKraftEcoImg],
+  [['die-cut flyer', 'die cut flyer', 'die-cut-flyer', 'shaped flyer', 'contour flyer'], flyerDieCutImg],
+  [['a4-business', 'a4 flyer', 'a4 corporate', 'advertising flyer'], flyerA4BusinessImg],
+  [['dl-event', 'dl flyer', 'dl slim', 'rack card'], flyerDlEventImg],
+  [['a5-promotional', 'a5 flyer', 'promo flyer'], flyerA5PromotionalImg],
+  [['flyer', 'leaflet', 'handbill'], flyerA5PromotionalImg],
   [['tote bag', 'canvas bag', 'shopping bag', 'cotton bag'], toteBagsImg],
   // Specific Roll-Up Banner Keywords
   [['luxury-teardrop', 'luxury teardrop', 'teardrop rollup', 'teardrop-rollup'], luxuryTeardropRollupBannerImg],

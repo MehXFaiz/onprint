@@ -1,5 +1,368 @@
 [
   {
+    "_id": "prod-a5-promotional-flyers",
+    "id": 101,
+    "name": "Standard A5 Promotional Flyers",
+    "slug": "a5-promotional-flyers",
+    "description": "High-impact commercial single and double-sided A5 marketing flyers printed on 170gsm to 300gsm gloss or silk art paper in Dubai.",
+    "shortDescription": "Vibrant A5 marketing flyers on 170–300gsm gloss or matte art paper.",
+    "price": 95,
+    "min_quantity": 250,
+    "minimumQuantity": 250,
+    "unit": "250 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-a5-promotional.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-a5-promotional.jpg",
+    "image_url": "/assets/products/flyers/flyer-a5-promotional.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
+    "_id": "prod-a4-business-flyers",
+    "id": 102,
+    "name": "Standard A4 Business Advertising Flyers",
+    "slug": "a4-business-flyers",
+    "description": "Full-size A4 corporate advertising flyers and sales data sheets printed in vivid high-definition CMYK on premium FSC coated paper.",
+    "shortDescription": "Corporate A4 presentation flyers with sharp text and infographics.",
+    "price": 140,
+    "min_quantity": 250,
+    "minimumQuantity": 250,
+    "unit": "250 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-a4-business.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-a4-business.jpg",
+    "image_url": "/assets/products/flyers/flyer-a4-business.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
+    "_id": "prod-dl-event-flyers",
+    "id": 103,
+    "name": "DL Slim Event & Menu Flyers",
+    "slug": "dl-event-flyers",
+    "description": "Elegant tall DL format (99x210mm) rack flyers and event cards. Ideal for restaurant menus, spa rate cards, and exhibition promotional handouts.",
+    "shortDescription": "Tall 99x210mm DL promo cards & restaurant table handouts.",
+    "price": 110,
+    "min_quantity": 250,
+    "minimumQuantity": 250,
+    "unit": "250 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-dl-event.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-dl-event.jpg",
+    "image_url": "/assets/products/flyers/flyer-dl-event.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
+    "_id": "prod-luxury-gold-foil-flyers",
+    "id": 104,
+    "name": "Luxury Gold Foil & Spot UV Flyers",
+    "slug": "luxury-gold-foil-flyers",
+    "description": "Executive marketing flyers with hot stamped metallic gold foil and raised tactile 3D spot UV varnish on 350gsm matte black or silk board.",
+    "shortDescription": "Metallic gold foil & raised spot UV luxury flyers on 350gsm card.",
+    "price": 220,
+    "min_quantity": 100,
+    "minimumQuantity": 100,
+    "unit": "100 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-luxury-foil.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-luxury-foil.jpg",
+    "image_url": "/assets/products/flyers/flyer-luxury-foil.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
+    "_id": "prod-door-hangers-printing",
+    "id": 105,
+    "name": "Door Hangers Marketing Flyers",
+    "slug": "door-hangers-printing",
+    "description": "Custom die-cut door knob hanger flyers for hotels, hospitality, real estate open houses, and local door-to-door promotions in UAE.",
+    "shortDescription": "Precision die-cut knob hook flyers for hospitality & real estate.",
+    "price": 160,
+    "min_quantity": 250,
+    "minimumQuantity": 250,
+    "unit": "250 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-door-hangers.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-door-hangers.jpg",
+    "image_url": "/assets/products/flyers/flyer-door-hangers.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
+    "_id": "prod-postcards-printing",
+    "id": 106,
+    "name": "Postcards & Direct Mail Flyers",
+    "slug": "postcards-printing",
+    "description": "Standard A6 & 5x7 inch direct mail postcard flyers printed with glossy UV front protection and writable uncoated back for mailing.",
+    "shortDescription": "Sturdy 350gsm marketing postcards with UV front & mailing back.",
+    "price": 125,
+    "min_quantity": 250,
+    "minimumQuantity": 250,
+    "unit": "250 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-direct-mail-postcards.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-direct-mail-postcards.jpg",
+    "image_url": "/assets/products/flyers/flyer-direct-mail-postcards.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
+    "_id": "prod-folded-leaflets-flyers",
+    "id": 107,
+    "name": "Folded Leaflets & Bi-Fold Flyers",
+    "slug": "folded-leaflets-flyers",
+    "description": "Multi-panel folded leaflets, bi-fold, and half-fold marketing flyers with crisp crease scoring. Perfect for corporate overviews and event guides.",
+    "shortDescription": "4-page bi-fold & half-fold marketing leaflets with crisp creasing.",
+    "price": 145,
+    "min_quantity": 100,
+    "minimumQuantity": 100,
+    "unit": "100 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-folded-leaflets.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-folded-leaflets.jpg",
+    "image_url": "/assets/products/flyers/flyer-folded-leaflets.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
+    "_id": "prod-gloss-matte-flyers",
+    "id": 108,
+    "name": "High-Impact Gloss & Matte Laminated Flyers",
+    "slug": "gloss-matte-flyers",
+    "description": "Durable water-resistant laminated promotional flyers available in ultra high-gloss shine or velvety soft-touch matte lamination.",
+    "shortDescription": "Dual-finish flyers: mirror high-gloss or velvety matte lamination.",
+    "price": 130,
+    "min_quantity": 250,
+    "minimumQuantity": 250,
+    "unit": "250 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-gloss-matte.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-gloss-matte.jpg",
+    "image_url": "/assets/products/flyers/flyer-gloss-matte.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
+    "_id": "prod-a6-pocket-flyers",
+    "id": 109,
+    "name": "A6 Pocket Marketing Flyers",
+    "slug": "a6-pocket-flyers",
+    "description": "Compact A6 size (105x148mm) promotional handbills and coupon flyers. Pocket-sized convenience for retail giveaways, cafes, and street distribution.",
+    "shortDescription": "Compact pocket-sized A6 coupon & promotional handbills.",
+    "price": 80,
+    "min_quantity": 500,
+    "minimumQuantity": 500,
+    "unit": "500 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-a6-pocket.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-a6-pocket.jpg",
+    "image_url": "/assets/products/flyers/flyer-a6-pocket.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
+    "_id": "prod-kraft-eco-flyers",
+    "id": 110,
+    "name": "Kraft & Eco-Friendly Recycled Flyers",
+    "slug": "kraft-eco-flyers",
+    "description": "Sustainable brown ribbed kraft and 100% post-consumer recycled paper flyers. Distinct natural texture and authentic organic aesthetic.",
+    "shortDescription": "100% recycled textured brown kraft paper eco marketing flyers.",
+    "price": 135,
+    "min_quantity": 250,
+    "minimumQuantity": 250,
+    "unit": "250 pcs",
+    "featured": false,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-kraft-eco.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-kraft-eco.jpg",
+    "image_url": "/assets/products/flyers/flyer-kraft-eco.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
+    "_id": "prod-die-cut-flyers",
+    "id": 111,
+    "name": "Custom Die-Cut Shaped Flyers",
+    "slug": "die-cut-flyers",
+    "description": "Bespoke custom-shaped flyers, circular marketing cards, arched handbills, and intricate contour die-cut promotional materials.",
+    "shortDescription": "Custom contoured shapes, circles & geometric die-cut flyers.",
+    "price": 190,
+    "min_quantity": 250,
+    "minimumQuantity": 250,
+    "unit": "250 pcs",
+    "featured": false,
+    "active": true,
+    "images": [
+      "/assets/products/flyers/flyer-die-cut.jpg"
+    ],
+    "image": "/assets/products/flyers/flyer-die-cut.jpg",
+    "image_url": "/assets/products/flyers/flyer-die-cut.jpg",
+    "category": {
+      "_id": "cat-flyers-printing-in-dubai",
+      "id": 3,
+      "name": "Flyers Printing In Dubai",
+      "slug": "flyers-printing-in-dubai"
+    },
+    "categories": [
+      {
+        "_id": "cat-flyers-printing-in-dubai",
+        "id": 3,
+        "name": "Flyers Printing In Dubai",
+        "slug": "flyers-printing-in-dubai"
+      }
+    ]
+  },
+  {
     "_id": "prod-executive-120gsm-letterheads",
     "id": 501,
     "name": "Executive 120gsm Letterheads",
@@ -938,17 +1301,6 @@
         ]
       },
       {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
-        ]
-      },
-      {
         "_id": "cat-business-cards-printing",
         "id": 1,
         "name": "Business Cards Printing",
@@ -1304,17 +1656,6 @@
           "/assets/products/service_executive_stationery.jpg",
           "/assets/products/1 (5).jpg",
           "/assets/products/1 (9).jpg"
-        ]
-      },
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
         ]
       },
       {
@@ -2113,17 +2454,6 @@
         ]
       },
       {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
-        ]
-      },
-      {
         "_id": "cat-corporate-gift-items",
         "id": 9,
         "name": "Corporate Gifts & Merchandise",
@@ -2201,17 +2531,6 @@
           "/assets/products/luxury_corporate_gifts_dubai.jpg",
           "/assets/products/service_corporate_gifts.jpg",
           "/assets/products/wooden_keychain.jpg"
-        ]
-      },
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
         ]
       },
       {
@@ -2742,17 +3061,6 @@
         ]
       },
       {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
-        ]
-      },
-      {
         "_id": "cat-brochures-printing",
         "id": 2,
         "name": "Brochures Printing",
@@ -2796,216 +3104,6 @@
           "/assets/products/service_digital_offset.jpg"
         ]
       }
-    ]
-  },
-  {
-    "_id": "prod-door-hangers-printing",
-    "id": 22,
-    "name": "Door Hangers Printing",
-    "slug": "door-hangers-printing",
-    "category": {
-      "_id": "cat-flyers-printing-in-dubai",
-      "id": 3,
-      "name": "Flyers Printing In Dubai",
-      "slug": "flyers-printing-in-dubai"
-    },
-    "shortDescription": "Die-cut hotel and residential door knob hangers for hospitality, real estate, and local promotion campaigns.",
-    "description": "Die-cut door hangers with reinforced knob holes, printed on sturdy 350gsm stock with matte or UV gloss coating. Perfect for hotels, real estate door drops, restaurant delivery, and local retail campaigns in Dubai.",
-    "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Door%20Hangers%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Door%20Hangers%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "imageAlt": "Die cut door hangers printing in Dubai",
-    "seoTitle": "Door Hangers Printing Dubai | Hotel & Promotional Door Knob Tags | ONPRINT",
-    "seoDescription": "Custom die-cut door hanger printing in Dubai for hotels, real estate and local campaigns. Reinforced holes and UV gloss coating.",
-    "seoKeywords": "door hangers dubai, door knob tags uae, hotel door hangers printing dubai",
-    "price": 110,
-    "minimumQuantity": 250,
-    "featured": false,
-    "active": true,
-    "images360": [
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Door%20Hangers%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-    ],
-    "categories": [
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/1 (14).jpg",
-          "/assets/products/brochures.jpg"
-        ]
-      },
-      {
-        "_id": "cat-hospitality-event-printing",
-        "id": 15,
-        "name": "Hospitality & Event Stationery",
-        "slug": "hospitality-event-printing",
-        "images": [
-          "/assets/products/1 (14).jpg",
-          "/assets/products/1 (15).jpg",
-          "/assets/products/1 (16).jpg"
-        ]
-      },
-      {
-        "_id": "cat-brochures-printing",
-        "id": 2,
-        "name": "Brochures Printing",
-        "slug": "brochures-printing",
-        "images": [
-          "/assets/products/brochure_bifold.jpg",
-          "/assets/products/brochure_trifold.jpg",
-          "/assets/products/brochure_gatefold.jpg"
-        ]
-      },
-      {
-        "_id": "cat-office-stationery-printing",
-        "id": 14,
-        "name": "Office Stationery & Envelopes",
-        "slug": "office-stationery-printing",
-        "images": [
-          "/assets/products/service_executive_stationery.jpg",
-          "/assets/products/1 (5).jpg",
-          "/assets/products/1 (9).jpg"
-        ]
-      },
-      {
-        "_id": "cat-stickers-labels-printing",
-        "id": 12,
-        "name": "Stickers & Product Labels",
-        "slug": "stickers-labels-printing",
-        "images": [
-          "/assets/products/service_stickers_labels.jpg",
-          "/assets/products/stickers.jpg",
-          "/assets/products/1 (6).jpg"
-        ]
-      },
-      {
-        "_id": "cat-signage-banners-printing",
-        "id": 10,
-        "name": "Signage & Exhibition Banners",
-        "slug": "signage-banners-printing",
-        "images": [
-          "/assets/products/service_exhibition_signage.jpg",
-          "/assets/products/rollup_banner.jpg",
-          "/assets/products/flags.jpg"
-        ]
-      }
-    ],
-    "images": [
-      "/assets/products/flyer-door-hanger.jpg"
-    ]
-  },
-  {
-    "_id": "prod-postcards-printing",
-    "id": 23,
-    "name": "Postcards & Direct Mail Printing",
-    "slug": "postcards-printing",
-    "category": {
-      "_id": "cat-flyers-printing-in-dubai",
-      "id": 3,
-      "name": "Flyers Printing In Dubai",
-      "slug": "flyers-printing-in-dubai"
-    },
-    "shortDescription": "A6 and A5 premium postcards with UV coating, rounded corners, and optional mail-ready addressing.",
-    "description": "A6 and A5 direct-mail postcards printed on thick 400gsm silk card with UV coating, rounded corners, perforated coupon sections, and optional variable-data addressing for bulk mail campaigns in Dubai.",
-    "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Postcards%20%26%20Direct%20Mail%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Postcards%20%26%20Direct%20Mail%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-    "imageAlt": "Postcards direct mail printing in Dubai",
-    "seoTitle": "Postcards & Direct Mail Printing Dubai | A6 A5 Promotional Cards | ONPRINT",
-    "seoDescription": "A6 and A5 postcard printing in Dubai for direct mail campaigns. Thick 400gsm stock, UV coating, rounded corners and variable data.",
-    "seoKeywords": "postcard printing dubai, direct mail uae, a6 postcards dubai, promotional mail printing",
-    "price": 130,
-    "minimumQuantity": 250,
-    "featured": true,
-    "active": true,
-    "images360": [
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Postcards%20%26%20Direct%20Mail%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-    ],
-    "categories": [
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/1 (3).jpg",
-          "/assets/products/flyers.jpg",
-          "/assets/products/luxury_business_cards_dubai.jpg"
-        ]
-      },
-      {
-        "_id": "cat-hospitality-event-printing",
-        "id": 15,
-        "name": "Hospitality & Event Stationery",
-        "slug": "hospitality-event-printing",
-        "images": [
-          "/assets/products/1 (14).jpg",
-          "/assets/products/1 (15).jpg",
-          "/assets/products/1 (16).jpg"
-        ]
-      },
-      {
-        "_id": "cat-brochures-printing",
-        "id": 2,
-        "name": "Brochures Printing",
-        "slug": "brochures-printing",
-        "images": [
-          "/assets/products/brochure_bifold.jpg",
-          "/assets/products/brochure_trifold.jpg",
-          "/assets/products/brochure_gatefold.jpg"
-        ]
-      },
-      {
-        "_id": "cat-office-stationery-printing",
-        "id": 14,
-        "name": "Office Stationery & Envelopes",
-        "slug": "office-stationery-printing",
-        "images": [
-          "/assets/products/service_executive_stationery.jpg",
-          "/assets/products/1 (5).jpg",
-          "/assets/products/1 (9).jpg"
-        ]
-      },
-      {
-        "_id": "cat-corporate-gift-items",
-        "id": 9,
-        "name": "Corporate Gifts & Merchandise",
-        "slug": "corporate-gift-items",
-        "images": [
-          "/assets/products/luxury_corporate_gifts_dubai.jpg",
-          "/assets/products/service_corporate_gifts.jpg",
-          "/assets/products/wooden_keychain.jpg"
-        ]
-      },
-      {
-        "_id": "cat-business-cards-printing",
-        "id": 1,
-        "name": "Business Cards Printing",
-        "slug": "business-cards-printing",
-        "images": [
-          "/uploads/categories/business-cards-printing.jpg",
-          "/assets/products/business-cards/bc_standard_silk.jpg",
-          "/assets/products/business-cards/bc_corporate_batches.jpg"
-        ]
-      }
-    ],
-    "images": [
-      "/assets/products/flyer-postcard.jpg"
     ]
   },
   {
@@ -3449,17 +3547,6 @@
           "/assets/products/brochure_zfold.jpg",
           "/assets/products/service_digital_offset.jpg"
         ]
-      },
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
-        ]
       }
     ]
   },
@@ -3630,17 +3717,6 @@
           "/assets/products/service_executive_stationery.jpg",
           "/assets/products/1 (5).jpg",
           "/assets/products/1 (9).jpg"
-        ]
-      },
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
         ]
       },
       {
@@ -4088,17 +4164,6 @@
         ]
       },
       {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
-        ]
-      },
-      {
         "_id": "cat-catalogs-booklets-printing",
         "id": 13,
         "name": "Catalogs & Booklets Printing",
@@ -4543,17 +4608,6 @@
         ]
       },
       {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
-        ]
-      },
-      {
         "_id": "cat-catalogs-booklets-printing",
         "id": 13,
         "name": "Catalogs & Booklets Printing",
@@ -4645,17 +4699,6 @@
           "/assets/products/brochure_trifold.jpg",
           "/assets/products/brochure_bifold.jpg",
           "/assets/products/flyers.jpg"
-        ]
-      },
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
         ]
       },
       {
@@ -4784,17 +4827,6 @@
           "/assets/products/service_corporate_gifts.jpg",
           "/assets/products/wooden_keychain.jpg"
         ]
-      },
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
-        ]
       }
     ],
     "images": [
@@ -4844,17 +4876,6 @@
           "/assets/products/brochure_zfold.jpg",
           "/assets/products/brochure_trifold.jpg",
           "/assets/products/flyers.jpg"
-        ]
-      },
-      {
-        "_id": "cat-flyers-printing-in-dubai",
-        "id": 3,
-        "name": "Flyers Printing In Dubai",
-        "slug": "flyers-printing-in-dubai",
-        "images": [
-          "/assets/products/flyers.jpg",
-          "/assets/products/brochures.jpg",
-          "/assets/products/1 (8).jpg"
         ]
       },
       {
@@ -5325,75 +5346,6 @@
         "slug": "bottle-printing-dubai"
       }
     ]
-  },
-  {
-    "_id": "prod-a5-promotional-flyers",
-    "id": 101,
-    "name": "Standard A5 Promotional Flyers",
-    "slug": "a5-promotional-flyers",
-    "description": "High-impact commercial single and double-sided A5 marketing flyers printed on 170gsm to 300gsm gloss or silk art paper in Dubai.",
-    "price": 95,
-    "min_quantity": 250,
-    "unit": "250 pcs",
-    "featured": true,
-    "active": true,
-    "images": [
-      "/assets/products/flyers.jpg"
-    ],
-    "image": "/assets/products/flyers.jpg",
-    "image_url": "/assets/products/flyers.jpg",
-    "category": {
-      "_id": "cat-flyers-printing-in-dubai",
-      "id": 3,
-      "name": "Flyers Printing In Dubai",
-      "slug": "flyers-printing-in-dubai"
-    }
-  },
-  {
-    "_id": "prod-a4-business-flyers",
-    "id": 102,
-    "name": "Standard A4 Business Advertising Flyers",
-    "slug": "a4-business-flyers",
-    "description": "Full-page A4 commercial marketing leaflets and flyers with vivid CMYK precision on premium art paper.",
-    "price": 130,
-    "min_quantity": 250,
-    "unit": "250 pcs",
-    "featured": true,
-    "active": true,
-    "images": [
-      "/assets/products/flyers.jpg"
-    ],
-    "image": "/assets/products/flyers.jpg",
-    "image_url": "/assets/products/flyers.jpg",
-    "category": {
-      "_id": "cat-flyers-printing-in-dubai",
-      "id": 3,
-      "name": "Flyers Printing In Dubai",
-      "slug": "flyers-printing-in-dubai"
-    }
-  },
-  {
-    "_id": "prod-dl-event-flyers",
-    "id": 103,
-    "name": "DL Slim Event & Menu Flyers",
-    "slug": "dl-event-flyers",
-    "description": "Compact 99x210mm DL flyers perfect for restaurant menus, promotional inserts, voucher distribution, and trade events.",
-    "price": 85,
-    "min_quantity": 250,
-    "unit": "250 pcs",
-    "featured": false,
-    "active": true,
-    "images": [
-      "/assets/products/flyers.jpg"
-    ],
-    "image": "/assets/products/flyers.jpg",
-    "image_url": "/assets/products/flyers.jpg",
-    "category": {
-      "_id": "cat-flyers-printing-in-dubai",
-      "id": 3,
-      "name": "Flyers Printing In Dubai",
-      "slug": "flyers-printing-in-dubai"
-    }
   },
   {
     "_id": "prod-professional-magnetic-metal-name-badges",

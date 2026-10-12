@@ -3,7 +3,7 @@ import catalogProducts from '../data/catalogProducts.json'
 
 export const defaultProducts = catalogProducts
 
-const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v3'
+const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v4'
 
 export function getStoredProducts() {
   try {
@@ -57,7 +57,7 @@ export function getStoredProducts() {
           }
         }
 
-        if (name.includes('flyer') || slug.includes('flyer') || name.includes('leaflet') || slug.includes('leaflet')) {
+        if (name.includes('flyer') || slug.includes('flyer') || name.includes('leaflet') || slug.includes('leaflet') || slug.includes('door-hanger') || slug.includes('postcard')) {
           return {
             ...p,
             category: {

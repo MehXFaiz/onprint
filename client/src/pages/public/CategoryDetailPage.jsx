@@ -76,7 +76,7 @@ export default function CategoryDetailPage() {
             'promotional-drinkware-tech'
           ]
           
-          const filteredProducts = (prodsRes.data || []).filter(product => {
+          let filteredProducts = (prodsRes.data || []).filter(product => {
             // Check if product has any of the excluded categories in its categories array
             const productCategories = product.categories || []
             const hasExcludedCategory = productCategories.some(cat => 
@@ -92,6 +92,27 @@ export default function CategoryDetailPage() {
                                           excludedCategorySlugs.includes(mainCategorySlug)
             return !hasExcludedCategory && !mainCategoryExcluded
           })
+
+          // Dedicated filter & sort for Flyers Printing in Dubai category
+          if (slug === 'flyers-printing-in-dubai') {
+            const flyerExcludedSlugs = [
+              'business-cards-printing',
+              'signage-banners-printing',
+              'hospitality-event-printing',
+              'corporate-gift-items',
+              'office-stationery-printing'
+            ]
+            filteredProducts = filteredProducts.filter(p => {
+              const mainSlug = p.category?.slug || ''
+              return !flyerExcludedSlugs.includes(mainSlug)
+            })
+            // Sort: flyer products where category is flyers-printing-in-dubai or name contains flyer/postcard/leaflet first
+            filteredProducts.sort((a, b) => {
+              const aIsFlyer = (a.category?.slug === 'flyers-printing-in-dubai' || a.slug.includes('flyer') || a.name?.toLowerCase().includes('flyer')) ? 1 : 0
+              const bIsFlyer = (b.category?.slug === 'flyers-printing-in-dubai' || b.slug.includes('flyer') || b.name?.toLowerCase().includes('flyer')) ? 1 : 0
+              return bIsFlyer - aIsFlyer
+            })
+          }
           
           setProducts(filteredProducts)
         }

@@ -23,6 +23,9 @@ const blogRoutes = require('./routes/blogRoutes')
 const seoRoutes = require('./routes/seoRoutes')
 const { getRobotsTxt, getSitemapXml, getLlmsTxt, getAdsTxt } = require('./controllers/seoController')
 const { BUSINESS_CARDS_LANDING_DATA } = require('./data/businessCardsLandingData')
+const { COMMERCIAL_LANDING_PAGES } = require('./data/commercialLandingPagesData')
+const initialData = require('./data/initialData')
+const programmaticSeoService = require('./services/programmaticSeoService')
 
 const CLIENT_DIST = path.join(__dirname, '..', 'dist')
 
@@ -49,8 +52,8 @@ function replaceMeta(html, attribute, name, content) {
 }
 
 
-function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, seo, siteUrl }) {
-  let pageHeading = h1 || bcData?.h1 || seo?.h1
+function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, commercialData, productData, categoryData, serviceData, progData, seo, siteUrl }) {
+  let pageHeading = h1 || bcData?.h1 || commercialData?.h1 || productData?.seoHeading || productData?.name || categoryData?.seoHeading || categoryData?.name || serviceData?.name || progData?.h1 || seo?.h1
   if (!pageHeading) {
     if (requestPath === '/' || requestPath === '') {
       pageHeading = 'Commercial & Luxury Printing Company in Dubai, UAE'
@@ -74,11 +77,134 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, seo
       pageHeading = (title ? title.split('|')[0].trim() : '') || 'Commercial Printing Dubai'
     }
   }
-  const metaDesc = description || bcData?.metaDescription || seo?.meta_description || 'Commercial printing company in Al Quoz, Dubai. Luxury business cards, custom packaging, stickers, letterheads, and corporate gifts with same-day UAE delivery.'
+  const metaDesc = description || bcData?.metaDescription || commercialData?.metaDescription || productData?.seoDescription || productData?.description || categoryData?.seoDescription || categoryData?.description || serviceData?.seoDescription || serviceData?.description || progData?.metaDescription || seo?.meta_description || 'Commercial printing company in Al Quoz, Dubai. Luxury business cards, custom packaging, stickers, letterheads, and corporate gifts with same-day UAE delivery.'
 
   let dynamicBody = ''
 
-  if (bcData) {
+  if (productData) {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>${escapeHtml(productData.name)} — Specifications &amp; Overview</h2>
+        <p style="font-size: 1.1rem; line-height: 1.7; color: #334155;">${escapeHtml(productData.description || productData.shortDescription || metaDesc)}</p>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin: 20px 0;">
+          <h3 style="margin-top: 0; font-size: 1.1rem; color: #0f172a;">Key Product Details</h3>
+          <ul style="line-height: 1.8; color: #475569;">
+            ${productData.price ? `<li><strong>Starting Price:</strong> AED ${escapeHtml(productData.price)}</li>` : ''}
+            ${productData.minimumQuantity ? `<li><strong>Minimum Order Quantity (MOQ):</strong> ${escapeHtml(productData.minimumQuantity)} units</li>` : ''}
+            ${productData.category?.name ? `<li><strong>Category:</strong> <a href="/categories/${escapeHtml(productData.category.slug || '')}" style="color: #A82F19;">${escapeHtml(productData.category.name)}</a></li>` : ''}
+            <li><strong>Production Hub:</strong> Al Quoz Central Pressroom, Dubai, UAE</li>
+            <li><strong>Turnaround:</strong> Express Same-Day Rush or Standard 24–48 Hours across Dubai, Abu Dhabi &amp; all Emirates</li>
+          </ul>
+        </div>
+        ${productData.features && productData.features.length > 0 ? `
+          <h3>Product Features &amp; Finishes</h3>
+          <ul>
+            ${productData.features.map(feat => `<li>${escapeHtml(feat)}</li>`).join('')}
+          </ul>
+        ` : ''}
+        ${productData.specifications?.materials && productData.specifications.materials.length > 0 ? `
+          <h3>Available Substrates &amp; Papers</h3>
+          <ul>
+            ${productData.specifications.materials.map(m => `<li><strong>${escapeHtml(m.label || m.name || m)}</strong></li>`).join('')}
+          </ul>
+        ` : ''}
+        ${productData.specifications?.finishes && productData.specifications.finishes.length > 0 ? `
+          <h3>Luxury Finishing Options</h3>
+          <ul>
+            ${productData.specifications.finishes.map(f => `<li><strong>${escapeHtml(f.label || f.name || f)}</strong></li>`).join('')}
+          </ul>
+        ` : ''}
+        <div style="margin-top: 24px; padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
+          <p style="margin: 0; font-weight: bold; color: #166534;">Direct WhatsApp Quote &amp; Proofing:</p>
+          <p style="margin: 4px 0 0 0; color: #15803d;">Connect directly with our master pressman via WhatsApp at <a href="https://wa.me/447344546056" style="color: #15803d; font-weight: bold;">+44 7344 546056</a> for instant volume discounts and free digital proofing.</p>
+        </div>
+      </section>
+    `
+  } else if (categoryData) {
+    const matchingProducts = (initialData.products || []).filter(p => p.category?.slug === categoryData.slug || p.categories?.some(c => c.slug === categoryData.slug)).slice(0, 12)
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>${escapeHtml(categoryData.name)} — Commercial Printing Press in Dubai</h2>
+        <p style="font-size: 1.1rem; line-height: 1.7; color: #334155;">${escapeHtml(categoryData.description || metaDesc)}</p>
+        <p>ONPRINT delivers end-to-end commercial printing for ${escapeHtml(categoryData.name.toLowerCase())} in Dubai. Manufactured using state-of-the-art Heidelberg offset presses and high-definition digital presses with fast 24-hour turnaround across the UAE.</p>
+        ${matchingProducts.length > 0 ? `
+          <h3 style="margin-top: 28px;">Featured Products in ${escapeHtml(categoryData.name)}</h3>
+          <ul style="line-height: 2;">
+            ${matchingProducts.map(p => `
+              <li>
+                <a href="/products/${escapeHtml(p.slug)}" style="color: #A82F19; font-weight: 600; text-decoration: underline;">${escapeHtml(p.name)}</a>
+                ${p.shortDescription ? ` — <span style="color: #64748b;">${escapeHtml(p.shortDescription)}</span>` : ''}
+              </li>
+            `).join('')}
+          </ul>
+        ` : ''}
+      </section>
+    `
+  } else if (serviceData) {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>${escapeHtml(serviceData.name)} — Service Capabilities</h2>
+        <p style="font-size: 1.1rem; line-height: 1.7; color: #334155;">${escapeHtml(serviceData.description || serviceData.shortDescription || metaDesc)}</p>
+        <p>Manufactured in-house at our Al Quoz industrial pressroom using high-speed Heidelberg offset and precision digital presses. We handle urgent short-run requests and high-volume commercial contracts for UAE enterprises, luxury retailers, and hospitality brands.</p>
+      </section>
+    `
+  } else if (progData) {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>${escapeHtml(progData.h1 || progData.name)}</h2>
+        <p style="font-size: 1.1rem; line-height: 1.7; color: #334155;">${escapeHtml(progData.metaDescription || metaDesc)}</p>
+        ${progData.logistics ? `
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin: 20px 0;">
+            <h3 style="margin-top: 0; color: #0f172a;">Logistics &amp; Turnaround</h3>
+            <p><strong>Turnaround:</strong> ${escapeHtml(progData.logistics.turnaround)}</p>
+            <p><strong>Dispatch Hub:</strong> ${escapeHtml(progData.logistics.dispatchHub)}</p>
+            <p><strong>Delivery:</strong> ${escapeHtml(progData.logistics.deliveryFee)}</p>
+          </div>
+        ` : ''}
+        ${progData.contentSections && progData.contentSections.length > 0 ? progData.contentSections.map(sec => `
+          <div style="margin-bottom: 1.5rem;">
+            <h3>${escapeHtml(sec.title)}</h3>
+            <p style="line-height: 1.7; color: #475569;">${escapeHtml(sec.content)}</p>
+          </div>
+        `).join('') : ''}
+        ${progData.faqs && progData.faqs.length > 0 ? `
+          <h3>Frequently Asked Questions</h3>
+          ${progData.faqs.map(f => `
+            <div style="margin-bottom: 1rem;">
+              <h4 style="font-weight: 700; margin-bottom: 0.25rem;">${escapeHtml(f.question)}</h4>
+              <p style="color: #475569;">${escapeHtml(f.answer)}</p>
+            </div>
+          `).join('')}
+        ` : ''}
+      </section>
+    `
+  } else if (commercialData) {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <h2>${escapeHtml(commercialData.h1 || commercialData.title)}</h2>
+        <p style="font-size: 1.1rem; line-height: 1.7; color: #334155;">${escapeHtml(commercialData.subheading || commercialData.metaDescription || metaDesc)}</p>
+        ${commercialData.highlights && commercialData.highlights.length > 0 ? `
+          <div style="margin: 24px 0;">
+            <h3>Technical Capabilities &amp; Finishing</h3>
+            <ul>
+              ${commercialData.highlights.map(h => `
+                <li><strong>${escapeHtml(h.title)}:</strong> ${escapeHtml(h.description)}</li>
+              `).join('')}
+            </ul>
+          </div>
+        ` : ''}
+        ${commercialData.faqs && commercialData.faqs.length > 0 ? `
+          <h3>Frequently Asked Questions</h3>
+          ${commercialData.faqs.map(f => `
+            <div style="margin-bottom: 1rem;">
+              <h4 style="font-weight: 700; margin-bottom: 0.25rem;">${escapeHtml(f.question)}</h4>
+              <p style="color: #475569;">${escapeHtml(f.answer)}</p>
+            </div>
+          `).join('')}
+        ` : ''}
+      </section>
+    `
+  } else if (bcData) {
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
         <h2>${escapeHtml(bcData.h1 || 'Commercial Printing Specifications')}</h2>
@@ -208,9 +334,57 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
 
   const cleanPathKey = requestPath.replace(/^\//, '')
   const bcData = BUSINESS_CARDS_LANDING_DATA[cleanPathKey]
+  const commercialData = COMMERCIAL_LANDING_PAGES[cleanPathKey]
 
-  const title = seo.meta_title || bcData?.title || 'Printing Company in Dubai | ONPRINT'
-  const description = seo.meta_description || bcData?.metaDescription || ''
+  let productData = null
+  let categoryData = null
+  let serviceData = null
+  let progData = null
+
+  if (requestPath.startsWith('/products/')) {
+    const slug = requestPath.replace('/products/', '').trim()
+    productData = (initialData.products || []).find((p) => p.slug === slug)
+  } else if (requestPath.startsWith('/categories/')) {
+    const slug = requestPath.replace('/categories/', '').trim()
+    categoryData = (initialData.categories || []).find((c) => c.slug === slug)
+  } else if (requestPath.startsWith('/services/')) {
+    const slug = requestPath.replace('/services/', '').trim()
+    serviceData = (initialData.services || []).find((s) => s.slug === slug)
+  } else if (requestPath.startsWith('/printing-services/')) {
+    const slug = requestPath.replace('/printing-services/', '').trim()
+    progData = programmaticSeoService.getPageBySlug(slug, 'location')
+  } else if (requestPath.startsWith('/printing-solutions/')) {
+    const slug = requestPath.replace('/printing-solutions/', '').trim()
+    progData = programmaticSeoService.getPageBySlug(slug, 'use_case')
+  }
+
+  const title =
+    seo.meta_title ||
+    productData?.seoTitle ||
+    (productData ? `${productData.name} Dubai | Custom Printing | ONPRINT` : null) ||
+    categoryData?.seoTitle ||
+    (categoryData ? `${categoryData.name} in Dubai | ONPRINT` : null) ||
+    serviceData?.seoTitle ||
+    (serviceData ? `${serviceData.name} Dubai | ONPRINT` : null) ||
+    progData?.title ||
+    commercialData?.title ||
+    bcData?.title ||
+    'Printing Company in Dubai | ONPRINT'
+
+  const description =
+    seo.meta_description ||
+    productData?.seoDescription ||
+    productData?.description ||
+    productData?.shortDescription ||
+    categoryData?.seoDescription ||
+    categoryData?.description ||
+    serviceData?.seoDescription ||
+    serviceData?.description ||
+    progData?.metaDescription ||
+    commercialData?.metaDescription ||
+    bcData?.metaDescription ||
+    ''
+
   const canonical = seo.canonical_url || `${siteUrl}${requestPath === '/' ? '' : requestPath}`
   const ogImage = absoluteSeoUrl(seo.og_image, siteUrl)
   const twitterImage = absoluteSeoUrl(seo.twitter_image || seo.og_image, siteUrl)
@@ -435,11 +609,132 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     }
   }
 
-    const prerenderedBody = buildPrerenderedHtml(requestPath, {
-    h1: seo.h1 || bcData?.h1,
+  // Inject Product JSON-LD Schema
+  if (productData && !rendered.includes('"@type":"Product"')) {
+    const productSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: productData.name,
+      description: productData.description || productData.shortDescription || description,
+      image: absoluteSeoUrl(productData.image || productData.image_url, siteUrl),
+      sku: `ONP-PROD-${productData.id || productData.slug}`,
+      brand: {
+        '@type': 'Brand',
+        name: 'ONPRINT',
+      },
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'AED',
+        price: productData.price || '25.00',
+        availability: 'https://schema.org/InStock',
+        url: canonical,
+        priceValidUntil: '2027-12-31',
+        seller: {
+          '@id': `${siteUrl}/#organization`,
+        },
+      },
+      category: productData.category?.name || 'Commercial Printing',
+    }
+    rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(productSchema)}</script>\n  </head>`)
+  }
+
+  // Inject CollectionPage Schema for Categories
+  if (categoryData && !rendered.includes('"@type":"CollectionPage"')) {
+    const collectionSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: categoryData.name,
+      description: categoryData.description || description,
+      url: canonical,
+      publisher: {
+        '@id': `${siteUrl}/#organization`,
+      },
+    }
+    rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(collectionSchema)}</script>\n  </head>`)
+  }
+
+  // Inject Commercial Hub Service & FAQ Schemas
+  if (commercialData) {
+    const commServiceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: commercialData.h1 || commercialData.title,
+      description: commercialData.metaDescription,
+      provider: {
+        '@id': `${siteUrl}/#organization`,
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Dubai' },
+        { '@type': 'City', name: 'Abu Dhabi' },
+        { '@type': 'City', name: 'Sharjah' },
+        { '@type': 'Country', name: 'United Arab Emirates' },
+      ],
+      serviceType: commercialData.focusKeyword || 'Commercial Printing',
+    }
+    rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(commServiceSchema)}</script>\n  </head>`)
+
+    if (commercialData.faqs && commercialData.faqs.length > 0 && !rendered.includes('"@type":"FAQPage"')) {
+      const commFaqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: commercialData.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.answer,
+          },
+        })),
+      }
+      rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(commFaqSchema)}</script>\n  </head>`)
+    }
+  }
+
+  // Inject Programmatic Location/Use-Case Schemas
+  if (progData) {
+    const progServiceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: progData.h1 || progData.name,
+      description: progData.metaDescription,
+      provider: {
+        '@id': `${siteUrl}/#organization`,
+      },
+      areaServed: {
+        '@type': 'AdministrativeArea',
+        name: progData.name || 'Dubai',
+      },
+      serviceType: 'Commercial Printing',
+    }
+    rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(progServiceSchema)}</script>\n  </head>`)
+
+    if (progData.faqs && progData.faqs.length > 0 && !rendered.includes('"@type":"FAQPage"')) {
+      const progFaqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: progData.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.answer,
+          },
+        })),
+      }
+      rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(progFaqSchema)}</script>\n  </head>`)
+    }
+  }
+
+  const prerenderedBody = buildPrerenderedHtml(requestPath, {
+    h1: seo.h1 || bcData?.h1 || commercialData?.h1 || productData?.seoHeading || productData?.name || categoryData?.seoHeading || categoryData?.name || progData?.h1,
     title,
     description,
     bcData,
+    commercialData,
+    productData,
+    categoryData,
+    serviceData,
+    progData,
     seo,
     siteUrl,
   })
@@ -510,31 +805,57 @@ async function isKnownPublicPath(requestPath) {
   if (!dynamicRoute) return false
 
   const [, routeType, slug] = dynamicRoute
+
+  // 1. Programmatic landing pages
+  if (routeType === 'printing-services') {
+    return Boolean(programmaticSeoService.getPageBySlug(slug, 'location'))
+  }
+  if (routeType === 'printing-solutions') {
+    return Boolean(programmaticSeoService.getPageBySlug(slug, 'use_case'))
+  }
+
+  // 2. Query Database first
   try {
     if (routeType === 'categories') {
       const [rows] = await pool.execute('SELECT id FROM categories WHERE slug = ? AND active = 1 LIMIT 1', [slug])
-      return rows.length > 0
-    }
-    if (routeType === 'products') {
+      if (rows.length > 0) return true
+    } else if (routeType === 'products') {
       const [rows] = await pool.execute('SELECT id FROM products WHERE slug = ? AND active = 1 LIMIT 1', [slug])
-      return rows.length > 0
-    }
-    if (routeType === 'services') {
+      if (rows.length > 0) return true
+    } else if (routeType === 'services') {
       const [rows] = await pool.execute('SELECT id FROM services WHERE slug = ? AND active = 1 LIMIT 1', [slug])
-      return rows.length > 0
-    }
-    if (routeType === 'blog') {
+      if (rows.length > 0) return true
+    } else if (routeType === 'blog') {
       const [rows] = await pool.execute(
         `SELECT id FROM blogs WHERE slug = ? AND status = 'published' AND (published_at IS NULL OR published_at <= NOW()) LIMIT 1`,
         [slug]
       )
-      return rows.length > 0
+      if (rows.length > 0) return true
     }
-    return true
-  } catch {
-    // Preserve SPA fallback behavior for recognized dynamic sections when the DB is temporarily unavailable.
-    return true
+  } catch (err) {
+    // If DB is unreachable, continue to check catalog fallbacks below
   }
+
+  // 3. Check hardcoded/fallback catalogs if DB didn't match or was offline
+  if (routeType === 'categories') {
+    return (initialData.categories || []).some((c) => c.slug === slug && c.active !== false)
+  }
+  if (routeType === 'products') {
+    return (initialData.products || []).some((p) => p.slug === slug && p.active !== false)
+  }
+  if (routeType === 'services') {
+    return (initialData.services || []).some((s) => s.slug === slug && s.active !== false)
+  }
+  if (routeType === 'blog') {
+    try {
+      const persistentBlogs = require('./data/persistentStore').getBlogs()
+      return persistentBlogs.some((b) => b.slug === slug && b.status === 'published')
+    } catch {
+      return false
+    }
+  }
+
+  return false
 }
 
 function createApp() {
@@ -603,10 +924,9 @@ function createApp() {
   app.get(['/login', '/register'], (req, res) => res.redirect(301, '/admin/login'))
   app.get(['/quote', '/get-quote', '/quote-request', '/pricing'], (req, res) => res.redirect(301, '/get-a-quote'))
 
-  // Commercial Landing Page Aliases 301 Permanent Redirects
+  // Commercial Landing Page Aliases 301 Permanent Redirects (Direct 1-Hop)
   app.get('/business-card-printing', (req, res) => res.redirect(301, '/business-card-printing-dubai'))
-  app.get('/custom-packaging', (req, res) => res.redirect(301, '/custom-packaging-dubai'))
-  app.get('/packaging-printing', (req, res) => res.redirect(301, '/packaging-printing-dubai'))
+  app.get(['/custom-packaging', '/packaging-printing', '/custom-packaging-dubai', '/packaging-printing-dubai'], (req, res) => res.redirect(301, '/services'))
   app.get('/brochure-printing', (req, res) => res.redirect(301, '/brochure-printing-dubai'))
   app.get('/flyer-printing', (req, res) => res.redirect(301, '/flyer-printing-dubai'))
   app.get('/sticker-printing', (req, res) => res.redirect(301, '/sticker-printing-dubai'))
@@ -615,10 +935,6 @@ function createApp() {
   app.get('/large-format-printing', (req, res) => res.redirect(301, '/large-format-printing-dubai'))
   app.get('/corporate-printing', (req, res) => res.redirect(301, '/corporate-printing-dubai'))
   app.get('/promotional-printing', (req, res) => res.redirect(301, '/promotional-printing-dubai'))
-  app.get('/packaging-printing-dubai', (req, res) => res.redirect(301, '/services'))
-  app.get('/custom-packaging-dubai', (req, res) => res.redirect(301, '/services'))
-  app.get('/custom-packaging', (req, res) => res.redirect(301, '/services'))
-  app.get('/packaging-printing', (req, res) => res.redirect(301, '/services'))
 
   // Dynamic Database-Driven 301/302 Redirect Manager (Requirement 28)
   app.use(async (req, res, next) => {

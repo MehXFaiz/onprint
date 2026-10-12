@@ -15,6 +15,7 @@ import {
   CreditCard,
   PhoneCall,
   Info,
+  Mail,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Container from '../../components/Container'

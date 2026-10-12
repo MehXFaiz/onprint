@@ -31,6 +31,7 @@ import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
 import { createQuote } from '../../services/quotes'
 import { trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
+import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
 
 const CARD_OPTIONS = [
   {
@@ -218,12 +219,40 @@ Please confirm availability and dispatch schedule.`
       }
 
       const res = await createQuote(quotePayload)
-      setSubmittedQuote(res || quotePayload)
+      const finalQuote = res || quotePayload
+      setSubmittedQuote(finalQuote)
+
+      // Direct WhatsApp Dispatch
+      openWhatsAppDirectly({
+        title: 'LUXURY BUSINESS CARDS QUOTE INQUIRY',
+        refNumber: finalQuote.orderNumber || finalQuote.quoteNumber,
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        company: formData.company || 'N/A',
+        product: `Business Cards: ${selectedCard.name}`,
+        quantity: selectedQty.value,
+        specs: `Stock: ${selectedCard.name} | Finishes: ${addonLabels || 'Standard'} | Speed: ${selectedTurnaround.label}`,
+        price: estimatedTotal,
+        notes: formData.notes || 'None',
+      })
     } catch (err) {
       console.error('Quote submission error:', err)
+      const fallbackOrderNum = `ONP-2026-${Math.floor(100000 + Math.random() * 900000)}`
       setSubmittedQuote({
-        orderNumber: `ONP-2026-${Math.floor(100000 + Math.random() * 900000)}`,
+        orderNumber: fallbackOrderNum,
         name: formData.name,
+      })
+      openWhatsAppDirectly({
+        title: 'LUXURY BUSINESS CARDS QUOTE INQUIRY',
+        refNumber: fallbackOrderNum,
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        company: formData.company || 'N/A',
+        product: `Business Cards: ${selectedCard.name}`,
+        quantity: selectedQty.value,
+        price: estimatedTotal,
       })
     } finally {
       setIsSubmitting(false)

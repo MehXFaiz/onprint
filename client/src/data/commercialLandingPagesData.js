@@ -1,5 +1,4 @@
-module.exports = {
-  "COMMERCIAL_LANDING_PAGES": {
+export const COMMERCIAL_LANDING_PAGES = {
     "printing-services-dubai": {
       "slug": "printing-services-dubai",
       "path": "/printing-services-dubai",
@@ -999,4 +998,4 @@ module.exports = {
       ]
     }
   }
-};
+

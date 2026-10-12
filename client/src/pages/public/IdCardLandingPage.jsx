@@ -35,6 +35,7 @@ import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
 import { createQuote } from '../../services/quotes'
 import { trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
+import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
 import idCardsImg from '../../assets/products/id_cards.jpg'
 
 // ID Card Types and Variations
@@ -313,15 +314,37 @@ export default function IdCardLandingPage() {
 
   const handleQuoteSubmit = async (e) => {
     e.preventDefault()
+    const randomSeq = Math.floor(100000 + Math.random() * 900000)
+    const quoteRef = `ONP-ID-${randomSeq}`
+
     try {
-      await createQuote(quoteData)
+      await createQuote({
+        ...quoteData,
+        quoteNumber: quoteRef,
+        productName: `ID Cards: ${quoteData.cardType || 'Standard PVC'}`,
+        specs: `Card Type: ${quoteData.cardType} | Qty: ${quoteData.quantity}`,
+      })
       trackGetQuoteClick('id-card-quote')
-      alert('Quote request submitted successfully!')
-      setShowQuoteModal(false)
-      setQuoteData({ name: '', email: '', phone: '', quantity: '', cardType: '', message: '' })
     } catch (error) {
-      alert('Failed to submit quote. Please try again.')
+      console.warn('Quote save error:', error.message)
     }
+
+    // Direct auto dispatch to WhatsApp
+    openWhatsAppDirectly({
+      title: 'CORPORATE PVC & SMART ID CARDS QUOTE INQUIRY',
+      refNumber: quoteRef,
+      name: quoteData.name.trim(),
+      phone: quoteData.phone.trim() || 'N/A',
+      email: quoteData.email.trim(),
+      company: 'Corporate / Organization',
+      product: `PVC ID Cards (${quoteData.cardType || 'CR80 Standard'})`,
+      quantity: quoteData.quantity,
+      specs: `Type: ${quoteData.cardType}`,
+      notes: quoteData.message.trim() || 'None',
+    })
+
+    setShowQuoteModal(false)
+    setQuoteData({ name: '', email: '', phone: '', quantity: '', cardType: '', message: '' })
   }
 
   const breadcrumbs = [

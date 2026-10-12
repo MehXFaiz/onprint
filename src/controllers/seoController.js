@@ -111,9 +111,6 @@ Disallow: /admin/*
 Disallow: /api/
 Disallow: /api/*
 Disallow: /dashboard
-Disallow: /login
-Disallow: /register
-Disallow: /account
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `

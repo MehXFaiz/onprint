@@ -7,6 +7,7 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { trackContactFormSubmit } from '../../utils/analytics'
 import { submitContactInquiry } from '../../services/contact'
+import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
 
 const contactDetails = [
   {
@@ -61,6 +62,15 @@ export default function ContactPage() {
         })
         trackContactFormSubmit({ source_page: 'contact_page' })
         setSubmitted(true)
+
+        openWhatsAppDirectly({
+          title: 'CONTACT STUDIO INQUIRY',
+          name: values.name.trim(),
+          phone: values.phone.trim() || 'N/A',
+          email: values.email.trim(),
+          product: values.subject.trim() || 'General Printing Inquiry',
+          notes: values.message.trim(),
+        })
       } catch (err) {
         console.error('Failed to submit contact inquiry:', err)
       } finally {
@@ -70,6 +80,15 @@ export default function ContactPage() {
   }
 
   if (submitted) {
+    const contactWhatsAppUrl = getWhatsAppUrl({
+      title: 'CONTACT STUDIO INQUIRY',
+      name: values.name.trim(),
+      phone: values.phone.trim() || 'N/A',
+      email: values.email.trim(),
+      product: values.subject.trim() || 'General Printing Inquiry',
+      notes: values.message.trim(),
+    })
+
     return (
       <Container className="flex min-h-[50vh] flex-col items-center justify-center py-24 text-center">
         <SEOHead
@@ -78,7 +97,7 @@ export default function ContactPage() {
           canonicalPath="/contact"
           noindex
         />
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent-soft text-accent">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600">
           <CheckCircle2 className="h-8 w-8" />
         </div>
         <h1 className="font-display mt-6 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
@@ -87,10 +106,29 @@ export default function ContactPage() {
         <p className="mt-4 max-w-md text-base text-secondary">
           Thank you, {values.name.split(' ')[0]} — our Dubai print sales team will review your inquiry and respond to {values.email} within 2 hours.
         </p>
+
+        <div className="mt-6 w-full max-w-md rounded-2xl bg-emerald-500/10 border-2 border-emerald-500 p-4 text-center space-y-2">
+          <p className="text-xs font-black uppercase tracking-wider text-emerald-800">
+            📱 WhatsApp Connected
+          </p>
+          <p className="text-xs text-emerald-900 leading-relaxed font-medium">
+            Your inquiry is formatted and ready for our concierge team. Click below to continue on WhatsApp:
+          </p>
+          <a
+            href={contactWhatsAppUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-xs font-black text-white shadow-lg transition-all w-full"
+          >
+            <WhatsAppIcon className="h-5 w-5 fill-white" />
+            <span>Chat on WhatsApp Now</span>
+          </a>
+        </div>
+
         <Button
           variant="outline"
           icon={false}
-          className="mt-8"
+          className="mt-6"
           onClick={() => {
             setValues(initialForm)
             setSubmitted(false)

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Phone, Mail, Clock, CheckCircle, Sparkles, Award, Shield, Zap } from 'lucide-react'
+import { Phone, Mail, Clock, CheckCircle, Sparkles, Award, Shield, Zap, CheckCircle2 } from 'lucide-react'
 import SEOHead from '../../components/SEOHead'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
+import { createQuote } from '../../services/quotes'
+import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
 
 const StickersLeadPage = () => {
   // Add Service and ContactPoint schema markup for lead generation
@@ -100,11 +103,51 @@ const StickersLeadPage = () => {
     stickerType: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [quoteRef, setQuoteRef] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Lead submitted:', formData)
-    alert('Thank you! We will contact you within 24 hours.')
+    setIsSubmitting(true)
+
+    const randomSeq = Math.floor(100000 + Math.random() * 900000)
+    const generatedRef = `ONP-STK-${randomSeq}`
+
+    try {
+      await createQuote({
+        quoteNumber: generatedRef,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim() || null,
+        company: formData.company.trim() || null,
+        productName: `Custom Stickers: ${formData.stickerType || 'Custom Vinyl'}`,
+        quantity: parseInt(formData.quantity, 10) || 100,
+        specs: `Type: ${formData.stickerType || 'Standard'} | Qty: ${formData.quantity}`,
+        notes: formData.message.trim() || null,
+        status: 'Pending',
+      })
+    } catch (err) {
+      console.warn('Backend quote submission note:', err.message)
+    }
+
+    setQuoteRef(generatedRef)
+    setSubmitted(true)
+    setIsSubmitting(false)
+
+    // Direct auto-dispatch to WhatsApp
+    openWhatsAppDirectly({
+      title: 'CUSTOM STICKERS & LABELS QUOTE INQUIRY',
+      refNumber: generatedRef,
+      name: formData.name.trim(),
+      phone: formData.phone.trim() || 'N/A',
+      email: formData.email.trim(),
+      company: formData.company.trim() || 'Individual',
+      product: `Stickers (${formData.stickerType || 'Custom'})`,
+      quantity: formData.quantity,
+      specs: `Type: ${formData.stickerType}`,
+      notes: formData.message.trim() || 'None',
+    })
   }
 
   const handleChange = (e) => {
@@ -207,8 +250,57 @@ const StickersLeadPage = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700"
               >
-                <h2 className="text-2xl font-bold text-white mb-6">Request Your Free Quote</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                {submitted ? (
+                  <div className="space-y-6 text-center py-6">
+                    <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-emerald-400">
+                      <CheckCircle2 className="w-10 h-10" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-white">Quote Request Received!</h2>
+                    <p className="text-gray-300 text-sm">
+                      Thank you, <strong className="text-white">{formData.name}</strong>. Your reference number is <strong className="text-purple-400 font-mono">{quoteRef}</strong>.
+                    </p>
+
+                    <div className="bg-emerald-950/60 border border-emerald-500/60 rounded-xl p-5 text-center space-y-3">
+                      <p className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                        📱 Direct WhatsApp Dispatch
+                      </p>
+                      <p className="text-xs text-emerald-200">
+                        We opened WhatsApp with your exact sticker specifications. If it didn't open automatically, click the button below:
+                      </p>
+                      <a
+                        href={getWhatsAppUrl({
+                          title: 'CUSTOM STICKERS & LABELS QUOTE INQUIRY',
+                          refNumber: quoteRef,
+                          name: formData.name,
+                          phone: formData.phone || 'N/A',
+                          email: formData.email,
+                          company: formData.company || 'Individual',
+                          product: `Stickers (${formData.stickerType || 'Custom'})`,
+                          quantity: formData.quantity,
+                          specs: `Type: ${formData.stickerType}`,
+                          notes: formData.message || 'None',
+                        })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-3 px-6 text-sm font-black text-white shadow-lg transition-all w-full"
+                      >
+                        <WhatsAppIcon className="w-5 h-5 fill-white" />
+                        <span>Chat with ONPRINT on WhatsApp</span>
+                      </a>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setSubmitted(false)}
+                      className="text-xs text-gray-400 hover:text-white underline"
+                    >
+                      Submit another inquiry
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <h2 className="text-2xl font-bold text-white mb-6">Request Your Free Quote</h2>
+                    <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-gray-300 mb-2">Full Name *</label>
@@ -317,6 +409,8 @@ const StickersLeadPage = () => {
                     We respect your privacy. Your information will never be shared.
                   </p>
                 </form>
+              </>
+            )}
               </motion.div>
 
               {/* Benefits Section */}

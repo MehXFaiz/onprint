@@ -52,6 +52,7 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { CornerMarks, CmykDots } from '../../components/PrintMarks'
 import { createQuote } from '../../services/quotes'
 import { trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
+import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
 import luxuryBusinessCardsImg from '../../assets/products/luxury_business_cards.jpg'
 import softTouchCardImg from '../../assets/products/card-soft-touch.jpg'
 import velvetFoilCardImg from '../../assets/products/card-velvet-foil.jpg'
@@ -647,12 +648,39 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
       }
 
       const res = await createQuote(quotePayload)
-      setQuoteNumber(res.orderNumber || res.quoteNumber || 'ONP-2026-BC')
+      const finalNum = res?.orderNumber || res?.quoteNumber || `ONP-2026-${Math.floor(100000 + Math.random() * 900000)}`
+      setQuoteNumber(finalNum)
       setSubmitSuccess(true)
+
+      openWhatsAppDirectly({
+        title: 'BUSINESS CARD QUOTE INQUIRY',
+        refNumber: finalNum,
+        name: formState.name,
+        phone: formState.phone,
+        email: formState.email,
+        company: formState.company || 'N/A',
+        product: `Business Cards (${formState.cardType})`,
+        quantity: formState.quantity,
+        specs: `Paper: ${formState.paper} | Finish: ${formState.finish} | Target Delivery: ${formState.deliveryDate}`,
+        notes: formState.notes || 'None',
+      })
     } catch (err) {
       console.error('Quote submission error:', err)
+      const fallbackNum = `ONP-2026-${Math.floor(100000 + Math.random() * 900000)}`
       setSubmitSuccess(true)
-      setQuoteNumber(`ONP-2026-${Math.floor(100000 + Math.random() * 900000)}`)
+      setQuoteNumber(fallbackNum)
+
+      openWhatsAppDirectly({
+        title: 'BUSINESS CARD QUOTE INQUIRY',
+        refNumber: fallbackNum,
+        name: formState.name,
+        phone: formState.phone,
+        email: formState.email,
+        company: formState.company || 'N/A',
+        product: `Business Cards (${formState.cardType})`,
+        quantity: formState.quantity,
+        specs: `Paper: ${formState.paper} | Finish: ${formState.finish}`,
+      })
     } finally {
       setIsSubmitting(false)
     }

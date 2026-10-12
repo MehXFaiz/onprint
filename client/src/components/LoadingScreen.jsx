@@ -1,67 +1,70 @@
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import logoIconLight from '../assets/logo_icon_light.png'
-import { Sparkles, ShieldCheck, Zap, ArrowRight } from 'lucide-react'
+import logoLight from '../assets/logo_light.png'
 
-const SESSION_KEY = 'onprint-luxury-splash-v4'
-
-const CALIBRATION_STEPS = [
-  { progress: 24, label: 'Calibrating Heidelberg Speedmaster & HP Indigo...' },
-  { progress: 58, label: 'Loading 600 GSM Cotton & 24K Hot Foil Plates...' },
-  { progress: 86, label: 'Verifying ISO 12647 Color Separation Curves...' },
-  { progress: 100, label: 'Pressroom Online • Welcome to ONPRINT Dubai' },
-]
+const SESSION_KEY = 'onprint-splash-v5'
 
 export default function LoadingScreen() {
   const reduce = useReducedMotion()
   const [visible, setVisible] = useState(false)
-  const [percent, setPercent] = useState(0)
-
-  // Current calibration status text
-  const currentStep = useMemo(() => {
-    if (percent < 35) return CALIBRATION_STEPS[0].label
-    if (percent < 70) return CALIBRATION_STEPS[1].label
-    if (percent < 95) return CALIBRATION_STEPS[2].label
-    return CALIBRATION_STEPS[3].label
-  }, [percent])
+  const [phase, setPhase] = useState(0) // 0: sweep/curtains, 1: logo reveal, 2: progress + tagline, 3: ready to exit
+  const isMountedRef = useRef(true)
 
   useEffect(() => {
-    // Show splash screen on first visit per session
+    isMountedRef.current = true
+
+    // Check if session storage already saw splash in this session
     if (typeof window !== 'undefined' && window.sessionStorage.getItem(SESSION_KEY)) {
       return
     }
+
+    // If reduced motion is requested by user OS, skip animation instantly
+    if (reduce) {
+      if (typeof window !== 'undefined') {
+        window.sessionStorage.setItem(SESSION_KEY, '1')
+      }
+      return
+    }
+
+    // Mark as shown for the current browsing session
     if (typeof window !== 'undefined') {
       window.sessionStorage.setItem(SESSION_KEY, '1')
     }
 
-    if (reduce) return
-
     setVisible(true)
 
-    // Smooth Progress Counter
-    const interval = setInterval(() => {
-      setPercent((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval)
-          return 100
-        }
-        const jump = Math.floor(Math.random() * 8) + 4
-        return Math.min(prev + jump, 100)
-      })
-    }, 90)
+    // Sequence timing milestones (Total ~1.85 seconds)
+    // 0ms: Initial darkness, orange atmospheric light sweep begins, paper sheets flow into view
+    // 400ms: Phase 1 - Logo reveals with metallic sweep and 3D depth
+    // 850ms: Phase 2 - Orange progress line animates + Tagline "PRINT · BRAND · GROW" fades in
+    // 1450ms: Phase 3 - "LOADING YOUR IDEAS..." active & page ready check
+    // 1850ms: Smooth seamless exit fade into homepage
+    const t1 = setTimeout(() => {
+      if (isMountedRef.current) setPhase(1)
+    }, 380)
 
-    // Complete duration timer
+    const t2 = setTimeout(() => {
+      if (isMountedRef.current) setPhase(2)
+    }, 850)
+
+    const t3 = setTimeout(() => {
+      if (isMountedRef.current) setPhase(3)
+    }, 1450)
+
     const exitTimer = setTimeout(() => {
-      setVisible(false)
-    }, 2800)
+      if (isMountedRef.current) setVisible(false)
+    }, 1900)
 
     return () => {
-      clearInterval(interval)
+      isMountedRef.current = false
+      clearTimeout(t1)
+      clearTimeout(t2)
+      clearTimeout(t3)
       clearTimeout(exitTimer)
     }
   }, [reduce])
 
-  // Allow Esc / Enter to skip splash screen
+  // Allow clicking anywhere or pressing Esc/Enter/Space to instantly bypass
   useEffect(() => {
     function handleKeyDown(e) {
       if (visible && (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ')) {
@@ -78,231 +81,432 @@ export default function LoadingScreen() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          key="onprint-luxury-splash"
+          key="onprint-cinematic-splash"
           onClick={() => setVisible(false)}
-          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#05070B] text-white overflow-hidden select-none cursor-pointer"
+          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#080808] text-white overflow-hidden select-none cursor-pointer"
+          style={{
+            perspective: '1200px',
+            transformStyle: 'preserve-3d',
+          }}
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            scale: 1.04,
-            filter: 'blur(12px)',
-            transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+            scale: 1.03,
+            filter: 'blur(8px)',
+            transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
           }}
-          aria-label="ONPRINT Cinematic Intro"
+          role="status"
+          aria-live="polite"
+          aria-label="ONPRINT Luxury Splash"
         >
-          {/* 1. ATMOSPHERIC CAUSTIC & RADIAL GLOWS */}
+          {/* ======================================================== */}
+          {/* 1. DEEP MATTE BLACK BACKGROUND & SUBTLE NOISE TEXTURE     */}
+          {/* ======================================================== */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {/* Ambient Primary Crimson Glow */}
-            <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[750px] h-[500px] sm:h-[750px] rounded-full"
-              style={{
-                background:
-                  'radial-gradient(circle, rgba(168,47,25,0.22) 0%, rgba(168,47,25,0.06) 45%, rgba(5,7,11,0) 72%)',
-              }}
-              initial={{ scale: 0.7, opacity: 0 }}
-              animate={{
-                scale: [0.7, 1.05, 0.98, 1.1],
-                opacity: [0, 0.9, 0.75, 1],
-              }}
-              transition={{
-                duration: 2.8,
-                ease: 'easeInOut',
-              }}
-            />
+            {/* Fine Studio Noise Texture (SVG procedural grain) */}
+            <svg
+              className="absolute inset-0 h-full w-full opacity-[0.035] mix-blend-overlay"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <filter id="splash-noise">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.8"
+                  numOctaves="4"
+                  stitchTiles="stitch"
+                />
+                <feColorMatrix type="saturate" values="0" />
+              </filter>
+              <rect width="100%" height="100%" filter="url(#splash-noise)" />
+            </svg>
 
-            {/* Amber Luxury Foil Flare Accent */}
-            <motion.div
-              className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] rounded-full"
-              style={{
-                background:
-                  'radial-gradient(circle, rgba(245,158,11,0.12) 0%, rgba(245,158,11,0.02) 50%, transparent 70%)',
-              }}
-              initial={{ scale: 0.6, opacity: 0 }}
-              animate={{
-                scale: [0.6, 1.1, 1],
-                opacity: [0, 0.7, 0.5],
-              }}
-              transition={{
-                duration: 2.4,
-                delay: 0.2,
-                ease: 'easeOut',
-              }}
-            />
-
-            {/* Precision Architectural Grid Overlay */}
+            {/* Subtle Vignette & Studio Lighting Falloff */}
             <div
-              className="absolute inset-0 opacity-[0.04]"
+              className="absolute inset-0"
               style={{
-                backgroundImage: `
-                  linear-gradient(to right, #ffffff 1px, transparent 1px),
-                  linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-                `,
-                backgroundSize: '40px 40px',
+                background:
+                  'radial-gradient(ellipse 80% 65% at 50% 50%, rgba(20, 20, 20, 0.8) 0%, rgba(8, 8, 8, 0.98) 75%, #050505 100%)',
               }}
             />
-          </div>
 
-          {/* 2. TECHNICAL PRESSROOM CORNER REGISTRATION HUD */}
-          <div className="absolute inset-6 sm:inset-10 pointer-events-none flex flex-col justify-between text-[10px] font-mono tracking-[0.2em] text-slate-400">
-            {/* Top Bar Registration */}
+            {/* Dramatic Vivid Orange Rim Lighting Sweep (Step 1) */}
             <motion.div
-              className="flex justify-between items-center"
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="font-bold text-slate-200">HEIDELBERG SPEEDMASTER HD</span>
-              </div>
-
-              <div className="hidden sm:flex items-center gap-3 text-slate-400">
-                <span className="flex items-center gap-1 text-slate-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" /> C
-                </span>
-                <span className="flex items-center gap-1 text-slate-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-pink-500" /> M
-                </span>
-                <span className="flex items-center gap-1 text-slate-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-yellow-400" /> Y
-                </span>
-                <span className="flex items-center gap-1 text-slate-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-slate-200" /> K
-                </span>
-                <span className="text-slate-600">|</span>
-                <span>ISO 12647-2</span>
-              </div>
-            </motion.div>
-
-            {/* Bottom Bar Registration */}
-            <motion.div
-              className="flex justify-between items-end text-[9px] sm:text-[10px]"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <div className="space-y-0.5">
-                <div className="text-slate-500 font-medium">PRESSROOM LOCATION</div>
-                <div className="text-slate-200 font-bold">AL QUOZ INDUSTRIAL 3 • DUBAI, UAE</div>
-              </div>
-
-              <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-slate-300 hover:text-white transition-colors cursor-pointer pointer-events-auto">
-                <span className="text-[9px] font-bold tracking-widest">ENTER PRESSROOM</span>
-                <ArrowRight className="h-3 w-3 text-[#A82F19]" />
-              </div>
-            </motion.div>
-          </div>
-
-          {/* 3. CENTERPIECE: 3D EMBLEM & TYPOGRAPHIC REVEAL */}
-          <div className="relative z-10 flex flex-col items-center justify-center px-4 text-center max-w-lg mx-auto">
-            {/* 3D Floating Emblem Card */}
-            <motion.div
-              className="relative flex items-center justify-center mb-7"
-              initial={{ opacity: 0, scale: 0.8, y: 16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
+              className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[350px] sm:h-[450px] rounded-full blur-[110px] pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(circle, rgba(255, 106, 0, 0.28) 0%, rgba(255, 106, 0, 0.08) 50%, transparent 75%)',
+              }}
+              initial={{ scale: 0.6, opacity: 0, y: -40 }}
+              animate={{
+                scale: [0.6, 1.15, 0.95],
+                opacity: [0, 0.85, 0.6],
+                y: [-40, 20, 0],
+              }}
               transition={{
-                duration: 0.9,
+                duration: 1.8,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            />
+
+            {/* Bottom Subtle Amber Counter-Light for Depth */}
+            <motion.div
+              className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[300px] rounded-full blur-[90px] pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(circle, rgba(255, 106, 0, 0.16) 0%, rgba(255, 106, 0, 0.03) 60%, transparent 80%)',
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.6, 0.4] }}
+              transition={{ duration: 1.8, delay: 0.2 }}
+            />
+
+            {/* Diagonal Anamorphic Orange Light Beam Sweeping Across Frame */}
+            <motion.div
+              className="absolute inset-0 pointer-events-none overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
+            >
+              <motion.div
+                className="absolute top-0 bottom-0 w-[140px] sm:w-[220px]"
+                style={{
+                  background:
+                    'linear-gradient(90deg, transparent 0%, rgba(255, 106, 0, 0.15) 45%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 106, 0, 0.15) 55%, transparent 100%)',
+                  transform: 'skewX(-28deg)',
+                  filter: 'blur(10px)',
+                }}
+                initial={{ left: '-30%' }}
+                animate={{ left: '130%' }}
+                transition={{
+                  duration: 1.6,
+                  ease: [0.2, 0.8, 0.2, 1],
+                }}
+              />
+            </motion.div>
+          </div>
+
+          {/* ======================================================== */}
+          {/* 2. 3D PREMIUM PRINT MATERIALS FLOWING FROM EDGES          */}
+          {/* (Step 2: Business cards, luxury boxes, glossy sheets)     */}
+          {/* Center kept pristine so Logo is the undeniable hero       */}
+          {/* ======================================================== */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {/* Top-Left: Luxury Heavy Cotton Business Card (600 GSM, 24K Gilded Edge) */}
+            <motion.div
+              className="absolute -top-12 -left-12 sm:-top-8 sm:-left-8 w-44 sm:w-60 h-28 sm:h-36 rounded-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, #181818 0%, #101010 60%, #0d0d0d 100%)',
+                boxShadow:
+                  '0 25px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px rgba(255,106,0,0.3)',
+                transformStyle: 'preserve-3d',
+              }}
+              initial={{
+                x: -180,
+                y: -140,
+                rotateX: 30,
+                rotateY: 25,
+                rotateZ: -28,
+                opacity: 0,
+              }}
+              animate={{
+                x: -10,
+                y: 10,
+                rotateX: 20,
+                rotateY: 15,
+                rotateZ: -18,
+                opacity: 0.85,
+              }}
+              transition={{
+                duration: 1.4,
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              {/* Outer Radiance Halo */}
-              <motion.div
-                className="absolute inset-[-14px] rounded-3xl bg-gradient-to-r from-[#A82F19]/40 via-amber-500/20 to-[#A82F19]/40 blur-2xl pointer-events-none"
-                initial={{ opacity: 0, scale: 0.7 }}
-                animate={{ opacity: [0.4, 0.9, 0.6], scale: [0.7, 1.2, 1] }}
-                transition={{ duration: 2.2, ease: 'easeInOut' }}
+              {/* Subtle Foil Pattern On Card */}
+              <div className="absolute inset-0 p-4 flex flex-col justify-between opacity-50">
+                <div className="flex items-center gap-1.5">
+                  <div className="h-2 w-2 rounded-full bg-[#FF6A00]" />
+                  <div className="h-1.5 w-14 rounded-full bg-white/20" />
+                </div>
+                <div className="space-y-1">
+                  <div className="h-1 w-20 rounded-full bg-white/15" />
+                  <div className="h-1 w-12 rounded-full bg-white/10" />
+                </div>
+              </div>
+              {/* Gilded Edge Highlight */}
+              <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF6A00] via-amber-300 to-[#FF6A00] opacity-80" />
+            </motion.div>
+
+            {/* Top-Right: Glossy Coated Art Paper Sheet with Rim Reflection */}
+            <motion.div
+              className="absolute -top-16 -right-14 sm:-top-10 sm:-right-8 w-52 sm:w-72 h-36 sm:h-48 rounded-2xl border border-white/10 overflow-hidden"
+              style={{
+                background:
+                  'linear-gradient(215deg, rgba(35,35,35,0.7) 0%, rgba(18,18,18,0.85) 60%, rgba(10,10,10,0.95) 100%)',
+                boxShadow:
+                  '0 30px 70px rgba(0,0,0,0.9), inset 1px 1px 0 rgba(255,255,255,0.22), inset -1px -1px 0 rgba(255,106,0,0.25)',
+                backdropFilter: 'blur(12px)',
+                transformStyle: 'preserve-3d',
+              }}
+              initial={{
+                x: 200,
+                y: -160,
+                rotateX: -25,
+                rotateY: -35,
+                rotateZ: 22,
+                opacity: 0,
+              }}
+              animate={{
+                x: 20,
+                y: 10,
+                rotateX: -16,
+                rotateY: -20,
+                rotateZ: 14,
+                opacity: 0.8,
+              }}
+              transition={{
+                duration: 1.45,
+                delay: 0.08,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              {/* Specular Light Reflection Sweep on Glossy Surface */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(135deg, transparent 35%, rgba(255,255,255,0.18) 50%, transparent 65%)',
+                }}
+              />
+            </motion.div>
+
+            {/* Bottom-Left: Luxury Matte Black Rigid Packaging Box Corner */}
+            <motion.div
+              className="absolute -bottom-14 -left-12 sm:-bottom-10 sm:-left-6 w-48 sm:w-64 h-32 sm:h-44 rounded-xl border border-white/5 overflow-hidden"
+              style={{
+                background: 'linear-gradient(45deg, #0e0e0e 0%, #151515 50%, #1c1c1c 100%)',
+                boxShadow:
+                  '0 -20px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 20px rgba(0,0,0,0.7)',
+                transformStyle: 'preserve-3d',
+              }}
+              initial={{
+                x: -190,
+                y: 170,
+                rotateX: -30,
+                rotateY: 30,
+                rotateZ: 15,
+                opacity: 0,
+              }}
+              animate={{
+                x: -15,
+                y: -15,
+                rotateX: -18,
+                rotateY: 18,
+                rotateZ: 10,
+                opacity: 0.85,
+              }}
+              transition={{
+                duration: 1.5,
+                delay: 0.12,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              {/* Embossed Detail Line */}
+              <div className="absolute inset-x-0 top-3 h-0.5 bg-gradient-to-r from-transparent via-[#FF6A00]/40 to-transparent" />
+            </motion.div>
+
+            {/* Bottom-Right: Foil-Stamped Print Sample / Presentation Sheet */}
+            <motion.div
+              className="absolute -bottom-16 -right-12 sm:-bottom-10 sm:-right-8 w-44 sm:w-60 h-28 sm:h-36 rounded-xl border border-white/10 overflow-hidden"
+              style={{
+                background: 'linear-gradient(315deg, #101010 0%, #1a1a1a 70%, #242424 100%)',
+                boxShadow:
+                  '0 -25px 60px rgba(0,0,0,0.95), inset -1px -1px 0 rgba(255,106,0,0.35), inset 1px 1px 0 rgba(255,255,255,0.15)',
+                transformStyle: 'preserve-3d',
+              }}
+              initial={{
+                x: 180,
+                y: 160,
+                rotateX: 25,
+                rotateY: -30,
+                rotateZ: -20,
+                opacity: 0,
+              }}
+              animate={{
+                x: 15,
+                y: -15,
+                rotateX: 15,
+                rotateY: -18,
+                rotateZ: -12,
+                opacity: 0.85,
+              }}
+              transition={{
+                duration: 1.55,
+                delay: 0.15,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              {/* Metallic Foil Stamp Accents */}
+              <div className="absolute top-3 right-4 flex items-center gap-1.5 opacity-70">
+                <div className="h-1.5 w-1.5 rounded-full bg-[#FF6A00]" />
+                <div className="text-[7px] font-mono tracking-widest text-[#FF6A00] font-bold">
+                  24K FOIL
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* ======================================================== */}
+          {/* 3. CENTERPIECE: METALLIC LOGO WITH VIVID ORANGE ACCENT    */}
+          {/* (Step 3: Reveal with metallic sweep & subtle 3D depth)   */}
+          {/* ======================================================== */}
+          <div className="relative z-20 flex flex-col items-center justify-center px-6 text-center max-w-xl mx-auto">
+            {/* 3D Floating Emblem Card */}
+            <motion.div
+              className="relative flex items-center justify-center mb-6 sm:mb-8"
+              initial={{ opacity: 0, scale: 0.82, y: 22 }}
+              animate={
+                phase >= 1
+                  ? { opacity: 1, scale: 1, y: 0 }
+                  : { opacity: 0, scale: 0.82, y: 22 }
+              }
+              transition={{
+                duration: 0.85,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              {/* Dramatic Orange Studio Backlight Glow Behind Logo */}
+              <div
+                className="absolute inset-[-24px] sm:inset-[-36px] rounded-full pointer-events-none opacity-80"
+                style={{
+                  background:
+                    'radial-gradient(circle, rgba(255, 106, 0, 0.35) 0%, rgba(255, 106, 0, 0.12) 42%, transparent 70%)',
+                  filter: 'blur(28px)',
+                }}
               />
 
-              {/* Glass Frosted Tile Container */}
-              <div className="relative flex items-center justify-center h-22 w-22 sm:h-26 sm:w-26 rounded-3xl bg-gradient-to-b from-white/[0.15] to-white/[0.04] border border-white/20 shadow-[0_12px_40px_rgba(0,0,0,0.8)] backdrop-blur-2xl p-4.5 overflow-hidden">
-                {/* Diagonal Light Sweep */}
+              {/* Sophisticated Metallic Specular Card Frame */}
+              <div
+                className="relative flex items-center justify-center h-28 w-28 sm:h-36 sm:w-36 rounded-3xl p-5 overflow-hidden border border-white/15"
+                style={{
+                  background:
+                    'linear-gradient(160deg, rgba(25,25,25,0.85) 0%, rgba(12,12,12,0.95) 100%)',
+                  boxShadow:
+                    '0 24px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -1px 0 rgba(255,106,0,0.3)',
+                  backdropFilter: 'blur(16px)',
+                }}
+              >
+                {/* Real-time Metallic Light Sweep Across Emblem */}
                 <motion.div
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
-                      'linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%)',
+                      'linear-gradient(118deg, transparent 20%, rgba(255, 255, 255, 0.32) 48%, rgba(255, 106, 0, 0.35) 52%, transparent 80%)',
                   }}
-                  initial={{ x: '-150%' }}
-                  animate={{ x: '150%' }}
+                  initial={{ x: '-160%' }}
+                  animate={phase >= 1 ? { x: '160%' } : { x: '-160%' }}
                   transition={{
-                    repeat: Infinity,
-                    duration: 2.2,
-                    ease: 'easeInOut',
-                    repeatDelay: 0.8,
+                    duration: 1.1,
+                    delay: 0.1,
+                    ease: [0.16, 1, 0.3, 1],
                   }}
                 />
 
+                {/* Actual ONPRINT High-Res Light Logo Emblem with Vivid Orange Accent */}
                 <img
-                  src={logoIconLight}
-                  alt="ONPRINT Dubai Emblem"
-                  className="relative z-10 h-full w-full object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.7)]"
+                  src={logoLight}
+                  alt="ONPRINT"
+                  className="relative z-10 h-full w-full object-contain filter drop-shadow-[0_10px_22px_rgba(0,0,0,0.85)]"
+                  loading="eager"
                 />
               </div>
             </motion.div>
 
-            {/* Brand Title: ONPRINT with Letter Expansion */}
+            {/* Bold Elegant Brand Name in Metallic White */}
             <motion.div
-              className="flex items-center justify-center text-4xl sm:text-6xl font-black uppercase tracking-[0.24em] text-white"
-              initial={{ opacity: 0, y: 18, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              className="flex items-center justify-center text-3xl sm:text-5xl font-black uppercase tracking-[0.28em] text-[#F5F5F5]"
+              style={{
+                textShadow:
+                  '0 2px 20px rgba(255, 255, 255, 0.25), 0 10px 30px rgba(0, 0, 0, 0.9)',
+              }}
+              initial={{ opacity: 0, y: 16, filter: 'blur(6px)' }}
+              animate={
+                phase >= 1
+                  ? { opacity: 1, y: 0, filter: 'blur(0px)' }
+                  : { opacity: 0, y: 16, filter: 'blur(6px)' }
+              }
               transition={{
-                duration: 0.9,
-                delay: 0.35,
+                duration: 0.75,
+                delay: 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <span className="font-extrabold text-white">ON</span>
-              <span className="bg-gradient-to-r from-[#A82F19] via-[#E63920] to-[#A82F19] bg-clip-text text-transparent ml-0.5">
-                PRINT
-              </span>
+              <span className="text-[#F5F5F5]">ON</span>
+              <span className="text-[#FF6A00] ml-0.5">PRINT</span>
             </motion.div>
 
-            {/* Dubai Seal & Commercial Press Tagline */}
-            <motion.div
-              className="mt-3.5 flex flex-col items-center gap-2"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.55,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-            >
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.07] border border-white/10 px-3.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.3em] text-slate-200 backdrop-blur-md">
-                <Sparkles className="h-3 w-3 text-amber-400" />
-                <span>DUBAI COMMERCIAL PRESS</span>
-              </div>
-
-              <span className="text-[9.5px] sm:text-[10.5px] font-medium tracking-[0.25em] text-slate-400 uppercase">
-                Luxury Substrates • 24K Hot Foil • Precision Offset
-              </span>
-            </motion.div>
-
-            {/* 4. HIGH-PRECISION LASER PROGRESS RAIL */}
-            <div className="mt-9 w-64 sm:w-80">
-              {/* Status Text & Percentage */}
-              <div className="flex items-center justify-between text-[11px] font-mono mb-2">
-                <span className="text-slate-400 truncate max-w-[200px] sm:max-w-none text-[10px]">
-                  {currentStep}
-                </span>
-                <span className="font-bold text-amber-400 ml-2">{percent}%</span>
-              </div>
-
-              {/* Progress Rail */}
-              <div className="relative h-1.5 w-full rounded-full bg-white/10 overflow-hidden border border-white/5">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-[#A82F19] via-[#E63920] to-amber-400 rounded-full relative"
-                  style={{ width: `${percent}%` }}
-                  transition={{ ease: 'easeOut', duration: 0.1 }}
-                >
-                  {/* Glowing Laser Leading Head */}
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-white shadow-[0_0_12px_#ffffff] -mr-1.5" />
-                </motion.div>
-              </div>
+            {/* ======================================================== */}
+            {/* 4. THIN VIVID ORANGE PROGRESS LINE (Step 4)               */}
+            {/* ======================================================== */}
+            <div className="mt-5 sm:mt-6 w-48 sm:w-64 h-[2px] bg-white/10 rounded-full overflow-hidden relative">
+              <motion.div
+                className="h-full rounded-full relative"
+                style={{
+                  background:
+                    'linear-gradient(90deg, #FF6A00 0%, #FF8533 50%, #FFA366 100%)',
+                  boxShadow: '0 0 14px rgba(255, 106, 0, 0.8)',
+                }}
+                initial={{ width: '0%' }}
+                animate={phase >= 2 ? { width: '100%' } : { width: '0%' }}
+                transition={{
+                  duration: 0.7,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                {/* Glowing Leading Flare */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-white shadow-[0_0_10px_#ffffff] -mr-1" />
+              </motion.div>
             </div>
+
+            {/* ======================================================== */}
+            {/* 5. TAGLINE: PRINT · BRAND · GROW (Step 5)                 */}
+            {/* ======================================================== */}
+            <motion.div
+              className="mt-4 sm:mt-5 text-[11px] sm:text-xs font-semibold tracking-[0.42em] text-[#E2E8F0] uppercase"
+              initial={{ opacity: 0, y: 8 }}
+              animate={phase >= 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.08,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              <span>PRINT</span>
+              <span className="text-[#FF6A00] mx-2 font-bold">·</span>
+              <span>BRAND</span>
+              <span className="text-[#FF6A00] mx-2 font-bold">·</span>
+              <span>GROW</span>
+            </motion.div>
+
+            {/* ======================================================== */}
+            {/* 6. "LOADING YOUR IDEAS…" (Step 6)                         */}
+            {/* Small, elegant, letter-spaced typography, NO fake numbers  */}
+            {/* ======================================================== */}
+            <motion.div
+              className="mt-6 flex items-center justify-center gap-2 text-[9px] sm:text-[10px] font-mono tracking-[0.35em] text-[#888888] uppercase"
+              initial={{ opacity: 0 }}
+              animate={phase >= 2 ? { opacity: 0.85 } : { opacity: 0 }}
+              transition={{ duration: 0.5, delay: 0.18 }}
+            >
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#FF6A00] animate-pulse" />
+              <span>LOADING YOUR IDEAS…</span>
+            </motion.div>
+          </div>
+
+          {/* ======================================================== */}
+          {/* SUBTLE ESCAPE SHORTCUT HINT (Non-intrusive)               */}
+          {/* ======================================================== */}
+          <div className="absolute bottom-6 right-8 text-[9px] font-mono tracking-widest text-white/30 hidden sm:block pointer-events-none">
+            ESC TO SKIP
           </div>
         </motion.div>
       )}

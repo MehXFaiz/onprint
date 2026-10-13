@@ -96,6 +96,7 @@ import photoIdStaffCardImg from './products/id-cards/photo-id-staff-cards.jpg'
 import studentCampusIdCardImg from './products/id-cards/student-campus-id-cards.jpg'
 import visitorPassHoldersImg from './products/id-cards/visitor-pass-cards-holders.jpg'
 import executiveVipMetalCardImg from './products/id-cards/executive-metallic-vip-id-cards.jpg'
+import transparentIdCardsImg from './products/id-cards/transparent-id-cards.jpg'
 
 // Dedicated high-resolution Lanyard variety images
 import standardPolyesterLanyardImg from './products/lanyards/standard-polyester-lanyard.jpg'
@@ -418,6 +419,8 @@ export const productSlugImageMap = {
   'executive-metallic-vip-id-cards': executiveVipMetalCardImg,
   'metal-id-cards': executiveVipMetalCardImg,
   'access-control-cards': rfidAccessCardImg,
+  'frosted-translucent-pvc-id-cards': transparentIdCardsImg,
+  'eco-bamboo-wood-nfc-cards': smartNfcIdCardImg,
 
   // Mug Products
   'classic-white-ceramic-mugs': mugWhiteCeramicImg,
@@ -486,6 +489,12 @@ export const productSlugImageMap = {
   'roll-up-banners': standardRollupBannerImg,
   'beach-flags': flagsImg,
   'die-cut-stickers': serviceStickersLabelsImg,
+  'waterproof-vinyl-stickers': stickersImg,
+  'custom-roll-labels': serviceStickersLabelsImg,
+  'clear-transparent-stickers': stickersImg,
+  'holographic-stickers': serviceStickersLabelsImg,
+  'cosmetic-bottle-labels': stickersImg,
+  'power-banks-printing': luxuryCorporateGiftsDubaiImg,
   'engraved-keychains': keychainImg,
   'executive-notebooks': serviceExecutiveStationeryImg,
   'bi-fold-brochures-printing': brochureBifoldImg,
@@ -765,6 +774,25 @@ function isGenericOrDuplicateImage(url) {
 export function resolveProductImage(product) {
   if (!product) return img1
 
+  // 0. Custom Admin Upload / Custom Updated Image Priority:
+  // If the product was edited by an admin or has an uploaded/custom image, respect it immediately!
+  const rawImg = product.image_url || product.image || (product.images && product.images[0])
+  if (
+    typeof rawImg === 'string' &&
+    rawImg.trim() !== '' &&
+    !isGenericOrDuplicateImage(rawImg)
+  ) {
+    if (
+      product._isCustom ||
+      rawImg.startsWith('/uploads/') ||
+      rawImg.startsWith('data:') ||
+      rawImg.startsWith('blob:') ||
+      (product._updatedAt && rawImg)
+    ) {
+      return rawImg
+    }
+  }
+
   // 1. Direct Slug Match (Highest Priority for distinct, verified product photography)
   if (product.slug && productSlugImageMap[product.slug]) {
     return productSlugImageMap[product.slug]
@@ -783,8 +811,7 @@ export function resolveProductImage(product) {
     return productImages[product.imageKey]
   }
 
-  // 4. Explicit non-generic URL from DB
-  const rawImg = product.image_url || product.image || (product.images && product.images[0])
+  // 4. Explicit non-generic URL from DB / Catalog
   if (typeof rawImg === 'string' && rawImg.trim() !== '' && !isGenericOrDuplicateImage(rawImg)) {
     return rawImg
   }
@@ -804,14 +831,28 @@ export function resolveProductImage(product) {
 
 export function getProductCategoriesWithImages(product) {
   if (!product) return []
-  const cats = product.categories || []
-  const slug = product.slug || ''
-  return cats.map((cat) => {
+  const mainCat = product.category
+  const rawCats = Array.isArray(product.categories) && product.categories.length > 0
+    ? product.categories
+    : mainCat
+      ? [mainCat]
+      : []
+
+  const prodImages = Array.isArray(product.images) && product.images.length > 0
+    ? product.images
+    : [resolveProductImage(product)]
+
+  return rawCats.map((cat) => {
     const catSlug = typeof cat === 'object' ? (cat.slug || '') : cat
-    const catObj = typeof cat === 'object' ? cat : { slug: catSlug, name: catSlug }
+    const catName = typeof cat === 'object' ? (cat.name || catSlug) : catSlug
+    const catObj = typeof cat === 'object' ? cat : { slug: catSlug, name: catName }
     const existingImages = Array.isArray(catObj.images) && catObj.images.length > 0 ? catObj.images : []
-    const mappedImages = slug && catSlug ? getMapCategoryImages(slug, catSlug) : []
-    const images = existingImages.length > 0 ? existingImages : mappedImages
+    const mappedImages = product.slug && catSlug ? getMapCategoryImages(product.slug, catSlug) : []
+    const images = existingImages.length > 0
+      ? existingImages
+      : mappedImages.length > 0
+        ? mappedImages
+        : prodImages
     return { ...catObj, images }
   })
 }

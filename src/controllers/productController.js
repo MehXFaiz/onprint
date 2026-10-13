@@ -341,6 +341,8 @@ async function updateProduct(req, res, next) {
       seoKeywords,
       seoHeading,
       imageAlt,
+      images,
+      image,
     } = req.body
 
     const cleanSlug = generateSlug(slug || name)
@@ -374,6 +376,34 @@ async function updateProduct(req, res, next) {
 
     if (result.affectedRows === 0) {
       throw new ApiError(404, 'Product not found')
+    }
+
+    // Sync product_images if provided
+    const imageList = Array.isArray(images) && images.length > 0
+      ? images
+      : image
+        ? [image]
+        : null
+
+    if (imageList && imageList.length > 0) {
+      try {
+        const [pRows] = await pool.execute(
+          'SELECT id FROM products WHERE id = ? OR product_key = ? OR slug = ? LIMIT 1',
+          [id, id, id]
+        )
+        if (pRows.length > 0) {
+          const prodId = pRows[0].id
+          await pool.execute('DELETE FROM product_images WHERE product_id = ?', [prodId])
+          for (let i = 0; i < imageList.length; i++) {
+            await pool.execute(
+              'INSERT INTO product_images (product_id, image_url, alt_text, display_order) VALUES (?, ?, ?, ?)',
+              [prodId, imageList[i], imageAlt || name || '', i + 1]
+            )
+          }
+        }
+      } catch (imgErr) {
+        console.warn('[Product Update] product_images update notice:', imgErr.message)
+      }
     }
 
     // Automatic sync with page_seo

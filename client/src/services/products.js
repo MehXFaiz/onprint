@@ -137,6 +137,10 @@ export function getStoredProducts() {
       const defaultMap = new Map(defaultProducts.map((p) => [p.slug, p]))
       const defaultOrderMap = new Map(defaultProducts.map((p, idx) => [p.slug, idx]))
       clean = clean.map((p) => {
+        // If an administrator modified this product, preserve their edits!
+        if (p._isCustom || p._updatedAt) {
+          return p
+        }
         const def = defaultMap.get(p.slug)
         if (def) {
           return {
@@ -179,17 +183,73 @@ export function saveProducts(products) {
 export function addProduct(productData) {
   const current = getStoredProducts()
   const slug = productData.slug || productData.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '')
+  const primaryImg = productData.image || (Array.isArray(productData.images) ? productData.images[0] : null) || ''
+  const imgList = Array.isArray(productData.images) && productData.images.length > 0
+    ? productData.images
+    : primaryImg
+      ? [primaryImg]
+      : []
+
   const newProduct = {
     _id: `prod-${Date.now()}`,
     slug,
-    active: true,
-    featured: productData.featured || false,
-    images: productData.images || ['/assets/products/1 (1).jpg'],
+    active: productData.active !== false,
+    featured: Boolean(productData.featured),
+    image: primaryImg,
+    images: imgList,
+    _isCustom: true,
+    _updatedAt: Date.now(),
     ...productData,
   }
   const updated = [newProduct, ...current]
   saveProducts(updated)
+
+  // Sync to API in background if possible
+  api.post('/products', productData).catch(() => {})
+
   return newProduct
+}
+
+export function updateProduct(productId, productData) {
+  const current = getStoredProducts()
+  const targetId = String(productId)
+  const targetSlug = productData.slug || ''
+
+  const idx = current.findIndex(
+    (p) => String(p._id || p.id) === targetId || (targetSlug && p.slug === targetSlug)
+  )
+
+  const primaryImg = productData.image || (Array.isArray(productData.images) ? productData.images[0] : null) || ''
+  const imgList = Array.isArray(productData.images) && productData.images.length > 0
+    ? productData.images
+    : primaryImg
+      ? [primaryImg]
+      : []
+
+  if (idx === -1) {
+    return addProduct(productData)
+  }
+
+  const existing = current[idx]
+  const updatedItem = {
+    ...existing,
+    ...productData,
+    _id: existing._id || existing.id || targetId,
+    id: existing.id || targetId,
+    slug: productData.slug || existing.slug,
+    image: primaryImg || existing.image || '',
+    images: imgList.length > 0 ? imgList : (existing.images || (existing.image ? [existing.image] : [])),
+    _isCustom: true,
+    _updatedAt: Date.now(),
+  }
+
+  current[idx] = updatedItem
+  saveProducts(current)
+
+  // Sync to backend API in background if available
+  api.put(`/products/${existing.id || existing._id || targetId}`, productData).catch(() => {})
+
+  return updatedItem
 }
 
 export function deleteProduct(productId) {

@@ -1,1396 +1,574 @@
 export const categoryImageMap = {
-  'a5-promotional-flyers': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-a5-promotional.jpg'
+  "presentation-folders": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-presentation-folders.jpg"
     ]
   },
-  'a4-business-flyers': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-a4-business.jpg'
+  "printed-envelopes": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-corporate-envelopes.jpg"
     ]
   },
-  'dl-event-flyers': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-dl-event.jpg'
+  "executive-notebooks": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-executive-notebooks.jpg"
     ]
   },
-  'luxury-gold-foil-flyers': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-luxury-foil.jpg'
+  "desk-pads-printing": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-desk-pads-blotters.jpg"
     ]
   },
-  'folded-leaflets-flyers': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-folded-leaflets.jpg'
+  "stationery-gift-sets": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-gift-sets.jpg"
     ]
   },
-  'gloss-matte-flyers': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-gloss-matte.jpg'
+  "executive-letterheads": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-executive-letterheads.jpg"
     ]
   },
-  'a6-pocket-flyers': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-a6-pocket.jpg'
+  "corporate-ring-binders": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-corporate-ring-binders.jpg"
     ]
   },
-  'kraft-eco-flyers': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-kraft-eco.jpg'
+  "wall-desk-calendars": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-wall-desk-calendars.jpg"
     ]
   },
-  'die-cut-flyers': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-die-cut.jpg'
+  "ncr-duplicate-books": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-ncr-duplicate-books.jpg"
     ]
   },
-
-  'rollup-banners': {
-    'rollup-banners': [
-      '/assets/products/rollup_banner_showcase.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/service_exhibition_signage.jpg'
+  "string-tie-envelopes": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-string-tie-envelopes.jpg"
     ]
   },
-  'digital-offset-printing': {
-    'brochures-printing': [
-      '/assets/products/service_digital_offset.jpg',
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/carefree_production.jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
+  "sticky-notes-cubes": {
+    "office-stationery-printing": [
+      "/assets/products/stationery/stationery-sticky-notes-cubes.jpg"
     ]
   },
-  'custom-branded-tote-bags': {
-    'corporate-gift-items': [
-      '/assets/products/tote_bags.jpg',
-      '/assets/products/1 (3).jpg',
-      '/assets/products/carefree_shopping.jpg'
-    ],
-    'custom-apparel-printing': [
-      '/assets/products/1 (3).jpg',
-      '/assets/products/1 (4).jpg',
-      '/assets/products/tote_bags.jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/mugs.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
+  "a5-promotional-flyers": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-a5-promotional.jpg"
     ]
   },
-  'personalized-water-bottles': {
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/mugs.jpg',
-      '/assets/products/luxury_corporate_gifts_dubai.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'custom-apparel-printing': [
-      '/assets/products/1 (3).jpg',
-      '/assets/products/1 (4).jpg',
-      '/assets/products/tote_bags.jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'lanyard-printing-dubai': [
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/id_cards.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
+  "a4-business-flyers": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-a4-business.jpg"
     ]
   },
-  'custom-printed-mugs': {
-    'promotional-drinkware-tech': [
-      '/assets/products/mugs.jpg',
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'custom-apparel-printing': [
-      '/assets/products/1 (3).jpg',
-      '/assets/products/1 (4).jpg',
-      '/assets/products/tote_bags.jpg'
+  "dl-event-flyers": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-dl-event.jpg"
     ]
   },
-  'premium-business-cards': {
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'name-badges-printing-dubai': [
-      '/assets/products/name_badges.jpg',
-      '/assets/products/name_plates.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
+  "luxury-gold-foil-flyers": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-luxury-foil.jpg"
     ]
   },
-  'standard-business-cards': {
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
+  "door-hangers-printing": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-door-hangers.jpg"
     ]
   },
-  'premium-soft-touch-business-cards': {
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
+  "postcards-printing": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-direct-mail-postcards.jpg"
     ]
   },
-  'velvet-foil-business-cards': {
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'name-badges-printing-dubai': [
-      '/assets/products/name_badges.jpg',
-      '/assets/products/name_plates.jpg',
-      '/assets/products/1 (2).jpg'
+  "folded-leaflets-flyers": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-folded-leaflets.jpg"
     ]
   },
-  'luxury-painted-edge-business-cards': {
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
+  "gloss-matte-flyers": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-gloss-matte.jpg"
     ]
   },
-  'acrylic-nameplates': {
-    'name-badges-printing-dubai': [
-      '/assets/products/name_plates.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/service_exhibition_signage.jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'id-card-printing-dubai': [
-      '/assets/products/id_cards.jpg',
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/1 (4).jpg'
+  "a6-pocket-flyers": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-a6-pocket.jpg"
     ]
   },
-  'roll-up-banners': {
-    'signage-banners-printing': [
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'lanyard-printing-dubai': [
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/id_cards.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
+  "kraft-eco-flyers": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-kraft-eco.jpg"
     ]
   },
-  'beach-flags': {
-    'signage-banners-printing': [
-      '/assets/products/flags.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/service_exhibition_signage.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'custom-apparel-printing': [
-      '/assets/products/1 (3).jpg',
-      '/assets/products/1 (4).jpg',
-      '/assets/products/tote_bags.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
+  "die-cut-flyers": {
+    "flyers-printing-in-dubai": [
+      "/assets/products/flyers/flyer-die-cut.jpg"
     ]
   },
-  'die-cut-stickers': {
-    'stickers-labels-printing': [
-      '/assets/products/stickers.jpg',
-      '/assets/products/service_stickers_labels.jpg',
-      '/assets/products/1 (6).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'custom-apparel-printing': [
-      '/assets/products/1 (3).jpg',
-      '/assets/products/1 (4).jpg',
-      '/assets/products/tote_bags.jpg'
-    ],
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/mugs.jpg',
-      '/assets/products/1 (2).jpg'
+  "executive-120gsm-letterheads": {
+    "letterheads-printing-dubai": [
+      "/assets/products/letterhead_executive_120gsm.jpg"
     ]
   },
-  'engraved-keychains': {
-    'corporate-gift-items': [
-      '/assets/products/wooden_keychain.jpg',
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg'
-    ],
-    'name-badges-printing-dubai': [
-      '/assets/products/name_badges.jpg',
-      '/assets/products/name_plates.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/mugs.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'lanyard-printing-dubai': [
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/id_cards.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
+  "luxury-gold-foil-letterheads": {
+    "letterheads-printing-dubai": [
+      "/assets/products/letterhead_gold_foil.jpg"
     ]
   },
-  'executive-notebooks': {
-    'office-stationery-printing': [
-      '/assets/products/1 (5).jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/luxury_corporate_gifts_dubai.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
+  "matching-corporate-envelopes": {
+    "letterheads-printing-dubai": [
+      "/assets/products/letterhead_envelopes_suite.jpg"
     ]
   },
-  'catalogs-booklets-printing': {
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
+  "corporate-presentation-folders": {
+    "letterheads-printing-dubai": [
+      "/assets/products/letterhead_presentation_folders.jpg"
     ]
   },
-  'presentation-folders': {
-    'office-stationery-printing': [
-      '/assets/products/1 (9).jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/brochure_bifold.jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
+  "secure-smart-nfc-pvc-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/smart-nfc-pvc-id.png"
     ]
   },
-  'annual-reports-printing': {
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/service_digital_offset.jpg',
-      '/assets/products/service_executive_stationery.jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
+  "rfid-proximity-access-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/rfid-proximity-access-cards.jpg"
     ]
   },
-  'raised-ink-business-cards': {
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
+  "holographic-security-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/holographic-security-id-cards.jpg"
     ]
   },
-  'plastic-pvc-business-cards': {
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'id-card-printing-dubai': [
-      '/assets/products/id_cards.jpg',
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/1 (4).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'name-badges-printing-dubai': [
-      '/assets/products/name_badges.jpg',
-      '/assets/products/name_plates.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
+  "magnetic-stripe-corporate-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg"
     ]
   },
-  'large-format-posters': {
-    'signage-banners-printing': [
-      '/assets/products/1 (9).jpg',
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
+  "photo-id-staff-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/photo-id-staff-cards.jpg"
     ]
   },
-  'door-hangers-printing': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-door-hangers.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'stickers-labels-printing': [
-      '/assets/products/service_stickers_labels.jpg',
-      '/assets/products/stickers.jpg',
-      '/assets/products/1 (6).jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
+  "student-campus-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/student-campus-id-cards.jpg"
     ]
   },
-  'postcards-printing': {
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers/flyer-direct-mail-postcards.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
+  "visitor-pass-cards-holders": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/visitor-pass-cards-holders.jpg"
     ]
   },
-  'student-id-cards': {
-    'id-card-printing-dubai': [
-      '/assets/products/id_cards.jpg',
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg'
-    ],
-    'lanyard-printing-dubai': [
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/id_cards.jpg'
-    ],
-    'name-badges-printing-dubai': [
-      '/assets/products/name_badges.jpg',
-      '/assets/products/name_plates.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
+  "executive-metallic-vip-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg"
     ]
   },
-  'access-control-cards': {
-    'id-card-printing-dubai': [
-      '/assets/products/1 (4).jpg',
-      '/assets/products/id_cards.jpg',
-      '/assets/products/custom_branded_lanyards.jpg'
-    ],
-    'lanyard-printing-dubai': [
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/id_cards.jpg'
-    ],
-    'name-badges-printing-dubai': [
-      '/assets/products/name_badges.jpg',
-      '/assets/products/name_plates.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/mugs.jpg',
-      '/assets/products/1 (2).jpg'
+  "digital-offset-printing": {
+    "brochures-printing": [
+      "/assets/products/service_digital_offset.jpg",
+      "/assets/products/brochure_bifold.jpg"
     ]
   },
-  'visitor-pass-cards': {
-    'id-card-printing-dubai': [
-      '/assets/products/name_badges.jpg',
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/id_cards.jpg'
-    ],
-    'lanyard-printing-dubai': [
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/id_cards.jpg'
-    ],
-    'name-badges-printing-dubai': [
-      '/assets/products/name_badges.jpg',
-      '/assets/products/name_plates.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
+  "custom-branded-tote-bags": {
+    "corporate-gift-items": [
+      "/assets/products/tote_bags.jpg"
     ]
   },
-  'custom-usb-flash-drives': {
-    'promotional-drinkware-tech': [
-      '/assets/products/1 (2).jpg',
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'lanyard-printing-dubai': [
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/id_cards.jpg'
+  "personalized-water-bottles": {
+    "promotional-drinkware-tech": [
+      "/assets/products/bottle_smart_led.jpg"
     ]
   },
-  'corporate-gift-sets': {
-    'corporate-gift-items': [
-      '/assets/products/1 (5).jpg',
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/mugs.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
+  "custom-printed-mugs": {
+    "promotional-drinkware-tech": [
+      "/assets/products/mug_white_ceramic.jpg"
     ]
   },
-  'power-banks-printing': {
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'lanyard-printing-dubai': [
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/id_cards.jpg'
+  "standard-business-cards": {
+    "business-cards-printing": [
+      "/assets/products/basic_business_cards.jpg",
+      "/assets/products/business-cards/bc_standard_silk.jpg"
     ]
   },
-  'printed-envelopes': {
-    'office-stationery-printing': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/luxury_business_cards_dubai.jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
+  "premium-business-cards": {
+    "business-cards-printing": [
+      "/assets/products/business-cards/bc_premium_matte.jpg",
+      "/assets/products/business-cards/bc_standard_silk.jpg"
     ]
   },
-  'desk-pads-printing': {
-    'office-stationery-printing': [
-      '/assets/products/1 (2).jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (7).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/mugs.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
+  "premium-soft-touch-business-cards": {
+    "business-cards-printing": [
+      "/assets/products/card-soft-touch.jpg",
+      "/assets/products/business-cards/bc_matte_softtouch.jpg"
     ]
   },
-  'stationery-gift-sets': {
-    'office-stationery-printing': [
-      '/assets/products/1 (11).jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/luxury_corporate_gifts_dubai.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
+  "velvet-foil-business-cards": {
+    "business-cards-printing": [
+      "/assets/products/card-velvet-foil.jpg",
+      "/assets/products/luxury_business_cards.jpg"
     ]
   },
-  'foam-board-signage': {
-    'signage-banners-printing': [
-      '/assets/products/1 (9).jpg',
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg'
-    ],
-    'name-badges-printing-dubai': [
-      '/assets/products/name_badges.jpg',
-      '/assets/products/name_plates.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
+  "raised-ink-business-cards": {
+    "business-cards-printing": [
+      "/assets/products/business-cards/bc_embossed.jpg",
+      "/assets/products/business-cards/bc_debossed.jpg"
     ]
   },
-  'metal-name-signs': {
-    'name-badges-printing-dubai': [
-      '/assets/products/name_plates.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/service_exhibition_signage.jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
+  "luxury-painted-edge-business-cards": {
+    "business-cards-printing": [
+      "/assets/products/card-painted-edge.jpg",
+      "/assets/products/luxury_business_cards.jpg"
     ]
   },
-  'wall-acrylic-signage': {
-    'signage-banners-printing': [
-      '/assets/products/1 (12).jpg',
-      '/assets/products/name_plates.jpg',
-      '/assets/products/service_exhibition_signage.jpg'
-    ],
-    'name-badges-printing-dubai': [
-      '/assets/products/name_badges.jpg',
-      '/assets/products/name_plates.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
+  "plastic-pvc-business-cards": {
+    "business-cards-printing": [
+      "/assets/products/business-cards/bc_triplex.jpg",
+      "/assets/products/id-cards/standard-pvc-id.jpg"
     ]
   },
-  'calendars-printing': {
-    'office-stationery-printing': [
-      '/assets/products/1 (7).jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/brochure_booklet_catalog.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/mugs.jpg',
-      '/assets/products/1 (2).jpg'
+  "acrylic-nameplates": {
+    "name-badges-printing-dubai": [
+      "/assets/products/name-badges/acrylic-desk-nameplate.svg"
     ]
   },
-  'greeting-cards-printing': {
-    'hospitality-event-printing': [
-      '/assets/products/1 (6).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/card-velvet-foil.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
+  "beach-flags": {
+    "signage-banners-printing": [
+      "/assets/products/flags.jpg"
     ]
   },
-  'printed-paper-bags': {
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'custom-apparel-printing': [
-      '/assets/products/1 (3).jpg',
-      '/assets/products/1 (4).jpg',
-      '/assets/products/tote_bags.jpg'
-    ],
-    'stickers-labels-printing': [
-      '/assets/products/service_stickers_labels.jpg',
-      '/assets/products/stickers.jpg',
-      '/assets/products/1 (6).jpg'
+  "die-cut-stickers": {
+    "stickers-labels-printing": [
+      "/assets/products/stickers.jpg"
     ]
   },
-
-  'restaurant-menus-printing': {
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (13).jpg',
-      '/assets/products/brochure_bifold.jpg'
-    ],
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_gatefold.jpg'
-    ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
+  "engraved-keychains": {
+    "corporate-gift-items": [
+      "/assets/products/wooden_keychain.jpg"
     ]
   },
-  'wedding-invitation-suites': {
-    'hospitality-event-printing': [
-      '/assets/products/1 (15).jpg',
-      '/assets/products/card-velvet-foil.jpg',
-      '/assets/products/card-painted-edge.jpg'
-    ],
-    'business-cards-printing': [
-      '/uploads/categories/business-cards-printing.jpg',
-      '/assets/products/business-cards/bc_standard_silk.jpg',
-      '/assets/products/business-cards/bc_corporate_batches.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'letterheads-printing-dubai': [
-      '/uploads/categories/letterheads-printing-dubai.jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (2).jpg'
+  "catalogs-booklets-printing": {
+    "catalogs-booklets-printing": [
+      "/assets/products/brochure_booklet_catalog.jpg"
     ]
   },
-  'tshirt-screen-printing': {
-    'custom-apparel-printing': [
-      '/assets/products/1 (3).jpg',
-      '/assets/products/1 (4).jpg',
-      '/assets/products/tote_bags.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/mugs.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'lanyard-printing-dubai': [
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/id_cards.jpg'
+  "annual-reports-printing": {
+    "catalogs-booklets-printing": [
+      "/assets/products/brochure_booklet_catalog.jpg"
     ]
   },
-  'custom-cap-printing': {
-    'custom-apparel-printing': [
-      '/assets/products/1 (4).jpg',
-      '/assets/products/1 (3).jpg',
-      '/assets/products/tote_bags.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'promotional-drinkware-tech': [
-      '/assets/products/water_bottles.jpg',
-      '/assets/products/mugs.jpg',
-      '/assets/products/1 (2).jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'lanyard-printing-dubai': [
-      '/assets/products/custom_branded_lanyards.jpg',
-      '/assets/products/name_badges.jpg',
-      '/assets/products/id_cards.jpg'
+  "large-format-posters": {
+    "signage-banners-printing": [
+      "/assets/products/service_exhibition_signage.jpg"
     ]
   },
-  'mouse-pad-printing': {
-    'promotional-drinkware-tech': [
-      '/assets/products/1 (2).jpg',
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/water_bottles.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'stickers-labels-printing': [
-      '/assets/products/service_stickers_labels.jpg',
-      '/assets/products/stickers.jpg',
-      '/assets/products/1 (6).jpg'
-    ],
-    'custom-apparel-printing': [
-      '/assets/products/1 (3).jpg',
-      '/assets/products/1 (4).jpg',
-      '/assets/products/tote_bags.jpg'
+  "custom-usb-flash-drives": {
+    "promotional-drinkware-tech": [
+      "/assets/products/1 (2).jpg"
     ]
   },
-  'bi-fold-brochures-printing': {
-    'brochures-printing': [
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
+  "corporate-gift-sets": {
+    "corporate-gift-items": [
+      "/assets/products/luxury_corporate_gifts_dubai.jpg"
     ]
   },
-  'tri-fold-brochures-printing': {
-    'brochures-printing': [
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/flyers.jpg'
-    ],
-    'flyers-printing-in-dubai': [
-      '/assets/products/flyers.jpg',
-      '/assets/products/brochures.jpg',
-      '/assets/products/1 (8).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
+  "power-banks-printing": {
+    "promotional-drinkware-tech": [
+      "/assets/products/1 (2).jpg"
     ]
   },
-  'gate-fold-brochures-printing': {
-    'brochures-printing': [
-      '/assets/products/brochure_gatefold.jpg',
-      '/assets/products/brochure_bifold.jpg',
-      '/assets/products/brochure_zfold.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'corporate-gift-items': [
-      '/assets/products/luxury_corporate_gifts_dubai.jpg',
-      '/assets/products/service_corporate_gifts.jpg',
-      '/assets/products/wooden_keychain.jpg'
-    ],
+  "foam-board-signage": {
+    "signage-banners-printing": [
+      "/assets/products/1 (9).jpg"
+    ]
   },
-  'z-fold-leaflets-printing': {
-    'brochures-printing': [
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/brochure_trifold.jpg',
-      '/assets/products/flyers.jpg'
-    ],
-    'hospitality-event-printing': [
-      '/assets/products/1 (14).jpg',
-      '/assets/products/1 (15).jpg',
-      '/assets/products/1 (16).jpg'
-    ],
-    'catalogs-booklets-printing': [
-      '/assets/products/brochure_booklet_catalog.jpg',
-      '/assets/products/brochure_zfold.jpg',
-      '/assets/products/service_digital_offset.jpg'
-    ],
-    'signage-banners-printing': [
-      '/assets/products/service_exhibition_signage.jpg',
-      '/assets/products/rollup_banner.jpg',
-      '/assets/products/flags.jpg'
-    ],
-    'office-stationery-printing': [
-      '/assets/products/service_executive_stationery.jpg',
-      '/assets/products/1 (5).jpg',
-      '/assets/products/1 (9).jpg'
+  "metal-name-signs": {
+    "name-badges-printing-dubai": [
+      "/assets/products/name-badges/metal-architectural-wall-plaque.svg"
+    ]
+  },
+  "wall-acrylic-signage": {
+    "signage-banners-printing": [
+      "/assets/products/1 (12).jpg"
+    ]
+  },
+  "greeting-cards-printing": {
+    "hospitality-event-printing": [
+      "/assets/products/1 (6).jpg"
+    ]
+  },
+  "restaurant-menus-printing": {
+    "hospitality-event-printing": [
+      "/assets/products/1 (14).jpg"
+    ]
+  },
+  "wedding-invitation-suites": {
+    "hospitality-event-printing": [
+      "/assets/products/1 (15).jpg"
+    ]
+  },
+  "tshirt-screen-printing": {
+    "custom-apparel-printing": [
+      "/assets/products/1 (3).jpg"
+    ]
+  },
+  "custom-cap-printing": {
+    "custom-apparel-printing": [
+      "/assets/products/1 (4).jpg"
+    ]
+  },
+  "mouse-pad-printing": {
+    "promotional-drinkware-tech": [
+      "/assets/products/1 (2).jpg"
+    ]
+  },
+  "bi-fold-brochures-printing": {
+    "brochures-printing": [
+      "/assets/products/brochure_bifold.jpg"
+    ]
+  },
+  "tri-fold-brochures-printing": {
+    "brochures-printing": [
+      "/assets/products/brochure_trifold.jpg"
+    ]
+  },
+  "gate-fold-brochures-printing": {
+    "brochures-printing": [
+      "/assets/products/brochure_gatefold.jpg"
+    ]
+  },
+  "z-fold-leaflets-printing": {
+    "brochures-printing": [
+      "/assets/products/brochure_zfold.jpg"
+    ]
+  },
+  "classic-white-ceramic-mugs": {
+    "mug-printing-dubai": [
+      "/assets/products/mug_white_ceramic.jpg"
+    ]
+  },
+  "two-tone-ceramic-mugs": {
+    "mug-printing-dubai": [
+      "/assets/products/mug_two_tone.jpg"
+    ]
+  },
+  "magic-heat-sensitive-mugs": {
+    "mug-printing-dubai": [
+      "/assets/products/mug_magic_heat.jpg"
+    ]
+  },
+  "executive-matte-black-mugs": {
+    "mug-printing-dubai": [
+      "/assets/products/mug_matte_black_gold.jpg"
+    ]
+  },
+  "stainless-steel-travel-mugs": {
+    "mug-printing-dubai": [
+      "/assets/products/mug_travel_tumbler.jpg"
+    ]
+  },
+  "vintage-enamel-camping-mugs": {
+    "mug-printing-dubai": [
+      "/assets/products/mug_vintage_enamel.jpg"
+    ]
+  },
+  "smart-led-temperature-bottles": {
+    "bottle-printing-dubai": [
+      "/assets/products/bottle_smart_led.jpg"
+    ]
+  },
+  "matte-stainless-steel-bottles": {
+    "bottle-printing-dubai": [
+      "/assets/products/bottle_matte_thermal.jpg"
+    ]
+  },
+  "aluminium-sports-water-bottles": {
+    "bottle-printing-dubai": [
+      "/assets/products/bottle_sports_aluminium.jpg"
+    ]
+  },
+  "borosilicate-glass-bamboo-bottles": {
+    "bottle-printing-dubai": [
+      "/assets/products/bottle_glass_bamboo.jpg"
+    ]
+  },
+  "ergonomic-gym-protein-shakers": {
+    "bottle-printing-dubai": [
+      "/assets/products/bottle_protein_shaker.jpg"
+    ]
+  },
+  "luxury-copper-insulated-flasks": {
+    "bottle-printing-dubai": [
+      "/assets/products/bottle_luxury_copper.jpg"
+    ]
+  },
+  "professional-magnetic-metal-name-badges": {
+    "name-badges-printing-dubai": [
+      "/assets/products/name-badges/brushed-gold-magnetic-badge.svg"
+    ]
+  },
+  "domed-epoxy-magnetic-staff-badges": {
+    "name-badges-printing-dubai": [
+      "/assets/products/name-badges/domed-epoxy-resin-badge.svg"
+    ]
+  },
+  "reusable-window-magnetic-badges": {
+    "name-badges-printing-dubai": [
+      "/assets/products/name-badges/reusable-window-insert-badge.svg"
+    ]
+  },
+  "executive-matte-black-magnetic-badges": {
+    "name-badges-printing-dubai": [
+      "/assets/products/name-badges/executive-matte-black-badge.svg"
+    ]
+  },
+  "standard-polyester-lanyards": {
+    "lanyard-printing-dubai": [
+      "/assets/products/lanyards/standard-polyester-lanyard.jpg",
+      "/assets/products/custom_branded_lanyards.jpg"
+    ]
+  },
+  "satin-dye-sublimation-lanyards": {
+    "lanyard-printing-dubai": [
+      "/assets/products/lanyards/satin-dye-sublimation-lanyard.jpg"
+    ]
+  },
+  "safety-breakaway-lanyards": {
+    "lanyard-printing-dubai": [
+      "/assets/products/lanyards/safety-breakaway-lanyard.jpg"
+    ]
+  },
+  "double-clip-conference-lanyards": {
+    "lanyard-printing-dubai": [
+      "/assets/products/lanyards/double-clip-conference-lanyard.jpg"
+    ]
+  },
+  "woven-jacquard-lanyards": {
+    "lanyard-printing-dubai": [
+      "/assets/products/lanyards/woven-jacquard-lanyard.jpg"
+    ]
+  },
+  "retractable-badge-reel-lanyards": {
+    "lanyard-printing-dubai": [
+      "/assets/products/lanyards/retractable-badge-reel-lanyard.jpg"
+    ]
+  },
+  "eco-friendly-rpet-lanyards": {
+    "lanyard-printing-dubai": [
+      "/assets/products/lanyards/eco-friendly-rpet-lanyard.jpg"
+    ]
+  },
+  "reflective-hi-vis-lanyards": {
+    "lanyard-printing-dubai": [
+      "/assets/products/lanyards/reflective-hi-vis-lanyard.jpg"
+    ]
+  },
+  "frosted-translucent-pvc-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/transparent-id-cards.jpg"
+    ]
+  },
+  "eco-bamboo-wood-nfc-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/smart-nfc-pvc-id.png"
+    ]
+  },
+  "standard-rollup-banner-85x200": {
+    "rollup-banners": [
+      "/assets/products/rollup-banners/standard-rollup-banner-85x200.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ]
+  },
+  "luxury-teardrop-rollup-banner": {
+    "rollup-banners": [
+      "/assets/products/rollup-banners/luxury-teardrop-rollup-banner-85x200.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ]
+  },
+  "wide-exhibition-rollup-banner-100x200": {
+    "rollup-banners": [
+      "/assets/products/rollup-banners/wide-exhibition-rollup-banner-100x200.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ]
+  },
+  "giant-backdrop-rollup-banner-120x200": {
+    "rollup-banners": [
+      "/assets/products/rollup-banners/giant-backdrop-rollup-banner-120x200.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ]
+  },
+  "double-sided-rollup-banner-85x200": {
+    "rollup-banners": [
+      "/assets/products/rollup-banners/double-sided-rollup-banner-85x200.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ]
+  },
+  "desktop-mini-rollup-banner": {
+    "rollup-banners": [
+      "/assets/products/rollup-banners/desktop-mini-tabletop-rollup-banner.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ]
+  },
+  "outdoor-wind-resistant-rollup-banner": {
+    "rollup-banners": [
+      "/assets/products/rollup-banners/outdoor-wind-resistant-rollup-banner.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ]
+  },
+  "executive-matte-black-rollup-banner": {
+    "rollup-banners": [
+      "/assets/products/rollup-banners/executive-matte-black-rollup-banner.svg",
+      "/assets/products/rollup_banner_showcase.jpg"
+    ]
+  },
+  "waterproof-vinyl-stickers": {
+    "stickers-labels-printing": [
+      "/assets/products/stickers.jpg"
+    ]
+  },
+  "custom-roll-labels": {
+    "stickers-labels-printing": [
+      "/assets/products/service_stickers_labels.jpg"
+    ]
+  },
+  "clear-transparent-stickers": {
+    "stickers-labels-printing": [
+      "/assets/products/stickers.jpg"
+    ]
+  },
+  "holographic-stickers": {
+    "stickers-labels-printing": [
+      "/assets/products/service_stickers_labels.jpg"
+    ]
+  },
+  "cosmetic-bottle-labels": {
+    "stickers-labels-printing": [
+      "/assets/products/stickers.jpg"
+    ]
+  },
+  "self-inking-company-stamps": {
+    "stamps-printing-dubai": [
+      "/assets/products/stamps/self-inking-company-stamp.jpg"
+    ]
+  },
+  "pocket-mobile-stamps": {
+    "stamps-printing-dubai": [
+      "/assets/products/stamps/pocket-mobile-stamp.jpg"
+    ]
+  },
+  "heavy-duty-dater-stamps": {
+    "stamps-printing-dubai": [
+      "/assets/products/stamps/heavy-duty-dater-stamp.jpg"
+    ]
+  },
+  "luxury-brass-wax-seal-stamps": {
+    "stamps-printing-dubai": [
+      "/assets/products/stamps/luxury-wax-seal-stamp.jpg"
     ]
   }
 };

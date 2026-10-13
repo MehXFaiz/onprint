@@ -62,84 +62,9 @@ export default function CategoryDetailPage() {
         }
 
         // Fetch products matching category
-        const prodsRes = await getProducts({ category: slug, pageSize: 20 })
+        const prodsRes = await getProducts({ category: slug, pageSize: 50 })
         if (isMounted) {
-          // Filter out specific categories from brochures-printing
-          const excludedCategoryIds = [
-            'cat-mug-printing-dubai',
-            'cat-bottle-printing-dubai', 
-            'cat-custom-apparel-printing',
-            'cat-promotional-drinkware-tech'
-          ]
-          
-          const excludedCategorySlugs = [
-            'mug-printing-dubai',
-            'bottle-printing-dubai',
-            'custom-apparel-printing',
-            'promotional-drinkware-tech'
-          ]
-          
-          let filteredProducts = (prodsRes.data || []).filter(product => {
-            if (slug === 'office-stationery-printing') return true
-            // Check if product has any of the excluded categories in its categories array
-            const productCategories = product.categories || []
-            const hasExcludedCategory = productCategories.some(cat => 
-              excludedCategoryIds.includes(cat._id) || 
-              excludedCategorySlugs.includes(cat.slug) ||
-              excludedCategoryIds.includes(cat.slug) ||
-              excludedCategorySlugs.includes(cat._id)
-            )
-            // Also check main category
-            const mainCategoryId = product.category?._id || ''
-            const mainCategorySlug = product.category?.slug || ''
-            const mainCategoryExcluded = excludedCategoryIds.includes(mainCategoryId) || 
-                                          excludedCategorySlugs.includes(mainCategorySlug)
-            return !hasExcludedCategory && !mainCategoryExcluded
-          })
-
-          // Dedicated filter & sort for Flyers Printing in Dubai category
-          if (slug === 'flyers-printing-in-dubai') {
-            const flyerExcludedSlugs = [
-              'business-cards-printing',
-              'signage-banners-printing',
-              'hospitality-event-printing',
-              'corporate-gift-items',
-              'office-stationery-printing'
-            ]
-            filteredProducts = filteredProducts.filter(p => {
-              const mainSlug = p.category?.slug || ''
-              return !flyerExcludedSlugs.includes(mainSlug)
-            })
-            // Sort: flyer products where category is flyers-printing-in-dubai or name contains flyer/postcard/leaflet first
-            filteredProducts.sort((a, b) => {
-              const aIsFlyer = (a.category?.slug === 'flyers-printing-in-dubai' || a.slug.includes('flyer') || a.name?.toLowerCase().includes('flyer')) ? 1 : 0
-              const bIsFlyer = (b.category?.slug === 'flyers-printing-in-dubai' || b.slug.includes('flyer') || b.name?.toLowerCase().includes('flyer')) ? 1 : 0
-              return bIsFlyer - aIsFlyer
-            })
-          }
-
-          // Dedicated filter & sort for Office Stationery & Envelopes category
-          if (slug === 'office-stationery-printing') {
-            const stationeryExcludedSlugs = [
-              'signage-banners-printing',
-              'stickers-labels-printing',
-              'custom-apparel-printing',
-              'id-card-printing-dubai',
-              'lanyard-printing-dubai',
-              'flyers-printing-in-dubai'
-            ]
-            filteredProducts = filteredProducts.filter(p => {
-              const mainSlug = p.category?.slug || ''
-              return !stationeryExcludedSlugs.includes(mainSlug)
-            })
-            filteredProducts.sort((a, b) => {
-              const aIsStationery = (a.category?.slug === 'office-stationery-printing' || a.slug.includes('stationery') || a.slug.includes('envelope') || a.slug.includes('notebook') || a.slug.includes('folder') || a.slug.includes('pad')) ? 1 : 0
-              const bIsStationery = (b.category?.slug === 'office-stationery-printing' || b.slug.includes('stationery') || b.slug.includes('envelope') || b.slug.includes('notebook') || b.slug.includes('folder') || b.slug.includes('pad')) ? 1 : 0
-              return bIsStationery - aIsStationery
-            })
-          }
-          
-          setProducts(filteredProducts)
+          setProducts(prodsRes.data || [])
         }
       } catch (err) {
         console.error('Failed to load category:', err)

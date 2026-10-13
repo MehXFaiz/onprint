@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ChevronRight, Package, Save, Image as ImageIcon, Search, Globe } from 'lucide-react'
 import Button from '../../components/Button'
 import ImageUploader from '../../components/ImageUploader'
-import { getStoredProducts, addProduct } from '../../services/products'
+import { getStoredProducts, addProduct, updateProduct } from '../../services/products'
 import { getCategories } from '../../services/categories'
 
 export default function AdminProductFormPage() {
@@ -102,15 +102,38 @@ export default function AdminProductFormPage() {
     setSubmitting(true)
     try {
       const cleanSlug = form.slug.trim() || slugify(form.name.trim())
+      const matchedCat = categories.find((c) => c.name === form.categoryName || c.slug === form.categoryName) || {
+        _id: `cat-${slugify(form.categoryName)}`,
+        id: Date.now(),
+        name: form.categoryName,
+        slug: slugify(form.categoryName),
+      }
+
+      const currentImages = form.images && form.images.length > 0
+        ? form.images
+        : form.image
+          ? [form.image]
+          : []
+      const primaryImage = form.image || currentImages[0] || ''
+      const finalImages = primaryImage
+        ? [primaryImage, ...currentImages.filter((img) => img !== primaryImage)]
+        : currentImages
+
       const payload = {
         name: form.name.trim(),
         slug: cleanSlug,
-        category: { name: form.categoryName },
+        category: {
+          _id: matchedCat._id || `cat-${matchedCat.slug || slugify(form.categoryName)}`,
+          id: matchedCat.id,
+          name: matchedCat.name || form.categoryName,
+          slug: matchedCat.slug || slugify(form.categoryName),
+        },
         price: parseFloat(form.price) || 50,
         minimumQuantity: parseInt(form.minimumQuantity, 10) || 1,
         shortDescription: form.shortDescription,
         description: form.description || form.shortDescription,
-        images: [form.image || '/assets/products/1 (1).jpg'],
+        image: primaryImage,
+        images: finalImages,
         image_alt: form.imageAlt || form.name.trim(),
         imageAlt: form.imageAlt || form.name.trim(),
         featured: form.featured,
@@ -127,7 +150,7 @@ export default function AdminProductFormPage() {
       }
 
       if (isEdit) {
-        addProduct({ ...payload, _id: id, id })
+        updateProduct(id, { ...payload, _id: id, id })
         navigate('/admin/products', { state: { toast: `Product "${form.name}" updated successfully.` } })
       } else {
         const created = addProduct(payload)

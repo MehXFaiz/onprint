@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { Plus, Search, Filter, Trash2, Edit2, Package, Sparkles, X, CheckCircle2, AlertTriangle } from 'lucide-react'
 import Button from '../../components/Button'
 import { getStoredProducts, deleteProduct } from '../../services/products'
+import { getCategories } from '../../services/categories'
+import { getProductImage } from '../../assets/productImages'
 
 export default function AdminProductsPage() {
   const navigate = useNavigate()
@@ -11,11 +13,13 @@ export default function AdminProductsPage() {
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('ALL')
+  const [categories, setCategories] = useState([])
   const [notification, setNotification] = useState(location.state?.toast || null)
   const [deletingProduct, setDeletingProduct] = useState(null)
 
   useEffect(() => {
     setProducts(getStoredProducts())
+    getCategories().then((data) => setCategories(data || [])).catch(() => {})
   }, [])
 
   useEffect(() => {
@@ -102,8 +106,11 @@ export default function AdminProductsPage() {
             className="w-full sm:w-auto rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#A82F19] focus:outline-none cursor-pointer"
           >
             <option value="ALL">All Categories</option>
-            <option value="Stationery">Office Stationery</option>
-            <option value="Roll-up">Large Format Signage</option>
+            {categories.map((c) => (
+              <option key={c._id || c.id} value={c.name}>
+                {c.name}
+              </option>
+            ))}
           </select>
         </div>
       </div>
@@ -123,8 +130,12 @@ export default function AdminProductsPage() {
               <div>
                 <div className="relative h-44 w-full overflow-hidden rounded-2xl bg-neutral-100 mb-4 border border-neutral-100">
                   <img
-                    src={img || '/assets/products/1 (1).jpg'}
+                    src={img || getProductImage(p)}
                     alt={p.name}
+                    onError={(e) => {
+                      e.currentTarget.onerror = null
+                      e.currentTarget.src = getProductImage(p)
+                    }}
                     className="h-full w-full object-cover"
                   />
                   {p.featured && (

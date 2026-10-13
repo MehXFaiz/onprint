@@ -1,33 +1,15 @@
 module.exports = {
   "categories": [
     {
-      "_id": "cat-brochures-printing",
-      "id": 1,
-      "name": "Brochures Printing",
-      "slug": "brochures-printing",
-      "description": "Premium corporate bi-fold, tri-fold, and multi-page marketing brochures printed on luxury coated art paper with precision folding and finishing.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Brochures%20Printing%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Brochures%20Printing%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
-      "status": "active",
-      "display_order": 1,
-      "active": true,
-      "seoTitle": "Brochures Printing in Dubai | Premium Brochure Printing | ONPRINT",
-      "seoDescription": "Professional brochure printing in Dubai. Custom bi-fold, tri-fold, and multi-page brochures with soft-touch matte lamination and fast turnaround.",
-      "seoKeywords": "brochure printing dubai, brochure printing services dubai, custom brochure printing dubai, corporate brochure printing uae, bi fold brochure dubai, product catalog printing dubai",
-      "seoHeading": "Commercial Brochure Printing in Dubai",
-      "canonicalUrl": "https://www.0nprint.com/categories/brochures-printing",
-      "imageAlt": "Professional commercial printed brochures in Dubai"
-    },
-    {
       "_id": "cat-business-cards-printing",
-      "id": 2,
+      "id": 1,
       "name": "Business Cards Printing",
       "slug": "business-cards-printing",
       "description": "Executive 350gsm to 600gsm cotton and silk business cards with soft-touch velvet lamination, metallic gold foil stamping, and painted edges.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Business%20Cards%20Printing%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Business%20Cards%20Printing%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
+      "image": "/uploads/categories/business-cards-printing.jpg",
+      "image_url": "/uploads/categories/business-cards-printing.jpg",
       "status": "active",
-      "display_order": 2,
+      "display_order": 1,
       "active": true,
       "seoTitle": "Business Card Printing in Dubai | Luxury Business Cards | ONPRINT",
       "seoDescription": "Make an undeniable first impression with luxury business cards in Dubai. 350gsm–600gsm cotton stocks, gold foil stamping, and spot UV varnishing.",
@@ -35,6 +17,24 @@ module.exports = {
       "seoHeading": "Luxury Executive Business Card Printing in Dubai",
       "canonicalUrl": "https://www.0nprint.com/categories/business-cards-printing",
       "imageAlt": "Luxury gold foil executive business cards in Dubai"
+    },
+    {
+      "_id": "cat-brochures-printing",
+      "id": 2,
+      "name": "Brochures Printing",
+      "slug": "brochures-printing",
+      "description": "Premium corporate bi-fold, tri-fold, and multi-page marketing brochures printed on luxury coated art paper with precision folding and finishing.",
+      "image": "/uploads/categories/brochures-printing.jpg",
+      "image_url": "/uploads/categories/brochures-printing.jpg",
+      "status": "active",
+      "display_order": 2,
+      "active": true,
+      "seoTitle": "Brochures Printing in Dubai | Premium Brochure Printing | ONPRINT",
+      "seoDescription": "Professional brochure printing in Dubai. Custom bi-fold, tri-fold, and multi-page brochures with soft-touch matte lamination and fast turnaround.",
+      "seoKeywords": "brochure printing dubai, brochure printing services dubai, custom brochure printing dubai, corporate brochure printing uae, bi fold brochure dubai",
+      "seoHeading": "Commercial Brochure Printing in Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/brochures-printing",
+      "imageAlt": "Professional commercial printed brochures in Dubai"
     },
     {
       "_id": "cat-flyers-printing-in-dubai",
@@ -60,8 +60,8 @@ module.exports = {
       "name": "ID Card Printing Dubai",
       "slug": "id-card-printing-dubai",
       "description": "Secure CR80 standard PVC employee identity cards with high-definition thermal printing, smart chips, magnetic strips, and barcodes.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20ID%20Card%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20ID%20Card%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
+      "image": "/uploads/categories/id-card-printing-dubai.jpg",
+      "image_url": "/uploads/categories/id-card-printing-dubai.jpg",
       "status": "active",
       "display_order": 4,
       "active": true,
@@ -78,8 +78,8 @@ module.exports = {
       "name": "Lanyard Printing Dubai",
       "slug": "lanyard-printing-dubai",
       "description": "Custom branded satin and woven polyester neck lanyards with screen printing, safety breakaway clips, and heavy-duty metal swivel hooks.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Lanyard%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Lanyard%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
+      "image": "/uploads/categories/lanyard-printing-dubai.jpg",
+      "image_url": "/uploads/categories/lanyard-printing-dubai.jpg",
       "status": "active",
       "display_order": 5,
       "active": true,
@@ -96,8 +96,8 @@ module.exports = {
       "name": "Letterheads Printing Dubai",
       "slug": "letterheads-printing-dubai",
       "description": "Executive 120gsm smooth uncoated white letterheads and official corporate stationery printed with crisp full-color CMYK laser compatibility.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Letterheads%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Letterheads%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
+      "image": "/uploads/categories/letterheads-printing-dubai.jpg",
+      "image_url": "/uploads/categories/letterheads-printing-dubai.jpg",
       "status": "active",
       "display_order": 6,
       "active": true,
@@ -114,8 +114,8 @@ module.exports = {
       "name": "Name Badges Printing Dubai",
       "slug": "name-badges-printing-dubai",
       "description": "Laser-cut brushed metal and acrylic employee name badges with magnetic backings, clear domed epoxy coatings, and scratch-resistant finishes.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Name%20Badges%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20ONPRINT%20Dubai%20print%20shop%20category%20hero%20banner%2C%20Name%20Badges%20Printing%20Dubai%20service%20showcase%2C%20wide%2016%3A9%20panoramic%20commercial%20photography%20composition%2C%20premium%20luxury%20stationery%20and%20samples%20arranged%20on%20a%20white%20marble%20studio%20table%2C%20warm%20soft%20window%20side%20lighting%2C%20modern%20minimalist%20interior%2C%20high-end%20printing%20industry%20aesthetic%2C%20crisp%20focus%2C%20commercial%20marketing%20banner%20for%20website%20category%20landing%2C%204K%20ultra%20detail&image_size=landscape_16_9",
+      "image": "/uploads/categories/name-badges-printing-dubai.jpg",
+      "image_url": "/uploads/categories/name-badges-printing-dubai.jpg",
       "status": "active",
       "display_order": 7,
       "active": true,
@@ -127,19 +127,199 @@ module.exports = {
       "imageAlt": "Professional magnetic metal and acrylic name badges in Dubai"
     },
     {
-      "_id": "cat-stamps-printing-dubai",
+      "_id": "cat-mug-printing-dubai",
       "id": 8,
+      "name": "Mug Printing Dubai",
+      "slug": "mug-printing-dubai",
+      "description": "Custom printed ceramic mugs, magic heat-sensitive mugs, executive matte black coffee mugs, stainless travel tumblers, and vintage enamel mugs printed in Dubai.",
+      "image": "/uploads/categories/mug-printing-dubai.jpg",
+      "image_url": "/uploads/categories/mug-printing-dubai.jpg",
+      "status": "active",
+      "display_order": 8,
+      "active": true,
+      "seoTitle": "Mug Printing Dubai | Custom Branded Ceramic & Travel Mugs | ONPRINT",
+      "seoDescription": "Professional mug printing in Dubai. Custom ceramic mugs, magic color-changing mugs, executive matte black mugs, and travel tumblers with fast UAE delivery.",
+      "seoKeywords": "mug printing dubai, custom mugs dubai, printed mugs uae, personalized coffee mugs dubai",
+      "seoHeading": "Custom Mug Printing Solutions in Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/mug-printing-dubai",
+      "imageAlt": "Custom printed corporate ceramic mugs and drinkware in Dubai"
+    },
+    {
+      "_id": "cat-bottle-printing-dubai",
+      "id": 9,
+      "name": "Water Bottle Printing Dubai",
+      "slug": "bottle-printing-dubai",
+      "description": "Custom printed & laser-engraved water bottles, smart LED temperature display flasks, double-wall stainless steel thermal bottles, and aluminium sports bottles in Dubai.",
+      "image": "/assets/products/bottle_smart_led.jpg",
+      "image_url": "/assets/products/bottle_smart_led.jpg",
+      "status": "active",
+      "display_order": 9,
+      "active": true,
+      "seoTitle": "Water Bottle Printing Dubai | Custom Branded Flasks & Sports Bottles | ONPRINT",
+      "seoDescription": "Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.",
+      "seoKeywords": "bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai",
+      "seoHeading": "Custom Water Bottle Printing & Laser Engraving Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/bottle-printing-dubai",
+      "imageAlt": "Custom printed and laser engraved water bottles in Dubai"
+    },
+    {
+      "_id": "cat-corporate-gift-items",
+      "id": 10,
+      "name": "Corporate Gifts & Merchandise",
+      "slug": "corporate-gift-items",
+      "description": "VIP corporate executive gifts, customized branded gift sets, luxury desktop accessories, and curated event giveaways for Dubai organizations.",
+      "image": "/assets/products/luxury_corporate_gifts_dubai.jpg",
+      "image_url": "/assets/products/luxury_corporate_gifts_dubai.jpg",
+      "status": "active",
+      "display_order": 10,
+      "active": true,
+      "seoTitle": "Corporate Gifts & VIP Merchandise Printing Dubai | ONPRINT",
+      "seoDescription": "Premium corporate gifts and branded merchandise in Dubai. Executive gift sets, leather items, engraved pens, and VIP presentation boxes.",
+      "seoKeywords": "corporate gifts dubai, promotional merchandise dubai, executive gift sets uae, custom branded gifts dubai",
+      "seoHeading": "Executive Corporate Gifts & VIP Merchandise Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/corporate-gift-items",
+      "imageAlt": "Luxury corporate executive gift sets in Dubai"
+    },
+    {
+      "_id": "cat-signage-banners-printing",
+      "id": 11,
+      "name": "Signage & Exhibition Banners",
+      "slug": "signage-banners-printing",
+      "description": "Roll-up pull banners, teardrop beach flags, acrylic wall signs, and rigid foam board displays engineered for Dubai trade shows and offices.",
+      "image": "/assets/products/service_exhibition_signage.jpg",
+      "image_url": "/assets/products/service_exhibition_signage.jpg",
+      "status": "active",
+      "display_order": 11,
+      "active": true,
+      "seoTitle": "Signage & Exhibition Banner Printing Dubai | ONPRINT",
+      "seoDescription": "Large format printing and exhibition signage in Dubai. High-impact roll-up banners, outdoor flags, foam boards, and acrylic wall displays.",
+      "seoKeywords": "signage printing dubai, exhibition banners dubai, roll up banner dubai, trade show displays uae",
+      "seoHeading": "High-Impact Signage & Exhibition Banners in Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/signage-banners-printing",
+      "imageAlt": "Commercial exhibition banners and trade show signage in Dubai"
+    },
+    {
+      "_id": "cat-custom-apparel-printing",
+      "id": 12,
+      "name": "Custom Apparel & Wearables",
+      "slug": "custom-apparel-printing",
+      "description": "High-density screen printed and embroidered cotton corporate t-shirts, polo uniforms, hoodies, and promotional embroidered caps.",
+      "image": "/assets/products/1 (3).jpg",
+      "image_url": "/assets/products/1 (3).jpg",
+      "status": "active",
+      "display_order": 12,
+      "active": true,
+      "seoTitle": "Custom Apparel & T-Shirt Screen Printing Dubai | ONPRINT",
+      "seoDescription": "Custom branded t-shirts, corporate polos, embroidered caps, and staff uniforms in Dubai with screen printing and DTG precision.",
+      "seoKeywords": "t shirt printing dubai, custom apparel dubai, corporate uniform printing uae, embroidered caps dubai",
+      "seoHeading": "Custom Corporate Apparel & Branded Wearables Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/custom-apparel-printing",
+      "imageAlt": "Custom screen printed corporate t-shirts and apparel in Dubai"
+    },
+    {
+      "_id": "cat-stickers-labels-printing",
+      "id": 13,
+      "name": "Stickers & Product Labels",
+      "slug": "stickers-labels-printing",
+      "description": "Waterproof die-cut vinyl stickers, foil metallic roll labels, holographic stickers, and embossed packaging seal stickers with UV durability.",
+      "image": "/assets/products/service_stickers_labels.jpg",
+      "image_url": "/assets/products/service_stickers_labels.jpg",
+      "status": "active",
+      "display_order": 13,
+      "active": true,
+      "seoTitle": "Stickers & Product Label Printing Dubai | ONPRINT",
+      "seoDescription": "Precision die-cut stickers and product roll labels in Dubai. Waterproof vinyl, metallic foil, holographic, and transparent packaging stickers.",
+      "seoKeywords": "sticker printing dubai, custom labels dubai, die cut stickers uae, packaging labels dubai",
+      "seoHeading": "Precision Die-Cut Stickers & Product Labels Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/stickers-labels-printing",
+      "imageAlt": "Custom die cut vinyl stickers and foil labels in Dubai"
+    },
+    {
+      "_id": "cat-catalogs-booklets-printing",
+      "id": 14,
+      "name": "Catalogs & Booklets Printing",
+      "slug": "catalogs-booklets-printing",
+      "description": "Multi-page corporate product catalogs, lookbooks, company profiles, and annual reports with saddle-stitch, wire-o, or PUR perfect binding.",
+      "image": "/assets/products/brochure_booklet_catalog.jpg",
+      "image_url": "/assets/products/brochure_booklet_catalog.jpg",
+      "status": "active",
+      "display_order": 14,
+      "active": true,
+      "seoTitle": "Catalogs & Corporate Booklets Printing Dubai | ONPRINT",
+      "seoDescription": "Executive multi-page booklet and catalog printing in Dubai. Saddle-stitched and perfect-bound company profiles, annual reports, and product lookbooks.",
+      "seoKeywords": "catalog printing dubai, booklet printing uae, annual report printing dubai, company profile printing",
+      "seoHeading": "Corporate Booklets, Catalogs & Annual Reports Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/catalogs-booklets-printing",
+      "imageAlt": "Multi-page executive corporate booklets and catalogs in Dubai"
+    },
+    {
+      "_id": "cat-office-stationery-printing",
+      "id": 15,
+      "name": "Office Stationery & Envelopes",
+      "slug": "office-stationery-printing",
+      "description": "Complete corporate identity suites: executive notebooks, foiled presentation folders, branded window envelopes, and desk writing pads.",
+      "image": "/uploads/categories/office-stationery-printing.jpg",
+      "image_url": "/uploads/categories/office-stationery-printing.jpg",
+      "status": "active",
+      "display_order": 15,
+      "active": true,
+      "seoTitle": "Office Stationery & Envelope Printing Dubai | ONPRINT",
+      "seoDescription": "Executive office stationery sets in Dubai. Foil-stamped presentation folders, corporate envelopes, desk pads, and luxury notebooks for corporate identity.",
+      "seoKeywords": "office stationery dubai, presentation folder printing dubai, corporate envelopes uae, desk pads printing",
+      "seoHeading": "Executive Corporate Stationery & Envelopes in Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/office-stationery-printing",
+      "imageAlt": "Executive corporate stationery and presentation folders in Dubai"
+    },
+    {
+      "_id": "cat-hospitality-event-printing",
+      "id": 16,
+      "name": "Hospitality & Event Stationery",
+      "slug": "hospitality-event-printing",
+      "description": "Waterproof restaurant menus, luxury wedding invitation suites, table talkers, event badges, and embossed greeting card stationery.",
+      "image": "/assets/products/1 (14).jpg",
+      "image_url": "/assets/products/1 (14).jpg",
+      "status": "active",
+      "display_order": 16,
+      "active": true,
+      "seoTitle": "Hospitality & Event Stationery Printing Dubai | ONPRINT",
+      "seoDescription": "Luxury hospitality and event print solutions in Dubai. Spill-resistant restaurant menus, luxury wedding invitations, and VIP event collaterals.",
+      "seoKeywords": "restaurant menu printing dubai, wedding invitation printing dubai, event stationery uae, hospitality printing dubai",
+      "seoHeading": "Hospitality, Menus & Event Stationery Solutions Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/hospitality-event-printing",
+      "imageAlt": "Luxury restaurant menus and wedding invitation suites in Dubai"
+    },
+    {
+      "_id": "cat-promotional-drinkware-tech",
+      "id": 17,
+      "name": "Promotional Drinkware & Tech",
+      "slug": "promotional-drinkware-tech",
+      "description": "Laser-engraved thermal insulated water bottles, ceramic coffee mugs, wireless power banks, USB drives, and ergonomic desk mouse mats.",
+      "image": "/assets/products/water_bottles.jpg",
+      "image_url": "/assets/products/water_bottles.jpg",
+      "status": "active",
+      "display_order": 17,
+      "active": true,
+      "seoTitle": "Promotional Drinkware & Branded Tech Dubai | ONPRINT",
+      "seoDescription": "Custom printed mugs, insulated stainless steel water bottles, branded USB flash drives, and power banks for corporate promotional campaigns in Dubai.",
+      "seoKeywords": "mug printing dubai, custom water bottles dubai, promotional tech items uae, branded power banks dubai",
+      "seoHeading": "Promotional Branded Drinkware & Tech Accessories Dubai",
+      "canonicalUrl": "https://www.0nprint.com/categories/promotional-drinkware-tech",
+      "imageAlt": "Custom branded drinkware and promotional tech accessories in Dubai"
+    },
+    {
+      "_id": "cat-stamps-printing-dubai",
+      "id": 18,
       "name": "Custom Stamps & Seals",
       "slug": "stamps-printing-dubai",
       "description": "High-precision laser engraved self-inking company rubber stamps, official corporate seals, pocket mobile stamps, heavy-duty dater stamps, and luxury brass wax seals in Dubai.",
       "image": "/uploads/categories/stamps-printing-dubai.jpg",
       "image_url": "/uploads/categories/stamps-printing-dubai.jpg",
       "status": "active",
-      "display_order": 8,
+      "display_order": 18,
       "active": true,
       "seoTitle": "Custom Rubber Stamp Making in Dubai | Self-Inking Company Stamps | ONPRINT",
       "seoDescription": "Official company stamp making in Dubai. Self-inking rubber stamps, round company seals, pocket mobile stamps, and luxury wax seal stamps with 2-hour express delivery.",
-      "seoKeywords": "rubber stamp dubai, company stamp maker dubai, self inking stamps dubai, official seal stamp uae, pocket stamp dubai, dater stamp dubai, wax seal stamp",
+      "seoKeywords": "rubber stamp dubai, company stamp maker dubai, self inking stamps dubai, official seal stamp uae",
       "seoHeading": "Custom Company Rubber Stamps & Official Seals Dubai",
       "canonicalUrl": "https://www.0nprint.com/categories/stamps-printing-dubai",
       "imageAlt": "Official custom company rubber stamps and corporate seals in Dubai"
@@ -157,58 +337,10 @@ module.exports = {
       "active": true,
       "seoTitle": "Rollup Banner Printing Dubai | Retractable Pull-Up Banner Stands | ONPRINT",
       "seoDescription": "High-quality roll-up banner printing in Dubai. Standard 85x200cm, Wide 100x200cm, and luxury teardrop retractable pull-up banners with express same-day delivery across UAE.",
-      "seoKeywords": "rollup banner dubai, roll up banner printing dubai, pull up banner stand dubai, retractable banner dubai, exhibition banner stands uae, popup banner dubai",
+      "seoKeywords": "rollup banner dubai, roll up banner printing dubai, pull up banner stand dubai, retractable banner dubai",
       "seoHeading": "Premium Roll-Up Banner Printing & Retractable Stands Dubai",
       "canonicalUrl": "https://www.0nprint.com/categories/rollup-banners",
       "imageAlt": "Professional retractable roll-up banner stand printing in Dubai"
-    },
-    {
-      "_id": "cat-stickers-labels-printing",
-      "id": 12,
-      "name": "Stickers & Product Labels",
-      "slug": "stickers-labels-printing",
-      "description": "High-precision waterproof die-cut vinyl stickers, roll labels, transparent decals, holographic stickers, and custom product packaging labels in Dubai with express 24h printing.",
-      "image": "/assets/products/service_stickers_labels.jpg",
-      "image_url": "/assets/products/service_stickers_labels.jpg",
-      "status": "active",
-      "display_order": 9,
-      "active": true,
-      "seoTitle": "Sticker Printing Dubai | Custom Die-Cut Vinyl & Roll Labels | ONPRINT",
-      "seoDescription": "Premium sticker printing in Dubai. Custom die-cut vinyl stickers, waterproof bottle labels, roll labels, holographic stickers & clear decals with same-day express turnaround.",
-      "seoKeywords": "sticker printing dubai, custom sticker printing dubai, die cut sticker printing dubai, waterproof sticker printing dubai, vinyl sticker printing dubai, label printing dubai, custom label printing dubai, roll label printing dubai, clear sticker printing dubai, holographic sticker printing dubai",
-      "seoHeading": "Custom Die-Cut Sticker & Product Label Printing in Dubai",
-      "canonicalUrl": "https://www.0nprint.com/categories/stickers-labels-printing",
-      "imageAlt": "Custom waterproof die cut vinyl stickers and packaging product labels in Dubai"
-    },
-    {
-      "_id": "cat-stickers-printing-dubai",
-      "id": 13,
-      "name": "Sticker Printing Dubai",
-      "slug": "stickers-printing-dubai",
-      "description": "Waterproof custom die-cut vinyl stickers, car decals, window stickers, and packaging labels printed in Al Quoz, Dubai with same-day express pickup and UAE delivery.",
-      "image": "/assets/products/stickers.jpg",
-      "image_url": "/assets/products/stickers.jpg",
-      "status": "active",
-      "display_order": 10,
-      "active": true,
-      "seoTitle": "Custom Sticker Printing Dubai | Waterproof Die-Cut Vinyl Stickers | ONPRINT",
-      "seoDescription": "Order custom sticker printing in Dubai. Waterproof vinyl die-cut stickers, kiss-cut sheets, clear decals & roll labels with instant online quotes.",
-      "seoKeywords": "sticker printing dubai, custom stickers dubai, vinyl sticker printing dubai, die cut stickers dubai, waterproof stickers dubai, car decal dubai",
-      "seoHeading": "Custom Vinyl Sticker & Decal Printing in Dubai",
-      "canonicalUrl": "https://www.0nprint.com/categories/stickers-printing-dubai",
-      "imageAlt": "Custom vinyl sticker printing and die-cut decals in Dubai"
-    },
-    {
-      "_id": "cat-office-stationery-printing",
-      "id": 15,
-      "name": "Office Stationery & Envelopes",
-      "slug": "office-stationery-printing",
-      "description": "Complete corporate identity suites: executive notebooks, foiled presentation folders, branded window envelopes, and desk writing pads.",
-      "image": "/uploads/categories/office-stationery-printing.jpg",
-      "image_url": "/uploads/categories/office-stationery-printing.jpg",
-      "status": "active",
-      "display_order": 15,
-      "active": true
     }
   ],
   "services": [
@@ -445,7 +577,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "Executive Presentation Folders printing Dubai"
     },
     {
       "_id": "prod-printed-envelopes",
@@ -478,7 +611,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "Corporate Printed Envelopes Suite printing Dubai"
     },
     {
       "_id": "prod-executive-notebooks",
@@ -511,7 +645,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "Executive Branded Hardcover Notebooks printing Dubai"
     },
     {
       "_id": "prod-desk-pads-printing",
@@ -544,7 +679,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "Executive Desk Pads & Weekly Planners printing Dubai"
     },
     {
       "_id": "prod-stationery-gift-sets",
@@ -577,7 +713,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "VIP Executive Stationery Gift Set printing Dubai"
     },
     {
       "_id": "prod-executive-letterheads",
@@ -610,7 +747,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "Executive Corporate Letterheads printing Dubai"
     },
     {
       "_id": "prod-corporate-ring-binders",
@@ -643,7 +781,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "Custom Corporate Ring Binders & Lever Arch Files printing Dubai"
     },
     {
       "_id": "prod-wall-desk-calendars",
@@ -676,7 +815,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "Corporate Desk & Wall Calendars printing Dubai"
     },
     {
       "_id": "prod-ncr-duplicate-books",
@@ -709,7 +849,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "Carbonless NCR Invoice & Receipt Duplicate Books printing Dubai"
     },
     {
       "_id": "prod-string-tie-envelopes",
@@ -742,7 +883,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "String & Button Tie Document Envelopes printing Dubai"
     },
     {
       "_id": "prod-sticky-notes-cubes",
@@ -775,7 +917,8 @@ module.exports = {
           "name": "Office Stationery & Envelopes",
           "slug": "office-stationery-printing"
         }
-      ]
+      ],
+      "imageAlt": "Custom Branded Sticky Notes & Desktop Memo Cubes printing Dubai"
     },
     {
       "_id": "prod-a5-promotional-flyers",
@@ -808,7 +951,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "Standard A5 Promotional Flyers printing Dubai"
     },
     {
       "_id": "prod-a4-business-flyers",
@@ -841,7 +985,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "Standard A4 Business Advertising Flyers printing Dubai"
     },
     {
       "_id": "prod-dl-event-flyers",
@@ -874,7 +1019,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "DL Slim Event & Menu Flyers printing Dubai"
     },
     {
       "_id": "prod-luxury-gold-foil-flyers",
@@ -907,7 +1053,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "Luxury Gold Foil & Spot UV Flyers printing Dubai"
     },
     {
       "_id": "prod-door-hangers-printing",
@@ -940,7 +1087,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "Door Hangers Marketing Flyers printing Dubai"
     },
     {
       "_id": "prod-postcards-printing",
@@ -973,7 +1121,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "Postcards & Direct Mail Flyers printing Dubai"
     },
     {
       "_id": "prod-folded-leaflets-flyers",
@@ -1006,7 +1155,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "Folded Leaflets & Bi-Fold Flyers printing Dubai"
     },
     {
       "_id": "prod-gloss-matte-flyers",
@@ -1039,7 +1189,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "High-Impact Gloss & Matte Laminated Flyers printing Dubai"
     },
     {
       "_id": "prod-a6-pocket-flyers",
@@ -1072,7 +1223,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "A6 Pocket Marketing Flyers printing Dubai"
     },
     {
       "_id": "prod-kraft-eco-flyers",
@@ -1105,7 +1257,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "Kraft & Eco-Friendly Recycled Flyers printing Dubai"
     },
     {
       "_id": "prod-die-cut-flyers",
@@ -1138,7 +1291,8 @@ module.exports = {
           "name": "Flyers Printing In Dubai",
           "slug": "flyers-printing-in-dubai"
         }
-      ]
+      ],
+      "imageAlt": "Custom Die-Cut Shaped Flyers printing Dubai"
     },
     {
       "_id": "prod-executive-120gsm-letterheads",
@@ -1205,7 +1359,18 @@ module.exports = {
             "value": "standard"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-letterheads-printing-dubai",
+          "id": 6,
+          "name": "Letterheads Printing Dubai",
+          "slug": "letterheads-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/letterhead_executive_120gsm.jpg"
+      ]
     },
     {
       "_id": "prod-luxury-gold-foil-letterheads",
@@ -1276,7 +1441,18 @@ module.exports = {
             "value": "express-48h"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-letterheads-printing-dubai",
+          "id": 6,
+          "name": "Letterheads Printing Dubai",
+          "slug": "letterheads-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/letterhead_gold_foil.jpg"
+      ]
     },
     {
       "_id": "prod-matching-corporate-envelopes",
@@ -1343,7 +1519,18 @@ module.exports = {
             "value": "standard"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-letterheads-printing-dubai",
+          "id": 6,
+          "name": "Letterheads Printing Dubai",
+          "slug": "letterheads-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/letterhead_envelopes_suite.jpg"
+      ]
     },
     {
       "_id": "prod-corporate-presentation-folders",
@@ -1410,7 +1597,18 @@ module.exports = {
             "value": "standard"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-letterheads-printing-dubai",
+          "id": 6,
+          "name": "Letterheads Printing Dubai",
+          "slug": "letterheads-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/letterhead_presentation_folders.jpg"
+      ]
     },
     {
       "_id": "prod-secure-smart-nfc-pvc-id-cards",
@@ -1480,12 +1678,6 @@ module.exports = {
           "id": 4,
           "name": "ID Card Printing Dubai",
           "slug": "id-card-printing-dubai"
-        },
-        {
-          "_id": "cat-name-badges-printing-dubai",
-          "id": 7,
-          "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai"
         }
       ],
       "images": [
@@ -1930,12 +2122,6 @@ module.exports = {
           "id": 4,
           "name": "ID Card Printing Dubai",
           "slug": "id-card-printing-dubai"
-        },
-        {
-          "_id": "cat-name-badges-printing-dubai",
-          "id": 7,
-          "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai"
         }
       ],
       "images": [
@@ -2010,12 +2196,6 @@ module.exports = {
           "id": 4,
           "name": "ID Card Printing Dubai",
           "slug": "id-card-printing-dubai"
-        },
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing"
         }
       ],
       "images": [
@@ -2035,8 +2215,8 @@ module.exports = {
       },
       "shortDescription": "Premium digital and offset print runs for flyers, brochures, stationery, and marketing collateral in Dubai.",
       "description": "High-precision digital and offset printing for business cards, brochures, flyers, stationery, and branded marketing documents with Pantone color matching and quick UAE turnaround.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Digital%20%26%20Offset%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Digital%20%26%20Offset%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/service_digital_offset.jpg",
+      "image_url": "/assets/products/service_digital_offset.jpg",
       "imageAlt": "Premium digital and offset printed marketing collateral in Dubai",
       "seoTitle": "Digital & Offset Printing in Dubai | Commercial Print Services | ONPRINT",
       "seoDescription": "High-precision digital and offset printing Dubai. Flyers, brochures, stationery, packaging inserts and branded collateral with express delivery across UAE.",
@@ -2060,38 +2240,11 @@ module.exports = {
           "_id": "cat-brochures-printing",
           "id": 2,
           "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/service_digital_offset.jpg",
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/carefree_production.jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
+          "slug": "brochures-printing"
         }
       ],
       "images": [
-        "/assets/products/brochures.jpg",
+        "/assets/products/service_digital_offset.jpg",
         "/assets/products/brochure_bifold.jpg"
       ]
     },
@@ -2102,14 +2255,14 @@ module.exports = {
       "slug": "custom-branded-tote-bags",
       "category": {
         "_id": "cat-corporate-gift-items",
-        "id": 9,
+        "id": 10,
         "name": "Corporate Gifts & Merchandise",
         "slug": "corporate-gift-items"
       },
       "shortDescription": "Eco-friendly custom tote bags for events, retail promotions, and corporate gifting with premium print finishes.",
       "description": "Custom branded tote bags printed with high-resolution full-color artwork using durable inks on cotton or non-woven fabric for retail campaigns and corporate give-aways.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Branded%20Tote%20Bags%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Branded%20Tote%20Bags%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/tote_bags.jpg",
+      "image_url": "/assets/products/tote_bags.jpg",
       "imageAlt": "Custom branded tote bags printed in Dubai",
       "seoTitle": "Custom Branded Tote Bags Dubai | Promotional Shopping Bags | ONPRINT",
       "seoDescription": "Premium custom tote bags in Dubai for events, gifting, and retail promotion with eco-friendly materials and full-color printing.",
@@ -2131,59 +2284,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/tote_bags.jpg",
-            "/assets/products/1 (3).jpg",
-            "/assets/products/carefree_shopping.jpg"
-          ]
-        },
-        {
-          "_id": "cat-custom-apparel-printing",
-          "id": 11,
-          "name": "Custom Apparel & Wearables",
-          "slug": "custom-apparel-printing",
-          "images": [
-            "/assets/products/1 (3).jpg",
-            "/assets/products/1 (4).jpg",
-            "/assets/products/tote_bags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
           "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
-          "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/mugs.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
+          "name": "Corporate Gifts & Merchandise",
+          "slug": "corporate-gift-items"
         }
+      ],
+      "images": [
+        "/assets/products/tote_bags.jpg"
       ]
     },
     {
@@ -2193,14 +2300,14 @@ module.exports = {
       "slug": "personalized-water-bottles",
       "category": {
         "_id": "cat-promotional-drinkware-tech",
-        "id": 16,
+        "id": 17,
         "name": "Promotional Drinkware & Tech",
         "slug": "promotional-drinkware-tech"
       },
       "shortDescription": "Custom insulated and stainless steel water bottles branded for corporate gifting and events.",
       "description": "Personalized stainless steel and insulated water bottles for corporate giveaways, staff appreciation, and VIP gifting with laser engraving or high-quality logo printing.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Personalized%20Water%20Bottles%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Personalized%20Water%20Bottles%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/bottle_smart_led.jpg",
+      "image_url": "/assets/products/bottle_smart_led.jpg",
       "imageAlt": "Personalized branded water bottles in Dubai",
       "seoTitle": "Personalized Water Bottles Dubai | Corporate Gift Bottles | ONPRINT",
       "seoDescription": "Custom branded water bottles in Dubai for corporate gifting, trade shows, and employee rewards with engraving or print finishes.",
@@ -2222,48 +2329,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
+          "id": 17,
           "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/mugs.jpg",
-            "/assets/products/luxury_corporate_gifts_dubai.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-custom-apparel-printing",
-          "id": 11,
-          "name": "Custom Apparel & Wearables",
-          "slug": "custom-apparel-printing",
-          "images": [
-            "/assets/products/1 (3).jpg",
-            "/assets/products/1 (4).jpg",
-            "/assets/products/tote_bags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
+          "slug": "promotional-drinkware-tech"
         }
+      ],
+      "images": [
+        "/assets/products/bottle_smart_led.jpg"
       ]
     },
     {
@@ -2273,14 +2345,14 @@ module.exports = {
       "slug": "custom-printed-mugs",
       "category": {
         "_id": "cat-promotional-drinkware-tech",
-        "id": 16,
+        "id": 17,
         "name": "Promotional Drinkware & Tech",
         "slug": "promotional-drinkware-tech"
       },
       "shortDescription": "Premium ceramic mugs designed for internal gifting, branding, and hospitality promotions.",
       "description": "Custom printed ceramic mugs in different finishes and sizes for marketing campaigns, hospitality gifting, and employee appreciation programs.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Printed%20Mugs%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Printed%20Mugs%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/mug_white_ceramic.jpg",
+      "image_url": "/assets/products/mug_white_ceramic.jpg",
       "imageAlt": "Custom printed ceramic mugs in Dubai",
       "seoTitle": "Custom Printed Mugs Dubai | Corporate Gift Mugs | ONPRINT",
       "seoDescription": "Personalized ceramic mugs in Dubai for marketing campaigns, company gifting, and hospitality promotions.",
@@ -2302,48 +2374,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
+          "id": 17,
           "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/mugs.jpg",
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-custom-apparel-printing",
-          "id": 11,
-          "name": "Custom Apparel & Wearables",
-          "slug": "custom-apparel-printing",
-          "images": [
-            "/assets/products/1 (3).jpg",
-            "/assets/products/1 (4).jpg",
-            "/assets/products/tote_bags.jpg"
-          ]
+          "slug": "promotional-drinkware-tech"
         }
+      ],
+      "images": [
+        "/assets/products/mug_white_ceramic.jpg"
       ]
     },
     {
@@ -2359,8 +2396,8 @@ module.exports = {
       },
       "shortDescription": "Clean 300gsm–350gsm silk/matte business cards for everyday networking, sales teams, and startups.",
       "description": "Affordable, high-definition digital printing on sturdy 300–350 GSM European art card with smooth protective matte or gloss lamination. The most popular and budget-friendly choice for Dubai businesses.",
-      "image": "/assets/products/basic_business_cards.jpg",
-      "image_url": "/assets/products/basic_business_cards.jpg",
+      "image": "/assets/products/business-cards/bc_standard_silk.jpg",
+      "image_url": "/assets/products/business-cards/bc_standard_silk.jpg",
       "imageAlt": "Standard clean 350gsm business cards printing Dubai",
       "seoTitle": "Standard Business Cards Dubai | 300gsm Card Printing | ONPRINT",
       "seoDescription": "Order clean 300gsm standard business cards in Dubai with crisp colour printing and practical matte or silk finishes for everyday networking.",
@@ -2385,45 +2422,7 @@ module.exports = {
           "_id": "cat-business-cards-printing",
           "id": 1,
           "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
+          "slug": "business-cards-printing"
         }
       ],
       "images": [
@@ -2469,45 +2468,7 @@ module.exports = {
           "_id": "cat-business-cards-printing",
           "id": 1,
           "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-name-badges-printing-dubai",
-          "id": 7,
-          "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai",
-          "images": [
-            "/assets/products/name_badges.jpg",
-            "/assets/products/name_plates.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
+          "slug": "business-cards-printing"
         }
       ],
       "images": [
@@ -2528,8 +2489,8 @@ module.exports = {
       },
       "shortDescription": "Silky 350–400gsm artboard with velvet peach-skin lamination and anti-fingerprint finish.",
       "description": "Experience the distinctive suede-like peach-skin feel of thermal velvet soft-touch lamination on 400 GSM artboard. Zero light reflection, deep color density, and an immediate tactile impression.",
-      "image": "/assets/products/card-soft-touch.jpg",
-      "image_url": "/assets/products/card-soft-touch.jpg",
+      "image": "/assets/products/business-cards/bc_matte_softtouch.jpg",
+      "image_url": "/assets/products/business-cards/bc_matte_softtouch.jpg",
       "imageAlt": "Premium soft-touch velvet business cards Dubai",
       "seoTitle": "Premium Soft-Touch Business Cards Dubai | ONPRINT",
       "seoDescription": "Premium 350gsm soft-touch business cards in Dubai with optional spot UV detailing and refined finishing for professional brands.",
@@ -2554,45 +2515,7 @@ module.exports = {
           "_id": "cat-business-cards-printing",
           "id": 1,
           "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
+          "slug": "business-cards-printing"
         }
       ],
       "images": [
@@ -2639,45 +2562,7 @@ module.exports = {
           "_id": "cat-business-cards-printing",
           "id": 1,
           "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-name-badges-printing-dubai",
-          "id": 7,
-          "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai",
-          "images": [
-            "/assets/products/name_badges.jpg",
-            "/assets/products/name_plates.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
+          "slug": "business-cards-printing"
         }
       ],
       "images": [
@@ -2723,45 +2608,7 @@ module.exports = {
           "_id": "cat-business-cards-printing",
           "id": 1,
           "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
+          "slug": "business-cards-printing"
         }
       ],
       "images": [
@@ -2808,45 +2655,7 @@ module.exports = {
           "_id": "cat-business-cards-printing",
           "id": 1,
           "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
+          "slug": "business-cards-printing"
         }
       ],
       "images": [
@@ -2867,8 +2676,8 @@ module.exports = {
       },
       "shortDescription": "Waterproof, tearproof transparent clear, frosted matte, and solid white PVC cards.",
       "description": "Durable waterproof polymer cards in crystal clear transparent, frosted translucent, or opaque solid PVC. Resistant to water, oils, and creases with optional metallic foil accents.",
-      "image": "/assets/products/id-cards/transparent-id-cards.jpg",
-      "image_url": "/assets/products/id-cards/transparent-id-cards.jpg",
+      "image": "/assets/products/business-cards/bc_triplex.jpg",
+      "image_url": "/assets/products/business-cards/bc_triplex.jpg",
       "imageAlt": "Waterproof clear and frosted PVC business cards Dubai",
       "seoTitle": "Plastic PVC Business Cards Dubai | Clear Frosted Waterproof Cards | ONPRINT",
       "seoDescription": "Waterproof plastic PVC business cards in Dubai. Clear transparent, frosted matte or solid white with optional signature panels and holograms.",
@@ -2892,60 +2701,11 @@ module.exports = {
           "_id": "cat-business-cards-printing",
           "id": 1,
           "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai",
-          "images": [
-            "/assets/products/id_cards.jpg",
-            "/assets/products/custom_branded_lanyards.jpg",
-            "/assets/products/1 (4).jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-name-badges-printing-dubai",
-          "id": 7,
-          "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai",
-          "images": [
-            "/assets/products/name_badges.jpg",
-            "/assets/products/name_plates.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
+          "slug": "business-cards-printing"
         }
       ],
       "images": [
-        "/assets/products/id-cards/transparent-id-cards.jpg",
+        "/assets/products/business-cards/bc_triplex.jpg",
         "/assets/products/id-cards/standard-pvc-id.jpg"
       ]
     },
@@ -2987,60 +2747,11 @@ module.exports = {
           "_id": "cat-name-badges-printing-dubai",
           "id": 7,
           "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai",
-          "images": [
-            "/assets/products/name_plates.jpg",
-            "/assets/products/name_badges.jpg",
-            "/assets/products/service_exhibition_signage.jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai",
-          "images": [
-            "/assets/products/id_cards.jpg",
-            "/assets/products/custom_branded_lanyards.jpg",
-            "/assets/products/1 (4).jpg"
-          ]
+          "slug": "name-badges-printing-dubai"
         }
       ],
       "images": [
-        "/assets/products/acrylic_desk_nameplate.jpg"
+        "/assets/products/name-badges/acrylic-desk-nameplate.svg"
       ]
     },
     {
@@ -3050,14 +2761,14 @@ module.exports = {
       "slug": "beach-flags",
       "category": {
         "_id": "cat-signage-banners-printing",
-        "id": 10,
+        "id": 11,
         "name": "Signage & Exhibition Banners",
         "slug": "signage-banners-printing"
       },
       "shortDescription": "Outdoor beach and feather flags for storefronts, events, and promotions in Dubai.",
       "description": "Weather-resistant promotional beach flags and feather flags for outdoor visibility across Dubai retail zones, malls, and events.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Beach%20Flags%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Beach%20Flags%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/flags.jpg",
+      "image_url": "/assets/products/flags.jpg",
       "imageAlt": "Outdoor beach flags for promotional branding in Dubai",
       "seoTitle": "Beach Flags Dubai | Feather Flag Printing | ONPRINT",
       "seoDescription": "Custom beach flags in Dubai for outdoor promotions with weatherproof materials and vibrant full-color graphics.",
@@ -3079,59 +2790,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/flags.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/service_exhibition_signage.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-custom-apparel-printing",
           "id": 11,
-          "name": "Custom Apparel & Wearables",
-          "slug": "custom-apparel-printing",
-          "images": [
-            "/assets/products/1 (3).jpg",
-            "/assets/products/1 (4).jpg",
-            "/assets/products/tote_bags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
+          "name": "Signage & Exhibition Banners",
+          "slug": "signage-banners-printing"
         }
+      ],
+      "images": [
+        "/assets/products/flags.jpg"
       ]
     },
     {
@@ -3141,14 +2806,14 @@ module.exports = {
       "slug": "die-cut-stickers",
       "category": {
         "_id": "cat-stickers-labels-printing",
-        "id": 12,
+        "id": 13,
         "name": "Stickers & Product Labels",
         "slug": "stickers-labels-printing"
       },
       "shortDescription": "Waterproof die-cut vinyl stickers for packaging, product labeling, and branding.",
       "description": "Custom die-cut stickers and labels in vinyl, matte, and gloss finishes designed for packaging, promotions, and retail branding.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Die-Cut%20Stickers%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Die-Cut%20Stickers%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/stickers.jpg",
+      "image_url": "/assets/products/stickers.jpg",
       "imageAlt": "Die-cut vinyl stickers in Dubai",
       "seoTitle": "Die-Cut Stickers Dubai | Vinyl Labels & Packaging Stickers | ONPRINT",
       "seoDescription": "Custom die-cut vinyl stickers in Dubai for product labels, packaging, and promotional branding with waterproof high-adhesion finish.",
@@ -3170,48 +2835,19 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-stickers-labels-printing",
-          "id": 12,
+          "id": 13,
           "name": "Stickers & Product Labels",
-          "slug": "stickers-labels-printing",
-          "images": [
-            "/assets/products/stickers.jpg",
-            "/assets/products/service_stickers_labels.jpg",
-            "/assets/products/1 (6).jpg"
-          ]
+          "slug": "stickers-labels-printing"
         },
         {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-custom-apparel-printing",
-          "id": 11,
-          "name": "Custom Apparel & Wearables",
-          "slug": "custom-apparel-printing",
-          "images": [
-            "/assets/products/1 (3).jpg",
-            "/assets/products/1 (4).jpg",
-            "/assets/products/tote_bags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
-          "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/mugs.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Sticker Printing Dubai",
+          "slug": "stickers-printing-dubai"
         }
+      ],
+      "images": [
+        "/assets/products/stickers.jpg"
       ]
     },
     {
@@ -3221,14 +2857,14 @@ module.exports = {
       "slug": "engraved-keychains",
       "category": {
         "_id": "cat-corporate-gift-items",
-        "id": 9,
+        "id": 10,
         "name": "Corporate Gifts & Merchandise",
         "slug": "corporate-gift-items"
       },
       "shortDescription": "Premium engraved wooden and metal keychains for corporate gifting and retail merchandise.",
       "description": "Engraved keychains and branded merchandise in wood, metal, and acrylic finishes for client gifts and event souvenirs.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Engraved%20Keychains%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Engraved%20Keychains%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/wooden_keychain.jpg",
+      "image_url": "/assets/products/wooden_keychain.jpg",
       "imageAlt": "Engraved corporate keychains in Dubai",
       "seoTitle": "Engraved Keychains Dubai | Corporate Gift Keyrings | ONPRINT",
       "seoDescription": "Custom engraved keychains in Dubai for corporate gifting, client souvenirs, and promotional merchandise with premium finishes.",
@@ -3250,48 +2886,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-corporate-gift-items",
-          "id": 9,
+          "id": 10,
           "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/wooden_keychain.jpg",
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg"
-          ]
-        },
-        {
-          "_id": "cat-name-badges-printing-dubai",
-          "id": 7,
-          "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai",
-          "images": [
-            "/assets/products/name_badges.jpg",
-            "/assets/products/name_plates.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
-          "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/mugs.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
+          "slug": "corporate-gift-items"
         }
+      ],
+      "images": [
+        "/assets/products/wooden_keychain.jpg"
       ]
     },
     {
@@ -3301,7 +2902,7 @@ module.exports = {
       "slug": "catalogs-booklets-printing",
       "category": {
         "_id": "cat-catalogs-booklets-printing",
-        "id": 13,
+        "id": 14,
         "name": "Catalogs & Booklets Printing",
         "slug": "catalogs-booklets-printing"
       },
@@ -3330,47 +2931,9 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
+          "id": 14,
           "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
+          "slug": "catalogs-booklets-printing"
         }
       ],
       "images": [
@@ -3384,14 +2947,14 @@ module.exports = {
       "slug": "annual-reports-printing",
       "category": {
         "_id": "cat-catalogs-booklets-printing",
-        "id": 13,
+        "id": 14,
         "name": "Catalogs & Booklets Printing",
         "slug": "catalogs-booklets-printing"
       },
       "shortDescription": "Hardcover and softcover annual reports with premium stock, foil details, and precision Smyth sewn binding.",
       "description": "Executive annual reports printed on luxury coated stocks with hardcover case binding, Smyth sewing, foil stamped covers, and embossed detailing. Designed for boardrooms, AGMs, and investor presentations across UAE.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Annual%20Reports%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Annual%20Reports%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/brochure_booklet_catalog.jpg",
+      "image_url": "/assets/products/brochure_booklet_catalog.jpg",
       "imageAlt": "Premium printed annual reports in Dubai",
       "seoTitle": "Annual Reports Printing Dubai | Hardcover Corporate Reports | ONPRINT",
       "seoDescription": "Executive hardcover annual report printing in Dubai. Smyth sewn binding, foil stamping, embossed covers and luxury coated paper stocks.",
@@ -3413,48 +2976,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
+          "id": 14,
           "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/service_digital_offset.jpg",
-            "/assets/products/service_executive_stationery.jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
+          "slug": "catalogs-booklets-printing"
         }
+      ],
+      "images": [
+        "/assets/products/brochure_booklet_catalog.jpg"
       ]
     },
     {
@@ -3464,14 +2992,14 @@ module.exports = {
       "slug": "large-format-posters",
       "category": {
         "_id": "cat-signage-banners-printing",
-        "id": 10,
+        "id": 11,
         "name": "Signage & Exhibition Banners",
         "slug": "signage-banners-printing"
       },
       "shortDescription": "A0, A1, A2, and custom-size posters on photo gloss, satin, or matte-coated indoor/outdoor media.",
       "description": "High-resolution large format posters from A0 to A2 and custom sizes. Printed on photo gloss, satin, or weather-resistant matte vinyl for retail campaigns, exhibitions, and outdoor promotional events across UAE.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Large%20Format%20Posters%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Large%20Format%20Posters%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/service_exhibition_signage.jpg",
+      "image_url": "/assets/products/service_exhibition_signage.jpg",
       "imageAlt": "Large format posters printing in Dubai",
       "seoTitle": "Large Format Posters Printing Dubai | A0 A1 A2 Photo Posters | ONPRINT",
       "seoDescription": "High-resolution large format poster printing in Dubai. A0, A1, A2 and custom sizes on photo gloss, satin or weather-resistant vinyl.",
@@ -3493,48 +3021,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-signage-banners-printing",
-          "id": 10,
+          "id": 11,
           "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/1 (9).jpg",
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
+          "slug": "signage-banners-printing"
         }
+      ],
+      "images": [
+        "/assets/products/service_exhibition_signage.jpg"
       ]
     },
     {
@@ -3544,14 +3037,14 @@ module.exports = {
       "slug": "custom-usb-flash-drives",
       "category": {
         "_id": "cat-promotional-drinkware-tech",
-        "id": 16,
+        "id": 17,
         "name": "Promotional Drinkware & Tech",
         "slug": "promotional-drinkware-tech"
       },
       "shortDescription": "Metal, wooden, swivel, and key-shape USB flash drives with laser engraved or full-color printed branding.",
       "description": "Premium promotional USB flash drives in metal, bamboo wood, swivel, credit card, and custom shapes. Available in 8GB to 128GB with laser engraving or full-color UV printing of your logo for corporate gifting and conferences in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Branded%20USB%20Flash%20Drives%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Branded%20USB%20Flash%20Drives%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/1 (2).jpg",
+      "image_url": "/assets/products/1 (2).jpg",
       "imageAlt": "Custom branded USB flash drives in Dubai",
       "seoTitle": "Custom USB Flash Drives Dubai | Branded Promotional USB Sticks | ONPRINT",
       "seoDescription": "Branded USB flash drives in Dubai with laser engraving or UV printing. Metal, wooden, swivel and custom shapes from 8GB to 128GB.",
@@ -3573,37 +3066,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
+          "id": 17,
           "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/1 (2).jpg",
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
+          "slug": "promotional-drinkware-tech"
         }
+      ],
+      "images": [
+        "/assets/products/1 (2).jpg"
       ]
     },
     {
@@ -3613,14 +3082,14 @@ module.exports = {
       "slug": "corporate-gift-sets",
       "category": {
         "_id": "cat-corporate-gift-items",
-        "id": 9,
+        "id": 10,
         "name": "Corporate Gifts & Merchandise",
         "slug": "corporate-gift-items"
       },
       "shortDescription": "Curated premium gift boxes combining notebooks, pens, USB drives, keychains, and drinkware with luxury packaging.",
       "description": "Bespoke curated corporate gift sets featuring combinations of premium notebooks, metal pens, engraved keychains, USB drives, leather wallets, and branded drinkware. Presented in luxury magnetic boxes with tissue, ribbons, and custom card inserts for VIP gifting in UAE.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Premium%20Corporate%20Gift%20Sets%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Premium%20Corporate%20Gift%20Sets%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/luxury_corporate_gifts_dubai.jpg",
+      "image_url": "/assets/products/luxury_corporate_gifts_dubai.jpg",
       "imageAlt": "Premium corporate gift sets in Dubai",
       "seoTitle": "Premium Corporate Gift Sets Dubai | Luxury Branded Gift Boxes | ONPRINT",
       "seoDescription": "Curated corporate gift sets in Dubai with premium notebooks, pens, USB drives and drinkware. Packaged in luxury magnetic boxes.",
@@ -3642,48 +3111,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-corporate-gift-items",
-          "id": 9,
+          "id": 10,
           "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/1 (5).jpg",
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_luxury_packaging.jpg"
-          ]
-        },
-        {
-          "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
-          "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/mugs.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
+          "slug": "corporate-gift-items"
         }
+      ],
+      "images": [
+        "/assets/products/luxury_corporate_gifts_dubai.jpg"
       ]
     },
     {
@@ -3693,14 +3127,14 @@ module.exports = {
       "slug": "power-banks-printing",
       "category": {
         "_id": "cat-promotional-drinkware-tech",
-        "id": 16,
+        "id": 17,
         "name": "Promotional Drinkware & Tech",
         "slug": "promotional-drinkware-tech"
       },
       "shortDescription": "Slim 5000mAh to rugged 20000mAh power banks with wireless charging and custom silk-screen or UV branding.",
       "description": "Promotional power banks from slim 5000mAh pocket models to rugged 20000mAh fast-charge power stations with wireless charging pads, LED battery indicators, and dual USB ports. Custom logo printed via silk screen, UV, or laser engraving for events in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Branded%20Power%20Banks%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Branded%20Power%20Banks%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/1 (2).jpg",
+      "image_url": "/assets/products/1 (2).jpg",
       "imageAlt": "Custom branded power banks in Dubai",
       "seoTitle": "Custom Branded Power Banks Dubai | Promotional Portable Chargers | ONPRINT",
       "seoDescription": "Logo branded power banks in Dubai from 5000mAh to 20000mAh. Wireless, dual USB, fast charge with silk screen or laser engraving.",
@@ -3722,37 +3156,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
+          "id": 17,
           "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
+          "slug": "promotional-drinkware-tech"
         }
+      ],
+      "images": [
+        "/assets/products/1 (2).jpg"
       ]
     },
     {
@@ -3762,14 +3172,14 @@ module.exports = {
       "slug": "foam-board-signage",
       "category": {
         "_id": "cat-signage-banners-printing",
-        "id": 10,
+        "id": 11,
         "name": "Signage & Exhibition Banners",
         "slug": "signage-banners-printing"
       },
       "shortDescription": "Lightweight 5mm and 10mm foam board (Kappa board) posters, wayfinding signs, and event display boards.",
       "description": "Lightweight foam board (Kappa board) prints in 5mm and 10mm thickness. High-quality photo printing with matte or gloss lamination for promotional posters, indoor wayfinding, retail POP displays, trade show booths, and conference event signage in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Foam%20Board%20Signage%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Foam%20Board%20Signage%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/1 (9).jpg",
+      "image_url": "/assets/products/1 (9).jpg",
       "imageAlt": "Foam board signage printing in Dubai",
       "seoTitle": "Foam Board Signage Printing Dubai | Kappa Board Display Posters | ONPRINT",
       "seoDescription": "Foam board (Kappa board) signage printing in Dubai. 5mm and 10mm boards with photo print and lamination for displays and events.",
@@ -3791,48 +3201,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-signage-banners-printing",
-          "id": 10,
+          "id": 11,
           "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/1 (9).jpg",
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg"
-          ]
-        },
-        {
-          "_id": "cat-name-badges-printing-dubai",
-          "id": 7,
-          "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai",
-          "images": [
-            "/assets/products/name_badges.jpg",
-            "/assets/products/name_plates.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
+          "slug": "signage-banners-printing"
         }
+      ],
+      "images": [
+        "/assets/products/1 (9).jpg"
       ]
     },
     {
@@ -3873,46 +3248,11 @@ module.exports = {
           "_id": "cat-name-badges-printing-dubai",
           "id": 7,
           "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai",
-          "images": [
-            "/assets/products/name_plates.jpg",
-            "/assets/products/name_badges.jpg",
-            "/assets/products/service_exhibition_signage.jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
+          "slug": "name-badges-printing-dubai"
         }
+      ],
+      "images": [
+        "/assets/products/name-badges/metal-architectural-wall-plaque.svg"
       ]
     },
     {
@@ -3922,14 +3262,14 @@ module.exports = {
       "slug": "wall-acrylic-signage",
       "category": {
         "_id": "cat-signage-banners-printing",
-        "id": 10,
+        "id": 11,
         "name": "Signage & Exhibition Banners",
         "slug": "signage-banners-printing"
       },
       "shortDescription": "Laser-cut frosted and clear acrylic office wall signs, logo signages, and dimensional lettering.",
       "description": "Modern laser-cut acrylic wall signs in clear, frosted, and colored options with backlit LED capability, stand-off fixings, and dimensional 3D lettering. Perfect for reception areas, boardroom branding, and office wayfinding systems in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Frosted%20%26%20Clear%20Acrylic%20Wall%20Signs%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/1 (12).jpg",
+      "image_url": "/assets/products/1 (12).jpg",
       "imageAlt": "Acrylic wall signs and office reception signage in Dubai",
       "seoTitle": "Frosted & Clear Acrylic Wall Signs Dubai | Office Reception Signage | ONPRINT",
       "seoDescription": "Modern acrylic wall signs in Dubai. Clear, frosted and colored acrylic with stand-offs, 3D lettering and optional backlit LED for offices.",
@@ -3951,48 +3291,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-signage-banners-printing",
-          "id": 10,
+          "id": 11,
           "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/1 (12).jpg",
-            "/assets/products/name_plates.jpg",
-            "/assets/products/service_exhibition_signage.jpg"
-          ]
-        },
-        {
-          "_id": "cat-name-badges-printing-dubai",
-          "id": 7,
-          "name": "Name Badges Printing Dubai",
-          "slug": "name-badges-printing-dubai",
-          "images": [
-            "/assets/products/name_badges.jpg",
-            "/assets/products/name_plates.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
+          "slug": "signage-banners-printing"
         }
+      ],
+      "images": [
+        "/assets/products/1 (12).jpg"
       ]
     },
     {
@@ -4002,14 +3307,14 @@ module.exports = {
       "slug": "greeting-cards-printing",
       "category": {
         "_id": "cat-hospitality-event-printing",
-        "id": 15,
+        "id": 16,
         "name": "Hospitality & Event Stationery",
         "slug": "hospitality-event-printing"
       },
       "shortDescription": "Foil-stamped greeting cards, Eid/Diwali corporate cards, and premium wedding invitation suites.",
       "description": "Premium greeting and invitation cards including corporate Eid, Diwali, and New Year cards, wedding invitation suites with RSVP inserts, and foiled event programs. Printed on luxury textured cardstock with hot foil, embossing, and laser-cut envelopes in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Greeting%20Cards%20%26%20Invitation%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Greeting%20Cards%20%26%20Invitation%20Cards%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/1 (6).jpg",
+      "image_url": "/assets/products/1 (6).jpg",
       "imageAlt": "Greeting cards and invitations printing in Dubai",
       "seoTitle": "Greeting Cards & Invitation Printing Dubai | Wedding & Corporate Cards | ONPRINT",
       "seoDescription": "Premium greeting and invitation card printing in Dubai. Corporate Eid Diwali cards, wedding invitation suites with foil and embossing.",
@@ -4031,48 +3336,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-hospitality-event-printing",
-          "id": 15,
+          "id": 16,
           "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (6).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/card-velvet-foil.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
+          "slug": "hospitality-event-printing"
         }
+      ],
+      "images": [
+        "/assets/products/1 (6).jpg"
       ]
     },
     {
@@ -4082,14 +3352,14 @@ module.exports = {
       "slug": "restaurant-menus-printing",
       "category": {
         "_id": "cat-hospitality-event-printing",
-        "id": 15,
+        "id": 16,
         "name": "Hospitality & Event Stationery",
         "slug": "hospitality-event-printing"
       },
       "shortDescription": "Premium laminated menu cards, leather-bound menu folders, and daily special inserts for restaurants and cafes.",
       "description": "Restaurant menu printing from single-card laminated menus to hardcover leather-bound menu books, tri-fold laminated menus, and chalkboard-style inserts. Features include wipe-able laminate, foil stamping, round corners, and metal corner protectors for UAE hospitality venues.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Restaurant%20Menus%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Restaurant%20Menus%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/1 (14).jpg",
+      "image_url": "/assets/products/1 (14).jpg",
       "imageAlt": "Restaurant menus printing in Dubai",
       "seoTitle": "Restaurant Menus Printing Dubai | Laminated & Leather Bound Menus | ONPRINT",
       "seoDescription": "Restaurant menu printing in Dubai. Single-card laminated, leather-bound hardcover, tri-fold and chalkboard inserts for cafes and hotels.",
@@ -4111,37 +3381,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-hospitality-event-printing",
-          "id": 15,
+          "id": 16,
           "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (13).jpg",
-            "/assets/products/brochure_bifold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
+          "slug": "hospitality-event-printing"
         }
+      ],
+      "images": [
+        "/assets/products/1 (14).jpg"
       ]
     },
     {
@@ -4151,14 +3397,14 @@ module.exports = {
       "slug": "wedding-invitation-suites",
       "category": {
         "_id": "cat-hospitality-event-printing",
-        "id": 15,
+        "id": 16,
         "name": "Hospitality & Event Stationery",
         "slug": "hospitality-event-printing"
       },
       "shortDescription": "Handmade paper, laser-cut, and foil-stamped wedding invitation boxes with RSVP cards, envelope liners, and wax seals.",
       "description": "Luxury bespoke wedding invitation suites including handmade cotton paper cards, laser-cut folders, hot foil gold/silver stamping, wax seals, envelope liners, RSVP cards, and save-the-date magnets. Custom packaged in decorative invitation boxes with ribbon closures for UAE weddings.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Luxury%20Wedding%20Invitation%20Suites%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Luxury%20Wedding%20Invitation%20Suites%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/1 (15).jpg",
+      "image_url": "/assets/products/1 (15).jpg",
       "imageAlt": "Luxury wedding invitation suites in Dubai",
       "seoTitle": "Luxury Wedding Invitation Suites Dubai | Laser-Cut Foil Stamped Cards | ONPRINT",
       "seoDescription": "Bespoke luxury wedding invitations in Dubai. Handmade paper, laser-cut folders, foil gold stamping, wax seals and decorative presentation boxes.",
@@ -4180,48 +3426,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-hospitality-event-printing",
-          "id": 15,
+          "id": 16,
           "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (15).jpg",
-            "/assets/products/card-velvet-foil.jpg",
-            "/assets/products/card-painted-edge.jpg"
-          ]
-        },
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
+          "slug": "hospitality-event-printing"
         }
+      ],
+      "images": [
+        "/assets/products/1 (15).jpg"
       ]
     },
     {
@@ -4231,14 +3442,14 @@ module.exports = {
       "slug": "tshirt-screen-printing",
       "category": {
         "_id": "cat-custom-apparel-printing",
-        "id": 11,
+        "id": 12,
         "name": "Custom Apparel & Wearables",
         "slug": "custom-apparel-printing"
       },
       "shortDescription": "Cotton t-shirts with screen printing, DTG direct-to-garment, or sublimation for staff uniforms and event merch.",
       "description": "Custom branded t-shirts in 100% cotton, cotton-blend, and dri-fit polyester with screen printing, direct-to-garment (DTG), or dye-sublimation. Ideal for corporate uniforms, event staff kits, team building, and promotional merchandise across UAE.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20T-Shirt%20Screen%20%26%20DTG%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/1 (3).jpg",
+      "image_url": "/assets/products/1 (3).jpg",
       "imageAlt": "Custom t-shirt printing in Dubai",
       "seoTitle": "Custom T-Shirt Printing Dubai | Screen DTG Sublimation Uniforms | ONPRINT",
       "seoDescription": "Custom t-shirt printing in Dubai with screen, DTG and sublimation. Cotton and dri-fit uniforms for staff, events and merchandise.",
@@ -4260,59 +3471,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-custom-apparel-printing",
-          "id": 11,
+          "id": 12,
           "name": "Custom Apparel & Wearables",
-          "slug": "custom-apparel-printing",
-          "images": [
-            "/assets/products/1 (3).jpg",
-            "/assets/products/1 (4).jpg",
-            "/assets/products/tote_bags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
-          "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/mugs.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
+          "slug": "custom-apparel-printing"
         }
+      ],
+      "images": [
+        "/assets/products/1 (3).jpg"
       ]
     },
     {
@@ -4322,14 +3487,14 @@ module.exports = {
       "slug": "custom-cap-printing",
       "category": {
         "_id": "cat-custom-apparel-printing",
-        "id": 11,
+        "id": 12,
         "name": "Custom Apparel & Wearables",
         "slug": "custom-apparel-printing"
       },
       "shortDescription": "Baseball caps, trucker hats, and beanies with embroidered or vinyl heat-press custom logos.",
       "description": "Custom embroidered and printed caps including structured baseball caps, mesh-back trucker hats, and winter beanies. Available in cotton, twill, and performance fabrics with 3D puff embroidery, flat embroidery, or heat-transfer vinyl logos for corporate and sports teams in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Cap%20%26%20Hat%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Cap%20%26%20Hat%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/1 (4).jpg",
+      "image_url": "/assets/products/1 (4).jpg",
       "imageAlt": "Custom cap and hat printing embroidery in Dubai",
       "seoTitle": "Custom Cap & Hat Printing Dubai | Embroidered Baseball Caps | ONPRINT",
       "seoDescription": "Custom cap and hat printing in Dubai with embroidery or heat-transfer vinyl. Baseball, trucker and beanie styles for corporate and sports teams.",
@@ -4351,59 +3516,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-custom-apparel-printing",
-          "id": 11,
+          "id": 12,
           "name": "Custom Apparel & Wearables",
-          "slug": "custom-apparel-printing",
-          "images": [
-            "/assets/products/1 (4).jpg",
-            "/assets/products/1 (3).jpg",
-            "/assets/products/tote_bags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
-          "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/mugs.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
+          "slug": "custom-apparel-printing"
         }
+      ],
+      "images": [
+        "/assets/products/1 (4).jpg"
       ]
     },
     {
@@ -4413,14 +3532,14 @@ module.exports = {
       "slug": "mouse-pad-printing",
       "category": {
         "_id": "cat-promotional-drinkware-tech",
-        "id": 16,
+        "id": 17,
         "name": "Promotional Drinkware & Tech",
         "slug": "promotional-drinkware-tech"
       },
       "shortDescription": "Fabric-top rubber mouse pads, extended desk mats, and ergonomic gel mouse pads with full-color printing.",
       "description": "Promotional fabric-top natural rubber mouse pads, extended XXL gaming-style desk mats, and ergonomic gel wrist-rest mouse pads. High-resolution full-color dye-sublimation printing with non-slip base for corporate gifts and tech giveaways in UAE.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Custom%20Mouse%20Pads%20%26%20Desk%20Mats%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
+      "image": "/assets/products/1 (2).jpg",
+      "image_url": "/assets/products/1 (2).jpg",
       "imageAlt": "Custom mouse pads and desk mats printing in Dubai",
       "seoTitle": "Custom Mouse Pads & Desk Mats Dubai | Fabric-Top Promotional Pads | ONPRINT",
       "seoDescription": "Custom mouse pad printing in Dubai with fabric top and non-slip rubber base. Extended desk mats and ergonomic gel pads for corporate gifts.",
@@ -4442,59 +3561,13 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
+          "id": 17,
           "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/1 (2).jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/water_bottles.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-stickers-labels-printing",
-          "id": 12,
-          "name": "Stickers & Product Labels",
-          "slug": "stickers-labels-printing",
-          "images": [
-            "/assets/products/service_stickers_labels.jpg",
-            "/assets/products/stickers.jpg",
-            "/assets/products/1 (6).jpg"
-          ]
-        },
-        {
-          "_id": "cat-custom-apparel-printing",
-          "id": 11,
-          "name": "Custom Apparel & Wearables",
-          "slug": "custom-apparel-printing",
-          "images": [
-            "/assets/products/1 (3).jpg",
-            "/assets/products/1 (4).jpg",
-            "/assets/products/tote_bags.jpg"
-          ]
+          "slug": "promotional-drinkware-tech"
         }
+      ],
+      "images": [
+        "/assets/products/1 (2).jpg"
       ]
     },
     {
@@ -4535,45 +3608,7 @@ module.exports = {
           "_id": "cat-brochures-printing",
           "id": 2,
           "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
+          "slug": "brochures-printing"
         }
       ],
       "images": [
@@ -4618,45 +3653,7 @@ module.exports = {
           "_id": "cat-brochures-printing",
           "id": 2,
           "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/flyers.jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
+          "slug": "brochures-printing"
         }
       ],
       "images": [
@@ -4701,45 +3698,7 @@ module.exports = {
           "_id": "cat-brochures-printing",
           "id": 2,
           "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_gatefold.jpg",
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/service_luxury_packaging.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
+          "slug": "brochures-printing"
         }
       ],
       "images": [
@@ -4784,45 +3743,7 @@ module.exports = {
           "_id": "cat-brochures-printing",
           "id": 2,
           "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/flyers.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-signage-banners-printing",
-          "id": 10,
-          "name": "Signage & Exhibition Banners",
-          "slug": "signage-banners-printing",
-          "images": [
-            "/assets/products/service_exhibition_signage.jpg",
-            "/assets/products/rollup_banner.jpg",
-            "/assets/products/flags.jpg"
-          ]
+          "slug": "brochures-printing"
         }
       ],
       "images": [
@@ -4836,7 +3757,7 @@ module.exports = {
       "slug": "classic-white-ceramic-mugs",
       "category": {
         "_id": "cat-mug-printing-dubai",
-        "id": 17,
+        "id": 8,
         "name": "Mug Printing Dubai",
         "slug": "mug-printing-dubai"
       },
@@ -4858,7 +3779,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-mug-printing-dubai",
-          "id": 17,
+          "id": 8,
           "name": "Mug Printing Dubai",
           "slug": "mug-printing-dubai"
         }
@@ -4871,7 +3792,7 @@ module.exports = {
       "slug": "two-tone-ceramic-mugs",
       "category": {
         "_id": "cat-mug-printing-dubai",
-        "id": 17,
+        "id": 8,
         "name": "Mug Printing Dubai",
         "slug": "mug-printing-dubai"
       },
@@ -4893,7 +3814,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-mug-printing-dubai",
-          "id": 17,
+          "id": 8,
           "name": "Mug Printing Dubai",
           "slug": "mug-printing-dubai"
         }
@@ -4906,7 +3827,7 @@ module.exports = {
       "slug": "magic-heat-sensitive-mugs",
       "category": {
         "_id": "cat-mug-printing-dubai",
-        "id": 17,
+        "id": 8,
         "name": "Mug Printing Dubai",
         "slug": "mug-printing-dubai"
       },
@@ -4928,7 +3849,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-mug-printing-dubai",
-          "id": 17,
+          "id": 8,
           "name": "Mug Printing Dubai",
           "slug": "mug-printing-dubai"
         }
@@ -4941,7 +3862,7 @@ module.exports = {
       "slug": "executive-matte-black-mugs",
       "category": {
         "_id": "cat-mug-printing-dubai",
-        "id": 17,
+        "id": 8,
         "name": "Mug Printing Dubai",
         "slug": "mug-printing-dubai"
       },
@@ -4963,7 +3884,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-mug-printing-dubai",
-          "id": 17,
+          "id": 8,
           "name": "Mug Printing Dubai",
           "slug": "mug-printing-dubai"
         }
@@ -4976,7 +3897,7 @@ module.exports = {
       "slug": "stainless-steel-travel-mugs",
       "category": {
         "_id": "cat-mug-printing-dubai",
-        "id": 17,
+        "id": 8,
         "name": "Mug Printing Dubai",
         "slug": "mug-printing-dubai"
       },
@@ -4998,7 +3919,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-mug-printing-dubai",
-          "id": 17,
+          "id": 8,
           "name": "Mug Printing Dubai",
           "slug": "mug-printing-dubai"
         }
@@ -5011,7 +3932,7 @@ module.exports = {
       "slug": "vintage-enamel-camping-mugs",
       "category": {
         "_id": "cat-mug-printing-dubai",
-        "id": 17,
+        "id": 8,
         "name": "Mug Printing Dubai",
         "slug": "mug-printing-dubai"
       },
@@ -5033,7 +3954,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-mug-printing-dubai",
-          "id": 17,
+          "id": 8,
           "name": "Mug Printing Dubai",
           "slug": "mug-printing-dubai"
         }
@@ -5046,7 +3967,7 @@ module.exports = {
       "slug": "smart-led-temperature-bottles",
       "category": {
         "_id": "cat-bottle-printing-dubai",
-        "id": 18,
+        "id": 9,
         "name": "Water Bottle Printing Dubai",
         "slug": "bottle-printing-dubai"
       },
@@ -5068,7 +3989,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-bottle-printing-dubai",
-          "id": 18,
+          "id": 9,
           "name": "Water Bottle Printing Dubai",
           "slug": "bottle-printing-dubai"
         }
@@ -5081,7 +4002,7 @@ module.exports = {
       "slug": "matte-stainless-steel-bottles",
       "category": {
         "_id": "cat-bottle-printing-dubai",
-        "id": 18,
+        "id": 9,
         "name": "Water Bottle Printing Dubai",
         "slug": "bottle-printing-dubai"
       },
@@ -5103,7 +4024,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-bottle-printing-dubai",
-          "id": 18,
+          "id": 9,
           "name": "Water Bottle Printing Dubai",
           "slug": "bottle-printing-dubai"
         }
@@ -5116,7 +4037,7 @@ module.exports = {
       "slug": "aluminium-sports-water-bottles",
       "category": {
         "_id": "cat-bottle-printing-dubai",
-        "id": 18,
+        "id": 9,
         "name": "Water Bottle Printing Dubai",
         "slug": "bottle-printing-dubai"
       },
@@ -5138,7 +4059,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-bottle-printing-dubai",
-          "id": 18,
+          "id": 9,
           "name": "Water Bottle Printing Dubai",
           "slug": "bottle-printing-dubai"
         }
@@ -5151,7 +4072,7 @@ module.exports = {
       "slug": "borosilicate-glass-bamboo-bottles",
       "category": {
         "_id": "cat-bottle-printing-dubai",
-        "id": 18,
+        "id": 9,
         "name": "Water Bottle Printing Dubai",
         "slug": "bottle-printing-dubai"
       },
@@ -5173,7 +4094,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-bottle-printing-dubai",
-          "id": 18,
+          "id": 9,
           "name": "Water Bottle Printing Dubai",
           "slug": "bottle-printing-dubai"
         }
@@ -5186,7 +4107,7 @@ module.exports = {
       "slug": "ergonomic-gym-protein-shakers",
       "category": {
         "_id": "cat-bottle-printing-dubai",
-        "id": 18,
+        "id": 9,
         "name": "Water Bottle Printing Dubai",
         "slug": "bottle-printing-dubai"
       },
@@ -5208,7 +4129,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-bottle-printing-dubai",
-          "id": 18,
+          "id": 9,
           "name": "Water Bottle Printing Dubai",
           "slug": "bottle-printing-dubai"
         }
@@ -5221,7 +4142,7 @@ module.exports = {
       "slug": "luxury-copper-insulated-flasks",
       "category": {
         "_id": "cat-bottle-printing-dubai",
-        "id": 18,
+        "id": 9,
         "name": "Water Bottle Printing Dubai",
         "slug": "bottle-printing-dubai"
       },
@@ -5243,7 +4164,7 @@ module.exports = {
       "categories": [
         {
           "_id": "cat-bottle-printing-dubai",
-          "id": 18,
+          "id": 9,
           "name": "Water Bottle Printing Dubai",
           "slug": "bottle-printing-dubai"
         }
@@ -5281,6 +4202,14 @@ module.exports = {
         "Min. Order: 5 units",
         "Ultra-Strong 3-Magnet Garment-Safe Backing",
         "Brushed Gold & Silver Metallic Finish"
+      ],
+      "categories": [
+        {
+          "_id": "cat-name-badges-printing-dubai",
+          "id": 7,
+          "name": "Name Badges Printing Dubai",
+          "slug": "name-badges-printing-dubai"
+        }
       ]
     },
     {
@@ -5315,6 +4244,14 @@ module.exports = {
         "Min. Order: 10 units",
         "3D Polyurethane Crystal Dome",
         "Scratch & UV Resistant Magnetic Backing"
+      ],
+      "categories": [
+        {
+          "_id": "cat-name-badges-printing-dubai",
+          "id": 7,
+          "name": "Name Badges Printing Dubai",
+          "slug": "name-badges-printing-dubai"
+        }
       ]
     },
     {
@@ -5349,6 +4286,14 @@ module.exports = {
         "Min. Order: 10 units",
         "Slide-In Changeable Name Window",
         "Cost-Effective Reusable Aluminum Frame"
+      ],
+      "categories": [
+        {
+          "_id": "cat-name-badges-printing-dubai",
+          "id": 7,
+          "name": "Name Badges Printing Dubai",
+          "slug": "name-badges-printing-dubai"
+        }
       ]
     },
     {
@@ -5383,6 +4328,14 @@ module.exports = {
         "Min. Order: 5 units",
         "Anodized Matte Black Aluminum",
         "Permanent Precision Laser Etching"
+      ],
+      "categories": [
+        {
+          "_id": "cat-name-badges-printing-dubai",
+          "id": 7,
+          "name": "Name Badges Printing Dubai",
+          "slug": "name-badges-printing-dubai"
+        }
       ]
     },
     {
@@ -6023,8 +4976,8 @@ module.exports = {
       },
       "shortDescription": "Semi-transparent frosted matte CR80 PVC cards with opaque spot white underlay, vibrant CMYK color, and waterproof durability.",
       "description": "Premium semi-transparent frosted translucent PVC cards designed for modern creative agencies, luxury VIP passes, and high-end executive memberships in Dubai. Features textured anti-scratch surface and custom spot white print backing.",
-      "image": "/assets/products/id-cards/holographic-security-id-cards.jpg",
-      "image_url": "/assets/products/id-cards/holographic-security-id-cards.jpg",
+      "image": "/assets/products/id-cards/transparent-id-cards.jpg",
+      "image_url": "/assets/products/id-cards/transparent-id-cards.jpg",
       "imageAlt": "Frosted translucent designer PVC cards in Dubai",
       "seoTitle": "Frosted Translucent PVC Cards Dubai | Clear Member Badges | ONPRINT",
       "seoDescription": "Semi-transparent frosted PVC card printing in Dubai. Distinctive frosted matte texture, spot white print layer, and waterproof durability.",
@@ -6049,7 +5002,7 @@ module.exports = {
         }
       ],
       "images": [
-        "/assets/products/id-cards/holographic-security-id-cards.jpg"
+        "/assets/products/id-cards/transparent-id-cards.jpg"
       ]
     },
     {
@@ -6167,7 +5120,15 @@ module.exports = {
             "value": "standard"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-rollup-banners-dubai",
+          "id": 19,
+          "name": "Rollup Banners",
+          "slug": "rollup-banners"
+        }
+      ]
     },
     {
       "_id": "prod-luxury-teardrop-rollup-banner",
@@ -6238,7 +5199,15 @@ module.exports = {
             "value": "standard"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-rollup-banners-dubai",
+          "id": 19,
+          "name": "Rollup Banners",
+          "slug": "rollup-banners"
+        }
+      ]
     },
     {
       "_id": "prod-wide-exhibition-rollup-banner-100x200",
@@ -6299,7 +5268,15 @@ module.exports = {
             "value": "standard"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-rollup-banners-dubai",
+          "id": 19,
+          "name": "Rollup Banners",
+          "slug": "rollup-banners"
+        }
+      ]
     },
     {
       "_id": "prod-giant-backdrop-rollup-banner-120x200",
@@ -6359,7 +5336,15 @@ module.exports = {
             "value": "standard"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-rollup-banners-dubai",
+          "id": 19,
+          "name": "Rollup Banners",
+          "slug": "rollup-banners"
+        }
+      ]
     },
     {
       "_id": "prod-double-sided-rollup-banner-85x200",
@@ -6420,7 +5405,15 @@ module.exports = {
             "value": "standard"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-rollup-banners-dubai",
+          "id": 19,
+          "name": "Rollup Banners",
+          "slug": "rollup-banners"
+        }
+      ]
     },
     {
       "_id": "prod-desktop-mini-rollup-banner",
@@ -6484,7 +5477,15 @@ module.exports = {
             "value": "standard-24h"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-rollup-banners-dubai",
+          "id": 19,
+          "name": "Rollup Banners",
+          "slug": "rollup-banners"
+        }
+      ]
     },
     {
       "_id": "prod-outdoor-wind-resistant-rollup-banner",
@@ -6545,7 +5546,15 @@ module.exports = {
             "value": "standard"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-rollup-banners-dubai",
+          "id": 19,
+          "name": "Rollup Banners",
+          "slug": "rollup-banners"
+        }
+      ]
     },
     {
       "_id": "prod-executive-matte-black-rollup-banner",
@@ -6606,7 +5615,15 @@ module.exports = {
             "value": "standard"
           }
         ]
-      }
+      },
+      "categories": [
+        {
+          "_id": "cat-rollup-banners-dubai",
+          "id": 19,
+          "name": "Rollup Banners",
+          "slug": "rollup-banners"
+        }
+      ]
     },
     {
       "_id": "prod-waterproof-vinyl-stickers",
@@ -6615,7 +5632,7 @@ module.exports = {
       "slug": "waterproof-vinyl-stickers",
       "category": {
         "_id": "cat-stickers-labels-printing",
-        "id": 12,
+        "id": 13,
         "name": "Stickers & Product Labels",
         "slug": "stickers-labels-printing"
       },
@@ -6630,7 +5647,24 @@ module.exports = {
       "price": 45,
       "minimumQuantity": 100,
       "featured": true,
-      "active": true
+      "active": true,
+      "categories": [
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Stickers & Product Labels",
+          "slug": "stickers-labels-printing"
+        },
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Sticker Printing Dubai",
+          "slug": "stickers-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/stickers.jpg"
+      ]
     },
     {
       "_id": "prod-custom-roll-labels",
@@ -6639,7 +5673,7 @@ module.exports = {
       "slug": "custom-roll-labels",
       "category": {
         "_id": "cat-stickers-labels-printing",
-        "id": 12,
+        "id": 13,
         "name": "Stickers & Product Labels",
         "slug": "stickers-labels-printing"
       },
@@ -6654,7 +5688,24 @@ module.exports = {
       "price": 85,
       "minimumQuantity": 250,
       "featured": true,
-      "active": true
+      "active": true,
+      "categories": [
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Stickers & Product Labels",
+          "slug": "stickers-labels-printing"
+        },
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Sticker Printing Dubai",
+          "slug": "stickers-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/service_stickers_labels.jpg"
+      ]
     },
     {
       "_id": "prod-clear-transparent-stickers",
@@ -6663,7 +5714,7 @@ module.exports = {
       "slug": "clear-transparent-stickers",
       "category": {
         "_id": "cat-stickers-labels-printing",
-        "id": 12,
+        "id": 13,
         "name": "Stickers & Product Labels",
         "slug": "stickers-labels-printing"
       },
@@ -6678,7 +5729,24 @@ module.exports = {
       "price": 55,
       "minimumQuantity": 100,
       "featured": true,
-      "active": true
+      "active": true,
+      "categories": [
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Stickers & Product Labels",
+          "slug": "stickers-labels-printing"
+        },
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Sticker Printing Dubai",
+          "slug": "stickers-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/stickers.jpg"
+      ]
     },
     {
       "_id": "prod-holographic-stickers",
@@ -6687,7 +5755,7 @@ module.exports = {
       "slug": "holographic-stickers",
       "category": {
         "_id": "cat-stickers-labels-printing",
-        "id": 12,
+        "id": 13,
         "name": "Stickers & Product Labels",
         "slug": "stickers-labels-printing"
       },
@@ -6702,7 +5770,24 @@ module.exports = {
       "price": 65,
       "minimumQuantity": 100,
       "featured": true,
-      "active": true
+      "active": true,
+      "categories": [
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Stickers & Product Labels",
+          "slug": "stickers-labels-printing"
+        },
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Sticker Printing Dubai",
+          "slug": "stickers-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/service_stickers_labels.jpg"
+      ]
     },
     {
       "_id": "prod-cosmetic-bottle-labels",
@@ -6711,7 +5796,7 @@ module.exports = {
       "slug": "cosmetic-bottle-labels",
       "category": {
         "_id": "cat-stickers-labels-printing",
-        "id": 12,
+        "id": 13,
         "name": "Stickers & Product Labels",
         "slug": "stickers-labels-printing"
       },
@@ -6726,318 +5811,373 @@ module.exports = {
       "price": 75,
       "minimumQuantity": 100,
       "featured": true,
-      "active": true
-    },
-
-    {
-        "_id": "prod-self-inking-company-stamps",
-        "id": 1101,
-        "name": "Self-Inking Corporate Company Stamp",
-        "slug": "self-inking-company-stamps",
-        "sku": "STAMP-SELF-01",
-        "price": 85,
-        "minimumQuantity": 1,
-        "category": {
-            "_id": "cat-stamps-printing-dubai",
-            "id": 8,
-            "name": "Custom Stamps & Seals",
-            "slug": "stamps-printing-dubai"
+      "active": true,
+      "categories": [
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Stickers & Product Labels",
+          "slug": "stickers-labels-printing"
         },
-        "shortDescription": "Official corporate self-inking rubber stamp with built-in ink pad. Laser-etched text and official company logo for everyday business invoices and contracts.",
-        "description": "Official corporate self-inking rubber stamp made with laser-etched precision in Al Quoz, Dubai. Built-in high-capacity ink pad delivers thousands of crisp impressions before refilling. Perfect for commercial invoices, company registration, official government paperwork, and contracts. Available in rectangular and round seals with instant same-day express turnaround in Dubai.",
-        "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
-        "images": [
-            "/assets/products/stamps/self-inking-company-stamp.jpg"
-        ],
-        "featured": true,
-        "active": true,
-        "status": "active",
-        "stock": 250,
-        "specifications": {
-            "materials": [
-                {
-                    "label": "Trodat Printy High-Impact Casing",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Colop Heavy-Duty Body",
-                    "priceModifier": 15
-                },
-                {
-                    "label": "Shiny Pocket Slide Frame",
-                    "priceModifier": 10
-                }
-            ],
-            "sizes": [
-                {
-                    "label": "Standard Rectangular (47 × 18 mm)",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Large Document (58 × 22 mm)",
-                    "priceModifier": 20
-                },
-                {
-                    "label": "Round Corporate Seal (40 mm Dia)",
-                    "priceModifier": 25
-                },
-                {
-                    "label": "Compact Pocket (38 × 14 mm)",
-                    "priceModifier": 0
-                }
-            ],
-            "finishes": [
-                {
-                    "label": "Classic Black Ink",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Official Blue Ink",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Security Red Ink",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Two-Color Blue/Red Split Pad",
-                    "priceModifier": 30
-                }
-            ]
-        },
-        "features": [
-            "Official UAE Trade License Compliant",
-            "Built-in Self-Inking Pad (10,000+ Impressions)",
-            "Sharp 600 DPI Laser-Etched Text & Logo",
-            "Express 2-Hour Pickup or Same-Day Dubai Delivery"
-        ],
-        "seoTitle": "Self-Inking Company Stamp Dubai | Corporate Rubber Stamps | ONPRINT",
-        "seoDescription": "Official corporate self-inking company stamps in Dubai. Trodat & Colop rubber stamps with logo and trade license details. Express same-day turnaround across UAE.",
-        "seoKeywords": "company stamp dubai, self inking stamp dubai, rubber stamp maker dubai, corporate seal uae"
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Sticker Printing Dubai",
+          "slug": "stickers-printing-dubai"
+        }
+      ],
+      "images": [
+        "/assets/products/stickers.jpg"
+      ]
     },
     {
-        "_id": "prod-pocket-mobile-stamps",
-        "id": 1102,
-        "name": "Pocket Mobile Folding Stamp",
-        "slug": "pocket-mobile-stamps",
-        "sku": "STAMP-POCK-02",
-        "price": 95,
-        "minimumQuantity": 1,
-        "category": {
-            "_id": "cat-stamps-printing-dubai",
-            "id": 8,
-            "name": "Custom Stamps & Seals",
-            "slug": "stamps-printing-dubai"
-        },
-        "shortDescription": "Ultra-compact mobile folding pocket stamp designed for professionals on the go (doctors, lawyers, site engineers, and executives).",
-        "description": "The ultimate portable pocket stamp for UAE professionals on the move. Features a patented smooth slide-to-open mechanism that guarantees zero ink on your fingers. Fits comfortably into a suit pocket, lab coat, or briefcase. Ideal for medical prescriptions, site inspection sign-offs, notary stamps, and mobile sales teams in Dubai.",
-        "image": "/assets/products/stamps/pocket-mobile-stamp.jpg",
-        "images": [
-            "/assets/products/stamps/pocket-mobile-stamp.jpg"
+      "_id": "prod-self-inking-company-stamps",
+      "id": 1101,
+      "name": "Self-Inking Corporate Company Stamp",
+      "slug": "self-inking-company-stamps",
+      "sku": "STAMP-SELF-01",
+      "price": 85,
+      "minimumQuantity": 1,
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 18,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "shortDescription": "Official corporate self-inking rubber stamp with built-in ink pad. Laser-etched text and official company logo for everyday business invoices and contracts.",
+      "description": "Official corporate self-inking rubber stamp made with laser-etched precision in Al Quoz, Dubai. Built-in high-capacity ink pad delivers thousands of crisp impressions before refilling. Perfect for commercial invoices, company registration, official government paperwork, and contracts. Available in rectangular and round seals with instant same-day express turnaround in Dubai.",
+      "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "images": [
+        "/assets/products/stamps/self-inking-company-stamp.jpg"
+      ],
+      "featured": true,
+      "active": true,
+      "status": "active",
+      "stock": 250,
+      "specifications": {
+        "materials": [
+          {
+            "label": "Trodat Printy High-Impact Casing",
+            "priceModifier": 0
+          },
+          {
+            "label": "Colop Heavy-Duty Body",
+            "priceModifier": 15
+          },
+          {
+            "label": "Shiny Pocket Slide Frame",
+            "priceModifier": 10
+          }
         ],
-        "featured": false,
-        "active": true,
-        "status": "active",
-        "stock": 180,
-        "specifications": {
-            "materials": [
-                {
-                    "label": "Pocket Clip Slimline Case",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Keyring Attachment Cap",
-                    "priceModifier": 10
-                }
-            ],
-            "sizes": [
-                {
-                    "label": "Standard Pocket (38 × 14 mm)",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Large Signature (47 × 18 mm)",
-                    "priceModifier": 15
-                },
-                {
-                    "label": "Pocket Round (25 mm Dia)",
-                    "priceModifier": 15
-                }
-            ],
-            "finishes": [
-                {
-                    "label": "Official Blue Ink",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Classic Black Ink",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Urgent Red Ink",
-                    "priceModifier": 0
-                }
-            ]
-        },
-        "features": [
-            "Ultra-Compact Pocket Pen-Clip Design",
-            "One-Hand Slide Operation",
-            "Clean-Hands Guaranteed Mechanism",
-            "Same-Day Express Dubai Dispatch"
+        "sizes": [
+          {
+            "label": "Standard Rectangular (47 × 18 mm)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Large Document (58 × 22 mm)",
+            "priceModifier": 20
+          },
+          {
+            "label": "Round Corporate Seal (40 mm Dia)",
+            "priceModifier": 25
+          },
+          {
+            "label": "Compact Pocket (38 × 14 mm)",
+            "priceModifier": 0
+          }
         ],
-        "seoTitle": "Pocket Mobile Stamp Dubai | Portable Doctor & Lawyer Stamp | ONPRINT",
-        "seoDescription": "Portable pocket stamps in Dubai. Compact folding self-inking rubber stamps with pocket clip for doctors, engineers, and executives. Express delivery in Dubai.",
-        "seoKeywords": "pocket stamp dubai, mobile stamp dubai, doctor stamp dubai, portable rubber stamp uae"
+        "finishes": [
+          {
+            "label": "Classic Black Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Official Blue Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Security Red Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Two-Color Blue/Red Split Pad",
+            "priceModifier": 30
+          }
+        ]
+      },
+      "features": [
+        "Official UAE Trade License Compliant",
+        "Built-in Self-Inking Pad (10,000+ Impressions)",
+        "Sharp 600 DPI Laser-Etched Text & Logo",
+        "Express 2-Hour Pickup or Same-Day Dubai Delivery"
+      ],
+      "seoTitle": "Self-Inking Company Stamp Dubai | Corporate Rubber Stamps | ONPRINT",
+      "seoDescription": "Official corporate self-inking company stamps in Dubai. Trodat & Colop rubber stamps with logo and trade license details. Express same-day turnaround across UAE.",
+      "seoKeywords": "company stamp dubai, self inking stamp dubai, rubber stamp maker dubai, corporate seal uae",
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 18,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ],
+      "image_url": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "imageAlt": "Self-Inking Corporate Company Stamp printing Dubai"
     },
     {
-        "_id": "prod-heavy-duty-dater-stamps",
-        "id": 1103,
-        "name": "Heavy-Duty Date & Received Stamp",
-        "slug": "heavy-duty-dater-stamps",
-        "sku": "STAMP-DATE-03",
-        "price": 130,
-        "minimumQuantity": 1,
-        "category": {
-            "_id": "cat-stamps-printing-dubai",
-            "id": 8,
-            "name": "Custom Stamps & Seals",
-            "slug": "stamps-printing-dubai"
-        },
-        "shortDescription": "Industrial metal-core self-inking dater stamp for accounts, logistics warehouses, and corporate mailrooms.",
-        "description": "Engineered for heavy daily administrative workload. Features an internal steel-reinforced framework, smooth rotating date wheels spanning 10 years, and customizable upper and lower text plates (e.g. RECEIVED, PAID, APPROVED, POSTED with your company name). Built to withstand high-volume warehouse and accounting usage across the UAE.",
-        "image": "/assets/products/stamps/heavy-duty-dater-stamp.jpg",
-        "images": [
-            "/assets/products/stamps/heavy-duty-dater-stamp.jpg"
+      "_id": "prod-pocket-mobile-stamps",
+      "id": 1102,
+      "name": "Pocket Mobile Folding Stamp",
+      "slug": "pocket-mobile-stamps",
+      "sku": "STAMP-POCK-02",
+      "price": 95,
+      "minimumQuantity": 1,
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 18,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "shortDescription": "Ultra-compact mobile folding pocket stamp designed for professionals on the go (doctors, lawyers, site engineers, and executives).",
+      "description": "The ultimate portable pocket stamp for UAE professionals on the move. Features a patented smooth slide-to-open mechanism that guarantees zero ink on your fingers. Fits comfortably into a suit pocket, lab coat, or briefcase. Ideal for medical prescriptions, site inspection sign-offs, notary stamps, and mobile sales teams in Dubai.",
+      "image": "/assets/products/stamps/pocket-mobile-stamp.jpg",
+      "images": [
+        "/assets/products/stamps/pocket-mobile-stamp.jpg"
+      ],
+      "featured": false,
+      "active": true,
+      "status": "active",
+      "stock": 180,
+      "specifications": {
+        "materials": [
+          {
+            "label": "Pocket Clip Slimline Case",
+            "priceModifier": 0
+          },
+          {
+            "label": "Keyring Attachment Cap",
+            "priceModifier": 10
+          }
         ],
-        "featured": false,
-        "active": true,
-        "status": "active",
-        "stock": 120,
-        "specifications": {
-            "materials": [
-                {
-                    "label": "Steel-Core Heavy-Duty Chassis",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "High-Impact Polymer Housing",
-                    "priceModifier": 0
-                }
-            ],
-            "sizes": [
-                {
-                    "label": "Medium (45 × 30 mm Date Center)",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Large (56 × 33 mm Date Center)",
-                    "priceModifier": 25
-                },
-                {
-                    "label": "Extra Large (68 × 47 mm Heavy)",
-                    "priceModifier": 45
-                }
-            ],
-            "finishes": [
-                {
-                    "label": "Two-Color Blue Text / Red Date",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Monochrome Black",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Monochrome Blue",
-                    "priceModifier": 0
-                }
-            ]
-        },
-        "features": [
-            "Solid Steel Reinforced Core Frame",
-            "10-Year Rotating Date Bands",
-            "Ergonomic Non-Slip Rubber Handle",
-            "Clean Replacement Ink Cartridges"
+        "sizes": [
+          {
+            "label": "Standard Pocket (38 × 14 mm)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Large Signature (47 × 18 mm)",
+            "priceModifier": 15
+          },
+          {
+            "label": "Pocket Round (25 mm Dia)",
+            "priceModifier": 15
+          }
         ],
-        "seoTitle": "Heavy-Duty Dater Stamp Dubai | Date & Received Stamp | ONPRINT",
-        "seoDescription": "Industrial date stamps and received stamps in Dubai. Heavy-duty metal core self-inking dater stamps for accounts and logistics with express UAE delivery.",
-        "seoKeywords": "date stamp dubai, received stamp dubai, dater stamp maker uae, heavy duty stamp dubai"
+        "finishes": [
+          {
+            "label": "Official Blue Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Classic Black Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Urgent Red Ink",
+            "priceModifier": 0
+          }
+        ]
+      },
+      "features": [
+        "Ultra-Compact Pocket Pen-Clip Design",
+        "One-Hand Slide Operation",
+        "Clean-Hands Guaranteed Mechanism",
+        "Same-Day Express Dubai Dispatch"
+      ],
+      "seoTitle": "Pocket Mobile Stamp Dubai | Portable Doctor & Lawyer Stamp | ONPRINT",
+      "seoDescription": "Portable pocket stamps in Dubai. Compact folding self-inking rubber stamps with pocket clip for doctors, engineers, and executives. Express delivery in Dubai.",
+      "seoKeywords": "pocket stamp dubai, mobile stamp dubai, doctor stamp dubai, portable rubber stamp uae",
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 18,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ],
+      "image_url": "/assets/products/stamps/pocket-mobile-stamp.jpg",
+      "imageAlt": "Pocket Mobile Folding Stamp printing Dubai"
     },
     {
-        "_id": "prod-luxury-brass-wax-seal-stamps",
-        "id": 1104,
-        "name": "Luxury Brass Wax Seal & Notary Stamp",
-        "slug": "luxury-brass-wax-seal-stamps",
-        "sku": "STAMP-WAX-04",
-        "price": 160,
-        "minimumQuantity": 1,
-        "category": {
-            "_id": "cat-stamps-printing-dubai",
-            "id": 8,
-            "name": "Custom Stamps & Seals",
-            "slug": "stamps-printing-dubai"
-        },
-        "shortDescription": "Precision CNC-milled solid brass seal stamp with polished rosewood handle for wedding stationery, notary seals, and VIP branding.",
-        "description": "Bespoke solid brass seal stamp engraved using ultra-high-definition CNC micro-milling at our Al Quoz atelier. Crafted with a premium natural rosewood handle or solid metal grip. Gives wedding invitations, certificates, corporate contracts, and luxury packaging an unmistakable Old-World prestige and security impression.",
-        "image": "/assets/products/stamps/luxury-wax-seal-stamp.jpg",
-        "images": [
-            "/assets/products/stamps/luxury-wax-seal-stamp.jpg"
+      "_id": "prod-heavy-duty-dater-stamps",
+      "id": 1103,
+      "name": "Heavy-Duty Date & Received Stamp",
+      "slug": "heavy-duty-dater-stamps",
+      "sku": "STAMP-DATE-03",
+      "price": 130,
+      "minimumQuantity": 1,
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 18,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "shortDescription": "Industrial metal-core self-inking dater stamp for accounts, logistics warehouses, and corporate mailrooms.",
+      "description": "Engineered for heavy daily administrative workload. Features an internal steel-reinforced framework, smooth rotating date wheels spanning 10 years, and customizable upper and lower text plates (e.g. RECEIVED, PAID, APPROVED, POSTED with your company name). Built to withstand high-volume warehouse and accounting usage across the UAE.",
+      "image": "/assets/products/stamps/heavy-duty-dater-stamp.jpg",
+      "images": [
+        "/assets/products/stamps/heavy-duty-dater-stamp.jpg"
+      ],
+      "featured": false,
+      "active": true,
+      "status": "active",
+      "stock": 120,
+      "specifications": {
+        "materials": [
+          {
+            "label": "Steel-Core Heavy-Duty Chassis",
+            "priceModifier": 0
+          },
+          {
+            "label": "High-Impact Polymer Housing",
+            "priceModifier": 0
+          }
         ],
-        "featured": false,
-        "active": true,
-        "status": "active",
-        "stock": 90,
-        "specifications": {
-            "materials": [
-                {
-                    "label": "CNC Solid Brass Head + Rosewood Handle",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Full Gold Metal Heavyweight Handle",
-                    "priceModifier": 35
-                }
-            ],
-            "sizes": [
-                {
-                    "label": "25 mm Diameter Round",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "30 mm Diameter Round",
-                    "priceModifier": 25
-                },
-                {
-                    "label": "35 mm Large Crest",
-                    "priceModifier": 45
-                }
-            ],
-            "finishes": [
-                {
-                    "label": "Includes 3 Burgundy Sealing Wax Sticks",
-                    "priceModifier": 0
-                },
-                {
-                    "label": "Includes Metallic Gold & Burgundy Wax Kit",
-                    "priceModifier": 40
-                }
-            ]
-        },
-        "features": [
-            "Deep CNC Micro-Milled Solid Brass Die",
-            "Removable Screw-On Head Mechanism",
-            "Includes Sealing Wax & Gift Box",
-            "Handmade in Dubai Pressroom"
+        "sizes": [
+          {
+            "label": "Medium (45 × 30 mm Date Center)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Large (56 × 33 mm Date Center)",
+            "priceModifier": 25
+          },
+          {
+            "label": "Extra Large (68 × 47 mm Heavy)",
+            "priceModifier": 45
+          }
         ],
-        "seoTitle": "Custom Wax Seal Stamp Dubai | Brass Notary & Wedding Seals | ONPRINT",
-        "seoDescription": "Custom wax seal stamps in Dubai. Solid brass CNC-engraved monogram and logo seals with rosewood handle. Express production and delivery across UAE.",
-        "seoKeywords": "wax seal stamp dubai, custom wax stamp dubai, notary seal stamp dubai, embossing seal uae"
+        "finishes": [
+          {
+            "label": "Two-Color Blue Text / Red Date",
+            "priceModifier": 0
+          },
+          {
+            "label": "Monochrome Black",
+            "priceModifier": 0
+          },
+          {
+            "label": "Monochrome Blue",
+            "priceModifier": 0
+          }
+        ]
+      },
+      "features": [
+        "Solid Steel Reinforced Core Frame",
+        "10-Year Rotating Date Bands",
+        "Ergonomic Non-Slip Rubber Handle",
+        "Clean Replacement Ink Cartridges"
+      ],
+      "seoTitle": "Heavy-Duty Dater Stamp Dubai | Date & Received Stamp | ONPRINT",
+      "seoDescription": "Industrial date stamps and received stamps in Dubai. Heavy-duty metal core self-inking dater stamps for accounts and logistics with express UAE delivery.",
+      "seoKeywords": "date stamp dubai, received stamp dubai, dater stamp maker uae, heavy duty stamp dubai",
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 18,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ],
+      "image_url": "/assets/products/stamps/heavy-duty-dater-stamp.jpg",
+      "imageAlt": "Heavy-Duty Date & Received Stamp printing Dubai"
+    },
+    {
+      "_id": "prod-luxury-brass-wax-seal-stamps",
+      "id": 1104,
+      "name": "Luxury Brass Wax Seal & Notary Stamp",
+      "slug": "luxury-brass-wax-seal-stamps",
+      "sku": "STAMP-WAX-04",
+      "price": 160,
+      "minimumQuantity": 1,
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 18,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "shortDescription": "Precision CNC-milled solid brass seal stamp with polished rosewood handle for wedding stationery, notary seals, and VIP branding.",
+      "description": "Bespoke solid brass seal stamp engraved using ultra-high-definition CNC micro-milling at our Al Quoz atelier. Crafted with a premium natural rosewood handle or solid metal grip. Gives wedding invitations, certificates, corporate contracts, and luxury packaging an unmistakable Old-World prestige and security impression.",
+      "image": "/assets/products/stamps/luxury-wax-seal-stamp.jpg",
+      "images": [
+        "/assets/products/stamps/luxury-wax-seal-stamp.jpg"
+      ],
+      "featured": false,
+      "active": true,
+      "status": "active",
+      "stock": 90,
+      "specifications": {
+        "materials": [
+          {
+            "label": "CNC Solid Brass Head + Rosewood Handle",
+            "priceModifier": 0
+          },
+          {
+            "label": "Full Gold Metal Heavyweight Handle",
+            "priceModifier": 35
+          }
+        ],
+        "sizes": [
+          {
+            "label": "25 mm Diameter Round",
+            "priceModifier": 0
+          },
+          {
+            "label": "30 mm Diameter Round",
+            "priceModifier": 25
+          },
+          {
+            "label": "35 mm Large Crest",
+            "priceModifier": 45
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Includes 3 Burgundy Sealing Wax Sticks",
+            "priceModifier": 0
+          },
+          {
+            "label": "Includes Metallic Gold & Burgundy Wax Kit",
+            "priceModifier": 40
+          }
+        ]
+      },
+      "features": [
+        "Deep CNC Micro-Milled Solid Brass Die",
+        "Removable Screw-On Head Mechanism",
+        "Includes Sealing Wax & Gift Box",
+        "Handmade in Dubai Pressroom"
+      ],
+      "seoTitle": "Custom Wax Seal Stamp Dubai | Brass Notary & Wedding Seals | ONPRINT",
+      "seoDescription": "Custom wax seal stamps in Dubai. Solid brass CNC-engraved monogram and logo seals with rosewood handle. Express production and delivery across UAE.",
+      "seoKeywords": "wax seal stamp dubai, custom wax stamp dubai, notary seal stamp dubai, embossing seal uae",
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 18,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ],
+      "image_url": "/assets/products/stamps/luxury-wax-seal-stamp.jpg",
+      "imageAlt": "Luxury Brass Wax Seal & Notary Stamp printing Dubai"
     }
-
   ],
   "orders": [],
   "quotes": [],
   "customers": [],
   "messages": [],
   "settings": {}
-};
+}

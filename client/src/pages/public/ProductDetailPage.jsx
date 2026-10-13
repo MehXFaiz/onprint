@@ -301,10 +301,14 @@ export default function ProductDetailPage() {
               ) : (
                 <div className="aspect-[4/3] overflow-hidden bg-accent-soft/40">
                   <img
-                    src={getProductImage(product)}
+                    src={product.images?.[activeImage] || getProductImage(product)}
                     alt={product.imageAlt || `${product.name} printing Dubai`}
                     className="h-full w-full object-cover"
                     loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null
+                      e.currentTarget.src = getProductImage(product)
+                    }}
                   />
                 </div>
               )}
@@ -323,10 +327,14 @@ export default function ProductDetailPage() {
                     }`}
                   >
                     <img
-                      src={getProductImage(product)}
+                      src={image || getProductImage(product)}
                       alt={`${product.name} angle ${index + 1}`}
                       className="h-full w-full object-cover"
                       loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.onerror = null
+                        e.currentTarget.src = getProductImage(product)
+                      }}
                     />
                   </button>
                 ))}

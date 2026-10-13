@@ -174,11 +174,13 @@ export default function ProductsPage() {
   // Filter products by active category & instant search query
   const filteredProducts = useMemo(() => {
     return products.filter((item) => {
+      const isStickerParam = categoryParam === 'stickers-labels-printing' || categoryParam === 'stickers-printing-dubai'
       const matchCat =
         !categoryParam ||
         item.category?.slug === categoryParam ||
         item.category?._id === categoryParam ||
-        item.category?.name?.toLowerCase() === categoryParam.toLowerCase()
+        item.category?.name?.toLowerCase() === categoryParam.toLowerCase() ||
+        (isStickerParam && (item.category?.slug === 'stickers-labels-printing' || item.category?.slug === 'stickers-printing-dubai' || item.slug.includes('sticker') || item.slug.includes('label')))
 
       const matchSearch =
         !searchQuery.trim() ||

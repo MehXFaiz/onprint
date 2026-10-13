@@ -41,7 +41,7 @@ export default function GeoContentManagerTab({ showToast }) {
     title: '',
     direct_answer: '',
     structured_data: '{\n  "category": "Specification",\n  "details": []\n}',
-    citations: '["https://0nprint.com/"]',
+    citations: '["https://www.0nprint.com/"]',
     is_active: 1,
   }
   const [formData, setFormData] = useState(initialForm)
@@ -449,7 +449,7 @@ export default function GeoContentManagerTab({ showToast }) {
                     type="text"
                     value={formData.citations}
                     onChange={(e) => setFormData({ ...formData, citations: e.target.value })}
-                    placeholder='["https://0nprint.com/"]'
+                    placeholder='["https://www.0nprint.com/"]'
                     className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#A82F19]"
                   />
                 </div>

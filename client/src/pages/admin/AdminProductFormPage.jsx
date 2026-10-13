@@ -123,7 +123,7 @@ export default function AdminProductFormPage() {
         seoKeywords: form.seoKeywords,
         seo_heading: form.seoHeading || form.name.trim(),
         seoHeading: form.seoHeading || form.name.trim(),
-        canonical_url: `https://0nprint.com/products/${cleanSlug}`,
+        canonical_url: `https://www.0nprint.com/products/${cleanSlug}`,
       }
 
       if (isEdit) {
@@ -149,7 +149,7 @@ export default function AdminProductFormPage() {
 
   const serpTitle = form.seoTitle || (form.name ? `${form.name} Dubai | ONPRINT` : 'Product Title | ONPRINT Dubai')
   const serpDesc = form.seoDescription || form.shortDescription || 'Custom commercial printing and branded merchandise in Dubai, UAE.'
-  const serpUrl = `https://0nprint.com/products/${form.slug || 'product-slug'}`
+  const serpUrl = `https://www.0nprint.com/products/${form.slug || 'product-slug'}`
 
   return (
     <div className="space-y-6">

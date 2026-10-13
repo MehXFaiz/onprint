@@ -234,7 +234,7 @@ export default function AdminBlogFormPage() {
         title: val,
         slug: cleanSlug,
         seo_title: prev.seo_title || (val ? `${val} | ONPRINT Dubai` : ''),
-        canonical_url: `https://0nprint.com/blog/${cleanSlug}`,
+        canonical_url: `https://www.0nprint.com/blog/${cleanSlug}`,
         og_title: prev.og_title || val,
       }
     })
@@ -519,7 +519,7 @@ export default function AdminBlogFormPage() {
         meta_description: form.meta_description.trim() || form.excerpt.trim(),
         focus_keyword: form.focus_keyword.trim(),
         secondary_keywords: form.secondary_keywords.trim(),
-        canonical_url: form.canonical_url.trim() || `https://0nprint.com/blog/${cleanSlug}`,
+        canonical_url: form.canonical_url.trim() || `https://www.0nprint.com/blog/${cleanSlug}`,
         og_title: form.og_title.trim() || form.meta_title.trim() || form.title.trim(),
         og_description: form.og_description.trim() || form.meta_description.trim() || form.excerpt.trim(),
         og_image: form.og_image || form.featured_image,
@@ -691,7 +691,7 @@ export default function AdminBlogFormPage() {
 
   const serpTitle = form.seo_title || (form.title ? `${form.title} | ONPRINT Dubai` : 'Article Title | ONPRINT Dubai')
   const serpDesc = form.meta_description || form.excerpt || 'Read expert insights on commercial printing, paper GSM, and corporate branding in Dubai.'
-  const serpUrl = `https://0nprint.com/blog/${form.slug || 'article-slug'}`
+  const serpUrl = `https://www.0nprint.com/blog/${form.slug || 'article-slug'}`
 
   return (
     <div className="space-y-6">
@@ -855,7 +855,7 @@ export default function AdminBlogFormPage() {
                     setForm((prev) => ({
                       ...prev,
                       slug: val,
-                      canonical_url: `https://0nprint.com/blog/${val}`,
+                      canonical_url: `https://www.0nprint.com/blog/${val}`,
                     }))
                   }}
                   placeholder="commercial-printing-guide-dubai"
@@ -1107,7 +1107,7 @@ export default function AdminBlogFormPage() {
                   type="text"
                   value={form.canonical_url}
                   onChange={(e) => setForm((prev) => ({ ...prev, canonical_url: e.target.value }))}
-                  placeholder="https://0nprint.com/blog/..."
+                  placeholder="https://www.0nprint.com/blog/..."
                   className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
                 />
               </div>
@@ -1152,7 +1152,7 @@ export default function AdminBlogFormPage() {
                     type="text"
                     value={form.og_image}
                     onChange={(e) => setForm((prev) => ({ ...prev, og_image: e.target.value }))}
-                    placeholder={form.featured_image || 'https://0nprint.com/images/...'}
+                    placeholder={form.featured_image || 'https://www.0nprint.com/images/...'}
                     className="w-full rounded-lg border border-neutral-300 px-2.5 py-1.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
                   />
                 </div>

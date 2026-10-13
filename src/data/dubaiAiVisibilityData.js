@@ -13,7 +13,7 @@
  * - "Never claim that ONPRINT was cited unless the API/search result actually confirms it."
  */
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 const DUBAI_AI_VISIBILITY_QUERIES = [
   // ==========================================

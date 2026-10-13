@@ -2,7 +2,7 @@ const { pool } = require('../config/database')
 const { products: fallbackProducts, services: fallbackServices, categories: fallbackCategories } = require('../data/initialData')
 const programmaticSeoService = require('./programmaticSeoService')
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 /**
  * Technical & On-Page SEO Scanner Service
@@ -266,7 +266,7 @@ class SeoScannerService {
           severity: 'high',
           title: `Non-HTTPS or missing canonical URL on ${name}`,
           description: `The canonical URL is missing or does not use HTTPS (${canonicalUrl || 'none'}).`,
-          recommendation: `Set a secure canonical URL starting with https://0nprint.com.`,
+          recommendation: `Set a secure canonical URL starting with https://www.0nprint.com.`,
         })
         technicalDeductions += 4
         indexabilityDeductions += 3

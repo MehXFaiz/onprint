@@ -5,7 +5,7 @@ import SEOHead from '../../components/SEOHead'
 const sections = [
   {
     title: '1. Introduction & Scope',
-    body: 'ONPRINT Printing & Branding Solutions LLC ("ONPRINT", "we", "our", or "us") is dedicated to safeguarding the privacy, confidentiality, and security of all personal, corporate, and proprietary information collected through our website (https://0nprint.com), production facility in Al Quoz, Dubai, UAE, and associated digital communication channels including WhatsApp and email. This comprehensive Privacy Policy outlines how we collect, process, store, and protect your information when you browse our printing catalog, request quotations, upload artwork files, and place commercial print orders in the United Arab Emirates and internationally.',
+    body: 'ONPRINT Printing & Branding Solutions LLC ("ONPRINT", "we", "our", or "us") is dedicated to safeguarding the privacy, confidentiality, and security of all personal, corporate, and proprietary information collected through our website (https://www.0nprint.com), production facility in Al Quoz, Dubai, UAE, and associated digital communication channels including WhatsApp and email. This comprehensive Privacy Policy outlines how we collect, process, store, and protect your information when you browse our printing catalog, request quotations, upload artwork files, and place commercial print orders in the United Arab Emirates and internationally.',
   },
   {
     title: '2. Information We Collect',

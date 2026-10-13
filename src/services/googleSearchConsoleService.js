@@ -21,7 +21,7 @@ class GoogleSearchConsoleService {
       if (rows.length === 0) {
         return {
           isConnected: false,
-          property: process.env.GOOGLE_SEARCH_CONSOLE_PROPERTY || 'https://0nprint.com',
+          property: process.env.GOOGLE_SEARCH_CONSOLE_PROPERTY || 'https://www.0nprint.com',
           authType: 'service_account',
           lastSyncedAt: null,
           message: 'Google Search Console not connected. Add your credentials to view live search metrics.',
@@ -40,7 +40,7 @@ class GoogleSearchConsoleService {
 
       return {
         isConnected,
-        property: config.property || process.env.GOOGLE_SEARCH_CONSOLE_PROPERTY || 'https://0nprint.com',
+        property: config.property || process.env.GOOGLE_SEARCH_CONSOLE_PROPERTY || 'https://www.0nprint.com',
         authType: config.auth_type || 'service_account',
         lastSyncedAt: integration.last_synced_at,
         errorMessage: integration.error_message,
@@ -50,7 +50,7 @@ class GoogleSearchConsoleService {
     } catch (err) {
       return {
         isConnected: false,
-        property: 'https://0nprint.com',
+        property: 'https://www.0nprint.com',
         lastSyncedAt: null,
         message: 'Google Search Console not connected',
       }
@@ -63,7 +63,7 @@ class GoogleSearchConsoleService {
   async saveCredentials(params = {}) {
     const { property, authType = 'service_account', serviceAccountJson, clientId, clientSecret, refreshToken } = params
 
-    const targetProperty = property || process.env.GOOGLE_SEARCH_CONSOLE_PROPERTY || 'https://0nprint.com'
+    const targetProperty = property || process.env.GOOGLE_SEARCH_CONSOLE_PROPERTY || 'https://www.0nprint.com'
     const configData = {
       property: targetProperty,
       auth_type: authType,

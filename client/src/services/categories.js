@@ -16,7 +16,7 @@ export const initialCategories = [
     "seoDescription": "Make an undeniable first impression with luxury business cards in Dubai. 350gsm–600gsm cotton stocks, gold foil stamping, and spot UV varnishing.",
     "seoKeywords": "business card printing dubai, custom business cards dubai, premium business cards dubai, luxury business cards dubai, corporate business cards dubai",
     "seoHeading": "Luxury Executive Business Card Printing in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/business-cards-printing",
+    "canonicalUrl": "https://www.0nprint.com/categories/business-cards-printing",
     "imageAlt": "Luxury gold foil executive business cards in Dubai"
   },
   {
@@ -34,7 +34,7 @@ export const initialCategories = [
     "seoDescription": "Professional brochure printing in Dubai. Custom bi-fold, tri-fold, and multi-page brochures with soft-touch matte lamination and fast turnaround.",
     "seoKeywords": "brochure printing dubai, brochure printing services dubai, custom brochure printing dubai, corporate brochure printing uae, bi fold brochure dubai",
     "seoHeading": "Commercial Brochure Printing in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/brochures-printing",
+    "canonicalUrl": "https://www.0nprint.com/categories/brochures-printing",
     "imageAlt": "Professional commercial printed brochures in Dubai"
   },
   {
@@ -52,7 +52,7 @@ export const initialCategories = [
     "seoDescription": "Order custom marketing flyer printing in Dubai. Single and double-sided promo flyers on premium art paper with express same-day delivery.",
     "seoKeywords": "flyer printing dubai, flyer printing services dubai, custom flyer printing dubai, promotional flyer printing dubai, leaflet printing dubai",
     "seoHeading": "High-Impact Marketing Flyer Printing in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/flyers-printing-in-dubai",
+    "canonicalUrl": "https://www.0nprint.com/categories/flyers-printing-in-dubai",
     "imageAlt": "Full color commercial marketing flyers printed in Dubai"
   },
   {
@@ -70,7 +70,7 @@ export const initialCategories = [
     "seoDescription": "High-security corporate PVC ID card printing in Dubai. Crisp photo resolution, smart NFC chips, barcodes, and custom lanyards for UAE businesses.",
     "seoKeywords": "id card printing dubai, pvc id cards dubai, corporate employee badges uae, student id card printing",
     "seoHeading": "Corporate PVC ID Card Printing Solutions Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/id-card-printing-dubai",
+    "canonicalUrl": "https://www.0nprint.com/categories/id-card-printing-dubai",
     "imageAlt": "Corporate employee PVC identity cards with chips in Dubai"
   },
   {
@@ -88,7 +88,7 @@ export const initialCategories = [
     "seoDescription": "Custom branded neck lanyard printing in Dubai. High-density polyester and satin lanyards with safety buckles and swivel hooks for corporate events.",
     "seoKeywords": "lanyard printing dubai, custom lanyards dubai, branded neck straps uae, event lanyards dubai",
     "seoHeading": "Custom Branded Neck Lanyard Printing in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/lanyard-printing-dubai",
+    "canonicalUrl": "https://www.0nprint.com/categories/lanyard-printing-dubai",
     "imageAlt": "Custom branded corporate neck lanyards in Dubai"
   },
   {
@@ -106,7 +106,7 @@ export const initialCategories = [
     "seoDescription": "Executive corporate letterhead printing in Dubai. 120gsm smooth laser-guaranteed paper for official contracts, proposals, and invoices.",
     "seoKeywords": "letterheads printing dubai, letterhead printing dubai, corporate stationery uae, official letterhead paper",
     "seoHeading": "Executive Corporate Letterhead Printing in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/letterheads-printing-dubai",
+    "canonicalUrl": "https://www.0nprint.com/categories/letterheads-printing-dubai",
     "imageAlt": "Executive corporate stationery letterhead and envelope in Dubai"
   },
   {
@@ -124,7 +124,7 @@ export const initialCategories = [
     "seoDescription": "Professional staff name badges printing in Dubai. Brushed silver, gold, and acrylic magnetic badges with domed epoxy resin for corporate teams.",
     "seoKeywords": "name badges printing dubai, magnetic name badges dubai, staff badge printing uae, acrylic name tag printing",
     "seoHeading": "Professional Magnetic Name Badges Printing Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/name-badges-printing-dubai",
+    "canonicalUrl": "https://www.0nprint.com/categories/name-badges-printing-dubai",
     "imageAlt": "Professional magnetic metal and acrylic name badges in Dubai"
   },
   {
@@ -142,7 +142,7 @@ export const initialCategories = [
     "seoDescription": "Professional mug printing in Dubai. Custom ceramic mugs, magic color-changing mugs, executive matte black mugs, and travel tumblers with fast UAE delivery.",
     "seoKeywords": "mug printing dubai, custom mugs dubai, printed mugs uae, personalized coffee mugs dubai, magic mugs dubai, ceramic mug printing",
     "seoHeading": "Custom Mug Printing Solutions in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/mug-printing-dubai",
+    "canonicalUrl": "https://www.0nprint.com/categories/mug-printing-dubai",
     "imageAlt": "Custom printed corporate ceramic mugs and drinkware in Dubai"
   },
   {
@@ -160,7 +160,7 @@ export const initialCategories = [
     "seoDescription": "Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.",
     "seoKeywords": "bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai, smart led temperature bottle dubai",
     "seoHeading": "Custom Water Bottle Printing & Laser Engraving Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/bottle-printing-dubai",
+    "canonicalUrl": "https://www.0nprint.com/categories/bottle-printing-dubai",
     "imageAlt": "Custom printed and laser engraved water bottles in Dubai"
   },
   {
@@ -178,7 +178,7 @@ export const initialCategories = [
     "seoDescription": "Premium corporate gifts and branded merchandise in Dubai. Executive gift sets, leather items, engraved pens, and VIP presentation boxes.",
     "seoKeywords": "corporate gifts dubai, promotional merchandise dubai, executive gift sets uae, custom branded gifts dubai",
     "seoHeading": "Executive Corporate Gifts & VIP Merchandise Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/corporate-gift-items",
+    "canonicalUrl": "https://www.0nprint.com/categories/corporate-gift-items",
     "imageAlt": "Luxury corporate executive gift sets in Dubai"
   },
   {
@@ -196,7 +196,7 @@ export const initialCategories = [
     "seoDescription": "Large format printing and exhibition signage in Dubai. High-impact roll-up banners, outdoor flags, foam boards, and acrylic wall displays.",
     "seoKeywords": "signage printing dubai, exhibition banners dubai, roll up banner dubai, trade show displays uae, acrylic signs dubai",
     "seoHeading": "High-Impact Signage & Exhibition Banners in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/signage-banners-printing",
+    "canonicalUrl": "https://www.0nprint.com/categories/signage-banners-printing",
     "imageAlt": "Commercial exhibition banners and trade show signage in Dubai"
   },
   {
@@ -214,7 +214,7 @@ export const initialCategories = [
     "seoDescription": "Custom branded t-shirts, corporate polos, embroidered caps, and staff uniforms in Dubai with screen printing and DTG precision.",
     "seoKeywords": "t shirt printing dubai, custom apparel dubai, corporate uniform printing uae, embroidered caps dubai",
     "seoHeading": "Custom Corporate Apparel & Branded Wearables Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/custom-apparel-printing",
+    "canonicalUrl": "https://www.0nprint.com/categories/custom-apparel-printing",
     "imageAlt": "Custom screen printed corporate t-shirts and apparel in Dubai"
   },
   {
@@ -232,7 +232,7 @@ export const initialCategories = [
     "seoDescription": "Precision die-cut stickers and product roll labels in Dubai. Waterproof vinyl, metallic foil, holographic, and transparent packaging stickers.",
     "seoKeywords": "sticker printing dubai, custom labels dubai, die cut stickers uae, packaging labels dubai",
     "seoHeading": "Precision Die-Cut Stickers & Product Labels Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/stickers-labels-printing",
+    "canonicalUrl": "https://www.0nprint.com/categories/stickers-labels-printing",
     "imageAlt": "Custom die cut vinyl stickers and foil labels in Dubai"
   },
   {
@@ -250,7 +250,7 @@ export const initialCategories = [
     "seoDescription": "Executive multi-page booklet and catalog printing in Dubai. Saddle-stitched and perfect-bound company profiles, annual reports, and product lookbooks.",
     "seoKeywords": "catalog printing dubai, booklet printing uae, annual report printing dubai, company profile printing",
     "seoHeading": "Corporate Booklets, Catalogs & Annual Reports Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/catalogs-booklets-printing",
+    "canonicalUrl": "https://www.0nprint.com/categories/catalogs-booklets-printing",
     "imageAlt": "Multi-page executive corporate booklets and catalogs in Dubai"
   },
   {
@@ -268,7 +268,7 @@ export const initialCategories = [
     "seoDescription": "Executive office stationery sets in Dubai. Foil-stamped presentation folders, corporate envelopes, desk pads, and luxury notebooks for corporate identity.",
     "seoKeywords": "office stationery dubai, presentation folder printing dubai, corporate envelopes uae, desk pads printing",
     "seoHeading": "Executive Corporate Stationery & Envelopes in Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/office-stationery-printing",
+    "canonicalUrl": "https://www.0nprint.com/categories/office-stationery-printing",
     "imageAlt": "Executive corporate stationery and presentation folders in Dubai"
   },
   {
@@ -286,7 +286,7 @@ export const initialCategories = [
     "seoDescription": "Luxury hospitality and event print solutions in Dubai. Spill-resistant restaurant menus, luxury wedding invitations, and VIP event collaterals.",
     "seoKeywords": "restaurant menu printing dubai, wedding invitation printing dubai, event stationery uae, hospitality printing dubai",
     "seoHeading": "Hospitality, Menus & Event Stationery Solutions Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/hospitality-event-printing",
+    "canonicalUrl": "https://www.0nprint.com/categories/hospitality-event-printing",
     "imageAlt": "Luxury restaurant menus and wedding invitation suites in Dubai"
   },
   {
@@ -304,7 +304,7 @@ export const initialCategories = [
     "seoDescription": "Custom printed mugs, insulated stainless steel water bottles, branded USB flash drives, and power banks for corporate promotional campaigns in Dubai.",
     "seoKeywords": "mug printing dubai, custom water bottles dubai, promotional tech items uae, branded power banks dubai",
     "seoHeading": "Promotional Branded Drinkware & Tech Accessories Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/promotional-drinkware-tech",
+    "canonicalUrl": "https://www.0nprint.com/categories/promotional-drinkware-tech",
     "imageAlt": "Custom branded drinkware and promotional tech accessories in Dubai"
   },
   {
@@ -322,7 +322,7 @@ export const initialCategories = [
     "seoDescription": "Official company stamp making in Dubai. Self-inking rubber stamps, round company seals, pocket mobile stamps, and luxury wax seal stamps with 2-hour express delivery.",
     "seoKeywords": "rubber stamp dubai, company stamp maker dubai, self inking stamps dubai, official seal stamp uae, pocket stamp dubai, dater stamp dubai, wax seal stamp",
     "seoHeading": "Custom Company Rubber Stamps & Official Seals Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/stamps-printing-dubai",
+    "canonicalUrl": "https://www.0nprint.com/categories/stamps-printing-dubai",
     "imageAlt": "Official custom company rubber stamps and corporate seals in Dubai"
   },
   {
@@ -340,7 +340,7 @@ export const initialCategories = [
     "seoDescription": "High-quality roll-up banner printing in Dubai. Standard 85x200cm, Wide 100x200cm, and luxury teardrop retractable pull-up banners with express same-day delivery across UAE.",
     "seoKeywords": "rollup banner dubai, roll up banner printing dubai, pull up banner stand dubai, retractable banner dubai, exhibition banner stands uae, popup banner dubai",
     "seoHeading": "Premium Roll-Up Banner Printing & Retractable Stands Dubai",
-    "canonicalUrl": "https://0nprint.com/categories/rollup-banners",
+    "canonicalUrl": "https://www.0nprint.com/categories/rollup-banners",
     "imageAlt": "Professional retractable roll-up banner stand printing in Dubai"
   }
 ]
@@ -408,6 +408,9 @@ export async function getCategories(params = {}) {
 }
 
 export async function getCategoryById(id) {
+  const cleanId = String(id || '').trim().toLowerCase()
+  const isStickerSlug = cleanId === 'stickers-printing-dubai' || cleanId === 'stickers-labels-printing' || cleanId === 'custom-stickers-dubai'
+
   try {
     const { data } = await api.get(`/categories/${id}`)
     if (data?.data) return data.data
@@ -416,11 +419,27 @@ export async function getCategoryById(id) {
   }
 
   const all = getStoredCategories()
-  const found = all.find((c) => String(c.id) === String(id) || c._id === id || c.slug === id)
+  const found = all.find((c) => {
+    const cSlug = (c.slug || '').toLowerCase()
+    const cId = String(c.id || '').toLowerCase()
+    const cUid = (c._id || '').toLowerCase()
+    if (cId === cleanId || cUid === cleanId || cSlug === cleanId) return true
+    if (isStickerSlug && (cSlug === 'stickers-labels-printing' || cSlug === 'stickers-printing-dubai')) return true
+    return false
+  })
   if (found) return found
-  const fallback = initialCategories.find((c) => String(c.id) === String(id) || c._id === id || c.slug === id)
+
+  const fallback = initialCategories.find((c) => {
+    const cSlug = (c.slug || '').toLowerCase()
+    const cId = String(c.id || '').toLowerCase()
+    const cUid = (c._id || '').toLowerCase()
+    if (cId === cleanId || cUid === cleanId || cSlug === cleanId) return true
+    if (isStickerSlug && (cSlug === 'stickers-labels-printing' || cSlug === 'stickers-printing-dubai')) return true
+    return false
+  })
   if (fallback) return fallback
-  return all[0] || initialCategories[0] || null
+
+  return null
 }
 
 export async function createCategory(categoryData) {

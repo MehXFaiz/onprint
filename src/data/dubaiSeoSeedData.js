@@ -4,7 +4,7 @@
  * Citation Profiles, and Competitor SERP Gap Intelligence.
  */
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 const UAE_BACKLINKS = [
   {

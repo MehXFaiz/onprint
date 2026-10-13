@@ -330,7 +330,7 @@ export default function PageSeoEditorModal({
                 </div>
                 <div className="space-y-1">
                   <div className="text-[11px] text-neutral-600 font-mono truncate">
-                    https://0nprint.com{page.url}
+                    https://www.0nprint.com{page.url}
                   </div>
                   <div className="text-base font-semibold text-[#1a0dab] hover:underline cursor-pointer truncate">
                     {formData.meta_title || `${page.h1 || 'Page Title'} | ONPRINT Dubai`}
@@ -451,7 +451,7 @@ export default function PageSeoEditorModal({
                     type="text"
                     value={formData.canonical_url}
                     onChange={(e) => handleInputChange('canonical_url', e.target.value)}
-                    placeholder={`https://0nprint.com${page.url}`}
+                    placeholder={`https://www.0nprint.com${page.url}`}
                     className="w-full rounded-xl border border-neutral-300 px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19] focus:outline-none font-mono"
                   />
                 </div>
@@ -668,7 +668,7 @@ export default function PageSeoEditorModal({
                       type="text"
                       value={formData.og_image}
                       onChange={(e) => handleInputChange('og_image', e.target.value)}
-                      placeholder="https://0nprint.com/images/og-share.jpg"
+                      placeholder="https://www.0nprint.com/images/og-share.jpg"
                       className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none font-mono"
                     />
                   </div>
@@ -708,7 +708,7 @@ export default function PageSeoEditorModal({
                       type="text"
                       value={formData.twitter_image}
                       onChange={(e) => handleInputChange('twitter_image', e.target.value)}
-                      placeholder="https://0nprint.com/images/twitter-card.jpg"
+                      placeholder="https://www.0nprint.com/images/twitter-card.jpg"
                       className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none font-mono"
                     />
                   </div>

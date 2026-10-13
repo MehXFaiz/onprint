@@ -202,8 +202,8 @@ export default function CategoryDetailPage() {
     '@type': 'CollectionPage',
     name: seoTitle,
     description: seoDescription,
-    url: `https://0nprint.com${canonicalPath}`,
-    image: categoryImage.startsWith('http') ? categoryImage : `https://0nprint.com${categoryImage}`,
+    url: `https://www.0nprint.com${canonicalPath}`,
+    image: categoryImage.startsWith('http') ? categoryImage : `https://www.0nprint.com${categoryImage}`,
     provider: {
       '@type': 'LocalBusiness',
       name: 'ONPRINT Printing & Branding Solutions',

@@ -17,7 +17,7 @@ const MugsLeadPage = () => {
       provider: {
         '@type': 'LocalBusiness',
         name: 'ONPRINT',
-        '@id': 'https://0nprint.com/#organization',
+        '@id': 'https://www.0nprint.com/#organization',
         telephone: '+447344546056',
         email: '0nprint183@gmail.com',
         address: {
@@ -125,7 +125,7 @@ const MugsLeadPage = () => {
         quantity: parseInt(formData.quantity, 10) || 50,
         specs: `Type: ${formData.mugType || 'Standard'} | Qty: ${formData.quantity}`,
         notes: formData.message.trim() || null,
-        status: 'Pending',
+        status: 'New',
       })
     } catch (err) {
       console.warn('Backend quote submission note:', err.message)

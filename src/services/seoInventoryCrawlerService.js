@@ -3,7 +3,7 @@ const { initialPageSeoRecords } = require('../config/initialPageSeoData')
 const { categories: fallbackCategories, services: fallbackServices, products: fallbackProducts } = require('../data/initialData')
 const DUBAI_KEYWORDS = require('../data/dubaiKeywordsData')
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 /**
  * Complete SEO Inventory Crawler & Site Audit Service

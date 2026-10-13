@@ -123,7 +123,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
               Monthly Organic Performance Audit
             </h1>
             <p className="text-xs text-neutral-500 mt-1">
-              Target Market: Dubai & United Arab Emirates | Domain: https://0nprint.com
+              Target Market: Dubai & United Arab Emirates | Domain: https://www.0nprint.com
             </p>
           </div>
 

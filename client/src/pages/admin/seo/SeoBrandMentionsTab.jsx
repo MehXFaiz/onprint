@@ -135,7 +135,7 @@ export default function SeoBrandMentionsTab({ showToast }) {
 I was reading your excellent piece "${item.article_title || 'Recent article'}" and noticed your mention of ONPRINT:
 "${item.mention_snippet || 'ONPRINT'}"
 
-Thank you so much for featuring our Al Quoz pressroom! Would you consider hyperlinking "ONPRINT" directly to our website (https://0nprint.com) so your readers can easily explore our commercial printing and packaging portfolio?
+Thank you so much for featuring our Al Quoz pressroom! Would you consider hyperlinking "ONPRINT" directly to our website (https://www.0nprint.com) so your readers can easily explore our commercial printing and packaging portfolio?
 
 Either way, thank you for the shoutout and keep up the great coverage!
 
@@ -511,7 +511,7 @@ Dubai, UAE`
 
             <div className="flex items-center justify-between pt-2">
               <span className="text-xs text-neutral-500">
-                Target link: <span className="font-mono text-neutral-800 font-bold">https://0nprint.com</span>
+                Target link: <span className="font-mono text-neutral-800 font-bold">https://www.0nprint.com</span>
               </span>
               <div className="flex items-center gap-2">
                 <Button

@@ -117,15 +117,15 @@ import { getBlogSeoMetrics } from '../../../services/blog'
 const SCHEMA_TEMPLATES = {
   Organization: {
     title: 'Organization Schema (Corporate Identity)',
-    target: 'Global Site Header / Root Layout (https://0nprint.com)',
+    target: 'Global Site Header / Root Layout (https://www.0nprint.com)',
     feature: 'Google Knowledge Graph, Brand Authority, Verified Social Profiles',
     json: {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "ONPRINT",
       "alternateName": "0nprint",
-      "url": "https://0nprint.com",
-      "logo": "https://0nprint.com/logo_icon.png",
+      "url": "https://www.0nprint.com",
+      "logo": "https://www.0nprint.com/logo_icon.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Al Quoz",
@@ -160,7 +160,7 @@ const SCHEMA_TEMPLATES = {
       "@type": "LocalBusiness",
       "name": "ONPRINT",
       "alternateName": "0nprint",
-      "image": "https://0nprint.com/logo_icon.png",
+      "image": "https://www.0nprint.com/logo_icon.png",
       "priceRange": "$$",
       "telephone": "+44 7344 546056",
       "address": {
@@ -188,16 +188,16 @@ const SCHEMA_TEMPLATES = {
   },
   WebSite: {
     title: 'WebSite Schema (Sitelinks Searchbox)',
-    target: 'Global Site Root (https://0nprint.com)',
+    target: 'Global Site Root (https://www.0nprint.com)',
     feature: 'Google Sitelinks Search Box directly in SERPs',
     json: {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "ONPRINT",
-      "url": "https://0nprint.com",
+      "url": "https://www.0nprint.com",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://0nprint.com/products?search={search_term_string}",
+        "target": "https://www.0nprint.com/products?search={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
@@ -210,9 +210,9 @@ const SCHEMA_TEMPLATES = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://0nprint.com" },
-        { "@type": "ListItem", "position": 2, "name": "Commercial Printing", "item": "https://0nprint.com/categories" },
-        { "@type": "ListItem", "position": 3, "name": "Business Cards", "item": "https://0nprint.com/products/business-cards" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.0nprint.com" },
+        { "@type": "ListItem", "position": 2, "name": "Commercial Printing", "item": "https://www.0nprint.com/categories" },
+        { "@type": "ListItem", "position": 3, "name": "Business Cards", "item": "https://www.0nprint.com/products/business-cards" }
       ]
     }
   },
@@ -229,7 +229,7 @@ const SCHEMA_TEMPLATES = {
       "brand": { "@type": "Brand", "name": "ONPRINT" },
       "offers": {
         "@type": "Offer",
-        "url": "https://0nprint.com/products/business-cards",
+        "url": "https://www.0nprint.com/products/business-cards",
         "priceCurrency": "AED",
         "price": "95.00",
         "availability": "https://schema.org/InStock",
@@ -292,13 +292,13 @@ const SCHEMA_TEMPLATES = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Complete Guide to Commercial Print Finishes in Dubai",
-      "image": "https://0nprint.com/images/blog/print-finishes-guide.jpg",
+      "image": "https://www.0nprint.com/images/blog/print-finishes-guide.jpg",
       "datePublished": "2026-03-01T08:00:00+04:00",
       "author": { "@type": "Organization", "name": "ONPRINT Technical Editorial Team" },
       "publisher": {
         "@type": "Organization",
         "name": "ONPRINT",
-        "logo": { "@type": "ImageObject", "url": "https://0nprint.com/images/logo.png" }
+        "logo": { "@type": "ImageObject", "url": "https://www.0nprint.com/images/logo.png" }
       }
     }
   }
@@ -398,7 +398,7 @@ export default function AdminSeoManagerPage() {
   })
 
   const [gscForm, setGscForm] = useState({
-    property: 'https://0nprint.com',
+    property: 'https://www.0nprint.com',
     authType: 'service_account',
     serviceAccountJson: '',
     clientId: '',
@@ -685,7 +685,7 @@ export default function AdminSeoManagerPage() {
         setGscStatus(res.data)
         setGscForm((prev) => ({
           ...prev,
-          property: res.data.property || 'https://0nprint.com',
+          property: res.data.property || 'https://www.0nprint.com',
           authType: (res.data.authType || 'service_account').toLowerCase(),
         }))
       }
@@ -2586,14 +2586,14 @@ export default function AdminSeoManagerPage() {
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
                   {(auditData?.topActions?.length > 0 ? auditData.topActions : [
-                    { rank: 1, priority: 'CRITICAL', title: 'Submit Dynamic Sitemap.xml to GSC', category: 'indexability', affectedUrl: 'https://0nprint.com/sitemap.xml', recommendedFix: 'Submit updated sitemap with 8 Dubai locations and 5 commercial use-cases.', expectedImpact: 'Fast-tracks indexing of all money pages.' },
-                    { rank: 2, priority: 'CRITICAL', title: 'Fix Missing Meta Titles on Catalog Pages', category: 'onpage', affectedUrl: 'https://0nprint.com/categories', recommendedFix: 'Generate unique intent-focused titles for all categories.', expectedImpact: 'Fixes primary Google SERP snippet display.' },
-                    { rank: 3, priority: 'HIGH', title: 'Optimize Striking Distance (Pos 4-20) Queries', category: 'onpage', affectedUrl: 'https://0nprint.com/services', recommendedFix: 'Inject click-triggers in titles to boost CTR.', expectedImpact: '20%–45% click lift on existing impressions.' },
-                    { rank: 4, priority: 'HIGH', title: 'Resolve Missing Image ALT Attributes', category: 'onpage', affectedUrl: 'https://0nprint.com/products', recommendedFix: 'Add descriptive alt tags with Dubai modifiers.', expectedImpact: 'Unlocks Google Image search traffic.' },
-                    { rank: 5, priority: 'HIGH', title: 'Inject Contextual Internal Links from Blog', category: 'internal_linking', affectedUrl: 'https://0nprint.com/blog', recommendedFix: 'Add 2–3 in-content links to money pages.', expectedImpact: 'Passes topical PageRank to commercial pages.' },
-                    { rank: 6, priority: 'MEDIUM', title: 'Add FAQPage Schema to Product Categories', category: 'schema', affectedUrl: 'https://0nprint.com/categories', recommendedFix: 'Embed real customer Q&As with JSON-LD.', expectedImpact: 'Expands rich snippet SERP real estate.' },
-                    { rank: 7, priority: 'MEDIUM', title: 'Expand Thin Product Descriptions', category: 'content', affectedUrl: 'https://0nprint.com/products', recommendedFix: 'Add paper stock specs, laminations, turnaround.', expectedImpact: 'Increases topical dwell time & depth.' },
-                    { rank: 8, priority: 'MEDIUM', title: 'Convert Legacy Category JPGs to WebP', category: 'performance', affectedUrl: 'https://0nprint.com/uploads', recommendedFix: 'Serve WebP format with fallbacks.', expectedImpact: 'Reduces bandwidth by 35% on mobile.' },
+                    { rank: 1, priority: 'CRITICAL', title: 'Submit Dynamic Sitemap.xml to GSC', category: 'indexability', affectedUrl: 'https://www.0nprint.com/sitemap.xml', recommendedFix: 'Submit updated sitemap with 8 Dubai locations and 5 commercial use-cases.', expectedImpact: 'Fast-tracks indexing of all money pages.' },
+                    { rank: 2, priority: 'CRITICAL', title: 'Fix Missing Meta Titles on Catalog Pages', category: 'onpage', affectedUrl: 'https://www.0nprint.com/categories', recommendedFix: 'Generate unique intent-focused titles for all categories.', expectedImpact: 'Fixes primary Google SERP snippet display.' },
+                    { rank: 3, priority: 'HIGH', title: 'Optimize Striking Distance (Pos 4-20) Queries', category: 'onpage', affectedUrl: 'https://www.0nprint.com/services', recommendedFix: 'Inject click-triggers in titles to boost CTR.', expectedImpact: '20%–45% click lift on existing impressions.' },
+                    { rank: 4, priority: 'HIGH', title: 'Resolve Missing Image ALT Attributes', category: 'onpage', affectedUrl: 'https://www.0nprint.com/products', recommendedFix: 'Add descriptive alt tags with Dubai modifiers.', expectedImpact: 'Unlocks Google Image search traffic.' },
+                    { rank: 5, priority: 'HIGH', title: 'Inject Contextual Internal Links from Blog', category: 'internal_linking', affectedUrl: 'https://www.0nprint.com/blog', recommendedFix: 'Add 2–3 in-content links to money pages.', expectedImpact: 'Passes topical PageRank to commercial pages.' },
+                    { rank: 6, priority: 'MEDIUM', title: 'Add FAQPage Schema to Product Categories', category: 'schema', affectedUrl: 'https://www.0nprint.com/categories', recommendedFix: 'Embed real customer Q&As with JSON-LD.', expectedImpact: 'Expands rich snippet SERP real estate.' },
+                    { rank: 7, priority: 'MEDIUM', title: 'Expand Thin Product Descriptions', category: 'content', affectedUrl: 'https://www.0nprint.com/products', recommendedFix: 'Add paper stock specs, laminations, turnaround.', expectedImpact: 'Increases topical dwell time & depth.' },
+                    { rank: 8, priority: 'MEDIUM', title: 'Convert Legacy Category JPGs to WebP', category: 'performance', affectedUrl: 'https://www.0nprint.com/uploads', recommendedFix: 'Serve WebP format with fallbacks.', expectedImpact: 'Reduces bandwidth by 35% on mobile.' },
                   ]).map((act, idx) => (
                     <tr key={idx} className="hover:bg-neutral-50/60 transition-colors">
                       <td className="py-3 pr-4 font-black text-neutral-900">#{act.rank || idx + 1}</td>
@@ -3019,7 +3019,7 @@ export default function AdminSeoManagerPage() {
               </div>
               <div className="rounded-xl bg-neutral-50 p-3 border border-neutral-200/60">
                 <span className="font-bold text-neutral-700">15% Generic / URL</span>
-                <p className="text-[11px] text-neutral-500 mt-0.5">https://0nprint.com, visit website, learn more</p>
+                <p className="text-[11px] text-neutral-500 mt-0.5">https://www.0nprint.com, visit website, learn more</p>
               </div>
             </div>
           </div>
@@ -3357,13 +3357,13 @@ export default function AdminSeoManagerPage() {
                               &ldquo;{item.target_anchor_text || item.anchor_text || 'ONPRINT Dubai'}&rdquo;
                             </div>
                             <a
-                              href={item.target_url || item.target_onprint_url || 'https://0nprint.com/'}
+                              href={item.target_url || item.target_onprint_url || 'https://www.0nprint.com/'}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="text-[11px] text-[#A82F19] hover:underline font-mono truncate block mt-0.5"
                               title={item.target_url || item.target_onprint_url}
                             >
-                              {(item.target_url || item.target_onprint_url || 'https://0nprint.com/').replace(/^https?:\/\/(www\.)?0nprint\.com/, '') || '/'}
+                              {(item.target_url || item.target_onprint_url || 'https://www.0nprint.com/').replace(/^https?:\/\/(www\.)?0nprint\.com/, '') || '/'}
                             </a>
                           </td>
 
@@ -4553,7 +4553,7 @@ export default function AdminSeoManagerPage() {
                   type="text"
                   value={gscForm.property}
                   onChange={(e) => setGscForm({ ...gscForm, property: e.target.value })}
-                  placeholder="https://0nprint.com"
+                  placeholder="https://www.0nprint.com"
                   className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
                 />
               </div>
@@ -4954,12 +4954,12 @@ export default function AdminSeoManagerPage() {
 
             <div className="mt-4 rounded-xl bg-neutral-900 p-4 font-mono text-xs text-emerald-400 flex items-center justify-between gap-3">
               <span className="truncate">
-                curl -X POST {settingsData?.cron_endpoint || 'https://0nprint.com/api/seo/run-daily'} -H &quot;X-Cron-Secret: onprint_daily_seo_cron_secret_2026&quot;
+                curl -X POST {settingsData?.cron_endpoint || 'https://www.0nprint.com/api/seo/run-daily'} -H &quot;X-Cron-Secret: onprint_daily_seo_cron_secret_2026&quot;
               </span>
               <button
                 type="button"
                 onClick={() => {
-                  const cmd = `curl -X POST ${settingsData?.cron_endpoint || 'https://0nprint.com/api/seo/run-daily'} -H "X-Cron-Secret: onprint_daily_seo_cron_secret_2026"`
+                  const cmd = `curl -X POST ${settingsData?.cron_endpoint || 'https://www.0nprint.com/api/seo/run-daily'} -H "X-Cron-Secret: onprint_daily_seo_cron_secret_2026"`
                   navigator.clipboard.writeText(cmd)
                   setCopiedKey(true)
                   setTimeout(() => setCopiedKey(false), 2000)

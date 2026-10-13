@@ -110,7 +110,7 @@ export default function AboutPage() {
       '@type': 'LocalBusiness',
       name: 'ONPRINT',
       alternateName: '0nprint',
-      url: 'https://0nprint.com',
+      url: 'https://www.0nprint.com',
       email: '0nprint183@gmail.com',
       address: {
         '@type': 'PostalAddress',

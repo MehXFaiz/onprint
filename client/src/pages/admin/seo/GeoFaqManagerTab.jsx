@@ -658,7 +658,7 @@ export default function GeoFaqManagerTab({ showToast }) {
               FAQPage JSON-LD Schema Snippet
             </h3>
             <p className="mt-1 text-xs text-neutral-500">
-              This schema is injected on <code>https://0nprint.com{schemaPreviewItem.target_url}</code> for Google Rich Snippets &amp; LLM extraction.
+              This schema is injected on <code>https://www.0nprint.com{schemaPreviewItem.target_url}</code> for Google Rich Snippets &amp; LLM extraction.
             </p>
 
             <div className="mt-4 rounded-xl bg-neutral-900 p-4 text-emerald-400 font-mono text-xs overflow-x-auto">

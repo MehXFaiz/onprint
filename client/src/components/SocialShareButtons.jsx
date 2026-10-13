@@ -4,7 +4,7 @@ import { Facebook, Twitter, Linkedin, Link2, Check } from 'lucide-react'
 export default function SocialShareButtons({ title, url, description }) {
   const [copied, setCopied] = useState(false)
 
-  const shareUrl = url || (typeof window !== 'undefined' ? window.location.href : 'https://0nprint.com')
+  const shareUrl = url || (typeof window !== 'undefined' ? window.location.href : 'https://www.0nprint.com')
   const shareTitle = title || 'ONPRINT - Premium Printing Services in Dubai'
   const shareDesc = description || 'Check out ONPRINT for premium printing services in Dubai, UAE'
 

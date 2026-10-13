@@ -162,7 +162,7 @@ export default function AdminCategoryFormPage() {
 
   const serpTitle = form.seoTitle || (form.name ? `${form.name} | ONPRINT Dubai` : 'Category Title | ONPRINT Dubai')
   const serpDesc = form.seoDescription || (form.description ? form.description : 'High-impact printing and branding solutions manufactured in Dubai, UAE.')
-  const serpUrl = `https://0nprint.com/categories/${form.slug || 'category-slug'}`
+  const serpUrl = `https://www.0nprint.com/categories/${form.slug || 'category-slug'}`
 
   return (
     <div className="space-y-6">

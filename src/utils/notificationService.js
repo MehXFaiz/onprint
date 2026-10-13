@@ -140,7 +140,7 @@ async function notifyNewQuote(quote) {
         </table>
 
         <div style="text-align: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0;">
-          <a href="https://0nprint.com/admin/quotes" style="display: inline-block; background-color: #FF6A00; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 13px; padding: 12px 24px; border-radius: 8px;">
+          <a href="https://www.0nprint.com/admin/quotes" style="display: inline-block; background-color: #FF6A00; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 13px; padding: 12px 24px; border-radius: 8px;">
             Open in Admin Dashboard
           </a>
         </div>

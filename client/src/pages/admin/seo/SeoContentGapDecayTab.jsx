@@ -326,7 +326,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
 
                     <td className="py-3 px-4 text-right">
                       <a
-                        href={`https://0nprint.com${row.path}`}
+                        href={`https://www.0nprint.com${row.path}`}
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center gap-1 text-[#A82F19] hover:underline font-bold text-xs"

@@ -48,7 +48,7 @@ async function listServices(req, res, next) {
           seoDescription: s.seoDescription || s.shortDescription || s.description || '',
           seoKeywords: s.seoKeywords || '',
           seoHeading: s.seoHeading || s.name,
-          canonicalUrl: s.canonicalUrl || `https://0nprint.com/services/${s.slug}`,
+          canonicalUrl: s.canonicalUrl || `https://www.0nprint.com/services/${s.slug}`,
           imageAlt: s.imageAlt || s.name,
           category: s.cat_id
             ? { _id: s.cat_key || `cat-${s.cat_id}`, id: s.cat_id, name: s.cat_name, slug: s.cat_slug }
@@ -107,7 +107,7 @@ async function getServiceBySlug(req, res, next) {
             seoDescription: s.seoDescription || s.shortDescription || s.description || '',
             seoKeywords: s.seoKeywords || '',
             seoHeading: s.seoHeading || s.name,
-            canonicalUrl: s.canonicalUrl || `https://0nprint.com/services/${s.slug}`,
+            canonicalUrl: s.canonicalUrl || `https://www.0nprint.com/services/${s.slug}`,
             imageAlt: s.imageAlt || s.name,
             category: s.cat_id
               ? { _id: s.cat_key || `cat-${s.cat_id}`, id: s.cat_id, name: s.cat_name, slug: s.cat_slug }
@@ -167,7 +167,7 @@ async function createService(req, res, next) {
         seoKeywords || '',
         seoHeading || name,
         imageAlt || name,
-        `https://0nprint.com/services/${cleanSlug}`,
+        `https://www.0nprint.com/services/${cleanSlug}`,
       ]
     )
 
@@ -184,7 +184,7 @@ async function createService(req, res, next) {
       description,
       seo_keywords: seoKeywords,
       image_alt: imageAlt,
-      canonical_url: `https://0nprint.com/services/${cleanSlug}`,
+      canonical_url: `https://www.0nprint.com/services/${cleanSlug}`,
     }).catch((err) => console.warn('[PageSEO Sync] Service create warning:', err.message))
 
     res.status(201).json({
@@ -242,7 +242,7 @@ async function updateService(req, res, next) {
         seoKeywords || '',
         seoHeading || name,
         imageAlt || name,
-        `https://0nprint.com/services/${cleanSlug}`,
+        `https://www.0nprint.com/services/${cleanSlug}`,
         id,
         id,
         id,
@@ -264,7 +264,7 @@ async function updateService(req, res, next) {
       description,
       seo_keywords: seoKeywords,
       image_alt: imageAlt,
-      canonical_url: `https://0nprint.com/services/${cleanSlug}`,
+      canonical_url: `https://www.0nprint.com/services/${cleanSlug}`,
     }).catch((err) => console.warn('[PageSEO Sync] Service update warning:', err.message))
 
     res.json({ success: true, message: 'Service updated successfully' })

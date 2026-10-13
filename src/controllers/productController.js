@@ -86,7 +86,7 @@ async function listProducts(req, res, next) {
           seoDescription: p.seoDescription || p.shortDescription || p.description || '',
           seoKeywords: p.seoKeywords || '',
           seoHeading: p.seoHeading || p.name,
-          canonicalUrl: p.canonicalUrl || `https://0nprint.com/products/${p.slug}`,
+          canonicalUrl: p.canonicalUrl || `https://www.0nprint.com/products/${p.slug}`,
           imageAlt: p.imageAlt || p.name,
           createdAt: p.createdAt,
           category: p.cat_id
@@ -199,7 +199,7 @@ async function getProductBySlug(req, res, next) {
           seoDescription: p.seoDescription || p.shortDescription || p.description || '',
           seoKeywords: p.seoKeywords || '',
           seoHeading: p.seoHeading || p.name,
-          canonicalUrl: p.canonicalUrl || `https://0nprint.com/products/${p.slug}`,
+          canonicalUrl: p.canonicalUrl || `https://www.0nprint.com/products/${p.slug}`,
           imageAlt: p.imageAlt || (images[0]?.alt_text) || p.name,
           createdAt: p.createdAt,
           category: p.cat_id
@@ -268,7 +268,7 @@ async function createProduct(req, res, next) {
         seoKeywords || '',
         seoHeading || name,
         imageAlt || name,
-        `https://0nprint.com/products/${cleanSlug}`,
+        `https://www.0nprint.com/products/${cleanSlug}`,
       ]
     )
 
@@ -301,7 +301,7 @@ async function createProduct(req, res, next) {
       description,
       seo_keywords: seoKeywords,
       image_alt: imageAlt,
-      canonical_url: `https://0nprint.com/products/${cleanSlug}`,
+      canonical_url: `https://www.0nprint.com/products/${cleanSlug}`,
     }).catch((err) => console.warn('[PageSEO Sync] Product create warning:', err.message))
 
     res.status(201).json({
@@ -365,7 +365,7 @@ async function updateProduct(req, res, next) {
         seoKeywords || '',
         seoHeading || name,
         imageAlt || name,
-        `https://0nprint.com/products/${cleanSlug}`,
+        `https://www.0nprint.com/products/${cleanSlug}`,
         id,
         id,
         id,
@@ -387,7 +387,7 @@ async function updateProduct(req, res, next) {
       description,
       seo_keywords: seoKeywords,
       image_alt: imageAlt,
-      canonical_url: `https://0nprint.com/products/${cleanSlug}`,
+      canonical_url: `https://www.0nprint.com/products/${cleanSlug}`,
     }).catch((err) => console.warn('[PageSEO Sync] Product update warning:', err.message))
 
     res.json({ success: true, message: 'Product updated successfully' })

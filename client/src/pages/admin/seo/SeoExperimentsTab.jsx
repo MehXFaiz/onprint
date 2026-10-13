@@ -30,7 +30,7 @@ export default function SeoExperimentsTab({ showToast }) {
   const [search, setSearch] = useState('')
 
   const initialForm = {
-    page_url: 'https://0nprint.com/business-card-printing-dubai',
+    page_url: 'https://www.0nprint.com/business-card-printing-dubai',
     test_type: 'TITLE_AND_META',
     hypothesis: 'Adding same-day turnaround & Dubai Al Quoz location hook will improve CTR by 25%',
     control_title: 'Business Card Printing Dubai | ONPRINT',

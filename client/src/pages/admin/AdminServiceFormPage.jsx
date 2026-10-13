@@ -103,7 +103,7 @@ export default function AdminServiceFormPage() {
 
   const serpTitle = form.seoTitle || (form.name ? `${form.name} in Dubai | ONPRINT` : 'Service Title | ONPRINT Dubai')
   const serpDesc = form.seoDescription || form.shortDescription || 'Commercial printing and branding services in Dubai, UAE.'
-  const serpUrl = `https://0nprint.com/services/${form.slug || 'service-slug'}`
+  const serpUrl = `https://www.0nprint.com/services/${form.slug || 'service-slug'}`
 
   return (
     <div className="space-y-6 max-w-5xl">

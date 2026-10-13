@@ -38,7 +38,9 @@ function getStoredQuotesRaw() {
 }
 
 export function syncApprovedQuoteToOrder(quote) {
-  if (!quote || (quote.status || '').toLowerCase() !== 'approved') return null
+  if (!quote) return null
+  const sLower = (quote.status || '').toLowerCase()
+  if (sLower !== 'approved' && sLower !== 'won') return null
   try {
     const saved = localStorage.getItem(ORDERS_STORAGE_KEY)
     const currentOrders = saved ? JSON.parse(saved) : []

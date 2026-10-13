@@ -215,7 +215,7 @@ Please confirm availability and dispatch schedule.`
         totalPrice: estimatedTotal,
         specs: `Stock: ${selectedCard.name} | Addons: ${addonLabels || 'None'} | Turnaround: ${selectedTurnaround.label}`,
         notes: formData.notes,
-        status: 'Pending',
+        status: 'New',
       }
 
       const res = await createQuote(quotePayload)

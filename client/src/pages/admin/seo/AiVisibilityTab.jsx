@@ -37,7 +37,7 @@ export default function AiVisibilityTab({ showToast }) {
     query_prompt: '',
     onprint_cited: 1,
     citation_rank: 1,
-    source_url_cited: 'https://0nprint.com/business-card-printing-dubai',
+    source_url_cited: 'https://www.0nprint.com/business-card-printing-dubai',
     extracted_snippet: '',
     competitors_cited: '',
     verification_notes: '',
@@ -371,7 +371,7 @@ export default function AiVisibilityTab({ showToast }) {
                     type="text"
                     value={logFormData.source_url_cited}
                     onChange={(e) => setLogFormData({ ...logFormData, source_url_cited: e.target.value })}
-                    placeholder="https://0nprint.com/..."
+                    placeholder="https://www.0nprint.com/..."
                     className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#A82F19]"
                   />
                 </div>

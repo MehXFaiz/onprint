@@ -423,7 +423,7 @@ export default function BusinessCardSeoTab({ showToast }) {
 
             <div className="divide-y divide-neutral-100">
               {[
-                { item: 'Canonical URL Declaration', status: 'Enforced (https://0nprint.com/business-card-printing-dubai)', passed: true },
+                { item: 'Canonical URL Declaration', status: 'Enforced (https://www.0nprint.com/business-card-printing-dubai)', passed: true },
                 { item: 'Core Web Vitals Readiness', status: 'Sub-1.2s LCP, zero layout shift (CLS: 0.00)', passed: true },
                 { item: 'JSON-LD Schema Hierarchy', status: 'LocalBusiness + Product + Offer + FAQPage + BreadcrumbList', passed: true },
                 { item: 'Image Optimization & WebP', status: 'All product visuals responsive with descriptive ALTs', passed: true },

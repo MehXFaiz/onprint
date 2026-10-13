@@ -227,14 +227,12 @@ async function getSitemapXml(req, res) {
       if (seoPages && seoPages.length > 0) {
         seoPages.forEach((p) => {
           const rawUrl = (p.url || '').trim()
-          if (!rawUrl) return
-          let fullLoc
-          if (rawUrl.startsWith('http://') || rawUrl.startsWith('https://')) {
-            fullLoc = rawUrl.replace(/^https?:\/\/(www\.)?0nprint\.com/i, SITE_URL)
-          } else {
-            const cleanPath = rawUrl.startsWith('/') ? rawUrl : `/${rawUrl}`
-            fullLoc = `${SITE_URL}${cleanPath === '/' ? '' : cleanPath}`
+          let cleanPath = rawUrl
+          if (cleanPath.startsWith('http://') || cleanPath.startsWith('https://')) {
+            cleanPath = cleanPath.replace(/^https?:\/\/(www\.)?0nprint\.com/i, '')
           }
+          cleanPath = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`
+          const fullLoc = `${SITE_URL}${cleanPath === '/' ? '' : cleanPath}`
           
           if (seenUrls.has(fullLoc)) return
           seenUrls.add(fullLoc)

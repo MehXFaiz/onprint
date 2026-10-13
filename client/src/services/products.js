@@ -186,11 +186,18 @@ export async function getProducts(params = {}) {
   if (params.featured) list = list.filter((p) => p.featured)
   if (params.category) {
     const categoryParam = params.category.toLowerCase()
+    const isStickerCategory = categoryParam === 'stickers-printing-dubai' || categoryParam === 'stickers-labels-printing' || categoryParam === 'custom-stickers-dubai'
+
     list = list.filter((p) => {
       const catSlug = p.category?.slug?.toLowerCase() || ''
       const catId = p.category?._id?.toLowerCase() || ''
       const catName = p.category?.name?.toLowerCase() || ''
       
+      // Sticker category alias match
+      if (isStickerCategory && (catSlug === 'stickers-labels-printing' || catSlug === 'stickers-printing-dubai' || p.slug.includes('sticker') || p.slug.includes('label'))) {
+        return true
+      }
+
       // Exact match first
       if (catSlug === categoryParam || catId === categoryParam) return true
       

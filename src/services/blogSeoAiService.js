@@ -2,6 +2,8 @@ const https = require('https')
 const { pool } = require('../config/database')
 const internalLinkingService = require('./internalLinkingService')
 
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
+
 /**
  * Clean text by stripping HTML tags and trimming
  */
@@ -607,7 +609,7 @@ class BlogSeoAiService {
     if (canonical_url && canonical_url.startsWith('http')) {
       canonicalPts = 4
     } else {
-      const defaultCanon = `https://0nprint.com/blog/${cleanSlug || generateSlug(cleanTitle)}`
+      const defaultCanon = `${SITE_URL}/blog/${cleanSlug || generateSlug(cleanTitle)}`
       recommendations.push({
         id: 'canonical-url',
         field: 'canonical_url',
@@ -786,7 +788,7 @@ class BlogSeoAiService {
       focus_keyword: aiOutput.focus_keyword || keyword,
       secondary_keywords: aiOutput.secondary_keywords,
       slug: generatedSlug,
-      canonical_url: `https://0nprint.com/blog/${generatedSlug}`,
+      canonical_url: `${SITE_URL}/blog/${generatedSlug}`,
       featured_image: '/assets/products/1 (1).jpg',
       image_alt: aiOutput.image_alt,
       faqs: aiOutput.suggested_faqs || [],
@@ -1090,7 +1092,7 @@ REQUIRED JSON OUTPUT FORMAT:
   "seo_title": "Title | ONPRINT ${loc}",
   "meta_title": "Title | ONPRINT ${loc}",
   "meta_description": "135-155 character meta description",
-  "canonical_url": "https://0nprint.com/blog/clean-slug",
+  "canonical_url": "https://www.0nprint.com/blog/clean-slug",
   "target_location": "${loc}",
   "image_alt": "Descriptive photography ALT text",
   "faqs": [
@@ -1308,7 +1310,7 @@ REQUIRED JSON OUTPUT FORMAT:
       seo_title: seoTitle,
       meta_title: seoTitle,
       meta_description: metaDescription,
-      canonical_url: `https://0nprint.com/blog/${slug}`,
+      canonical_url: `${SITE_URL}/blog/${slug}`,
       target_location: location,
       image_alt: `${cleanTitle} — Commercial Printing Dubai | ONPRINT`,
       faqs,

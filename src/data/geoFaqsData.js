@@ -5,7 +5,7 @@
  * Adheres strictly to genuine ONPRINT capabilities without unverified claims.
  */
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 const GEO_FAQS = [
   // ==========================================

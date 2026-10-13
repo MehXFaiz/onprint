@@ -5,7 +5,7 @@
  * Strictly NO duplicate SEO and NO dummy/placeholder data.
  */
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 const initialPageSeoRecords = [
   // ==========================================

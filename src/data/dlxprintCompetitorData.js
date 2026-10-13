@@ -6,7 +6,7 @@
  * DO NOT copy competitor text. Used strictly to build superior, original resources.
  */
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 const DLXPRINT_PROFILE = {
   competitor_name: 'Deluxe Printing (DLXPrint)',

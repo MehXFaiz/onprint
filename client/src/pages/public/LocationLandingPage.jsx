@@ -106,7 +106,7 @@ export default function LocationLandingPage({ locationKey }) {
     '@type': 'LocalBusiness',
     name: `ONPRINT ${locationData.name}`,
     description: locationData.description,
-    url: `https://0nprint.com/printing-services-${locationKey}`,
+    url: `https://www.0nprint.com/printing-services-${locationKey}`,
     telephone: '+971-50-1234567',
     email: '0nprint183@gmail.com',
     address: {

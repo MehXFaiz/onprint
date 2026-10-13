@@ -1,4 +1,4 @@
-export const COMMERCIAL_LANDING_PAGES = {
+const COMMERCIAL_LANDING_PAGES = {
     "printing-services-dubai": {
       "slug": "printing-services-dubai",
       "path": "/printing-services-dubai",
@@ -419,12 +419,12 @@ export const COMMERCIAL_LANDING_PAGES = {
       "slug": "sticker-printing-dubai",
       "path": "/sticker-printing-dubai",
       "title": "Sticker Printing Dubai | Custom Die-Cut Vinyl Stickers | ONPRINT",
-      "metaDescription": "Custom sticker printing in Dubai. Waterproof vinyl die-cut stickers, kiss-cut sheets, holographic & clear decals. UV-resistant with fast UAE delivery.",
+      "metaDescription": "Custom sticker printing in Dubai. Waterproof vinyl die-cut stickers, kiss-cut sheets, holographic & clear decals, car & window stickers with express same-day UAE delivery.",
       "focusKeyword": "sticker printing dubai",
-      "secondaryKeywords": "custom stickers dubai, die cut stickers dubai, vinyl sticker printing dubai, waterproof stickers dubai, car decal printing dubai",
+      "secondaryKeywords": "custom sticker printing dubai, die cut sticker printing dubai, waterproof sticker printing dubai, vinyl sticker printing dubai, sheet sticker printing dubai, clear sticker printing dubai, holographic sticker printing dubai, metallic foil sticker printing dubai, car decal printing dubai, window sticker printing dubai, same day sticker printing dubai",
       "badge": "CUSTOM DIE-CUT VINYL & DECALS",
       "h1": "Custom Die-Cut Vinyl Sticker & Decal Printing in Dubai",
-      "subheading": "Premium weatherproof vinyl stickers, precision die-cut to any shape. Available in waterproof matte, glossy, holographic, transparent, and metallic gold finishes with scratch-resistant coatings.",
+      "subheading": "Premium weatherproof vinyl stickers, precision die-cut to any custom shape. Available in waterproof matte, glossy, holographic prism, clear transparent, and metallic foil finishes with scratch-resistant UV protective overlaminates.",
       "stats": [
         {
           "label": "Substrate",
@@ -445,7 +445,7 @@ export const COMMERCIAL_LANDING_PAGES = {
       ],
       "highlights": [
         {
-          "title": "Individual Die-Cut & Kiss-Cut Sheets",
+          "title": "Individual Die-Cut & Kiss-Cut Sheet Stickers",
           "description": "Cut completely through both the sticker and backing paper for individual handouts, or kiss-cut on peelable multi-sticker A4/A5 sheets."
         },
         {
@@ -497,12 +497,20 @@ export const COMMERCIAL_LANDING_PAGES = {
           "answer": "Yes. All our vinyl stickers feature industrial polymer film and UV-cured protective laminates designed to resist intense sunlight, moisture, oil, and temperatures up to 80°C."
         },
         {
-          "question": "What is the difference between die-cut and kiss-cut stickers?",
+          "question": "Can I get same-day urgent sticker printing in Dubai?",
+          "answer": "Yes. ONPRINT offers express same-day sticker printing in Dubai for orders placed before 11:00 AM with print-ready vector files. Collect directly from our Al Quoz pressroom or select courier dispatch across Dubai."
+        },
+        {
+          "question": "What is the difference between die-cut and kiss-cut sheet stickers?",
           "answer": "Die-cut stickers are cut through both the vinyl sticker and paper backing to the exact shape of your design. Kiss-cut stickers are cut through only the top vinyl layer while remaining on a larger square or rectangular backing paper, making them easier to peel in fast-paced retail packaging."
         },
         {
-          "question": "Can you print white ink on transparent or clear stickers?",
-          "answer": "Yes. We utilize multi-layer UV printing technology that lays down an opaque white base coat beneath your color artwork, ensuring your logos appear bold and solid even on clear or dark glass surfaces."
+          "question": "Can you print white ink on transparent clear stickers and window decals?",
+          "answer": "Yes. We utilize multi-layer UV printing technology that lays down an opaque white base coat beneath your color artwork, ensuring your logos appear bold and solid even on clear glass bottles or storefront windows."
+        },
+        {
+          "question": "Do you produce car decals and outdoor bumper stickers in Dubai?",
+          "answer": "Yes. We produce high-grade polymeric vinyl vehicle decals and bumper stickers with automotive-grade UV laminate that withstands direct desert sunlight and high-pressure car washes."
         }
       ],
       "relatedServices": [
@@ -519,13 +527,13 @@ export const COMMERCIAL_LANDING_PAGES = {
     "label-printing-dubai": {
       "slug": "label-printing-dubai",
       "path": "/label-printing-dubai",
-      "title": "Label Printing Dubai | Product Labels & Roll Printing | ONPRINT",
-      "metaDescription": "Custom product label printing in Dubai. Roll labels and sheet labels for cosmetics, perfume bottles, food jars & candle packaging. Fast UAE delivery.",
+      "title": "Label Printing Dubai | Custom Product Labels & Roll Printing | ONPRINT",
+      "metaDescription": "Custom product label printing in Dubai. Roll labels and sheet labels for cosmetics, perfume bottles, food jars, candles & packaging. Fast UAE delivery.",
       "focusKeyword": "label printing dubai",
-      "secondaryKeywords": "custom labels dubai, product label printing dubai, roll label printing dubai, bottle labels dubai, cosmetic label printing dubai",
+      "secondaryKeywords": "custom label printing dubai, product label printing dubai, bottle label printing dubai, roll label printing dubai, transparent label printing dubai, packaging sticker printing dubai, food packaging label printing dubai, cosmetic label printing dubai, candle label printing dubai, jar label printing dubai, barcode label printing dubai, embossed sticker printing dubai",
       "badge": "PRODUCT ROLL LABELS & BOTTLING",
       "h1": "Custom Product Label & Roll Printing Solutions in Dubai",
-      "subheading": "Precision roll and sheet labels for cosmetics, perfumes, food & beverage jars, pharmaceutical containers, and retail boxes. Certified water, oil, and chemical resistant.",
+      "subheading": "Precision roll and sheet labels for cosmetics, perfumes, food & beverage jars, candle packaging, pharmaceutical containers, and retail boxes. Certified water, oil, and chemical resistant.",
       "stats": [
         {
           "label": "Format",
@@ -594,12 +602,20 @@ export const COMMERCIAL_LANDING_PAGES = {
           "answer": "ONPRINT specializes in roll label printing for food, cosmetic, and pharmaceutical producers in the UAE. Our Al Quoz facility prints high-resolution full-color labels wound on standard cores configured for your automated or manual label dispensers."
         },
         {
-          "question": "What material should I choose for cosmetic or perfume bottle labels?",
-          "answer": "BOPP (polypropylene) with a matte or gloss lamination is the premier choice for cosmetics because it does not smudge or wrinkle when exposed to water, oils, or alcohol-based fragrances. For vintage or organic beauty lines, textured wet-strength paper is also very popular."
+          "question": "What material should I choose for cosmetic, perfume bottle, or candle labels?",
+          "answer": "BOPP (polypropylene) with a matte or gloss lamination is the premier choice for cosmetics and bottles because it does not smudge or wrinkle when exposed to water, oils, or alcohol-based fragrances. For candle jars and organic lines, heat-resistant textured wet-strength paper is also very popular."
         },
         {
-          "question": "Can you print metallic gold or silver on product labels?",
-          "answer": "Yes. We provide both hot foil stamping and metallized substrate printing where any CMYK color can be printed over silver foil to create an infinite spectrum of reflective metallic colors."
+          "question": "Do you print barcode labels and QR code roll labels in Dubai?",
+          "answer": "Yes. We print certified Grade-A scannable UPC, EAN-13, and Code 128 barcode labels as well as high-density QR code labels for retail inventory and POS scanners."
+        },
+        {
+          "question": "Are your food packaging labels compliant with UAE regulations?",
+          "answer": "Yes. We use low-migration food-safe inks and adhesives suitable for ambient, chilled, and deep-freeze food packaging in accordance with Dubai Municipality and UAE ESMA standards."
+        },
+        {
+          "question": "Can you print metallic gold, silver, or embossed foil on product labels?",
+          "answer": "Yes. We provide hot foil stamping, cold foil, and metallic film printing where any Pantone or CMYK hue can be applied over metallic substrates to create reflective foil and embossed seals."
         }
       ],
       "relatedServices": [
@@ -999,3 +1015,5 @@ export const COMMERCIAL_LANDING_PAGES = {
     }
   }
 
+
+module.exports = { COMMERCIAL_LANDING_PAGES };

@@ -513,7 +513,7 @@ async function createBlog(req, res, next) {
     const metaDesc = meta_description || metaDescription || excerpt || cleanTitle
     const focKey = focus_keyword || ''
     const secKeys = Array.isArray(secondary_keywords) ? secondary_keywords.join(', ') : (secondary_keywords || '')
-    const canonUrl = canonical_url || `https://0nprint.com/blog/${cleanSlug}`
+    const canonUrl = canonical_url || `https://www.0nprint.com/blog/${cleanSlug}`
     const ogTit = og_title || metaTit
     const ogDesc = og_description || metaDesc
     const ogImg = og_image || img
@@ -880,7 +880,7 @@ async function updateBlog(req, res, next) {
       focus_keyword: mergedKeyword,
       secondary_keywords: secKeys !== undefined ? secKeys : existing?.secondary_keywords,
       image_alt: alt || existing?.image_alt,
-      canonical_url: canonical_url || existing?.canonical_url || `https://0nprint.com/blog/${mergedSlug}`,
+      canonical_url: canonical_url || existing?.canonical_url || `https://www.0nprint.com/blog/${mergedSlug}`,
     }).catch((err) => console.warn('[PageSEO Sync] Blog update warning:', err.message))
 
     res.json({
@@ -1239,7 +1239,7 @@ function generatePrintingArticleBody({ title, categoryName, productName, product
     secondary_keywords: `${categoryName.toLowerCase()}, commercial printing dubai, custom printing uae, print finishing dubai`,
     seo_title: seoTitle,
     meta_description: metaDescription,
-    canonical_url: `https://0nprint.com/blog/${slug}`,
+    canonical_url: `https://www.0nprint.com/blog/${slug}`,
     target_location: location,
     image_alt: `${cleanTitle} — ONPRINT Dubai`,
   }
@@ -1331,8 +1331,8 @@ function formatBlogRow(r) {
     focus_keyword: r.focus_keyword || '',
     seoKeywords: r.focus_keyword || r.secondary_keywords || '',
     secondary_keywords: r.secondary_keywords || '',
-    canonical_url: r.canonical_url || `https://0nprint.com/blog/${r.slug}`,
-    canonicalUrl: r.canonical_url || `https://0nprint.com/blog/${r.slug}`,
+    canonical_url: r.canonical_url || `https://www.0nprint.com/blog/${r.slug}`,
+    canonicalUrl: r.canonical_url || `https://www.0nprint.com/blog/${r.slug}`,
     og_title: r.og_title || r.seo_title || r.title,
     og_description: r.og_description || r.meta_description || r.excerpt || '',
     og_image: r.og_image || featImg,
@@ -1522,7 +1522,7 @@ async function getBlogSeoMetrics(req, res, next) {
     } catch {}
 
     const blogsWithPerformance = rows.map((b) => {
-      const blogUrl = `https://0nprint.com/blog/${b.slug}`
+      const blogUrl = `https://www.0nprint.com/blog/${b.slug}`
       const perf = blogGscData[blogUrl] || blogGscData[`/blog/${b.slug}`] || null
       return {
         id: b.id,

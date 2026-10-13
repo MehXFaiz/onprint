@@ -68,7 +68,7 @@ export default function KeywordArchitectureTab({
     search_intent: 'Commercial',
     cluster: 'General Printing',
     category: 'General Printing',
-    target_url: 'https://0nprint.com/services',
+    target_url: 'https://www.0nprint.com/services',
     target_page: 'Services Hub',
     country: 'UAE',
     city: 'Dubai',
@@ -229,7 +229,7 @@ export default function KeywordArchitectureTab({
       search_intent: 'Commercial',
       cluster: 'General Printing',
       category: 'General Printing',
-      target_url: 'https://0nprint.com/services',
+      target_url: 'https://www.0nprint.com/services',
       target_page: 'Services Hub',
       country: 'UAE',
       city: 'Dubai',
@@ -797,7 +797,7 @@ export default function KeywordArchitectureTab({
                 <label className="block font-bold text-neutral-700 mb-1">Target URL</label>
                 <input
                   type="url"
-                  placeholder="https://0nprint.com/services/..."
+                  placeholder="https://www.0nprint.com/services/..."
                   value={formData.target_url}
                   onChange={(e) => setFormData({ ...formData, target_url: e.target.value })}
                   className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#A82F19] focus:outline-none"

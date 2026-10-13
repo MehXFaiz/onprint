@@ -5,7 +5,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     title: 'Business Card Printing Dubai | Basic, Standard & Luxury Cards | ONPRINT',
     metaDescription: 'Business card printing in Dubai from AED 45. Standard 300gsm–350gsm basic cards, executive soft-touch & luxury gold foil. Same-day Al Quoz dispatch.',
     focusKeyword: 'business card printing dubai',
-    secondaryKeywords: 'business cards dubai, visiting card printing dubai, standard business cards dubai, basic business cards dubai, affordable business cards dubai, corporate business cards dubai',
+    secondaryKeywords: 'business cards dubai, luxury business card printing dubai, same day business card printing dubai, corporate business cards uae, custom business cards dubai, foil business card printing dubai, embossed business card printing dubai, spot uv business cards dubai, matte laminated business cards dubai, soft touch business cards dubai, cotton business cards dubai, plastic business cards dubai, transparent business cards dubai, metallic foil business cards dubai, letterpress business cards dubai, executive business cards dubai, textured paper business cards dubai, kraft business cards dubai, nfc business cards dubai, magnetic business cards dubai, square business cards dubai, folded business cards dubai, cheap business cards dubai, urgent business card printing dubai',
     badge: 'DUBAI BUSINESS CARD PRESS • FROM AED 45 • AL QUOZ',
     h1: 'Business Card Printing in Dubai, UAE',
     subheading: 'From clean, affordable everyday business cards starting at just AED 45 to premium executive soft-touch, 24K hot gold foil, and luxury finishes. ONPRINT delivers sharp color precision, fast 24h turnaround, and direct pickup in Al Quoz, Dubai.',

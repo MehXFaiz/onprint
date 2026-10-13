@@ -602,7 +602,7 @@ class SeoManagerController {
           ai_model: aiModel,
           hasAiKey,
           ai_api_key_masked: displayAiKey,
-          cron_endpoint: `${(process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')}/api/seo/run-daily`,
+          cron_endpoint: `${(process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')}/api/seo/run-daily`,
         },
       })
     } catch (err) {
@@ -1085,7 +1085,7 @@ class SeoManagerController {
           follow_type: b.follow_type || 'Follow',
           contact_url: b.contact_url || null,
           submission_url: b.submission_url || null,
-          target_url: b.target_onprint_url || b.target_url || 'https://0nprint.com/',
+          target_url: b.target_onprint_url || b.target_url || 'https://www.0nprint.com/',
           target_anchor_text: b.anchor_text || b.target_anchor_text || 'ONPRINT Commercial Printing Dubai',
           status: b.status || 'Planned',
           notes: b.notes || null,
@@ -1185,7 +1185,7 @@ class SeoManagerController {
           contact_url: b.contact_url || null,
           link_type: b.link_type || 'Directory Profile',
           follow_type: b.follow_type || 'Follow',
-          target_onprint_url: b.target_onprint_url || 'https://0nprint.com/',
+          target_onprint_url: b.target_onprint_url || 'https://www.0nprint.com/',
           anchor_text: b.anchor_text || 'ONPRINT',
           status: b.status || 'Prospect',
           date: b.date || '2026-09-17',

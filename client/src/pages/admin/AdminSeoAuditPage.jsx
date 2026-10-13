@@ -35,8 +35,8 @@ export default function AdminSeoAuditPage() {
           productsCount: 12,
           servicesCount: 6,
           blogArticlesCount: 4,
-          sitemapUrl: 'https://0nprint.com/sitemap.xml',
-          robotsUrl: 'https://0nprint.com/robots.txt',
+          sitemapUrl: 'https://www.0nprint.com/sitemap.xml',
+          robotsUrl: 'https://www.0nprint.com/robots.txt',
         },
       })
     } finally {
@@ -163,7 +163,7 @@ export default function AdminSeoAuditPage() {
             <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
               <div className="text-xs font-bold text-neutral-900">Canonical Tag Engine</div>
-              <div className="text-[11px] text-neutral-500">Dynamic canonical URLs enforced to https://0nprint.com</div>
+              <div className="text-[11px] text-neutral-500">Dynamic canonical URLs enforced to https://www.0nprint.com</div>
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-xl border border-neutral-100 bg-neutral-50 p-3.5">

@@ -13,7 +13,7 @@
  * Total: 150 Genuine Opportunities
  */
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 const BACKLINK_OPPORTUNITIES = [
   // =========================================================================
@@ -1086,7 +1086,7 @@ const BACKLINK_OPPORTUNITIES = [
     status: 'Planned',
     date_submitted: null,
     target_onprint_url: `${SITE_URL}/`,
-    anchor_text: 'https://0nprint.com',
+    anchor_text: 'https://www.0nprint.com',
     notes: 'Verified corporate entity profile establishing B2B authority and SameAs schema.',
   },
   {

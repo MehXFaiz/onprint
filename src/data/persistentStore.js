@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const STORE_PATH = path.join(__dirname, 'dbStore.json')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 const { GEO_FAQS } = require('./geoFaqsData')
 const { GEO_CONTENT_RECORDS } = require('./geoContentData')
@@ -138,8 +139,10 @@ function saveStore(data) {
 }
 
 function syncQuoteToOrder(quote, store) {
-  if (!quote || (quote.status || '').toLowerCase() !== 'approved') return
-  const existingOrder = store.orders.find(
+  if (!quote) return
+  const sLower = (quote.status || '').toLowerCase()
+  if (sLower !== 'approved' && sLower !== 'won') return
+  const existingOrder = (store.orders || []).find(
     (o) => o.quoteNumber === quote.quoteNumber || o.quoteId === quote.id || o.notes?.includes(quote.quoteNumber)
   )
   if (!existingOrder) {
@@ -540,7 +543,7 @@ function addBlog(blogData) {
     meta_description: blogData.meta_description || blogData.seoDescription || blogData.excerpt || '',
     focus_keyword: blogData.focus_keyword || blogData.seoKeywords || '',
     secondary_keywords: blogData.secondary_keywords || '',
-    canonical_url: blogData.canonical_url || `https://0nprint.com/blog/${blogData.slug || id}`,
+    canonical_url: blogData.canonical_url || `${SITE_URL}/blog/${blogData.slug || id}`,
     og_title: blogData.og_title || blogData.seo_title || blogData.title,
     og_description: blogData.og_description || blogData.meta_description || blogData.excerpt || '',
     og_image: blogData.og_image || blogData.featured_image || '/assets/products/1 (1).jpg',

@@ -5,7 +5,7 @@
  * FAQs with Q&A schema, and Article metadata.
  */
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 const DUBAI_BLOGS = [
   // =========================================================================

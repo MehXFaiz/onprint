@@ -9,8 +9,8 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getProductBySlug } from '../../services/products'
 import { getCategories } from '../../services/categories'
 import { createQuote } from '../../services/quotes'
-import { trackQuoteRequest, trackQuoteFormStart, trackArtworkUpload } from '../../utils/analytics'
-import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
+import { trackQuoteRequest, trackQuoteFormStart, trackArtworkUpload, trackWhatsAppClick } from '../../utils/analytics'
+import { openWhatsAppDirectly, getWhatsAppUrl, WHATSAPP_PHONE } from '../../utils/whatsapp'
 
 const steps = ['What You Need', 'Project Details', 'Artwork', 'Contact Details', 'Review & Submit']
 
@@ -610,12 +610,15 @@ export default function GetQuotePage() {
                   <span>Prefer an instant quotation? Send these specifications directly to our prepress engineer on WhatsApp.</span>
                 </div>
                 <a
-                  href={`https://wa.me/447344546056?text=${encodeURIComponent(
+                  href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
                     `Hello ONPRINT Dubai, I would like an express quotation for:\n• Project: ${form.product || 'Commercial Printing'}\n• Quantity: ${form.quantity || '100'}\n• Dimensions: ${form.size || 'Standard'}\n• Material: ${form.material || 'Standard'}\n• Finish: ${form.finish || 'Standard'}\n${form.notes ? `• Notes: ${form.notes}\n` : ''}• Contact: ${form.name} (${form.phone || form.email})\n\nPlease provide fast pricing and turnaround.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] px-4 py-2 text-xs font-bold text-white shadow-xs transition-all w-full sm:w-auto justify-center"
+                  onClick={() =>
+                    trackWhatsAppClick({ source_page: 'quote_wizard_review', service: form.product || 'general', button_location: 'quote_step_5' })
+                  }
+                  className="shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] px-4 py-2 text-xs font-bold text-white shadow-xs transition-all w-full sm:w-auto justify-center cursor-pointer"
                 >
                   <WhatsAppIcon className="h-3.5 w-3.5 fill-white" />
                   <span>Send via WhatsApp</span>

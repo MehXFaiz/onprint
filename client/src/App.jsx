@@ -134,7 +134,19 @@ function App() {
             <Route path="/brochure-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />
             <Route path="/flyer-printing" element={<Navigate to="/flyer-printing-dubai" replace />} />
             <Route path="/sticker-printing" element={<Navigate to="/sticker-printing-dubai" replace />} />
+            <Route path="/stickers" element={<Navigate to="/services/stickers-labels-printing" replace />} />
+            <Route path="/stickers-labels-printing" element={<Navigate to="/services/stickers-labels-printing" replace />} />
+            <Route path="/custom-stickers-dubai" element={<Navigate to="/services/stickers-labels-printing" replace />} />
             <Route path="/label-printing" element={<Navigate to="/label-printing-dubai" replace />} />
+            <Route path="/rollup-banners" element={<Navigate to="/services/rollup-banners" replace />} />
+            <Route path="/roll-up-banners" element={<Navigate to="/services/rollup-banners" replace />} />
+            <Route path="/rollup-banner-printing-dubai" element={<Navigate to="/services/rollup-banners" replace />} />
+            <Route path="/roll-up-banner-printing-dubai" element={<Navigate to="/services/rollup-banners" replace />} />
+            <Route path="/stamps" element={<Navigate to="/services/stamps-printing-dubai" replace />} />
+            <Route path="/custom-stamps" element={<Navigate to="/services/stamps-printing-dubai" replace />} />
+            <Route path="/stamp-maker-dubai" element={<Navigate to="/services/stamps-printing-dubai" replace />} />
+            <Route path="/custom-stamp-printing-dubai" element={<Navigate to="/services/stamps-printing-dubai" replace />} />
+            <Route path="/company-stamps-dubai" element={<Navigate to="/services/stamps-printing-dubai" replace />} />
             <Route path="/signage-printing" element={<Navigate to="/signage-printing-dubai" replace />} />
             <Route path="/large-format-printing" element={<Navigate to="/large-format-printing-dubai" replace />} />
             <Route path="/corporate-printing" element={<Navigate to="/corporate-printing-dubai" replace />} />

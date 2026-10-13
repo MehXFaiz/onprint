@@ -51,8 +51,8 @@ import Reveal from '../../components/Reveal'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { CornerMarks, CmykDots } from '../../components/PrintMarks'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
-import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
+import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick } from '../../utils/analytics'
+import { openWhatsAppDirectly, getWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
 import luxuryBusinessCardsImg from '../../assets/products/luxury_business_cards.jpg'
 import softTouchCardImg from '../../assets/products/card-soft-touch.jpg'
 import velvetFoilCardImg from '../../assets/products/card-velvet-foil.jpg'
@@ -860,13 +860,16 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     </p>
                     <div className="pt-2">
                       <a
-                        href={`https://wa.me/447344546056?text=${encodeURIComponent(`Hello ONPRINT Dubai, I submitted a business card quote with Ref #${quoteNumber}. Name: ${formState.name}, Card: ${formState.cardType}, Qty: ${formState.quantity}. Please fast-track.`)}`}
+                        href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`Hello ONPRINT Dubai, I submitted a business card quote with Ref #${quoteNumber}. Name: ${formState.name}, Card: ${formState.cardType}, Qty: ${formState.quantity}. Please fast-track.`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() =>
+                          trackWhatsAppClick({ source_page: 'business_card_landing_quote_received', service: 'business-cards', button_location: 'quote_received' })
+                        }
                         className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-3 px-6 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"
                       >
                         <WhatsAppIcon className="h-4 w-4 fill-current" />
-                        <span>Fast-Track on WhatsApp (+44 7344 546056)</span>
+                        <span>Fast-Track on WhatsApp ({FORMATTED_PHONE})</span>
                       </a>
                     </div>
                   </motion.div>
@@ -1102,13 +1105,16 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       </button>
 
                       <a
-                        href={`https://wa.me/447344546056?text=${encodeURIComponent(`Hello ONPRINT Dubai, I would like an express business card quotation:\n• Card: ${formState.cardType}\n• Paper: ${formState.paper}\n• Finish: ${formState.finish}\n• Qty: ${formState.quantity} cards\n• Delivery: ${formState.deliveryDate}`)}`}
+                        href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`Hello ONPRINT Dubai, I would like an express business card quotation:\n• Card: ${formState.cardType}\n• Paper: ${formState.paper}\n• Finish: ${formState.finish}\n• Qty: ${formState.quantity} cards\n• Delivery: ${formState.deliveryDate}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() =>
+                          trackWhatsAppClick({ source_page: 'business_card_landing_form', service: 'business-cards', button_location: 'quote_form' })
+                        }
                         className="w-full flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] py-3 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"
                       >
                         <WhatsAppIcon className="h-4 w-4 fill-current" />
-                        <span>Fast-Track on WhatsApp (+44 7344 546056)</span>
+                        <span>Fast-Track on WhatsApp ({FORMATTED_PHONE})</span>
                       </a>
                     </div>
                     <p className="text-[10px] text-center text-neutral-500">

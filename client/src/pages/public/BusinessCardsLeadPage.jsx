@@ -30,8 +30,8 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
-import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
+import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick } from '../../utils/analytics'
+import { openWhatsAppDirectly, getWhatsAppUrl, getServiceWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
 
 const CARD_OPTIONS = [
   {
@@ -186,7 +186,7 @@ Company: ${formData.company || 'Not specified'}
 
 Please confirm availability and dispatch schedule.`
 
-    return `https://wa.me/447344546056?text=${encodeURIComponent(msg)}`
+    return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`
   }
 
   const handleSubmitForm = async (e) => {
@@ -863,13 +863,20 @@ Please confirm availability and dispatch schedule.`
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <a
-              href="https://wa.me/447344546056?text=Hello%20ONPRINT%20Dubai%2C%20I%20would%20like%20to%20discuss%20a%20custom%20business%20card%20order."
+              href={getServiceWhatsAppUrl('business-cards')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-7 py-3.5 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5"
+              onClick={() =>
+                trackWhatsAppClick({
+                  source_page: 'business_cards_lead_page_bottom',
+                  service: 'business-cards',
+                  button_location: 'bottom_section',
+                })
+              }
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-7 py-3.5 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"
             >
               <WhatsAppIcon className="h-4 w-4 fill-current" />
-              <span>Chat on WhatsApp (+44 7344 546056)</span>
+              <span>Chat on WhatsApp ({FORMATTED_PHONE})</span>
             </a>
             <Button
               to="/get-a-quote"

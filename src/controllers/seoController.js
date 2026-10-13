@@ -63,7 +63,13 @@ Allow: /business-card-printing-ajman
 Allow: /brochure-printing-dubai
 Allow: /flyer-printing-dubai
 Allow: /sticker-printing-dubai
+Allow: /stickers
 Allow: /label-printing-dubai
+Allow: /rollup-banners
+Allow: /rollup-banner-printing-dubai
+Allow: /stamps
+Allow: /custom-stamps
+Allow: /stamp-maker-dubai
 Allow: /signage-printing-dubai
 Allow: /large-format-printing-dubai
 Allow: /corporate-printing-dubai

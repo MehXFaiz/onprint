@@ -122,9 +122,12 @@ export default function SiteFooter() {
               <LinkedInIcon />
             </a>
             <a
-              href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+              href={getServiceWhatsAppUrl('general')}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackWhatsAppClick({ source_page: 'footer_social_icons', service: 'general', button_location: 'footer_social' })
+              }
               className="flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors"
               aria-label="WhatsApp"
             >
@@ -135,31 +138,31 @@ export default function SiteFooter() {
 
         {/* Col 2: Products */}
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-900">Products</p>
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-900">Priority Services</p>
           <ul className="mt-4 space-y-2.5 text-xs sm:text-sm font-medium">
             <li>
               <Link to="/business-card-printing-dubai" className="transition-colors hover:text-[#A82F19]">
-                Business Cards
+                Business Card Printing
+              </Link>
+            </li>
+            <li>
+              <Link to="/services/rollup-banners" className="transition-colors hover:text-[#A82F19]">
+                Roll-Up Banner Printing
+              </Link>
+            </li>
+            <li>
+              <Link to="/services/stickers-labels-printing" className="transition-colors hover:text-[#A82F19]">
+                Custom Sticker Printing
+              </Link>
+            </li>
+            <li>
+              <Link to="/services/stamps-printing-dubai" className="transition-colors hover:text-[#A82F19]">
+                Custom Stamp Printing
               </Link>
             </li>
             <li>
               <Link to="/categories/letterheads-printing-dubai" className="transition-colors hover:text-[#A82F19]">
-                Letterheads &amp; Stationery
-              </Link>
-            </li>
-            <li>
-              <Link to="/categories/brochure-printing-dubai" className="transition-colors hover:text-[#A82F19]">
-                Brochures &amp; Flyers
-              </Link>
-            </li>
-            <li>
-              <Link to="/categories/sticker-printing-dubai" className="transition-colors hover:text-[#A82F19]">
-                Stickers &amp; Labels
-              </Link>
-            </li>
-            <li>
-              <Link to="/categories/mug-printing-dubai" className="transition-colors hover:text-[#A82F19]">
-                Mugs &amp; Drinkware
+                Letterheads &amp; Envelopes
               </Link>
             </li>
             <li>
@@ -228,12 +231,15 @@ export default function SiteFooter() {
                 <WhatsAppIcon className="h-3 w-3 fill-current" />
               </div>
               <a
-                href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+                href={getServiceWhatsAppUrl('general')}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackWhatsAppClick({ source_page: 'footer_contact_list', service: 'general', button_location: 'footer_contact' })
+                }
                 className="font-bold text-emerald-800 transition-colors hover:text-emerald-600"
               >
-                +44 7344 546056
+                {FORMATTED_PHONE}
               </a>
             </li>
             <li className="flex items-center gap-2.5 text-xs text-slate-500 pt-1">

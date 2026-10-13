@@ -7,14 +7,14 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { trackContactFormSubmit } from '../../utils/analytics'
 import { submitContactInquiry } from '../../services/contact'
-import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
+import { openWhatsAppDirectly, getWhatsAppUrl, getServiceWhatsAppUrl, FORMATTED_PHONE } from '../../utils/whatsapp'
 
 const contactDetails = [
   {
     icon: WhatsAppIcon,
     label: 'WhatsApp Hotline',
-    value: '+44 7344 546056',
-    href: 'https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20have%20an%20inquiry%20regarding%20printing%20services',
+    value: FORMATTED_PHONE,
+    href: getServiceWhatsAppUrl('general'),
     isWhatsApp: true,
   },
   { icon: Mail, label: 'Email Inquiry', value: '0nprint183@gmail.com', href: 'mailto:0nprint183@gmail.com' },

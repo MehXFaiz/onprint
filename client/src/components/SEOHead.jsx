@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { getPageSeoByUrl } from '../services/seo'
+import { FORMATTED_PHONE } from '../utils/whatsapp'
 
 const DEFAULT_SITE_URL = 'https://www.0nprint.com'
 const SITE_URL = (import.meta.env.VITE_SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, '')
@@ -23,7 +24,7 @@ export const organizationSchema = {
   description:
     'ONPRINT is a commercial printing and corporate branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, executive stationery, product labels, marketing collaterals, and corporate gifts.',
   email: '0nprint183@gmail.com',
-  telephone: '+44 7344 546056',
+  telephone: FORMATTED_PHONE,
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',

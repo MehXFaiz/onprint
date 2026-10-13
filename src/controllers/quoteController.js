@@ -1,11 +1,12 @@
 const { pool } = require('../config/database')
 const ApiError = require('../utils/ApiError')
 const persistentStore = require('../data/persistentStore')
+const { notifyNewQuote } = require('../utils/notificationService')
 
 async function createQuote(req, res, next) {
   let connection = null
   try {
-    const { name, email, phone, company, notes, items, totalPrice, specs, artworkFile, productName, quantity } = req.body
+    const { name, email, phone, company, notes, items, totalPrice, specs, artworkFile, productName, quantity, status } = req.body
 
     if (!name || !email) {
       throw new ApiError(400, 'Name and email are required to request a quote')
@@ -16,6 +17,7 @@ async function createQuote(req, res, next) {
     const quoteNumber = req.body.orderNumber || req.body.quoteNumber || `ONP-${year}-${randomSeq}`
     const orderNumber = quoteNumber
     const userId = req.user ? req.user.id : null
+    const initialStatus = status || 'New'
 
     // 1. Always persist to disk-backed persistentStore
     const createdLocalQuote = persistentStore.addQuote({
@@ -30,6 +32,7 @@ async function createQuote(req, res, next) {
       specs: specs || null,
       artworkFile: artworkFile || null,
       totalPrice: Number(totalPrice || 0),
+      status: initialStatus,
       productName: productName || items?.[0]?.productName || 'Custom Print Job',
       quantity: quantity || items?.[0]?.quantity || 1,
       items: Array.isArray(items) ? items : [],
@@ -37,7 +40,26 @@ async function createQuote(req, res, next) {
 
     let quoteId = createdLocalQuote.id
 
-    // 2. If MySQL is connected, insert into MySQL database
+    // 2. Safely trigger business email notification
+    notifyNewQuote({
+      id: quoteId,
+      quoteNumber,
+      orderNumber,
+      name: name.trim(),
+      email: email.toLowerCase().trim(),
+      phone: phone || null,
+      company: company || null,
+      productName: productName || items?.[0]?.productName || 'Custom Print Job',
+      quantity: quantity || items?.[0]?.quantity || 1,
+      totalPrice: Number(totalPrice || 0),
+      specs: specs || null,
+      notes: notes || null,
+      artworkFile: artworkFile || null,
+    }).catch((notifErr) => {
+      console.warn('[Quote Controller] Notification warning:', notifErr.message)
+    })
+
+    // 3. If MySQL is connected, insert into MySQL database
     try {
       connection = await pool.getConnection()
       await connection.beginTransaction()
@@ -45,7 +67,7 @@ async function createQuote(req, res, next) {
       const [result] = await connection.execute(
         `INSERT INTO quotes 
           (quote_number, user_id, name, email, phone, company, notes, status, total_price)
-         VALUES (?, ?, ?, ?, ?, ?, ?, 'Pending', ?)`,
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           quoteNumber,
           userId,
@@ -54,6 +76,7 @@ async function createQuote(req, res, next) {
           phone || null,
           company || null,
           notes || null,
+          initialStatus,
           totalPrice || 0.0,
         ]
       )
@@ -95,7 +118,7 @@ async function createQuote(req, res, next) {
         id: quoteId,
         quoteNumber,
         orderNumber,
-        status: 'Pending',
+        status: initialStatus,
       },
     })
   } catch (err) {
@@ -242,7 +265,8 @@ async function updateQuoteStatus(req, res, next) {
         [status, id, id]
       )
 
-      if (status === 'Approved') {
+      const isWon = status === 'Won' || status === 'Approved'
+      if (isWon) {
         const [rows] = await pool.execute(
           'SELECT * FROM quotes WHERE id = ? OR quote_number = ? LIMIT 1',
           [id, id]
@@ -270,7 +294,7 @@ async function updateQuoteStatus(req, res, next) {
                 q.company || null,
                 q.total_price || 0,
                 q.total_price || 0,
-                q.notes ? `${q.notes} (Approved Quote ${q.quote_number})` : `Approved Quote ${q.quote_number}`,
+                q.notes ? `${q.notes} (Won Quote ${q.quote_number})` : `Won Quote ${q.quote_number}`,
               ]
             )
 
@@ -308,7 +332,7 @@ async function updateQuoteStatus(req, res, next) {
 
     res.json({
       success: true,
-      message: `Quote status updated to ${status}${status === 'Approved' ? ' and converted to order' : ''}`,
+      message: `Quote status updated to ${status}${status === 'Won' || status === 'Approved' ? ' and converted to order' : ''}`,
       data: updated,
     })
   } catch (err) {
@@ -339,7 +363,7 @@ async function updateQuote(req, res, next) {
         [name, email, phone, company, notes, status, totalPrice, id, id]
       )
 
-      if (status === 'Approved') {
+      if (status === 'Won' || status === 'Approved') {
         const [rows] = await pool.execute(
           'SELECT * FROM quotes WHERE id = ? OR quote_number = ? LIMIT 1',
           [id, id]

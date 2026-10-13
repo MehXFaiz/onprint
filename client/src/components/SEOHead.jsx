@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { getPageSeoByUrl } from '../services/seo'
 
-const DEFAULT_SITE_URL = 'https://0nprint.com'
+const DEFAULT_SITE_URL = 'https://www.0nprint.com'
 const SITE_URL = (import.meta.env.VITE_SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, '')
 const DEFAULT_IMAGE = `${SITE_URL}/logo_icon.png`
 const SITE_NAME = 'ONPRINT'
@@ -70,8 +70,8 @@ export const organizationSchema = {
   ],
   aggregateRating: {
     '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    reviewCount: '89',
+    ratingValue: '4.9',
+    reviewCount: '120',
     bestRating: '5',
     worstRating: '1',
   },
@@ -255,12 +255,16 @@ export default function SEOHead({
     : keywords || 'luxury business cards dubai, premium business cards, foil business cards, velvet business cards, gold foil business cards, spot UV business cards, embossed business cards, debossed business cards, soft touch business cards, matte business cards, glossy business cards, custom business cards, corporate business cards, executive business cards, business card printing UAE, business card printing dubai, business cards with raised print, business cards with metallic finish, business cards with spot gloss, business cards with embossing, business cards with hot stamping, business cards with letterpress, thermography business cards, laminated business cards, uv coated business cards, silk business cards, uncoated business cards, recycled business cards, eco friendly business cards, sustainable business cards, FSC certified business cards, cotton business cards, kraft business cards, textured business cards, linen business cards, metal business cards, plastic business cards, clear business cards, transparent business cards, folded business cards, square business cards, rounded corner business cards, die cut business cards, custom shaped business cards, painted edge business cards, gilded edge business cards, triplex business cards, duplex business cards, business cards for real estate, business cards for lawyers, business cards for doctors, business cards for restaurants, business cards for hotels, business cards for construction, business cards for tech companies, business cards for startups, business cards for consultants, business cards for finance, business cards for marketing agencies, business cards for architects, business cards for designers, bilingual business cards English Arabic, Arabic business cards dubai, business cards printing abu dhabi, business cards printing sharjah, business cards printing ajman, business cards printing ras al khaimah'
 
   // Resolve Canonical URL
-  const effectiveCanonical =
+  let effectiveCanonical =
     dbSeo?.canonical_url ||
     canonicalUrl ||
     (canonicalPath.startsWith('http')
       ? canonicalPath
       : `${SITE_URL}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath || location.pathname.slice(1)}`}`)
+
+  if (effectiveCanonical && (effectiveCanonical.startsWith('http://') || effectiveCanonical.startsWith('https://'))) {
+    effectiveCanonical = effectiveCanonical.replace(/^https?:\/\/(www\.)?0nprint\.com/i, SITE_URL)
+  }
 
   // Resolve Images
   const effectiveImage =

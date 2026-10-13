@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { ChevronRight, Home } from 'lucide-react'
 
-const SITE_URL = 'https://0nprint.com'
+const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 /**
  * Breadcrumbs Component with Schema Markup

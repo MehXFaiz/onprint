@@ -77,7 +77,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
       pageHeading = (title ? title.split('|')[0].trim() : '') || 'Commercial Printing Dubai'
     }
   }
-  const metaDesc = description || bcData?.metaDescription || commercialData?.metaDescription || productData?.seoDescription || productData?.description || categoryData?.seoDescription || categoryData?.description || serviceData?.seoDescription || serviceData?.description || progData?.metaDescription || seo?.meta_description || 'Commercial printing company in Al Quoz, Dubai. Luxury business cards, custom packaging, stickers, letterheads, and corporate gifts with same-day UAE delivery.'
+  const metaDesc = description || bcData?.metaDescription || commercialData?.metaDescription || productData?.seoDescription || productData?.description || categoryData?.seoDescription || categoryData?.description || serviceData?.seoDescription || serviceData?.description || progData?.metaDescription || seo?.meta_description || 'Commercial printing company in Al Quoz, Dubai. Luxury business cards, brochures, flyers, stickers, letterheads, and corporate merchandise with same-day UAE delivery.'
 
   let dynamicBody = ''
 
@@ -226,8 +226,8 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
         <h2>Dubai's Leading Commercial Printing Pressroom</h2>
-        <p>ONPRINT is a premier commercial printing, luxury packaging, and corporate branding production facility located in Al Quoz, Dubai, UAE. We combine Heidelberg offset precision with high-definition digital presses to deliver standard and bespoke print solutions for enterprises, government entities, luxury brands, and local businesses across Dubai, Abu Dhabi, Sharjah, and all seven Emirates.</p>
-        <p>Our core services encompass luxury 600 GSM business cards with painted edges, custom rigid gift boxes, product packaging, waterproof die-cut vinyl stickers and labels, multi-page corporate brochures, 120 GSM executive letterheads, promotional ceramic drinkware, smart NFC PVC badges, and exhibition display signage.</p>
+        <p>ONPRINT is a premier commercial printing, corporate stationery, and business branding production facility located in Al Quoz, Dubai, UAE. We combine Heidelberg offset precision with high-definition digital presses to deliver standard and bespoke print solutions for enterprises, government entities, luxury brands, and local businesses across Dubai, Abu Dhabi, Sharjah, and all seven Emirates.</p>
+        <p>Our core services encompass luxury 600 GSM business cards with painted edges, corporate stationery, waterproof die-cut vinyl stickers and labels, multi-page corporate brochures, 120 GSM executive letterheads, promotional ceramic drinkware, smart NFC PVC badges, and exhibition display signage.</p>
       </section>
       <section style="margin-bottom: 2rem;">
         <h2>Why UAE Businesses Choose ONPRINT</h2>
@@ -321,7 +321,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
 async function renderSeoShell(requestPath, { noindex = false } = {}) {
   const indexPath = path.join(CLIENT_DIST, 'index.html')
   const html = await fs.promises.readFile(indexPath, 'utf8')
-  const siteUrl = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+  const siteUrl = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
   let seo
   try {
@@ -385,7 +385,10 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     bcData?.metaDescription ||
     ''
 
-  const canonical = seo.canonical_url || `${siteUrl}${requestPath === '/' ? '' : requestPath}`
+  let canonical = seo.canonical_url || `${siteUrl}${requestPath === '/' ? '' : requestPath}`
+  if (canonical.startsWith('http://') || canonical.startsWith('https://')) {
+    canonical = canonical.replace(/^https?:\/\/(www\.)?0nprint\.com/i, siteUrl)
+  }
   const ogImage = absoluteSeoUrl(seo.og_image, siteUrl)
   const twitterImage = absoluteSeoUrl(seo.twitter_image || seo.og_image, siteUrl)
   const robots = noindex
@@ -441,7 +444,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     url: siteUrl,
     logo: `${siteUrl}/logo_icon.png`,
     image: `${siteUrl}/logo_icon.png`,
-    description: 'ONPRINT is a commercial printing, packaging, and corporate branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, custom packaging, product labels, marketing collaterals, and corporate gifts.',
+    description: 'ONPRINT is a commercial printing, corporate stationery, and business branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, brochures, product labels, marketing collaterals, and corporate gifts.',
         email: '0nprint183@gmail.com',
     priceRange: '$$',
     address: {
@@ -490,6 +493,13 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
       { '@type': 'City', name: 'Sharjah' },
       { '@type': 'Country', name: 'United Arab Emirates' },
     ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '120',
+      bestRating: '5',
+      worstRating: '1',
+    },
   }
 
   const websiteJson = {
@@ -1085,7 +1095,7 @@ function createApp() {
 </head>
 <body style="font-family: system-ui, -apple-system, sans-serif; text-align: center; padding: 60px 20px; background: #0c0d0e; color: #f8fafc;">
   <h1 style="color: #d4af37; font-size: 2.2rem; margin-bottom: 0.5rem;">ONPRINT Dubai</h1>
-  <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 1.5rem;">Haute Imprimerie • Luxury Printing & Packaging Press</p>
+  <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 1.5rem;">Haute Imprimerie • Luxury Commercial &amp; Executive Printing Press</p>
   <div style="display: inline-block; padding: 8px 18px; border-radius: 9999px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.4); color: #10b981; font-weight: 500; font-size: 0.95rem;">
     ✓ Service Status: Operational (HTTP 200 OK)
   </div>

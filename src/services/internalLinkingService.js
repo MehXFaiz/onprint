@@ -2,7 +2,7 @@ const { pool } = require('../config/database')
 const programmaticSeoService = require('./programmaticSeoService')
 const { categories: fallbackCategories, services: fallbackServices, products: fallbackProducts } = require('../data/initialData')
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 /**
  * Internal Linking Engine

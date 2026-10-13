@@ -1,6 +1,7 @@
 const { pool } = require('../config/database')
 const ApiError = require('../utils/ApiError')
 const persistentStore = require('../data/persistentStore')
+const { notifyNewContactMessage } = require('../utils/notificationService')
 
 async function submitContact(req, res, next) {
   try {
@@ -22,6 +23,19 @@ async function submitContact(req, res, next) {
     })
 
     let messageId = savedLocal.id
+
+    // Safely notify business email
+    notifyNewContactMessage({
+      id: messageId,
+      name: name.trim(),
+      email: email.toLowerCase().trim(),
+      phone: phone || null,
+      company: company || null,
+      subject: subject || 'Direct Studio Inquiry',
+      message: message.trim(),
+    }).catch((notifErr) => {
+      console.warn('[Contact Controller] Notification warning:', notifErr.message)
+    })
 
     try {
       const [result] = await pool.execute(

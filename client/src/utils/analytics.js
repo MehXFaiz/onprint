@@ -254,18 +254,52 @@ export function trackProductInquiry({ source_page, product_name, service_name } 
 }
 
 /**
- * 11. Quote Request Submission (No PII)
+ * 11. Quote Request Submission (No PII) - Also dispatches GA4 generate_lead & quote_form_submit
  */
 export function trackQuoteRequest({ source_page, product_name, category_name } = {}) {
+  // Custom business event
   trackEvent('quote_request', {
     source_page: source_page || 'get_quote_page',
     product_name: product_name || undefined,
     category_name: category_name || undefined,
   })
+
+  trackEvent('quote_form_submit', {
+    source_page: source_page || 'get_quote_page',
+    product_name: product_name || undefined,
+  })
+
+  // Official GA4 conversion event
+  trackEvent('generate_lead', {
+    currency: 'AED',
+    value: 1,
+    lead_type: 'custom_quote',
+    source_page: source_page || 'get_quote_page',
+  })
 }
 
 /**
- * 12. Search
+ * 12. Quote Form Start
+ */
+export function trackQuoteFormStart({ form_name = 'quote_wizard', source_page } = {}) {
+  trackEvent('quote_form_start', {
+    form_name,
+    source_page: source_page || 'website',
+  })
+}
+
+/**
+ * 13. Artwork File Upload Event
+ */
+export function trackArtworkUpload({ file_count = 1, source_page } = {}) {
+  trackEvent('artwork_upload', {
+    file_count,
+    source_page: source_page || 'quote_page',
+  })
+}
+
+/**
+ * 14. Search
  */
 export function trackSearch({ search_term } = {}) {
   if (!search_term || typeof search_term !== 'string' || !search_term.trim()) return
@@ -275,7 +309,7 @@ export function trackSearch({ search_term } = {}) {
 }
 
 /**
- * 13. Admin Login (No Credentials)
+ * 15. Admin Login (No Credentials)
  */
 export function trackAdminLogin({ success = true } = {}) {
   trackEvent('admin_login', {

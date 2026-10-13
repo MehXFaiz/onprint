@@ -62,13 +62,14 @@ export async function createQuote(quoteData) {
   const current = getStoredQuotes()
   const randomSeq = Math.floor(100000 + Math.random() * 900000)
   const orderNumber = `ONP-2026-${randomSeq}`
+  const initialStatus = quoteData.status || 'New'
   const newQuote = {
     _id: `ONP-${randomSeq}`,
     id: Date.now(),
     orderNumber,
     quoteNumber: orderNumber,
     createdAt: new Date().toISOString(),
-    status: quoteData.status || 'Pending',
+    status: initialStatus,
     ...quoteData,
   }
   const updated = [newQuote, ...current]
@@ -83,7 +84,7 @@ export async function createQuote(quoteData) {
       id: Date.now() + 1,
       orderNumber,
       createdAt: newQuote.createdAt,
-      status: newQuote.status || 'Pending',
+      status: initialStatus,
       paymentStatus: 'Pending',
       currency: 'AED',
       customerName: newQuote.name || 'Client',
@@ -112,7 +113,8 @@ export async function createQuote(quoteData) {
     // ignore
   }
 
-  if ((newQuote.status || '').toLowerCase() === 'approved') {
+  const sLower = (newQuote.status || '').toLowerCase()
+  if (sLower === 'approved' || sLower === 'won') {
     syncApprovedQuoteToOrder(newQuote)
   }
 
@@ -128,7 +130,7 @@ export async function createQuote(quoteData) {
       productName: quoteData.productName,
       quantity: quoteData.quantity,
       totalPrice: quoteData.totalPrice || 0,
-      status: quoteData.status || 'Pending',
+      status: initialStatus,
       orderNumber,
       quoteNumber: orderNumber,
       items: [
@@ -167,7 +169,8 @@ export async function updateQuoteStatus(quoteId, newStatus) {
   })
   saveQuotes(updated)
 
-  if (targetQuote && (newStatus || '').toLowerCase() === 'approved') {
+  const sLower = (newStatus || '').toLowerCase()
+  if (targetQuote && (sLower === 'approved' || sLower === 'won')) {
     syncApprovedQuoteToOrder(targetQuote)
   }
 

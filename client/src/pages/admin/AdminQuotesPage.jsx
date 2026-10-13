@@ -11,6 +11,7 @@ export default function AdminQuotesPage() {
   const [quotes, setQuotes] = useState([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
+  const [selectedStatusFilter, setSelectedStatusFilter] = useState('ALL')
   const [notification, setNotification] = useState(location.state?.toast || null)
   const [deletingQuote, setDeletingQuote] = useState(null)
   const [selectedQuoteIds, setSelectedQuoteIds] = useState([])
@@ -36,24 +37,44 @@ export default function AdminQuotesPage() {
 
   const getQuoteId = (q) => String(q._id || q.id || q.quoteNumber)
 
+  const getStatusBadgeClass = (status) => {
+    const s = (status || '').toLowerCase()
+    if (s === 'won' || s === 'approved') return 'bg-emerald-50 text-emerald-700 border-emerald-300'
+    if (s === 'lost' || s === 'rejected') return 'bg-rose-50 text-rose-700 border-rose-300'
+    if (s === 'quoted') return 'bg-amber-50 text-amber-700 border-amber-300'
+    if (s === 'contacted') return 'bg-indigo-50 text-indigo-700 border-indigo-300'
+    return 'bg-sky-50 text-sky-700 border-sky-300' // 'new', 'pending'
+  }
+
   const handleStatusChange = async (quoteId, newStatus) => {
     const updated = await updateQuoteStatus(quoteId, newStatus)
     setQuotes(updated)
-    if (newStatus === 'Approved') {
-      setNotification(`Quote approved! Successfully converted to active order in Orders.`)
+    if (newStatus === 'Won' || newStatus === 'Approved') {
+      setNotification(`Quote marked as Won! Successfully converted to active order in Orders.`)
     } else {
-      setNotification(`Quote status updated to "${newStatus}".`)
+      setNotification(`Lead status updated to "${newStatus}".`)
     }
   }
 
-  const filtered = quotes.filter(
-    (q) =>
+  const filtered = quotes.filter((q) => {
+    const qStatus = (q.status || 'New').toUpperCase()
+    if (selectedStatusFilter !== 'ALL') {
+      if (selectedStatusFilter === 'WON' && !['WON', 'APPROVED'].includes(qStatus)) return false
+      if (selectedStatusFilter === 'LOST' && !['LOST', 'REJECTED'].includes(qStatus)) return false
+      if (selectedStatusFilter === 'NEW' && !['NEW', 'PENDING'].includes(qStatus)) return false
+      if (selectedStatusFilter === 'CONTACTED' && qStatus !== 'CONTACTED') return false
+      if (selectedStatusFilter === 'QUOTED' && qStatus !== 'QUOTED') return false
+    }
+
+    const matchesSearch =
       (q.quoteNumber || '').toLowerCase().includes(search.toLowerCase()) ||
       (q.name || '').toLowerCase().includes(search.toLowerCase()) ||
       (q.email || '').toLowerCase().includes(search.toLowerCase()) ||
       (q.company || '').toLowerCase().includes(search.toLowerCase()) ||
       (q.status || '').toLowerCase().includes(search.toLowerCase())
-  )
+
+    return matchesSearch
+  })
 
   const confirmDeleteQuote = async () => {
     if (!deletingQuote) return
@@ -140,17 +161,54 @@ export default function AdminQuotesPage() {
       )}
 
       {/* Filter Toolbar & Bulk Action indicator */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
-        <div className="relative w-full max-w-md">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search quotes by number, client name, status, or email..."
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
-          />
+      <div className="flex flex-col gap-4 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
+        {/* Status Filter Tabs */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+          {[
+            { id: 'ALL', label: 'All Leads' },
+            { id: 'NEW', label: 'New' },
+            { id: 'CONTACTED', label: 'Contacted' },
+            { id: 'QUOTED', label: 'Quoted' },
+            { id: 'WON', label: 'Won' },
+            { id: 'LOST', label: 'Lost' },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setSelectedStatusFilter(tab.id)}
+              className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer whitespace-nowrap ${
+                selectedStatusFilter === tab.id
+                  ? 'bg-neutral-900 text-white shadow-xs'
+                  : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+              }`}
+            >
+              {tab.label}
+              <span className="ml-1.5 text-[10px] opacity-75">
+                ({tab.id === 'ALL'
+                  ? quotes.length
+                  : quotes.filter((q) => {
+                      const s = (q.status || 'New').toUpperCase()
+                      if (tab.id === 'WON') return ['WON', 'APPROVED'].includes(s)
+                      if (tab.id === 'LOST') return ['LOST', 'REJECTED'].includes(s)
+                      if (tab.id === 'NEW') return ['NEW', 'PENDING'].includes(s)
+                      return s === tab.id
+                    }).length})
+              </span>
+            </button>
+          ))}
         </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="relative w-full max-w-md">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search quotes by number, client name, status, or email..."
+              className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
+            />
+          </div>
 
         {selectedQuoteIds.length > 0 && (
           <div className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-3 py-1.5 rounded-xl border border-red-200 text-xs font-bold">
@@ -173,6 +231,7 @@ export default function AdminQuotesPage() {
             </button>
           </div>
         )}
+        </div>
       </div>
 
       {/* Table */}
@@ -235,7 +294,7 @@ export default function AdminQuotesPage() {
                     </td>
                     <td className="py-3 px-4">
                       <div className="font-mono font-bold text-neutral-900">{q.quoteNumber}</div>
-                      {q.status === 'Approved' && (
+                      {(q.status === 'Won' || q.status === 'Approved') && (
                         <Link
                           to="/admin/orders"
                           className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 hover:text-emerald-800 hover:underline mt-0.5"
@@ -252,19 +311,18 @@ export default function AdminQuotesPage() {
                     <td className="py-3 px-4 font-black text-neutral-900">AED {q.totalPrice?.toLocaleString()}</td>
                     <td className="py-3 px-4">
                       <select
-                        value={q.status || 'Pending'}
+                        value={q.status || 'New'}
                         onChange={(e) => handleStatusChange(q._id || q.id, e.target.value)}
-                        className={`rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase border cursor-pointer ${
-                          q.status === 'Approved'
-                            ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
-                            : q.status === 'Rejected'
-                              ? 'bg-red-50 text-red-700 border-red-300'
-                              : 'bg-purple-50 text-purple-700 border-purple-300'
-                        }`}
+                        className={`rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase border cursor-pointer ${getStatusBadgeClass(q.status)}`}
                       >
-                        <option value="Pending">Pending</option>
-                        <option value="Approved">Approved</option>
-                        <option value="Rejected">Rejected</option>
+                        <option value="New">New</option>
+                        <option value="Contacted">Contacted</option>
+                        <option value="Quoted">Quoted</option>
+                        <option value="Won">Won (Order)</option>
+                        <option value="Lost">Lost</option>
+                        {['Pending', 'Approved', 'Rejected'].includes(q.status) && (
+                          <option value={q.status}>{q.status}</option>
+                        )}
                       </select>
                     </td>
                     <td className="py-3 px-4 text-right">

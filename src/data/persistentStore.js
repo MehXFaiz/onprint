@@ -187,7 +187,8 @@ function getOrders() {
   let modified = false
   if (Array.isArray(store.quotes)) {
     store.quotes.forEach((q) => {
-      if ((q.status || '').toLowerCase() === 'approved') {
+      const s = (q.status || '').toLowerCase()
+      if (s === 'approved' || s === 'won') {
         const hasOrder = store.orders.some(
           (o) => o.quoteNumber === q.quoteNumber || o.quoteId === q.id || o.notes?.includes(q.quoteNumber)
         )
@@ -343,7 +344,7 @@ function addQuote(quoteData) {
     phone: quoteData.phone || null,
     company: quoteData.company || null,
     notes: quoteData.notes || null,
-    status: quoteData.status || 'Pending',
+    status: quoteData.status || 'New',
     totalPrice: Number(quoteData.totalPrice || 0),
     specs: quoteData.specs || null,
     artworkFile: quoteData.artworkFile || null,
@@ -353,7 +354,8 @@ function addQuote(quoteData) {
   }
 
   store.quotes.unshift(newQuote)
-  if ((newQuote.status || '').toLowerCase() === 'approved') {
+  const newStatusLower = (newQuote.status || '').toLowerCase()
+  if (newStatusLower === 'approved' || newStatusLower === 'won') {
     syncQuoteToOrder(newQuote, store)
   }
   saveStore(store)
@@ -371,7 +373,8 @@ function updateQuoteStatus(id, status) {
   if (quote) {
     quote.status = status
     quote.updatedAt = new Date().toISOString()
-    if ((status || '').toLowerCase() === 'approved') {
+    const sLower = (status || '').toLowerCase()
+    if (sLower === 'approved' || sLower === 'won') {
       syncQuoteToOrder(quote, store)
     }
     saveStore(store)
@@ -386,7 +389,8 @@ function updateQuote(id, updatedData) {
   if (quote) {
     Object.assign(quote, updatedData)
     quote.updatedAt = new Date().toISOString()
-    if ((quote.status || '').toLowerCase() === 'approved') {
+    const sLower = (quote.status || '').toLowerCase()
+    if (sLower === 'approved' || sLower === 'won') {
       syncQuoteToOrder(quote, store)
     }
     saveStore(store)

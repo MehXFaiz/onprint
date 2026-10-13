@@ -18,7 +18,7 @@ const StickersLeadPage = () => {
         '@type': 'LocalBusiness',
         name: 'ONPRINT',
         '@id': 'https://0nprint.com/#organization',
-        telephone: '+971 4 800 PRINT',
+        telephone: '+447344546056',
         email: '0nprint183@gmail.com',
         address: {
           '@type': 'PostalAddress',
@@ -78,7 +78,7 @@ const StickersLeadPage = () => {
     const contactPointSchema = {
       '@context': 'https://schema.org',
       '@type': 'ContactPoint',
-      telephone: '+971 4 800 PRINT',
+      telephone: '+447344546056',
       contactType: 'sales',
       areaServed: 'AE',
       availableLanguage: ['English', 'Arabic', 'Urdu'],
@@ -472,7 +472,7 @@ const StickersLeadPage = () => {
                       <Phone className="w-6 h-6 text-purple-400" />
                       <div>
                         <p className="text-gray-400 text-sm">Phone / WhatsApp</p>
-                        <p className="text-white font-semibold">+971 4 800 PRINT</p>
+                        <p className="text-white font-semibold">+44 7344 546056</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">

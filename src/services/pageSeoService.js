@@ -2,7 +2,7 @@ const { pool } = require('../config/database')
 const seoSafetyService = require('./seoSafetyService')
 const seoAiAnalyzerService = require('./seoAiAnalyzerService')
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 class PageSeoService {
   /**
@@ -385,7 +385,11 @@ class PageSeoService {
       focus_keyword: page.focus_keyword,
       secondary_keywords: page.secondary_keywords,
       h1: page.h1,
-      canonical_url: page.canonical_url,
+      canonical_url: page.canonical_url
+        ? (page.canonical_url.startsWith('http://') || page.canonical_url.startsWith('https://')
+            ? page.canonical_url.replace(/^https?:\/\/(www\.)?0nprint\.com/i, SITE_URL)
+            : `${SITE_URL}${page.canonical_url.startsWith('/') ? page.canonical_url : `/${page.canonical_url}`}`)
+        : `${SITE_URL}${page.url}`,
       robots_index: page.robots_index,
       robots_follow: page.robots_follow,
       og_title: page.og_title || page.meta_title,

@@ -9,7 +9,7 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getProductBySlug } from '../../services/products'
 import { getCategories } from '../../services/categories'
 import { createQuote } from '../../services/quotes'
-import { trackQuoteRequest } from '../../utils/analytics'
+import { trackQuoteRequest, trackQuoteFormStart, trackArtworkUpload } from '../../utils/analytics'
 import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
 
 const steps = ['What You Need', 'Project Details', 'Artwork', 'Contact Details', 'Review & Submit']
@@ -134,6 +134,9 @@ export default function GetQuotePage() {
 
   function handleFileChange(event) {
     const files = Array.from(event.target.files || [])
+    if (files.length > 0) {
+      trackArtworkUpload({ file_count: files.length, source_page: 'get_quote_wizard' })
+    }
     setArtworkFiles((prev) => [...prev, ...files])
   }
 
@@ -201,7 +204,7 @@ export default function GetQuotePage() {
         productName: form.product.trim() || 'Custom Print Job',
         quantity: qty,
         totalPrice,
-        status: 'Pending',
+        status: 'New',
         specs,
         notes: form.notes.trim() || null,
         artworkFile: artworkNames,

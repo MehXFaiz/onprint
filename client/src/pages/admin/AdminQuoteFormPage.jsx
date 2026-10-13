@@ -19,7 +19,7 @@ export default function AdminQuoteFormPage() {
     phone: '',
     company: '',
     totalPrice: '2500',
-    status: 'Pending',
+    status: 'New',
     notes: '',
   })
 
@@ -35,7 +35,7 @@ export default function AdminQuoteFormPage() {
         phone: existing.phone || '',
         company: existing.company || '',
         totalPrice: String(existing.totalPrice || 0),
-        status: existing.status || 'Pending',
+        status: existing.status || 'New',
         notes: existing.notes || '',
       })
     }
@@ -74,10 +74,10 @@ export default function AdminQuoteFormPage() {
         })
       }
 
-      const toastMessage =
-        form.status === 'Approved'
-          ? `Quote ${form.quoteNumber} approved and converted to active order in Orders!`
-          : `Quote request ${form.quoteNumber} ${isEdit ? 'updated' : 'created'} successfully.`
+      const isWon = form.status === 'Won' || form.status === 'Approved'
+      const toastMessage = isWon
+        ? `Quote ${form.quoteNumber} marked as Won and converted to active order in Orders!`
+        : `Quote request ${form.quoteNumber} ${isEdit ? 'updated' : 'created'} successfully.`
 
       navigate('/admin/quotes', {
         state: { toast: toastMessage },
@@ -204,9 +204,14 @@ export default function AdminQuoteFormPage() {
                 onChange={(e) => setForm({ ...form, status: e.target.value })}
                 className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none cursor-pointer"
               >
-                <option value="Pending">Pending</option>
-                <option value="Approved">Approved</option>
-                <option value="Rejected">Rejected</option>
+                <option value="New">New Lead</option>
+                <option value="Contacted">Contacted</option>
+                <option value="Quoted">Quoted</option>
+                <option value="Won">Won (Converts to Order)</option>
+                <option value="Lost">Lost</option>
+                {['Pending', 'Approved', 'Rejected'].includes(form.status) && (
+                  <option value={form.status}>{form.status}</option>
+                )}
               </select>
             </div>
           </div>

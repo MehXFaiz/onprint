@@ -2,7 +2,7 @@ const { pool } = require('../config/database')
 const { products: fallbackProducts, services: fallbackServices, categories: fallbackCategories } = require('../data/initialData')
 const programmaticSeoService = require('../services/programmaticSeoService')
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 function escapeXml(unsafe) {
   return String(unsafe || '')
@@ -228,8 +228,13 @@ async function getSitemapXml(req, res) {
         seoPages.forEach((p) => {
           const rawUrl = (p.url || '').trim()
           if (!rawUrl) return
-          const cleanPath = rawUrl.startsWith('/') ? rawUrl : `/${rawUrl}`
-          const fullLoc = `${SITE_URL}${cleanPath === '/' ? '' : cleanPath}`
+          let fullLoc
+          if (rawUrl.startsWith('http://') || rawUrl.startsWith('https://')) {
+            fullLoc = rawUrl.replace(/^https?:\/\/(www\.)?0nprint\.com/i, SITE_URL)
+          } else {
+            const cleanPath = rawUrl.startsWith('/') ? rawUrl : `/${rawUrl}`
+            fullLoc = `${SITE_URL}${cleanPath === '/' ? '' : cleanPath}`
+          }
           
           if (seenUrls.has(fullLoc)) return
           seenUrls.add(fullLoc)

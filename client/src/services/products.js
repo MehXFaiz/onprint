@@ -3,7 +3,7 @@ import catalogProducts from '../data/catalogProducts.json'
 
 export const defaultProducts = catalogProducts
 
-const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v4'
+const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v5'
 
 export function getStoredProducts() {
   try {
@@ -105,6 +105,31 @@ export function getStoredProducts() {
           }
         }
 
+        if (
+          slug.includes('presentation-folder') ||
+          slug.includes('printed-envelope') ||
+          slug.includes('corporate-envelope') ||
+          slug.includes('executive-notebook') ||
+          slug.includes('desk-pad') ||
+          slug.includes('stationery-gift-set') ||
+          slug.includes('executive-letterhead') ||
+          slug.includes('corporate-ring-binder') ||
+          slug.includes('wall-desk-calendar') ||
+          slug.includes('ncr-duplicate') ||
+          slug.includes('string-tie-envelope') ||
+          slug.includes('sticky-notes-cube')
+        ) {
+          return {
+            ...p,
+            category: {
+              _id: 'cat-office-stationery-printing',
+              id: 15,
+              name: 'Office Stationery & Envelopes',
+              slug: 'office-stationery-printing'
+            }
+          }
+        }
+
         return p
       })
 
@@ -178,7 +203,24 @@ export async function getProducts(params = {}) {
   let list = getStoredProducts()
   try {
     const { data } = await api.get('/products', { params })
-    if (data?.data && data.data.length > 0) list = data.data
+    if (data?.data && data.data.length > 0) {
+      if (params.category) {
+        const catParam = params.category.toLowerCase()
+        const hasMatchingCategory = data.data.some((p) => {
+          const s = p.category?.slug?.toLowerCase() || ''
+          const cid = String(p.category?._id || '').toLowerCase()
+          const sec = (p.categories || []).some(
+            (c) => c.slug?.toLowerCase() === catParam || String(c._id || '').toLowerCase() === catParam
+          )
+          return s === catParam || cid === catParam || sec
+        })
+        if (hasMatchingCategory) {
+          list = data.data
+        }
+      } else {
+        list = data.data
+      }
+    }
   } catch {
     // fallback to local stored list
   }

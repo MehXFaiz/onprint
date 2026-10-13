@@ -589,7 +589,7 @@ export const categorySlugImageMap = {
   'custom-apparel-printing': img3,
   'stickers-labels-printing': serviceStickersLabelsImg,
   'catalogs-booklets-printing': brochureBookletImg,
-  'office-stationery-printing': serviceExecutiveStationeryImg,
+  'office-stationery-printing': stationeryCategoryHeroImg,
   'hospitality-event-printing': img14,
   'promotional-drinkware-tech': bottlesImg,
   'other-products': rollupImg,

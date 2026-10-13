@@ -4,7 +4,7 @@ import { Phone, Mail, Clock, CheckCircle, Sparkles, Award, Shield, Zap, CheckCir
 import SEOHead from '../../components/SEOHead'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { createQuote } from '../../services/quotes'
-import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
+import { openWhatsAppDirectly, getWhatsAppUrl, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../../utils/whatsapp'
 
 const StickersLeadPage = () => {
   // Add Service and ContactPoint schema markup for lead generation
@@ -17,8 +17,8 @@ const StickersLeadPage = () => {
       provider: {
         '@type': 'LocalBusiness',
         name: 'ONPRINT',
-        '@id': 'https://www.0nprint.com/#organization',
-        telephone: '+447344546056',
+        '@id': 'https://0nprint.com/#organization',
+        telephone: RAW_WHATSAPP_NUMBER,
         email: '0nprint183@gmail.com',
         address: {
           '@type': 'PostalAddress',
@@ -78,7 +78,7 @@ const StickersLeadPage = () => {
     const contactPointSchema = {
       '@context': 'https://schema.org',
       '@type': 'ContactPoint',
-      telephone: '+447344546056',
+      telephone: RAW_WHATSAPP_NUMBER,
       contactType: 'sales',
       areaServed: 'AE',
       availableLanguage: ['English', 'Arabic', 'Urdu'],
@@ -400,7 +400,7 @@ const StickersLeadPage = () => {
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105"
+                    className="w-full py-4 bg-[#A82F19] hover:bg-[#8B2614] text-white font-bold rounded-lg transition-all transform hover:scale-[1.02] shadow-lg shadow-[#A82F19]/25"
                   >
                     Get My Free Quote Now
                   </button>
@@ -472,7 +472,7 @@ const StickersLeadPage = () => {
                       <Phone className="w-6 h-6 text-purple-400" />
                       <div>
                         <p className="text-gray-400 text-sm">Phone / WhatsApp</p>
-                        <p className="text-white font-semibold">+44 7344 546056</p>
+                        <p className="text-white font-semibold">{FORMATTED_PHONE}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">

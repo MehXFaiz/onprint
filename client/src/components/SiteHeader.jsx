@@ -40,7 +40,7 @@ import { useAuth } from '../context/AuthContext'
 import { trackGetQuoteClick, trackWhatsAppClick } from '../utils/analytics'
 import { getCategories } from '../services/categories'
 import { getProducts } from '../services/products'
-import { getServiceWhatsAppUrl, FORMATTED_PHONE } from '../utils/whatsapp'
+import { getServiceWhatsAppUrl, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../utils/whatsapp'
 
 const NAV_GROUPS = [
   {
@@ -330,11 +330,11 @@ export default function SiteHeader() {
           {/* Right: Direct Hotline + Track Order + Email + Socials */}
           <div className="flex items-center gap-3 lg:gap-4 shrink-0 text-slate-300">
             <a
-              href="tel:+447344546056"
+              href={`tel:+${RAW_WHATSAPP_NUMBER}`}
               className="inline-flex items-center gap-1.5 font-semibold text-slate-200 hover:text-white transition-colors"
             >
               <Phone className="h-3.5 w-3.5 text-[#A82F19]" />
-              <span>+44 7344 546056</span>
+              <span>{FORMATTED_PHONE}</span>
             </a>
 
             <span className="hidden sm:inline h-3 w-px bg-white/15" />

@@ -38,33 +38,73 @@ export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 // 2. Official Core Service Prefilled Inquiries (Dubai & UAE Focused)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    "Hi ONPRINT! I'm interested in business card printing in Dubai. Please share your available paper types, finishes, quantities, prices, and delivery time.",
+    "Hi ONPRINT! I'm interested in luxury & executive business card printing in Dubai. Please share your available paper stocks (cotton, silk, velvet soft-touch), finishes (24K foil, spot UV), quantities, pricing, and express delivery times.",
   'business-cards-printing':
-    "Hi ONPRINT! I'm interested in business card printing in Dubai. Please share your available paper types, finishes, quantities, prices, and delivery time.",
+    "Hi ONPRINT! I'm interested in luxury & executive business card printing in Dubai. Please share your available paper stocks, finishes, quantities, pricing, and express delivery times.",
   'business-card-printing-dubai':
-    "Hi ONPRINT! I'm interested in business card printing in Dubai. Please share your available paper types, finishes, quantities, prices, and delivery time.",
+    "Hi ONPRINT! I'm interested in luxury & executive business card printing in Dubai. Please share your available paper stocks, finishes, quantities, pricing, and express delivery times.",
+
+  'bottle-printing':
+    "Hi ONPRINT! I'm interested in custom water bottle printing in Dubai (LED temperature display, thermal stainless steel, sports aluminium, glass bamboo). Please share bottle models, branding methods (laser engraving / UV print), minimum quantities, and pricing.",
+  'bottle-printing-dubai':
+    "Hi ONPRINT! I'm interested in custom water bottle printing in Dubai (LED temperature display, thermal stainless steel, sports aluminium, glass bamboo). Please share bottle models, branding methods (laser engraving / UV print), minimum quantities, and pricing.",
+  'water-bottle-printing-dubai':
+    "Hi ONPRINT! I'm interested in custom water bottle printing in Dubai. Please share available bottle models, minimum order quantities, and express delivery options.",
+
+  'bottle-labels':
+    "Hi ONPRINT! I'm interested in custom bottle label printing in Dubai (waterproof roll labels / die-cut vinyl stickers). Please share label materials, finishes, adhesive options, minimum quantities, and pricing.",
 
   'rollup-banners':
-    "Hi ONPRINT! I need roll-up banner printing in Dubai. Please share the available sizes, printing options, stand details, prices, and delivery time.",
+    "Hi ONPRINT! I need roll-up banner printing in Dubai. Please share the available sizes (85x200, 100x200, 120x200 cm), stand types (standard / luxury teardrop), prices, and 24h turnaround times.",
   'rollup-banner-printing-dubai':
-    "Hi ONPRINT! I need roll-up banner printing in Dubai. Please share the available sizes, printing options, stand details, prices, and delivery time.",
+    "Hi ONPRINT! I need roll-up banner printing in Dubai. Please share the available sizes, stand types, prices, and 24h turnaround times.",
 
   'stickers':
-    "Hi ONPRINT! I'm interested in sticker printing in Dubai. Please share the available materials, sizes, shapes, finishes, minimum quantities, and prices.",
+    "Hi ONPRINT! I'm interested in custom sticker & product label printing in Dubai (waterproof vinyl, die-cut, roll labels, transparent, holographic). Please share shapes, sizes, minimum order quantities, and prices.",
   'stickers-labels-printing':
-    "Hi ONPRINT! I'm interested in sticker printing in Dubai. Please share the available materials, sizes, shapes, finishes, minimum quantities, and prices.",
+    "Hi ONPRINT! I'm interested in custom sticker & product label printing in Dubai. Please share available materials, finishes, minimum order quantities, and pricing.",
   'sticker-printing-dubai':
-    "Hi ONPRINT! I'm interested in sticker printing in Dubai. Please share the available materials, sizes, shapes, finishes, minimum quantities, and prices.",
+    "Hi ONPRINT! I'm interested in custom sticker & product label printing in Dubai. Please share available materials, finishes, minimum order quantities, and pricing.",
 
   'stamps':
-    "Hi ONPRINT! I need a custom stamp. Please share the available stamp types, sizes, customization options, prices, and delivery time.",
+    "Hi ONPRINT! I need a custom stamp in Dubai (official self-inking company stamp, pocket stamp, dater, or wax seal). Please share available models, sizes, license verification requirements, and prices.",
   'stamps-printing-dubai':
-    "Hi ONPRINT! I need a custom stamp. Please share the available stamp types, sizes, customization options, prices, and delivery time.",
+    "Hi ONPRINT! I need a custom stamp in Dubai. Please share available models, sizes, license verification requirements, and prices.",
   'custom-stamps':
-    "Hi ONPRINT! I need a custom stamp. Please share the available stamp types, sizes, customization options, prices, and delivery time.",
+    "Hi ONPRINT! I need a custom stamp in Dubai. Please share available models, sizes, license verification requirements, and prices.",
+
+  'mugs':
+    "Hi ONPRINT! I'm interested in custom ceramic mug printing in Dubai (white ceramic, two-tone, magic heat-sensitive, travel tumblers). Please share quantities, pricing, and express delivery times.",
+  'mug-printing-dubai':
+    "Hi ONPRINT! I'm interested in custom ceramic mug printing in Dubai. Please share quantities, pricing, and express delivery times.",
+
+  'id-cards':
+    "Hi ONPRINT! I need corporate PVC ID card printing in Dubai (smart NFC, RFID access, magnetic stripe, staff photo IDs). Please share specifications, badge accessories, and corporate volume pricing.",
+  'id-card-printing-dubai':
+    "Hi ONPRINT! I need corporate PVC ID card printing in Dubai. Please share specifications, badge accessories, and corporate volume pricing.",
+
+  'lanyards':
+    "Hi ONPRINT! I need custom branded neck lanyards in Dubai (polyester, satin dye-sublimation, safety breakaway, woven jacquard). Please share clip attachments, minimum quantities, and turnaround times.",
+  'lanyard-printing-dubai':
+    "Hi ONPRINT! I need custom branded neck lanyards in Dubai. Please share clip attachments, minimum quantities, and turnaround times.",
+
+  'flyers':
+    "Hi ONPRINT! I'm interested in commercial flyer printing in Dubai (A5, A4, DL, folded leaflets). Please share paper stocks, quantities, and express same-day dispatch options.",
+  'flyers-printing-in-dubai':
+    "Hi ONPRINT! I'm interested in commercial flyer printing in Dubai. Please share paper stocks, quantities, and express same-day dispatch options.",
+
+  'brochures':
+    "Hi ONPRINT! I need corporate brochure printing in Dubai (bi-fold, tri-fold, multi-page catalogs). Please share coated paper stocks, luxury lamination options, and pricing.",
+  'brochures-printing':
+    "Hi ONPRINT! I need corporate brochure printing in Dubai. Please share coated paper stocks, luxury lamination options, and pricing.",
+
+  'stationery':
+    "Hi ONPRINT! I'm interested in executive office stationery printing in Dubai (letterheads, presentation folders, corporate envelopes, notebooks). Please share specifications and pricing.",
+  'office-stationery-printing':
+    "Hi ONPRINT! I'm interested in executive office stationery printing in Dubai. Please share specifications and pricing.",
 
   'general':
-    "Hi ONPRINT! I'm interested in commercial printing in Dubai. Please share your pricing, options, and express delivery time.",
+    "Hi ONPRINT! I'm interested in commercial printing in Dubai. Please share your pricing, options, and express delivery times.",
 }
 
 /**
@@ -72,10 +112,19 @@ export const SERVICE_INQUIRY_MESSAGES = {
  */
 export function resolveServiceKey(slugOrKey = '') {
   const s = String(slugOrKey || '').toLowerCase()
+  // Bottle Labels vs Bottle Printing (Strict separation)
+  if (s.includes('bottle-label') || s.includes('jar-label') || s.includes('product-label')) return 'bottle-labels'
+  if (s.includes('bottle') || s.includes('flask') || s.includes('drinkware')) return 'bottle-printing'
+  if (s.includes('mug') || s.includes('cup') || s.includes('tumbler')) return 'mugs'
   if (s.includes('card') || s.includes('visiting')) return 'business-cards'
   if (s.includes('rollup') || s.includes('roll-up') || s.includes('banner')) return 'rollup-banners'
-  if (s.includes('sticker') || s.includes('label')) return 'stickers'
+  if (s.includes('sticker') || s.includes('label') || s.includes('decal')) return 'stickers'
   if (s.includes('stamp') || s.includes('seal')) return 'stamps'
+  if (s.includes('id-card') || s.includes('id_card') || s.includes('pvc-id')) return 'id-cards'
+  if (s.includes('lanyard')) return 'lanyards'
+  if (s.includes('flyer') || s.includes('leaflet')) return 'flyers'
+  if (s.includes('brochure') || s.includes('catalog')) return 'brochures'
+  if (s.includes('stationery') || s.includes('letterhead') || s.includes('folder') || s.includes('envelope')) return 'stationery'
   return 'general'
 }
 
@@ -106,20 +155,29 @@ export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
 /**
  * Generates official click-to-chat WhatsApp URL for structured quotes or orders
  */
-export function formatWhatsAppMessage({
-  title = 'NEW PRINTING INQUIRY',
-  refNumber,
-  name,
-  phone,
-  email,
-  company,
-  product,
-  quantity,
-  specs,
-  price,
-  notes,
-  deliveryLocation = 'Dubai, UAE',
-}) {
+export function formatWhatsAppMessage(params = {}) {
+  if (typeof params === 'string') return params
+  if (params && typeof params === 'object') {
+    if (params.text) return params.text
+    if (params.message) return params.message
+    if (params.body) return params.body
+  }
+
+  const {
+    title = 'NEW PRINTING INQUIRY',
+    refNumber,
+    name,
+    phone,
+    email,
+    company,
+    product,
+    quantity,
+    specs,
+    price,
+    notes,
+    deliveryLocation = 'Dubai, UAE',
+  } = params || {}
+
   const parts = [
     `⚡ *${title}* 📄`,
     '━━━━━━━━━━━━━━━━━━━━━',

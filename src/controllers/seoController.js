@@ -2,7 +2,7 @@ const { pool } = require('../config/database')
 const { products: fallbackProducts, services: fallbackServices, categories: fallbackCategories } = require('../data/initialData')
 const programmaticSeoService = require('../services/programmaticSeoService')
 
-const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
 
 function escapeXml(unsafe) {
   return String(unsafe || '')

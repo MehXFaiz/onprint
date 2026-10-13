@@ -31,5 +31,5 @@ Disallow: /login
 Disallow: /register
 Disallow: /account
 
-Host: https://www.0nprint.com
-Sitemap: https://www.0nprint.com/sitemap.xml
+Host: https://0nprint.com
+Sitemap: https://0nprint.com/sitemap.xml

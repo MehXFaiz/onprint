@@ -29,6 +29,7 @@ const BusinessCardsLeadPage = lazy(() => import('./pages/public/BusinessCardsLea
 const StickersLeadPage = lazy(() => import('./pages/public/StickersLeadPage'))
 const MugsLeadPage = lazy(() => import('./pages/public/MugsLeadPage'))
 const BottlesLeadPage = lazy(() => import('./pages/public/BottlesLeadPage'))
+const LocationLandingPage = lazy(() => import('./pages/public/LocationLandingPage'))
 const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
 
 function CategoryRouteRedirect() {
@@ -107,13 +108,17 @@ function App() {
 
             {/* Core Commercial SEO Landing Pages */}
             <Route path="/printing-services-dubai" element={<CommercialLandingPage pageKey="printing-services-dubai" />} />
+            <Route path="/printing-services-abu-dhabi" element={<LocationLandingPage locationKey="abu-dhabi" />} />
+            <Route path="/printing-services-sharjah" element={<LocationLandingPage locationKey="sharjah" />} />
+            <Route path="/printing-services-ajman" element={<LocationLandingPage locationKey="ajman" />} />
+            <Route path="/printing-services-ras-al-khaimah" element={<LocationLandingPage locationKey="ras-al-khaimah" />} />
             <Route path="/brochure-printing-dubai" element={<CommercialLandingPage pageKey="brochure-printing-dubai" />} />
             <Route path="/flyer-printing-dubai" element={<CommercialLandingPage pageKey="flyer-printing-dubai" />} />
-            {/* Packaging Routes Redirected to Services */}
-            <Route path="/packaging-printing-dubai" element={<Navigate to="/services" replace />} />
-            <Route path="/custom-packaging-dubai" element={<Navigate to="/services" replace />} />
-            <Route path="/custom-packaging" element={<Navigate to="/services" replace />} />
-            <Route path="/packaging-printing" element={<Navigate to="/services" replace />} />
+            {/* Packaging Routes Redirected to Canonical Packaging Service */}
+            <Route path="/packaging-printing-dubai" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
+            <Route path="/custom-packaging-dubai" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
+            <Route path="/custom-packaging" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
+            <Route path="/packaging-printing" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
             <Route path="/sticker-printing-dubai" element={<CommercialLandingPage pageKey="sticker-printing-dubai" />} />
             <Route path="/label-printing-dubai" element={<CommercialLandingPage pageKey="label-printing-dubai" />} />
             <Route path="/signage-printing-dubai" element={<CommercialLandingPage pageKey="signage-printing-dubai" />} />

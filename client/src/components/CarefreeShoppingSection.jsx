@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ShieldCheck, Truck, BadgePercent, ArrowRight, Sparkles } from 'lucide-react'
 import carefreeShoppingImg from '../assets/products/carefree_shopping.jpg'
+import carefreeShoppingWebp from '../assets/products/carefree_shopping.webp'
 import { trackGetQuoteClick } from '../utils/analytics'
 
 const features = [
@@ -41,12 +42,18 @@ export default function CarefreeShoppingSection() {
               className="relative mx-auto overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-xl group"
             >
               <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden bg-slate-100">
-                <img
-                  src={carefreeShoppingImg}
-                  alt="Corporate Gifts & Express Print Dispatch Dubai"
-                  loading="lazy"
-                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                />
+                <picture>
+                  <source type="image/webp" srcSet={carefreeShoppingWebp} />
+                  <img
+                    src={carefreeShoppingImg}
+                    alt="Corporate Gifts & Express Print Dispatch Dubai"
+                    width="540"
+                    height="405"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
               </div>
             </motion.div>

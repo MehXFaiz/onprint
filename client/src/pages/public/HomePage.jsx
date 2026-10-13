@@ -320,136 +320,133 @@ export default function HomePage() {
           {/* Left Column: Headline & Value Proposition */}
           <div className="lg:col-span-6 space-y-6">
             {/* Top Small Location / Category Labels */}
-            <Reveal>
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-1.5 shadow-2xs backdrop-blur-md">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                </span>
-                <span className="uppercase tracking-[0.2em] text-[10.5px] font-black text-slate-800">
-                  DUBAI COMMERCIAL PRESSROOM
-                </span>
-                <span className="h-3 w-px bg-slate-200" />
-                <span className="flex items-center gap-1 text-[10px] font-bold text-[#A82F19] uppercase tracking-wider">
-                  <Sparkles className="h-3 w-3" />
-                  AL QUOZ ATELIER
-                </span>
-              </div>
-            </Reveal>
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-1.5 shadow-2xs backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              <span className="uppercase tracking-[0.2em] text-[10.5px] font-black text-slate-800">
+                DUBAI COMMERCIAL PRESSROOM
+              </span>
+              <span className="h-3 w-px bg-slate-200" />
+              <span className="flex items-center gap-1 text-[10px] font-bold text-[#A82F19] uppercase tracking-wider">
+                <Sparkles className="h-3 w-3" />
+                AL QUOZ ATELIER
+              </span>
+            </div>
 
             {/* Main Heading in Elegant Serif Font */}
-            <Reveal delay={0.08}>
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.35rem] xl:text-[3.85rem] font-bold leading-[1.1] tracking-tight text-[#0F172A]">
-                Commercial &amp; Luxury<br />
-                Printing Services in{' '}
-                <span className="relative inline-block font-serif italic text-[#A82F19]">
-                  Dubai, UAE
-                  <span
-                    className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-[#A82F19] to-[#A82F19]/30"
-                    aria-hidden="true"
-                  />
-                </span>
-              </h1>
-            </Reveal>
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.35rem] xl:text-[3.85rem] font-bold leading-[1.1] tracking-tight text-[#0F172A]">
+              Commercial &amp; Luxury<br />
+              Printing Services in{' '}
+              <span className="relative inline-block font-serif italic text-[#A82F19]">
+                Dubai, UAE
+                <span
+                  className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-[#A82F19] to-[#A82F19]/30"
+                  aria-hidden="true"
+                />
+              </span>
+            </h1>
 
             {/* Supporting Text */}
-            <Reveal delay={0.14}>
-              <p className="max-w-xl text-base sm:text-lg leading-[1.75] text-slate-600 font-normal">
-                Direct in-house pressroom in <strong className="text-slate-900 font-bold">Al Quoz, Dubai</strong>. Delivering calibrated German Heidelberg color accuracy, <strong className="text-slate-900 font-bold">luxury business cards</strong>, roll-up banners, waterproof stickers, and official stamps with express same-day UAE dispatch.
-              </p>
-            </Reveal>
+            <p className="max-w-xl text-base sm:text-lg leading-[1.75] text-slate-600 font-normal">
+              Direct in-house pressroom in <strong className="text-slate-900 font-bold">Al Quoz, Dubai</strong>. Delivering calibrated German Heidelberg color accuracy, <strong className="text-slate-900 font-bold">luxury business cards</strong>, roll-up banners, waterproof stickers, and official stamps with express same-day UAE dispatch.
+            </p>
 
             {/* 4 Premium Feature Points */}
-            <Reveal delay={0.18}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                {heroFeatures.map((feat) => {
-                  const Icon = feat.icon
-                  return (
-                    <div key={feat.label} className="flex items-center gap-2.5 text-xs sm:text-[13px] font-semibold text-slate-800">
-                      <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#A82F19]/10 text-[#A82F19] shrink-0">
-                        <Icon className="h-3.5 w-3.5" />
-                      </div>
-                      <span>{feat.label}</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              {heroFeatures.map((feat) => {
+                const Icon = feat.icon
+                return (
+                  <div key={feat.label} className="flex items-center gap-2.5 text-xs sm:text-[13px] font-semibold text-slate-800">
+                    <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#A82F19]/10 text-[#A82F19] shrink-0">
+                      <Icon className="h-3.5 w-3.5" />
                     </div>
-                  )
-                })}
-              </div>
-            </Reveal>
+                    <span>{feat.label}</span>
+                  </div>
+                )
+              })}
+            </div>
 
             {/* Action Buttons: Primary & Secondary */}
-            <Reveal delay={0.22}>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
-                {/* Primary WhatsApp Button */}
-                <a
-                  href={getServiceWhatsAppUrl('general')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackWhatsAppClick({
-                      source_page: '/',
-                      service_name: 'general_hero',
-                      button_location: 'hero_primary_cta',
-                      label: 'hero_get_quote_whatsapp',
-                    })
-                  }
-                  className="relative group overflow-hidden rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold shadow-lg shadow-emerald-600/25 hover:shadow-xl hover:shadow-emerald-600/35 hover:-translate-y-0.5 px-8 py-4 justify-center transition-all duration-200 inline-flex items-center gap-2.5 cursor-pointer text-sm sm:text-base text-center"
-                >
-                  <WhatsAppIcon className="h-5 w-5 fill-white" />
-                  <span>Get a Quote on WhatsApp</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </a>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+              {/* Primary WhatsApp Button */}
+              <a
+                href={getServiceWhatsAppUrl('general')}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackWhatsAppClick({
+                    source_page: '/',
+                    service_name: 'general_hero',
+                    button_location: 'hero_primary_cta',
+                    label: 'hero_get_quote_whatsapp',
+                  })
+                }
+                className="relative group overflow-hidden rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold shadow-lg shadow-emerald-600/25 hover:shadow-xl hover:shadow-emerald-600/35 hover:-translate-y-0.5 px-8 py-4 justify-center transition-all duration-200 inline-flex items-center gap-2.5 cursor-pointer text-sm sm:text-base text-center"
+              >
+                <WhatsAppIcon className="h-5 w-5 fill-white" />
+                <span>Get a Quote on WhatsApp</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </a>
 
-                {/* Secondary Button */}
-                <Button
-                  to="/services"
-                  variant="outline"
-                  size="lg"
-                  className="rounded-xl border border-slate-300 bg-white hover:bg-slate-50 px-7 py-4 text-sm font-bold text-slate-800 shadow-xs hover:-translate-y-0.5 transition-all duration-200 text-center justify-center"
-                >
-                  <span>Explore Printing Services</span>
-                </Button>
-              </div>
-            </Reveal>
+              {/* Secondary Button */}
+              <Button
+                to="/services"
+                variant="outline"
+                size="lg"
+                className="rounded-xl border border-slate-300 bg-white hover:bg-slate-50 px-7 py-4 text-sm font-bold text-slate-800 shadow-xs hover:-translate-y-0.5 transition-all duration-200 text-center justify-center"
+              >
+                <span>Explore Printing Services</span>
+              </Button>
+            </div>
 
             {/* Social Proof Star Rating */}
-            <Reveal delay={0.26}>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-600 pt-1">
-                <div className="flex items-center gap-1.5">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <span className="font-extrabold text-slate-900">4.9 / 5.0</span>
-                  <span className="text-slate-500">Google Verified</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-600 pt-1">
+              <div className="flex items-center gap-1.5">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                  ))}
                 </div>
-                <span className="hidden sm:inline text-slate-300">•</span>
-                <span className="font-bold text-slate-800">500+ UAE Corporations</span>
-                <span className="hidden sm:inline text-slate-300">•</span>
-                <span className="inline-flex items-center gap-1 font-bold text-slate-800">
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-600" />
-                  Direct Pressroom
-                </span>
+                <span className="font-extrabold text-slate-900">4.9 / 5.0</span>
+                <span className="text-slate-500">Google Verified</span>
               </div>
-            </Reveal>
+              <span className="hidden sm:inline text-slate-300">•</span>
+              <span className="font-bold text-slate-800">500+ UAE Corporations</span>
+              <span className="hidden sm:inline text-slate-300">•</span>
+              <span className="inline-flex items-center gap-1 font-bold text-slate-800">
+                <CheckCircle className="h-3.5 w-3.5 text-emerald-600" />
+                Direct Pressroom
+              </span>
+            </div>
           </div>
 
           {/* Right Column: Luxury Editorial Print Composition */}
           <div className="lg:col-span-6 relative flex items-center justify-center">
-            <Reveal delay={0.16}>
-              <div className="relative w-full max-w-[580px] mx-auto">
-                {/* Soft warm ambient background glow */}
-                <div className="pointer-events-none absolute -top-12 -right-12 h-64 w-64 rounded-full bg-[#A82F19]/5 blur-3xl" />
-                <div className="pointer-events-none absolute -bottom-12 -left-12 h-64 w-64 rounded-full bg-amber-500/5 blur-3xl" />
+            <div className="relative w-full max-w-[580px] mx-auto">
+              {/* Soft warm ambient background glow */}
+              <div className="pointer-events-none absolute -top-12 -right-12 h-64 w-64 rounded-full bg-[#A82F19]/5 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-12 -left-12 h-64 w-64 rounded-full bg-amber-500/5 blur-3xl" />
 
-                {/* Editorial Photo Composition Grid */}
-                <div className="grid grid-cols-12 gap-3.5 sm:gap-4 items-stretch">
-                  {/* Main Large Visual (Left 7 Cols) */}
-                  <Link
-                    to="/business-card-printing-dubai"
-                    className="col-span-7 relative group overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-2 shadow-xl shadow-slate-200/60 hover:shadow-2xl transition-all duration-300 block"
-                  >
-                    <div className="relative h-[340px] sm:h-[400px] w-full overflow-hidden rounded-2xl bg-slate-100">
+              {/* Editorial Photo Composition Grid */}
+              <div className="grid grid-cols-12 gap-3.5 sm:gap-4 items-stretch">
+                {/* Main Large Visual (Left 7 Cols) */}
+                <Link
+                  to="/business-card-printing-dubai"
+                  className="col-span-7 relative group overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-2 shadow-xl shadow-slate-200/60 hover:shadow-2xl transition-all duration-300 block"
+                >
+                  <div className="relative h-[340px] sm:h-[400px] w-full overflow-hidden rounded-2xl bg-slate-100">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        media="(max-width: 640px)"
+                        srcSet="/assets/products/luxury_business_cards_dubai_mobile.webp"
+                      />
+                      <source
+                        type="image/webp"
+                        srcSet="/assets/products/luxury_business_cards_dubai.webp"
+                      />
                       <img
                         src="/assets/products/luxury_business_cards_dubai.jpg"
                         alt="Luxury Business Card Printing Dubai"
@@ -460,62 +457,74 @@ export default function HomePage() {
                         fetchPriority="high"
                         decoding="async"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      <div className="absolute top-3 left-3">
-                        <span className="rounded-md bg-[#A82F19] px-2.5 py-1 text-[9.5px] font-black uppercase tracking-wider text-white shadow-sm">
-                          SIGNATURE CRAFT
-                        </span>
-                      </div>
-                      <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white">
-                        <span className="text-[9.5px] font-black uppercase tracking-widest text-amber-300">
-                          DUBAI ATELIER
-                        </span>
-                        <h3 className="font-serif text-base sm:text-lg font-bold text-white mt-0.5 leading-snug">
-                          24K Gold Foil &amp; Embossing
-                        </h3>
-                        <p className="text-[11px] text-slate-200 mt-0.5">
-                          600 GSM Italian Cotton Stock
-                        </p>
-                      </div>
+                    </picture>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <span className="rounded-md bg-[#A82F19] px-2.5 py-1 text-[9.5px] font-black uppercase tracking-wider text-white shadow-sm">
+                        SIGNATURE CRAFT
+                      </span>
                     </div>
-                  </Link>
+                    <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white">
+                      <span className="text-[9.5px] font-black uppercase tracking-widest text-amber-300">
+                        DUBAI ATELIER
+                      </span>
+                      <h3 className="font-serif text-base sm:text-lg font-bold text-white mt-0.5 leading-snug">
+                        24K Gold Foil &amp; Embossing
+                      </h3>
+                      <p className="text-[11px] text-slate-200 mt-0.5">
+                        600 GSM Italian Cotton Stock
+                      </p>
+                    </div>
+                  </div>
+                </Link>
 
-                  {/* Right Stacked Visuals (Right 5 Cols) */}
-                  <div className="col-span-5 flex flex-col gap-3.5 sm:gap-4">
-                    {/* Top Card: Executive Stationery */}
-                    <Link
-                      to="/categories/letterheads-printing-dubai"
-                      className="relative group flex-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-2 shadow-md hover:shadow-xl transition-all duration-300 block"
-                    >
-                      <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-slate-100">
+                {/* Right Stacked Visuals (Right 5 Cols) */}
+                <div className="col-span-5 flex flex-col gap-3.5 sm:gap-4">
+                  {/* Top Card: Executive Stationery */}
+                  <Link
+                    to="/categories/letterheads-printing-dubai"
+                    className="relative group flex-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-2 shadow-md hover:shadow-xl transition-all duration-300 block"
+                  >
+                    <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-slate-100">
+                      <picture>
+                        <source
+                          type="image/webp"
+                          srcSet="/assets/products/service_executive_stationery.webp"
+                        />
                         <img
                           src="/assets/products/service_executive_stationery.jpg"
                           alt="Executive Corporate Stationery Dubai"
                           width="300"
                           height="192"
                           className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                          loading="eager"
-                          fetchPriority="high"
+                          loading="lazy"
+                          fetchPriority="low"
                           decoding="async"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                        <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
-                          <span className="text-[8.5px] font-black uppercase tracking-widest text-amber-300">
-                            STATIONERY
-                          </span>
-                          <h4 className="font-serif text-xs sm:text-sm font-bold leading-tight mt-0.5">
-                            Executive Corporate Suites
-                          </h4>
-                        </div>
+                      </picture>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                        <span className="text-[8.5px] font-black uppercase tracking-widest text-amber-300">
+                          STATIONERY
+                        </span>
+                        <h4 className="font-serif text-xs sm:text-sm font-bold leading-tight mt-0.5">
+                          Executive Corporate Suites
+                        </h4>
                       </div>
-                    </Link>
+                    </div>
+                  </Link>
 
-                    {/* Bottom Card: Painted Edge Cards */}
-                    <Link
-                      to="/products/luxury-business-cards"
-                      className="relative group flex-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-2 shadow-md hover:shadow-xl transition-all duration-300 block"
-                    >
-                      <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-slate-100">
+                  {/* Bottom Card: Painted Edge Cards */}
+                  <Link
+                    to="/products/luxury-business-cards"
+                    className="relative group flex-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-2 shadow-md hover:shadow-xl transition-all duration-300 block"
+                  >
+                    <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-slate-100">
+                      <picture>
+                        <source
+                          type="image/webp"
+                          srcSet="/assets/products/card-painted-edge.webp"
+                        />
                         <img
                           src="/assets/products/card-painted-edge.jpg"
                           alt="Painted Edge Business Cards Dubai"
@@ -525,36 +534,36 @@ export default function HomePage() {
                           loading="lazy"
                           decoding="async"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                        <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
-                          <span className="text-[8.5px] font-black uppercase tracking-widest text-amber-300">
-                            GILDED EDGES
-                          </span>
-                          <h4 className="font-serif text-xs sm:text-sm font-bold leading-tight mt-0.5">
-                            Metallic Edge Painted
-                          </h4>
-                        </div>
+                      </picture>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                        <span className="text-[8.5px] font-black uppercase tracking-widest text-amber-300">
+                          GILDED EDGES
+                        </span>
+                        <h4 className="font-serif text-xs sm:text-sm font-bold leading-tight mt-0.5">
+                          Metallic Edge Painted
+                        </h4>
                       </div>
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Floating UAE Serving Banner */}
-                <div className="mt-4 flex items-center justify-between rounded-2xl bg-slate-50 border border-slate-200/80 px-4 py-3 text-xs">
-                  <div className="flex items-center gap-2 font-bold text-slate-800">
-                    <span className="text-base leading-none">🇦🇪</span>
-                    <span>Proudly Serving Businesses Across UAE</span>
-                  </div>
-                  <Link
-                    to="/products"
-                    className="inline-flex items-center gap-1 font-bold text-[#A82F19] hover:underline text-xs"
-                  >
-                    <span>Explore Products</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    </div>
                   </Link>
                 </div>
               </div>
-            </Reveal>
+
+              {/* Floating UAE Serving Banner */}
+              <div className="mt-4 flex items-center justify-between rounded-2xl bg-slate-50 border border-slate-200/80 px-4 py-3 text-xs">
+                <div className="flex items-center gap-2 font-bold text-slate-800">
+                  <span className="text-base leading-none">🇦🇪</span>
+                  <span>Proudly Serving Businesses Across UAE</span>
+                </div>
+                <Link
+                  to="/products"
+                  className="inline-flex items-center gap-1 font-bold text-[#A82F19] hover:underline text-xs"
+                >
+                  <span>Explore Products</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -591,12 +600,21 @@ export default function HomePage() {
             <div className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/50 hover:shadow-xl">
               <div>
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 mb-4">
-                  <img
-                    src="/assets/products/luxury_business_cards_dubai.jpg"
-                    alt="Business Card Printing Dubai"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="eager"
-                  />
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcSet="/assets/products/luxury_business_cards_dubai.webp"
+                    />
+                    <img
+                      src="/assets/products/luxury_business_cards_dubai.jpg"
+                      alt="Business Card Printing Dubai"
+                      width="400"
+                      height="300"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <div className="absolute top-2.5 left-2.5">
                     <span className="rounded-full bg-[#A82F19] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
                       Highest Priority
@@ -668,12 +686,21 @@ export default function HomePage() {
             <div className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/50 hover:shadow-xl">
               <div>
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 mb-4">
-                  <img
-                    src="/assets/products/rollup_banner.jpg"
-                    alt="Roll-Up Banner Printing Dubai"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcSet="/assets/products/rollup_banner.webp"
+                    />
+                    <img
+                      src="/assets/products/rollup_banner.jpg"
+                      alt="Roll-Up Banner Printing Dubai"
+                      width="400"
+                      height="300"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <div className="absolute top-2.5 left-2.5">
                     <span className="rounded-full bg-slate-900 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
                       Event &amp; Expo
@@ -745,12 +772,21 @@ export default function HomePage() {
             <div className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/50 hover:shadow-xl">
               <div>
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 mb-4">
-                  <img
-                    src="/assets/products/stickers.jpg"
-                    alt="Custom Sticker Printing Dubai"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcSet="/assets/products/stickers.webp"
+                    />
+                    <img
+                      src="/assets/products/stickers.jpg"
+                      alt="Custom Sticker Printing Dubai"
+                      width="400"
+                      height="300"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <div className="absolute top-2.5 left-2.5">
                     <span className="rounded-full bg-slate-900 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
                       Waterproof
@@ -822,12 +858,21 @@ export default function HomePage() {
             <div className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/50 hover:shadow-xl">
               <div>
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 mb-4">
-                  <img
-                    src="/assets/products/stamps/self-inking-company-stamp.jpg"
-                    alt="Custom Stamp Printing Dubai"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcSet="/assets/products/stamps/self-inking-company-stamp.webp"
+                    />
+                    <img
+                      src="/assets/products/stamps/self-inking-company-stamp.jpg"
+                      alt="Custom Stamp Printing Dubai"
+                      width="400"
+                      height="300"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <div className="absolute top-2.5 left-2.5">
                     <span className="rounded-full bg-slate-900 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
                       Official Seal

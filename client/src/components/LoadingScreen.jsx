@@ -37,32 +37,32 @@ export default function LoadingScreen() {
 
     setVisible(true)
 
-    // Ultra-smooth, deliberate cinematic timeline:
-    // 0.0s: Deep matte-black, ambient orange rim light blossoms, 3D paper layers drift smoothly from edges
-    // 0.6s: Phase 1 - Metallic logo card glides upward with depth and light sweep
-    // 1.4s: Phase 2 - Thin vivid orange progress line smoothly glides across
-    // 2.0s: Phase 3 - Tagline "PRINT · BRAND · GROW" & "LOADING YOUR IDEAS…" gracefully fade in
-    // 3.2s: Phase 4 - Poised moment of completion
-    // 3.6s: Seamless velvet fade-out / paper reveal into homepage (0.8s ease)
+    // Fast, ultra-smooth cinematic timeline (1.4s total):
+    // 0.0s: Deep matte-black, ambient orange rim light, smooth entry
+    // 0.25s: Phase 1 - Metallic logo reveal with depth and light sweep
+    // 0.60s: Phase 2 - Thin vivid orange progress line smoothly glides across
+    // 0.90s: Phase 3 - Tagline "PRINT · BRAND · GROW" & "LOADING YOUR IDEAS…"
+    // 1.25s: Phase 4 - Poised completion
+    // 1.40s: Seamless exit into homepage
     const t1 = setTimeout(() => {
       if (isMountedRef.current) setPhase(1)
-    }, 600)
+    }, 250)
 
     const t2 = setTimeout(() => {
       if (isMountedRef.current) setPhase(2)
-    }, 1400)
+    }, 600)
 
     const t3 = setTimeout(() => {
       if (isMountedRef.current) setPhase(3)
-    }, 2000)
+    }, 900)
 
     const t4 = setTimeout(() => {
       if (isMountedRef.current) setPhase(4)
-    }, 3200)
+    }, 1250)
 
     const exitTimer = setTimeout(() => {
       if (isMountedRef.current) setVisible(false)
-    }, 3650)
+    }, 1400)
 
     return () => {
       isMountedRef.current = false
@@ -113,22 +113,8 @@ export default function LoadingScreen() {
           {/* 1. DEEP MATTE BLACK BACKGROUND & SUBTLE NOISE TEXTURE     */}
           {/* ======================================================== */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {/* Fine Studio Noise Texture (SVG procedural grain) */}
-            <svg
-              className="absolute inset-0 h-full w-full opacity-[0.032] mix-blend-overlay"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <filter id="splash-noise-v6">
-                <feTurbulence
-                  type="fractalNoise"
-                  baseFrequency="0.75"
-                  numOctaves="4"
-                  stitchTiles="stitch"
-                />
-                <feColorMatrix type="saturate" values="0" />
-              </filter>
-              <rect width="100%" height="100%" filter="url(#splash-noise-v6)" />
-            </svg>
+            {/* Lightweight High-Performance Studio Texture */}
+            <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]" />
 
             {/* Subtle Vignette & Studio Lighting Falloff */}
             <div

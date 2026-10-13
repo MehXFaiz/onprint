@@ -162,11 +162,23 @@ export default function LuxuryFinishesShowcase() {
               {/* Left Column: Macro Image */}
               <div className="lg:col-span-6 relative">
                 <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm group">
-                  <img
-                    src={activeFinish.image}
-                    alt={activeFinish.title}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
+                  <picture>
+                    {activeFinish.image.endsWith('.jpg') && (
+                      <source
+                        type="image/webp"
+                        srcSet={activeFinish.image.replace(/\.jpg$/, '.webp')}
+                      />
+                    )}
+                    <img
+                      src={activeFinish.image}
+                      alt={activeFinish.title}
+                      width="540"
+                      height="405"
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </picture>
 
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                     <span className="rounded-md bg-slate-900/80 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">

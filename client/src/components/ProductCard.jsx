@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { ArrowUpRight, Sparkles, Eye, Check, Tag } from 'lucide-react'
 import WhatsAppIcon from './WhatsAppIcon'
 import { getProductImage } from '../assets/productImages'
@@ -14,6 +14,7 @@ export default function ProductCard({
 }) {
   const [isMockupActive, setIsMockupActive] = useState(false)
   const [mockupTilt, setMockupTilt] = useState({ x: 0, y: 0 })
+  const rafRef = useRef(null)
 
   if (!product) return null
 
@@ -25,6 +26,12 @@ export default function ProductCard({
   useEffect(() => {
     setCurrentImg(productImage)
   }, [productImage, product?.slug, product?.image])
+
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
+  }, [])
 
   const categoryName =
     typeof product.category === 'object'
@@ -61,19 +68,36 @@ export default function ProductCard({
   }
 
   const featuresList = deriveFeatures()
+
   const handleMockupMove = (event) => {
+    // Avoid running on touch/mobile devices or when reduced motion is preferred
+    if (event.pointerType !== 'mouse') return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    const bounds = event.currentTarget.getBoundingClientRect()
-    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2
-    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2
-    setMockupTilt({ x: y * -6, y: x * 8 })
+    const currentTarget = event.currentTarget
+    const clientX = event.clientX
+    const clientY = event.clientY
+
+    if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    rafRef.current = requestAnimationFrame(() => {
+      const bounds = currentTarget.getBoundingClientRect()
+      const x = ((clientX - bounds.left) / bounds.width - 0.5) * 2
+      const y = ((clientY - bounds.top) / bounds.height - 0.5) * 2
+      setMockupTilt({ x: y * -6, y: x * 8 })
+    })
   }
 
   const resetMockup = () => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current)
     setIsMockupActive(false)
     setMockupTilt({ x: 0, y: 0 })
   }
+
+  const resolvedSrc = currentImg || productImage
+  const webpSrc =
+    typeof resolvedSrc === 'string' && (resolvedSrc.endsWith('.jpg') || resolvedSrc.endsWith('.png'))
+      ? resolvedSrc.replace(/\.(jpg|png)$/, '.webp')
+      : null
 
   return (
     <div className="group relative flex flex-col h-full w-full min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#A82F19]/50 hover:shadow-lg hover:z-10">
@@ -93,18 +117,23 @@ export default function ProductCard({
           >
             <div className="product-mockup-shadow absolute inset-[8%] rounded-[1.25rem] bg-slate-900/10 blur-lg" />
             <div className="product-mockup-face relative h-full w-full overflow-hidden rounded-[1.25rem] border border-slate-200/80 bg-white shadow-md">
-              <img
-                src={currentImg || productImage}
-                alt={product.imageAlt || product.name}
-                loading="lazy"
-                decoding="async"
-                onError={() => {
-                  if (currentImg !== productImage) {
-                    setCurrentImg(productImage)
-                  }
-                }}
-                className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-              />
+              <picture>
+                {webpSrc && <source type="image/webp" srcSet={webpSrc} />}
+                <img
+                  src={resolvedSrc}
+                  alt={product.imageAlt || product.name}
+                  width="360"
+                  height="270"
+                  loading="lazy"
+                  decoding="async"
+                  onError={() => {
+                    if (currentImg !== productImage) {
+                      setCurrentImg(productImage)
+                    }
+                  }}
+                  className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                />
+              </picture>
             </div>
           </div>
         ) : (

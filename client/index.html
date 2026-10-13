@@ -26,8 +26,42 @@
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
 
-    <!-- Preload Critical Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Preload Critical LCP Hero Image for Instant Mobile & Desktop Paint -->
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/products/luxury_business_cards_dubai_mobile.webp"
+      type="image/webp"
+      media="(max-width: 640px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/products/luxury_business_cards_dubai.webp"
+      type="image/webp"
+      media="(min-width: 641px)"
+      fetchpriority="high"
+    />
+
+    <!-- Non-Render-Blocking Google Fonts (Optimized Weights) -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      />
+    </noscript>
 
     <!-- Primary SEO Meta Tags -->
     <title>Printing Company in Dubai | ONPRINT – Commercial &amp; Luxury Printing UAE</title>
@@ -38,10 +72,10 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     
     <!-- Canonical & Alternate Hreflang Tags -->
-    <link rel="canonical" href="https://www.0nprint.com/" />
-    <link rel="alternate" hreflang="en-ae" href="https://www.0nprint.com/" />
-    <link rel="alternate" hreflang="en" href="https://www.0nprint.com/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.0nprint.com/" />
+    <link rel="canonical" href="https://0nprint.com/" />
+    <link rel="alternate" hreflang="en-ae" href="https://0nprint.com/" />
+    <link rel="alternate" hreflang="en" href="https://0nprint.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://0nprint.com/" />
 
     <!-- Local SEO & Geo Coordinates (Al Quoz, Dubai) -->
     <meta name="geo.region" content="AE-DU" />
@@ -150,9 +184,28 @@
       gtag('config', 'G-PFLRZDTY7S');
     </script>
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2412757543318629" crossorigin="anonymous"></script>
+    <!-- Google AdSense (Deferred for Main-Thread Optimization & Core Web Vitals) -->
     <meta name="google-adsense-account" content="ca-pub-2412757543318629" />
+    <script>
+      (function() {
+        function loadAdSense() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2412757543318629";
+          s.crossOrigin = "anonymous";
+          document.head.appendChild(s);
+        }
+        if (typeof window !== 'undefined') {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadAdSense, { timeout: 3500 });
+          } else {
+            window.addEventListener('load', function() {
+              setTimeout(loadAdSense, 1000);
+            });
+          }
+        }
+      })();
+    </script>
 
     <script>
       // Clean up any stale service workers or caches from preview environments

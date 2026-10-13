@@ -203,18 +203,26 @@ export default function SiteHeader() {
     }, 180)
   }
 
+  const productsLoadedRef = useRef(false)
+
+  const loadSearchProducts = () => {
+    if (productsLoadedRef.current) return
+    productsLoadedRef.current = true
+    getProducts({ active: true, limit: 30 })
+      .then((prodList) => {
+        setProducts(Array.isArray(prodList) ? prodList : prodList?.products || [])
+      })
+      .catch(() => {})
+  }
+
   useEffect(() => {
     let isMounted = true
 
     async function loadData() {
       try {
-        const [catList, prodList] = await Promise.all([
-          getCategories({ status: 'active', sort: 'display_order_asc' }).catch(() => []),
-          getProducts({ active: true, limit: 30 }).catch(() => ({ products: [] })),
-        ])
+        const catList = await getCategories({ status: 'active', sort: 'display_order_asc' }).catch(() => [])
         if (isMounted) {
           setCategories(catList || [])
-          setProducts(Array.isArray(prodList) ? prodList : prodList?.products || [])
         }
       } catch (error) {
         console.warn('[Header] Failed to load header catalog data:', error)
@@ -223,10 +231,27 @@ export default function SiteHeader() {
 
     loadData()
 
+    // Lazily prefetch search products during browser idle time after initial paint
+    const timer = setTimeout(() => {
+      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        window.requestIdleCallback(() => loadSearchProducts(), { timeout: 4000 })
+      } else {
+        loadSearchProducts()
+      }
+    }, 2500)
+
     return () => {
       isMounted = false
+      clearTimeout(timer)
     }
   }, [])
+
+  // Immediately load search products if user opens search modal before idle fires
+  useEffect(() => {
+    if (searchModalOpen) {
+      loadSearchProducts()
+    }
+  }, [searchModalOpen])
 
   const megaMenuGroups = useMemo(() => buildMegaMenuGroups(categories), [categories])
 

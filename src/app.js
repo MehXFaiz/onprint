@@ -1031,7 +1031,10 @@ function createApp() {
     immutable: true,
   }
   const uploadCacheOptions = {
-    maxAge: '7d',
+    maxAge: '30d',
+    setHeaders: (res) => {
+      res.setHeader('Cache-Control', 'public, max-age=2592000, stale-while-revalidate=86400')
+    },
   }
 
   app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads'), uploadCacheOptions))
@@ -1058,10 +1061,12 @@ function createApp() {
   app.use(
     express.static(CLIENT_DIST, {
       index: false,
-      maxAge: '1h',
+      maxAge: '7d',
       setHeaders: (res, filePath) => {
         if (filePath.endsWith('.html')) {
           res.setHeader('Cache-Control', 'no-cache, must-revalidate')
+        } else if (/\.(js|css|webp|jpg|jpeg|png|svg|woff2?|ico)$/.test(filePath)) {
+          res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=86400')
         }
       },
     })

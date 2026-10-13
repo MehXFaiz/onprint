@@ -197,6 +197,18 @@ module.exports = {
       "seoHeading": "Custom Vinyl Sticker & Decal Printing in Dubai",
       "canonicalUrl": "https://www.0nprint.com/categories/stickers-printing-dubai",
       "imageAlt": "Custom vinyl sticker printing and die-cut decals in Dubai"
+    },
+    {
+      "_id": "cat-office-stationery-printing",
+      "id": 15,
+      "name": "Office Stationery & Envelopes",
+      "slug": "office-stationery-printing",
+      "description": "Complete corporate identity suites: executive notebooks, foiled presentation folders, branded window envelopes, and desk writing pads.",
+      "image": "/uploads/categories/office-stationery-printing.jpg",
+      "image_url": "/uploads/categories/office-stationery-printing.jpg",
+      "status": "active",
+      "display_order": 15,
+      "active": true
     }
   ],
   "services": [
@@ -402,6 +414,369 @@ module.exports = {
     }
   ],
   "products": [
+    {
+      "_id": "prod-presentation-folders",
+      "id": 1501,
+      "name": "Executive Presentation Folders",
+      "slug": "presentation-folders",
+      "description": "Luxury 350gsm silk board presentation folders with single or double document pockets, die-cut business card slot, and optional gold/silver foil stamping in Dubai.",
+      "shortDescription": "350gsm silk folders with die-cut card slot & gold foil stamping.",
+      "price": 320,
+      "min_quantity": 100,
+      "minimumQuantity": 100,
+      "unit": "100 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-presentation-folders.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-presentation-folders.jpg",
+      "image_url": "/assets/products/stationery/stationery-presentation-folders.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
+    {
+      "_id": "prod-printed-envelopes",
+      "id": 1502,
+      "name": "Corporate Printed Envelopes Suite",
+      "slug": "printed-envelopes",
+      "description": "High-grade 100gsm–120gsm bond envelopes available in DL, C5, and C4 formats. Features peel-and-seal adhesive flaps, address window options, and crisp Pantone color printing.",
+      "shortDescription": "DL, C5 & C4 branded envelopes with peel-and-seal adhesive flaps.",
+      "price": 195,
+      "min_quantity": 500,
+      "minimumQuantity": 500,
+      "unit": "500 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-corporate-envelopes.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-corporate-envelopes.jpg",
+      "image_url": "/assets/products/stationery/stationery-corporate-envelopes.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
+    {
+      "_id": "prod-executive-notebooks",
+      "id": 1503,
+      "name": "Executive Branded Hardcover Notebooks",
+      "slug": "executive-notebooks",
+      "description": "Premium PU leather and linen bound corporate journals with custom embossed or foil-stamped company logos, elastic band, ribbon bookmark, and 192 lined ivory pages.",
+      "shortDescription": "Custom debossed leather & linen journals with ribbon marker.",
+      "price": 45,
+      "min_quantity": 50,
+      "minimumQuantity": 50,
+      "unit": "50 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-executive-notebooks.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-executive-notebooks.jpg",
+      "image_url": "/assets/products/stationery/stationery-executive-notebooks.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
+    {
+      "_id": "prod-desk-pads-printing",
+      "id": 1504,
+      "name": "Executive Desk Pads & Weekly Planners",
+      "slug": "desk-pads-printing",
+      "description": "A3 and A4 glued desk blotter pads with 50 tear-off sheets, weekly planning grids, calendar layouts, and corporate header branding on 100gsm smooth bond paper.",
+      "shortDescription": "A3 weekly planner desk blotters with 50 tear-off sheets.",
+      "price": 35,
+      "min_quantity": 25,
+      "minimumQuantity": 25,
+      "unit": "25 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-desk-pads-blotters.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-desk-pads-blotters.jpg",
+      "image_url": "/assets/products/stationery/stationery-desk-pads-blotters.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
+    {
+      "_id": "prod-stationery-gift-sets",
+      "id": 1505,
+      "name": "VIP Executive Stationery Gift Set",
+      "slug": "stationery-gift-sets",
+      "description": "Luxury desktop corporate identity box set containing an embossed leather notebook, metal rollerball pen, genuine leather business card wallet, and metal USB drive.",
+      "shortDescription": "VIP boxed corporate set: notebook, metal pen, wallet & USB.",
+      "price": 175,
+      "min_quantity": 20,
+      "minimumQuantity": 20,
+      "unit": "20 sets",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-gift-sets.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-gift-sets.jpg",
+      "image_url": "/assets/products/stationery/stationery-gift-sets.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
+    {
+      "_id": "prod-executive-letterheads",
+      "id": 1506,
+      "name": "Executive Corporate Letterheads",
+      "slug": "executive-letterheads",
+      "description": "Official company letterhead paper printed on 120gsm FSC certified uncoated smooth paper with laser printer compatibility, metallic foil crests, and watermark options.",
+      "shortDescription": "120gsm smooth FSC corporate letterheads with foil crests.",
+      "price": 150,
+      "min_quantity": 500,
+      "minimumQuantity": 500,
+      "unit": "500 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-executive-letterheads.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-executive-letterheads.jpg",
+      "image_url": "/assets/products/stationery/stationery-executive-letterheads.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
+    {
+      "_id": "prod-corporate-ring-binders",
+      "id": 1507,
+      "name": "Custom Corporate Ring Binders & Lever Arch Files",
+      "slug": "corporate-ring-binders",
+      "description": "Heavy-duty custom printed 2-ring and 4-ring presentation binders and lever arch files. Hardcover board with anti-scratch matte lamination, metal corner protectors, and finger pull ring.",
+      "shortDescription": "Durable custom printed 2/4-ring presentation file binders.",
+      "price": 65,
+      "min_quantity": 25,
+      "minimumQuantity": 25,
+      "unit": "25 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-corporate-ring-binders.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-corporate-ring-binders.jpg",
+      "image_url": "/assets/products/stationery/stationery-corporate-ring-binders.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
+    {
+      "_id": "prod-wall-desk-calendars",
+      "id": 1508,
+      "name": "Corporate Desk & Wall Calendars",
+      "slug": "wall-desk-calendars",
+      "description": "Custom branded triangular easel desk calendars and multi-sheet hanging wall calendars with spiral wire-o binding, foil accented covers, and full-color monthly imagery.",
+      "shortDescription": "Wire-o bound triangular easel desk & multi-sheet wall calendars.",
+      "price": 28,
+      "min_quantity": 50,
+      "minimumQuantity": 50,
+      "unit": "50 pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-wall-desk-calendars.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-wall-desk-calendars.jpg",
+      "image_url": "/assets/products/stationery/stationery-wall-desk-calendars.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
+    {
+      "_id": "prod-ncr-duplicate-books",
+      "id": 1509,
+      "name": "Carbonless NCR Invoice & Receipt Duplicate Books",
+      "slug": "ncr-duplicate-books",
+      "description": "Official 2-part duplicate and 3-part triplicate carbonless invoice, receipt, and delivery note books. Features sequential red numbering, wrap-around writing shields, and perforated top copies.",
+      "shortDescription": "2-part & 3-part NCR carbonless books with sequential red numbering.",
+      "price": 55,
+      "min_quantity": 20,
+      "minimumQuantity": 20,
+      "unit": "20 books",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-ncr-duplicate-books.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-ncr-duplicate-books.jpg",
+      "image_url": "/assets/products/stationery/stationery-ncr-duplicate-books.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
+    {
+      "_id": "prod-string-tie-envelopes",
+      "id": 1510,
+      "name": "String & Button Tie Document Envelopes",
+      "slug": "string-tie-envelopes",
+      "description": "Heavy-weight 350gsm expandable gusset document envelopes with classic string and washer closure. Premium legal and corporate contract presentation pouches with foil logo printing.",
+      "shortDescription": "350gsm expandable gusset pouches with string & button closure.",
+      "price": 12,
+      "min_quantity": 100,
+      "minimumQuantity": 100,
+      "unit": "100 pcs",
+      "featured": false,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-string-tie-envelopes.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-string-tie-envelopes.jpg",
+      "image_url": "/assets/products/stationery/stationery-string-tie-envelopes.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
+    {
+      "_id": "prod-sticky-notes-cubes",
+      "id": 1511,
+      "name": "Custom Branded Sticky Notes & Desktop Memo Cubes",
+      "slug": "sticky-notes-cubes",
+      "description": "Custom printed desktop memo note cubes with 4-side full-color edge printing, accompanied by branded repositionable sticky note pads with clean residue-free adhesive.",
+      "shortDescription": "Full-color 4-side printed memo cubes & branded sticky note pads.",
+      "price": 22,
+      "min_quantity": 50,
+      "minimumQuantity": 50,
+      "unit": "50 pcs",
+      "featured": false,
+      "active": true,
+      "images": [
+        "/assets/products/stationery/stationery-sticky-notes-cubes.jpg"
+      ],
+      "image": "/assets/products/stationery/stationery-sticky-notes-cubes.jpg",
+      "image_url": "/assets/products/stationery/stationery-sticky-notes-cubes.jpg",
+      "category": {
+        "_id": "cat-office-stationery-printing",
+        "id": 15,
+        "name": "Office Stationery & Envelopes",
+        "slug": "office-stationery-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-office-stationery-printing",
+          "id": 15,
+          "name": "Office Stationery & Envelopes",
+          "slug": "office-stationery-printing"
+        }
+      ]
+    },
     {
       "_id": "prod-a5-promotional-flyers",
       "id": 101,
@@ -1713,17 +2088,6 @@ module.exports = {
             "/assets/products/business-cards/bc_standard_silk.jpg",
             "/assets/products/business-cards/bc_corporate_batches.jpg"
           ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
         }
       ],
       "images": [
@@ -1899,17 +2263,6 @@ module.exports = {
             "/assets/products/rollup_banner.jpg",
             "/assets/products/flags.jpg"
           ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
         }
       ]
     },
@@ -1967,17 +2320,6 @@ module.exports = {
             "/assets/products/luxury_corporate_gifts_dubai.jpg",
             "/assets/products/service_corporate_gifts.jpg",
             "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -2048,17 +2390,6 @@ module.exports = {
             "/uploads/categories/business-cards-printing.jpg",
             "/assets/products/business-cards/bc_standard_silk.jpg",
             "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -2146,17 +2477,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-corporate-gift-items",
           "id": 9,
           "name": "Corporate Gifts & Merchandise",
@@ -2239,17 +2559,6 @@ module.exports = {
             "/uploads/categories/business-cards-printing.jpg",
             "/assets/products/business-cards/bc_standard_silk.jpg",
             "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -2360,17 +2669,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-name-badges-printing-dubai",
           "id": 7,
           "name": "Name Badges Printing Dubai",
@@ -2430,17 +2728,6 @@ module.exports = {
             "/uploads/categories/business-cards-printing.jpg",
             "/assets/products/business-cards/bc_standard_silk.jpg",
             "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -2526,17 +2813,6 @@ module.exports = {
             "/uploads/categories/business-cards-printing.jpg",
             "/assets/products/business-cards/bc_standard_silk.jpg",
             "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -2657,17 +2933,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-hospitality-event-printing",
           "id": 15,
           "name": "Hospitality & Event Stationery",
@@ -2738,17 +3003,6 @@ module.exports = {
             "/assets/products/service_exhibition_signage.jpg",
             "/assets/products/rollup_banner.jpg",
             "/assets/products/flags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -2961,126 +3215,6 @@ module.exports = {
       ]
     },
     {
-      "_id": "prod-waterproof-vinyl-stickers",
-      "id": 1301,
-      "name": "Waterproof Vinyl Stickers & Decals",
-      "slug": "waterproof-vinyl-stickers",
-      "category": {
-        "_id": "cat-stickers-labels-printing",
-        "id": 12,
-        "name": "Stickers & Product Labels",
-        "slug": "stickers-labels-printing"
-      },
-      "shortDescription": "100% weatherproof vinyl stickers engineered for UAE sunlight, water, and automotive use.",
-      "description": "High-durability waterproof vinyl stickers and outdoor decals. UV-curable inks with matte or gloss protective overlaminate to prevent fading, scratching, or peeling.",
-      "image": "/assets/products/stickers.jpg",
-      "image_url": "/assets/products/stickers.jpg",
-      "imageAlt": "Waterproof vinyl sticker printing in Dubai",
-      "seoTitle": "Waterproof Vinyl Sticker Printing Dubai | Outdoor Decals | ONPRINT",
-      "seoDescription": "Order waterproof vinyl sticker printing in Dubai. Weatherproof, UV-resistant custom die-cut vinyl stickers for cars, bottles, and outdoor equipment.",
-      "seoKeywords": "waterproof sticker printing dubai, vinyl sticker printing dubai, custom stickers dubai, car decals dubai, outdoor vinyl stickers uae",
-      "price": 45,
-      "minimumQuantity": 100,
-      "featured": true,
-      "active": true
-    },
-    {
-      "_id": "prod-custom-roll-labels",
-      "id": 1302,
-      "name": "Custom Roll Labels & Product Packaging Stickers",
-      "slug": "custom-roll-labels",
-      "category": {
-        "_id": "cat-stickers-labels-printing",
-        "id": 12,
-        "name": "Stickers & Product Labels",
-        "slug": "stickers-labels-printing"
-      },
-      "shortDescription": "High-speed machine application roll labels for packaging bottles, jars, and retail boxes.",
-      "description": "Machine-dispensable and hand-applied roll labels printed on premium BOPP and paper stocks. Available on 25mm, 40mm, and 76mm standard cardboard cores.",
-      "image": "/assets/products/service_stickers_labels.jpg",
-      "image_url": "/assets/products/service_stickers_labels.jpg",
-      "imageAlt": "Custom roll label printing in Dubai",
-      "seoTitle": "Roll Label Printing Dubai | Custom Product Packaging Labels | ONPRINT",
-      "seoDescription": "High-speed roll label printing in Dubai for cosmetics, beverage bottles, food jars, and shipping cartons. Fast UAE delivery.",
-      "seoKeywords": "roll label printing dubai, custom label printing dubai, product label printing dubai, bottle labels dubai, packaging labels dubai",
-      "price": 85,
-      "minimumQuantity": 250,
-      "featured": true,
-      "active": true
-    },
-    {
-      "_id": "prod-clear-transparent-stickers",
-      "id": 1303,
-      "name": "Clear & Transparent Vinyl Stickers",
-      "slug": "clear-transparent-stickers",
-      "category": {
-        "_id": "cat-stickers-labels-printing",
-        "id": 12,
-        "name": "Stickers & Product Labels",
-        "slug": "stickers-labels-printing"
-      },
-      "shortDescription": "Ultra-clear transparent vinyl stickers with dense white ink base for windows, glass bottles, and jars.",
-      "description": "Crystal-clear see-through vinyl stickers and decals. Advanced UV printing lays down an opaque white ink underlayer so full-color artwork remains vibrant on clear glass and acrylic.",
-      "image": "/assets/products/stickers.jpg",
-      "image_url": "/assets/products/stickers.jpg",
-      "imageAlt": "Clear transparent vinyl stickers in Dubai",
-      "seoTitle": "Clear Sticker Printing Dubai | Transparent Window & Bottle Decals | ONPRINT",
-      "seoDescription": "Custom clear sticker printing in Dubai with opaque white ink underprinting. Ultra-transparent waterproof vinyl for glass bottles and storefronts.",
-      "seoKeywords": "clear sticker printing dubai, transparent label printing dubai, clear vinyl decals uae, white ink clear stickers dubai",
-      "price": 55,
-      "minimumQuantity": 100,
-      "featured": true,
-      "active": true
-    },
-    {
-      "_id": "prod-holographic-stickers",
-      "id": 1304,
-      "name": "Holographic Vinyl Stickers",
-      "slug": "holographic-stickers",
-      "category": {
-        "_id": "cat-stickers-labels-printing",
-        "id": 12,
-        "name": "Stickers & Product Labels",
-        "slug": "stickers-labels-printing"
-      },
-      "shortDescription": "Shimmering rainbow holographic prism stickers that reflect light for premium brand packaging.",
-      "description": "Custom holographic vinyl stickers printed on iridescent metallic foil substrate. Add white ink blocking to control which parts of your graphic shine with rainbow effects.",
-      "image": "/assets/products/service_stickers_labels.jpg",
-      "image_url": "/assets/products/service_stickers_labels.jpg",
-      "imageAlt": "Holographic vinyl sticker printing in Dubai",
-      "seoTitle": "Holographic Sticker Printing Dubai | Rainbow Prism Vinyl Decals | ONPRINT",
-      "seoDescription": "Custom holographic sticker printing in Dubai. Eye-catching rainbow prism vinyl stickers with scratch-resistant protective lamination.",
-      "seoKeywords": "holographic sticker printing dubai, rainbow stickers dubai, iridescent decals uae, custom prism stickers dubai",
-      "price": 65,
-      "minimumQuantity": 100,
-      "featured": true,
-      "active": true
-    },
-    {
-      "_id": "prod-cosmetic-bottle-labels",
-      "id": 1305,
-      "name": "Cosmetic, Bottle & Jar Packaging Labels",
-      "slug": "cosmetic-bottle-labels",
-      "category": {
-        "_id": "cat-stickers-labels-printing",
-        "id": 12,
-        "name": "Stickers & Product Labels",
-        "slug": "stickers-labels-printing"
-      },
-      "shortDescription": "Water and oil-resistant luxury labels for cosmetics, perfume bottles, candle jars, and food packages.",
-      "description": "Bespoke beauty and food packaging labels in Dubai. Engineered to resist water, oils, essential fragrances, and temperature swings without peeling or bubbling.",
-      "image": "/assets/products/stickers.jpg",
-      "image_url": "/assets/products/stickers.jpg",
-      "imageAlt": "Cosmetic and bottle packaging label printing in Dubai",
-      "seoTitle": "Bottle & Cosmetic Label Printing Dubai | Jar & Candle Labels | ONPRINT",
-      "seoDescription": "Premium cosmetic label printing in Dubai. Waterproof BOPP, foil-embossed bottle labels, food jar labels, and candle stickers with fast UAE delivery.",
-      "seoKeywords": "bottle label printing dubai, cosmetic label printing dubai, candle label printing dubai, jar label printing dubai, food packaging label printing dubai",
-      "price": 75,
-      "minimumQuantity": 100,
-      "featured": true,
-      "active": true
-    },
-    {
       "_id": "prod-engraved-keychains",
       "id": 14,
       "name": "Engraved Keychains",
@@ -3161,97 +3295,6 @@ module.exports = {
       ]
     },
     {
-      "_id": "prod-executive-notebooks",
-      "id": 15,
-      "name": "Executive Notebooks",
-      "slug": "executive-notebooks",
-      "category": {
-        "_id": "cat-office-stationery-printing",
-        "id": 14,
-        "name": "Office Stationery & Envelopes",
-        "slug": "office-stationery-printing"
-      },
-      "shortDescription": "Hardcover executive notebooks designed for gifting, branding, and premium corporate stationery.",
-      "description": "Executive notebooks with premium cover materials, embossed branding, and foil detail ideal for gifting and corporate stationery kits.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Executive%20Notebooks%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Executive%20Notebooks%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Executive branded notebooks in Dubai",
-      "seoTitle": "Executive Notebooks Dubai | Corporate Gift Notebooks | ONPRINT",
-      "seoDescription": "Custom executive notebooks in Dubai for premium gifting and corporate stationery with branded covers and embossed detail.",
-      "seoKeywords": "executive notebooks dubai, corporate gift notebooks uae, custom branded notebooks dubai",
-      "price": 65,
-      "minimumQuantity": 25,
-      "featured": true,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Executive%20Notebooks%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-      ],
-      "categories": [
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/1 (5).jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/luxury_corporate_gifts_dubai.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        }
-      ]
-    },
-    {
       "_id": "prod-catalogs-booklets-printing",
       "id": 16,
       "name": "Catalogs & Booklets Printing",
@@ -3308,17 +3351,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-corporate-gift-items",
           "id": 9,
           "name": "Corporate Gifts & Merchandise",
@@ -3343,108 +3375,6 @@ module.exports = {
       ],
       "images": [
         "/assets/products/brochure_booklet_catalog.jpg"
-      ]
-    },
-    {
-      "_id": "prod-presentation-folders",
-      "id": 17,
-      "name": "Presentation Folders Printing",
-      "slug": "presentation-folders",
-      "category": {
-        "_id": "cat-office-stationery-printing",
-        "id": 14,
-        "name": "Office Stationery & Envelopes",
-        "slug": "office-stationery-printing"
-      },
-      "shortDescription": "Custom printed pocket folders with business card slots, foil accents, and reinforced edges for proposals and pitches.",
-      "description": "Branded presentation folders with die-cut pockets, business card inserts, reinforced edge stitching, and premium matte or gloss lamination. Essential for corporate proposals, investor decks, and client onboarding in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Presentation%20Folders%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Presentation%20Folders%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Corporate presentation folders in Dubai",
-      "seoTitle": "Presentation Folders Printing Dubai | Custom Pocket Folders | ONPRINT",
-      "seoDescription": "Branded presentation folders in Dubai for proposals and pitches. Die-cut pockets, business card slots, foil accents and premium lamination.",
-      "seoKeywords": "presentation folders dubai, custom pocket folders uae, corporate folder printing dubai",
-      "price": 140,
-      "minimumQuantity": 100,
-      "featured": true,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Presentation%20Folders%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-      ],
-      "categories": [
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/1 (9).jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/brochure_bifold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        }
       ]
     },
     {
@@ -3501,17 +3431,6 @@ module.exports = {
             "/assets/products/brochure_bifold.jpg",
             "/assets/products/brochure_trifold.jpg",
             "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -3606,17 +3525,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-catalogs-booklets-printing",
           "id": 13,
           "name": "Catalogs & Booklets Printing",
@@ -3686,17 +3594,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-catalogs-booklets-printing",
           "id": 13,
           "name": "Catalogs & Booklets Printing",
@@ -3752,17 +3649,6 @@ module.exports = {
             "/assets/products/1 (5).jpg",
             "/assets/products/luxury_corporate_gifts_dubai.jpg",
             "/assets/products/service_luxury_packaging.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -3857,17 +3743,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-signage-banners-printing",
           "id": 10,
           "name": "Signage & Exhibition Banners",
@@ -3876,290 +3751,6 @@ module.exports = {
             "/assets/products/service_exhibition_signage.jpg",
             "/assets/products/rollup_banner.jpg",
             "/assets/products/flags.jpg"
-          ]
-        }
-      ]
-    },
-    {
-      "_id": "prod-printed-envelopes",
-      "id": 30,
-      "name": "Corporate Envelopes Printing",
-      "slug": "printed-envelopes",
-      "category": {
-        "_id": "cat-office-stationery-printing",
-        "id": 14,
-        "name": "Office Stationery & Envelopes",
-        "slug": "office-stationery-printing"
-      },
-      "shortDescription": "DL, C4, C5, and custom-size business envelopes with full-color printing, peel-and-seal, and window options.",
-      "description": "Official corporate envelopes in DL, C4, C5, C6, and custom dimensions. Printed on premium 120gsm smooth or textured white stock with full-color Pantone matched logos, peel-and-seal flaps, and address window options for UAE offices.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Corporate%20Envelopes%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Corporate%20Envelopes%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Corporate printed envelopes in Dubai",
-      "seoTitle": "Corporate Envelopes Printing Dubai | DL C4 C5 Custom Envelopes | ONPRINT",
-      "seoDescription": "Official business envelope printing in Dubai. DL, C4, C5 and custom sizes with full-color logos, peel-and-seal flaps and address windows.",
-      "seoKeywords": "envelopes printing dubai, business envelopes uae, dl c4 c5 envelopes dubai, printed window envelopes",
-      "price": 85,
-      "minimumQuantity": 500,
-      "featured": true,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Corporate%20Envelopes%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-      ],
-      "categories": [
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/luxury_business_cards_dubai.jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        }
-      ]
-    },
-    {
-      "_id": "prod-desk-pads-printing",
-      "id": 31,
-      "name": "Desk Pads & Desk Calendars",
-      "slug": "desk-pads-printing",
-      "category": {
-        "_id": "cat-office-stationery-printing",
-        "id": 14,
-        "name": "Office Stationery & Envelopes",
-        "slug": "office-stationery-printing"
-      },
-      "shortDescription": "A3 and A2 desktop blotter pads, tear-off desk calendars, and planner pads with monthly or quarterly layouts.",
-      "description": "Custom branded desk pads and desktop blotters in A3 and A2 formats with thick cardboard backing. Includes tear-off dated desk calendars (12-month or quarterly), planner layouts, to-do sections, and UAE public holiday marking for corporate offices.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Desk%20Pads%20%26%20Desk%20Calendars%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Desk%20Pads%20%26%20Desk%20Calendars%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Desk pads and calendars printing in Dubai",
-      "seoTitle": "Desk Pads & Desk Calendars Printing Dubai | Desktop Blotters | ONPRINT",
-      "seoDescription": "Custom desk pad printing in Dubai. A3 A2 desktop blotters, 12-month tear-off calendars and planner pads with UAE holidays marked.",
-      "seoKeywords": "desk pads dubai, desk calendars uae, desktop blotters dubai, tear off calendars printing",
-      "price": 55,
-      "minimumQuantity": 100,
-      "featured": false,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Desk%20Pads%20%26%20Desk%20Calendars%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-      ],
-      "categories": [
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/1 (2).jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (7).jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
-          "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/mugs.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        }
-      ]
-    },
-    {
-      "_id": "prod-stationery-gift-sets",
-      "id": 32,
-      "name": "Complete Stationery Gift Sets",
-      "slug": "stationery-gift-sets",
-      "category": {
-        "_id": "cat-office-stationery-printing",
-        "id": 14,
-        "name": "Office Stationery & Envelopes",
-        "slug": "office-stationery-printing"
-      },
-      "shortDescription": "Matching letterheads, envelopes, comp slips, business cards, notebooks, and pens in a deluxe branded folder.",
-      "description": "Complete corporate stationery kits including matched letterheads, envelopes, compliments slips, branded business cards, executive notebooks, metal roller pens, and custom rulers. Presented in a printed cardboard folder or rigid gift box for Dubai corporate onboarding.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Complete%20Stationery%20Gift%20Sets%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Complete%20Stationery%20Gift%20Sets%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Corporate stationery gift sets in Dubai",
-      "seoTitle": "Corporate Stationery Gift Sets Dubai | Branded Welcome Kits | ONPRINT",
-      "seoDescription": "Complete stationery gift sets in Dubai including letterheads, envelopes, notebooks, pens and business cards in a deluxe folder.",
-      "seoKeywords": "stationery sets dubai, corporate gift stationery uae, employee welcome kits dubai",
-      "price": 125,
-      "minimumQuantity": 25,
-      "featured": true,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Complete%20Stationery%20Gift%20Sets%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-      ],
-      "categories": [
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/1 (11).jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/luxury_corporate_gifts_dubai.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-letterheads-printing-dubai",
-          "id": 6,
-          "name": "Letterheads Printing Dubai",
-          "slug": "letterheads-printing-dubai",
-          "images": [
-            "/uploads/categories/letterheads-printing-dubai.jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (2).jpg"
-          ]
-        },
-        {
-          "_id": "cat-business-cards-printing",
-          "id": 1,
-          "name": "Business Cards Printing",
-          "slug": "business-cards-printing",
-          "images": [
-            "/uploads/categories/business-cards-printing.jpg",
-            "/assets/products/business-cards/bc_standard_silk.jpg",
-            "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
           ]
         }
       ]
@@ -4232,17 +3823,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-catalogs-booklets-printing",
           "id": 13,
           "name": "Catalogs & Booklets Printing",
@@ -4309,17 +3889,6 @@ module.exports = {
             "/assets/products/service_exhibition_signage.jpg",
             "/assets/products/rollup_banner.jpg",
             "/assets/products/flags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -4403,17 +3972,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-hospitality-event-printing",
           "id": 15,
           "name": "Hospitality & Event Stationery",
@@ -4433,108 +3991,6 @@ module.exports = {
             "/assets/products/luxury_corporate_gifts_dubai.jpg",
             "/assets/products/service_corporate_gifts.jpg",
             "/assets/products/wooden_keychain.jpg"
-          ]
-        }
-      ]
-    },
-    {
-      "_id": "prod-calendars-printing",
-      "id": 36,
-      "name": "Wall & Desk Calendars Printing",
-      "slug": "calendars-printing",
-      "category": {
-        "_id": "cat-office-stationery-printing",
-        "id": 14,
-        "name": "Office Stationery & Envelopes",
-        "slug": "office-stationery-printing"
-      },
-      "shortDescription": "Custom-designed wall calendars, desk tent calendars, and pocket planners for end-of-year corporate gifting.",
-      "description": "Annual custom calendars including spiral-bound A3/A2 wall calendars, tent-style desk flip calendars, and pocket diary planners. Featuring UAE public holidays, Hijri dates, custom corporate imagery, and foil-stamped branded covers for year-end gifting in Dubai.",
-      "image": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Wall%20%26%20Desk%20Calendars%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "image_url": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Professional%20commercial%20product%20photography%2C%20Wall%20%26%20Desk%20Calendars%20Printing%20by%20ONPRINT%20Dubai%20printing%20press%2C%20premium%20luxury%20quality%2C%20clean%20white%20seamless%20studio%20background%2C%20soft%20diffused%20studio%20box%20lighting%2C%20hero%20eye-level%20front%20view%2C%20e-commerce%20catalog%20hero%20photo%2C%204K%20macro%20detail%2C%20crisp%20sharp%20focus%2C%20high-end%20print%20industry%20product%20shot&image_size=square_hd",
-      "imageAlt": "Wall and desk calendars printing in Dubai",
-      "seoTitle": "Wall & Desk Calendars Printing Dubai | Custom Corporate Calendars | ONPRINT",
-      "seoDescription": "Custom calendar printing in Dubai. Spiral-bound wall calendars, tent desk calendars and pocket planners with UAE holidays and Hijri dates.",
-      "seoKeywords": "calendar printing dubai, wall calendars uae, desk calendars dubai, corporate diaries printing",
-      "price": 48,
-      "minimumQuantity": 100,
-      "featured": true,
-      "active": true,
-      "images360": [
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20front%20view%20dead%20center%20eye%20level%200%20degrees%2C%20clean%20white%20seamless%20background%2C%20Dubai%20print%20workshop%20premium%20quality%2C%20razor%20sharp%20focus%2C%20commercial%20e-commerce%20hero%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20front-right%20three-quarter%20angle%2045%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20high-end%20commercial%20catalog%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20pure%20right%20side%20profile%20edge%20view%2090%20degrees%2C%20showing%20printed%20substrate%20thickness%20and%20edge%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20professional%20commercial%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20back-right%20three-quarter%20angle%20135%20degree%20view%2C%20revealing%20reverse%20side%20edge%2C%20clean%20white%20seamless%20background%2C%20premium%20e-commerce%20product%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20full%20back%20rear%20view%20180%20degrees%2C%20showing%20reverse%20side%20artwork%20back%20face%2C%20clean%20white%20studio%20background%2C%20commercial%20print%20industry%20photo&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20back-left%20three-quarter%20angle%20225%20degree%20view%2C%20revealing%20reverse%20side%20left%20edge%2C%20clean%20white%20seamless%20background%2C%20professional%20commercial%20studio%20lighting&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20pure%20left%20side%20profile%20edge%20view%20270%20degrees%2C%20showing%20printed%20substrate%20left%20edge%20thickness%20detail%2C%20clean%20white%20seamless%20studio%20background%2C%20product%20shot&image_size=square_hd",
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Studio%20product%20photography%20of%20Wall%20%26%20Desk%20Calendars%20Printing%20front-left%20three-quarter%20angle%20315%20degree%20view%2C%20rotated%20slightly%20to%20reveal%20left%20side%20edge%20thickness%2C%20soft%20studio%20lighting%2C%20premium%20white%20background%2C%20commercial%20catalog%20photo&image_size=square_hd"
-      ],
-      "categories": [
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/1 (7).jpg",
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/brochure_booklet_catalog.jpg"
-          ]
-        },
-        {
-          "_id": "cat-corporate-gift-items",
-          "id": 9,
-          "name": "Corporate Gifts & Merchandise",
-          "slug": "corporate-gift-items",
-          "images": [
-            "/assets/products/luxury_corporate_gifts_dubai.jpg",
-            "/assets/products/service_corporate_gifts.jpg",
-            "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-catalogs-booklets-printing",
-          "id": 13,
-          "name": "Catalogs & Booklets Printing",
-          "slug": "catalogs-booklets-printing",
-          "images": [
-            "/assets/products/brochure_booklet_catalog.jpg",
-            "/assets/products/brochure_zfold.jpg",
-            "/assets/products/service_digital_offset.jpg"
-          ]
-        },
-        {
-          "_id": "cat-brochures-printing",
-          "id": 2,
-          "name": "Brochures Printing",
-          "slug": "brochures-printing",
-          "images": [
-            "/assets/products/brochure_bifold.jpg",
-            "/assets/products/brochure_trifold.jpg",
-            "/assets/products/brochure_gatefold.jpg"
-          ]
-        },
-        {
-          "_id": "cat-hospitality-event-printing",
-          "id": 15,
-          "name": "Hospitality & Event Stationery",
-          "slug": "hospitality-event-printing",
-          "images": [
-            "/assets/products/1 (14).jpg",
-            "/assets/products/1 (15).jpg",
-            "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-promotional-drinkware-tech",
-          "id": 16,
-          "name": "Promotional Drinkware & Tech",
-          "slug": "promotional-drinkware-tech",
-          "images": [
-            "/assets/products/water_bottles.jpg",
-            "/assets/products/mugs.jpg",
-            "/assets/products/1 (2).jpg"
           ]
         }
       ]
@@ -4593,17 +4049,6 @@ module.exports = {
             "/assets/products/luxury_corporate_gifts_dubai.jpg",
             "/assets/products/service_corporate_gifts.jpg",
             "/assets/products/wooden_keychain.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -4696,17 +4141,6 @@ module.exports = {
             "/assets/products/brochure_zfold.jpg",
             "/assets/products/service_digital_offset.jpg"
           ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
         }
       ]
     },
@@ -4764,17 +4198,6 @@ module.exports = {
             "/uploads/categories/business-cards-printing.jpg",
             "/assets/products/business-cards/bc_standard_silk.jpg",
             "/assets/products/business-cards/bc_corporate_batches.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -5029,17 +4452,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-corporate-gift-items",
           "id": 9,
           "name": "Corporate Gifts & Merchandise",
@@ -5142,17 +4554,6 @@ module.exports = {
           ]
         },
         {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
-          ]
-        },
-        {
           "_id": "cat-hospitality-event-printing",
           "id": 15,
           "name": "Hospitality & Event Stationery",
@@ -5244,17 +4645,6 @@ module.exports = {
             "/assets/products/1 (14).jpg",
             "/assets/products/1 (15).jpg",
             "/assets/products/1 (16).jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         },
         {
@@ -5432,17 +4822,6 @@ module.exports = {
             "/assets/products/service_exhibition_signage.jpg",
             "/assets/products/rollup_banner.jpg",
             "/assets/products/flags.jpg"
-          ]
-        },
-        {
-          "_id": "cat-office-stationery-printing",
-          "id": 14,
-          "name": "Office Stationery & Envelopes",
-          "slug": "office-stationery-printing",
-          "images": [
-            "/assets/products/service_executive_stationery.jpg",
-            "/assets/products/1 (5).jpg",
-            "/assets/products/1 (9).jpg"
           ]
         }
       ],
@@ -7228,6 +6607,126 @@ module.exports = {
           }
         ]
       }
+    },
+    {
+      "_id": "prod-waterproof-vinyl-stickers",
+      "id": 1301,
+      "name": "Waterproof Vinyl Stickers & Decals",
+      "slug": "waterproof-vinyl-stickers",
+      "category": {
+        "_id": "cat-stickers-labels-printing",
+        "id": 12,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      },
+      "shortDescription": "100% weatherproof vinyl stickers engineered for UAE sunlight, water, and automotive use.",
+      "description": "High-durability waterproof vinyl stickers and outdoor decals. UV-curable inks with matte or gloss protective overlaminate to prevent fading, scratching, or peeling.",
+      "image": "/assets/products/stickers.jpg",
+      "image_url": "/assets/products/stickers.jpg",
+      "imageAlt": "Waterproof vinyl sticker printing in Dubai",
+      "seoTitle": "Waterproof Vinyl Sticker Printing Dubai | Outdoor Decals | ONPRINT",
+      "seoDescription": "Order waterproof vinyl sticker printing in Dubai. Weatherproof, UV-resistant custom die-cut vinyl stickers for cars, bottles, and outdoor equipment.",
+      "seoKeywords": "waterproof sticker printing dubai, vinyl sticker printing dubai, custom stickers dubai, car decals dubai, outdoor vinyl stickers uae",
+      "price": 45,
+      "minimumQuantity": 100,
+      "featured": true,
+      "active": true
+    },
+    {
+      "_id": "prod-custom-roll-labels",
+      "id": 1302,
+      "name": "Custom Roll Labels & Product Packaging Stickers",
+      "slug": "custom-roll-labels",
+      "category": {
+        "_id": "cat-stickers-labels-printing",
+        "id": 12,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      },
+      "shortDescription": "High-speed machine application roll labels for packaging bottles, jars, and retail boxes.",
+      "description": "Machine-dispensable and hand-applied roll labels printed on premium BOPP and paper stocks. Available on 25mm, 40mm, and 76mm standard cardboard cores.",
+      "image": "/assets/products/service_stickers_labels.jpg",
+      "image_url": "/assets/products/service_stickers_labels.jpg",
+      "imageAlt": "Custom roll label printing in Dubai",
+      "seoTitle": "Roll Label Printing Dubai | Custom Product Packaging Labels | ONPRINT",
+      "seoDescription": "High-speed roll label printing in Dubai for cosmetics, beverage bottles, food jars, and shipping cartons. Fast UAE delivery.",
+      "seoKeywords": "roll label printing dubai, custom label printing dubai, product label printing dubai, bottle labels dubai, packaging labels dubai",
+      "price": 85,
+      "minimumQuantity": 250,
+      "featured": true,
+      "active": true
+    },
+    {
+      "_id": "prod-clear-transparent-stickers",
+      "id": 1303,
+      "name": "Clear & Transparent Vinyl Stickers",
+      "slug": "clear-transparent-stickers",
+      "category": {
+        "_id": "cat-stickers-labels-printing",
+        "id": 12,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      },
+      "shortDescription": "Ultra-clear transparent vinyl stickers with dense white ink base for windows, glass bottles, and jars.",
+      "description": "Crystal-clear see-through vinyl stickers and decals. Advanced UV printing lays down an opaque white ink underlayer so full-color artwork remains vibrant on clear glass and acrylic.",
+      "image": "/assets/products/stickers.jpg",
+      "image_url": "/assets/products/stickers.jpg",
+      "imageAlt": "Clear transparent vinyl stickers in Dubai",
+      "seoTitle": "Clear Sticker Printing Dubai | Transparent Window & Bottle Decals | ONPRINT",
+      "seoDescription": "Custom clear sticker printing in Dubai with opaque white ink underprinting. Ultra-transparent waterproof vinyl for glass bottles and storefronts.",
+      "seoKeywords": "clear sticker printing dubai, transparent label printing dubai, clear vinyl decals uae, white ink clear stickers dubai",
+      "price": 55,
+      "minimumQuantity": 100,
+      "featured": true,
+      "active": true
+    },
+    {
+      "_id": "prod-holographic-stickers",
+      "id": 1304,
+      "name": "Holographic Vinyl Stickers",
+      "slug": "holographic-stickers",
+      "category": {
+        "_id": "cat-stickers-labels-printing",
+        "id": 12,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      },
+      "shortDescription": "Shimmering rainbow holographic prism stickers that reflect light for premium brand packaging.",
+      "description": "Custom holographic vinyl stickers printed on iridescent metallic foil substrate. Add white ink blocking to control which parts of your graphic shine with rainbow effects.",
+      "image": "/assets/products/service_stickers_labels.jpg",
+      "image_url": "/assets/products/service_stickers_labels.jpg",
+      "imageAlt": "Holographic vinyl sticker printing in Dubai",
+      "seoTitle": "Holographic Sticker Printing Dubai | Rainbow Prism Vinyl Decals | ONPRINT",
+      "seoDescription": "Custom holographic sticker printing in Dubai. Eye-catching rainbow prism vinyl stickers with scratch-resistant protective lamination.",
+      "seoKeywords": "holographic sticker printing dubai, rainbow stickers dubai, iridescent decals uae, custom prism stickers dubai",
+      "price": 65,
+      "minimumQuantity": 100,
+      "featured": true,
+      "active": true
+    },
+    {
+      "_id": "prod-cosmetic-bottle-labels",
+      "id": 1305,
+      "name": "Cosmetic, Bottle & Jar Packaging Labels",
+      "slug": "cosmetic-bottle-labels",
+      "category": {
+        "_id": "cat-stickers-labels-printing",
+        "id": 12,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      },
+      "shortDescription": "Water and oil-resistant luxury labels for cosmetics, perfume bottles, candle jars, and food packages.",
+      "description": "Bespoke beauty and food packaging labels in Dubai. Engineered to resist water, oils, essential fragrances, and temperature swings without peeling or bubbling.",
+      "image": "/assets/products/stickers.jpg",
+      "image_url": "/assets/products/stickers.jpg",
+      "imageAlt": "Cosmetic and bottle packaging label printing in Dubai",
+      "seoTitle": "Bottle & Cosmetic Label Printing Dubai | Jar & Candle Labels | ONPRINT",
+      "seoDescription": "Premium cosmetic label printing in Dubai. Waterproof BOPP, foil-embossed bottle labels, food jar labels, and candle stickers with fast UAE delivery.",
+      "seoKeywords": "bottle label printing dubai, cosmetic label printing dubai, candle label printing dubai, jar label printing dubai, food packaging label printing dubai",
+      "price": 75,
+      "minimumQuantity": 100,
+      "featured": true,
+      "active": true
     }
   ],
   "orders": [],

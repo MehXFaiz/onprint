@@ -77,6 +77,7 @@ export default function CategoryDetailPage() {
           ]
           
           let filteredProducts = (prodsRes.data || []).filter(product => {
+            if (slug === 'office-stationery-printing') return true
             // Check if product has any of the excluded categories in its categories array
             const productCategories = product.categories || []
             const hasExcludedCategory = productCategories.some(cat => 
@@ -111,6 +112,27 @@ export default function CategoryDetailPage() {
               const aIsFlyer = (a.category?.slug === 'flyers-printing-in-dubai' || a.slug.includes('flyer') || a.name?.toLowerCase().includes('flyer')) ? 1 : 0
               const bIsFlyer = (b.category?.slug === 'flyers-printing-in-dubai' || b.slug.includes('flyer') || b.name?.toLowerCase().includes('flyer')) ? 1 : 0
               return bIsFlyer - aIsFlyer
+            })
+          }
+
+          // Dedicated filter & sort for Office Stationery & Envelopes category
+          if (slug === 'office-stationery-printing') {
+            const stationeryExcludedSlugs = [
+              'signage-banners-printing',
+              'stickers-labels-printing',
+              'custom-apparel-printing',
+              'id-card-printing-dubai',
+              'lanyard-printing-dubai',
+              'flyers-printing-in-dubai'
+            ]
+            filteredProducts = filteredProducts.filter(p => {
+              const mainSlug = p.category?.slug || ''
+              return !stationeryExcludedSlugs.includes(mainSlug)
+            })
+            filteredProducts.sort((a, b) => {
+              const aIsStationery = (a.category?.slug === 'office-stationery-printing' || a.slug.includes('stationery') || a.slug.includes('envelope') || a.slug.includes('notebook') || a.slug.includes('folder') || a.slug.includes('pad')) ? 1 : 0
+              const bIsStationery = (b.category?.slug === 'office-stationery-printing' || b.slug.includes('stationery') || b.slug.includes('envelope') || b.slug.includes('notebook') || b.slug.includes('folder') || b.slug.includes('pad')) ? 1 : 0
+              return bIsStationery - aIsStationery
             })
           }
           

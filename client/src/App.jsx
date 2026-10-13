@@ -28,6 +28,7 @@ const BusinessCardLandingPage = lazy(() => import('./pages/public/BusinessCardLa
 const BusinessCardsLeadPage = lazy(() => import('./pages/public/BusinessCardsLeadPage'))
 const StickersLeadPage = lazy(() => import('./pages/public/StickersLeadPage'))
 const MugsLeadPage = lazy(() => import('./pages/public/MugsLeadPage'))
+const BottlesLeadPage = lazy(() => import('./pages/public/BottlesLeadPage'))
 const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
 
 function CategoryRouteRedirect() {
@@ -119,6 +120,7 @@ function App() {
             <Route path="/large-format-printing-dubai" element={<CommercialLandingPage pageKey="large-format-printing-dubai" />} />
             <Route path="/corporate-printing-dubai" element={<CommercialLandingPage pageKey="corporate-printing-dubai" />} />
             <Route path="/promotional-printing-dubai" element={<CommercialLandingPage pageKey="promotional-printing-dubai" />} />
+            <Route path="/bottle-printing-dubai" element={<CommercialLandingPage pageKey="bottle-printing-dubai" />} />
 
             {/* Commercial Landing Page Aliases & Redirects */}
             <Route path="/business-card-printing" element={<Navigate to="/business-card-printing-dubai" replace />} />
@@ -137,6 +139,10 @@ function App() {
             <Route path="/large-format-printing" element={<Navigate to="/large-format-printing-dubai" replace />} />
             <Route path="/corporate-printing" element={<Navigate to="/corporate-printing-dubai" replace />} />
             <Route path="/promotional-printing" element={<Navigate to="/promotional-printing-dubai" replace />} />
+            <Route path="/bottle-printing" element={<Navigate to="/bottle-printing-dubai" replace />} />
+            <Route path="/water-bottle-printing-dubai" element={<Navigate to="/bottle-printing-dubai" replace />} />
+            <Route path="/custom-bottle-printing-dubai" element={<Navigate to="/bottle-printing-dubai" replace />} />
+            <Route path="/custom-bottles-dubai" element={<Navigate to="/bottle-printing-dubai" replace />} />
             <Route path="/categories" element={<CategoriesPage />} />
             <Route path="/categories/:slug" element={<CategoryDetailPage />} />
             <Route path="/category/:slug" element={<CategoryRouteRedirect />} />
@@ -165,6 +171,8 @@ function App() {
             <Route path="/quote/business-cards" element={<BusinessCardsLeadPage />} />
             <Route path="/quote/stickers" element={<StickersLeadPage />} />
             <Route path="/quote/mugs" element={<MugsLeadPage />} />
+            <Route path="/quote/bottles" element={<BottlesLeadPage />} />
+            <Route path="/quote/water-bottles" element={<Navigate to="/quote/bottles" replace />} />
 
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

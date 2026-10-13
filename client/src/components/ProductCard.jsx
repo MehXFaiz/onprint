@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import { ArrowUpRight, Sparkles, Eye, Check, Tag } from 'lucide-react'
 import WhatsAppIcon from './WhatsAppIcon'
 import { getProductImage } from '../assets/productImages'
+import { getServiceWhatsAppUrl } from '../utils/whatsapp'
+import { trackWhatsAppClick } from '../utils/analytics'
 
 export default function ProductCard({
   product,
@@ -181,12 +183,26 @@ export default function ProductCard({
           </Link>
 
           <a
-            href={`https://wa.me/447344546056?text=${encodeURIComponent(
-              `Hello ONPRINT Dubai, I would like to inquire about "${product.name}"${product.price ? ` (from AED ${product.price})` : ''}. Please confirm turnaround and pricing.`
-            )}`}
+            href={getServiceWhatsAppUrl(
+              product.category?.slug || product.slug,
+              {
+                productName: product.name,
+                price: product.price || undefined,
+              }
+            )}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackWhatsAppClick({
+                source_page: typeof window !== 'undefined' ? window.location.pathname : 'product_card',
+                service_name: product.category?.name || product.category?.slug || product.name,
+                button_location: 'product_card',
+                product_id: product.slug || product._id,
+                label: `card_inquiry_${product.slug || product.name}`,
+              })
+            }}
             aria-label={`Inquire about ${product.name} on WhatsApp`}
+            title={`Get Quote for ${product.name} on WhatsApp`}
             className="inline-flex items-center justify-center rounded-xl border border-emerald-200 bg-emerald-50 p-2 text-emerald-600 transition-all hover:border-emerald-500 hover:bg-[#25D366] hover:text-white active:scale-95 cursor-pointer"
           >
             <WhatsAppIcon className="h-4 w-4 fill-current" />

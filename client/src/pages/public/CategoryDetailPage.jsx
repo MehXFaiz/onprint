@@ -22,6 +22,9 @@ import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
 import { getCategoryById, getCategories } from '../../services/categories'
 import { getProducts } from '../../services/products'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
+import { getServiceWhatsAppUrl } from '../../utils/whatsapp'
+import { trackWhatsAppClick, trackGetQuoteClick } from '../../utils/analytics'
 
 export default function CategoryDetailPage() {
   const { slug } = useParams()
@@ -295,6 +298,23 @@ export default function CategoryDetailPage() {
 
             <Reveal delay={0.3}>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
+                <a
+                  href={getServiceWhatsAppUrl(category.slug || slug, { productName: categoryName })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source_page: typeof window !== 'undefined' ? window.location.pathname : 'category_detail',
+                      service_name: categoryName,
+                      button_location: 'category_detail_hero',
+                      label: `category_hero_inquiry_${category.slug || slug}`,
+                    })
+                  }
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-600/25 transition-all hover:-translate-y-0.5 cursor-pointer text-center"
+                >
+                  <WhatsAppIcon className="h-4 w-4 fill-white" />
+                  <span>Get a Quote on WhatsApp</span>
+                </a>
                 <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#A82F19]/25 text-center justify-center">
                   Request a Free Quote
                 </Button>
@@ -398,6 +418,35 @@ export default function CategoryDetailPage() {
               ))}
             </div>
           )}
+
+          {/* Natural Repeated In-Page WhatsApp Conversion Banner */}
+          <div className="mt-8 rounded-2xl border border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50/50 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <p className="font-extrabold text-base text-emerald-950">
+                Need tailored sizing, bulk discounts, or urgent 24h printing for {categoryName}?
+              </p>
+              <p className="text-xs text-emerald-800 mt-1">
+                Our Dubai pre-press team is online to review artwork, confirm paper swatches, and quote instantly.
+              </p>
+            </div>
+            <a
+              href={getServiceWhatsAppUrl(category.slug || slug, { productName: categoryName })}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackWhatsAppClick({
+                  source_page: typeof window !== 'undefined' ? window.location.pathname : 'category_detail',
+                  service_name: categoryName,
+                  button_location: 'category_detail_mid_page',
+                  label: `category_mid_inquiry_${category.slug || slug}`,
+                })
+              }
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer shrink-0"
+            >
+              <WhatsAppIcon className="h-4 w-4 fill-white" />
+              <span>Chat with Dubai Pressman</span>
+            </a>
+          </div>
         </div>
 
         {/* Technical Specs & Printing Details */}

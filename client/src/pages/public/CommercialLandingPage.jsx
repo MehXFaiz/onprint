@@ -21,7 +21,11 @@ import {
   ChevronUp,
   MapPin,
   Award,
+  Mail,
 } from 'lucide-react'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
+import { getWhatsAppUrl } from '../../utils/whatsapp'
+import { trackProductInquiry } from '../../utils/analytics'
 
 export default function CommercialLandingPage({ pageKey: propKey }) {
   const { pageSlug } = useParams()
@@ -85,12 +89,22 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
           <Reveal delay={0.15}>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
-                to="/get-a-quote"
+                to={pageData.quoteLink || "/get-a-quote"}
                 className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-accent/90 hover:shadow-lg active:scale-[0.98]"
               >
                 <span>Request Custom Quote</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
+              <a
+                href={getWhatsAppUrl({ text: pageData.whatsappText || `Hello ONPRINT Dubai, I want to get a quote for ${pageData.h1}.` })}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackProductInquiry(pageData.h1, 'WhatsApp Hero CTA')}
+                className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-200 hover:bg-[#20ba5a] hover:shadow-lg active:scale-[0.98]"
+              >
+                <WhatsAppIcon className="h-4 w-4 fill-white" />
+                <span>WhatsApp Instant Quote</span>
+              </a>
               <Link
                 to="/contact"
                 className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-white px-6 py-3 text-sm font-semibold text-neutral-800 transition-all duration-200 hover:bg-neutral-50 active:scale-[0.98]"
@@ -378,18 +392,28 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
             </div>
             <div className="flex flex-shrink-0 flex-col gap-3 sm:flex-row">
               <Link
-                to="/get-a-quote"
+                to={pageData.quoteLink || "/get-a-quote"}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-accent/90 active:scale-[0.98]"
               >
                 <span>Submit Quote Request</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
+                href={getWhatsAppUrl({ text: pageData.whatsappText || `Hello ONPRINT Dubai, I want to get a quote for ${pageData.h1}.` })}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackProductInquiry(pageData.h1, 'WhatsApp Footer CTA')}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-[#20ba5a] active:scale-[0.98]"
+              >
+                <WhatsAppIcon className="h-4 w-4 fill-white" />
+                <span>Chat on WhatsApp</span>
+              </a>
+              <a
                 href="mailto:0nprint183@gmail.com"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/20 active:scale-[0.98]"
               >
                 <Mail className="h-4 w-4" />
-                <span>Email 0nprint183@gmail.com</span>
+                <span>Email Us</span>
               </a>
             </div>
           </div>

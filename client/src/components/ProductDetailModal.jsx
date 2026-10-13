@@ -6,7 +6,8 @@ import Button from './Button'
 import WhatsAppIcon from './WhatsAppIcon'
 import Product360Viewer from './Product360Viewer'
 import { getProductImage } from '../assets/productImages'
-import { trackViewProduct, trackGetQuoteClick } from '../utils/analytics'
+import { trackViewProduct, trackGetQuoteClick, trackWhatsAppClick } from '../utils/analytics'
+import { getServiceWhatsAppUrl } from '../utils/whatsapp'
 
 export default function ProductDetailModal({ product, onClose }) {
   const [viewMode, setViewMode] = useState('360') // '360' | 'photo'
@@ -210,15 +211,26 @@ export default function ProductDetailModal({ product, onClose }) {
                   </Button>
 
                   <a
-                    href={`https://wa.me/447344546056?text=${encodeURIComponent(
-                      `Hello ONPRINT Dubai, I would like to inquire about ${product.name}${product.price ? ` (from AED ${product.price})` : ''}. Please confirm turnaround and pricing.`
-                    )}`}
+                    href={getServiceWhatsAppUrl(product.category?.slug || product.slug, {
+                      productName: product.name,
+                      price: product.price || undefined,
+                    })}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                      trackWhatsAppClick({
+                        source_page: typeof window !== 'undefined' ? window.location.pathname : 'product_modal',
+                        service_name: categoryName || product.name,
+                        button_location: 'product_quick_view_modal',
+                        product_id: product.slug || product._id,
+                        label: `modal_inquiry_${product.slug || product.name}`,
+                      })
+                      onClose()
+                    }}
                     className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-4 py-2.5 text-xs font-bold text-white shadow-xs transition-all hover:-translate-y-0.5 cursor-pointer shrink-0"
                   >
                     <WhatsAppIcon className="h-4 w-4 fill-white" />
-                    <span>WhatsApp</span>
+                    <span>WhatsApp Quote</span>
                   </a>
                 </div>
 

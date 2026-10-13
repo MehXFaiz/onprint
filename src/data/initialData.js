@@ -6727,7 +6727,313 @@ module.exports = {
       "minimumQuantity": 100,
       "featured": true,
       "active": true
+    },
+
+    {
+        "_id": "prod-self-inking-company-stamps",
+        "id": 1101,
+        "name": "Self-Inking Corporate Company Stamp",
+        "slug": "self-inking-company-stamps",
+        "sku": "STAMP-SELF-01",
+        "price": 85,
+        "minimumQuantity": 1,
+        "category": {
+            "_id": "cat-stamps-printing-dubai",
+            "id": 8,
+            "name": "Custom Stamps & Seals",
+            "slug": "stamps-printing-dubai"
+        },
+        "shortDescription": "Official corporate self-inking rubber stamp with built-in ink pad. Laser-etched text and official company logo for everyday business invoices and contracts.",
+        "description": "Official corporate self-inking rubber stamp made with laser-etched precision in Al Quoz, Dubai. Built-in high-capacity ink pad delivers thousands of crisp impressions before refilling. Perfect for commercial invoices, company registration, official government paperwork, and contracts. Available in rectangular and round seals with instant same-day express turnaround in Dubai.",
+        "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
+        "images": [
+            "/assets/products/stamps/self-inking-company-stamp.jpg"
+        ],
+        "featured": true,
+        "active": true,
+        "status": "active",
+        "stock": 250,
+        "specifications": {
+            "materials": [
+                {
+                    "label": "Trodat Printy High-Impact Casing",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Colop Heavy-Duty Body",
+                    "priceModifier": 15
+                },
+                {
+                    "label": "Shiny Pocket Slide Frame",
+                    "priceModifier": 10
+                }
+            ],
+            "sizes": [
+                {
+                    "label": "Standard Rectangular (47 × 18 mm)",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Large Document (58 × 22 mm)",
+                    "priceModifier": 20
+                },
+                {
+                    "label": "Round Corporate Seal (40 mm Dia)",
+                    "priceModifier": 25
+                },
+                {
+                    "label": "Compact Pocket (38 × 14 mm)",
+                    "priceModifier": 0
+                }
+            ],
+            "finishes": [
+                {
+                    "label": "Classic Black Ink",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Official Blue Ink",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Security Red Ink",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Two-Color Blue/Red Split Pad",
+                    "priceModifier": 30
+                }
+            ]
+        },
+        "features": [
+            "Official UAE Trade License Compliant",
+            "Built-in Self-Inking Pad (10,000+ Impressions)",
+            "Sharp 600 DPI Laser-Etched Text & Logo",
+            "Express 2-Hour Pickup or Same-Day Dubai Delivery"
+        ],
+        "seoTitle": "Self-Inking Company Stamp Dubai | Corporate Rubber Stamps | ONPRINT",
+        "seoDescription": "Official corporate self-inking company stamps in Dubai. Trodat & Colop rubber stamps with logo and trade license details. Express same-day turnaround across UAE.",
+        "seoKeywords": "company stamp dubai, self inking stamp dubai, rubber stamp maker dubai, corporate seal uae"
+    },
+    {
+        "_id": "prod-pocket-mobile-stamps",
+        "id": 1102,
+        "name": "Pocket Mobile Folding Stamp",
+        "slug": "pocket-mobile-stamps",
+        "sku": "STAMP-POCK-02",
+        "price": 95,
+        "minimumQuantity": 1,
+        "category": {
+            "_id": "cat-stamps-printing-dubai",
+            "id": 8,
+            "name": "Custom Stamps & Seals",
+            "slug": "stamps-printing-dubai"
+        },
+        "shortDescription": "Ultra-compact mobile folding pocket stamp designed for professionals on the go (doctors, lawyers, site engineers, and executives).",
+        "description": "The ultimate portable pocket stamp for UAE professionals on the move. Features a patented smooth slide-to-open mechanism that guarantees zero ink on your fingers. Fits comfortably into a suit pocket, lab coat, or briefcase. Ideal for medical prescriptions, site inspection sign-offs, notary stamps, and mobile sales teams in Dubai.",
+        "image": "/assets/products/stamps/pocket-mobile-stamp.jpg",
+        "images": [
+            "/assets/products/stamps/pocket-mobile-stamp.jpg"
+        ],
+        "featured": false,
+        "active": true,
+        "status": "active",
+        "stock": 180,
+        "specifications": {
+            "materials": [
+                {
+                    "label": "Pocket Clip Slimline Case",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Keyring Attachment Cap",
+                    "priceModifier": 10
+                }
+            ],
+            "sizes": [
+                {
+                    "label": "Standard Pocket (38 × 14 mm)",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Large Signature (47 × 18 mm)",
+                    "priceModifier": 15
+                },
+                {
+                    "label": "Pocket Round (25 mm Dia)",
+                    "priceModifier": 15
+                }
+            ],
+            "finishes": [
+                {
+                    "label": "Official Blue Ink",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Classic Black Ink",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Urgent Red Ink",
+                    "priceModifier": 0
+                }
+            ]
+        },
+        "features": [
+            "Ultra-Compact Pocket Pen-Clip Design",
+            "One-Hand Slide Operation",
+            "Clean-Hands Guaranteed Mechanism",
+            "Same-Day Express Dubai Dispatch"
+        ],
+        "seoTitle": "Pocket Mobile Stamp Dubai | Portable Doctor & Lawyer Stamp | ONPRINT",
+        "seoDescription": "Portable pocket stamps in Dubai. Compact folding self-inking rubber stamps with pocket clip for doctors, engineers, and executives. Express delivery in Dubai.",
+        "seoKeywords": "pocket stamp dubai, mobile stamp dubai, doctor stamp dubai, portable rubber stamp uae"
+    },
+    {
+        "_id": "prod-heavy-duty-dater-stamps",
+        "id": 1103,
+        "name": "Heavy-Duty Date & Received Stamp",
+        "slug": "heavy-duty-dater-stamps",
+        "sku": "STAMP-DATE-03",
+        "price": 130,
+        "minimumQuantity": 1,
+        "category": {
+            "_id": "cat-stamps-printing-dubai",
+            "id": 8,
+            "name": "Custom Stamps & Seals",
+            "slug": "stamps-printing-dubai"
+        },
+        "shortDescription": "Industrial metal-core self-inking dater stamp for accounts, logistics warehouses, and corporate mailrooms.",
+        "description": "Engineered for heavy daily administrative workload. Features an internal steel-reinforced framework, smooth rotating date wheels spanning 10 years, and customizable upper and lower text plates (e.g. RECEIVED, PAID, APPROVED, POSTED with your company name). Built to withstand high-volume warehouse and accounting usage across the UAE.",
+        "image": "/assets/products/stamps/heavy-duty-dater-stamp.jpg",
+        "images": [
+            "/assets/products/stamps/heavy-duty-dater-stamp.jpg"
+        ],
+        "featured": false,
+        "active": true,
+        "status": "active",
+        "stock": 120,
+        "specifications": {
+            "materials": [
+                {
+                    "label": "Steel-Core Heavy-Duty Chassis",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "High-Impact Polymer Housing",
+                    "priceModifier": 0
+                }
+            ],
+            "sizes": [
+                {
+                    "label": "Medium (45 × 30 mm Date Center)",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Large (56 × 33 mm Date Center)",
+                    "priceModifier": 25
+                },
+                {
+                    "label": "Extra Large (68 × 47 mm Heavy)",
+                    "priceModifier": 45
+                }
+            ],
+            "finishes": [
+                {
+                    "label": "Two-Color Blue Text / Red Date",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Monochrome Black",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Monochrome Blue",
+                    "priceModifier": 0
+                }
+            ]
+        },
+        "features": [
+            "Solid Steel Reinforced Core Frame",
+            "10-Year Rotating Date Bands",
+            "Ergonomic Non-Slip Rubber Handle",
+            "Clean Replacement Ink Cartridges"
+        ],
+        "seoTitle": "Heavy-Duty Dater Stamp Dubai | Date & Received Stamp | ONPRINT",
+        "seoDescription": "Industrial date stamps and received stamps in Dubai. Heavy-duty metal core self-inking dater stamps for accounts and logistics with express UAE delivery.",
+        "seoKeywords": "date stamp dubai, received stamp dubai, dater stamp maker uae, heavy duty stamp dubai"
+    },
+    {
+        "_id": "prod-luxury-brass-wax-seal-stamps",
+        "id": 1104,
+        "name": "Luxury Brass Wax Seal & Notary Stamp",
+        "slug": "luxury-brass-wax-seal-stamps",
+        "sku": "STAMP-WAX-04",
+        "price": 160,
+        "minimumQuantity": 1,
+        "category": {
+            "_id": "cat-stamps-printing-dubai",
+            "id": 8,
+            "name": "Custom Stamps & Seals",
+            "slug": "stamps-printing-dubai"
+        },
+        "shortDescription": "Precision CNC-milled solid brass seal stamp with polished rosewood handle for wedding stationery, notary seals, and VIP branding.",
+        "description": "Bespoke solid brass seal stamp engraved using ultra-high-definition CNC micro-milling at our Al Quoz atelier. Crafted with a premium natural rosewood handle or solid metal grip. Gives wedding invitations, certificates, corporate contracts, and luxury packaging an unmistakable Old-World prestige and security impression.",
+        "image": "/assets/products/stamps/luxury-wax-seal-stamp.jpg",
+        "images": [
+            "/assets/products/stamps/luxury-wax-seal-stamp.jpg"
+        ],
+        "featured": false,
+        "active": true,
+        "status": "active",
+        "stock": 90,
+        "specifications": {
+            "materials": [
+                {
+                    "label": "CNC Solid Brass Head + Rosewood Handle",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Full Gold Metal Heavyweight Handle",
+                    "priceModifier": 35
+                }
+            ],
+            "sizes": [
+                {
+                    "label": "25 mm Diameter Round",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "30 mm Diameter Round",
+                    "priceModifier": 25
+                },
+                {
+                    "label": "35 mm Large Crest",
+                    "priceModifier": 45
+                }
+            ],
+            "finishes": [
+                {
+                    "label": "Includes 3 Burgundy Sealing Wax Sticks",
+                    "priceModifier": 0
+                },
+                {
+                    "label": "Includes Metallic Gold & Burgundy Wax Kit",
+                    "priceModifier": 40
+                }
+            ]
+        },
+        "features": [
+            "Deep CNC Micro-Milled Solid Brass Die",
+            "Removable Screw-On Head Mechanism",
+            "Includes Sealing Wax & Gift Box",
+            "Handmade in Dubai Pressroom"
+        ],
+        "seoTitle": "Custom Wax Seal Stamp Dubai | Brass Notary & Wedding Seals | ONPRINT",
+        "seoDescription": "Custom wax seal stamps in Dubai. Solid brass CNC-engraved monogram and logo seals with rosewood handle. Express production and delivery across UAE.",
+        "seoKeywords": "wax seal stamp dubai, custom wax stamp dubai, notary seal stamp dubai, embossing seal uae"
     }
+
   ],
   "orders": [],
   "quotes": [],

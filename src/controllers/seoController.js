@@ -310,6 +310,8 @@ async function getSitemapXml(req, res) {
         { path: '/large-format-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/corporate-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/promotional-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/bottle-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/quote/bottles', priority: '0.85', changefreq: 'weekly' },
         { path: '/products', priority: '0.9', changefreq: 'daily' },
         { path: '/blog', priority: '0.8', changefreq: 'daily' },
         { path: '/portfolio', priority: '0.7', changefreq: 'monthly' },

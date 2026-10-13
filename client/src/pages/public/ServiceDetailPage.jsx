@@ -24,7 +24,9 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { getServiceBySlug } from '../../services/services'
 import { getProductImage } from '../../assets/productImages'
-import { trackViewServices, trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
+import { trackViewServices, trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick } from '../../utils/analytics'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
+import { getServiceWhatsAppUrl } from '../../utils/whatsapp'
 import { getServiceSectionEData } from '../../data/serviceGeoContent'
 
 export default function ServiceDetailPage() {
@@ -124,15 +126,34 @@ export default function ServiceDetailPage() {
               <p>{sectionE.intro}</p>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
+              <a
+                href={getServiceWhatsAppUrl(service.slug, { productName: service.name })}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackWhatsAppClick({
+                    source_page: typeof window !== 'undefined' ? window.location.pathname : 'service_detail',
+                    service_name: service.name,
+                    button_location: 'service_detail_hero',
+                    label: `service_hero_inquiry_${service.slug}`,
+                  })
+                }
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer"
+              >
+                <WhatsAppIcon className="h-4 w-4 fill-white" />
+                <span>Get a Quote on WhatsApp</span>
+              </a>
+
               <Button
                 to="/get-a-quote"
                 variant="accent"
                 size="lg"
                 onClick={() => trackGetQuoteClick({ source_page: 'service_detail', product_name: service.name })}
               >
-                Request Quote for {service.name}
+                Request Official Quote
               </Button>
+
               <Button
                 to="/contact"
                 variant="secondary"
@@ -285,6 +306,35 @@ export default function ServiceDetailPage() {
               </ul>
             </div>
           </div>
+
+          {/* Natural Mid-Page Conversion Banner */}
+          <div className="mt-8 rounded-xl border border-emerald-200 bg-emerald-50/70 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <p className="font-bold text-sm text-emerald-950">
+                Need advice on materials or urgent same-day turnaround for {service.name}?
+              </p>
+              <p className="text-xs text-emerald-800 mt-0.5">
+                Speak directly with an Al Quoz print engineer on WhatsApp for instant pricing &amp; digital proofing.
+              </p>
+            </div>
+            <a
+              href={getServiceWhatsAppUrl(service.slug, { productName: service.name })}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackWhatsAppClick({
+                  source_page: typeof window !== 'undefined' ? window.location.pathname : 'service_detail',
+                  service_name: service.name,
+                  button_location: 'service_detail_mid_page',
+                  label: `service_mid_inquiry_${service.slug}`,
+                })
+              }
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer shrink-0"
+            >
+              <WhatsAppIcon className="h-4 w-4 fill-white" />
+              <span>Inquire on WhatsApp</span>
+            </a>
+          </div>
         </div>
 
         {/* ========================================================================= */}
@@ -432,6 +482,24 @@ export default function ServiceDetailPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
+              <a
+                href={getServiceWhatsAppUrl(service.slug, { productName: service.name })}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackWhatsAppClick({
+                    source_page: typeof window !== 'undefined' ? window.location.pathname : 'service_detail',
+                    service_name: service.name,
+                    button_location: 'service_detail_bottom_box',
+                    label: `service_bottom_inquiry_${service.slug}`,
+                  })
+                }
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-emerald-600/30 transition-all hover:-translate-y-0.5 cursor-pointer text-center"
+              >
+                <WhatsAppIcon className="h-4 w-4 fill-white" />
+                <span>Get a Quote on WhatsApp</span>
+              </a>
+
               <Button
                 to="/get-a-quote"
                 variant="accent"

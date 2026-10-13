@@ -1012,8 +1012,142 @@ const COMMERCIAL_LANDING_PAGES = {
           "path": "/large-format-printing-dubai"
         }
       ]
+    },
+    "bottle-printing-dubai": {
+      "slug": "bottle-printing-dubai",
+      "path": "/bottle-printing-dubai",
+      "title": "Bottle Printing Dubai | Custom Water Bottles & Flasks with Logo | ONPRINT",
+      "metaDescription": "Custom bottle printing & laser engraving in Dubai from AED 22. Thermal stainless steel, glass bamboo bottles, aluminium sports bottles & protein shakers. Fast UAE delivery.",
+      "focusKeyword": "bottle printing dubai",
+      "secondaryKeywords": "custom bottle printing dubai, water bottle printing dubai, personalized bottle printing uae, stainless steel bottle printing dubai, metal bottle engraving dubai, promotional water bottles uae, branded bottles dubai, corporate bottle printing uae, customized water bottles dubai, logo printing on bottles dubai, reusable bottle printing dubai, bulk bottle printing dubai, glass bottle printing dubai, sports bottle printing dubai, bottle printing price dubai, wholesale branded bottles uae",
+      "badge": "CUSTOM BOTTLE PRINTING & ENGRAVING DUBAI • FROM AED 22",
+      "h1": "Custom Bottle Printing & Logo Engraving in Dubai, UAE",
+      "subheading": "Precision bottle printing and rotary laser engraving in Al Quoz, Dubai. From double-wall stainless steel thermal flasks and eco-friendly borosilicate glass bottles to lightweight aluminium sports bottles and gym shakers with custom company logos, ONPRINT delivers scratch-resistant, dishwasher-safe drinkware for corporate gifting, events, and brand merchandise.",
+      "quoteLink": "/quote/bottles",
+      "whatsappText": "Hello ONPRINT Dubai, I would like to get a quote for Custom Water Bottle Printing with company logo.",
+      "stats": [
+        {
+          "label": "Starting Price",
+          "value": "From AED 22 / Unit"
+        },
+        {
+          "label": "Minimum Order",
+          "value": "15 – 30 Units (Low MOQ)"
+        },
+        {
+          "label": "Print Methods",
+          "value": "Rotary UV & Laser Etch"
+        },
+        {
+          "label": "Delivery Speed",
+          "value": "3 to 5 Days UAE-Wide"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Rotary 360° UV Cylindrical Printing",
+          "description": "Vibrant full-colour wraparound graphics printed directly onto curved cylindrical bottles with protective matte or high-gloss varnish overlay."
+        },
+        {
+          "title": "Precision Rotary Fiber Laser Engraving",
+          "description": "Permanent, ultra-crisp laser etching on powder-coated stainless steel, copper, and metal flasks revealing raw metal contrast that never peels or fades."
+        },
+        {
+          "title": "Premium Multi-Material Bottle Inventory",
+          "description": "Double-wall 304 food-grade stainless steel thermal flasks, borosilicate glass with natural bamboo caps, lightweight sports aluminium, and BPA-free gym shakers."
+        },
+        {
+          "title": "Exhibition & Corporate Event Readiness",
+          "description": "Individually boxed in gift cartons with custom sleeve packaging, ready for VIP corporate onboarding kits, DWTC trade shows, and marathon activations."
+        }
+      ],
+      "technicalSpecs": [
+        {
+          "feature": "Supported Bottle Types",
+          "detail": "Thermal Stainless Steel (500ml/650ml), Smart LED Temperature Flasks, Borosilicate Glass with Bamboo Lid, Aluminium Sports (600ml), BPA-Free Gym Shakers (700ml)"
+        },
+        {
+          "feature": "Branding Technologies",
+          "detail": "360° Rotary UV Direct-to-Cylinder, Fiber Laser Engraving, Durable Pantone Spot Screen Printing, Pad Printing"
+        },
+        {
+          "feature": "Thermal Performance",
+          "detail": "Double-wall vacuum insulation keeps liquids cold for 24 hours and hot for 12 hours (tested in UAE summer conditions)"
+        },
+        {
+          "feature": "Durability & Compliance",
+          "detail": "Food-safe 304/316 stainless steel, 100% BPA-free, lead-free, non-toxic eco inks, sweat-proof exterior"
+        },
+        {
+          "feature": "Minimum Order Quantity",
+          "detail": "From 15 units (Smart LED & Copper Flasks), 20 units (Thermal & Glass), 30 units (Aluminium Sports Bottles)"
+        },
+        {
+          "feature": "Wholesale Tiers",
+          "detail": "Volume tier pricing available for 50, 100, 250, 500, and 2,500+ corporate bulk orders"
+        },
+        {
+          "feature": "Standard Turnaround",
+          "detail": "3 to 5 business days across Dubai; Express rush available for upcoming trade shows & conferences"
+        },
+        {
+          "feature": "Packaging Options",
+          "detail": "Individual craft gift box, matte black executive cylinder, or bespoke branded rigid presentation boxes"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How much does custom water bottle printing cost in Dubai?",
+          "answer": "Bottle printing prices in Dubai vary by material and volume. Single-wall aluminium sports bottles with carabiner clips start from AED 22 per unit. Double-wall powder-coated stainless steel thermal bottles start from AED 38 per unit. Smart LED digital temperature display flasks start at AED 48 per unit, and eco-friendly borosilicate glass bottles with bamboo lids start at AED 42 per unit. For bulk wholesale corporate orders (100+ units), discounts reduce per-unit pricing significantly."
+        },
+        {
+          "question": "What printing methods do you use for bottles with logos in Dubai?",
+          "answer": "We employ two primary high-durability technologies: (1) Rotary Fiber Laser Engraving for metal, copper, and powder-coated stainless steel bottles, producing an indelible, elegant silver or gold contrast mark that will never rub off; and (2) 360° Rotary Cylindrical UV Printing for full-color photorealistic wrap-around logos and graphics on glass, plastic, and coated metal bottles."
+        },
+        {
+          "question": "What is the minimum order quantity (MOQ) for corporate bottle printing in UAE?",
+          "answer": "Our MOQs are among the most flexible in Dubai: only 15 units for executive smart LED flasks and copper thermal flasks, 20 units for matte stainless steel bottles and glass bottles, and 30 units for aluminium sports bottles. We also handle large enterprise runs of 5,000+ units for national events and marathons."
+        },
+        {
+          "question": "Can you engrave individual employee or client names on each bottle?",
+          "answer": "Yes! Through variable data laser engraving, we can etch a unique employee name or VIP client monogram alongside your master corporate logo on each individual bottle at minimal additional setup cost."
+        },
+        {
+          "question": "Are your printed bottles dishwasher-safe and BPA-free?",
+          "answer": "Yes. All our plastic sports bottles and protein shakers are certified 100% BPA-free. Our stainless steel flasks use food-grade 304 stainless steel. Laser-engraved bottles are 100% dishwasher-safe because the metal is physically etched. For UV-printed bottles, gentle hand washing with non-abrasive sponges is recommended to maintain color brilliance over years of daily hydration."
+        },
+        {
+          "question": "Can you deliver branded bottles directly to Dubai World Trade Centre (DWTC) for exhibitions?",
+          "answer": "Yes. We deliver custom exhibition bottles, corporate gifts, and marketing merchandise directly to DWTC booth stands, Expo City Dubai, ADNEC in Abu Dhabi, and corporate offices across all 7 Emirates with scheduled doorstep courier hand-delivery."
+        }
+      ],
+      "relatedServices": [
+        {
+          "name": "Custom Mug Printing Dubai",
+          "path": "/categories/mug-printing-dubai"
+        },
+        {
+          "name": "Corporate Gift Items UAE",
+          "path": "/categories/corporate-gift-items"
+        },
+        {
+          "name": "Promotional Printing Dubai",
+          "path": "/promotional-printing-dubai"
+        },
+        {
+          "name": "Waterproof Bottle Labels",
+          "path": "/label-printing-dubai"
+        },
+        {
+          "name": "Custom Stickers Dubai",
+          "path": "/sticker-printing-dubai"
+        },
+        {
+          "name": "Business Card Printing Dubai",
+          "path": "/business-card-printing-dubai"
+        }
+      ]
     }
   }
-
 
 module.exports = { COMMERCIAL_LANDING_PAGES };

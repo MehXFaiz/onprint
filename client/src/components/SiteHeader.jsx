@@ -37,9 +37,10 @@ import Container from './Container'
 import Logo from './Logo'
 import WhatsAppIcon from './WhatsAppIcon'
 import { useAuth } from '../context/AuthContext'
-import { trackGetQuoteClick } from '../utils/analytics'
+import { trackGetQuoteClick, trackWhatsAppClick } from '../utils/analytics'
 import { getCategories } from '../services/categories'
 import { getProducts } from '../services/products'
+import { getServiceWhatsAppUrl, FORMATTED_PHONE } from '../utils/whatsapp'
 
 const NAV_GROUPS = [
   {
@@ -185,7 +186,7 @@ export default function SiteHeader() {
 
   const handleCopyNumber = () => {
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      navigator.clipboard.writeText('+44 7344 546056')
+      navigator.clipboard.writeText(FORMATTED_PHONE)
     }
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
@@ -839,7 +840,7 @@ export default function SiteHeader() {
                     <div className="rounded-xl bg-slate-50 p-3 border border-slate-200/80 mb-3">
                       <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Direct Hotline</span>
                       <div className="mt-1 flex items-center justify-between">
-                        <span className="text-sm font-black tracking-tight text-slate-900">+44 7344 546056</span>
+                        <span className="text-sm font-black tracking-tight text-slate-900">{FORMATTED_PHONE}</span>
                         <button
                           type="button"
                           onClick={handleCopyNumber}
@@ -861,10 +862,13 @@ export default function SiteHeader() {
                     </div>
 
                     <a
-                      href="https://wa.me/447344546056?text=Hi%20ONPRINT%20Dubai%2C%20I%20need%20a%20commercial%20printing%20quote"
+                      href={getServiceWhatsAppUrl('general')}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => setWhatsappPopoverOpen(false)}
+                      onClick={() => {
+                        setWhatsappPopoverOpen(false)
+                        trackWhatsAppClick({ source_page: 'header_popover', service: 'general', button_location: 'header_concierge' })
+                      }}
                       className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all cursor-pointer"
                     >
                       <WhatsAppIcon className="h-4 w-4 fill-current" />
@@ -1174,9 +1178,13 @@ export default function SiteHeader() {
 
                 {/* WhatsApp Concierge Card */}
                 <a
-                  href="https://wa.me/447344546056?text=Hi%20ONPRINT%20Dubai%2C%20I%20need%20a%20printing%20quote"
+                  href={getServiceWhatsAppUrl('general')}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    setMobileMenuOpen(false)
+                    trackWhatsAppClick({ source_page: 'header_mobile_menu', service: 'general', button_location: 'mobile_concierge' })
+                  }}
                   className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50/90 p-3 text-emerald-950 transition-all shadow-xs"
                 >
                   <div className="flex items-center gap-2.5">
@@ -1188,7 +1196,7 @@ export default function SiteHeader() {
                         <span className="text-xs font-bold text-emerald-950">WhatsApp Concierge</span>
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                       </div>
-                      <span className="text-[11px] font-bold text-emerald-800">+44 7344 546056</span>
+                      <span className="text-[11px] font-bold text-emerald-800">{FORMATTED_PHONE}</span>
                     </div>
                   </div>
                   <span className="rounded-lg bg-[#25D366] text-white px-2.5 py-1 text-[11px] font-bold shadow-xs">

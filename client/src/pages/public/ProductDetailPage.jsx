@@ -11,8 +11,9 @@ import ProductCard from '../../components/ProductCard'
 import Product360Viewer from '../../components/Product360Viewer'
 import { getProductBySlug, getProducts } from '../../services/products'
 import { getProductImage, getProductCategoriesWithImages, getAllProductCategoryImages } from '../../assets/productImages'
-import { trackViewProduct, trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
+import { trackViewProduct, trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick } from '../../utils/analytics'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
+import { getServiceWhatsAppUrl } from '../../utils/whatsapp'
 
 const CARD_FALLBACK_SIZES = [
   { label: 'EU Standard (85 × 55 mm)', priceModifier: 0 },
@@ -442,15 +443,30 @@ export default function ProductDetailPage() {
                 </Button>
 
                 <a
-                  href={`https://wa.me/447344546056?text=${encodeURIComponent(
-                    `Hello ONPRINT Dubai, I would like an express quotation for:\n• Product: ${product.name}\n• Quantity: ${quantity} units\n• Size: ${size?.label || 'Standard'}\n• Material: ${material?.label || 'Standard'}\n• Finish: ${finish?.label || 'Standard'}\n${notes ? `• Custom Notes: ${notes}\n` : ''}${estimatedPrice ? `• Estimated Price: AED ${estimatedPrice}\n` : ''}\nPlease confirm express turnaround and delivery to Dubai.`
-                  )}`}
+                  href={getServiceWhatsAppUrl(product.category?.slug || product.slug, {
+                    productName: product.name,
+                    quantity,
+                    size: size?.label,
+                    material: material?.label,
+                    finish: finish?.label,
+                    price: estimatedPrice || undefined,
+                    notes: notes || undefined,
+                  })}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    trackWhatsAppClick({
+                      source_page: typeof window !== 'undefined' ? window.location.pathname : 'product_detail',
+                      service_name: product.category?.name || product.name,
+                      button_location: 'product_detail_hero',
+                      product_id: product.slug || product._id,
+                      label: `product_detail_inquiry_${product.slug || product.name}`,
+                    })
+                  }}
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
                 >
                   <WhatsAppIcon className="h-4 w-4 fill-white" />
-                  <span>Inquire on WhatsApp</span>
+                  <span>Get Quote on WhatsApp</span>
                 </a>
 
                 <Button

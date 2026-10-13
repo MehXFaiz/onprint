@@ -145,6 +145,54 @@ export const defaultServices = [
     seoDescription: 'Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.',
     seoKeywords: 'bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai, smart led temperature bottle dubai',
   },
+  {
+    _id: 'serv-rollup-banners',
+    id: 10,
+    name: 'Rollup Banners Printing',
+    slug: 'rollup-banners',
+    category: { name: 'Rollup Banners' },
+    shortDescription: 'Retractable roll-up exhibition banners with heavy-duty aluminum pull-up stands and anti-curl blockout film.',
+    description: 'Professional roll-up banner printing in Dubai for exhibitions, trade shows, retail stores, and corporate conferences. High-resolution UV/latex printing on 300gsm anti-curl stoplight grey-back film. Includes retractable aluminum cassette base, support pole, and padded canvas carry bag with same-day express turnaround.',
+    image: '/assets/products/rollup_banner.jpg',
+    image_url: '/assets/products/rollup_banner.jpg',
+    order: 10,
+    active: true,
+    seoTitle: 'Roll-Up Banner Printing Dubai | Retractable Pull-Up Banners | ONPRINT',
+    seoDescription: 'Premium roll-up banner printing in Dubai. 85x200cm, 100x200cm, 120x200cm retractable banners with aluminum stands and express same-day UAE delivery.',
+    seoKeywords: 'rollup banners dubai, roll up banner printing dubai, pull up banner uae, exhibition banner stands dubai, retractable banners dubai',
+  },
+  {
+    _id: 'serv-stickers-labels-printing',
+    id: 11,
+    name: 'Stickers & Product Labels',
+    slug: 'stickers-labels-printing',
+    category: { name: 'Stickers & Product Labels' },
+    shortDescription: 'Precision die-cut waterproof vinyl stickers, roll labels, transparent decals, and holographic packaging stickers.',
+    description: 'Commercial sticker and product label printing in Dubai. Custom precision contour die-cutting on premium waterproof white vinyl, clear transparent, metallic foil, and rainbow holographic substrates. UV-protected and scratch-resistant for food packaging, cosmetic jars, bottles, and retail products.',
+    image: '/assets/products/stickers.jpg',
+    image_url: '/assets/products/stickers.jpg',
+    order: 11,
+    active: true,
+    seoTitle: 'Sticker Printing Dubai | Custom Die-Cut Vinyl Labels | ONPRINT',
+    seoDescription: 'Custom sticker printing in Dubai. Waterproof vinyl stickers, roll labels, die-cut decals, and holographic packaging stickers with same-day express delivery.',
+    seoKeywords: 'sticker printing dubai, custom stickers dubai, vinyl sticker printing dubai, label printing uae, die cut stickers dubai',
+  },
+  {
+    _id: 'serv-stamps-printing-dubai',
+    id: 12,
+    name: 'Custom Stamps & Seals',
+    slug: 'stamps-printing-dubai',
+    category: { name: 'Custom Stamps & Seals' },
+    shortDescription: 'Official corporate self-inking rubber stamps, pocket stamps, heavy-duty dater stamps, and notary embossing seals.',
+    description: 'Certified corporate rubber stamp and company seal maker in Dubai. High-precision laser-etched Trodat self-inking stamps, compact folding pocket stamps, heavy-duty accounting date stamps, and brass desktop embossing seals with official UAE trade license compliance and 2-hour express turnaround.',
+    image: '/assets/products/stamps/self-inking-company-stamp.jpg',
+    image_url: '/assets/products/stamps/self-inking-company-stamp.jpg',
+    order: 12,
+    active: true,
+    seoTitle: 'Custom Stamp Printing Dubai | Stamp Maker & Company Seals | ONPRINT',
+    seoDescription: 'Official company stamp maker in Dubai. Trodat self-inking stamps, corporate seals, pocket stamps, and dater stamps with fast express same-day Dubai delivery.',
+    seoKeywords: 'stamp maker dubai, custom stamps dubai, company stamp printing dubai, self inking stamp uae, corporate seal dubai, notary stamp dubai',
+  },
 ]
 
 export async function getServices() {
@@ -172,6 +220,18 @@ export async function getServiceBySlug(slug) {
   }
   const found = defaultServices.find((s) => s.slug === slug)
   if (found) return found
+
+  // Fallback slug aliases
+  if (slug === 'sticker-printing-dubai' || slug === 'sticker-printing') {
+    return defaultServices.find((s) => s.slug === 'stickers-labels-printing')
+  }
+  if (slug === 'rollup-banner-printing-dubai' || slug === 'roll-up-banners' || slug === 'rollup-banner') {
+    return defaultServices.find((s) => s.slug === 'rollup-banners')
+  }
+  if (slug === 'custom-stamps-dubai' || slug === 'stamp-printing-dubai' || slug === 'stamps') {
+    return defaultServices.find((s) => s.slug === 'stamps-printing-dubai')
+  }
+
   throw new Error('Service not found')
 }
 

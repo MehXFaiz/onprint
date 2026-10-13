@@ -211,14 +211,33 @@ export function trackContactFormSubmit({ source_page } = {}) {
   })
 }
 
+let lastWhatsAppClickTime = 0
+let lastWhatsAppClickKey = ''
+
 /**
- * 7. WhatsApp Click
+ * 7. WhatsApp Click (With deduplication against global link listener)
  */
-export function trackWhatsAppClick({ source_page, label } = {}) {
+export function trackWhatsAppClick({ source_page, service, service_name, button_location, label, product_id, product_name } = {}) {
+  const now = Date.now()
+  const resolvedService = service || service_name || ''
+  const resolvedLabel = label || button_location || resolvedService || 'chat_support'
+  const key = `${source_page || ''}-${resolvedService}-${resolvedLabel}`
+
+  // Deduplicate rapid consecutive triggers within 600ms
+  if (now - lastWhatsAppClickTime < 600 && lastWhatsAppClickKey === key) {
+    return
+  }
+  lastWhatsAppClickTime = now
+  lastWhatsAppClickKey = key
+
   trackEvent('whatsapp_click', {
     source_page: source_page || 'website',
     channel: 'whatsapp',
-    label: label || 'chat_support',
+    service: resolvedService || undefined,
+    button_location: button_location || undefined,
+    label: resolvedLabel,
+    product_id: product_id ? String(product_id) : undefined,
+    product_name: product_name || undefined,
   })
 }
 

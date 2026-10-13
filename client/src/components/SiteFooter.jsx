@@ -3,7 +3,8 @@ import Container from './Container'
 import Logo from './Logo'
 import WhatsAppIcon from './WhatsAppIcon'
 import { Mail, MapPin, Clock, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react'
-import { trackGetQuoteClick } from '../utils/analytics'
+import { trackGetQuoteClick, trackWhatsAppClick } from '../utils/analytics'
+import { getServiceWhatsAppUrl, FORMATTED_PHONE } from '../utils/whatsapp'
 
 function FacebookIcon(props) {
   return (
@@ -66,13 +67,16 @@ export default function SiteFooter() {
             </Link>
 
             <a
-              href="https://wa.me/447344546056?text=Hi%20ONPRINT%2C%20I%20need%20a%20printing%20quote"
+              href={getServiceWhatsAppUrl('general')}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-xs transition-all hover:-translate-y-0.5"
+              onClick={() =>
+                trackWhatsAppClick({ source_page: 'footer_cta_banner', service: 'general', button_location: 'footer_banner' })
+              }
+              className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] border border-white/20 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer"
             >
-              <WhatsAppIcon className="h-4.5 w-4.5 fill-current text-emerald-400" />
-              <span>WhatsApp Us</span>
+              <WhatsAppIcon className="h-4.5 w-4.5 fill-current text-white" />
+              <span>WhatsApp Us ({FORMATTED_PHONE})</span>
             </a>
           </div>
         </Container>

@@ -141,6 +141,20 @@ import flyerA6PocketImg from './products/flyers/flyer-a6-pocket.jpg'
 import flyerKraftEcoImg from './products/flyers/flyer-kraft-eco.jpg'
 import flyerDieCutImg from './products/flyers/flyer-die-cut.jpg'
 
+// Dedicated high-resolution Office Stationery & Envelopes variety images
+import stationeryCategoryHeroImg from './products/stationery/stationery-category-hero.jpg'
+import stationeryPresentationFoldersImg from './products/stationery/stationery-presentation-folders.jpg'
+import stationeryCorporateEnvelopesImg from './products/stationery/stationery-corporate-envelopes.jpg'
+import stationeryExecutiveNotebooksImg from './products/stationery/stationery-executive-notebooks.jpg'
+import stationeryDeskPadsBlottersImg from './products/stationery/stationery-desk-pads-blotters.jpg'
+import stationeryGiftSetsImg from './products/stationery/stationery-gift-sets.jpg'
+import stationeryExecutiveLetterheadsImg from './products/stationery/stationery-executive-letterheads.jpg'
+import stationeryCorporateRingBindersImg from './products/stationery/stationery-corporate-ring-binders.jpg'
+import stationeryWallDeskCalendarsImg from './products/stationery/stationery-wall-desk-calendars.jpg'
+import stationeryNcrDuplicateBooksImg from './products/stationery/stationery-ncr-duplicate-books.jpg'
+import stationeryStringTieEnvelopesImg from './products/stationery/stationery-string-tie-envelopes.jpg'
+import stationeryStickyNotesCubesImg from './products/stationery/stationery-sticky-notes-cubes.jpg'
+
 import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
@@ -171,6 +185,18 @@ export const productImages = {
   flyerA6Pocket: flyerA6PocketImg,
   flyerKraftEco: flyerKraftEcoImg,
   flyerDieCut: flyerDieCutImg,
+  stationeryCategoryHero: stationeryCategoryHeroImg,
+  stationeryPresentationFolders: stationeryPresentationFoldersImg,
+  stationeryCorporateEnvelopes: stationeryCorporateEnvelopesImg,
+  stationeryExecutiveNotebooks: stationeryExecutiveNotebooksImg,
+  stationeryDeskPadsBlotters: stationeryDeskPadsBlottersImg,
+  stationeryGiftSets: stationeryGiftSetsImg,
+  stationeryExecutiveLetterheads: stationeryExecutiveLetterheadsImg,
+  stationeryCorporateRingBinders: stationeryCorporateRingBindersImg,
+  stationeryWallDeskCalendars: stationeryWallDeskCalendarsImg,
+  stationeryNcrDuplicateBooks: stationeryNcrDuplicateBooksImg,
+  stationeryStringTieEnvelopes: stationeryStringTieEnvelopesImg,
+  stationeryStickyNotesCubes: stationeryStickyNotesCubesImg,
   brochures: brochuresImg,
   brochureBifold: brochureBifoldImg,
   brochureTrifold: brochureTrifoldImg,
@@ -486,12 +512,39 @@ export const productSlugImageMap = {
   'postcards-printing': flyerDirectMailPostcardsImg,
   'custom-usb-flash-drives': img2,
   'corporate-gift-sets': img5,
-  'power-banks-printing': bottlesImg,
-  'desk-pads-printing': img2,
-  'stationery-gift-sets': img11,
+  // Dedicated Office Stationery & Envelopes Products
+  'office-stationery-printing': stationeryCategoryHeroImg,
+  'office-stationery-envelopes': stationeryCategoryHeroImg,
+  'presentation-folders': stationeryPresentationFoldersImg,
+  'presentation-folders-printing': stationeryPresentationFoldersImg,
+  'corporate-presentation-folders': stationeryPresentationFoldersImg,
+  'printed-envelopes': stationeryCorporateEnvelopesImg,
+  'corporate-envelopes-printing': stationeryCorporateEnvelopesImg,
+  'corporate-envelopes': stationeryCorporateEnvelopesImg,
+  'executive-notebooks': stationeryExecutiveNotebooksImg,
+  'executive-notebooks-printing': stationeryExecutiveNotebooksImg,
+  'notebook-printing': stationeryExecutiveNotebooksImg,
+  'desk-pads-printing': stationeryDeskPadsBlottersImg,
+  'desk-pads-notepads': stationeryDeskPadsBlottersImg,
+  'desk-blotters-printing': stationeryDeskPadsBlottersImg,
+  'stationery-gift-sets': stationeryGiftSetsImg,
+  'stationery-gift-set': stationeryGiftSetsImg,
+  'executive-letterheads': stationeryExecutiveLetterheadsImg,
+  'corporate-letterheads': stationeryExecutiveLetterheadsImg,
+  'corporate-ring-binders': stationeryCorporateRingBindersImg,
+  'ring-binders-printing': stationeryCorporateRingBindersImg,
+  'wall-desk-calendars': stationeryWallDeskCalendarsImg,
+  'calendars-printing': stationeryWallDeskCalendarsImg,
+  'desk-calendars-printing': stationeryWallDeskCalendarsImg,
+  'ncr-duplicate-books': stationeryNcrDuplicateBooksImg,
+  'ncr-invoice-books': stationeryNcrDuplicateBooksImg,
+  'string-tie-envelopes': stationeryStringTieEnvelopesImg,
+  'document-string-envelopes': stationeryStringTieEnvelopesImg,
+  'sticky-notes-cubes': stationeryStickyNotesCubesImg,
+  'custom-sticky-notes': stationeryStickyNotesCubesImg,
+  'memo-cubes-printing': stationeryStickyNotesCubesImg,
   'foam-board-signage': img9,
   'wall-acrylic-signage': img12,
-  'calendars-printing': img7,
   'greeting-cards-printing': img6,
   'printed-paper-bags': toteBagsImg,
   'restaurant-menus-printing': img14,
@@ -514,7 +567,6 @@ export const productSlugImageMap = {
   'custom-mouse-pad': img2,
   't-shirt-printing-dubai': img3,
   'cap-printing-dubai': img4,
-  'notebook-printing': img5,
   'pens-printing': penPrintingImg,
   'pen-printing': penPrintingImg,
 }
@@ -662,7 +714,20 @@ const slugKeywordImageMap = [
   [['sticker', 'label', 'decal'], serviceStickersLabelsImg],
   [['flag', 'beach flag', 'feather flag', 'teardrop'], flagsImg],
   [['keychain', 'key ring', 'keyring'], keychainImg],
-  [['letterhead', 'stationery', 'official paper'], letterheadGoldFoilImg],
+
+  // Dedicated Office Stationery & Envelopes Keyword Matches
+  [['presentation folder', 'pocket folder', 'presentation-folder', 'proposal folder'], stationeryPresentationFoldersImg],
+  [['envelope', 'envelopes', 'dl envelope', 'c5 envelope', 'c4 envelope', 'peel and seal', 'peel-and-seal'], stationeryCorporateEnvelopesImg],
+  [['notebook', 'journal', 'hardcover journal', 'executive notebook', 'leather notebook', 'planner book'], stationeryExecutiveNotebooksImg],
+  [['desk pad', 'desk blotter', 'blotter pad', 'writing pad', 'meeting notepad', 'memo pad', 'memo-pad'], stationeryDeskPadsBlottersImg],
+  [['stationery gift', 'stationery set', 'desktop gift set', 'vip stationery', 'executive stationery set'], stationeryGiftSetsImg],
+  [['ring binder', 'lever arch', 'presentation binder', 'binder folder'], stationeryCorporateRingBindersImg],
+  [['wall calendar', 'desk calendar', 'easel calendar', 'triangle calendar'], stationeryWallDeskCalendarsImg],
+  [['ncr book', 'ncr duplicate', 'invoice book', 'receipt voucher', 'duplicate book', 'carbonless'], stationeryNcrDuplicateBooksImg],
+  [['string envelope', 'button envelope', 'string and tie', 'string-tie', 'gusset envelope'], stationeryStringTieEnvelopesImg],
+  [['sticky note', 'sticky notes', 'memo cube', 'note cube', 'post-it'], stationeryStickyNotesCubesImg],
+  [['letterhead', 'stationery paper', 'official paper', 'company letterhead'], stationeryExecutiveLetterheadsImg],
+  [['office stationery', 'corporate stationery'], stationeryCategoryHeroImg],
 ]
 
 function isGenericOrDuplicateImage(url) {

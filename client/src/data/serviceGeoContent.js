@@ -1110,50 +1110,5 @@ export function getServiceSectionEData(service, slug) {
     },
   }
 }
-    whoUses: [
-      'Corporate Enterprises & Financial Institutions in DIFC, Downtown, and Business Bay',
-      'Luxury Retail, Perfumery, Cosmetics & Jewelry Brands in Dubai Mall and Mall of the Emirates',
-      'Hospitality, QSR Chains, Luxury Hotels, and Fine Dining Venues across Jumeirah & Palm Jumeirah',
-      'Startups, SMEs, and E-Commerce Brands requiring low-MOQ premium custom branded collateral',
-      'Event Organizers, PR Agencies, and Trade Show Exhibitors at DWTC and Dubai Expo City',
-    ],
-    processSteps: [
-      {
-        step: '1',
-        title: 'Order & Artwork Submission',
-        desc: 'Submit your vector artwork or request our studio prepress layout assistance with your target specifications.',
-      },
-      {
-        step: '2',
-        title: 'Prepress Digital Soft Proofing',
-        desc: 'Our prepress specialists conduct a comprehensive bleed, resolution, and CMYK color profile check, issuing a PDF proof within 2 hours.',
-      },
-      {
-        step: '3',
-        title: 'Precision Production & Finishing',
-        desc: 'Printed on commercial HP Indigo digital or Heidelberg offset presses with luxury custom lamination, foil, and die-cutting applied.',
-      },
-      {
-        step: '4',
-        title: 'Quality Inspection & UAE Delivery',
-        desc: 'Each batch undergoes rigorous manual quality inspection before secure packaging and same-day or next-day courier delivery to your doorstep.',
-      },
-    ],
-    artworkRequirements: {
-      formats: 'Print-ready PDF (PDF/X-1a preferred), Adobe Illustrator (.AI), EPS, or high-res TIFF',
-      resolution: '300 DPI minimum at 100% actual print scale',
-      bleed: '3mm minimum bleed on all sides with a 4mm internal safety margin',
-      colorMode: 'CMYK (Fogra 39 or Coated GRACoL 2006). Convert RGB & Pantone spot colors to process unless spot printing is specified.',
-      fonts: 'All typography converted to outlines / vectors. Embedded raster images must exceed 300 DPI.',
-    },
-    faqs: specificFaqs,
-    requestQuote: {
-      email: '0nprint183@gmail.com',
-      address: 'Al Quoz, Dubai, UAE',
-      turnaround: 'Standard 24–48 Hours | Same-Day Rush Available',
-      moq: 'Flexible Low MOQs Starting From 25–50 Units',
-    },
-  }
-}
 
 export default serviceGeoContent

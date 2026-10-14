@@ -71,29 +71,39 @@ async function listProducts(req, res, next) {
           imageMap[img.product_id].push(img.image_url)
         })
 
-        list = rows.map((p) => ({
-          _id: p.product_key || `prod-${p.id}`,
-          id: p.id,
-          name: p.name,
-          slug: p.slug,
-          shortDescription: p.shortDescription,
-          description: p.description,
-          price: Number(p.price),
-          minimumQuantity: p.minimumQuantity,
-          featured: Boolean(p.featured),
-          active: Boolean(p.active),
-          seoTitle: p.seoTitle || `${p.name} | ONPRINT Dubai`,
-          seoDescription: p.seoDescription || p.shortDescription || p.description || '',
-          seoKeywords: p.seoKeywords || '',
-          seoHeading: p.seoHeading || p.name,
-          canonicalUrl: p.canonicalUrl || `https://www.0nprint.com/products/${p.slug}`,
-          imageAlt: p.imageAlt || p.name,
-          createdAt: p.createdAt,
-          category: p.cat_id
-            ? { _id: p.cat_key || `cat-${p.cat_id}`, id: p.cat_id, name: p.cat_name, slug: p.cat_slug }
-            : null,
-          images: imageMap[p.id] || ['/assets/products/1 (1).jpg'],
-        }))
+        list = rows.map((p) => {
+          const directImgs = Array.isArray(p.images) && p.images.length > 0 ? p.images : null
+          const mappedImgs =
+            imageMap[p.slug] ||
+            imageMap[p.product_key] ||
+            imageMap[p.id] ||
+            (p._id ? imageMap[p._id] : null)
+          const finalImgs = directImgs || mappedImgs || ['/assets/products/1 (1).jpg']
+
+          return {
+            _id: p.product_key || `prod-${p.id}`,
+            id: p.id,
+            name: p.name,
+            slug: p.slug,
+            shortDescription: p.shortDescription,
+            description: p.description,
+            price: Number(p.price),
+            minimumQuantity: p.minimumQuantity,
+            featured: Boolean(p.featured),
+            active: Boolean(p.active),
+            seoTitle: p.seoTitle || `${p.name} | ONPRINT Dubai`,
+            seoDescription: p.seoDescription || p.shortDescription || p.description || '',
+            seoKeywords: p.seoKeywords || '',
+            seoHeading: p.seoHeading || p.name,
+            canonicalUrl: p.canonicalUrl || `https://www.0nprint.com/products/${p.slug}`,
+            imageAlt: p.imageAlt || p.name,
+            createdAt: p.createdAt,
+            category: p.category || (p.cat_id
+              ? { _id: p.cat_key || `cat-${p.cat_id}`, id: p.cat_id, name: p.cat_name, slug: p.cat_slug }
+              : null),
+            images: finalImgs,
+          }
+        })
       }
     } catch {
       // Fallback to static initial data
@@ -184,6 +194,10 @@ async function getProductBySlug(req, res, next) {
           [p.id]
         )
 
+        const directImgs = Array.isArray(p.images) && p.images.length > 0 ? p.images : null
+        const queryImgs = images.length > 0 ? images.map((i) => i.image_url) : null
+        const finalImgs = directImgs || queryImgs || ['/assets/products/1 (1).jpg']
+
         const product = {
           _id: p.product_key || `prod-${p.id}`,
           id: p.id,
@@ -202,10 +216,10 @@ async function getProductBySlug(req, res, next) {
           canonicalUrl: p.canonicalUrl || `https://www.0nprint.com/products/${p.slug}`,
           imageAlt: p.imageAlt || (images[0]?.alt_text) || p.name,
           createdAt: p.createdAt,
-          category: p.cat_id
+          category: p.category || (p.cat_id
             ? { _id: p.cat_key || `cat-${p.cat_id}`, id: p.cat_id, name: p.cat_name, slug: p.cat_slug }
-            : null,
-          images: images.length > 0 ? images.map((i) => i.image_url) : ['/assets/products/1 (1).jpg'],
+            : null),
+          images: finalImgs,
         }
 
         return res.json({ success: true, data: product })

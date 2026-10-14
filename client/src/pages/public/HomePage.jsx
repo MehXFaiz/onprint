@@ -1162,8 +1162,8 @@ export default function HomePage() {
             {featuredProducts === null && <LoadingState type="cards" columns={4} count={4} label="Loading products…" />}
             {featuredProducts && featuredProducts.length > 0 && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {featuredProducts.map((product) => (
-                  <ProductCard key={product._id} product={product} onQuickView={setQuickViewProduct} />
+                {featuredProducts.map((product, idx) => (
+                  <ProductCard key={product._id} product={product} index={idx} onQuickView={setQuickViewProduct} />
                 ))}
               </div>
             )}

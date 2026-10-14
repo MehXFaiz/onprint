@@ -334,10 +334,11 @@ export default function CategoryDetailPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {products.map((product) => (
+              {products.map((product, idx) => (
                 <ProductCard
                   key={product._id || product.id}
                   product={product}
+                  index={idx}
                   onQuickView={setQuickViewProduct}
                 />
               ))}

@@ -229,7 +229,7 @@ export const categoryImageMap = {
   "plastic-pvc-business-cards": {
     "business-cards-printing": [
       "/assets/products/business-cards/bc_triplex.jpg",
-      "/assets/products/id-cards/standard-pvc-id.jpg"
+      "/assets/products/business-cards/bc_glossy.jpg"
     ]
   },
   "acrylic-nameplates": {

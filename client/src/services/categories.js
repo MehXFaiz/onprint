@@ -345,7 +345,7 @@ export const initialCategories = [
   }
 ]
 
-const STORAGE_KEY = 'onprint_categories_data_v3'
+const STORAGE_KEY = 'onprint_categories_data_v4'
 
 function getStoredCategories() {
   try {
@@ -353,14 +353,23 @@ function getStoredCategories() {
     if (saved) {
       const parsed = JSON.parse(saved)
       if (Array.isArray(parsed) && parsed.length > 0) {
-        const existingSlugs = new Set(parsed.map((c) => c.slug))
+        const initialMap = new Map(initialCategories.map((c) => [c.slug, c]))
+        const sanitized = parsed.map((c) => {
+          const init = initialMap.get(c.slug)
+          let img = c.image || c.image_url
+          if (!img || img.includes('trae.ai')) {
+            img = init ? (init.image || init.image_url) : `/uploads/categories/${c.slug}.jpg`
+          }
+          return { ...c, image: img, image_url: img }
+        })
+        const existingSlugs = new Set(sanitized.map((c) => c.slug))
         const missing = initialCategories.filter((ic) => !existingSlugs.has(ic.slug))
         if (missing.length > 0) {
-          const merged = [...parsed, ...missing]
+          const merged = [...sanitized, ...missing]
           saveStoredCategories(merged)
           return merged
         }
-        return parsed
+        return sanitized
       }
     }
   } catch {
@@ -384,9 +393,22 @@ export async function getCategories(params = {}) {
   try {
     const { data } = await api.get('/categories', { params })
     if (data?.data && Array.isArray(data.data) && data.data.length > 0) {
-      const existingSlugs = new Set(data.data.map((c) => c.slug))
+      const initialMap = new Map(initialCategories.map((c) => [c.slug, c]))
+      const cleanData = data.data.map((c) => {
+        const init = initialMap.get(c.slug)
+        let img = c.image || c.image_url
+        if (!img || img.includes('trae.ai')) {
+          img = init ? (init.image || init.image_url) : `/uploads/categories/${c.slug}.jpg`
+        }
+        return {
+          ...c,
+          image: img,
+          image_url: img,
+        }
+      })
+      const existingSlugs = new Set(cleanData.map((c) => c.slug))
       const missing = initialCategories.filter((ic) => !existingSlugs.has(ic.slug))
-      list = missing.length > 0 ? [...data.data, ...missing] : data.data
+      list = missing.length > 0 ? [...cleanData, ...missing] : cleanData
       saveStoredCategories(list)
     }
   } catch (err) {

@@ -227,10 +227,11 @@ function SectionCardGroup({ section, onQuickView }) {
             transition={{ duration: 0.35, ease: 'easeOut' }}
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {visibleItems.map((item) => (
+            {visibleItems.map((item, idx) => (
               <ProductCard
                 key={item._id || item.id || item.slug}
                 product={item}
+                index={idx}
                 onQuickView={onQuickView}
               />
             ))}

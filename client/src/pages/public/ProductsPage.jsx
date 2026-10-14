@@ -336,10 +336,11 @@ export default function ProductsPage() {
           {/* VIEW 1: Filtered / Single Category or Search Active */}
           {!loading && !error && (categoryParam || searchQuery) && filteredProducts.length > 0 && (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch">
-              {filteredProducts.map((product) => (
+              {filteredProducts.map((product, idx) => (
                 <ProductCard
                   key={product._id || product.slug || product.id}
                   product={product}
+                  index={idx}
                   onQuickView={setQuickViewProduct}
                 />
               ))}
@@ -365,10 +366,11 @@ export default function ProductsPage() {
 
                   {/* Standard Responsive Product Grid */}
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch">
-                    {group.items.map((product) => (
+                    {group.items.map((product, idx) => (
                       <ProductCard
                         key={product._id || product.slug || product.id}
                         product={product}
+                        index={idx}
                         onQuickView={setQuickViewProduct}
                       />
                     ))}

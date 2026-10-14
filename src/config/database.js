@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const models = require('../models')
+const { categories: initialCategories, products: initialProducts } = require('../data/initialData')
 
 const {
   User,
@@ -120,68 +121,67 @@ async function initDatabase() {
       console.log(`[Database] Seeded Admin User in MongoDB Atlas: ${adminEmail}`)
     }
 
-    // Ensure Rollup Banners category has id 19 and distinct key
-    await Category.updateOne(
-      { slug: 'rollup-banners' },
-      {
-        $set: {
-          id: 19,
-          category_key: 'cat-rollup-banners-dubai',
-          name: 'Rollup Banners',
-          status: 'active',
-          active: true,
-          display_order: 19,
+    // 1. Ensure all 19 categories are synced into MongoDB Atlas with clean local images (no trae.ai URLs)
+    for (const c of initialCategories) {
+      await Category.updateOne(
+        { slug: c.slug },
+        {
+          $set: {
+            id: c.id,
+            category_key: c._id || `cat-${c.slug}`,
+            name: c.name,
+            slug: c.slug,
+            description: c.description || '',
+            image: c.image || c.image_url,
+            image_url: c.image_url || c.image,
+            status: 'active',
+            active: true,
+            display_order: c.display_order || c.id,
+            seo_title: c.seo_title || c.seoTitle,
+            seo_description: c.seo_description || c.seoDescription,
+            seo_keywords: c.seo_keywords || c.seoKeywords,
+            seo_heading: c.seo_heading || c.seoHeading,
+            canonical_url: c.canonical_url || c.canonicalUrl,
+            image_alt: c.image_alt || c.imageAlt,
+          },
         },
-      },
-      { upsert: true }
-    )
+        { upsert: true }
+      )
+    }
 
-    // Ensure Signage category has id 10
-    await Category.updateOne(
-      { slug: 'signage-banners-printing' },
-      {
-        $set: {
-          id: 10,
-          category_key: 'cat-signage-banners-printing',
+    // 2. Ensure all 111 products have collision-free unique IDs, correct category_id, embedded category, and verified image arrays
+    for (const p of initialProducts) {
+      const cleanImgs = Array.isArray(p.images) && p.images.length > 0 ? p.images : [p.image]
+      await Product.updateOne(
+        { slug: p.slug },
+        {
+          $set: {
+            id: p.id,
+            product_key: p.product_key || `prod-${p.id}`,
+            category_id: p.category_id,
+            category: p.category,
+            categories: p.categories || [p.category],
+            name: p.name,
+            slug: p.slug,
+            short_description: p.short_description || p.shortDescription || '',
+            description: p.description || '',
+            price: p.price || 0,
+            minimum_quantity: p.minimum_quantity || p.minimumQuantity || 1,
+            featured: Boolean(p.featured),
+            specifications: p.specifications || [],
+            images: cleanImgs,
+            active: p.active !== false,
+            seo_title: p.seo_title || p.seoTitle,
+            seo_description: p.seo_description || p.seoDescription,
+            seo_keywords: p.seo_keywords || p.seoKeywords,
+            seo_heading: p.seo_heading || p.seoHeading,
+            canonical_url: p.canonical_url || p.canonicalUrl,
+            image_alt: p.image_alt || p.imageAlt || p.name,
+          },
         },
-      }
-    )
-
-    // Update rollup banner products to category_id 19
-    const rollupSlugs = [
-      'standard-rollup-banner-85x200',
-      'luxury-teardrop-rollup-banner',
-      'wide-exhibition-rollup-banner-100x200',
-      'giant-backdrop-rollup-banner-120x200',
-      'double-sided-rollup-banner-85x200',
-      'desktop-mini-rollup-banner',
-      'outdoor-wind-resistant-rollup-banner',
-      'executive-matte-black-rollup-banner',
-    ]
-    await Product.updateMany(
-      { slug: { $in: rollupSlugs } },
-      {
-        $set: {
-          category_id: 19,
-        },
-      }
-    )
-
-    // Ensure signage products are kept under category_id 10
-    const signageSlugs = [
-      'wall-acrylic-signage',
-      'foam-board-signage',
-      'large-format-posters',
-      'beach-flags',
-    ]
-    await Product.updateMany(
-      { slug: { $in: signageSlugs } },
-      {
-        $set: {
-          category_id: 10,
-        },
-      }
-    )
+        { upsert: true }
+      )
+    }
 
     return true
   } catch (err) {
@@ -312,26 +312,56 @@ async function executeSql(sql, params = []) {
   // Special handling for product_images
   if (targetTable === 'product_images') {
     if (upperSql.startsWith('SELECT')) {
-      const products = await Product.find({}).lean()
+      let filter = {}
+      if (params.length > 0 && (upperSql.includes('PRODUCT_ID = ?') || upperSql.includes('PRODUCT_ID=?'))) {
+        const prodId = params[0]
+        const orConditions = [
+          { id: prodId },
+          { id: Number(prodId) || -1 },
+          { product_key: String(prodId) },
+          { slug: String(prodId) },
+        ]
+        if (mongoose.isValidObjectId(prodId)) {
+          orConditions.push({ _id: prodId })
+        }
+        filter = { $or: orConditions }
+      }
+
+      const products = await Product.find(filter).lean()
       const imageRows = []
       let imgIdx = 1
       for (const p of products) {
-        const imgs = Array.isArray(p.images) ? p.images : []
+        const imgs = Array.isArray(p.images) && p.images.length > 0 ? p.images : (p.image ? [p.image] : [])
         imgs.forEach((url, i) => {
+          const rowData = {
+            image_url: url,
+            alt_text: p.image_alt || p.name,
+            display_order: i + 1,
+          }
           imageRows.push({
             id: imgIdx++,
             product_id: p.id,
-            image_url: url,
-            alt_text: p.image_alt || p.name,
-            display_order: i,
+            ...rowData,
           })
+          if (p.slug) {
+            imageRows.push({
+              id: imgIdx++,
+              product_id: p.slug,
+              ...rowData,
+            })
+          }
+          if (p.product_key) {
+            imageRows.push({
+              id: imgIdx++,
+              product_id: p.product_key,
+              ...rowData,
+            })
+          }
           if (p._id) {
             imageRows.push({
               id: imgIdx++,
               product_id: p._id.toString(),
-              image_url: url,
-              alt_text: p.image_alt || p.name,
-              display_order: i,
+              ...rowData,
             })
           }
         })
@@ -343,7 +373,15 @@ async function executeSql(sql, params = []) {
         const prodId = params[0]
         const imgUrl = params[1]
         await Product.updateOne(
-          { $or: [{ id: prodId }, { _id: mongoose.isValidObjectId(prodId) ? prodId : null }] },
+          {
+            $or: [
+              { id: prodId },
+              { id: Number(prodId) || -1 },
+              { product_key: String(prodId) },
+              { slug: String(prodId) },
+              { _id: mongoose.isValidObjectId(prodId) ? prodId : null },
+            ].filter(Boolean),
+          },
           { $push: { images: imgUrl } }
         )
       }
@@ -353,7 +391,15 @@ async function executeSql(sql, params = []) {
       if (params.length >= 1) {
         const prodId = params[0]
         await Product.updateOne(
-          { $or: [{ id: prodId }, { _id: mongoose.isValidObjectId(prodId) ? prodId : null }] },
+          {
+            $or: [
+              { id: prodId },
+              { id: Number(prodId) || -1 },
+              { product_key: String(prodId) },
+              { slug: String(prodId) },
+              { _id: mongoose.isValidObjectId(prodId) ? prodId : null },
+            ].filter(Boolean),
+          },
           { $set: { images: [] } }
         )
       }
@@ -518,18 +564,32 @@ async function executeSql(sql, params = []) {
       const catMap = {}
       allCats.forEach((c) => {
         catMap[c.id] = c
+        catMap[String(c.id)] = c
         if (c.category_key) catMap[c.category_key] = c
+        if (c.slug) catMap[c.slug] = c
       })
 
       const rows = prods.map((p) => {
         const doc = normalizeDoc(p)
-        const cat = catMap[doc.category_id]
+        const cat =
+          catMap[doc.category_id] ||
+          catMap[String(doc.category_id)] ||
+          (doc.category && catMap[doc.category.slug]) ||
+          (doc.category && catMap[doc.category.id]) ||
+          doc.category
         if (cat) {
           doc.cat_id = cat.id
-          doc.cat_key = cat.category_key || `cat-${cat.id}`
+          doc.cat_key = cat.category_key || cat._id || `cat-${cat.id}`
           doc.cat_name = cat.name
           doc.cat_slug = cat.slug
+          doc.category = {
+            _id: cat.category_key || cat._id || `cat-${cat.id}`,
+            id: cat.id,
+            name: cat.name,
+            slug: cat.slug,
+          }
         }
+        doc.images = Array.isArray(p.images) && p.images.length > 0 ? p.images : (p.image ? [p.image] : [])
         doc.shortDescription = doc.short_description
         doc.minimumQuantity = doc.minimum_quantity
         doc.seoTitle = doc.seo_title

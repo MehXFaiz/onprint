@@ -3,7 +3,7 @@ import catalogProducts from '../data/catalogProducts.json'
 
 export const defaultProducts = catalogProducts
 
-const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v5'
+const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v6'
 
 export function getStoredProducts() {
   try {
@@ -16,7 +16,7 @@ export function getStoredProducts() {
         return !['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5', 'prod-6', 'prod-7', 'prod-8', 'prod-9', 'prod-10', 'prod-11', 'prod-12', 'prod-13'].includes(id)
       })
 
-      // 2. Sanitize: Fix category assignment for mugs and bottles into dedicated categories
+      // 2. Sanitize: Fix category assignment into standard 19 categories
       clean = clean.map((p) => {
         const name = String(p.name || '').toLowerCase()
         const slug = String(p.slug || '').toLowerCase()
@@ -26,7 +26,7 @@ export function getStoredProducts() {
             ...p,
             category: {
               _id: 'cat-mug-printing-dubai',
-              id: 17,
+              id: 8,
               name: 'Mug Printing Dubai',
               slug: 'mug-printing-dubai'
             }
@@ -38,9 +38,33 @@ export function getStoredProducts() {
             ...p,
             category: {
               _id: 'cat-bottle-printing-dubai',
-              id: 18,
+              id: 9,
               name: 'Water Bottle Printing Dubai',
               slug: 'bottle-printing-dubai'
+            }
+          }
+        }
+
+        if (name.includes('stamp') || slug.includes('stamp') || name.includes('seal') || slug.includes('seal') || name.includes('dater') || slug.includes('dater')) {
+          return {
+            ...p,
+            category: {
+              _id: 'cat-stamps-printing-dubai',
+              id: 18,
+              name: 'Custom Stamps & Seals',
+              slug: 'stamps-printing-dubai'
+            }
+          }
+        }
+
+        if (name.includes('lanyard') || slug.includes('lanyard') || name.includes('badge reel') || slug.includes('badge-reel')) {
+          return {
+            ...p,
+            category: {
+              _id: 'cat-lanyard-printing-dubai',
+              id: 5,
+              name: 'Lanyard Printing Dubai',
+              slug: 'lanyard-printing-dubai'
             }
           }
         }
@@ -86,7 +110,7 @@ export function getStoredProducts() {
             ...p,
             category: {
               _id: 'cat-signage-banners-printing',
-              id: 10,
+              id: 11,
               name: 'Signage & Exhibition Banners',
               slug: 'signage-banners-printing'
             }
@@ -98,7 +122,7 @@ export function getStoredProducts() {
             ...p,
             category: {
               _id: 'cat-corporate-gift-items',
-              id: 9,
+              id: 10,
               name: 'Corporate Gifts & Merchandise',
               slug: 'corporate-gift-items'
             }

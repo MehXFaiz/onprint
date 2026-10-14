@@ -693,8 +693,8 @@ export default function ProductDetailPage() {
               )}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {relatedProducts.map((relProd) => (
-                <ProductCard key={relProd._id || relProd.slug} product={relProd} />
+              {relatedProducts.map((relProd, idx) => (
+                <ProductCard key={relProd._id || relProd.slug} product={relProd} index={idx} />
               ))}
             </div>
           </div>

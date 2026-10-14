@@ -17,6 +17,7 @@ export default function ProductCard({
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const [imageError, setImageError] = useState(false)
   const rafRef = useRef(null)
 
   const productImage = product ? getProductImage(product) : ''
@@ -26,6 +27,7 @@ export default function ProductCard({
   useEffect(() => {
     if (product) {
       setCurrentImg(productImage)
+      setImageError(false)
     }
   }, [productImage, product])
 
@@ -49,6 +51,21 @@ export default function ProductCard({
       e.preventDefault()
       e.stopPropagation()
       onQuickView(product)
+    }
+  }
+
+  const handleImageError = (e) => {
+    e.target.onerror = null
+    const catSlug =
+      (typeof product.category === 'object' ? product.category?.slug : product.category) || ''
+    const fallbackCategoryImg = catSlug
+      ? `/uploads/categories/${catSlug}.jpg`
+      : '/uploads/categories/business-cards-printing.jpg'
+
+    if (currentImg !== fallbackCategoryImg && !String(currentImg).includes(catSlug)) {
+      setCurrentImg(fallbackCategoryImg)
+    } else {
+      setImageError(true)
     }
   }
 
@@ -99,10 +116,6 @@ export default function ProductCard({
   }
 
   const resolvedSrc = currentImg || productImage
-  const webpSrc =
-    typeof resolvedSrc === 'string' && (resolvedSrc.endsWith('.jpg') || resolvedSrc.endsWith('.png'))
-      ? resolvedSrc.replace(/\.(jpg|png)$/, '.webp')
-      : null
 
   const prefersReducedMotion =
     typeof window !== 'undefined' &&
@@ -150,25 +163,18 @@ export default function ProductCard({
             transition: isHovered ? 'transform 0.12s ease-out' : 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          {productImage ? (
+          {resolvedSrc && !imageError ? (
             <div className="relative h-full w-full overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-[0_4px_14px_rgba(0,0,0,0.06)] group-hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-500">
-              <picture>
-                {webpSrc && <source type="image/webp" srcSet={webpSrc} />}
-                <img
-                  src={resolvedSrc}
-                  alt={product.imageAlt || product.name}
-                  width="380"
-                  height="285"
-                  loading="lazy"
-                  decoding="async"
-                  onError={() => {
-                    if (currentImg !== productImage) {
-                      setCurrentImg(productImage)
-                    }
-                  }}
-                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.07]"
-                />
-              </picture>
+              <img
+                src={resolvedSrc}
+                alt={product.imageAlt || product.name}
+                width="380"
+                height="285"
+                loading="lazy"
+                decoding="async"
+                onError={handleImageError}
+                className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.07]"
+              />
 
               {/* Bottom Contrast Vignette on Hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
@@ -180,8 +186,9 @@ export default function ProductCard({
               />
             </div>
           ) : (
-            <div className="flex h-full w-full items-center justify-center rounded-xl bg-slate-100 text-[11px] font-black uppercase tracking-widest text-slate-400">
-              ONPRINT PRESS
+            <div className="flex h-full w-full flex-col items-center justify-center rounded-xl bg-slate-100 border border-slate-200/80 text-slate-400 p-4 text-center select-none">
+              <span className="font-display font-black text-xs uppercase tracking-widest text-slate-400">ONPRINT PRESS</span>
+              <span className="text-[11px] font-bold text-slate-600 mt-1 line-clamp-1">{product.name}</span>
             </div>
           )}
         </div>

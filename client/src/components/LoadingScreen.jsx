@@ -1,21 +1,32 @@
 import { useEffect, useState, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import logoLight from '../assets/logo_light.png'
 
-const SESSION_KEY = 'onprint-splash-v6'
+const SESSION_KEY = 'onprint-splash-v7'
 
 // Luxury motion curve - ultra smooth, fluid, cinematic deceleration
 const LUXURY_EASE = [0.22, 1, 0.36, 1]
 const GENTLE_EASE = [0.25, 0.1, 0.25, 1]
 
 export default function LoadingScreen() {
+  const location = useLocation()
   const reduce = useReducedMotion()
   const [visible, setVisible] = useState(false)
   const [phase, setPhase] = useState(0) // 0: sweep & paper entry, 1: logo & light sweep, 2: progress line, 3: tagline & loading, 4: smooth exit
   const isMountedRef = useRef(true)
 
+  // Critical SEO & Core Web Vitals Optimization:
+  // Never display splash screen on deep commercial/service/product landing pages.
+  // Deep landing pages MUST render meaningful content immediately with 0 delay.
+  const isRootPage = location.pathname === '/' || location.pathname === ''
+
   useEffect(() => {
     isMountedRef.current = true
+
+    if (!isRootPage) {
+      return
+    }
 
     // Check if session storage already saw splash in this session
     if (typeof window !== 'undefined' && window.sessionStorage.getItem(SESSION_KEY)) {
@@ -37,32 +48,26 @@ export default function LoadingScreen() {
 
     setVisible(true)
 
-    // Fast, ultra-smooth cinematic timeline (1.4s total):
-    // 0.0s: Deep matte-black, ambient orange rim light, smooth entry
-    // 0.25s: Phase 1 - Metallic logo reveal with depth and light sweep
-    // 0.60s: Phase 2 - Thin vivid orange progress line smoothly glides across
-    // 0.90s: Phase 3 - Tagline "PRINT · BRAND · GROW" & "LOADING YOUR IDEAS…"
-    // 1.25s: Phase 4 - Poised completion
-    // 1.40s: Seamless exit into homepage
+    // Fast, ultra-smooth cinematic timeline (0.75s total) so navigation is never obstructed:
     const t1 = setTimeout(() => {
       if (isMountedRef.current) setPhase(1)
-    }, 250)
+    }, 150)
 
     const t2 = setTimeout(() => {
       if (isMountedRef.current) setPhase(2)
-    }, 600)
+    }, 350)
 
     const t3 = setTimeout(() => {
       if (isMountedRef.current) setPhase(3)
-    }, 900)
+    }, 500)
 
     const t4 = setTimeout(() => {
       if (isMountedRef.current) setPhase(4)
-    }, 1250)
+    }, 650)
 
     const exitTimer = setTimeout(() => {
       if (isMountedRef.current) setVisible(false)
-    }, 1400)
+    }, 750)
 
     return () => {
       isMountedRef.current = false
@@ -72,7 +77,7 @@ export default function LoadingScreen() {
       clearTimeout(t4)
       clearTimeout(exitTimer)
     }
-  }, [reduce])
+  }, [reduce, isRootPage])
 
   // Allow clicking anywhere or pressing Esc/Enter/Space to smoothly bypass
   useEffect(() => {
@@ -85,7 +90,7 @@ export default function LoadingScreen() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [visible])
 
-  if (!visible) return null
+  if (!isRootPage || !visible) return null
 
   return (
     <AnimatePresence>
@@ -101,14 +106,26 @@ export default function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            scale: 1.025,
-            filter: 'blur(10px)',
-            transition: { duration: 0.85, ease: LUXURY_EASE },
+            scale: 1.01,
+            pointerEvents: 'none',
+            transition: { duration: 0.35, ease: LUXURY_EASE },
           }}
           role="status"
           aria-live="polite"
           aria-label="ONPRINT Luxury Splash"
         >
+          {/* Accessible Skip Button */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation()
+              setVisible(false)
+            }}
+            className="absolute top-5 right-5 z-50 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium tracking-wider text-white/80 hover:text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all pointer-events-auto cursor-pointer"
+            aria-label="Skip splash screen"
+          >
+            SKIP ✕
+          </button>
           {/* ======================================================== */}
           {/* 1. DEEP MATTE BLACK BACKGROUND & SUBTLE NOISE TEXTURE     */}
           {/* ======================================================== */}

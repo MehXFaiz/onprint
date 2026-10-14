@@ -12,7 +12,7 @@ try {
   // Graceful fallback if nodemailer is still installing
 }
 
-const BUSINESS_EMAIL = (process.env.ADMIN_EMAIL || process.env.BUSINESS_EMAIL || '0nprint183@gmail.com').trim()
+const BUSINESS_EMAIL = (process.env.BUSINESS_EMAIL || '0nprint183@gmail.com').trim()
 
 function getTransporter() {
   if (!nodemailer) return null

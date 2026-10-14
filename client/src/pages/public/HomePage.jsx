@@ -197,10 +197,11 @@ const atelierShowcaseItems = [
 
 const quickCalcCategories = [
   { id: 'business-cards', name: 'Business Cards', minQty: '100 pcs', turnaround: 'Same-Day / 24h', stock: '350–600 GSM Cotton / Velvet' },
+  { id: 'stickers', name: 'Stickers & Labels', minQty: '100 pcs', turnaround: 'Same-Day', stock: 'Waterproof Vinyl / Matte' },
+  { id: 'rollup-banners', name: 'Roll-Up Banners', minQty: '1 unit', turnaround: 'Same-Day / 24h', stock: 'Anti-Curl Film / Aluminium Cassette' },
+  { id: 'bottle-printing', name: 'Custom Bottles', minQty: '25 pcs', turnaround: '24–48h', stock: 'Stainless Steel / Aluminium / Laser-Etched' },
   { id: 'stationery', name: 'Letterheads & Stationery', minQty: '100 pcs', turnaround: '24–48h', stock: '120 GSM Smooth Uncoated' },
   { id: 'brochures', name: 'Brochures & Flyers', minQty: '250 pcs', turnaround: '24–48h', stock: '170–350 GSM Silk Art' },
-  { id: 'stickers', name: 'Stickers & Labels', minQty: '100 pcs', turnaround: 'Same-Day', stock: 'Waterproof Vinyl / Matte' },
-  { id: 'corporate-gifts', name: 'Corporate Gifts', minQty: '25 pcs', turnaround: '24–48h', stock: 'Laser-Etched Metal / Thermal' },
 ]
 
 export default function HomePage() {
@@ -280,8 +281,10 @@ export default function HomePage() {
   const getWhatsAppCalcLink = () => {
     return getServiceWhatsAppUrl(selectedCalcCategory.id, {
       productName: selectedCalcCategory.name,
+      material: selectedCalcCategory.stock,
       finish: selectedFinish,
       quantity: selectedCalcCategory.minQty,
+      deadline: selectedCalcCategory.turnaround,
     })
   }
 
@@ -1422,11 +1425,12 @@ export default function HomePage() {
             <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
               One-Click WhatsApp Inquiry by Service:
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
               {[
                 { label: 'Business Cards', key: 'business-cards' },
-                { label: 'Roll-Up Banners', key: 'rollup-banners' },
                 { label: 'Stickers & Labels', key: 'stickers' },
+                { label: 'Roll-Up Banners', key: 'rollup-banners' },
+                { label: 'Custom Bottles', key: 'bottle-printing' },
                 { label: 'Custom Stamps', key: 'stamps' },
               ].map((svc) => (
                 <a

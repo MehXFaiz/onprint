@@ -41,7 +41,7 @@ const sections = [
   },
   {
     title: '10. Contacting Our Data Privacy Officer',
-    body: 'For any inquiries, data access requests, or questions regarding this Privacy Policy and our data handling practices, please contact our Data Protection Team by email at 0nprint183@gmail.com, via our official WhatsApp hotline (+44 7344 546056), or by visiting our commercial pressroom located in Al Quoz Industrial Area, Dubai, United Arab Emirates.',
+    body: 'For any inquiries, data access requests, or questions regarding this Privacy Policy and our data handling practices, please contact our Data Protection Team by email at 0nprint183@gmail.com, via our official WhatsApp hotline (+44 7344546056), or by visiting our commercial pressroom located in Al Quoz Industrial Area, Dubai, United Arab Emirates.',
   },
 ]
 

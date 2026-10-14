@@ -12,7 +12,7 @@ export default function AdminSettingsPage() {
     tagline: 'Business Printing & Executive Stationery Dubai',
     supportEmail: 'support@onprint.ae',
     salesEmail: 'sales@onprint.ae',
-    phone: '+44 7344 546056',
+    phone: '+44 7344546056',
     whatsapp: '+44 7344546056',
     address: 'Al Quoz, Dubai, United Arab Emirates',
     currency: 'AED',

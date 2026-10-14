@@ -2,7 +2,7 @@ const { pool } = require('../config/database')
 const { products: fallbackProducts, services: fallbackServices, categories: fallbackCategories } = require('../data/initialData')
 const programmaticSeoService = require('../services/programmaticSeoService')
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 function escapeXml(unsafe) {
   return String(unsafe || '')
@@ -318,6 +318,11 @@ async function getSitemapXml(req, res) {
         { path: '/promotional-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/bottle-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/quote/bottles', priority: '0.85', changefreq: 'weekly' },
+        { path: '/quote/rollup-banners', priority: '0.85', changefreq: 'weekly' },
+        { path: '/printing-services-abu-dhabi', priority: '0.85', changefreq: 'weekly' },
+        { path: '/printing-services-sharjah', priority: '0.85', changefreq: 'weekly' },
+        { path: '/printing-services-ajman', priority: '0.85', changefreq: 'weekly' },
+        { path: '/printing-services-ras-al-khaimah', priority: '0.85', changefreq: 'weekly' },
         { path: '/products', priority: '0.9', changefreq: 'daily' },
         { path: '/blog', priority: '0.8', changefreq: 'daily' },
         { path: '/portfolio', priority: '0.7', changefreq: 'monthly' },

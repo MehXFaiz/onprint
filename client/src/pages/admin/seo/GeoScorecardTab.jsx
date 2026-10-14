@@ -47,7 +47,7 @@ export default function GeoScorecardTab({ showToast }) {
       icon: ShieldCheck,
       score: 100,
       status: 'VERIFIED',
-      details: 'Identical Name (ONPRINT / 0nprint), Address (Al Quoz, Dubai), Phone (+44 7344 546056), Hours across all pages, footers, and schema.',
+      details: 'Identical Name (ONPRINT / 0nprint), Address (Al Quoz, Dubai), Phone (+44 7344546056), Hours across all pages, footers, and schema.',
     },
     {
       pillar_id: 2,

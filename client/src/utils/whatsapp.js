@@ -23,8 +23,8 @@ export const WHATSAPP_PHONE = RAW_WHATSAPP_NUMBER.replace(/[^\d]/g, '')
 export function formatPhoneNumber(digits = WHATSAPP_PHONE) {
   const clean = String(digits).replace(/[^\d]/g, '')
   if (clean.startsWith('44') && clean.length >= 12) {
-    // UK format: +44 7344 546056
-    return `+${clean.slice(0, 2)} ${clean.slice(2, 6)} ${clean.slice(6)}`
+    // Official display format: +44 7344546056
+    return `+${clean.slice(0, 2)} ${clean.slice(2)}`
   }
   if (clean.startsWith('971') && clean.length >= 11) {
     // UAE format: +971 50 123 4567 or +971 4 800 7746
@@ -129,24 +129,30 @@ export function resolveServiceKey(slugOrKey = '') {
 }
 
 /**
- * Generates official click-to-chat WhatsApp URL for a service with optional verified product specs
+ * Generates official click-to-chat WhatsApp URL for a service with verified product specs
  */
 export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
   const canonicalKey = resolveServiceKey(serviceKey)
   const baseMessage = SERVICE_INQUIRY_MESSAGES[canonicalKey] || SERVICE_INQUIRY_MESSAGES.general
 
   const detailLines = []
-  if (details.productName) detailLines.push(`• Product: ${details.productName}`)
-  if (details.size) detailLines.push(`• Size / Dimensions: ${details.size}`)
-  if (details.material) detailLines.push(`• Material / Stock: ${details.material}`)
-  if (details.finish) detailLines.push(`• Finish / Coating: ${details.finish}`)
+  const prodName = details.productName || details.product
+  if (prodName) detailLines.push(`• Product: ${prodName}`)
   if (details.quantity) detailLines.push(`• Quantity: ${details.quantity} units`)
-  if (details.price) detailLines.push(`• Starting Price: AED ${details.price}`)
+  const sizeVal = details.size || details.dimensions
+  if (sizeVal) detailLines.push(`• Size / Dimensions: ${sizeVal}`)
+  const matVal = details.material || details.paper || details.stock
+  if (matVal) detailLines.push(`• Material / Stock: ${matVal}`)
+  const finVal = details.finish || details.finishing || details.coating
+  if (finVal) detailLines.push(`• Finish / Coating: ${finVal}`)
+  const deadlineVal = details.deadline || details.turnaround || details.deliveryDate
+  if (deadlineVal) detailLines.push(`• Required Deadline: ${deadlineVal}`)
+  if (details.price) detailLines.push(`• Starting / Quoted Price: AED ${details.price}`)
   if (details.notes) detailLines.push(`• Custom Notes: ${details.notes}`)
 
   let fullMessage = baseMessage
   if (detailLines.length > 0) {
-    fullMessage += `\n\n*Product Details:*\n${detailLines.join('\n')}`
+    fullMessage += `\n\n*Product & Order Specifications:*\n${detailLines.join('\n')}`
   }
 
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(fullMessage)}`
@@ -171,12 +177,27 @@ export function formatWhatsAppMessage(params = {}) {
     email,
     company,
     product,
+    productName,
     quantity,
+    size,
+    dimensions,
+    material,
+    paper,
+    finish,
+    finishing,
+    deadline,
+    turnaround,
     specs,
     price,
     notes,
     deliveryLocation = 'Dubai, UAE',
   } = params || {}
+
+  const resolvedProduct = product || productName
+  const resolvedSize = size || dimensions
+  const resolvedMaterial = material || paper
+  const resolvedFinish = finish || finishing
+  const resolvedDeadline = deadline || turnaround
 
   const parts = [
     `⚡ *${title}* 📄`,
@@ -186,8 +207,12 @@ export function formatWhatsAppMessage(params = {}) {
     phone && phone !== 'N/A' ? `📞 *Phone / WhatsApp:* ${phone}` : null,
     email ? `✉️ *Email:* ${email}` : null,
     company && company !== 'Individual' ? `🏢 *Company:* ${company}` : null,
-    product ? `🏷️ *Product / Service:* ${product}` : null,
+    resolvedProduct ? `🏷️ *Product / Service:* ${resolvedProduct}` : null,
     quantity ? `🔢 *Quantity:* ${quantity} units` : null,
+    resolvedSize ? `📐 *Dimensions / Size:* ${resolvedSize}` : null,
+    resolvedMaterial ? `📜 *Material / Paper:* ${resolvedMaterial}` : null,
+    resolvedFinish ? `✨ *Finish / Coating:* ${resolvedFinish}` : null,
+    resolvedDeadline ? `⏱️ *Required Deadline:* ${resolvedDeadline}` : null,
     specs ? `⚙️ *Specifications:* ${specs}` : null,
     price ? `💰 *Estimated Total:* AED ${price}` : null,
     deliveryLocation ? `📍 *Delivery Hub:* ${deliveryLocation}` : null,

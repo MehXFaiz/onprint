@@ -62,6 +62,19 @@ export default function ServiceDetailPage() {
 
   const sectionE = getServiceSectionEData(service, slug)
 
+  const quotePath =
+    service.slug === 'rollup-banners'
+      ? '/quote/rollup-banners'
+      : service.slug === 'bottle-printing-dubai'
+      ? '/quote/bottles'
+      : service.slug === 'business-card-printing-dubai'
+      ? '/quote/business-cards'
+      : service.slug === 'stickers-labels-printing' || service.slug === 'sticker-printing-dubai'
+      ? '/quote/stickers'
+      : service.slug === 'mug-printing-dubai'
+      ? '/quote/mugs'
+      : '/get-a-quote'
+
   const handleMockupMove = (event) => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
@@ -146,7 +159,7 @@ export default function ServiceDetailPage() {
               </a>
 
               <Button
-                to="/get-a-quote"
+                to={quotePath}
                 variant="accent"
                 size="lg"
                 onClick={() => trackGetQuoteClick({ source_page: 'service_detail', product_name: service.name })}
@@ -501,7 +514,7 @@ export default function ServiceDetailPage() {
               </a>
 
               <Button
-                to="/get-a-quote"
+                to={quotePath}
                 variant="accent"
                 size="lg"
                 onClick={() => trackGetQuoteClick({ source_page: 'service_detail_cta', product_name: service.name })}

@@ -136,14 +136,14 @@ const SCHEMA_TEMPLATES = {
       "contactPoint": [
         {
           "@type": "ContactPoint",
-          "telephone": "+44 7344 546056",
+          "telephone": "+44 7344546056",
           "contactType": "customer service / pressroom",
           "areaServed": "AE",
           "availableLanguage": ["English", "Arabic", "Urdu"]
         },
         {
           "@type": "ContactPoint",
-          "telephone": "+44 7344 546056",
+          "telephone": "+44 7344546056",
           "contactType": "concierge / WhatsApp quotes",
           "areaServed": "AE",
           "availableLanguage": ["English", "Urdu"]
@@ -162,7 +162,7 @@ const SCHEMA_TEMPLATES = {
       "alternateName": "0nprint",
       "image": "https://www.0nprint.com/logo_icon.png",
       "priceRange": "$$",
-      "telephone": "+44 7344 546056",
+      "telephone": "+44 7344546056",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Al Quoz",

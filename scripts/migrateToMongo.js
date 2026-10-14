@@ -625,7 +625,7 @@ async function runMigration() {
     { setting_key: 'site_name', setting_value: 'ONPRINT' },
     { setting_key: 'site_email', setting_value: '0nprint183@gmail.com' },
     { setting_key: 'site_phone', setting_value: '+971 4 800 PRINT' },
-    { setting_key: 'site_whatsapp', setting_value: '+44 7344 546056' },
+    { setting_key: 'site_whatsapp', setting_value: '+44 7344546056' },
     { setting_key: 'address', setting_value: 'Al Quoz Industrial Area, Dubai, United Arab Emirates' },
   ]
   for (const ss of defaultSiteSettings) {

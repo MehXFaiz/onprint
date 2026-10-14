@@ -33,9 +33,10 @@ import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
-import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
+import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick } from '../../utils/analytics'
+import { openWhatsAppDirectly, getWhatsAppUrl, getServiceWhatsAppUrl, FORMATTED_PHONE, WHATSAPP_PHONE } from '../../utils/whatsapp'
 import idCardsImg from '../../assets/products/id_cards.jpg'
 
 // ID Card Types and Variations
@@ -597,10 +598,22 @@ export default function IdCardLandingPage() {
                   Request Free Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <div className="flex items-center gap-2 text-slate-600">
-                  <Phone className="h-5 w-5" />
-                  <span>+971 50 123 4567</span>
-                </div>
+                <a
+                  href={getServiceWhatsAppUrl('id-cards')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source_page: 'id_card_landing_page',
+                      service: 'id-cards',
+                      button_location: 'bottom_cta',
+                    })
+                  }
+                  className="inline-flex items-center gap-2 rounded-xl border border-emerald-300 bg-emerald-50 px-5 py-3 text-xs font-bold text-emerald-900 shadow-xs hover:bg-[#25D366] hover:text-white transition-all cursor-pointer"
+                >
+                  <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
+                  <span>WhatsApp ({FORMATTED_PHONE})</span>
+                </a>
               </div>
             </section>
           </Reveal>
@@ -610,9 +623,16 @@ export default function IdCardLandingPage() {
             <section className="py-12 border-t border-slate-200">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <Phone className="h-8 w-8 text-[#A82F19] mx-auto mb-3" />
-                  <h3 className="font-semibold text-slate-900 mb-1">Call Us</h3>
-                  <p className="text-slate-600">+971 50 123 4567</p>
+                  <WhatsAppIcon className="h-8 w-8 fill-[#25D366] mx-auto mb-3" />
+                  <h3 className="font-semibold text-slate-900 mb-1">WhatsApp &amp; Call</h3>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_PHONE}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-600 hover:text-emerald-600 font-medium"
+                  >
+                    {FORMATTED_PHONE}
+                  </a>
                 </div>
                 <div>
                   <Mail className="h-8 w-8 text-[#A82F19] mx-auto mb-3" />
@@ -622,7 +642,7 @@ export default function IdCardLandingPage() {
                 <div>
                   <Clock className="h-8 w-8 text-[#A82F19] mx-auto mb-3" />
                   <h3 className="font-semibold text-slate-900 mb-1">Working Hours</h3>
-                  <p className="text-slate-600">Sat - Thu: 8:30 AM - 6:30 PM</p>
+                  <p className="text-slate-600">Mon - Sat: 8:30 AM - 6:30 PM</p>
                 </div>
               </div>
             </section>

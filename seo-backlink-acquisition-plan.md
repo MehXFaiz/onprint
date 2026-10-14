@@ -4,7 +4,7 @@
 **Brand Identity:** ONPRINT / 0nprint  
 **Geographic Target:** Dubai, United Arab Emirates (UAE)  
 **Primary Facility:** Al Quoz, Dubai  
-**Contact:** +44 7344 546056 | 0nprint183@gmail.com  
+**Contact:** +44 7344546056 | 0nprint183@gmail.com  
 
 ---
 
@@ -18,7 +18,7 @@ To scale ONPRINT's organic authority from Domain Rating (DR) 6 to a dominant ind
    - **Business Name:** ONPRINT (or ONPRINT Printing & Packaging Solutions)
    - **Street Address:** Al Quoz
    - **City / Emirate:** Dubai, United Arab Emirates
-   - **Telephone:** `+44 7344 546056`
+   - **Telephone:** `+44 7344546056`
    - **Website:** `https://0nprint.com`
 
 ---
@@ -265,7 +265,7 @@ pie title Natural UAE Backlink Anchor Distribution
 > Best regards,  
 > **ONPRINT Corporate Team**  
 > Al Quoz, Dubai, UAE  
-> Tel: +44 7344 546056 | Web: https://0nprint.com  
+> Tel: +44 7344546056 | Web: https://0nprint.com  
 
 ---
 

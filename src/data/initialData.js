@@ -543,6 +543,66 @@ module.exports = {
       "seoKeywords": "sticker printing dubai, vinyl sticker printing dubai, die cut stickers dubai, custom decals dubai",
       "order": 12,
       "active": true
+    },
+    {
+      "_id": "serv-mug-printing-dubai",
+      "id": 13,
+      "name": "Mug Printing Dubai",
+      "slug": "mug-printing-dubai",
+      "category": {
+        "_id": "cat-mug-printing-dubai",
+        "name": "Mug Printing Dubai",
+        "slug": "mug-printing-dubai"
+      },
+      "shortDescription": "Custom branded ceramic coffee mugs, magic heat-reveal mugs, matte black executive tumblers, and vintage enamel mugs.",
+      "description": "Bespoke corporate mug printing services in Dubai. Full-color vibrant dye-sublimation on 11oz/15oz ceramic mugs, thermochromic heat-reveal mugs, luxury engraved travel tumblers, and enamel camping mugs with fast UAE delivery.",
+      "image": "/assets/products/mug_white_ceramic.jpg",
+      "imageAlt": "Custom printed corporate ceramic mugs and drinkware in Dubai",
+      "seoTitle": "Mug Printing Dubai | Custom Branded Ceramic & Travel Mugs | ONPRINT",
+      "seoDescription": "Professional mug printing in Dubai. Custom ceramic mugs, magic color-changing mugs, executive matte black mugs, and travel tumblers with fast UAE delivery.",
+      "seoKeywords": "mug printing dubai, custom mugs dubai, printed mugs uae, personalized coffee mugs dubai, magic mugs dubai, ceramic mug printing",
+      "order": 13,
+      "active": true
+    },
+    {
+      "_id": "serv-bottle-printing-dubai",
+      "id": 14,
+      "name": "Water Bottle Printing Dubai",
+      "slug": "bottle-printing-dubai",
+      "category": {
+        "_id": "cat-bottle-printing-dubai",
+        "name": "Water Bottle Printing Dubai",
+        "slug": "bottle-printing-dubai"
+      },
+      "shortDescription": "Custom printed & laser-engraved water bottles, smart LED temperature display flasks, double-wall stainless thermal bottles, and sports bottles.",
+      "description": "Custom water bottle printing and laser engraving in Dubai. Double-wall vacuum insulated flasks, smart LED digital temp bottles, aluminium sports bottles, and bamboo glass tumblers with fast UAE delivery.",
+      "image": "/assets/products/bottle_smart_led.jpg",
+      "imageAlt": "Custom printed and laser engraved water bottles in Dubai",
+      "seoTitle": "Water Bottle Printing Dubai | Custom Branded Flasks & Sports Bottles | ONPRINT",
+      "seoDescription": "Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.",
+      "seoKeywords": "bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai, smart led temperature bottle dubai",
+      "order": 14,
+      "active": true
+    },
+    {
+      "_id": "serv-stamps-printing-dubai",
+      "id": 15,
+      "name": "Custom Stamps & Seals",
+      "slug": "stamps-printing-dubai",
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "shortDescription": "Official corporate self-inking rubber stamps, pocket stamps, heavy-duty dater stamps, and notary embossing seals.",
+      "description": "Certified corporate rubber stamp and company seal maker in Dubai. High-precision laser-etched Trodat self-inking stamps, compact folding pocket stamps, heavy-duty accounting date stamps, and brass desktop embossing seals with official UAE trade license compliance and 2-hour express turnaround.",
+      "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "imageAlt": "Official corporate self-inking rubber stamps in Dubai",
+      "seoTitle": "Custom Stamp Printing Dubai | Stamp Maker & Company Seals | ONPRINT",
+      "seoDescription": "Official company stamp maker in Dubai. Trodat self-inking stamps, corporate seals, pocket stamps, and dater stamps with fast express same-day Dubai delivery.",
+      "seoKeywords": "stamp maker dubai, custom stamps dubai, company stamp printing dubai, self inking stamp uae, corporate seal dubai, notary stamp dubai",
+      "order": 15,
+      "active": true
     }
   ],
   "products": [

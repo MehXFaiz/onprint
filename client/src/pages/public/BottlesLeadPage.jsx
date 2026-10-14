@@ -33,8 +33,8 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackProductInquiry } from '../../utils/analytics'
-import { openWhatsAppDirectly, getWhatsAppUrl } from '../../utils/whatsapp'
+import { trackGetQuoteClick, trackProductInquiry, trackQuoteRequest } from '../../utils/analytics'
+import { openWhatsAppDirectly, getWhatsAppUrl, RAW_WHATSAPP_NUMBER, FORMATTED_PHONE } from '../../utils/whatsapp'
 
 const BOTTLE_OPTIONS = [
   {
@@ -185,6 +185,14 @@ export default function BottlesLeadPage() {
       const finalNum = res?.orderNumber || res?.quoteNumber || `ONP-BTL-${Math.floor(100000 + Math.random() * 900000)}`
       setQuoteNumber(finalNum)
       setSubmitSuccess(true)
+
+      trackQuoteRequest({
+        product: `Custom Bottles: ${selectedBottle.name}`,
+        quantity,
+        value: estimatedTotal,
+        currency: 'AED',
+        source_page: 'bottles_lead_page',
+      })
 
       openWhatsAppDirectly({
         title: 'CUSTOM BOTTLE PRINTING QUOTE',
@@ -529,9 +537,9 @@ export default function BottlesLeadPage() {
 
               {/* Direct Call / Email Fallback */}
               <div className="mt-6 border-t border-border pt-4 flex items-center justify-between text-xs text-secondary">
-                <a href="tel:+447344546056" className="flex items-center gap-1.5 hover:text-accent font-medium">
+                <a href={`tel:+${RAW_WHATSAPP_NUMBER}`} className="flex items-center gap-1.5 hover:text-accent font-medium">
                   <Phone className="h-3.5 w-3.5 text-accent" />
-                  <span>Call Estimators</span>
+                  <span>Call {FORMATTED_PHONE}</span>
                 </a>
                 <Link to="/bottle-printing-dubai" className="hover:text-accent font-semibold text-accent">
                   <span>View Specifications &rarr;</span>

@@ -530,7 +530,7 @@ export const TOPICAL_CLUSTERS = [
       'Cut-Off Times: File Approval by 11:00 AM for Same-Day Courier Delivery',
       'Available Same-Day Items: Business Cards, Flyers, Roll-Up Banners, Booklets',
       'Direct Pressroom Pickup in Al Quoz, Dubai',
-      'Dedicated Urgent WhatsApp Dispatch Helpline (+44 7344 546056)',
+      'Dedicated Urgent WhatsApp Dispatch Helpline (+44 7344546056)',
     ],
     internal_links: [
       { text: 'Business Card Printing Dubai', url: '/business-card-printing-dubai' },

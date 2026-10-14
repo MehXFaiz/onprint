@@ -29,6 +29,7 @@ const BusinessCardsLeadPage = lazy(() => import('./pages/public/BusinessCardsLea
 const StickersLeadPage = lazy(() => import('./pages/public/StickersLeadPage'))
 const MugsLeadPage = lazy(() => import('./pages/public/MugsLeadPage'))
 const BottlesLeadPage = lazy(() => import('./pages/public/BottlesLeadPage'))
+const RollupBannersLeadPage = lazy(() => import('./pages/public/RollupBannersLeadPage'))
 const LocationLandingPage = lazy(() => import('./pages/public/LocationLandingPage'))
 const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
 
@@ -190,6 +191,7 @@ function App() {
             <Route path="/quote/mugs" element={<MugsLeadPage />} />
             <Route path="/quote/bottles" element={<BottlesLeadPage />} />
             <Route path="/quote/water-bottles" element={<Navigate to="/quote/bottles" replace />} />
+            <Route path="/quote/rollup-banners" element={<RollupBannersLeadPage />} />
 
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

@@ -116,7 +116,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
         ` : ''}
         <div style="margin-top: 24px; padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
           <p style="margin: 0; font-weight: bold; color: #166534;">Direct WhatsApp Quote &amp; Proofing:</p>
-          <p style="margin: 4px 0 0 0; color: #15803d;">Connect directly with our master pressman via WhatsApp at <a href="https://wa.me/447344546056" style="color: #15803d; font-weight: bold;">+44 7344 546056</a> for instant volume discounts and free digital proofing.</p>
+          <p style="margin: 4px 0 0 0; color: #15803d;">Connect directly with our master pressman via WhatsApp at <a href="https://wa.me/447344546056" style="color: #15803d; font-weight: bold;">+44 7344546056</a> for instant volume discounts and free digital proofing.</p>
         </div>
       </section>
     `
@@ -306,7 +306,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
         <div>
           <strong>ONPRINT Printing &amp; Branding Solutions LLC</strong><br />
           Al Quoz Industrial Area, Dubai, United Arab Emirates<br />
-          Email: <a href="mailto:0nprint183@gmail.com" style="color: #A82F19;">0nprint183@gmail.com</a> | WhatsApp: +44 7344 546056
+          Email: <a href="mailto:0nprint183@gmail.com" style="color: #A82F19;">0nprint183@gmail.com</a> | WhatsApp: +44 7344546056
         </div>
         <div>
           <a href="/privacy-policy" style="color: #64748b; margin-right: 12px;">Privacy Policy</a>
@@ -493,13 +493,6 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
       { '@type': 'City', name: 'Sharjah' },
       { '@type': 'Country', name: 'United Arab Emirates' },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '120',
-      bestRating: '5',
-      worstRating: '1',
-    },
   }
 
   const websiteJson = {
@@ -784,6 +777,10 @@ const COMMERCIAL_STATIC_PATHS = new Set([
   '/promotional-printing-dubai',
   '/mug-printing-dubai',
   '/bottle-printing-dubai',
+  '/printing-services-abu-dhabi',
+  '/printing-services-sharjah',
+  '/printing-services-ajman',
+  '/printing-services-ras-al-khaimah',
 ])
 
 const PUBLIC_STATIC_PATHS = new Set([
@@ -805,6 +802,8 @@ const PUBLIC_STATIC_PATHS = new Set([
   '/quote/business-cards',
   '/quote/stickers',
   '/quote/mugs',
+  '/quote/bottles',
+  '/quote/rollup-banners',
   ...COMMERCIAL_STATIC_PATHS,
 ])
 
@@ -914,6 +913,15 @@ function createApp() {
     app.use(morgan('dev'))
   }
 
+  // Canonical host enforcement: Redirect non-www 0nprint.com to www.0nprint.com
+  app.use((req, res, next) => {
+    const host = (req.headers.host || '').toLowerCase()
+    if (host === '0nprint.com') {
+      return res.redirect(301, `https://www.0nprint.com${req.url}`)
+    }
+    next()
+  })
+
   // Trailing-slash normalization middleware (except root /)
   app.use((req, res, next) => {
     if (req.method !== 'GET' && req.method !== 'HEAD') return next()
@@ -945,6 +953,10 @@ function createApp() {
   app.get('/large-format-printing', (req, res) => res.redirect(301, '/large-format-printing-dubai'))
   app.get('/corporate-printing', (req, res) => res.redirect(301, '/corporate-printing-dubai'))
   app.get('/promotional-printing', (req, res) => res.redirect(301, '/promotional-printing-dubai'))
+  app.get(['/bottle-printing', '/water-bottle-printing-dubai', '/custom-bottle-printing-dubai', '/custom-bottles-dubai'], (req, res) => res.redirect(301, '/bottle-printing-dubai'))
+  app.get(['/rollup-banners', '/roll-up-banners', '/rollup-banner-printing-dubai', '/roll-up-banner-printing-dubai'], (req, res) => res.redirect(301, '/services/rollup-banners'))
+  app.get(['/stamps', '/custom-stamps', '/stamp-maker-dubai', '/custom-stamp-printing-dubai', '/company-stamps-dubai'], (req, res) => res.redirect(301, '/services/stamps-printing-dubai'))
+  app.get('/quote/water-bottles', (req, res) => res.redirect(301, '/quote/bottles'))
 
   // Dynamic Database-Driven 301/302 Redirect Manager (Requirement 28)
   app.use(async (req, res, next) => {

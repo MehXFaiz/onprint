@@ -1,135 +1,125 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Phone, Mail, Clock, CheckCircle, Sparkles, Award, Shield, Zap, CheckCircle2 } from 'lucide-react'
+import {
+  Phone,
+  Mail,
+  Clock,
+  CheckCircle,
+  Sparkles,
+  Award,
+  ShieldCheck,
+  Zap,
+  CheckCircle2,
+  Layers,
+  Scissors,
+  Check,
+  Send,
+} from 'lucide-react'
+import Container from '../../components/Container'
+import Button from '../../components/Button'
 import SEOHead from '../../components/SEOHead'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { createQuote } from '../../services/quotes'
+import { trackGetQuoteClick, trackQuoteRequest, trackWhatsAppClick } from '../../utils/analytics'
 import { openWhatsAppDirectly, getWhatsAppUrl, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../../utils/whatsapp'
 
-const StickersLeadPage = () => {
-  // Add Service and ContactPoint schema markup for lead generation
-  useEffect(() => {
-    const serviceSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'Custom Sticker Printing Quote Service',
-      description: 'Get free quotes for custom stickers in Dubai. Die-cut, vinyl, holographic, and clear stickers with express delivery.',
-      provider: {
-        '@type': 'LocalBusiness',
-        name: 'ONPRINT',
-        '@id': 'https://0nprint.com/#organization',
-        telephone: RAW_WHATSAPP_NUMBER,
-        email: '0nprint183@gmail.com',
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'Al Quoz',
-          addressLocality: 'Dubai',
-          addressRegion: 'Dubai',
-          addressCountry: 'AE',
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: 25.1328,
-          longitude: 55.2348,
-        },
-        openingHoursSpecification: {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-          opens: '08:30',
-          closes: '18:30',
-        },
-      },
-      areaServed: [
-        { '@type': 'City', name: 'Dubai' },
-        { '@type': 'City', name: 'Abu Dhabi' },
-        { '@type': 'City', name: 'Sharjah' },
-        { '@type': 'Country', name: 'United Arab Emirates' },
-      ],
-      serviceType: 'Sticker Printing',
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Sticker Printing Services',
-        itemListElement: [
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Die-Cut Stickers',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Vinyl Stickers',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Holographic Stickers',
-            },
-          },
-        ],
-      },
-    }
+const STICKER_TYPES = [
+  { id: 'die-cut-vinyl', name: 'Custom Die-Cut Vinyl', desc: 'Cut precisely to the exact perimeter of your artwork with easy-peel backing.', badge: 'Bestseller' },
+  { id: 'kiss-cut-sheets', name: 'Kiss-Cut Sticker Sheets', desc: 'Multiple peelable stickers organized on a single backing sheet.', badge: 'Popular' },
+  { id: 'clear-transparent', name: 'Clear Transparent Vinyl', desc: 'Ultra-clear waterproof film with selective white ink underprint for bottles & glass.', badge: 'Specialty' },
+  { id: 'holographic-vinyl', name: 'Holographic Metallic Decals', desc: 'Iridescent rainbow metallic sheen that changes color in varying lighting.', badge: 'Luxury' },
+  { id: 'gold-foil-labels', name: 'Hot Stamped Foil Labels', desc: 'Reflective gold, silver, or rose-gold metallic foil on matte or gloss substrates.', badge: 'Luxury' },
+  { id: 'roll-packaging-labels', name: 'Machine Roll Product Labels', desc: 'Automatic dispenser rolls on bopp polypropylene for bottles, jars, and boxes.', badge: 'Commercial' },
+]
 
-    const contactPointSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'ContactPoint',
-      telephone: RAW_WHATSAPP_NUMBER,
-      contactType: 'sales',
-      areaServed: 'AE',
-      availableLanguage: ['English', 'Arabic', 'Urdu'],
-      email: '0nprint183@gmail.com',
-    }
+const QUANTITY_OPTIONS = [
+  '100 units',
+  '250 units',
+  '500 units',
+  '1,000 units',
+  '2,500 units',
+  '5,000 units',
+  '10,000+ units',
+]
 
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.text = JSON.stringify([serviceSchema, contactPointSchema])
-    document.head.appendChild(script)
+const MATERIAL_SPECS = [
+  {
+    icon: ShieldCheck,
+    title: '100% Waterproof & Weatherproof',
+    desc: 'Heavy-duty 100-micron vinyl resists direct sunlight, water, oil, and outdoor desert exposure without fading or peeling.',
+  },
+  {
+    icon: Scissors,
+    title: 'Optical Laser Die-Cut Precision',
+    desc: 'CNC digital cutters follow intricate vector cutlines with sub-millimeter tolerances and easy-peel tab margins.',
+  },
+  {
+    icon: Layers,
+    title: 'Matte, Gloss & Velvet Overlaminates',
+    desc: 'Scratch-resistant thermal protective laminates shield inks from scuffs, cleaning solvents, and friction.',
+  },
+  {
+    icon: Zap,
+    title: 'Rapid Al Quoz Turnaround',
+    desc: 'Produced directly in our central Dubai pressroom. Urgent same-day rush options and 24–48h express delivery across the UAE.',
+  },
+]
 
-    return () => {
-      document.head.removeChild(script)
-    }
-  }, [])
+export default function StickersLeadPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     company: '',
-    quantity: '',
-    stickerType: '',
-    message: ''
+    quantity: '500 units',
+    stickerType: 'Custom Die-Cut Vinyl',
+    size: 'e.g. 5x5 cm',
+    finish: 'Matte Lamination',
+    message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [quoteRef, setQuoteRef] = useState('')
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!formData.name || !formData.phone) return
+
     setIsSubmitting(true)
+    trackGetQuoteClick({ source_page: 'stickers_lead_page' })
 
     const randomSeq = Math.floor(100000 + Math.random() * 900000)
     const generatedRef = `ONP-STK-${randomSeq}`
 
+    const quotePayload = {
+      quoteNumber: generatedRef,
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim() || null,
+      company: formData.company.trim() || null,
+      productName: `Custom Stickers: ${formData.stickerType}`,
+      quantity: formData.quantity,
+      specs: `Type: ${formData.stickerType} | Size: ${formData.size} | Finish: ${formData.finish}`,
+      notes: formData.message.trim() || null,
+      status: 'New',
+    }
+
     try {
-      await createQuote({
-        quoteNumber: generatedRef,
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        phone: formData.phone.trim() || null,
-        company: formData.company.trim() || null,
-        productName: `Custom Stickers: ${formData.stickerType || 'Custom Vinyl'}`,
-        quantity: parseInt(formData.quantity, 10) || 100,
-        specs: `Type: ${formData.stickerType || 'Standard'} | Qty: ${formData.quantity}`,
-        notes: formData.message.trim() || null,
-        status: 'New',
-      })
+      await createQuote(quotePayload)
     } catch (err) {
       console.warn('Backend quote submission note:', err.message)
     }
+
+    trackQuoteRequest({
+      product: `Custom Stickers: ${formData.stickerType}`,
+      quantity: formData.quantity,
+      source_page: 'stickers_lead_page',
+    })
 
     setQuoteRef(generatedRef)
     setSubmitted(true)
@@ -143,380 +133,346 @@ const StickersLeadPage = () => {
       phone: formData.phone.trim() || 'N/A',
       email: formData.email.trim(),
       company: formData.company.trim() || 'Individual',
-      product: `Stickers (${formData.stickerType || 'Custom'})`,
+      product: `Stickers (${formData.stickerType})`,
       quantity: formData.quantity,
-      specs: `Type: ${formData.stickerType}`,
+      specs: `Type: ${formData.stickerType} | Approx Size: ${formData.size} | Finish: ${formData.finish}`,
       notes: formData.message.trim() || 'None',
     })
   }
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
-  const stickerTypes = [
-    'Die-Cut Stickers',
-    'Kiss-Cut Stickers',
-    'Vinyl Stickers',
-    'Clear Transparent Stickers',
-    'Holographic Stickers',
-    'Foil Stickers',
-    'Bumper Stickers',
-    'Window Decals',
-    'Product Labels',
-    'Not Sure / Need Advice'
-  ]
-
-  const quantities = [
-    '50 - 100 stickers',
-    '100 - 250 stickers',
-    '250 - 500 stickers',
-    '500 - 1,000 stickers',
-    '1,000 - 2,500 stickers',
-    '2,500 - 5,000 stickers',
-    '5,000+ stickers'
-  ]
-
-  const benefits = [
-    { icon: Sparkles, title: 'Custom Shapes', desc: 'Any shape, any size with precision die-cut technology' },
-    { icon: Award, title: 'Premium Materials', desc: 'Waterproof vinyl, holographic, and specialty finishes' },
-    { icon: Shield, title: 'Volume Discounts', desc: 'Save up to 40% on bulk sticker orders' },
-    { icon: Zap, title: 'Fast Production', desc: 'Express same-day delivery in Dubai available' }
-  ]
-
-  const useCases = [
-    'Product branding and packaging',
-    'Event giveaways and promotions',
-    'Vehicle decals and window stickers',
-    'Laptop and device customization',
-    'Retail displays and signage',
-    'Wedding and party favors'
-  ]
-
-  const testimonials = [
-    { name: 'Fatima Ali', company: 'Artisan Bakery Dubai', text: 'Our custom stickers look amazing! The colors are vibrant and they stick perfectly on our packaging.' },
-    { name: 'James Wilson', company: 'Events UAE', text: 'Ordered 10,000 stickers for our event. Delivered on time with excellent quality. Will order again.' },
-    { name: 'Aisha Khan', company: 'Startup Dubai', text: 'The holographic stickers are stunning. Perfect for our product launch. Great value for money.' }
+  const breadcrumbs = [
+    { name: 'Services', url: '/services' },
+    { name: 'Sticker Printing Dubai', url: '/sticker-printing-dubai' },
+    { name: 'Get Sticker Quote', url: '/quote/stickers' },
   ]
 
   return (
-    <>
+    <div className="bg-white text-slate-900 selection:bg-[#A82F19] selection:text-white">
       <SEOHead
-        title="Get Free Quote for Custom Stickers Dubai | Sticker Printing | ONPRINT"
-        description="Request a free quote for custom stickers in Dubai. Die-cut, vinyl, holographic, and clear stickers with express delivery. Best prices on bulk sticker printing."
-        keywords="stickers quote dubai, custom stickers price dubai, sticker printing cost uae, die cut stickers quote, vinyl stickers dubai, free quote stickers uae, bulk sticker printing, custom sticker quotation"
-        h1="Get Your Free Stickers Quote"
+        title="Custom Sticker Printing Dubai | Instant Quote & Express UAE Delivery | ONPRINT"
+        description="Configure custom waterproof vinyl stickers, die-cut decals, holographic stickers, and roll labels in Dubai. Same-day express turnaround and free digital proofing in Al Quoz."
+        keywords="stickers quote dubai, custom stickers price dubai, sticker printing cost uae, die cut stickers quote, vinyl stickers dubai, bulk sticker printing dubai, label printing dubai"
+        canonicalPath="/quote/stickers"
+        breadcrumbs={breadcrumbs}
       />
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden py-20 px-4">
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10"></div>
-          <div className="max-w-6xl mx-auto relative">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Get Your Free <span className="text-purple-400">Stickers Quote</span>
-              </h1>
-              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                Custom die-cut, vinyl, and holographic stickers in Dubai. Perfect for branding, events, and promotions.
-                Get your personalized quote within 2 hours.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <div className="flex items-center gap-2 text-green-400">
-                  <CheckCircle className="w-5 h-5" />
-                  <span>Free Quote</span>
-                </div>
-                <div className="flex items-center gap-2 text-green-400">
-                  <CheckCircle className="w-5 h-5" />
-                  <span>Response in 2 Hours</span>
-                </div>
-                <div className="flex items-center gap-2 text-green-400">
-                  <CheckCircle className="w-5 h-5" />
-                  <span>No Obligation</span>
-                </div>
-              </div>
-            </motion.div>
+      {/* Hero Header */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-slate-200/80">
+        <Container className="relative z-10">
+          <div className="mx-auto max-w-3xl text-center space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19]/20 bg-[#A82F19]/5 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>Commercial Sticker &amp; Label Press • Al Quoz, Dubai</span>
+            </div>
 
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Lead Form */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700"
-              >
-                {submitted ? (
-                  <div className="space-y-6 text-center py-6">
-                    <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-emerald-400">
-                      <CheckCircle2 className="w-10 h-10" />
-                    </div>
-                    <h2 className="text-2xl font-bold text-white">Quote Request Received!</h2>
-                    <p className="text-gray-300 text-sm">
-                      Thank you, <strong className="text-white">{formData.name}</strong>. Your reference number is <strong className="text-purple-400 font-mono">{quoteRef}</strong>.
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15]">
+              Custom Sticker &amp; Label Printing{' '}
+              <span className="font-serif italic text-[#A82F19]">Made in Dubai</span>
+            </h1>
+
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              Precision die-cut vinyl stickers, waterproof packaging labels, and holographic decals. Submit your specifications below for an instant quote and direct WhatsApp pre-flight assistance.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-slate-700">
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-[#A82F19]" />
+                Any Custom Shape &amp; Size
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-[#A82F19]" />
+                100% Waterproof Heavy-Duty Vinyl
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-[#A82F19]" />
+                Express Same-Day or 24h Turnaround
+              </span>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Main Form & Specs Grid */}
+      <section className="py-12 sm:py-16 bg-slate-50">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            {/* Left Column: Form */}
+            <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+              {submitted ? (
+                <div className="space-y-6 text-center py-8">
+                  <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600">
+                    <CheckCircle2 className="w-10 h-10" />
+                  </div>
+                  <h2 className="text-2xl font-serif font-bold text-slate-900">Sticker Specification Received</h2>
+                  <p className="text-slate-600 text-sm max-w-md mx-auto">
+                    Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your reference number is <strong className="text-[#A82F19] font-mono">{quoteRef}</strong>.
+                  </p>
+
+                  <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center space-y-3 max-w-md mx-auto">
+                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-800">
+                      Direct WhatsApp Dispatch
                     </p>
-
-                    <div className="bg-emerald-950/60 border border-emerald-500/60 rounded-xl p-5 text-center space-y-3">
-                      <p className="text-xs font-bold uppercase tracking-wider text-emerald-400">
-                        📱 Direct WhatsApp Dispatch
-                      </p>
-                      <p className="text-xs text-emerald-200">
-                        We opened WhatsApp with your exact sticker specifications. If it didn't open automatically, click the button below:
-                      </p>
-                      <a
-                        href={getWhatsAppUrl({
-                          title: 'CUSTOM STICKERS & LABELS QUOTE INQUIRY',
-                          refNumber: quoteRef,
-                          name: formData.name,
-                          phone: formData.phone || 'N/A',
-                          email: formData.email,
-                          company: formData.company || 'Individual',
-                          product: `Stickers (${formData.stickerType || 'Custom'})`,
-                          quantity: formData.quantity,
-                          specs: `Type: ${formData.stickerType}`,
-                          notes: formData.message || 'None',
-                        })}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-3 px-6 text-sm font-black text-white shadow-lg transition-all w-full"
-                      >
-                        <WhatsAppIcon className="w-5 h-5 fill-white" />
-                        <span>Chat with ONPRINT on WhatsApp</span>
-                      </a>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => setSubmitted(false)}
-                      className="text-xs text-gray-400 hover:text-white underline"
+                    <p className="text-xs text-emerald-700">
+                      Our pre-press team is reviewing your sticker specifications. Click below to continue directly on WhatsApp:
+                    </p>
+                    <a
+                      href={getWhatsAppUrl({
+                        title: 'CUSTOM STICKERS & LABELS QUOTE INQUIRY',
+                        refNumber: quoteRef,
+                        name: formData.name,
+                        phone: formData.phone || 'N/A',
+                        email: formData.email,
+                        company: formData.company || 'Individual',
+                        product: `Stickers (${formData.stickerType})`,
+                        quantity: formData.quantity,
+                        specs: `Type: ${formData.stickerType} | Size: ${formData.size} | Finish: ${formData.finish}`,
+                        notes: formData.message || 'None',
+                      })}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-3.5 px-6 text-xs font-bold text-white shadow-sm transition-all w-full cursor-pointer"
                     >
-                      Submit another inquiry
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <h2 className="text-2xl font-bold text-white mb-6">Request Your Free Quote</h2>
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-gray-300 mb-2">Full Name *</label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-300 mb-2">Phone Number *</label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        required
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
-                        placeholder="+971 XX XXX XXXX"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-gray-300 mb-2">Email Address *</label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-300 mb-2">Company Name</label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
-                        placeholder="Your company"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-300 mb-2">Sticker Type *</label>
-                    <select
-                      name="stickerType"
-                      required
-                      value={formData.stickerType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
-                    >
-                      <option value="">Select sticker type</option>
-                      {stickerTypes.map((type) => (
-                        <option key={type} value={type}>{type}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-300 mb-2">Quantity *</label>
-                    <select
-                      name="quantity"
-                      required
-                      value={formData.quantity}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
-                    >
-                      <option value="">Select quantity</option>
-                      {quantities.map((qty) => (
-                        <option key={qty} value={qty}>{qty}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-300 mb-2">Additional Requirements</label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={4}
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500"
-                      placeholder="Tell us about your design, size, finish, or any questions..."
-                    />
+                      <WhatsAppIcon className="w-4 h-4 fill-white" />
+                      <span>Open WhatsApp Chat ({FORMATTED_PHONE})</span>
+                    </a>
                   </div>
 
                   <button
-                    type="submit"
-                    className="w-full py-4 bg-[#A82F19] hover:bg-[#8B2614] text-white font-bold rounded-lg transition-all transform hover:scale-[1.02] shadow-lg shadow-[#A82F19]/25"
+                    type="button"
+                    onClick={() => setSubmitted(false)}
+                    className="text-xs text-slate-500 hover:text-slate-800 underline cursor-pointer"
                   >
-                    Get My Free Quote Now
+                    Submit another quote configuration
                   </button>
+                </div>
+              ) : (
+                <>
+                  <div className="border-b border-slate-100 pb-4 mb-6">
+                    <h2 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">
+                      Request Your Custom Sticker Specification
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                      Fill in your details below for a verified commercial quote and free digital PDF proof.
+                    </p>
+                  </div>
 
-                  <p className="text-center text-gray-400 text-sm">
-                    We respect your privacy. Your information will never be shared.
-                  </p>
-                </form>
-              </>
-            )}
-              </motion.div>
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
+                          Full Name <span className="text-[#A82F19]">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19]"
+                          placeholder="Your name"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
+                          Phone / WhatsApp <span className="text-[#A82F19]">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          required
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19]"
+                          placeholder="+971 50 123 4567"
+                        />
+                      </div>
+                    </div>
 
-              {/* Benefits Section */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="space-y-8"
-              >
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-                  <h2 className="text-2xl font-bold text-white mb-6">Why Choose ONPRINT?</h2>
-                  <div className="grid gap-6">
-                    {benefits.map((benefit, index) => (
-                      <div key={index} className="flex gap-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                          <benefit.icon className="w-6 h-6 text-purple-400" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
+                          Email Address <span className="text-[#A82F19]">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19]"
+                          placeholder="you@company.ae"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">Company Name (Optional)</label>
+                        <input
+                          type="text"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19]"
+                          placeholder="Brand / Company"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
+                          Sticker Format <span className="text-[#A82F19]">*</span>
+                        </label>
+                        <select
+                          name="stickerType"
+                          required
+                          value={formData.stickerType}
+                          onChange={handleChange}
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19]"
+                        >
+                          {STICKER_TYPES.map((type) => (
+                            <option key={type.id} value={type.name}>
+                              {type.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
+                          Quantity <span className="text-[#A82F19]">*</span>
+                        </label>
+                        <select
+                          name="quantity"
+                          required
+                          value={formData.quantity}
+                          onChange={handleChange}
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19]"
+                        >
+                          {QUANTITY_OPTIONS.map((qty) => (
+                            <option key={qty} value={qty}>
+                              {qty}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">Approximate Dimensions</label>
+                        <input
+                          type="text"
+                          name="size"
+                          value={formData.size}
+                          onChange={handleChange}
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19]"
+                          placeholder="e.g. 6cm circle, 8x5cm rectangle"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">Protective Finish</label>
+                        <select
+                          name="finish"
+                          value={formData.finish}
+                          onChange={handleChange}
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19]"
+                        >
+                          <option value="Matte Lamination">Matte Lamination (Anti-Glare)</option>
+                          <option value="Gloss Lamination">Gloss Lamination (Vibrant Color)</option>
+                          <option value="Velvet Soft-Touch">Velvet Soft-Touch (Tactile Luxury)</option>
+                          <option value="Uncoated Waterproof">Uncoated Waterproof Synthetic</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Artwork Notes or Special Instructions
+                      </label>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows={3}
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#A82F19] focus:ring-1 focus:ring-[#A82F19] resize-none"
+                        placeholder="e.g. We have artwork ready in vector AI format with 2mm bleed..."
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-3.5 bg-[#A82F19] hover:bg-[#8F2412] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#A82F19]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                    >
+                      {isSubmitting ? 'Submitting Specifications…' : 'Submit Specification & Get Official Quote →'}
+                    </button>
+
+                    <p className="text-center text-slate-400 text-[11px]">
+                      Your specifications are kept strictly confidential. Free PDF proofs provided before production.
+                    </p>
+                  </form>
+                </>
+              )}
+            </div>
+
+            {/* Right Column: Material Standards & Features */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#A82F19]">
+                  COMMERCIAL SUBSTRATES
+                </span>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mt-1 mb-4">
+                  Print Standards &amp; Finishes
+                </h3>
+                <div className="space-y-4">
+                  {MATERIAL_SPECS.map((spec, idx) => {
+                    const IconComp = spec.icon
+                    return (
+                      <div key={idx} className="flex gap-3.5 items-start">
+                        <div className="flex-shrink-0 w-9 h-9 bg-[#A82F19]/10 rounded-xl flex items-center justify-center text-[#A82F19]">
+                          <IconComp className="w-4 h-4" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold text-white mb-1">{benefit.title}</h3>
-                          <p className="text-gray-400">{benefit.desc}</p>
+                          <h4 className="text-xs font-bold text-slate-900">{spec.title}</h4>
+                          <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">{spec.desc}</p>
                         </div>
                       </div>
-                    ))}
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Direct Al Quoz Pressroom Contact Card */}
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 className="font-serif text-base font-bold text-slate-900 mb-3">
+                  Direct In-House Pressroom Assistance
+                </h3>
+                <div className="space-y-3 text-xs text-slate-600">
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-4 h-4 text-[#A82F19]" />
+                    <span>WhatsApp / Direct Line: <strong className="text-slate-900">{FORMATTED_PHONE}</strong></span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Mail className="w-4 h-4 text-[#A82F19]" />
+                    <span>Inquiry Email: <strong className="text-slate-900">0nprint183@gmail.com</strong></span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Clock className="w-4 h-4 text-[#A82F19]" />
+                    <span>Operating Hours: <strong className="text-slate-900">Mon–Sat 8:30 AM – 6:30 PM</strong></span>
                   </div>
                 </div>
 
-                {/* Use Cases */}
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-                  <h2 className="text-2xl font-bold text-white mb-6">Perfect For</h2>
-                  <div className="grid gap-3">
-                    {useCases.map((useCase, index) => (
-                      <div key={index} className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                        <span className="text-gray-300">{useCase}</span>
-                      </div>
-                    ))}
-                  </div>
+                <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <Link to="/sticker-printing-dubai" className="text-xs font-semibold text-[#A82F19] hover:underline">
+                    View Full Sticker Catalog &rarr;
+                  </Link>
+                  <Link to="/services" className="text-xs text-slate-500 hover:text-slate-800">
+                    All Services
+                  </Link>
                 </div>
-
-                {/* Testimonials */}
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-                  <h2 className="text-2xl font-bold text-white mb-6">What Our Clients Say</h2>
-                  <div className="space-y-6">
-                    {testimonials.map((testimonial, index) => (
-                      <div key={index} className="border-l-4 border-purple-500 pl-4">
-                        <p className="text-gray-300 italic mb-2">"{testimonial.text}"</p>
-                        <p className="text-white font-semibold">{testimonial.name}</p>
-                        <p className="text-gray-400 text-sm">{testimonial.company}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Contact Info */}
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-                  <h2 className="text-2xl font-bold text-white mb-6">Contact Us Directly</h2>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      <Phone className="w-6 h-6 text-purple-400" />
-                      <div>
-                        <p className="text-gray-400 text-sm">Phone / WhatsApp</p>
-                        <p className="text-white font-semibold">{FORMATTED_PHONE}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <Mail className="w-6 h-6 text-purple-400" />
-                      <div>
-                        <p className="text-gray-400 text-sm">Email</p>
-                        <p className="text-white font-semibold">0nprint183@gmail.com</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <Clock className="w-6 h-6 text-purple-400" />
-                      <div>
-                        <p className="text-gray-400 text-sm">Working Hours</p>
-                        <p className="text-white font-semibold">Mon-Sat: 8:30 AM - 6:30 PM</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+              </div>
             </div>
           </div>
-        </section>
-
-        {/* Urgency Section */}
-        <section className="py-16 px-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Limited Time Offer</h2>
-            <p className="text-xl text-gray-300 mb-6">
-              Get 20% OFF your first sticker order when you request a quote today!
-            </p>
-            <p className="text-gray-400 mb-8">
-              Offer expires at midnight. Custom stickers at unbeatable prices.
-            </p>
-            <button
-              onClick={() => document.querySelector('form').scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105"
-            >
-              Claim Your 20% Discount Now
-            </button>
-          </div>
-        </section>
-      </div>
-    </>
+        </Container>
+      </section>
+    </div>
   )
 }
-
-export default StickersLeadPage

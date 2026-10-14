@@ -518,6 +518,374 @@ export const serviceGeoContent = {
       },
     ],
   },
+
+  'rollup-banners': {
+    whatIs: {
+      title: 'What is Rollup Banner Printing?',
+      definition:
+        'Rollup banner printing involves producing high-resolution retractable graphics housed in an anodized aluminum cassette mechanism with internal spring-loaded rollers.',
+      expanded:
+        'ONPRINT prints roll-up banners in Al Quoz, Dubai using 1440 DPI Japanese inkjet systems on 300 GSM anti-curl PET stoplight greyback film. The light-blocking greyback prevents backside lighting from shining through, keeping typography and colors razor sharp for exhibitions, DWTC trade fairs, and hotel conference backdrops.',
+    },
+    whoNeedsThis: {
+      title: 'Who Needs Rollup Banners?',
+      audiences: [
+        'Exhibitors at Dubai World Trade Centre (DWTC) and ADNEC Abu Dhabi',
+        'Corporate event planners organizing seminars, conferences, and gala dinners',
+        'Retail stores, banks, and automotive showrooms in Dubai Mall and Business Bay',
+        'Trade schools, universities, and hotel lobbies across the UAE',
+      ],
+    },
+    keyInfo: {
+      cost: 'Rollup banner printing starts from AED 140 for standard 85x200cm stands including the cassette and padded travel bag. Luxury teardrop models start from AED 240.',
+      turnaround: 'Standard 24-48 hours. Express same-day rush service available for urgent event setups in Dubai.',
+      minimumOrder: '1 unit. Volume discounts available for orders of 5+ stands.',
+      materials: '300 GSM anti-curl greyback stoplight blockout film, anodized aluminum base, 3-section bungee support pole, padded zip carry bag.',
+    },
+    advantages: [
+      '1440 DPI photo-realistic Japanese printhead resolution',
+      'Anti-curl stoplight greyback film prevents edge curling and light bleed',
+      'Heavy-duty aluminum cassettes with dual swing-out stabilizing feet or teardrop bases',
+      'Padded nylon shoulder carry bag included with every unit',
+      'Tool-free 30-second setup and takedown',
+      'Same-day express delivery directly to DWTC exhibition halls or Dubai hotels',
+    ],
+    bestFor: [
+      'Trade show booths and exhibition stalls (DWTC, Expo City)',
+      'Conference registration desks and keynote stages',
+      'Retail promotional announcements and point-of-sale displays',
+      'Hotel lobby welcome signs and directional signage',
+      'Press conference photo backdrops and media steps',
+    ],
+    specificMaterials: [
+      '300 GSM Anti-Curl Stoplight Greyback PET Film',
+      '510 GSM Heavy-Duty Outdoor Wind-Resistant PVC',
+      'Luxury Satin Non-Glare Fabric Textile',
+      'Anodized Silver or Stealth Matte Black Aluminum Stands',
+    ],
+    specificSizes: [
+      'Standard: 85cm × 200cm',
+      'Luxury Teardrop: 85cm × 200cm',
+      'Wide Exhibition: 100cm × 200cm',
+      'Giant Backdrop: 120cm × 200cm',
+      'Double-Sided 360°: 85cm × 200cm',
+      'Mini Tabletop: A4 and A3 Desktop Stands',
+    ],
+    specificFinishes: [
+      'Anti-Glare Matte Surface Finish',
+      'High-Gloss Vibrant Protective Film',
+      'Dual Chrome End Caps (Teardrop Models)',
+      'Double-Sided Independent Graphics',
+    ],
+    faqs: [
+      {
+        question: 'What is the standard size for a roll-up banner in Dubai?',
+        answer: 'The standard and most popular roll-up banner size across UAE exhibitions and events is 85cm wide by 200cm high. We also produce 100cm, 120cm, and 120cm wide stands, as well as A4/A3 tabletop versions.',
+      },
+      {
+        question: 'Why does ONPRINT use greyback stoplight film instead of normal flex PVC?',
+        answer: 'Normal cheap flex banner material tends to curl at the edges within hours and allows spotlights to shine through from behind, making text unreadable. Our 300 GSM greyback PET film is 100% anti-curl and completely opaque, ensuring a crisp flat display throughout your multi-day event.',
+      },
+      {
+        question: 'Can you deliver roll-up banners directly to our booth at Dubai World Trade Centre (DWTC)?',
+        answer: 'Yes, ONPRINT frequently delivers directly to exhibition stands at DWTC, Dubai Exhibition Centre (DEC at Expo City), and ADNEC Abu Dhabi. Provide your hall and stand number upon ordering.',
+      },
+      {
+        question: 'Is the carry bag included with the rollup stand?',
+        answer: 'Yes, every roll-up banner stand manufactured by ONPRINT comes packed in a durable padded nylon zip carry bag with handles for easy transport.',
+      },
+    ],
+  },
+
+  'stickers-labels-printing': {
+    whatIs: {
+      title: 'What is Custom Sticker & Product Label Printing?',
+      definition:
+        'Sticker and label printing encompasses digital and flexographic production of adhesive decals on paper, vinyl, polypropylene, and holographic substrates.',
+      expanded:
+        'ONPRINT manufactures custom stickers in Al Quoz, Dubai using optical digital die-cutters and UV-cured inks. From individual kiss-cut handouts to machine applicator rolls for cosmetics, candles, food containers, and e-commerce shipping boxes.',
+    },
+    whoNeedsThis: {
+      title: 'Who Needs Custom Stickers and Labels?',
+      audiences: [
+        'Cosmetic, perfume, and candle brands requiring oil-resistant, luxury product labels',
+        'F&B establishments, cafes, bakeries, and cloud kitchens in Dubai',
+        'E-commerce and retail brands sealing branded shipping boxes and tissue wrap',
+        'Event organizers, conferences, and startup marketing giveaways',
+      ],
+    },
+    keyInfo: {
+      cost: 'Sticker orders start from AED 75 for 100 die-cut vinyl stickers. Machine roll labels start from AED 250 for 1,000 units depending on size and finish.',
+      turnaround: '24–48 hours standard. Same-day express rush available for urgent product launches in Dubai.',
+      minimumOrder: '50 units for die-cut sheets; 500 units for machine rolls.',
+      materials: 'Waterproof 100-micron vinyl, clear transparent film, holographic vinyl, gold foil stamping, and BOPP roll label stock.',
+    },
+    advantages: [
+      '100% waterproof, smudge-proof, and oil-resistant substrates',
+      'Sub-millimeter CNC laser and blade contour die-cutting to any shape',
+      'Matte, gloss, and velvet soft-touch protective overlaminates',
+      'Permanent residue-free adhesive suitable for glass, plastic, metal, and cardboard',
+      'Food-safe and cosmetic-compliant materials',
+      'Available on individual die-cut pieces, kiss-cut sheets, or dispenser rolls',
+    ],
+    bestFor: [
+      'Water bottle and beverage jar labels',
+      'Cosmetic, perfume, and skincare packaging',
+      'Bakery boxes, coffee cup lids, and take-away paper bags',
+      'Die-cut promotional logo giveaway stickers',
+      'Asset tracking, barcode, and serial number labels',
+    ],
+    specificMaterials: [
+      '100μ Heavy-Duty Waterproof White Vinyl',
+      'Clear Transparent Film with Selective White Ink',
+      'Rainbow Iridescent Holographic Decal Film',
+      'White BOPP & Clear BOPP Machine Roll Stock',
+      'Eco-Friendly Kraft and Uncoated Textured Paper',
+    ],
+    specificSizes: [
+      'Any custom die-cut vector contour shape',
+      'Standard circles: 3cm, 4cm, 5cm, 6cm, 7cm, 8cm',
+      'Standard rectangles: 5x3cm, 7x4cm, 9x5cm, 10x6cm, A6, A5',
+      'Roll core sizes: 25mm, 40mm, and 76mm for automatic dispensers',
+    ],
+    specificFinishes: [
+      'Thermal Matte Lamination (Anti-Reflective)',
+      'High-Gloss Lamination (Color Enhancing)',
+      'Tactile Velvet Soft-Touch Film',
+      'Hot Stamped Metallic Gold & Silver Foil',
+    ],
+    faqs: [
+      {
+        question: 'Are your stickers waterproof and heat resistant in UAE weather?',
+        answer: 'Yes, our vinyl stickers and BOPP labels use waterproof synthetic films and UV-cured inks that resist Dubai heat, moisture, humidity, and direct sunlight without fading, cracking, or peeling.',
+      },
+      {
+        question: 'What is the difference between die-cut and kiss-cut stickers?',
+        answer: 'Die-cut stickers are cut through both the vinyl and the backing paper into the exact shape of your design. Kiss-cut stickers are cut through only the top vinyl layer, leaving a square or rectangular backing paper border around the sticker for easier peeling.',
+      },
+      {
+        question: 'Can you print transparent clear stickers with white ink?',
+        answer: 'Yes, our digital presses feature white ink capabilities. We print an opaque white base layer beneath colored graphics so your branding stays vibrant when applied to dark glass bottles or windows.',
+      },
+    ],
+  },
+
+  'stamps-printing-dubai': {
+    whatIs: {
+      title: 'What are Corporate Rubber Stamps & Company Seals?',
+      definition:
+        'Official commercial self-inking rubber stamps and embossing seals used for legal validation, invoice processing, contract signing, and bank authorization in the UAE.',
+      expanded:
+        'ONPRINT is an authorized stamp maker in Al Quoz, Dubai. We produce precision laser-engraved rubber dies fitted into Austrian Trodat and Colop self-inking bodies. Every corporate stamp complies with UAE Ministry of Economy and DED corporate identity guidelines.',
+    },
+    whoNeedsThis: {
+      title: 'Who Needs Company Stamps in Dubai?',
+      audiences: [
+        'Newly incorporated UAE mainland and Free Zone businesses (DMCC, DIFC, JAFZA, DAFZA, etc.)',
+        'Accounting, auditing, and financial firms needing dated audit and paid stamps',
+        'Legal practices, notary publics, and government liaison offices requiring embossing seals',
+        'Logistics, clearing agents, and warehouses needing received and QC approval stamps',
+      ],
+    },
+    keyInfo: {
+      cost: 'Self-inking company stamps start from AED 65 for pocket stamps and AED 85 for standard office address stamps. Heavy-duty metal daters start from AED 160.',
+      turnaround: '1 to 2 hours express turnaround in Al Quoz, Dubai. Doorstep courier delivery across Dubai within 3-4 hours.',
+      minimumOrder: '1 unit.',
+      materials: 'Austrian Trodat/Colop housings, odorless laser-engraved rubber dies, non-toxic water-based document-proof ink.',
+    },
+    advantages: [
+      'High-resolution laser engraving (1000 DPI) for intricate Arabic and English calligraphy',
+      '10,000+ crisp impressions before re-inking is required',
+      'Integrated ink pad with easy snap-in replacement cartridge',
+      'Official UAE trade license compliance checks included',
+      'Pocket folding models for mobile executives and signing on the go',
+      'Available in Black, Blue, Red, Green, and Violet document inks',
+    ],
+    bestFor: [
+      'Official company round stamp (English + Arabic)',
+      'Invoice "PAID", "RECEIVED", and "VERIFIED" accounting stamps',
+      'Automatic date stamper with custom company header',
+      'Signature verification and bank authorization stamps',
+      'Pocket mobile stamps for executives and real estate agents',
+    ],
+    specificMaterials: [
+      'Austrian Trodat Printy & Professional Series',
+      'Colop Printer & Pocket Stamp Series',
+      'Heavy-Duty Steel Core Accounting Daters',
+      'Cast-Iron and Brass Desktop Embossing Pliers',
+    ],
+    specificSizes: [
+      'Round: 25mm, 30mm, 40mm, 45mm, 50mm diameter',
+      'Rectangular: 38x14mm, 47x18mm, 58x22mm, 70x25mm',
+      'Heavy-duty Dater: 45x30mm, 56x33mm, 68x47mm',
+    ],
+    specificFinishes: [
+      'Document-Proof Blue, Black, Red, Green Inks',
+      'Two-Color Red/Blue Date Impression Pads',
+      'Dry Embossing Raised Paper Relief',
+    ],
+    faqs: [
+      {
+        question: 'What documents are required to make an official company stamp in Dubai?',
+        answer: 'To comply with UAE security regulations, please provide a copy of your valid UAE Trade License, Chamber of Commerce certificate, or an official authorization letter from the company owner/signatory.',
+      },
+      {
+        question: 'How quickly can I get a company stamp made in Dubai?',
+        answer: 'We offer express 1 to 2 hour production at our Al Quoz pressroom. You can collect your stamp directly or have it dispatched by immediate courier anywhere in Dubai.',
+      },
+      {
+        question: 'Can my company stamp have both English and Arabic text with our logo?',
+        answer: 'Yes, our precision laser engraver reproduces fine bilingual typography with your official company logo, trade license number, and PO Box details in crisp, legible detail.',
+      },
+    ],
+  },
+
+  'bottle-printing-dubai': {
+    whatIs: {
+      title: 'What is Custom Water Bottle Printing & Laser Engraving?',
+      definition:
+        'Direct rotary UV printing and fiber laser engraving on reusable drinkware including thermal stainless steel flasks, glass bottles, and aluminium sports bottles.',
+      expanded:
+        'ONPRINT customizes promotional and corporate drinkware in Dubai. We utilize rotary digital UV presses for full-color panoramic wraps and high-precision fiber lasers for permanent indelible engraving on matte and metallic powder-coated bottles.',
+    },
+    whoNeedsThis: {
+      title: 'Who Needs Custom Water Bottles?',
+      audiences: [
+        'Corporate enterprises gifting branded onboarding welcome kits to employees',
+        'Fitness centers, gyms, marathon organizers, and wellness events across the UAE',
+        'Schools, universities, and sports academies seeking eco-friendly reusable drinkware',
+        'Hotels, resorts, and VIP corporate retreats seeking branded glass or thermal bottles',
+      ],
+    },
+    keyInfo: {
+      cost: 'Custom bottles start from AED 22 for single-wall aluminium sports bottles and AED 38 for double-wall stainless steel thermal flasks.',
+      turnaround: '3 to 5 business days for branded runs. Rush service available for event deadlines.',
+      minimumOrder: '15 to 30 units depending on the bottle model.',
+      materials: 'Food-grade 304/316 stainless steel, borosilicate glass with bamboo caps, BPA-free sports polymers.',
+    },
+    advantages: [
+      'Double-wall vacuum insulation keeping drinks cold for 24 hours and hot for 12 hours',
+      'Indelible fiber laser engraving that never washes off or fades',
+      '360° rotary full-color seamless UV print for photographic graphics',
+      'BPA-free, non-toxic, food-safe certified materials',
+      'Smart LED digital temperature display models available',
+      'Complimentary 3D digital photorealistic mockup before production',
+    ],
+    bestFor: [
+      'Employee onboarding gift packs and milestone anniversaries',
+      'Trade show promotional merchandise and VIP client giveaways',
+      'Gym and sports club branded merchandise',
+      'Hospitality in-room guest amenity bottles',
+      'Eco-friendly corporate sustainability campaigns',
+    ],
+    specificMaterials: [
+      'Food-Grade 304 Stainless Steel (Matte Powder Coat)',
+      'Smart LED Touch Temperature Display Stainless Steel',
+      'Thermal Shock Resistant Borosilicate Glass with Bamboo Lid',
+      'Lightweight Single-Wall Aluminium with Carabiner Clip',
+      'BPA-Free Shaker Bottles with Surgical Steel Whisk Ball',
+    ],
+    specificSizes: [
+      '500ml Standard Executive Thermal Flask',
+      '550ml Eco Glass with Bamboo Cap',
+      '600ml Aluminium Sports Bottle',
+      '700ml Gym Protein Shaker with Measurement Scale',
+      '750ml / 1000ml Large Travel Hydration Flasks',
+    ],
+    specificFinishes: [
+      'Precision Rotary Fiber Laser Engraving (Silver Contrast)',
+      'Full-Color Seamless 360° Rotary UV Print',
+      'Single-Side Screen Print for High-Volume Runs',
+      'Tactile Textured 3D Gloss Embossed UV Print',
+    ],
+    faqs: [
+      {
+        question: 'What is the best branding method for stainless steel bottles?',
+        answer: 'Fiber laser engraving is the most durable method for stainless steel flasks. It vaporizes the top matte powder coat to reveal the clean, mirror-polished steel underneath, making it 100% permanent and dishwasher safe.',
+      },
+      {
+        question: 'Can you print individual employee names on each bottle?',
+        answer: 'Yes! Using variable laser engraving, we can engrave individual employee names alongside your corporate logo on every single bottle for personal onboarding kits.',
+      },
+      {
+        question: 'How long do thermal flasks keep liquids cold in Dubai summer heat?',
+        answer: 'Our double-wall vacuum insulated flasks maintain beverage temperatures up to 24 hours cold and 12 hours hot, even in peak UAE summer outdoor conditions.',
+      },
+    ],
+  },
+
+  'mug-printing-dubai': {
+    whatIs: {
+      title: 'What is Custom Mug Printing?',
+      definition:
+        'High-temperature dye-sublimation and ceramic decal printing on ceramic coffee cups, magic heat-reveal mugs, and insulated travel tumblers.',
+      expanded:
+        'ONPRINT produces commercial printed mugs in Dubai using 1440 DPI dye-sublimation presses and high-temperature polymer curing ovens. Inks fuse into the ceramic glaze, creating scratch-proof, microwave-safe, and commercial dishwasher-safe promotional drinkware.',
+    },
+    whoNeedsThis: {
+      title: 'Who Needs Custom Mug Printing?',
+      audiences: [
+        'Corporate offices stocking branded pantry mugs for staff and client meetings',
+        'Cafes, bakeries, coffee shops, and restaurants in Dubai and UAE',
+        'Merchandise sellers, university campus stores, and gift shops',
+        'Wedding planners and event organizers preparing personalized party favors',
+      ],
+    },
+    keyInfo: {
+      cost: 'Custom ceramic mugs start from AED 16 to AED 26 per unit based on quantity. Magic color-change and travel tumblers start from AED 32.',
+      turnaround: '2 to 4 business days. Express 24-hour rush available for select ceramic models.',
+      minimumOrder: '24 units minimum.',
+      materials: 'AAA-grade glossy white ceramic, two-tone colored ceramics, matte stoneware, double-wall stainless steel.',
+    },
+    advantages: [
+      '1440 DPI full-wrap dye sublimation from handle to handle',
+      '100% dishwasher and microwave safe ceramic glazes',
+      'Food-safe, non-toxic, lead-free and cadmium-free certified',
+      'Individual white cardboard gift box included with every mug',
+      'Two-tone and magic heat-reveal novelty options',
+      'Fast delivery across Dubai, Abu Dhabi, and all 7 Emirates',
+    ],
+    bestFor: [
+      'Corporate office branded pantry drinkware',
+      'Client appreciation gifts and executive desk mugs',
+      'Event giveaway souvenir mugs',
+      'Cafe merchandise collections',
+      'Magic heat-reveal surprise product launch campaigns',
+    ],
+    specificMaterials: [
+      'Grade-AAA Pure White Gloss Ceramic',
+      'Two-Tone Ceramic (Colored Inner & Handle)',
+      'Thermochromic Matte Black Magic Reveal Ceramic',
+      'Matte Black / Charcoal Textured Stoneware',
+      'Double-Wall Stainless Steel Travel Tumbler with Splash Lid',
+    ],
+    specificSizes: [
+      '11oz (325ml) Standard Coffee Mug',
+      '15oz (450ml) Executive Jumbo Coffee Mug',
+      '12oz (350ml) Insulated Stainless Travel Tumbler',
+      '16oz (480ml) Tall Latte Ceramic Mug',
+    ],
+    specificFinishes: [
+      'Full Photographic 360° Panoramic Wrap Print',
+      'Single-Side or Double-Side Logo Placement',
+      'Metallic Gold / Silver Decal Foil Print',
+      'Magic Thermochromic Heat-Activated Coating',
+    ],
+    faqs: [
+      {
+        question: 'Will the printed logo fade in the dishwasher?',
+        answer: 'No. We use industrial dye-sublimation where inks penetrate the molecular structure of the polymer glaze at 200°C. They do not peel or fade in standard residential or office dishwashers.',
+      },
+      {
+        question: 'How does the magic heat-sensitive mug work?',
+        answer: 'The mug appears solid matte black when cold. When hot coffee or tea (above 50°C) is poured inside, the thermochromic coating becomes transparent, revealing your full-color design or company message underneath.',
+      },
+      {
+        question: 'Are the mugs packed individually for safe delivery?',
+        answer: 'Yes, each mug is individually boxed in a protective white corrugated cardboard gift box, then packed in foam-lined master cartons to prevent breakage during courier transit.',
+      },
+    ],
+  },
 }
 
 const emirateLocations = [
@@ -626,68 +994,122 @@ export const defaultFAQsPerLocation = [
  */
 export function getServiceSectionEData(service, slug) {
   const serviceName = service?.name || 'Commercial Printing'
-  const baseIntro = `ONPRINT, a leading commercial printing company located in Al Quoz, Dubai, delivers high-precision ${serviceName.toLowerCase()} solutions engineered for corporate, commercial, and retail brands across the UAE. Operating advanced HP Indigo digital presses and Heidelberg offset machinery, ONPRINT offers standard 24–48 hour turnaround times, calibrated Pantone color fidelity, low minimum order quantities (MOQ starting from 25–50 units), and guaranteed doorstep delivery across Dubai, Abu Dhabi, Sharjah, and the GCC.`
+  const serviceKey = slug || service?.slug || ''
+  const customGeo = serviceGeoContent[serviceKey]
 
-  const specificFaqs = [
-    {
-      question: `Who is the best printing company in Dubai for ${serviceName.toLowerCase()}?`,
-      answer: `ONPRINT is recognized as one of the best commercial printing companies in Dubai for ${serviceName.toLowerCase()}. Operating out of Al Quoz, Dubai, ONPRINT provides certified FSC paper stocks, Pantone color-matching, digital and offset presses, and express turnaround across the UAE.`,
-    },
-    {
-      question: `What is the turnaround time for ${serviceName.toLowerCase()} in Dubai?`,
-      answer: `Standard turnaround for ${serviceName.toLowerCase()} is 24 to 48 hours following final digital proof approval. Express same-day rush printing is available for urgent trade shows, exhibitions, and corporate events in Dubai.`,
-    },
-    {
-      question: `What is the minimum order quantity (MOQ) for ${serviceName.toLowerCase()} at ONPRINT?`,
-      answer: `ONPRINT offers flexible low minimum order quantities starting from just 25 to 50 units for most ${serviceName.toLowerCase()} projects, enabling startups, SMEs, and enterprise brands to test batches without excess inventory commitments.`,
-    },
-    {
-      question: `Which printing press in Dubai offers eco-friendly options for ${serviceName.toLowerCase()}?`,
-      answer: `ONPRINT provides certified eco-friendly printing in Dubai utilizing 100% recycled FSC-certified stocks, biodegradable Kraft boards, and non-toxic vegetable-based soy inks.`,
-    },
-    {
-      question: `What file format does ONPRINT need for ${serviceName.toLowerCase()}?`,
-      answer: `We require print-ready PDF, Adobe Illustrator (.AI), or vector EPS files set to CMYK color mode at 300 DPI resolution, with 3mm external bleed and all text converted to curves/outlines.`,
-    },
-    {
-      question: `Can I get rush printing services in Dubai for trade shows and events?`,
-      answer: `Yes, ONPRINT provides expedited 24-hour rush printing in Dubai for trade shows and exhibitions at Dubai World Trade Centre (DWTC) and Expo City, including roll-up banners, brochures, flyers, and badges.`,
-    },
-    {
-      question: `How much does ${serviceName.toLowerCase()} cost in Dubai?`,
-      answer: `Pricing varies based on volume, paper substrate (170gsm–600gsm), and custom embellishments such as gold foil stamping or spot UV. Contact our Al Quoz sales team at 0nprint183@gmail.com for an immediate itemized commercial quote.`,
-    },
-  ]
+  const baseIntro =
+    customGeo?.whatIs?.expanded ||
+    customGeo?.whatIs?.definition ||
+    `ONPRINT, a leading commercial printing company located in Al Quoz, Dubai, delivers high-precision ${serviceName.toLowerCase()} solutions engineered for corporate, commercial, and retail brands across the UAE. Operating advanced HP Indigo digital presses and Heidelberg offset machinery, ONPRINT offers standard 24–48 hour turnaround times, calibrated Pantone color fidelity, low minimum order quantities (MOQ starting from 25–50 units), and guaranteed doorstep delivery across Dubai, Abu Dhabi, Sharjah, and the GCC.`
+
+  const specificFaqs =
+    customGeo?.faqs && customGeo.faqs.length > 0
+      ? customGeo.faqs
+      : [
+          {
+            question: `Who is the best printing company in Dubai for ${serviceName.toLowerCase()}?`,
+            answer: `ONPRINT is recognized as one of the best commercial printing companies in Dubai for ${serviceName.toLowerCase()}. Operating out of Al Quoz, Dubai, ONPRINT provides certified FSC paper stocks, Pantone color-matching, digital and offset presses, and express turnaround across the UAE.`,
+          },
+          {
+            question: `What is the turnaround time for ${serviceName.toLowerCase()} in Dubai?`,
+            answer: `Standard turnaround for ${serviceName.toLowerCase()} is 24 to 48 hours following final digital proof approval. Express same-day rush printing is available for urgent trade shows, exhibitions, and corporate events in Dubai.`,
+          },
+          {
+            question: `What is the minimum order quantity (MOQ) for ${serviceName.toLowerCase()} at ONPRINT?`,
+            answer: `ONPRINT offers flexible low minimum order quantities starting from just 25 to 50 units for most ${serviceName.toLowerCase()} projects, enabling startups, SMEs, and enterprise brands to test batches without excess inventory commitments.`,
+          },
+          {
+            question: `Which printing press in Dubai offers eco-friendly options for ${serviceName.toLowerCase()}?`,
+            answer: `ONPRINT provides certified eco-friendly printing in Dubai utilizing 100% recycled FSC-certified stocks, biodegradable Kraft boards, and non-toxic vegetable-based soy inks.`,
+          },
+          {
+            question: `What file format does ONPRINT need for ${serviceName.toLowerCase()}?`,
+            answer: `We require print-ready PDF, Adobe Illustrator (.AI), or vector EPS files set to CMYK color mode at 300 DPI resolution, with 3mm external bleed and all text converted to curves/outlines.`,
+          },
+          {
+            question: `Can I get rush printing services in Dubai for trade shows and events?`,
+            answer: `Yes, ONPRINT provides expedited 24-hour rush printing in Dubai for trade shows and exhibitions at Dubai World Trade Centre (DWTC) and Expo City, including roll-up banners, brochures, flyers, and badges.`,
+          },
+          {
+            question: `How much does ${serviceName.toLowerCase()} cost in Dubai?`,
+            answer: `Pricing varies based on volume, paper substrate (170gsm–600gsm), and custom embellishments such as gold foil stamping or spot UV. Contact our Al Quoz sales team at 0nprint183@gmail.com for an immediate itemized commercial quote.`,
+          },
+        ]
 
   return {
     h1: service?.seoHeading || `${serviceName} in Dubai | Professional Printing Services | ONPRINT`,
     intro: baseIntro,
-    whatProvides: [
+    whatProvides: customGeo?.advantages || [
       `Industrial-grade production using calibrated HP Indigo digital & Heidelberg offset presses.`,
       `Comprehensive in-house finishing: soft-touch velvet lamination, metallic hot foil stamping, embossing, and spot UV.`,
       `Dedicated prepress engineering with free PDF artwork verification and CMYK color profiling.`,
       `Prompt dispatch and insured courier delivery across all 7 Emirates (Dubai, Abu Dhabi, Sharjah, Ajman, RAK, UAQ, Fujairah).`,
     ],
     availableOptions: {
-      materials: [
+      materials: customGeo?.specificMaterials || [
         '350gsm–600gsm Cotton, Silk, and Linen Uncoated Cardstocks',
         '170gsm–350gsm FSC-Certified Gloss & Matte Coated Art Papers',
         'Heavyweight Presentation Boards & Textured Specialty Stocks',
         'Tear-proof waterproof synthetic polypropylene and PVC materials',
       ],
-      sizes: [
+      sizes: customGeo?.specificSizes || [
         'Standard ISO A-Series (A0, A1, A2, A3, A4, A5, A6, DL)',
         'Custom Die-Cut Shapes & Bespoke Printing Dimensions',
         'Standard Corporate Identity Formats (85mm x 55mm & 90mm x 50mm)',
         'Wide-Format Rolls up to 3.2m to 5m seamless width',
       ],
-      finishes: [
+      finishes: customGeo?.specificFinishes || [
         'Soft-Touch Matte Velvet Lamination & Anti-Scratch Film',
         'Metallic Hot Foil Stamping (Gold, Silver, Rose Gold, Copper, Holographic)',
         'Raised Spot UV Varnishing & Textured 3D Varnish',
         'Blind Debossing, Embossing, Edge Gilding & Painted Beveled Edges',
       ],
     },
+    whoUses: customGeo?.whoNeedsThis?.audiences || customGeo?.bestFor || [
+      'Corporate Enterprises & Financial Institutions in DIFC, Downtown, and Business Bay',
+      'Luxury Retail, Perfumery, Cosmetics & Jewelry Brands in Dubai Mall and Mall of the Emirates',
+      'Hospitality, QSR Chains, Luxury Hotels, and Fine Dining Venues across Jumeirah & Palm Jumeirah',
+      'Startups, SMEs, and E-Commerce Brands requiring low-MOQ premium custom branded collateral',
+      'Event Organizers, PR Agencies, and Trade Show Exhibitors at DWTC and Dubai Expo City',
+    ],
+    processSteps: [
+      {
+        step: '1',
+        title: 'Order & Artwork Submission',
+        desc: 'Submit your vector artwork or request our studio prepress layout assistance with your target specifications.',
+      },
+      {
+        step: '2',
+        title: 'Prepress Digital Soft Proofing',
+        desc: 'Our prepress specialists conduct a comprehensive bleed, resolution, and CMYK color profile check, issuing a PDF proof within 2 hours.',
+      },
+      {
+        step: '3',
+        title: 'Precision Production & Finishing',
+        desc: 'Printed on commercial HP Indigo digital or Heidelberg offset presses with luxury custom lamination, foil, and die-cutting applied.',
+      },
+      {
+        step: '4',
+        title: 'Quality Inspection & UAE Delivery',
+        desc: 'Each batch undergoes rigorous manual quality inspection before secure packaging and same-day or next-day courier delivery to your doorstep.',
+      },
+    ],
+    artworkRequirements: {
+      formats: 'Print-ready PDF (PDF/X-1a preferred), Adobe Illustrator (.AI), EPS, or high-res TIFF',
+      resolution: '300 DPI minimum at 100% actual print scale',
+      bleed: '3mm minimum bleed on all sides with a 4mm internal safety margin',
+      colorMode: 'CMYK (Fogra 39 or Coated GRACoL 2006). Convert RGB & Pantone spot colors to process unless spot printing is specified.',
+      fonts: 'All typography converted to outlines / vectors. Embedded raster images must exceed 300 DPI.',
+    },
+    faqs: specificFaqs,
+    requestQuote: {
+      email: '0nprint183@gmail.com',
+      address: 'Al Quoz, Dubai, UAE',
+      turnaround: customGeo?.keyInfo?.turnaround || 'Standard 24–48 Hours | Same-Day Rush Available',
+      moq: customGeo?.keyInfo?.minimumOrder || 'Flexible Low MOQs Starting From 25–50 Units',
+    },
+  }
+}
     whoUses: [
       'Corporate Enterprises & Financial Institutions in DIFC, Downtown, and Business Bay',
       'Luxury Retail, Perfumery, Cosmetics & Jewelry Brands in Dubai Mall and Mall of the Emirates',

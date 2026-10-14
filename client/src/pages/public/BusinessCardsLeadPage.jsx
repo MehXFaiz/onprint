@@ -30,7 +30,7 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick } from '../../utils/analytics'
+import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick, trackQuoteRequest } from '../../utils/analytics'
 import { openWhatsAppDirectly, getWhatsAppUrl, getServiceWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
 
 const CARD_OPTIONS = [
@@ -221,6 +221,14 @@ Please confirm availability and dispatch schedule.`
       const res = await createQuote(quotePayload)
       const finalQuote = res || quotePayload
       setSubmittedQuote(finalQuote)
+
+      trackQuoteRequest({
+        product: `Business Cards: ${selectedCard.name}`,
+        quantity: selectedQty.value,
+        value: estimatedTotal,
+        currency: 'AED',
+        source_page: 'business_cards_lead_page',
+      })
 
       // Direct WhatsApp Dispatch
       openWhatsAppDirectly({
@@ -789,63 +797,62 @@ Please confirm availability and dispatch schedule.`
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. BUSINESS CARD CLIENT TESTIMONIALS & TRUST                              */}
+      {/* 4. PRE-PRESS QUALITY & ACCURACY STANDARDS                                 */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
         <Container className="max-w-5xl">
           <div className="text-center mb-12">
             <span className="text-xs font-black uppercase tracking-wider text-[#A82F19]">
-              CLIENT SATISFACTION
+              COMMERCIAL ATELIER STANDARDS
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
-              Trusted by 500+ Corporate Executives Across the UAE
+              Rigorous Quality Checks for Corporate Stationery in Dubai
             </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-2xl mx-auto">
+              Every business card run is inspected for color fidelity, dimensional accuracy, and finishing alignment before dispatch.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                name: 'Tariq Al-Mansoor',
-                company: 'Al Mansoor Capital DIFC',
-                quote:
-                  'The 600 GSM cotton cards with 24K gold foil and painted edges are the most impressive business cards our partners have ever held. Flawless turnaround.',
-                stars: 5,
+                icon: ShieldCheck,
+                title: 'Free PDF Soft Proof & Pre-Flight',
+                desc: 'Every file is pre-flighted for 300+ DPI resolution, CMYK color space conversion, 2mm bleed margins, and font rasterization before plates are set.',
               },
               {
-                name: 'Sarah Jenkins',
-                company: 'Luxury Living Real Estate Dubai',
-                quote:
-                  'We ordered 2,500 velvet soft-touch cards for our team. The color accuracy matched our brand Pantone guide perfectly, delivered within 24 hours.',
-                stars: 5,
+                icon: Award,
+                title: 'European Stock & Pantone Calibration',
+                desc: 'Certified 350 to 700 GSM artboards and Italian cotton boards with calibrated digital toner density and heat-bonded foil stamping.',
               },
               {
-                name: 'Rashed Al Nuaimi',
-                company: 'Apex Design & Architecture',
-                quote:
-                  'Direct in-house pressroom service with zero middleman hassle. The blind debossing depth and paper weight exceeded all expectations.',
-                stars: 5,
+                icon: Clock,
+                title: 'Express Al Quoz Press Turnaround',
+                desc: 'Direct in-house production in Al Quoz, Dubai. Urgent same-day rush options available or standard 24–48 hour delivery across all 7 Emirates.',
               },
-            ].map((test, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex gap-1 text-amber-400 mb-3">
-                    {[...Array(test.stars)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-current" />
-                    ))}
+            ].map((std, idx) => {
+              const IconComp = std.icon
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#A82F19]/10 text-[#A82F19] mb-4">
+                      <IconComp className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-sm font-bold text-slate-900 mb-2">{std.title}</h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {std.desc}
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 italic leading-relaxed">
-                    "{test.quote}"
-                  </p>
+                  <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-[#A82F19]">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    <span>ONPRINT Dubai Standard</span>
+                  </div>
                 </div>
-                <div className="mt-5 pt-3 border-t border-slate-100">
-                  <div className="font-bold text-xs text-slate-900">{test.name}</div>
-                  <div className="text-[11px] text-slate-500">{test.company}</div>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </Container>
       </section>

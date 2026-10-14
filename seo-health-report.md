@@ -93,7 +93,7 @@ ONPRINT's keyword strategy is organized across **10 distinct commercial clusters
 * **NAP Standard**: 100% unified across site layouts, database records, and schema markup:
   * **Name**: ONPRINT (Alternate: 0nprint)
   * **Physical Address**: Al Quoz, Dubai, UAE
-  * **Phone**: +44 7344 546056
+  * **Phone**: +44 7344546056
   * **Email**: 0nprint183@gmail.com
   * **Website**: `https://0nprint.com`
 * **Geographical Targeting**: Primary hub in Dubai with delivery radius covering all 7 Emirates (Dubai, Abu Dhabi, Sharjah, Ajman, RAK, UAQ, Fujairah).

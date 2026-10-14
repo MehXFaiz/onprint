@@ -18,16 +18,22 @@ const QUICK_PROMPTS = [
     text: SERVICE_INQUIRY_MESSAGES['business-cards'],
   },
   {
+    key: 'stickers',
+    label: 'Stickers & Labels',
+    badge: 'Waterproof',
+    text: SERVICE_INQUIRY_MESSAGES.stickers,
+  },
+  {
     key: 'rollup-banners',
     label: 'Roll-Up Banners',
     badge: 'Event Ready',
     text: SERVICE_INQUIRY_MESSAGES['rollup-banners'],
   },
   {
-    key: 'stickers',
-    label: 'Stickers & Labels',
-    badge: 'Waterproof',
-    text: SERVICE_INQUIRY_MESSAGES.stickers,
+    key: 'bottle-printing',
+    label: 'Custom Bottle Printing',
+    badge: 'Drinkware',
+    text: SERVICE_INQUIRY_MESSAGES['bottle-printing'],
   },
   {
     key: 'stamps',

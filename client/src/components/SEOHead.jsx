@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { getPageSeoByUrl } from '../services/seo'
 import { FORMATTED_PHONE } from '../utils/whatsapp'
 
-const DEFAULT_SITE_URL = 'https://0nprint.com'
+const DEFAULT_SITE_URL = 'https://www.0nprint.com'
 const SITE_URL = (import.meta.env.VITE_SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, '')
 const DEFAULT_IMAGE = `${SITE_URL}/logo_icon.png`
 const SITE_NAME = 'ONPRINT'
@@ -69,13 +69,6 @@ export const organizationSchema = {
     { '@type': 'City', name: 'Ras Al Khaimah' },
     { '@type': 'Country', name: 'United Arab Emirates' },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '120',
-    bestRating: '5',
-    worstRating: '1',
-  },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Commercial Printing & Branding Services Dubai',

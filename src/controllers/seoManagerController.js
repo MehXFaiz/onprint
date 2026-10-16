@@ -2744,7 +2744,94 @@ class SeoManagerController {
       res.status(500).json({ success: false, message: err.message })
     }
   }
+
+  // ==========================================
+  // DUBAI BUSINESS CARD SEO & WHITE-HAT BACKLINK STRATEGY
+  // ==========================================
+  async getBusinessCardLinkBuilding(req, res) {
+    try {
+      const businessCardService = require('../services/businessCardLinkBuildingService')
+      const prospects = persistentStore.getBusinessCardBacklinkProspects()
+      const qualifiedProspects = prospects.filter((p) => p.qualification_status === 'qualified')
+      const rejectedProspects = prospects.filter((p) => p.qualification_status === 'rejected')
+
+      res.json({
+        success: true,
+        data: {
+          keywords: businessCardService.PRIORITIZED_BUSINESS_CARD_KEYWORDS,
+          prospects,
+          summary: {
+            total_keywords: businessCardService.PRIORITIZED_BUSINESS_CARD_KEYWORDS.length,
+            total_prospects: prospects.length,
+            qualified_prospects: qualifiedProspects.length,
+            rejected_prospects: rejectedProspects.length,
+            approved_for_outreach: qualifiedProspects.filter((p) => p.approved_by_owner).length,
+            verified_acquired_links: qualifiedProspects.filter((p) => p.outreach_status === 'Acquired' && p.verified_live).length,
+            link_worthy_guides_published: businessCardService.LINK_WORTHY_CONTENT_ASSETS.length,
+          },
+          anchor_text_strategy: businessCardService.ANCHOR_TEXT_STRATEGY,
+          link_worthy_content_assets: businessCardService.LINK_WORTHY_CONTENT_ASSETS,
+          outreach_templates: businessCardService.WHITE_HAT_OUTREACH_TEMPLATES,
+          ninety_day_roadmap: businessCardService.NINETY_DAY_ROADMAP,
+          technical_audit: businessCardService.getLandingPageTechnicalAudit(),
+          anti_spam_charter: [
+            'Zero automated backlink generators, PBNs, link farms, or paid link exchanges.',
+            'Zero fabricated search volume or keyword difficulty metrics — only real GSC/SEMrush data is accepted.',
+            'No external website is ever claimed to be 100% risk-free; every prospect has a documented risk score and rationale.',
+            'No outreach email is sent without explicit owner approval (approved_by_owner = true).',
+            'No backlink can be marked as Acquired until its live URL (https://...) is verified.',
+          ],
+        },
+      })
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  async updateBusinessCardProspect(req, res) {
+    try {
+      const { id } = req.params
+      const actor = req.user?.email || req.user?.username || 'Admin'
+      const updated = persistentStore.updateBusinessCardBacklinkProspect(id, req.body || {}, actor)
+      if (!updated) {
+        return res.status(404).json({ success: false, message: 'Backlink prospect not found.' })
+      }
+      res.json({
+        success: true,
+        message: `Updated prospect ${updated.domain}.`,
+        data: updated,
+      })
+    } catch (err) {
+      res.status(400).json({ success: false, message: err.message })
+    }
+  }
+
+  async exportBusinessCardProspectsCsv(req, res) {
+    try {
+      const businessCardService = require('../services/businessCardLinkBuildingService')
+      const prospects = persistentStore.getBusinessCardBacklinkProspects()
+      const csv = businessCardService.exportProspectsCsv(prospects)
+      res.setHeader('Content-Type', 'text/csv; charset=utf-8')
+      res.setHeader('Content-Disposition', 'attachment; filename="dubai-business-card-backlink-prospects.csv"')
+      res.send(csv)
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
+
+  async exportBusinessCardKeywordsCsv(req, res) {
+    try {
+      const businessCardService = require('../services/businessCardLinkBuildingService')
+      const csv = businessCardService.exportKeywordsCsv()
+      res.setHeader('Content-Type', 'text/csv; charset=utf-8')
+      res.setHeader('Content-Disposition', 'attachment; filename="dubai-business-card-keywords-research.csv"')
+      res.send(csv)
+    } catch (err) {
+      res.status(500).json({ success: false, message: err.message })
+    }
+  }
 }
 
 module.exports = new SeoManagerController()
+
 

@@ -227,5 +227,12 @@ router.put('/backlink-audit/removal-requests/:id', (req, res) => seoManagerContr
 router.post('/backlink-audit/disavow/generate', (req, res) => seoManagerController.generateDisavowFileEndpoint(req, res))
 router.get('/backlink-audit/export-csv', (req, res) => seoManagerController.exportBacklinkAuditCsv(req, res))
 
+// Dubai Business Card SEO & White-Hat Backlink Building System
+router.get('/business-cards-link-building', (req, res) => seoManagerController.getBusinessCardLinkBuilding(req, res))
+router.put('/business-cards-link-building/prospects/:id', (req, res) => seoManagerController.updateBusinessCardProspect(req, res))
+router.get('/business-cards-link-building/export-prospects-csv', (req, res) => seoManagerController.exportBusinessCardProspectsCsv(req, res))
+router.get('/business-cards-link-building/export-keywords-csv', (req, res) => seoManagerController.exportBusinessCardKeywordsCsv(req, res))
+
 module.exports = router
+
 

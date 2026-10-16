@@ -574,4 +574,19 @@ export async function generateDisavowFile(payload) {
   return data
 }
 
+// ==========================================
+// DUBAI BUSINESS CARD SEO & WHITE-HAT BACKLINK STRATEGY API CLIENT
+// ==========================================
+
+export async function getBusinessCardLinkBuilding() {
+  const { data } = await api.get('/seo/business-cards-link-building')
+  return data
+}
+
+export async function updateBusinessCardProspect(id, payload) {
+  const { data } = await api.put(`/seo/business-cards-link-building/prospects/${id}`, payload)
+  return data
+}
+
+
 

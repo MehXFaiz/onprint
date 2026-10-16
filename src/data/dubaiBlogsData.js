@@ -1413,4 +1413,13 @@ for (const bp of blogBlueprints) {
   }
 }
 
+const { BUSINESS_CARD_LINKABLE_GUIDES } = require('./businessCardLinkableGuidesData')
+for (const guide of BUSINESS_CARD_LINKABLE_GUIDES) {
+  pushBlog({
+    ...guide,
+    id: bid++,
+  })
+}
+
 module.exports = DUBAI_BLOGS
+

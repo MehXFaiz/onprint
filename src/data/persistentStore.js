@@ -7,6 +7,8 @@ const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/
 const { GEO_FAQS } = require('./geoFaqsData')
 const { GEO_CONTENT_RECORDS } = require('./geoContentData')
 const { DUBAI_AI_VISIBILITY_QUERIES } = require('./dubaiAiVisibilityData')
+const { BUSINESS_CARD_LINKABLE_GUIDES } = require('./businessCardLinkableGuidesData')
+const { BUSINESS_CARD_BACKLINK_PROSPECTS } = require('../services/businessCardLinkBuildingService')
 
 const DEFAULT_SEO_TASKS = [
   {
@@ -95,6 +97,33 @@ const DEFAULT_SEO_TASKS = [
   },
 ]
 
+function ensureBusinessCardGuidesAndProspects(parsed) {
+  let dirty = false
+  if (!Array.isArray(parsed.blogs)) {
+    parsed.blogs = []
+  }
+  const existingSlugs = new Set(parsed.blogs.map((b) => String(b.slug || '').toLowerCase()))
+  let maxBlogId = parsed.blogs.length > 0 ? Math.max(...parsed.blogs.map((b) => Number(b.id) || 0)) : 18
+  for (const guide of BUSINESS_CARD_LINKABLE_GUIDES) {
+    if (!existingSlugs.has(String(guide.slug).toLowerCase())) {
+      maxBlogId += 1
+      parsed.blogs.push({
+        ...guide,
+        id: guide.id || maxBlogId,
+        _id: `blog-${guide.id || maxBlogId}`,
+      })
+      existingSlugs.add(String(guide.slug).toLowerCase())
+      dirty = true
+    }
+  }
+
+  if (!Array.isArray(parsed.business_card_backlink_prospects) || parsed.business_card_backlink_prospects.length === 0) {
+    parsed.business_card_backlink_prospects = BUSINESS_CARD_BACKLINK_PROSPECTS.map((p) => ({ ...p }))
+    dirty = true
+  }
+  return dirty
+}
+
 function loadStore() {
   try {
     if (fs.existsSync(STORE_PATH)) {
@@ -124,12 +153,15 @@ function loadStore() {
       if (!Array.isArray(parsed.backlink_audit_logs)) {
         parsed.backlink_audit_logs = []
       }
+      if (ensureBusinessCardGuidesAndProspects(parsed)) {
+        saveStore(parsed)
+      }
       return parsed
     }
   } catch (err) {
     console.warn('[PersistentStore] Read error, resetting:', err.message)
   }
-  return {
+  const fallback = {
     orders: [],
     quotes: [],
     messages: [],
@@ -143,7 +175,10 @@ function loadStore() {
     backlink_removal_requests: [],
     disavow_versions: [],
     backlink_audit_logs: [],
+    business_card_backlink_prospects: [],
   }
+  ensureBusinessCardGuidesAndProspects(fallback)
+  return fallback
 }
 
 function saveStore(data) {
@@ -1234,6 +1269,64 @@ function addBacklinkAuditLog(logData) {
   return entry
 }
 
+function getBusinessCardBacklinkProspects() {
+  const store = loadStore()
+  if (!Array.isArray(store.business_card_backlink_prospects) || store.business_card_backlink_prospects.length === 0) {
+    store.business_card_backlink_prospects = BUSINESS_CARD_BACKLINK_PROSPECTS.map((p) => ({ ...p }))
+    saveStore(store)
+  }
+  return store.business_card_backlink_prospects
+}
+
+function updateBusinessCardBacklinkProspect(id, data = {}, actor = 'Admin') {
+  const store = loadStore()
+  if (!Array.isArray(store.business_card_backlink_prospects) || store.business_card_backlink_prospects.length === 0) {
+    store.business_card_backlink_prospects = BUSINESS_CARD_BACKLINK_PROSPECTS.map((p) => ({ ...p }))
+  }
+  const idx = store.business_card_backlink_prospects.findIndex((p) => String(p.id) === String(id) || p.domain === id)
+  if (idx === -1) return null
+
+  const current = store.business_card_backlink_prospects[idx]
+  if (current.qualification_status === 'rejected' && data.outreach_status && data.outreach_status !== 'Do Not Contact — Disqualified') {
+    throw new Error('Cannot initiate outreach or acquire links from a disqualified / rejected spam domain.')
+  }
+
+  const nextApproved = data.approved_by_owner !== undefined ? Boolean(data.approved_by_owner) : Boolean(current.approved_by_owner)
+  const nextLiveUrl = data.live_backlink_url !== undefined ? String(data.live_backlink_url || '').trim() : String(current.live_backlink_url || '').trim()
+  const nextVerifiedLive = data.verified_live !== undefined ? Boolean(data.verified_live) : Boolean(current.verified_live)
+  const nextStatus = data.outreach_status !== undefined ? String(data.outreach_status) : current.outreach_status
+
+  if ((nextStatus === 'Outreach Sent' || nextStatus === 'Acquired') && !nextApproved) {
+    throw new Error('Safety Rule: Explicit owner approval is required before sending outreach or marking a prospect active.')
+  }
+
+  if (nextStatus === 'Acquired') {
+    if (!nextLiveUrl || !/^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(nextLiveUrl) || !nextVerifiedLive) {
+      throw new Error('Safety Rule: A backlink cannot be marked as Acquired until its live URL (https://...) has been verified.')
+    }
+  }
+
+  const updated = {
+    ...current,
+    ...data,
+    id: current.id,
+    approved_by_owner: nextApproved,
+    live_backlink_url: nextLiveUrl || null,
+    verified_live: nextVerifiedLive,
+    outreach_status: nextStatus,
+    updated_at: new Date().toISOString(),
+  }
+
+  store.business_card_backlink_prospects[idx] = updated
+  addBacklinkAuditLogInternal(store, {
+    action: 'BUSINESS_CARD_PROSPECT_UPDATED',
+    actor,
+    details: `Updated business card prospect ${updated.domain}: status="${updated.outreach_status}", approved=${updated.approved_by_owner}, verified_live=${updated.verified_live}.`,
+  })
+  saveStore(store)
+  return updated
+}
+
 module.exports = {
   getOrders,
   addOrder,
@@ -1288,5 +1381,8 @@ module.exports = {
   addDisavowVersion,
   getBacklinkAuditLogs,
   addBacklinkAuditLog,
+  getBusinessCardBacklinkProspects,
+  updateBusinessCardBacklinkProspect,
 }
+
 

@@ -1901,6 +1901,89 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               </ul>
             </div>
           </div>
+
+          {/* 8B. Link-Worthy Executive Guides & Print Engineering Resources */}
+          <div className="mt-8 rounded-2xl border border-neutral-200 bg-neutral-950 p-6 sm:p-8 text-white">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-5 mb-6">
+              <div>
+                <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#D4AF37] mb-1">
+                  <FileText className="h-3.5 w-3.5" />
+                  <span>Dubai Print Engineering Library</span>
+                </div>
+                <h3 className="font-display text-xl sm:text-2xl font-black text-white">
+                  Executive Business Card Guides &amp; Technical Specifications
+                </h3>
+                <p className="text-xs sm:text-sm text-neutral-300 mt-1">
+                  Free technical resources authored by our Al Quoz pre-press specialists to help UAE founders, designers, and procurement teams specify flawless cards.
+                </p>
+              </div>
+              <Link
+                to="/blog"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all shrink-0"
+              >
+                <span>View All Guides</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {[
+                {
+                  title: 'How to Choose Business Card Paper: 350gsm vs 450gsm vs 600gsm Cotton',
+                  slug: '/blog/how-to-choose-business-card-paper-dubai',
+                  tag: 'Paper & GSM Specs',
+                  desc: 'Compare caliper microns, fiber stiffness, and cotton stocks for Dubai corporate cards.',
+                },
+                {
+                  title: 'Business Card Design Guide for Dubai Businesses (Bilingual & Pre-Press)',
+                  slug: '/blog/business-card-design-guide-dubai-businesses',
+                  tag: 'Pre-Press & Bilingual',
+                  desc: '90x55mm bleed rules, Arabic-English typography, CMYK vs Pantone, and foil masks.',
+                },
+                {
+                  title: 'Business Card Printing Checklist for UAE Startups & Free Zone Founders',
+                  slug: '/blog/business-card-printing-checklist-uae-startups',
+                  slugLabel: 'Startup Checklist',
+                  tag: 'Startup & Event Prep',
+                  desc: '12-point pre-flight audit, dynamic vCard QR setup, and 4-hour rush contingency.',
+                },
+                {
+                  title: 'Premium vs Standard Business Cards: A Practical ROI Guide for Dubai',
+                  slug: '/blog/premium-vs-standard-business-cards-dubai-guide',
+                  tag: 'Tier & Cost Matrix',
+                  desc: 'When to deploy 350gsm Matte vs 450gsm Velvet vs 600gsm Cotton across teams.',
+                },
+                {
+                  title: 'Business Branding & Networking Materials for Dubai Exhibitions',
+                  slug: '/blog/business-branding-networking-materials-dubai-companies',
+                  tag: 'Corporate Stationery',
+                  desc: 'Synchronize business cards, presentation folders, letterheads, and NFC badges.',
+                },
+              ].map((guide) => (
+                <Link
+                  key={guide.slug}
+                  to={guide.slug}
+                  className="group rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-[#D4AF37]/50 p-4 flex flex-col justify-between transition-all"
+                >
+                  <div>
+                    <span className="inline-block rounded-md bg-[#A82F19]/30 border border-[#A82F19]/50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#FCA5A5] mb-2">
+                      {guide.tag}
+                    </span>
+                    <h4 className="font-bold text-xs sm:text-sm text-white group-hover:text-[#D4AF37] transition-colors leading-snug">
+                      {guide.title}
+                    </h4>
+                    <p className="text-[11px] text-neutral-400 mt-2 leading-relaxed">
+                      {guide.desc}
+                    </p>
+                  </div>
+                  <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-bold text-[#D4AF37]">
+                    <span>Read Technical Guide</span>
+                    <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* 9. BOTTOM HIGH-CONVERTING CALL TO ACTION */}

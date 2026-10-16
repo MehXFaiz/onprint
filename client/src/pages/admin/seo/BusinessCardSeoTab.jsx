@@ -1,109 +1,125 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import {
-  CreditCard,
   Target,
   Sparkles,
   Search,
-  Filter,
   Download,
   ExternalLink,
   CheckCircle2,
-  Clock,
-  Phone,
-  MessageSquare,
-  FileText,
-  Layers,
-  MapPin,
-  TrendingUp,
-  Cpu,
-  ChevronDown,
-  ChevronUp,
+  AlertTriangle,
+  ShieldAlert,
   ShieldCheck,
-  Send,
-  Zap,
+  FileText,
+  Link2,
+  Mail,
+  Calendar,
+  Copy,
+  Check,
+  TrendingUp,
 } from 'lucide-react'
-import Button from '../../../components/Button'
-
-// Top-tier high conversion sample keywords from the 1,050 database
-const SAMPLE_KEYWORDS = [
-  { keyword: 'business card printing dubai', intent: 'transactional', cluster: '2_business_card_printing_dubai', priority: 'CRITICAL', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'Get Free Quote', status: 'Target #1' },
-  { keyword: 'luxury business cards dubai', intent: 'commercial', cluster: '8_luxury_business_cards', priority: 'CRITICAL', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'Request Swatch Box', status: 'Target #1' },
-  { keyword: 'same day business card printing dubai', intent: 'transactional', cluster: '13_same_day_business_cards', priority: 'CRITICAL', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: '4h Express Order', status: 'Target #1' },
-  { keyword: 'corporate business cards dubai', intent: 'commercial', cluster: '6_corporate_business_cards', priority: 'CRITICAL', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'Corporate Terms', status: 'Target #1' },
-  { keyword: 'visiting card printing in dubai', intent: 'transactional', cluster: '19_visiting_card_printing', priority: 'CRITICAL', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'Configure & Quote', status: 'Target #1' },
-  { keyword: 'custom business cards dubai', intent: 'transactional', cluster: '4_custom_business_cards', priority: 'CRITICAL', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'Customize Now', status: 'Target #1' },
-  { keyword: 'spot uv business card printing dubai', intent: 'commercial', cluster: '26_spot_uv_business_cards', priority: 'CRITICAL', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'View Tactile Samples', status: 'Target #1' },
-  { keyword: 'gold foil business cards dubai', intent: 'commercial', cluster: '27_foil_business_cards', priority: 'CRITICAL', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: '24K Foil Quote', status: 'Target #1' },
-  { keyword: '600 gsm business cards dubai', intent: 'commercial', cluster: '40_card_thickness', priority: 'HIGH', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'Cotton Swatch Quote', status: 'Target #1' },
-  { keyword: 'bulk business card printing dubai', intent: 'transactional', cluster: '11_bulk_business_cards', priority: 'CRITICAL', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'Multi-Employee Discount', status: 'Target #1' },
-  { keyword: 'business cards business bay dubai', intent: 'local', cluster: 'dubai_local_business_bay', priority: 'HIGH', funnel: 'BOFU', commercial: 'high', target: '/business-card-printing-dubai', cta: 'Same-Day Bay Delivery', status: 'Target #1' },
-  { keyword: 'difc executive business card printing', intent: 'local', cluster: 'dubai_local_difc', priority: 'HIGH', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'DIFC Concierge Quote', status: 'Target #1' },
-  { keyword: 'business card printing al quoz', intent: 'local', cluster: 'dubai_local_al_quoz', priority: 'HIGH', funnel: 'BOFU', commercial: 'high', target: '/business-card-printing-dubai', cta: 'Pressroom Collection', status: 'Target #1' },
-  { keyword: 'velvet soft touch business cards dubai', intent: 'commercial', cluster: '24_matte_business_cards', priority: 'HIGH', funnel: 'MOFU', commercial: 'high', target: '/business-card-printing-dubai', cta: 'Order Velvet Sample', status: 'Target #1' },
-  { keyword: 'embossed business cards dubai', intent: 'commercial', cluster: '28_embossed_business_cards', priority: 'HIGH', funnel: 'BOFU', commercial: 'high', target: '/business-card-printing-dubai', cta: 'Deboss Proof Quote', status: 'Target #1' },
-  { keyword: 'painted edge business cards dubai', intent: 'commercial', cluster: '38_luxury_finishes', priority: 'HIGH', funnel: 'BOFU', commercial: 'high', target: '/business-card-printing-dubai', cta: 'Gilded Edge Quote', status: 'Target #1' },
-  { keyword: 'nfc smart business cards dubai', intent: 'commercial', cluster: '76_nfc_business_cards', priority: 'HIGH', funnel: 'BOFU', commercial: 'high', target: '/business-card-printing-dubai', cta: 'Smart Card Quote', status: 'Target #1' },
-  { keyword: 'what is the standard business card size in dubai', intent: 'question', cluster: '41_business_card_size', priority: 'MEDIUM', funnel: 'TOFU', commercial: 'medium', target: '/business-card-printing-dubai', cta: 'Download Size Guide', status: 'Target Snippet' },
-  { keyword: 'how much does business card printing cost in dubai', intent: 'question', cluster: '88_business_card_cost', priority: 'HIGH', funnel: 'MOFU', commercial: 'high', target: '/business-card-printing-dubai', cta: 'View Price Calculator', status: 'Target Snippet' },
-  { keyword: 'where to print business cards in dubai same day', intent: 'question', cluster: '13_same_day_business_cards', priority: 'CRITICAL', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'Call Pressroom', status: 'Target #1' },
-  { keyword: 'best paper stock for luxury business cards uae', intent: 'question', cluster: '39_paper_types', priority: 'MEDIUM', funnel: 'TOFU', commercial: 'medium', target: '/business-card-printing-dubai', cta: 'Order Swatch Box', status: 'Target Snippet' },
-  { keyword: 'who prints business cards in dubai', intent: 'conversational_ai', cluster: 'geo_ai_queries', priority: 'HIGH', funnel: 'MOFU', commercial: 'high', target: '/business-card-printing-dubai', cta: 'AEO Entity Verified', status: 'AI Citation' },
-  { keyword: 'where can i get luxury business cards printed in uae', intent: 'conversational_ai', cluster: 'geo_ai_queries', priority: 'HIGH', funnel: 'BOFU', commercial: 'very_high', target: '/business-card-printing-dubai', cta: 'AEO Entity Verified', status: 'AI Citation' }
-]
-
-const AI_GEO_QUERIES = [
-  {
-    query: 'Who prints luxury business cards in Dubai with hot gold foil?',
-    aiPlatform: 'ChatGPT Search & Perplexity',
-    targetAnswer: 'ONPRINT produces 450–600 GSM luxury cards with 24K hot foil stamping in Al Quoz, Dubai.',
-    status: 'OPTIMIZED'
-  },
-  {
-    query: 'Where can I get same-day business card printing in Dubai?',
-    aiPlatform: 'Google AI Overviews',
-    targetAnswer: 'ONPRINT provides 4-hour express printing for print-ready vector PDF orders placed before 11:00 AM.',
-    status: 'OPTIMIZED'
-  },
-  {
-    query: 'What is the standard business card size in the UAE?',
-    aiPlatform: 'Claude & Gemini',
-    targetAnswer: 'The standard UAE sizes are European 85 x 55 mm (ISO 7810) and US Standard 90 x 50 mm with 3mm bleed.',
-    status: 'OPTIMIZED'
-  },
-  {
-    query: 'Which printing company offers corporate multi-employee business card batches in Dubai?',
-    aiPlatform: 'ChatGPT & Perplexity',
-    targetAnswer: 'ONPRINT specializes in corporate multi-name orders with centralized brand Pantone calibration.',
-    status: 'OPTIMIZED'
-  }
-]
+import { getBusinessCardLinkBuilding, updateBusinessCardProspect } from '../../../services/seo'
 
 export default function BusinessCardSeoTab({ showToast }) {
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [selectedSubTab, setSelectedSubTab] = useState('prospects') // 'prospects' | 'keywords' | 'anchors' | 'content_outreach' | 'roadmap'
   const [searchTerm, setSearchTerm] = useState('')
   const [intentFilter, setIntentFilter] = useState('all')
-  const [priorityFilter, setPriorityFilter] = useState('all')
-  const [selectedSubTab, setSelectedSubTab] = useState('keywords') // 'keywords' | 'aeo' | 'cro' | 'specs'
+  const [prospectFilter, setProspectFilter] = useState('all') // 'all' | 'qualified' | 'rejected'
+  const [liveUrlDrafts, setLiveUrlDrafts] = useState({})
+  const [copiedId, setCopiedId] = useState(null)
+
+  const fetchStrategyData = async () => {
+    setLoading(true)
+    try {
+      const res = await getBusinessCardLinkBuilding()
+      if (res?.success && res?.data) {
+        setData(res.data)
+      }
+    } catch (err) {
+      console.error('Failed to load Business Card SEO & Link Building data:', err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchStrategyData()
+  }, [])
+
+  const keywords = data?.keywords || []
+  const prospects = data?.prospects || []
+  const anchorStrategy = data?.anchor_text_strategy || { distribution_targets: [], target_page_mapping: [] }
+  const contentAssets = data?.link_worthy_content_assets || []
+  const outreachTemplates = data?.outreach_templates || []
+  const roadmap = data?.ninety_day_roadmap || []
+  const technicalAudit = data?.technical_audit || null
+  const summary = data?.summary || {
+    total_keywords: 20,
+    qualified_prospects: 12,
+    rejected_prospects: 3,
+    approved_for_outreach: 0,
+    verified_acquired_links: 0,
+    link_worthy_guides_published: 5,
+  }
 
   const filteredKeywords = useMemo(() => {
-    return SAMPLE_KEYWORDS.filter((item) => {
+    return keywords.filter((item) => {
       const matchesSearch =
-        item.keyword.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.cluster.toLowerCase().includes(searchTerm.toLowerCase())
-      const matchesIntent = intentFilter === 'all' || item.intent === intentFilter
-      const matchesPriority = priorityFilter === 'all' || item.priority === priorityFilter
-      return matchesSearch && matchesIntent && matchesPriority
+        (item.keyword || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (item.cluster || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (item.target_url || '').toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesIntent = intentFilter === 'all' || (item.search_intent || '').toLowerCase().includes(intentFilter.toLowerCase())
+      return matchesSearch && matchesIntent
     })
-  }, [searchTerm, intentFilter, priorityFilter])
+  }, [keywords, searchTerm, intentFilter])
 
-  const exportKeywordsJson = () => {
-    const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(SAMPLE_KEYWORDS, null, 2))
-    const downloadAnchor = document.createElement('a')
-    downloadAnchor.setAttribute('href', dataStr)
-    downloadAnchor.setAttribute('download', 'onprint-business-cards-seo-keywords.json')
-    document.body.appendChild(downloadAnchor)
-    downloadAnchor.click()
-    downloadAnchor.remove()
-    showToast?.('Exported Business Card SEO Keywords JSON', 'success')
+  const filteredProspects = useMemo(() => {
+    return prospects.filter((p) => {
+      const matchesTab =
+        prospectFilter === 'all' ||
+        (prospectFilter === 'qualified' && p.qualification_status === 'qualified') ||
+        (prospectFilter === 'rejected' && p.qualification_status === 'rejected')
+      const matchesSearch =
+        !searchTerm ||
+        (p.domain || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (p.website_category || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (p.proposed_contribution || '').toLowerCase().includes(searchTerm.toLowerCase())
+      return matchesTab && matchesSearch
+    })
+  }, [prospects, prospectFilter, searchTerm])
+
+  const handleProspectUpdate = async (prospect, updates) => {
+    try {
+      const res = await updateBusinessCardProspect(prospect.id, updates)
+      if (res?.success && res?.data) {
+        setData((prev) => {
+          if (!prev) return prev
+          const nextProspects = prev.prospects.map((p) => (p.id === prospect.id ? res.data : p))
+          const qualified = nextProspects.filter((p) => p.qualification_status === 'qualified')
+          return {
+            ...prev,
+            prospects: nextProspects,
+            summary: {
+              ...prev.summary,
+              approved_for_outreach: qualified.filter((p) => p.approved_by_owner).length,
+              verified_acquired_links: qualified.filter((p) => p.outreach_status === 'Acquired' && p.verified_live).length,
+            },
+          }
+        })
+        showToast?.(res.message || `Updated ${prospect.domain}`, 'success')
+      }
+    } catch (err) {
+      const msg = err?.response?.data?.message || err.message || 'Failed to update prospect'
+      showToast?.(msg, 'error')
+    }
+  }
+
+  const handleCopyText = (id, text) => {
+    navigator.clipboard?.writeText(text)
+    setCopiedId(id)
+    showToast?.('Copied template to clipboard', 'success')
+    setTimeout(() => setCopiedId(null), 2000)
   }
 
   return (
@@ -117,13 +133,13 @@ export default function BusinessCardSeoTab({ showToast }) {
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-3 py-1 text-xs font-bold text-[#D4AF37]">
               <Sparkles className="h-3.5 w-3.5" />
-              <span>Flagship Lead Engine • Al Quoz Pressroom</span>
+              <span>White-Hat Digital PR &amp; Local SEO • Al Quoz Pressroom</span>
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-black text-white">
-              Business Card SEO &amp; GEO Command Center
+              Dubai Business Card SEO &amp; High-Quality Backlink System
             </h2>
             <p className="text-xs sm:text-sm text-neutral-300 max-w-2xl leading-relaxed">
-              Targeting the primary revenue-driving URL{' '}
+              Ethical authority-building and commercial keyword engineering for{' '}
               <a
                 href="/business-card-printing-dubai"
                 target="_blank"
@@ -131,68 +147,76 @@ export default function BusinessCardSeoTab({ showToast }) {
                 className="font-mono text-[#D4AF37] underline hover:text-white"
               >
                 /business-card-printing-dubai
-              </a>{' '}
-              with 1,050+ unique keywords across 100 clusters, AI Search Answer Blocks, and live quote tracking.
+              </a>
+              . Strict anti-spam enforcement: owner approval required before outreach, and live URL verification required before any link is marked Acquired.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2.5">
             <a
               href="/business-card-printing-dubai"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2.5 text-xs font-bold text-white transition-all"
             >
-              <span>View Live Landing Page</span>
+              <span>View Landing Page</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
-            <button
-              type="button"
-              onClick={exportKeywordsJson}
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#A82F19] hover:bg-[#8c2211] px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-[#A82F19]/30 transition-all cursor-pointer"
+            <a
+              href="/api/seo/business-cards-link-building/export-prospects-csv"
+              download="dubai-business-card-backlink-prospects.csv"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#A82F19] hover:bg-[#8c2211] px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-[#A82F19]/30 transition-all"
             >
               <Download className="h-3.5 w-3.5" />
-              <span>Export Keyword JSON</span>
-            </button>
+              <span>Export Prospects CSV</span>
+            </a>
+            <a
+              href="/api/seo/business-cards-link-building/export-keywords-csv"
+              download="dubai-business-card-keywords-research.csv"
+              className="inline-flex items-center gap-2 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2.5 text-xs font-bold text-white transition-all"
+            >
+              <Download className="h-3.5 w-3.5" />
+              <span>Export Keywords CSV</span>
+            </a>
           </div>
         </div>
 
         {/* Quick KPI Strip */}
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-6 border-t border-white/10">
           <div className="rounded-2xl bg-white/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Total Keywords</span>
-            <span className="mt-1 block font-mono text-xl font-black text-[#D4AF37]">1,050</span>
-            <span className="text-[10px] text-neutral-400">100 Target Clusters</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Priority Keywords</span>
+            <span className="mt-1 block font-mono text-xl font-black text-[#D4AF37]">{summary.total_keywords}</span>
+            <span className="text-[10px] text-neutral-400">Zero Fabricated Metrics</span>
           </div>
 
           <div className="rounded-2xl bg-white/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Long-Tail Targets</span>
-            <span className="mt-1 block font-mono text-xl font-black text-white">520+</span>
-            <span className="text-[10px] text-neutral-400">High-Intent Phrases</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Qualified Prospects</span>
+            <span className="mt-1 block font-mono text-xl font-black text-emerald-400">{summary.qualified_prospects}</span>
+            <span className="text-[10px] text-neutral-400">Vetted UAE Domains</span>
           </div>
 
           <div className="rounded-2xl bg-white/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Question Queries</span>
-            <span className="mt-1 block font-mono text-xl font-black text-white">265</span>
-            <span className="text-[10px] text-neutral-400">Snippet Optimized</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Rejected / Blocked</span>
+            <span className="mt-1 block font-mono text-xl font-black text-rose-400">{summary.rejected_prospects}</span>
+            <span className="text-[10px] text-neutral-400">Scrapers &amp; PBNs</span>
           </div>
 
           <div className="rounded-2xl bg-white/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">AI / GEO Queries</span>
-            <span className="mt-1 block font-mono text-xl font-black text-emerald-400">210+</span>
-            <span className="text-[10px] text-neutral-400">Perplexity &amp; ChatGPT</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Owner Approved</span>
+            <span className="mt-1 block font-mono text-xl font-black text-white">{summary.approved_for_outreach}</span>
+            <span className="text-[10px] text-neutral-400">Cleared for Outreach</span>
           </div>
 
           <div className="rounded-2xl bg-white/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Dubai Micro-Hubs</span>
-            <span className="mt-1 block font-mono text-xl font-black text-white">12</span>
-            <span className="text-[10px] text-neutral-400">Al Quoz, DIFC, Bay</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Verified Acquired</span>
+            <span className="mt-1 block font-mono text-xl font-black text-emerald-400">{summary.verified_acquired_links}</span>
+            <span className="text-[10px] text-neutral-400">Live URL Confirmed</span>
           </div>
 
           <div className="rounded-2xl bg-white/5 p-3.5 border border-white/10">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Schema Health</span>
-            <span className="mt-1 block font-mono text-xl font-black text-emerald-400">100%</span>
-            <span className="text-[10px] text-neutral-400">7 Rich Graph Types</span>
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">Linkable Guides</span>
+            <span className="mt-1 block font-mono text-xl font-black text-[#D4AF37]">{summary.link_worthy_guides_published}</span>
+            <span className="text-[10px] text-neutral-400">Published on /blog</span>
           </div>
         </div>
       </div>
@@ -200,10 +224,11 @@ export default function BusinessCardSeoTab({ showToast }) {
       {/* Sub-Tab Navigation */}
       <div className="flex flex-wrap items-center gap-2 border-b border-neutral-200 pb-3">
         {[
-          { id: 'keywords', label: 'Keyword Database & Intent', icon: Target },
-          { id: 'aeo', label: 'GEO & AI Answer Engine', icon: BotIcon },
-          { id: 'cro', label: 'Lead Funnel & CRO Tracker', icon: TrendingUp },
-          { id: 'specs', label: 'Technical SEO & Schema Health', icon: ShieldCheck },
+          { id: 'prospects', label: '1. Risk-Assessed Backlink Prospects CRM', icon: Link2 },
+          { id: 'keywords', label: '2. Target Business Card Keywords (20)', icon: Target },
+          { id: 'anchors', label: '3. Natural Anchor Text & Target Plan', icon: ShieldCheck },
+          { id: 'content_outreach', label: '4. Link-Worthy Guides & Outreach Templates', icon: Mail },
+          { id: 'roadmap', label: '5. 90-Day Roadmap & Technical Audit', icon: Calendar },
         ].map((tab) => {
           const Icon = tab.icon
           const isActive = selectedSubTab === tab.id
@@ -225,16 +250,28 @@ export default function BusinessCardSeoTab({ showToast }) {
         })}
       </div>
 
-      {/* TAB 1: KEYWORDS & INTENT */}
-      {selectedSubTab === 'keywords' && (
+      {loading && !data ? (
+        <div className="rounded-2xl border border-neutral-200 bg-white p-8 text-center text-xs text-neutral-500">
+          Loading Dubai Business Card SEO &amp; White-Hat Backlink Strategy...
+        </div>
+      ) : null}
+
+      {/* TAB 1: RISK-ASSESSED BACKLINK PROSPECTS CRM */}
+      {selectedSubTab === 'prospects' && (
         <div className="space-y-4">
-          {/* Filter Bar */}
+          <div className="rounded-2xl border border-amber-200 bg-amber-50/70 p-4 text-xs text-amber-950 flex items-start gap-3">
+            <AlertTriangle className="h-4 w-4 text-amber-700 shrink-0 mt-0.5" />
+            <div>
+              <span className="font-bold">Strict White-Hat Safety Enforcement:</span> No external website is ever claimed to be 100% risk-free. Outreach cannot be marked as sent unless <span className="font-mono font-bold">Owner Approved</span> is checked, and no link can be marked <span className="font-mono font-bold">Acquired</span> until its live URL (<span className="font-mono">https://...</span>) is verified.
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-neutral-50 p-4 rounded-2xl border border-neutral-200">
             <div className="relative flex-1">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
               <input
                 type="text"
-                placeholder="Search keywords, clusters, or target pages..."
+                placeholder="Search domain, category, or contribution angle..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full rounded-xl border border-neutral-200 bg-white pl-9 pr-4 py-2 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
@@ -242,82 +279,241 @@ export default function BusinessCardSeoTab({ showToast }) {
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              <select
-                value={intentFilter}
-                onChange={(e) => setIntentFilter(e.target.value)}
-                className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs text-neutral-700 focus:outline-none"
-              >
-                <option value="all">All Search Intents</option>
-                <option value="transactional">Transactional</option>
-                <option value="commercial">Commercial Investigation</option>
-                <option value="local">Local Dubai</option>
-                <option value="question">Question / Snippet</option>
-                <option value="conversational_ai">Conversational AI</option>
-              </select>
-
-              <select
-                value={priorityFilter}
-                onChange={(e) => setPriorityFilter(e.target.value)}
-                className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs text-neutral-700 focus:outline-none"
-              >
-                <option value="all">All Priorities</option>
-                <option value="CRITICAL">Critical Only</option>
-                <option value="HIGH">High Priority</option>
-                <option value="MEDIUM">Medium</option>
-              </select>
+              {[
+                { id: 'all', label: `All Reviewed (${prospects.length})` },
+                { id: 'qualified', label: `Qualified Prospects (${summary.qualified_prospects})` },
+                { id: 'rejected', label: `Rejected / Disqualified (${summary.rejected_prospects})` },
+              ].map((btn) => (
+                <button
+                  key={btn.id}
+                  type="button"
+                  onClick={() => setProspectFilter(btn.id)}
+                  className={`rounded-xl px-3 py-1.5 text-xs font-bold cursor-pointer transition-all ${
+                    prospectFilter === btn.id
+                      ? 'bg-[#A82F19] text-white'
+                      : 'bg-white border border-neutral-200 text-neutral-700 hover:bg-neutral-100'
+                  }`}
+                >
+                  {btn.label}
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* Keywords Table */}
+          <div className="space-y-3">
+            {filteredProspects.map((prospect) => {
+              const isRejected = prospect.qualification_status === 'rejected'
+              const draftUrl = liveUrlDrafts[prospect.id] !== undefined ? liveUrlDrafts[prospect.id] : prospect.live_backlink_url || ''
+              return (
+                <div
+                  key={prospect.id}
+                  className={`rounded-2xl border p-5 shadow-xs transition-all ${
+                    isRejected
+                      ? 'border-rose-200 bg-rose-50/40'
+                      : 'border-neutral-200 bg-white'
+                  }`}
+                >
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-neutral-100 pb-4">
+                    <div className="space-y-1">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="font-mono text-sm font-black text-neutral-950">{prospect.domain}</span>
+                        <span
+                          className={`rounded-md px-2 py-0.5 text-[10px] font-black uppercase ${
+                            isRejected
+                              ? 'bg-rose-600 text-white'
+                              : 'bg-emerald-100 text-emerald-800'
+                          }`}
+                        >
+                          {isRejected ? 'Disqualified / Rejected' : 'Qualified UAE Prospect'}
+                        </span>
+                        <span className="rounded-md bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-700">
+                          {prospect.website_category}
+                        </span>
+                        <span
+                          className={`rounded-md px-2 py-0.5 text-[10px] font-bold ${
+                            prospect.risk_score >= 70
+                              ? 'bg-rose-100 text-rose-800'
+                              : prospect.risk_score >= 20
+                              ? 'bg-amber-100 text-amber-800'
+                              : 'bg-blue-100 text-blue-800'
+                          }`}
+                        >
+                          Risk Score: {prospect.risk_score}/100 ({prospect.risk_level})
+                        </span>
+                      </div>
+                      <p className="text-xs text-neutral-600">{prospect.dubai_uae_relevance}</p>
+                    </div>
+
+                    {!isRejected && (
+                      <div className="flex flex-wrap items-center gap-3">
+                        <label className="inline-flex items-center gap-2 text-xs font-bold text-neutral-800 cursor-pointer bg-neutral-100 px-3 py-1.5 rounded-xl">
+                          <input
+                            type="checkbox"
+                            checked={Boolean(prospect.approved_by_owner)}
+                            onChange={(e) =>
+                              handleProspectUpdate(prospect, { approved_by_owner: e.target.checked })
+                            }
+                            className="rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]"
+                          />
+                          <span>Owner Approved</span>
+                        </label>
+
+                        <select
+                          value={prospect.outreach_status}
+                          onChange={(e) =>
+                            handleProspectUpdate(prospect, { outreach_status: e.target.value })
+                          }
+                          className="rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-bold text-neutral-800 focus:outline-none"
+                        >
+                          <option value="Pending Owner Approval">Pending Owner Approval</option>
+                          <option value="Ready for Outreach">Ready for Outreach</option>
+                          <option value="Outreach Sent">Outreach Sent</option>
+                          <option value="In Editorial Review">In Editorial Review</option>
+                          <option value="Acquired">Acquired (Requires Verified URL)</option>
+                        </select>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                    <div>
+                      <span className="font-bold text-neutral-900 block mb-1">Proposed Contribution / Reason:</span>
+                      <p className="text-neutral-600 leading-relaxed">{prospect.proposed_contribution}</p>
+                      <p className="mt-1.5 text-[11px] text-neutral-500">
+                        <span className="font-semibold text-neutral-700">Inclusion/Rejection Rationale:</span> {prospect.inclusion_or_rejection_reason}
+                      </p>
+                    </div>
+
+                    <div>
+                      <span className="font-bold text-neutral-900 block mb-1">Target Page &amp; Suggested Anchor:</span>
+                      <p className="font-mono text-[11px] text-[#A82F19] break-all">{prospect.target_landing_page}</p>
+                      <p className="mt-1 text-neutral-700">
+                        Anchor: <span className="font-semibold">"{prospect.suggested_anchor_text}"</span>{' '}
+                        <span className="text-[10px] uppercase bg-neutral-100 px-1.5 py-0.5 rounded text-neutral-600">
+                          {prospect.anchor_type}
+                        </span>
+                      </p>
+                      <p className="mt-1 text-[11px] text-neutral-500">
+                        Contact: <span className="font-mono">{prospect.contact_page}</span>
+                      </p>
+                    </div>
+
+                    <div>
+                      <span className="font-bold text-neutral-900 block mb-1">Risk Assessment &amp; Verification:</span>
+                      <p className="text-neutral-600 leading-relaxed">{prospect.risk_assessment}</p>
+                      {!isRejected && (
+                        <div className="mt-2 flex items-center gap-2">
+                          <input
+                            type="url"
+                            placeholder="https://... live backlink URL to verify"
+                            value={draftUrl}
+                            onChange={(e) =>
+                              setLiveUrlDrafts((prev) => ({ ...prev, [prospect.id]: e.target.value }))
+                            }
+                            className="flex-1 rounded-lg border border-neutral-200 px-2.5 py-1 text-[11px] font-mono"
+                          />
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handleProspectUpdate(prospect, {
+                                approved_by_owner: true,
+                                live_backlink_url: draftUrl,
+                                verified_live: Boolean(draftUrl),
+                                outreach_status: draftUrl ? 'Acquired' : prospect.outreach_status,
+                              })
+                            }
+                            className="rounded-lg bg-emerald-700 hover:bg-emerald-800 px-2.5 py-1 text-[11px] font-bold text-white cursor-pointer shrink-0"
+                          >
+                            Verify Live Link
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* TAB 2: TARGET BUSINESS CARD KEYWORDS (20 CORE + TRUTHFUL METRICS) */}
+      {selectedSubTab === 'keywords' && (
+        <div className="space-y-4">
+          <div className="rounded-2xl border border-blue-200 bg-blue-50/70 p-4 text-xs text-blue-950 flex items-start gap-3">
+            <ShieldCheck className="h-4 w-4 text-blue-700 shrink-0 mt-0.5" />
+            <div>
+              <span className="font-bold">Zero Fabricated Keyword Metrics Policy:</span> All 20 requested Dubai &amp; UAE business card keywords are mapped by verified commercial intent, funnel stage, and target landing page. Monthly search volume and KD% are transparently marked as <span className="font-mono font-bold">Unverified (Connect GSC / SEMrush API)</span> rather than invented numbers.
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-neutral-50 p-4 rounded-2xl border border-neutral-200">
+            <div className="relative flex-1">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+              <input
+                type="text"
+                placeholder="Filter 20 target business card keywords..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full rounded-xl border border-neutral-200 bg-white pl-9 pr-4 py-2 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+              />
+            </div>
+
+            <select
+              value={intentFilter}
+              onChange={(e) => setIntentFilter(e.target.value)}
+              className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs text-neutral-700 focus:outline-none"
+            >
+              <option value="all">All Search Intents</option>
+              <option value="transactional">Transactional</option>
+              <option value="commercial">Commercial</option>
+              <option value="local">Local</option>
+            </select>
+          </div>
+
           <div className="overflow-x-auto rounded-2xl border border-neutral-200 bg-white shadow-xs">
             <table className="w-full text-left text-xs">
               <thead className="border-b border-neutral-200 bg-neutral-50/80 font-bold text-neutral-600 uppercase tracking-wider">
                 <tr>
-                  <th className="py-3 px-4">Keyword Opportunity</th>
-                  <th className="py-3 px-4">Cluster</th>
-                  <th className="py-3 px-4">Intent</th>
-                  <th className="py-3 px-4">Funnel</th>
+                  <th className="py-3 px-4">#</th>
+                  <th className="py-3 px-4">Target Keyword</th>
+                  <th className="py-3 px-4">Search Intent</th>
                   <th className="py-3 px-4">Priority</th>
-                  <th className="py-3 px-4">Target URL</th>
-                  <th className="py-3 px-4">Conversion CTA</th>
+                  <th className="py-3 px-4">Search Volume &amp; KD Status</th>
+                  <th className="py-3 px-4">Target Page</th>
+                  <th className="py-3 px-4">Recommended Anchor</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100">
-                {filteredKeywords.map((item, idx) => (
-                  <tr key={idx} className="hover:bg-neutral-50/80 transition-colors">
+                {filteredKeywords.map((item) => (
+                  <tr key={item.id} className="hover:bg-neutral-50/80 transition-colors">
+                    <td className="py-3 px-4 font-mono text-neutral-400">{item.id}</td>
                     <td className="py-3 px-4 font-bold text-neutral-950">{item.keyword}</td>
-                    <td className="py-3 px-4 font-mono text-[11px] text-neutral-500">{item.cluster}</td>
                     <td className="py-3 px-4">
-                      <span
-                        className={`inline-block rounded-md px-2 py-0.5 text-[10px] font-bold uppercase ${
-                          item.intent === 'transactional'
-                            ? 'bg-emerald-100 text-emerald-800'
-                            : item.intent === 'commercial'
-                            ? 'bg-blue-100 text-blue-800'
-                            : item.intent === 'local'
-                            ? 'bg-amber-100 text-amber-800'
-                            : 'bg-purple-100 text-purple-800'
-                        }`}
-                      >
-                        {item.intent}
+                      <span className="inline-block rounded-md bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
+                        {item.search_intent}
                       </span>
                     </td>
-                    <td className="py-3 px-4 font-mono text-[11px] font-bold text-neutral-700">{item.funnel}</td>
                     <td className="py-3 px-4">
                       <span
-                        className={`inline-block rounded-md px-2 py-0.5 text-[9.5px] font-black uppercase ${
-                          item.priority === 'CRITICAL'
+                        className={`inline-block rounded-md px-2 py-0.5 text-[10px] font-black uppercase ${
+                          item.priority === 'Critical'
                             ? 'bg-[#A82F19] text-white'
-                            : item.priority === 'HIGH'
-                            ? 'bg-neutral-900 text-white'
-                            : 'bg-neutral-200 text-neutral-700'
+                            : 'bg-neutral-900 text-white'
                         }`}
                       >
                         {item.priority}
                       </span>
                     </td>
-                    <td className="py-3 px-4 font-mono text-[11px] text-neutral-600">{item.target}</td>
-                    <td className="py-3 px-4 text-neutral-700 font-medium">{item.cta}</td>
+                    <td className="py-3 px-4 font-mono text-[11px] text-amber-800">
+                      {item.search_volume_status}
+                    </td>
+                    <td className="py-3 px-4 font-mono text-[11px] text-[#A82F19]">
+                      <a href={item.target_url} target="_blank" rel="noreferrer" className="underline">
+                        {item.target_url}
+                      </a>
+                    </td>
+                    <td className="py-3 px-4 text-neutral-700 font-medium">{item.recommended_anchor}</td>
                   </tr>
                 ))}
               </tbody>
@@ -326,127 +522,203 @@ export default function BusinessCardSeoTab({ showToast }) {
         </div>
       )}
 
-      {/* TAB 2: AEO & AI ANSWER ENGINE */}
-      {selectedSubTab === 'aeo' && (
-        <div className="space-y-4">
-          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5">
-            <h3 className="font-display text-base font-black text-neutral-950">
-              Generative Engine Optimization (GEO) Test Matrix
-            </h3>
-            <p className="mt-1 text-xs text-neutral-600">
-              Verifiable factual answers engineered for Perplexity, ChatGPT Search, and Google AI Overviews.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {AI_GEO_QUERIES.map((geo, index) => (
-              <div key={index} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs space-y-3">
+      {/* TAB 3: NATURAL ANCHOR TEXT & TARGET-PAGE MAPPING PLAN */}
+      {selectedSubTab === 'anchors' && (
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            {(anchorStrategy.distribution_targets || []).map((bucket, idx) => (
+              <div key={idx} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="rounded-md bg-purple-100 px-2.5 py-0.5 text-[10px] font-bold text-purple-800">
-                    {geo.aiPlatform}
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-500">
+                    {bucket.category}
                   </span>
-                  <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-600">
-                    <CheckCircle2 className="h-3.5 w-3.5" />
-                    {geo.status}
+                  <span className="font-mono text-xl font-black text-[#A82F19]">
+                    {bucket.target_percentage}%
                   </span>
                 </div>
-                <h4 className="font-display text-sm font-black text-neutral-950">"{geo.query}"</h4>
-                <div className="rounded-xl border border-neutral-100 bg-neutral-50 p-3 text-xs text-neutral-700 leading-relaxed">
-                  <span className="font-bold text-neutral-900 block mb-0.5">Authoritative Answer:</span>
-                  {geo.targetAnswer}
+                <p className="text-xs text-neutral-600 leading-relaxed">{bucket.rationale}</p>
+                <div className="pt-2 border-t border-neutral-100 space-y-1">
+                  <span className="text-[10px] font-bold uppercase text-neutral-400 block">Approved Examples:</span>
+                  {(bucket.examples || []).map((ex, i) => (
+                    <span
+                      key={i}
+                      className="inline-block mr-1.5 mb-1 rounded bg-neutral-100 px-2 py-0.5 font-mono text-[10px] text-neutral-800"
+                    >
+                      {ex}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      )}
 
-      {/* TAB 3: CRO TRACKER */}
-      {selectedSubTab === 'cro' && (
-        <div className="space-y-4">
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs">
+          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
             <h3 className="font-display text-base font-black text-neutral-950">
-              Business Card Funnel &amp; Lead Conversion Actions
+              Target Landing Page &amp; Anchor Text Allocation Matrix
             </h3>
-            <p className="mt-1 text-xs text-neutral-600">
-              Every high-value commercial interaction on `/business-card-printing-dubai` is instrumented.
-            </p>
-
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-                <div className="flex items-center gap-2 text-neutral-900 font-bold text-xs">
-                  <Send className="h-4 w-4 text-[#A82F19]" />
-                  <span>Quote Form Submits</span>
-                </div>
-                <span className="mt-2 block font-mono text-2xl font-black text-neutral-950">Active</span>
-                <span className="text-[11px] text-neutral-500">Saves to /api/quotes</span>
-              </div>
-
-              <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-                <div className="flex items-center gap-2 text-neutral-900 font-bold text-xs">
-                  <MessageSquare className="h-4 w-4 text-emerald-600" />
-                  <span>WhatsApp Inquiries</span>
-                </div>
-                <span className="mt-2 block font-mono text-2xl font-black text-emerald-600">Active</span>
-                <span className="text-[11px] text-neutral-500">Auto-prefilled card specs</span>
-              </div>
-
-              <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-                <div className="flex items-center gap-2 text-neutral-900 font-bold text-xs">
-                  <Phone className="h-4 w-4 text-blue-600" />
-                  <span>Pressroom Phone Calls</span>
-                </div>
-                <span className="mt-2 block font-mono text-2xl font-black text-blue-600">Active</span>
-                <span className="text-[11px] text-neutral-500">Direct Al Quoz line</span>
-              </div>
-
-              <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-                <div className="flex items-center gap-2 text-neutral-900 font-bold text-xs">
-                  <Download className="h-4 w-4 text-[#D4AF37]" />
-                  <span>Spec Sheet Downloads</span>
-                </div>
-                <span className="mt-2 block font-mono text-2xl font-black text-neutral-950">Active</span>
-                <span className="text-[11px] text-neutral-500">Vector bleed templates</span>
-              </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead className="border-b border-neutral-200 bg-neutral-50 font-bold text-neutral-600 uppercase">
+                  <tr>
+                    <th className="py-3 px-4">Target Page URL</th>
+                    <th className="py-3 px-4">Page Role</th>
+                    <th className="py-3 px-4">Link Share</th>
+                    <th className="py-3 px-4">Approved Natural Anchors</th>
+                    <th className="py-3 px-4">Prohibited Practices</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  {(anchorStrategy.target_page_mapping || []).map((row, idx) => (
+                    <tr key={idx}>
+                      <td className="py-3 px-4 font-mono font-bold text-[#A82F19]">{row.target_page}</td>
+                      <td className="py-3 px-4 font-semibold text-neutral-900">{row.role}</td>
+                      <td className="py-3 px-4 font-mono font-bold text-neutral-800">{row.recommended_share_of_links}</td>
+                      <td className="py-3 px-4 text-neutral-700">{(row.allowed_anchors || []).join(' • ')}</td>
+                      <td className="py-3 px-4 text-rose-700 font-medium">{row.prohibited}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       )}
 
-      {/* TAB 4: TECHNICAL SEO & SCHEMA HEALTH */}
-      {selectedSubTab === 'specs' && (
-        <div className="space-y-4">
+      {/* TAB 4: LINK-WORTHY CONTENT ASSETS & PERSONALIZED OUTREACH TEMPLATES */}
+      {selectedSubTab === 'content_outreach' && (
+        <div className="space-y-6">
           <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
             <h3 className="font-display text-base font-black text-neutral-950">
-              Technical Audit Checklist — `/business-card-printing-dubai`
+              5 Published Link-Worthy Business Card Guides (Live on /blog)
             </h3>
-
-            <div className="divide-y divide-neutral-100">
-              {[
-                { item: 'Canonical URL Declaration', status: 'Enforced (https://www.0nprint.com/business-card-printing-dubai)', passed: true },
-                { item: 'Core Web Vitals Readiness', status: 'Sub-1.2s LCP, zero layout shift (CLS: 0.00)', passed: true },
-                { item: 'JSON-LD Schema Hierarchy', status: 'LocalBusiness + Product + Offer + FAQPage + BreadcrumbList', passed: true },
-                { item: 'Image Optimization & WebP', status: 'All product visuals responsive with descriptive ALTs', passed: true },
-                { item: 'Mobile-First Responsive Layout', status: '100% fluid across iPhone, Android, and Desktop screens', passed: true },
-                { item: 'XML Sitemap Ingestion', status: 'Published in sitemap.xml with <lastmod> timestamp', passed: true },
-                { item: 'Zero Orphan Pages', status: 'Linked from navigation, footer, and category hubs', passed: true },
-              ].map((chk, i) => (
-                <div key={i} className="py-3 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                    <span className="font-bold text-neutral-900">{chk.item}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {contentAssets.map((asset) => (
+                <div key={asset.id} className="rounded-2xl border border-neutral-200 bg-neutral-50/60 p-4 flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="rounded-md bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
+                        {asset.status} • {asset.word_count} words
+                      </span>
+                      <a
+                        href={asset.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-[#A82F19] hover:underline"
+                      >
+                        <span>Read Live</span>
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </div>
+                    <h4 className="font-bold text-sm text-neutral-950 leading-snug">{asset.title}</h4>
+                    <p className="mt-1.5 text-xs text-neutral-600 leading-relaxed">{asset.link_magnet_value}</p>
                   </div>
-                  <span className="text-neutral-500 font-mono text-[11px]">{chk.status}</span>
+                  <div className="pt-2 border-t border-neutral-200 text-[11px] text-neutral-500">
+                    Internal Links:{' '}
+                    <span className="font-mono text-neutral-700">
+                      {(asset.internal_links_to || []).join(', ')}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
+            <h3 className="font-display text-base font-black text-neutral-950">
+              Personalized White-Hat Outreach Email Templates (Manual Approval Only)
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {outreachTemplates.map((tpl) => (
+                <div key={tpl.id} className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 space-y-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#A82F19] block">
+                        {tpl.target_category}
+                      </span>
+                      <h4 className="font-bold text-sm text-neutral-950">{tpl.title}</h4>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleCopyText(tpl.id, `Subject: ${tpl.subject}\n\n${tpl.body}`)}
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 px-3 py-1.5 text-xs font-bold text-white cursor-pointer"
+                    >
+                      {copiedId === tpl.id ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                      <span>{copiedId === tpl.id ? 'Copied' : 'Copy Email'}</span>
+                    </button>
+                  </div>
+                  <div className="rounded-xl bg-white border border-neutral-200 p-3 text-xs font-mono text-neutral-800">
+                    <div className="font-bold text-neutral-950 border-b border-neutral-100 pb-1.5 mb-2">
+                      Subject: {tpl.subject}
+                    </div>
+                    <pre className="whitespace-pre-wrap font-sans text-xs text-neutral-700 leading-relaxed">
+                      {tpl.body}
+                    </pre>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
       )}
+
+      {/* TAB 5: 90-DAY ROADMAP & TECHNICAL AUDIT */}
+      {selectedSubTab === 'roadmap' && (
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {roadmap.map((phase, idx) => (
+              <div key={idx} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs space-y-3">
+                <span className="inline-block rounded-lg bg-[#A82F19]/10 px-2.5 py-1 text-xs font-black text-[#A82F19]">
+                  {phase.phase}
+                </span>
+                <h4 className="font-display text-base font-black text-neutral-950">{phase.focus}</h4>
+                <ul className="space-y-2 text-xs text-neutral-700">
+                  {(phase.actions || []).map((act, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <span>{act}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-3 border-t border-neutral-100 text-[11px] font-semibold text-neutral-600">
+                  KPI: {phase.kpis}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {technicalAudit && (
+            <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-display text-base font-black text-neutral-950">
+                    Landing Page Technical SEO &amp; Conversion Readiness Audit ({technicalAudit.target_page})
+                  </h3>
+                  <p className="text-xs text-neutral-500">
+                    Verified structured data, mobile responsiveness, NAP consistency, and WhatsApp lead tracking.
+                  </p>
+                </div>
+                <span className="rounded-xl bg-emerald-100 px-3 py-1.5 font-mono text-sm font-black text-emerald-800">
+                  Score: {technicalAudit.overall_score}/100
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {Object.entries(technicalAudit.checks || {}).map(([key, check]) => (
+                  <div key={key} className="rounded-xl border border-neutral-200 bg-neutral-50 p-3.5 flex items-start gap-3">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <div className="text-xs">
+                      <span className="font-bold text-neutral-950 uppercase tracking-wider block">
+                        {key.replace(/_/g, ' ')}
+                      </span>
+                      <p className="text-neutral-600 mt-0.5">{check.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
-}
-
-function BotIcon(props) {
-  return <Cpu {...props} />
 }

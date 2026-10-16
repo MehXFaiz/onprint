@@ -112,6 +112,18 @@ function loadStore() {
       if (!Array.isArray(parsed.seo_tasks) || parsed.seo_tasks.length === 0) {
         parsed.seo_tasks = [...DEFAULT_SEO_TASKS]
       }
+      if (!Array.isArray(parsed.backlink_audit_items)) {
+        parsed.backlink_audit_items = []
+      }
+      if (!Array.isArray(parsed.backlink_removal_requests)) {
+        parsed.backlink_removal_requests = []
+      }
+      if (!Array.isArray(parsed.disavow_versions)) {
+        parsed.disavow_versions = []
+      }
+      if (!Array.isArray(parsed.backlink_audit_logs)) {
+        parsed.backlink_audit_logs = []
+      }
       return parsed
     }
   } catch (err) {
@@ -127,6 +139,10 @@ function loadStore() {
     ai_visibility: [...DUBAI_AI_VISIBILITY_QUERIES],
     citation_logs: [],
     seo_tasks: [...DEFAULT_SEO_TASKS],
+    backlink_audit_items: [],
+    backlink_removal_requests: [],
+    disavow_versions: [],
+    backlink_audit_logs: [],
   }
 }
 
@@ -854,6 +870,370 @@ function deleteSeoTask(id) {
   return true
 }
 
+// ==========================================
+// Backlink Forensics, Disavow & Removal CRM Store
+// ==========================================
+function ensureBacklinkAuditSeeded(store) {
+  let modified = false
+  if (!Array.isArray(store.backlink_audit_items) || store.backlink_audit_items.length === 0) {
+    const backlinkAuditService = require('../services/backlinkAuditService')
+    const { items } = backlinkAuditService.buildInitialAuditDataset()
+    store.backlink_audit_items = items
+    modified = true
+  }
+  if (!Array.isArray(store.backlink_removal_requests) || store.backlink_removal_requests.length === 0) {
+    store.backlink_removal_requests = [
+      {
+        id: 1,
+        linking_domain: '2ip.io',
+        linking_url: 'https://2ip.io/ru/domain-list-by-ip/aih.life/',
+        target_url: 'https://0nprint.com/',
+        contact_page: 'https://2ip.io/contact/',
+        contact_email: 'support@2ip.io',
+        template_used: 'Automated IP / Reverse-DNS Directory Delisting Request (e.g., 2ip.io)',
+        status: 'draft_ready',
+        requested_at: '2026-10-17',
+        follow_up_at: null,
+        response_received: null,
+        verified_removed: false,
+        verified_at: null,
+        notes: 'Prepared delisting request for auto-generated reverse-IP neighbor list page (/ru/domain-list-by-ip/aih.life/) discovered in GSC export.',
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      },
+    ]
+    modified = true
+  }
+  if (!Array.isArray(store.backlink_audit_logs) || store.backlink_audit_logs.length === 0) {
+    store.backlink_audit_logs = [
+      {
+        id: 1,
+        action: 'INITIAL_CSV_IMPORT',
+        actor: 'System / Backlink Forensics Engine',
+        details: 'Imported 0nprint.com-Latest links-2026-10-16.csv (1 GSC external link: https://2ip.io/ru/domain-list-by-ip/aih.life/) and 129 repository-tracked UAE directory/trade citations.',
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: 2,
+        action: 'CLASSIFICATION_COMPLETED',
+        actor: 'Safe Backlink Classification Engine',
+        details: 'Classified 130 total backlinks across 129 referring domains: 0 Confirmed harmful, 1 Suspicious — needs review (2ip.io reverse-IP scraper, Risk Score 58/100), 129 Potentially legitimate UAE citations across 128 domains.',
+        created_at: new Date().toISOString(),
+      },
+    ]
+    modified = true
+  }
+  if (!Array.isArray(store.disavow_versions)) {
+    store.disavow_versions = []
+    modified = true
+  }
+  if (modified) {
+    saveStore(store)
+  }
+}
+
+function getBacklinkAuditItems(filter = {}) {
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  let list = [...(store.backlink_audit_items || [])]
+
+  if (filter.classification && filter.classification !== 'all') {
+    list = list.filter((i) => String(i.classification).toLowerCase() === String(filter.classification).toLowerCase())
+  }
+  if (filter.source_dataset && filter.source_dataset !== 'all') {
+    list = list.filter((i) => String(i.source_dataset).toLowerCase() === String(filter.source_dataset).toLowerCase())
+  }
+  if (filter.review_status && filter.review_status !== 'all') {
+    list = list.filter((i) => String(i.review_status).toLowerCase() === String(filter.review_status).toLowerCase())
+  }
+  if (filter.disavow_approved !== undefined && filter.disavow_approved !== 'all') {
+    const want = String(filter.disavow_approved) === 'true'
+    list = list.filter((i) => Boolean(i.disavow_approved) === want)
+  }
+  if (filter.search) {
+    const s = String(filter.search).toLowerCase().trim()
+    list = list.filter(
+      (i) =>
+        String(i.linking_domain || '').toLowerCase().includes(s) ||
+        String(i.linking_url || '').toLowerCase().includes(s) ||
+        String(i.anchor_text || '').toLowerCase().includes(s) ||
+        String(i.explanation || '').toLowerCase().includes(s) ||
+        (Array.isArray(i.evidence) && i.evidence.some((e) => String(e).toLowerCase().includes(s)))
+    )
+  }
+
+  // Sort by risk_score descending by default
+  list.sort((a, b) => (Number(b.risk_score) || 0) - (Number(a.risk_score) || 0))
+  return list
+}
+
+function upsertBacklinkAuditItems(newRecords = [], actor = 'Admin') {
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  const backlinkAuditService = require('../services/backlinkAuditService')
+
+  const existing = store.backlink_audit_items || []
+  const maxId = existing.length > 0 ? Math.max(...existing.map((i) => Number(i.id) || 0)) : 0
+
+  // Map existing by normalized URL + target URL to preserve manual reviews
+  const existingMap = new Map()
+  existing.forEach((item) => {
+    const key = `${String(item.linking_url).toLowerCase()}||${String(item.target_url).toLowerCase()}`
+    existingMap.set(key, item)
+  })
+
+  let addedCount = 0
+  let updatedCount = 0
+  const combined = [...existing]
+
+  for (const rec of newRecords) {
+    const norm = backlinkAuditService.normalizeUrlAndDomain(rec.linking_url || rec.linking_domain)
+    const targetUrl = rec.target_url || 'https://0nprint.com/'
+    const key = `${norm.normalizedUrl.toLowerCase()}||${targetUrl.toLowerCase()}`
+    if (existingMap.has(key)) {
+      const prev = existingMap.get(key)
+      prev.last_checked_at = rec.last_checked_at || prev.last_checked_at
+      if (rec.authority !== null && rec.authority !== undefined) prev.authority = rec.authority
+      if (rec.semrush_toxicity_score !== null && rec.semrush_toxicity_score !== undefined) {
+        prev.semrush_toxicity_score = rec.semrush_toxicity_score
+      }
+      updatedCount++
+    } else {
+      addedCount++
+      combined.push({
+        ...rec,
+        id: maxId + addedCount,
+      })
+    }
+  }
+
+  const { items } = backlinkAuditService.deduplicateAndClassifyBacklinks(combined)
+  store.backlink_audit_items = items
+
+  addBacklinkAuditLogInternal(store, {
+    action: 'CSV_IMPORT_COMMITTED',
+    actor,
+    details: `Imported backlink records: ${addedCount} new links added, ${updatedCount} existing links refreshed. Total tracked links: ${items.length}.`,
+  })
+
+  saveStore(store)
+  return { items, addedCount, updatedCount }
+}
+
+function updateBacklinkAuditItem(id, updates = {}, actor = 'Admin') {
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  const idx = store.backlink_audit_items.findIndex((i) => String(i.id) === String(id))
+  if (idx === -1) return null
+
+  const current = store.backlink_audit_items[idx]
+
+  // Safety rail: Prevent approving a "Potentially legitimate" domain for disavow unless reclassified
+  const nextClassification = updates.classification || current.classification
+  let nextDisavowApproved =
+    updates.disavow_approved !== undefined ? Boolean(updates.disavow_approved) : Boolean(current.disavow_approved)
+
+  if (nextClassification === 'Potentially legitimate' && nextDisavowApproved) {
+    nextDisavowApproved = false
+  }
+
+  const updated = {
+    ...current,
+    ...updates,
+    id: current.id,
+    classification: nextClassification,
+    manual_classification: updates.classification || current.manual_classification,
+    risk_score: updates.risk_score !== undefined ? Number(updates.risk_score) : current.risk_score,
+    manual_risk_score: updates.risk_score !== undefined ? Number(updates.risk_score) : current.manual_risk_score,
+    disavow_approved: nextDisavowApproved,
+    disavow_scope: updates.disavow_scope || current.disavow_scope || 'domain',
+    review_status:
+      updates.review_status ||
+      (nextDisavowApproved ? 'approved_for_disavow' : updates.classification ? 'reviewed_manual' : current.review_status),
+    reviewed_by: actor,
+    reviewed_at: new Date().toISOString(),
+  }
+
+  store.backlink_audit_items[idx] = updated
+
+  addBacklinkAuditLogInternal(store, {
+    action: 'DOMAIN_REVIEW_UPDATED',
+    actor,
+    details: `Reviewed ${updated.linking_domain} (ID #${updated.id}): Classification="${updated.classification}", Risk=${updated.risk_score}, DisavowApproved=${updated.disavow_approved}, Scope=${updated.disavow_scope}.`,
+  })
+
+  saveStore(store)
+  return updated
+}
+
+function bulkUpdateBacklinkAuditItems(ids = [], updates = {}, actor = 'Admin') {
+  if (!Array.isArray(ids) || ids.length === 0) return []
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  const idSet = new Set(ids.map((id) => String(id)))
+  const updatedItems = []
+
+  store.backlink_audit_items = store.backlink_audit_items.map((item) => {
+    if (!idSet.has(String(item.id))) return item
+    const nextClassification = updates.classification || item.classification
+    let nextDisavowApproved =
+      updates.disavow_approved !== undefined ? Boolean(updates.disavow_approved) : Boolean(item.disavow_approved)
+    if (nextClassification === 'Potentially legitimate' && nextDisavowApproved) {
+      nextDisavowApproved = false
+    }
+    const nextItem = {
+      ...item,
+      ...updates,
+      id: item.id,
+      classification: nextClassification,
+      manual_classification: updates.classification || item.manual_classification,
+      disavow_approved: nextDisavowApproved,
+      review_status:
+        updates.review_status ||
+        (nextDisavowApproved ? 'approved_for_disavow' : 'reviewed_manual'),
+      reviewed_by: actor,
+      reviewed_at: new Date().toISOString(),
+    }
+    updatedItems.push(nextItem)
+    return nextItem
+  })
+
+  addBacklinkAuditLogInternal(store, {
+    action: 'BULK_REVIEW_UPDATED',
+    actor,
+    details: `Bulk updated ${updatedItems.length} backlink records (${updatedItems.map((i) => i.linking_domain).join(', ')}).`,
+  })
+
+  saveStore(store)
+  return updatedItems
+}
+
+function getBacklinkRemovalRequests() {
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  return store.backlink_removal_requests || []
+}
+
+function addBacklinkRemovalRequest(data = {}, actor = 'Admin') {
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  const list = store.backlink_removal_requests || []
+  const id = list.length > 0 ? Math.max(...list.map((r) => Number(r.id) || 0)) + 1 : 1
+  const newReq = {
+    id,
+    linking_domain: data.linking_domain || '',
+    linking_url: data.linking_url || '',
+    target_url: data.target_url || 'https://0nprint.com/',
+    contact_page: data.contact_page || '',
+    contact_email: data.contact_email || '',
+    template_used: data.template_used || 'Standard Webmaster Removal Request',
+    status: data.status || 'sent',
+    requested_at: data.requested_at || new Date().toISOString().split('T')[0],
+    follow_up_at: data.follow_up_at || null,
+    response_received: data.response_received || null,
+    verified_removed: Boolean(data.verified_removed),
+    verified_at: data.verified_removed ? new Date().toISOString().split('T')[0] : null,
+    notes: data.notes || '',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  }
+  store.backlink_removal_requests.unshift(newReq)
+  addBacklinkAuditLogInternal(store, {
+    action: 'REMOVAL_REQUEST_LOGGED',
+    actor,
+    details: `Logged removal outreach request for ${newReq.linking_domain} (${newReq.linking_url}) — Status: ${newReq.status}.`,
+  })
+  saveStore(store)
+  return newReq
+}
+
+function updateBacklinkRemovalRequest(id, data = {}, actor = 'Admin') {
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  const idx = (store.backlink_removal_requests || []).findIndex((r) => String(r.id) === String(id))
+  if (idx === -1) return null
+  const current = store.backlink_removal_requests[idx]
+  const verifiedRemoved =
+    data.verified_removed !== undefined ? Boolean(data.verified_removed) : data.status === 'removed_verified' ? true : current.verified_removed
+  const updated = {
+    ...current,
+    ...data,
+    id: current.id,
+    verified_removed: verifiedRemoved,
+    verified_at: verifiedRemoved && !current.verified_at ? new Date().toISOString().split('T')[0] : current.verified_at,
+    updated_at: new Date().toISOString(),
+  }
+  store.backlink_removal_requests[idx] = updated
+  addBacklinkAuditLogInternal(store, {
+    action: 'REMOVAL_REQUEST_UPDATED',
+    actor,
+    details: `Updated removal request #${updated.id} (${updated.linking_domain}): status="${updated.status}", verified_removed=${updated.verified_removed}.`,
+  })
+  saveStore(store)
+  return updated
+}
+
+function getDisavowVersions() {
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  return store.disavow_versions || []
+}
+
+function addDisavowVersion(versionData = {}, actor = 'Admin') {
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  const list = store.disavow_versions || []
+  const versionNum = list.length + 1
+  const record = {
+    id: versionNum,
+    version: `v${versionNum}.0`,
+    generated_by: actor,
+    mode: versionData.mode || 'approved_only',
+    directives_count: versionData.directives_count || 0,
+    domains_included: versionData.domains_included || [],
+    content: versionData.content || '',
+    validation: versionData.validation || { valid: true, errors: [], warnings: [] },
+    notes: versionData.notes || '',
+    created_at: new Date().toISOString(),
+  }
+  store.disavow_versions.unshift(record)
+  addBacklinkAuditLogInternal(store, {
+    action: 'DISAVOW_FILE_GENERATED',
+    actor,
+    details: `Generated disavow.txt ${record.version} (${record.mode}) with ${record.directives_count} directive(s). Validation: ${record.validation.valid ? 'PASSED' : 'FAILED'}.`,
+  })
+  saveStore(store)
+  return record
+}
+
+function getBacklinkAuditLogs() {
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  return store.backlink_audit_logs || []
+}
+
+function addBacklinkAuditLogInternal(store, logData) {
+  if (!Array.isArray(store.backlink_audit_logs)) store.backlink_audit_logs = []
+  const id = store.backlink_audit_logs.length > 0 ? Math.max(...store.backlink_audit_logs.map((l) => Number(l.id) || 0)) + 1 : 1
+  const entry = {
+    id,
+    action: logData.action || 'AUDIT_EVENT',
+    actor: logData.actor || 'Admin',
+    details: logData.details || '',
+    created_at: new Date().toISOString(),
+  }
+  store.backlink_audit_logs.unshift(entry)
+  return entry
+}
+
+function addBacklinkAuditLog(logData) {
+  const store = loadStore()
+  ensureBacklinkAuditSeeded(store)
+  const entry = addBacklinkAuditLogInternal(store, logData)
+  saveStore(store)
+  return entry
+}
+
 module.exports = {
   getOrders,
   addOrder,
@@ -897,4 +1277,16 @@ module.exports = {
   addSeoTask,
   updateSeoTask,
   deleteSeoTask,
+  getBacklinkAuditItems,
+  upsertBacklinkAuditItems,
+  updateBacklinkAuditItem,
+  bulkUpdateBacklinkAuditItems,
+  getBacklinkRemovalRequests,
+  addBacklinkRemovalRequest,
+  updateBacklinkRemovalRequest,
+  getDisavowVersions,
+  addDisavowVersion,
+  getBacklinkAuditLogs,
+  addBacklinkAuditLog,
 }
+

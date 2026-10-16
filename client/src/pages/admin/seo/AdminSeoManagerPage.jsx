@@ -65,6 +65,7 @@ import SeoTasksTab from './SeoTasksTab'
 import TopicalAuthorityTab from './TopicalAuthorityTab'
 import CompeteWithDlxPrintTab from './CompeteWithDlxPrintTab'
 import BusinessCardSeoTab from './BusinessCardSeoTab'
+import BacklinkAuditTab from './BacklinkAuditTab'
 import {
   getSeoDashboard,
   getSeoAudit,
@@ -1123,6 +1124,7 @@ export default function AdminSeoManagerPage() {
 
   const tabs = [
     { id: 'overview', label: 'Overview & Health', icon: BarChart3 },
+    { id: 'backlink-forensics', label: 'Backlink Audit & Disavow', icon: ShieldAlert },
     { id: 'business-cards-seo', label: 'Business Card SEO (1,050+)', icon: CreditCard },
     { id: 'compete-dlxprint', label: 'Compete with DLXPrint', icon: Target },
     { id: 'tasks', label: 'SEO Tasks Queue', icon: CheckCircle2 },
@@ -3443,14 +3445,17 @@ export default function AdminSeoManagerPage() {
         </div>
       )}
 
+      {activeTab === 'backlink-forensics' && (
+        <BacklinkAuditTab showToast={showToast} />
+      )}
+
       {activeTab === 'backlinks' && (
-        <div className="space-y-5">
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-6">{[['Backlinks', backlinkData.summary?.total], ['Referring domains', backlinkData.summary?.referring_domains], ['New', backlinkData.summary?.new_backlinks], ['Lost', backlinkData.summary?.lost_backlinks], ['Follow', backlinkData.summary?.follow_links], ['Nofollow', backlinkData.summary?.nofollow_links]].map(([label, value]) => <div key={label} className="rounded-xl border border-neutral-200 bg-white p-4"><p className="text-[10px] font-bold uppercase text-neutral-400">{label}</p><p className="mt-1 text-2xl font-black text-neutral-900">{value || 0}</p></div>)}</div>
+        <div className="space-y-6">
+          <BacklinkAuditTab showToast={showToast} />
           <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
             <div className="flex items-center justify-between"><h2 className="font-display text-lg font-bold text-neutral-900">Manual backlink record</h2><span className="text-xs text-neutral-500">No links are created automatically.</span></div>
             <form onSubmit={handleCreateBacklink} className="mt-4 grid gap-3 md:grid-cols-4"><input required placeholder="Linking domain" value={backlinkForm.linking_domain} onChange={(event) => setBacklinkForm({ ...backlinkForm, linking_domain: event.target.value })} className="rounded-lg border p-2 text-xs" /><input required placeholder="Linking URL" value={backlinkForm.linking_url} onChange={(event) => setBacklinkForm({ ...backlinkForm, linking_url: event.target.value })} className="rounded-lg border p-2 text-xs" /><input required placeholder="Target URL" value={backlinkForm.target_url} onChange={(event) => setBacklinkForm({ ...backlinkForm, target_url: event.target.value })} className="rounded-lg border p-2 text-xs" /><Button type="submit" size="sm">Add record</Button></form>
           </div>
-          <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs overflow-x-auto">{backlinkData.items?.length ? <table className="w-full text-left text-xs"><thead><tr className="border-b text-[10px] uppercase text-neutral-400"><th className="pb-3">Domain</th><th className="pb-3">Linking URL</th><th className="pb-3">Target URL</th><th className="pb-3">Type</th><th className="pb-3">Status</th><th className="pb-3">Risk</th></tr></thead><tbody className="divide-y divide-neutral-100">{backlinkData.items.map((item) => <tr key={item.id}><td className="py-3 font-bold">{item.linking_domain}</td><td className="max-w-xs truncate py-3">{item.linking_url}</td><td className="max-w-xs truncate py-3">{item.target_url}</td><td className="py-3">{item.link_type}</td><td className="py-3">{item.status}</td><td className="py-3">{item.toxic_risk}</td></tr>)}</tbody></table> : <p className="py-10 text-center text-sm text-neutral-500">No backlink data available. Add verified links manually or connect an approved SEO data provider.</p>}</div>
         </div>
       )}
 

@@ -535,3 +535,43 @@ export async function generateFaqIdeas(payload) {
   return data
 }
 
+// ==========================================
+// TOXIC BACKLINK AUDIT, CLASSIFICATION & SAFE DISAVOW API CLIENT
+// ==========================================
+
+export async function getBacklinkAudit(params = {}) {
+  const { data } = await api.get('/seo/backlink-audit', { params })
+  return data
+}
+
+export async function importBacklinkCsv(payload) {
+  const { data } = await api.post('/seo/backlink-audit/import-csv', payload)
+  return data
+}
+
+export async function reviewBacklinkItem(id, payload) {
+  const { data } = await api.put(`/seo/backlink-audit/items/${id}/review`, payload)
+  return data
+}
+
+export async function bulkReviewBacklinks(payload) {
+  const { data } = await api.post('/seo/backlink-audit/bulk-review', payload)
+  return data
+}
+
+export async function createRemovalRequest(payload) {
+  const { data } = await api.post('/seo/backlink-audit/removal-requests', payload)
+  return data
+}
+
+export async function updateRemovalRequest(id, payload) {
+  const { data } = await api.put(`/seo/backlink-audit/removal-requests/${id}`, payload)
+  return data
+}
+
+export async function generateDisavowFile(payload) {
+  const { data } = await api.post('/seo/backlink-audit/disavow/generate', payload)
+  return data
+}
+
+

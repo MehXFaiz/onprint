@@ -217,4 +217,15 @@ router.put('/content-decay/:id', (req, res) => seoManagerController.updateConten
 // Requirement 38 & 41: Monthly SEO Automation Report & Priority Roadmap
 router.get('/monthly-report', (req, res) => seoManagerController.getMonthlyReport(req, res))
 
+// Toxic Backlink Forensics, Classification, Removal Outreach & Safe Disavow Engine
+router.get('/backlink-audit', (req, res) => seoManagerController.getBacklinkAudit(req, res))
+router.post('/backlink-audit/import-csv', (req, res) => seoManagerController.importBacklinkCsv(req, res))
+router.put('/backlink-audit/items/:id/review', (req, res) => seoManagerController.reviewBacklinkItem(req, res))
+router.post('/backlink-audit/bulk-review', (req, res) => seoManagerController.bulkReviewBacklinks(req, res))
+router.post('/backlink-audit/removal-requests', (req, res) => seoManagerController.createRemovalRequest(req, res))
+router.put('/backlink-audit/removal-requests/:id', (req, res) => seoManagerController.updateRemovalRequest(req, res))
+router.post('/backlink-audit/disavow/generate', (req, res) => seoManagerController.generateDisavowFileEndpoint(req, res))
+router.get('/backlink-audit/export-csv', (req, res) => seoManagerController.exportBacklinkAuditCsv(req, res))
+
 module.exports = router
+

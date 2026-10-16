@@ -339,6 +339,19 @@ const CARD_VARIATIONS = [
     suitableFor: 'Franchise Networks, Corporate Law Firms, Global Banking Groups, Telecoms',
     popularFinishes: ['Pantone Metallic Ink', 'Velvet Protective Film'],
   },
+  {
+    id: 'pvc-waterproof-cards',
+    title: 'PVC Business Cards (760μ Waterproof & Frosted)',
+    category: 'specialty',
+    gsm: '760 Microns',
+    badge: '100% Waterproof • Tear-Proof',
+    image: '/assets/products/business-cards/bc_rounded_corners.jpg',
+    description:
+      'Engineered on rigid 500–760 micron solid white, frosted translucent, or clear PVC polymer sheets cured with UV inks. Completely waterproof, tear-proof, and credit-card durable for Dubai outdoor & marine environments.',
+    specs: '760μ Solid / Frosted PVC • UV Cured Ink + White Underbase • 3mm Rounded Corners',
+    suitableFor: 'Yacht Charters, Beach Clubs, Fitness Trainers, Construction Engineers, VIP Membership',
+    popularFinishes: ['Frosted Translucent PVC', 'Solid Matte PVC + Spot UV', 'NFC Chip Ready'],
+  },
 ]
 
 // 12 Real Customer Industries in Dubai & UAE
@@ -1926,7 +1939,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               </Link>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
                   title: 'How to Choose Business Card Paper: 350gsm vs 450gsm vs 600gsm Cotton',
@@ -1943,7 +1956,6 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 {
                   title: 'Business Card Printing Checklist for UAE Startups & Free Zone Founders',
                   slug: '/blog/business-card-printing-checklist-uae-startups',
-                  slugLabel: 'Startup Checklist',
                   tag: 'Startup & Event Prep',
                   desc: '12-point pre-flight audit, dynamic vCard QR setup, and 4-hour rush contingency.',
                 },
@@ -1958,6 +1970,24 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   slug: '/blog/business-branding-networking-materials-dubai-companies',
                   tag: 'Corporate Stationery',
                   desc: 'Synchronize business cards, presentation folders, letterheads, and NFC badges.',
+                },
+                {
+                  title: 'How to Prepare Artwork for Professional Business Card Printing in Dubai',
+                  slug: '/blog/how-to-prepare-artwork-business-card-printing-dubai',
+                  tag: 'PDF/X-1a & Vector Prep',
+                  desc: 'Step-by-step bleed, safe zone, CMYK rich black, font outlining, and foil/UV mask separation.',
+                },
+                {
+                  title: 'Common Business Card Printing Mistakes in Dubai and How to Avoid Them',
+                  slug: '/blog/common-business-card-printing-mistakes-dubai',
+                  tag: 'Quality Control',
+                  desc: 'Prevent edge cracking, RGB color shifts, 4-color text blur, and uncalibrated QR codes.',
+                },
+                {
+                  title: 'Business Card Printing FAQs for Dubai Customers: Pricing, GSM & Delivery',
+                  slug: '/blog/business-card-printing-faqs-dubai-customers',
+                  tag: 'Complete Dubai FAQ',
+                  desc: 'Direct answers on AED pricing tiers, 4-hour rush cutoffs, PVC cards, and UAE delivery.',
                 },
               ].map((guide) => (
                 <Link

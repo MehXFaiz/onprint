@@ -38,33 +38,33 @@ export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 // 2. Official Core Service Prefilled Inquiries (Dubai & UAE Focused)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    "Hi ONPRINT! I'm interested in luxury & executive business card printing in Dubai. Please share your available paper stocks (cotton, silk, velvet soft-touch), finishes (24K foil, spot UV), quantities, pricing, and express delivery times.",
+    "Hi ONPRINT! I'd like a quotation for Business Card Printing in Dubai. Here are my details — Product: Business Cards, Quantity: [e.g., 100 / 250 / 500 / 1,000], Size: [90x55mm UAE Standard / 85x55mm ISO], Paper & Finish: [350gsm Matte / 450gsm Velvet / 600gsm Cotton / 24K Foil / 3D Spot UV / PVC], Delivery Location: [Dubai / UAE]. Please share pricing and turnaround.",
   'business-cards-printing':
-    "Hi ONPRINT! I'm interested in luxury & executive business card printing in Dubai. Please share your available paper stocks, finishes, quantities, pricing, and express delivery times.",
+    "Hi ONPRINT! I'd like a quotation for Business Card Printing in Dubai. Here are my details — Product: Business Cards, Quantity: [e.g., 100 / 250 / 500 / 1,000], Size: [90x55mm UAE Standard / 85x55mm ISO], Paper & Finish: [350gsm Matte / 450gsm Velvet / 600gsm Cotton / 24K Foil / 3D Spot UV / PVC], Delivery Location: [Dubai / UAE]. Please share pricing and turnaround.",
   'business-card-printing-dubai':
-    "Hi ONPRINT! I'm interested in luxury & executive business card printing in Dubai. Please share your available paper stocks, finishes, quantities, pricing, and express delivery times.",
+    "Hi ONPRINT! I'd like a quotation for Business Card Printing in Dubai. Here are my details — Product: Business Cards, Quantity: [e.g., 100 / 250 / 500 / 1,000], Size: [90x55mm UAE Standard / 85x55mm ISO], Paper & Finish: [350gsm Matte / 450gsm Velvet / 600gsm Cotton / 24K Foil / 3D Spot UV / PVC], Delivery Location: [Dubai / UAE]. Please share pricing and turnaround.",
 
   'bottle-printing':
-    "Hi ONPRINT! I'm interested in custom water bottle printing in Dubai (LED temperature display, thermal stainless steel, sports aluminium, glass bamboo). Please share bottle models, branding methods (laser engraving / UV print), minimum quantities, and pricing.",
+    "Hi ONPRINT! I'd like a quotation for Custom Water Bottle Printing in Dubai (Product: Thermal Stainless Steel / LED Smart / Sports Bottle, Quantity, Size/Capacity, Finish: UV Print / 360° Laser Engraving, Delivery Location: Dubai/UAE). Please share models, minimum quantities, and pricing.",
   'bottle-printing-dubai':
-    "Hi ONPRINT! I'm interested in custom water bottle printing in Dubai (LED temperature display, thermal stainless steel, sports aluminium, glass bamboo). Please share bottle models, branding methods (laser engraving / UV print), minimum quantities, and pricing.",
+    "Hi ONPRINT! I'd like a quotation for Custom Water Bottle Printing in Dubai (Product: Thermal Stainless Steel / LED Smart / Sports Bottle, Quantity, Size/Capacity, Finish: UV Print / 360° Laser Engraving, Delivery Location: Dubai/UAE). Please share models, minimum quantities, and pricing.",
   'water-bottle-printing-dubai':
-    "Hi ONPRINT! I'm interested in custom water bottle printing in Dubai. Please share available bottle models, minimum order quantities, and express delivery options.",
+    "Hi ONPRINT! I'd like a quotation for Custom Water Bottle Printing in Dubai (Product, Quantity, Size, Finish, and Delivery Location in Dubai/UAE). Please share available bottle models and pricing.",
 
   'bottle-labels':
-    "Hi ONPRINT! I'm interested in custom bottle label printing in Dubai (waterproof roll labels / die-cut vinyl stickers). Please share label materials, finishes, adhesive options, minimum quantities, and pricing.",
+    "Hi ONPRINT! I'd like a quotation for Custom Bottle Label Printing in Dubai (Product: Waterproof Roll Labels / Die-Cut Vinyl, Quantity, Size, Finish, and Delivery Location in Dubai/UAE).",
 
   'rollup-banners':
-    "Hi ONPRINT! I need roll-up banner printing in Dubai. Please share the available sizes (85x200, 100x200, 120x200 cm), stand types (standard / luxury teardrop), prices, and 24h turnaround times.",
+    "Hi ONPRINT! I'd like a quotation for Roll-Up Banner Printing in Dubai (Product: Retractable Roll-Up Banner, Quantity, Size: 85x200 / 100x200 / 120x200 cm, Finish: 440gsm Anti-Curl Matte, Delivery Location: Dubai/UAE). Please share prices and 24h turnaround.",
   'rollup-banner-printing-dubai':
-    "Hi ONPRINT! I need roll-up banner printing in Dubai. Please share the available sizes, stand types, prices, and 24h turnaround times.",
+    "Hi ONPRINT! I'd like a quotation for Roll-Up Banner Printing in Dubai (Product: Retractable Roll-Up Banner, Quantity, Size: 85x200 / 100x200 / 120x200 cm, Finish, Delivery Location: Dubai/UAE). Please share prices and 24h turnaround.",
 
   'stickers':
-    "Hi ONPRINT! I'm interested in custom sticker & product label printing in Dubai (waterproof vinyl, die-cut, roll labels, transparent, holographic). Please share shapes, sizes, minimum order quantities, and prices.",
+    "Hi ONPRINT! I'd like a quotation for Custom Sticker & Label Printing in Dubai (Product: Waterproof Vinyl / Die-Cut / Roll Labels / Holographic, Quantity, Size, Finish, Delivery Location: Dubai/UAE). Please share minimum quantities and pricing.",
   'stickers-labels-printing':
-    "Hi ONPRINT! I'm interested in custom sticker & product label printing in Dubai. Please share available materials, finishes, minimum order quantities, and pricing.",
+    "Hi ONPRINT! I'd like a quotation for Custom Sticker & Label Printing in Dubai (Product, Quantity, Size, Finish, and Delivery Location in Dubai/UAE). Please share pricing and turnaround.",
   'sticker-printing-dubai':
-    "Hi ONPRINT! I'm interested in custom sticker & product label printing in Dubai. Please share available materials, finishes, minimum order quantities, and pricing.",
+    "Hi ONPRINT! I'd like a quotation for Custom Sticker & Label Printing in Dubai (Product, Quantity, Size, Finish, and Delivery Location in Dubai/UAE). Please share pricing and turnaround.",
 
   'stamps':
     "Hi ONPRINT! I need a custom stamp in Dubai (official self-inking company stamp, pocket stamp, dater, or wax seal). Please share available models, sizes, license verification requirements, and prices.",
@@ -104,7 +104,7 @@ export const SERVICE_INQUIRY_MESSAGES = {
     "Hi ONPRINT! I'm interested in executive office stationery printing in Dubai. Please share specifications and pricing.",
 
   'general':
-    "Hi ONPRINT! I'm interested in commercial printing in Dubai. Please share your pricing, options, and express delivery times.",
+    "Hi ONPRINT! I'd like a quotation for commercial printing in Dubai. Product: [Business Cards / Roll-Up Banners / Stickers / Bottles], Quantity: [Units], Size: [Dimensions], Finish: [Matte / Velvet / Foil / UV], Delivery Location: [Dubai / UAE].",
 }
 
 /**
@@ -145,6 +145,8 @@ export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
   if (matVal) detailLines.push(`• Material / Stock: ${matVal}`)
   const finVal = details.finish || details.finishing || details.coating
   if (finVal) detailLines.push(`• Finish / Coating: ${finVal}`)
+  const locVal = details.deliveryLocation || details.location
+  if (locVal) detailLines.push(`• Delivery Location: ${locVal}`)
   const deadlineVal = details.deadline || details.turnaround || details.deliveryDate
   if (deadlineVal) detailLines.push(`• Required Deadline: ${deadlineVal}`)
   if (details.price) detailLines.push(`• Starting / Quoted Price: AED ${details.price}`)

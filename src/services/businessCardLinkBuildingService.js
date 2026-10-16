@@ -718,7 +718,7 @@ const ANCHOR_TEXT_STRATEGY = {
   ],
 }
 
-// 4. Link-Worthy Content Assets (5 Complete Editorial Guides)
+// 4. Link-Worthy & Citation-Worthy Content Assets (8 Complete Editorial Guides)
 const LINK_WORTHY_CONTENT_ASSETS = [
   {
     id: 1,
@@ -728,8 +728,9 @@ const LINK_WORTHY_CONTENT_ASSETS = [
     status: 'Published & Live',
     word_count: 1420,
     target_audience: 'Corporate Brand Managers, Print Buyers, Graphic Designers in Dubai',
+    internal_links_to: ['/business-card-printing-dubai', '/luxury-business-cards', '/services/business-cards-printing'],
     internal_links_to_money_pages: ['/business-card-printing-dubai', '/luxury-business-cards', '/services/business-cards-printing'],
-    link_magnet_value: 'Features a technical caliper-to-GSM comparison matrix (380μm to 900μm) and ISO 7810 (85x55mm) vs standard (90x50mm) sizing reference.',
+    link_magnet_value: 'Features a technical caliper-to-GSM comparison matrix (380μm to 900μm) and ISO 7810 (85x55mm) vs standard (90x55mm) sizing reference.',
   },
   {
     id: 2,
@@ -739,6 +740,7 @@ const LINK_WORTHY_CONTENT_ASSETS = [
     status: 'Published & Live',
     word_count: 1380,
     target_audience: 'Creative Agencies, In-House Designers, DIFC & Business Bay Executives',
+    internal_links_to: ['/business-card-printing-dubai', '/business-card-design', '/foil-business-cards', '/spot-uv-business-cards'],
     internal_links_to_money_pages: ['/business-card-printing-dubai', '/business-card-design', '/foil-business-cards', '/spot-uv-business-cards'],
     link_magnet_value: 'Covers Arabic-English bilingual layout alignment, 3mm bleed / 5mm safe-zone diagrams, K:100% vector mask setup for 24K foil and Spot UV, and QR vCard sizing.',
   },
@@ -750,6 +752,7 @@ const LINK_WORTHY_CONTENT_ASSETS = [
     status: 'Published & Live',
     word_count: 1290,
     target_audience: 'UAE Startup Founders, DMCC/DIFC/Meydan Company Formation Consultants, Incubators',
+    internal_links_to: ['/business-card-printing-dubai', '/same-day-business-card-printing', '/corporate-business-cards'],
     internal_links_to_money_pages: ['/business-card-printing-dubai', '/same-day-business-card-printing', '/corporate-business-cards'],
     link_magnet_value: 'Practical pre-launch checklist covering UAE phone formatting (+971), bilingual titles, MOQ optimization (100 vs 500 cards), and matching company stamps.',
   },
@@ -761,6 +764,7 @@ const LINK_WORTHY_CONTENT_ASSETS = [
     status: 'Published & Live',
     word_count: 1340,
     target_audience: 'Procurement Officers, Sales Directors, Real Estate Brokerages, Luxury Retail',
+    internal_links_to: ['/business-card-printing-dubai', '/premium-business-cards', '/luxury-business-cards'],
     internal_links_to_money_pages: ['/business-card-printing-dubai', '/premium-business-cards', '/luxury-business-cards'],
     link_magnet_value: 'Breaks down unit economics and tactile durability of 350 GSM standard matte vs 450 GSM velvet soft-touch vs 600 GSM Italian cotton.',
   },
@@ -772,9 +776,240 @@ const LINK_WORTHY_CONTENT_ASSETS = [
     status: 'Published & Live',
     word_count: 1360,
     target_audience: 'DWTC Exhibitors, Event Managers, Corporate Communications Teams',
+    internal_links_to: ['/business-card-printing-dubai', '/corporate-business-cards', '/same-day-business-card-printing'],
     internal_links_to_money_pages: ['/business-card-printing-dubai', '/corporate-business-cards', '/same-day-business-card-printing'],
     link_magnet_value: 'Cohesive print toolkit guide for GITEX, Arab Health, and Gulfood exhibitors combining executive business cards, NFC badges, presentation folders, and brochures.',
   },
+  {
+    id: 6,
+    title: 'How to Prepare Artwork for Professional Business Card Printing in Dubai (Pre-Press Technical Guide)',
+    slug: 'how-to-prepare-artwork-business-card-printing-dubai',
+    url: '/blog/how-to-prepare-artwork-business-card-printing-dubai',
+    status: 'Published & Live',
+    word_count: 1490,
+    target_audience: 'Graphic Designers, Print Production Managers, Agencies',
+    internal_links_to: ['/business-card-printing-dubai', '/business-card-design', '/foil-business-cards', '/spot-uv-business-cards'],
+    internal_links_to_money_pages: ['/business-card-printing-dubai', '/business-card-design', '/foil-business-cards', '/spot-uv-business-cards'],
+    link_magnet_value: 'Answer-first pre-press specification table covering 90x55mm & 85x55mm bleed, CMYK FOGRA39 ink limits, vector outlines, and 100% Spot Magenta foil/UV masks.',
+  },
+  {
+    id: 7,
+    title: 'Common Business Card Printing Mistakes and How to Avoid Them (Dubai Print Engineer Audit)',
+    slug: 'common-business-card-printing-mistakes-dubai',
+    url: '/blog/common-business-card-printing-mistakes-dubai',
+    status: 'Published & Live',
+    word_count: 1410,
+    target_audience: 'UAE Business Owners, Marketing Teams, Brand Designers',
+    internal_links_to: ['/business-card-printing-dubai', '/premium-business-cards', '/luxury-business-cards'],
+    internal_links_to_money_pages: ['/business-card-printing-dubai', '/premium-business-cards', '/luxury-business-cards'],
+    link_magnet_value: 'Explains how to prevent the 8 most common pressroom failures: perimeter border drift, RGB shifts, un-outlined Arabic fonts, cracked dark solids, and dense micro-QR codes.',
+  },
+  {
+    id: 8,
+    title: 'Business Card Printing FAQs for Dubai Customers: Pricing, Paper GSM, Turnaround & Delivery',
+    slug: 'business-card-printing-faqs-dubai-customers',
+    url: '/blog/business-card-printing-faqs-dubai-customers',
+    status: 'Published & Live',
+    word_count: 1520,
+    target_audience: 'Dubai & UAE Commercial Print Buyers, AI Answer Engines (ChatGPT, Perplexity, Gemini)',
+    internal_links_to: ['/business-card-printing-dubai', '/same-day-business-card-printing', '/business-card-printing-abu-dhabi', '/business-card-printing-sharjah'],
+    internal_links_to_money_pages: ['/business-card-printing-dubai', '/same-day-business-card-printing', '/business-card-printing-abu-dhabi', '/business-card-printing-sharjah'],
+    link_magnet_value: 'Direct answer-first FAQ reference covering AED pricing tiers, 100-card MOQ, 4-hour same-day express printing, 760μ PVC, FSC eco-friendly Kraft, and UAE courier delivery.',
+  },
+]
+
+// 4B. Additional Verified Product & Commercial Keywords (Mapped without Cannibalization)
+const ADDITIONAL_VERIFIED_PRODUCT_KEYWORDS = [
+  {
+    id: 21,
+    keyword: 'premium business card printing Dubai',
+    search_intent: 'Transactional / Commercial',
+    funnel_stage: 'BOFU',
+    business_relevance: 'Critical (10/10) — 400–450 GSM Velvet & Silk Cards',
+    priority: 'P1 — Critical',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Moderate)',
+    target_url: '/premium-business-cards',
+    primary_heading_match: 'H1: Premium Business Cards Dubai (400–450 GSM Heavyweight)',
+    recommended_anchor: 'premium business card printing in Dubai',
+    recommended_anchor_category: 'Descriptive (premium business card printing in Dubai)',
+    conversion_cta: 'Request 450 GSM Velvet Quote',
+    notes: 'Co-targeted with "premium business cards Dubai" on /premium-business-cards to prevent cannibalization.',
+  },
+  {
+    id: 22,
+    keyword: 'affordable business card printing Dubai',
+    search_intent: 'Transactional',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9/10) — Economy 300–350 GSM Runs Starting AED 95',
+    priority: 'P1 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Moderate)',
+    target_url: '/business-card-printing-dubai',
+    primary_heading_match: 'H2: Standard & Economy 350 GSM Business Cards (From AED 95)',
+    recommended_anchor: 'affordable business card printing in Dubai',
+    recommended_anchor_category: 'Descriptive (affordable business card printing in Dubai)',
+    conversion_cta: 'Order 100 Cards from AED 95',
+    notes: 'Mapped to the Basic & Standard 350 GSM tier on /business-card-printing-dubai.',
+  },
+  {
+    id: 23,
+    keyword: 'business card design and printing Dubai',
+    search_intent: 'Commercial / Transactional',
+    funnel_stage: 'MOFU / BOFU',
+    business_relevance: 'High (9.5/10) — End-to-End Bilingual Design + Press Production',
+    priority: 'P1 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Moderate)',
+    target_url: '/business-card-design',
+    primary_heading_match: 'H1: Business Card Design & Pre-Press Printing in Dubai',
+    recommended_anchor: 'business card design and printing services in Dubai',
+    recommended_anchor_category: 'Descriptive (business card design and printing services)',
+    conversion_cta: 'Book Bilingual Card Design + Print',
+    notes: 'Mapped to /business-card-design and supported by /blog/how-to-prepare-artwork-business-card-printing-dubai.',
+  },
+  {
+    id: 24,
+    keyword: 'business card printing with delivery Dubai',
+    search_intent: 'Transactional / Local Logistics',
+    funnel_stage: 'BOFU',
+    business_relevance: 'Critical (10/10) — Same-Day Dubai Courier & Nationwide UAE Dispatch',
+    priority: 'P1 — Critical',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low-Moderate)',
+    target_url: '/business-card-printing-dubai',
+    primary_heading_match: 'H2: Same-Day Al Quoz Pressroom & Doorstep Delivery Across Dubai',
+    recommended_anchor: 'business card printing with same-day delivery in Dubai',
+    recommended_anchor_category: 'Descriptive (business card printing with delivery in Dubai)',
+    conversion_cta: 'Schedule Doorstep Delivery',
+    notes: 'Supported by /blog/business-card-printing-faqs-dubai-customers.',
+  },
+  {
+    id: 25,
+    keyword: 'gold foil business cards Dubai',
+    search_intent: 'Commercial / Product Specific',
+    funnel_stage: 'BOFU',
+    business_relevance: 'Critical (10/10) — 24K Gold, Rose Gold & Silver Hot Stamping',
+    priority: 'P1 — Critical',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low-Moderate)',
+    target_url: '/foil-business-cards',
+    primary_heading_match: 'H1: Gold Foil Business Cards Dubai — 24K Hot Stamped Metallic Foil',
+    recommended_anchor: '24K gold foil business cards in Dubai',
+    recommended_anchor_category: 'Descriptive Product (gold foil business cards)',
+    conversion_cta: 'Request 24K Foil Quote',
+    notes: 'Verified in-house capability; mapped to dedicated /foil-business-cards spoke.',
+  },
+  {
+    id: 26,
+    keyword: 'Spot UV business cards Dubai',
+    search_intent: 'Commercial / Product Specific',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9.5/10) — Raised 3D Dimensional Scodix Polymer UV',
+    priority: 'P1 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low-Moderate)',
+    target_url: '/spot-uv-business-cards',
+    primary_heading_match: 'H1: Spot UV Business Cards Dubai — Raised 3D Gloss over Matte Velvet',
+    recommended_anchor: 'raised 3D Spot UV business cards',
+    recommended_anchor_category: 'Descriptive Product (Spot UV business cards)',
+    conversion_cta: 'Request Spot UV Sample',
+    notes: 'Verified in-house capability; mapped to dedicated /spot-uv-business-cards spoke.',
+  },
+  {
+    id: 27,
+    keyword: 'matte business cards Dubai',
+    search_intent: 'Commercial / Product Specific',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9.5/10) — 350–450 GSM Matte & Velvet Soft-Touch Lamination',
+    priority: 'P1 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low-Moderate)',
+    target_url: '/velvet-business-cards',
+    primary_heading_match: 'H1: Matte & Soft-Touch Velvet Business Cards Dubai',
+    recommended_anchor: 'matte and soft-touch velvet business cards',
+    recommended_anchor_category: 'Descriptive Product (matte business cards)',
+    conversion_cta: 'Order Matte Laminated Cards',
+    notes: 'Verified in-house capability; mapped to /velvet-business-cards and /business-card-printing-dubai.',
+  },
+  {
+    id: 28,
+    keyword: 'PVC business cards Dubai',
+    search_intent: 'Commercial / Product Specific',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9/10) — 760-Micron Waterproof White, Matte Black & Frosted Transparent PVC',
+    priority: 'P2 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low)',
+    target_url: '/business-card-printing-dubai',
+    primary_heading_match: 'H3: Waterproof & Frosted Transparent PVC Business Cards (760 Micron)',
+    recommended_anchor: 'waterproof 760-micron PVC business cards',
+    recommended_anchor_category: 'Descriptive Product (PVC business cards in Dubai)',
+    conversion_cta: 'Request Waterproof PVC Card Quote',
+    notes: 'Verified product offered in-house (760μ CR80 & custom PVC cards).',
+  },
+  {
+    id: 29,
+    keyword: 'eco-friendly business cards Dubai',
+    search_intent: 'Commercial / Product Specific',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9/10) — FSC 100% Recycled, Unbleached Kraft & Tree-Free Cotton',
+    priority: 'P2 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low)',
+    target_url: '/business-card-printing-dubai',
+    primary_heading_match: 'H3: Eco-Friendly FSC Recycled & Unbleached Kraft Business Cards',
+    recommended_anchor: 'FSC-certified eco-friendly business cards in Dubai',
+    recommended_anchor_category: 'Descriptive Product (eco-friendly business cards)',
+    conversion_cta: 'Order Sustainable Kraft / Recycled Cards',
+    notes: 'Verified product offered in-house (FSC recycled board, unbleached Kraft, 100% cotton).',
+  },
+]
+
+// Normalize fields on PRIORITIZED_BUSINESS_CARD_KEYWORDS and BUSINESS_CARD_BACKLINK_PROSPECTS
+for (const kw of PRIORITIZED_BUSINESS_CARD_KEYWORDS) {
+  if (kw.search_volume === undefined) kw.search_volume = null
+  if (kw.keyword_difficulty === undefined) kw.keyword_difficulty = null
+  if (!kw.recommended_anchor) kw.recommended_anchor = kw.recommended_anchor_category
+}
+
+for (const p of BUSINESS_CARD_BACKLINK_PROSPECTS) {
+  if (!p.qualification_status) {
+    p.qualification_status = String(p.inclusion_decision || '').startsWith('INCLUDED') ? 'qualified' : 'rejected'
+  }
+  if (p.risk_score === undefined) {
+    const m = String(p.risk_assessment || '').match(/\((\d+)\/100\)/)
+    p.risk_score = m ? Number(m[1]) : 15
+  }
+  if (!p.risk_level) {
+    p.risk_level = p.risk_score >= 70 ? 'Critical' : p.risk_score >= 40 ? 'Elevated' : 'Low'
+  }
+  if (!p.website_category) p.website_category = p.category
+  if (!p.inclusion_or_rejection_reason) p.inclusion_or_rejection_reason = p.decision_rationale
+  if (p.approved_by_owner === undefined) p.approved_by_owner = false
+}
+
+const ALL_MAPPED_BUSINESS_CARD_KEYWORDS = [
+  ...PRIORITIZED_BUSINESS_CARD_KEYWORDS,
+  ...ADDITIONAL_VERIFIED_PRODUCT_KEYWORDS,
 ]
 
 // 5. Personalized White-Hat Outreach Templates
@@ -1035,8 +1270,24 @@ function exportKeywordsCsv(keywords = PRIORITIZED_BUSINESS_CARD_KEYWORDS) {
   return [headers.map(esc).join(','), ...rows.map((r) => r.map(esc).join(','))].join('\n')
 }
 
+ANCHOR_TEXT_STRATEGY.distribution_targets = ANCHOR_TEXT_STRATEGY.distributionTargets.map((d) => ({
+  ...d,
+  target_percentage: d.targetSharePct,
+  rationale: d.usageRule,
+}))
+ANCHOR_TEXT_STRATEGY.target_page_mapping = ANCHOR_TEXT_STRATEGY.targetPageMapping.map((m) => ({
+  ...m,
+  target_page: m.targetUrl,
+  role: m.pageRole,
+  recommended_share_of_links: m.targetUrl === '/business-card-printing-dubai' ? '45%' : '10–15%',
+  allowed_anchors: m.allowedAnchors,
+  prohibited: 'Sitewide footer links, spun exact-match anchors, PBN placements',
+}))
+
 module.exports = {
   PRIORITIZED_BUSINESS_CARD_KEYWORDS,
+  ADDITIONAL_VERIFIED_PRODUCT_KEYWORDS,
+  ALL_MAPPED_BUSINESS_CARD_KEYWORDS,
   BUSINESS_CARD_BACKLINK_PROSPECTS,
   ANCHOR_TEXT_STRATEGY,
   LINK_WORTHY_CONTENT_ASSETS,
@@ -1046,3 +1297,4 @@ module.exports = {
   exportProspectsCsv,
   exportKeywordsCsv,
 }
+

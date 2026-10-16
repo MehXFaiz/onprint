@@ -202,12 +202,43 @@ export function trackGetQuoteClick({ source_page, product_name, category_name } 
 }
 
 /**
+ * Non-blocking server-side conversion beacon (Privacy-safe, no PII)
+ * Separates whatsapp_click, form_submission, quote_request, phone_click, email_click, and product_inquiry.
+ * Never reports clicks as confirmed orders.
+ */
+export function sendConversionBeacon({ conversion_type, source_page, source_label } = {}) {
+  if (typeof window === 'undefined' || typeof fetch !== 'function' || !conversion_type) return
+  try {
+    const payload = {
+      conversion_type,
+      landing_page: source_page || window.location.pathname || '/',
+      referrer: document.referrer || '',
+      source_label: source_label || conversion_type,
+      query_string: window.location.search || '',
+    }
+    fetch('/api/seo/conversions/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch(() => {})
+  } catch {
+    // Gracefully ignore network/beacon errors
+  }
+}
+
+/**
  * 6. Contact Form Submit (No PII)
  */
 export function trackContactFormSubmit({ source_page } = {}) {
   trackEvent('contact_form_submit', {
     source_page: source_page || 'contact_page',
     form_name: 'contact_us_form',
+  })
+  sendConversionBeacon({
+    conversion_type: 'form_submission',
+    source_page: source_page || 'contact_page',
+    source_label: 'contact_us_form',
   })
 }
 
@@ -239,6 +270,11 @@ export function trackWhatsAppClick({ source_page, service, service_name, button_
     product_id: product_id ? String(product_id) : undefined,
     product_name: product_name || undefined,
   })
+  sendConversionBeacon({
+    conversion_type: 'whatsapp_click',
+    source_page: source_page || 'website',
+    source_label: resolvedLabel,
+  })
 }
 
 /**
@@ -248,6 +284,11 @@ export function trackPhoneClick({ source_page, phone_number } = {}) {
   trackEvent('phone_click', {
     source_page: source_page || 'website',
     phone_label: phone_number || 'phone_contact',
+  })
+  sendConversionBeacon({
+    conversion_type: 'phone_click',
+    source_page: source_page || 'website',
+    source_label: phone_number || 'phone_contact',
   })
 }
 
@@ -259,6 +300,11 @@ export function trackEmailClick({ source_page, email_address } = {}) {
     source_page: source_page || 'website',
     email_label: email_address || '0nprint183@gmail.com',
   })
+  sendConversionBeacon({
+    conversion_type: 'email_click',
+    source_page: source_page || 'website',
+    source_label: email_address || '0nprint183@gmail.com',
+  })
 }
 
 /**
@@ -269,6 +315,11 @@ export function trackProductInquiry({ source_page, product_name, service_name } 
     source_page: source_page || 'product_detail',
     product_name: product_name || undefined,
     service_name: service_name || undefined,
+  })
+  sendConversionBeacon({
+    conversion_type: 'product_inquiry',
+    source_page: source_page || 'product_detail',
+    source_label: product_name || service_name || 'product_inquiry',
   })
 }
 
@@ -294,6 +345,12 @@ export function trackQuoteRequest({ source_page, product_name, category_name } =
     value: 1,
     lead_type: 'custom_quote',
     source_page: source_page || 'get_quote_page',
+  })
+
+  sendConversionBeacon({
+    conversion_type: 'quote_request',
+    source_page: source_page || 'get_quote_page',
+    source_label: product_name || category_name || 'custom_quote',
   })
 }
 

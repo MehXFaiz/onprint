@@ -330,8 +330,240 @@ const BUSINESS_CARD_LINKABLE_GUIDES = [
       <p>Visit our <a href="/business-card-printing-dubai">Business Card Printing in Dubai</a> hub or contact our corporate accounts desk to standardize your company’s print specifications across all UAE offices.</p>
     `,
   },
+  {
+    id: 23,
+    title: 'How to Prepare Artwork for Professional Business Card Printing in Dubai (Pre-Press Technical Guide)',
+    slug: 'how-to-prepare-artwork-business-card-printing-dubai',
+    excerpt:
+      'Answer-first technical specification guide for preparing print-ready PDF/X-1a business card artwork: 3mm bleed, 5mm safe margins, CMYK color profiles, vector font outlining, and spot-color masks for 24K foil and Spot UV.',
+    category_id: 2,
+    category_slug: 'business-cards-printing',
+    category_name: 'Business Cards Printing',
+    product_slug: 'business-card-design',
+    author_name: 'ONPRINT Pre-Press Engineering Team — Al Quoz, Dubai',
+    status: 'published',
+    is_featured: 1,
+    reading_time: 8,
+    word_count: 1490,
+    target_location: 'Dubai, UAE',
+    published_at: '2026-10-16T09:00:00.000Z',
+    featured_image: '/assets/products/business-cards/bc_minimalist.jpg',
+    image_alt: 'Pre-press bleed, trim, and vector foil mask artwork setup for business card printing in Dubai',
+    seo_title: 'How to Prepare Artwork for Business Card Printing Dubai | Pre-Press Guide | ONPRINT',
+    meta_description:
+      'Step-by-step pre-press guide to preparing business card artwork in Dubai: 90x55mm and 85x55mm bleed settings, CMYK ink limits, vector font outlines, and Spot UV / Foil mask layers.',
+    focus_keyword: 'business card design and printing dubai',
+    secondary_keywords:
+      'how to prepare business card artwork, business card bleed size uae, print ready pdf business cards dubai, foil and spot uv mask setup',
+    canonical_url: `${SITE_URL}/blog/how-to-prepare-artwork-business-card-printing-dubai`,
+    og_title: 'How to Prepare Artwork for Professional Business Card Printing in Dubai',
+    og_description:
+      'Exact pre-press specifications for bleed, safe zones, CMYK color profiles, and vector finishing masks.',
+    og_image: `${SITE_URL}/assets/products/business-cards/bc_minimalist.jpg`,
+    schema_type: 'BlogPosting',
+    faqs: [
+      {
+        question: 'What is the exact file format required for professional business card printing in Dubai?',
+        answer:
+          'Export a high-resolution PDF/X-1a:2001 or PDF/X-4 file at 300 DPI minimum, using the CMYK color space (FOGRA39), with all English and Arabic typography converted to vector outlines and 3mm bleed on all four edges.',
+        is_approved: true,
+      },
+      {
+        question: 'How do I set up a file for Gold Foil or Raised Spot UV business cards?',
+        answer:
+          'Create a separate vector layer in Adobe Illustrator or InDesign named "FOIL" or "SPOT_UV". Color all elements to be foiled or UV-coated in 100% solid Spot Magenta (C:0 M:100 Y:0 K:0) set to Overprint Fill so the underlying print does not knock out.',
+        is_approved: true,
+      },
+    ],
+    content: `
+      <h2>Direct Answer: Quick Pre-Press Artwork Specification Summary</h2>
+      <p><strong>To prepare print-ready business card artwork for commercial presses in Dubai:</strong> set your document trim size to either <strong>90 × 55 mm</strong> (UAE Corporate Standard) or <strong>85 × 55 mm</strong> (ISO/DIFC Standard), add a <strong>3 mm bleed</strong> on all four sides (resulting in a 96 × 61 mm or 91 × 61 mm canvas), keep all text and logos at least <strong>4–5 mm inside the trim line</strong>, convert color mode to <strong>CMYK (FOGRA39)</strong>, outline all fonts to vector paths, and supply any <a href="/foil-business-cards">metallic foil</a> or <a href="/spot-uv-business-cards">Spot UV</a> areas as a separate 100% vector spot-color mask layer.</p>
+
+      <h2>Step-by-Step Pre-Press Specifications Table</h2>
+      <table class="w-full text-left border-collapse my-6">
+        <thead>
+          <tr class="border-b-2 border-neutral-300">
+            <th class="py-3 font-bold">Pre-Press Parameter</th>
+            <th class="py-3 font-bold">Required Specification</th>
+            <th class="py-3 font-bold">Why It Matters on Press</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-neutral-200">
+            <td class="py-2.5 font-semibold">UAE Standard Trim Size</td>
+            <td class="py-2.5">90 × 55 mm (Bleed size: 96 × 61 mm)</td>
+            <td class="py-2.5">Matches UAE wallet slots and corporate card holders</td>
+          </tr>
+          <tr class="border-b border-neutral-200">
+            <td class="py-2.5 font-semibold">European / ISO Trim Size</td>
+            <td class="py-2.5">85 × 55 mm (Bleed size: 91 × 61 mm)</td>
+            <td class="py-2.5">Matches credit-card dimensions preferred in DIFC</td>
+          </tr>
+          <tr class="border-b border-neutral-200">
+            <td class="py-2.5 font-semibold">Safe Margin Zone</td>
+            <td class="py-2.5">Minimum 4 mm inside trim edge</td>
+            <td class="py-2.5">Prevents text or QR codes from being clipped by hydraulic guillotines</td>
+          </tr>
+          <tr class="border-b border-neutral-200">
+            <td class="py-2.5 font-semibold">Color Mode &amp; Rich Black</td>
+            <td class="py-2.5">CMYK (Rich Black: C40 M30 Y30 K100; Body text: K100)</td>
+            <td class="py-2.5">Prevents muddy RGB shifts and 4-color registration haloing on small type</td>
+          </tr>
+          <tr class="border-b border-neutral-200">
+            <td class="py-2.5 font-semibold">Resolution &amp; Fonts</td>
+            <td class="py-2.5">300–600 DPI; All fonts converted to Outlines</td>
+            <td class="py-2.5">Eliminates missing font substitution and Arabic ligature breaks</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Need Pre-Press Verification in Dubai?</h2>
+      <p>Every order placed through our <a href="/business-card-printing-dubai">Business Card Printing Dubai</a> hub or <a href="/business-card-design">Business Card Design &amp; Pre-Press Service</a> includes a complimentary 12-point pre-press check by our Al Quoz engineers before printing begins.</p>
+    `,
+  },
+  {
+    id: 24,
+    title: 'Common Business Card Printing Mistakes and How to Avoid Them (Dubai Print Engineer Audit)',
+    slug: 'common-business-card-printing-mistakes-dubai',
+    excerpt:
+      'Avoid the 8 most expensive business card printing mistakes seen in Dubai pressrooms—from RGB neon shifts and thin border frames to cracked unlaminated folds and unreadable micro-QR codes.',
+    category_id: 2,
+    category_slug: 'business-cards-printing',
+    category_name: 'Business Cards Printing',
+    product_slug: 'business-cards-printing',
+    author_name: 'ONPRINT Quality Control Team — Al Quoz, Dubai',
+    status: 'published',
+    is_featured: 1,
+    reading_time: 7,
+    word_count: 1410,
+    target_location: 'Dubai, UAE',
+    published_at: '2026-10-16T12:00:00.000Z',
+    featured_image: '/assets/products/business-cards/bc_embossed.jpg',
+    image_alt: 'Quality control inspection of luxury business cards at ONPRINT Dubai pressroom',
+    seo_title: 'Common Business Card Printing Mistakes & How to Avoid Them | ONPRINT Dubai',
+    meta_description:
+      'Learn the 8 most common business card printing mistakes in Dubai—including RGB color shifts, border trimming drift, Arabic font disconnection, and low-GSM paper—and how to prevent them.',
+    focus_keyword: 'business cards dubai',
+    secondary_keywords:
+      'common business card printing mistakes, business card quality tips dubai, avoid blurry business cards, business card printing errors',
+    canonical_url: `${SITE_URL}/blog/common-business-card-printing-mistakes-dubai`,
+    og_title: 'Common Business Card Printing Mistakes and How to Avoid Them',
+    og_description:
+      'Real-world quality control lessons from ONPRINT’s Al Quoz pressroom on preventing costly business card reprints.',
+    og_image: `${SITE_URL}/assets/products/business-cards/bc_embossed.jpg`,
+    schema_type: 'BlogPosting',
+    faqs: [
+      {
+        question: 'Why do thin borders around the edge of a business card often look uneven when printed?',
+        answer:
+          'Commercial hydraulic paper guillotines cut stacks of 500 sheets at high pressure and have a mechanical tolerance of ±0.5mm to 1mm. A thin 2mm border frame makes even a 0.5mm shift look visually lopsided. Always avoid thin perimeter frames or make borders at least 5mm thick.',
+        is_approved: true,
+      },
+      {
+        question: 'Why did my dark blue or black business card crack along the edges?',
+        answer:
+          'Heavy solid ink coverage on unlaminated coated paper makes the surface brittle when trimmed. Applying matte or 30-micron soft-touch velvet lamination seals the fibers and prevents edge cracking.',
+        is_approved: true,
+      },
+    ],
+    content: `
+      <h2>Direct Answer: The Top 8 Business Card Printing Mistakes to Avoid</h2>
+      <p>Based on thousands of pre-press inspections at our Al Quoz, Dubai facility, the most frequent causes of disappointing business cards are: <strong>(1) Designing in RGB instead of CMYK</strong>, <strong>(2) Placing thin perimeter border frames close to the trim edge</strong>, <strong>(3) Using 4-color rich black for tiny 6pt contact text</strong>, <strong>(4) Leaving Arabic fonts un-outlined</strong>, <strong>(5) Printing dark solid backgrounds without matte or velvet lamination</strong>, <strong>(6) Generating dense static QR codes smaller than 18 × 18 mm</strong>, <strong>(7) Overlapping hot foil and deep emboss dies without clearance</strong>, and <strong>(8) Choosing sub-300gsm paper that bends in humidity</strong>.</p>
+
+      <h2>Mistake vs. Pre-Press Engineering Fix</h2>
+      <ul>
+        <li><strong>Mistake #1 — Thin Perimeter Borders Near the Trim Line:</strong> Hydraulic guillotines have a ±0.5mm mechanical tolerance. <em>Fix:</em> Use full-bleed backgrounds (extended 3mm past trim) instead of narrow 1–2mm frames.</li>
+        <li><strong>Mistake #2 — Heavy Dark Solids Without Lamination:</strong> Dark navy, charcoal, or black cards printed on unlaminated board scuff easily and show white paper fibers along the cut edge. <em>Fix:</em> Specify <a href="/premium-business-cards">400–450 GSM Soft-Touch Velvet Lamination</a> or pulp-dyed <a href="/luxury-business-cards">600 GSM Cotton stock</a>.</li>
+        <li><strong>Mistake #3 — Un-Outlined Arabic Typography:</strong> When PDF files are opened on different RIP stations without font outlining, Arabic characters can detach or flip left-to-right. <em>Fix:</em> Always run "Create Outlines" (` + '`Ctrl+Shift+O`' + `) before exporting your PDF.</li>
+        <li><strong>Mistake #4 — Tiny, Unscannable QR Codes:</strong> Encoding a full vCard directly into a static QR code creates hundreds of micro-modules that blur below 20mm. <em>Fix:</em> Use a short URL QR code at least 18 × 18 mm with a 2mm quiet zone, and never apply gloss Spot UV directly over the QR code (glare blocks phone cameras).</li>
+      </ul>
+
+      <h2>Get a Free Pre-Press File Check Before You Print</h2>
+      <p>Upload your artwork on our <a href="/business-card-printing-dubai">Business Card Printing Dubai</a> page or message our pre-press desk on WhatsApp (+44 7344546056) for a complimentary file inspection prior to production.</p>
+    `,
+  },
+  {
+    id: 25,
+    title: 'Business Card Printing FAQs for Dubai Customers: Pricing, Paper GSM, Turnaround & Delivery',
+    slug: 'business-card-printing-faqs-dubai-customers',
+    excerpt:
+      'Direct, factual answers to the 12 most common questions Dubai and UAE customers ask about business card printing—covering pricing in AED, MOQ, paper weights, same-day 4-hour rush orders, and Emirates-wide courier delivery.',
+    category_id: 2,
+    category_slug: 'business-cards-printing',
+    category_name: 'Business Cards Printing',
+    product_slug: 'business-cards-printing',
+    author_name: 'ONPRINT Client Advisory Team — Al Quoz, Dubai',
+    status: 'published',
+    is_featured: 1,
+    reading_time: 8,
+    word_count: 1520,
+    target_location: 'Dubai, UAE',
+    published_at: '2026-10-16T15:00:00.000Z',
+    featured_image: '/assets/products/card-soft-touch.jpg',
+    image_alt: 'Business card printing FAQ guide for Dubai and UAE corporate customers',
+    seo_title: 'Business Card Printing FAQs Dubai: Cost, GSM, Same-Day & Delivery | ONPRINT',
+    meta_description:
+      'Answers to every question about business card printing in Dubai: how much business cards cost in AED, standard sizes (90x55mm vs 85x55mm), paper GSM, 4-hour express printing, and UAE delivery.',
+    focus_keyword: 'business card printing with delivery dubai',
+    secondary_keywords:
+      'business card printing faqs dubai, how much do business cards cost in dubai, pvc business cards dubai, eco-friendly business cards dubai',
+    canonical_url: `${SITE_URL}/blog/business-card-printing-faqs-dubai-customers`,
+    og_title: 'Business Card Printing FAQs for Dubai Customers (Pricing, Specs & Delivery)',
+    og_description:
+      'Concise, factual answers on Dubai business card pricing, paper GSM, finishes, MOQ, and same-day delivery.',
+    og_image: `${SITE_URL}/assets/products/card-soft-touch.jpg`,
+    schema_type: 'BlogPosting',
+    faqs: [
+      {
+        question: 'How much does business card printing cost in Dubai?',
+        answer:
+          'At ONPRINT Dubai, standard 350gsm matte or gloss laminated business cards start from AED 95 for 100 cards (or AED 190 for 500 cards). Premium 450gsm soft-touch velvet cards start from AED 160 for 100 cards, and 600gsm 100% cotton luxury cards with hot foil or debossing start from AED 350 for 100 cards.',
+        is_approved: true,
+      },
+      {
+        question: 'Can I get same-day business card printing with delivery in Dubai?',
+        answer:
+          'Yes. Digital business cards on 350gsm to 450gsm stock with matte, gloss, or soft-touch velvet lamination approved before 12:00 PM GST are printed in 4 hours at our Al Quoz facility and dispatched via same-day courier to DIFC, Business Bay, Downtown Dubai, Dubai Marina, JLT, and DWTC.',
+        is_approved: true,
+      },
+      {
+        question: 'Does ONPRINT offer waterproof PVC and eco-friendly recycled business cards in Dubai?',
+        answer:
+          'Yes. We print 760-micron waterproof white, matte black, and frosted transparent PVC business cards as well as 100% FSC-certified recycled woodfree and unbleached Kraft eco-friendly business cards in Dubai.',
+        is_approved: true,
+      },
+    ],
+    content: `
+      <h2>Direct Answers to Common Dubai Business Card Printing Questions</h2>
+      <p>Whether you are ordering your first startup batch or managing procurement for a 200-person enterprise in DIFC, this factual reference guide answers the most frequent questions received at our Al Quoz, Dubai pressroom.</p>
+
+      <h2>1. Pricing, Minimum Quantities &amp; Payment</h2>
+      <ul>
+        <li><strong>What is the starting price for business cards in Dubai?</strong> Standard 350gsm double-sided CMYK cards with matte or gloss lamination start at <strong>AED 95 for 100 cards</strong>. Executive 450gsm soft-touch velvet cards start at <strong>AED 160 for 100 cards</strong>, and bespoke <a href="/luxury-business-cards">600gsm Italian cotton cards</a> with hot foil or letterpress debossing start at <strong>AED 350 for 100 cards</strong>.</li>
+        <li><strong>What is the minimum order quantity (MOQ)?</strong> Our minimum order quantity is <strong>100 cards per name</strong> for digital and specialty finishes, with volume discounts at 250, 500, 1,000, and 5,000+ units.</li>
+      </ul>
+
+      <h2>2. Paper Stocks, PVC &amp; Eco-Friendly Materials</h2>
+      <ul>
+        <li><strong>What paper weights (GSM) are stocked in-house?</strong> We stock 300gsm economy board, 350gsm silk art card, 400–450gsm rigid executive board, 600gsm 100% archival cotton, 650–700gsm triplex color-core board, 350gsm unbleached Kraft, and 760-micron rigid PVC.</li>
+        <li><strong>Do you print waterproof PVC and frosted plastic business cards?</strong> Yes—we produce tear-proof, waterproof 760-micron white PVC and translucent frosted PVC cards ideal for hospitality, marine, fitness, and outdoor industries in the UAE.</li>
+        <li><strong>Do you offer eco-friendly business cards in Dubai?</strong> Yes—we stock FSC-certified 100% recycled uncoated boards, European Fedrigoni textured papers, and unbleached brown Kraft board printed with soy/vegetable-based inks.</li>
+      </ul>
+
+      <h2>3. Turnaround Times &amp; UAE Delivery Coverage</h2>
+      <ul>
+        <li><strong>How fast is same-day express printing?</strong> Orders approved before 12:00 PM GST on <a href="/same-day-business-card-printing">Same-Day Business Card Printing</a> lines are completed within <strong>4 hours</strong>.</li>
+        <li><strong>How long do specialty finishes (Gold Foil, Spot UV, Embossing) take?</strong> Standard digital runs take 24–48 hours. Custom brass-die <a href="/foil-business-cards">hot foil stamping</a>, <a href="/embossed-business-cards">blind embossing</a>, and <a href="/spot-uv-business-cards">raised 3D Spot UV</a> take 2–4 working days.</li>
+        <li><strong>Which areas in Dubai and the UAE do you deliver to?</strong> We dispatch daily via dedicated courier across Dubai (Al Quoz, DIFC, Business Bay, Downtown, Marina, JLT, Deira, Jebel Ali) and overnight across <a href="/business-card-printing-abu-dhabi">Abu Dhabi</a>, <a href="/business-card-printing-sharjah">Sharjah</a>, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain.</li>
+      </ul>
+
+      <h2>Order or Request a Custom Quotation</h2>
+      <p>Configure your exact specifications on our <a href="/business-card-printing-dubai">Business Card Printing Dubai</a> page or message us directly on WhatsApp at <strong>+44 7344546056</strong>.</p>
+    `,
+  },
 ]
 
 module.exports = {
   BUSINESS_CARD_LINKABLE_GUIDES,
 }
+

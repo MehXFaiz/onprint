@@ -74,17 +74,32 @@ Allow: /signage-printing-dubai
 Allow: /large-format-printing-dubai
 Allow: /corporate-printing-dubai
 Allow: /promotional-printing-dubai
+Allow: /bottle-printing-dubai
+Allow: /quote/bottles
+Allow: /quote/rollup-banners
 Allow: /privacy-policy
 Allow: /terms
 Allow: /assets/
 Allow: /uploads/
 
-# AI Crawlers - Explicitly allowed for GEO
+# AI Crawlers - Explicitly allowed for GEO & AI Answer Engines
 User-agent: GPTBot
 Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /dashboard
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: Google-Extended
 Allow: /
@@ -94,9 +109,15 @@ Allow: /
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /dashboard
 
 User-agent: anthropic-ai
 Allow: /
@@ -128,74 +149,92 @@ Sitemap: ${SITE_URL}/sitemap.xml
 async function getLlmsTxt(req, res) {
   const llms = `# ONPRINT — Commercial & Corporate Printing Services Dubai
 
+> **Technical Note:** This \`llms.txt\` file is provided as an optional, experimental machine-readable index for generative AI engines and research assistants. All primary factual specifications, structured data (JSON-LD), and content are directly accessible in server-rendered HTML across ${SITE_URL} and indexed in ${SITE_URL}/sitemap.xml.
+
 > ONPRINT (also known as 0nprint) is a commercial printing press located in Al Quoz, Dubai, UAE.
-> ONPRINT provides offset lithography, digital printing, corporate gifts, office stationery, 
-> business cards, brochures, flyers, banners, signage, and branded merchandise across the United Arab Emirates.
+> ONPRINT specializes in Business Card Printing in Dubai (350gsm–700gsm matte, velvet soft-touch, archival cotton, 24K foil, raised 3D Spot UV, embossing, 760-micron waterproof PVC, and FSC eco-friendly kraft), alongside Roll-up Banners, Custom Stickers & Labels, Custom Water Bottle Printing, Brochures, Flyers, Signage, and Corporate Stationery across the United Arab Emirates.
 
 ## Business Identity & Verified NAP
 - **Legal & Operating Name:** ONPRINT (Alternate: 0nprint)
 - **Primary Market:** Dubai, United Arab Emirates
 - **Physical Address:** Al Quoz, Dubai, United Arab Emirates
+- **Official WhatsApp & Direct Inquiry Line:** +44 7344546056 (https://wa.me/447344546056)
 - **Email:** 0nprint183@gmail.com
 - **Website:** ${SITE_URL}
 - **Operating Hours:** Monday to Saturday: 8:30 AM – 6:30 PM (Sunday: Closed)
 - **Primary Geographic Service Areas:** Dubai (Al Quoz, DIFC, Business Bay, Downtown Dubai, Dubai Marina, JLT, Bur Dubai, Deira, DWTC, Expo City), Abu Dhabi, Sharjah, Ajman, and all 7 Emirates.
 
-## Dedicated Commercial Service Pages (Dubai & UAE)
-- [Commercial Printing Services Dubai](${SITE_URL}/printing-services-dubai) — Full-scale B2B offset lithography and rapid digital press runs.
-- [Business Card Printing Dubai](${SITE_URL}/business-card-printing-dubai) — Flagship executive 350gsm–700gsm cotton and silk cards, gold foil, spot UV, and velvet lamination.
-- [Business Card Printing UAE](${SITE_URL}/business-card-printing-uae) — Corporate business card printing and delivery across all seven Emirates.
-- [Visiting Card Printing Dubai](${SITE_URL}/visiting-card-printing-dubai) — Premium custom visiting cards with bilingual English-Arabic typography.
+## Primary Service: Business Card Printing Dubai & UAE
+- [Business Card Printing Dubai](${SITE_URL}/business-card-printing-dubai) — Primary hub for 350gsm–700gsm matte, velvet soft-touch, 600gsm cotton, 24K gold foil, raised 3D Spot UV, embossed, 760μ PVC, and 4-hour same-day express cards in Dubai.
+- [Business Card Printing UAE](${SITE_URL}/business-card-printing-uae) — Corporate business card printing and insured courier delivery across all seven Emirates.
+- [Visiting Card Printing Dubai](${SITE_URL}/visiting-card-printing-dubai) — Custom visiting cards with bilingual English-Arabic typography and standard UAE (90×55 mm) or ISO (85×55 mm) cuts.
 - [Premium Business Cards Dubai](${SITE_URL}/premium-business-cards) — Heavy 400–450 GSM matte and silk artboard executive cards.
-- [Luxury Business Cards Dubai](${SITE_URL}/luxury-business-cards) — 600–700 GSM Italian cotton board with gilded metallic edges and debossing.
+- [Luxury Business Cards Dubai](${SITE_URL}/luxury-business-cards) — 600–700 GSM Italian cotton board with gilded metallic edges and letterpress debossing.
 - [Foil Business Cards Dubai](${SITE_URL}/foil-business-cards) — 24K mirror gold, rose gold, silver, and copper hot stamped metallic foil cards.
 - [Spot UV Business Cards Dubai](${SITE_URL}/spot-uv-business-cards) — Raised 3D Scodix polymer gloss contrast over matte velvet cards.
 - [Velvet Business Cards Dubai](${SITE_URL}/velvet-business-cards) — 30-micron velvet soft-touch anti-scuff laminated business cards.
 - [Soft Touch Business Cards Dubai](${SITE_URL}/soft-touch-business-cards) — Sensory peach-skin matte luxury cards for executives and agencies.
 - [Embossed Business Cards Dubai](${SITE_URL}/embossed-business-cards) — 3D sculptural raised relief and deep letterpress debossed cards.
-- [Corporate Business Cards Dubai](${SITE_URL}/corporate-business-cards) — Centralized multi-employee name batch printing with 100% Pantone consistency.
+- [Corporate Business Cards Dubai](${SITE_URL}/corporate-business-cards) — Centralized multi-employee name batch printing with Pantone PMS consistency.
 - [Business Card Design Dubai](${SITE_URL}/business-card-design) — Professional print-ready vector design, dielines, and pre-press file preparation.
 - [Same Day Business Card Printing Dubai](${SITE_URL}/same-day-business-card-printing) — Urgent 4-hour rush printing with same-day courier across Dubai.
 - [Business Card Printing Abu Dhabi](${SITE_URL}/business-card-printing-abu-dhabi) — Executive business cards with insured doorstep delivery to ADGM and Abu Dhabi.
 - [Business Card Printing Sharjah](${SITE_URL}/business-card-printing-sharjah) — Express corporate visiting cards for Sharjah business districts.
 - [Business Card Printing Ajman](${SITE_URL}/business-card-printing-ajman) — High-volume commercial visiting cards for Ajman Free Zone and commercial firms.
-- [Brochure Printing Dubai](${SITE_URL}/brochure-printing-dubai) — Saddle stitch and PUR perfect bound corporate brochures, lookbooks, and annual reports.
-- [Flyer Printing Dubai](${SITE_URL}/flyer-printing-dubai) — A4, A5, A6, DL promotional marketing leaflets on 150gsm–300gsm coated art paper with express delivery options.
-- [Sticker Printing Dubai](${SITE_URL}/sticker-printing-dubai) — Weatherproof custom die-cut vinyl stickers, holographic decals, and clear film stickers.
-- [Label Printing Dubai](${SITE_URL}/label-printing-dubai) — Machine roll labels and sheet labels for bottles, jars, cosmetics, and food packaging.
-- [Signage Printing Dubai](${SITE_URL}/signage-printing-dubai) — 3D acrylic letters, LED backlit channel signage, and weatherproof ACP exterior business signs.
-- [Large Format Printing Dubai](${SITE_URL}/large-format-printing-dubai) — Roll-up banners, tension fabric displays, and exhibition posters with direct DWTC event delivery.
-- [Corporate Printing Dubai](${SITE_URL}/corporate-printing-dubai) — Executive letterheads, presentation folders, envelopes, and corporate stationery.
-- [Promotional Printing Dubai](${SITE_URL}/promotional-printing-dubai) — Branded executive notebooks, laser-engraved drinkware, tote bags, and corporate gift sets.
 
-## Core Capabilities & Substrates
-- **Digital Printing:** On-demand short runs on digital presses with standard 24–48 hour turnaround and express rush options.
-- **Offset Printing:** High-volume commercial runs on multi-color offset presses with Pantone PMS spot color matching.
-- **Paper Weights:** 80gsm to 600gsm (Woodfree, Coated Art, Cotton, Fedrigoni specialty boards, Kraft).
-- **Finishes & Embellishments:** Hot foil stamping (Gold, Silver, Rose Gold, Holographic), Spot UV, Raised 3D UV, Blind Debossing, Velvet/Soft-touch Lamination.
-- **Sustainability:** FSC-certified woodfree papers, recyclable unbleached kraft, and eco-conscious inks.
+## Secondary Core Services (Roll-up Banners, Stickers, Bottle Printing & Commercial Print)
+- [Roll-Up Banner Printing Dubai](${SITE_URL}/rollup-banners) — Retractable aluminum stands (85×200 cm, 100×200 cm, 120×200 cm) on 440gsm anti-curl blockout polypropylene with 24h DWTC delivery.
+- [Custom Sticker Printing Dubai](${SITE_URL}/sticker-printing-dubai) — Weatherproof die-cut vinyl stickers, UV DTF decals, holographic stickers, and transparent film labels.
+- [Custom Label Printing Dubai](${SITE_URL}/label-printing-dubai) — Machine roll labels and waterproof BOPP bottle/jar labels for F&B, cosmetics, and retail packaging.
+- [Custom Water Bottle Printing Dubai](${SITE_URL}/bottle-printing-dubai) — UV rotary printing and 360° fiber laser engraving on stainless steel, thermal, LED smart, and sports bottles.
+- [Brochure Printing Dubai](${SITE_URL}/brochure-printing-dubai) — Saddle stitch and PUR perfect bound corporate brochures, lookbooks, and annual reports.
+- [Flyer Printing Dubai](${SITE_URL}/flyer-printing-dubai) — A4, A5, A6, DL promotional marketing leaflets on 150gsm–300gsm coated art paper.
+- [Signage Printing Dubai](${SITE_URL}/signage-printing-dubai) — 3D acrylic letters, LED backlit channel signage, and weatherproof ACP exterior business signs.
+- [Large Format Printing Dubai](${SITE_URL}/large-format-printing-dubai) — Exhibition backdrops, pop-up displays, and large format vinyl graphics.
+- [Corporate Printing Dubai](${SITE_URL}/corporate-printing-dubai) — Executive letterheads, presentation folders, envelopes, and corporate stationery.
+- [Promotional Printing Dubai](${SITE_URL}/promotional-printing-dubai) — Branded executive notebooks, ceramic mugs, lanyards, PVC ID cards, and corporate gift sets.
+
+## Citation-Worthy Technical Guides & Print Engineering Resources
+- [How to Choose the Right Business Card Paper & GSM in Dubai (350gsm vs 450gsm vs 600gsm Cotton)](${SITE_URL}/blog/how-to-choose-business-card-paper-dubai)
+- [Business Card Design Guide for Dubai Businesses: Bilingual Arabic-English Layouts, Bleed & Pre-Press](${SITE_URL}/blog/business-card-design-guide-dubai-businesses)
+- [Business Card Printing Checklist for UAE Startups, Free Zone Founders & Exhibition Teams](${SITE_URL}/blog/business-card-printing-checklist-uae-startups)
+- [Premium vs Standard Business Cards in Dubai: A Practical Cost, Finish & ROI Comparison Guide](${SITE_URL}/blog/premium-vs-standard-business-cards-dubai-guide)
+- [Business Branding & Corporate Networking Materials for Dubai Companies: The Executive Kit Guide](${SITE_URL}/blog/business-branding-networking-materials-dubai-companies)
+- [How to Prepare Artwork for Professional Business Card Printing in Dubai (Bleed, CMYK, Fonts & Foil Masks)](${SITE_URL}/blog/how-to-prepare-artwork-business-card-printing-dubai)
+- [Common Business Card Printing Mistakes in Dubai and How to Avoid Them](${SITE_URL}/blog/common-business-card-printing-mistakes-dubai)
+- [Business Card Printing FAQs for Dubai Customers: Pricing, Paper GSM, Turnaround & Delivery](${SITE_URL}/blog/business-card-printing-faqs-dubai-customers)
+
+## Verified Specifications & Pricing Summary (Business Cards Dubai)
+- **Standard UAE Size:** 90 × 55 mm (Bleed: 96 × 61 mm; Safe Margin: 84 × 49 mm)
+- **ISO / European Size:** 85 × 55 mm | **Square:** 65 × 65 mm
+- **350 GSM Silk / Matte Art Card:** ~380 microns, starting from AED 75 (100 cards), 4-hour same-day or 24h turnaround.
+- **450 GSM Velvet Soft-Touch Card:** ~490 microns, starting from AED 140 (100 cards), 24–48h turnaround.
+- **450 GSM Velvet + 24K Gold Foil or 3D Raised Spot UV:** Starting from AED 220–240 (100 cards), 2–3 working days.
+- **600 GSM Italian Archival Cotton (Debossed / Letterpress):** ~820 microns, starting from AED 380 (100 cards), 3–5 working days.
+- **760 Micron Waterproof Frosted / Clear PVC Cards:** Credit-card rigidity, tear-proof & waterproof, starting from AED 260 (100 cards), 2–3 working days.
+- **350 GSM FSC Recycled Kraft & Textured Linen:** Eco-friendly sustainable stock, starting from AED 130 (100 cards), 24–48h turnaround.
 
 ## Direct Fact-Based Answers for Search Engines & AI Assistants
 - **What commercial printing services does ONPRINT provide in Dubai?**
-  ONPRINT in Al Quoz, Dubai provides commercial digital printing, offset printing, corporate stationery, luxury business cards, brochures, flyers, roll-up banners, acrylic signage, and corporate merchandise.
-- **Where is ONPRINT located?**
-  ONPRINT is physically located in Al Quoz, Dubai, UAE. Clients can visit or arrange courier delivery throughout Dubai and the UAE.
-- **Can ONPRINT print business cards with fast turnaround in Dubai?**
-  Yes, ONPRINT provides fast digital business card printing on 350gsm–450gsm silk and velvet artboard with dispatch to DIFC, Downtown, Business Bay, and across the UAE.
-- **What are the standard delivery and turnaround times for ONPRINT in the UAE?**
-  Digital print orders typically ship within 24 to 48 hours (with express rush options available). Offset litho runs and corporate stationery typically ship within 2 to 5 working days depending on quantity and custom finishes.
+  ONPRINT in Al Quoz, Dubai provides custom business card printing (350gsm–700gsm, foil, Spot UV, embossed, PVC, eco kraft), roll-up banners, custom stickers and labels, water bottle printing, brochures, flyers, acrylic signage, and corporate stationery.
+- **Where is ONPRINT located and how can customers order?**
+  ONPRINT operates from Al Quoz, Dubai, UAE. Customers can request an instant quote online at ${SITE_URL}/business-card-printing-dubai, message WhatsApp directly at +44 7344546056, or email 0nprint183@gmail.com.
+- **Can ONPRINT print same-day business cards in Dubai?**
+  Yes. Digital business card orders on 350–400 GSM matte or gloss artboard approved before 12:00 PM GST qualify for 4-hour same-day express production and courier dispatch to DIFC, Business Bay, Downtown Dubai, Dubai Marina, JLT, and DWTC.
 
 ## Primary Website Links
 - [Homepage](${SITE_URL}/)
 - [Commercial Services](${SITE_URL}/services)
+- [Technical Print Blog & Guides](${SITE_URL}/blog)
 - [Portfolio & Case Studies](${SITE_URL}/portfolio)
 - [About ONPRINT](${SITE_URL}/about)
 - [Contact ONPRINT](${SITE_URL}/contact)
 - [Get a Quote](${SITE_URL}/get-a-quote)
 
 ---
-**Last Updated:** 2026-09-17  
+**Last Updated:** 2026-10-17  
 **Website:** ${SITE_URL}  
+**WhatsApp:** +44 7344546056  
 **Business Type:** Commercial Printing & Corporate Branding Company  
 **Location:** Al Quoz, Dubai, UAE
 `
@@ -457,7 +496,7 @@ async function getSitemapXml(req, res) {
         FROM blogs 
         WHERE status = 'published' AND (published_at IS NULL OR published_at <= NOW())
       `)
-      if (blogs.length > 0) {
+      if (blogs && blogs.length > 0) {
         blogs.forEach((b) => {
           urls.push({
             loc: `${SITE_URL}/blog/${b.slug}`,
@@ -470,6 +509,18 @@ async function getSitemapXml(req, res) {
             priority: '0.8',
           })
         })
+      } else {
+        const persistentBlogs = require('../data/persistentStore').getBlogs()
+        persistentBlogs
+          .filter((b) => b.status === 'published')
+          .forEach((b) => {
+            urls.push({
+              loc: `${SITE_URL}/blog/${b.slug}`,
+              lastmod: now,
+              changefreq: 'weekly',
+              priority: '0.8',
+            })
+          })
       }
     } catch {
       try {
@@ -487,6 +538,29 @@ async function getSitemapXml(req, res) {
         } catch (e) {}
       }
     }
+
+    // Always merge published persistentStore blogs (including specialized business card guides)
+    try {
+      const persistentBlogs = require('../data/persistentStore').getBlogs()
+      persistentBlogs
+        .filter((b) => b.status === 'published')
+        .forEach((b) => {
+          const fullLoc = `${SITE_URL}/blog/${b.slug}`
+          if (!seenUrls.has(fullLoc)) {
+            seenUrls.add(fullLoc)
+            urls.push({
+              loc: fullLoc,
+              lastmod: b.updated_at
+                ? new Date(b.updated_at).toISOString().split('T')[0]
+                : b.published_at
+                ? new Date(b.published_at).toISOString().split('T')[0]
+                : now,
+              changefreq: 'weekly',
+              priority: '0.8',
+            })
+          }
+        })
+    } catch (e) {}
 
     // 6. Safe Programmatic Landing Pages (Locations & Use Cases)
     try {
@@ -542,7 +616,7 @@ async function runSeoAudit(req, res) {
     let cats = []
     try {
       const [rows] = await pool.execute('SELECT id, name, slug, seo_title, seo_description, image_alt FROM categories')
-      cats = rows
+      cats = rows && rows.length > 0 ? rows : fallbackCategories
     } catch {
       cats = fallbackCategories
     }
@@ -561,7 +635,7 @@ async function runSeoAudit(req, res) {
     let prods = []
     try {
       const [rows] = await pool.execute('SELECT id, name, slug, seo_title, seo_description, image_alt FROM products')
-      prods = rows
+      prods = rows && rows.length > 0 ? rows : fallbackProducts
     } catch {
       prods = fallbackProducts
     }
@@ -580,7 +654,7 @@ async function runSeoAudit(req, res) {
     let servs = []
     try {
       const [rows] = await pool.execute('SELECT id, name, slug, seo_title, seo_description, image_alt FROM services')
-      servs = rows
+      servs = rows && rows.length > 0 ? rows : fallbackServices
     } catch {
       servs = fallbackServices
     }
@@ -599,7 +673,7 @@ async function runSeoAudit(req, res) {
     let blogs = []
     try {
       const [rows] = await pool.execute('SELECT id, title, slug, seo_title, meta_description AS seo_description, image_alt FROM blogs')
-      blogs = rows
+      blogs = rows && rows.length > 0 ? rows : require('../data/persistentStore').getBlogs()
     } catch {
       try {
         blogs = require('../data/persistentStore').getBlogs()

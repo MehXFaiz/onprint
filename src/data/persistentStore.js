@@ -153,6 +153,9 @@ function loadStore() {
       if (!Array.isArray(parsed.backlink_audit_logs)) {
         parsed.backlink_audit_logs = []
       }
+      if (!Array.isArray(parsed.seo_conversions)) {
+        parsed.seo_conversions = []
+      }
       if (ensureBusinessCardGuidesAndProspects(parsed)) {
         saveStore(parsed)
       }
@@ -176,6 +179,7 @@ function loadStore() {
     disavow_versions: [],
     backlink_audit_logs: [],
     business_card_backlink_prospects: [],
+    seo_conversions: [],
   }
   ensureBusinessCardGuidesAndProspects(fallback)
   return fallback
@@ -1327,6 +1331,33 @@ function updateBusinessCardBacklinkProspect(id, data = {}, actor = 'Admin') {
   return updated
 }
 
+function getSeoConversions() {
+  const store = loadStore()
+  return Array.isArray(store.seo_conversions) ? store.seo_conversions : []
+}
+
+function addSeoConversion(data = {}) {
+  const store = loadStore()
+  if (!Array.isArray(store.seo_conversions)) {
+    store.seo_conversions = []
+  }
+  const id = store.seo_conversions.length > 0 ? Math.max(...store.seo_conversions.map((c) => Number(c.id) || 0)) + 1 : 1
+  const entry = {
+    id,
+    conversion_type: String(data.conversion_type || '').trim(),
+    landing_page: String(data.landing_page || '').slice(0, 500),
+    referrer: String(data.referrer || '').slice(0, 500),
+    source_label: String(data.source_label || '').slice(0, 100),
+    query_string: String(data.query_string || '').slice(0, 255),
+    ip_hash: data.ip_hash || null,
+    user_agent: String(data.user_agent || '').slice(0, 250),
+    created_at: new Date().toISOString(),
+  }
+  store.seo_conversions.unshift(entry)
+  saveStore(store)
+  return entry
+}
+
 module.exports = {
   getOrders,
   addOrder,
@@ -1383,6 +1414,8 @@ module.exports = {
   addBacklinkAuditLog,
   getBusinessCardBacklinkProspects,
   updateBusinessCardBacklinkProspect,
+  getSeoConversions,
+  addSeoConversion,
 }
 
 

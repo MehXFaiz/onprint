@@ -1,11 +1,26 @@
 const crypto = require('crypto')
 const { pool } = require('../config/database')
+const persistentStore = require('../data/persistentStore')
+
+const AI_REFERRER_PATTERNS = [
+  /chatgpt\.com/i,
+  /openai\.com/i,
+  /perplexity\.ai/i,
+  /claude\.ai/i,
+  /gemini\.google\.com/i,
+  /copilot\.microsoft\.com/i,
+  /you\.com/i,
+]
+
+function isAiReferrer(referrer = '') {
+  return AI_REFERRER_PATTERNS.some((rx) => rx.test(String(referrer || '')))
+}
 
 /**
  * Organic Conversion & ROI Controller
- * Handles Requirement 35 & 36 of the Master SEO Framework:
- * Tracks user-initiated conversion actions (WhatsApp, Phone, Email, Quote, Inquiry)
- * and attributes them to their landing page source.
+ * Tracks user-initiated conversion actions (WhatsApp Clicks, Form Submissions, Quotation Requests, Confirmed Orders)
+ * as strictly distinct events and attributes them to their landing page & referrer source.
+ * Never reports WhatsApp clicks as confirmed orders or fabricates session counts.
  */
 class SeoConversionController {
   /**
@@ -20,26 +35,51 @@ class SeoConversionController {
       }
 
       // Anonymize IP hash for privacy compliance
-      const rawIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || ''
-      const ipHash = rawIp ? crypto.createHash('sha256').update(rawIp).digest('hex').slice(0, 16) : null
+      const rawIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || ''
+      const ipHash = rawIp ? crypto.createHash('sha256').update(String(rawIp)).digest('hex').slice(0, 16) : null
       const userAgent = (req.headers['user-agent'] || '').slice(0, 250)
 
-      await pool.query(
-        `INSERT INTO seo_conversions 
-         (conversion_type, landing_page, referrer, source_label, query_string, ip_hash, user_agent)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        [
-          conversion_type,
-          (landing_page || '').slice(0, 500),
-          (referrer || '').slice(0, 500),
-          (source_label || '').slice(0, 100),
-          (query_string || '').slice(0, 255),
-          ipHash,
-          userAgent,
-        ]
-      )
+      // Persist in local persistentStore for reliable auditability
+      const savedEntry = persistentStore.addSeoConversion({
+        conversion_type,
+        landing_page: (landing_page || '').slice(0, 500),
+        referrer: (referrer || '').slice(0, 500),
+        source_label: (source_label || '').slice(0, 100),
+        query_string: (query_string || '').slice(0, 255),
+        ip_hash: ipHash,
+        user_agent: userAgent,
+      })
 
-      res.status(201).json({ success: true, message: 'Conversion recorded' })
+      try {
+        await pool.query(
+          `INSERT INTO seo_conversions 
+           (conversion_type, landing_page, referrer, source_label, query_string, ip_hash, user_agent)
+           VALUES (?, ?, ?, ?, ?, ?, ?)`,
+          [
+            conversion_type,
+            (landing_page || '').slice(0, 500),
+            (referrer || '').slice(0, 500),
+            (source_label || '').slice(0, 100),
+            (query_string || '').slice(0, 255),
+            ipHash,
+            userAgent,
+          ]
+        )
+      } catch (dbErr) {
+        // Handled via persistentStore
+      }
+
+      res.status(201).json({
+        success: true,
+        message: 'Conversion event recorded distinctly (never counted as a confirmed order unless verified in orders).',
+        event: {
+          id: savedEntry.id,
+          conversion_type: savedEntry.conversion_type,
+          landing_page: savedEntry.landing_page,
+          is_ai_referrer: isAiReferrer(savedEntry.referrer),
+          created_at: savedEntry.created_at,
+        },
+      })
     } catch (err) {
       console.warn('[Conversion Track Note]:', err.message)
       res.status(200).json({ success: true, note: 'Degraded tracking mode' })
@@ -48,62 +88,84 @@ class SeoConversionController {
 
   /**
    * Admin analytics summary for Organic Conversion Dashboard
+   * Strictly separates WhatsApp clicks, form submissions, quotation requests, and confirmed orders.
    */
   async getConversionStats(req, res) {
     try {
-      let totals = { total: 0, whatsapp: 0, phone: 0, email: 0, quote_request: 0, product_inquiry: 0 }
-      let topLandingPages = []
-      let recentEvents = []
+      const storeEvents = persistentStore.getSeoConversions()
+      const storeOrders = persistentStore.getOrders()
+      const storeQuotes = persistentStore.getQuotes()
+      const storeMessages = persistentStore.getMessages()
 
-      try {
-        const [counts] = await pool.query(`
-          SELECT 
-            COUNT(*) as total,
-            SUM(CASE WHEN conversion_type = 'whatsapp' THEN 1 ELSE 0 END) as whatsapp,
-            SUM(CASE WHEN conversion_type = 'phone' THEN 1 ELSE 0 END) as phone,
-            SUM(CASE WHEN conversion_type = 'email' THEN 1 ELSE 0 END) as email,
-            SUM(CASE WHEN conversion_type = 'quote_request' THEN 1 ELSE 0 END) as quote_request,
-            SUM(CASE WHEN conversion_type = 'product_inquiry' THEN 1 ELSE 0 END) as product_inquiry
-          FROM seo_conversions
-        `)
-        if (counts && counts.length > 0) totals = counts[0]
+      let whatsappClicks = 0
+      let formSubmissions = 0
+      let quoteRequests = 0
+      let phoneClicks = 0
+      let emailClicks = 0
+      let productInquiries = 0
+      let aiReferralEvents = 0
 
-        const [pages] = await pool.query(`
-          SELECT landing_page, COUNT(*) as conversions,
-                 SUM(CASE WHEN conversion_type = 'whatsapp' THEN 1 ELSE 0 END) as whatsapp_leads,
-                 SUM(CASE WHEN conversion_type = 'quote_request' THEN 1 ELSE 0 END) as quote_leads
-          FROM seo_conversions
-          WHERE landing_page IS NOT NULL AND landing_page != ''
-          GROUP BY landing_page
-          ORDER BY conversions DESC
-          LIMIT 10
-        `)
-        topLandingPages = pages || []
+      const pageMap = new Map()
 
-        const [recent] = await pool.query(`
-          SELECT id, conversion_type, landing_page, referrer, source_label, created_at
-          FROM seo_conversions
-          ORDER BY created_at DESC
-          LIMIT 25
-        `)
-        recentEvents = recent || []
-      } catch (dbErr) {
-        console.warn('[Conversion Stats Fallback]:', dbErr.message)
+      for (const ev of storeEvents) {
+        const t = String(ev.conversion_type || '').toLowerCase()
+        if (t === 'whatsapp' || t === 'whatsapp_click') whatsappClicks += 1
+        else if (t === 'form_submission' || t === 'contact_form' || t === 'contact_form_submit') formSubmissions += 1
+        else if (t === 'quote_request' || t === 'quote_form_submit') quoteRequests += 1
+        else if (t === 'phone' || t === 'phone_click') phoneClicks += 1
+        else if (t === 'email' || t === 'email_click') emailClicks += 1
+        else if (t === 'product_inquiry') productInquiries += 1
+
+        if (isAiReferrer(ev.referrer)) {
+          aiReferralEvents += 1
+        }
+
+        const lp = (ev.landing_page || '').trim()
+        if (lp) {
+          const prev = pageMap.get(lp) || { landing_page: lp, conversions: 0, whatsapp_leads: 0, quote_leads: 0, form_leads: 0 }
+          prev.conversions += 1
+          if (t === 'whatsapp' || t === 'whatsapp_click') prev.whatsapp_leads += 1
+          if (t === 'quote_request' || t === 'quote_form_submit') prev.quote_leads += 1
+          if (t === 'form_submission' || t === 'contact_form' || t === 'contact_form_submit') prev.form_leads += 1
+          pageMap.set(lp, prev)
+        }
       }
 
-      // Simulated sessions to compute conversion rate
-      const estimatedSessions = 4200
-      const conversionRate = estimatedSessions > 0
-        ? ((Number(totals.total || 0) / estimatedSessions) * 100).toFixed(2)
-        : '0.00'
+      // Include verified quote & contact records if higher than beacon count
+      const verifiedQuotesCount = Array.isArray(storeQuotes) ? storeQuotes.length : 0
+      const verifiedMessagesCount = Array.isArray(storeMessages) ? storeMessages.length : 0
+      const confirmedOrdersCount = Array.isArray(storeOrders) ? storeOrders.length : 0
+
+      const effectiveQuoteRequests = Math.max(quoteRequests, verifiedQuotesCount)
+      const effectiveFormSubmissions = Math.max(formSubmissions, verifiedMessagesCount)
+      const totalInteractionEvents =
+        whatsappClicks + effectiveFormSubmissions + effectiveQuoteRequests + phoneClicks + emailClicks + productInquiries
+
+      const topLandingPages = Array.from(pageMap.values())
+        .sort((a, b) => b.conversions - a.conversions)
+        .slice(0, 10)
+
+      const recentEvents = storeEvents.slice(0, 25)
 
       res.json({
         success: true,
         data: {
           totals: {
-            ...totals,
-            conversionRate: `${conversionRate}%`,
-            estimatedSessions,
+            total: totalInteractionEvents,
+            whatsapp: whatsappClicks,
+            whatsapp_clicks: whatsappClicks,
+            form_submissions: effectiveFormSubmissions,
+            quote_request: effectiveQuoteRequests,
+            quotation_requests: effectiveQuoteRequests,
+            phone: phoneClicks,
+            email: emailClicks,
+            product_inquiry: productInquiries,
+            confirmed_orders: confirmedOrdersCount,
+            ai_referral_events: aiReferralEvents,
+            estimatedSessions: null,
+            conversionRate: null,
+            integrityNote:
+              'WhatsApp clicks, form submissions, quotation requests, and confirmed orders are tracked as strictly separate funnel stages. Session counts require a live GA4 Data API connection and are never fabricated.',
           },
           topLandingPages,
           recentEvents,

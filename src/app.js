@@ -52,8 +52,8 @@ function replaceMeta(html, attribute, name, content) {
 }
 
 
-function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, commercialData, productData, categoryData, serviceData, progData, seo, siteUrl }) {
-  let pageHeading = h1 || bcData?.h1 || commercialData?.h1 || productData?.seoHeading || productData?.name || categoryData?.seoHeading || categoryData?.name || serviceData?.name || progData?.h1 || seo?.h1
+function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, commercialData, productData, categoryData, serviceData, progData, blogData, seo, siteUrl }) {
+  let pageHeading = h1 || blogData?.title || bcData?.h1 || commercialData?.h1 || productData?.seoHeading || productData?.name || categoryData?.seoHeading || categoryData?.name || serviceData?.name || progData?.h1 || seo?.h1
   if (!pageHeading) {
     if (requestPath === '/' || requestPath === '') {
       pageHeading = 'Commercial & Luxury Printing Company in Dubai, UAE'
@@ -77,11 +77,38 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
       pageHeading = (title ? title.split('|')[0].trim() : '') || 'Commercial Printing Dubai'
     }
   }
-  const metaDesc = description || bcData?.metaDescription || commercialData?.metaDescription || productData?.seoDescription || productData?.description || categoryData?.seoDescription || categoryData?.description || serviceData?.seoDescription || serviceData?.description || progData?.metaDescription || seo?.meta_description || 'Commercial printing company in Al Quoz, Dubai. Luxury business cards, brochures, flyers, stickers, letterheads, and corporate merchandise with same-day UAE delivery.'
+  const metaDesc = description || blogData?.meta_description || blogData?.excerpt || bcData?.metaDescription || commercialData?.metaDescription || productData?.seoDescription || productData?.description || categoryData?.seoDescription || categoryData?.description || serviceData?.seoDescription || serviceData?.description || progData?.metaDescription || seo?.meta_description || 'Commercial printing company in Al Quoz, Dubai. Luxury business cards, brochures, flyers, stickers, letterheads, and corporate merchandise with same-day UAE delivery.'
 
   let dynamicBody = ''
 
-  if (productData) {
+  if (blogData) {
+    dynamicBody = `
+      <section style="margin-bottom: 2rem;">
+        <div style="font-size: 0.875rem; color: #64748b; margin-bottom: 1rem;">
+          <span><strong>Author:</strong> ${escapeHtml(blogData.author_name || 'ONPRINT Technical Print Team — Al Quoz, Dubai')}</span> |
+          <span><strong>Location:</strong> ${escapeHtml(blogData.target_location || 'Dubai, UAE')}</span> |
+          <span><strong>Reading Time:</strong> ${escapeHtml(String(blogData.reading_time || 7))} min read</span>
+        </div>
+        <div class="blog-prerendered-content" style="line-height: 1.75; color: #1e293b;">
+          ${blogData.content || `<p>${escapeHtml(metaDesc)}</p>`}
+        </div>
+      </section>
+      ${blogData.faqs && blogData.faqs.length > 0 ? `
+      <section style="margin-bottom: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1.5rem;">
+        <h2>Frequently Asked Questions</h2>
+        ${blogData.faqs.map(f => `
+          <div style="margin-bottom: 1.25rem;">
+            <h3 style="font-weight: 700; margin-bottom: 0.25rem;">${escapeHtml(f.question)}</h3>
+            <p style="color: #475569;">${escapeHtml(f.answer)}</p>
+          </div>
+        `).join('')}
+      </section>` : ''}
+      <section style="margin-top: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+        <p style="margin: 0; font-weight: bold;">Order Business Cards or Request Pre-Press Support in Dubai:</p>
+        <p style="margin: 6px 0 0 0;">Explore <a href="/business-card-printing-dubai">Business Card Printing Dubai</a> or message our Al Quoz pressroom directly on WhatsApp at <a href="https://wa.me/447344546056?text=Hi%20ONPRINT!%20I%20would%20like%20a%20quotation%20for%20Business%20Card%20Printing%20in%20Dubai.%20Quantity:%20___%20|%20Size:%2090x55mm%20/%2085x55mm%20|%20Finish:%20___%20|%20Delivery%20Location:%20Dubai">+44 7344546056</a>.</p>
+      </section>
+    `
+  } else if (productData) {
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
         <h2>${escapeHtml(productData.name)} — Specifications &amp; Overview</h2>
@@ -207,10 +234,115 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
   } else if (bcData) {
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
-        <h2>${escapeHtml(bcData.h1 || 'Commercial Printing Specifications')}</h2>
-        <p>${escapeHtml(bcData.metaDescription || '')}</p>
-        <p>Manufactured in-house at our Al Quoz, Dubai facility using certified Heidelberg offset and high-definition digital press technology. Available with premium finishes including 24K hot foil stamping, raised dimensional spot UV, soft-touch velvet lamination, and precision die-cutting.</p>
+        <h2>Direct Answer: ${escapeHtml(bcData.h1 || 'Business Card Printing in Dubai')}</h2>
+        <p><strong>ONPRINT</strong> is a direct commercial printing press in <strong>Al Quoz, Dubai, UAE</strong> specializing in standard, premium, and luxury business card printing. We print in-house on calibrated Heidelberg offset and high-definition digital presses with paper weights from <strong>300gsm to 700gsm</strong> (including 350gsm Matte/Silk, 450gsm Soft-Touch Velvet, 600gsm 100% Italian Cotton, 760-micron Waterproof PVC, and FSC-certified Eco-Friendly Recycled/Kraft boards). Orders start from <strong>AED 95 for 100 cards</strong> with <strong>4-hour same-day express rush printing</strong> and courier delivery across Dubai (DIFC, Business Bay, Downtown, Marina, JLT, DWTC), Abu Dhabi, Sharjah, and all 7 UAE Emirates.</p>
       </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Business Card Specifications, Finishes, Turnaround &amp; Starting Prices (Dubai, UAE)</h2>
+        <table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.925rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid #cbd5e1; text-align: left; background: #f8fafc;">
+              <th style="padding: 10px;">Card Tier / Product</th>
+              <th style="padding: 10px;">Paper Weight / Substrate</th>
+              <th style="padding: 10px;">Available Finishes</th>
+              <th style="padding: 10px;">Sizes (UAE &amp; ISO)</th>
+              <th style="padding: 10px;">Turnaround Time</th>
+              <th style="padding: 10px;">Starting Price (100 Cards)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 10px; font-weight: 600;">Standard Corporate Business Cards</td>
+              <td style="padding: 10px;">350 GSM Coated Silk / Art Board</td>
+              <td style="padding: 10px;">Matte Lamination, High-Gloss UV, Uncoated Writable</td>
+              <td style="padding: 10px;">90×55 mm or 85×55 mm</td>
+              <td style="padding: 10px;">4h Same-Day / 24h Standard</td>
+              <td style="padding: 10px;">From AED 95</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 10px; font-weight: 600;"><a href="/premium-business-cards">Premium Velvet Soft-Touch Cards</a></td>
+              <td style="padding: 10px;">400–450 GSM Rigid Artboard</td>
+              <td style="padding: 10px;">30μ Anti-Scuff Velvet Lamination, Rounded Corners</td>
+              <td style="padding: 10px;">90×55 mm or 85×55 mm</td>
+              <td style="padding: 10px;">4h Same-Day / 24–48h Standard</td>
+              <td style="padding: 10px;">From AED 160</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 10px; font-weight: 600;"><a href="/foil-business-cards">24K Gold &amp; Metallic Foil Cards</a></td>
+              <td style="padding: 10px;">450 GSM Velvet or 600 GSM Cotton</td>
+              <td style="padding: 10px;">Hot Stamped Gold, Silver, Rose Gold, Copper Foil</td>
+              <td style="padding: 10px;">90×55 mm, 85×55 mm, 65×65 mm</td>
+              <td style="padding: 10px;">2–3 Working Days</td>
+              <td style="padding: 10px;">From AED 240</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 10px; font-weight: 600;"><a href="/spot-uv-business-cards">Raised 3D Spot UV Business Cards</a></td>
+              <td style="padding: 10px;">400–450 GSM Velvet Matte Board</td>
+              <td style="padding: 10px;">100μ Dimensional Clear Polymer Gloss over Velvet</td>
+              <td style="padding: 10px;">90×55 mm or 85×55 mm</td>
+              <td style="padding: 10px;">2–3 Working Days</td>
+              <td style="padding: 10px;">From AED 210</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 10px; font-weight: 600;"><a href="/embossed-business-cards">Embossed &amp; Letterpress Debossed Cards</a></td>
+              <td style="padding: 10px;">450–600 GSM Cotton / Duplex Board</td>
+              <td style="padding: 10px;">3D CNC Brass-Die Raised Relief or Deep Blind Deboss</td>
+              <td style="padding: 10px;">90×55 mm or 85×55 mm</td>
+              <td style="padding: 10px;">3–4 Working Days</td>
+              <td style="padding: 10px;">From AED 290</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 10px; font-weight: 600;"><a href="/luxury-business-cards">Luxury 600 GSM 100% Cotton Cards</a></td>
+              <td style="padding: 10px;">600–700 GSM Archival Italian Cotton / Triplex</td>
+              <td style="padding: 10px;">Letterpress, 24K Foil, Painted / Gilded Edges</td>
+              <td style="padding: 10px;">90×55 mm or 85×55 mm</td>
+              <td style="padding: 10px;">3–4 Working Days</td>
+              <td style="padding: 10px;">From AED 350</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 10px; font-weight: 600;">Waterproof PVC &amp; Frosted Plastic Cards</td>
+              <td style="padding: 10px;">760 Micron Tear-Proof PVC (White / Matte / Frosted)</td>
+              <td style="padding: 10px;">UV Ink, Spot Gloss, Die-Cut Rounded Corners, NFC</td>
+              <td style="padding: 10px;">85.6×54 mm (CR80 ISO)</td>
+              <td style="padding: 10px;">2–3 Working Days</td>
+              <td style="padding: 10px;">From AED 260</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 10px; font-weight: 600;">Eco-Friendly FSC Recycled &amp; Kraft Cards</td>
+              <td style="padding: 10px;">350–400 GSM Unbleached Kraft &amp; 100% Recycled Board</td>
+              <td style="padding: 10px;">Soy/Vegetable Inks, White Opaque Ink, Blind Deboss</td>
+              <td style="padding: 10px;">90×55 mm or 85×55 mm</td>
+              <td style="padding: 10px;">24–48 Hours</td>
+              <td style="padding: 10px;">From AED 130</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Specialized Business Card Services &amp; Technical Guides</h2>
+        <ul>
+          <li><a href="/same-day-business-card-printing">Same-Day 4-Hour Express Business Card Printing Dubai</a></li>
+          <li><a href="/corporate-business-cards">Corporate Multi-Employee Business Card Batches (Pantone PMS Calibrated)</a></li>
+          <li><a href="/business-card-design">Bilingual English-Arabic Business Card Design &amp; Pre-Press Service</a></li>
+          <li><a href="/business-card-printing-uae">Business Card Printing UAE</a> | <a href="/business-card-printing-abu-dhabi">Abu Dhabi</a> | <a href="/business-card-printing-sharjah">Sharjah</a></li>
+          <li><a href="/blog/how-to-choose-business-card-paper-dubai">Guide: Business Card Sizes, Paper Types (350gsm vs 450gsm vs 600gsm Cotton) &amp; Finishes</a></li>
+          <li><a href="/blog/business-card-design-guide-dubai-businesses">Guide: How to Choose &amp; Design Business Cards for a Dubai Business</a></li>
+          <li><a href="/blog/premium-vs-standard-business-cards-dubai-guide">Guide: Premium vs Standard Business Cards — Which Should You Choose?</a></li>
+          <li><a href="/blog/business-card-printing-checklist-uae-startups">Guide: Business Card Design &amp; Printing Tips for UAE Startups</a></li>
+          <li><a href="/blog/how-to-prepare-artwork-business-card-printing-dubai">Guide: How to Prepare Artwork for Professional Business Card Printing</a></li>
+          <li><a href="/blog/common-business-card-printing-mistakes-dubai">Guide: Common Business Card Printing Mistakes and How to Avoid Them</a></li>
+          <li><a href="/blog/business-card-printing-faqs-dubai-customers">Guide: Business Card Printing FAQs for Dubai Customers</a></li>
+          <li><a href="/blog/business-branding-networking-materials-dubai-companies">Guide: Business Branding and Networking Materials for Dubai Companies</a></li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem; padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
+        <h3 style="margin-top: 0; color: #166534;">Instant WhatsApp Quotation &amp; Pre-Press Support (+44 7344546056)</h3>
+        <p style="margin: 0; color: #15803d;">Order online or message our Al Quoz pressroom directly on WhatsApp at <a href="https://wa.me/447344546056?text=Hi%20ONPRINT!%20I%20would%20like%20a%20quotation%20for%20Business%20Card%20Printing%20in%20Dubai.%20Please%20share%20pricing%20for:%0A-%20Product:%20Business%20Cards%0A-%20Quantity:%20%0A-%20Size:%20(90x55mm%20/%2085x55mm)%0A-%20Finish%20%26%20Paper:%20%0A-%20Delivery%20Location%20in%20Dubai/UAE:%20" style="color: #15803d; font-weight: bold;">+44 7344546056</a> with your required quantity, size, finish, and delivery location.</p>
+      </section>
+
       ${bcData.faqs && bcData.faqs.length > 0 ? `
       <section style="margin-bottom: 2rem;">
         <h2>Frequently Asked Questions</h2>
@@ -227,28 +359,28 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
       <section style="margin-bottom: 2rem;">
         <h2>Dubai's Leading Commercial Printing Pressroom</h2>
         <p>ONPRINT is a premier commercial printing, corporate stationery, and business branding production facility located in Al Quoz, Dubai, UAE. We combine Heidelberg offset precision with high-definition digital presses to deliver standard and bespoke print solutions for enterprises, government entities, luxury brands, and local businesses across Dubai, Abu Dhabi, Sharjah, and all seven Emirates.</p>
-        <p>Our core services encompass luxury 600 GSM business cards with painted edges, corporate stationery, waterproof die-cut vinyl stickers and labels, multi-page corporate brochures, 120 GSM executive letterheads, promotional ceramic drinkware, smart NFC PVC badges, and exhibition display signage.</p>
+        <p>Our core services encompass luxury 600 GSM business cards with painted edges, corporate stationery, waterproof die-cut vinyl stickers and labels, multi-page corporate brochures, 120 GSM executive letterheads, promotional ceramic drinkware, custom water bottle printing, roll-up banners, smart NFC PVC badges, and exhibition display signage.</p>
       </section>
       <section style="margin-bottom: 2rem;">
         <h2>Why UAE Businesses Choose ONPRINT</h2>
         <ul>
           <li><strong>Guaranteed Color Fidelity:</strong> Calibrated ISO 12647 offset printing with spectrophotometer Pantone PMS spot matching.</li>
-          <li><strong>Luxury Finishing Capabilities:</strong> In-house 24K metallic gold & silver hot foiling, raised dimensional spot UV, blind debossing, and soft-touch velvet lamination.</li>
-          <li><strong>Same-Day & Express 24h Turnaround:</strong> Dedicated urgent print lines for critical corporate deadlines, exhibitions, and trade shows.</li>
+          <li><strong>Luxury Finishing Capabilities:</strong> In-house 24K metallic gold &amp; silver hot foiling, raised dimensional spot UV, blind debossing, and soft-touch velvet lamination.</li>
+          <li><strong>Same-Day &amp; Express 24h Turnaround:</strong> Dedicated urgent print lines for critical corporate deadlines, exhibitions, and trade shows.</li>
           <li><strong>Direct Pressroom Pricing:</strong> Zero middlemen, zero agent markups — direct factory pricing with free pre-press digital proofing.</li>
         </ul>
       </section>
       <section style="margin-bottom: 2rem;">
         <h2>Popular Commercial Printing Categories</h2>
-        <p><a href="/business-card-printing-dubai">Luxury Business Cards Dubai</a> | <a href="/categories/letterheads-printing-dubai">Executive Letterheads & Stationery</a> | <a href="/categories/custom-stamps-seals">Custom Stamps & Official Seals</a> | <a href="/categories/stickers-printing-dubai">Custom Stickers & Product Labels</a> | <a href="/categories/brochures-printing">Corporate Brochures & Catalogs</a> | <a href="/services">Full Printing Services</a></p>
+        <p><a href="/business-card-printing-dubai">Luxury Business Cards Dubai</a> | <a href="/sticker-printing-dubai">Custom Stickers &amp; Labels Dubai</a> | <a href="/bottle-printing-dubai">Custom Water Bottle Printing Dubai</a> | <a href="/services/rollup-banners">Roll-Up Banners Dubai</a> | <a href="/categories/letterheads-printing-dubai">Executive Letterheads &amp; Stationery</a> | <a href="/categories/custom-stamps-seals">Custom Stamps &amp; Official Seals</a> | <a href="/categories/brochures-printing">Corporate Brochures &amp; Catalogs</a> | <a href="/services">Full Printing Services</a></p>
       </section>
     `
   } else if (requestPath.startsWith('/products')) {
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
-        <h2>Commercial Product Catalog & Ordering</h2>
+        <h2>Commercial Product Catalog &amp; Ordering</h2>
         <p>Explore our complete catalog of commercial print products manufactured in Al Quoz, Dubai. Every product is produced using FSC-certified sustainable papers, heavy-weight card stocks (300gsm to 600gsm duplex), and premium corporate stationery materials.</p>
-        <p>Order luxury business cards, branded letterheads, laminated flyers, branded neck lanyards, NFC proximity badges, ceramic mugs, and corporate presentation folders with fast dispatch across Dubai and the UAE.</p>
+        <p>Order luxury business cards, branded letterheads, laminated flyers, branded neck lanyards, NFC proximity badges, ceramic mugs, custom water bottles, roll-up banners, and corporate presentation folders with fast dispatch across Dubai and the UAE.</p>
       </section>
     `
   } else if (requestPath.startsWith('/categories')) {
@@ -261,7 +393,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
   } else if (requestPath.startsWith('/services')) {
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
-        <h2>Offset, Digital & Specialty Press Services</h2>
+        <h2>Offset, Digital &amp; Specialty Press Services</h2>
         <p>Our Al Quoz facility houses multi-color Heidelberg offset presses for high-volume commercial runs, next-generation digital presses for short-run rapid dispatch, and automated finishing lines for hot foil stamping, spot UV varnishing, die-cutting, folding, and binding.</p>
       </section>
     `
@@ -288,6 +420,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
           <a href="/business-card-printing-dubai" style="color: #A82F19; text-decoration: none;">Business Cards</a>
           <a href="/categories/letterheads-printing-dubai" style="color: #0f172a; text-decoration: none;">Stationery</a>
           <a href="/services" style="color: #0f172a; text-decoration: none;">Services</a>
+          <a href="/blog" style="color: #0f172a; text-decoration: none;">Guides</a>
           <a href="/about" style="color: #0f172a; text-decoration: none;">About</a>
           <a href="/contact" style="color: #0f172a; text-decoration: none;">Contact</a>
           <a href="/get-a-quote" style="color: #ffffff; background: #A82F19; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">Get a Quote</a>
@@ -304,9 +437,9 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
 
       <footer style="border-top: 1px solid #e2e8f0; margin-top: 40px; padding-top: 24px; font-size: 0.875rem; color: #64748b; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
         <div>
-          <strong>ONPRINT Printing &amp; Branding Solutions LLC</strong><br />
-          Al Quoz Industrial Area, Dubai, United Arab Emirates<br />
-          Email: <a href="mailto:0nprint183@gmail.com" style="color: #A82F19;">0nprint183@gmail.com</a> | WhatsApp: +44 7344546056
+          <strong>ONPRINT Printing &amp; Branding Solutions</strong><br />
+          Al Quoz, Dubai, United Arab Emirates<br />
+          Email: <a href="mailto:0nprint183@gmail.com" style="color: #A82F19;">0nprint183@gmail.com</a> | WhatsApp: <a href="https://wa.me/447344546056" style="color: #A82F19;">+44 7344546056</a>
         </div>
         <div>
           <a href="/privacy-policy" style="color: #64748b; margin-right: 12px;">Privacy Policy</a>
@@ -340,6 +473,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
   let categoryData = null
   let serviceData = null
   let progData = null
+  let blogData = null
 
   if (requestPath.startsWith('/products/')) {
     const slug = requestPath.replace('/products/', '').trim()
@@ -356,10 +490,22 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
   } else if (requestPath.startsWith('/printing-solutions/')) {
     const slug = requestPath.replace('/printing-solutions/', '').trim()
     progData = programmaticSeoService.getPageBySlug(slug, 'use_case')
+  } else if (requestPath.startsWith('/blog/')) {
+    const slug = requestPath.replace('/blog/', '').trim()
+    try {
+      const persistentStore = require('./data/persistentStore')
+      blogData = persistentStore.getBlogBySlug(slug)
+      if (!blogData) {
+        const DUBAI_BLOGS = require('./data/dubaiBlogsData')
+        blogData = (DUBAI_BLOGS || []).find((b) => b.slug === slug) || null
+      }
+    } catch {}
   }
 
   const title =
     seo.meta_title ||
+    blogData?.seo_title ||
+    (blogData ? `${blogData.title} | ONPRINT Dubai` : null) ||
     productData?.seoTitle ||
     (productData ? `${productData.name} Dubai | Custom Printing | ONPRINT` : null) ||
     categoryData?.seoTitle ||
@@ -373,6 +519,8 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
 
   const description =
     seo.meta_description ||
+    blogData?.meta_description ||
+    blogData?.excerpt ||
     productData?.seoDescription ||
     productData?.description ||
     productData?.shortDescription ||
@@ -385,27 +533,27 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     bcData?.metaDescription ||
     ''
 
-  let canonical = seo.canonical_url || `${siteUrl}${requestPath === '/' ? '' : requestPath}`
+  let canonical = seo.canonical_url || blogData?.canonical_url || `${siteUrl}${requestPath === '/' ? '' : requestPath}`
   if (canonical.startsWith('http://') || canonical.startsWith('https://')) {
     canonical = canonical.replace(/^https?:\/\/(www\.)?0nprint\.com/i, siteUrl)
   }
-  const ogImage = absoluteSeoUrl(seo.og_image, siteUrl)
-  const twitterImage = absoluteSeoUrl(seo.twitter_image || seo.og_image, siteUrl)
+  const ogImage = absoluteSeoUrl(seo.og_image || blogData?.featured_image, siteUrl)
+  const twitterImage = absoluteSeoUrl(seo.twitter_image || seo.og_image || blogData?.featured_image, siteUrl)
   const robots = noindex
     ? 'noindex, nofollow'
     : `${seo.robots_index || 'index'}, ${seo.robots_follow || 'follow'}, max-image-preview:large`
 
   const keywordsString = [
-    seo.focus_keyword || bcData?.focusKeyword,
-    seo.secondary_keywords || bcData?.secondaryKeywords,
+    seo.focus_keyword || blogData?.focus_keyword || bcData?.focusKeyword,
+    seo.secondary_keywords || blogData?.secondary_keywords || bcData?.secondaryKeywords,
   ].filter(Boolean).join(', ')
 
   let rendered = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(title)}</title>`)
   rendered = replaceMeta(rendered, 'name', 'description', description)
   rendered = replaceMeta(rendered, 'name', 'keywords', keywordsString)
   rendered = replaceMeta(rendered, 'name', 'robots', robots)
-  rendered = replaceMeta(rendered, 'property', 'og:title', seo.og_title || title)
-  rendered = replaceMeta(rendered, 'property', 'og:description', seo.og_description || description)
+  rendered = replaceMeta(rendered, 'property', 'og:title', seo.og_title || blogData?.og_title || title)
+  rendered = replaceMeta(rendered, 'property', 'og:description', seo.og_description || blogData?.og_description || description)
   rendered = replaceMeta(rendered, 'property', 'og:image', ogImage)
   rendered = replaceMeta(rendered, 'property', 'og:url', canonical)
   rendered = replaceMeta(rendered, 'name', 'twitter:title', seo.twitter_title || title)
@@ -433,7 +581,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     rendered = rendered.replace('</head>', `    <meta name="google-site-verification" content="${escapeHtml(googleVerification)}" />\n  </head>`)
   }
 
-  // Inject Standard Organization & LocalBusiness JSON-LD Schema
+  // Inject Standard Organization & LocalBusiness JSON-LD Schema (Using only verified details)
   const organizationJson = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -444,8 +592,9 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     url: siteUrl,
     logo: `${siteUrl}/logo_icon.png`,
     image: `${siteUrl}/logo_icon.png`,
-    description: 'ONPRINT is a commercial printing, corporate stationery, and business branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, brochures, product labels, marketing collaterals, and corporate gifts.',
-        email: '0nprint183@gmail.com',
+    description: 'ONPRINT is a commercial printing, corporate stationery, and business branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, brochures, product labels, roll-up banners, bottle printing, and corporate gifts.',
+    email: '0nprint183@gmail.com',
+    telephone: '+44 7344546056',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
@@ -471,15 +620,11 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     contactPoint: [
       {
         '@type': 'ContactPoint',
-                contactType: 'customer service / sales',
+        telephone: '+44 7344546056',
+        email: '0nprint183@gmail.com',
+        contactType: 'customer service / sales',
         areaServed: 'AE',
         availableLanguage: ['English', 'Arabic', 'Urdu'],
-      },
-      {
-        '@type': 'ContactPoint',
-                contactType: 'concierge / WhatsApp quotes',
-        areaServed: 'AE',
-        availableLanguage: ['English', 'Urdu'],
       },
     ],
     sameAs: [
@@ -491,6 +636,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
       { '@type': 'City', name: 'Dubai' },
       { '@type': 'City', name: 'Abu Dhabi' },
       { '@type': 'City', name: 'Sharjah' },
+      { '@type': 'City', name: 'Ajman' },
       { '@type': 'Country', name: 'United Arab Emirates' },
     ],
   }
@@ -522,25 +668,25 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     breadcrumbItems = [
       { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
       { '@type': 'ListItem', position: 2, name: 'Categories', item: `${siteUrl}/categories` },
-      { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Category', item: canonical },
+      { '@type': 'ListItem', position: 3, name: categoryData?.name || seo.h1 || seo.meta_title || 'Category', item: canonical },
     ]
   } else if (requestPath.startsWith('/products/') && requestPath.length > 10) {
     breadcrumbItems = [
       { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
       { '@type': 'ListItem', position: 2, name: 'Products', item: `${siteUrl}/products` },
-      { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Product', item: canonical },
+      { '@type': 'ListItem', position: 3, name: productData?.name || seo.h1 || seo.meta_title || 'Product', item: canonical },
     ]
   } else if (requestPath.startsWith('/services/') && requestPath.length > 10) {
     breadcrumbItems = [
       { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
       { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteUrl}/services` },
-      { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Service', item: canonical },
+      { '@type': 'ListItem', position: 3, name: serviceData?.name || seo.h1 || seo.meta_title || 'Service', item: canonical },
     ]
   } else if (requestPath.startsWith('/blog/') && requestPath.length > 6) {
     breadcrumbItems = [
       { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
       { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
-      { '@type': 'ListItem', position: 3, name: seo.h1 || seo.meta_title || 'Article', item: canonical },
+      { '@type': 'ListItem', position: 3, name: blogData?.title || seo.h1 || seo.meta_title || 'Article', item: canonical },
     ]
   } else if (bcData) {
     breadcrumbItems = [
@@ -563,6 +709,49 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
       itemListElement: breadcrumbItems,
     }
     rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>\n  </head>`)
+  }
+
+  // Inject BlogPosting & FAQPage JSON-LD for Blog Articles
+  if (blogData && !rendered.includes('"@type":"BlogPosting"')) {
+    const blogPostingSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: blogData.title,
+      description: blogData.meta_description || blogData.excerpt || description,
+      image: ogImage,
+      author: {
+        '@type': 'Organization',
+        name: blogData.author_name || 'ONPRINT Technical Print Team',
+        url: siteUrl,
+      },
+      publisher: {
+        '@id': `${siteUrl}/#organization`,
+      },
+      datePublished: blogData.published_at || '2026-10-01T09:00:00.000Z',
+      dateModified: blogData.updated_at || blogData.published_at || '2026-10-16T09:00:00.000Z',
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': canonical,
+      },
+      wordCount: blogData.word_count || 1350,
+    }
+    rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(blogPostingSchema)}</script>\n  </head>`)
+
+    if (blogData.faqs && blogData.faqs.length > 0 && !rendered.includes('"@type":"FAQPage"')) {
+      const blogFaqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: blogData.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.answer,
+          },
+        })),
+      }
+      rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(blogFaqSchema)}</script>\n  </head>`)
+    }
   }
 
   // Inject FAQPage Schema for Business Card Landing Pages if available
@@ -729,7 +918,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
   }
 
   const prerenderedBody = buildPrerenderedHtml(requestPath, {
-    h1: seo.h1 || bcData?.h1 || commercialData?.h1 || productData?.seoHeading || productData?.name || categoryData?.seoHeading || categoryData?.name || progData?.h1,
+    h1: seo.h1 || blogData?.title || bcData?.h1 || commercialData?.h1 || productData?.seoHeading || productData?.name || categoryData?.seoHeading || categoryData?.name || progData?.h1,
     title,
     description,
     bcData,
@@ -738,6 +927,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     categoryData,
     serviceData,
     progData,
+    blogData,
     seo,
     siteUrl,
   })

@@ -83,14 +83,30 @@ export default function SeoConversionsTab({ showToast }) {
       return (
         <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-50 text-purple-700 border border-purple-200">
           <FileSpreadsheet className="h-3 w-3" />
-          Quote Submission
+          Quote Request
+        </span>
+      )
+    }
+    if (t.includes('form')) {
+      return (
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+          <CheckCircle2 className="h-3 w-3" />
+          Form Submission
+        </span>
+      )
+    }
+    if (t.includes('product_inquiry')) {
+      return (
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-50 text-teal-700 border border-teal-200">
+          <TrendingUp className="h-3 w-3" />
+          Product Inquiry
         </span>
       )
     }
     return (
       <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200">
         <Mail className="h-3 w-3" />
-        Email Inquiry
+        Email Click
       </span>
     )
   }
@@ -106,13 +122,13 @@ export default function SeoConversionsTab({ showToast }) {
                 <TrendingUp className="h-3.5 w-3.5" />
                 Real-Time Organic Attribution
               </span>
-              <span className="text-xs font-semibold text-neutral-500">Requirements 35 & 36</span>
+              <span className="text-xs font-semibold text-neutral-500">Privacy-Safe Non-PII Funnel</span>
             </div>
             <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-neutral-900">
-              Organic Conversion Dashboard
+              WhatsApp &amp; Conversion Funnel Dashboard
             </h2>
             <p className="mt-1 text-sm text-neutral-600 max-w-2xl">
-              Tracks high-intent organic lead generation in Dubai & UAE. Attributing phone calls, WhatsApp inquiries, emails, and quotation requests directly to landing page entry points.
+              Strictly separates outbound WhatsApp clicks (intent) from submitted quote/contact forms (confirmed inquiries) and verified orders. No personal customer data (PII) is stored in analytics events.
             </p>
           </div>
 
@@ -132,35 +148,41 @@ export default function SeoConversionsTab({ showToast }) {
         </div>
 
         {/* Top Metric Cards */}
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-3">
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-6 gap-3">
           <div className="rounded-xl border border-neutral-200/70 bg-neutral-50 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-500">Total Leads</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-500">Total Interactions</div>
             <div className="mt-1 text-2xl font-black text-neutral-900">{summary.totalConversions || 0}</div>
-            <div className="mt-0.5 text-[10px] text-neutral-500">All channels combined</div>
+            <div className="mt-0.5 text-[10px] text-neutral-500">All tracked CTA events</div>
           </div>
 
           <div className="rounded-xl border border-emerald-200/70 bg-emerald-50/50 p-4">
             <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-800">WhatsApp Clicks</div>
             <div className="mt-1 text-2xl font-black text-emerald-700">{summary.whatsappCount || 0}</div>
-            <div className="mt-0.5 text-[10px] text-emerald-600">Highest conversion rate</div>
-          </div>
-
-          <div className="rounded-xl border border-blue-200/70 bg-blue-50/50 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-blue-800">Phone Calls</div>
-            <div className="mt-1 text-2xl font-black text-blue-700">{summary.phoneCount || 0}</div>
-            <div className="mt-0.5 text-[10px] text-blue-600">Direct Al Quoz line</div>
+            <div className="mt-0.5 text-[10px] text-emerald-600">Outbound chat intent</div>
           </div>
 
           <div className="rounded-xl border border-purple-200/70 bg-purple-50/50 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-purple-800">Quote Requests</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-purple-800">Submitted Quotes</div>
             <div className="mt-1 text-2xl font-black text-purple-700">{summary.quoteCount || 0}</div>
-            <div className="mt-0.5 text-[10px] text-purple-600">High-volume B2B orders</div>
+            <div className="mt-0.5 text-[10px] text-purple-600">Confirmed RFQ forms</div>
+          </div>
+
+          <div className="rounded-xl border border-indigo-200/70 bg-indigo-50/50 p-4">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-indigo-800">Contact Forms</div>
+            <div className="mt-1 text-2xl font-black text-indigo-700">{summary.formCount || 0}</div>
+            <div className="mt-0.5 text-[10px] text-indigo-600">Submitted inquiries</div>
+          </div>
+
+          <div className="rounded-xl border border-blue-200/70 bg-blue-50/50 p-4">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-blue-800">Phone Clicks</div>
+            <div className="mt-1 text-2xl font-black text-blue-700">{summary.phoneCount || 0}</div>
+            <div className="mt-0.5 text-[10px] text-blue-600">Direct tel: clicks</div>
           </div>
 
           <div className="rounded-xl border border-[#A82F19]/20 bg-[#A82F19]/5 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#A82F19]">Email Inquiries</div>
-            <div className="mt-1 text-2xl font-black text-[#A82F19]">{summary.emailCount || 0}</div>
-            <div className="mt-0.5 text-[10px] text-neutral-500">Pressroom RFQs</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#A82F19]">Confirmed Orders</div>
+            <div className="mt-1 text-2xl font-black text-[#A82F19]">{summary.confirmedOrdersCount || 0}</div>
+            <div className="mt-0.5 text-[10px] text-neutral-500">Verified database orders</div>
           </div>
         </div>
       </div>
@@ -171,8 +193,8 @@ export default function SeoConversionsTab({ showToast }) {
         <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
           <div className="flex items-center justify-between border-b border-neutral-100 pb-4 mb-4">
             <div>
-              <h3 className="font-bold text-neutral-900 text-sm">Top Converting Landing Pages</h3>
-              <p className="text-xs text-neutral-500">Commercial URLs generating the most organic conversions</p>
+              <h3 className="font-bold text-neutral-900 text-sm">Product &amp; Landing Page Performance</h3>
+              <p className="text-xs text-neutral-500">WhatsApp clicks vs. submitted forms by page path</p>
             </div>
             <Globe className="h-4 w-4 text-neutral-400" />
           </div>
@@ -182,14 +204,22 @@ export default function SeoConversionsTab({ showToast }) {
               No conversion events recorded yet.
             </div>
           ) : (
-            <div className="space-y-3">
-              {byPage.slice(0, 5).map((p, idx) => {
+            <div className="space-y-3.5">
+              {byPage.slice(0, 7).map((p, idx) => {
                 const pct = summary.totalConversions ? Math.round((p.conversions / summary.totalConversions) * 100) : 0
                 return (
-                  <div key={idx} className="space-y-1">
-                    <div className="flex items-center justify-between text-xs font-semibold">
-                      <span className="font-mono text-neutral-800 truncate max-w-xs">{p.landing_page}</span>
-                      <span className="text-neutral-900 font-bold">{p.conversions} leads ({pct}%)</span>
+                  <div key={idx} className="space-y-1.5">
+                    <div className="flex items-center justify-between text-xs font-semibold gap-2">
+                      <span className="font-mono text-neutral-800 truncate max-w-[220px] sm:max-w-xs">{p.landing_page}</span>
+                      <div className="flex items-center gap-2 shrink-0 text-[11px]">
+                        <span className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold">
+                          WA: {p.whatsapp_clicks || p.whatsapp_leads || 0}
+                        </span>
+                        <span className="px-2 py-0.5 rounded bg-purple-50 text-purple-700 font-bold">
+                          Forms: {p.form_submissions || (p.quote_leads || 0) + (p.form_leads || 0)}
+                        </span>
+                        <span className="text-neutral-900 font-bold">{pct}%</span>
+                      </div>
                     </div>
                     <div className="w-full bg-neutral-100 rounded-full h-2 overflow-hidden">
                       <div
@@ -208,8 +238,8 @@ export default function SeoConversionsTab({ showToast }) {
         <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
           <div className="flex items-center justify-between border-b border-neutral-100 pb-4 mb-4">
             <div>
-              <h3 className="font-bold text-neutral-900 text-sm">Device & Attribution Split</h3>
-              <p className="text-xs text-neutral-500">Lead breakdown by user device environment</p>
+              <h3 className="font-bold text-neutral-900 text-sm">Device Category Attribution</h3>
+              <p className="text-xs text-neutral-500">Interaction split across mobile, desktop, and tablet</p>
             </div>
             <Smartphone className="h-4 w-4 text-neutral-400" />
           </div>
@@ -232,7 +262,7 @@ export default function SeoConversionsTab({ showToast }) {
           </div>
 
           <div className="mt-6 bg-neutral-50 p-3.5 rounded-xl text-xs text-neutral-600 leading-relaxed border border-neutral-200/50">
-            <span className="font-bold text-neutral-800">CRO Insight:</span> Over 60% of Dubai commercial print buyers utilize WhatsApp direct inquiries on mobile devices during business hours (9:00 AM – 6:00 PM GST).
+            <span className="font-bold text-neutral-800">Attribution Integrity Note:</span> A WhatsApp button click opens the WhatsApp conversation with pre-filled product details; it is tracked as an outbound click (`whatsapp_click`) and is never inflated as a confirmed sale unless an order is recorded.
           </div>
         </div>
       </div>
@@ -243,7 +273,7 @@ export default function SeoConversionsTab({ showToast }) {
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
           <input
             type="text"
-            placeholder="Search landing page or event type..."
+            placeholder="Search page path, product, or event type..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#A82F19]"
@@ -256,10 +286,12 @@ export default function SeoConversionsTab({ showToast }) {
           className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#A82F19] w-full sm:w-auto"
         >
           <option value="all">All Event Types</option>
-          <option value="whatsapp_click">WhatsApp Direct Click</option>
-          <option value="phone_call">Phone Call</option>
-          <option value="quote_submit">Quote Submission</option>
-          <option value="email_click">Email Inquiry</option>
+          <option value="whatsapp_click">WhatsApp Click (whatsapp_click)</option>
+          <option value="product_inquiry">Product Inquiry (product_inquiry)</option>
+          <option value="quote_request">Quote Request (quote_request)</option>
+          <option value="contact_form_submit">Contact Form Submit (contact_form_submit)</option>
+          <option value="phone_click">Phone Click (phone_click)</option>
+          <option value="email_click">Email Click (email_click)</option>
         </select>
       </div>
 
@@ -279,10 +311,10 @@ export default function SeoConversionsTab({ showToast }) {
               <thead>
                 <tr className="border-b border-neutral-200 bg-neutral-50/80 text-neutral-600 font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">Event Type</th>
-                  <th className="py-3 px-4">Entry Landing Page</th>
+                  <th className="py-3 px-4">Page Path</th>
+                  <th className="py-3 px-3">Product / Button Location</th>
                   <th className="py-3 px-3">Device</th>
                   <th className="py-3 px-3">Traffic Source</th>
-                  <th className="py-3 px-3">Anonymized IP</th>
                   <th className="py-3 px-4 text-right">Timestamp</th>
                 </tr>
               </thead>
@@ -290,23 +322,26 @@ export default function SeoConversionsTab({ showToast }) {
                 {filteredEvents.map((ev) => (
                   <tr key={ev.id} className="hover:bg-neutral-50/60 transition-colors">
                     <td className="py-3 px-4">
-                      {getEventBadge(ev.event_type)}
+                      {getEventBadge(ev.event_type || ev.conversion_type)}
                     </td>
 
                     <td className="py-3 px-4 font-mono font-semibold text-neutral-900">
                       {ev.landing_page}
                     </td>
 
+                    <td className="py-3 px-3 text-neutral-700">
+                      <div className="font-semibold">{ev.product_name || ev.source_label || '—'}</div>
+                      {ev.button_location && (
+                        <div className="text-[10px] font-mono text-neutral-500">{ev.button_location}</div>
+                      )}
+                    </td>
+
                     <td className="py-3 px-3 capitalize font-medium text-neutral-600">
-                      {ev.device || 'desktop'}
+                      {ev.device || ev.device_category || 'desktop'}
                     </td>
 
-                    <td className="py-3 px-3 font-semibold text-neutral-700">
-                      {ev.source || 'Organic Search'}
-                    </td>
-
-                    <td className="py-3 px-3 font-mono text-neutral-400 text-[11px]">
-                      {ev.ip_address || '127.0.0.x'}
+                    <td className="py-3 px-3 font-semibold text-neutral-700 truncate max-w-[160px]">
+                      {ev.source || 'Direct / Organic'}
                     </td>
 
                     <td className="py-3 px-4 text-right text-neutral-500 font-mono text-[11px]">
@@ -322,3 +357,4 @@ export default function SeoConversionsTab({ showToast }) {
     </div>
   )
 }
+

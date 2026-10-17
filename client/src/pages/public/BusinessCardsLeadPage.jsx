@@ -761,7 +761,7 @@ Please confirm availability and dispatch schedule.`
               {
                 title: 'Sculptural Blind Deboss',
                 tag: 'Deep Indentation',
-                image: '/assets/products/bc_embossed.jpg',
+                image: '/assets/products/business-cards/bc_embossed.jpg',
                 desc: 'CNC-machined brass male/female dies press typography deep into card fibers for pure tactile beauty.',
               },
             ].map((finish, idx) => (

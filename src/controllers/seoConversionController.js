@@ -16,6 +16,13 @@ function isAiReferrer(referrer = '') {
   return AI_REFERRER_PATTERNS.some((rx) => rx.test(String(referrer || '')))
 }
 
+function detectDeviceFromUA(ua = '') {
+  const s = String(ua || '').toLowerCase()
+  if (/ipad|tablet|playbook|silk|(android(?!.*mobile))/i.test(s)) return 'tablet'
+  if (/mobile|iphone|ipod|android.*mobile|windows phone|blackberry/i.test(s)) return 'mobile'
+  return 'desktop'
+}
+
 /**
  * Organic Conversion & ROI Controller
  * Tracks user-initiated conversion actions (WhatsApp Clicks, Form Submissions, Quotation Requests, Confirmed Orders)
@@ -28,7 +35,16 @@ class SeoConversionController {
    */
   async trackConversion(req, res) {
     try {
-      const { conversion_type, landing_page, referrer, source_label, query_string } = req.body || {}
+      const {
+        conversion_type,
+        landing_page,
+        referrer,
+        source_label,
+        query_string,
+        product_name,
+        button_location,
+        device_category,
+      } = req.body || {}
 
       if (!conversion_type) {
         return res.status(400).json({ success: false, message: 'conversion_type is required' })
@@ -38,13 +54,17 @@ class SeoConversionController {
       const rawIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || ''
       const ipHash = rawIp ? crypto.createHash('sha256').update(String(rawIp)).digest('hex').slice(0, 16) : null
       const userAgent = (req.headers['user-agent'] || '').slice(0, 250)
+      const resolvedDevice = (device_category || detectDeviceFromUA(userAgent)).slice(0, 32)
 
       // Persist in local persistentStore for reliable auditability
       const savedEntry = persistentStore.addSeoConversion({
         conversion_type,
-        landing_page: (landing_page || '').slice(0, 500),
+        landing_page: (landing_page || '/').slice(0, 500),
         referrer: (referrer || '').slice(0, 500),
-        source_label: (source_label || '').slice(0, 100),
+        source_label: (source_label || button_location || product_name || conversion_type).slice(0, 100),
+        product_name: product_name ? String(product_name).slice(0, 150) : undefined,
+        button_location: button_location ? String(button_location).slice(0, 100) : undefined,
+        device_category: resolvedDevice,
         query_string: (query_string || '').slice(0, 255),
         ip_hash: ipHash,
         user_agent: userAgent,
@@ -57,9 +77,9 @@ class SeoConversionController {
            VALUES (?, ?, ?, ?, ?, ?, ?)`,
           [
             conversion_type,
-            (landing_page || '').slice(0, 500),
+            (landing_page || '/').slice(0, 500),
             (referrer || '').slice(0, 500),
-            (source_label || '').slice(0, 100),
+            (source_label || button_location || product_name || conversion_type).slice(0, 100),
             (query_string || '').slice(0, 255),
             ipHash,
             userAgent,
@@ -76,6 +96,9 @@ class SeoConversionController {
           id: savedEntry.id,
           conversion_type: savedEntry.conversion_type,
           landing_page: savedEntry.landing_page,
+          product_name: savedEntry.product_name,
+          button_location: savedEntry.button_location,
+          device_category: savedEntry.device_category,
           is_ai_referrer: isAiReferrer(savedEntry.referrer),
           created_at: savedEntry.created_at,
         },
@@ -106,13 +129,14 @@ class SeoConversionController {
       let aiReferralEvents = 0
 
       const pageMap = new Map()
+      const deviceCounts = { mobile: 0, desktop: 0, tablet: 0 }
 
       for (const ev of storeEvents) {
         const t = String(ev.conversion_type || '').toLowerCase()
         if (t === 'whatsapp' || t === 'whatsapp_click') whatsappClicks += 1
         else if (t === 'form_submission' || t === 'contact_form' || t === 'contact_form_submit') formSubmissions += 1
-        else if (t === 'quote_request' || t === 'quote_form_submit') quoteRequests += 1
-        else if (t === 'phone' || t === 'phone_click') phoneClicks += 1
+        else if (t === 'quote_request' || t === 'quote_form_submit' || t === 'quote_submit') quoteRequests += 1
+        else if (t === 'phone' || t === 'phone_click' || t === 'phone_call') phoneClicks += 1
         else if (t === 'email' || t === 'email_click') emailClicks += 1
         else if (t === 'product_inquiry') productInquiries += 1
 
@@ -120,13 +144,37 @@ class SeoConversionController {
           aiReferralEvents += 1
         }
 
-        const lp = (ev.landing_page || '').trim()
+        const dev = String(ev.device_category || detectDeviceFromUA(ev.user_agent)).toLowerCase()
+        if (dev === 'mobile' || dev === 'tablet' || dev === 'desktop') {
+          deviceCounts[dev] += 1
+        } else {
+          deviceCounts.desktop += 1
+        }
+
+        const lp = (ev.landing_page || '/').trim()
         if (lp) {
-          const prev = pageMap.get(lp) || { landing_page: lp, conversions: 0, whatsapp_leads: 0, quote_leads: 0, form_leads: 0 }
+          const prev = pageMap.get(lp) || {
+            landing_page: lp,
+            conversions: 0,
+            whatsapp_leads: 0,
+            whatsapp_clicks: 0,
+            quote_leads: 0,
+            form_leads: 0,
+            form_submissions: 0,
+          }
           prev.conversions += 1
-          if (t === 'whatsapp' || t === 'whatsapp_click') prev.whatsapp_leads += 1
-          if (t === 'quote_request' || t === 'quote_form_submit') prev.quote_leads += 1
-          if (t === 'form_submission' || t === 'contact_form' || t === 'contact_form_submit') prev.form_leads += 1
+          if (t === 'whatsapp' || t === 'whatsapp_click') {
+            prev.whatsapp_leads += 1
+            prev.whatsapp_clicks += 1
+          }
+          if (t === 'quote_request' || t === 'quote_form_submit' || t === 'quote_submit') {
+            prev.quote_leads += 1
+            prev.form_submissions += 1
+          }
+          if (t === 'form_submission' || t === 'contact_form' || t === 'contact_form_submit') {
+            prev.form_leads += 1
+            prev.form_submissions += 1
+          }
           pageMap.set(lp, prev)
         }
       }
@@ -143,9 +191,24 @@ class SeoConversionController {
 
       const topLandingPages = Array.from(pageMap.values())
         .sort((a, b) => b.conversions - a.conversions)
-        .slice(0, 10)
+        .slice(0, 15)
 
-      const recentEvents = storeEvents.slice(0, 25)
+      const byDevice = Object.entries(deviceCounts).map(([device, conversions]) => ({
+        device,
+        conversions,
+      }))
+
+      const recentEvents = storeEvents.slice(0, 40).map((ev) => ({
+        ...ev,
+        event_type: ev.conversion_type,
+        device: ev.device_category || detectDeviceFromUA(ev.user_agent),
+        source: isAiReferrer(ev.referrer)
+          ? 'AI Search Referrer'
+          : ev.referrer
+          ? ev.referrer
+          : 'Direct / Organic Search',
+        ip_address: ev.ip_hash ? `${ev.ip_hash.slice(0, 8)}…` : 'Anonymized',
+      }))
 
       res.json({
         success: true,
@@ -165,8 +228,22 @@ class SeoConversionController {
             estimatedSessions: null,
             conversionRate: null,
             integrityNote:
-              'WhatsApp clicks, form submissions, quotation requests, and confirmed orders are tracked as strictly separate funnel stages. Session counts require a live GA4 Data API connection and are never fabricated.',
+              'WhatsApp clicks, form submissions, quotation requests, and confirmed orders are tracked as strictly separate funnel stages. A WhatsApp click represents outbound contact intent, not a confirmed order.',
           },
+          summary: {
+            totalInteractions: totalInteractionEvents,
+            totalConversions: totalInteractionEvents,
+            whatsappCount: whatsappClicks,
+            phoneCount: phoneClicks,
+            quoteCount: effectiveQuoteRequests,
+            formCount: effectiveFormSubmissions,
+            emailCount: emailClicks,
+            productInquiryCount: productInquiries,
+            confirmedOrdersCount,
+          },
+          byPage: topLandingPages,
+          byDevice,
+          recent: recentEvents,
           topLandingPages,
           recentEvents,
         },
@@ -178,3 +255,4 @@ class SeoConversionController {
 }
 
 module.exports = new SeoConversionController()
+

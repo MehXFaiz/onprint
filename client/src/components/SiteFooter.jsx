@@ -93,45 +93,35 @@ export default function SiteFooter() {
             ONPRINT is Dubai’s premier physical branding &amp; commercial print atelier located in Al Quoz. Delivering industrial precision across 600 GSM cotton cards, corporate marketing collateral, and exhibition displays.
           </p>
 
-          <div className="pt-2 flex items-center gap-3 text-slate-400">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:text-[#A82F19] hover:border-[#A82F19]/40 transition-colors"
-              aria-label="Facebook"
-            >
-              <FacebookIcon />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:text-[#A82F19] hover:border-[#A82F19]/40 transition-colors"
-              aria-label="Instagram"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:text-[#A82F19] hover:border-[#A82F19]/40 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <LinkedInIcon />
-            </a>
+          <div className="pt-2 flex flex-wrap items-center gap-2.5 text-slate-400">
             <a
               href={getServiceWhatsAppUrl('general')}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() =>
-                trackWhatsAppClick({ source_page: 'footer_social_icons', service: 'general', button_location: 'footer_social' })
+                trackWhatsAppClick({ source_page: 'footer_contact_pills', service: 'general', button_location: 'footer_social' })
               }
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors"
-              aria-label="WhatsApp"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-700 hover:bg-[#25D366] hover:text-white transition-colors"
+              aria-label="WhatsApp Direct Chat"
             >
-              <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
+              <WhatsAppIcon className="h-4 w-4 fill-current" />
+              <span>WhatsApp Chat</span>
+            </a>
+            <a
+              href={`tel:+${WHATSAPP_PHONE}`}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold text-slate-700 hover:border-[#A82F19]/40 hover:text-[#A82F19] transition-colors"
+              aria-label={`Call ${FORMATTED_PHONE}`}
+            >
+              <Phone className="h-3.5 w-3.5" />
+              <span>{FORMATTED_PHONE}</span>
+            </a>
+            <a
+              href="mailto:0nprint183@gmail.com"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold text-slate-700 hover:border-[#A82F19]/40 hover:text-[#A82F19] transition-colors"
+              aria-label="Email 0nprint183@gmail.com"
+            >
+              <Mail className="h-3.5 w-3.5" />
+              <span>Email Studio</span>
             </a>
           </div>
         </div>

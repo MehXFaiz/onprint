@@ -6,13 +6,16 @@ import {
   trackPhoneClick,
   trackEmailClick,
   trackWhatsAppClick,
+  wasWhatsAppRecentlyTracked,
+  wasPhoneRecentlyTracked,
+  wasEmailRecentlyTracked,
 } from '../utils/analytics'
 
 /**
  * GoogleAnalytics / GA4 & GTM Integration Component
  * - Reads VITE_GA_MEASUREMENT_ID (or fallback VITE_GA_ID)
  * - Tracks initial page load and every SPA route change
- * - Listens for global tel:, mailto:, and WhatsApp outbound interactions
+ * - Listens for global tel:, mailto:, and WhatsApp outbound interactions (fallback for links without explicit onClick tracking)
  */
 export default function GoogleAnalytics() {
   const location = useLocation()
@@ -55,71 +58,55 @@ export default function GoogleAnalytics() {
     return () => clearTimeout(timer)
   }, [location.pathname, location.search, measurementId])
 
-  // 3. Global click interceptor for Phone, Email & WhatsApp links (Internal CRM + GA4)
+  // 3. Global click interceptor for Phone, Email & WhatsApp links (Bubble phase so component onClick runs first with rich metadata)
   useEffect(() => {
-    function sendConversionBeacon(data) {
-      try {
-        const payload = JSON.stringify(data)
-        if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
-          navigator.sendBeacon('/api/seo/conversions/track', new Blob([payload], { type: 'application/json' }))
-        } else {
-          fetch('/api/seo/conversions/track', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: payload,
-            keepalive: true,
-          }).catch(() => {})
-        }
-      } catch {}
-    }
-
     function handleGlobalClick(event) {
       const anchor = event.target.closest('a')
       if (!anchor || !anchor.href) return
 
       const href = anchor.href.toLowerCase()
+      const buttonLocation =
+        anchor.getAttribute('data-location') ||
+        anchor.getAttribute('aria-label') ||
+        (anchor.closest('header') ? 'site_header' : anchor.closest('footer') ? 'site_footer' : 'page_link')
 
       if (href.startsWith('tel:')) {
-        const phone = anchor.href.replace(/^tel:/i, '').trim()
-        if (measurementId) {
-          trackPhoneClick({ source_page: location.pathname, phone_number: phone })
+        if (!wasPhoneRecentlyTracked()) {
+          trackPhoneClick({
+            source_page: location.pathname,
+            button_location: buttonLocation,
+          })
         }
-        sendConversionBeacon({
-          conversion_type: 'phone',
-          landing_page: location.pathname,
-          referrer: document.referrer,
-          source_label: `Phone Call (${phone})`,
-        })
       } else if (href.startsWith('mailto:')) {
-        const email = anchor.href.replace(/^mailto:/i, '').trim()
-        if (measurementId) {
-          trackEmailClick({ source_page: location.pathname, email_address: email })
+        if (!wasEmailRecentlyTracked()) {
+          trackEmailClick({
+            source_page: location.pathname,
+            button_location: buttonLocation,
+          })
         }
-        sendConversionBeacon({
-          conversion_type: 'email',
-          landing_page: location.pathname,
-          referrer: document.referrer,
-          source_label: `Email Link (${email})`,
-        })
-      } else if (href.includes('wa.me') || href.includes('whatsapp.com') || anchor.getAttribute('aria-label')?.toLowerCase().includes('whatsapp')) {
-        const label = anchor.getAttribute('aria-label') || 'whatsapp_concierge'
-        if (measurementId) {
-          trackWhatsAppClick({ source_page: location.pathname, label })
+      } else if (
+        href.includes('wa.me') ||
+        href.includes('whatsapp.com') ||
+        anchor.getAttribute('aria-label')?.toLowerCase().includes('whatsapp')
+      ) {
+        if (!wasWhatsAppRecentlyTracked()) {
+          const productName = anchor.getAttribute('data-product') || undefined
+          trackWhatsAppClick({
+            source_page: location.pathname,
+            button_location: buttonLocation,
+            product_name: productName,
+            label: buttonLocation,
+          })
         }
-        sendConversionBeacon({
-          conversion_type: 'whatsapp',
-          landing_page: location.pathname,
-          referrer: document.referrer,
-          source_label: `WhatsApp Concierge (${label})`,
-        })
       }
     }
 
-    document.addEventListener('click', handleGlobalClick, { capture: true })
+    document.addEventListener('click', handleGlobalClick, false)
     return () => {
-      document.removeEventListener('click', handleGlobalClick, { capture: true })
+      document.removeEventListener('click', handleGlobalClick, false)
     }
   }, [location.pathname, measurementId])
 
   return null
 }
+

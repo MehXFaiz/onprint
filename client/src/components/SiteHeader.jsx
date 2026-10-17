@@ -384,36 +384,24 @@ export default function SiteHeader() {
 
             <span className="hidden xl:inline h-3 w-px bg-white/15" />
 
-            {/* Social Icons with subtle glow */}
-            <div className="hidden xl:flex items-center gap-2 text-slate-400">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1 rounded-md hover:text-white hover:bg-white/10 transition-colors"
-                aria-label="Facebook"
-              >
-                <FacebookIcon />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1 rounded-md hover:text-white hover:bg-white/10 transition-colors"
-                aria-label="Instagram"
-              >
-                <InstagramIcon />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1 rounded-md hover:text-white hover:bg-white/10 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <LinkedInIcon />
-              </a>
-            </div>
+            {/* Direct Top-Bar WhatsApp Hotline */}
+            <a
+              href={getServiceWhatsAppUrl(location.pathname)}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackWhatsAppClick({
+                  source_page: location.pathname,
+                  button_location: 'header_top_bar',
+                  label: 'header_top_bar_whatsapp',
+                })
+              }
+              className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 px-2.5 py-0.5 text-[11px] font-bold text-emerald-300 hover:bg-[#25D366] hover:text-white transition-colors"
+              aria-label="WhatsApp Direct Hotline"
+            >
+              <WhatsAppIcon className="h-3 w-3 fill-current" />
+              <span>WhatsApp: {FORMATTED_PHONE}</span>
+            </a>
           </div>
         </Container>
       </div>
@@ -802,32 +790,47 @@ export default function SiteHeader() {
               </span>
             </Link>
 
-            {/* WhatsApp VIP Concierge Pill with Radar Pulse Ring */}
-            <div className="relative">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                type="button"
-                onClick={() => {
-                  setWhatsappPopoverOpen((v) => !v)
-                  setUserMenuOpen(false)
-                }}
-                className={`relative flex items-center gap-1.5 rounded-full px-2.5 sm:px-3 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-xs ${
-                  whatsappPopoverOpen
-                    ? 'bg-[#25D366] text-white shadow-md shadow-emerald-500/25'
-                    : 'bg-emerald-50 text-emerald-900 border border-emerald-200 hover:bg-[#25D366] hover:text-white'
-                }`}
-                title="WhatsApp Concierge"
-              >
-                <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
-                <span className="hidden md:inline text-[11px]">WhatsApp</span>
-                
-                {/* Live Radar Pulse Indicator */}
-                <span className="relative flex h-2 w-2 ml-0.5">
-                  <span className="animate-radar-ring absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-              </motion.button>
+            {/* Direct 1-Click WhatsApp CTA + Concierge Popover Toggle */}
+            <div className="relative flex items-center">
+              <div className="inline-flex items-center rounded-full border border-emerald-300 bg-emerald-50 shadow-xs overflow-hidden">
+                <a
+                  href={getServiceWhatsAppUrl(location.pathname)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source_page: location.pathname,
+                      button_location: 'site_header_primary',
+                      label: 'header_whatsapp_direct',
+                    })
+                  }
+                  className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-bold text-emerald-950 hover:bg-[#25D366] hover:text-white transition-colors cursor-pointer"
+                  aria-label="Get Price on WhatsApp"
+                  title="Chat directly on WhatsApp"
+                >
+                  <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
+                  <span className="inline text-[11px]">WhatsApp</span>
+                  {/* Live Radar Pulse Indicator */}
+                  <span className="relative flex h-2 w-2 ml-0.5">
+                    <span className="animate-radar-ring absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                </a>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setWhatsappPopoverOpen((v) => !v)
+                    setUserMenuOpen(false)
+                  }}
+                  className={`px-1.5 py-1.5 border-l border-emerald-200 text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer ${
+                    whatsappPopoverOpen ? 'bg-emerald-200/70' : ''
+                  }`}
+                  aria-label="Show WhatsApp hotline number"
+                  title="View & copy WhatsApp number"
+                >
+                  <ChevronDown className="h-3 w-3" />
+                </button>
+              </div>
 
               {/* WhatsApp Dropdown Popover */}
               <AnimatePresence>
@@ -887,12 +890,16 @@ export default function SiteHeader() {
                     </div>
 
                     <a
-                      href={getServiceWhatsAppUrl('general')}
+                      href={getServiceWhatsAppUrl(location.pathname)}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => {
                         setWhatsappPopoverOpen(false)
-                        trackWhatsAppClick({ source_page: 'header_popover', service: 'general', button_location: 'header_concierge' })
+                        trackWhatsAppClick({
+                          source_page: location.pathname,
+                          button_location: 'header_concierge_popover',
+                          label: 'header_concierge_start_chat',
+                        })
                       }}
                       className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all cursor-pointer"
                     >
@@ -1382,6 +1389,24 @@ export default function SiteHeader() {
 
               {/* Drawer Footer Actions */}
               <div className="border-t border-slate-200 p-4 space-y-2 shrink-0 bg-slate-50/50">
+                <a
+                  href={getServiceWhatsAppUrl(location.pathname)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    setMobileMenuOpen(false)
+                    trackWhatsAppClick({
+                      source_page: location.pathname,
+                      button_location: 'header_mobile_drawer',
+                      label: 'mobile_drawer_whatsapp',
+                    })
+                  }}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-3 text-sm font-black text-white shadow-md shadow-emerald-600/20 transition-all"
+                >
+                  <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
+                  <span>Get Price on WhatsApp</span>
+                </a>
+
                 <Link
                   to="/get-a-quote"
                   onClick={() => {

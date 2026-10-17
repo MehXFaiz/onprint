@@ -25,7 +25,7 @@ import {
 } from 'lucide-react'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getWhatsAppUrl } from '../../utils/whatsapp'
-import { trackProductInquiry } from '../../utils/analytics'
+import { trackProductInquiry, trackWhatsAppClick } from '../../utils/analytics'
 
 export default function CommercialLandingPage({ pageKey: propKey }) {
   const { pageSlug } = useParams()
@@ -96,10 +96,23 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href={getWhatsAppUrl({ text: pageData.whatsappText || `Hello ONPRINT Dubai, I want to get a quote for ${pageData.h1}.` })}
+                href={getWhatsAppUrl({
+                  text: `${pageData.whatsappText || `Hello 0nprint, I am interested in ordering ${pageData.h1}. Please share your prices, available options, and delivery details.`}\n\n• Page URL: https://www.0nprint.com${pageData.canonicalPath || ''}`,
+                })}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackProductInquiry(pageData.h1, 'WhatsApp Hero CTA')}
+                onClick={() => {
+                  trackWhatsAppClick({
+                    source_page: pageData.canonicalPath || 'commercial_landing',
+                    product_name: pageData.h1,
+                    button_location: 'commercial_landing_hero',
+                  })
+                  trackProductInquiry({
+                    source_page: pageData.canonicalPath || 'commercial_landing',
+                    product_name: pageData.h1,
+                    button_location: 'commercial_landing_hero',
+                  })
+                }}
                 className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-200 hover:bg-[#20ba5a] hover:shadow-lg active:scale-[0.98]"
               >
                 <WhatsAppIcon className="h-4 w-4 fill-white" />
@@ -399,10 +412,23 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href={getWhatsAppUrl({ text: pageData.whatsappText || `Hello ONPRINT Dubai, I want to get a quote for ${pageData.h1}.` })}
+                href={getWhatsAppUrl({
+                  text: `${pageData.whatsappText || `Hello 0nprint, I am interested in ordering ${pageData.h1}. Please share your prices, available options, and delivery details.`}\n\n• Page URL: https://www.0nprint.com${pageData.canonicalPath || ''}`,
+                })}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackProductInquiry(pageData.h1, 'WhatsApp Footer CTA')}
+                onClick={() => {
+                  trackWhatsAppClick({
+                    source_page: pageData.canonicalPath || 'commercial_landing',
+                    product_name: pageData.h1,
+                    button_location: 'commercial_landing_footer',
+                  })
+                  trackProductInquiry({
+                    source_page: pageData.canonicalPath || 'commercial_landing',
+                    product_name: pageData.h1,
+                    button_location: 'commercial_landing_footer',
+                  })
+                }}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-[#20ba5a] active:scale-[0.98]"
               >
                 <WhatsAppIcon className="h-4 w-4 fill-white" />

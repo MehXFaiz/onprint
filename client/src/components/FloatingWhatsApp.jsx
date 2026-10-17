@@ -55,14 +55,22 @@ export default function FloatingWhatsApp() {
   const [customMsg, setCustomMsg] = useState('')
 
   const handleOpenWhatsApp = (text, serviceKey = 'general') => {
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/'
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : 'https://www.0nprint.com/'
+    const pageTitle = typeof document !== 'undefined' && document.title ? document.title.split('|')[0].trim() : ''
+
     trackWhatsAppClick({
-      source_page: typeof window !== 'undefined' ? window.location.pathname : 'floating_widget',
+      source_page: currentPath,
       service_name: serviceKey,
+      product_name: pageTitle || serviceKey,
       button_location: 'floating_widget',
       label: `floating_widget_${serviceKey}`,
     })
 
-    const targetText = text || SERVICE_INQUIRY_MESSAGES.general
+    let targetText = text || SERVICE_INQUIRY_MESSAGES.general
+    if (currentPath && currentPath !== '/' && !targetText.includes('Page URL:')) {
+      targetText += `\n\n• Page: ${pageTitle || currentPath}\n• Page URL: ${currentUrl}`
+    }
     const encoded = encodeURIComponent(targetText)
     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`
     openWhatsAppDirectly(url)
@@ -71,13 +79,15 @@ export default function FloatingWhatsApp() {
   const handleCustomSubmit = (e) => {
     e.preventDefault()
     if (!customMsg.trim()) return
-    handleOpenWhatsApp(customMsg.trim(), 'custom_input')
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : 'https://www.0nprint.com/'
+    const fullText = `Hello 0nprint, I have a printing inquiry:\n${customMsg.trim()}\n\n• Page URL: ${currentUrl}`
+    handleOpenWhatsApp(fullText, 'custom_input')
     setCustomMsg('')
     setIsOpen(false)
   }
 
   return (
-    <aside aria-label="WhatsApp Inquiry Concierge" className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end pointer-events-auto">
+    <aside aria-label="WhatsApp Inquiry Concierge" className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end pointer-events-auto">
       {/* Expanded Concierge Card */}
       <AnimatePresence>
         {isOpen && (

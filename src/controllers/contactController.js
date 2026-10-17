@@ -5,19 +5,31 @@ const { notifyNewContactMessage } = require('../utils/notificationService')
 
 async function submitContact(req, res, next) {
   try {
-    const { name, email, phone, company, subject, message } = req.body
+    const { name, email, phone, company, subject, product, quantity, deliveryLocation, message } = req.body || {}
 
-    if (!name || !email || !message) {
-      throw new ApiError(400, 'Name, email, and message are required fields')
+    const resolvedName = (name || '').trim()
+    const resolvedProduct = (product || subject || 'Direct Studio Inquiry').trim()
+    const baseMessage = (message || '').trim()
+    const extraSpecs = [
+      quantity ? `Quantity: ${quantity}` : null,
+      deliveryLocation ? `Delivery Location: ${deliveryLocation}` : null,
+    ].filter(Boolean).join(' | ')
+    const resolvedMessage = extraSpecs ? `${baseMessage}${baseMessage ? '\n' : ''}[${extraSpecs}]` : baseMessage
+    const resolvedEmail = (email || '').trim().toLowerCase() || 'inquiry@0nprint.com'
+
+    if (!resolvedName || !resolvedMessage) {
+      throw new ApiError(400, 'Name and project specifications are required fields')
     }
 
     const savedLocal = persistentStore.addMessage({
-      name: name.trim(),
-      email: email.toLowerCase().trim(),
+      name: resolvedName,
+      email: resolvedEmail,
       phone: phone || null,
       company: company || null,
-      subject: subject || 'Direct Studio Inquiry',
-      message: message.trim(),
+      subject: resolvedProduct,
+      quantity: quantity || null,
+      deliveryLocation: deliveryLocation || null,
+      message: resolvedMessage,
       status: 'unread',
       createdAt: new Date().toISOString(),
     })
@@ -27,12 +39,12 @@ async function submitContact(req, res, next) {
     // Safely notify business email
     notifyNewContactMessage({
       id: messageId,
-      name: name.trim(),
-      email: email.toLowerCase().trim(),
+      name: resolvedName,
+      email: resolvedEmail,
       phone: phone || null,
       company: company || null,
-      subject: subject || 'Direct Studio Inquiry',
-      message: message.trim(),
+      subject: resolvedProduct,
+      message: resolvedMessage,
     }).catch((notifErr) => {
       console.warn('[Contact Controller] Notification warning:', notifErr.message)
     })
@@ -40,7 +52,7 @@ async function submitContact(req, res, next) {
     try {
       const [result] = await pool.execute(
         'INSERT INTO contact_messages (name, email, phone, company, subject, message, status) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        [name.trim(), email.toLowerCase().trim(), phone || null, company || null, subject || 'Direct Studio Inquiry', message.trim(), 'unread']
+        [resolvedName, resolvedEmail, phone || null, company || null, resolvedProduct, resolvedMessage, 'unread']
       )
       if (result?.insertId) {
         messageId = result.insertId
@@ -51,12 +63,12 @@ async function submitContact(req, res, next) {
 
     res.status(201).json({
       success: true,
-      message: 'Your inquiry has been received. Our Dubai sales team will respond shortly.',
+      message: 'Your inquiry has been received. Our print specialists will respond shortly.',
       data: {
         id: messageId,
-        name: name.trim(),
-        email: email.toLowerCase().trim(),
-        subject: subject || 'Direct Studio Inquiry',
+        name: resolvedName,
+        email: resolvedEmail,
+        subject: resolvedProduct,
         status: 'unread',
       },
     })

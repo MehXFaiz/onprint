@@ -626,9 +626,20 @@ export default function IdCardLandingPage() {
                   <WhatsAppIcon className="h-8 w-8 fill-[#25D366] mx-auto mb-3" />
                   <h3 className="font-semibold text-slate-900 mb-1">WhatsApp &amp; Call</h3>
                   <a
-                    href={`https://wa.me/${WHATSAPP_PHONE}`}
+                    href={getServiceWhatsAppUrl('id-cards', {
+                      productName: 'Corporate PVC ID Cards',
+                      pageUrl: 'https://www.0nprint.com/id-card-printing-dubai',
+                    })}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source_page: '/id-card-printing-dubai',
+                        product_name: 'Corporate PVC ID Cards',
+                        service: 'id-cards',
+                        button_location: 'id_card_contact_card',
+                      })
+                    }
                     className="text-slate-600 hover:text-emerald-600 font-medium"
                   >
                     {FORMATTED_PHONE}

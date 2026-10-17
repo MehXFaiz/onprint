@@ -11,7 +11,7 @@ import ProductCard from '../../components/ProductCard'
 import Product360Viewer from '../../components/Product360Viewer'
 import { getProductBySlug, getProducts } from '../../services/products'
 import { getProductImage, getProductCategoriesWithImages, getAllProductCategoryImages } from '../../assets/productImages'
-import { trackViewProduct, trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick } from '../../utils/analytics'
+import { trackViewProduct, trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick, trackContactFormStart } from '../../utils/analytics'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getServiceWhatsAppUrl } from '../../utils/whatsapp'
 
@@ -75,6 +75,8 @@ export default function ProductDetailPage() {
   const [size, setSize] = useState(null)
   const [material, setMaterial] = useState(null)
   const [finish, setFinish] = useState(null)
+  const [customerName, setCustomerName] = useState('')
+  const [deliveryLocation, setDeliveryLocation] = useState('')
   const [notes, setNotes] = useState('')
   const [relatedProducts, setRelatedProducts] = useState([])
   const [activeCategoryTab, setActiveCategoryTab] = useState(0)
@@ -187,6 +189,7 @@ export default function ProductDetailPage() {
       source_page: 'product_detail',
       product_name: product.name,
       category_name: product.category?.name,
+      button_location: 'product_detail_request_quote',
     })
 
     navigate('/get-a-quote', {
@@ -197,36 +200,55 @@ export default function ProductDetailPage() {
         size: size?.label,
         material: material?.label,
         finish: finish?.label,
+        deliveryLocation: deliveryLocation || undefined,
         notes,
         estimatedPrice,
       },
     })
   }
 
+  const categoryUrl = product.category?.slug
+    ? `/categories/${product.category.slug}`
+    : product.category?._id
+    ? `/products?category=${product.category._id}`
+    : '/products'
+
   const breadcrumbsList = [
     { name: 'Products', url: '/products' },
-    ...(product.category ? [{ name: product.category.name, url: `/products?category=${product.category.slug || product.category._id}` }] : []),
+    ...(product.category ? [{ name: product.category.name, url: categoryUrl }] : []),
     { name: product.name, url: `/products/${product.slug}` },
   ]
 
   const productFaqs = [
     {
       question: `What is the minimum order quantity for ${product.name}?`,
-      answer: `The minimum order quantity for ${product.name} is ${product.minimumQuantity || 1} units. Bulk volume pricing is automatically applied on larger quantities.`
+      answer: `The minimum order quantity for ${product.name} is ${product.minimumQuantity || 1} units. Volume tier pricing is automatically applied when you increase the order quantity.`,
     },
     {
-      question: `Can I customize the dimensions and finishes for ${product.name}?`,
-      answer: 'Yes. We offer fully custom dimensions, paper weights, laminate coatings, spot UV varnish, and foil stamping tailored to your brand.'
-    }
+      question: `What materials, sizes, and finishes are available for ${product.name}?`,
+      answer: `We offer customizable dimensions, premium paper and material stocks, and specialty finishes including matte or velvet soft-touch lamination, raised 3D spot UV, and metallic foil stamping where applicable. Select your preferred options above or message us on WhatsApp for custom specifications.`,
+    },
+    {
+      question: `How can I get an exact price or place an order for ${product.name} on WhatsApp?`,
+      answer: `Simply select your desired quantity, size, material, and finish on this page, then click "Get Price on WhatsApp" or "Order on WhatsApp". Your selected specifications and the product page link will be pre-filled in your WhatsApp message to our print team.`,
+    },
+    {
+      question: `Do you check artwork files before printing ${product.name}?`,
+      answer: `Yes. Every order includes a complimentary prepress artwork inspection (checking 300 DPI resolution, CMYK color mode, and bleed margins) and a digital proof before production begins.`,
+    },
+    {
+      question: `What are the turnaround and delivery options for ${product.name}?`,
+      answer: `Standard production takes 24–48 business hours after digital proof approval, with express same-day printing available for urgent corporate requirements and tracked courier delivery to your doorstep.`,
+    },
   ]
 
   return (
     <div className="py-16 sm:py-24">
       {/* Dynamic SEOHead & Product Schema */}
       <SEOHead
-        title={product.seoTitle || `${product.name} Dubai | Custom Printing | ONPRINT`}
+        title={product.seoTitle || `${product.name} | Custom Printing & Prices | ONPRINT`}
         description={product.seoDescription || product.description || product.shortDescription}
-        keywords={product.seoKeywords || `${product.name.toLowerCase()} dubai, printing services dubai, custom printing uae`}
+        keywords={product.seoKeywords || `${product.name.toLowerCase()}, custom ${product.name.toLowerCase()} printing, printing prices and quotations, business card printing, visiting card printing`}
         canonicalPath={`/products/${product.slug}`}
         product={product}
         breadcrumbs={breadcrumbsList}
@@ -237,7 +259,7 @@ export default function ProductDetailPage() {
         <Breadcrumbs
           items={[
             { name: 'Products', path: '/products' },
-            ...(product.category ? [{ name: product.category.name, path: `/products?category=${product.category.slug || product.category._id}` }] : []),
+            ...(product.category ? [{ name: product.category.name, path: categoryUrl }] : []),
             { name: product.name },
           ]}
         />
@@ -413,82 +435,198 @@ export default function ProductDetailPage() {
                 />
               )}
 
-              {/* Quantity Input */}
-              <div>
-                <label htmlFor="quantity" className="block text-xs font-bold uppercase tracking-wider text-primary">
-                  Quantity (Units)
-                </label>
-                <input
-                  id="quantity"
-                  type="number"
-                  min={product.minimumQuantity || 1}
-                  step={1}
-                  value={quantity}
-                  onChange={(e) => setQuantity(Math.max(product.minimumQuantity || 1, parseInt(e.target.value, 10) || 1))}
-                  className="mt-2 w-32 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-bold text-primary focus:border-accent focus:outline-none"
-                />
+              {/* Quantity, Optional Customer Name & Delivery Location */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label htmlFor="quantity" className="block text-xs font-bold uppercase tracking-wider text-primary">
+                    Quantity (Units)
+                  </label>
+                  <input
+                    id="quantity"
+                    type="number"
+                    min={product.minimumQuantity || 1}
+                    step={1}
+                    value={quantity}
+                    onFocus={() =>
+                      trackContactFormStart({
+                        form_name: 'product_quick_inquiry',
+                        product_name: product.name,
+                        button_location: 'product_detail_quantity',
+                      })
+                    }
+                    onChange={(e) => setQuantity(Math.max(product.minimumQuantity || 1, parseInt(e.target.value, 10) || 1))}
+                    className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm font-bold text-primary focus:border-accent focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="customerName" className="block text-xs font-bold uppercase tracking-wider text-primary">
+                    Your Name (Optional)
+                  </label>
+                  <input
+                    id="customerName"
+                    type="text"
+                    value={customerName}
+                    onFocus={() =>
+                      trackContactFormStart({
+                        form_name: 'product_quick_inquiry',
+                        product_name: product.name,
+                        button_location: 'product_detail_name',
+                      })
+                    }
+                    onChange={(e) => setCustomerName(e.target.value)}
+                    placeholder="e.g. Ahmed / Sarah"
+                    className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-xs font-semibold text-primary focus:border-accent focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="deliveryLocation" className="block text-xs font-bold uppercase tracking-wider text-primary">
+                    Delivery Location (Optional)
+                  </label>
+                  <input
+                    id="deliveryLocation"
+                    type="text"
+                    value={deliveryLocation}
+                    onFocus={() =>
+                      trackContactFormStart({
+                        form_name: 'product_quick_inquiry',
+                        product_name: product.name,
+                        button_location: 'product_detail_location',
+                      })
+                    }
+                    onChange={(e) => setDeliveryLocation(e.target.value)}
+                    placeholder="e.g. Dubai / Lahore / Karachi"
+                    className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-xs font-semibold text-primary focus:border-accent focus:outline-none"
+                  />
+                </div>
               </div>
 
               {/* Special Instructions */}
               <div>
                 <label htmlFor="notes" className="block text-xs font-bold uppercase tracking-wider text-primary">
-                  Custom Notes / Pantone Codes (Optional)
+                  Custom Specifications / Pantone Codes (Optional)
                 </label>
                 <textarea
                   id="notes"
                   rows={2}
                   value={notes}
+                  onFocus={() =>
+                    trackContactFormStart({
+                      form_name: 'product_quick_inquiry',
+                      product_name: product.name,
+                      button_location: 'product_detail_notes',
+                    })
+                  }
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Mention custom colors, embossing requirements, or deadline urgency…"
+                  placeholder="Mention custom sizes, single/double-sided print, embossing, or deadline urgency…"
                   className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-xs text-primary focus:border-accent focus:outline-none"
                 />
               </div>
 
               {/* High-Converting Multi-Channel Conversion CTAs */}
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Button onClick={handleRequestQuote} variant="accent" size="lg" className="w-full justify-center sm:w-auto font-bold">
-                  Request Official Quote
-                </Button>
+              <div className="mt-8 space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <a
+                    href={getServiceWhatsAppUrl(product.category?.slug || product.slug, {
+                      productName: product.name,
+                      slug: product.slug,
+                      pageUrl: `https://www.0nprint.com/products/${product.slug}`,
+                      customerName: customerName.trim() || undefined,
+                      quantity,
+                      size: size?.label,
+                      material: material?.label,
+                      finish: finish?.label,
+                      deliveryLocation: deliveryLocation.trim() || undefined,
+                      price: estimatedPrice || undefined,
+                      notes: notes.trim() || undefined,
+                      intent: 'price',
+                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackWhatsAppClick({
+                        source_page: `/products/${product.slug}`,
+                        product_name: product.name,
+                        service_name: product.category?.name || product.name,
+                        button_location: 'product_detail_get_price',
+                        product_id: product.slug || product._id,
+                        label: `product_get_price_${product.slug}`,
+                      })
+                      trackProductInquiry({
+                        source_page: `/products/${product.slug}`,
+                        product_name: product.name,
+                        service_name: product.category?.name,
+                        button_location: 'product_detail_get_price',
+                      })
+                    }}
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-5 py-3.5 text-xs sm:text-sm font-black text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer w-full"
+                  >
+                    <WhatsAppIcon className="h-4.5 w-4.5 fill-white shrink-0" />
+                    <span>Get Price on WhatsApp</span>
+                  </a>
 
-                <a
-                  href={getServiceWhatsAppUrl(product.category?.slug || product.slug, {
-                    productName: product.name,
-                    quantity,
-                    size: size?.label,
-                    material: material?.label,
-                    finish: finish?.label,
-                    price: estimatedPrice || undefined,
-                    notes: notes || undefined,
-                  })}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    trackWhatsAppClick({
-                      source_page: typeof window !== 'undefined' ? window.location.pathname : 'product_detail',
-                      service_name: product.category?.name || product.name,
-                      button_location: 'product_detail_hero',
-                      product_id: product.slug || product._id,
-                      label: `product_detail_inquiry_${product.slug || product.name}`,
-                    })
-                  }}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
-                >
-                  <WhatsAppIcon className="h-4 w-4 fill-white" />
-                  <span>Get Quote on WhatsApp</span>
-                </a>
+                  <a
+                    href={getServiceWhatsAppUrl(product.category?.slug || product.slug, {
+                      productName: product.name,
+                      slug: product.slug,
+                      pageUrl: `https://www.0nprint.com/products/${product.slug}`,
+                      customerName: customerName.trim() || undefined,
+                      quantity,
+                      size: size?.label,
+                      material: material?.label,
+                      finish: finish?.label,
+                      deliveryLocation: deliveryLocation.trim() || undefined,
+                      price: estimatedPrice || undefined,
+                      notes: notes.trim() || undefined,
+                      intent: 'order',
+                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackWhatsAppClick({
+                        source_page: `/products/${product.slug}`,
+                        product_name: product.name,
+                        service_name: product.category?.name || product.name,
+                        button_location: 'product_detail_order_whatsapp',
+                        product_id: product.slug || product._id,
+                        label: `product_order_whatsapp_${product.slug}`,
+                      })
+                      trackProductInquiry({
+                        source_page: `/products/${product.slug}`,
+                        product_name: product.name,
+                        service_name: product.category?.name,
+                        button_location: 'product_detail_order_whatsapp',
+                      })
+                    }}
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#25D366] bg-emerald-50/70 hover:bg-[#25D366] text-emerald-950 hover:text-white px-5 py-3.5 text-xs sm:text-sm font-black transition-all hover:-translate-y-0.5 cursor-pointer w-full"
+                  >
+                    <WhatsAppIcon className="h-4.5 w-4.5 fill-current shrink-0" />
+                    <span>Order on WhatsApp</span>
+                  </a>
+                </div>
 
-                <Button
-                  to="/contact"
-                  variant="secondary"
-                  size="lg"
-                  className="w-full justify-center sm:w-auto"
-                  onClick={() => trackProductInquiry({
-                    source_page: 'product_detail',
-                    product_name: product.name,
-                  })}
-                >
-                  Contact Studio
-                </Button>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                  <Button onClick={handleRequestQuote} variant="accent" size="lg" className="w-full justify-center sm:flex-1 font-bold">
+                    Request Official Quote Form
+                  </Button>
+
+                  <Button
+                    to="/contact"
+                    variant="secondary"
+                    size="lg"
+                    className="w-full justify-center sm:w-auto"
+                    onClick={() =>
+                      trackProductInquiry({
+                        source_page: `/products/${product.slug}`,
+                        product_name: product.name,
+                        button_location: 'product_detail_contact_studio',
+                      })
+                    }
+                  >
+                    Contact Studio
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

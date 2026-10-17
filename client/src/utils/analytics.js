@@ -10,6 +10,32 @@ let lastTrackedPath = null
 let isInitialized = false
 
 /**
+ * Detects non-personal device category ('mobile' | 'tablet' | 'desktop')
+ */
+export function getDeviceCategory() {
+  if (typeof window === 'undefined') return 'desktop'
+  const ua = (navigator?.userAgent || '').toLowerCase()
+  const width = window.innerWidth || 1024
+  if (/ipad|tablet|playbook|silk|(android(?!.*mobile))/i.test(ua) || (width >= 768 && width < 1024)) {
+    return 'tablet'
+  }
+  if (/mobile|iphone|ipod|android.*mobile|windows phone|blackberry/i.test(ua) || width < 768) {
+    return 'mobile'
+  }
+  return 'desktop'
+}
+
+/**
+ * Returns current URL path safely
+ */
+export function getCurrentPagePath(fallback = '/') {
+  if (typeof window !== 'undefined' && window.location && window.location.pathname) {
+    return window.location.pathname
+  }
+  return fallback
+}
+
+/**
  * Strips potential PII or sensitive keys from event payloads
  */
 function sanitizeParams(params = {}) {
@@ -19,7 +45,7 @@ function sanitizeParams(params = {}) {
     'pwd',
     'secret',
     'token',
-    'authToken',
+    'authtoken',
     'jwt',
     'credit_card',
     'card_number',
@@ -30,12 +56,17 @@ function sanitizeParams(params = {}) {
     'ssn',
     'customer_name',
     'name',
+    'full_name',
+    'fullname',
     'email',
     'customer_email',
+    'email_address',
     'phone',
     'phone_number',
     'customer_phone',
+    'whatsapp_number',
     'message',
+    'private_message',
     'notes',
     'artwork',
     'file',
@@ -47,7 +78,7 @@ function sanitizeParams(params = {}) {
     if (sensitiveKeys.includes(lowerKey)) {
       continue
     }
-    if (value !== undefined && value !== null) {
+    if (value !== undefined && value !== null && value !== '') {
       clean[key] = value
     }
   }
@@ -84,7 +115,7 @@ export function initGA(measurementId) {
   }
 
   window.gtag('js', new Date())
-  
+
   // Important for SPA: Disable automatic pageview emission in config
   // Route changes and initial view will be controlled explicitly by React Router
   window.gtag('config', cleanId, {
@@ -103,15 +134,29 @@ export function initGA(measurementId) {
 }
 
 /**
- * Generic GA4 Event Emitter
+ * Generic GA4 Event Emitter (with automatic page_path and device_category)
  */
 export function trackEvent(eventName, eventParams = {}) {
   if (typeof window === 'undefined') return
-  if (!window.gtag) return
 
   try {
-    const cleanParams = sanitizeParams(eventParams)
-    window.gtag('event', eventName, cleanParams)
+    const enrichedParams = {
+      page_path: getCurrentPagePath(),
+      device_category: getDeviceCategory(),
+      ...eventParams,
+    }
+    const cleanParams = sanitizeParams(enrichedParams)
+
+    // Push to dataLayer for GTM compatibility even if gtag isn't initialized yet
+    window.dataLayer = window.dataLayer || []
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, cleanParams)
+    } else {
+      window.dataLayer.push({
+        event: eventName,
+        ...cleanParams,
+      })
+    }
   } catch {
     // Gracefully handle analytics errors without breaking user experience
   }
@@ -123,7 +168,6 @@ export function trackEvent(eventName, eventParams = {}) {
  */
 export function trackPageView({ page_title, page_location, page_path } = {}) {
   if (typeof window === 'undefined') return
-  if (!window.gtag) return
 
   const currentPath = page_path || window.location.pathname + window.location.search
   const currentTitle = page_title || document.title || 'ONPRINT Dubai'
@@ -136,11 +180,14 @@ export function trackPageView({ page_title, page_location, page_path } = {}) {
   lastTrackedPath = currentPath
 
   try {
-    window.gtag('event', 'page_view', {
-      page_title: currentTitle,
-      page_location: currentLocation,
-      page_path: currentPath,
-    })
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_title: currentTitle,
+        page_location: currentLocation,
+        page_path: currentPath,
+        device_category: getDeviceCategory(),
+      })
+    }
   } catch {
     // Graceful fallback
   }
@@ -162,7 +209,7 @@ export function trackViewHomepage() {
 /**
  * 2. View Category
  */
-export function trackViewCategory({ category_name, category_slug }) {
+export function trackViewCategory({ category_name, category_slug } = {}) {
   trackEvent('view_category', {
     category_name: category_name || 'All Categories',
     category_slug: category_slug || 'all',
@@ -172,7 +219,7 @@ export function trackViewCategory({ category_name, category_slug }) {
 /**
  * 3. View Product
  */
-export function trackViewProduct({ product_name, product_id, category_name }) {
+export function trackViewProduct({ product_name, product_id, category_name } = {}) {
   trackEvent('view_product', {
     product_name: product_name || 'Untitled Product',
     product_id: product_id ? String(product_id) : undefined,
@@ -193,27 +240,44 @@ export function trackViewServices({ service_name, service_slug } = {}) {
 /**
  * 5. Get Quote Click
  */
-export function trackGetQuoteClick({ source_page, product_name, category_name } = {}) {
+export function trackGetQuoteClick({ source_page, product_name, category_name, button_location } = {}) {
+  const pagePath = getCurrentPagePath()
   trackEvent('get_quote_click', {
-    source_page: source_page || 'unknown',
+    page_path: pagePath,
+    source_page: source_page || pagePath,
     product_name: product_name || undefined,
     category_name: category_name || undefined,
+    button_location: button_location || 'quote_cta',
+    device_category: getDeviceCategory(),
   })
 }
 
 /**
  * Non-blocking server-side conversion beacon (Privacy-safe, no PII)
- * Separates whatsapp_click, form_submission, quote_request, phone_click, email_click, and product_inquiry.
+ * Separates whatsapp_click, contact_form_submit, quote_request, phone_click, email_click, and product_inquiry.
  * Never reports clicks as confirmed orders.
  */
-export function sendConversionBeacon({ conversion_type, source_page, source_label } = {}) {
+export function sendConversionBeacon({
+  conversion_type,
+  source_page,
+  source_label,
+  product_name,
+  button_location,
+  device_category,
+} = {}) {
   if (typeof window === 'undefined' || typeof fetch !== 'function' || !conversion_type) return
   try {
+    const pagePath = getCurrentPagePath()
+    const resolvedLandingPage =
+      source_page && String(source_page).startsWith('/') ? source_page : pagePath || source_page || '/'
     const payload = {
       conversion_type,
-      landing_page: source_page || window.location.pathname || '/',
+      landing_page: resolvedLandingPage,
       referrer: document.referrer || '',
-      source_label: source_label || conversion_type,
+      source_label: source_label || button_location || product_name || conversion_type,
+      product_name: product_name || undefined,
+      button_location: button_location || undefined,
+      device_category: device_category || getDeviceCategory(),
       query_string: window.location.search || '',
     }
     fetch('/api/seo/conversions/track', {
@@ -227,140 +291,303 @@ export function sendConversionBeacon({ conversion_type, source_page, source_labe
   }
 }
 
+let lastFormStartKey = ''
+let lastFormStartTime = 0
+
 /**
- * 6. Contact Form Submit (No PII)
+ * 6a. Contact Form Start (No PII)
  */
-export function trackContactFormSubmit({ source_page } = {}) {
+export function trackContactFormStart({ form_name = 'inquiry_form', source_page, product_name, button_location } = {}) {
+  const now = Date.now()
+  const pagePath = getCurrentPagePath()
+  const key = `${pagePath}-${form_name}`
+  if (lastFormStartKey === key && now - lastFormStartTime < 15000) {
+    return
+  }
+  lastFormStartKey = key
+  lastFormStartTime = now
+
+  trackEvent('contact_form_start', {
+    form_name,
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    product_name: product_name || undefined,
+    button_location: button_location || 'form_field_focus',
+    device_category: getDeviceCategory(),
+  })
+}
+
+let lastFormSubmitTime = 0
+
+/**
+ * 6b. Contact Form Submit (No PII)
+ */
+export function trackContactFormSubmit({ source_page, product_name, button_location, form_name = 'contact_us_form' } = {}) {
+  const now = Date.now()
+  if (now - lastFormSubmitTime < 1000) return
+  lastFormSubmitTime = now
+
+  const pagePath = getCurrentPagePath()
+  const device = getDeviceCategory()
+
   trackEvent('contact_form_submit', {
-    source_page: source_page || 'contact_page',
-    form_name: 'contact_us_form',
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    form_name,
+    product_name: product_name || undefined,
+    button_location: button_location || 'contact_form_submit_button',
+    device_category: device,
   })
   sendConversionBeacon({
-    conversion_type: 'form_submission',
-    source_page: source_page || 'contact_page',
-    source_label: 'contact_us_form',
+    conversion_type: 'contact_form_submit',
+    source_page: pagePath,
+    source_label: form_name,
+    product_name,
+    button_location: button_location || 'contact_form_submit_button',
+    device_category: device,
   })
 }
 
 let lastWhatsAppClickTime = 0
-let lastWhatsAppClickKey = ''
 
 /**
- * 7. WhatsApp Click (With deduplication against global link listener)
+ * Checks if a WhatsApp click was already tracked within the deduplication window
  */
-export function trackWhatsAppClick({ source_page, service, service_name, button_location, label, product_id, product_name } = {}) {
-  const now = Date.now()
-  const resolvedService = service || service_name || ''
-  const resolvedLabel = label || button_location || resolvedService || 'chat_support'
-  const key = `${source_page || ''}-${resolvedService}-${resolvedLabel}`
+export function wasWhatsAppRecentlyTracked(windowMs = 900) {
+  return Date.now() - lastWhatsAppClickTime < windowMs
+}
 
-  // Deduplicate rapid consecutive triggers within 600ms
-  if (now - lastWhatsAppClickTime < 600 && lastWhatsAppClickKey === key) {
+/**
+ * 7. WhatsApp Click (With strict time-based deduplication to prevent double firing between component & global listeners)
+ */
+export function trackWhatsAppClick(params = {}) {
+  const {
+    source_page,
+    service,
+    service_name,
+    button_location,
+    label,
+    product_id,
+    product_name,
+  } = typeof params === 'object' && params !== null ? params : { label: String(params || '') }
+
+  const now = Date.now()
+  // Deduplicate any rapid consecutive WhatsApp click triggers within 900ms
+  if (now - lastWhatsAppClickTime < 900) {
     return
   }
   lastWhatsAppClickTime = now
-  lastWhatsAppClickKey = key
+
+  const pagePath = getCurrentPagePath()
+  const device = getDeviceCategory()
+  const resolvedProduct = product_name || service_name || service || undefined
+  const resolvedLocation = button_location || label || 'whatsapp_cta'
+  const resolvedLabel = label || button_location || resolvedProduct || 'whatsapp_inquiry'
 
   trackEvent('whatsapp_click', {
-    source_page: source_page || 'website',
+    page_path: pagePath,
+    source_page: source_page || pagePath,
     channel: 'whatsapp',
-    service: resolvedService || undefined,
-    button_location: button_location || undefined,
+    product_name: resolvedProduct,
+    service: service || service_name || undefined,
+    button_location: resolvedLocation,
     label: resolvedLabel,
     product_id: product_id ? String(product_id) : undefined,
-    product_name: product_name || undefined,
+    device_category: device,
   })
   sendConversionBeacon({
     conversion_type: 'whatsapp_click',
-    source_page: source_page || 'website',
+    source_page: pagePath,
     source_label: resolvedLabel,
+    product_name: resolvedProduct,
+    button_location: resolvedLocation,
+    device_category: device,
   })
 }
 
+let lastPhoneClickTime = 0
+
+export function wasPhoneRecentlyTracked(windowMs = 900) {
+  return Date.now() - lastPhoneClickTime < windowMs
+}
+
 /**
- * 8. Phone Click
+ * 8. Phone Click (No PII / raw phone numbers sent to analytics)
  */
-export function trackPhoneClick({ source_page, phone_number } = {}) {
+export function trackPhoneClick({ source_page, button_location, product_name } = {}) {
+  const now = Date.now()
+  if (now - lastPhoneClickTime < 900) return
+  lastPhoneClickTime = now
+
+  const pagePath = getCurrentPagePath()
+  const device = getDeviceCategory()
+  const resolvedLocation = button_location || 'phone_contact_link'
+
   trackEvent('phone_click', {
-    source_page: source_page || 'website',
-    phone_label: phone_number || 'phone_contact',
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    button_location: resolvedLocation,
+    product_name: product_name || undefined,
+    device_category: device,
   })
   sendConversionBeacon({
     conversion_type: 'phone_click',
-    source_page: source_page || 'website',
-    source_label: phone_number || 'phone_contact',
+    source_page: pagePath,
+    source_label: resolvedLocation,
+    product_name,
+    button_location: resolvedLocation,
+    device_category: device,
   })
 }
 
+let lastEmailClickTime = 0
+
+export function wasEmailRecentlyTracked(windowMs = 900) {
+  return Date.now() - lastEmailClickTime < windowMs
+}
+
 /**
- * 9. Email Click
+ * 9. Email Click (No PII)
  */
-export function trackEmailClick({ source_page, email_address } = {}) {
+export function trackEmailClick({ source_page, button_location } = {}) {
+  const now = Date.now()
+  if (now - lastEmailClickTime < 900) return
+  lastEmailClickTime = now
+
+  const pagePath = getCurrentPagePath()
+  const device = getDeviceCategory()
+  const resolvedLocation = button_location || 'email_contact_link'
+
   trackEvent('email_click', {
-    source_page: source_page || 'website',
-    email_label: email_address || '0nprint183@gmail.com',
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    button_location: resolvedLocation,
+    device_category: device,
   })
   sendConversionBeacon({
     conversion_type: 'email_click',
-    source_page: source_page || 'website',
-    source_label: email_address || '0nprint183@gmail.com',
+    source_page: pagePath,
+    source_label: resolvedLocation,
+    button_location: resolvedLocation,
+    device_category: device,
   })
 }
 
+let lastProductInquiryTime = 0
+
 /**
- * 10. Product Inquiry
+ * 10. Product Inquiry (Supports object or positional arguments)
  */
-export function trackProductInquiry({ source_page, product_name, service_name } = {}) {
+export function trackProductInquiry(arg1 = {}, arg2) {
+  const now = Date.now()
+  if (now - lastProductInquiryTime < 600) return
+  lastProductInquiryTime = now
+
+  let params = {}
+  if (typeof arg1 === 'string') {
+    params = { product_name: arg1, button_location: typeof arg2 === 'string' ? arg2 : 'product_cta' }
+  } else if (typeof arg1 === 'object' && arg1 !== null) {
+    params = arg1
+  }
+
+  const { source_page, product_name, service_name, button_location } = params
+  const pagePath = getCurrentPagePath()
+  const device = getDeviceCategory()
+  const resolvedProduct = product_name || service_name || undefined
+  const resolvedLocation = button_location || 'product_inquiry_cta'
+
   trackEvent('product_inquiry', {
-    source_page: source_page || 'product_detail',
-    product_name: product_name || undefined,
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    product_name: resolvedProduct,
     service_name: service_name || undefined,
+    button_location: resolvedLocation,
+    device_category: device,
   })
   sendConversionBeacon({
     conversion_type: 'product_inquiry',
-    source_page: source_page || 'product_detail',
-    source_label: product_name || service_name || 'product_inquiry',
+    source_page: pagePath,
+    source_label: resolvedProduct || resolvedLocation,
+    product_name: resolvedProduct,
+    button_location: resolvedLocation,
+    device_category: device,
   })
 }
 
+let lastQuoteRequestTime = 0
+
 /**
- * 11. Quote Request Submission (No PII) - Also dispatches GA4 generate_lead & quote_form_submit
+ * 11. Quote Request Submission (No PII) - Dispatches quote_request, contact_form_submit, & generate_lead
  */
-export function trackQuoteRequest({ source_page, product_name, category_name } = {}) {
-  // Custom business event
+export function trackQuoteRequest({ source_page, product_name, category_name, button_location } = {}) {
+  const now = Date.now()
+  if (now - lastQuoteRequestTime < 1000) return
+  lastQuoteRequestTime = now
+
+  const pagePath = getCurrentPagePath()
+  const device = getDeviceCategory()
+  const resolvedProduct = product_name || category_name || undefined
+  const resolvedLocation = button_location || 'quote_form_submit'
+
+  // Required Task 6 event: quote_request
   trackEvent('quote_request', {
-    source_page: source_page || 'get_quote_page',
-    product_name: product_name || undefined,
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    product_name: resolvedProduct,
     category_name: category_name || undefined,
+    button_location: resolvedLocation,
+    device_category: device,
   })
 
-  trackEvent('quote_form_submit', {
-    source_page: source_page || 'get_quote_page',
-    product_name: product_name || undefined,
+  // Also emit contact_form_submit so form submission funnel captures both quote & contact forms
+  trackEvent('contact_form_submit', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    form_name: 'quote_request_form',
+    product_name: resolvedProduct,
+    button_location: resolvedLocation,
+    device_category: device,
   })
 
-  // Official GA4 conversion event
+  // Official GA4 conversion event (lead submission, not sale)
   trackEvent('generate_lead', {
     currency: 'AED',
     value: 1,
     lead_type: 'custom_quote',
-    source_page: source_page || 'get_quote_page',
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    product_name: resolvedProduct,
+    device_category: device,
   })
 
   sendConversionBeacon({
     conversion_type: 'quote_request',
-    source_page: source_page || 'get_quote_page',
-    source_label: product_name || category_name || 'custom_quote',
+    source_page: pagePath,
+    source_label: resolvedProduct || 'custom_quote',
+    product_name: resolvedProduct,
+    button_location: resolvedLocation,
+    device_category: device,
   })
 }
 
 /**
- * 12. Quote Form Start
+ * 12. Quote Form Start (Also emits contact_form_start for unified funnel tracking)
  */
-export function trackQuoteFormStart({ form_name = 'quote_wizard', source_page } = {}) {
+export function trackQuoteFormStart({ form_name = 'quote_wizard', source_page, product_name, button_location } = {}) {
+  const pagePath = getCurrentPagePath()
   trackEvent('quote_form_start', {
     form_name,
-    source_page: source_page || 'website',
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    product_name: product_name || undefined,
+    button_location: button_location || 'quote_form_start',
+    device_category: getDeviceCategory(),
+  })
+  trackContactFormStart({
+    form_name,
+    source_page: source_page || pagePath,
+    product_name,
+    button_location: button_location || 'quote_form_start',
   })
 }
 
@@ -368,9 +595,12 @@ export function trackQuoteFormStart({ form_name = 'quote_wizard', source_page } 
  * 13. Artwork File Upload Event
  */
 export function trackArtworkUpload({ file_count = 1, source_page } = {}) {
+  const pagePath = getCurrentPagePath()
   trackEvent('artwork_upload', {
     file_count,
-    source_page: source_page || 'quote_page',
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    device_category: getDeviceCategory(),
   })
 }
 
@@ -381,6 +611,8 @@ export function trackSearch({ search_term } = {}) {
   if (!search_term || typeof search_term !== 'string' || !search_term.trim()) return
   trackEvent('search', {
     search_term: search_term.trim(),
+    page_path: getCurrentPagePath(),
+    device_category: getDeviceCategory(),
   })
 }
 
@@ -393,3 +625,4 @@ export function trackAdminLogin({ success = true } = {}) {
     success: Boolean(success),
   })
 }
+

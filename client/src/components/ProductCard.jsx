@@ -250,6 +250,8 @@ export default function ProductCard({
                 product.category?.slug || product.slug,
                 {
                   productName: product.name,
+                  slug: product.slug,
+                  pageUrl: `https://www.0nprint.com/products/${product.slug}`,
                   price: product.price || undefined,
                 }
               )}
@@ -258,14 +260,15 @@ export default function ProductCard({
               onClick={() => {
                 trackWhatsAppClick({
                   source_page: typeof window !== 'undefined' ? window.location.pathname : 'product_card',
+                  product_name: product.name,
                   service_name: product.category?.name || product.category?.slug || product.name,
                   button_location: 'product_card_overlay',
                   product_id: product.slug || product._id,
                   label: `card_quick_wa_${product.slug || product.name}`,
                 })
               }}
-              aria-label={`WhatsApp chat for ${product.name}`}
-              title="Instant WhatsApp Quote"
+              aria-label={`Get price on WhatsApp for ${product.name}`}
+              title="Get Price on WhatsApp"
               className="inline-flex items-center justify-center h-7 w-7 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white shadow-md transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
             >
               <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
@@ -319,7 +322,7 @@ export default function ProductCard({
         <div className="mt-auto pt-4 border-t border-slate-100 flex items-center gap-2">
           <Link
             to={`/products/${product.slug}`}
-            className="group/btn flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 hover:bg-[#A82F19] px-3.5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all duration-200 shadow-xs hover:shadow-md cursor-pointer active:scale-[0.98]"
+            className="group/btn flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 hover:bg-[#A82F19] px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all duration-200 shadow-xs hover:shadow-md cursor-pointer active:scale-[0.98]"
           >
             <span>Explore</span>
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -330,6 +333,8 @@ export default function ProductCard({
               product.category?.slug || product.slug,
               {
                 productName: product.name,
+                slug: product.slug,
+                pageUrl: `https://www.0nprint.com/products/${product.slug}`,
                 price: product.price || undefined,
               }
             )}
@@ -338,17 +343,19 @@ export default function ProductCard({
             onClick={() => {
               trackWhatsAppClick({
                 source_page: typeof window !== 'undefined' ? window.location.pathname : 'product_card',
+                product_name: product.name,
                 service_name: product.category?.name || product.category?.slug || product.name,
                 button_location: 'product_card_footer',
                 product_id: product.slug || product._id,
                 label: `card_inquiry_${product.slug || product.name}`,
               })
             }}
-            aria-label={`Inquire about ${product.name} on WhatsApp`}
-            title={`Get Quote for ${product.name} on WhatsApp`}
-            className="inline-flex items-center justify-center h-9 w-9 rounded-xl border border-emerald-200 bg-emerald-50/90 text-emerald-600 transition-all duration-200 hover:border-[#25D366] hover:bg-[#25D366] hover:text-white active:scale-95 cursor-pointer shadow-xs"
+            aria-label={`Get Price for ${product.name} on WhatsApp`}
+            title={`Get Price for ${product.name} on WhatsApp`}
+            className="inline-flex items-center justify-center gap-1.5 h-9 px-2.5 rounded-xl border border-emerald-200 bg-emerald-50/90 text-emerald-700 text-[11px] font-bold transition-all duration-200 hover:border-[#25D366] hover:bg-[#25D366] hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
           >
-            <WhatsAppIcon className="h-4 w-4 fill-current" />
+            <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
+            <span>Price</span>
           </a>
 
           {onQuickView && (
@@ -357,7 +364,7 @@ export default function ProductCard({
               onClick={handleQuickView}
               aria-label={`Quick View ${product.name}`}
               title="Quick View"
-              className="inline-flex items-center justify-center h-9 w-9 rounded-xl border border-slate-200 bg-slate-50/90 text-slate-700 transition-all duration-200 hover:border-slate-800 hover:bg-slate-900 hover:text-white active:scale-95 cursor-pointer shadow-xs"
+              className="inline-flex items-center justify-center h-9 w-9 rounded-xl border border-slate-200 bg-slate-50/90 text-slate-700 transition-all duration-200 hover:border-slate-800 hover:bg-slate-900 hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
             >
               <Eye className="h-4 w-4" />
             </button>

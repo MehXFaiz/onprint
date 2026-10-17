@@ -213,6 +213,8 @@ export default function ProductDetailModal({ product, onClose }) {
                   <a
                     href={getServiceWhatsAppUrl(product.category?.slug || product.slug, {
                       productName: product.name,
+                      slug: product.slug,
+                      pageUrl: `https://www.0nprint.com/products/${product.slug}`,
                       price: product.price || undefined,
                     })}
                     target="_blank"
@@ -220,6 +222,7 @@ export default function ProductDetailModal({ product, onClose }) {
                     onClick={() => {
                       trackWhatsAppClick({
                         source_page: typeof window !== 'undefined' ? window.location.pathname : 'product_modal',
+                        product_name: product.name,
                         service_name: categoryName || product.name,
                         button_location: 'product_quick_view_modal',
                         product_id: product.slug || product._id,
@@ -230,7 +233,7 @@ export default function ProductDetailModal({ product, onClose }) {
                     className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-4 py-2.5 text-xs font-bold text-white shadow-xs transition-all hover:-translate-y-0.5 cursor-pointer shrink-0"
                   >
                     <WhatsAppIcon className="h-4 w-4 fill-white" />
-                    <span>WhatsApp Quote</span>
+                    <span>Get Price on WhatsApp</span>
                   </a>
                 </div>
 

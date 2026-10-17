@@ -220,24 +220,28 @@ export default function GetQuotePage() {
       setSubmitted(true)
       window.scrollTo({ top: 0, behavior: 'smooth' })
 
-      // Automatically dispatch order details to WhatsApp
+      // Automatically dispatch order details to WhatsApp (without navigating away from confirmation screen)
       const generatedOrderNum =
         newQuote?.orderNumber ||
         newQuote?.quoteNumber ||
         `ONP-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`
-      openWhatsAppDirectly({
-        title: 'NEW ORDER / QUOTE SUBMISSION',
-        refNumber: generatedOrderNum,
-        name: form.name.trim(),
-        phone: form.phone.trim() || 'N/A',
-        email: form.email.trim(),
-        company: form.company.trim() || 'Individual',
-        product: form.product.trim() || 'Custom Print Job',
-        quantity: qty,
-        specs,
-        price: totalPrice,
-        notes: form.notes.trim() || 'None',
-      })
+      openWhatsAppDirectly(
+        {
+          title: 'NEW ORDER / QUOTE SUBMISSION',
+          refNumber: generatedOrderNum,
+          name: form.name.trim(),
+          phone: form.phone.trim() || 'N/A',
+          email: form.email.trim(),
+          company: form.company.trim() || 'Individual',
+          product: form.product.trim() || 'Custom Print Job',
+          quantity: qty,
+          specs,
+          price: totalPrice,
+          notes: form.notes.trim() || 'None',
+          pageUrl: 'https://www.0nprint.com/get-a-quote',
+        },
+        { allowSameTabFallback: false }
+      )
     } catch (err) {
       console.error('Failed to submit quote request:', err)
     } finally {
@@ -640,16 +644,49 @@ export default function GetQuotePage() {
             Previous Step
           </button>
 
-          {step < steps.length ? (
-            <Button onClick={goNext} variant="primary" icon={false} size="md" className="inline-flex items-center justify-center gap-2">
-              Next Step
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          ) : (
-            <Button onClick={handleSubmit} variant="accent" size="lg" icon={false} disabled={submitting} className="justify-center">
-              {submitting ? 'Submitting Request...' : 'Confirm & Submit Request'}
-            </Button>
-          )}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <a
+              href={getWhatsAppUrl({
+                title: 'QUICK QUOTE INQUIRY — 0NPRINT',
+                name: form.name.trim() || undefined,
+                phone: form.phone.trim() || undefined,
+                email: form.email.trim() || undefined,
+                company: form.company.trim() || undefined,
+                product: form.product.trim() || 'Custom Print Requirement',
+                quantity: form.quantity || '100',
+                size: form.size || undefined,
+                material: form.material || undefined,
+                finish: form.finish || undefined,
+                notes: form.notes.trim() || undefined,
+                pageUrl: 'https://www.0nprint.com/get-a-quote',
+              })}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackWhatsAppClick({
+                  source_page: '/get-a-quote',
+                  product_name: form.product || 'Custom Print Requirement',
+                  button_location: `quote_wizard_step_${step}`,
+                  label: `quote_wizard_wa_step_${step}`,
+                })
+              }
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-5 py-3 text-xs font-black text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer"
+            >
+              <WhatsAppIcon className="h-4 w-4 fill-white shrink-0" />
+              <span>Get Price on WhatsApp Now</span>
+            </a>
+
+            {step < steps.length ? (
+              <Button onClick={goNext} variant="primary" icon={false} size="md" className="inline-flex items-center justify-center gap-2">
+                Next Step
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            ) : (
+              <Button onClick={handleSubmit} variant="accent" size="lg" icon={false} disabled={submitting} className="justify-center">
+                {submitting ? 'Submitting Request...' : 'Confirm & Submit Request'}
+              </Button>
+            )}
+          </div>
         </div>
       </Container>
     </div>

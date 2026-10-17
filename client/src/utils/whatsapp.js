@@ -35,76 +35,76 @@ export function formatPhoneNumber(digits = WHATSAPP_PHONE) {
 
 export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 
-// 2. Official Core Service Prefilled Inquiries (Dubai & UAE Focused)
+// 2. Official Core Service Prefilled Inquiries (Clean, Direct & High-Converting)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    "Hi ONPRINT! I'd like a quotation for Business Card Printing in Dubai. Here are my details — Product: Business Cards, Quantity: [e.g., 100 / 250 / 500 / 1,000], Size: [90x55mm UAE Standard / 85x55mm ISO], Paper & Finish: [350gsm Matte / 450gsm Velvet / 600gsm Cotton / 24K Foil / 3D Spot UV / PVC], Delivery Location: [Dubai / UAE]. Please share pricing and turnaround.",
+    'Hello 0nprint, I am interested in ordering Business Cards (Visiting Cards). Please share your prices, paper & finish options (Matte, Velvet Soft-Touch, Cotton, Foil, Spot UV, PVC), and delivery details.',
   'business-cards-printing':
-    "Hi ONPRINT! I'd like a quotation for Business Card Printing in Dubai. Here are my details — Product: Business Cards, Quantity: [e.g., 100 / 250 / 500 / 1,000], Size: [90x55mm UAE Standard / 85x55mm ISO], Paper & Finish: [350gsm Matte / 450gsm Velvet / 600gsm Cotton / 24K Foil / 3D Spot UV / PVC], Delivery Location: [Dubai / UAE]. Please share pricing and turnaround.",
+    'Hello 0nprint, I am interested in ordering Business Cards (Visiting Cards). Please share your prices, paper & finish options (Matte, Velvet Soft-Touch, Cotton, Foil, Spot UV, PVC), and delivery details.',
   'business-card-printing-dubai':
-    "Hi ONPRINT! I'd like a quotation for Business Card Printing in Dubai. Here are my details — Product: Business Cards, Quantity: [e.g., 100 / 250 / 500 / 1,000], Size: [90x55mm UAE Standard / 85x55mm ISO], Paper & Finish: [350gsm Matte / 450gsm Velvet / 600gsm Cotton / 24K Foil / 3D Spot UV / PVC], Delivery Location: [Dubai / UAE]. Please share pricing and turnaround.",
+    'Hello 0nprint, I am interested in ordering Business Cards in Dubai. Please share your prices, paper & finish options, and delivery details.',
 
   'bottle-printing':
-    "Hi ONPRINT! I'd like a quotation for Custom Water Bottle Printing in Dubai (Product: Thermal Stainless Steel / LED Smart / Sports Bottle, Quantity, Size/Capacity, Finish: UV Print / 360° Laser Engraving, Delivery Location: Dubai/UAE). Please share models, minimum quantities, and pricing.",
+    'Hello 0nprint, I am interested in ordering Custom Printed Water Bottles (Thermal Stainless Steel / Smart LED / Sports Bottles). Please share available models, minimum quantities, UV print / laser engraving prices, and delivery details.',
   'bottle-printing-dubai':
-    "Hi ONPRINT! I'd like a quotation for Custom Water Bottle Printing in Dubai (Product: Thermal Stainless Steel / LED Smart / Sports Bottle, Quantity, Size/Capacity, Finish: UV Print / 360° Laser Engraving, Delivery Location: Dubai/UAE). Please share models, minimum quantities, and pricing.",
+    'Hello 0nprint, I am interested in ordering Custom Printed Water Bottles in Dubai. Please share available models, minimum quantities, prices, and delivery details.',
   'water-bottle-printing-dubai':
-    "Hi ONPRINT! I'd like a quotation for Custom Water Bottle Printing in Dubai (Product, Quantity, Size, Finish, and Delivery Location in Dubai/UAE). Please share available bottle models and pricing.",
+    'Hello 0nprint, I am interested in ordering Custom Water Bottles in Dubai. Please share available bottle models, prices, and delivery details.',
 
   'bottle-labels':
-    "Hi ONPRINT! I'd like a quotation for Custom Bottle Label Printing in Dubai (Product: Waterproof Roll Labels / Die-Cut Vinyl, Quantity, Size, Finish, and Delivery Location in Dubai/UAE).",
+    'Hello 0nprint, I am interested in ordering Custom Waterproof Bottle Labels & Jar Stickers. Please share material options, minimum quantities, prices, and delivery details.',
 
   'rollup-banners':
-    "Hi ONPRINT! I'd like a quotation for Roll-Up Banner Printing in Dubai (Product: Retractable Roll-Up Banner, Quantity, Size: 85x200 / 100x200 / 120x200 cm, Finish: 440gsm Anti-Curl Matte, Delivery Location: Dubai/UAE). Please share prices and 24h turnaround.",
+    'Hello 0nprint, I am interested in ordering Retractable Roll-Up Banners (85x200cm / 100x200cm / 120x200cm). Please share your prices, stand options, and 24-hour delivery details.',
   'rollup-banner-printing-dubai':
-    "Hi ONPRINT! I'd like a quotation for Roll-Up Banner Printing in Dubai (Product: Retractable Roll-Up Banner, Quantity, Size: 85x200 / 100x200 / 120x200 cm, Finish, Delivery Location: Dubai/UAE). Please share prices and 24h turnaround.",
+    'Hello 0nprint, I am interested in ordering Roll-Up Banners in Dubai. Please share your prices, sizes, and express delivery details.',
 
   'stickers':
-    "Hi ONPRINT! I'd like a quotation for Custom Sticker & Label Printing in Dubai (Product: Waterproof Vinyl / Die-Cut / Roll Labels / Holographic, Quantity, Size, Finish, Delivery Location: Dubai/UAE). Please share minimum quantities and pricing.",
+    'Hello 0nprint, I am interested in ordering Custom Stickers & Labels (Waterproof Vinyl, Die-Cut, Roll Labels, Foil/Clear). Please share your prices, available finishes, and delivery details.',
   'stickers-labels-printing':
-    "Hi ONPRINT! I'd like a quotation for Custom Sticker & Label Printing in Dubai (Product, Quantity, Size, Finish, and Delivery Location in Dubai/UAE). Please share pricing and turnaround.",
+    'Hello 0nprint, I am interested in ordering Custom Stickers & Labels. Please share your prices, available options, and delivery details.',
   'sticker-printing-dubai':
-    "Hi ONPRINT! I'd like a quotation for Custom Sticker & Label Printing in Dubai (Product, Quantity, Size, Finish, and Delivery Location in Dubai/UAE). Please share pricing and turnaround.",
+    'Hello 0nprint, I am interested in ordering Custom Stickers in Dubai. Please share your prices, available options, and delivery details.',
 
   'stamps':
-    "Hi ONPRINT! I need a custom stamp in Dubai (official self-inking company stamp, pocket stamp, dater, or wax seal). Please share available models, sizes, license verification requirements, and prices.",
+    'Hello 0nprint, I am interested in ordering a Custom Company Stamp (Self-Inking, Pocket, Dater, or Embossing Seal). Please share available models, sizes, required documents, and prices.',
   'stamps-printing-dubai':
-    "Hi ONPRINT! I need a custom stamp in Dubai. Please share available models, sizes, license verification requirements, and prices.",
+    'Hello 0nprint, I am interested in ordering a Custom Company Stamp in Dubai. Please share available models, sizes, and prices.',
   'custom-stamps':
-    "Hi ONPRINT! I need a custom stamp in Dubai. Please share available models, sizes, license verification requirements, and prices.",
+    'Hello 0nprint, I am interested in ordering a Custom Stamp. Please share available models, sizes, and prices.',
 
   'mugs':
-    "Hi ONPRINT! I'm interested in custom ceramic mug printing in Dubai (white ceramic, two-tone, magic heat-sensitive, travel tumblers). Please share quantities, pricing, and express delivery times.",
+    'Hello 0nprint, I am interested in ordering Custom Printed Mugs (Ceramic, Two-Tone, Magic Heat-Reveal, or Travel Tumblers). Please share your prices, quantities, and delivery details.',
   'mug-printing-dubai':
-    "Hi ONPRINT! I'm interested in custom ceramic mug printing in Dubai. Please share quantities, pricing, and express delivery times.",
+    'Hello 0nprint, I am interested in ordering Custom Printed Mugs in Dubai. Please share your prices, quantities, and delivery details.',
 
   'id-cards':
-    "Hi ONPRINT! I need corporate PVC ID card printing in Dubai (smart NFC, RFID access, magnetic stripe, staff photo IDs). Please share specifications, badge accessories, and corporate volume pricing.",
+    'Hello 0nprint, I am interested in ordering Corporate PVC ID Cards (Staff Photo IDs, RFID/NFC Access Cards, Badges & Lanyards). Please share your prices, specifications, and delivery details.',
   'id-card-printing-dubai':
-    "Hi ONPRINT! I need corporate PVC ID card printing in Dubai. Please share specifications, badge accessories, and corporate volume pricing.",
+    'Hello 0nprint, I am interested in ordering Corporate PVC ID Cards in Dubai. Please share your prices, specifications, and delivery details.',
 
   'lanyards':
-    "Hi ONPRINT! I need custom branded neck lanyards in Dubai (polyester, satin dye-sublimation, safety breakaway, woven jacquard). Please share clip attachments, minimum quantities, and turnaround times.",
+    'Hello 0nprint, I am interested in ordering Custom Branded Neck Lanyards (Satin Sublimation / Polyester with Safety Breakaway & Metal Hook). Please share your prices, minimum quantities, and delivery details.',
   'lanyard-printing-dubai':
-    "Hi ONPRINT! I need custom branded neck lanyards in Dubai. Please share clip attachments, minimum quantities, and turnaround times.",
+    'Hello 0nprint, I am interested in ordering Custom Branded Lanyards in Dubai. Please share your prices, clip options, and delivery details.',
 
   'flyers':
-    "Hi ONPRINT! I'm interested in commercial flyer printing in Dubai (A5, A4, DL, folded leaflets). Please share paper stocks, quantities, and express same-day dispatch options.",
+    'Hello 0nprint, I am interested in ordering Custom Flyers & Leaflets (A5, A4, DL, Bi-Fold/Tri-Fold). Please share your paper stocks, prices, and express delivery details.',
   'flyers-printing-in-dubai':
-    "Hi ONPRINT! I'm interested in commercial flyer printing in Dubai. Please share paper stocks, quantities, and express same-day dispatch options.",
+    'Hello 0nprint, I am interested in ordering Custom Flyers in Dubai. Please share your paper stocks, prices, and express delivery details.',
 
   'brochures':
-    "Hi ONPRINT! I need corporate brochure printing in Dubai (bi-fold, tri-fold, multi-page catalogs). Please share coated paper stocks, luxury lamination options, and pricing.",
+    'Hello 0nprint, I am interested in ordering Custom Printed Brochures & Catalogs (Bi-Fold, Tri-Fold, Saddle-Stitched / Perfect Bound). Please share your prices, paper & lamination options, and delivery details.',
   'brochures-printing':
-    "Hi ONPRINT! I need corporate brochure printing in Dubai. Please share coated paper stocks, luxury lamination options, and pricing.",
+    'Hello 0nprint, I am interested in ordering Custom Brochures in Dubai. Please share your prices, paper & lamination options, and delivery details.',
 
   'stationery':
-    "Hi ONPRINT! I'm interested in executive office stationery printing in Dubai (letterheads, presentation folders, corporate envelopes, notebooks). Please share specifications and pricing.",
+    'Hello 0nprint, I am interested in ordering Corporate Office Stationery (Letterheads, Envelopes, Presentation Folders, Notebooks). Please share your prices, paper stocks, and delivery details.',
   'office-stationery-printing':
-    "Hi ONPRINT! I'm interested in executive office stationery printing in Dubai. Please share specifications and pricing.",
+    'Hello 0nprint, I am interested in ordering Corporate Office Stationery in Dubai. Please share your prices, specifications, and delivery details.',
 
   'general':
-    "Hi ONPRINT! I'd like a quotation for commercial printing in Dubai. Product: [Business Cards / Roll-Up Banners / Stickers / Bottles], Quantity: [Units], Size: [Dimensions], Finish: [Matte / Velvet / Foil / UV], Delivery Location: [Dubai / UAE].",
+    'Hello 0nprint, I am interested in your custom printing services (Business Cards, Flyers, Brochures, Stickers, Banners & Corporate Merchandise). Please share your prices, available options, and delivery details.',
 }
 
 /**
@@ -116,27 +116,56 @@ export function resolveServiceKey(slugOrKey = '') {
   if (s.includes('bottle-label') || s.includes('jar-label') || s.includes('product-label')) return 'bottle-labels'
   if (s.includes('bottle') || s.includes('flask') || s.includes('drinkware')) return 'bottle-printing'
   if (s.includes('mug') || s.includes('cup') || s.includes('tumbler')) return 'mugs'
+  if (s.includes('card') && (s.includes('id') || s.includes('pvc') || s.includes('badge'))) return 'id-cards'
   if (s.includes('card') || s.includes('visiting')) return 'business-cards'
-  if (s.includes('rollup') || s.includes('roll-up') || s.includes('banner')) return 'rollup-banners'
+  if (s.includes('rollup') || s.includes('roll-up') || s.includes('banner') || s.includes('flag')) return 'rollup-banners'
   if (s.includes('sticker') || s.includes('label') || s.includes('decal')) return 'stickers'
   if (s.includes('stamp') || s.includes('seal')) return 'stamps'
   if (s.includes('id-card') || s.includes('id_card') || s.includes('pvc-id')) return 'id-cards'
   if (s.includes('lanyard')) return 'lanyards'
   if (s.includes('flyer') || s.includes('leaflet')) return 'flyers'
   if (s.includes('brochure') || s.includes('catalog')) return 'brochures'
-  if (s.includes('stationery') || s.includes('letterhead') || s.includes('folder') || s.includes('envelope')) return 'stationery'
+  if (s.includes('stationery') || s.includes('letterhead') || s.includes('folder') || s.includes('envelope') || s.includes('notebook') || s.includes('pen')) return 'stationery'
   return 'general'
 }
 
 /**
- * Generates official click-to-chat WhatsApp URL for a service with verified product specs
+ * Resolves current page URL safely for WhatsApp context
+ */
+export function resolveCurrentPageUrl(explicitUrl, slug, type = 'products') {
+  if (explicitUrl && typeof explicitUrl === 'string' && explicitUrl.trim()) {
+    if (explicitUrl.startsWith('http')) return explicitUrl.trim()
+    return `https://www.0nprint.com${explicitUrl.startsWith('/') ? '' : '/'}${explicitUrl.trim()}`
+  }
+  if (slug && typeof slug === 'string' && slug.trim()) {
+    return `https://www.0nprint.com/${type}/${slug.trim()}`
+  }
+  if (typeof window !== 'undefined' && window.location && window.location.href) {
+    return window.location.href
+  }
+  return 'https://www.0nprint.com/'
+}
+
+/**
+ * Generates official click-to-chat WhatsApp URL for a service or product with verified specs & page URL
  */
 export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
   const canonicalKey = resolveServiceKey(serviceKey)
-  const baseMessage = SERVICE_INQUIRY_MESSAGES[canonicalKey] || SERVICE_INQUIRY_MESSAGES.general
+  const prodName = details.productName || details.product
+  const intent = String(details.intent || 'quote').toLowerCase()
+
+  let baseMessage = SERVICE_INQUIRY_MESSAGES[canonicalKey] || SERVICE_INQUIRY_MESSAGES.general
+  if (prodName) {
+    if (intent === 'order') {
+      baseMessage = `Hello 0nprint, I would like to order ${prodName}. Please confirm the total price, artwork check, and delivery details.`
+    } else {
+      baseMessage = `Hello 0nprint, I am interested in ordering ${prodName}. Please share your prices, available options, and delivery details.`
+    }
+  }
 
   const detailLines = []
-  const prodName = details.productName || details.product
+  const customerName = details.customerName || details.name
+  if (customerName) detailLines.push(`• Customer Name: ${customerName}`)
   if (prodName) detailLines.push(`• Product: ${prodName}`)
   if (details.quantity) detailLines.push(`• Quantity: ${details.quantity} units`)
   const sizeVal = details.size || details.dimensions
@@ -145,12 +174,19 @@ export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
   if (matVal) detailLines.push(`• Material / Stock: ${matVal}`)
   const finVal = details.finish || details.finishing || details.coating
   if (finVal) detailLines.push(`• Finish / Coating: ${finVal}`)
+  const specsVal = details.specifications || details.specs
+  if (specsVal) detailLines.push(`• Specifications: ${specsVal}`)
   const locVal = details.deliveryLocation || details.location
   if (locVal) detailLines.push(`• Delivery Location: ${locVal}`)
   const deadlineVal = details.deadline || details.turnaround || details.deliveryDate
   if (deadlineVal) detailLines.push(`• Required Deadline: ${deadlineVal}`)
   if (details.price) detailLines.push(`• Starting / Quoted Price: AED ${details.price}`)
   if (details.notes) detailLines.push(`• Custom Notes: ${details.notes}`)
+
+  const pageUrl = resolveCurrentPageUrl(details.pageUrl, details.slug, details.urlType || 'products')
+  if (pageUrl && (prodName || details.includePageUrl || (typeof window !== 'undefined' && window.location?.pathname !== '/'))) {
+    detailLines.push(`• Page URL: ${pageUrl}`)
+  }
 
   let fullMessage = baseMessage
   if (detailLines.length > 0) {
@@ -172,7 +208,7 @@ export function formatWhatsAppMessage(params = {}) {
   }
 
   const {
-    title = 'NEW PRINTING INQUIRY',
+    title = 'NEW PRINTING INQUIRY — 0NPRINT',
     refNumber,
     name,
     phone,
@@ -190,9 +226,11 @@ export function formatWhatsAppMessage(params = {}) {
     deadline,
     turnaround,
     specs,
+    specifications,
     price,
     notes,
     deliveryLocation = 'Dubai, UAE',
+    pageUrl,
   } = params || {}
 
   const resolvedProduct = product || productName
@@ -200,8 +238,16 @@ export function formatWhatsAppMessage(params = {}) {
   const resolvedMaterial = material || paper
   const resolvedFinish = finish || finishing
   const resolvedDeadline = deadline || turnaround
+  const resolvedSpecs = specs || specifications
+  const resolvedPageUrl = pageUrl || (typeof window !== 'undefined' && window.location ? window.location.href : '')
+
+  const introLine = resolvedProduct
+    ? `Hello 0nprint, I am interested in ordering ${resolvedProduct}. Please share your prices, available options, and delivery details.`
+    : `Hello 0nprint, I would like to request a printing quotation. Please review my requirements below:`
 
   const parts = [
+    introLine,
+    '',
     `⚡ *${title}* 📄`,
     '━━━━━━━━━━━━━━━━━━━━━',
     refNumber ? `🔖 *Ref #:* ${refNumber}` : null,
@@ -210,18 +256,19 @@ export function formatWhatsAppMessage(params = {}) {
     email ? `✉️ *Email:* ${email}` : null,
     company && company !== 'Individual' ? `🏢 *Company:* ${company}` : null,
     resolvedProduct ? `🏷️ *Product / Service:* ${resolvedProduct}` : null,
-    quantity ? `🔢 *Quantity:* ${quantity} units` : null,
+    quantity ? `🔢 *Quantity:* ${quantity}${String(quantity).match(/unit|pcs|box|set/i) ? '' : ' units'}` : null,
     resolvedSize ? `📐 *Dimensions / Size:* ${resolvedSize}` : null,
     resolvedMaterial ? `📜 *Material / Paper:* ${resolvedMaterial}` : null,
     resolvedFinish ? `✨ *Finish / Coating:* ${resolvedFinish}` : null,
     resolvedDeadline ? `⏱️ *Required Deadline:* ${resolvedDeadline}` : null,
-    specs ? `⚙️ *Specifications:* ${specs}` : null,
+    resolvedSpecs ? `⚙️ *Specifications:* ${resolvedSpecs}` : null,
     price ? `💰 *Estimated Total:* AED ${price}` : null,
-    deliveryLocation ? `📍 *Delivery Hub:* ${deliveryLocation}` : null,
+    deliveryLocation ? `📍 *Delivery Location:* ${deliveryLocation}` : null,
     notes && notes !== 'None' ? `📝 *Special Instructions:* ${notes}` : null,
+    resolvedPageUrl ? `🔗 *Page URL:* ${resolvedPageUrl}` : null,
     '━━━━━━━━━━━━━━━━━━━━━',
-    '💬 *Status:* Ready for quote confirmation & express press scheduling.',
-  ].filter(Boolean)
+    '💬 *Status:* Ready for price confirmation & express production scheduling.',
+  ].filter((item) => item !== null)
 
   return parts.join('\n')
 }
@@ -232,28 +279,34 @@ export function getWhatsAppUrl(params = {}) {
 }
 
 /**
- * Safely opens WhatsApp click-to-chat in a new tab without automatically submitting
+ * Safely opens WhatsApp click-to-chat in a new tab without automatically submitting.
+ * When called asynchronously after an API request (allowSameTabFallback = false),
+ * avoids clobbering the current confirmation page if the browser blocks async popups.
  */
-export function openWhatsAppDirectly(paramsOrUrl) {
+export function openWhatsAppDirectly(paramsOrUrl, options = {}) {
+  const { allowSameTabFallback = true } = options
   let url = ''
   if (typeof paramsOrUrl === 'string') {
     url = paramsOrUrl
   } else if (paramsOrUrl && typeof paramsOrUrl === 'object') {
     url = getWhatsAppUrl(paramsOrUrl)
   } else {
-    url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(SERVICE_INQUIRY_MESSAGES.general)}`
+    url = getServiceWhatsAppUrl('general')
   }
 
   if (typeof window !== 'undefined') {
     try {
       const opened = window.open(url, '_blank', 'noopener,noreferrer')
-      if (!opened) {
+      if (!opened && allowSameTabFallback) {
         window.location.href = url
       }
     } catch (e) {
       console.warn('Could not open WhatsApp:', e)
-      window.location.href = url
+      if (allowSameTabFallback) {
+        window.location.href = url
+      }
     }
   }
   return url
 }
+

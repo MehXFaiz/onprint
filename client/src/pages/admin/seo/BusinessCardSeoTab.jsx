@@ -165,7 +165,7 @@ export default function BusinessCardSeoTab({ showToast }) {
             <a
               href="/api/seo/business-cards-link-building/export-prospects-csv"
               download="dubai-business-card-backlink-prospects.csv"
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#C39E54] px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-[#D4AF65]/30 transition-all"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#B89245] px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-[#D4AF65]/30 transition-all"
             >
               <Download className="h-3.5 w-3.5" />
               <span>Export Prospects CSV</span>

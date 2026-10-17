@@ -168,7 +168,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
               size="sm"
               onClick={() => loadInventory(true)}
               disabled={crawling || loading}
-              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
+              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245]"
             >
               <RefreshCw className={`h-3.5 w-3.5 mr-1.5 ${crawling ? 'animate-spin' : ''}`} />
               {crawling ? 'Crawling Pages...' : 'Re-Crawl Site Now'}

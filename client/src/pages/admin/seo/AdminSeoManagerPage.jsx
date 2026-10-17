@@ -1227,7 +1227,7 @@ export default function AdminSeoManagerPage() {
               onClick={handleTriggerFullAudit}
               disabled={fullAuditRunning || actionLoading}
               icon={false}
-              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54] shadow-md shadow-[#D4AF65]/20"
+              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245] shadow-md shadow-[#D4AF65]/20"
             >
               <ShieldCheck className={`h-3.5 w-3.5 mr-1.5 ${fullAuditRunning ? 'animate-spin' : ''}`} />
               {fullAuditRunning ? 'Auditing 38+ Pages...' : 'Full Website Audit'}
@@ -1739,7 +1739,7 @@ export default function AdminSeoManagerPage() {
                 </Link>
                 <Link
                   to="/admin/blog/new"
-                  className="rounded-xl bg-[#D4AF65] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#C39E54] transition-colors shadow-sm flex items-center gap-1.5"
+                  className="rounded-xl bg-[#D4AF65] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#B89245] transition-colors shadow-sm flex items-center gap-1.5"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                   <span>+ New Article</span>

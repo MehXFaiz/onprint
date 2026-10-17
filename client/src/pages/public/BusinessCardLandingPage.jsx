@@ -739,7 +739,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   }
 
   return (
-    <div className="bg-[#FFFFFF] text-[#000000] py-8 sm:py-12">
+    <div className="bg-[#FFFFFF] text-[#343D4F] pt-4 sm:pt-6 pb-12 sm:pb-16">
       {/* Dynamic SEO & Schema Engine */}
       <SEOHead
         title={pageData?.title || 'Business Card Printing Dubai | ONPRINT'}
@@ -816,7 +816,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   <button
                     type="button"
                     onClick={() => scrollToQuote()}
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#C39E54] px-7 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/35 transition-all hover:-translate-y-0.5 cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#B89245] px-7 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/35 transition-all hover:-translate-y-0.5 cursor-pointer"
                   >
                     <span>{pageData.ctaText || 'Get a Free Quote'}</span>
                     <ArrowRight className="h-4 w-4" />
@@ -1117,7 +1117,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full rounded-2xl bg-[#D4AF65] hover:bg-[#C39E54] py-3.5 text-xs font-black uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
+                        className="w-full rounded-2xl bg-[#D4AF65] hover:bg-[#B89245] py-3.5 text-xs font-black uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
                       >
                         {isSubmitting ? (
                           <span>Processing Instant Quote...</span>
@@ -2060,7 +2060,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               <button
                 type="button"
                 onClick={() => scrollToQuote()}
-                className="w-full sm:w-auto rounded-2xl bg-[#D4AF65] hover:bg-[#C39E54] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
+                className="w-full sm:w-auto rounded-2xl bg-[#D4AF65] hover:bg-[#B89245] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
               >
                 Request Custom Quotation
               </button>

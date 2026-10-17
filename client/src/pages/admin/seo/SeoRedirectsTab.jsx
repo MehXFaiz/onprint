@@ -201,7 +201,7 @@ export default function SeoRedirectsTab({ showToast }) {
                 setFormData(initialForm)
                 setShowAddModal(true)
               }}
-              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
+              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245]"
             >
               <Plus className="h-3.5 w-3.5 mr-1.5" />
               Add Redirect Rule
@@ -524,7 +524,7 @@ export default function SeoRedirectsTab({ showToast }) {
                   variant="accent"
                   size="sm"
                   disabled={actionLoading}
-                  className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
+                  className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245]"
                 >
                   {actionLoading ? 'Saving...' : editingItem ? 'Update Rule' : 'Create Rule'}
                 </Button>

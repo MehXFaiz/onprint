@@ -35,7 +35,7 @@ export default function SiteFooter() {
           <div className="flex flex-wrap items-center justify-center gap-3.5">
             <Link
               to="/get-a-quote"
-              className="inline-flex items-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C39E54] px-6 sm:px-7 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/25 transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-6 sm:px-7 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/25 transition-all"
               onClick={() => trackGetQuoteClick({ source_page: 'footer_cta_banner' })}
             >
               <span>Request Custom Quote</span>

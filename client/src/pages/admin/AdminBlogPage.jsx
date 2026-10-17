@@ -976,7 +976,7 @@ export default function AdminBlogPage() {
               </Button>
               <Link
                 to={`/admin/blog/${seoModalPost.id}/edit`}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-[#D4AF65] px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-[#8F2613] transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-[#D4AF65] px-4 py-2 text-xs font-bold text-[#101D35] shadow-xs hover:bg-[#B89245] transition-colors"
               >
                 <Edit2 className="h-3.5 w-3.5" />
                 <span>Optimize in Blog Editor</span>

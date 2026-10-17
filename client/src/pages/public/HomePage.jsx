@@ -322,19 +322,13 @@ export default function HomePage() {
       {/* 1. WARM EDITORIAL & MODERN CRAFT HERO WITH 3D INTERACTIVE BENTO STAGE     */}
       {/* ========================================================================= */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#101D35] via-[#101D35] to-[#0B1426] text-white pt-10 sm:pt-14 lg:pt-16 pb-16 sm:pb-24 border-b border-[#28395A]">
-        {/* Warm Editorial Ambient Radial Glows */}
+        {/* Luxury Deep Ambient Radial Glows */}
         <div
-          className="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-[#D4AF65]/12 via-zinc-200/20 to-transparent blur-[110px] -z-10"
+          className="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-[#D4AF65]/10 blur-[120px] -z-10"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute top-1/4 -right-40 h-[520px] w-[520px] rounded-full bg-gradient-to-bl from-zinc-900/5 via-[#D4AF65]/8 to-transparent blur-[110px] -z-10"
-          aria-hidden="true"
-        />
-
-        {/* Subtle Archival Paper Grid */}
-        <div
-          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,#E4E4E7_1px,transparent_1px),linear-gradient(to_bottom,#E4E4E7_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_65%_55%_at_50%_40%,#000_65%,transparent_100%)] opacity-45"
+          className="pointer-events-none absolute top-1/4 -right-40 h-[520px] w-[520px] rounded-full bg-[#162542] blur-[120px] -z-10"
           aria-hidden="true"
         />
 
@@ -347,15 +341,15 @@ export default function HomePage() {
             className="lg:col-span-6 space-y-6"
           >
             {/* Top Small Atelier Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-[#D4AF65]/40 bg-white/10 px-4 py-1.5 shadow-2xs backdrop-blur-md text-white">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-[#D4AF65]/40 bg-[#162542]/80 px-4 py-1.5 shadow-2xs backdrop-blur-md text-white">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
               </span>
-              <span className="uppercase tracking-[0.2em] text-[10.5px] font-black text-zinc-950">
+              <span className="uppercase tracking-[0.2em] text-[10.5px] font-black text-white">
                 DUBAI COMMERCIAL PRESSROOM
               </span>
-              <span className="h-3 w-px bg-zinc-200" />
+              <span className="h-3 w-px bg-[#28395A]" />
               <span className="flex items-center gap-1 text-[10px] font-bold text-[#D4AF65] uppercase tracking-wider">
                 <Sparkles className="h-3 w-3 text-[#D4AF65]" />
                 AL QUOZ ATELIER
@@ -408,7 +402,7 @@ export default function HomePage() {
                 to="/get-a-quote"
                 variant="primary"
                 size="lg"
-                className="!rounded-full px-8 py-4 text-sm sm:text-base font-black !bg-[#D4AF65] hover:!bg-[#C39E54] !text-[#101D35] shadow-lg shadow-[#D4AF65]/25 hover:shadow-xl hover:shadow-[#D4AF65]/35 text-center justify-center"
+                className="!rounded-full px-8 py-4 text-sm sm:text-base font-black !bg-[#D4AF65] hover:!bg-[#B89245] !text-[#101D35] shadow-lg shadow-[#D4AF65]/25 hover:shadow-xl hover:shadow-[#D4AF65]/35 text-center justify-center"
                 onClick={() => trackGetQuoteClick({ source_page: 'hero_primary_cta' })}
               >
                 <span>Get Instant Quote</span>
@@ -449,21 +443,21 @@ export default function HomePage() {
             </div>
 
             {/* Social Proof Star Rating */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-zinc-600 pt-1">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-300 pt-1">
               <div className="flex items-center gap-1.5">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-3.5 w-3.5 fill-[#D4AF65] text-[#D4AF65]" />
                   ))}
                 </div>
-                <span className="font-extrabold text-zinc-950">4.9 / 5.0</span>
+                <span className="font-extrabold text-white">4.9 / 5.0</span>
                 <span className="text-[#D4AF65]">Google Verified</span>
               </div>
-              <span className="hidden sm:inline text-[#D5CBB8]">•</span>
-              <span className="font-bold text-zinc-950">500+ UAE Enterprises</span>
-              <span className="hidden sm:inline text-[#D5CBB8]">•</span>
-              <span className="inline-flex items-center gap-1 font-bold text-zinc-950">
-                <CheckCircle className="h-3.5 w-3.5 text-emerald-600" />
+              <span className="hidden sm:inline text-[#596579]">•</span>
+              <span className="font-bold text-white">500+ UAE Enterprises</span>
+              <span className="hidden sm:inline text-[#596579]">•</span>
+              <span className="inline-flex items-center gap-1 font-bold text-white">
+                <CheckCircle className="h-3.5 w-3.5 text-emerald-400" />
                 Direct Al Quoz Pressroom
               </span>
             </div>
@@ -478,7 +472,7 @@ export default function HomePage() {
           >
             <div className="relative w-full max-w-[590px] mx-auto">
               {/* Interactive Finish Switcher Tabs above the 3D Stage */}
-              <div className="mb-3.5 flex items-center justify-between gap-2 rounded-2xl border border-[#28395A] bg-white/90 p-1.5 shadow-2xs backdrop-blur-md">
+              <div className="mb-3.5 flex items-center justify-between gap-2 rounded-2xl border border-[#28395A] bg-[#162542] p-1.5 shadow-2xs backdrop-blur-md">
                 <div className="flex items-center gap-1 flex-wrap">
                   {atelierShowcaseItems.map((item, idx) => {
                     const isActive = idx === activeAtelierIdx
@@ -491,13 +485,13 @@ export default function HomePage() {
                           setIsAutoPlaying(false)
                         }}
                         className={`relative rounded-xl px-3 py-1.5 text-[11px] font-bold transition-colors cursor-pointer ${
-                          isActive ? 'text-white' : 'text-zinc-600 hover:text-zinc-950'
+                          isActive ? 'text-[#D4AF65]' : 'text-slate-300 hover:text-white'
                         }`}
                       >
                         {isActive && (
                           <motion.div
                             layoutId="heroAtelierTab"
-                            className="absolute inset-0 rounded-xl bg-zinc-950 border border-[#28395A] shadow-xs -z-10"
+                            className="absolute inset-0 rounded-xl bg-[#101D35] border border-[#D4AF65]/40 shadow-xs -z-10"
                             transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                           />
                         )}
@@ -522,7 +516,7 @@ export default function HomePage() {
                     transform: `perspective(1100px) rotateX(${heroTilt.x}deg) rotateY(${heroTilt.y}deg)`,
                     transition: heroTilt.x === 0 && heroTilt.y === 0 ? 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)' : 'transform 0.08s linear',
                   }}
-                  className="col-span-7 relative group overflow-hidden rounded-3xl border border-[#28395A] bg-white p-2 shadow-[0_24px_50px_-12px_rgba(24,20,17,0.16)] transition-shadow duration-300"
+                  className="col-span-7 relative group overflow-hidden rounded-3xl border border-[#28395A] bg-[#162542] p-2 shadow-[0_24px_50px_-12px_rgba(11,20,38,0.5)] transition-shadow duration-300"
                 >
                   {/* Specular Champagne Foil Glare */}
                   <div
@@ -534,7 +528,7 @@ export default function HomePage() {
 
                   <Link
                     to="/business-card-printing-dubai"
-                    className="relative block h-[340px] sm:h-[404px] w-full overflow-hidden rounded-2xl bg-zinc-950"
+                    className="relative block h-[340px] sm:h-[404px] w-full overflow-hidden rounded-2xl bg-[#101D35]"
                   >
                     <AnimatePresence mode="wait">
                       <motion.img
@@ -557,7 +551,7 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />
 
                     <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                      <span className="rounded-lg bg-zinc-950/85 border border-[#E5E1D8] px-2.5 py-1 text-[9.5px] font-black uppercase tracking-wider text-[#D4AF65] backdrop-blur-md">
+                      <span className="rounded-lg bg-[#101D35]/85 border border-[#E5E1D8] px-2.5 py-1 text-[9.5px] font-black uppercase tracking-wider text-[#D4AF65] backdrop-blur-md">
                         {activeAtelierItem.badge}
                       </span>
                       <span className="rounded-lg bg-[#D4AF65] px-2.5 py-1 text-[9.5px] font-black uppercase tracking-wider text-white shadow-xs">
@@ -594,9 +588,9 @@ export default function HomePage() {
                   {/* Top Card: Executive Stationery */}
                   <Link
                     to="/categories/letterheads-printing-dubai"
-                    className="rounded-3xl border border-[#28395A] bg-white relative group flex-1 overflow-hidden p-2 block"
+                    className="rounded-3xl border border-[#28395A] bg-[#162542] relative group flex-1 overflow-hidden p-2 block shadow-[0_12px_30px_-6px_rgba(11,20,38,0.4)]"
                   >
-                    <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-zinc-100">
+                    <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-[#101D35]">
                       <picture>
                         <source
                           type="image/webp"
@@ -628,9 +622,9 @@ export default function HomePage() {
                   {/* Bottom Card: Painted Edge Cards */}
                   <Link
                     to="/products/luxury-business-cards"
-                    className="rounded-3xl border border-[#28395A] bg-white relative group flex-1 overflow-hidden p-2 block"
+                    className="rounded-3xl border border-[#28395A] bg-[#162542] relative group flex-1 overflow-hidden p-2 block shadow-[0_12px_30px_-6px_rgba(11,20,38,0.4)]"
                   >
-                    <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-zinc-100">
+                    <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-[#101D35]">
                       <picture>
                         <source
                           type="image/webp"
@@ -661,14 +655,14 @@ export default function HomePage() {
               </div>
 
               {/* Floating UAE Atelier Serving Banner */}
-              <div className="mt-4 flex items-center justify-between rounded-2xl bg-white/90 border border-[#28395A] px-4 py-3 text-xs shadow-2xs">
-                <div className="flex items-center gap-2 font-bold text-zinc-950">
+              <div className="mt-4 flex items-center justify-between rounded-2xl bg-[#162542] border border-[#28395A] px-4 py-3 text-xs shadow-md text-white">
+                <div className="flex items-center gap-2 font-bold text-white">
                   <span className="text-base leading-none">🇦🇪</span>
                   <span>Direct Al Quoz Pressroom • Serving All 7 Emirates</span>
                 </div>
                 <Link
                   to="/products"
-                  className="inline-flex items-center gap-1 font-bold text-[#D4AF65] hover:text-zinc-950 transition-colors text-xs"
+                  className="inline-flex items-center gap-1 font-bold text-[#D4AF65] hover:text-white transition-colors text-xs"
                 >
                   <span>Full Catalog</span>
                   <ArrowRight className="h-3.5 w-3.5" />
@@ -682,7 +676,7 @@ export default function HomePage() {
       {/* ========================================================================= */}
       {/* 1B. INFINITE ANIMATED PRESSROOM MARQUEE RIBBON                            */}
       {/* ========================================================================= */}
-      <div className="bg-[#101D35] border-y border-[#343D4F]/40 py-3 overflow-hidden select-none">
+      <div className="bg-[#0B1426] py-3 overflow-hidden select-none">
         <div className="hero-marquee-track flex items-center gap-8 whitespace-nowrap">
           {[...heroMarquee, ...heroMarquee].map((item, idx) => (
             <div key={`${item}-${idx}`} className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.14em] uppercase text-zinc-100/90">
@@ -749,7 +743,7 @@ export default function HomePage() {
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-zinc-950/85 border border-[#E5E1D8] px-2 py-0.5 text-[10px] font-bold text-[#D4AF65] backdrop-blur-xs">
+                      <span className="rounded-lg bg-[#101D35]/85 border border-[#E5E1D8] px-2 py-0.5 text-[10px] font-bold text-[#D4AF65] backdrop-blur-xs">
                         Same-Day / 24h
                       </span>
                     </div>
@@ -832,12 +826,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-zinc-950 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#101D35] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         DWTC &amp; Expo
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-zinc-950/85 border border-[#E5E1D8] px-2 py-0.5 text-[10px] font-bold text-[#D4AF65] backdrop-blur-xs">
+                      <span className="rounded-lg bg-[#101D35]/85 border border-[#E5E1D8] px-2 py-0.5 text-[10px] font-bold text-[#D4AF65] backdrop-blur-xs">
                         Rush 24h Ready
                       </span>
                     </div>
@@ -920,12 +914,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-zinc-950 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#101D35] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         Waterproof Die-Cut
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-zinc-950/85 border border-[#E5E1D8] px-2 py-0.5 text-[10px] font-bold text-[#D4AF65] backdrop-blur-xs">
+                      <span className="rounded-lg bg-[#101D35]/85 border border-[#E5E1D8] px-2 py-0.5 text-[10px] font-bold text-[#D4AF65] backdrop-blur-xs">
                         Same-Day
                       </span>
                     </div>
@@ -1008,12 +1002,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-zinc-950 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#101D35] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         Official Seal
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-zinc-950/85 border border-[#E5E1D8] px-2 py-0.5 text-[10px] font-bold text-[#D4AF65] backdrop-blur-xs">
+                      <span className="rounded-lg bg-[#101D35]/85 border border-[#E5E1D8] px-2 py-0.5 text-[10px] font-bold text-[#D4AF65] backdrop-blur-xs">
                         2h Express
                       </span>
                     </div>
@@ -1209,7 +1203,7 @@ export default function HomePage() {
                         onClick={() => setSelectedCalcCategory(cat)}
                         className={`relative rounded-xl px-3.5 py-2 text-xs font-bold transition-all duration-200 cursor-pointer ${
                           isSelected
-                            ? 'bg-zinc-950 text-zinc-100 shadow-sm border border-[#E5E1D8]'
+                            ? 'bg-[#101D35] text-zinc-100 shadow-sm border border-[#E5E1D8]'
                             : 'bg-zinc-100 text-[#343D4F] hover:bg-zinc-200/70 hover:text-[#101D35] border border-transparent'
                         }`}
                       >
@@ -1291,10 +1285,10 @@ export default function HomePage() {
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end mb-10">
             <div>
               <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">FEATURED COLLECTION</span>
-              <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
+              <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#101D35]">
                 Trending Corporate Merchandise &amp; Print Products
               </h2>
-              <p className="mt-1 max-w-xl text-sm text-slate-600">
+              <p className="mt-1 max-w-xl text-sm text-[#343D4F]">
                 Browse our curated selection of premium business cards, thermal flasks, branded stationery, and exhibition rollups.
               </p>
             </div>
@@ -1333,10 +1327,10 @@ export default function HomePage() {
               <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                 SELECTED ATELIER WORK
               </span>
-              <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
+              <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#101D35]">
                 Crafted in Dubai. Delivered Across the UAE.
               </h2>
-              <p className="mt-1 max-w-xl text-sm text-slate-600">
+              <p className="mt-1 max-w-xl text-sm text-[#343D4F]">
                 A curated look at executive stationery suites, marketing brochures, and VIP corporate gifts produced in our Al Quoz pressroom.
               </p>
             </div>
@@ -1357,7 +1351,7 @@ export default function HomePage() {
                       loading="lazy"
                     />
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-md bg-slate-900/80 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">
+                      <span className="rounded-md bg-[#101D35]/80 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">
                         {item.category}
                       </span>
                     </div>
@@ -1367,10 +1361,10 @@ export default function HomePage() {
                       <span className="text-[9px] font-bold uppercase tracking-wider text-[#D4AF65]">
                         {item.clientSector}
                       </span>
-                      <h3 className="font-display mt-1 text-sm font-bold text-slate-900 group-hover:text-[#D4AF65] transition-colors line-clamp-1">
+                      <h3 className="font-display mt-1 text-sm font-bold text-[#101D35] group-hover:text-[#D4AF65] transition-colors line-clamp-1">
                         {item.title}
                       </h3>
-                      <p className="mt-1 text-[11px] text-slate-500 line-clamp-2">
+                      <p className="mt-1 text-[11px] text-[#596579] line-clamp-2">
                         {item.specs}
                       </p>
                     </div>
@@ -1394,10 +1388,10 @@ export default function HomePage() {
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">THE ONPRINT ADVANTAGE</span>
-            <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
+            <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#101D35]">
               Why Leading UAE Enterprises Choose ONPRINT
             </h2>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-[#343D4F]">
               The benchmark in Heidelberg offset precision, tactile luxury finishing, and express UAE dispatch for corporations, luxury hotels, agencies, and government entities.
             </p>
           </div>
@@ -1409,8 +1403,8 @@ export default function HomePage() {
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4AF65] font-display text-xs font-bold text-white shadow-xs">
                     0{index + 1}
                   </div>
-                  <h3 className="font-display mt-4 text-base font-bold text-slate-900 group-hover:text-[#D4AF65] transition-colors">{item.title}</h3>
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">{item.description}</p>
+                  <h3 className="font-display mt-4 text-base font-bold text-[#101D35] group-hover:text-[#D4AF65] transition-colors">{item.title}</h3>
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#343D4F]">{item.description}</p>
                 </div>
               </Reveal>
             ))}
@@ -1420,19 +1414,19 @@ export default function HomePage() {
           <div className="mt-16 pt-12 border-t border-slate-200/80">
             <div className="text-center max-w-xl mx-auto mb-10">
               <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">DISCIPLINED WORKFLOW</span>
-              <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mt-1">
+              <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-[#101D35] mt-1">
                 Our 4-Step Production Pipeline
               </h3>
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {processSteps.map((item) => (
-                <div key={item.step} className="rounded-2xl border border-slate-200 bg-slate-50/60 p-5">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 text-white text-xs font-bold">
+                <div key={item.step} className="rounded-2xl border border-slate-200 bg-[#F5F2EB] p-5">
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#101D35] text-white text-xs font-bold">
                     {item.step}
                   </span>
-                  <h4 className="font-bold text-sm text-slate-900 mt-3">{item.title}</h4>
-                  <p className="mt-1 text-xs text-slate-600 leading-relaxed">{item.description}</p>
+                  <h4 className="font-bold text-sm text-[#101D35] mt-3">{item.title}</h4>
+                  <p className="mt-1 text-xs text-[#343D4F] leading-relaxed">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -1451,10 +1445,10 @@ export default function HomePage() {
                 <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                   PRINTING KNOWLEDGE &amp; INSIGHTS
                 </span>
-                <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
+                <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#101D35]">
                   Commercial Printing &amp; Luxury Branding Guides
                 </h2>
-                <p className="mt-1 max-w-xl text-sm text-slate-600">
+                <p className="mt-1 max-w-xl text-sm text-[#343D4F]">
                   Expert advice on substrate selection, hot foiling, Pantone CMYK matching, and pre-press standards from our Dubai pressroom.
                 </p>
               </div>
@@ -1477,7 +1471,7 @@ export default function HomePage() {
                         />
                       </div>
 
-                      <div className="mt-4 flex items-center gap-3 text-[11px] font-semibold text-slate-500">
+                      <div className="mt-4 flex items-center gap-3 text-[11px] font-semibold text-[#596579]">
                         <span className="rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 text-[#D4AF65] uppercase tracking-wider">
                           {blog.category || 'Printing Guide'}
                         </span>
@@ -1487,13 +1481,13 @@ export default function HomePage() {
                         </span>
                       </div>
 
-                      <h3 className="font-display mt-2.5 text-base font-bold text-slate-900 hover:text-[#D4AF65] transition-colors">
+                      <h3 className="font-display mt-2.5 text-base font-bold text-[#101D35] hover:text-[#D4AF65] transition-colors">
                         <Link to={`/blog/${blog.slug}`}>
                           {blog.title}
                         </Link>
                       </h3>
 
-                      <p className="mt-2 text-xs leading-relaxed text-slate-600 line-clamp-2">
+                      <p className="mt-2 text-xs leading-relaxed text-[#343D4F] line-clamp-2">
                         {blog.excerpt}
                       </p>
                     </div>
@@ -1518,10 +1512,10 @@ export default function HomePage() {
         <Container className="max-w-4xl">
           <div className="text-center mb-10">
             <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">DUBAI PRINTING FAQ</span>
-            <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
+            <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#101D35]">
               Frequently Asked Questions About Printing in Dubai
             </h2>
-            <p className="mx-auto mt-1 max-w-xl text-sm text-slate-600">
+            <p className="mx-auto mt-1 max-w-xl text-sm text-[#343D4F]">
               Key information on order turnarounds, minimum quantities, paper stocks, and corporate gifting in the UAE.
             </p>
           </div>
@@ -1530,12 +1524,12 @@ export default function HomePage() {
             {homeFaqs.map((faq) => (
               <details key={faq.question} className="group py-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
-                  <h3 className="font-display text-base font-bold text-slate-900 group-hover:text-[#D4AF65] transition-colors">
+                  <h3 className="font-display text-base font-bold text-[#101D35] group-hover:text-[#D4AF65] transition-colors">
                     {faq.question}
                   </h3>
                   <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-180 group-hover:text-[#D4AF65]" />
                 </summary>
-                <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
+                <p className="mt-2.5 text-sm leading-relaxed text-[#343D4F]">
                   {faq.answer}
                 </p>
               </details>
@@ -1590,7 +1584,7 @@ export default function HomePage() {
                       button_location: 'bottom_service_chips',
                     })
                   }
-                  className="flex items-center justify-center gap-2 rounded-xl border border-[#28395A] bg-zinc-900/80 px-3 py-2.5 text-xs font-bold text-white shadow-xs hover:border-[#25D366] hover:bg-zinc-850 hover:text-white transition-all group"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-[#28395A] bg-[#162542] px-3 py-2.5 text-xs font-bold text-white shadow-xs hover:border-[#25D366] hover:bg-[#1B2C4D] hover:text-white transition-all group"
                 >
                   <WhatsAppIcon className="h-3.5 w-3.5 fill-[#25D366] group-hover:scale-110 transition-transform shrink-0" />
                   <span className="truncate">{svc.label}</span>
@@ -1621,7 +1615,7 @@ export default function HomePage() {
               to="/get-a-quote"
               variant="accent"
               size="lg"
-              className="!rounded-full !bg-[#D4AF65] hover:!bg-[#C39E54] shadow-lg shadow-[#D4AF65]/25 text-center justify-center font-black !py-3.5 !px-8 !text-[#101D35]"
+              className="!rounded-full !bg-[#D4AF65] hover:!bg-[#B89245] shadow-lg shadow-[#D4AF65]/25 text-center justify-center font-black !py-3.5 !px-8 !text-[#101D35]"
               onClick={() => trackGetQuoteClick({ source_page: 'homepage_bottom_cta' })}
             >
               Request a Custom Quote →

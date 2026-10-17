@@ -400,7 +400,7 @@ export default function StickersLeadPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#C39E54] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#D4AF65]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                      className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#B89245] text-[#101D35] font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#D4AF65]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? 'Submitting Specifications…' : 'Submit Specification & Get Official Quote →'}
                     </button>

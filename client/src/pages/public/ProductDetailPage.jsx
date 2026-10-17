@@ -739,7 +739,7 @@ export default function ProductDetailPage() {
               <button
                 type="button"
                 onClick={() => setCategoryLightbox(null)}
-                className="absolute -top-3 -right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF65] text-white shadow-lg hover:bg-[#C39E54] transition-colors cursor-pointer"
+                className="absolute -top-3 -right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF65] text-white shadow-lg hover:bg-[#B89245] transition-colors cursor-pointer"
                 aria-label="Close"
               >
                 ✕

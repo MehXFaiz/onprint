@@ -192,10 +192,10 @@ export default function LuxuryFinishesShowcase() {
                   <span className="inline-block rounded-md bg-zinc-100 border border-zinc-200 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-zinc-900">
                     {activeFinish.tagline}
                   </span>
-                  <h3 className="mt-2 text-2xl sm:text-3xl font-black text-zinc-950">
+                  <h3 className="mt-2 text-2xl sm:text-3xl font-black text-[#101D35]">
                     {activeFinish.title}
                   </h3>
-                  <p className="mt-2 text-sm text-zinc-600 leading-relaxed">
+                  <p className="mt-2 text-sm text-[#343D4F] leading-relaxed">
                     {activeFinish.description}
                   </p>
                 </div>
@@ -218,7 +218,7 @@ export default function LuxuryFinishesShowcase() {
                     <span className="block uppercase tracking-wider text-zinc-400 font-bold text-[9.5px]">
                       Recommended Stock Weight
                     </span>
-                    <span className="mt-1 block font-bold text-zinc-900">
+                    <span className="mt-1 block font-bold text-[#101D35]">
                       {activeFinish.stockCompatibility}
                     </span>
                   </div>
@@ -226,7 +226,7 @@ export default function LuxuryFinishesShowcase() {
                     <span className="block uppercase tracking-wider text-zinc-400 font-bold text-[9.5px]">
                       Signature Application
                     </span>
-                    <span className="mt-1 block font-bold text-zinc-900">
+                    <span className="mt-1 block font-bold text-[#101D35]">
                       {activeFinish.idealFor}
                     </span>
                   </div>
@@ -243,7 +243,7 @@ export default function LuxuryFinishesShowcase() {
                   </Link>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 bg-white hover:bg-zinc-50 px-5 py-3 text-xs font-bold text-zinc-900 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 bg-white hover:border-[#101D35] hover:bg-[#F5F2EB] px-5 py-3 text-xs font-bold text-[#101D35] transition-all cursor-pointer"
                   >
                     <span>Request Sample Box</span>
                   </Link>

@@ -1,66 +1,73 @@
 @import "tailwindcss";
 
 :root {
-  /* ONPRINT — Brand Identity & Design System Tokens */
-  --midnight-navy: #101D35;            /* Header, footer, hero sections */
-  --midnight-navy-dark: #0B1426;       /* Deepest Navy Surface */
-  --midnight-navy-elevated: #162542;   /* Elevated Navy Surface */
-  --midnight-navy-surface: #1B2C4D;    /* Navy Card Surface */
-  --midnight-navy-border: #28395A;     /* Navy Border */
+  /* Official 5-Color Unified Palette */
+  --color-primary: #101D35;            /* Midnight Navy: Header, footer, hero sections */
+  --color-accent: #D4AF65;             /* Champagne Gold: Brand accents, icons, premium details */
+  --color-white: #FFFFFF;              /* Pure White: Product pages, cards, main backgrounds */
+  --color-ivory: #F5F2EB;              /* Warm Ivory: Alternate sections, luxury backgrounds */
+  --color-secondary: #343D4F;          /* Slate Navy: Secondary text, muted dark surfaces */
 
-  --champagne-gold: #D4AF65;           /* Brand accents, icons, premium details */
-  --champagne-gold-hover: #C39E54;     /* Rich Gold Hover */
-  --champagne-gold-active: #B89347;    /* Deep Gold Active */
-  --champagne-gold-soft: #FDF9F0;      /* Warm Gold Ultra-Soft Tint */
-  --champagne-gold-border: #E8D3A7;    /* Subtle Gold Border */
+  --color-background: #FFFFFF;         /* Main Canvas */
+  --color-background-alt: #F5F2EB;     /* Alternate Warm Ivory Surface */
+  --color-surface: #FFFFFF;            /* Pure White Card Surface */
+  --color-surface-alt: #F5F2EB;        /* Warm Ivory Card Surface */
+  --color-surface-dark: #101D35;       /* Midnight Navy Surface */
+  --color-text: #101D35;               /* Midnight Navy Primary Text */
+  --color-text-secondary: #343D4F;     /* Slate Navy Secondary Text */
+  --color-border: #D4AF65;             /* Champagne Gold Accent Border */
 
-  --pure-white: #FFFFFF;               /* Product pages, cards, main backgrounds */
-  --warm-ivory: #F5F2EB;               /* Alternate sections, luxury backgrounds */
-  --warm-ivory-dark: #ECE7DC;          /* Slightly deeper warm ivory */
+  /* Dedicated Tokens */
+  --midnight-navy: #101D35;
+  --midnight-navy-dark: #0B1426;
+  --midnight-navy-elevated: #162542;
+  --midnight-navy-surface: #1B2C4D;
+  --midnight-navy-border: #28395A;
 
-  --slate-navy: #343D4F;               /* Secondary text, muted dark surfaces */
-  --slate-navy-muted: #596579;         /* Muted Slate Body Text */
-  --slate-navy-light: #7E8B9F;         /* Light Muted Slate Text */
+  --champagne-gold: #D4AF65;
+  --champagne-gold-hover: #B89245;     /* Official Gold Hover */
+  --champagne-gold-active: #A07D38;
+  --champagne-gold-soft: #FDF9F0;
+  --champagne-gold-border: #E8D3A7;
 
-  /* Semantic System Aliases */
-  --primary: #D4AF65;                  /* Champagne Gold */
-  --primary-hover: #C39E54;            /* Gold Hover */
-  --primary-active: #B89347;           /* Gold Active */
-  --primary-soft: #FDF9F0;             /* Soft Tint */
-  --primary-soft-border: #E8D3A7;      /* Gold Border */
+  --pure-white: #FFFFFF;
+  --warm-ivory: #F5F2EB;
+  --warm-ivory-dark: #ECE7DC;
 
-  --dark: #101D35;                     /* Midnight Navy */
-  --dark-elevated: #162542;            /* Elevated Dark Surface */
-  --dark-surface: #1B2C4D;             /* Dark Card Surface */
-  --dark-border: #28395A;              /* Dark Border */
+  --slate-navy: #343D4F;
+  --slate-navy-muted: #596579;
+  --slate-navy-light: #7E8B9F;
 
-  --background: #FFFFFF;               /* Pure White Canvas */
-  --background-alt: #F5F2EB;           /* Warm Ivory Alternate */
-  --surface: #FFFFFF;                  /* Pure White Card Surface */
-  --surface-alt: #F5F2EB;              /* Warm Ivory Surface */
+  /* Aliases */
+  --primary: #101D35;
+  --accent: #D4AF65;
+  --accent-hover: #B89245;
+  --background: #FFFFFF;
+  --background-alt: #F5F2EB;
+  --surface: #FFFFFF;
+  --surface-alt: #F5F2EB;
+  --dark: #101D35;
+  --text-primary: #101D35;
+  --text-secondary: #343D4F;
+  --border: #E5E1D8;
+  --border-hover: #D4AF65;
 
-  --text-primary: #101D35;             /* Midnight Navy Primary Text */
-  --text-secondary: #343D4F;           /* Slate Navy Secondary Text */
-  --text-muted: #596579;               /* Muted Slate Navy */
-  --text-light: #7E8B9F;               /* Light Muted Text */
-
-  --border: #E5E1D8;                   /* Subtle Warm Border */
-  --border-subtle: #F0ECE4;            /* Soft Border */
-  --border-hover: #D4AF65;             /* Champagne Gold Hover Border */
-
-  --whatsapp: #25D366;                 /* Official WhatsApp Green */
-  --whatsapp-hover: #20BA59;           /* WhatsApp Hover */
+  --whatsapp: #25D366;                 /* Functional official WhatsApp green */
+  --whatsapp-hover: #20BA59;
 }
 
 @theme {
-  --color-background: var(--background);
-  --color-background-alt: var(--background-alt);
-  --color-surface: var(--surface);
-  --color-surface-alt: var(--surface-alt);
-  --color-surface-dark: var(--dark);
-  --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
-  --color-primary-soft: var(--primary-soft);
+  --color-primary: var(--color-primary);
+  --color-accent: var(--color-accent);
+  --color-white: var(--color-white);
+  --color-ivory: var(--color-ivory);
+  --color-secondary: var(--color-secondary);
+
+  --color-background: var(--color-background);
+  --color-background-alt: var(--color-background-alt);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-surface-dark: var(--color-surface-dark);
   --color-border: var(--border);
 
   /* Primary Brand Theme Tokens */
@@ -68,7 +75,7 @@
   --color-midnight-navy-dark: #0B1426;
   --color-midnight-navy-light: #162542;
   --color-champagne-gold: #D4AF65;
-  --color-champagne-gold-hover: #C39E54;
+  --color-champagne-gold-hover: #B89245;
   --color-champagne-gold-soft: #FDF9F0;
   --color-pure-white: #FFFFFF;
   --color-warm-ivory: #F5F2EB;
@@ -79,7 +86,7 @@
 
   /* Backward compatibility aliases mapping old orange/dark classes to new theme */
   --color-brand-orange: #D4AF65;
-  --color-brand-orange-hover: #C39E54;
+  --color-brand-orange-hover: #B89245;
   --color-brand-orange-soft: #FDF9F0;
   --color-brand-dark: #101D35;
   --color-brand-surface: #162542;
@@ -198,9 +205,9 @@ body {
 }
 
 .btn-primary:hover {
-  background: #C39E54;
-  border-color: #C39E54;
-  box-shadow: 0 8px 24px rgba(212, 175, 101, 0.38);
+  background: #B89245;
+  border-color: #B89245;
+  box-shadow: 0 8px 24px rgba(184, 146, 69, 0.38);
   transform: translateY(-2px);
 }
 

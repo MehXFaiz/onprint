@@ -700,7 +700,7 @@ Please confirm availability and dispatch schedule.`
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#C39E54] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-[#D4AF65]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                      className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#B89245] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-[#101D35] shadow-md shadow-[#D4AF65]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? 'Submitting Specification…' : 'Submit Specification & Get Official Quote →'}
                     </button>

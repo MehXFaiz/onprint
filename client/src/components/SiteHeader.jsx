@@ -285,149 +285,79 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full select-none pt-1.5 sm:pt-2.5">
-      {/* 1. TOP MINIMAL MICRO-TICKER RIBBON */}
-      <div className="hidden md:block mx-auto max-w-7xl px-4 sm:px-6 mb-1.5">
-        <div className="flex items-center justify-between text-[11px] font-medium text-zinc-500 tracking-tight">
-          {/* Left: Pressroom Live Status Badge */}
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="inline-flex items-center gap-1.5 text-zinc-900 font-bold uppercase tracking-wider text-[10px]">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF65] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D4AF65]"></span>
-              </span>
-              <span>Dubai Commercial Pressroom</span>
-            </div>
-            <span className="text-zinc-300">•</span>
-            <span className="text-zinc-600">Al Quoz 4, Dubai</span>
-            <span className="text-zinc-300 hidden lg:inline">•</span>
-            <span className="hidden lg:inline text-zinc-900 font-semibold">Same-Day 4H Rush Available</span>
-            <span className="text-zinc-300 hidden xl:inline">•</span>
-            <span className="hidden xl:inline text-zinc-500">Free 300 DPI Pre-Flight Audit</span>
-          </div>
-
-          {/* Right: Hotline + Track Order + WhatsApp */}
-          <div className="flex items-center gap-3.5 text-zinc-600 shrink-0">
-            <a
-              href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              className="inline-flex items-center gap-1.5 font-bold text-zinc-900 hover:text-[#D4AF65] transition-colors"
-            >
-              <Phone className="h-3 w-3 text-[#D4AF65]" />
-              <span>{FORMATTED_PHONE}</span>
-            </a>
-
-            <span className="text-zinc-300">/</span>
-
-            <Link
-              to="/track-order"
-              className="inline-flex items-center gap-1.5 font-medium hover:text-zinc-950 transition-colors"
-            >
-              <Truck className="h-3 w-3 text-zinc-400" />
-              <span>Track Order</span>
-            </Link>
-
-            <span className="text-zinc-300">/</span>
-
-            <a
-              href={getServiceWhatsAppUrl(location.pathname)}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                trackWhatsAppClick({
-                  source_page: location.pathname,
-                  button_location: 'header_top_bar',
-                  label: 'header_top_bar_whatsapp',
-                })
-              }
-              className="inline-flex items-center gap-1.5 font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
-            >
-              <WhatsAppIcon className="h-3 w-3 fill-current" />
-              <span>WhatsApp Concierge</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. FLOATING ARCHITECTURAL CAPSULE DOCK */}
-      <div className="mx-auto max-w-7xl px-3 sm:px-6">
-        <div
-          className={`rounded-full border transition-all duration-300 px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between gap-2.5 sm:gap-4 ${
-            scrolled
-              ? 'bg-[#101D35]/95 backdrop-blur-2xl border-[#28395A] shadow-[0_12px_36px_rgba(11,20,38,0.5)] text-white'
-              : 'bg-[#101D35]/90 backdrop-blur-xl border-[#28395A] shadow-[0_6px_24px_rgba(11,20,38,0.35)] text-white'
-          }`}
+    <header className="sticky top-0 z-50 w-full select-none bg-[#101D35] border-b border-[#28395A] shadow-md transition-all duration-200">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3 sm:gap-4">
+        {/* Brand Logo & Dubai Flagship Pill */}
+        <Link
+          to="/"
+          onClick={() => setMobileMenuOpen(false)}
+          className="group shrink-0 flex items-center gap-2.5"
         >
-          {/* Brand Logo & Dubai Flagship Pill */}
-          <Link
-            to="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="group shrink-0 flex items-center gap-2.5"
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.2 }}
           >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Logo variant="light" size="md" />
-            </motion.div>
-            <div className="hidden xl:flex items-center gap-1.5 pl-3 border-l border-[#28395A]">
-              <span className="text-[10px] font-black uppercase tracking-wider text-white">
-                DUBAI
-              </span>
-              <span className="h-1 w-1 rounded-full bg-[#D4AF65]" />
-              <span className="text-[9px] font-semibold text-[#D4AF65] uppercase tracking-tight">
-                PRESSROOM
-              </span>
-            </div>
-          </Link>
+            <Logo variant="light" size="md" />
+          </motion.div>
+          <div className="hidden xl:flex items-center gap-1.5 pl-3 border-l border-[#28395A]">
+            <span className="text-[10px] font-black uppercase tracking-wider text-white">
+              DUBAI
+            </span>
+            <span className="h-1 w-1 rounded-full bg-[#D4AF65]" />
+            <span className="text-[9px] font-semibold text-[#D4AF65] uppercase tracking-tight">
+              PRESSROOM
+            </span>
+          </div>
+        </Link>
 
-          {/* Desktop Navigation Links — Minimalist Pill Glider */}
-          <nav
-            className="hidden lg:flex items-center gap-0.5 bg-[#162542] p-1 rounded-full border border-[#28395A] shadow-2xs backdrop-blur-md relative"
-            aria-label="Main Navigation"
-            onMouseLeave={() => setHoveredNav(null)}
+        {/* Desktop Navigation Links — Unified Glider */}
+        <nav
+          className="hidden lg:flex items-center gap-0.5 bg-[#162542] px-3 py-1.5 rounded-full border border-[#28395A] shadow-2xs backdrop-blur-md relative"
+          aria-label="Main Navigation"
+          onMouseLeave={() => setHoveredNav(null)}
+        >
+          {/* Catalog Mega-Menu Trigger */}
+          <div
+            className="relative"
+            onMouseEnter={() => {
+              handleMouseEnterDropdown('catalog')
+              setHoveredNav('catalog')
+            }}
+            onMouseLeave={handleMouseLeaveDropdown}
           >
-            {/* Catalog Mega-Menu Trigger */}
-            <div
-              className="relative"
-              onMouseEnter={() => {
-                handleMouseEnterDropdown('catalog')
-                setHoveredNav('catalog')
-              }}
-              onMouseLeave={handleMouseLeaveDropdown}
+            <button
+              type="button"
+              onClick={() => setActiveDropdown((prev) => (prev === 'catalog' ? null : 'catalog'))}
+              className={`relative z-10 flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold transition-colors cursor-pointer ${
+                activeDropdown === 'catalog' || location.pathname === '/products' || location.pathname === '/categories'
+                  ? 'text-[#D4AF65] font-black'
+                  : 'text-white/90 hover:text-[#D4AF65]'
+              }`}
             >
-              <button
-                type="button"
-                onClick={() => setActiveDropdown((prev) => (prev === 'catalog' ? null : 'catalog'))}
-                className={`relative z-10 flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors cursor-pointer ${
-                  activeDropdown === 'catalog' || location.pathname === '/products' || location.pathname === '/categories'
-                    ? 'text-zinc-950 font-black'
-                    : 'text-zinc-600 hover:text-zinc-950'
+              <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#D4AF65]' : 'text-slate-300'}`} />
+              <span>Catalog</span>
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                  activeDropdown === 'catalog' ? 'rotate-180 text-[#D4AF65]' : 'text-slate-400'
                 }`}
-              >
-                <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#D4AF65]' : 'text-zinc-400'}`} />
-                <span>Catalog</span>
-                <ChevronDown
-                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    activeDropdown === 'catalog' ? 'rotate-180 text-zinc-950' : 'text-zinc-400'
-                  }`}
+              />
+
+              {/* Animated active/hover background pill */}
+              {(hoveredNav === 'catalog' || activeDropdown === 'catalog') && (
+                <motion.div
+                  layoutId="navHoverCapsule"
+                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#D4AF65]/40 text-[#D4AF65] -z-10"
+                  transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
+              )}
+            </button>
 
-                {/* Animated active/hover background pill */}
-                {(hoveredNav === 'catalog' || activeDropdown === 'catalog') && (
-                  <motion.div
-                    layoutId="navHoverCapsule"
-                    className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#D4AF65]/40 text-[#D4AF65] -z-10"
-                    transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                  />
-                )}
-              </button>
-
-              {/* Mega-Menu Dropdown Panel with High-Contrast Bento Layout */}
-              <AnimatePresence>
-                {activeDropdown === 'catalog' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.98 }}
+            {/* Mega-Menu Dropdown Panel with High-Contrast Bento Layout */}
+            <AnimatePresence>
+              {activeDropdown === 'catalog' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.18 }}
@@ -543,11 +473,11 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('cards')}
               className={({ isActive }) =>
                 `relative z-10 flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-zinc-950 font-black' : 'text-zinc-600 hover:text-zinc-950'
+                  isActive ? 'text-[#D4AF65] font-black' : 'text-white/90 hover:text-[#D4AF65]'
                 }`
               }
             >
-              <CreditCard className="h-3.5 w-3.5 text-zinc-400" />
+              <CreditCard className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Cards</span>
               <span className="rounded-full bg-[#D4AF65] text-[#101D35] px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
                 DUBAI
@@ -568,13 +498,13 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('stamps')}
               className={({ isActive }) =>
                 `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-zinc-950 font-black' : 'text-zinc-600 hover:text-zinc-950'
+                  isActive ? 'text-[#D4AF65] font-black' : 'text-white/90 hover:text-[#D4AF65]'
                 }`
               }
             >
-              <Stamp className="h-3.5 w-3.5 text-zinc-400" />
+              <Stamp className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Stamps</span>
-              <span className="rounded-full bg-zinc-200 text-zinc-800 px-1.5 py-0.2 text-[8px] font-black uppercase">
+              <span className="rounded-full bg-[#162542] border border-[#28395A] text-[#D4AF65] px-1.5 py-0.2 text-[8px] font-black uppercase">
                 2H
               </span>
 
@@ -593,11 +523,11 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('stickers')}
               className={({ isActive }) =>
                 `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-zinc-950 font-black' : 'text-zinc-600 hover:text-zinc-950'
+                  isActive ? 'text-[#D4AF65] font-black' : 'text-white/90 hover:text-[#D4AF65]'
                 }`
               }
             >
-              <Tag className="h-3.5 w-3.5 text-zinc-400" />
+              <Tag className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Stickers</span>
 
               {hoveredNav === 'stickers' && (
@@ -615,11 +545,11 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('banners')}
               className={({ isActive }) =>
                 `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-zinc-950 font-black' : 'text-zinc-600 hover:text-zinc-950'
+                  isActive ? 'text-[#D4AF65] font-black' : 'text-white/90 hover:text-[#D4AF65]'
                 }`
               }
             >
-              <Layers className="h-3.5 w-3.5 text-zinc-400" />
+              <Layers className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Banners</span>
 
               {hoveredNav === 'banners' && (
@@ -637,11 +567,11 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('services')}
               className={({ isActive }) =>
                 `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-zinc-950 font-black' : 'text-zinc-600 hover:text-zinc-950'
+                  isActive ? 'text-[#D4AF65] font-black' : 'text-white/90 hover:text-[#D4AF65]'
                 }`
               }
             >
-              <Palette className="h-3.5 w-3.5 text-zinc-400" />
+              <Palette className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Services</span>
 
               {hoveredNav === 'services' && (
@@ -667,14 +597,14 @@ export default function SiteHeader() {
                 onClick={() => setActiveDropdown((prev) => (prev === 'company' ? null : 'company'))}
                 className={`relative z-10 flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-bold transition-colors cursor-pointer ${
                   activeDropdown === 'company' || ['/services', '/about', '/blog', '/contact'].includes(location.pathname)
-                    ? 'text-zinc-950 font-black'
-                    : 'text-zinc-600 hover:text-zinc-950'
+                    ? 'text-[#D4AF65] font-black'
+                    : 'text-white/90 hover:text-[#D4AF65]'
                 }`}
               >
                 <span>Company</span>
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    activeDropdown === 'company' ? 'rotate-180 text-zinc-950' : 'text-zinc-400'
+                    activeDropdown === 'company' ? 'rotate-180 text-[#D4AF65]' : 'text-slate-400'
                   }`}
                 />
 
@@ -694,53 +624,53 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-2xl border border-zinc-200 bg-white/98 backdrop-blur-2xl p-2 shadow-xl z-50 text-zinc-800"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-2xl border border-[#28395A] bg-[#101D35]/98 backdrop-blur-2xl p-2 shadow-2xl z-50 text-white"
                   >
                     <Link
                       to="/services"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-200 hover:bg-[#162542] hover:text-[#D4AF65] transition-colors"
                     >
                       <Sparkles className="h-4 w-4 text-[#D4AF65]" />
                       <div>
                         <div className="leading-tight">All Printing Services</div>
-                        <span className="text-[10px] font-normal text-zinc-400">Offset, Digital &amp; Large Format</span>
+                        <span className="text-[10px] font-normal text-slate-400">Offset, Digital &amp; Large Format</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/about"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-200 hover:bg-[#162542] hover:text-[#D4AF65] transition-colors"
                     >
-                      <Building2 className="h-4 w-4 text-zinc-400" />
+                      <Building2 className="h-4 w-4 text-slate-400" />
                       <div>
                         <div className="leading-tight">About ONPRINT</div>
-                        <span className="text-[10px] font-normal text-zinc-400">Dubai Pressroom &amp; Plant</span>
+                        <span className="text-[10px] font-normal text-slate-400">Dubai Pressroom &amp; Plant</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/blog"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-200 hover:bg-[#162542] hover:text-[#D4AF65] transition-colors"
                     >
-                      <BookOpen className="h-4 w-4 text-zinc-400" />
+                      <BookOpen className="h-4 w-4 text-slate-400" />
                       <div>
                         <div className="leading-tight">Printing Insights</div>
-                        <span className="text-[10px] font-normal text-zinc-400">Paper stocks &amp; finishing</span>
+                        <span className="text-[10px] font-normal text-slate-400">Paper stocks &amp; finishing</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/contact"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-200 hover:bg-[#162542] hover:text-[#D4AF65] transition-colors"
                     >
-                      <MapPin className="h-4 w-4 text-zinc-400" />
+                      <MapPin className="h-4 w-4 text-[#D4AF65]" />
                       <div>
                         <div className="leading-tight">Contact &amp; Location</div>
-                        <span className="text-[10px] font-normal text-zinc-400">Al Quoz Industrial 4, Dubai</span>
+                        <span className="text-[10px] font-normal text-slate-400">Al Quoz Industrial 4, Dubai</span>
                       </div>
                     </Link>
                   </motion.div>
@@ -751,6 +681,15 @@ export default function SiteHeader() {
 
           {/* Right Action Hub */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            {/* Direct Phone Hotline */}
+            <a
+              href={`tel:+${RAW_WHATSAPP_NUMBER}`}
+              className="hidden 2xl:inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-[#D4AF65] transition-colors whitespace-nowrap"
+              title="Direct Pressroom Hotline"
+            >
+              <Phone className="h-3.5 w-3.5 text-[#D4AF65]" />
+              <span>{FORMATTED_PHONE}</span>
+            </a>
             {/* Quick Search Capsule Button */}
             <motion.button
               whileHover={{ scale: 1.02 }}
@@ -959,7 +898,7 @@ export default function SiteHeader() {
             >
               <Link
                 to="/get-a-quote"
-                className="group/cta relative inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C39E54] px-4 sm:px-5 py-2 text-xs font-black text-[#101D35] shadow-sm shadow-[#D4AF65]/30 transition-all whitespace-nowrap overflow-hidden"
+                className="group/cta relative inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-4 sm:px-5 py-2 text-xs font-black text-[#101D35] shadow-sm shadow-[#D4AF65]/30 transition-all whitespace-nowrap overflow-hidden"
                 onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
               >
                 <span>Get Instant Quote</span>
@@ -978,7 +917,6 @@ export default function SiteHeader() {
             </button>
           </div>
         </div>
-      </div>
 
       {/* 3. UNIVERSAL SEARCH MODAL WITH SPRING ANIMATION */}
       <AnimatePresence>
@@ -1424,7 +1362,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D4AF65] hover:bg-[#C39E54] py-3 text-sm font-black text-[#101D35] shadow-md shadow-[#D4AF65]/30 transition-all"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D4AF65] hover:bg-[#B89245] py-3 text-sm font-black text-[#101D35] shadow-md shadow-[#D4AF65]/30 transition-all"
                 >
                   <span>Get Instant Quote</span>
                   <ArrowRight className="h-4 w-4" />

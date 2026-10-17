@@ -171,7 +171,7 @@ Dubai, UAE`
               variant="accent"
               size="sm"
               onClick={() => setShowAddModal(true)}
-              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
+              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245]"
             >
               <Plus className="h-3.5 w-3.5 mr-1.5" />
               Log Brand Mention
@@ -475,7 +475,7 @@ Dubai, UAE`
                   variant="accent"
                   size="sm"
                   disabled={actionLoading}
-                  className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
+                  className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245]"
                 >
                   {actionLoading ? 'Saving...' : 'Save Mention'}
                 </Button>
@@ -547,7 +547,7 @@ Dubai, UAE`
                     await handleUpdateStatus(showPitchModal.id, 'CONTACTED')
                     setShowPitchModal(null)
                   }}
-                  className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
+                  className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245]"
                 >
                   Mark as Contacted
                 </Button>

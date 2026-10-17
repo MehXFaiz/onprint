@@ -1756,7 +1756,7 @@ export default function AdminBlogFormPage() {
                 variant="accent"
                 onClick={handleGenerateAiContent}
                 disabled={aiLoading}
-                className="text-xs font-bold bg-[#D4AF65] hover:bg-[#C39E54]"
+                className="text-xs font-bold bg-[#D4AF65] hover:bg-[#B89245]"
               >
                 <Sparkles className={`h-4 w-4 mr-1.5 ${aiLoading ? 'animate-spin' : ''}`} />
                 <span>{aiLoading ? 'GENERATING PRINTING ARTICLE…' : 'GENERATE BLOG'}</span>

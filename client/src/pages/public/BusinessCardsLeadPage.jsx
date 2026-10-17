@@ -271,7 +271,7 @@ Please confirm availability and dispatch schedule.`
   }
 
   return (
-    <div className="bg-white text-[#0F172A] selection:bg-[#FF5500] selection:text-white">
+    <div className="bg-white text-[#0F172A] selection:bg-[#D4AF65] selection:text-white">
       <SEOHead
         title="Business Card Printing Dubai | Instant Custom Quote & Express UAE Delivery | ONPRINT"
         description="Configure luxury business cards in Dubai. 350-600 GSM Italian cotton, 24K hot foil, velvet soft-touch, spot UV, and painted edges with same-day express press turnaround in Al Quoz."
@@ -286,7 +286,7 @@ Please confirm availability and dispatch schedule.`
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#FF5500] bg-[#FF5500]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#FF5500]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65] bg-[#D4AF65]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
                 <Sparkles className="h-3.5 w-3.5" />
                 <span>Dubai's Premier Business Card Atelier • Al Quoz</span>
               </div>
@@ -295,7 +295,7 @@ Please confirm availability and dispatch schedule.`
             <Reveal delay={0.06}>
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15]">
                 Custom Business Card Printing{' '}
-                <span className="font-serif italic text-[#FF5500]">Engineered for Distinction</span>
+                <span className="font-serif italic text-[#D4AF65]">Engineered for Distinction</span>
               </h1>
             </Reveal>
 
@@ -313,7 +313,7 @@ Please confirm availability and dispatch schedule.`
                   Direct Al Quoz Pressroom
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Zap className="h-4 w-4 text-[#FF5500]" />
+                  <Zap className="h-4 w-4 text-[#D4AF65]" />
                   Same-Day Express Available
                 </span>
                 <span className="inline-flex items-center gap-1.5">
@@ -342,7 +342,7 @@ Please confirm availability and dispatch schedule.`
               <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FF5500] text-white text-xs font-bold">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
                       1
                     </span>
                     <h2 className="font-serif text-lg sm:text-xl font-bold text-slate-900">
@@ -364,7 +364,7 @@ Please confirm availability and dispatch schedule.`
                         onClick={() => setSelectedCard(card)}
                         className={`group text-left p-3.5 rounded-xl border transition-all duration-200 cursor-pointer flex flex-col justify-between ${
                           isSelected
-                            ? 'border-[#FF5500] bg-[#FF5500]/10 ring-2 ring-[#A82F19]/20 shadow-xs'
+                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 ring-2 ring-[#A82F19]/20 shadow-xs'
                             : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50'
                         }`}
                       >
@@ -379,7 +379,7 @@ Please confirm availability and dispatch schedule.`
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between gap-1">
-                              <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#FF5500]">
+                              <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#D4AF65]">
                                 {card.tag}
                               </span>
                               <span className="text-[9px] font-bold text-slate-500">
@@ -399,7 +399,7 @@ Please confirm availability and dispatch schedule.`
                           <span className="font-semibold text-slate-600">From {card.pricePer100}</span>
                           <span
                             className={`font-bold flex items-center gap-1 ${
-                              isSelected ? 'text-[#FF5500]' : 'text-slate-400 group-hover:text-slate-600'
+                              isSelected ? 'text-[#D4AF65]' : 'text-slate-400 group-hover:text-slate-600'
                             }`}
                           >
                             {isSelected ? '✓ Selected' : 'Select'}
@@ -414,7 +414,7 @@ Please confirm availability and dispatch schedule.`
               {/* Step 2: Select Quantity */}
               <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FF5500] text-white text-xs font-bold">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
                     2
                   </span>
                   <h2 className="font-serif text-lg sm:text-xl font-bold text-slate-900">
@@ -432,7 +432,7 @@ Please confirm availability and dispatch schedule.`
                         onClick={() => setSelectedQty(qty)}
                         className={`p-3 rounded-xl border text-center transition-all duration-200 cursor-pointer ${
                           isSelected
-                            ? 'border-[#FF5500] bg-[#FF5500] text-white font-bold shadow-xs'
+                            ? 'border-[#D4AF65] bg-[#D4AF65] text-white font-bold shadow-xs'
                             : 'border-slate-200 bg-white text-slate-800 font-semibold hover:bg-slate-50 hover:border-slate-300'
                         }`}
                       >
@@ -447,7 +447,7 @@ Please confirm availability and dispatch schedule.`
               <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FF5500] text-white text-xs font-bold">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
                       3
                     </span>
                     <h2 className="font-serif text-lg sm:text-xl font-bold text-slate-900">
@@ -467,21 +467,21 @@ Please confirm availability and dispatch schedule.`
                         onClick={() => toggleAddon(addon.id)}
                         className={`p-3 rounded-xl border text-left flex items-center justify-between gap-3 transition-all duration-200 cursor-pointer ${
                           isChecked
-                            ? 'border-[#FF5500] bg-[#FF5500]/10 text-slate-900 ring-1 ring-[#A82F19]/30'
+                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 text-slate-900 ring-1 ring-[#A82F19]/30'
                             : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
                           <div
                             className={`h-4 w-4 rounded flex items-center justify-center border transition-colors ${
-                              isChecked ? 'bg-[#FF5500] border-[#FF5500] text-white' : 'border-slate-300 bg-white'
+                              isChecked ? 'bg-[#D4AF65] border-[#D4AF65] text-white' : 'border-slate-300 bg-white'
                             }`}
                           >
                             {isChecked && <Check className="h-3 w-3 stroke-[3]" />}
                           </div>
                           <span className="text-xs font-bold">{addon.label}</span>
                         </div>
-                        <span className="text-[11px] font-bold text-[#FF5500]">
+                        <span className="text-[11px] font-bold text-[#D4AF65]">
                           {addon.price > 0 ? `+AED ${addon.price}` : 'Included'}
                         </span>
                       </button>
@@ -493,7 +493,7 @@ Please confirm availability and dispatch schedule.`
               {/* Step 4: Turnaround & Delivery */}
               <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FF5500] text-white text-xs font-bold">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
                     4
                   </span>
                   <h2 className="font-serif text-lg sm:text-xl font-bold text-slate-900">
@@ -511,11 +511,11 @@ Please confirm availability and dispatch schedule.`
                         onClick={() => setSelectedTurnaround(option)}
                         className={`p-3.5 rounded-xl border text-left flex flex-col justify-between transition-all duration-200 cursor-pointer ${
                           isSelected
-                            ? 'border-[#FF5500] bg-[#FF5500]/10 ring-1 ring-[#A82F19]'
+                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 ring-1 ring-[#A82F19]'
                             : 'border-slate-200 bg-white hover:bg-slate-50'
                         }`}
                       >
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#FF5500]">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF65]">
                           {option.tag}
                         </span>
                         <span className="text-xs font-bold text-slate-900 mt-1">
@@ -537,7 +537,7 @@ Please confirm availability and dispatch schedule.`
               <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-lg">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                   <div>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#FF5500]">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF65]">
                       CONFIGURED SPECIFICATION
                     </span>
                     <h3 className="font-serif text-xl font-bold text-slate-900 mt-0.5">
@@ -630,7 +630,7 @@ Please confirm availability and dispatch schedule.`
                   <form onSubmit={handleSubmitForm} className="space-y-3.5">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1">
-                        Full Name <span className="text-[#FF5500]">*</span>
+                        Full Name <span className="text-[#D4AF65]">*</span>
                       </label>
                       <input
                         type="text"
@@ -638,14 +638,14 @@ Please confirm availability and dispatch schedule.`
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Tariq Al-Mansoor"
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19] outline-none"
+                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] outline-none"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Phone / WhatsApp <span className="text-[#FF5500]">*</span>
+                          Phone / WhatsApp <span className="text-[#D4AF65]">*</span>
                         </label>
                         <input
                           type="tel"
@@ -653,12 +653,12 @@ Please confirm availability and dispatch schedule.`
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+971 50 123 4567"
-                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19] outline-none"
+                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] outline-none"
                         />
                       </div>
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Email Address <span className="text-[#FF5500]">*</span>
+                          Email Address <span className="text-[#D4AF65]">*</span>
                         </label>
                         <input
                           type="email"
@@ -666,7 +666,7 @@ Please confirm availability and dispatch schedule.`
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="tariq@company.ae"
-                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19] outline-none"
+                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] outline-none"
                         />
                       </div>
                     </div>
@@ -680,7 +680,7 @@ Please confirm availability and dispatch schedule.`
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="e.g. Al Mansoor Properties"
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19] outline-none"
+                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] outline-none"
                       />
                     </div>
 
@@ -693,14 +693,14 @@ Please confirm availability and dispatch schedule.`
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                         placeholder="e.g. Need foil on logo only, double-sided print..."
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19] outline-none resize-none"
+                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] outline-none resize-none"
                       />
                     </div>
 
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full rounded-xl bg-[#FF5500] hover:bg-[#8F2412] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-[#FF5500]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                      className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#8F2412] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-[#D4AF65]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? 'Submitting Specification…' : 'Submit Specification & Get Official Quote →'}
                     </button>
@@ -718,7 +718,7 @@ Please confirm availability and dispatch schedule.`
       <section className="py-16 sm:py-20 bg-white border-t border-slate-200">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-black uppercase tracking-wider text-[#FF5500]">
+            <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
               ATELIER SUBSTRATES &amp; FINISHES
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mt-1">
@@ -770,7 +770,7 @@ Please confirm availability and dispatch schedule.`
             ].map((finish, idx) => (
               <div
                 key={idx}
-                className="group rounded-2xl border border-slate-200 bg-white p-4 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#FF5500] hover:shadow-md"
+                className="group rounded-2xl border border-slate-200 bg-white p-4 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-md"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100">
                   <img
@@ -786,7 +786,7 @@ Please confirm availability and dispatch schedule.`
                   </div>
                 </div>
                 <div className="mt-4">
-                  <h3 className="font-serif text-base font-bold text-slate-900 group-hover:text-[#FF5500] transition-colors">
+                  <h3 className="font-serif text-base font-bold text-slate-900 group-hover:text-[#D4AF65] transition-colors">
                     {finish.title}
                   </h3>
                   <p className="text-xs text-slate-600 mt-1 leading-relaxed">
@@ -805,7 +805,7 @@ Please confirm availability and dispatch schedule.`
       <section className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
         <Container className="max-w-5xl">
           <div className="text-center mb-12">
-            <span className="text-xs font-black uppercase tracking-wider text-[#FF5500]">
+            <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
               COMMERCIAL ATELIER STANDARDS
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
@@ -841,7 +841,7 @@ Please confirm availability and dispatch schedule.`
                   className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs flex flex-col justify-between"
                 >
                   <div>
-                    <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#FF5500]/10 text-[#FF5500] mb-4">
+                    <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#D4AF65]/10 text-[#D4AF65] mb-4">
                       <IconComp className="h-5 w-5" />
                     </div>
                     <h3 className="text-sm font-bold text-slate-900 mb-2">{std.title}</h3>
@@ -849,7 +849,7 @@ Please confirm availability and dispatch schedule.`
                       {std.desc}
                     </p>
                   </div>
-                  <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-[#FF5500]">
+                  <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-[#D4AF65]">
                     <CheckCircle2 className="h-3.5 w-3.5" />
                     <span>ONPRINT Dubai Standard</span>
                   </div>

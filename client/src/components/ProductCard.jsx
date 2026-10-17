@@ -131,7 +131,7 @@ export default function ProductCard({
         ease: [0.16, 1, 0.3, 1],
       }}
       whileHover={prefersReducedMotion ? undefined : { y: -5 }}
-      className={`group flex flex-col h-full w-full min-w-0 overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-xs hover:border-zinc-950 hover:shadow-xl transition-all duration-300 ${className}`}
+      className={`group flex flex-col h-full w-full min-w-0 overflow-hidden rounded-3xl border border-[#E5E7EB] bg-white shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 ${className}`}
     >
       {/* Product Image Studio Stage */}
       <div
@@ -177,7 +177,7 @@ export default function ProductCard({
         {/* Top-Left Floating Badge Group */}
         <div className="absolute left-3 top-3 z-20 pointer-events-none flex flex-wrap items-center gap-1.5">
           {isFeatured ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#FF5500] px-2.5 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wider text-[#101D35] shadow-xs">
               <Sparkles className="h-3 w-3" />
               Signature
             </span>
@@ -192,13 +192,13 @@ export default function ProductCard({
         {/* Top-Right Price / Service Badge */}
         <div className="absolute right-3 top-3 z-20 pointer-events-none">
           {product.price && Number(product.price) > 0 ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-zinc-950/90 px-2.5 py-0.5 text-[10.5px] font-bold text-white shadow-xs border border-white/10 backdrop-blur-md">
-              <Tag className="h-3 w-3 text-[#FF5500]" />
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/90 px-2.5 py-0.5 text-[10.5px] font-bold text-white shadow-xs border border-white/10 backdrop-blur-md">
+              <Tag className="h-3 w-3 text-[#D4AF65]" />
               <span>AED {product.price}</span>
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 rounded-full bg-zinc-950/85 px-2.5 py-0.5 text-[9.5px] font-bold text-white shadow-xs border border-white/10 backdrop-blur-md">
-              <Clock className="h-3 w-3 text-[#FF5500]" />
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/85 px-2.5 py-0.5 text-[9.5px] font-bold text-white shadow-xs border border-white/10 backdrop-blur-md">
+              <Clock className="h-3 w-3 text-[#D4AF65]" />
               <span>24h Express</span>
             </span>
           )}
@@ -207,7 +207,7 @@ export default function ProductCard({
         {/* Interactive Floating Quick-Actions Overlay (Revealed on Image Hover) */}
         <div className="absolute inset-x-3 bottom-3 z-20 flex items-center justify-between gap-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out pointer-events-none">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-950/90 px-2.5 py-1 text-[9px] font-semibold tracking-wider text-white backdrop-blur-md border border-zinc-800 shadow-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#FF5500] animate-ping" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF65] animate-ping" />
             <span>Interactive 3D</span>
           </span>
 
@@ -262,8 +262,8 @@ export default function ProductCard({
         <div className="min-w-0 space-y-1.5">
           {categoryName ? (
             <div className="flex items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 border border-zinc-200 px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-zinc-700 truncate max-w-full">
-                <span className="h-1 w-1 rounded-full bg-[#FF5500]" />
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5F2EB] border border-[#E5E7EB] px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#343D4F] truncate max-w-full">
+                <span className="h-1 w-1 rounded-full bg-[#D4AF65]" />
                 {categoryName}
               </span>
               <span className="text-[10px] font-medium text-zinc-400 shrink-0">Al Quoz Press</span>
@@ -271,14 +271,14 @@ export default function ProductCard({
           ) : null}
 
           {/* Product Name */}
-          <h3 className="text-base sm:text-[17px] font-bold leading-snug tracking-tight text-zinc-950 group-hover:text-[#FF5500] transition-colors duration-200 line-clamp-1 break-words">
+          <h3 className="text-base sm:text-[17px] font-bold leading-snug tracking-tight text-[#101D35] group-hover:text-[#D4AF65] transition-colors duration-200 line-clamp-1 break-words">
             <Link to={`/products/${product.slug}`} className="hover:underline focus:outline-none">
               {product.name}
             </Link>
           </h3>
 
           {/* Short Description */}
-          <p className="text-xs leading-relaxed text-zinc-500 line-clamp-2 break-words">
+          <p className="text-xs leading-relaxed text-[#343D4F] line-clamp-2 break-words">
             {product.shortDescription || product.description || `High-precision custom commercial printing for ${product.name} in Dubai.`}
           </p>
 
@@ -290,7 +290,7 @@ export default function ProductCard({
                   key={idx}
                   className="inline-flex items-center gap-1 rounded-full bg-zinc-50 border border-zinc-200 px-2.5 py-0.5 text-[10px] font-medium text-zinc-700 min-w-0"
                 >
-                  <Check className="h-3 w-3 text-[#FF5500] shrink-0" />
+                  <Check className="h-3 w-3 text-[#D4AF65] shrink-0" />
                   <span className="truncate max-w-[140px] sm:max-w-[180px]">{feat}</span>
                 </span>
               ))}
@@ -302,7 +302,7 @@ export default function ProductCard({
         <div className="mt-auto pt-4 border-t border-zinc-100 flex items-center gap-2">
           <Link
             to={`/products/${product.slug}`}
-            className="group/btn flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-zinc-950 hover:bg-[#FF5500] px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all shadow-xs cursor-pointer active:scale-[0.98]"
+            className="group/btn flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-[#101D35] hover:bg-[#D4AF65] hover:text-[#101D35] px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all shadow-xs cursor-pointer active:scale-[0.98]"
           >
             <span>Explore</span>
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -344,7 +344,7 @@ export default function ProductCard({
               onClick={handleQuickView}
               aria-label={`Quick View ${product.name}`}
               title="Quick View"
-              className="inline-flex items-center justify-center h-8.5 w-8.5 rounded-full border border-zinc-200 bg-zinc-50 text-zinc-700 transition-all hover:border-zinc-950 hover:bg-zinc-950 hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
+              className="inline-flex items-center justify-center h-8.5 w-8.5 rounded-full border border-zinc-200 bg-zinc-50 text-zinc-700 transition-all hover:border-[#101D35] hover:bg-[#101D35] hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
             >
               <Eye className="h-3.5 w-3.5" />
             </button>

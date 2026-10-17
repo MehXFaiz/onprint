@@ -84,19 +84,19 @@ export default function LuxuryFinishesShowcase() {
   const activeFinish = luxuryFinishes.find((f) => f.id === selectedId) || luxuryFinishes[0]
 
   return (
-    <section className="bg-zinc-50 py-16 sm:py-24 text-zinc-950 border-t border-zinc-200">
+    <section className="bg-[#F5F2EB] py-16 sm:py-24 text-[#101D35] border-t border-[#E5E7EB]">
       <Container>
         {/* Section Header */}
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-zinc-200/80 border border-zinc-300 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-zinc-800">
-              <Sparkles className="h-3.5 w-3.5 text-[#FF5500]" />
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/80 border border-[#E5E7EB] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#101D35]">
+              <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Signature Dubai Pressroom Finishes</span>
             </div>
-            <h2 className="mt-2.5 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-zinc-950">
+            <h2 className="mt-2.5 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-[#101D35]">
               Mastery of Light, Texture &amp; Substrate
             </h2>
-            <p className="mt-2 max-w-2xl text-sm text-zinc-600 leading-relaxed">
+            <p className="mt-2 max-w-2xl text-sm text-[#343D4F] leading-relaxed">
               Every detail is engineered on our Al Quoz press floor using precision German Heidelberg machinery, heated brass dies, and European archival stocks.
             </p>
           </div>
@@ -106,7 +106,7 @@ export default function LuxuryFinishesShowcase() {
             className="shrink-0 inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-xs font-bold text-zinc-900 hover:border-zinc-950 hover:bg-zinc-50 transition-all cursor-pointer shadow-2xs"
           >
             <span>Request Finish Swatches</span>
-            <ArrowRight className="h-4 w-4 text-[#FF5500]" />
+            <ArrowRight className="h-4 w-4 text-[#D4AF65]" />
           </Link>
         </div>
 
@@ -123,15 +123,15 @@ export default function LuxuryFinishesShowcase() {
                 onClick={() => setSelectedId(finish.id)}
                 className={`group relative flex flex-col items-start justify-between rounded-2xl border p-3.5 text-left transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? 'border-zinc-950 bg-zinc-950 text-white shadow-lg'
-                    : 'border-zinc-200 bg-white hover:border-zinc-400 text-zinc-900'
+                    ? 'border-[#101D35] bg-[#101D35] text-white shadow-lg'
+                    : 'border-[#E5E7EB] bg-white hover:border-[#D4AF65] text-[#343D4F]'
                 }`}
               >
                 <div className="flex w-full items-center justify-between">
                   <span
-                    className={`h-2 w-2 rounded-full ${isSelected ? 'bg-[#FF5500]' : 'bg-zinc-400'}`}
+                    className={`h-2 w-2 rounded-full ${isSelected ? 'bg-[#D4AF65]' : 'bg-zinc-400'}`}
                   />
-                  <span className={`text-[9px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#FF5500]' : 'text-zinc-500'}`}>
+                  <span className={`text-[9px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#D4AF65]' : 'text-zinc-500'}`}>
                     {finish.badge}
                   </span>
                 </div>
@@ -151,7 +151,7 @@ export default function LuxuryFinishesShowcase() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.99 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-3xl border border-zinc-200 bg-white p-6 sm:p-8 shadow-sm"
+            className="rounded-3xl border border-[#E5E7EB] bg-white p-6 sm:p-8 shadow-sm"
           >
             <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
               {/* Left Column: Macro Image */}
@@ -207,7 +207,7 @@ export default function LuxuryFinishesShowcase() {
                       key={spec}
                       className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-semibold text-zinc-800"
                     >
-                      <Check className="h-3.5 w-3.5 text-[#FF5500]" />
+                      <Check className="h-3.5 w-3.5 text-[#D4AF65]" />
                       <span>{spec}</span>
                     </span>
                   ))}
@@ -236,7 +236,7 @@ export default function LuxuryFinishesShowcase() {
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                   <Link
                     to={`/get-a-quote?service=${encodeURIComponent(activeFinish.title)}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-zinc-950 hover:bg-[#FF5500] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-xs transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#101D35] hover:bg-[#D4AF65] hover:text-[#101D35] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-xs transition-all cursor-pointer"
                   >
                     <span>Quote With {activeFinish.title}</span>
                     <ArrowRight className="h-4 w-4" />

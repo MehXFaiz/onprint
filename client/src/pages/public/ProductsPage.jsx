@@ -422,7 +422,7 @@ export default function ProductsPage() {
                   {/* Editorial Category Header */}
                   <div className="flex items-end justify-between border-b border-black/10 pb-5">
                     <div>
-                      <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#FF5500]">
+                      <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF65]">
                         {group.meta.eyebrow}
                       </span>
                       <h2 className="font-display mt-1 text-xl font-extrabold tracking-tight text-black sm:text-3xl">

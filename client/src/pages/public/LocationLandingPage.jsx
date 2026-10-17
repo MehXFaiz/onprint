@@ -172,7 +172,7 @@ export default function LocationLandingPage({ locationKey }) {
                 transition={{ duration: 0.6 }}
                 className="text-center max-w-4xl mx-auto"
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5500]/10 text-[#FF5500] text-xs font-semibold uppercase tracking-wider mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF65]/10 text-[#D4AF65] text-xs font-semibold uppercase tracking-wider mb-4">
                   <MapPin className="h-3.5 w-3.5" /> Fast Delivery Across {locationData.name}
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
@@ -218,7 +218,7 @@ export default function LocationLandingPage({ locationKey }) {
                     transition={{ delay: index * 0.05 }}
                     className="bg-white rounded-lg p-4 shadow-sm border border-slate-200 text-center hover:shadow-md transition-shadow"
                   >
-                    <MapPin className="h-5 w-5 text-[#FF5500] mx-auto mb-2" />
+                    <MapPin className="h-5 w-5 text-[#D4AF65] mx-auto mb-2" />
                     <span className="text-sm font-medium text-slate-700">{area}</span>
                   </motion.div>
                 ))}
@@ -241,7 +241,7 @@ export default function LocationLandingPage({ locationKey }) {
                     transition={{ delay: index * 0.08 }}
                     className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition-shadow"
                   >
-                    <service.icon className="h-10 w-10 text-[#FF5500] mb-4" />
+                    <service.icon className="h-10 w-10 text-[#D4AF65] mb-4" />
                     <h3 className="text-xl font-semibold text-slate-900 mb-2">{service.title}</h3>
                     <p className="text-slate-600">{service.desc}</p>
                   </motion.div>
@@ -265,7 +265,7 @@ export default function LocationLandingPage({ locationKey }) {
                     transition={{ delay: index * 0.05 }}
                     className="flex items-start gap-3"
                   >
-                    <CheckCircle2 className="h-6 w-6 text-[#FF5500] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-6 w-6 text-[#D4AF65] shrink-0 mt-0.5" />
                     <span className="text-slate-200">{item}</span>
                   </motion.div>
                 ))}
@@ -305,17 +305,17 @@ export default function LocationLandingPage({ locationKey }) {
             <section className="py-12 border-t border-slate-200">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <Phone className="h-8 w-8 text-[#FF5500] mx-auto mb-3" />
+                  <Phone className="h-8 w-8 text-[#D4AF65] mx-auto mb-3" />
                   <h3 className="font-semibold text-slate-900 mb-1">Direct Hotline / WhatsApp</h3>
                   <p className="text-slate-600">{FORMATTED_PHONE}</p>
                 </div>
                 <div>
-                  <Mail className="h-8 w-8 text-[#FF5500] mx-auto mb-3" />
+                  <Mail className="h-8 w-8 text-[#D4AF65] mx-auto mb-3" />
                   <h3 className="font-semibold text-slate-900 mb-1">Email Sales Desk</h3>
                   <p className="text-slate-600">0nprint183@gmail.com</p>
                 </div>
                 <div>
-                  <Clock className="h-8 w-8 text-[#FF5500] mx-auto mb-3" />
+                  <Clock className="h-8 w-8 text-[#D4AF65] mx-auto mb-3" />
                   <h3 className="font-semibold text-slate-900 mb-1">Production Hours</h3>
                   <p className="text-slate-600">Mon - Sat: 8:30 AM - 6:30 PM</p>
                 </div>

@@ -69,7 +69,7 @@ export default function ProgrammaticLandingPage() {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#FF5500] border-t-transparent" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D4AF65] border-t-transparent" />
           <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">
             Loading Specifications...
           </span>
@@ -119,7 +119,7 @@ export default function ProgrammaticLandingPage() {
           <Breadcrumbs items={breadcrumbs} className="text-neutral-400 mb-6" />
 
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#FF5500]/10 border border-[#FF5500] px-3.5 py-1 text-xs font-extrabold text-[#FF5500] mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65] px-3.5 py-1 text-xs font-extrabold text-[#D4AF65] mb-4">
               {isLocation ? <MapPin className="h-3.5 w-3.5" /> : <Sparkles className="h-3.5 w-3.5" />}
               <span>{isLocation ? `Dubai Coverage: ${pageData.name}` : 'Commercial Industry Solution'}</span>
             </div>
@@ -135,7 +135,7 @@ export default function ProgrammaticLandingPage() {
             {/* Quick Action Badges */}
             <div className="mt-8 flex flex-wrap items-center gap-3 text-xs font-bold text-neutral-300">
               <span className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 border border-neutral-800 px-3 py-1.5">
-                <Clock className="h-3.5 w-3.5 text-[#FF5500]" />
+                <Clock className="h-3.5 w-3.5 text-[#D4AF65]" />
                 Same-Day Dispatch
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 border border-neutral-800 px-3 py-1.5">
@@ -151,7 +151,7 @@ export default function ProgrammaticLandingPage() {
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link to="/get-a-quote">
-                <Button variant="accent" size="lg" className="shadow-lg shadow-[#FF5500]/25 font-bold">
+                <Button variant="accent" size="lg" className="shadow-lg shadow-[#D4AF65]/25 font-bold">
                   Request Instant Quote
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
@@ -173,7 +173,7 @@ export default function ProgrammaticLandingPage() {
           <Container>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl border border-neutral-200 bg-white p-6 shadow-md">
               <div className="flex items-start gap-3">
-                <div className="rounded-xl bg-[#FF5500]/10 p-2.5 text-[#FF5500] shrink-0">
+                <div className="rounded-xl bg-[#D4AF65]/10 p-2.5 text-[#D4AF65] shrink-0">
                   <Clock className="h-5 w-5" />
                 </div>
                 <div>
@@ -234,14 +234,14 @@ export default function ProgrammaticLandingPage() {
                       <Link
                         key={idx}
                         to={`/categories/${prod.slug}`}
-                        className="group flex flex-col justify-between rounded-xl border border-neutral-200/80 p-4 transition-all hover:border-[#FF5500] hover:shadow-xs bg-neutral-50/50"
+                        className="group flex flex-col justify-between rounded-xl border border-neutral-200/80 p-4 transition-all hover:border-[#D4AF65] hover:shadow-xs bg-neutral-50/50"
                       >
                         <div>
                           <div className="flex items-center justify-between">
-                            <h3 className="font-bold text-sm text-neutral-900 group-hover:text-[#FF5500] transition-colors">
+                            <h3 className="font-bold text-sm text-neutral-900 group-hover:text-[#D4AF65] transition-colors">
                               {prod.name}
                             </h3>
-                            <ArrowRight className="h-3.5 w-3.5 text-neutral-400 group-hover:text-[#FF5500] transition-transform group-hover:translate-x-1" />
+                            <ArrowRight className="h-3.5 w-3.5 text-neutral-400 group-hover:text-[#D4AF65] transition-transform group-hover:translate-x-1" />
                           </div>
                           <p className="mt-1.5 text-xs text-neutral-500 leading-relaxed">
                             {prod.highlight}
@@ -267,7 +267,7 @@ export default function ProgrammaticLandingPage() {
                           <ul className="mt-3 space-y-1.5 text-xs text-neutral-600">
                             {pkg.items?.map((item, itemIdx) => (
                               <li key={itemIdx} className="flex items-start gap-2">
-                                <CheckCircle2 className="h-3.5 w-3.5 text-[#FF5500] shrink-0 mt-0.5" />
+                                <CheckCircle2 className="h-3.5 w-3.5 text-[#D4AF65] shrink-0 mt-0.5" />
                                 <span>{item}</span>
                               </li>
                             ))}
@@ -289,7 +289,7 @@ export default function ProgrammaticLandingPage() {
               {/* FAQ Section */}
               {pageData.faqs && pageData.faqs.length > 0 && (
                 <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs">
-                  <div className="flex items-center gap-2 text-xs font-extrabold text-[#FF5500] uppercase tracking-wider mb-2">
+                  <div className="flex items-center gap-2 text-xs font-extrabold text-[#D4AF65] uppercase tracking-wider mb-2">
                     <Info className="h-4 w-4" />
                     <span>Frequently Asked Questions</span>
                   </div>
@@ -305,12 +305,12 @@ export default function ProgrammaticLandingPage() {
                           <button
                             type="button"
                             onClick={() => setOpenFaq(isOpen ? null : idx)}
-                            className="flex w-full items-center justify-between text-left text-sm font-bold text-neutral-900 hover:text-[#FF5500] transition-colors"
+                            className="flex w-full items-center justify-between text-left text-sm font-bold text-neutral-900 hover:text-[#D4AF65] transition-colors"
                           >
                             <span>{faq.question}</span>
                             <ChevronDown
                               className={`h-4 w-4 text-neutral-400 transition-transform ${
-                                isOpen ? 'rotate-180 text-[#FF5500]' : ''
+                                isOpen ? 'rotate-180 text-[#D4AF65]' : ''
                               }`}
                             />
                           </button>
@@ -350,7 +350,7 @@ export default function ProgrammaticLandingPage() {
 
                 <div className="mt-5 space-y-3">
                   <Link to="/get-a-quote" className="block w-full">
-                    <Button variant="accent" size="md" className="w-full font-bold shadow-md shadow-[#FF5500]/25">
+                    <Button variant="accent" size="md" className="w-full font-bold shadow-md shadow-[#D4AF65]/25">
                       Request Bespoke Estimate
                     </Button>
                   </Link>
@@ -386,7 +386,7 @@ export default function ProgrammaticLandingPage() {
                       <Link
                         key={cat.id}
                         to={`/categories/${cat.slug}`}
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#FF5500] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
                       >
                         <span>{cat.name}</span>
                         <ArrowRight className="h-3 w-3 text-neutral-400" />
@@ -396,35 +396,35 @@ export default function ProgrammaticLandingPage() {
                     <>
                       <Link
                         to="/categories/brochures-printing"
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#FF5500] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
                       >
                         <span>Brochures &amp; Catalogs</span>
                         <ArrowRight className="h-3 w-3 text-neutral-400" />
                       </Link>
                       <Link
                         to="/categories/business-cards-printing"
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#FF5500] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
                       >
                         <span>Luxury Business Cards</span>
                         <ArrowRight className="h-3 w-3 text-neutral-400" />
                       </Link>
                       <Link
                         to="/categories/flyers-printing-in-dubai"
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#FF5500] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
                       >
                         <span>Commercial Flyers &amp; Menus</span>
                         <ArrowRight className="h-3 w-3 text-neutral-400" />
                       </Link>
                       <Link
                         to="/categories/id-card-printing-dubai"
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#FF5500] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
                       >
                         <span>Corporate PVC ID Cards</span>
                         <ArrowRight className="h-3 w-3 text-neutral-400" />
                       </Link>
                       <Link
                         to="/categories/letterheads-printing-dubai"
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#FF5500] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
                       >
                         <span>Official Letterheads</span>
                         <ArrowRight className="h-3 w-3 text-neutral-400" />

@@ -48,7 +48,7 @@ export default function RegisterPage() {
             <Link to="/" className="inline-block">
               <Logo size="md" />
             </Link>
-            <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5500]">
+            <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
               <UserPlus className="h-3.5 w-3.5" />
               <span>Client Registration</span>
             </div>
@@ -78,9 +78,9 @@ export default function RegisterPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Sarah Al-Maktoum"
-                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#FF5500] focus:outline-none"
+                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
-              {errors.name && <p className="mt-1 text-xs font-semibold text-[#FF5500]">{errors.name}</p>}
+              {errors.name && <p className="mt-1 text-xs font-semibold text-[#D4AF65]">{errors.name}</p>}
             </div>
 
             <div>
@@ -94,9 +94,9 @@ export default function RegisterPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="sarah@company.ae"
-                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#FF5500] focus:outline-none"
+                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
-              {errors.email && <p className="mt-1 text-xs font-semibold text-[#FF5500]">{errors.email}</p>}
+              {errors.email && <p className="mt-1 text-xs font-semibold text-[#D4AF65]">{errors.email}</p>}
             </div>
 
             <div>
@@ -109,7 +109,7 @@ export default function RegisterPage() {
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 placeholder="Dubai Creative Studio LLC"
-                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#FF5500] focus:outline-none"
+                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -124,9 +124,9 @@ export default function RegisterPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#FF5500] focus:outline-none"
+                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
-              {errors.password && <p className="mt-1 text-xs font-semibold text-[#FF5500]">{errors.password}</p>}
+              {errors.password && <p className="mt-1 text-xs font-semibold text-[#D4AF65]">{errors.password}</p>}
             </div>
 
             <Button
@@ -142,7 +142,7 @@ export default function RegisterPage() {
 
           <div className="mt-6 text-center text-xs font-medium text-neutral-500 pt-6 border-t border-neutral-100">
             Already have an account?{' '}
-            <Link to="/login" className="font-bold text-[#FF5500] hover:underline">
+            <Link to="/login" className="font-bold text-[#D4AF65] hover:underline">
               Sign In
             </Link>
           </div>

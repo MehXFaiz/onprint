@@ -205,8 +205,8 @@ export default function CategoryDetailPage() {
           {/* Left Column: Information */}
           <div className="lg:col-span-7 space-y-6">
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#FF5500] bg-[#FFFFFF] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#FF5500] shadow-xs">
-                <Sparkles className="h-3.5 w-3.5 text-[#FF5500]" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65] bg-[#FFFFFF] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#D4AF65] shadow-xs">
+                <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
                 Commercial Printing Press Dubai
               </div>
             </Reveal>
@@ -242,14 +242,14 @@ export default function CategoryDetailPage() {
                   <WhatsAppIcon className="h-4 w-4 fill-white" />
                   <span>Get a Quote on WhatsApp</span>
                 </a>
-                <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#FF5500]/25 text-center justify-center">
+                <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#D4AF65]/25 text-center justify-center">
                   Request a Free Quote
                 </Button>
                 <Button
                   to={`/products?category=${category.slug}`}
                   variant="secondary"
                   size="lg"
-                  className="border-[#000000] text-[#000000] hover:border-[#FF5500] hover:text-[#FF5500] text-center justify-center"
+                  className="border-[#000000] text-[#000000] hover:border-[#D4AF65] hover:text-[#D4AF65] text-center justify-center"
                 >
                   View Products Catalog
                 </Button>
@@ -260,19 +260,19 @@ export default function CategoryDetailPage() {
             <Reveal delay={0.4}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 border-t border-[#000000]/10 pt-6 text-xs font-bold text-[#000000]">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#FF5500] shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-[#D4AF65] shrink-0" />
                   <span>300+ DPI Precision CMYK</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#FF5500] shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-[#D4AF65] shrink-0" />
                   <span>Free Design Pre-flight Check</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#FF5500] shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-[#D4AF65] shrink-0" />
                   <span>24–48h Express Dubai Dispatch</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#FF5500] shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-[#D4AF65] shrink-0" />
                   <span>Doorstep UAE Delivery</span>
                 </div>
               </div>
@@ -299,7 +299,7 @@ export default function CategoryDetailPage() {
                 </div>
                 <div className="p-3 flex items-center justify-between text-[11px] font-bold text-[#000000]/70">
                   <span>Dubai Commercial Press</span>
-                  <span className="text-[#FF5500] font-black">100% Quality Inspected</span>
+                  <span className="text-[#D4AF65] font-black">100% Quality Inspected</span>
                 </div>
               </div>
             </Reveal>
@@ -310,7 +310,7 @@ export default function CategoryDetailPage() {
         <div className="mt-20 border-t border-[#000000]/10 pt-16">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end mb-10">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#FF5500]">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF65]">
                 PRODUCT CATALOG
               </span>
               <h2 className="font-display mt-1 text-2xl font-black tracking-tight text-[#000000] sm:text-3xl">
@@ -319,7 +319,7 @@ export default function CategoryDetailPage() {
             </div>
             <Link
               to={`/products?category=${category.slug}`}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF5500] hover:underline"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:underline"
             >
               Browse All {categoryName} <ArrowRight className="h-4 w-4" />
             </Link>
@@ -380,7 +380,7 @@ export default function CategoryDetailPage() {
         {/* Technical Specs & Printing Details */}
         <div className="mt-20 rounded-3xl border border-[#000000]/10 bg-[#FFFFFF] p-8 sm:p-12 shadow-sm space-y-8">
           <div>
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#FF5500]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF65]">
               PRODUCTION SPECIFICATIONS
             </span>
             <h3 className="font-display mt-2 text-xl font-bold tracking-tight text-[#000000] sm:text-2xl">
@@ -390,7 +390,7 @@ export default function CategoryDetailPage() {
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-2xl border border-[#000000]/10 bg-neutral-50/50 p-5 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#FF5500]">
+              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D4AF65]">
                 <Printer className="h-4 w-4" />
                 <span>Print Technology</span>
               </div>
@@ -400,7 +400,7 @@ export default function CategoryDetailPage() {
             </div>
 
             <div className="rounded-2xl border border-[#000000]/10 bg-neutral-50/50 p-5 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#FF5500]">
+              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D4AF65]">
                 <Layers className="h-4 w-4" />
                 <span>Paper Stocks</span>
               </div>
@@ -410,7 +410,7 @@ export default function CategoryDetailPage() {
             </div>
 
             <div className="rounded-2xl border border-[#000000]/10 bg-neutral-50/50 p-5 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#FF5500]">
+              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D4AF65]">
                 <Award className="h-4 w-4" />
                 <span>Specialty Finishes</span>
               </div>
@@ -420,7 +420,7 @@ export default function CategoryDetailPage() {
             </div>
 
             <div className="rounded-2xl border border-[#000000]/10 bg-neutral-50/50 p-5 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#FF5500]">
+              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D4AF65]">
                 <Clock className="h-4 w-4" />
                 <span>Turnaround Times</span>
               </div>
@@ -433,7 +433,7 @@ export default function CategoryDetailPage() {
 
         {/* Category FAQs for SEO Rich Snippets */}
         <div className="mt-16 rounded-3xl border border-[#000000]/10 bg-[#FFFFFF] p-8 sm:p-12 shadow-sm space-y-6">
-          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#FF5500]">
+          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D4AF65]">
             <HelpCircle className="h-4 w-4" />
             <span>Frequently Asked Questions</span>
           </div>
@@ -454,12 +454,12 @@ export default function CategoryDetailPage() {
         {otherCategories.length > 0 && (
           <div className="mt-16">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#FF5500]">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF65]">
                 EXPLORE PRINT DISCIPLINES
               </span>
               <Link
                 to="/categories"
-                className="text-xs font-bold text-secondary hover:text-[#FF5500] transition-colors"
+                className="text-xs font-bold text-secondary hover:text-[#D4AF65] transition-colors"
               >
                 View all categories &rarr;
               </Link>
@@ -469,7 +469,7 @@ export default function CategoryDetailPage() {
                 <Link
                   key={cat.slug || cat.id}
                   to={`/categories/${cat.slug}`}
-                  className="rounded-xl border border-[#000000]/10 bg-[#FFFFFF] px-4 py-2.5 text-xs font-bold text-[#000000]/80 shadow-xs transition-all hover:border-[#FF5500] hover:text-[#FF5500] hover:-translate-y-0.5"
+                  className="rounded-xl border border-[#000000]/10 bg-[#FFFFFF] px-4 py-2.5 text-xs font-bold text-[#000000]/80 shadow-xs transition-all hover:border-[#D4AF65] hover:text-[#D4AF65] hover:-translate-y-0.5"
                 >
                   {cat.name}
                 </Link>

@@ -293,8 +293,8 @@ export default function SiteHeader() {
           <div className="flex items-center gap-3 shrink-0">
             <div className="inline-flex items-center gap-1.5 text-zinc-900 font-bold uppercase tracking-wider text-[10px]">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5500] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF5500]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF65] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D4AF65]"></span>
               </span>
               <span>Dubai Commercial Pressroom</span>
             </div>
@@ -310,9 +310,9 @@ export default function SiteHeader() {
           <div className="flex items-center gap-3.5 text-zinc-600 shrink-0">
             <a
               href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              className="inline-flex items-center gap-1.5 font-bold text-zinc-900 hover:text-[#FF5500] transition-colors"
+              className="inline-flex items-center gap-1.5 font-bold text-zinc-900 hover:text-[#D4AF65] transition-colors"
             >
-              <Phone className="h-3 w-3 text-[#FF5500]" />
+              <Phone className="h-3 w-3 text-[#D4AF65]" />
               <span>{FORMATTED_PHONE}</span>
             </a>
 
@@ -353,8 +353,8 @@ export default function SiteHeader() {
         <div
           className={`rounded-full border transition-all duration-300 px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between gap-2.5 sm:gap-4 ${
             scrolled
-              ? 'bg-white/95 backdrop-blur-2xl border-zinc-300/80 shadow-[0_12px_36px_rgba(0,0,0,0.08)]'
-              : 'bg-white/85 backdrop-blur-xl border-zinc-200/90 shadow-[0_6px_24px_rgba(0,0,0,0.04)]'
+              ? 'bg-white/95 backdrop-blur-2xl border-[#E5E7EB] shadow-[0_12px_36px_rgba(16,29,53,0.08)]'
+              : 'bg-white/90 backdrop-blur-xl border-[#E5E7EB] shadow-[0_6px_24px_rgba(16,29,53,0.04)]'
           }`}
         >
           {/* Brand Logo & Dubai Flagship Pill */}
@@ -374,7 +374,7 @@ export default function SiteHeader() {
               <span className="text-[10px] font-black uppercase tracking-wider text-zinc-950">
                 DUBAI
               </span>
-              <span className="h-1 w-1 rounded-full bg-[#FF5500]" />
+              <span className="h-1 w-1 rounded-full bg-[#D4AF65]" />
               <span className="text-[9px] font-semibold text-zinc-400 uppercase tracking-tight">
                 PRESSROOM
               </span>
@@ -383,7 +383,7 @@ export default function SiteHeader() {
 
           {/* Desktop Navigation Links — Minimalist Pill Glider */}
           <nav
-            className="hidden lg:flex items-center gap-0.5 bg-zinc-100/80 p-1 rounded-full border border-zinc-200/60 shadow-2xs backdrop-blur-md relative"
+            className="hidden lg:flex items-center gap-0.5 bg-[#F5F2EB]/90 p-1 rounded-full border border-[#E5E7EB] shadow-2xs backdrop-blur-md relative"
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredNav(null)}
           >
@@ -405,7 +405,7 @@ export default function SiteHeader() {
                     : 'text-zinc-600 hover:text-zinc-950'
                 }`}
               >
-                <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#FF5500]' : 'text-zinc-400'}`} />
+                <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#D4AF65]' : 'text-zinc-400'}`} />
                 <span>Catalog</span>
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-200 ${
@@ -435,12 +435,12 @@ export default function SiteHeader() {
                   >
                     <div className="grid grid-cols-12 gap-6">
                       {/* Left Spotlight Banner — Deep Obsidian & Electric Orange */}
-                      <div className="col-span-4 rounded-2xl bg-zinc-950 p-5 flex flex-col justify-between text-white relative overflow-hidden shadow-lg border border-zinc-800">
-                        <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 rounded-full bg-[#FF5500]/15 blur-2xl pointer-events-none" />
+                      <div className="col-span-4 rounded-2xl bg-[#101D35] p-5 flex flex-col justify-between text-white relative overflow-hidden shadow-xl border border-[#343D4F]/50">
+                        <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 rounded-full bg-[#D4AF65]/15 blur-2xl pointer-events-none" />
 
                         <div className="relative z-10">
-                          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#FF5500]">
-                            <Sparkles className="h-2.5 w-2.5 text-[#FF5500]" />
+                          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#D4AF65]">
+                            <Sparkles className="h-2.5 w-2.5 text-[#D4AF65]" />
                             <span>Pressroom Master</span>
                           </div>
                           <h4 className="mt-3 text-base font-bold text-white tracking-tight leading-snug">
@@ -457,10 +457,10 @@ export default function SiteHeader() {
                             <Link
                               to="/business-card-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 text-xs font-bold text-white transition-all"
+                              className="group flex items-center justify-between p-2.5 rounded-xl bg-[#0B1426] hover:bg-[#162544] border border-[#343D4F]/60 text-xs font-bold text-white transition-all"
                             >
                               <span className="flex items-center gap-2">
-                                <span className="h-2 w-2 rounded-full bg-[#FF5500]" />
+                                <span className="h-2 w-2 rounded-full bg-[#D4AF65]" />
                                 <span>Luxury Business Cards</span>
                               </span>
                               <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-white transition-colors" />
@@ -468,7 +468,7 @@ export default function SiteHeader() {
                             <Link
                               to="/categories/custom-stamps-seals"
                               onClick={() => setActiveDropdown(null)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 text-xs font-bold text-white transition-all"
+                              className="group flex items-center justify-between p-2.5 rounded-xl bg-[#0B1426] hover:bg-[#162544] border border-[#343D4F]/60 text-xs font-bold text-white transition-all"
                             >
                               <span className="flex items-center gap-2">
                                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
@@ -483,10 +483,10 @@ export default function SiteHeader() {
                           <Link
                             to="/products"
                             onClick={() => setActiveDropdown(null)}
-                            className="text-xs font-black text-white hover:text-[#FF5500] transition-colors flex items-center gap-1.5"
+                            className="text-xs font-black text-white hover:text-[#D4AF65] transition-colors flex items-center gap-1.5"
                           >
                             <span>Browse All 200+ Products</span>
-                            <ArrowRight className="h-3.5 w-3.5 text-[#FF5500]" />
+                            <ArrowRight className="h-3.5 w-3.5 text-[#D4AF65]" />
                           </Link>
                         </div>
                       </div>
@@ -496,10 +496,10 @@ export default function SiteHeader() {
                         {megaMenuGroups.map((group) => {
                           const Icon = group.icon || Layers
                           return (
-                            <div key={group.key} className="p-3 rounded-2xl bg-zinc-50 hover:bg-zinc-100/70 border border-zinc-200/70 transition-all">
+                            <div key={group.key} className="p-3 rounded-2xl bg-[#F5F2EB]/50 hover:bg-[#F5F2EB] border border-[#E5E7EB] transition-all">
                               <div className="flex items-center justify-between mb-2">
                                 <div className="flex items-center gap-2">
-                                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-zinc-950 text-white shrink-0">
+                                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#101D35] text-[#D4AF65] shrink-0">
                                     <Icon className="h-4 w-4" />
                                   </div>
                                   <h5 className="text-xs font-bold text-zinc-950 truncate">
@@ -522,7 +522,7 @@ export default function SiteHeader() {
                                       className="group/link flex items-center justify-between text-xs font-medium text-zinc-600 hover:text-zinc-950 transition-colors py-0.5"
                                     >
                                       <span className="truncate group-hover/link:translate-x-0.5 transition-transform">{item.name}</span>
-                                      <ChevronRight className="h-3 w-3 opacity-0 group-hover/link:opacity-100 text-[#FF5500] transition-opacity shrink-0" />
+                                      <ChevronRight className="h-3 w-3 opacity-0 group-hover/link:opacity-100 text-[#D4AF65] transition-opacity shrink-0" />
                                     </Link>
                                   </li>
                                 ))}
@@ -549,7 +549,7 @@ export default function SiteHeader() {
             >
               <CreditCard className="h-3.5 w-3.5 text-zinc-400" />
               <span>Cards</span>
-              <span className="rounded-full bg-[#FF5500] text-white px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
+              <span className="rounded-full bg-[#D4AF65] text-[#101D35] px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
                 DUBAI
               </span>
 
@@ -701,7 +701,7 @@ export default function SiteHeader() {
                       onClick={() => setActiveDropdown(null)}
                       className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-colors"
                     >
-                      <Sparkles className="h-4 w-4 text-[#FF5500]" />
+                      <Sparkles className="h-4 w-4 text-[#D4AF65]" />
                       <div>
                         <div className="leading-tight">All Printing Services</div>
                         <span className="text-[10px] font-normal text-zinc-400">Offset, Digital &amp; Large Format</span>
@@ -757,7 +757,7 @@ export default function SiteHeader() {
               whileTap={{ scale: 0.97 }}
               type="button"
               onClick={() => setSearchModalOpen(true)}
-              className="flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 hover:bg-white hover:border-zinc-400 px-3 py-1.5 text-xs text-zinc-600 transition-all cursor-pointer group"
+              className="flex items-center gap-2 rounded-full border border-[#E5E7EB] bg-[#F5F2EB]/60 hover:bg-white hover:border-[#D4AF65]/60 px-3 py-1.5 text-xs text-[#343D4F] transition-all cursor-pointer group"
               title="Search products (Press / or ⌘K)"
             >
               <Search className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950 transition-colors" />
@@ -770,7 +770,7 @@ export default function SiteHeader() {
             {/* Track Orders / Shopping Bag Button */}
             <Link
               to="/track-order"
-              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 text-zinc-700 hover:bg-white hover:text-zinc-950 transition-all shadow-2xs"
+              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-[#E5E7EB] bg-[#F5F2EB]/60 text-[#343D4F] hover:bg-white hover:text-[#101D35] transition-all shadow-2xs"
               title="Track Orders"
             >
               <Truck className="h-4 w-4" />
@@ -959,7 +959,7 @@ export default function SiteHeader() {
             >
               <Link
                 to="/get-a-quote"
-                className="group/cta relative inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-zinc-950 hover:bg-[#FF5500] px-4 sm:px-5 py-2 text-xs font-bold text-white shadow-sm transition-all whitespace-nowrap overflow-hidden"
+                className="group/cta relative inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-4 sm:px-5 py-2 text-xs font-black text-[#101D35] shadow-sm hover:shadow-md transition-all whitespace-nowrap overflow-hidden"
                 onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
               >
                 <span>Get Instant Quote</span>
@@ -994,7 +994,7 @@ export default function SiteHeader() {
               {/* Search Bar Input */}
               <div className="flex items-center justify-between border-b border-zinc-200 pb-4">
                 <div className="flex items-center gap-3 flex-1">
-                  <Search className="h-5 w-5 text-[#FF5500]" />
+                  <Search className="h-5 w-5 text-[#D4AF65]" />
                   <input
                     ref={searchInputRef}
                     type="text"
@@ -1075,7 +1075,7 @@ export default function SiteHeader() {
                   <div>
                     {searchResults.products.length > 0 && (
                       <div className="mb-4">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#FF5500] block mb-2">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#D4AF65] block mb-2">
                           Matching Products ({searchResults.products.length})
                         </span>
                         <div className="space-y-1.5">
@@ -1087,7 +1087,7 @@ export default function SiteHeader() {
                               className="group flex items-center justify-between p-2.5 rounded-xl border border-zinc-100 hover:border-zinc-950 hover:bg-zinc-50 transition-all"
                             >
                               <div>
-                                <h6 className="text-xs font-bold text-zinc-950 group-hover:text-[#FF5500] transition-colors">{p.name}</h6>
+                                <h6 className="text-xs font-bold text-zinc-950 group-hover:text-[#D4AF65] transition-colors">{p.name}</h6>
                                 <p className="text-[10px] text-zinc-400 line-clamp-1">{p.shortDescription}</p>
                               </div>
                               <span className="text-xs font-black text-zinc-950">
@@ -1125,7 +1125,7 @@ export default function SiteHeader() {
                         <Link
                           to={`/products?search=${encodeURIComponent(searchQuery)}`}
                           onClick={() => setSearchModalOpen(false)}
-                          className="mt-2 inline-block text-xs font-bold text-[#FF5500] underline"
+                          className="mt-2 inline-block text-xs font-bold text-[#D4AF65] underline"
                         >
                           Search entire store catalog
                         </Link>
@@ -1187,7 +1187,7 @@ export default function SiteHeader() {
                   className="flex w-full items-center justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-3 text-xs text-zinc-500 hover:bg-zinc-100 transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
-                    <Search className="h-4 w-4 text-[#FF5500]" />
+                    <Search className="h-4 w-4 text-[#D4AF65]" />
                     <span>Search 200+ print products...</span>
                   </div>
                   <ArrowRight className="h-3.5 w-3.5 text-zinc-400" />
@@ -1239,10 +1239,10 @@ export default function SiteHeader() {
                     className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-950 bg-zinc-100"
                   >
                     <div className="flex items-center gap-2">
-                      <CreditCard className="h-4 w-4 text-[#FF5500]" />
+                      <CreditCard className="h-4 w-4 text-[#D4AF65]" />
                       <span>Business Cards</span>
                     </div>
-                    <span className="rounded bg-[#FF5500] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       DUBAI
                     </span>
                   </Link>
@@ -1330,7 +1330,7 @@ export default function SiteHeader() {
                             className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-bold text-zinc-950 hover:bg-zinc-100"
                           >
                             <span>Browse All Products Catalog</span>
-                            <ArrowRight className="h-3 w-3 text-[#FF5500]" />
+                            <ArrowRight className="h-3 w-3 text-[#D4AF65]" />
                           </Link>
                           {categories.slice(0, 10).map((cat) => (
                             <Link
@@ -1424,7 +1424,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-950 hover:bg-[#FF5500] py-3 text-sm font-black text-white shadow-md transition-all"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D4AF65] hover:bg-[#B89245] py-3 text-sm font-black text-[#101D35] shadow-md transition-all"
                 >
                   <span>Get Instant Quote</span>
                   <ArrowRight className="h-4 w-4" />

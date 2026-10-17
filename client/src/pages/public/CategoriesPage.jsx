@@ -70,8 +70,8 @@ export default function CategoriesPage() {
         {/* Page Hero Header */}
         <div className="mt-8 border-b border-[#000000]/10 pb-10">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FF5500] bg-[#FFFFFF] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#FF5500]">
-              <Sparkles className="h-3.5 w-3.5 text-[#FF5500]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65] bg-[#FFFFFF] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#D4AF65]">
+              <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
               Dubai Commercial Printing Press
             </div>
             <h1 className="font-display mt-4 text-3xl font-black tracking-tight text-[#000000] sm:text-5xl">
@@ -90,7 +90,7 @@ export default function CategoriesPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search categories (e.g. Brochures, Business Cards)..."
-              className="w-full rounded-2xl border border-[#000000]/20 bg-[#FFFFFF] pl-10 pr-4 py-3 text-xs font-semibold text-[#000000] placeholder-[#000000]/40 focus:border-[#FF5500] focus:outline-none shadow-xs"
+              className="w-full rounded-2xl border border-[#000000]/20 bg-[#FFFFFF] pl-10 pr-4 py-3 text-xs font-semibold text-[#000000] placeholder-[#000000]/40 focus:border-[#D4AF65] focus:outline-none shadow-xs"
             />
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function CategoriesPage() {
         <div className="mt-20 rounded-3xl border border-[#000000]/10 bg-[#FFFFFF] p-8 sm:p-12 shadow-sm">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#FF5500]/10 text-[#FF5500]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#D4AF65]/10 text-[#D4AF65]">
                 <ShieldCheck className="h-6 w-6" />
               </div>
               <div>
@@ -149,7 +149,7 @@ export default function CategoriesPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#FF5500]/10 text-[#FF5500]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#D4AF65]/10 text-[#D4AF65]">
                 <Zap className="h-6 w-6" />
               </div>
               <div>
@@ -161,7 +161,7 @@ export default function CategoriesPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#FF5500]/10 text-[#FF5500]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#D4AF65]/10 text-[#D4AF65]">
                 <Award className="h-6 w-6" />
               </div>
               <div>

@@ -143,7 +143,7 @@ export default function MugsLeadPage() {
   ]
 
   return (
-    <div className="bg-white text-slate-900 selection:bg-[#FF5500] selection:text-white">
+    <div className="bg-white text-slate-900 selection:bg-[#D4AF65] selection:text-white">
       <SEOHead
         title="Custom Mug Printing Dubai | Coffee Mugs & Travel Tumblers | ONPRINT"
         description="Configure custom printed ceramic coffee mugs, magic color-change mugs, and insulated tumblers in Dubai. 1440 DPI wrap printing, individual gift boxes, and express UAE delivery."
@@ -156,14 +156,14 @@ export default function MugsLeadPage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-slate-200/80">
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FF5500] bg-[#FF5500]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#FF5500]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65] bg-[#D4AF65]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
               <Coffee className="h-3.5 w-3.5" />
               <span>Commercial Drinkware Press • Al Quoz, Dubai</span>
             </div>
 
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15]">
               Custom Coffee Mug Printing{' '}
-              <span className="font-serif italic text-[#FF5500]">in Dubai &amp; UAE</span>
+              <span className="font-serif italic text-[#D4AF65]">in Dubai &amp; UAE</span>
             </h1>
 
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
@@ -172,15 +172,15 @@ export default function MugsLeadPage() {
 
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-slate-700">
               <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-[#FF5500]" />
+                <CheckCircle2 className="h-4 w-4 text-[#D4AF65]" />
                 Dishwasher &amp; Microwave Safe
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-[#FF5500]" />
+                <CheckCircle2 className="h-4 w-4 text-[#D4AF65]" />
                 Full-Wrap 1440 DPI Dye Sublimation
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-[#FF5500]" />
+                <CheckCircle2 className="h-4 w-4 text-[#D4AF65]" />
                 Fast 2–4 Day Delivery Across UAE
               </span>
             </div>
@@ -201,7 +201,7 @@ export default function MugsLeadPage() {
                   </div>
                   <h2 className="text-2xl font-serif font-bold text-slate-900">Mug Specification Received</h2>
                   <p className="text-slate-600 text-sm max-w-md mx-auto">
-                    Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your reference number is <strong className="text-[#FF5500] font-mono">{quoteRef}</strong>.
+                    Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your reference number is <strong className="text-[#D4AF65] font-mono">{quoteRef}</strong>.
                   </p>
 
                   <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center space-y-3 max-w-md mx-auto">
@@ -256,7 +256,7 @@ export default function MugsLeadPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Full Name <span className="text-[#FF5500]">*</span>
+                          Full Name <span className="text-[#D4AF65]">*</span>
                         </label>
                         <input
                           type="text"
@@ -264,13 +264,13 @@ export default function MugsLeadPage() {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
                           placeholder="Your name"
                         />
                       </div>
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Phone / WhatsApp <span className="text-[#FF5500]">*</span>
+                          Phone / WhatsApp <span className="text-[#D4AF65]">*</span>
                         </label>
                         <input
                           type="tel"
@@ -278,7 +278,7 @@ export default function MugsLeadPage() {
                           required
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
                           placeholder="+971 50 123 4567"
                         />
                       </div>
@@ -287,7 +287,7 @@ export default function MugsLeadPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Email Address <span className="text-[#FF5500]">*</span>
+                          Email Address <span className="text-[#D4AF65]">*</span>
                         </label>
                         <input
                           type="email"
@@ -295,7 +295,7 @@ export default function MugsLeadPage() {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
                           placeholder="you@company.ae"
                         />
                       </div>
@@ -306,7 +306,7 @@ export default function MugsLeadPage() {
                           name="company"
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
                           placeholder="Brand / Company"
                         />
                       </div>
@@ -315,14 +315,14 @@ export default function MugsLeadPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Mug / Tumbler Model <span className="text-[#FF5500]">*</span>
+                          Mug / Tumbler Model <span className="text-[#D4AF65]">*</span>
                         </label>
                         <select
                           name="mugType"
                           required
                           value={formData.mugType}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
                         >
                           {MUG_TYPES.map((type) => (
                             <option key={type.id} value={type.name}>
@@ -333,14 +333,14 @@ export default function MugsLeadPage() {
                       </div>
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Quantity <span className="text-[#FF5500]">*</span>
+                          Quantity <span className="text-[#D4AF65]">*</span>
                         </label>
                         <select
                           name="quantity"
                           required
                           value={formData.quantity}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
                         >
                           {QUANTITY_OPTIONS.map((qty) => (
                             <option key={qty} value={qty}>
@@ -357,7 +357,7 @@ export default function MugsLeadPage() {
                         name="boxPackaging"
                         value={formData.boxPackaging}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19]"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
                       >
                         <option value="Individual White Gift Box">Individual White Cardboard Gift Box (Standard)</option>
                         <option value="Custom Printed Box">Custom Branded Rigid Gift Box with Logo</option>
@@ -374,7 +374,7 @@ export default function MugsLeadPage() {
                         value={formData.message}
                         onChange={handleChange}
                         rows={3}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#FF5500] focus:ring-1 focus:ring-[#A82F19] resize-none"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] resize-none"
                         placeholder="e.g. Single logo facing right-handed drinker, or full panoramic 360 wrap..."
                       />
                     </div>
@@ -382,7 +382,7 @@ export default function MugsLeadPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3.5 bg-[#FF5500] hover:bg-[#8F2412] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#FF5500]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                      className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#8F2412] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#D4AF65]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? 'Submitting Specifications…' : 'Submit Specification & Get Official Quote →'}
                     </button>
@@ -398,7 +398,7 @@ export default function MugsLeadPage() {
             {/* Right Column: Drinkware Standards & Features */}
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#FF5500]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
                   COMMERCIAL SPECIFICATIONS
                 </span>
                 <h3 className="font-serif text-lg font-bold text-slate-900 mt-1 mb-4">
@@ -409,7 +409,7 @@ export default function MugsLeadPage() {
                     const IconComp = spec.icon
                     return (
                       <div key={idx} className="flex gap-3.5 items-start">
-                        <div className="flex-shrink-0 w-9 h-9 bg-[#FF5500]/10 rounded-xl flex items-center justify-center text-[#FF5500]">
+                        <div className="flex-shrink-0 w-9 h-9 bg-[#D4AF65]/10 rounded-xl flex items-center justify-center text-[#D4AF65]">
                           <IconComp className="w-4 h-4" />
                         </div>
                         <div>
@@ -429,21 +429,21 @@ export default function MugsLeadPage() {
                 </h3>
                 <div className="space-y-3 text-xs text-slate-600">
                   <div className="flex items-center gap-3">
-                    <Phone className="w-4 h-4 text-[#FF5500]" />
+                    <Phone className="w-4 h-4 text-[#D4AF65]" />
                     <span>WhatsApp / Direct Line: <strong className="text-slate-900">{FORMATTED_PHONE}</strong></span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Mail className="w-4 h-4 text-[#FF5500]" />
+                    <Mail className="w-4 h-4 text-[#D4AF65]" />
                     <span>Inquiry Email: <strong className="text-slate-900">0nprint183@gmail.com</strong></span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Clock className="w-4 h-4 text-[#FF5500]" />
+                    <Clock className="w-4 h-4 text-[#D4AF65]" />
                     <span>Operating Hours: <strong className="text-slate-900">Mon–Sat 8:30 AM – 6:30 PM</strong></span>
                   </div>
                 </div>
 
                 <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <Link to="/services/mug-printing-dubai" className="text-xs font-semibold text-[#FF5500] hover:underline">
+                  <Link to="/services/mug-printing-dubai" className="text-xs font-semibold text-[#D4AF65] hover:underline">
                     View Mug Service Overview &rarr;
                   </Link>
                   <Link to="/services" className="text-xs text-slate-500 hover:text-slate-800">

@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 function PortfolioTile({ item, onSelectCaseStudy }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#FF5500] hover:shadow-xl">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#D4AF65] hover:shadow-xl">
       {/* Project Photography */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
         <img
@@ -34,7 +34,7 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
         <button
           type="button"
           onClick={() => onSelectCaseStudy(item)}
-          className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#FF5500] text-white opacity-0 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 cursor-pointer"
+          className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#D4AF65] text-white opacity-0 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 cursor-pointer"
           title="View full case study"
         >
           <ArrowUpRight className="h-4 w-4" />
@@ -45,12 +45,12 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
       <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
         <div>
           <div className="flex items-center justify-between">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-[#FF5500]">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF65]">
               Dubai Press Production
             </p>
             <span className="text-[10px] font-semibold text-neutral-400">Case Study</span>
           </div>
-          <h3 className="font-display mt-1.5 text-lg font-black tracking-tight text-black group-hover:text-[#FF5500] transition-colors">
+          <h3 className="font-display mt-1.5 text-lg font-black tracking-tight text-black group-hover:text-[#D4AF65] transition-colors">
             {item.title}
           </h3>
           {item.specs && (
@@ -70,14 +70,14 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
             <button
               type="button"
               onClick={() => onSelectCaseStudy(item)}
-              className="inline-flex items-center gap-1 text-xs font-bold text-black hover:text-[#FF5500] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 text-xs font-bold text-black hover:text-[#D4AF65] transition-colors cursor-pointer"
             >
               <span>Read Case Study</span>
               <ChevronRight className="h-3 w-3" />
             </button>
             <Link
               to={`/get-a-quote?service=${encodeURIComponent(item.title)}`}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#FF5500] hover:underline"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#D4AF65] hover:underline"
             >
               <span>Quote Spec</span>
               <ArrowUpRight className="h-3 w-3" />
@@ -209,7 +209,7 @@ export default function PortfolioPage() {
             {/* Modal Header */}
             <div className="pr-10">
               <div className="flex flex-wrap items-center gap-2 text-xs">
-                <span className="rounded-full bg-[#FF5500]/10 px-2.5 py-0.5 font-extrabold uppercase text-[#FF5500]">
+                <span className="rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 font-extrabold uppercase text-[#D4AF65]">
                   {selectedCaseStudy.category}
                 </span>
                 <span className="rounded-full bg-slate-100 px-2.5 py-0.5 font-bold text-slate-700">
@@ -219,7 +219,7 @@ export default function PortfolioPage() {
               <h2 className="font-display mt-3 text-2xl sm:text-3xl font-black text-black">
                 {selectedCaseStudy.projectName || selectedCaseStudy.title}
               </h2>
-              <p className="mt-1 text-sm font-semibold text-[#FF5500]">
+              <p className="mt-1 text-sm font-semibold text-[#D4AF65]">
                 Service: {selectedCaseStudy.serviceProvided || selectedCaseStudy.title}
               </p>
             </div>
@@ -238,7 +238,7 @@ export default function PortfolioPage() {
               {/* Challenge */}
               <div className="rounded-xl border border-border bg-slate-50/70 p-5">
                 <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-slate-900">
-                  <Briefcase className="h-4 w-4 text-[#FF5500]" />
+                  <Briefcase className="h-4 w-4 text-[#D4AF65]" />
                   <span>The Project Challenge</span>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-700">
@@ -249,7 +249,7 @@ export default function PortfolioPage() {
               {/* Solution */}
               <div className="rounded-xl border border-border bg-slate-50/70 p-5">
                 <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-slate-900">
-                  <FileText className="h-4 w-4 text-[#FF5500]" />
+                  <FileText className="h-4 w-4 text-[#D4AF65]" />
                   <span>The Engineering &amp; Press Solution</span>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-700">
@@ -260,7 +260,7 @@ export default function PortfolioPage() {
               {/* Materials & Finishes */}
               <div className="rounded-xl border border-border bg-slate-50/70 p-5">
                 <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-slate-900">
-                  <Layers className="h-4 w-4 text-[#FF5500]" />
+                  <Layers className="h-4 w-4 text-[#D4AF65]" />
                   <span>Materials &amp; Finishes Used</span>
                 </div>
                 <p className="mt-2 text-sm font-semibold text-slate-800">

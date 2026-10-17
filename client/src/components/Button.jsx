@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight, Loader2 } from 'lucide-react'
 
 const baseClasses =
-  'group relative overflow-hidden inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-bold tracking-wide transition-all duration-300 cursor-pointer rounded-2xl border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B83A22] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] hover:-translate-y-0.5'
+  'group relative overflow-hidden inline-flex items-center justify-center gap-2 whitespace-nowrap font-bold tracking-tight transition-all duration-300 cursor-pointer rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF5500] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
 
 const variants = {
   primary:
-    'border-[#181411] bg-[#181411] text-[#FAF7F2] hover:bg-[#B83A22] hover:border-[#B83A22] shadow-[0_8px_22px_-6px_rgba(24,20,17,0.35)] hover:shadow-[0_14px_28px_-6px_rgba(184,58,34,0.4)]',
+    'border-zinc-950 bg-zinc-950 text-white hover:bg-[#FF5500] hover:border-[#FF5500] shadow-[0_4px_14px_rgba(0,0,0,0.12)] hover:shadow-[0_8px_24px_rgba(255,85,0,0.28)]',
   accent:
-    'border-[#B83A22] bg-gradient-to-r from-[#B83A22] to-[#962C17] text-[#FFFFFF] hover:from-[#C94329] hover:to-[#A82F19] hover:border-[#A82F19] shadow-[0_10px_24px_-6px_rgba(184,58,34,0.38)] hover:shadow-[0_16px_32px_-6px_rgba(184,58,34,0.48)]',
+    'border-[#FF5500] bg-[#FF5500] text-white hover:bg-zinc-950 hover:border-zinc-950 shadow-[0_4px_14px_rgba(255,85,0,0.25)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)]',
   brass:
-    'border-[#C89D54]/60 bg-gradient-to-r from-[#C89D54] to-[#B3873E] text-[#181411] hover:from-[#D4AE6A] hover:to-[#C89D54] shadow-[0_10px_24px_-6px_rgba(200,157,84,0.35)]',
+    'border-zinc-800 bg-zinc-900 text-white hover:bg-[#FF5500] hover:border-[#FF5500] shadow-xs',
   secondary:
-    'border-[#D2C7B8] bg-[#FFFFFF] text-[#181411] hover:border-[#B83A22] hover:text-[#B83A22] hover:bg-[#FAF7F2] shadow-xs',
+    'border-zinc-200 bg-white text-zinc-900 hover:border-zinc-900 hover:text-black hover:bg-zinc-50 shadow-xs',
   outline:
-    'border-[#D2C7B8] bg-[#FAF7F2]/80 text-[#181411] hover:border-[#B83A22] hover:text-[#B83A22] hover:bg-white shadow-2xs',
+    'border-zinc-300 bg-transparent text-zinc-800 hover:border-zinc-950 hover:text-zinc-950 hover:bg-zinc-100/60 shadow-2xs',
   ghost:
-    'border-transparent bg-transparent text-[#181411] hover:text-[#B83A22] hover:bg-[#B83A22]/10',
+    'border-transparent bg-transparent text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100',
 }
 
 const sizes = {

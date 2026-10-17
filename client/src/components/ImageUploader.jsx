@@ -163,7 +163,7 @@ export default function ImageUploader({
                   type="button"
                   disabled={uploading}
                   onClick={() => fileInputRef.current?.click()}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-300 bg-white px-3 py-1.5 text-xs font-bold text-neutral-800 hover:border-[#A82F19] hover:text-[#A82F19] transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-300 bg-white px-3 py-1.5 text-xs font-bold text-neutral-800 hover:border-[#FF5500] hover:text-[#FF5500] transition-colors"
                 >
                   <RefreshCw className="h-3.5 w-3.5" />
                   Replace
@@ -186,7 +186,7 @@ export default function ImageUploader({
           {onAltTextChange && (
             <div className="pt-2 border-t border-neutral-200/80">
               <label className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-neutral-700 mb-1">
-                <Tag className="h-3 w-3 text-[#A82F19]" />
+                <Tag className="h-3 w-3 text-[#FF5500]" />
                 SEO Image Alt Text
               </label>
               <input
@@ -194,7 +194,7 @@ export default function ImageUploader({
                 value={altText}
                 onChange={(e) => onAltTextChange(e.target.value)}
                 placeholder="Descriptive alt text for Google SEO (e.g. Mug Printing in Dubai)"
-                className="w-full rounded-xl border border-neutral-300 bg-white px-3 py-2 text-xs text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 bg-white px-3 py-2 text-xs text-neutral-900 placeholder-neutral-400 focus:border-[#FF5500] focus:outline-none"
               />
             </div>
           )}
@@ -247,8 +247,8 @@ export default function ImageUploader({
           onClick={() => !uploading && fileInputRef.current?.click()}
           className={`relative flex flex-col items-center justify-center rounded-3xl border-2 border-dashed p-6 sm:p-8 text-center transition-all cursor-pointer ${
             dragActive
-              ? 'border-[#A82F19] bg-[#A82F19]/5 scale-[0.99]'
-              : 'border-neutral-300 bg-neutral-50/60 hover:border-[#A82F19]/60 hover:bg-white'
+              ? 'border-[#FF5500] bg-[#FF5500]/10 scale-[0.99]'
+              : 'border-neutral-300 bg-neutral-50/60 hover:border-[#FF5500] hover:bg-white'
           } ${uploading ? 'opacity-70 pointer-events-none' : ''}`}
         >
           <input
@@ -262,29 +262,29 @@ export default function ImageUploader({
 
           {uploading ? (
             <div className="space-y-3 flex flex-col items-center py-2">
-              <Loader2 className="h-8 w-8 animate-spin text-[#A82F19]" />
+              <Loader2 className="h-8 w-8 animate-spin text-[#FF5500]" />
               <div className="text-xs font-bold text-neutral-900">Uploading Image ({progress}%)...</div>
               <div className="w-48 h-1.5 bg-neutral-200 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-[#A82F19] transition-all duration-300"
+                  className="h-full bg-[#FF5500] transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 />
               </div>
             </div>
           ) : (
             <div className="space-y-3 flex flex-col items-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#A82F19]/10 text-[#A82F19]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FF5500]/10 text-[#FF5500]">
                 <UploadCloud className="h-6 w-6" />
               </div>
 
               <div>
                 <div className="text-xs font-bold text-neutral-900">
-                  <span className="text-[#A82F19]">Click to choose file</span> or drag & drop image here
+                  <span className="text-[#FF5500]">Click to choose file</span> or drag & drop image here
                 </div>
                 <p className="text-[11px] text-neutral-500 mt-1">{description}</p>
               </div>
 
-              <div className="rounded-xl border border-neutral-300 bg-white px-4 py-2 text-xs font-bold text-neutral-900 shadow-xs hover:border-[#A82F19] hover:text-[#A82F19] transition-colors">
+              <div className="rounded-xl border border-neutral-300 bg-white px-4 py-2 text-xs font-bold text-neutral-900 shadow-xs hover:border-[#FF5500] hover:text-[#FF5500] transition-colors">
                 Choose File
               </div>
             </div>

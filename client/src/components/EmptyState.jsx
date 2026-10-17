@@ -16,7 +16,7 @@ export default function EmptyState({
     if (React.isValidElement(Icon)) return Icon
     if (typeof Icon === 'function' || typeof Icon === 'string' || (typeof Icon === 'object' && Icon !== null && Icon.$$typeof)) {
       const IconComp = Icon
-      return <IconComp className="h-8 w-8 text-[#A82F19]" strokeWidth={1.5} aria-hidden="true" />
+      return <IconComp className="h-8 w-8 text-[#FF5500]" strokeWidth={1.5} aria-hidden="true" />
     }
     return null
   }

@@ -167,7 +167,7 @@ export default function TrackOrderPage() {
 
         {/* Hero Header */}
         <div className="text-center max-w-2xl mx-auto mt-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 border border-red-100 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 border border-red-100 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#FF5500]">
             <Sparkles className="w-3.5 h-3.5" /> Real-Time Production Tracker
           </span>
           <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
@@ -188,7 +188,7 @@ export default function TrackOrderPage() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Enter Order # (e.g. ONP-2026-584109) or email"
-                className="w-full rounded-xl border border-slate-300 bg-slate-50/50 py-3 pl-11 pr-4 text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-[#A82F19] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 transition-all font-mono"
+                className="w-full rounded-xl border border-slate-300 bg-slate-50/50 py-3 pl-11 pr-4 text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-[#FF5500] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 transition-all font-mono"
                 required
               />
             </div>
@@ -218,7 +218,7 @@ export default function TrackOrderPage() {
                   key={rec.orderNumber}
                   type="button"
                   onClick={() => handleQuickLookup(rec.orderNumber)}
-                  className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono font-bold text-slate-700 hover:border-[#A82F19] hover:bg-red-50 hover:text-[#A82F19] transition-all cursor-pointer"
+                  className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono font-bold text-slate-700 hover:border-[#FF5500] hover:bg-red-50 hover:text-[#FF5500] transition-all cursor-pointer"
                 >
                   {rec.orderNumber}
                 </button>
@@ -230,7 +230,7 @@ export default function TrackOrderPage() {
         {/* Loading State */}
         {loading && (
           <div className="mt-12 text-center py-12">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-[#A82F19] animate-bounce">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-[#FF5500] animate-bounce">
               <Printer className="h-6 w-6" />
             </div>
             <p className="mt-4 font-bold text-slate-800">Checking ONPRINT Production Database...</p>
@@ -329,7 +329,7 @@ export default function TrackOrderPage() {
                         <div
                           className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-xs font-bold transition-all shadow-xs ${
                             s.done
-                              ? 'bg-[#A82F19] text-white ring-4 ring-red-50'
+                              ? 'bg-[#FF5500] text-white ring-4 ring-red-50'
                               : s.current
                                 ? 'bg-red-500 text-white ring-4 ring-red-100 animate-pulse'
                                 : 'border border-slate-200 bg-slate-100 text-slate-400'
@@ -393,7 +393,7 @@ export default function TrackOrderPage() {
                     {order.artworkFile && (
                       <div className="pt-2">
                         <span className="font-bold text-slate-500 block mb-1">Attached Artwork / Design File:</span>
-                        <div className="flex items-center gap-2 rounded-xl border border-red-100 bg-red-50/50 p-3 text-xs font-bold text-[#A82F19]">
+                        <div className="flex items-center gap-2 rounded-xl border border-red-100 bg-red-50/50 p-3 text-xs font-bold text-[#FF5500]">
                           <span>📎</span>
                           <span>{order.artworkFile}</span>
                         </div>
@@ -422,7 +422,7 @@ export default function TrackOrderPage() {
                     </div>
                     <div className="flex justify-between font-black text-sm text-slate-900 border-t border-slate-100 pt-2">
                       <span>Total Amount</span>
-                      <span className="text-[#A82F19]">
+                      <span className="text-[#FF5500]">
                         {order.totalPrice ? `AED ${Number(order.totalPrice).toLocaleString()}` : 'Pricing on Request'}
                       </span>
                     </div>
@@ -479,7 +479,7 @@ export default function TrackOrderPage() {
         {!loading && !searched && (
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
-              <div className="h-10 w-10 rounded-xl bg-red-50 text-[#A82F19] flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-xl bg-red-50 text-[#FF5500] flex items-center justify-center mb-4">
                 <Clock className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-slate-900 text-sm">Fast Turnaround Times</h3>
@@ -489,7 +489,7 @@ export default function TrackOrderPage() {
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
-              <div className="h-10 w-10 rounded-xl bg-red-50 text-[#A82F19] flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-xl bg-red-50 text-[#FF5500] flex items-center justify-center mb-4">
                 <FileCheck className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-slate-900 text-sm">Free Pre-Press Proofing</h3>
@@ -499,7 +499,7 @@ export default function TrackOrderPage() {
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
-              <div className="h-10 w-10 rounded-xl bg-red-50 text-[#A82F19] flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-xl bg-red-50 text-[#FF5500] flex items-center justify-center mb-4">
                 <Truck className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-slate-900 text-sm">UAE-Wide Express Delivery</h3>

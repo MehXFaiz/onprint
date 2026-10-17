@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  /* ONPRINT — Warm Editorial & Modern Craft Design System */
-  --background: #FAF7F2;          /* Warm Alabaster / Archival Cotton Cream */
-  --surface: #FFFFFF;             /* Crisp Pure Cotton Card Surface */
-  --surface-subtle: #F4EFE6;      /* Warm Linen / Sand Tint */
-  --surface-muted: #EAE2D6;       /* Tactile Kraft / Deckle Stone Tint */
-  --surface-dark: #181411;        /* Deep Espresso Ink / Pressroom Obsidian */
-  --surface-dark-elevated: #231D19;
-  --primary: #181411;             /* Espresso Ink Primary Text */
-  --secondary: #574E46;           /* Warm Umber Secondary Text */
-  --text-primary: #181411;
-  --text-secondary: #685E54;
-  --border: #E4DCD0;              /* Warm Archival Stone Border */
-  --border-subtle: #EFE9DF;
-  --accent: #B83A22;              /* Venetian Terracotta / Fired Vermilion */
-  --accent-hover: #962C17;
-  --accent-soft: #FDF3EF;
-  --accent-soft-hover: #FAE3DA;
-  --brass: #C89D54;               /* Brushed 24K Brass / Champagne Foil */
-  --brass-hover: #B3873E;
-  --brass-soft: #F9F3E6;
+  /* ONPRINT — Dubai Ultra-Minimalist Luxury Atelier Design System */
+  --background: #FAFAFA;          /* Architectural Pure Porcelain */
+  --surface: #FFFFFF;             /* Crisp Pure White Surface */
+  --surface-subtle: #F4F4F5;      /* Subtle Neutral Mist / Zinc 100 */
+  --surface-muted: #E4E4E7;       /* Refined Border / Zinc 200 */
+  --surface-dark: #09090B;        /* Deep Obsidian Carbon / Zinc 950 */
+  --surface-dark-elevated: #18181B; /* Elevated Carbon / Zinc 900 */
+  --primary: #09090B;             /* High-Impact Obsidian Primary Text */
+  --secondary: #52525B;           /* Architectural Neutral Zinc 600 */
+  --text-primary: #09090B;
+  --text-secondary: #71717A;      /* Zinc 500 */
+  --border: #E4E4E7;              /* Hairline Precision Zinc 200 */
+  --border-subtle: #F4F4F5;       /* Hairline Zinc 100 */
+  --accent: #FF5500;              /* Electric International Orange — ONPRINT Signature */
+  --accent-hover: #E04B00;
+  --accent-soft: #FFF4ED;
+  --accent-soft-hover: #FFE8D9;
+  --brass: #C5A059;               /* Refined Champagne Gold Accent */
+  --brass-hover: #B28D44;
+  --brass-soft: #FAF6ED;
 }
 
 @theme {
@@ -38,28 +38,28 @@
   --color-brass: var(--brass);
   --color-brass-soft: var(--brass-soft);
 
-  /* Remap slate palette to Warm Editorial Stone/Espresso so all pages harmonize automatically */
-  --color-slate-50: #FAF7F2;
-  --color-slate-100: #F3EDE2;
-  --color-slate-200: #E4DCD0;
-  --color-slate-300: #D2C7B8;
-  --color-slate-400: #9C8F80;
-  --color-slate-500: #6E6257;
-  --color-slate-600: #52483F;
-  --color-slate-700: #3B332C;
-  --color-slate-800: #26201B;
-  --color-slate-900: #181411;
-  --color-slate-950: #100D0B;
+  /* Remap slate palette to modern neutral architectural Zinc */
+  --color-slate-50: #FAFAFA;
+  --color-slate-100: #F4F4F5;
+  --color-slate-200: #E4E4E7;
+  --color-slate-300: #D4D4D8;
+  --color-slate-400: #A1A1AA;
+  --color-slate-500: #71717A;
+  --color-slate-600: #52525B;
+  --color-slate-700: #3F3F46;
+  --color-slate-800: #27272A;
+  --color-slate-900: #18181B;
+  --color-slate-950: #09090B;
 
-  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-serif: 'Playfair Display', Georgia, Cambria, serif;
-  --font-sans: 'Plus Jakarta Sans', 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
 
-  --color-ink-900: #181411;
-  --color-ink-700: #3B332C;
-  --color-ink-500: #6E6257;
+  --color-ink-900: #09090B;
+  --color-ink-700: #27272A;
+  --color-ink-500: #71717A;
   --color-brand-50: var(--accent-soft);
-  --color-brand-100: #FAE3DA;
+  --color-brand-100: #FFE8D9;
   --color-brand-600: var(--accent);
   --color-brand-700: var(--accent-hover);
   --color-accent-500: var(--accent);
@@ -82,120 +82,123 @@ body {
   font-feature-settings: 'cv11', 'ss01';
   overflow-x: clip;
   background-image:
-    radial-gradient(circle at 15% 10%, rgba(200, 157, 84, 0.06), transparent 35%),
-    radial-gradient(circle at 85% 25%, rgba(184, 58, 34, 0.045), transparent 40%);
+    radial-gradient(circle at 50% 0%, rgba(255, 85, 0, 0.035), transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(9, 9, 11, 0.02), transparent 40%);
 }
 
 ::selection {
-  background: #B83A22;
-  color: #FAF7F2;
+  background: #FF5500;
+  color: #FFFFFF;
 }
 
 :focus-visible {
-  outline: 2px solid #B83A22;
+  outline: 2px solid #FF5500;
   outline-offset: 2px;
 }
 
 /* =========================================================================
-   TACTILE PAPER & BENTO SURFACE SYSTEM
+   MINIMAL ARCHITECTURAL BENTO SURFACE SYSTEM
    ========================================================================= */
 
 .bg-editorial-grid {
-  background-size: 36px 36px;
+  background-size: 32px 32px;
   background-image:
-    linear-gradient(to right, rgba(24, 20, 17, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(24, 20, 17, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(9, 9, 11, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 9, 11, 0.035) 1px, transparent 1px);
 }
 
 .bg-editorial-dots {
-  background-image: radial-gradient(rgba(24, 20, 17, 0.1) 1px, transparent 1px);
-  background-size: 18px 18px;
+  background-image: radial-gradient(rgba(9, 9, 11, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
 }
 
 .bento-card {
   position: relative;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FDFBF8 100%);
-  border: 1px solid #E4DCD0;
+  background: #FFFFFF;
+  border: 1px solid #E4E4E7;
   border-radius: 1.5rem;
   box-shadow:
-    0 2px 6px -1px rgba(24, 20, 17, 0.04),
-    0 12px 32px -8px rgba(24, 20, 17, 0.06),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+    0 2px 8px -2px rgba(9, 9, 11, 0.03),
+    0 12px 28px -6px rgba(9, 9, 11, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1);
   transition:
-    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s ease;
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
 }
 
 .bento-card:hover {
-  border-color: rgba(200, 157, 84, 0.65);
+  border-color: #09090B;
   box-shadow:
-    0 24px 48px -12px rgba(24, 20, 17, 0.12),
-    0 8px 20px -6px rgba(184, 58, 34, 0.08),
-    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+    0 20px 40px -10px rgba(9, 9, 11, 0.08),
+    0 4px 12px -2px rgba(255, 85, 0, 0.08);
   transform: translateY(-4px);
 }
 
 .bento-card-dark {
   position: relative;
-  background: radial-gradient(120% 120% at 0% 0%, #26201B 0%, #181411 65%, #110E0C 100%);
-  border: 1px solid rgba(200, 157, 84, 0.25);
+  background: #09090B;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 1.5rem;
-  color: #FAF7F2;
+  color: #FAFAFA;
   box-shadow:
-    0 20px 50px -12px rgba(24, 20, 17, 0.35),
+    0 24px 50px -12px rgba(9, 9, 11, 0.5),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
   transition:
-    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s ease;
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
 }
 
 .bento-card-dark:hover {
-  border-color: rgba(200, 157, 84, 0.55);
+  border-color: rgba(255, 85, 0, 0.6);
   box-shadow:
-    0 28px 60px -12px rgba(24, 20, 17, 0.45),
-    0 0 30px -5px rgba(200, 157, 84, 0.18);
+    0 28px 60px -12px rgba(9, 9, 11, 0.6),
+    0 0 30px -5px rgba(255, 85, 0, 0.25);
   transform: translateY(-4px);
 }
 
 .card-clean {
   background-color: #FFFFFF;
-  border: 1px solid #E4DCD0;
+  border: 1px solid #E4E4E7;
   border-radius: 1.25rem;
-  box-shadow: 0 2px 10px -2px rgba(24, 20, 17, 0.05);
+  box-shadow: 0 2px 8px -2px rgba(9, 9, 11, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-clean:hover {
-  border-color: rgba(184, 58, 34, 0.45);
-  box-shadow: 0 18px 36px -8px rgba(24, 20, 17, 0.1), 0 6px 14px -4px rgba(184, 58, 34, 0.07);
+  border-color: #09090B;
+  box-shadow: 0 16px 32px -8px rgba(9, 9, 11, 0.08);
   transform: translateY(-3px);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #B83A22 0%, #962C17 100%);
+  background: #09090B;
   color: #FFFFFF;
   font-weight: 700;
-  box-shadow: 0 10px 24px -6px rgba(184, 58, 34, 0.4);
+  border-radius: 9999px;
+  box-shadow: 0 8px 20px -4px rgba(9, 9, 11, 0.25);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #C94329 0%, #A82F19 100%);
-  box-shadow: 0 14px 30px -4px rgba(184, 58, 34, 0.5);
+  background: #FF5500;
+  box-shadow: 0 12px 28px -4px rgba(255, 85, 0, 0.35);
   transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background-color: #181411;
-  color: #FAF7F2;
+  background-color: #FFFFFF;
+  color: #09090B;
+  border: 1px solid #E4E4E7;
+  border-radius: 9999px;
   font-weight: 700;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  background-color: #2B241E;
+  background-color: #FAFAFA;
+  border-color: #09090B;
   transform: translateY(-2px);
 }
 

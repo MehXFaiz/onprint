@@ -29,7 +29,7 @@ const features = [
 
 export default function CarefreeShoppingSection() {
   return (
-    <section className="relative overflow-hidden border-t border-[#E4DCD0] bg-[#FAF7F2] py-20 sm:py-24 text-[#181411]">
+    <section className="relative overflow-hidden border-t border-zinc-200 bg-white py-20 sm:py-24 text-zinc-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Left Column: Studio Showcase */}
@@ -39,9 +39,9 @@ export default function CarefreeShoppingSection() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className="bento-card relative mx-auto overflow-hidden p-2.5 group"
+              className="relative mx-auto overflow-hidden p-2 rounded-3xl border border-zinc-200 bg-zinc-50 shadow-sm group"
             >
-              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden rounded-2xl bg-[#F3EDE2]">
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden rounded-2xl bg-zinc-100">
                 <picture>
                   <source type="image/webp" srcSet={carefreeShoppingWebp} />
                   <img
@@ -54,23 +54,23 @@ export default function CarefreeShoppingSection() {
                     className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#181411]/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/50 via-transparent to-transparent pointer-events-none" />
               </div>
             </motion.div>
           </div>
 
           {/* Right Column: Copy & Feature Grid */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#C89D54]/45 bg-[#C89D54]/15 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#8A5A19]">
-              <Sparkles className="h-3.5 w-3.5 text-[#B83A22]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-100 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-zinc-900">
+              <Sparkles className="h-3.5 w-3.5 text-[#FF5500]" />
               <span>Carefree Production Guarantee</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-[#181411] leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-zinc-950 leading-tight">
               Commercial Printing Made Simple, Fast &amp; Flawless.
             </h2>
 
-            <p className="text-sm sm:text-base text-[#52483F] leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
               Experience seamless printing in Dubai. From pre-press artwork proofing to rapid delivery, our Al Quoz pressroom guarantees absolute color precision at every step.
             </p>
 
@@ -84,20 +84,20 @@ export default function CarefreeShoppingSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.08, duration: 0.45 }}
-                    className="bento-card p-4"
+                    className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-xs hover:border-zinc-400 transition-colors"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#181411] border border-[#C89D54]/45 text-[#DFB973] shadow-sm">
-                        <Icon className="h-5 w-5" />
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-zinc-950 text-white shadow-xs">
+                        <Icon className="h-5 w-5 text-[#FF5500]" />
                       </div>
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
-                          <h4 className="font-serif text-sm font-bold text-[#181411]">{feat.title}</h4>
-                          <span className="rounded-md bg-[#F3EDE2] border border-[#E4DCD0] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#52483F]">
+                          <h4 className="text-sm font-bold text-zinc-950">{feat.title}</h4>
+                          <span className="rounded-md bg-zinc-100 border border-zinc-200 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-zinc-600">
                             {feat.badge}
                           </span>
                         </div>
-                        <p className="text-xs text-[#52483F] leading-relaxed">{feat.description}</p>
+                        <p className="text-xs text-zinc-500 leading-relaxed">{feat.description}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -108,11 +108,11 @@ export default function CarefreeShoppingSection() {
             <div className="pt-2 flex flex-col sm:flex-row gap-3">
               <Link
                 to="/get-a-quote"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#181411] hover:bg-[#B83A22] border border-[#C89D54]/40 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-zinc-950 hover:bg-[#FF5500] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all"
                 onClick={() => trackGetQuoteClick({ source_page: 'carefree_section' })}
               >
                 <span>Request Custom Quote</span>
-                <ArrowRight className="h-4 w-4 text-[#DFB973]" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>

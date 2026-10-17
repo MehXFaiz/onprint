@@ -32,7 +32,6 @@ import {
   BadgeCheck
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
-import Container from './Container'
 import Logo from './Logo'
 import WhatsAppIcon from './WhatsAppIcon'
 import { useAuth } from '../context/AuthContext'
@@ -286,71 +285,49 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full select-none">
-      {/* 1. SIGNATURE BRUSHED BRASS & TERRACOTTA CROWN LINE */}
-      <div className="h-[2.5px] w-full bg-gradient-to-r from-[#C89D54]/35 via-[#B83A22] to-[#C89D54]/35" />
-
-      {/* 2. TOP ATELIER STATUS & UTILITY RIBBON — ESPRESSO INK & BRUSHED BRASS */}
-      <div className="hidden md:block bg-[#181411] border-b border-[#C89D54]/18 py-1.5 text-[11px] text-[#E4DCD0]">
-        <Container className="flex items-center justify-between gap-4">
-          {/* Left: Pressroom Live Badge & UAE Turnaround */}
+    <header className="sticky top-0 z-50 w-full select-none pt-1.5 sm:pt-2.5">
+      {/* 1. TOP MINIMAL MICRO-TICKER RIBBON */}
+      <div className="hidden md:block mx-auto max-w-7xl px-4 sm:px-6 mb-1.5">
+        <div className="flex items-center justify-between text-[11px] font-medium text-zinc-500 tracking-tight">
+          {/* Left: Pressroom Live Status Badge */}
           <div className="flex items-center gap-3 shrink-0">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] border border-[#C89D54]/25 px-2.5 py-0.5 font-medium text-[#FAF7F2]">
+            <div className="inline-flex items-center gap-1.5 text-zinc-900 font-bold uppercase tracking-wider text-[10px]">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5500] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF5500]"></span>
               </span>
-              <span className="font-bold text-[#DFB973] tracking-wide">Atelier Live:</span>
-              <span className="text-[#E4DCD0] truncate max-w-[140px] lg:max-w-none">Al Quoz Pressroom, Dubai</span>
+              <span>Dubai Commercial Pressroom</span>
             </div>
-
-            <div className="hidden sm:flex items-center gap-1.5 text-[#E4DCD0]">
-              <Zap className="h-3.5 w-3.5 text-[#DFB973] animate-pulse shrink-0" />
-              <span className="font-extrabold text-white">Same-Day Express 24H</span>
-              <span className="text-[#9E9284]">Dubai &amp; UAE Dispatch</span>
-            </div>
-
-            <span className="hidden xl:inline h-3 w-px bg-[#C89D54]/20" />
-
-            <div className="hidden xl:flex items-center gap-1.5 text-[#CFC4B4]">
-              <BadgeCheck className="h-3.5 w-3.5 text-[#DFB973]" />
-              <span>Complimentary 300 DPI Pre-Flight Audit</span>
-            </div>
+            <span className="text-zinc-300">•</span>
+            <span className="text-zinc-600">Al Quoz 4, Dubai</span>
+            <span className="text-zinc-300 hidden lg:inline">•</span>
+            <span className="hidden lg:inline text-zinc-900 font-semibold">Same-Day 4H Rush Available</span>
+            <span className="text-zinc-300 hidden xl:inline">•</span>
+            <span className="hidden xl:inline text-zinc-500">Free 300 DPI Pre-Flight Audit</span>
           </div>
 
-          {/* Right: Direct Hotline + Track Order + Email + WhatsApp */}
-          <div className="flex items-center gap-3 lg:gap-4 shrink-0 text-[#E4DCD0]">
+          {/* Right: Hotline + Track Order + WhatsApp */}
+          <div className="flex items-center gap-3.5 text-zinc-600 shrink-0">
             <a
               href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              className="inline-flex items-center gap-1.5 font-semibold text-[#FAF7F2] hover:text-[#DFB973] transition-colors"
+              className="inline-flex items-center gap-1.5 font-bold text-zinc-900 hover:text-[#FF5500] transition-colors"
             >
-              <Phone className="h-3.5 w-3.5 text-[#DFB973]" />
+              <Phone className="h-3 w-3 text-[#FF5500]" />
               <span>{FORMATTED_PHONE}</span>
             </a>
 
-            <span className="hidden sm:inline h-3 w-px bg-[#C89D54]/20" />
+            <span className="text-zinc-300">/</span>
 
             <Link
               to="/track-order"
-              className="inline-flex items-center gap-1.5 font-semibold text-[#FAF7F2] hover:text-[#DFB973] transition-colors"
+              className="inline-flex items-center gap-1.5 font-medium hover:text-zinc-950 transition-colors"
             >
-              <Truck className="h-3.5 w-3.5 text-[#DFB973]" />
+              <Truck className="h-3 w-3 text-zinc-400" />
               <span>Track Order</span>
             </Link>
 
-            <span className="hidden lg:inline h-3 w-px bg-[#C89D54]/20" />
+            <span className="text-zinc-300">/</span>
 
-            <a
-              href="mailto:0nprint183@gmail.com"
-              className="hidden lg:inline-flex items-center gap-1.5 font-medium text-[#E4DCD0] hover:text-white transition-colors"
-            >
-              <Mail className="h-3.5 w-3.5 text-[#C89D54]" />
-              <span>0nprint183@gmail.com</span>
-            </a>
-
-            <span className="hidden xl:inline h-3 w-px bg-[#C89D54]/20" />
-
-            {/* Direct Top-Bar WhatsApp Hotline */}
             <a
               href={getServiceWhatsAppUrl(location.pathname)}
               target="_blank"
@@ -362,54 +339,51 @@ export default function SiteHeader() {
                   label: 'header_top_bar_whatsapp',
                 })
               }
-              className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/35 px-2.5 py-0.5 text-[11px] font-bold text-emerald-300 hover:bg-[#25D366] hover:text-white transition-colors"
-              aria-label="WhatsApp Direct Hotline"
+              className="inline-flex items-center gap-1.5 font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
             >
               <WhatsAppIcon className="h-3 w-3 fill-current" />
-              <span>WhatsApp Hotline</span>
+              <span>WhatsApp Concierge</span>
             </a>
           </div>
-        </Container>
+        </div>
       </div>
 
-      {/* 3. MAIN WARM ALABASTER EDITORIAL NAVIGATION BAR */}
-      <div
-        className={`border-b transition-all duration-300 ${
-          scrolled
-            ? 'border-[#E4DCD0] bg-[#FAF7F2]/95 backdrop-blur-2xl py-2 shadow-[0_14px_34px_-8px_rgba(24,20,17,0.09)]'
-            : 'border-[#E4DCD0]/80 bg-[#FAF7F2]/88 backdrop-blur-xl py-3 shadow-[0_4px_20px_-4px_rgba(24,20,17,0.04)]'
-        }`}
-      >
-        <Container className="flex items-center justify-between gap-3 lg:gap-6">
-          {/* Brand Logo & Commercial Press Badge */}
+      {/* 2. FLOATING ARCHITECTURAL CAPSULE DOCK */}
+      <div className="mx-auto max-w-7xl px-3 sm:px-6">
+        <div
+          className={`rounded-full border transition-all duration-300 px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between gap-2.5 sm:gap-4 ${
+            scrolled
+              ? 'bg-white/95 backdrop-blur-2xl border-zinc-300/80 shadow-[0_12px_36px_rgba(0,0,0,0.08)]'
+              : 'bg-white/85 backdrop-blur-xl border-zinc-200/90 shadow-[0_6px_24px_rgba(0,0,0,0.04)]'
+          }`}
+        >
+          {/* Brand Logo & Dubai Flagship Pill */}
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="group shrink-0 flex items-center gap-3"
+            className="group shrink-0 flex items-center gap-2.5"
           >
             <motion.div
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
             >
               <Logo variant="default" size="md" />
             </motion.div>
-            <div className="hidden 2xl:flex flex-col text-left leading-tight pl-3 border-l border-[#E4DCD0]">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10.5px] font-black uppercase tracking-wider text-[#181411] group-hover:text-[#B83A22] transition-colors">
-                  ONPRINT ATELIER
-                </span>
-                <span className="h-1.5 w-1.5 rounded-full bg-[#C89D54]" />
-              </div>
-              <span className="text-[9px] font-semibold text-[#7A6F63] tracking-tight uppercase">
-                Bespoke Print • Al Quoz Dubai
+            <div className="hidden xl:flex items-center gap-1.5 pl-3 border-l border-zinc-200">
+              <span className="text-[10px] font-black uppercase tracking-wider text-zinc-950">
+                DUBAI
+              </span>
+              <span className="h-1 w-1 rounded-full bg-[#FF5500]" />
+              <span className="text-[9px] font-semibold text-zinc-400 uppercase tracking-tight">
+                PRESSROOM
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links — Warm Linen Editorial Capsule */}
+          {/* Desktop Navigation Links — Minimalist Pill Glider */}
           <nav
-            className="hidden lg:flex items-center gap-1 bg-[#F3EDE2]/90 p-1 rounded-full border border-[#E4DCD0] shadow-2xs backdrop-blur-md relative"
+            className="hidden lg:flex items-center gap-0.5 bg-zinc-100/80 p-1 rounded-full border border-zinc-200/60 shadow-2xs backdrop-blur-md relative"
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredNav(null)}
           >
@@ -427,15 +401,15 @@ export default function SiteHeader() {
                 onClick={() => setActiveDropdown((prev) => (prev === 'catalog' ? null : 'catalog'))}
                 className={`relative z-10 flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors cursor-pointer ${
                   activeDropdown === 'catalog' || location.pathname === '/products' || location.pathname === '/categories'
-                    ? 'text-[#B83A22]'
-                    : 'text-[#38312B] hover:text-[#181411]'
+                    ? 'text-zinc-950 font-black'
+                    : 'text-zinc-600 hover:text-zinc-950'
                 }`}
               >
-                <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#B83A22]' : 'text-[#7A6F63]'}`} />
-                <span>Print Catalog</span>
+                <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#FF5500]' : 'text-zinc-400'}`} />
+                <span>Catalog</span>
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    activeDropdown === 'catalog' ? 'rotate-180 text-[#B83A22]' : 'text-[#9E9284]'
+                    activeDropdown === 'catalog' ? 'rotate-180 text-zinc-950' : 'text-zinc-400'
                   }`}
                 />
 
@@ -443,97 +417,97 @@ export default function SiteHeader() {
                 {(hoveredNav === 'catalog' || activeDropdown === 'catalog') && (
                   <motion.div
                     layoutId="navHoverCapsule"
-                    className="absolute inset-0 rounded-full bg-white shadow-xs border border-[#C89D54]/45 -z-10"
+                    className="absolute inset-0 rounded-full bg-white shadow-xs border border-zinc-300/70 -z-10"
                     transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                   />
                 )}
               </button>
 
-              {/* Mega-Menu Dropdown Panel with Warm Editorial Bento Cards */}
+              {/* Mega-Menu Dropdown Panel with High-Contrast Bento Layout */}
               <AnimatePresence>
                 {activeDropdown === 'catalog' && (
                   <motion.div
-                    initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                    initial={{ opacity: 0, y: 10, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute left-0 top-full mt-3 w-[min(920px,calc(100vw-32px))] rounded-3xl border border-[#E4DCD0] bg-[#FAF7F2]/98 backdrop-blur-2xl p-6 shadow-[0_28px_64px_-12px_rgba(24,20,17,0.18)] z-50 text-[#181411]"
+                    className="absolute left-0 top-full mt-3 w-[min(940px,calc(100vw-48px))] rounded-3xl border border-zinc-200 bg-white/98 backdrop-blur-2xl p-6 shadow-[0_28px_64px_-12px_rgba(0,0,0,0.12)] z-50 text-zinc-900"
                   >
                     <div className="grid grid-cols-12 gap-6">
-                      {/* Left Spotlight Banner — Espresso Ink & Brushed Brass */}
-                      <div className="col-span-4 rounded-2xl border border-[#C89D54]/30 bg-gradient-to-b from-[#181411] via-[#221C17] to-[#181411] p-5 flex flex-col justify-between text-[#FAF7F2] relative overflow-hidden shadow-lg">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-[#B83A22]/25 via-[#C89D54]/10 to-transparent pointer-events-none" />
+                      {/* Left Spotlight Banner — Deep Obsidian & Electric Orange */}
+                      <div className="col-span-4 rounded-2xl bg-zinc-950 p-5 flex flex-col justify-between text-white relative overflow-hidden shadow-lg border border-zinc-800">
+                        <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 rounded-full bg-[#FF5500]/15 blur-2xl pointer-events-none" />
 
                         <div className="relative z-10">
-                          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#C89D54]/20 border border-[#C89D54]/40 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#DFB973] shadow-xs">
-                            <Sparkles className="h-2.5 w-2.5" />
-                            <span>Atelier Pressroom</span>
+                          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#FF5500]">
+                            <Sparkles className="h-2.5 w-2.5 text-[#FF5500]" />
+                            <span>Pressroom Master</span>
                           </div>
-                          <h4 className="mt-3 text-base font-serif font-bold text-white leading-tight">
-                            Tactile Craft &amp; Precision Print
+                          <h4 className="mt-3 text-base font-bold text-white tracking-tight leading-snug">
+                            Commercial Precision &amp; Tactile Craft
                           </h4>
-                          <p className="mt-1.5 text-xs leading-relaxed text-[#CFC4B4]">
+                          <p className="mt-1.5 text-xs leading-relaxed text-zinc-400">
                             Heidelberg offset, HP Indigo digital, 24K hot foil stamping, and 700 GSM cotton stocks.
                           </p>
 
-                          <div className="mt-4 pt-3.5 border-t border-white/12 space-y-2">
-                            <span className="text-[10px] font-black uppercase tracking-wider text-[#C89D54] block">
-                              Signature Editions
+                          <div className="mt-4 pt-3.5 border-t border-zinc-800 space-y-2">
+                            <span className="text-[10px] font-black uppercase tracking-wider text-zinc-500 block">
+                              Popular Categories
                             </span>
                             <Link
                               to="/business-card-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl bg-white/[0.07] hover:bg-white/[0.14] border border-[#C89D54]/25 text-xs font-bold text-white transition-all backdrop-blur-xs"
+                              className="group flex items-center justify-between p-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 text-xs font-bold text-white transition-all"
                             >
                               <span className="flex items-center gap-2">
-                                <span className="h-2 w-2 rounded-full bg-[#C89D54]" />
+                                <span className="h-2 w-2 rounded-full bg-[#FF5500]" />
                                 <span>Luxury Business Cards</span>
                               </span>
-                              <ArrowUpRight className="h-3.5 w-3.5 text-[#DFB973] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                              <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-white transition-colors" />
                             </Link>
                             <Link
                               to="/categories/custom-stamps-seals"
                               onClick={() => setActiveDropdown(null)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl bg-white/[0.07] hover:bg-white/[0.14] border border-white/10 text-xs font-bold text-white transition-all backdrop-blur-xs"
+                              className="group flex items-center justify-between p-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 text-xs font-bold text-white transition-all"
                             >
                               <span className="flex items-center gap-2">
                                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
                                 <span>Official Stamps &amp; Seals</span>
                               </span>
-                              <ArrowUpRight className="h-3.5 w-3.5 text-[#CFC4B4] group-hover:text-white transition-colors" />
+                              <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-white transition-colors" />
                             </Link>
                           </div>
                         </div>
 
-                        <div className="pt-4 border-t border-white/12 flex items-center justify-between relative z-10">
+                        <div className="pt-4 border-t border-zinc-800 flex items-center justify-between relative z-10">
                           <Link
                             to="/products"
                             onClick={() => setActiveDropdown(null)}
-                            className="text-xs font-black text-[#DFB973] hover:text-white transition-colors flex items-center gap-1.5"
+                            className="text-xs font-black text-white hover:text-[#FF5500] transition-colors flex items-center gap-1.5"
                           >
                             <span>Browse All 200+ Products</span>
-                            <ArrowRight className="h-3.5 w-3.5" />
+                            <ArrowRight className="h-3.5 w-3.5 text-[#FF5500]" />
                           </Link>
                         </div>
                       </div>
 
                       {/* Right Categories Grid */}
-                      <div className="col-span-8 grid grid-cols-2 gap-x-5 gap-y-4 max-h-[390px] overflow-y-auto pr-1">
+                      <div className="col-span-8 grid grid-cols-2 gap-x-4 gap-y-3 max-h-[390px] overflow-y-auto pr-1">
                         {megaMenuGroups.map((group) => {
                           const Icon = group.icon || Layers
                           return (
-                            <div key={group.key} className="p-3 rounded-2xl bg-white/80 hover:bg-white border border-[#E4DCD0]/70 hover:border-[#C89D54]/60 shadow-2xs transition-all">
+                            <div key={group.key} className="p-3 rounded-2xl bg-zinc-50 hover:bg-zinc-100/70 border border-zinc-200/70 transition-all">
                               <div className="flex items-center justify-between mb-2">
                                 <div className="flex items-center gap-2">
-                                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#B83A22]/10 text-[#B83A22] border border-[#B83A22]/15 shrink-0">
+                                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-zinc-950 text-white shrink-0">
                                     <Icon className="h-4 w-4" />
                                   </div>
-                                  <h5 className="text-xs font-extrabold text-[#181411] truncate">
+                                  <h5 className="text-xs font-bold text-zinc-950 truncate">
                                     {group.label}
                                   </h5>
                                 </div>
                                 {group.badge && (
-                                  <span className="rounded-full bg-[#F3EDE2] border border-[#E4DCD0] px-2 py-0.5 text-[9px] font-bold text-[#52483F]">
+                                  <span className="rounded-full bg-zinc-200/70 px-2 py-0.5 text-[9px] font-bold text-zinc-700">
                                     {group.badge}
                                   </span>
                                 )}
@@ -545,10 +519,10 @@ export default function SiteHeader() {
                                     <Link
                                       to={`/categories/${item.slug}`}
                                       onClick={() => setActiveDropdown(null)}
-                                      className="group/link flex items-center justify-between text-xs font-medium text-[#52483F] hover:text-[#B83A22] transition-colors py-0.5"
+                                      className="group/link flex items-center justify-between text-xs font-medium text-zinc-600 hover:text-zinc-950 transition-colors py-0.5"
                                     >
-                                      <span className="truncate group-hover/link:translate-x-1 transition-transform">{item.name}</span>
-                                      <ChevronRight className="h-3 w-3 opacity-0 group-hover/link:opacity-100 text-[#B83A22] transition-opacity shrink-0" />
+                                      <span className="truncate group-hover/link:translate-x-0.5 transition-transform">{item.name}</span>
+                                      <ChevronRight className="h-3 w-3 opacity-0 group-hover/link:opacity-100 text-[#FF5500] transition-opacity shrink-0" />
                                     </Link>
                                   </li>
                                 ))}
@@ -569,42 +543,20 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('cards')}
               className={({ isActive }) =>
                 `relative z-10 flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19]' : 'text-slate-700 hover:text-slate-900'
+                  isActive ? 'text-zinc-950 font-black' : 'text-zinc-600 hover:text-zinc-950'
                 }`
               }
             >
-              <CreditCard className="h-3.5 w-3.5 text-slate-500" />
-              <span>Business Cards</span>
-              <span className="rounded-full bg-gradient-to-r from-[#A82F19] to-[#C83419] text-white px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider animate-pulse">
-                Hot
+              <CreditCard className="h-3.5 w-3.5 text-zinc-400" />
+              <span>Cards</span>
+              <span className="rounded-full bg-[#FF5500] text-white px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
+                DUBAI
               </span>
 
               {hoveredNav === 'cards' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 -z-10"
-                  transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                />
-              )}
-            </NavLink>
-
-            {/* Stickers & Labels */}
-            <NavLink
-              to="/categories/stickers-printing-dubai"
-              onMouseEnter={() => setHoveredNav('stickers')}
-              className={({ isActive }) =>
-                `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19]' : 'text-slate-700 hover:text-slate-900'
-                }`
-              }
-            >
-              <Tag className="h-3.5 w-3.5 text-slate-500" />
-              <span>Stickers</span>
-
-              {hoveredNav === 'stickers' && (
-                <motion.div
-                  layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 -z-10"
+                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-zinc-300/70 -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -615,40 +567,87 @@ export default function SiteHeader() {
               to="/categories/custom-stamps-seals"
               onMouseEnter={() => setHoveredNav('stamps')}
               className={({ isActive }) =>
-                `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19]' : 'text-slate-700 hover:text-slate-900'
+                `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
+                  isActive ? 'text-zinc-950 font-black' : 'text-zinc-600 hover:text-zinc-950'
                 }`
               }
             >
-              <Stamp className="h-3.5 w-3.5 text-slate-500" />
+              <Stamp className="h-3.5 w-3.5 text-zinc-400" />
               <span>Stamps</span>
+              <span className="rounded-full bg-zinc-200 text-zinc-800 px-1.5 py-0.2 text-[8px] font-black uppercase">
+                2H
+              </span>
 
               {hoveredNav === 'stamps' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 -z-10"
+                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-zinc-300/70 -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
             </NavLink>
 
-            {/* Services & Finishes Link */}
+            {/* Stickers & Labels */}
+            <NavLink
+              to="/categories/stickers-printing-dubai"
+              onMouseEnter={() => setHoveredNav('stickers')}
+              className={({ isActive }) =>
+                `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
+                  isActive ? 'text-zinc-950 font-black' : 'text-zinc-600 hover:text-zinc-950'
+                }`
+              }
+            >
+              <Tag className="h-3.5 w-3.5 text-zinc-400" />
+              <span>Stickers</span>
+
+              {hoveredNav === 'stickers' && (
+                <motion.div
+                  layoutId="navHoverCapsule"
+                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-zinc-300/70 -z-10"
+                  transition={{ type: 'spring', stiffness: 380, damping: 28 }}
+                />
+              )}
+            </NavLink>
+
+            {/* Rollup Banners */}
+            <NavLink
+              to="/categories/roll-up-banners-dubai"
+              onMouseEnter={() => setHoveredNav('banners')}
+              className={({ isActive }) =>
+                `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
+                  isActive ? 'text-zinc-950 font-black' : 'text-zinc-600 hover:text-zinc-950'
+                }`
+              }
+            >
+              <Layers className="h-3.5 w-3.5 text-zinc-400" />
+              <span>Banners</span>
+
+              {hoveredNav === 'banners' && (
+                <motion.div
+                  layoutId="navHoverCapsule"
+                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-zinc-300/70 -z-10"
+                  transition={{ type: 'spring', stiffness: 380, damping: 28 }}
+                />
+              )}
+            </NavLink>
+
+            {/* Services Link */}
             <NavLink
               to="/services"
               onMouseEnter={() => setHoveredNav('services')}
               className={({ isActive }) =>
                 `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#A82F19]' : 'text-slate-700 hover:text-slate-900'
+                  isActive ? 'text-zinc-950 font-black' : 'text-zinc-600 hover:text-zinc-950'
                 }`
               }
             >
-              <Palette className="h-3.5 w-3.5 text-slate-500" />
+              <Palette className="h-3.5 w-3.5 text-zinc-400" />
               <span>Services</span>
 
               {hoveredNav === 'services' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 -z-10"
+                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-zinc-300/70 -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -666,23 +665,23 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown((prev) => (prev === 'company' ? null : 'company'))}
-                className={`relative z-10 flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors cursor-pointer ${
+                className={`relative z-10 flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-bold transition-colors cursor-pointer ${
                   activeDropdown === 'company' || ['/services', '/about', '/blog', '/contact'].includes(location.pathname)
-                    ? 'text-[#A82F19]'
-                    : 'text-slate-700 hover:text-slate-900'
+                    ? 'text-zinc-950 font-black'
+                    : 'text-zinc-600 hover:text-zinc-950'
                 }`}
               >
                 <span>Company</span>
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    activeDropdown === 'company' ? 'rotate-180 text-[#A82F19]' : 'text-slate-400'
+                    activeDropdown === 'company' ? 'rotate-180 text-zinc-950' : 'text-zinc-400'
                   }`}
                 />
 
                 {(hoveredNav === 'company' || activeDropdown === 'company') && (
                   <motion.div
                     layoutId="navHoverCapsule"
-                    className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 -z-10"
+                    className="absolute inset-0 rounded-full bg-white shadow-xs border border-zinc-300/70 -z-10"
                     transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                   />
                 )}
@@ -695,53 +694,53 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-68 rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-2.5 shadow-2xl z-50 text-slate-800"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-2xl border border-zinc-200 bg-white/98 backdrop-blur-2xl p-2 shadow-xl z-50 text-zinc-800"
                   >
                     <Link
                       to="/services"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-colors"
                     >
-                      <Sparkles className="h-4 w-4 text-[#A82F19]" />
+                      <Sparkles className="h-4 w-4 text-[#FF5500]" />
                       <div>
                         <div className="leading-tight">All Printing Services</div>
-                        <span className="text-[10px] font-normal text-slate-400">Offset, Digital &amp; Large Format</span>
+                        <span className="text-[10px] font-normal text-zinc-400">Offset, Digital &amp; Large Format</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/about"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-colors"
                     >
-                      <Building2 className="h-4 w-4 text-slate-400" />
+                      <Building2 className="h-4 w-4 text-zinc-400" />
                       <div>
                         <div className="leading-tight">About ONPRINT</div>
-                        <span className="text-[10px] font-normal text-slate-400">Dubai Pressroom &amp; Facilities</span>
+                        <span className="text-[10px] font-normal text-zinc-400">Dubai Pressroom &amp; Plant</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/blog"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-colors"
                     >
-                      <BookOpen className="h-4 w-4 text-slate-400" />
+                      <BookOpen className="h-4 w-4 text-zinc-400" />
                       <div>
-                        <div className="leading-tight">Printing Insights &amp; Blog</div>
-                        <span className="text-[10px] font-normal text-slate-400">Materials, papers &amp; finishes</span>
+                        <div className="leading-tight">Printing Insights</div>
+                        <span className="text-[10px] font-normal text-zinc-400">Paper stocks &amp; finishing</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/contact"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#A82F19] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-colors"
                     >
-                      <MapPin className="h-4 w-4 text-slate-400" />
+                      <MapPin className="h-4 w-4 text-zinc-400" />
                       <div>
                         <div className="leading-tight">Contact &amp; Location</div>
-                        <span className="text-[10px] font-normal text-slate-400">Al Quoz Industrial 3, Dubai</span>
+                        <span className="text-[10px] font-normal text-zinc-400">Al Quoz Industrial 4, Dubai</span>
                       </div>
                     </Link>
                   </motion.div>
@@ -751,38 +750,35 @@ export default function SiteHeader() {
           </nav>
 
           {/* Right Action Hub */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             {/* Quick Search Capsule Button */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
               type="button"
               onClick={() => setSearchModalOpen(true)}
-              className="flex items-center gap-2 rounded-full border border-slate-200/90 bg-slate-50/90 hover:bg-white hover:border-[#A82F19]/40 hover:shadow-sm px-3 py-1.5 text-xs text-slate-600 transition-all cursor-pointer group"
+              className="flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 hover:bg-white hover:border-zinc-400 px-3 py-1.5 text-xs text-zinc-600 transition-all cursor-pointer group"
               title="Search products (Press / or ⌘K)"
             >
-              <Search className="h-3.5 w-3.5 text-slate-500 group-hover:text-[#A82F19] transition-colors" />
-              <span className="hidden xl:inline text-[11px] font-medium text-slate-500">Search catalog...</span>
-              <kbd className="hidden xl:inline-block rounded-md bg-white border border-slate-200 px-1.5 py-0.5 text-[9px] font-bold text-slate-600 shadow-2xs">
+              <Search className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950 transition-colors" />
+              <span className="hidden xl:inline text-[11px] font-medium text-zinc-500">Search catalog...</span>
+              <kbd className="hidden xl:inline-block rounded-md bg-white border border-zinc-200 px-1.5 py-0.5 text-[9px] font-bold text-zinc-500 shadow-2xs">
                 ⌘K
               </kbd>
             </motion.button>
 
-            {/* Shopping Bag / Orders Button */}
+            {/* Track Orders / Shopping Bag Button */}
             <Link
               to="/track-order"
-              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-slate-200/90 bg-slate-50/90 text-slate-700 hover:bg-white hover:text-[#A82F19] hover:border-[#A82F19]/40 transition-all shadow-2xs group"
+              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 text-zinc-700 hover:bg-white hover:text-zinc-950 transition-all shadow-2xs"
               title="Track Orders"
             >
-              <ShoppingBag className="h-4 w-4 group-hover:scale-110 transition-transform" />
-              <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#A82F19] text-[8px] font-black text-white shadow-xs">
-                0
-              </span>
+              <Truck className="h-4 w-4" />
             </Link>
 
             {/* Direct 1-Click WhatsApp CTA + Concierge Popover Toggle */}
             <div className="relative flex items-center">
-              <div className="inline-flex items-center rounded-full border border-emerald-300 bg-gradient-to-r from-emerald-50 to-teal-50/80 shadow-xs overflow-hidden">
+              <div className="inline-flex items-center rounded-full border border-emerald-300/80 bg-emerald-50/80 shadow-2xs overflow-hidden">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -801,7 +797,7 @@ export default function SiteHeader() {
                   <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
                   <span className="inline text-[11px] font-extrabold">WhatsApp</span>
                   <span className="relative flex h-2 w-2 ml-0.5">
-                    <span className="animate-radar-ring absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
                 </a>
@@ -829,15 +825,15 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute right-0 top-full mt-2.5 w-72 sm:w-76 rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-4 shadow-2xl z-50 text-slate-800"
+                    className="absolute right-0 top-full mt-2.5 w-72 sm:w-76 rounded-2xl border border-zinc-200 bg-white/98 backdrop-blur-2xl p-4 shadow-2xl z-50 text-zinc-800"
                   >
-                    <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+                    <div className="flex items-center justify-between border-b border-zinc-100 pb-3 mb-3">
                       <div className="flex items-center gap-2.5">
                         <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs">
                           <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-slate-900 leading-tight">WhatsApp Concierge</div>
+                          <div className="text-xs font-bold text-zinc-950 leading-tight">WhatsApp Concierge</div>
                           <div className="flex items-center gap-1 text-[10px] font-medium text-emerald-600">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                             <span>Online • Instant Turnaround</span>
@@ -847,21 +843,21 @@ export default function SiteHeader() {
                       <button
                         type="button"
                         onClick={() => setWhatsappPopoverOpen(false)}
-                        className="text-slate-400 hover:text-slate-600 p-1 rounded-md hover:bg-slate-100 transition-colors cursor-pointer"
+                        className="text-zinc-400 hover:text-zinc-600 p-1 rounded-md hover:bg-zinc-100 transition-colors cursor-pointer"
                         aria-label="Close"
                       >
                         <X className="h-4 w-4" />
                       </button>
                     </div>
 
-                    <div className="rounded-xl bg-slate-50 p-3 border border-slate-200/80 mb-3">
-                      <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Direct Hotline</span>
+                    <div className="rounded-xl bg-zinc-50 p-3 border border-zinc-200/80 mb-3">
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-zinc-400">Direct Hotline</span>
                       <div className="mt-1 flex items-center justify-between">
-                        <span className="text-sm font-black tracking-tight text-slate-900">{FORMATTED_PHONE}</span>
+                        <span className="text-sm font-black tracking-tight text-zinc-950">{FORMATTED_PHONE}</span>
                         <button
                           type="button"
                           onClick={handleCopyNumber}
-                          className="flex items-center gap-1 rounded-lg bg-white px-2 py-1 text-[11px] font-bold text-slate-700 shadow-2xs border border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer"
+                          className="flex items-center gap-1 rounded-lg bg-white px-2 py-1 text-[11px] font-bold text-zinc-700 shadow-2xs border border-zinc-200 hover:bg-zinc-100 transition-colors cursor-pointer"
                         >
                           {copied ? (
                             <>
@@ -870,7 +866,7 @@ export default function SiteHeader() {
                             </>
                           ) : (
                             <>
-                              <Copy className="h-3 w-3 text-slate-500" />
+                              <Copy className="h-3 w-3 text-zinc-500" />
                               <span>Copy</span>
                             </>
                           )}
@@ -906,13 +902,13 @@ export default function SiteHeader() {
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer shadow-2xs"
+                  className="flex items-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-50 px-2 py-1.5 text-xs font-semibold text-zinc-700 hover:bg-zinc-100 cursor-pointer shadow-2xs"
                 >
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#A82F19] text-white text-[10px] font-bold">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-950 text-white text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
                   <span className="hidden xl:inline max-w-[70px] truncate">{user?.name || 'Admin'}</span>
-                  <ChevronDown className={`h-3 w-3 text-slate-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`h-3 w-3 text-zinc-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 <AnimatePresence>
@@ -922,19 +918,19 @@ export default function SiteHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2.5 w-52 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-50 text-slate-800"
+                      className="absolute right-0 top-full mt-2.5 w-52 rounded-2xl border border-zinc-200 bg-white p-2 shadow-xl z-50 text-zinc-800"
                     >
-                      <div className="px-3 py-2 border-b border-slate-100 mb-1">
-                        <div className="font-bold text-xs text-slate-900 truncate">{user?.name || 'Administrator'}</div>
-                        <div className="text-[10px] text-slate-500 truncate">{user?.email}</div>
+                      <div className="px-3 py-2 border-b border-zinc-100 mb-1">
+                        <div className="font-bold text-xs text-zinc-950 truncate">{user?.name || 'Administrator'}</div>
+                        <div className="text-[10px] text-zinc-500 truncate">{user?.email}</div>
                       </div>
 
                       <Link
                         to="/admin"
                         onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-slate-700 hover:text-[#A82F19] hover:bg-slate-50 rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-zinc-700 hover:text-zinc-950 hover:bg-zinc-50 rounded-lg transition-colors"
                       >
-                        <ShieldCheck className="w-4 h-4 text-slate-400" />
+                        <ShieldCheck className="w-4 h-4 text-zinc-400" />
                         <span>Admin Dashboard</span>
                       </Link>
 
@@ -944,7 +940,7 @@ export default function SiteHeader() {
                           setUserMenuOpen(false)
                           logout()
                         }}
-                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors mt-1 border-t border-slate-100 cursor-pointer"
+                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors mt-1 border-t border-zinc-100 cursor-pointer"
                       >
                         <LogOut className="w-4 h-4" />
                         <span>Sign Out</span>
@@ -955,19 +951,19 @@ export default function SiteHeader() {
               </div>
             ) : null}
 
-            {/* Primary High-Converting CTA Button with Luxury Shimmer */}
+            {/* Primary High-Converting CTA Button: Minimal Obsidian Pill */}
             <motion.div
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
             >
               <Link
                 to="/get-a-quote"
-                className="group/cta relative inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-[#A82F19] via-[#BE321B] to-[#A82F19] px-4 sm:px-5 py-2 text-xs font-black text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg hover:shadow-[#A82F19]/40 hover:brightness-105 transition-all whitespace-nowrap animate-shimmer overflow-hidden"
+                className="group/cta relative inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-zinc-950 hover:bg-[#FF5500] px-4 sm:px-5 py-2 text-xs font-bold text-white shadow-sm transition-all whitespace-nowrap overflow-hidden"
                 onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
               >
                 <span>Get Instant Quote</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/cta:translate-x-1 group-hover/cta:-translate-y-0.5" />
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/cta:translate-x-1" />
               </Link>
             </motion.div>
 
@@ -976,42 +972,42 @@ export default function SiteHeader() {
               type="button"
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="flex lg:hidden h-9 w-9 items-center justify-center rounded-full border border-slate-200/90 bg-slate-50 text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+              className="flex lg:hidden h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 text-zinc-800 hover:bg-zinc-100 transition-colors cursor-pointer"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
-        </Container>
+        </div>
       </div>
 
-      {/* 4. UNIVERSAL SEARCH MODAL WITH SPRING ANIMATION */}
+      {/* 3. UNIVERSAL SEARCH MODAL WITH SPRING ANIMATION */}
       <AnimatePresence>
         {searchModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/65 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-zinc-950/60 backdrop-blur-md">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: -16 }}
+              initial={{ opacity: 0, scale: 0.96, y: -16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -16 }}
+              exit={{ opacity: 0, scale: 0.96, y: -16 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-2xl rounded-3xl border border-slate-200 bg-white p-5 sm:p-6 shadow-2xl text-slate-800"
+              className="w-full max-w-2xl rounded-3xl border border-zinc-200 bg-white p-5 sm:p-6 shadow-2xl text-zinc-800"
             >
               {/* Search Bar Input */}
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+              <div className="flex items-center justify-between border-b border-zinc-200 pb-4">
                 <div className="flex items-center gap-3 flex-1">
-                  <Search className="h-5 w-5 text-[#A82F19]" />
+                  <Search className="h-5 w-5 text-[#FF5500]" />
                   <input
                     ref={searchInputRef}
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search 200+ products, categories, or luxury finishes..."
-                    className="w-full bg-transparent text-sm sm:text-base font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                    className="w-full bg-transparent text-sm sm:text-base font-semibold text-zinc-950 placeholder:text-zinc-400 focus:outline-none"
                   />
                 </div>
                 <button
                   type="button"
                   onClick={() => setSearchModalOpen(false)}
-                  className="rounded-full p-1.5 text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                  className="rounded-full p-1.5 text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 cursor-pointer"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -1021,57 +1017,57 @@ export default function SiteHeader() {
               <div className="mt-4 max-h-[60vh] overflow-y-auto space-y-4 pr-1">
                 {searchQuery.trim() === '' ? (
                   <div className="py-2">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-2.5">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-zinc-400 block mb-2.5">
                       Popular Print Categories in Dubai
                     </span>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       <Link
                         to="/business-card-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-[#A82F19] transition-colors">Business Cards</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
+                        <span className="group-hover:text-zinc-950 transition-colors">Business Cards</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
                       </Link>
                       <Link
                         to="/categories/custom-stamps-seals"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-[#A82F19] transition-colors">Stamps &amp; Seals</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
+                        <span className="group-hover:text-zinc-950 transition-colors">Stamps &amp; Seals</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
                       </Link>
                       <Link
                         to="/categories/letterheads-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-[#A82F19] transition-colors">Letterheads</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
+                        <span className="group-hover:text-zinc-950 transition-colors">Letterheads</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
                       </Link>
                       <Link
                         to="/categories/stickers-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-[#A82F19] transition-colors">Stickers &amp; Labels</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
+                        <span className="group-hover:text-zinc-950 transition-colors">Stickers &amp; Labels</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
                       </Link>
                       <Link
                         to="/categories/brochures-printing"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-[#A82F19] transition-colors">Brochures &amp; Flyers</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
+                        <span className="group-hover:text-zinc-950 transition-colors">Brochures &amp; Flyers</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
                       </Link>
                       <Link
                         to="/categories/mug-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 hover:border-[#A82F19] hover:bg-slate-50 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-[#A82F19] transition-colors">Corporate Gifts</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#A82F19]" />
+                        <span className="group-hover:text-zinc-950 transition-colors">Corporate Gifts</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
                       </Link>
                     </div>
                   </div>
@@ -1079,7 +1075,7 @@ export default function SiteHeader() {
                   <div>
                     {searchResults.products.length > 0 && (
                       <div className="mb-4">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#A82F19] block mb-2">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#FF5500] block mb-2">
                           Matching Products ({searchResults.products.length})
                         </span>
                         <div className="space-y-1.5">
@@ -1088,13 +1084,13 @@ export default function SiteHeader() {
                               key={p._id || p.id}
                               to={`/products/${p.slug}`}
                               onClick={() => setSearchModalOpen(false)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl border border-slate-100 hover:border-[#A82F19]/40 hover:bg-slate-50 transition-all"
+                              className="group flex items-center justify-between p-2.5 rounded-xl border border-zinc-100 hover:border-zinc-950 hover:bg-zinc-50 transition-all"
                             >
                               <div>
-                                <h6 className="text-xs font-bold text-slate-900 group-hover:text-[#A82F19]">{p.name}</h6>
-                                <p className="text-[10px] text-slate-400 line-clamp-1">{p.shortDescription}</p>
+                                <h6 className="text-xs font-bold text-zinc-950 group-hover:text-[#FF5500] transition-colors">{p.name}</h6>
+                                <p className="text-[10px] text-zinc-400 line-clamp-1">{p.shortDescription}</p>
                               </div>
-                              <span className="text-xs font-black text-slate-900">
+                              <span className="text-xs font-black text-zinc-950">
                                 {p.price ? `${p.price} AED` : 'Quote'}
                               </span>
                             </Link>
@@ -1105,7 +1101,7 @@ export default function SiteHeader() {
 
                     {searchResults.categories.length > 0 && (
                       <div>
-                        <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block mb-2">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-zinc-400 block mb-2">
                           Matching Categories
                         </span>
                         <div className="grid grid-cols-2 gap-2">
@@ -1114,7 +1110,7 @@ export default function SiteHeader() {
                               key={c.id || c._id}
                               to={`/categories/${c.slug}`}
                               onClick={() => setSearchModalOpen(false)}
-                              className="p-2.5 rounded-xl border border-slate-200 hover:border-[#A82F19] text-xs font-bold text-slate-800 hover:text-[#A82F19] transition-colors"
+                              className="p-2.5 rounded-xl border border-zinc-200 hover:border-zinc-950 text-xs font-bold text-zinc-800 hover:text-zinc-950 transition-colors"
                             >
                               {c.name}
                             </Link>
@@ -1125,11 +1121,11 @@ export default function SiteHeader() {
 
                     {searchResults.products.length === 0 && searchResults.categories.length === 0 && (
                       <div className="py-8 text-center">
-                        <p className="text-xs text-slate-500">No direct matches found for "{searchQuery}".</p>
+                        <p className="text-xs text-zinc-500">No direct matches found for "{searchQuery}".</p>
                         <Link
                           to={`/products?search=${encodeURIComponent(searchQuery)}`}
                           onClick={() => setSearchModalOpen(false)}
-                          className="mt-2 inline-block text-xs font-bold text-[#A82F19] underline"
+                          className="mt-2 inline-block text-xs font-bold text-[#FF5500] underline"
                         >
                           Search entire store catalog
                         </Link>
@@ -1143,7 +1139,7 @@ export default function SiteHeader() {
         )}
       </AnimatePresence>
 
-      {/* 5. MODERN MOBILE & TABLET DRAWER WITH STAGGERED SPRING ANIMATION */}
+      {/* 4. MODERN MOBILE & TABLET DRAWER WITH STAGGERED SPRING ANIMATION */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-50 lg:hidden flex">
@@ -1153,7 +1149,7 @@ export default function SiteHeader() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-slate-950/65 backdrop-blur-sm"
+              className="fixed inset-0 bg-zinc-950/60 backdrop-blur-sm"
             />
 
             {/* Slide-in Drawer Container */}
@@ -1165,14 +1161,14 @@ export default function SiteHeader() {
               className="relative ml-auto flex h-full w-full max-w-md flex-col bg-white shadow-2xl z-50 overflow-hidden"
             >
               {/* Drawer Header */}
-              <div className="flex items-center justify-between border-b border-slate-100 p-4 shrink-0">
+              <div className="flex items-center justify-between border-b border-zinc-100 p-4 shrink-0">
                 <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2">
                   <Logo variant="default" size="sm" />
                 </Link>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors cursor-pointer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 hover:bg-zinc-200 transition-colors cursor-pointer"
                   aria-label="Close menu"
                 >
                   <X className="h-5 w-5" />
@@ -1188,13 +1184,13 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     setSearchModalOpen(true)
                   }}
-                  className="flex w-full items-center justify-between rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs text-slate-500 hover:bg-slate-100 transition-all cursor-pointer"
+                  className="flex w-full items-center justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-3 text-xs text-zinc-500 hover:bg-zinc-100 transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
-                    <Search className="h-4 w-4 text-[#A82F19]" />
+                    <Search className="h-4 w-4 text-[#FF5500]" />
                     <span>Search 200+ print products...</span>
                   </div>
-                  <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
+                  <ArrowRight className="h-3.5 w-3.5 text-zinc-400" />
                 </button>
 
                 {/* WhatsApp Concierge Card */}
@@ -1206,7 +1202,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     trackWhatsAppClick({ source_page: 'header_mobile_menu', service: 'general', button_location: 'mobile_concierge' })
                   }}
-                  className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50/80 p-3 text-emerald-950 transition-all shadow-xs"
+                  className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50/70 p-3 text-emerald-950 transition-all shadow-xs"
                 >
                   <div className="flex items-center gap-2.5">
                     <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs shrink-0">
@@ -1231,7 +1227,7 @@ export default function SiteHeader() {
                   <Link
                     to="/"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
                   >
                     <span>Home</span>
                   </Link>
@@ -1240,13 +1236,13 @@ export default function SiteHeader() {
                   <Link
                     to="/business-card-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#A82F19] bg-[#A82F19]/5"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-950 bg-zinc-100"
                   >
                     <div className="flex items-center gap-2">
-                      <CreditCard className="h-4 w-4" />
+                      <CreditCard className="h-4 w-4 text-[#FF5500]" />
                       <span>Business Cards</span>
                     </div>
-                    <span className="rounded bg-[#A82F19] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#FF5500] text-white px-1.5 py-0.5 text-[9px] font-black uppercase">
                       DUBAI
                     </span>
                   </Link>
@@ -1255,13 +1251,13 @@ export default function SiteHeader() {
                   <Link
                     to="/categories/custom-stamps-seals"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
                   >
                     <div className="flex items-center gap-2">
-                      <Stamp className="h-4 w-4 text-slate-400" />
+                      <Stamp className="h-4 w-4 text-zinc-400" />
                       <span>Company Stamps &amp; Seals</span>
                     </div>
-                    <span className="rounded bg-emerald-100 text-emerald-800 px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-zinc-200 text-zinc-800 px-1.5 py-0.5 text-[9px] font-black uppercase">
                       2H
                     </span>
                   </Link>
@@ -1270,11 +1266,23 @@ export default function SiteHeader() {
                   <Link
                     to="/categories/stickers-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
                   >
                     <div className="flex items-center gap-2">
-                      <Layers className="h-4 w-4 text-slate-400" />
+                      <Layers className="h-4 w-4 text-zinc-400" />
                       <span>Stickers &amp; Labels</span>
+                    </div>
+                  </Link>
+
+                  {/* Rollup Banners */}
+                  <Link
+                    to="/categories/roll-up-banners-dubai"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Layers className="h-4 w-4 text-zinc-400" />
+                      <span>Roll-Up Banners</span>
                     </div>
                   </Link>
 
@@ -1282,29 +1290,29 @@ export default function SiteHeader() {
                   <Link
                     to="/categories/letterheads-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
                   >
                     <div className="flex items-center gap-2">
-                      <FileText className="h-4 w-4 text-slate-400" />
+                      <FileText className="h-4 w-4 text-zinc-400" />
                       <span>Letterheads &amp; Stationery</span>
                     </div>
                   </Link>
 
                   {/* Product Catalog Accordion */}
-                  <div className="border-t border-b border-slate-100 py-1 my-1">
+                  <div className="border-t border-b border-zinc-100 py-1 my-1">
                     <button
                       type="button"
                       onClick={() => setMobileAccordion((p) => ({ ...p, catalog: !p.catalog }))}
-                      className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 cursor-pointer"
+                      className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 cursor-pointer"
                     >
                       <div className="flex items-center gap-2">
-                        <Layers className="h-4 w-4 text-[#A82F19]" />
+                        <Layers className="h-4 w-4 text-zinc-950" />
                         <span>All Print Categories</span>
                       </div>
                       {mobileAccordion.catalog ? (
-                        <Minus className="h-4 w-4 text-slate-400" />
+                        <Minus className="h-4 w-4 text-zinc-400" />
                       ) : (
-                        <Plus className="h-4 w-4 text-slate-400" />
+                        <Plus className="h-4 w-4 text-zinc-400" />
                       )}
                     </button>
 
@@ -1319,20 +1327,20 @@ export default function SiteHeader() {
                           <Link
                             to="/products"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-bold text-[#A82F19] hover:bg-[#A82F19]/5"
+                            className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-bold text-zinc-950 hover:bg-zinc-100"
                           >
                             <span>Browse All Products Catalog</span>
-                            <ArrowRight className="h-3 w-3" />
+                            <ArrowRight className="h-3 w-3 text-[#FF5500]" />
                           </Link>
                           {categories.slice(0, 10).map((cat) => (
                             <Link
                               key={cat.slug || cat.id}
                               to={`/categories/${cat.slug}`}
                               onClick={() => setMobileMenuOpen(false)}
-                              className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-medium text-slate-600 hover:bg-slate-50 hover:text-[#A82F19]"
+                              className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-medium text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950"
                             >
                               <span>{cat.name}</span>
-                              <ChevronRight className="h-3 w-3 text-slate-300" />
+                              <ChevronRight className="h-3 w-3 text-zinc-300" />
                             </Link>
                           ))}
                         </motion.div>
@@ -1344,10 +1352,10 @@ export default function SiteHeader() {
                   <Link
                     to="/services"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
                   >
                     <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-slate-400" />
+                      <Sparkles className="h-4 w-4 text-zinc-400" />
                       <span>Printing Services &amp; Finishes</span>
                     </div>
                   </Link>
@@ -1356,10 +1364,10 @@ export default function SiteHeader() {
                   <Link
                     to="/about"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
                   >
                     <div className="flex items-center gap-2">
-                      <Building2 className="h-4 w-4 text-slate-400" />
+                      <Building2 className="h-4 w-4 text-zinc-400" />
                       <span>About ONPRINT Pressroom</span>
                     </div>
                   </Link>
@@ -1368,10 +1376,10 @@ export default function SiteHeader() {
                   <Link
                     to="/blog"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
                   >
                     <div className="flex items-center gap-2">
-                      <BookOpen className="h-4 w-4 text-slate-400" />
+                      <BookOpen className="h-4 w-4 text-zinc-400" />
                       <span>Blog &amp; Insights</span>
                     </div>
                   </Link>
@@ -1380,10 +1388,10 @@ export default function SiteHeader() {
                   <Link
                     to="/contact"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-[#A82F19]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
                   >
                     <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-slate-400" />
+                      <MapPin className="h-4 w-4 text-zinc-400" />
                       <span>Contact &amp; Pressroom</span>
                     </div>
                   </Link>
@@ -1391,7 +1399,7 @@ export default function SiteHeader() {
               </div>
 
               {/* Drawer Footer Actions */}
-              <div className="border-t border-slate-200 p-4 space-y-2 shrink-0 bg-slate-50/50">
+              <div className="border-t border-zinc-200 p-4 space-y-2 shrink-0 bg-zinc-50">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -1416,7 +1424,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#A82F19] to-[#C0392B] py-3 text-sm font-black text-white shadow-md shadow-[#A82F19]/25 hover:shadow-lg transition-all animate-shimmer"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-950 hover:bg-[#FF5500] py-3 text-sm font-black text-white shadow-md transition-all"
                 >
                   <span>Get Instant Quote</span>
                   <ArrowRight className="h-4 w-4" />
@@ -1425,9 +1433,9 @@ export default function SiteHeader() {
                 <Link
                   to="/track-order"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white py-2.5 text-xs font-bold text-zinc-700 hover:bg-zinc-50 transition-colors shadow-2xs"
                 >
-                  <Truck className="h-4 w-4 text-[#A82F19]" />
+                  <Truck className="h-4 w-4 text-zinc-950" />
                   <span>Track Existing Order</span>
                 </Link>
               </div>

@@ -19,7 +19,7 @@ export default function ServiceGeoContent({ geoData }) {
       {/* What Is Section - Critical for AI Understanding */}
       {whatIs && (
         <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#A82F19]/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#FF5500]/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#FF5500]">
             <Info className="h-3.5 w-3.5" />
             <span>Definition</span>
           </div>
@@ -95,7 +95,7 @@ export default function ServiceGeoContent({ geoData }) {
           <ul className="space-y-2">
             {whoNeedsThis.audiences.map((audience, idx) => (
               <li key={idx} className="flex items-start gap-2 text-sm text-slate-700">
-                <CheckCircle2 className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4 w-4 text-[#FF5500] shrink-0 mt-0.5" />
                 <span>{audience}</span>
               </li>
             ))}
@@ -157,13 +157,13 @@ export default function ServiceGeoContent({ geoData }) {
                     onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
                     className="flex w-full items-start justify-between text-left gap-4 group"
                   >
-                    <span className="text-sm font-bold text-slate-900 group-hover:text-[#A82F19] transition-colors">
+                    <span className="text-sm font-bold text-slate-900 group-hover:text-[#FF5500] transition-colors">
                       {faq.question}
                     </span>
                     {isOpen ? (
-                      <ChevronUp className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                      <ChevronUp className="h-4 w-4 text-[#FF5500] shrink-0 mt-0.5" />
                     ) : (
-                      <ChevronDown className="h-4 w-4 text-slate-400 shrink-0 mt-0.5 group-hover:text-[#A82F19] transition-colors" />
+                      <ChevronDown className="h-4 w-4 text-slate-400 shrink-0 mt-0.5 group-hover:text-[#FF5500] transition-colors" />
                     )}
                   </button>
                   

@@ -68,7 +68,7 @@ export default function ProductDetailModal({ product, onClose }) {
             type="button"
             onClick={onClose}
             aria-label="Close product modal"
-            className="absolute right-4 top-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-black shadow-md transition-colors hover:bg-[#A82F19] hover:text-white cursor-pointer"
+            className="absolute right-4 top-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-black shadow-md transition-colors hover:bg-[#FF5500] hover:text-white cursor-pointer"
           >
             <X className="h-4 w-4" />
           </button>
@@ -84,7 +84,7 @@ export default function ProductDetailModal({ product, onClose }) {
                     onClick={() => setViewMode('360')}
                     className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                       viewMode === '360'
-                        ? 'bg-[#A82F19] text-white shadow-xs'
+                        ? 'bg-[#FF5500] text-white shadow-xs'
                         : 'text-black/60 hover:text-black'
                     }`}
                   >
@@ -96,7 +96,7 @@ export default function ProductDetailModal({ product, onClose }) {
                     onClick={() => setViewMode('photo')}
                     className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                       viewMode === 'photo'
-                        ? 'bg-[#A82F19] text-white shadow-xs'
+                        ? 'bg-[#FF5500] text-white shadow-xs'
                         : 'text-black/60 hover:text-black'
                     }`}
                   >
@@ -106,7 +106,7 @@ export default function ProductDetailModal({ product, onClose }) {
                 </div>
 
                 {isFeatured && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[#FF5500] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
                     <Sparkles className="h-3 w-3" />
                     Featured
                   </span>
@@ -141,7 +141,7 @@ export default function ProductDetailModal({ product, onClose }) {
               {/* Footnote note */}
               <div className="mt-3 flex items-center justify-between text-[11px] font-semibold text-black/50">
                 <span>Category: <strong className="text-black">{categoryName}</strong></span>
-                <span className="text-[#A82F19] font-bold">Interactive 3D Preview</span>
+                <span className="text-[#FF5500] font-bold">Interactive 3D Preview</span>
               </div>
             </div>
 

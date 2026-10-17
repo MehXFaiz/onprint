@@ -122,10 +122,10 @@ export default function Product360Viewer({
     >
       <div className="absolute left-3 right-3 top-3 z-30 flex items-center justify-between gap-2 pointer-events-none">
         <div className="flex items-center gap-1.5 rounded-full border border-black/10 bg-white/90 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-black/80 shadow-xs backdrop-blur-md">
-          <Compass className="h-3 w-3 text-[#A82F19]" />
+          <Compass className="h-3 w-3 text-[#FF5500]" />
           <span>360° Studio</span>
           <span className="text-black/30">•</span>
-          <span className="text-[#A82F19]">{normalizedAngle}°</span>
+          <span className="text-[#FF5500]">{normalizedAngle}°</span>
           {hasFrameRotation && (
             <>
               <span className="text-black/30">•</span>
@@ -141,7 +141,7 @@ export default function Product360Viewer({
             title="Toggle Spot UV / Specular Light Reflection"
             className={`flex h-7 w-7 items-center justify-center rounded-full border transition-all cursor-pointer ${
               specularSheen
-                ? 'border-[#A82F19] bg-[#A82F19] text-white shadow-xs'
+                ? 'border-[#FF5500] bg-[#FF5500] text-white shadow-xs'
                 : 'border-black/15 bg-white/90 text-black/70 hover:text-black'
             }`}
           >
@@ -285,7 +285,7 @@ export default function Product360Viewer({
                       <span className="h-2 w-2 rounded-xs bg-black border border-white/30" title="Key/Black" />
                       <span className="ml-1 text-[8.5px] font-bold text-[#D4AF37]">ISO 12647-2 CALIBRATED</span>
                     </div>
-                    <span className="rounded-md bg-[#A82F19] px-1.5 py-0.5 text-[7.5px] font-black uppercase tracking-wider text-white">
+                    <span className="rounded-md bg-[#FF5500] px-1.5 py-0.5 text-[7.5px] font-black uppercase tracking-wider text-white">
                       REVERSE PROOF
                     </span>
                   </div>
@@ -359,7 +359,7 @@ export default function Product360Viewer({
             isDragging ? 'opacity-0 scale-95' : 'opacity-100'
           }`}
         >
-          <span className="text-[#A82F19] font-black">↔</span>
+          <span className="text-[#FF5500] font-black">↔</span>
           <span>Drag horizontally to rotate 360°</span>
         </div>
       </div>
@@ -371,7 +371,7 @@ export default function Product360Viewer({
             onClick={() => snapToAngle(0)}
             className={`rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 350 || normalizedAngle <= 10
-                ? 'bg-[#A82F19] text-white shadow-xs'
+                ? 'bg-[#FF5500] text-white shadow-xs'
                 : 'border border-black/10 bg-white text-black/70 hover:border-black/30 hover:text-black'
             }`}
           >
@@ -382,7 +382,7 @@ export default function Product360Viewer({
             onClick={() => snapToAngle(90)}
             className={`rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 80 && normalizedAngle <= 100
-                ? 'bg-[#A82F19] text-white shadow-xs'
+                ? 'bg-[#FF5500] text-white shadow-xs'
                 : 'border border-black/10 bg-white text-black/70 hover:border-black/30 hover:text-black'
             }`}
           >
@@ -393,7 +393,7 @@ export default function Product360Viewer({
             onClick={() => snapToAngle(180)}
             className={`rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 170 && normalizedAngle <= 190
-                ? 'bg-[#A82F19] text-white shadow-xs'
+                ? 'bg-[#FF5500] text-white shadow-xs'
                 : 'border border-black/10 bg-white text-black/70 hover:border-black/30 hover:text-black'
             }`}
           >
@@ -404,7 +404,7 @@ export default function Product360Viewer({
             onClick={() => snapToAngle(270)}
             className={`rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 260 && normalizedAngle <= 280
-                ? 'bg-[#A82F19] text-white shadow-xs'
+                ? 'bg-[#FF5500] text-white shadow-xs'
                 : 'border border-black/10 bg-white text-black/70 hover:border-black/30 hover:text-black'
             }`}
           >
@@ -416,16 +416,16 @@ export default function Product360Viewer({
           <button
             type="button"
             onClick={toggleAutoSpin}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-black/10 bg-white px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-black/75 shadow-xs transition-colors hover:border-[#A82F19] hover:text-[#A82F19] cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-black/10 bg-white px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-black/75 shadow-xs transition-colors hover:border-[#FF5500] hover:text-[#FF5500] cursor-pointer"
           >
             {isPlaying ? (
               <>
-                <Pause className="h-3 w-3 text-[#A82F19]" />
+                <Pause className="h-3 w-3 text-[#FF5500]" />
                 <span>Pause</span>
               </>
             ) : (
               <>
-                <Play className="h-3 w-3 text-[#A82F19]" />
+                <Play className="h-3 w-3 text-[#FF5500]" />
                 <span>Spin</span>
               </>
             )}

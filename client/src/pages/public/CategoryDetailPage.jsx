@@ -110,7 +110,9 @@ export default function CategoryDetailPage() {
   }
 
   const categoryName = category.name || 'Printing Category'
-  const categoryImage = category.image_url || category.image || '/assets/products/1 (1).jpg'
+  const categoryFallbackImage = `/uploads/categories/${category.slug}.jpg`
+  const rawImg = category.image_url || category.image
+  const categoryImage = (!rawImg || rawImg.includes('trae.ai')) ? categoryFallbackImage : rawImg
   const categoryDesc =
     category.description ||
     `Order high-precision ${categoryName} in Dubai with ONPRINT. Premium cardstocks, rich Pantone colors, and express same-day delivery across the UAE.`
@@ -290,7 +292,7 @@ export default function CategoryDetailPage() {
                     height={900}
                     onError={(e) => {
                       e.target.onerror = null
-                      e.target.src = '/assets/products/1 (1).jpg'
+                      e.target.src = categoryFallbackImage
                     }}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />

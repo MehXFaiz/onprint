@@ -29,19 +29,19 @@ const features = [
 
 export default function CarefreeShoppingSection() {
   return (
-    <section className="relative overflow-hidden border-t border-slate-200 bg-white py-20 sm:py-24 text-slate-900">
+    <section className="relative overflow-hidden border-t border-[#E4DCD0] bg-[#FAF7F2] py-20 sm:py-24 text-[#181411]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Left Column: Studio Showcase */}
           <div className="lg:col-span-6 relative">
             <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.96, y: 16 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="relative mx-auto overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-xl group"
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              className="bento-card relative mx-auto overflow-hidden p-2.5 group"
             >
-              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden bg-slate-100">
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden rounded-2xl bg-[#F3EDE2]">
                 <picture>
                   <source type="image/webp" srcSet={carefreeShoppingWebp} />
                   <img
@@ -54,49 +54,53 @@ export default function CarefreeShoppingSection() {
                     className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#181411]/60 via-transparent to-transparent pointer-events-none" />
               </div>
             </motion.div>
           </div>
 
           {/* Right Column: Copy & Feature Grid */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#A82F19]/20 bg-[#A82F19]/5 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
-              <Sparkles className="h-3.5 w-3.5" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C89D54]/45 bg-[#C89D54]/15 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#8A5A19]">
+              <Sparkles className="h-3.5 w-3.5 text-[#B83A22]" />
               <span>Carefree Production Guarantee</span>
             </div>
 
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-[#181411] leading-tight">
               Commercial Printing Made Simple, Fast &amp; Flawless.
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p className="text-sm sm:text-base text-[#52483F] leading-relaxed">
               Experience seamless printing in Dubai. From pre-press artwork proofing to rapid delivery, our Al Quoz pressroom guarantees absolute color precision at every step.
             </p>
 
             <div className="space-y-3.5 pt-2">
-              {features.map((feat) => {
+              {features.map((feat, idx) => {
                 const Icon = feat.icon
                 return (
-                  <div
+                  <motion.div
                     key={feat.title}
-                    className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 transition-all hover:bg-slate-100/70 hover:border-slate-300"
+                    initial={{ opacity: 0, x: 16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.08, duration: 0.45 }}
+                    className="bento-card p-4"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#A82F19] text-white shadow-sm">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#181411] border border-[#C89D54]/45 text-[#DFB973] shadow-sm">
                         <Icon className="h-5 w-5" />
                       </div>
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
-                          <h4 className="font-display text-sm font-bold text-slate-900">{feat.title}</h4>
-                          <span className="rounded-md bg-slate-200/80 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-700">
+                          <h4 className="font-serif text-sm font-bold text-[#181411]">{feat.title}</h4>
+                          <span className="rounded-md bg-[#F3EDE2] border border-[#E4DCD0] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#52483F]">
                             {feat.badge}
                           </span>
                         </div>
-                        <p className="text-xs text-slate-600 leading-relaxed">{feat.description}</p>
+                        <p className="text-xs text-[#52483F] leading-relaxed">{feat.description}</p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )
               })}
             </div>
@@ -104,11 +108,11 @@ export default function CarefreeShoppingSection() {
             <div className="pt-2 flex flex-col sm:flex-row gap-3">
               <Link
                 to="/get-a-quote"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#A82F19] hover:bg-[#8e2614] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-[#A82F19]/25 transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#181411] hover:bg-[#B83A22] border border-[#C89D54]/40 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:-translate-y-0.5"
                 onClick={() => trackGetQuoteClick({ source_page: 'carefree_section' })}
               >
                 <span>Request Custom Quote</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 text-[#DFB973]" />
               </Link>
             </div>
           </div>

@@ -8,134 +8,48 @@ import { getProducts } from '../services/products'
 
 function isProductInCategory(product, category) {
   if (!product || !category) return false
-  const catId = String(category.id || category._id || '')
+  const catId = category.id !== undefined && category.id !== null ? Number(category.id) : null
+  const catKey = String(category.category_key || category._id || '').toLowerCase()
   const catSlug = String(category.slug || '').toLowerCase()
   const catName = String(category.name || '').toLowerCase()
 
-  const pName = String(product.name || '').toLowerCase()
-  const pSlug = String(product.slug || '').toLowerCase()
-
-  // 1. Flyers Category Guard: ONLY actual flyers/leaflets, NEVER stickers, banners, mugs, etc.
-  const isFlyerCategory = catSlug.includes('flyer') || catName.includes('flyer')
-  const isFlyerProduct = pName.includes('flyer') || pSlug.includes('flyer') || pName.includes('leaflet') || pSlug.includes('leaflet') || pName.includes('handbill')
-  if (isFlyerCategory) {
-    const nonFlyerKeywords = ['sticker', 'label', 'decal', 'banner', 'flag', 'mug', 'bottle', 'flask', 'tote', 'badge', 'keychain', 'nameplate', 'signage', 'id card', 'lanyard', 'box']
-    if (nonFlyerKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
-      return false
-    }
-    if (isFlyerProduct) return true
-  }
-  if (!isFlyerCategory && isFlyerProduct) {
-    return false
-  }
-
-  // 2. Stickers & Labels Category Guard
-  const isStickerCategory = catSlug.includes('sticker') || catName.includes('sticker') || catSlug.includes('label') || catName.includes('label')
-  const isStickerProduct = pName.includes('sticker') || pSlug.includes('sticker') || pName.includes('label') || pSlug.includes('label') || pName.includes('decal') || pSlug.includes('decal')
-  if (isStickerCategory) {
-    return isStickerProduct
-  }
-  if (!isStickerCategory && isStickerProduct) {
-    return false
-  }
-
-  // 3. Brochures Category Guard
-  const isBrochureCategory = catSlug.includes('brochure') || catName.includes('brochure')
-  if (isBrochureCategory) {
-    const nonBrochureKeywords = [
-      'mug', 'cup', 'bottle', 'flask', 'tote', 'bag', 't-shirt', 'tshirt',
-      'cap', 'hat', 'badge', 'keychain', 'nameplate', 'signage', 'banner', 'flag', 'box', 'packaging',
-      'sticker', 'label', 'decal', 'flyer'
-    ]
-    if (nonBrochureKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
-      return false
-    }
-  }
-
-  // 4. Business Cards Category Guard
-  const isBusinessCardCategory = catSlug.includes('business-card') || catName.includes('business card')
-  if (isBusinessCardCategory) {
-    const nonCardKeywords = ['mug', 'bottle', 'tote', 'banner', 'box', 'brochure', 'booklet', 'sticker', 'label', 'flyer', 'signage']
-    if (nonCardKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
-      return false
-    }
-  }
-
-  // 5. Lanyard Category Guard: ONLY genuine neck lanyards, NEVER keychains, mugs, badges, or apparel
-  const isLanyardCategory = catSlug.includes('lanyard') || catName.includes('lanyard')
-  const isLanyardProduct = pName.includes('lanyard') || pSlug.includes('lanyard') || pName.includes('neck strap')
-  if (isLanyardCategory) {
-    const nonLanyardKeywords = [
-      'keychain', 'key ring', 'badge', 'nameplate', 'mug', 'bottle', 'flask',
-      'tote', 'cap', 'hat', 'shirt', 'sticker', 'label', 'flyer', 'brochure',
-      'letterhead', 'box', 'packaging', 'standee', 'banner', 'flag'
-    ]
-    if (nonLanyardKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
-      return false
-    }
-    if (isLanyardProduct) return true
-  }
-  if (!isLanyardCategory && isLanyardProduct) {
-    return false
-  }
-
-  // 6. Keychain Product Guard: NEVER allow keychains in Lanyard, Flyer, Brochure, or ID card categories
-  const isKeychainProduct = pName.includes('keychain') || pSlug.includes('keychain') || pName.includes('key ring')
-  if (isKeychainProduct && !catSlug.includes('corporate-gift') && !catName.includes('gift')) {
-    return false
-  }
-
-  // 7. Mugs & Bottles Category Guards
-  const isMugCategory = catSlug.includes('mug') || catName.includes('mug')
-  const isMugProduct = pName.includes('mug') || pSlug.includes('mug') || pName.includes('tumbler') || pSlug.includes('tumbler')
-  if (isMugCategory) {
-    return isMugProduct
-  }
-
-  const isBottleCategory = catSlug.includes('bottle') || catName.includes('bottle')
-  const isBottleProduct = pName.includes('bottle') || pSlug.includes('bottle') || pName.includes('flask') || pSlug.includes('flask') || pName.includes('shaker') || pSlug.includes('shaker')
-  if (isBottleCategory) {
-    return isBottleProduct
-  }
-
-  if (isMugProduct || isBottleProduct) {
-    return false
-  }
-
-  // 8. Letterheads Category Guard
-  const isLetterheadCategory = catSlug.includes('letterhead') || catName.includes('letterhead')
-  const isLetterheadProduct = pName.includes('letterhead') || pSlug.includes('letterhead') || pName.includes('stationery') || pName.includes('envelope') || pName.includes('presentation folder') || pSlug.includes('envelope') || pSlug.includes('presentation-folder')
-  if (isLetterheadCategory) {
-    const nonLetterheadKeywords = ['mug', 'bottle', 'lanyard', 'tote', 'cap', 'id card', 'flyer', 'sticker', 'label', 'banner', 'notebook']
-    if (nonLetterheadKeywords.some((kw) => pName.includes(kw) || pSlug.includes(kw))) {
-      return false
-    }
-    if (isLetterheadProduct) return true
-  }
-  if (!isLetterheadCategory && isLetterheadProduct) {
-    return false
-  }
-
-  // 9. General Category Matching
+  // 1. Direct Category Match (Strict Priority)
   const prodCat = product.category
-  if (prodCat && typeof prodCat === 'object') {
-    const pCatId = String(prodCat._id || prodCat.id || '')
-    const pCatSlug = String(prodCat.slug || '').toLowerCase()
-    const pCatName = String(prodCat.name || '').toLowerCase()
-    return (
-      (catId && pCatId === catId) ||
-      (catSlug && pCatSlug === catSlug) ||
-      (catName && pCatName === catName)
-    )
+  const prodCatId = product.category_id !== undefined && product.category_id !== null ? Number(product.category_id) : (prodCat?.id !== undefined ? Number(prodCat.id) : null)
+  
+  if (catId !== null && prodCatId !== null && catId === prodCatId) {
+    return true
   }
 
-  if (prodCat && typeof prodCat === 'string') {
-    const prodCatLower = prodCat.toLowerCase()
-    return (
-      prodCat === catId ||
-      prodCatLower === catSlug ||
-      prodCatLower === catName
-    )
+  if (prodCat && typeof prodCat === 'object') {
+    const pCatSlug = String(prodCat.slug || '').toLowerCase()
+    const pCatKey = String(prodCat._id || prodCat.category_key || '').toLowerCase()
+    const pCatName = String(prodCat.name || '').toLowerCase()
+
+    if (catSlug && pCatSlug === catSlug) return true
+    if (catKey && pCatKey === catKey) return true
+    if (catName && pCatName === catName) return true
+  }
+
+  if (typeof prodCat === 'string') {
+    const pCatStr = prodCat.toLowerCase()
+    if (catSlug && pCatStr === catSlug) return true
+    if (catKey && pCatStr === catKey) return true
+    if (catName && pCatStr === catName) return true
+  }
+
+  if (Array.isArray(product.categories) && product.categories.length > 0) {
+    return product.categories.some((c) => {
+      if (!c) return false
+      const cId = c.id !== undefined && c.id !== null ? Number(c.id) : null
+      const cSlug = String(c.slug || '').toLowerCase()
+      const cKey = String(c._id || c.category_key || '').toLowerCase()
+      return (
+        (catId !== null && cId !== null && catId === cId) ||
+        (catSlug && cSlug === catSlug) ||
+        (catKey && cKey === catKey)
+      )
+    })
   }
 
   return false

@@ -601,6 +601,7 @@ export const categorySlugImageMap = {
   'office-stationery-printing': stationeryCategoryHeroImg,
   'hospitality-event-printing': img14,
   'promotional-drinkware-tech': bottlesImg,
+  'rollup-banners': rollupShowcaseImg,
   'other-products': rollupImg,
 }
 

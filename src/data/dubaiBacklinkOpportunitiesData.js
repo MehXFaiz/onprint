@@ -178,7 +178,7 @@ const BACKLINK_OPPORTUNITIES = [
     status: 'Planned',
     date_submitted: null,
     target_onprint_url: `${SITE_URL}/business-card-printing-dubai`,
-    anchor_text: 'business card printing Dubai',
+    anchor_text: 'business cards in Dubai',
     notes: 'Local Dubai city portal with specialized commercial printing and office services category.',
   },
   {
@@ -1540,7 +1540,7 @@ const BACKLINK_OPPORTUNITIES = [
     status: 'Planned',
     date_submitted: null,
     target_onprint_url: `${SITE_URL}/business-card-printing-dubai`,
-    anchor_text: 'custom business cards Dubai',
+    anchor_text: 'business cards in Dubai',
     notes: 'Neighboring Al Quoz coworking hub offering member discounts with link on vendor page.',
   },
   {
@@ -1558,7 +1558,7 @@ const BACKLINK_OPPORTUNITIES = [
     status: 'Planned',
     date_submitted: null,
     target_onprint_url: `${SITE_URL}/business-card-printing-dubai`,
-    anchor_text: 'professional business cards Dubai',
+    anchor_text: 'business cards in Dubai',
     notes: 'Exclusive workspace for creative entrepreneurs needing bespoke luxury foil cards.',
   },
   {

@@ -108,7 +108,7 @@ const DUBAI_BLOGS = [
 
       <h2>Deep Dive: When to Choose 350gsm Coated Cardstock</h2>
       <p>350gsm is the foundational international standard for commercial business cards. When finished with an anti-scratch matte or velvety lamination, it provides dependable rigidity that fits cleanly into standard card wallets and executive desktop cardholders without creating unnecessary bulk. For companies ordering in bulk (500 to 5,000 cards per department), 350gsm offers the most economical balance between cost efficiency and respectable brand presentation.</p>
-      <p>Explore our standard specifications at our dedicated <a href="${SITE_URL}/services/business-cards-printing">Business Card Printing in Dubai</a> service page.</p>
+      <p>Explore our standard specifications at our dedicated <a href="${SITE_URL}/business-card-printing-dubai">Business Cards in Dubai</a> service hub.</p>
 
       <h2>Deep Dive: When to Upgrade to 450gsm Heavyweight Silk</h2>
       <p>At 450gsm, the card completely ceases to flex under natural thumb pressure. In the hand, this weight creates an immediate perception of premium quality. It is the preferred choice for Dubai luxury real estate brokerages, architectural studios, and boutique legal consultancies. Furthermore, 450gsm board provides the physical thickness required to support registered <strong>hot foil stamping</strong> (metallic gold, rose gold, or silver) on the front without causing visible bruising or indentations on the reverse side.</p>
@@ -1117,7 +1117,7 @@ const DUBAI_BLOGS = [
   },
 ]
 
-const BLOG_TARGET = 62
+const BLOG_TARGET = 70
 
 const blogBlueprints = [
   {

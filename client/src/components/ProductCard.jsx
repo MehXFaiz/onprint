@@ -23,7 +23,6 @@ export default function ProductCard({
   const productImage = product ? getProductImage(product) : ''
   const [currentImg, setCurrentImg] = useState(productImage)
 
-  // Keep state in sync with props/product resolution
   useEffect(() => {
     if (product) {
       setCurrentImg(productImage)
@@ -80,12 +79,12 @@ export default function ProductCard({
     if (product.specifications?.materials?.[0]?.label) {
       list.push(product.specifications.materials[0].label)
     } else {
-      list.push('High-Precision Offset/Digital')
+      list.push('Heidelberg Offset / Digital')
     }
     if (product.specifications?.finishes?.[0]?.label) {
       list.push(product.specifications.finishes[0].label)
     } else {
-      list.push('Bespoke Luxury Finishing')
+      list.push('Bespoke Tactile Finishing')
     }
     return list.slice(0, 3)
   }
@@ -105,7 +104,7 @@ export default function ProductCard({
       const bounds = currentTarget.getBoundingClientRect()
       const x = ((clientX - bounds.left) / bounds.width - 0.5) * 2
       const y = ((clientY - bounds.top) / bounds.height - 0.5) * 2
-      setTilt({ x: y * -5, y: x * 6 })
+      setTilt({ x: y * -6, y: x * 7 })
     })
   }
 
@@ -123,48 +122,51 @@ export default function ProductCard({
 
   return (
     <motion.div
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
-      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 24, scale: 0.98 }}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: '-20px' }}
       transition={{
-        duration: 0.45,
+        duration: 0.5,
         delay: Math.min((index % 6) * 0.07, 0.35),
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.16, 1, 0.3, 1],
       }}
-      whileHover={prefersReducedMotion ? undefined : { y: -6 }}
-      className={`group relative flex flex-col h-full w-full min-w-0 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_4px_20px_-4px_rgba(15,23,42,0.06)] transition-all duration-300 hover:border-[#A82F19]/40 hover:shadow-[0_20px_35px_-8px_rgba(168,47,25,0.13),0_10px_20px_-6px_rgba(15,23,42,0.05)] ${className}`}
+      whileHover={prefersReducedMotion ? undefined : { y: -7 }}
+      className={`group bento-card flex flex-col h-full w-full min-w-0 overflow-hidden ${className}`}
     >
+      {/* Top Brushed Brass & Terracotta Hairline Accent */}
+      <div className="h-[3px] w-full bg-gradient-to-r from-[#C89D54]/40 via-[#B83A22] to-[#C89D54]/40 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+
       {/* Product Image Studio Stage */}
       <div
-        className="relative w-full aspect-[4/3] shrink-0 overflow-hidden bg-gradient-to-b from-slate-100/90 via-slate-50 to-slate-100/70 border-b border-slate-100 flex items-center justify-center select-none"
+        className="relative w-full aspect-[4/3] shrink-0 overflow-hidden bg-gradient-to-b from-[#FAF7F2] via-[#F3EDE2] to-[#FAF7F2] border-b border-[#E4DCD0]/80 flex items-center justify-center select-none"
         onPointerEnter={() => setIsHovered(true)}
         onPointerMove={handleMouseMove}
         onPointerLeave={resetMouse}
       >
-        {/* Fine Dot Matrix Texture */}
+        {/* Warm Editorial Dot Matrix Texture */}
         <div
-          className="absolute inset-0 opacity-[0.035] pointer-events-none"
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(#0F172A 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(#181411 1px, transparent 1px)`,
             backgroundSize: '16px 16px',
           }}
         />
 
-        {/* Ambient Top Spotlight Glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.9),transparent_70%)] pointer-events-none" />
+        {/* Ambient Studio Spotlight Glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.9),rgba(200,157,84,0.08)_55%,transparent_80%)] pointer-events-none" />
 
         {/* Framed 3D Tilt Image Stage */}
         <div
-          className="relative h-full w-full p-2.5 sm:p-3 flex items-center justify-center will-change-transform"
+          className="relative h-full w-full p-2.5 sm:p-3.5 flex items-center justify-center will-change-transform"
           style={{
             transform: isHovered && !prefersReducedMotion
-              ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale3d(1.025, 1.025, 1.025)`
-              : 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
-            transition: isHovered ? 'transform 0.12s ease-out' : 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+              ? `perspective(900px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale3d(1.03, 1.03, 1.03)`
+              : 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
+            transition: isHovered ? 'transform 0.12s ease-out' : 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
           {resolvedSrc && !imageError ? (
-            <div className="relative h-full w-full overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-[0_4px_14px_rgba(0,0,0,0.06)] group-hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-500">
+            <div className="relative h-full w-full overflow-hidden rounded-2xl border border-[#E4DCD0] bg-white shadow-[0_6px_18px_rgba(24,20,17,0.07)] group-hover:shadow-[0_14px_30px_rgba(24,20,17,0.14)] transition-shadow duration-500">
               <img
                 src={resolvedSrc}
                 alt={product.imageAlt || product.name}
@@ -173,62 +175,62 @@ export default function ProductCard({
                 loading="lazy"
                 decoding="async"
                 onError={handleImageError}
-                className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.07]"
+                className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.08]"
               />
 
-              {/* Bottom Contrast Vignette on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              {/* Espresso Vignette on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181411]/75 via-[#181411]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-              {/* Luxury Anamorphic Foil / Gloss Light Sheen on Hover */}
+              {/* Anamorphic Champagne Brass Foil Light Sheen on Hover */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 -translate-x-[160%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/35 to-transparent skew-x-[-25deg] pointer-events-none z-10"
+                className="absolute inset-0 -translate-x-[160%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-[#F9F3E6]/45 to-transparent skew-x-[-25deg] pointer-events-none z-10"
               />
             </div>
           ) : (
-            <div className="flex h-full w-full flex-col items-center justify-center rounded-xl bg-slate-100 border border-slate-200/80 text-slate-400 p-4 text-center select-none">
-              <span className="font-display font-black text-xs uppercase tracking-widest text-slate-400">ONPRINT PRESS</span>
-              <span className="text-[11px] font-bold text-slate-600 mt-1 line-clamp-1">{product.name}</span>
+            <div className="flex h-full w-full flex-col items-center justify-center rounded-2xl bg-[#F3EDE2] border border-[#E4DCD0] text-[#6E6257] p-4 text-center select-none">
+              <span className="font-display font-black text-xs uppercase tracking-widest text-[#9C8F80]">ONPRINT ATELIER</span>
+              <span className="text-[11px] font-bold text-[#3B332C] mt-1 line-clamp-1">{product.name}</span>
             </div>
           )}
         </div>
 
         {/* Top-Left Floating Badge Group */}
-        <div className="absolute left-3 top-3 z-20 pointer-events-none flex flex-wrap items-center gap-1.5">
+        <div className="absolute left-3.5 top-3.5 z-20 pointer-events-none flex flex-wrap items-center gap-1.5">
           {isFeatured ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#A82F19] to-[#C93B1E] px-2.5 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wider text-white shadow-md ring-1 ring-white/20 backdrop-blur-md">
-              <Sparkles className="h-3 w-3 text-amber-300 animate-pulse" />
-              Featured
+            <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#B83A22] to-[#962C17] px-2.5 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wider text-white shadow-md ring-1 ring-white/25 backdrop-blur-md">
+              <Sparkles className="h-3 w-3 text-[#F3D292] animate-pulse" />
+              Signature
             </span>
           ) : product.minimumQuantity ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-0.5 text-[9.5px] font-bold text-slate-700 shadow-xs border border-slate-200/80 backdrop-blur-md">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#FAF7F2]/95 px-2.5 py-0.5 text-[9.5px] font-bold text-[#26201B] shadow-xs border border-[#E4DCD0] backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#C89D54]" />
               Min {product.minimumQuantity} pcs
             </span>
           ) : null}
         </div>
 
         {/* Top-Right Price / Service Badge */}
-        <div className="absolute right-3 top-3 z-20 pointer-events-none">
+        <div className="absolute right-3.5 top-3.5 z-20 pointer-events-none">
           {product.price && Number(product.price) > 0 ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-slate-900/90 px-2.5 py-0.5 text-[10.5px] font-bold text-white shadow-md border border-white/10 backdrop-blur-md">
-              <Tag className="h-3 w-3 text-amber-400" />
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#181411]/90 px-2.5 py-0.5 text-[10.5px] font-bold text-[#FAF7F2] shadow-md border border-[#C89D54]/30 backdrop-blur-md">
+              <Tag className="h-3 w-3 text-[#C89D54]" />
               <span>AED {product.price}</span>
-              <span className="text-[9px] font-normal text-slate-300">+</span>
+              <span className="text-[9px] font-normal text-[#D2C7B8]">+</span>
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 rounded-full bg-slate-900/85 px-2.5 py-0.5 text-[9.5px] font-bold text-slate-200 shadow-xs border border-white/10 backdrop-blur-md">
-              <Clock className="h-3 w-3 text-amber-400" />
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#181411]/88 px-2.5 py-0.5 text-[9.5px] font-bold text-[#FAF7F2] shadow-xs border border-[#C89D54]/30 backdrop-blur-md">
+              <Clock className="h-3 w-3 text-[#C89D54]" />
               <span>24h Express</span>
             </span>
           )}
         </div>
 
         {/* Interactive Floating Quick-Actions Overlay (Revealed on Image Hover) */}
-        <div className="absolute inset-x-3 bottom-3 z-20 flex items-center justify-between gap-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out pointer-events-none">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-900/85 px-2.5 py-1 text-[9px] font-semibold tracking-wider text-slate-200 backdrop-blur-md border border-white/10 shadow-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-            {isHovered ? '3D Active' : 'Hover 3D'}
+        <div className="absolute inset-x-3.5 bottom-3.5 z-20 flex items-center justify-between gap-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out pointer-events-none">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#181411]/90 px-2.5 py-1 text-[9px] font-semibold tracking-wider text-[#F9F3E6] backdrop-blur-md border border-[#C89D54]/30 shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#C89D54] animate-ping" />
+            {isHovered ? '3D Tactile View' : 'Hover 3D'}
           </span>
 
           <div className="flex items-center gap-1.5 pointer-events-auto">
@@ -238,7 +240,7 @@ export default function ProductCard({
                 onClick={handleQuickView}
                 aria-label={`Quick View ${product.name}`}
                 title="Quick View Modal"
-                className="inline-flex items-center gap-1 rounded-full bg-white/95 hover:bg-[#A82F19] text-slate-800 hover:text-white px-2.5 py-1 text-[11px] font-bold shadow-md backdrop-blur-md transition-all duration-200 active:scale-95 cursor-pointer"
+                className="inline-flex items-center gap-1 rounded-full bg-[#FAF7F2]/95 hover:bg-[#B83A22] text-[#181411] hover:text-white px-2.5 py-1 text-[11px] font-bold shadow-md backdrop-blur-md transition-all duration-200 active:scale-95 cursor-pointer"
               >
                 <Eye className="h-3.5 w-3.5" />
                 <span className="hidden sm:inline">Preview</span>
@@ -282,35 +284,35 @@ export default function ProductCard({
         <div className="min-w-0 space-y-1.5">
           {categoryName ? (
             <div className="flex items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#A82F19] truncate max-w-full">
-                <span className="h-1 w-1 rounded-full bg-[#A82F19]" />
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F9F3E6] border border-[#C89D54]/35 px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#8C6523] truncate max-w-full">
+                <span className="h-1 w-1 rounded-full bg-[#B83A22]" />
                 {categoryName}
               </span>
-              <span className="text-[10px] font-medium text-slate-400 shrink-0">Dubai Press</span>
+              <span className="text-[10px] font-semibold text-[#9C8F80] shrink-0">Al Quoz Craft</span>
             </div>
           ) : null}
 
           {/* Product Name */}
-          <h3 className="font-display text-sm sm:text-base font-bold leading-snug tracking-tight text-slate-900 group-hover:text-[#A82F19] transition-colors duration-200 line-clamp-1 break-words">
+          <h3 className="font-serif text-base sm:text-[17px] font-bold leading-snug tracking-tight text-[#181411] group-hover:text-[#B83A22] transition-colors duration-200 line-clamp-1 break-words">
             <Link to={`/products/${product.slug}`} className="hover:underline focus:outline-none">
               {product.name}
             </Link>
           </h3>
 
           {/* Short Description */}
-          <p className="text-xs leading-relaxed text-slate-500 line-clamp-2 break-words">
+          <p className="text-xs leading-relaxed text-[#574E46] line-clamp-2 break-words">
             {product.shortDescription || product.description || `High-precision custom commercial printing for ${product.name} in Dubai.`}
           </p>
 
           {/* Specifications Chips */}
           {featuresList.length > 0 && (
-            <div className="pt-2.5 border-t border-slate-100 flex flex-wrap gap-1.5 min-w-0">
+            <div className="pt-2.5 border-t border-[#E4DCD0]/70 flex flex-wrap gap-1.5 min-w-0">
               {featuresList.map((feat, idx) => (
                 <span
                   key={idx}
-                  className="inline-flex items-center gap-1 rounded-md bg-slate-50 border border-slate-200/70 px-2 py-0.5 text-[10.5px] font-medium text-slate-600 transition-colors group-hover:bg-[#A82F19]/5 group-hover:border-[#A82F19]/20 group-hover:text-[#A82F19] min-w-0"
+                  className="inline-flex items-center gap-1 rounded-lg bg-[#FAF7F2] border border-[#E4DCD0] px-2 py-0.5 text-[10.5px] font-semibold text-[#3B332C] transition-colors group-hover:bg-[#FDF3EF] group-hover:border-[#B83A22]/25 group-hover:text-[#B83A22] min-w-0"
                 >
-                  <Check className="h-3 w-3 text-[#A82F19] shrink-0" />
+                  <Check className="h-3 w-3 text-[#B83A22] shrink-0" />
                   <span className="truncate max-w-[140px] sm:max-w-[180px]">{feat}</span>
                 </span>
               ))}
@@ -319,10 +321,10 @@ export default function ProductCard({
         </div>
 
         {/* Action Buttons Footer */}
-        <div className="mt-auto pt-4 border-t border-slate-100 flex items-center gap-2">
+        <div className="mt-auto pt-4 border-t border-[#E4DCD0]/70 flex items-center gap-2">
           <Link
             to={`/products/${product.slug}`}
-            className="group/btn flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 hover:bg-[#A82F19] px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all duration-200 shadow-xs hover:shadow-md cursor-pointer active:scale-[0.98]"
+            className="group/btn flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#181411] hover:bg-[#B83A22] px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-[#FAF7F2] transition-all duration-300 shadow-xs hover:shadow-md cursor-pointer active:scale-[0.98]"
           >
             <span>Explore</span>
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -352,7 +354,7 @@ export default function ProductCard({
             }}
             aria-label={`Get Price for ${product.name} on WhatsApp`}
             title={`Get Price for ${product.name} on WhatsApp`}
-            className="inline-flex items-center justify-center gap-1.5 h-9 px-2.5 rounded-xl border border-emerald-200 bg-emerald-50/90 text-emerald-700 text-[11px] font-bold transition-all duration-200 hover:border-[#25D366] hover:bg-[#25D366] hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
+            className="inline-flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl border border-emerald-300/80 bg-emerald-50 text-emerald-800 text-[11px] font-bold transition-all duration-200 hover:border-[#25D366] hover:bg-[#25D366] hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
           >
             <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
             <span>Price</span>
@@ -364,7 +366,7 @@ export default function ProductCard({
               onClick={handleQuickView}
               aria-label={`Quick View ${product.name}`}
               title="Quick View"
-              className="inline-flex items-center justify-center h-9 w-9 rounded-xl border border-slate-200 bg-slate-50/90 text-slate-700 transition-all duration-200 hover:border-slate-800 hover:bg-slate-900 hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
+              className="inline-flex items-center justify-center h-9 w-9 rounded-xl border border-[#E4DCD0] bg-[#FAF7F2] text-[#3B332C] transition-all duration-200 hover:border-[#181411] hover:bg-[#181411] hover:text-[#FAF7F2] active:scale-95 cursor-pointer shadow-xs shrink-0"
             >
               <Eye className="h-4 w-4" />
             </button>

@@ -51,7 +51,7 @@ import Reveal from '../../components/Reveal'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { CornerMarks, CmykDots } from '../../components/PrintMarks'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick } from '../../utils/analytics'
+import { trackGetQuoteClick, trackProductInquiry, trackQuoteRequest, trackWhatsAppClick } from '../../utils/analytics'
 import { openWhatsAppDirectly, getWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
 import luxuryBusinessCardsImg from '../../assets/products/luxury_business_cards.jpg'
 import softTouchCardImg from '../../assets/products/card-soft-touch.jpg'
@@ -665,35 +665,47 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
       setQuoteNumber(finalNum)
       setSubmitSuccess(true)
 
-      openWhatsAppDirectly({
-        title: 'BUSINESS CARD QUOTE INQUIRY',
-        refNumber: finalNum,
-        name: formState.name,
-        phone: formState.phone,
-        email: formState.email,
-        company: formState.company || 'N/A',
+      trackQuoteRequest({
         product: `Business Cards (${formState.cardType})`,
-        quantity: formState.quantity,
-        specs: `Paper: ${formState.paper} | Finish: ${formState.finish} | Target Delivery: ${formState.deliveryDate}`,
-        notes: formState.notes || 'None',
+        quantity: Number(formState.quantity) || 100,
+        source_page: `business_card_${derivedKey}`,
       })
+
+      openWhatsAppDirectly(
+        {
+          title: 'BUSINESS CARD QUOTE INQUIRY',
+          refNumber: finalNum,
+          name: formState.name,
+          phone: formState.phone,
+          email: formState.email,
+          company: formState.company || 'N/A',
+          product: `Business Cards (${formState.cardType})`,
+          quantity: formState.quantity,
+          specs: `Paper: ${formState.paper} | Finish: ${formState.finish} | Target Delivery: ${formState.deliveryDate}`,
+          notes: formState.notes || 'None',
+        },
+        { allowSameTabFallback: false }
+      )
     } catch (err) {
       console.error('Quote submission error:', err)
       const fallbackNum = `ONP-2026-${Math.floor(100000 + Math.random() * 900000)}`
       setSubmitSuccess(true)
       setQuoteNumber(fallbackNum)
 
-      openWhatsAppDirectly({
-        title: 'BUSINESS CARD QUOTE INQUIRY',
-        refNumber: fallbackNum,
-        name: formState.name,
-        phone: formState.phone,
-        email: formState.email,
-        company: formState.company || 'N/A',
-        product: `Business Cards (${formState.cardType})`,
-        quantity: formState.quantity,
-        specs: `Paper: ${formState.paper} | Finish: ${formState.finish}`,
-      })
+      openWhatsAppDirectly(
+        {
+          title: 'BUSINESS CARD QUOTE INQUIRY',
+          refNumber: fallbackNum,
+          name: formState.name,
+          phone: formState.phone,
+          email: formState.email,
+          company: formState.company || 'N/A',
+          product: `Business Cards (${formState.cardType})`,
+          quantity: formState.quantity,
+          specs: `Paper: ${formState.paper} | Finish: ${formState.finish}`,
+        },
+        { allowSameTabFallback: false }
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -1118,16 +1130,26 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       </button>
 
                       <a
-                        href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`Hello ONPRINT Dubai, I would like an express business card quotation:\n• Card: ${formState.cardType}\n• Paper: ${formState.paper}\n• Finish: ${formState.finish}\n• Qty: ${formState.quantity} cards\n• Delivery: ${formState.deliveryDate}`)}`}
+                        href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`Hello 0nprint, I would like an express business card quotation:\n• Card: ${formState.cardType}\n• Paper: ${formState.paper}\n• Finish: ${formState.finish}\n• Qty: ${formState.quantity} cards\n• Delivery: ${formState.deliveryDate}${formState.name ? `\n• Name: ${formState.name}` : ''}${formState.notes ? `\n• Notes: ${formState.notes}` : ''}\n• Page URL: https://www.0nprint.com/${derivedKey}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={() =>
-                          trackWhatsAppClick({ source_page: 'business_card_landing_form', service: 'business-cards', button_location: 'quote_form' })
-                        }
+                        onClick={() => {
+                          trackWhatsAppClick({
+                            source_page: 'business_card_landing_form',
+                            service: 'business-cards',
+                            product_name: `Business Cards (${formState.cardType})`,
+                            button_location: 'quote_form',
+                          })
+                          trackProductInquiry({
+                            product_name: `Business Cards (${formState.cardType})`,
+                            button_location: 'quote_form',
+                            source_page: 'business_card_landing_form',
+                          })
+                        }}
                         className="w-full flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] py-3 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"
                       >
                         <WhatsAppIcon className="h-4 w-4 fill-current" />
-                        <span>Fast-Track on WhatsApp ({FORMATTED_PHONE})</span>
+                        <span>Get Price on WhatsApp ({FORMATTED_PHONE})</span>
                       </a>
                     </div>
                     <p className="text-[10px] text-center text-neutral-500">

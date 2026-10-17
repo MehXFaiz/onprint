@@ -231,19 +231,22 @@ Please confirm availability and dispatch schedule.`
       })
 
       // Direct WhatsApp Dispatch
-      openWhatsAppDirectly({
-        title: 'LUXURY BUSINESS CARDS QUOTE INQUIRY',
-        refNumber: finalQuote.orderNumber || finalQuote.quoteNumber,
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        company: formData.company || 'N/A',
-        product: `Business Cards: ${selectedCard.name}`,
-        quantity: selectedQty.value,
-        specs: `Stock: ${selectedCard.name} | Finishes: ${addonLabels || 'Standard'} | Speed: ${selectedTurnaround.label}`,
-        price: estimatedTotal,
-        notes: formData.notes || 'None',
-      })
+      openWhatsAppDirectly(
+        {
+          title: 'LUXURY BUSINESS CARDS QUOTE INQUIRY',
+          refNumber: finalQuote.orderNumber || finalQuote.quoteNumber,
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          company: formData.company || 'N/A',
+          product: `Business Cards: ${selectedCard.name}`,
+          quantity: selectedQty.value,
+          specs: `Stock: ${selectedCard.name} | Finishes: ${addonLabels || 'Standard'} | Speed: ${selectedTurnaround.label}`,
+          price: estimatedTotal,
+          notes: formData.notes || 'None',
+        },
+        { allowSameTabFallback: false }
+      )
     } catch (err) {
       console.error('Quote submission error:', err)
       const fallbackOrderNum = `ONP-2026-${Math.floor(100000 + Math.random() * 900000)}`

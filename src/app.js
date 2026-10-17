@@ -143,7 +143,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
         ` : ''}
         <div style="margin-top: 24px; padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
           <p style="margin: 0; font-weight: bold; color: #166534;">Direct WhatsApp Quote &amp; Proofing:</p>
-          <p style="margin: 4px 0 0 0; color: #15803d;">Connect directly with our master pressman via WhatsApp at <a href="https://wa.me/447344546056" style="color: #15803d; font-weight: bold;">+44 7344546056</a> for instant volume discounts and free digital proofing.</p>
+          <p style="margin: 4px 0 0 0; color: #15803d;">Connect directly with our master pressman via WhatsApp at <a href="https://wa.me/447344546056?text=${encodeURIComponent(`Hello 0nprint, I am interested in ordering ${productData.name}. Please share your prices, available options, and delivery details.\n• Page URL: ${siteUrl}/products/${productData.slug}`)}" style="color: #15803d; font-weight: bold;">+44 7344546056</a> for instant volume discounts and free digital proofing.</p>
         </div>
       </section>
     `
@@ -439,7 +439,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
         <div>
           <strong>ONPRINT Printing &amp; Branding Solutions</strong><br />
           Al Quoz, Dubai, United Arab Emirates<br />
-          Email: <a href="mailto:0nprint183@gmail.com" style="color: #A82F19;">0nprint183@gmail.com</a> | WhatsApp: <a href="https://wa.me/447344546056" style="color: #A82F19;">+44 7344546056</a>
+          Email: <a href="mailto:0nprint183@gmail.com" style="color: #A82F19;">0nprint183@gmail.com</a> | WhatsApp: <a href="https://wa.me/447344546056?text=${encodeURIComponent(`Hello 0nprint, I am visiting ${siteUrl}${requestPath === '/' ? '' : requestPath} and would like to request printing prices and custom quotation details.`)}" style="color: #A82F19;">+44 7344546056</a>
         </div>
         <div>
           <a href="/privacy-policy" style="color: #64748b; margin-right: 12px;">Privacy Policy</a>
@@ -623,7 +623,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
         telephone: '+44 7344546056',
         email: '0nprint183@gmail.com',
         contactType: 'customer service / sales',
-        areaServed: 'AE',
+        areaServed: ['AE', 'PK'],
         availableLanguage: ['English', 'Arabic', 'Urdu'],
       },
     ],
@@ -638,6 +638,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
       { '@type': 'City', name: 'Sharjah' },
       { '@type': 'City', name: 'Ajman' },
       { '@type': 'Country', name: 'United Arab Emirates' },
+      { '@type': 'Country', name: 'Pakistan' },
     ],
   }
 
@@ -801,7 +802,7 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     }
   }
 
-  // Inject Product JSON-LD Schema
+  // Inject Product & FAQPage JSON-LD Schema
   if (productData && !rendered.includes('"@type":"Product"')) {
     const productSchema = {
       '@context': 'https://schema.org',
@@ -828,6 +829,39 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
       category: productData.category?.name || 'Commercial Printing',
     }
     rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(productSchema)}</script>\n  </head>`)
+
+    if (!rendered.includes('"@type":"FAQPage"')) {
+      const productFaqs =
+        Array.isArray(productData.faqs) && productData.faqs.length > 0
+          ? productData.faqs
+          : [
+              {
+                question: `What is the minimum order quantity and pricing for ${productData.name}?`,
+                answer: `The standard minimum order quantity for ${productData.name} starts from ${productData.minimumQuantity || productData.min_quantity || 100} units. Contact our production desk on WhatsApp (+44 7344546056) for instant tiered batch pricing and custom quotations.`,
+              },
+              {
+                question: `How fast can you print and deliver ${productData.name}?`,
+                answer: `Standard production takes 24–48 hours after digital proof approval, with same-day express rush printing available from our Al Quoz, Dubai facility and tracked courier delivery across the UAE and regional hubs.`,
+              },
+              {
+                question: `What paper stocks, materials, and finishes are available for ${productData.name}?`,
+                answer: `We offer commercial and luxury substrates tailored to ${productData.name}, including matte and velvet soft-touch lamination, high-gloss UV, metallic foil stamping, and custom die-cut shapes.`,
+              },
+            ]
+      const productFaqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: productFaqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question || f.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.answer || f.a,
+          },
+        })),
+      }
+      rendered = rendered.replace('</head>', `    <script type="application/ld+json">${JSON.stringify(productFaqSchema)}</script>\n  </head>`)
+    }
   }
 
   // Inject CollectionPage Schema for Categories
@@ -1128,6 +1162,7 @@ function createApp() {
   // Server-side 301 Permanent Redirects for legacy and alternate routes
   app.get('/category/:slug', (req, res) => res.redirect(301, `/categories/${req.params.slug}`))
   app.get('/product/:slug', (req, res) => res.redirect(301, `/products/${req.params.slug}`))
+  app.get('/products/luxury-business-cards', (req, res) => res.redirect(301, '/products/premium-business-cards'))
   app.get(['/track', '/orders/track', '/order-tracking', '/customer', '/account'], (req, res) => res.redirect(301, '/track-order'))
   app.get(['/login', '/register'], (req, res) => res.redirect(301, '/admin/login'))
   app.get(['/quote', '/get-quote', '/quote-request', '/pricing'], (req, res) => res.redirect(301, '/get-a-quote'))

@@ -217,6 +217,24 @@ export default function HomePage() {
   // Interactive Instant Spec Estimator State
   const [selectedCalcCategory, setSelectedCalcCategory] = useState(quickCalcCategories[0])
   const [selectedFinish, setSelectedFinish] = useState('24K Gold Foil')
+  const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0, glareX: 50, glareY: 50 })
+
+  const handleHeroMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const relX = (e.clientX - rect.left) / rect.width
+    const relY = (e.clientY - rect.top) / rect.height
+    setHeroTilt({
+      x: (0.5 - relY) * 10,
+      y: (relX - 0.5) * 12,
+      glareX: relX * 100,
+      glareY: relY * 100,
+    })
+  }
+
+  const handleHeroMouseLeave = () => {
+    setHeroTilt({ x: 0, y: 0, glareX: 50, glareY: 50 })
+    setIsAutoPlaying(true)
+  }
 
   useEffect(() => {
     if (!isAutoPlaying) return
@@ -289,7 +307,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="bg-[#FFFFFF] text-[#0F172A] selection:bg-[#A82F19] selection:text-white">
+    <div className="bg-[#FAF7F2] text-[#181411] selection:bg-[#B83A22] selection:text-white">
       {/* SEO Head Management & Structured Data */}
       <SEOHead
         title="Printing Company in Dubai | ONPRINT – Commercial & Luxury Printing UAE"
@@ -300,73 +318,84 @@ export default function HomePage() {
       />
 
       {/* ========================================================================= */}
-      {/* 1. LUXURY EDITORIAL HERO SECTION                                          */}
+      {/* 1. WARM EDITORIAL & MODERN CRAFT HERO WITH 3D INTERACTIVE BENTO STAGE     */}
       {/* ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 pt-10 sm:pt-14 lg:pt-16 pb-16 sm:pb-24 border-b border-slate-200/80">
-        {/* Subtle Ambient Light Accents */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#FAF7F2] via-[#F4EFE6]/70 to-[#FAF7F2] pt-10 sm:pt-14 lg:pt-16 pb-16 sm:pb-24 border-b border-[#E4DCD0]">
+        {/* Warm Editorial Ambient Radial Glows */}
         <div
-          className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-[#A82F19]/8 to-transparent blur-[100px] -z-10"
+          className="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-[#C89D54]/18 via-[#B83A22]/8 to-transparent blur-[110px] -z-10"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute top-1/3 -right-40 h-[500px] w-[500px] rounded-full bg-gradient-to-bl from-[#A82F19]/5 to-transparent blur-[100px] -z-10"
+          className="pointer-events-none absolute top-1/4 -right-40 h-[520px] w-[520px] rounded-full bg-gradient-to-bl from-[#B83A22]/12 via-[#C89D54]/10 to-transparent blur-[110px] -z-10"
           aria-hidden="true"
         />
 
-        {/* Subtle Geometric Micro-Grid */}
+        {/* Subtle Archival Paper Grid */}
         <div
-          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,#E2E8F0_1px,transparent_1px),linear-gradient(to_bottom,#E2E8F0_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] opacity-35"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,#E4DCD0_1px,transparent_1px),linear-gradient(to_bottom,#E4DCD0_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_65%_55%_at_50%_40%,#000_65%,transparent_100%)] opacity-45"
           aria-hidden="true"
         />
 
         <Container className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-12">
-          {/* Left Column: Headline & Value Proposition */}
-          <div className="lg:col-span-6 space-y-6">
-            {/* Top Small Location / Category Labels */}
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-1.5 shadow-2xs backdrop-blur-md">
+          {/* Left Column: Editorial Headline & Value Proposition */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 space-y-6"
+          >
+            {/* Top Small Atelier Eyebrow Pill */}
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-[#C89D54]/45 bg-white/90 px-4 py-1.5 shadow-2xs backdrop-blur-md">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
               </span>
-              <span className="uppercase tracking-[0.2em] text-[10.5px] font-black text-slate-800">
+              <span className="uppercase tracking-[0.2em] text-[10.5px] font-black text-[#181411]">
                 DUBAI COMMERCIAL PRESSROOM
               </span>
-              <span className="h-3 w-px bg-slate-200" />
-              <span className="flex items-center gap-1 text-[10px] font-bold text-[#A82F19] uppercase tracking-wider">
-                <Sparkles className="h-3 w-3" />
+              <span className="h-3 w-px bg-[#E4DCD0]" />
+              <span className="flex items-center gap-1 text-[10px] font-bold text-[#B83A22] uppercase tracking-wider">
+                <Sparkles className="h-3 w-3 text-[#C89D54]" />
                 AL QUOZ ATELIER
               </span>
             </div>
 
-            {/* Main Heading in Elegant Serif Font */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.35rem] xl:text-[3.85rem] font-bold leading-[1.1] tracking-tight text-[#0F172A]">
-              Commercial &amp; Luxury<br />
-              Printing Services in{' '}
-              <span className="relative inline-block font-serif italic text-[#A82F19]">
+            {/* Main Heading in Elegant Editorial Serif Font */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.4rem] xl:text-[3.9rem] font-bold leading-[1.08] tracking-tight text-[#181411]">
+              Tactile Luxury &amp; Commercial<br />
+              Printing in{' '}
+              <span className="relative inline-block font-serif italic foil-text-gradient">
                 Dubai, UAE
                 <span
-                  className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-[#A82F19] to-[#A82F19]/30"
+                  className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-[#B83A22] via-[#C89D54] to-transparent"
                   aria-hidden="true"
                 />
               </span>
             </h1>
 
             {/* Supporting Text */}
-            <p className="max-w-xl text-base sm:text-lg leading-[1.75] text-slate-600 font-normal">
-              Direct in-house pressroom in <strong className="text-slate-900 font-bold">Al Quoz, Dubai</strong>. Delivering calibrated German Heidelberg color accuracy, <strong className="text-slate-900 font-bold">luxury business cards</strong>, roll-up banners, waterproof stickers, and official stamps with express same-day UAE dispatch.
+            <p className="max-w-xl text-base sm:text-lg leading-[1.75] text-[#52483F] font-normal">
+              Direct in-house pressroom in <strong className="text-[#181411] font-bold">Al Quoz, Dubai</strong>. Crafting calibrated German Heidelberg color accuracy, <strong className="text-[#181411] font-bold">600 GSM cotton &amp; 24K foil business cards</strong>, exhibition roll-up banners, waterproof stickers, and official company seals with same-day UAE dispatch.
             </p>
 
-            {/* 4 Premium Feature Points */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              {heroFeatures.map((feat) => {
+            {/* 4 Tactile Feature Pills */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {heroFeatures.map((feat, idx) => {
                 const Icon = feat.icon
                 return (
-                  <div key={feat.label} className="flex items-center gap-2.5 text-xs sm:text-[13px] font-semibold text-slate-800">
-                    <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#A82F19]/10 text-[#A82F19] shrink-0">
+                  <motion.div
+                    key={feat.label}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 + idx * 0.07, duration: 0.45 }}
+                    className="flex items-center gap-2.5 rounded-xl border border-[#E4DCD0]/90 bg-white/80 px-3.5 py-2.5 text-xs sm:text-[12.5px] font-semibold text-[#181411] shadow-2xs"
+                  >
+                    <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#B83A22]/10 text-[#B83A22] border border-[#C89D54]/30 shrink-0">
                       <Icon className="h-3.5 w-3.5" />
                     </div>
                     <span>{feat.label}</span>
-                  </div>
+                  </motion.div>
                 )
               })}
             </div>
@@ -374,7 +403,9 @@ export default function HomePage() {
             {/* Action Buttons: Primary & Secondary */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
               {/* Primary WhatsApp Button */}
-              <a
+              <motion.a
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 href={getServiceWhatsAppUrl('general')}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -386,109 +417,173 @@ export default function HomePage() {
                     label: 'hero_get_quote_whatsapp',
                   })
                 }
-                className="relative group overflow-hidden rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold shadow-lg shadow-emerald-600/25 hover:shadow-xl hover:shadow-emerald-600/35 hover:-translate-y-0.5 px-8 py-4 justify-center transition-all duration-200 inline-flex items-center gap-2.5 cursor-pointer text-sm sm:text-base text-center"
+                className="relative group overflow-hidden rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold shadow-lg shadow-emerald-600/25 hover:shadow-xl hover:shadow-emerald-600/35 px-8 py-4 justify-center transition-all duration-200 inline-flex items-center gap-2.5 cursor-pointer text-sm sm:text-base text-center"
               >
                 <WhatsAppIcon className="h-5 w-5 fill-white" />
                 <span>Get a Quote on WhatsApp</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
+              </motion.a>
 
               {/* Secondary Button */}
               <Button
                 to="/services"
-                variant="outline"
+                variant="primary"
                 size="lg"
-                className="rounded-xl border border-slate-300 bg-white hover:bg-slate-50 px-7 py-4 text-sm font-bold text-slate-800 shadow-xs hover:-translate-y-0.5 transition-all duration-200 text-center justify-center"
+                className="rounded-xl px-7 py-4 text-sm font-bold text-center justify-center"
               >
-                <span>Explore Printing Services</span>
+                <span>Explore Print Disciplines</span>
               </Button>
             </div>
 
             {/* Social Proof Star Rating */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-600 pt-1">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#52483F] pt-1">
               <div className="flex items-center gap-1.5">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="h-3.5 w-3.5 fill-[#C89D54] text-[#C89D54]" />
                   ))}
                 </div>
-                <span className="font-extrabold text-slate-900">4.9 / 5.0</span>
-                <span className="text-slate-500">Google Verified</span>
+                <span className="font-extrabold text-[#181411]">4.9 / 5.0</span>
+                <span className="text-[#7A6F63]">Google Verified</span>
               </div>
-              <span className="hidden sm:inline text-slate-300">•</span>
-              <span className="font-bold text-slate-800">500+ UAE Corporations</span>
-              <span className="hidden sm:inline text-slate-300">•</span>
-              <span className="inline-flex items-center gap-1 font-bold text-slate-800">
+              <span className="hidden sm:inline text-[#D5CBB8]">•</span>
+              <span className="font-bold text-[#181411]">500+ UAE Enterprises</span>
+              <span className="hidden sm:inline text-[#D5CBB8]">•</span>
+              <span className="inline-flex items-center gap-1 font-bold text-[#181411]">
                 <CheckCircle className="h-3.5 w-3.5 text-emerald-600" />
-                Direct Pressroom
+                Direct Al Quoz Pressroom
               </span>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Luxury Editorial Print Composition */}
-          <div className="lg:col-span-6 relative flex items-center justify-center">
-            <div className="relative w-full max-w-[580px] mx-auto">
-              {/* Soft warm ambient background glow */}
-              <div className="pointer-events-none absolute -top-12 -right-12 h-64 w-64 rounded-full bg-[#A82F19]/5 blur-3xl" />
-              <div className="pointer-events-none absolute -bottom-12 -left-12 h-64 w-64 rounded-full bg-amber-500/5 blur-3xl" />
+          {/* Right Column: Interactive 3D Tactile Bento Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 relative flex items-center justify-center"
+          >
+            <div className="relative w-full max-w-[590px] mx-auto">
+              {/* Interactive Finish Switcher Tabs above the 3D Stage */}
+              <div className="mb-3.5 flex items-center justify-between gap-2 rounded-2xl border border-[#E4DCD0] bg-white/90 p-1.5 shadow-2xs backdrop-blur-md">
+                <div className="flex items-center gap-1 flex-wrap">
+                  {atelierShowcaseItems.map((item, idx) => {
+                    const isActive = idx === activeAtelierIdx
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => {
+                          setActiveAtelierIdx(idx)
+                          setIsAutoPlaying(false)
+                        }}
+                        className={`relative rounded-xl px-3 py-1.5 text-[11px] font-bold transition-colors cursor-pointer ${
+                          isActive ? 'text-white' : 'text-[#52483F] hover:text-[#181411]'
+                        }`}
+                      >
+                        {isActive && (
+                          <motion.div
+                            layoutId="heroAtelierTab"
+                            className="absolute inset-0 rounded-xl bg-[#181411] border border-[#C89D54]/45 shadow-xs -z-10"
+                            transition={{ type: 'spring', stiffness: 380, damping: 28 }}
+                          />
+                        )}
+                        <span className="relative z-10">{item.category}</span>
+                      </button>
+                    )
+                  })}
+                </div>
+                <span className="hidden sm:inline-flex items-center gap-1 pr-2 text-[10px] font-bold uppercase tracking-wider text-[#B83A22]">
+                  <Sparkles className="h-3 w-3 text-[#C89D54]" /> 3D Preview
+                </span>
+              </div>
 
-              {/* Editorial Photo Composition Grid */}
+              {/* Editorial Bento Photo Composition Grid */}
               <div className="grid grid-cols-12 gap-3.5 sm:gap-4 items-stretch">
-                {/* Main Large Visual (Left 7 Cols) */}
-                <Link
-                  to="/business-card-printing-dubai"
-                  className="col-span-7 relative group overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-2 shadow-xl shadow-slate-200/60 hover:shadow-2xl transition-all duration-300 block"
+                {/* Main Interactive 3D Tilt Visual (Left 7 Cols) */}
+                <div
+                  onMouseMove={handleHeroMouseMove}
+                  onMouseEnter={() => setIsAutoPlaying(false)}
+                  onMouseLeave={handleHeroMouseLeave}
+                  style={{
+                    transform: `perspective(1100px) rotateX(${heroTilt.x}deg) rotateY(${heroTilt.y}deg)`,
+                    transition: heroTilt.x === 0 && heroTilt.y === 0 ? 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)' : 'transform 0.08s linear',
+                  }}
+                  className="col-span-7 relative group overflow-hidden rounded-3xl border border-[#C89D54]/45 bg-white p-2 shadow-[0_24px_50px_-12px_rgba(24,20,17,0.16)] transition-shadow duration-300"
                 >
-                  <div className="relative h-[340px] sm:h-[400px] w-full overflow-hidden rounded-2xl bg-slate-100">
-                    <picture>
-                      <source
-                        type="image/webp"
-                        media="(max-width: 640px)"
-                        srcSet="/assets/products/luxury_business_cards_dubai_mobile.webp"
-                      />
-                      <source
-                        type="image/webp"
-                        srcSet="/assets/products/luxury_business_cards_dubai.webp"
-                      />
-                      <img
-                        src="/assets/products/luxury_business_cards_dubai.jpg"
-                        alt="Luxury Business Card Printing Dubai"
+                  {/* Specular Champagne Foil Glare */}
+                  <div
+                    className="pointer-events-none absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: `radial-gradient(circle at ${heroTilt.glareX}% ${heroTilt.glareY}%, rgba(223,185,115,0.28), transparent 60%)`,
+                    }}
+                  />
+
+                  <Link
+                    to="/business-card-printing-dubai"
+                    className="relative block h-[340px] sm:h-[404px] w-full overflow-hidden rounded-2xl bg-[#181411]"
+                  >
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={activeAtelierItem.id}
+                        initial={{ opacity: 0, scale: 1.06 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.98 }}
+                        transition={{ duration: 0.45 }}
+                        src={activeAtelierItem.image}
+                        alt={activeAtelierItem.title}
                         width="480"
-                        height="400"
+                        height="404"
                         className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                         loading="eager"
                         fetchPriority="high"
                         decoding="async"
                       />
-                    </picture>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    <div className="absolute top-3 left-3">
-                      <span className="rounded-md bg-[#A82F19] px-2.5 py-1 text-[9.5px] font-black uppercase tracking-wider text-white shadow-sm">
-                        SIGNATURE CRAFT
+                    </AnimatePresence>
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#181411]/95 via-[#181411]/30 to-transparent" />
+
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                      <span className="rounded-lg bg-[#181411]/85 border border-[#C89D54]/50 px-2.5 py-1 text-[9.5px] font-black uppercase tracking-wider text-[#DFB973] backdrop-blur-md">
+                        {activeAtelierItem.badge}
+                      </span>
+                      <span className="rounded-lg bg-[#B83A22] px-2.5 py-1 text-[9.5px] font-black uppercase tracking-wider text-white shadow-xs">
+                        {activeAtelierItem.metric}
                       </span>
                     </div>
+
                     <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white">
-                      <span className="text-[9.5px] font-black uppercase tracking-widest text-amber-300">
-                        DUBAI ATELIER
+                      <span className="text-[9.5px] font-black uppercase tracking-[0.2em] text-[#DFB973]">
+                        {activeAtelierItem.tag} • FROM AED {activeAtelierItem.price}
                       </span>
                       <h3 className="font-serif text-base sm:text-lg font-bold text-white mt-0.5 leading-snug">
-                        24K Gold Foil &amp; Embossing
+                        {activeAtelierItem.title}
                       </h3>
-                      <p className="text-[11px] text-slate-200 mt-0.5">
-                        600 GSM Italian Cotton Stock
+                      <p className="text-[11px] text-[#E4DCD0] mt-1 line-clamp-2">
+                        {activeAtelierItem.subtitle}
                       </p>
+                      <div className="mt-2.5 flex flex-wrap gap-1.5">
+                        {activeAtelierItem.specs.map((spec) => (
+                          <span
+                            key={spec}
+                            className="rounded-md bg-white/12 border border-white/15 px-2 py-0.5 text-[9.5px] font-semibold text-[#FAF7F2] backdrop-blur-xs"
+                          >
+                            {spec}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
 
-                {/* Right Stacked Visuals (Right 5 Cols) */}
+                {/* Right Stacked Bento Visuals (Right 5 Cols) */}
                 <div className="col-span-5 flex flex-col gap-3.5 sm:gap-4">
                   {/* Top Card: Executive Stationery */}
                   <Link
                     to="/categories/letterheads-printing-dubai"
-                    className="relative group flex-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-2 shadow-md hover:shadow-xl transition-all duration-300 block"
+                    className="bento-card relative group flex-1 overflow-hidden p-2 block"
                   >
-                    <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-slate-100">
+                    <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-[#F3EDE2]">
                       <picture>
                         <source
                           type="image/webp"
@@ -505,10 +600,10 @@ export default function HomePage() {
                           decoding="async"
                         />
                       </picture>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#181411]/90 via-[#181411]/20 to-transparent" />
                       <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
-                        <span className="text-[8.5px] font-black uppercase tracking-widest text-amber-300">
-                          STATIONERY
+                        <span className="text-[8.5px] font-black uppercase tracking-widest text-[#DFB973]">
+                          BESPOKE STATIONERY
                         </span>
                         <h4 className="font-serif text-xs sm:text-sm font-bold leading-tight mt-0.5">
                           Executive Corporate Suites
@@ -520,9 +615,9 @@ export default function HomePage() {
                   {/* Bottom Card: Painted Edge Cards */}
                   <Link
                     to="/products/luxury-business-cards"
-                    className="relative group flex-1 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-2 shadow-md hover:shadow-xl transition-all duration-300 block"
+                    className="bento-card relative group flex-1 overflow-hidden p-2 block"
                   >
-                    <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-slate-100">
+                    <div className="relative h-[162px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-[#F3EDE2]">
                       <picture>
                         <source
                           type="image/webp"
@@ -538,13 +633,13 @@ export default function HomePage() {
                           decoding="async"
                         />
                       </picture>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#181411]/90 via-[#181411]/20 to-transparent" />
                       <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
-                        <span className="text-[8.5px] font-black uppercase tracking-widest text-amber-300">
-                          GILDED EDGES
+                        <span className="text-[8.5px] font-black uppercase tracking-widest text-[#DFB973]">
+                          700 GSM TRIPLEX
                         </span>
                         <h4 className="font-serif text-xs sm:text-sm font-bold leading-tight mt-0.5">
-                          Metallic Edge Painted
+                          Gilded Metallic Edges
                         </h4>
                       </div>
                     </div>
@@ -552,514 +647,542 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Floating UAE Serving Banner */}
-              <div className="mt-4 flex items-center justify-between rounded-2xl bg-slate-50 border border-slate-200/80 px-4 py-3 text-xs">
-                <div className="flex items-center gap-2 font-bold text-slate-800">
+              {/* Floating UAE Atelier Serving Banner */}
+              <div className="mt-4 flex items-center justify-between rounded-2xl bg-white/90 border border-[#E4DCD0] px-4 py-3 text-xs shadow-2xs">
+                <div className="flex items-center gap-2 font-bold text-[#181411]">
                   <span className="text-base leading-none">🇦🇪</span>
-                  <span>Proudly Serving Businesses Across UAE</span>
+                  <span>Direct Al Quoz Pressroom • Serving All 7 Emirates</span>
                 </div>
                 <Link
                   to="/products"
-                  className="inline-flex items-center gap-1 font-bold text-[#A82F19] hover:underline text-xs"
+                  className="inline-flex items-center gap-1 font-bold text-[#B83A22] hover:text-[#181411] transition-colors text-xs"
                 >
-                  <span>Explore Products</span>
+                  <span>Full Catalog</span>
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         </Container>
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. CORE DUBAI PRINTING SERVICES (4 FOCUS DISCIPLINES)                     */}
+      {/* 1B. INFINITE ANIMATED PRESSROOM MARQUEE RIBBON                            */}
       {/* ========================================================================= */}
-      <section className="bg-white py-14 sm:py-20 border-b border-slate-200/80">
+      <div className="bg-[#181411] border-b border-[#C89D54]/25 py-3 overflow-hidden select-none">
+        <div className="hero-marquee-track flex items-center gap-8 whitespace-nowrap">
+          {[...heroMarquee, ...heroMarquee].map((item, idx) => (
+            <div key={`${item}-${idx}`} className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.14em] uppercase text-[#FAF7F2]/90">
+              <span className="h-1.5 w-1.5 rotate-45 bg-[#C89D54]" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 2. CORE DUBAI PRINTING SERVICES (4 TACTILE BENTO DISCIPLINES)             */}
+      {/* ========================================================================= */}
+      <section className="bg-[#FAF7F2] py-16 sm:py-24 border-b border-[#E4DCD0]">
         <Container>
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 mb-10 border-b border-slate-100">
-            <div>
-              <span className="text-xs font-black uppercase tracking-widest text-[#A82F19]">
-                CORE PRINT DISCIPLINES • DUBAI &amp; UAE
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mt-1">
-                Our Four Core Commercial Printing Services
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
-                Industrial precision with luxury finishing, in-house Heidelberg presses, and express same-day UAE delivery. Select any service to inquire instantly on WhatsApp.
-              </p>
-            </div>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A82F19] hover:underline shrink-0"
-            >
-              <span>Explore All Print Services</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-
-          {/* 4 Visually Attractive Service Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-            {/* Card 1: Business Card Printing */}
-            <div className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/50 hover:shadow-xl">
+          <Reveal>
+            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 mb-10 border-b border-[#E4DCD0]">
               <div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 mb-4">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcSet="/assets/products/luxury_business_cards_dubai.webp"
-                    />
-                    <img
-                      src="/assets/products/luxury_business_cards_dubai.jpg"
-                      alt="Business Card Printing Dubai"
-                      width="400"
-                      height="300"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="rounded-full bg-[#A82F19] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
-                      Highest Priority
-                    </span>
-                  </div>
-                  <div className="absolute bottom-2.5 right-2.5">
-                    <span className="rounded-lg bg-black/75 px-2 py-0.5 text-[10px] font-bold text-amber-300 backdrop-blur-xs">
-                      Same-Day / 24h
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-[#A82F19] transition-colors">
-                      Business Card Printing
-                    </h3>
-                    <span className="text-xs font-extrabold text-[#A82F19]">From AED 85</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Executive 350–600 GSM Italian cotton &amp; silk artboard. 24K hot gold foil, velvet soft-touch, 3D spot UV &amp; gilded painted edges.
-                  </p>
-                  <ul className="pt-2 border-t border-slate-100 space-y-1 text-[11px] font-medium text-slate-600">
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>350gsm to 600gsm Cotton Stocks</span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>24K Gold/Silver Foil &amp; Spot UV</span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>Quantities from 100 to 5,000+ units</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-slate-100 space-y-2">
-                <a
-                  href={getServiceWhatsAppUrl('business-cards')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackWhatsAppClick({
-                      source_page: '/',
-                      service_name: 'business_cards',
-                      button_location: 'homepage_service_cards',
-                      label: 'card_whatsapp_inquiry',
-                    })
-                  }
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-3 text-xs font-bold text-white shadow-xs transition-all hover:shadow-md cursor-pointer"
-                >
-                  <WhatsAppIcon className="h-4 w-4 fill-white" />
-                  <span>Inquire on WhatsApp</span>
-                </a>
-                <Link
-                  to="/business-card-printing-dubai"
-                  className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-slate-700 hover:text-[#A82F19] py-1 transition-colors"
-                >
-                  <span>View All Options</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 2: Roll-Up Banners */}
-            <div className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/50 hover:shadow-xl">
-              <div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 mb-4">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcSet="/assets/products/rollup_banner.webp"
-                    />
-                    <img
-                      src="/assets/products/rollup_banner.jpg"
-                      alt="Roll-Up Banner Printing Dubai"
-                      width="400"
-                      height="300"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="rounded-full bg-slate-900 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
-                      Event &amp; Expo
-                    </span>
-                  </div>
-                  <div className="absolute bottom-2.5 right-2.5">
-                    <span className="rounded-lg bg-black/75 px-2 py-0.5 text-[10px] font-bold text-amber-300 backdrop-blur-xs">
-                      Rush 24h Ready
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-[#A82F19] transition-colors">
-                      Roll-Up Banners
-                    </h3>
-                    <span className="text-xs font-extrabold text-[#A82F19]">From AED 145</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Retractable exhibition pull-up banners with heavy-duty aluminum base, stoplight blockout grey-back film, and padded carry bag.
-                  </p>
-                  <ul className="pt-2 border-t border-slate-100 space-y-1 text-[11px] font-medium text-slate-600">
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>Sizes: 85×200, 100×200, 120×200 cm</span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>Anti-Curl, Non-Tearing Blockout Film</span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>Standard &amp; Luxury Teardrop Chrome Stands</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-slate-100 space-y-2">
-                <a
-                  href={getServiceWhatsAppUrl('rollup-banners')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackWhatsAppClick({
-                      source_page: '/',
-                      service_name: 'rollup_banners',
-                      button_location: 'homepage_service_cards',
-                      label: 'rollup_whatsapp_inquiry',
-                    })
-                  }
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-3 text-xs font-bold text-white shadow-xs transition-all hover:shadow-md cursor-pointer"
-                >
-                  <WhatsAppIcon className="h-4 w-4 fill-white" />
-                  <span>Inquire on WhatsApp</span>
-                </a>
-                <Link
-                  to="/services/rollup-banners"
-                  className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-slate-700 hover:text-[#A82F19] py-1 transition-colors"
-                >
-                  <span>View Banner Options</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 3: Custom Sticker Printing */}
-            <div className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/50 hover:shadow-xl">
-              <div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 mb-4">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcSet="/assets/products/stickers.webp"
-                    />
-                    <img
-                      src="/assets/products/stickers.jpg"
-                      alt="Custom Sticker Printing Dubai"
-                      width="400"
-                      height="300"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="rounded-full bg-slate-900 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
-                      Waterproof
-                    </span>
-                  </div>
-                  <div className="absolute bottom-2.5 right-2.5">
-                    <span className="rounded-lg bg-black/75 px-2 py-0.5 text-[10px] font-bold text-amber-300 backdrop-blur-xs">
-                      Same-Day
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-[#A82F19] transition-colors">
-                      Sticker &amp; Label Printing
-                    </h3>
-                    <span className="text-xs font-extrabold text-[#A82F19]">From AED 40</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Custom contour die-cut waterproof vinyl stickers, clear transparent decals, bottle labels, and eye-catching holographic finishes.
-                  </p>
-                  <ul className="pt-2 border-t border-slate-100 space-y-1 text-[11px] font-medium text-slate-600">
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>Custom Shape Die-Cut &amp; Roll Labels</span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>White Vinyl, Clear &amp; Holographic</span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>UV &amp; Scratch Resistant Lamination</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-slate-100 space-y-2">
-                <a
-                  href={getServiceWhatsAppUrl('stickers')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackWhatsAppClick({
-                      source_page: '/',
-                      service_name: 'stickers',
-                      button_location: 'homepage_service_cards',
-                      label: 'sticker_whatsapp_inquiry',
-                    })
-                  }
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-3 text-xs font-bold text-white shadow-xs transition-all hover:shadow-md cursor-pointer"
-                >
-                  <WhatsAppIcon className="h-4 w-4 fill-white" />
-                  <span>Inquire on WhatsApp</span>
-                </a>
-                <Link
-                  to="/services/stickers-labels-printing"
-                  className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-slate-700 hover:text-[#A82F19] py-1 transition-colors"
-                >
-                  <span>View Sticker Options</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 4: Custom Stamp Printing */}
-            <div className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A82F19]/50 hover:shadow-xl">
-              <div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 mb-4">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcSet="/assets/products/stamps/self-inking-company-stamp.webp"
-                    />
-                    <img
-                      src="/assets/products/stamps/self-inking-company-stamp.jpg"
-                      alt="Custom Stamp Printing Dubai"
-                      width="400"
-                      height="300"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="rounded-full bg-slate-900 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
-                      Official Seal
-                    </span>
-                  </div>
-                  <div className="absolute bottom-2.5 right-2.5">
-                    <span className="rounded-lg bg-black/75 px-2 py-0.5 text-[10px] font-bold text-amber-300 backdrop-blur-xs">
-                      2h Express
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-[#A82F19] transition-colors">
-                      Custom Stamps &amp; Seals
-                    </h3>
-                    <span className="text-xs font-extrabold text-[#A82F19]">From AED 85</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Official corporate self-inking rubber stamps, portable pocket folding stamps, heavy-duty daters, and brass wax notary seals.
-                  </p>
-                  <ul className="pt-2 border-t border-slate-100 space-y-1 text-[11px] font-medium text-slate-600">
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>Trodat &amp; Colop Self-Inking Housings</span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>Round Corporate Seals &amp; Pocket Stamps</span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>UAE Trade License Compliant Verification</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-slate-100 space-y-2">
-                <a
-                  href={getServiceWhatsAppUrl('stamps')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackWhatsAppClick({
-                      source_page: '/',
-                      service_name: 'custom_stamps',
-                      button_location: 'homepage_service_cards',
-                      label: 'stamp_whatsapp_inquiry',
-                    })
-                  }
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-3 text-xs font-bold text-white shadow-xs transition-all hover:shadow-md cursor-pointer"
-                >
-                  <WhatsAppIcon className="h-4 w-4 fill-white" />
-                  <span>Inquire on WhatsApp</span>
-                </a>
-                <Link
-                  to="/services/stamps-printing-dubai"
-                  className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-slate-700 hover:text-[#A82F19] py-1 transition-colors"
-                >
-                  <span>View Stamp Options</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* DEDICATED BUSINESS CARD PRINTING SECTION (HIGHEST PRIORITY) */}
-          <div className="mt-14 rounded-3xl border border-slate-200 bg-gradient-to-b from-slate-50/80 to-white p-6 sm:p-10 shadow-sm">
-            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-slate-200">
-              <div className="max-w-2xl">
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#A82F19]/10 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#A82F19] mb-2">
-                  <Award className="h-3.5 w-3.5" />
-                  HIGHEST PRIORITY CRAFT
-                </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
-                  Executive &amp; Luxury Business Card Printing in Dubai
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                  Engineered to command attention across Dubai boardrooms and international summits. Manufactured in Al Quoz on heavy European stocks with precision post-press embellishments.
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-[#B83A22]">
+                  CORE PRINT DISCIPLINES • DUBAI &amp; UAE
+                </span>
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#181411] mt-1">
+                  Our Four Core Commercial Printing Services
+                </h2>
+                <p className="text-xs sm:text-sm text-[#52483F] mt-1.5 max-w-2xl">
+                  Industrial precision with tactile European paper stocks, in-house Heidelberg presses, and express same-day UAE delivery. Select any discipline to inquire directly on WhatsApp.
                 </p>
               </div>
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#B83A22] hover:text-[#181411] transition-colors shrink-0"
+              >
+                <span>Explore All Print Services</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </Reveal>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full sm:w-auto">
-                <a
-                  href={getServiceWhatsAppUrl('business-cards')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackWhatsAppClick({
-                      source_page: '/',
-                      service_name: 'business_cards_spotlight',
-                      button_location: 'homepage_bc_spotlight',
-                      label: 'bc_spotlight_whatsapp',
-                    })
-                  }
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer text-center"
-                >
-                  <WhatsAppIcon className="h-4 w-4 fill-white" />
-                  <span>Inquire About Business Cards</span>
-                </a>
-                <Link
-                  to="/business-card-printing-dubai"
-                  className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 px-6 py-3.5 text-xs font-bold text-slate-800 transition-all text-center"
-                >
-                  <span>Explore 16 Styles</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
+          {/* 4 Tactile Bento Service Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            {/* Card 1: Business Card Printing */}
+            <Reveal delay={0.05}>
+              <div className="bento-card group h-full flex flex-col justify-between overflow-hidden p-5">
+                <div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#F3EDE2] mb-4 border border-[#E4DCD0]/60">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcSet="/assets/products/luxury_business_cards_dubai.webp"
+                      />
+                      <img
+                        src="/assets/products/luxury_business_cards_dubai.jpg"
+                        alt="Business Card Printing Dubai"
+                        width="400"
+                        height="300"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                    <div className="absolute top-2.5 left-2.5">
+                      <span className="rounded-full bg-[#B83A22] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
+                        Flagship Craft
+                      </span>
+                    </div>
+                    <div className="absolute bottom-2.5 right-2.5">
+                      <span className="rounded-lg bg-[#181411]/85 border border-[#C89D54]/40 px-2 py-0.5 text-[10px] font-bold text-[#DFB973] backdrop-blur-xs">
+                        Same-Day / 24h
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-serif text-lg font-bold text-[#181411] group-hover:text-[#B83A22] transition-colors">
+                        Business Card Printing
+                      </h3>
+                      <span className="text-xs font-extrabold text-[#B83A22]">From AED 85</span>
+                    </div>
+                    <p className="text-xs text-[#52483F] leading-relaxed">
+                      Executive 350–600 GSM Italian cotton &amp; silk artboard. 24K hot gold foil, velvet soft-touch, 3D spot UV &amp; gilded painted edges.
+                    </p>
+                    <ul className="pt-2 border-t border-[#E4DCD0]/70 space-y-1 text-[11px] font-medium text-[#52483F]">
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>350gsm to 600gsm Cotton Stocks</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>24K Gold/Silver Foil &amp; Spot UV</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>Quantities from 100 to 5,000+ units</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-[#E4DCD0]/70 space-y-2">
+                  <a
+                    href={getServiceWhatsAppUrl('business-cards')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source_page: '/',
+                        service_name: 'business_cards',
+                        button_location: 'homepage_service_cards',
+                        label: 'card_whatsapp_inquiry',
+                      })
+                    }
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-3 text-xs font-bold text-white shadow-xs transition-all hover:shadow-md cursor-pointer"
+                  >
+                    <WhatsAppIcon className="h-4 w-4 fill-white" />
+                    <span>Inquire on WhatsApp</span>
+                  </a>
+                  <Link
+                    to="/business-card-printing-dubai"
+                    className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-[#38312B] hover:text-[#B83A22] py-1 transition-colors"
+                  >
+                    <span>View All Card Finishes</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Card 2: Roll-Up Banners */}
+            <Reveal delay={0.1}>
+              <div className="bento-card group h-full flex flex-col justify-between overflow-hidden p-5">
+                <div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#F3EDE2] mb-4 border border-[#E4DCD0]/60">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcSet="/assets/products/rollup_banner.webp"
+                      />
+                      <img
+                        src="/assets/products/rollup_banner.jpg"
+                        alt="Roll-Up Banner Printing Dubai"
+                        width="400"
+                        height="300"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                    <div className="absolute top-2.5 left-2.5">
+                      <span className="rounded-full bg-[#181411] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#DFB973] shadow-xs">
+                        DWTC &amp; Expo
+                      </span>
+                    </div>
+                    <div className="absolute bottom-2.5 right-2.5">
+                      <span className="rounded-lg bg-[#181411]/85 border border-[#C89D54]/40 px-2 py-0.5 text-[10px] font-bold text-[#DFB973] backdrop-blur-xs">
+                        Rush 24h Ready
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-serif text-lg font-bold text-[#181411] group-hover:text-[#B83A22] transition-colors">
+                        Roll-Up Banners
+                      </h3>
+                      <span className="text-xs font-extrabold text-[#B83A22]">From AED 145</span>
+                    </div>
+                    <p className="text-xs text-[#52483F] leading-relaxed">
+                      Retractable exhibition pull-up banners with heavy-duty aluminum base, stoplight blockout grey-back film, and padded carry bag.
+                    </p>
+                    <ul className="pt-2 border-t border-[#E4DCD0]/70 space-y-1 text-[11px] font-medium text-[#52483F]">
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>Sizes: 85×200, 100×200, 120×200 cm</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>Anti-Curl, Non-Tearing Blockout Film</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>Standard &amp; Luxury Teardrop Chrome Stands</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-[#E4DCD0]/70 space-y-2">
+                  <a
+                    href={getServiceWhatsAppUrl('rollup-banners')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source_page: '/',
+                        service_name: 'rollup_banners',
+                        button_location: 'homepage_service_cards',
+                        label: 'rollup_whatsapp_inquiry',
+                      })
+                    }
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-3 text-xs font-bold text-white shadow-xs transition-all hover:shadow-md cursor-pointer"
+                  >
+                    <WhatsAppIcon className="h-4 w-4 fill-white" />
+                    <span>Inquire on WhatsApp</span>
+                  </a>
+                  <Link
+                    to="/services/rollup-banners"
+                    className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-[#38312B] hover:text-[#B83A22] py-1 transition-colors"
+                  >
+                    <span>View Banner Options</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Card 3: Custom Sticker Printing */}
+            <Reveal delay={0.15}>
+              <div className="bento-card group h-full flex flex-col justify-between overflow-hidden p-5">
+                <div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#F3EDE2] mb-4 border border-[#E4DCD0]/60">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcSet="/assets/products/stickers.webp"
+                      />
+                      <img
+                        src="/assets/products/stickers.jpg"
+                        alt="Custom Sticker Printing Dubai"
+                        width="400"
+                        height="300"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                    <div className="absolute top-2.5 left-2.5">
+                      <span className="rounded-full bg-[#181411] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#DFB973] shadow-xs">
+                        Waterproof Die-Cut
+                      </span>
+                    </div>
+                    <div className="absolute bottom-2.5 right-2.5">
+                      <span className="rounded-lg bg-[#181411]/85 border border-[#C89D54]/40 px-2 py-0.5 text-[10px] font-bold text-[#DFB973] backdrop-blur-xs">
+                        Same-Day
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-serif text-lg font-bold text-[#181411] group-hover:text-[#B83A22] transition-colors">
+                        Sticker &amp; Label Printing
+                      </h3>
+                      <span className="text-xs font-extrabold text-[#B83A22]">From AED 40</span>
+                    </div>
+                    <p className="text-xs text-[#52483F] leading-relaxed">
+                      Custom contour die-cut waterproof vinyl stickers, clear transparent decals, bottle labels, and eye-catching holographic finishes.
+                    </p>
+                    <ul className="pt-2 border-t border-[#E4DCD0]/70 space-y-1 text-[11px] font-medium text-[#52483F]">
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>Custom Shape Die-Cut &amp; Roll Labels</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>White Vinyl, Clear &amp; Holographic</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>UV &amp; Scratch Resistant Lamination</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-[#E4DCD0]/70 space-y-2">
+                  <a
+                    href={getServiceWhatsAppUrl('stickers')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source_page: '/',
+                        service_name: 'stickers',
+                        button_location: 'homepage_service_cards',
+                        label: 'sticker_whatsapp_inquiry',
+                      })
+                    }
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-3 text-xs font-bold text-white shadow-xs transition-all hover:shadow-md cursor-pointer"
+                  >
+                    <WhatsAppIcon className="h-4 w-4 fill-white" />
+                    <span>Inquire on WhatsApp</span>
+                  </a>
+                  <Link
+                    to="/services/stickers-labels-printing"
+                    className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-[#38312B] hover:text-[#B83A22] py-1 transition-colors"
+                  >
+                    <span>View Sticker Options</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Card 4: Custom Stamp Printing */}
+            <Reveal delay={0.2}>
+              <div className="bento-card group h-full flex flex-col justify-between overflow-hidden p-5">
+                <div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#F3EDE2] mb-4 border border-[#E4DCD0]/60">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcSet="/assets/products/stamps/self-inking-company-stamp.webp"
+                      />
+                      <img
+                        src="/assets/products/stamps/self-inking-company-stamp.jpg"
+                        alt="Custom Stamp Printing Dubai"
+                        width="400"
+                        height="300"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                    <div className="absolute top-2.5 left-2.5">
+                      <span className="rounded-full bg-[#181411] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#DFB973] shadow-xs">
+                        Official Seal
+                      </span>
+                    </div>
+                    <div className="absolute bottom-2.5 right-2.5">
+                      <span className="rounded-lg bg-[#181411]/85 border border-[#C89D54]/40 px-2 py-0.5 text-[10px] font-bold text-[#DFB973] backdrop-blur-xs">
+                        2h Express
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-serif text-lg font-bold text-[#181411] group-hover:text-[#B83A22] transition-colors">
+                        Custom Stamps &amp; Seals
+                      </h3>
+                      <span className="text-xs font-extrabold text-[#B83A22]">From AED 85</span>
+                    </div>
+                    <p className="text-xs text-[#52483F] leading-relaxed">
+                      Official corporate self-inking rubber stamps, portable pocket folding stamps, heavy-duty daters, and brass wax notary seals.
+                    </p>
+                    <ul className="pt-2 border-t border-[#E4DCD0]/70 space-y-1 text-[11px] font-medium text-[#52483F]">
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>Trodat &amp; Colop Self-Inking Housings</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>Round Corporate Seals &amp; Pocket Stamps</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                        <span>UAE Trade License Compliant Verification</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-[#E4DCD0]/70 space-y-2">
+                  <a
+                    href={getServiceWhatsAppUrl('stamps')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source_page: '/',
+                        service_name: 'custom_stamps',
+                        button_location: 'homepage_service_cards',
+                        label: 'stamp_whatsapp_inquiry',
+                      })
+                    }
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-3 text-xs font-bold text-white shadow-xs transition-all hover:shadow-md cursor-pointer"
+                  >
+                    <WhatsAppIcon className="h-4 w-4 fill-white" />
+                    <span>Inquire on WhatsApp</span>
+                  </a>
+                  <Link
+                    to="/services/stamps-printing-dubai"
+                    className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-[#38312B] hover:text-[#B83A22] py-1 transition-colors"
+                  >
+                    <span>View Stamp Options</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* DEDICATED BUSINESS CARD PRINTING SECTION — ESPRESSO INK & BRUSHED BRASS BENTO SUITE */}
+          <Reveal delay={0.1}>
+            <div className="mt-14 bento-card-dark p-6 sm:p-10 relative overflow-hidden">
+              <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#C89D54]/15 blur-3xl" />
+              <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-white/12 relative z-10">
+                <div className="max-w-2xl">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#C89D54]/20 border border-[#C89D54]/40 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#DFB973] mb-2.5">
+                    <Award className="h-3.5 w-3.5" />
+                    SIGNATURE ATELIER EDITION
+                  </div>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                    Executive &amp; Luxury Business Card Printing in Dubai
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#CFC4B4] mt-2 leading-relaxed">
+                    Engineered to command attention across Dubai boardrooms and international summits. Manufactured in Al Quoz on heavy European cotton &amp; triplex stocks with hand-finished embellishments.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full sm:w-auto">
+                  <a
+                    href={getServiceWhatsAppUrl('business-cards')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source_page: '/',
+                        service_name: 'business_cards_spotlight',
+                        button_location: 'homepage_bc_spotlight',
+                        label: 'bc_spotlight_whatsapp',
+                      })
+                    }
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer text-center"
+                  >
+                    <WhatsAppIcon className="h-4 w-4 fill-white" />
+                    <span>Inquire About Business Cards</span>
+                  </a>
+                  <Link
+                    to="/business-card-printing-dubai"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#C89D54]/45 bg-white/10 hover:bg-white/18 px-6 py-3.5 text-xs font-bold text-[#FAF7F2] transition-all text-center"
+                  >
+                    <span>Explore 16 Card Finishes</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-[#DFB973]" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* 5 Signature Finishes Quick Comparison */}
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative z-10">
+                {[
+                  {
+                    name: '350 GSM Silk Matte',
+                    price: 'AED 85 / 100 pcs',
+                    desc: 'Double-sided matte lamination with crisp CMYK fidelity.',
+                    turnaround: 'Same-Day / 24h',
+                  },
+                  {
+                    name: '400 GSM Soft-Touch',
+                    price: 'AED 120 / 100 pcs',
+                    desc: 'Anti-scuff velvet laminate with glare-free luxury touch.',
+                    turnaround: '24h Express',
+                  },
+                  {
+                    name: '24K Gold Foil Stamped',
+                    price: 'AED 180 / 100 pcs',
+                    desc: 'Heat-fused metallic gold, silver or copper brass die foil.',
+                    turnaround: '2–3 Days',
+                  },
+                  {
+                    name: '600 GSM Italian Cotton',
+                    price: 'AED 240 / 100 pcs',
+                    desc: 'Pillowy 100% natural tree-free cotton with deep debossing.',
+                    turnaround: '3–4 Days',
+                  },
+                  {
+                    name: '700 GSM Gilded Edge',
+                    price: 'AED 290 / 100 pcs',
+                    desc: 'Ultra-thick multi-ply card with mirror metallic painted edges.',
+                    turnaround: '3–4 Days',
+                  },
+                ].map((style, idx) => (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ y: -4 }}
+                    className="rounded-2xl border border-white/12 bg-white/[0.05] hover:bg-white/[0.09] hover:border-[#C89D54]/50 p-4 transition-all"
+                  >
+                    <span className="text-[10px] font-bold text-[#C89D54] uppercase tracking-wider block">
+                      Edition 0{idx + 1}
+                    </span>
+                    <h4 className="font-bold text-xs text-white mt-1">{style.name}</h4>
+                    <span className="inline-block text-[11px] font-extrabold text-[#DFB973] mt-0.5">
+                      {style.price}
+                    </span>
+                    <p className="text-[11px] text-[#CFC4B4] mt-1 leading-relaxed">{style.desc}</p>
+                    <span className="inline-block mt-2.5 text-[10px] font-bold text-emerald-300 bg-emerald-500/15 border border-emerald-400/25 px-2 py-0.5 rounded-md">
+                      {style.turnaround}
+                    </span>
+                  </motion.div>
+                ))}
               </div>
             </div>
-
-            {/* 5 Signature Finishes Quick Comparison */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {[
-                {
-                  name: '350 GSM Silk Matte',
-                  price: 'AED 85 / 100 pcs',
-                  desc: 'Double-sided matte lamination with crisp CMYK fidelity.',
-                  turnaround: 'Same-Day / 24h',
-                },
-                {
-                  name: '400 GSM Soft-Touch',
-                  price: 'AED 120 / 100 pcs',
-                  desc: 'Anti-scuff velvet laminate with glare-free luxury touch.',
-                  turnaround: '24h Express',
-                },
-                {
-                  name: '24K Gold Foil Stamped',
-                  price: 'AED 180 / 100 pcs',
-                  desc: 'Heat-fused metallic gold, silver or copper brass die foil.',
-                  turnaround: '2–3 Days',
-                },
-                {
-                  name: '600 GSM Italian Cotton',
-                  price: 'AED 240 / 100 pcs',
-                  desc: 'Pillowy 100% natural tree-free cotton with deep debossing.',
-                  turnaround: '3–4 Days',
-                },
-                {
-                  name: '700 GSM Gilded Edge',
-                  price: 'AED 290 / 100 pcs',
-                  desc: 'Ultra-thick multi-ply card with mirror metallic painted edges.',
-                  turnaround: '3–4 Days',
-                },
-              ].map((style, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-2xs hover:border-[#A82F19]/40 transition-colors"
-                >
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                    Option 0{idx + 1}
-                  </span>
-                  <h4 className="font-bold text-xs text-slate-900 mt-1">{style.name}</h4>
-                  <span className="inline-block text-[11px] font-extrabold text-[#A82F19] mt-0.5">
-                    {style.price}
-                  </span>
-                  <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">{style.desc}</p>
-                  <span className="inline-block mt-2 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
-                    {style.turnaround}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
 
       {/* ========================================================================= */}
       {/* 3. INSTANT SPECIFICATION & TURNAROUND ESTIMATOR RIBBON                    */}
       {/* ========================================================================= */}
-      <section className="bg-slate-50 py-8 border-b border-slate-200/80">
+      <section className="bg-[#F3EDE2] py-10 border-b border-[#E4DCD0]">
         <Container>
-          <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-sm">
+          <div className="bento-card p-5 sm:p-7">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
               {/* Left Selector Controls */}
-              <div className="space-y-3 flex-1">
+              <div className="space-y-3.5 flex-1">
                 <div className="flex items-center gap-2">
-                  <Sliders className="h-4 w-4 text-[#A82F19]" />
-                  <span className="text-xs font-black uppercase tracking-wider text-slate-900">
-                    Instant Spec &amp; Turnaround Estimator
+                  <Sliders className="h-4 w-4 text-[#B83A22]" />
+                  <span className="text-xs font-black uppercase tracking-wider text-[#181411]">
+                    Interactive Spec &amp; Turnaround Estimator
                   </span>
-                  <span className="rounded-full bg-[#A82F19]/10 px-2 py-0.5 text-[9px] font-bold text-[#A82F19]">
-                    Express Dubai
+                  <span className="rounded-full bg-[#C89D54]/20 border border-[#C89D54]/40 px-2.5 py-0.5 text-[9px] font-bold text-[#8A5A19]">
+                    Live Al Quoz Schedule
                   </span>
                 </div>
 
@@ -1071,10 +1194,10 @@ export default function HomePage() {
                         key={cat.id}
                         type="button"
                         onClick={() => setSelectedCalcCategory(cat)}
-                        className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all duration-200 cursor-pointer ${
+                        className={`relative rounded-xl px-3.5 py-2 text-xs font-bold transition-all duration-200 cursor-pointer ${
                           isSelected
-                            ? 'bg-[#A82F19] text-white shadow-xs'
-                            : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                            ? 'bg-[#181411] text-[#FAF7F2] shadow-sm border border-[#C89D54]/50'
+                            : 'bg-[#F3EDE2] text-[#52483F] hover:bg-[#E4DCD0]/70 hover:text-[#181411] border border-transparent'
                         }`}
                       >
                         {cat.name}
@@ -1085,28 +1208,37 @@ export default function HomePage() {
               </div>
 
               {/* Right Output & WhatsApp Trigger */}
-              <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 border-t lg:border-t-0 lg:border-l border-slate-200 pt-4 lg:pt-0 lg:pl-6 w-full lg:w-auto">
-                <div>
-                  <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                    Est. Turnaround
-                  </span>
-                  <span className="text-sm font-black text-emerald-600 flex items-center gap-1">
-                    <Zap className="h-3.5 w-3.5" />
-                    {selectedCalcCategory.turnaround}
-                  </span>
-                  <span className="block text-[10px] text-slate-500">
-                    Min Qty: {selectedCalcCategory.minQty}
-                  </span>
-                </div>
+              <div className="flex flex-wrap sm:flex-nowrap items-center gap-5 border-t lg:border-t-0 lg:border-l border-[#E4DCD0] pt-4 lg:pt-0 lg:pl-6 w-full lg:w-auto">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={selectedCalcCategory.id}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.2 }}
+                    className="min-w-[180px]"
+                  >
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-[#7A6F63]">
+                      Est. Turnaround &amp; Stock
+                    </span>
+                    <span className="text-sm font-black text-emerald-700 flex items-center gap-1 mt-0.5">
+                      <Zap className="h-3.5 w-3.5 text-[#C89D54]" />
+                      {selectedCalcCategory.turnaround}
+                    </span>
+                    <span className="block text-[11px] font-semibold text-[#52483F] mt-0.5">
+                      {selectedCalcCategory.stock} • Min: {selectedCalcCategory.minQty}
+                    </span>
+                  </motion.div>
+                </AnimatePresence>
 
                 <a
                   href={getWhatsAppCalcLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-5 py-3 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 group cursor-pointer"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-5 py-3.5 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 group cursor-pointer"
                 >
                   <WhatsAppIcon className="h-4 w-4 fill-current group-hover:scale-110 transition-transform" />
-                  <span>Get Quote on WhatsApp ({FORMATTED_PHONE})</span>
+                  <span>Get Price on WhatsApp ({FORMATTED_PHONE})</span>
                 </a>
               </div>
             </div>

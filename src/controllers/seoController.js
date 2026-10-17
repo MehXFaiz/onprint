@@ -75,6 +75,9 @@ Allow: /large-format-printing-dubai
 Allow: /corporate-printing-dubai
 Allow: /promotional-printing-dubai
 Allow: /bottle-printing-dubai
+Allow: /quote/business-cards
+Allow: /quote/stickers
+Allow: /quote/mugs
 Allow: /quote/bottles
 Allow: /quote/rollup-banners
 Allow: /privacy-policy
@@ -356,6 +359,9 @@ async function getSitemapXml(req, res) {
         { path: '/corporate-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/promotional-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/bottle-printing-dubai', priority: '0.9', changefreq: 'weekly' },
+        { path: '/quote/business-cards', priority: '0.85', changefreq: 'weekly' },
+        { path: '/quote/stickers', priority: '0.85', changefreq: 'weekly' },
+        { path: '/quote/mugs', priority: '0.85', changefreq: 'weekly' },
         { path: '/quote/bottles', priority: '0.85', changefreq: 'weekly' },
         { path: '/quote/rollup-banners', priority: '0.85', changefreq: 'weekly' },
         { path: '/printing-services-abu-dhabi', priority: '0.85', changefreq: 'weekly' },

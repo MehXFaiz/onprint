@@ -50,9 +50,10 @@ export const organizationSchema = {
   contactPoint: [
     {
       '@type': 'ContactPoint',
+      telephone: FORMATTED_PHONE,
       email: '0nprint183@gmail.com',
       contactType: 'customer service / sales',
-      areaServed: 'AE',
+      areaServed: ['AE', 'PK'],
       availableLanguage: ['English', 'Arabic', 'Urdu'],
     },
   ],
@@ -68,6 +69,7 @@ export const organizationSchema = {
     { '@type': 'City', name: 'Ajman' },
     { '@type': 'City', name: 'Ras Al Khaimah' },
     { '@type': 'Country', name: 'United Arab Emirates' },
+    { '@type': 'Country', name: 'Pakistan' },
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',

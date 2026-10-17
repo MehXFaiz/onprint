@@ -110,6 +110,70 @@ const categoryMeta = {
       'Custom water bottle printing and laser engraving in Dubai. Double-wall insulated flasks, smart LED temp bottles, aluminium sports bottles with fast UAE delivery.',
     keywords: 'bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai',
   },
+  'stamps-printing-dubai': {
+    eyebrow: 'CUSTOM STAMPS & SEALS DUBAI',
+    heading: 'Official Company Rubber Stamps & Legal Seals Dubai',
+    title: 'Custom Rubber Stamp Making in Dubai | Self-Inking Company Stamps | ONPRINT',
+    description:
+      'Official company stamp making in Dubai. Self-inking rubber stamps, round company seals, pocket mobile stamps, heavy-duty dater stamps, and luxury brass wax seals with express 2-hour production.',
+    keywords: 'rubber stamp dubai, company stamp maker dubai, self inking stamps dubai, official seal stamp uae, wax seal stamp',
+  },
+  'rollup-banners': {
+    eyebrow: 'ROLLUP BANNERS DUBAI',
+    heading: 'Premium Retractable Roll-Up Banner Stands Dubai',
+    title: 'Rollup Banner Printing Dubai | Retractable Pull-Up Banner Stands | ONPRINT',
+    description:
+      'High-quality roll-up banner printing in Dubai. Standard 85x200cm, Wide 100x200cm, double-sided, and luxury teardrop retractable pull-up banners with express same-day delivery across UAE.',
+    keywords: 'rollup banner dubai, roll up banner printing dubai, pull up banner stand dubai, retractable banner dubai, trade show banner stand',
+  },
+  'stickers-labels-printing': {
+    eyebrow: 'STICKERS & LABELS DUBAI',
+    heading: 'Custom Die-Cut Vinyl Stickers & Product Labels Dubai',
+    title: 'Stickers & Product Label Printing Dubai | Waterproof Vinyl & Foil | ONPRINT',
+    description:
+      'Precision die-cut stickers and product roll labels in Dubai. Waterproof vinyl, metallic foil, holographic, and transparent packaging stickers with UV durability.',
+    keywords: 'sticker printing dubai, custom labels dubai, die cut stickers uae, packaging labels dubai, holographic stickers',
+  },
+  'signage-banners-printing': {
+    eyebrow: 'SIGNAGE & EXHIBITION DISPLAYS',
+    heading: 'Large Format Signage, Flags & Exhibition Displays Dubai',
+    title: 'Signage & Exhibition Banner Printing Dubai | Indoor & Outdoor | ONPRINT',
+    description:
+      'Large format printing and exhibition signage in Dubai. High-impact pull-up banners, outdoor beach flags, foam boards, and acrylic wall displays.',
+    keywords: 'signage printing dubai, exhibition banners dubai, beach flags dubai, acrylic wall signs uae',
+  },
+  'custom-apparel-printing': {
+    eyebrow: 'CUSTOM APPAREL & UNIFORMS',
+    heading: 'Custom Screen Printed & Embroidered Corporate Apparel Dubai',
+    title: 'Custom Apparel & T-Shirt Screen Printing Dubai | Corporate Polos | ONPRINT',
+    description:
+      'Custom branded t-shirts, corporate polo uniforms, embroidered caps, and hoodies in Dubai with high-density screen printing and DTG precision.',
+    keywords: 't shirt printing dubai, custom apparel dubai, corporate uniform printing uae, embroidered caps dubai',
+  },
+  'catalogs-booklets-printing': {
+    eyebrow: 'CATALOGS & BOOKLETS DUBAI',
+    heading: 'Multi-Page Catalogs, Booklets & Annual Reports Dubai',
+    title: 'Catalogs & Corporate Booklets Printing Dubai | Saddle-Stitch & Perfect Bound | ONPRINT',
+    description:
+      'Executive multi-page booklet and catalog printing in Dubai. Saddle-stitched and perfect-bound company profiles, annual reports, and product lookbooks.',
+    keywords: 'catalog printing dubai, booklet printing uae, annual report printing dubai, company profile printing',
+  },
+  'hospitality-event-printing': {
+    eyebrow: 'HOSPITALITY & EVENT STATIONERY',
+    heading: 'Spill-Resistant Menus, Invitations & Event Stationery Dubai',
+    title: 'Hospitality & Event Stationery Printing Dubai | Menus & Invitations | ONPRINT',
+    description:
+      'Luxury hospitality and event print solutions in Dubai. Spill-resistant restaurant menus, luxury wedding invitations, and VIP event collaterals.',
+    keywords: 'restaurant menu printing dubai, wedding invitation printing dubai, event stationery uae, hospitality printing dubai',
+  },
+  'promotional-drinkware-tech': {
+    eyebrow: 'PROMOTIONAL DRINKWARE & TECH',
+    heading: 'Custom Branded Tech Accessories & Drinkware Dubai',
+    title: 'Promotional Drinkware & Branded Tech Dubai | USBs & Power Banks | ONPRINT',
+    description:
+      'Custom printed mugs, insulated stainless steel water bottles, branded USB flash drives, power banks, and desk mats for corporate promotional campaigns in Dubai.',
+    keywords: 'promotional tech items uae, branded power banks dubai, custom usb flash drives dubai, corporate tech gifts',
+  },
 }
 
 export default function ProductsPage() {
@@ -179,8 +243,11 @@ export default function ProductsPage() {
         !categoryParam ||
         item.category?.slug === categoryParam ||
         item.category?._id === categoryParam ||
+        String(item.category_id) === categoryParam ||
+        String(item.category?.id) === categoryParam ||
         item.category?.name?.toLowerCase() === categoryParam.toLowerCase() ||
-        (isStickerParam && (item.category?.slug === 'stickers-labels-printing' || item.category?.slug === 'stickers-printing-dubai' || item.slug.includes('sticker') || item.slug.includes('label')))
+        (Array.isArray(item.categories) && item.categories.some((c) => c?.slug === categoryParam || c?._id === categoryParam || String(c?.id) === categoryParam)) ||
+        (isStickerParam && (item.category?.slug === 'stickers-labels-printing' || item.category?.slug === 'stickers-printing-dubai'))
 
       const matchSearch =
         !searchQuery.trim() ||

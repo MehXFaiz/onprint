@@ -274,7 +274,10 @@ export function formatWhatsAppMessage(params = {}) {
 }
 
 export function getWhatsAppUrl(params = {}) {
-  const message = formatWhatsAppMessage(params)
+  const message =
+    typeof params === 'string' && params.trim()
+      ? params.trim()
+      : formatWhatsAppMessage(params)
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`
 }
 

@@ -5,11 +5,11 @@ const { notifyNewContactMessage } = require('../utils/notificationService')
 
 async function submitContact(req, res, next) {
   try {
-    const { name, email, phone, company, subject, product, quantity, deliveryLocation, message } = req.body || {}
+    const { name, email, phone, company, subject, product, quantity, deliveryLocation, message, specifications, specs } = req.body || {}
 
     const resolvedName = (name || '').trim()
     const resolvedProduct = (product || subject || 'Direct Studio Inquiry').trim()
-    const baseMessage = (message || '').trim()
+    const baseMessage = (message || specifications || specs || '').trim()
     const extraSpecs = [
       quantity ? `Quantity: ${quantity}` : null,
       deliveryLocation ? `Delivery Location: ${deliveryLocation}` : null,

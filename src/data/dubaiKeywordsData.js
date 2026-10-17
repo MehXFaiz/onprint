@@ -303,6 +303,18 @@ const DUBAI_KEYWORDS = [
   // Target: /services/business-cards-printing & /products/premium-business-cards
   // =================================================================
   {
+    keyword: 'business cards in dubai',
+    cluster: 'Business Cards',
+    search_intent: 'Commercial',
+    keyword_type: 'primary',
+    target_page: 'Business Cards Landing Page',
+    target_url: `${SITE_URL}/business-card-printing-dubai`,
+    priority: 'Critical',
+    status: 'Published',
+    notes: 'Primary head commercial backlink target keyword for Dubai business cards.',
+    suggested_anchor_text: 'business cards in Dubai',
+  },
+  {
     keyword: 'business card printing dubai',
     cluster: 'Business Cards',
     search_intent: 'Transactional',
@@ -1586,6 +1598,7 @@ const modifierPrefixes = ['custom', 'best', 'urgent', 'express', 'commercial', '
 const suffixVariants = ['near me', 'online', 'delivery', 'with design', 'and design', 'order online', 'supplier', 'company', 'service', 'printing', 'print shop', 'store', 'vendor']
 
 const allProducts = [
+  { term: 'business cards in dubai', cluster: 'Business Cards', url: `${SITE_URL}/business-card-printing-dubai` },
   { term: 'business cards', cluster: 'Business Cards', url: `${SITE_URL}/services/business-cards-printing` },
   { term: 'soft touch business cards', cluster: 'Business Cards', url: `${SITE_URL}/products/premium-business-cards` },
   { term: 'foil business cards', cluster: 'Business Cards', url: `${SITE_URL}/products/premium-business-cards` },

@@ -165,7 +165,7 @@ export default function AdminProductFormPage() {
   if (loading) {
     return (
       <div className="flex min-h-[400px] items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#A82F19] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D4AF65] border-t-transparent" />
       </div>
     )
   }
@@ -249,7 +249,7 @@ export default function AdminProductFormPage() {
                 onChange={handleNameChange}
                 placeholder="e.g. Executive Leather Hardcover Notebook"
                 required
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -257,7 +257,7 @@ export default function AdminProductFormPage() {
               <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
                 URL Slug <span className="text-red-500">*</span>
               </label>
-              <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-500 focus-within:border-[#A82F19]">
+              <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-500 focus-within:border-[#D4AF65]">
                 <span className="text-neutral-400">/products/</span>
                 <input
                   type="text"
@@ -281,7 +281,7 @@ export default function AdminProductFormPage() {
                 <select
                   value={form.categoryName}
                   onChange={(e) => setForm((prev) => ({ ...prev, categoryName: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 >
                   {categories.length > 0 ? (
                     categories.map((c) => (
@@ -309,7 +309,7 @@ export default function AdminProductFormPage() {
                   step="0.5"
                   value={form.price}
                   onChange={(e) => setForm((prev) => ({ ...prev, price: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
 
@@ -322,7 +322,7 @@ export default function AdminProductFormPage() {
                   min="1"
                   value={form.minimumQuantity}
                   onChange={(e) => setForm((prev) => ({ ...prev, minimumQuantity: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
             </div>
@@ -336,7 +336,7 @@ export default function AdminProductFormPage() {
                 value={form.shortDescription}
                 onChange={(e) => setForm((prev) => ({ ...prev, shortDescription: e.target.value }))}
                 placeholder="High-grade thermal bottles with LED smart display…"
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-4 py-2 text-xs font-medium text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -349,7 +349,7 @@ export default function AdminProductFormPage() {
                 value={form.description}
                 onChange={(e) => setForm((prev) => ({ ...prev, description: e.target.value }))}
                 placeholder="Detailed specifications, paper stocks, print methods, and finishing options…"
-                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
           </div>
@@ -357,7 +357,7 @@ export default function AdminProductFormPage() {
           {/* SEO & Meta Tags Card */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
             <div className="flex items-center gap-2 border-b border-neutral-100 pb-3">
-              <Search className="h-4 w-4 text-[#A82F19]" />
+              <Search className="h-4 w-4 text-[#D4AF65]" />
               <h2 className="font-display text-base font-bold text-neutral-900">
                 Google Search Optimization (SEO)
               </h2>
@@ -377,7 +377,7 @@ export default function AdminProductFormPage() {
                 value={form.seoTitle}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoTitle: e.target.value }))}
                 placeholder="e.g. Custom Mugs Printing Dubai | Corporate Photo Mugs | ONPRINT"
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -395,7 +395,7 @@ export default function AdminProductFormPage() {
                 value={form.seoDescription}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoDescription: e.target.value }))}
                 placeholder="Write a clear meta description highlighting Dubai delivery, quality materials, and custom printing..."
-                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -409,7 +409,7 @@ export default function AdminProductFormPage() {
                   value={form.seoKeywords}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoKeywords: e.target.value }))}
                   placeholder="mug printing dubai, custom mugs uae"
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-4 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
 
@@ -422,7 +422,7 @@ export default function AdminProductFormPage() {
                   value={form.seoHeading}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoHeading: e.target.value }))}
                   placeholder={form.name || 'Defaults to Product Name'}
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-4 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
             </div>
@@ -463,7 +463,7 @@ export default function AdminProductFormPage() {
               <select
                 value={form.status}
                 onChange={(e) => setForm((prev) => ({ ...prev, status: e.target.value }))}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               >
                 <option value="active">Active (Visible in Catalog)</option>
                 <option value="inactive">Inactive (Draft / Hidden)</option>
@@ -475,7 +475,7 @@ export default function AdminProductFormPage() {
                 type="checkbox"
                 checked={form.featured}
                 onChange={(e) => setForm((prev) => ({ ...prev, featured: e.target.checked }))}
-                className="h-4 w-4 rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]"
+                className="h-4 w-4 rounded border-neutral-300 text-[#D4AF65] focus:ring-[#D4AF65]"
               />
               <span className="text-xs font-bold text-neutral-800">Feature on Homepage</span>
             </label>
@@ -501,7 +501,7 @@ export default function AdminProductFormPage() {
                 value={form.imageAlt}
                 onChange={(e) => setForm((prev) => ({ ...prev, imageAlt: e.target.value }))}
                 placeholder={form.name || 'Descriptive ALT tag for Google Image search'}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
           </div>

@@ -155,7 +155,7 @@ export default function AdminCategoryFormPage() {
   if (loading) {
     return (
       <div className="flex min-h-[400px] items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#A82F19] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D4AF65] border-t-transparent" />
       </div>
     )
   }
@@ -239,7 +239,7 @@ export default function AdminCategoryFormPage() {
                 onChange={handleNameChange}
                 placeholder="e.g. Brochures Printing"
                 required
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -247,7 +247,7 @@ export default function AdminCategoryFormPage() {
               <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
                 URL Slug <span className="text-red-500">*</span>
               </label>
-              <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-500 focus-within:border-[#A82F19]">
+              <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-500 focus-within:border-[#D4AF65]">
                 <span className="text-neutral-400">/categories/</span>
                 <input
                   type="text"
@@ -269,7 +269,7 @@ export default function AdminCategoryFormPage() {
                 value={form.description}
                 onChange={(e) => setForm((prev) => ({ ...prev, description: e.target.value }))}
                 placeholder="Describe the products grouped under this category…"
-                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
           </div>
@@ -277,7 +277,7 @@ export default function AdminCategoryFormPage() {
           {/* SEO & Meta Tags Card */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
             <div className="flex items-center gap-2 border-b border-neutral-100 pb-3">
-              <Search className="h-4 w-4 text-[#A82F19]" />
+              <Search className="h-4 w-4 text-[#D4AF65]" />
               <h2 className="font-display text-base font-bold text-neutral-900">
                 Google Search Engine Optimization (SEO)
               </h2>
@@ -297,7 +297,7 @@ export default function AdminCategoryFormPage() {
                 value={form.seoTitle}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoTitle: e.target.value }))}
                 placeholder="e.g. Corporate Gifts Dubai | Custom Promotional Items | ONPRINT"
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -315,7 +315,7 @@ export default function AdminCategoryFormPage() {
                 value={form.seoDescription}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoDescription: e.target.value }))}
                 placeholder="Write an enticing summary for Google searchers (130-160 characters)..."
-                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -329,7 +329,7 @@ export default function AdminCategoryFormPage() {
                   value={form.seoKeywords}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoKeywords: e.target.value }))}
                   placeholder="corporate gifts dubai, promotional gifts uae"
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
 
@@ -342,7 +342,7 @@ export default function AdminCategoryFormPage() {
                   value={form.seoHeading}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoHeading: e.target.value }))}
                   placeholder={form.name || 'Defaults to Category Name'}
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
             </div>
@@ -383,7 +383,7 @@ export default function AdminCategoryFormPage() {
               <select
                 value={form.status}
                 onChange={(e) => setForm((prev) => ({ ...prev, status: e.target.value }))}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               >
                 <option value="active">Active (Visible)</option>
                 <option value="inactive">Inactive (Hidden)</option>
@@ -398,7 +398,7 @@ export default function AdminCategoryFormPage() {
                 type="number"
                 value={form.displayOrder}
                 onChange={(e) => setForm((prev) => ({ ...prev, displayOrder: e.target.value, display_order: e.target.value }))}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
           </div>
@@ -423,7 +423,7 @@ export default function AdminCategoryFormPage() {
                 value={form.imageAlt}
                 onChange={(e) => setForm((prev) => ({ ...prev, imageAlt: e.target.value }))}
                 placeholder={form.name || 'Descriptive ALT tag for screen readers & Google Images'}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
           </div>

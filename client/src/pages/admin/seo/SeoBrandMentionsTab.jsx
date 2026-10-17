@@ -151,7 +151,7 @@ Dubai, UAE`
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 px-2.5 py-0.5 text-xs font-bold text-[#A82F19]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 text-xs font-bold text-[#D4AF65]">
                 <Sparkles className="h-3.5 w-3.5" />
                 Unlinked Brand Mentions & PR
               </span>
@@ -171,7 +171,7 @@ Dubai, UAE`
               variant="accent"
               size="sm"
               onClick={() => setShowAddModal(true)}
-              className="text-xs font-bold bg-[#A82F19] text-white hover:bg-[#8f2714]"
+              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
             >
               <Plus className="h-3.5 w-3.5 mr-1.5" />
               Log Brand Mention
@@ -216,14 +216,14 @@ Dubai, UAE`
             placeholder="Search domain, article, or snippet..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#A82F19]"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#D4AF65]"
           />
         </div>
 
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#A82F19] w-full sm:w-auto"
+          className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D4AF65] w-full sm:w-auto"
         >
           <option value="all">All Mentions</option>
           <option value="unlinked">Unlinked Mentions Only</option>
@@ -316,7 +316,7 @@ Dubai, UAE`
                             className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100"
                             title="Generate Pitch"
                           >
-                            <Mail className="h-3 w-3 text-[#A82F19]" />
+                            <Mail className="h-3 w-3 text-[#D4AF65]" />
                             Pitch
                           </button>
 
@@ -338,7 +338,7 @@ Dubai, UAE`
                             href={item.source_url}
                             target="_blank"
                             rel="noreferrer"
-                            className="p-1.5 text-neutral-400 hover:text-[#A82F19] rounded-lg hover:bg-neutral-100"
+                            className="p-1.5 text-neutral-400 hover:text-[#D4AF65] rounded-lg hover:bg-neutral-100"
                             title="View Mention Live"
                           >
                             <ExternalLink className="h-3.5 w-3.5" />
@@ -385,7 +385,7 @@ Dubai, UAE`
                   placeholder="https://gulfnews.com/business/printing-trends"
                   value={formData.source_url}
                   onChange={(e) => setFormData({ ...formData, source_url: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs focus:outline-none focus:border-[#A82F19]"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs focus:outline-none focus:border-[#D4AF65]"
                 />
               </div>
 
@@ -397,7 +397,7 @@ Dubai, UAE`
                     placeholder="gulfnews.com"
                     value={formData.mentioning_domain}
                     onChange={(e) => setFormData({ ...formData, mentioning_domain: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#A82F19]"
+                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D4AF65]"
                   />
                 </div>
 
@@ -407,7 +407,7 @@ Dubai, UAE`
                     type="number"
                     value={formData.domain_authority}
                     onChange={(e) => setFormData({ ...formData, domain_authority: Number(e.target.value) })}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#A82F19]"
+                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D4AF65]"
                   />
                 </div>
               </div>
@@ -419,7 +419,7 @@ Dubai, UAE`
                   placeholder="Top Commercial Printing Facilities in Dubai 2026"
                   value={formData.article_title}
                   onChange={(e) => setFormData({ ...formData, article_title: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#A82F19]"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D4AF65]"
                 />
               </div>
 
@@ -431,7 +431,7 @@ Dubai, UAE`
                   placeholder="...press facilities like ONPRINT located in Al Quoz provide express Heidelberg offset output..."
                   value={formData.mention_snippet}
                   onChange={(e) => setFormData({ ...formData, mention_snippet: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#A82F19]"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D4AF65]"
                 />
               </div>
 
@@ -441,7 +441,7 @@ Dubai, UAE`
                   <select
                     value={formData.is_linked}
                     onChange={(e) => setFormData({ ...formData, is_linked: Number(e.target.value) })}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs font-semibold focus:outline-none focus:border-[#A82F19]"
+                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs font-semibold focus:outline-none focus:border-[#D4AF65]"
                   >
                     <option value={0}>No (Unlinked Mention)</option>
                     <option value={1}>Yes (Active Backlink)</option>
@@ -455,7 +455,7 @@ Dubai, UAE`
                     placeholder="editor@publication.ae"
                     value={formData.contact_email}
                     onChange={(e) => setFormData({ ...formData, contact_email: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#A82F19]"
+                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D4AF65]"
                   />
                 </div>
               </div>
@@ -475,7 +475,7 @@ Dubai, UAE`
                   variant="accent"
                   size="sm"
                   disabled={actionLoading}
-                  className="text-xs font-bold bg-[#A82F19] text-white hover:bg-[#8f2714]"
+                  className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
                 >
                   {actionLoading ? 'Saving...' : 'Save Mention'}
                 </Button>
@@ -547,7 +547,7 @@ Dubai, UAE`
                     await handleUpdateStatus(showPitchModal.id, 'CONTACTED')
                     setShowPitchModal(null)
                   }}
-                  className="text-xs font-bold bg-[#A82F19] text-white hover:bg-[#8f2714]"
+                  className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
                 >
                   Mark as Contacted
                 </Button>

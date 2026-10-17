@@ -50,7 +50,7 @@
       <text x="20" y="28" fill="#334155" font-family="system-ui, sans-serif" font-size="12" font-weight="800">PROPERTY OF ISSUING ORGANIZATION</text>
       <text x="20" y="48" fill="#64748b" font-family="system-ui, sans-serif" font-size="10.5" font-weight="500">This credential card remains the property of ONPRINT UAE.</text>
       <text x="20" y="66" fill="#64748b" font-family="system-ui, sans-serif" font-size="10.5" font-weight="500">Use of this card is governed by corporate security policies.</text>
-      <text x="20" y="86" fill="#A82F19" font-family="system-ui, sans-serif" font-size="11" font-weight="800">If found, please return to Dubai HQ Security Office.</text>
+      <text x="20" y="86" fill="#D4AF65" font-family="system-ui, sans-serif" font-size="11" font-weight="800">If found, please return to Dubai HQ Security Office.</text>
     </g>
 
     <!-- Bottom Scannable Barcode -->
@@ -87,6 +87,6 @@
 
     <!-- Footer -->
     <text x="45" y="568" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="800">CR80 0.76mm PVC • 3-TRACK ISO 7811 SWIPE ENCODING</text>
-    <text x="475" y="568" fill="#A82F19" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="end">ONPRINT UAE</text>
+    <text x="475" y="568" fill="#D4AF65" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="end">ONPRINT UAE</text>
   </g>
 </svg>

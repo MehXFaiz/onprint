@@ -89,7 +89,7 @@ export default function AdminSeoAuditPage() {
         <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">Indexed Entities</span>
-            <Layers className="h-5 w-5 text-[#A82F19]" />
+            <Layers className="h-5 w-5 text-[#D4AF65]" />
           </div>
           <div className="mt-4 flex items-baseline gap-2">
             <span className="font-display text-4xl font-black text-neutral-900">
@@ -249,7 +249,7 @@ export default function AdminSeoAuditPage() {
                       ? `/admin/blog`
                       : `/admin/products`
                   }
-                  className="inline-flex items-center gap-1 font-bold text-[#A82F19] hover:underline shrink-0"
+                  className="inline-flex items-center gap-1 font-bold text-[#D4AF65] hover:underline shrink-0"
                 >
                   <span>Edit in Admin</span>
                   <ArrowRight className="h-3.5 w-3.5" />

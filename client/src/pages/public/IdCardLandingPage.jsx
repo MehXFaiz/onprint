@@ -526,7 +526,7 @@ export default function IdCardLandingPage() {
 
           {/* Industry Solutions */}
           <Reveal>
-            <section className="py-16 mb-16 bg-gradient-to-r from-[#A82F19]/5 to-[#A82F19]/10 rounded-2xl">
+            <section className="py-16 mb-16 bg-gradient-to-r from-[#D4AF65]/5 to-[#D4AF65]/10 rounded-2xl">
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-12 text-center">
                 Industry Solutions
               </h2>

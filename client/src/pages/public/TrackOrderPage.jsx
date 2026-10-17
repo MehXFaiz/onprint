@@ -188,7 +188,7 @@ export default function TrackOrderPage() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Enter Order # (e.g. ONP-2026-584109) or email"
-                className="w-full rounded-xl border border-slate-300 bg-slate-50/50 py-3 pl-11 pr-4 text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 transition-all font-mono"
+                className="w-full rounded-xl border border-slate-300 bg-slate-50/50 py-3 pl-11 pr-4 text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D4AF65]/20 transition-all font-mono"
                 required
               />
             </div>
@@ -197,7 +197,7 @@ export default function TrackOrderPage() {
               variant="accent"
               icon={false}
               disabled={loading || !query.trim()}
-              className="w-full sm:w-auto shrink-0 !py-3 !px-7 font-bold shadow-sm shadow-[#A82F19]/20"
+              className="w-full sm:w-auto shrink-0 !py-3 !px-7 font-bold shadow-sm shadow-[#D4AF65]/20"
             >
               {loading ? (
                 <span className="flex items-center gap-2">

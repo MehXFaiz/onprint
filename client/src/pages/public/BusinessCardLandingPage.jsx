@@ -756,16 +756,16 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         <Breadcrumbs items={breadcrumbs} />
 
         {/* 1. HERO SECTION ABOVE THE FOLD & INSTANT QUOTE FUNNEL */}
-        <section className="mt-4 overflow-hidden rounded-3xl border border-amber-900/15 bg-gradient-to-br from-[#FAF8F5] via-[#F4EFE8] to-[#EDE3D4] p-6 sm:p-10 lg:p-12 shadow-xl relative">
-          <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#D4AF37]/15 blur-3xl" />
+        <section className="mt-4 overflow-hidden rounded-3xl border border-[#28395A] bg-[#101D35] text-white p-6 sm:p-10 lg:p-12 shadow-2xl relative">
+          <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#D4AF65]/15 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl" />
 
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12 relative z-10">
             {/* Left Column: Commercial SEO Copy & Value Proposition */}
             <div className="lg:col-span-7 space-y-6">
               <Reveal>
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/50 bg-white/90 px-4 py-1.5 shadow-xs backdrop-blur-md">
-                  <Sparkles className="h-3.5 w-3.5 text-[#D4AF37]" />
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/50 bg-white/90 px-4 py-1.5 shadow-xs backdrop-blur-md">
+                  <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
                   <span className="text-[11px] font-black uppercase tracking-[0.22em] text-neutral-900">
                     {pageData.badge}
                   </span>
@@ -777,13 +777,13 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               </Reveal>
 
               <Reveal delay={0.06}>
-                <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight text-neutral-950">
+                <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight text-white">
                   {pageData.h1}
                 </h1>
               </Reveal>
 
               <Reveal delay={0.12}>
-                <p className="text-base sm:text-lg text-neutral-700 leading-relaxed max-w-2xl">
+                <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
                   {pageData.subheading}
                 </p>
               </Reveal>
@@ -799,12 +799,12 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   ]).map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-2xl border border-white/80 bg-white/85 p-3 shadow-xs backdrop-blur-md"
+                      className="rounded-2xl border border-[#28395A] bg-[#162542]/80 p-3 shadow-xs backdrop-blur-md"
                     >
                       <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-500">
                         {item.label}
                       </span>
-                      <span className="mt-0.5 block text-xs font-black text-neutral-950">{item.val}</span>
+                      <span className="mt-0.5 block text-xs font-black text-white">{item.val}</span>
                     </div>
                   ))}
                 </div>
@@ -816,7 +816,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   <button
                     type="button"
                     onClick={() => scrollToQuote()}
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#8c2211] px-7 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl shadow-[#A82F19]/35 transition-all hover:-translate-y-0.5 cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#C39E54] px-7 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/35 transition-all hover:-translate-y-0.5 cursor-pointer"
                   >
                     <span>{pageData.ctaText || 'Get a Free Quote'}</span>
                     <ArrowRight className="h-4 w-4" />
@@ -824,7 +824,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-900 bg-white hover:bg-neutral-900 hover:text-white px-6 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-900 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#D4AF65]/50 bg-white/10 hover:bg-[#D4AF65] hover:text-[#101D35] px-6 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer"
                   >
                     <Mail className="h-4 w-4" />
                     <span>Inquire Studio</span>
@@ -854,10 +854,10 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
             {/* Right Column: High-Converting Live Quote Form Card */}
             <div ref={quoteFormRef} className="lg:col-span-5">
-              <div className="rounded-3xl border border-amber-900/20 bg-white p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+              <div className="rounded-3xl border border-[#E5E1D8] bg-white text-[#101D35] p-6 sm:p-8 shadow-2xl relative overflow-hidden">
                 <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-neutral-100">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-2.5 w-2.5 rounded-full bg-[#D4AF65] ring-4 ring-[#A82F19]/20" />
+                    <span className="flex h-2.5 w-2.5 rounded-full bg-[#D4AF65] ring-4 ring-[#D4AF65]/20" />
                     <h3 className="font-display text-base font-black text-neutral-950">
                       Request Business Card Quote
                     </h3>
@@ -1117,7 +1117,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full rounded-2xl bg-[#D4AF65] hover:bg-[#8c2211] py-3.5 text-xs font-black uppercase tracking-wider text-white shadow-lg shadow-[#A82F19]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
+                        className="w-full rounded-2xl bg-[#D4AF65] hover:bg-[#C39E54] py-3.5 text-xs font-black uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
                       >
                         {isSubmitting ? (
                           <span>Processing Instant Quote...</span>
@@ -1196,7 +1196,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   key={tier.qty}
                   className={`relative rounded-2xl border p-4 text-center transition-all ${
                     tier.popular
-                      ? 'border-[#D4AF65] bg-gradient-to-b from-[#A82F19]/5 to-white shadow-md'
+                      ? 'border-[#D4AF65] bg-gradient-to-b from-[#D4AF65]/5 to-white shadow-md'
                       : 'border-neutral-200 bg-neutral-50/70 hover:border-neutral-300'
                   }`}
                 >
@@ -1371,7 +1371,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   key={item.title}
                   className="rounded-3xl border border-neutral-200 bg-neutral-50/70 p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF65] hover:bg-white hover:shadow-lg"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#A82F19] to-[#7A1C0D] text-white shadow-sm mb-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#D4AF65] to-[#101D35] text-white shadow-sm mb-4">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="font-display text-base font-black text-neutral-950">{item.title}</h3>
@@ -1593,13 +1593,13 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 5. DUBAI LOCAL SEO & AREA DELIVERY MATRIX (12 AREAS) */}
-        <section className="mt-16 sm:mt-24 rounded-3xl border border-neutral-200 bg-gradient-to-br from-neutral-900 via-[#1c1410] to-neutral-950 p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
-          <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#D4AF37]/15 blur-3xl" />
+        <section className="mt-16 sm:mt-24 rounded-3xl border border-neutral-200 bg-gradient-to-br from-neutral-900 via-[#101D35] to-neutral-950 p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+          <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#D4AF65]/15 blur-3xl" />
 
           <div className="relative z-10">
             <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end mb-8">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-3.5 py-1 text-xs font-bold text-[#D4AF37]">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#D4AF65]/10 px-3.5 py-1 text-xs font-bold text-[#D4AF65]">
                   <MapPin className="h-3.5 w-3.5" />
                   <span>Dubai Local Pressroom &amp; Express Delivery</span>
                 </div>
@@ -1616,7 +1616,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               {DUBAI_AREAS?.map((area) => (
                 <div
                   key={area.name}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs transition-colors hover:border-[#D4AF37]/40 hover:bg-white/10"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs transition-colors hover:border-[#D4AF65]/40 hover:bg-white/10"
                 >
                   <div className="flex items-center justify-between">
                     <h4 className="font-display text-sm font-black text-white">{area.name}</h4>
@@ -1624,7 +1624,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       {area.dispatch}
                     </span>
                   </div>
-                  <span className="mt-1 block text-[10.5px] font-bold text-[#D4AF37]">
+                  <span className="mt-1 block text-[10.5px] font-bold text-[#D4AF65]">
                     {area.hub}
                   </span>
                   <p className="mt-2 text-xs text-neutral-300 leading-relaxed">{area.desc}</p>
@@ -1941,7 +1941,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           <div className="mt-8 rounded-2xl border border-neutral-200 bg-neutral-950 p-6 sm:p-8 text-white">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-5 mb-6">
               <div>
-                <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#D4AF37] mb-1">
+                <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#D4AF65] mb-1">
                   <FileText className="h-3.5 w-3.5" />
                   <span>Dubai Print Engineering Library</span>
                 </div>
@@ -2015,20 +2015,20 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 <Link
                   key={guide.slug}
                   to={guide.slug}
-                  className="group rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-[#D4AF37]/50 p-4 flex flex-col justify-between transition-all"
+                  className="group rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-[#D4AF65]/50 p-4 flex flex-col justify-between transition-all"
                 >
                   <div>
                     <span className="inline-block rounded-md bg-[#D4AF65]/10 border border-[#D4AF65] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#FCA5A5] mb-2">
                       {guide.tag}
                     </span>
-                    <h4 className="font-bold text-xs sm:text-sm text-white group-hover:text-[#D4AF37] transition-colors leading-snug">
+                    <h4 className="font-bold text-xs sm:text-sm text-white group-hover:text-[#D4AF65] transition-colors leading-snug">
                       {guide.title}
                     </h4>
                     <p className="text-[11px] text-neutral-400 mt-2 leading-relaxed">
                       {guide.desc}
                     </p>
                   </div>
-                  <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-bold text-[#D4AF37]">
+                  <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-bold text-[#D4AF65]">
                     <span>Read Technical Guide</span>
                     <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                   </div>
@@ -2043,7 +2043,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,rgba(212,175,55,0.15),transparent_70%),radial-gradient(ellipse_60%_50%_at_50%_90%,rgba(168,47,25,0.22),transparent_70%)]" />
 
           <div className="relative z-10 max-w-2xl mx-auto space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-white/5 px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#D4AF37]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-white/5 px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#D4AF65]">
               <Sparkles className="h-3.5 w-3.5" />
               Elevate Your Executive Presence
             </div>
@@ -2060,7 +2060,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               <button
                 type="button"
                 onClick={() => scrollToQuote()}
-                className="w-full sm:w-auto rounded-2xl bg-[#D4AF65] hover:bg-[#8c2211] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl shadow-[#A82F19]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
+                className="w-full sm:w-auto rounded-2xl bg-[#D4AF65] hover:bg-[#C39E54] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
               >
                 Request Custom Quotation
               </button>

@@ -140,7 +140,7 @@ export default function AdminOrdersPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-neutral-200/80 shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
             <ShoppingBag className="h-4 w-4" />
             <span>Workflow & Dispatch</span>
           </div>
@@ -156,7 +156,7 @@ export default function AdminOrdersPage() {
           onClick={() => navigate('/admin/orders/new')}
           variant="accent"
           icon={false}
-          className="shadow-md shadow-[#A82F19]/20 self-start sm:self-auto cursor-pointer"
+          className="shadow-md shadow-[#D4AF65]/20 self-start sm:self-auto cursor-pointer"
         >
           <Plus className="h-4 w-4 mr-1.5" />
           Create Order
@@ -214,7 +214,7 @@ export default function AdminOrdersPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by order #, customer, or quote #..."
-              className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+              className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
             />
           </div>
 
@@ -246,7 +246,7 @@ export default function AdminOrdersPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full sm:w-auto rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#A82F19] focus:outline-none cursor-pointer"
+            className="w-full sm:w-auto rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D4AF65] focus:outline-none cursor-pointer"
           >
             <option value="ALL">All Statuses</option>
             <option value="Pending">Pending</option>
@@ -272,7 +272,7 @@ export default function AdminOrdersPage() {
                   }}
                   onChange={toggleSelectAll}
                   aria-label="Select all orders"
-                  className="h-4 w-4 rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]/20 cursor-pointer accent-[#A82F19]"
+                  className="h-4 w-4 rounded border-neutral-300 text-[#D4AF65] focus:ring-[#D4AF65]/20 cursor-pointer accent-[#D4AF65]"
                 />
               </th>
               <th className="py-3.5 px-4">Order #</th>
@@ -313,7 +313,7 @@ export default function AdminOrdersPage() {
                         checked={isSelected}
                         onChange={() => toggleSelectOrder(orderId)}
                         aria-label={`Select order ${o.orderNumber}`}
-                        className="h-4 w-4 rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]/20 cursor-pointer accent-[#A82F19]"
+                        className="h-4 w-4 rounded border-neutral-300 text-[#D4AF65] focus:ring-[#D4AF65]/20 cursor-pointer accent-[#D4AF65]"
                       />
                     </td>
                     <td className="py-3 px-4">
@@ -332,7 +332,7 @@ export default function AdminOrdersPage() {
                       <div className="font-bold text-neutral-800 truncate">{o.productName}</div>
                       {o.specs && <div className="text-[10px] text-neutral-500 truncate">{o.specs}</div>}
                       {o.artworkFile && (
-                        <div className="mt-0.5 inline-flex items-center gap-1 text-[9px] font-bold text-[#A82F19] bg-red-50 px-1.5 py-0.5 rounded">
+                        <div className="mt-0.5 inline-flex items-center gap-1 text-[9px] font-bold text-[#D4AF65] bg-red-50 px-1.5 py-0.5 rounded">
                           📎 {o.artworkFile}
                         </div>
                       )}
@@ -347,7 +347,7 @@ export default function AdminOrdersPage() {
                         <select
                           value={o.status}
                           onChange={(e) => handleStatusChange(o._id || o.id, e.target.value)}
-                          className="rounded-lg border border-neutral-200 bg-neutral-50 px-2 py-1 text-[10px] font-bold text-neutral-800 focus:border-[#A82F19] focus:outline-none cursor-pointer"
+                          className="rounded-lg border border-neutral-200 bg-neutral-50 px-2 py-1 text-[10px] font-bold text-neutral-800 focus:border-[#D4AF65] focus:outline-none cursor-pointer"
                         >
                           <option value="Pending">Pending</option>
                           <option value="Processing">Processing</option>
@@ -379,7 +379,7 @@ export default function AdminOrdersPage() {
           Showing <span className="font-bold text-neutral-900">{filteredOrders.length}</span> of{' '}
           <span className="font-bold text-neutral-900">{orders.length}</span> orders
           {selectedOrderIds.length > 0 && (
-            <span className="ml-2 text-[#A82F19] font-bold">({selectedOrderIds.length} selected)</span>
+            <span className="ml-2 text-[#D4AF65] font-bold">({selectedOrderIds.length} selected)</span>
           )}
         </div>
         <div className="flex items-center gap-1.5">
@@ -390,7 +390,7 @@ export default function AdminOrdersPage() {
           >
             Previous
           </button>
-          <button type="button" className="rounded-xl bg-[#A82F19] px-3 py-1.5 font-bold text-white shadow-xs">
+          <button type="button" className="rounded-xl bg-[#D4AF65] px-3 py-1.5 font-bold text-white shadow-xs">
             1
           </button>
           <button
@@ -407,7 +407,7 @@ export default function AdminOrdersPage() {
       {selectedOrderIds.length > 0 && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 bg-neutral-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-neutral-700">
           <div className="flex items-center gap-2">
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#A82F19] text-xs font-bold text-white">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-xs font-bold text-white">
               {selectedOrderIds.length}
             </span>
             <span className="text-xs font-semibold">

@@ -235,7 +235,7 @@ export default function FloatingWhatsApp() {
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 10, scale: 0.95 }}
               transition={{ duration: 0.15 }}
-              className="mr-3 hidden sm:flex items-center gap-2 rounded-xl bg-[#0F172A] px-3.5 py-2 text-xs font-bold text-white shadow-xl shadow-black/20 whitespace-nowrap"
+              className="mr-3 hidden sm:flex items-center gap-2 rounded-xl bg-[#101D35] border border-[#D4AF65]/30 px-3.5 py-2 text-xs font-bold text-white shadow-xl shadow-black/20 whitespace-nowrap"
             >
               <span>Get Quote on WhatsApp</span>
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />

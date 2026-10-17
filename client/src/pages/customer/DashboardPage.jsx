@@ -44,7 +44,7 @@ export default function DashboardPage() {
       <div className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
+            <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
               <ShieldCheck className="h-3.5 w-3.5" /> Client Portal
             </span>
             <h1 className="font-display mt-1 text-2xl sm:text-3xl font-black text-neutral-900">
@@ -55,7 +55,7 @@ export default function DashboardPage() {
             </p>
           </div>
 
-          <Button to="/get-a-quote" variant="accent" icon={false} className="shadow-md shadow-[#A82F19]/20 self-start sm:self-auto">
+          <Button to="/get-a-quote" variant="accent" icon={false} className="shadow-md shadow-[#D4AF65]/20 self-start sm:self-auto">
             <Plus className="h-4 w-4 mr-1" />
             Request New Quote
           </Button>
@@ -64,12 +64,12 @@ export default function DashboardPage() {
 
       {/* KPI Overview */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Link to="/account/orders" className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs hover:border-[#A82F19]/30 transition-all">
+        <Link to="/account/orders" className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs hover:border-[#D4AF65]/30 transition-all">
           <div className="text-xs font-bold uppercase tracking-wider text-neutral-500">Active Orders</div>
           <div className="mt-2 text-3xl font-black text-neutral-900">{orders.length}</div>
         </Link>
 
-        <Link to="/account/quotes" className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs hover:border-[#A82F19]/30 transition-all">
+        <Link to="/account/quotes" className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs hover:border-[#D4AF65]/30 transition-all">
           <div className="text-xs font-bold uppercase tracking-wider text-neutral-500">Quotes Requested</div>
           <div className="mt-2 text-3xl font-black text-neutral-900">{quotes.length}</div>
         </Link>
@@ -89,7 +89,7 @@ export default function DashboardPage() {
             <h3 className="font-display text-lg font-bold text-neutral-900">My Print Orders</h3>
             <p className="text-xs text-neutral-500">Track production progress and dispatch details</p>
           </div>
-          <Link to="/account/orders" className="text-xs font-bold text-[#A82F19] hover:underline flex items-center gap-1">
+          <Link to="/account/orders" className="text-xs font-bold text-[#D4AF65] hover:underline flex items-center gap-1">
             View All <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>

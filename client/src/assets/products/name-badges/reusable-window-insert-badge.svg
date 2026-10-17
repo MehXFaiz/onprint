@@ -62,12 +62,12 @@
     <!-- Permanent Header Branding Strip (Top 85px) -->
     <g transform="translate(30, 20)">
       <!-- ONPRINT Red Crest -->
-      <rect width="45" height="45" rx="10" fill="#A82F19"/>
+      <rect width="45" height="45" rx="10" fill="#D4AF65"/>
       <polygon points="22.5,8 35,22.5 22.5,37 10,22.5" fill="#ffffff"/>
       
       <!-- Brand Name -->
       <text x="60" y="24" fill="#0f172a" font-family="'Cinzel', Georgia, serif" font-size="18" font-weight="bold" letter-spacing="3">GRAND HYATT HOTELS & RESORTS</text>
-      <text x="60" y="42" fill="#A82F19" font-family="system-ui, sans-serif" font-size="11" font-weight="800" letter-spacing="2">HOSPITALITY SERVICES • DUBAI</text>
+      <text x="60" y="42" fill="#D4AF65" font-family="system-ui, sans-serif" font-size="11" font-weight="800" letter-spacing="2">HOSPITALITY SERVICES • DUBAI</text>
     </g>
 
     <!-- REUSABLE WINDOW SLOT AREA (Inset Window 640 x 140) -->
@@ -82,8 +82,8 @@
         
         <!-- Inserted Name Typography -->
         <text x="35" y="55" fill="#0f172a" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="900" letter-spacing="1">EMILY CHEN</text>
-        <line x1="35" y1="75" x2="480" y2="75" stroke="#A82F19" stroke-width="2.5"/>
-        <text x="35" y="105" fill="#A82F19" font-family="system-ui, sans-serif" font-size="16" font-weight="800" letter-spacing="2">GUEST RELATIONS MANAGER</text>
+        <line x1="35" y1="75" x2="480" y2="75" stroke="#D4AF65" stroke-width="2.5"/>
+        <text x="35" y="105" fill="#D4AF65" font-family="system-ui, sans-serif" font-size="16" font-weight="800" letter-spacing="2">GUEST RELATIONS MANAGER</text>
 
         <!-- Right Side Language Pill -->
         <g transform="translate(480, 45)">

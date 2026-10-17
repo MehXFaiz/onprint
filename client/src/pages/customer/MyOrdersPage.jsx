@@ -58,7 +58,7 @@ export default function MyOrdersPage() {
             >
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-[#A82F19]">{order.orderNumber}</span>
+                  <span className="font-mono text-xs font-bold text-[#D4AF65]">{order.orderNumber}</span>
                   <span
                     className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${
                       order.status === 'Pending'
@@ -75,7 +75,7 @@ export default function MyOrdersPage() {
                 {order.specs && <p className="text-xs text-neutral-600 mt-1">{order.specs}</p>}
                 {order.notes && <p className="text-[11px] text-neutral-500 italic mt-1">Note: {order.notes}</p>}
                 {order.artworkFile && (
-                  <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#A82F19] bg-red-50 px-2 py-0.5 rounded-md border border-red-100">
+                  <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#D4AF65] bg-red-50 px-2 py-0.5 rounded-md border border-red-100">
                     📎 {order.artworkFile}
                   </div>
                 )}

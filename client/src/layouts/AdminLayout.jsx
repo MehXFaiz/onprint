@@ -62,18 +62,18 @@ export default function AdminLayout() {
   return (
     <div className="flex min-h-screen w-full bg-background flex-col md:flex-row antialiased">
       {/* Mobile Top Header */}
-      <div className="flex h-16 w-full items-center justify-between border-b border-neutral-800 bg-primary px-4 md:hidden shrink-0 z-40">
+      <div className="flex h-16 w-full items-center justify-between border-b border-[#28395A] bg-[#101D35] px-4 md:hidden shrink-0 z-40">
         <Link to="/admin" className="flex items-center gap-2.5">
           <Logo variant="light" size="sm" />
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#A82F19]/25 border border-[#A82F19]/50 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-red-300 shadow-xs">
-            <ShieldCheck className="h-3 w-3 text-[#A82F19]" />
+          <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65]/20 border border-[#D4AF65]/40 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF65] shadow-xs">
+            <ShieldCheck className="h-3 w-3 text-[#D4AF65]" />
             Admin
           </span>
         </Link>
         <button
           type="button"
           onClick={() => setMobileMenuOpen((v) => !v)}
-          className="rounded-lg p-2 text-white hover:bg-neutral-800 transition-colors cursor-pointer"
+          className="rounded-lg p-2 text-white hover:bg-[#162542] transition-colors cursor-pointer"
           aria-label="Toggle Navigation"
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -90,16 +90,16 @@ export default function AdminLayout() {
 
       {/* Sidebar Navigation */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 h-screen max-h-screen overflow-y-auto transform bg-primary p-6 text-background/80 transition-transform duration-200 ease-in-out flex flex-col admin-sidebar-scroll md:sticky md:top-0 md:h-screen md:w-64 md:translate-x-0 md:shrink-0 md:flex ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 h-screen max-h-screen overflow-y-auto transform bg-[#101D35] border-r border-[#28395A] p-6 text-slate-300 transition-transform duration-200 ease-in-out flex flex-col admin-sidebar-scroll md:sticky md:top-0 md:h-screen md:w-64 md:translate-x-0 md:shrink-0 md:flex ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
         <div className="flex flex-col shrink-0">
           {/* Header Brand Area */}
-          <div className="flex items-center justify-between pb-6 border-b border-background/10 shrink-0">
+          <div className="flex items-center justify-between pb-6 border-b border-white/10 shrink-0">
             <Link to="/admin" className="flex items-center gap-2.5" onClick={() => setMobileMenuOpen(false)}>
               <Logo variant="light" size="sm" />
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-white shadow-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-[#101D35] shadow-xs">
                 <ShieldCheck className="h-3 w-3" />
                 Admin
               </span>
@@ -107,7 +107,7 @@ export default function AdminLayout() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="rounded-lg p-1 text-white hover:bg-neutral-800 md:hidden cursor-pointer"
+              className="rounded-lg p-1 text-white hover:bg-[#162542] md:hidden cursor-pointer"
               aria-label="Close Navigation"
             >
               <X className="h-5 w-5" />
@@ -115,9 +115,9 @@ export default function AdminLayout() {
           </div>
 
           {/* User badge */}
-          <div className="mt-4 px-1 py-2 border-b border-background/10 text-xs shrink-0">
+          <div className="mt-4 px-1 py-2 border-b border-white/10 text-xs shrink-0">
             <div className="font-bold text-white truncate">{user?.name}</div>
-            <div className="text-[10px] text-background/60 truncate">{user?.email}</div>
+            <div className="text-[10px] text-slate-400 truncate">{user?.email}</div>
           </div>
         </div>
 
@@ -143,8 +143,8 @@ export default function AdminLayout() {
                 className={({ isActive }) =>
                   `flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition-all ${
                     isActive
-                      ? 'bg-[#A82F19] text-white shadow-sm font-bold'
-                      : 'text-background/70 hover:bg-background/10 hover:text-background'
+                      ? 'bg-[#D4AF65] text-[#101D35] shadow-sm font-black'
+                      : 'text-slate-300 hover:bg-white/10 hover:text-white'
                   }`
                 }
               >
@@ -156,10 +156,10 @@ export default function AdminLayout() {
         </nav>
 
         {/* Footer Link back to website */}
-        <div className="mt-auto pt-6 border-t border-background/10 shrink-0">
+        <div className="mt-auto pt-6 border-t border-white/10 shrink-0">
           <Link
             to="/"
-            className="flex items-center gap-2 text-xs font-bold text-background/70 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             View Public Site

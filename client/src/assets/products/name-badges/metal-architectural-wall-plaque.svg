@@ -103,17 +103,17 @@
 
     <!-- ONPRINT Architectural Header Icon -->
     <g transform="translate(425, 140)">
-      <circle cx="0" cy="0" r="32" fill="#A82F19" stroke="#78350f" stroke-width="2"/>
+      <circle cx="0" cy="0" r="32" fill="#D4AF65" stroke="#78350f" stroke-width="2"/>
       <polygon points="0,-18 16,0 0,18 -16,0" fill="#ffffff"/>
-      <circle cx="0" cy="0" r="5" fill="#A82F19"/>
+      <circle cx="0" cy="0" r="5" fill="#D4AF65"/>
     </g>
 
     <!-- Deep Precision Engraved Typography (Dark Enamel Infill) -->
     <text x="425" y="235" fill="#0f172a" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="38" font-weight="bold" text-anchor="middle" letter-spacing="6">EXECUTIVE BOARDROOM</text>
     
-    <line x1="200" y1="270" x2="650" y2="270" stroke="#A82F19" stroke-width="3"/>
+    <line x1="200" y1="270" x2="650" y2="270" stroke="#D4AF65" stroke-width="3"/>
     
-    <text x="425" y="325" fill="#A82F19" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" text-anchor="middle" letter-spacing="8">SUITE 1400 • LEVEL 14</text>
+    <text x="425" y="325" fill="#D4AF65" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" text-anchor="middle" letter-spacing="8">SUITE 1400 • LEVEL 14</text>
 
     <text x="425" y="375" fill="#334155" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="5">ONPRINT REGIONAL HEADQUARTERS</text>
     <text x="425" y="405" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="4">DUBAI INTERNATIONAL FINANCIAL CENTRE</text>

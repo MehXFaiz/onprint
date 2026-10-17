@@ -271,7 +271,7 @@ Please confirm availability and dispatch schedule.`
   }
 
   return (
-    <div className="bg-white text-[#0F172A] selection:bg-[#D4AF65] selection:text-white">
+    <div className="bg-white text-[#101D35] selection:bg-[#D4AF65] selection:text-white">
       <SEOHead
         title="Business Card Printing Dubai | Instant Custom Quote & Express UAE Delivery | ONPRINT"
         description="Configure luxury business cards in Dubai. 350-600 GSM Italian cotton, 24K hot foil, velvet soft-touch, spot UV, and painted edges with same-day express press turnaround in Al Quoz."
@@ -282,7 +282,7 @@ Please confirm availability and dispatch schedule.`
       {/* ========================================================================= */}
       {/* 1. HERO HEADER                                                            */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-slate-200/80">
+      <section className="relative overflow-hidden bg-[#101D35] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#28395A]">
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
             <Reveal>
@@ -293,21 +293,21 @@ Please confirm availability and dispatch schedule.`
             </Reveal>
 
             <Reveal delay={0.06}>
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15]">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
                 Custom Business Card Printing{' '}
                 <span className="font-serif italic text-[#D4AF65]">Engineered for Distinction</span>
               </h1>
             </Reveal>
 
             <Reveal delay={0.12}>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
                 Select your paper stock, specialty finishes, and volume. Get instant pricing, 1-click WhatsApp quote dispatch, and same-day express delivery across Dubai and the UAE.
               </p>
             </Reveal>
 
             {/* Value Trust Badges */}
             <Reveal delay={0.18}>
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-slate-700">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-slate-300">
                 <span className="inline-flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                   Direct Al Quoz Pressroom
@@ -364,7 +364,7 @@ Please confirm availability and dispatch schedule.`
                         onClick={() => setSelectedCard(card)}
                         className={`group text-left p-3.5 rounded-xl border transition-all duration-200 cursor-pointer flex flex-col justify-between ${
                           isSelected
-                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 ring-2 ring-[#A82F19]/20 shadow-xs'
+                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 ring-2 ring-[#D4AF65]/20 shadow-xs'
                             : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50'
                         }`}
                       >
@@ -467,7 +467,7 @@ Please confirm availability and dispatch schedule.`
                         onClick={() => toggleAddon(addon.id)}
                         className={`p-3 rounded-xl border text-left flex items-center justify-between gap-3 transition-all duration-200 cursor-pointer ${
                           isChecked
-                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 text-slate-900 ring-1 ring-[#A82F19]/30'
+                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 text-slate-900 ring-1 ring-[#D4AF65]/30'
                             : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                         }`}
                       >
@@ -511,7 +511,7 @@ Please confirm availability and dispatch schedule.`
                         onClick={() => setSelectedTurnaround(option)}
                         className={`p-3.5 rounded-xl border text-left flex flex-col justify-between transition-all duration-200 cursor-pointer ${
                           isSelected
-                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 ring-1 ring-[#A82F19]'
+                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 ring-1 ring-[#D4AF65]'
                             : 'border-slate-200 bg-white hover:bg-slate-50'
                         }`}
                       >
@@ -638,7 +638,7 @@ Please confirm availability and dispatch schedule.`
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Tariq Al-Mansoor"
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] outline-none"
+                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                       />
                     </div>
 
@@ -653,7 +653,7 @@ Please confirm availability and dispatch schedule.`
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+971 50 123 4567"
-                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] outline-none"
+                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                         />
                       </div>
                       <div>
@@ -666,7 +666,7 @@ Please confirm availability and dispatch schedule.`
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="tariq@company.ae"
-                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] outline-none"
+                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                         />
                       </div>
                     </div>
@@ -680,7 +680,7 @@ Please confirm availability and dispatch schedule.`
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="e.g. Al Mansoor Properties"
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] outline-none"
+                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                       />
                     </div>
 
@@ -693,14 +693,14 @@ Please confirm availability and dispatch schedule.`
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                         placeholder="e.g. Need foil on logo only, double-sided print..."
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] outline-none resize-none"
+                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none resize-none"
                       />
                     </div>
 
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#8F2412] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-[#D4AF65]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                      className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#C39E54] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-[#D4AF65]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? 'Submitting Specification…' : 'Submit Specification & Get Official Quote →'}
                     </button>

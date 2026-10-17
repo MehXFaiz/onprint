@@ -739,7 +739,7 @@ export default function ProductDetailPage() {
               <button
                 type="button"
                 onClick={() => setCategoryLightbox(null)}
-                className="absolute -top-3 -right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF65] text-white shadow-lg hover:bg-[#8a2715] transition-colors cursor-pointer"
+                className="absolute -top-3 -right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF65] text-white shadow-lg hover:bg-[#C39E54] transition-colors cursor-pointer"
                 aria-label="Close"
               >
                 ✕
@@ -774,7 +774,7 @@ export default function ProductDetailPage() {
                         onClick={() => setCategoryLightbox({ ...categoryLightbox, imgIdx: i })}
                         className={`aspect-square w-16 overflow-hidden rounded-xl border transition-all cursor-pointer ${
                           categoryLightbox.imgIdx === i
-                            ? 'border-[#D4AF65] ring-2 ring-[#A82F19]/30 scale-105'
+                            ? 'border-[#D4AF65] ring-2 ring-[#D4AF65]/30 scale-105'
                             : 'border-border hover:border-primary'
                         }`}
                       >
@@ -792,6 +792,51 @@ export default function ProductDetailPage() {
             </div>
           </div>
         )}
+
+                {/* Structured Technical Specifications Table */}
+        <div className="mt-16 rounded-3xl border border-border bg-surface p-6 sm:p-10 shadow-xs">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
+            <ShieldCheck className="h-4 w-4" />
+            <span>Engineering &amp; Production Standards</span>
+          </div>
+          <h2 className="font-display text-2xl font-black tracking-tight text-primary mb-6">
+            Technical Specifications &amp; Commercial Standards
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm">
+              <tbody className="divide-y divide-border">
+                <tr className="hover:bg-zinc-50/60 transition-colors">
+                  <td className="py-3.5 pr-4 font-bold text-primary w-1/3 sm:w-1/4">Print Technology</td>
+                  <td className="py-3.5 text-secondary">German Heidelberg Speedmaster Offset &amp; HP Indigo HD Digital Press</td>
+                </tr>
+                <tr className="hover:bg-zinc-50/60 transition-colors">
+                  <td className="py-3.5 pr-4 font-bold text-primary">Color Calibration</td>
+                  <td className="py-3.5 text-secondary">ISO 12647-2 Certified CMYK with Solid Pantone Spot Color Matching</td>
+                </tr>
+                <tr className="hover:bg-zinc-50/60 transition-colors">
+                  <td className="py-3.5 pr-4 font-bold text-primary">Substrates Available</td>
+                  <td className="py-3.5 text-secondary">350 GSM Silk Artboard, 400 GSM Matte, 450 GSM Velvet Soft-Touch, 600–700 GSM Archival Italian Cotton</td>
+                </tr>
+                <tr className="hover:bg-zinc-50/60 transition-colors">
+                  <td className="py-3.5 pr-4 font-bold text-primary">Signature Embellishments</td>
+                  <td className="py-3.5 text-secondary">24K Gold &amp; Silver Hot Foil, Raised 3D Spot UV, Blind Debossing, Gilded Painted Edges</td>
+                </tr>
+                <tr className="hover:bg-zinc-50/60 transition-colors">
+                  <td className="py-3.5 pr-4 font-bold text-primary">Artwork Pre-Flight</td>
+                  <td className="py-3.5 text-secondary">Complimentary 300 DPI vector audit, bleed margin verification, and PDF digital proof</td>
+                </tr>
+                <tr className="hover:bg-zinc-50/60 transition-colors">
+                  <td className="py-3.5 pr-4 font-bold text-primary">Turnaround &amp; Dispatch</td>
+                  <td className="py-3.5 text-secondary">Same-day priority &amp; 24–48h express dispatch directly from Al Quoz, Dubai</td>
+                </tr>
+                <tr className="hover:bg-zinc-50/60 transition-colors">
+                  <td className="py-3.5 pr-4 font-bold text-primary">Doorstep Delivery</td>
+                  <td className="py-3.5 text-secondary">Insured courier delivery across Dubai, Abu Dhabi, Sharjah, and all 7 UAE Emirates</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
         {/* Product FAQs */}
         <div className="mt-16 rounded-2xl border border-border bg-surface p-8 shadow-xs sm:p-12">

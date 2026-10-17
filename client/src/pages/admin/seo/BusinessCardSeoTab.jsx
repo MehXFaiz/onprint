@@ -127,7 +127,7 @@ export default function BusinessCardSeoTab({ showToast }) {
       {/* Top Banner / Key Stat Cards */}
       <div className="rounded-3xl border border-amber-900/20 bg-gradient-to-br from-neutral-900 via-[#181310] to-neutral-950 p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
         <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#D4AF37]/15 blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-[#A82F19]/20 blur-3xl" />
+        <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-[#D4AF65]/20 blur-3xl" />
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
@@ -165,7 +165,7 @@ export default function BusinessCardSeoTab({ showToast }) {
             <a
               href="/api/seo/business-cards-link-building/export-prospects-csv"
               download="dubai-business-card-backlink-prospects.csv"
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#A82F19] hover:bg-[#8c2211] px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-[#A82F19]/30 transition-all"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#C39E54] px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-[#D4AF65]/30 transition-all"
             >
               <Download className="h-3.5 w-3.5" />
               <span>Export Prospects CSV</span>
@@ -274,7 +274,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                 placeholder="Search domain, category, or contribution angle..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full rounded-xl border border-neutral-200 bg-white pl-9 pr-4 py-2 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-200 bg-white pl-9 pr-4 py-2 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -290,7 +290,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                   onClick={() => setProspectFilter(btn.id)}
                   className={`rounded-xl px-3 py-1.5 text-xs font-bold cursor-pointer transition-all ${
                     prospectFilter === btn.id
-                      ? 'bg-[#A82F19] text-white'
+                      ? 'bg-[#D4AF65] text-[#101D35]'
                       : 'bg-white border border-neutral-200 text-neutral-700 hover:bg-neutral-100'
                   }`}
                 >
@@ -353,7 +353,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                             onChange={(e) =>
                               handleProspectUpdate(prospect, { approved_by_owner: e.target.checked })
                             }
-                            className="rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]"
+                            className="rounded border-neutral-300 text-[#D4AF65] focus:ring-[#D4AF65]"
                           />
                           <span>Owner Approved</span>
                         </label>
@@ -386,7 +386,7 @@ export default function BusinessCardSeoTab({ showToast }) {
 
                     <div>
                       <span className="font-bold text-neutral-900 block mb-1">Target Page &amp; Suggested Anchor:</span>
-                      <p className="font-mono text-[11px] text-[#A82F19] break-all">{prospect.target_landing_page}</p>
+                      <p className="font-mono text-[11px] text-[#D4AF65] break-all">{prospect.target_landing_page}</p>
                       <p className="mt-1 text-neutral-700">
                         Anchor: <span className="font-semibold">"{prospect.suggested_anchor_text}"</span>{' '}
                         <span className="text-[10px] uppercase bg-neutral-100 px-1.5 py-0.5 rounded text-neutral-600">
@@ -455,7 +455,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                 placeholder="Filter 20 target business card keywords..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full rounded-xl border border-neutral-200 bg-white pl-9 pr-4 py-2 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-200 bg-white pl-9 pr-4 py-2 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -498,7 +498,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                       <span
                         className={`inline-block rounded-md px-2 py-0.5 text-[10px] font-black uppercase ${
                           item.priority === 'Critical'
-                            ? 'bg-[#A82F19] text-white'
+                            ? 'bg-[#D4AF65] text-[#101D35]'
                             : 'bg-neutral-900 text-white'
                         }`}
                       >
@@ -508,7 +508,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                     <td className="py-3 px-4 font-mono text-[11px] text-amber-800">
                       {item.search_volume_status}
                     </td>
-                    <td className="py-3 px-4 font-mono text-[11px] text-[#A82F19]">
+                    <td className="py-3 px-4 font-mono text-[11px] text-[#D4AF65]">
                       <a href={item.target_url} target="_blank" rel="noreferrer" className="underline">
                         {item.target_url}
                       </a>
@@ -532,7 +532,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                   <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-500">
                     {bucket.category}
                   </span>
-                  <span className="font-mono text-xl font-black text-[#A82F19]">
+                  <span className="font-mono text-xl font-black text-[#D4AF65]">
                     {bucket.target_percentage}%
                   </span>
                 </div>
@@ -570,7 +570,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                 <tbody className="divide-y divide-neutral-100">
                   {(anchorStrategy.target_page_mapping || []).map((row, idx) => (
                     <tr key={idx}>
-                      <td className="py-3 px-4 font-mono font-bold text-[#A82F19]">{row.target_page}</td>
+                      <td className="py-3 px-4 font-mono font-bold text-[#D4AF65]">{row.target_page}</td>
                       <td className="py-3 px-4 font-semibold text-neutral-900">{row.role}</td>
                       <td className="py-3 px-4 font-mono font-bold text-neutral-800">{row.recommended_share_of_links}</td>
                       <td className="py-3 px-4 text-neutral-700">{(row.allowed_anchors || []).join(' • ')}</td>
@@ -603,7 +603,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                         href={asset.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-[#A82F19] hover:underline"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-[#D4AF65] hover:underline"
                       >
                         <span>Read Live</span>
                         <ExternalLink className="h-3 w-3" />
@@ -632,7 +632,7 @@ export default function BusinessCardSeoTab({ showToast }) {
                 <div key={tpl.id} className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 space-y-3">
                   <div className="flex items-center justify-between gap-2">
                     <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#A82F19] block">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF65] block">
                         {tpl.target_category}
                       </span>
                       <h4 className="font-bold text-sm text-neutral-950">{tpl.title}</h4>
@@ -667,7 +667,7 @@ export default function BusinessCardSeoTab({ showToast }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {roadmap.map((phase, idx) => (
               <div key={idx} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs space-y-3">
-                <span className="inline-block rounded-lg bg-[#A82F19]/10 px-2.5 py-1 text-xs font-black text-[#A82F19]">
+                <span className="inline-block rounded-lg bg-[#D4AF65]/10 px-2.5 py-1 text-xs font-black text-[#D4AF65]">
                   {phase.phase}
                 </span>
                 <h4 className="font-display text-base font-black text-neutral-950">{phase.focus}</h4>

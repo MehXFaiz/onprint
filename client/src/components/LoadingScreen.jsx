@@ -138,7 +138,7 @@ export default function LoadingScreen() {
               className="absolute inset-0"
               style={{
                 background:
-                  'radial-gradient(ellipse 85% 70% at 50% 50%, rgba(22, 22, 22, 0.75) 0%, rgba(8, 8, 8, 0.98) 75%, #0B1426 100%)',
+                  'radial-gradient(ellipse 85% 70% at 50% 50%, rgba(22, 22, 22, 0.75) 0%, rgba(8, 8, 8, 0.98) 75%, #101D35 100%)',
               }}
             />
 
@@ -147,7 +147,7 @@ export default function LoadingScreen() {
               className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[800px] sm:w-[1100px] h-[400px] sm:h-[550px] rounded-full blur-[130px] pointer-events-none"
               style={{
                 background:
-                  'radial-gradient(circle, rgba(212, 175, 101, 0.26) 0%, rgba(212, 175, 101, 0.08) 50%, transparent 75%)',
+                  'radial-gradient(circle, rgba(255, 85, 0, 0.26) 0%, rgba(255, 85, 0, 0.08) 50%, transparent 75%)',
               }}
               initial={{ scale: 0.65, opacity: 0, y: -50 }}
               animate={{
@@ -166,7 +166,7 @@ export default function LoadingScreen() {
               className="absolute -bottom-[25%] left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[380px] rounded-full blur-[110px] pointer-events-none"
               style={{
                 background:
-                  'radial-gradient(circle, rgba(212, 175, 101, 0.16) 0%, rgba(212, 175, 101, 0.03) 60%, transparent 80%)',
+                  'radial-gradient(circle, rgba(255, 85, 0, 0.16) 0%, rgba(255, 85, 0, 0.03) 60%, transparent 80%)',
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0.65, 0.45] }}
@@ -184,7 +184,7 @@ export default function LoadingScreen() {
                 className="absolute top-0 bottom-0 w-[180px] sm:w-[260px]"
                 style={{
                   background:
-                    'linear-gradient(90deg, transparent 0%, rgba(212, 175, 101, 0.12) 42%, rgba(255, 255, 255, 0.22) 50%, rgba(212, 175, 101, 0.12) 58%, transparent 100%)',
+                    'linear-gradient(90deg, transparent 0%, rgba(255, 85, 0, 0.12) 42%, rgba(255, 255, 255, 0.22) 50%, rgba(255, 85, 0, 0.12) 58%, transparent 100%)',
                   transform: 'skewX(-26deg)',
                   filter: 'blur(14px)',
                 }}
@@ -211,7 +211,7 @@ export default function LoadingScreen() {
               style={{
                 background: 'linear-gradient(135deg, #181818 0%, #101010 60%, #0d0d0d 100%)',
                 boxShadow:
-                  '0 25px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px rgba(212,175,101,0.3)',
+                  '0 25px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px rgba(255,85,0,0.3)',
                 transformStyle: 'preserve-3d',
               }}
               initial={{
@@ -257,7 +257,7 @@ export default function LoadingScreen() {
                 background:
                   'linear-gradient(215deg, rgba(35,35,35,0.7) 0%, rgba(18,18,18,0.85) 60%, rgba(10,10,10,0.95) 100%)',
                 boxShadow:
-                  '0 30px 70px rgba(0,0,0,0.9), inset 1px 1px 0 rgba(255,255,255,0.22), inset -1px -1px 0 rgba(212,175,101,0.25)',
+                  '0 30px 70px rgba(0,0,0,0.9), inset 1px 1px 0 rgba(255,255,255,0.22), inset -1px -1px 0 rgba(255,85,0,0.25)',
                 backdropFilter: 'blur(12px)',
                 transformStyle: 'preserve-3d',
               }}
@@ -334,7 +334,7 @@ export default function LoadingScreen() {
               style={{
                 background: 'linear-gradient(315deg, #101010 0%, #1a1a1a 70%, #242424 100%)',
                 boxShadow:
-                  '0 -25px 60px rgba(0,0,0,0.95), inset -1px -1px 0 rgba(212,175,101,0.35), inset 1px 1px 0 rgba(255,255,255,0.15)',
+                  '0 -25px 60px rgba(0,0,0,0.95), inset -1px -1px 0 rgba(255,85,0,0.35), inset 1px 1px 0 rgba(255,255,255,0.15)',
                 transformStyle: 'preserve-3d',
               }}
               initial={{
@@ -394,7 +394,7 @@ export default function LoadingScreen() {
                 className="absolute inset-[-28px] sm:inset-[-42px] rounded-full pointer-events-none"
                 style={{
                   background:
-                    'radial-gradient(circle, rgba(212, 175, 101, 0.38) 0%, rgba(212, 175, 101, 0.12) 42%, transparent 70%)',
+                    'radial-gradient(circle, rgba(255, 85, 0, 0.38) 0%, rgba(255, 85, 0, 0.12) 42%, transparent 70%)',
                   filter: 'blur(32px)',
                 }}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -416,7 +416,7 @@ export default function LoadingScreen() {
                   background:
                     'linear-gradient(160deg, rgba(25,25,25,0.88) 0%, rgba(12,12,12,0.96) 100%)',
                   boxShadow:
-                    '0 24px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -1px 0 rgba(212,175,101,0.3)',
+                    '0 24px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -1px 0 rgba(255,85,0,0.3)',
                   backdropFilter: 'blur(16px)',
                 }}
               >
@@ -425,7 +425,7 @@ export default function LoadingScreen() {
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
-                      'linear-gradient(118deg, transparent 20%, rgba(255, 255, 255, 0.35) 48%, rgba(212, 175, 101, 0.38) 52%, transparent 80%)',
+                      'linear-gradient(118deg, transparent 20%, rgba(255, 255, 255, 0.35) 48%, rgba(255, 85, 0, 0.38) 52%, transparent 80%)',
                   }}
                   initial={{ x: '-160%' }}
                   animate={phase >= 1 ? { x: '160%' } : { x: '-160%' }}
@@ -479,7 +479,7 @@ export default function LoadingScreen() {
                 style={{
                   background:
                     'linear-gradient(90deg, #D4AF65 0%, #D4AF65 50%, #D4AF65 100%)',
-                  boxShadow: '0 0 16px rgba(212, 175, 101, 0.85)',
+                  boxShadow: '0 0 16px rgba(255, 85, 0, 0.85)',
                 }}
                 initial={{ width: '0%' }}
                 animate={phase >= 2 ? { width: '100%' } : { width: '0%' }}

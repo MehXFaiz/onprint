@@ -57,7 +57,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 px-2.5 py-0.5 text-xs font-bold text-[#A82F19]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 text-xs font-bold text-[#D4AF65]">
                 <Calendar className="h-3.5 w-3.5" />
                 Executive Reporting & Strategy
               </span>
@@ -77,7 +77,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
               <select
                 value={selectedMonth}
                 onChange={(e) => setSelectedMonth(Number(e.target.value))}
-                className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-800 font-bold focus:outline-none focus:border-[#A82F19]"
+                className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-800 font-bold focus:outline-none focus:border-[#D4AF65]"
               >
                 {[
                   'January', 'February', 'March', 'April', 'May', 'June',
@@ -90,7 +90,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(Number(e.target.value))}
-                className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-800 font-bold focus:outline-none focus:border-[#A82F19]"
+                className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-800 font-bold focus:outline-none focus:border-[#D4AF65]"
               >
                 <option value={2026}>2026</option>
                 <option value={2025}>2025</option>
@@ -116,7 +116,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
         {/* Document Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b-2 border-neutral-900 pb-6 gap-4">
           <div>
-            <div className="text-xs font-extrabold text-[#A82F19] tracking-widest uppercase">
+            <div className="text-xs font-extrabold text-[#D4AF65] tracking-widest uppercase">
               ONPRINT Commercial SEO Intelligence
             </div>
             <h1 className="font-display text-3xl font-black text-neutral-900 tracking-tight mt-1">
@@ -163,7 +163,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
 
             <div className="border border-neutral-200 rounded-xl p-4 bg-white">
               <div className="text-[10px] font-bold uppercase text-neutral-400">Total Organic Leads</div>
-              <div className="text-2xl font-black text-[#A82F19] mt-1">{kpis.totalConversions || 142}</div>
+              <div className="text-2xl font-black text-[#D4AF65] mt-1">{kpis.totalConversions || 142}</div>
               <div className="text-[10px] text-neutral-500 font-semibold mt-0.5">WhatsApp, Calls, RFQs</div>
             </div>
 

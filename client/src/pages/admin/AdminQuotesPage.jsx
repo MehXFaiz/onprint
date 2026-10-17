@@ -125,7 +125,7 @@ export default function AdminQuotesPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-neutral-200/80 shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
             <FileText className="h-4 w-4" />
             <span>Custom Print Inquiries</span>
           </div>
@@ -141,7 +141,7 @@ export default function AdminQuotesPage() {
           onClick={() => navigate('/admin/quotes/new')}
           variant="accent"
           icon={false}
-          className="shadow-md shadow-[#A82F19]/20 self-start sm:self-auto cursor-pointer"
+          className="shadow-md shadow-[#D4AF65]/20 self-start sm:self-auto cursor-pointer"
         >
           <Plus className="h-4 w-4 mr-1.5" />
           Create Quote
@@ -206,7 +206,7 @@ export default function AdminQuotesPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search quotes by number, client name, status, or email..."
-              className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
+              className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none"
             />
           </div>
 
@@ -248,7 +248,7 @@ export default function AdminQuotesPage() {
                   }}
                   onChange={toggleSelectAll}
                   aria-label="Select all quotes"
-                  className="h-4 w-4 rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]/20 cursor-pointer accent-[#A82F19]"
+                  className="h-4 w-4 rounded border-neutral-300 text-[#D4AF65] focus:ring-[#D4AF65]/20 cursor-pointer accent-[#D4AF65]"
                 />
               </th>
               <th className="py-3.5 px-4">Quote #</th>
@@ -289,7 +289,7 @@ export default function AdminQuotesPage() {
                         checked={isSelected}
                         onChange={() => toggleSelectQuote(quoteId)}
                         aria-label={`Select quote ${q.quoteNumber}`}
-                        className="h-4 w-4 rounded border-neutral-300 text-[#A82F19] focus:ring-[#A82F19]/20 cursor-pointer accent-[#A82F19]"
+                        className="h-4 w-4 rounded border-neutral-300 text-[#D4AF65] focus:ring-[#D4AF65]/20 cursor-pointer accent-[#D4AF65]"
                       />
                     </td>
                     <td className="py-3 px-4">
@@ -357,7 +357,7 @@ export default function AdminQuotesPage() {
           Showing <span className="font-bold text-neutral-900">{filtered.length}</span> of{' '}
           <span className="font-bold text-neutral-900">{quotes.length}</span> quotes
           {selectedQuoteIds.length > 0 && (
-            <span className="ml-2 text-[#A82F19] font-bold">({selectedQuoteIds.length} selected)</span>
+            <span className="ml-2 text-[#D4AF65] font-bold">({selectedQuoteIds.length} selected)</span>
           )}
         </div>
         <div className="flex items-center gap-1.5">
@@ -368,7 +368,7 @@ export default function AdminQuotesPage() {
           >
             Previous
           </button>
-          <button type="button" className="rounded-xl bg-[#A82F19] px-3 py-1.5 font-bold text-white shadow-xs">
+          <button type="button" className="rounded-xl bg-[#D4AF65] px-3 py-1.5 font-bold text-white shadow-xs">
             1
           </button>
           <button
@@ -385,7 +385,7 @@ export default function AdminQuotesPage() {
       {selectedQuoteIds.length > 0 && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 bg-neutral-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-neutral-700">
           <div className="flex items-center gap-2">
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#A82F19] text-xs font-bold text-white">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-xs font-bold text-white">
               {selectedQuoteIds.length}
             </span>
             <span className="text-xs font-semibold">

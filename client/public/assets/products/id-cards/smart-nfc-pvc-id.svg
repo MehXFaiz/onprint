@@ -9,7 +9,7 @@
       <stop offset="100%" stop-color="#f0f2f5"/>
     </linearGradient>
     <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#A82F19"/>
+      <stop offset="0%" stop-color="#D4AF65"/>
       <stop offset="100%" stop-color="#d9482b"/>
     </linearGradient>
     <linearGradient id="chipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -18,7 +18,7 @@
       <stop offset="100%" stop-color="#9a7114"/>
     </linearGradient>
     <linearGradient id="nfcWave" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#A82F19" stop-opacity="0.8"/>
+      <stop offset="0%" stop-color="#D4AF65" stop-opacity="0.8"/>
       <stop offset="100%" stop-color="#d9482b" stop-opacity="0.1"/>
     </linearGradient>
     <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -47,12 +47,12 @@
 
     <!-- Smart NFC Contactless Indicator -->
     <g transform="translate(425, 115)">
-      <circle cx="28" cy="28" r="28" fill="#A82F19" fill-opacity="0.1"/>
+      <circle cx="28" cy="28" r="28" fill="#D4AF65" fill-opacity="0.1"/>
       <!-- NFC Waves -->
-      <path d="M 18 36 A 14 14 0 0 1 18 20" fill="none" stroke="#A82F19" stroke-width="3" stroke-linecap="round"/>
-      <path d="M 24 40 A 20 20 0 0 1 24 16" fill="none" stroke="#A82F19" stroke-width="3" stroke-linecap="round"/>
-      <path d="M 30 44 A 26 26 0 0 1 30 12" fill="none" stroke="#A82F19" stroke-width="3" stroke-linecap="round"/>
-      <text x="28" y="70" fill="#A82F19" font-family="system-ui, sans-serif" font-size="10" font-weight="900" text-anchor="middle" letter-spacing="1">NFC TAP</text>
+      <path d="M 18 36 A 14 14 0 0 1 18 20" fill="none" stroke="#D4AF65" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 24 40 A 20 20 0 0 1 24 16" fill="none" stroke="#D4AF65" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 30 44 A 26 26 0 0 1 30 12" fill="none" stroke="#D4AF65" stroke-width="3" stroke-linecap="round"/>
+      <text x="28" y="70" fill="#D4AF65" font-family="system-ui, sans-serif" font-size="10" font-weight="900" text-anchor="middle" letter-spacing="1">NFC TAP</text>
     </g>
 
     <!-- Embedded Smart EMV / NFC Microchip -->
@@ -76,7 +76,7 @@
     <!-- Employee Details Info Block -->
     <g transform="translate(235, 225)">
       <text x="0" y="24" fill="#0f172a" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="900">Tariq Al-Mansoor</text>
-      <text x="0" y="52" fill="#A82F19" font-family="system-ui, sans-serif" font-size="16" font-weight="800" letter-spacing="1">VP OF TECHNOLOGY</text>
+      <text x="0" y="52" fill="#D4AF65" font-family="system-ui, sans-serif" font-size="16" font-weight="800" letter-spacing="1">VP OF TECHNOLOGY</text>
       
       <line x1="0" y1="75" x2="235" y2="75" stroke="#e2e8f0" stroke-width="2"/>
 
@@ -119,7 +119,7 @@
       </g>
       <!-- NFC Encrypted Tag Badge -->
       <g transform="translate(245, 22)">
-        <rect width="150" height="42" rx="8" fill="#A82F19"/>
+        <rect width="150" height="42" rx="8" fill="#D4AF65"/>
         <text x="75" y="26" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="900" text-anchor="middle" letter-spacing="1.5">NTAG216 ENCRYPTED</text>
       </g>
     </g>
@@ -127,6 +127,6 @@
     <!-- Footer Copyright & Hologram dot -->
     <circle cx="65" cy="565" r="12" fill="url(#chipGrad)"/>
     <text x="90" y="570" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="700">CR80 0.86mm PVC • ISO/IEC 14443 Type A</text>
-    <text x="470" y="570" fill="#A82F19" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="end">ONPRINT UAE</text>
+    <text x="470" y="570" fill="#D4AF65" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="end">ONPRINT UAE</text>
   </g>
 </svg>

@@ -101,7 +101,7 @@ export default function AiAnalysisModal({
         {/* Header */}
         <div className="px-6 py-4 border-b border-neutral-200 bg-neutral-50/80 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-[#A82F19]/10 text-[#A82F19] flex items-center justify-center">
+            <div className="h-10 w-10 rounded-xl bg-[#D4AF65]/10 text-[#D4AF65] flex items-center justify-center">
               <Sparkles className="h-5 w-5" />
             </div>
             <div>
@@ -158,7 +158,7 @@ export default function AiAnalysisModal({
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {loading ? (
             <div className="py-20 text-center space-y-3">
-              <Sparkles className="h-8 w-8 text-[#A82F19] animate-spin mx-auto" />
+              <Sparkles className="h-8 w-8 text-[#D4AF65] animate-spin mx-auto" />
               <div className="text-sm font-bold text-neutral-900">
                 Running Neural On-Page Audit &amp; SERP Strategy Engine...
               </div>
@@ -284,8 +284,8 @@ export default function AiAnalysisModal({
                   <div className="p-5 bg-white space-y-4">
                     <div className="flex items-center justify-between border-b border-neutral-200 pb-2">
                       <div className="flex items-center gap-1.5">
-                        <Sparkles className="h-3.5 w-3.5 text-[#A82F19]" />
-                        <span className="text-xs font-black text-[#A82F19] uppercase tracking-wider">
+                        <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+                        <span className="text-xs font-black text-[#D4AF65] uppercase tracking-wider">
                           AI Recommendation
                         </span>
                       </div>
@@ -303,7 +303,7 @@ export default function AiAnalysisModal({
                           type="text"
                           value={rec.focus_keyword}
                           onChange={(e) => setEditableRec({ ...rec, focus_keyword: e.target.value })}
-                          className="w-full text-xs font-bold text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#A82F19] focus:outline-none"
+                          className="w-full text-xs font-bold text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#D4AF65] focus:outline-none"
                         />
                       ) : (
                         <div className="text-xs font-bold text-neutral-900 bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200">
@@ -330,7 +330,7 @@ export default function AiAnalysisModal({
                           type="text"
                           value={rec.meta_title}
                           onChange={(e) => setEditableRec({ ...rec, meta_title: e.target.value })}
-                          className="w-full text-xs font-bold text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#A82F19] focus:outline-none"
+                          className="w-full text-xs font-bold text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#D4AF65] focus:outline-none"
                         />
                       ) : (
                         <div className="text-xs font-bold text-neutral-900 bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200">
@@ -357,7 +357,7 @@ export default function AiAnalysisModal({
                           rows={3}
                           value={rec.meta_description}
                           onChange={(e) => setEditableRec({ ...rec, meta_description: e.target.value })}
-                          className="w-full text-xs text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#A82F19] focus:outline-none leading-relaxed"
+                          className="w-full text-xs text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#D4AF65] focus:outline-none leading-relaxed"
                         />
                       ) : (
                         <div className="text-xs text-neutral-900 bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200 leading-relaxed">
@@ -373,7 +373,7 @@ export default function AiAnalysisModal({
                           type="text"
                           value={rec.h1}
                           onChange={(e) => setEditableRec({ ...rec, h1: e.target.value })}
-                          className="w-full text-xs text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#A82F19] focus:outline-none"
+                          className="w-full text-xs text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#D4AF65] focus:outline-none"
                         />
                       ) : (
                         <div className="text-xs text-neutral-900 bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200">
@@ -388,7 +388,7 @@ export default function AiAnalysisModal({
                         <select
                           value={rec.schema_type}
                           onChange={(e) => setEditableRec({ ...rec, schema_type: e.target.value })}
-                          className="w-full text-xs font-mono text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#A82F19] focus:outline-none"
+                          className="w-full text-xs font-mono text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#D4AF65] focus:outline-none"
                         >
                           <option value="WebPage">WebPage</option>
                           <option value="Service">Service</option>
@@ -433,7 +433,7 @@ export default function AiAnalysisModal({
               size="sm"
               onClick={handleApply}
               disabled={applying || loading}
-              className="text-xs font-bold shadow-md shadow-[#A82F19]/20"
+              className="text-xs font-bold shadow-md shadow-[#D4AF65]/20"
             >
               <Check className="h-3.5 w-3.5 mr-1.5" />
               {applying ? 'Applying Changes...' : 'Apply Recommendations'}

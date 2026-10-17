@@ -42,7 +42,7 @@ export default function AdminCustomersPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-neutral-200/80 shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
             <Users className="h-4 w-4" />
             <span>Client Accounts</span>
           </div>
@@ -58,7 +58,7 @@ export default function AdminCustomersPage() {
           onClick={() => navigate('/admin/customers/new')}
           variant="accent"
           icon={false}
-          className="shadow-md shadow-[#A82F19]/20 self-start sm:self-auto cursor-pointer"
+          className="shadow-md shadow-[#D4AF65]/20 self-start sm:self-auto cursor-pointer"
         >
           <Plus className="h-4 w-4 mr-1.5" />
           Add Customer
@@ -86,7 +86,7 @@ export default function AdminCustomersPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search customers by name, email, or company..."
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
+            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none"
           />
         </div>
       </div>
@@ -115,7 +115,7 @@ export default function AdminCustomersPage() {
                   <span
                     className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase ${
                       c.role === 'admin'
-                        ? 'bg-red-50 text-[#A82F19] border border-red-200'
+                        ? 'bg-red-50 text-[#D4AF65] border border-red-200'
                         : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
                     }`}
                   >
@@ -160,7 +160,7 @@ export default function AdminCustomersPage() {
           >
             Previous
           </button>
-          <button type="button" className="rounded-xl bg-[#A82F19] px-3 py-1.5 font-bold text-white shadow-xs">
+          <button type="button" className="rounded-xl bg-[#D4AF65] px-3 py-1.5 font-bold text-white shadow-xs">
             1
           </button>
           <button

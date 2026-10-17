@@ -102,7 +102,7 @@
 
     <!-- Left Logo Emblem Box -->
     <g transform="translate(55, 60)">
-      <rect width="95" height="95" rx="18" fill="#A82F19" stroke="#ffffff" stroke-width="2"/>
+      <rect width="95" height="95" rx="18" fill="#D4AF65" stroke="#ffffff" stroke-width="2"/>
       <polygon points="47.5,20 75,47.5 47.5,75 20,47.5" fill="none" stroke="#ffffff" stroke-width="3"/>
       <circle cx="47.5" cy="47.5" r="10" fill="#fef08a"/>
       <text x="47.5" y="88" fill="#ffffff" font-family="system-ui, sans-serif" font-size="9" font-weight="900" text-anchor="middle" letter-spacing="1">ONPRINT</text>
@@ -114,10 +114,10 @@
       <text x="0" y="36" fill="#0f172a" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="34" font-weight="bold" letter-spacing="2">ALEXANDER WRIGHT</text>
       
       <!-- Accent Line -->
-      <line x1="0" y1="58" x2="460" y2="58" stroke="#A82F19" stroke-width="2.5"/>
+      <line x1="0" y1="58" x2="460" y2="58" stroke="#D4AF65" stroke-width="2.5"/>
 
       <!-- Title & Dept -->
-      <text x="0" y="88" fill="#A82F19" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="3">SENIOR CLIENT DIRECTOR</text>
+      <text x="0" y="88" fill="#D4AF65" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="3">SENIOR CLIENT DIRECTOR</text>
       <text x="0" y="115" fill="#475569" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" letter-spacing="2">PRIVATE WEALTH & COMMERCIAL PRINTING</text>
     </g>
 

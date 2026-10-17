@@ -10,7 +10,7 @@ export default function OrderDetailPage() {
   if (!order) {
     return (
       <div className="space-y-6">
-        <Link to="/account/orders" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A82F19] hover:underline">
+        <Link to="/account/orders" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:underline">
           <ArrowLeft className="h-4 w-4" /> Back to My Orders
         </Link>
         <div className="rounded-3xl border border-neutral-200 bg-white p-12 text-center shadow-xs">
@@ -35,7 +35,7 @@ export default function OrderDetailPage() {
   return (
     <div className="space-y-6 max-w-4xl">
       <div>
-        <Link to="/account/orders" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A82F19] hover:underline mb-2">
+        <Link to="/account/orders" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:underline mb-2">
           <ArrowLeft className="h-4 w-4" /> Back to My Orders
         </Link>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -63,12 +63,12 @@ export default function OrderDetailPage() {
             <div key={s.label} className="flex flex-col items-center text-center">
               <div
                 className={`flex h-10 w-10 items-center justify-center rounded-full text-xs font-bold transition-all ${
-                  s.done ? 'bg-[#A82F19] text-white shadow-xs' : 'border border-neutral-300 bg-neutral-100 text-neutral-400'
+                  s.done ? 'bg-[#D4AF65] text-white shadow-xs' : 'border border-neutral-300 bg-neutral-100 text-neutral-400'
                 }`}
               >
                 {s.done ? <CheckCircle2 className="h-5 w-5" /> : idx + 1}
               </div>
-              <span className={`mt-2 text-xs font-bold ${s.current ? 'text-[#A82F19]' : 'text-neutral-700'}`}>{s.label}</span>
+              <span className={`mt-2 text-xs font-bold ${s.current ? 'text-[#D4AF65]' : 'text-neutral-700'}`}>{s.label}</span>
             </div>
           ))}
         </div>

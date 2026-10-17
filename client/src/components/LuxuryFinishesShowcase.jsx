@@ -84,19 +84,19 @@ export default function LuxuryFinishesShowcase() {
   const activeFinish = luxuryFinishes.find((f) => f.id === selectedId) || luxuryFinishes[0]
 
   return (
-    <section className="bg-[#F5F2EB] py-16 sm:py-24 text-[#101D35] border-t border-[#E5E7EB]">
+    <section className="bg-[#F5F2EB] py-16 sm:py-24 text-[#101D35] border-t border-[#E5E1D8]">
       <Container>
         {/* Section Header */}
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/80 border border-[#E5E7EB] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#101D35]">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/80 border border-[#E5E1D8] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#101D35]">
               <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Signature Dubai Pressroom Finishes</span>
             </div>
             <h2 className="mt-2.5 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-[#101D35]">
               Mastery of Light, Texture &amp; Substrate
             </h2>
-            <p className="mt-2 max-w-2xl text-sm text-[#343D4F] leading-relaxed">
+            <p className="mt-2 max-w-2xl text-sm text-[#52525B] leading-relaxed">
               Every detail is engineered on our Al Quoz press floor using precision German Heidelberg machinery, heated brass dies, and European archival stocks.
             </p>
           </div>
@@ -124,7 +124,7 @@ export default function LuxuryFinishesShowcase() {
                 className={`group relative flex flex-col items-start justify-between rounded-2xl border p-3.5 text-left transition-all duration-200 cursor-pointer ${
                   isSelected
                     ? 'border-[#101D35] bg-[#101D35] text-white shadow-lg'
-                    : 'border-[#E5E7EB] bg-white hover:border-[#D4AF65] text-[#343D4F]'
+                    : 'border-[#E5E1D8] bg-white hover:border-[#D4AF65] text-[#52525B]'
                 }`}
               >
                 <div className="flex w-full items-center justify-between">
@@ -151,7 +151,7 @@ export default function LuxuryFinishesShowcase() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.99 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-3xl border border-[#E5E7EB] bg-white p-6 sm:p-8 shadow-sm"
+            className="rounded-3xl border border-[#E5E1D8] bg-white p-6 sm:p-8 shadow-sm"
           >
             <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
               {/* Left Column: Macro Image */}

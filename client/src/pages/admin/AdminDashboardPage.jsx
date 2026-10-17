@@ -209,12 +209,12 @@ export default function AdminDashboardPage() {
       {/* Top Controls Bar */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
         <div className="flex items-center gap-2 text-xs font-bold text-neutral-700">
-          <Calendar className="h-4 w-4 text-[#A82F19]" />
+          <Calendar className="h-4 w-4 text-[#D4AF65]" />
           <span>Filter Metric Window:</span>
           <select
             value={timeframe}
             onChange={(e) => setTimeframe(e.target.value)}
-            className="rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-1.5 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none cursor-pointer"
+            className="rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-1.5 text-xs font-bold text-neutral-900 focus:border-[#D4AF65] focus:outline-none cursor-pointer"
           >
             {TIMEFRAME_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -230,7 +230,7 @@ export default function AdminDashboardPage() {
           disabled={refreshing}
           className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-neutral-50 px-3.5 py-1.5 text-xs font-bold text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 transition-colors disabled:opacity-50 cursor-pointer"
         >
-          <RefreshCw className={`h-3.5 w-3.5 text-[#A82F19] ${refreshing ? 'animate-spin' : ''}`} />
+          <RefreshCw className={`h-3.5 w-3.5 text-[#D4AF65] ${refreshing ? 'animate-spin' : ''}`} />
           <span>{refreshing ? 'Syncing MySQL...' : 'Refresh Live DB Data'}</span>
         </button>
       </div>
@@ -239,7 +239,7 @@ export default function AdminDashboardPage() {
       <div className="rounded-3xl border border-neutral-200 bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 p-6 sm:p-8 text-white shadow-xl">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#A82F19]">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
               <ShieldCheck className="h-4 w-4" />
               <span>Studio Management System</span>
             </div>
@@ -256,7 +256,7 @@ export default function AdminDashboardPage() {
               to="/admin/products"
               variant="accent"
               icon={false}
-              className="shadow-md shadow-[#A82F19]/40"
+              className="shadow-md shadow-[#D4AF65]/40"
             >
               <Plus className="h-4 w-4 mr-1.5" />
               Upload Product
@@ -278,17 +278,17 @@ export default function AdminDashboardPage() {
         {/* Card 1: Total Products */}
         <Link
           to="/admin/products"
-          className="group rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs transition-all hover:border-[#A82F19]/40 hover:shadow-md"
+          className="group rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs transition-all hover:border-[#D4AF65]/40 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">Products Catalog</span>
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-[#A82F19]">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-[#D4AF65]">
               <Package className="h-4 w-4" />
             </div>
           </div>
           <div className="mt-3 text-3xl font-black text-neutral-900">{products.total}</div>
           <div className="mt-1 flex items-center justify-between text-xs">
-            <span className="font-bold text-[#A82F19] flex items-center">
+            <span className="font-bold text-[#D4AF65] flex items-center">
               Manage & Upload <ArrowRight className="h-3.5 w-3.5 ml-1 transition-transform group-hover:translate-x-1" />
             </span>
             <span className="text-neutral-500 font-semibold">{products.active} Active</span>
@@ -298,7 +298,7 @@ export default function AdminDashboardPage() {
         {/* Card 2: Active Orders */}
         <Link
           to="/admin/orders"
-          className="group rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs transition-all hover:border-[#A82F19]/40 hover:shadow-md"
+          className="group rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs transition-all hover:border-[#D4AF65]/40 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">Total Orders</span>
@@ -332,7 +332,7 @@ export default function AdminDashboardPage() {
         {/* Card 4: Quotes */}
         <Link
           to="/admin/quotes"
-          className="group rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs transition-all hover:border-[#A82F19]/40 hover:shadow-md"
+          className="group rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs transition-all hover:border-[#D4AF65]/40 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">Pending Quotes</span>
@@ -390,22 +390,22 @@ export default function AdminDashboardPage() {
 
         <Link
           to="/admin/categories"
-          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-[#A82F19] transition-colors"
+          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-[#D4AF65] transition-colors"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wider">
-            <FolderTree className="h-3.5 w-3.5 text-[#A82F19]" />
+            <FolderTree className="h-3.5 w-3.5 text-[#D4AF65]" />
             <span>Categories</span>
           </div>
           <div className="mt-2 text-2xl font-black text-neutral-900">{data?.categories?.total || 7}</div>
-          <div className="mt-0.5 text-[11px] font-bold text-[#A82F19]">Store Categories</div>
+          <div className="mt-0.5 text-[11px] font-bold text-[#D4AF65]">Store Categories</div>
         </Link>
 
         <Link
           to="/admin/blog"
-          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-[#A82F19] transition-colors col-span-2 sm:col-span-1"
+          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-[#D4AF65] transition-colors col-span-2 sm:col-span-1"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wider">
-            <BookOpen className="h-3.5 w-3.5 text-[#A82F19]" />
+            <BookOpen className="h-3.5 w-3.5 text-[#D4AF65]" />
             <span>Blog Articles</span>
           </div>
           <div className="mt-2 text-2xl font-black text-neutral-900">{blogs.total}</div>
@@ -425,7 +425,7 @@ export default function AdminDashboardPage() {
               </div>
               <Link
                 to="/admin/orders"
-                className="text-xs font-bold text-[#A82F19] hover:underline flex items-center gap-1"
+                className="text-xs font-bold text-[#D4AF65] hover:underline flex items-center gap-1"
               >
                 View All <ArrowRight className="h-3.5 w-3.5" />
               </Link>

@@ -1174,13 +1174,13 @@ export default function AdminSeoManagerPage() {
           className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-xl px-5 py-3.5 shadow-2xl text-xs font-bold transition-all transform animate-in slide-in-from-bottom-5 ${
             toast.type === 'error'
               ? 'bg-red-600 text-white shadow-red-600/30'
-              : 'bg-neutral-900 text-white border border-[#A82F19]/50 shadow-black/50'
+              : 'bg-neutral-900 text-white border border-[#D4AF65]/50 shadow-black/50'
           }`}
         >
           {toast.type === 'error' ? (
             <XCircle className="h-4 w-4 shrink-0 text-white" />
           ) : (
-            <CheckCircle2 className="h-4 w-4 shrink-0 text-[#A82F19]" />
+            <CheckCircle2 className="h-4 w-4 shrink-0 text-[#D4AF65]" />
           )}
           <span>{toast.message}</span>
           <button onClick={() => setToast(null)} className="ml-2 hover:opacity-80 cursor-pointer">
@@ -1197,7 +1197,7 @@ export default function AdminSeoManagerPage() {
               <h1 className="font-display text-2xl sm:text-3xl font-black text-neutral-900 tracking-tight">
                 AI SEO Manager
               </h1>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 border border-[#A82F19]/25 px-3 py-1 text-xs font-extrabold text-[#A82F19]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/25 px-3 py-1 text-xs font-extrabold text-[#D4AF65]">
                 <Bot className="h-3.5 w-3.5" />
                 Autonomous Engine
               </span>
@@ -1227,7 +1227,7 @@ export default function AdminSeoManagerPage() {
               onClick={handleTriggerFullAudit}
               disabled={fullAuditRunning || actionLoading}
               icon={false}
-              className="text-xs font-bold bg-[#A82F19] text-white hover:bg-[#8f2714] shadow-md shadow-[#A82F19]/20"
+              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54] shadow-md shadow-[#D4AF65]/20"
             >
               <ShieldCheck className={`h-3.5 w-3.5 mr-1.5 ${fullAuditRunning ? 'animate-spin' : ''}`} />
               {fullAuditRunning ? 'Auditing 38+ Pages...' : 'Full Website Audit'}
@@ -1253,9 +1253,9 @@ export default function AdminSeoManagerPage() {
               onClick={handleTriggerAi}
               disabled={actionLoading}
               icon={false}
-              className="border-neutral-300 bg-white text-neutral-900 hover:border-[#A82F19] text-xs font-bold shadow-xs"
+              className="border-neutral-300 bg-white text-neutral-900 hover:border-[#D4AF65] text-xs font-bold shadow-xs"
             >
-              <Sparkles className="h-3.5 w-3.5 mr-1.5 text-[#A82F19]" />
+              <Sparkles className="h-3.5 w-3.5 mr-1.5 text-[#D4AF65]" />
               Generate AI Recs
             </Button>
 
@@ -1266,7 +1266,7 @@ export default function AdminSeoManagerPage() {
               onClick={handleTriggerDailyRun}
               disabled={actionLoading}
               icon={false}
-              className="text-xs font-bold shadow-md shadow-[#A82F19]/20"
+              className="text-xs font-bold shadow-md shadow-[#D4AF65]/20"
             >
               <Zap className={`h-3.5 w-3.5 mr-1.5 ${actionLoading ? 'animate-spin' : ''}`} />
               Run Daily Pipeline
@@ -1289,10 +1289,10 @@ export default function AdminSeoManagerPage() {
                     : 'text-neutral-600 bg-neutral-50/80 hover:bg-neutral-100 hover:text-neutral-900 border border-neutral-100'
                 }`}
               >
-                <Icon className={`h-3.5 w-3.5 shrink-0 ${isActive ? 'text-[#A82F19]' : 'text-neutral-400'}`} />
+                <Icon className={`h-3.5 w-3.5 shrink-0 ${isActive ? 'text-[#D4AF65]' : 'text-neutral-400'}`} />
                 <span>{tab.label}</span>
                 {typeof tab.count === 'number' && tab.count > 0 && (
-                  <span className={`rounded-full px-1.5 py-0.2 text-[10px] font-extrabold ${isActive ? 'bg-[#A82F19] text-white' : 'bg-neutral-200 text-neutral-800'}`}>
+                  <span className={`rounded-full px-1.5 py-0.2 text-[10px] font-extrabold ${isActive ? 'bg-[#D4AF65] text-[#101D35]' : 'bg-neutral-200 text-neutral-800'}`}>
                     {tab.count}
                   </span>
                 )}
@@ -1408,7 +1408,7 @@ export default function AdminSeoManagerPage() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-100 pb-5">
               <div className="flex items-center gap-3.5">
                 <div className="h-11 w-11 rounded-xl bg-neutral-100 flex items-center justify-center text-neutral-800 shrink-0">
-                  <Globe className="h-5 w-5 text-[#A82F19]" />
+                  <Globe className="h-5 w-5 text-[#D4AF65]" />
                 </div>
                 <div>
                   <h3 className="font-display text-base font-bold text-neutral-900">Google Search Console Integration</h3>
@@ -1484,7 +1484,7 @@ export default function AdminSeoManagerPage() {
               </div>
             ) : (
               <div className="pt-5 flex items-start gap-3 text-xs text-neutral-600 bg-neutral-50/70 p-4 rounded-xl border border-neutral-100 mt-4">
-                <Info className="h-4 w-4 text-[#A82F19] shrink-0 mt-0.5" />
+                <Info className="h-4 w-4 text-[#D4AF65] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   Real metrics are strictly preserved. To populate live Google SERP positions, CTR, and impressions without fabrication, connect your Google Search Console service account JSON.
                 </span>
@@ -1499,14 +1499,14 @@ export default function AdminSeoManagerPage() {
               <div>
                 <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="h-4 w-4 text-[#A82F19]" />
+                    <Sparkles className="h-4 w-4 text-[#D4AF65]" />
                     <h3 className="font-display text-sm font-bold text-neutral-900">
                       Pending AI Recommendations ({dashboardData?.recommendationsSummary?.pending || 0})
                     </h3>
                   </div>
                   <button
                     onClick={() => setActiveTab('recommendations')}
-                    className="text-xs font-bold text-[#A82F19] hover:underline flex items-center gap-1 cursor-pointer"
+                    className="text-xs font-bold text-[#D4AF65] hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     View All
                     <ChevronRight className="h-3 w-3" />
@@ -1545,7 +1545,7 @@ export default function AdminSeoManagerPage() {
                               setSelectedRec(rec)
                               setActiveTab('recommendations')
                             }}
-                            className="font-bold text-[#A82F19] hover:underline cursor-pointer"
+                            className="font-bold text-[#D4AF65] hover:underline cursor-pointer"
                           >
                             Review &amp; Apply &rarr;
                           </button>
@@ -1574,7 +1574,7 @@ export default function AdminSeoManagerPage() {
                   </div>
                   <button
                     onClick={() => setActiveTab('audit')}
-                    className="text-xs font-bold text-[#A82F19] hover:underline flex items-center gap-1 cursor-pointer"
+                    className="text-xs font-bold text-[#D4AF65] hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     Audit Details
                     <ChevronRight className="h-3 w-3" />
@@ -1612,7 +1612,7 @@ export default function AdminSeoManagerPage() {
                   href="/sitemap.xml"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-neutral-200 p-2.5 text-neutral-700 hover:border-[#A82F19] hover:text-[#A82F19] transition-colors"
+                  className="flex items-center justify-between rounded-xl border border-neutral-200 p-2.5 text-neutral-700 hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
                 >
                   <span className="font-bold">/sitemap.xml</span>
                   <ExternalLink className="h-3.5 w-3.5" />
@@ -1621,7 +1621,7 @@ export default function AdminSeoManagerPage() {
                   href="/robots.txt"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-neutral-200 p-2.5 text-neutral-700 hover:border-[#A82F19] hover:text-[#A82F19] transition-colors"
+                  className="flex items-center justify-between rounded-xl border border-neutral-200 p-2.5 text-neutral-700 hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
                 >
                   <span className="font-bold">/robots.txt</span>
                   <ExternalLink className="h-3.5 w-3.5" />
@@ -1634,7 +1634,7 @@ export default function AdminSeoManagerPage() {
           <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-100 pb-4">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center text-[#A82F19]">
+                <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center text-[#D4AF65]">
                   <BookOpen className="h-5 w-5" />
                 </div>
                 <div>
@@ -1650,7 +1650,7 @@ export default function AdminSeoManagerPage() {
               <div className="flex items-center gap-2">
                 <Link
                   to="/admin/blog"
-                  className="rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-bold text-neutral-700 hover:border-[#A82F19] hover:text-[#A82F19] transition-colors"
+                  className="rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-bold text-neutral-700 hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
                 >
                   Manage Blogs
                 </Link>
@@ -1709,7 +1709,7 @@ export default function AdminSeoManagerPage() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <BookOpen className="h-5 w-5 text-[#A82F19]" />
+                  <BookOpen className="h-5 w-5 text-[#D4AF65]" />
                   <h2 className="font-display text-xl font-bold text-neutral-900">
                     Blog SEO &amp; Content Architecture
                   </h2>
@@ -1739,7 +1739,7 @@ export default function AdminSeoManagerPage() {
                 </Link>
                 <Link
                   to="/admin/blog/new"
-                  className="rounded-xl bg-[#A82F19] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#8e2714] transition-colors shadow-sm flex items-center gap-1.5"
+                  className="rounded-xl bg-[#D4AF65] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#C39E54] transition-colors shadow-sm flex items-center gap-1.5"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                   <span>+ New Article</span>
@@ -1858,7 +1858,7 @@ export default function AdminSeoManagerPage() {
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
               <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-[#A82F19]" />
+                  <Sparkles className="h-4 w-4 text-[#D4AF65]" />
                   <h3 className="font-display text-sm font-bold text-neutral-900">
                     High-Impact Blog SEO Opportunities ({blogMetrics.opportunities.length})
                   </h3>
@@ -1894,7 +1894,7 @@ export default function AdminSeoManagerPage() {
                     <div className="mt-4 pt-3 border-t border-neutral-200/60">
                       <Link
                         to="/admin/blog"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#A82F19] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#D4AF65] hover:underline"
                       >
                         <span>Fix in Blog Editor</span>
                         <ArrowUpRight className="h-3 w-3" />
@@ -1917,7 +1917,7 @@ export default function AdminSeoManagerPage() {
                   placeholder="Search articles by title, keyword, slug..."
                   value={blogSearch}
                   onChange={(e) => setBlogSearch(e.target.value)}
-                  className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 pl-9 pr-4 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:bg-white focus:outline-none transition-all"
+                  className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 pl-9 pr-4 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none transition-all"
                 />
               </div>
 
@@ -1944,7 +1944,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={blogHealthFilter}
                   onChange={(e) => setBlogHealthFilter(e.target.value)}
-                  className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-semibold text-neutral-800 focus:border-[#A82F19] focus:outline-none"
+                  className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-semibold text-neutral-800 focus:border-[#D4AF65] focus:outline-none"
                 >
                   <option value="ALL">All Scores</option>
                   <option value="OPTIMAL">Score &ge; 90 (High)</option>
@@ -1994,7 +1994,7 @@ export default function AdminSeoManagerPage() {
                               <div className="min-w-0">
                                 <Link
                                   to={`/admin/blog/${blog.id}/edit`}
-                                  className="font-bold text-neutral-900 hover:text-[#A82F19] transition-colors truncate block"
+                                  className="font-bold text-neutral-900 hover:text-[#D4AF65] transition-colors truncate block"
                                 >
                                   {blog.title}
                                 </Link>
@@ -2080,7 +2080,7 @@ export default function AdminSeoManagerPage() {
                               </Link>
                               <Link
                                 to={`/admin/blog/${blog.id}/edit`}
-                                className="rounded-lg bg-neutral-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-[#A82F19] transition-colors"
+                                className="rounded-lg bg-neutral-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-[#D4AF65] transition-colors"
                               >
                                 Edit &amp; Optimize
                               </Link>
@@ -2167,7 +2167,7 @@ export default function AdminSeoManagerPage() {
                   <div
                     key={rec.id}
                     className={`rounded-2xl border bg-white p-6 shadow-xs transition-all ${
-                      isSelected ? 'border-[#A82F19] ring-2 ring-[#A82F19]/20' : 'border-neutral-200/80'
+                      isSelected ? 'border-[#D4AF65] ring-2 ring-[#D4AF65]/20' : 'border-neutral-200/80'
                     }`}
                   >
                     <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
@@ -2349,7 +2349,7 @@ export default function AdminSeoManagerPage() {
                 <span className="rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs px-2.5 py-0.5">
                   Valid XML
                 </span>
-                <a href="/sitemap.xml" target="_blank" className="text-xs font-bold text-[#A82F19] hover:underline flex items-center gap-0.5">
+                <a href="/sitemap.xml" target="_blank" className="text-xs font-bold text-[#D4AF65] hover:underline flex items-center gap-0.5">
                   View <ExternalLink className="h-3 w-3" />
                 </a>
               </div>
@@ -2360,7 +2360,7 @@ export default function AdminSeoManagerPage() {
                 <span className="rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs px-2.5 py-0.5">
                   Allow Public / Disallow Admin
                 </span>
-                <a href="/robots.txt" target="_blank" className="text-xs font-bold text-[#A82F19] hover:underline flex items-center gap-0.5">
+                <a href="/robots.txt" target="_blank" className="text-xs font-bold text-[#D4AF65] hover:underline flex items-center gap-0.5">
                   View <ExternalLink className="h-3 w-3" />
                 </a>
               </div>
@@ -2567,7 +2567,7 @@ export default function AdminSeoManagerPage() {
                   Algorithmically prioritized by algorithmic return-on-investment, crawl efficiency, and conversion impact.
                 </p>
               </div>
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#A82F19]/10 border border-[#A82F19]/25 px-2.5 py-1 text-xs font-bold text-[#A82F19]">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/25 px-2.5 py-1 text-xs font-bold text-[#D4AF65]">
                 <Sparkles className="h-3 w-3" />
                 Impact Matrix
               </span>
@@ -2614,7 +2614,7 @@ export default function AdminSeoManagerPage() {
                       </td>
                       <td className="py-3 pr-4 font-bold text-neutral-900">{act.title}</td>
                       <td className="py-3 pr-4 text-neutral-500 font-mono text-[11px]">{act.category}</td>
-                      <td className="py-3 pr-4 text-[#A82F19] font-mono text-[11px] truncate max-w-[160px]">{act.affectedUrl}</td>
+                      <td className="py-3 pr-4 text-[#D4AF65] font-mono text-[11px] truncate max-w-[160px]">{act.affectedUrl}</td>
                       <td className="py-3 pr-4 text-neutral-600 max-w-[220px]">{act.recommendedFix}</td>
                       <td className="py-3 text-emerald-700 font-semibold">{act.expectedImpact}</td>
                     </tr>
@@ -2662,7 +2662,7 @@ export default function AdminSeoManagerPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-neutral-400">Striking Distance (Pos 4–20)</span>
-              <div className="text-3xl font-black text-[#A82F19] mt-1">{opportunitiesData?.strikingDistanceCount || 0}</div>
+              <div className="text-3xl font-black text-[#D4AF65] mt-1">{opportunitiesData?.strikingDistanceCount || 0}</div>
               <p className="text-[11px] text-neutral-500 mt-1">High-intent queries ready to leap to Page 1 top 3</p>
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
@@ -2709,7 +2709,7 @@ export default function AdminSeoManagerPage() {
               {/* Section 1: Striking Distance */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="rounded-md bg-[#A82F19]/10 text-[#A82F19] px-2 py-0.5 text-xs font-black">
+                  <span className="rounded-md bg-[#D4AF65]/10 text-[#D4AF65] px-2 py-0.5 text-xs font-black">
                     Striking Distance (Positions 4–20)
                   </span>
                   <span className="text-xs text-neutral-500">Fastest ROI: Low competition to bump to Top 3</span>
@@ -2979,7 +2979,7 @@ export default function AdminSeoManagerPage() {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 px-3 py-1 text-xs font-bold text-[#A82F19]">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 px-3 py-1 text-xs font-bold text-[#D4AF65]">
                     <ArrowUpRight className="h-3.5 w-3.5" /> High Authority Off-Page SEO
                   </span>
                   <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-neutral-600">
@@ -3037,7 +3037,7 @@ export default function AdminSeoManagerPage() {
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-neutral-400">High Priority Targets</span>
-              <div className="text-3xl font-black text-[#A82F19] mt-1">
+              <div className="text-3xl font-black text-[#D4AF65] mt-1">
                 {backlinkOppData?.summary?.highPriority || backlinkOppData.items?.filter(i => (i.priority || '').toLowerCase() === 'high').length || 45}
               </div>
               <p className="text-[11px] text-neutral-500 mt-1">Maximum authority yield</p>
@@ -3071,13 +3071,13 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Local Directory' ? 'all' : 'Local Directory')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'Local Directory'
-                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  ? 'border-[#D4AF65] bg-[#D4AF65]/5 shadow-xs ring-1 ring-[#D4AF65]'
                   : 'border-neutral-200/80 bg-white hover:border-neutral-300'
               }`}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
-                  <MapPin className="h-4 w-4 text-[#A82F19]" /> 1. Local Dubai Citations
+                  <MapPin className="h-4 w-4 text-[#D4AF65]" /> 1. Local Dubai Citations
                 </span>
                 <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-600">
                   30 Targets
@@ -3092,7 +3092,7 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Industry Portal' ? 'all' : 'Industry Portal')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'Industry Portal'
-                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  ? 'border-[#D4AF65] bg-[#D4AF65]/5 shadow-xs ring-1 ring-[#D4AF65]'
                   : 'border-neutral-200/80 bg-white hover:border-neutral-300'
               }`}
             >
@@ -3113,7 +3113,7 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'B2B Profile' ? 'all' : 'B2B Profile')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'B2B Profile'
-                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  ? 'border-[#D4AF65] bg-[#D4AF65]/5 shadow-xs ring-1 ring-[#D4AF65]'
                   : 'border-neutral-200/80 bg-white hover:border-neutral-300'
               }`}
             >
@@ -3134,7 +3134,7 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Business Partner' ? 'all' : 'Business Partner')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'Business Partner'
-                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  ? 'border-[#D4AF65] bg-[#D4AF65]/5 shadow-xs ring-1 ring-[#D4AF65]'
                   : 'border-neutral-200/80 bg-white hover:border-neutral-300'
               }`}
             >
@@ -3155,7 +3155,7 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Guest Content' ? 'all' : 'Guest Content')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'Guest Content'
-                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  ? 'border-[#D4AF65] bg-[#D4AF65]/5 shadow-xs ring-1 ring-[#D4AF65]'
                   : 'border-neutral-200/80 bg-white hover:border-neutral-300'
               }`}
             >
@@ -3176,7 +3176,7 @@ export default function AdminSeoManagerPage() {
               onClick={() => setBacklinkOppCategory(backlinkOppCategory === 'Digital PR' ? 'all' : 'Digital PR')}
               className={`rounded-2xl border p-4 cursor-pointer transition-all ${
                 backlinkOppCategory === 'Digital PR'
-                  ? 'border-[#A82F19] bg-[#A82F19]/5 shadow-xs ring-1 ring-[#A82F19]'
+                  ? 'border-[#D4AF65] bg-[#D4AF65]/5 shadow-xs ring-1 ring-[#D4AF65]'
                   : 'border-neutral-200/80 bg-white hover:border-neutral-300'
               }`}
             >
@@ -3204,7 +3204,7 @@ export default function AdminSeoManagerPage() {
                   placeholder="Search website, domain, anchor, or URL..."
                   value={backlinkOppSearch}
                   onChange={(e) => setBacklinkOppSearch(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 focus:border-[#A82F19]"
+                  className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#D4AF65]/20 focus:border-[#D4AF65]"
                 />
               </div>
 
@@ -3212,7 +3212,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={backlinkOppCategory}
                   onChange={(e) => setBacklinkOppCategory(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 focus:border-[#A82F19] bg-white"
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#D4AF65]/20 focus:border-[#D4AF65] bg-white"
                 >
                   <option value="all">All 6 Pillars (All Categories)</option>
                   <option value="Local Directory">Pillar 1: Local Dubai Citations</option>
@@ -3228,7 +3228,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={backlinkOppPriority}
                   onChange={(e) => setBacklinkOppPriority(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 focus:border-[#A82F19] bg-white"
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#D4AF65]/20 focus:border-[#D4AF65] bg-white"
                 >
                   <option value="all">All Priorities</option>
                   <option value="High">High Priority</option>
@@ -3241,7 +3241,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={backlinkOppStatus}
                   onChange={(e) => setBacklinkOppStatus(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#A82F19]/20 focus:border-[#A82F19] bg-white"
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#D4AF65]/20 focus:border-[#D4AF65] bg-white"
                 >
                   <option value="all">All Statuses</option>
                   <option value="Planned">Planned</option>
@@ -3266,7 +3266,7 @@ export default function AdminSeoManagerPage() {
                     setBacklinkOppPriority('all')
                     setBacklinkOppStatus('all')
                   }}
-                  className="text-xs text-[#A82F19] hover:underline font-semibold cursor-pointer"
+                  className="text-xs text-[#D4AF65] hover:underline font-semibold cursor-pointer"
                 >
                   Clear all filters
                 </button>
@@ -3307,7 +3307,7 @@ export default function AdminSeoManagerPage() {
                                   href={item.website_url || item.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-neutral-400 hover:text-[#A82F19]"
+                                  className="text-neutral-400 hover:text-[#D4AF65]"
                                   title="Open website in new tab"
                                 >
                                   <ExternalLink className="h-3 w-3" />
@@ -3362,7 +3362,7 @@ export default function AdminSeoManagerPage() {
                               href={item.target_url || item.target_onprint_url || 'https://www.0nprint.com/'}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-[11px] text-[#A82F19] hover:underline font-mono truncate block mt-0.5"
+                              className="text-[11px] text-[#D4AF65] hover:underline font-mono truncate block mt-0.5"
                               title={item.target_url || item.target_onprint_url}
                             >
                               {(item.target_url || item.target_onprint_url || 'https://www.0nprint.com/').replace(/^https?:\/\/(www\.)?0nprint\.com/, '') || '/'}
@@ -3418,7 +3418,7 @@ export default function AdminSeoManagerPage() {
                                 disabled={isUpdating}
                                 value={item.status || 'Planned'}
                                 onChange={(e) => handleUpdateBacklinkStatus(item.id, e.target.value)}
-                                className="rounded-lg border border-neutral-200 bg-white px-2 py-1 text-[11px] font-semibold text-neutral-700 hover:border-neutral-300 focus:outline-none focus:ring-1 focus:ring-[#A82F19]"
+                                className="rounded-lg border border-neutral-200 bg-white px-2 py-1 text-[11px] font-semibold text-neutral-700 hover:border-neutral-300 focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
                               >
                                 <option value="Planned">Planned</option>
                                 <option value="Submitted">Submitted</option>
@@ -3480,7 +3480,7 @@ export default function AdminSeoManagerPage() {
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-neutral-400">High Priority Links</span>
-              <div className="text-3xl font-black text-[#A82F19] mt-1">{internalLinksData?.highPriorityCount || 0}</div>
+              <div className="text-3xl font-black text-[#D4AF65] mt-1">{internalLinksData?.highPriorityCount || 0}</div>
               <p className="text-[11px] text-neutral-500 mt-1">Direct PageRank flow to top money pages</p>
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
@@ -3548,7 +3548,7 @@ export default function AdminSeoManagerPage() {
                         <td className="py-3 pr-4 font-mono text-[11px] text-neutral-700 truncate max-w-[200px]">
                           {rec.source}
                         </td>
-                        <td className="py-3 pr-4 font-mono text-[11px] text-[#A82F19] font-bold truncate max-w-[200px]">
+                        <td className="py-3 pr-4 font-mono text-[11px] text-[#D4AF65] font-bold truncate max-w-[200px]">
                           {rec.target}
                         </td>
                         <td className="py-3 pr-4">
@@ -3627,7 +3627,7 @@ export default function AdminSeoManagerPage() {
                   </div>
                   <div className="text-[11px] text-neutral-500 mb-2">
                     <strong className="text-neutral-700 font-bold">Pillar Hub: </strong>
-                    <span className="font-mono text-[#A82F19]">{cluster.pillarPage}</span>
+                    <span className="font-mono text-[#D4AF65]">{cluster.pillarPage}</span>
                   </div>
                   <div className="space-y-1">
                     <span className="text-[10px] font-bold text-neutral-400 uppercase">Supporting Silo Nodes:</span>
@@ -3714,7 +3714,7 @@ export default function AdminSeoManagerPage() {
                   onClick={() => setPageTypeFilter(t.id)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                     pageTypeFilter === t.id
-                      ? 'bg-[#A82F19] text-white shadow-xs'
+                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
                       : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200/70'
                   }`}
                 >
@@ -3735,7 +3735,7 @@ export default function AdminSeoManagerPage() {
                   placeholder="Search URL, Title, Focus Keyword, H1..."
                   value={pageSearch}
                   onChange={(e) => setPageSearch(e.target.value)}
-                  className="w-full rounded-xl border border-neutral-200 bg-neutral-50 pl-10 pr-4 py-2 text-xs text-neutral-900 focus:bg-white focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-200 bg-neutral-50 pl-10 pr-4 py-2 text-xs text-neutral-900 focus:bg-white focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
 
@@ -3744,7 +3744,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={scoreFilter}
                   onChange={(e) => setScoreFilter(e.target.value)}
-                  className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-700 focus:border-[#A82F19] focus:outline-none"
+                  className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-700 focus:border-[#D4AF65] focus:outline-none"
                 >
                   <option value="all">All SEO Scores</option>
                   <option value="good">Optimal (80+)</option>
@@ -3756,7 +3756,7 @@ export default function AdminSeoManagerPage() {
                 <select
                   value={indexFilter}
                   onChange={(e) => setIndexFilter(e.target.value)}
-                  className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-700 focus:border-[#A82F19] focus:outline-none"
+                  className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-700 focus:border-[#D4AF65] focus:outline-none"
                 >
                   <option value="all">All Index Directives</option>
                   <option value="index">Indexable (index)</option>
@@ -3820,7 +3820,7 @@ export default function AdminSeoManagerPage() {
                                 href={p.url}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="text-[#A82F19] hover:opacity-80 shrink-0 p-0.5"
+                                className="text-[#D4AF65] hover:opacity-80 shrink-0 p-0.5"
                                 title="Open live page"
                               >
                                 <ExternalLink className="h-3 w-3" />
@@ -3864,7 +3864,7 @@ export default function AdminSeoManagerPage() {
                           {/* Focus Keyword */}
                           <td className="p-3.5 max-w-[170px]">
                             {p.focus_keyword ? (
-                              <span className="inline-block rounded-md bg-[#A82F19]/10 border border-[#A82F19]/20 px-2 py-0.5 text-[11px] font-bold text-[#A82F19] truncate max-w-full">
+                              <span className="inline-block rounded-md bg-[#D4AF65]/10 border border-[#D4AF65]/20 px-2 py-0.5 text-[11px] font-bold text-[#D4AF65] truncate max-w-full">
                                 {p.focus_keyword}
                               </span>
                             ) : (
@@ -3917,13 +3917,13 @@ export default function AdminSeoManagerPage() {
                             <div className="flex items-center justify-end gap-1.5">
                               <button
                                 onClick={() => setEditingPage(p)}
-                                className="px-2.5 py-1 rounded-lg border border-neutral-300 bg-white text-[11px] font-bold text-neutral-800 hover:border-[#A82F19] hover:text-[#A82F19] cursor-pointer transition-colors shadow-2xs"
+                                className="px-2.5 py-1 rounded-lg border border-neutral-300 bg-white text-[11px] font-bold text-neutral-800 hover:border-[#D4AF65] hover:text-[#D4AF65] cursor-pointer transition-colors shadow-2xs"
                               >
                                 Edit SEO
                               </button>
                               <button
                                 onClick={() => setAnalyzingPage(p)}
-                                className="px-2 py-1 rounded-lg bg-neutral-100 text-[#A82F19] hover:bg-[#A82F19]/10 text-[11px] font-bold cursor-pointer transition-colors"
+                                className="px-2 py-1 rounded-lg bg-neutral-100 text-[#D4AF65] hover:bg-[#D4AF65]/10 text-[11px] font-bold cursor-pointer transition-colors"
                                 title="Analyze with AI"
                               >
                                 <Sparkles className="h-3.5 w-3.5" />
@@ -3968,7 +3968,7 @@ export default function AdminSeoManagerPage() {
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-neutral-400">JSON-LD Format</span>
-              <div className="text-3xl font-black text-[#A82F19] mt-1">100% Compliant</div>
+              <div className="text-3xl font-black text-[#D4AF65] mt-1">100% Compliant</div>
               <p className="text-[11px] text-neutral-500 mt-1">Embedded directly in page head scripts</p>
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
@@ -3994,7 +3994,7 @@ export default function AdminSeoManagerPage() {
                   onClick={() => setSchemaSelectedType(typeKey)}
                   className={`rounded-xl px-3.5 py-2 text-xs font-bold transition-all cursor-pointer ${
                     schemaSelectedType === typeKey
-                      ? 'bg-[#A82F19] text-white shadow-xs'
+                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
                       : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-700'
                   }`}
                 >
@@ -4012,7 +4012,7 @@ export default function AdminSeoManagerPage() {
                         {SCHEMA_TEMPLATES[schemaSelectedType].title}
                       </h4>
                       <p className="text-xs text-neutral-500 mt-0.5">
-                        Target Routes: <span className="font-mono text-[#A82F19]">{SCHEMA_TEMPLATES[schemaSelectedType].target}</span>
+                        Target Routes: <span className="font-mono text-[#D4AF65]">{SCHEMA_TEMPLATES[schemaSelectedType].target}</span>
                       </p>
                     </div>
                     <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase px-2.5 py-1">
@@ -4045,7 +4045,7 @@ export default function AdminSeoManagerPage() {
                     href="https://search.google.com/test/rich-results"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#A82F19] hover:underline"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#D4AF65] hover:underline"
                   >
                     Open Google Rich Results Test <ExternalLink className="h-3 w-3" />
                   </a>
@@ -4070,7 +4070,7 @@ export default function AdminSeoManagerPage() {
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-neutral-400">Missing ALT Attributes</span>
-              <div className="text-3xl font-black text-[#A82F19] mt-1">{imageAuditData?.missingAltCount || 0}</div>
+              <div className="text-3xl font-black text-[#D4AF65] mt-1">{imageAuditData?.missingAltCount || 0}</div>
               <p className="text-[11px] text-neutral-500 mt-1">Blocks Google Image search indexing</p>
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
@@ -4154,7 +4154,7 @@ export default function AdminSeoManagerPage() {
                               type="text"
                               value={currentVal}
                               onChange={(e) => setEditingAlt({ ...editingAlt, [img.imageUrl]: e.target.value })}
-                              className="rounded-lg border border-neutral-200 bg-white px-2.5 py-1.5 text-xs text-neutral-900 w-48 focus:border-[#A82F19] focus:outline-none"
+                              className="rounded-lg border border-neutral-200 bg-white px-2.5 py-1.5 text-xs text-neutral-900 w-48 focus:border-[#D4AF65] focus:outline-none"
                             />
                           </td>
                           <td className="py-3 pr-4 font-mono text-[11px] text-neutral-500 truncate max-w-[150px]">
@@ -4210,7 +4210,7 @@ export default function AdminSeoManagerPage() {
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
               <span className="text-[10px] font-extrabold uppercase text-neutral-400">Dubai Geographic Hubs</span>
-              <div className="text-3xl font-black text-[#A82F19] mt-1">8 Hubs</div>
+              <div className="text-3xl font-black text-[#D4AF65] mt-1">8 Hubs</div>
               <p className="text-[11px] text-neutral-500 mt-1">Marina, DIFC, Business Bay, Al Quoz, etc.</p>
             </div>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-5 shadow-xs">
@@ -4242,7 +4242,7 @@ export default function AdminSeoManagerPage() {
               <a
                 href="/sitemap.xml"
                 target="_blank"
-                className="inline-flex items-center gap-1 text-xs font-bold text-[#A82F19] hover:underline"
+                className="inline-flex items-center gap-1 text-xs font-bold text-[#D4AF65] hover:underline"
               >
                 Verify in Sitemap.xml <ExternalLink className="h-3 w-3" />
               </a>
@@ -4279,7 +4279,7 @@ export default function AdminSeoManagerPage() {
                         </span>
                       </td>
                       <td className="py-3 pr-4 font-bold text-neutral-800">{page.targetKeyword}</td>
-                      <td className="py-3 pr-4 font-mono text-[11px] text-[#A82F19]">{page.url}</td>
+                      <td className="py-3 pr-4 font-mono text-[11px] text-[#D4AF65]">{page.url}</td>
                       <td className="py-3 pr-4 text-center">
                         <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase px-2.5 py-0.5">
                           Indexable
@@ -4290,7 +4290,7 @@ export default function AdminSeoManagerPage() {
                           href={page.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1 font-bold text-[#A82F19] hover:underline"
+                          className="inline-flex items-center gap-1 font-bold text-[#D4AF65] hover:underline"
                         >
                           <span>Live</span>
                           <ExternalLink className="h-3 w-3" />
@@ -4332,7 +4332,7 @@ export default function AdminSeoManagerPage() {
                   Algorithmically identified content deficits and commercial differentiation advantages.
                 </p>
               </div>
-              <span className="rounded-full bg-[#A82F19]/10 text-[#A82F19] font-black text-xs px-3 py-1">
+              <span className="rounded-full bg-[#D4AF65]/10 text-[#D4AF65] font-black text-xs px-3 py-1">
                 Strategic Opportunities
               </span>
             </div>
@@ -4388,7 +4388,7 @@ export default function AdminSeoManagerPage() {
                       <td className="py-3 pr-4 font-bold text-neutral-900">{item.topic}</td>
                       <td className="py-3 pr-4 text-neutral-600 max-w-xs">{item.competitorStrength}</td>
                       <td className="py-3 pr-4 text-emerald-800 font-semibold max-w-xs">{item.onprintAdvantage}</td>
-                      <td className="py-3 pr-4 text-[#A82F19] font-medium max-w-xs">{item.contentGap}</td>
+                      <td className="py-3 pr-4 text-[#D4AF65] font-medium max-w-xs">{item.contentGap}</td>
                       <td className="py-3 pr-4">
                         <span
                           className={`rounded px-2 py-0.5 text-[10px] font-extrabold uppercase ${
@@ -4559,7 +4559,7 @@ export default function AdminSeoManagerPage() {
                   value={gscForm.property}
                   onChange={(e) => setGscForm({ ...gscForm, property: e.target.value })}
                   placeholder="https://www.0nprint.com"
-                  className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
 
@@ -4608,7 +4608,7 @@ export default function AdminSeoManagerPage() {
                     value={gscForm.serviceAccountJson}
                     onChange={(e) => setGscForm({ ...gscForm, serviceAccountJson: e.target.value })}
                     placeholder='{"type": "service_account", "project_id": "...", "private_key": "...", ...}'
-                    className="w-full rounded-xl border border-neutral-200 bg-neutral-50 font-mono p-3.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-200 bg-neutral-50 font-mono p-3.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   />
                   <p className="mt-1.5 text-[11px] text-neutral-500">
                     Create a Service Account in Google Cloud Console, enable Search Console API, grant &quot;Owner&quot; or &quot;Full&quot; permissions in Google Search Console User settings, and paste the generated JSON key here.
@@ -4623,7 +4623,7 @@ export default function AdminSeoManagerPage() {
                       value={gscForm.clientId}
                       onChange={(e) => setGscForm({ ...gscForm, clientId: e.target.value })}
                       placeholder="e.g. 123456789-abcdef.apps.googleusercontent.com"
-                      className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs focus:border-[#A82F19] focus:outline-none"
+                      className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
                   <div>
@@ -4633,7 +4633,7 @@ export default function AdminSeoManagerPage() {
                       value={gscForm.clientSecret}
                       onChange={(e) => setGscForm({ ...gscForm, clientSecret: e.target.value })}
                       placeholder="Enter Client Secret..."
-                      className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs focus:border-[#A82F19] focus:outline-none"
+                      className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
                   <div>
@@ -4643,7 +4643,7 @@ export default function AdminSeoManagerPage() {
                       value={gscForm.refreshToken}
                       onChange={(e) => setGscForm({ ...gscForm, refreshToken: e.target.value })}
                       placeholder="Enter Refresh Token..."
-                      className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs focus:border-[#A82F19] focus:outline-none"
+                      className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -4654,7 +4654,7 @@ export default function AdminSeoManagerPage() {
                   type="submit"
                   variant="accent"
                   disabled={actionLoading}
-                  className="w-full sm:w-auto px-8 py-3 text-xs font-bold shadow-md shadow-[#A82F19]/20"
+                  className="w-full sm:w-auto px-8 py-3 text-xs font-bold shadow-md shadow-[#D4AF65]/20"
                 >
                   <Key className="h-4 w-4 mr-2" />
                   Save &amp; Test Search Console Connection
@@ -4858,7 +4858,7 @@ export default function AdminSeoManagerPage() {
                   <select
                     value={settingsForm.scheduler_enabled}
                     onChange={(e) => setSettingsForm({ ...settingsForm, scheduler_enabled: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   >
                     <option value="1">Enabled (Active Daily Pipeline)</option>
                     <option value="0">Disabled (Manual Triggers Only)</option>
@@ -4873,7 +4873,7 @@ export default function AdminSeoManagerPage() {
                     type="time"
                     value={settingsForm.daily_run_time}
                     onChange={(e) => setSettingsForm({ ...settingsForm, daily_run_time: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
 
@@ -4884,7 +4884,7 @@ export default function AdminSeoManagerPage() {
                   <select
                     value={settingsForm.auto_apply_safe}
                     onChange={(e) => setSettingsForm({ ...settingsForm, auto_apply_safe: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   >
                     <option value="0">Off (Require Manual Admin Approval)</option>
                     <option value="1">On (Auto-apply meta descriptions &amp; image ALTs)</option>
@@ -4902,7 +4902,7 @@ export default function AdminSeoManagerPage() {
                     max="1.0"
                     value={settingsForm.min_confidence_auto_apply}
                     onChange={(e) => setSettingsForm({ ...settingsForm, min_confidence_auto_apply: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
 
@@ -4913,7 +4913,7 @@ export default function AdminSeoManagerPage() {
                   <select
                     value={settingsForm.ai_provider}
                     onChange={(e) => setSettingsForm({ ...settingsForm, ai_provider: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   >
                     <option value="gemini">Google Gemini (Gemini 1.5 Flash / Pro)</option>
                     <option value="openai">OpenAI (GPT-4o / GPT-4o-mini)</option>
@@ -4929,7 +4929,7 @@ export default function AdminSeoManagerPage() {
                     placeholder={settingsData?.ai_api_key_masked || 'Enter AI API Key...'}
                     value={settingsForm.ai_api_key}
                     onChange={(e) => setSettingsForm({ ...settingsForm, ai_api_key: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-200 bg-white p-3 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
               </div>
@@ -4940,7 +4940,7 @@ export default function AdminSeoManagerPage() {
                   variant="accent"
                   icon={false}
                   disabled={actionLoading}
-                  className="px-6 py-2.5 text-xs font-bold shadow-md shadow-[#A82F19]/20"
+                  className="px-6 py-2.5 text-xs font-bold shadow-md shadow-[#D4AF65]/20"
                 >
                   Save Automation Settings
                 </Button>
@@ -4969,7 +4969,7 @@ export default function AdminSeoManagerPage() {
                   setCopiedKey(true)
                   setTimeout(() => setCopiedKey(false), 2000)
                 }}
-                className="shrink-0 text-white hover:text-[#A82F19] transition-colors p-1 cursor-pointer"
+                className="shrink-0 text-white hover:text-[#D4AF65] transition-colors p-1 cursor-pointer"
               >
                 {copiedKey ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
               </button>

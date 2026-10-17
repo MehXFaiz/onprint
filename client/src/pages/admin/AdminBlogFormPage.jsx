@@ -684,7 +684,7 @@ export default function AdminBlogFormPage() {
   if (loading) {
     return (
       <div className="flex min-h-[400px] items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#A82F19] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D4AF65] border-t-transparent" />
       </div>
     )
   }
@@ -724,9 +724,9 @@ export default function AdminBlogFormPage() {
           <button
             type="button"
             onClick={() => setShowAiModal(true)}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-300 bg-white px-3.5 py-2 text-xs font-bold text-neutral-800 shadow-xs hover:border-[#A82F19] hover:text-[#A82F19] transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-300 bg-white px-3.5 py-2 text-xs font-bold text-neutral-800 shadow-xs hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all cursor-pointer"
           >
-            <Sparkles className="h-4 w-4 text-[#A82F19]" />
+            <Sparkles className="h-4 w-4 text-[#D4AF65]" />
             <span>CREATE BLOG WITH AI</span>
           </button>
 
@@ -748,7 +748,7 @@ export default function AdminBlogFormPage() {
             disabled={seoAnalysisLoading}
             className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-3.5 py-2 text-xs font-bold text-neutral-700 shadow-xs hover:border-neutral-400 transition-all cursor-pointer disabled:opacity-50"
           >
-            <Gauge className={`h-4 w-4 text-[#A82F19] ${seoAnalysisLoading ? 'animate-spin' : ''}`} />
+            <Gauge className={`h-4 w-4 text-[#D4AF65] ${seoAnalysisLoading ? 'animate-spin' : ''}`} />
             <span>{seoAnalysisLoading ? 'ANALYZING…' : 'ANALYZE SEO'}</span>
           </button>
 
@@ -835,7 +835,7 @@ export default function AdminBlogFormPage() {
                 onChange={handleTitleChange}
                 placeholder="e.g. The Complete Guide to Commercial & Digital Printing in Dubai"
                 required
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -844,7 +844,7 @@ export default function AdminBlogFormPage() {
               <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
                 SEO URL Slug <span className="text-red-500">*</span>
               </label>
-              <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-500 focus-within:border-[#A82F19]">
+              <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-500 focus-within:border-[#D4AF65]">
                 <span className="text-neutral-400">/blog/</span>
                 <input
                   type="text"
@@ -874,7 +874,7 @@ export default function AdminBlogFormPage() {
                 <select
                   value={form.category_id}
                   onChange={(e) => setForm((prev) => ({ ...prev, category_id: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 >
                   <option value="">-- General / No Category --</option>
                   {categories.map((c) => (
@@ -892,7 +892,7 @@ export default function AdminBlogFormPage() {
                 <select
                   value={form.product_id}
                   onChange={(e) => setForm((prev) => ({ ...prev, product_id: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 >
                   <option value="">-- General / No Related Product --</option>
                   {products.map((p) => (
@@ -914,7 +914,7 @@ export default function AdminBlogFormPage() {
                   type="text"
                   value={form.author_name}
                   onChange={(e) => setForm((prev) => ({ ...prev, author_name: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
 
@@ -928,7 +928,7 @@ export default function AdminBlogFormPage() {
                   max="60"
                   value={form.reading_time}
                   onChange={(e) => setForm((prev) => ({ ...prev, reading_time: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
 
@@ -936,7 +936,7 @@ export default function AdminBlogFormPage() {
                 <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
                   Target Location
                 </label>
-                <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus-within:border-[#A82F19]">
+                <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus-within:border-[#D4AF65]">
                   <MapPin className="h-3.5 w-3.5 text-neutral-400 mr-1 shrink-0" />
                   <input
                     type="text"
@@ -959,7 +959,7 @@ export default function AdminBlogFormPage() {
                 value={form.excerpt}
                 onChange={(e) => setForm((prev) => ({ ...prev, excerpt: e.target.value }))}
                 placeholder="A compelling 2-sentence summary introducing the article to search engines and readers…"
-                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -974,7 +974,7 @@ export default function AdminBlogFormPage() {
                   value={form.content}
                   onChange={(e) => setForm((prev) => ({ ...prev, content: e.target.value }))}
                   placeholder="<h2>Why Commercial Printing Matters</h2><p>Article paragraphs...</p><ul><li>Point 1</li></ul>"
-                  className="w-full rounded-xl border border-neutral-300 p-3 font-mono text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none leading-relaxed"
+                  className="w-full rounded-xl border border-neutral-300 p-3 font-mono text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none leading-relaxed"
                 />
               ) : (
                 <div className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-6 min-h-[300px]">
@@ -990,7 +990,7 @@ export default function AdminBlogFormPage() {
           {/* SEO & Meta Tags Card */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
             <div className="flex items-center gap-2 border-b border-neutral-100 pb-3">
-              <Search className="h-4 w-4 text-[#A82F19]" />
+              <Search className="h-4 w-4 text-[#D4AF65]" />
               <h2 className="font-display text-base font-bold text-neutral-900">
                 SEO &amp; Open Graph Meta Configuration
               </h2>
@@ -1014,7 +1014,7 @@ export default function AdminBlogFormPage() {
                   setForm((prev) => ({ ...prev, meta_title: v, seo_title: v }))
                 }}
                 placeholder="e.g. Commercial Printing in Dubai | Complete Guide | ONPRINT"
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -1033,7 +1033,7 @@ export default function AdminBlogFormPage() {
                 value={form.meta_description}
                 onChange={(e) => setForm((prev) => ({ ...prev, meta_description: e.target.value }))}
                 placeholder="Accurate, high-CTR summary of article content with primary keywords and clear brand value..."
-                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -1048,7 +1048,7 @@ export default function AdminBlogFormPage() {
                   value={form.focus_keyword}
                   onChange={(e) => setForm((prev) => ({ ...prev, focus_keyword: e.target.value }))}
                   placeholder="e.g. commercial printing dubai"
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
 
@@ -1061,7 +1061,7 @@ export default function AdminBlogFormPage() {
                   value={form.secondary_keywords}
                   onChange={(e) => setForm((prev) => ({ ...prev, secondary_keywords: e.target.value }))}
                   placeholder="e.g. flyer printing, luxury card stocks, foil stamping"
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
             </div>
@@ -1075,7 +1075,7 @@ export default function AdminBlogFormPage() {
                 <select
                   value={form.robots_index}
                   onChange={(e) => setForm((prev) => ({ ...prev, robots_index: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 >
                   <option value="index">index (Allow Google Search Indexing)</option>
                   <option value="noindex">noindex (Block from Search Results)</option>
@@ -1089,7 +1089,7 @@ export default function AdminBlogFormPage() {
                 <select
                   value={form.robots_follow}
                   onChange={(e) => setForm((prev) => ({ ...prev, robots_follow: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 >
                   <option value="follow">follow (Crawl and Pass PageRank)</option>
                   <option value="nofollow">nofollow (Do Not Pass Authority)</option>
@@ -1108,7 +1108,7 @@ export default function AdminBlogFormPage() {
                   value={form.canonical_url}
                   onChange={(e) => setForm((prev) => ({ ...prev, canonical_url: e.target.value }))}
                   placeholder="https://www.0nprint.com/blog/..."
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
 
@@ -1121,7 +1121,7 @@ export default function AdminBlogFormPage() {
                   value={form.schema_type}
                   onChange={(e) => setForm((prev) => ({ ...prev, schema_type: e.target.value }))}
                   placeholder="BlogPosting"
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
             </div>
@@ -1141,7 +1141,7 @@ export default function AdminBlogFormPage() {
                     value={form.og_title}
                     onChange={(e) => setForm((prev) => ({ ...prev, og_title: e.target.value }))}
                     placeholder={form.meta_title || form.title}
-                    className="w-full rounded-lg border border-neutral-300 px-2.5 py-1.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-lg border border-neutral-300 px-2.5 py-1.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -1153,7 +1153,7 @@ export default function AdminBlogFormPage() {
                     value={form.og_image}
                     onChange={(e) => setForm((prev) => ({ ...prev, og_image: e.target.value }))}
                     placeholder={form.featured_image || 'https://www.0nprint.com/images/...'}
-                    className="w-full rounded-lg border border-neutral-300 px-2.5 py-1.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-lg border border-neutral-300 px-2.5 py-1.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
               </div>
@@ -1183,7 +1183,7 @@ export default function AdminBlogFormPage() {
           <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
             <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
               <div className="flex items-center gap-2">
-                <HelpCircle className="h-4 w-4 text-[#A82F19]" />
+                <HelpCircle className="h-4 w-4 text-[#D4AF65]" />
                 <h2 className="font-display text-base font-bold text-neutral-900">
                   Frequently Asked Questions (FAQPage Schema)
                 </h2>
@@ -1251,7 +1251,7 @@ export default function AdminBlogFormPage() {
                         value={faq.question || ''}
                         onChange={(e) => handleUpdateFaq(idx, 'question', e.target.value)}
                         placeholder="e.g. What is the turnaround time for corporate stationery in Dubai?"
-                        className="w-full rounded-xl border border-neutral-300 p-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none bg-white"
+                        className="w-full rounded-xl border border-neutral-300 p-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none bg-white"
                       />
                     </div>
 
@@ -1264,7 +1264,7 @@ export default function AdminBlogFormPage() {
                         value={faq.answer || ''}
                         onChange={(e) => handleUpdateFaq(idx, 'answer', e.target.value)}
                         placeholder="Clear, authoritative answer that directly answers the question..."
-                        className="w-full rounded-xl border border-neutral-300 p-2 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none bg-white"
+                        className="w-full rounded-xl border border-neutral-300 p-2 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none bg-white"
                       />
                     </div>
                   </div>
@@ -1280,7 +1280,7 @@ export default function AdminBlogFormPage() {
           <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs space-y-4">
             <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
               <div className="flex items-center gap-2">
-                <Gauge className="h-4 w-4 text-[#A82F19]" />
+                <Gauge className="h-4 w-4 text-[#D4AF65]" />
                 <h2 className="font-display text-sm font-bold text-neutral-900">
                   AI SEO Optimizer Score
                 </h2>
@@ -1289,7 +1289,7 @@ export default function AdminBlogFormPage() {
                 type="button"
                 onClick={handleRunLiveAnalysis}
                 disabled={seoAnalysisLoading}
-                className="inline-flex items-center gap-1 text-[11px] font-bold text-[#A82F19] hover:underline cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-1 text-[11px] font-bold text-[#D4AF65] hover:underline cursor-pointer disabled:opacity-50"
               >
                 <RefreshCw className={`h-3 w-3 ${seoAnalysisLoading ? 'animate-spin' : ''}`} />
                 <span>Re-Score</span>
@@ -1476,7 +1476,7 @@ export default function AdminBlogFormPage() {
               <select
                 value={form.status}
                 onChange={(e) => setForm((prev) => ({ ...prev, status: e.target.value }))}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-bold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               >
                 <option value="draft">Draft (Private)</option>
                 <option value="published">Published (Live on Website)</option>
@@ -1493,7 +1493,7 @@ export default function AdminBlogFormPage() {
                 type="datetime-local"
                 value={form.published_at}
                 onChange={(e) => setForm((prev) => ({ ...prev, published_at: e.target.value }))}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -1507,7 +1507,7 @@ export default function AdminBlogFormPage() {
                 type="checkbox"
                 checked={form.is_featured}
                 onChange={(e) => setForm((prev) => ({ ...prev, is_featured: e.target.checked }))}
-                className="h-4 w-4 rounded text-[#A82F19] focus:ring-[#A82F19] cursor-pointer"
+                className="h-4 w-4 rounded text-[#D4AF65] focus:ring-[#D4AF65] cursor-pointer"
               />
             </div>
           </div>
@@ -1522,7 +1522,7 @@ export default function AdminBlogFormPage() {
                 type="button"
                 onClick={handleGenerateImage}
                 disabled={aiImageLoading}
-                className="inline-flex items-center gap-1 text-[11px] font-bold text-[#A82F19] hover:underline cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-1 text-[11px] font-bold text-[#D4AF65] hover:underline cursor-pointer disabled:opacity-50"
               >
                 <RefreshCw className={`h-3 w-3 ${aiImageLoading ? 'animate-spin' : ''}`} />
                 <span>Auto Match Image</span>
@@ -1544,7 +1544,7 @@ export default function AdminBlogFormPage() {
                 onChange={(e) => setForm((prev) => ({ ...prev, image_alt: e.target.value }))}
                 placeholder={form.title || 'Descriptive printing ALT text'}
                 required
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
           </div>
@@ -1579,7 +1579,7 @@ export default function AdminBlogFormPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs overflow-y-auto">
           <div className="w-full max-w-xl rounded-3xl bg-white p-6 sm:p-8 shadow-2xl space-y-5 border border-neutral-200 my-8">
             <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
-              <div className="flex items-center gap-2.5 text-[#A82F19]">
+              <div className="flex items-center gap-2.5 text-[#D4AF65]">
                 <Sparkles className="h-5 w-5" />
                 <h3 className="font-display text-lg font-black text-neutral-900 uppercase tracking-tight">
                   CREATE BLOG WITH AI
@@ -1609,7 +1609,7 @@ export default function AdminBlogFormPage() {
                   value={aiPrompt.topic}
                   onChange={(e) => setAiPrompt((p) => ({ ...p, topic: e.target.value }))}
                   placeholder="e.g. The Ultimate Guide to Luxury Business Card Printing in Dubai"
-                  className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                  className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
 
@@ -1624,7 +1624,7 @@ export default function AdminBlogFormPage() {
                     value={aiPrompt.targetKeyword}
                     onChange={(e) => setAiPrompt((p) => ({ ...p, targetKeyword: e.target.value }))}
                     placeholder="e.g. business card printing dubai"
-                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
 
@@ -1637,7 +1637,7 @@ export default function AdminBlogFormPage() {
                     value={aiPrompt.targetLocation}
                     onChange={(e) => setAiPrompt((p) => ({ ...p, targetLocation: e.target.value }))}
                     placeholder="Dubai, UAE"
-                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-semibold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
               </div>
@@ -1651,7 +1651,7 @@ export default function AdminBlogFormPage() {
                   <select
                     value={aiPrompt.language}
                     onChange={(e) => setAiPrompt((p) => ({ ...p, language: e.target.value }))}
-                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-bold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   >
                     <option value="English">English</option>
                     <option value="Arabic">Arabic</option>
@@ -1665,7 +1665,7 @@ export default function AdminBlogFormPage() {
                   <select
                     value={aiPrompt.tone}
                     onChange={(e) => setAiPrompt((p) => ({ ...p, tone: e.target.value }))}
-                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-bold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   >
                     <option value="Professional">Professional</option>
                     <option value="Informative">Informative</option>
@@ -1681,7 +1681,7 @@ export default function AdminBlogFormPage() {
                   <select
                     value={aiPrompt.articleLength}
                     onChange={(e) => setAiPrompt((p) => ({ ...p, articleLength: e.target.value }))}
-                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-bold text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   >
                     <option value="1500–2000 words">1500–2000 words</option>
                     <option value="1000–1500 words">1000–1500 words</option>
@@ -1699,7 +1699,7 @@ export default function AdminBlogFormPage() {
                   <select
                     value={aiPrompt.category_id}
                     onChange={(e) => setAiPrompt((p) => ({ ...p, category_id: e.target.value }))}
-                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-medium text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   >
                     <option value="">Auto-Detect from Topic</option>
                     {categories.map((c) => (
@@ -1717,7 +1717,7 @@ export default function AdminBlogFormPage() {
                   <select
                     value={aiPrompt.product_id}
                     onChange={(e) => setAiPrompt((p) => ({ ...p, product_id: e.target.value }))}
-                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-medium text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs font-medium text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
                   >
                     <option value="">Auto-Detect from Topic</option>
                     {products.map((p) => (
@@ -1756,7 +1756,7 @@ export default function AdminBlogFormPage() {
                 variant="accent"
                 onClick={handleGenerateAiContent}
                 disabled={aiLoading}
-                className="text-xs font-bold bg-[#A82F19] hover:bg-[#8e2714]"
+                className="text-xs font-bold bg-[#D4AF65] hover:bg-[#C39E54]"
               >
                 <Sparkles className={`h-4 w-4 mr-1.5 ${aiLoading ? 'animate-spin' : ''}`} />
                 <span>{aiLoading ? 'GENERATING PRINTING ARTICLE…' : 'GENERATE BLOG'}</span>
@@ -1817,7 +1817,7 @@ export default function AdminBlogFormPage() {
                   <div className="font-bold text-neutral-700 uppercase tracking-wider text-[10px]">
                     Focus Keyword
                   </div>
-                  <div className="font-semibold text-[#A82F19] mt-0.5">
+                  <div className="font-semibold text-[#D4AF65] mt-0.5">
                     {seoAiSuggestions.focus_keyword || '—'}
                   </div>
                 </div>
@@ -1842,7 +1842,7 @@ export default function AdminBlogFormPage() {
                   </div>
                   <div className="space-y-2">
                     {seoAiSuggestions.faqs.map((f, fi) => (
-                      <div key={fi} className="border-l-2 border-[#A82F19] pl-3 py-0.5">
+                      <div key={fi} className="border-l-2 border-[#D4AF65] pl-3 py-0.5">
                         <div className="font-bold text-neutral-900">{f.question}</div>
                         <div className="text-neutral-600 text-[11px] mt-0.5">{f.answer}</div>
                       </div>

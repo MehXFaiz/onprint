@@ -324,14 +324,14 @@ export default function Product360Viewer({
             </div>
 
             <div
-              className="absolute top-0 bottom-0 right-0 w-[12px] rounded-r-xs bg-gradient-to-r from-[#A82F19] to-[#7d1e0c]"
+              className="absolute top-0 bottom-0 right-0 w-[12px] rounded-r-xs bg-gradient-to-r from-[#D4AF65] to-[#C39E54]"
               style={{
                 transform: 'rotateY(90deg) translateZ(6px) translateX(6px)',
                 transformOrigin: 'right center',
               }}
             />
             <div
-              className="absolute top-0 bottom-0 left-0 w-[12px] rounded-l-xs bg-gradient-to-l from-[#A82F19] to-[#7d1e0c]"
+              className="absolute top-0 bottom-0 left-0 w-[12px] rounded-l-xs bg-gradient-to-l from-[#D4AF65] to-[#C39E54]"
               style={{
                 transform: 'rotateY(-90deg) translateZ(6px) translateX(-6px)',
                 transformOrigin: 'left center',
@@ -345,7 +345,7 @@ export default function Product360Viewer({
               }}
             />
             <div
-              className="absolute bottom-0 left-0 right-0 h-[12px] bg-gradient-to-t from-[#6e1909] to-[#8f2410]"
+              className="absolute bottom-0 left-0 right-0 h-[12px] bg-gradient-to-t from-[#6e1909] to-[#D4AF65]"
               style={{
                 transform: 'rotateX(-90deg) translateZ(6px) translateY(6px)',
                 transformOrigin: 'bottom center',

@@ -108,7 +108,7 @@ export default function AdminQuoteFormPage() {
         <div>
           <Link
             to="/admin/quotes"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A82F19] hover:underline mb-2"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:underline mb-2"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Back to Quotes
@@ -133,7 +133,7 @@ export default function AdminQuoteFormPage() {
         <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs space-y-5">
           <div className="border-b border-neutral-100 pb-4">
             <h3 className="font-display text-base font-bold text-neutral-900 flex items-center gap-2">
-              <FileText className="h-4 w-4 text-[#A82F19]" />
+              <FileText className="h-4 w-4 text-[#D4AF65]" />
               Quote Request Details
             </h3>
             <p className="text-xs text-neutral-500">Client contact and estimated pricing.</p>
@@ -150,7 +150,7 @@ export default function AdminQuoteFormPage() {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="Khalid Real Estate"
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -164,7 +164,7 @@ export default function AdminQuoteFormPage() {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder="khalid@khalidre.ae"
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
           </div>
@@ -179,7 +179,7 @@ export default function AdminQuoteFormPage() {
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 placeholder="+971 55 444 3322"
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -191,7 +191,7 @@ export default function AdminQuoteFormPage() {
                 type="number"
                 value={form.totalPrice}
                 onChange={(e) => setForm({ ...form, totalPrice: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -202,7 +202,7 @@ export default function AdminQuoteFormPage() {
               <select
                 value={form.status}
                 onChange={(e) => setForm({ ...form, status: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs font-bold text-neutral-900 focus:border-[#A82F19] focus:outline-none cursor-pointer"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs font-bold text-neutral-900 focus:border-[#D4AF65] focus:outline-none cursor-pointer"
               >
                 <option value="New">New Lead</option>
                 <option value="Contacted">Contacted</option>
@@ -225,7 +225,7 @@ export default function AdminQuoteFormPage() {
               value={form.notes}
               onChange={(e) => setForm({ ...form, notes: e.target.value })}
               placeholder="Custom size, material paper weight, foil debossing details..."
-              className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#A82F19] focus:outline-none"
+              className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
             />
           </div>
         </div>
@@ -244,7 +244,7 @@ export default function AdminQuoteFormPage() {
             variant="accent"
             icon={false}
             disabled={submitting}
-            className="!px-6 shadow-md shadow-[#A82F19]/20"
+            className="!px-6 shadow-md shadow-[#D4AF65]/20"
           >
             <Save className="h-4 w-4 mr-1.5" />
             {submitting ? 'Saving...' : isEdit ? 'Update Quote' : 'Save Quote'}

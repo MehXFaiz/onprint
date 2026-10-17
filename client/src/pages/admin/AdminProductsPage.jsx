@@ -66,7 +66,7 @@ export default function AdminProductsPage() {
           onClick={() => navigate('/admin/products/new')}
           variant="accent"
           icon={false}
-          className="shadow-md shadow-[#A82F19]/20 self-start sm:self-auto cursor-pointer"
+          className="shadow-md shadow-[#D4AF65]/20 self-start sm:self-auto cursor-pointer"
         >
           <Plus className="h-4 w-4 mr-1.5" />
           Add Product
@@ -94,7 +94,7 @@ export default function AdminProductsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search products..."
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#A82F19] focus:outline-none"
+            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none"
           />
         </div>
 
@@ -103,7 +103,7 @@ export default function AdminProductsPage() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full sm:w-auto rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#A82F19] focus:outline-none cursor-pointer"
+            className="w-full sm:w-auto rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D4AF65] focus:outline-none cursor-pointer"
           >
             <option value="ALL">All Categories</option>
             {categories.map((c) => (
@@ -139,13 +139,13 @@ export default function AdminProductsPage() {
                     className="h-full w-full object-cover"
                   />
                   {p.featured && (
-                    <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-[#A82F19] px-2.5 py-0.5 text-[9px] font-extrabold uppercase text-white shadow-xs">
+                    <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[9px] font-extrabold uppercase text-white shadow-xs">
                       <Sparkles className="h-3 w-3" /> Featured
                     </span>
                   )}
                 </div>
 
-                <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#A82F19]">
+                <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF65]">
                   {catName}
                 </div>
                 <h3 className="font-display font-bold text-base text-neutral-900 mt-1 line-clamp-1">
@@ -198,7 +198,7 @@ export default function AdminProductsPage() {
           >
             Previous
           </button>
-          <button type="button" className="rounded-xl bg-[#A82F19] px-3 py-1.5 font-bold text-white shadow-xs">
+          <button type="button" className="rounded-xl bg-[#D4AF65] px-3 py-1.5 font-bold text-white shadow-xs">
             1
           </button>
           <button

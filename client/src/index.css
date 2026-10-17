@@ -1,29 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  /* ONPRINT — Premium Navy & Gold Brand Identity */
-  --primary-navy: #101D35;          /* Midnight Navy */
-  --secondary-navy: #343D4F;        /* Slate Navy / Secondary Text */
-  --gold: #D4AF65;                  /* Champagne Gold */
-  --gold-hover: #B89245;            /* Deep Gold */
-  --gold-soft: #F9F5EC;             /* Champagne Gold Soft Tint */
-  --background: #FFFFFF;            /* Pure White */
-  --background-alt: #F5F2EB;        /* Warm Ivory */
-  --surface: #FFFFFF;               /* Clean Surface */
-  --surface-alt: #F5F2EB;           /* Alternate Surface */
-  --surface-dark: #101D35;          /* Midnight Navy Dark Surface */
-  --surface-dark-elevated: #16243F; /* Elevated Navy */
-  --primary: #101D35;               /* Midnight Navy Text */
-  --secondary: #343D4F;             /* Dark Slate Body Text */
-  --text-primary: #101D35;
-  --text-secondary: #343D4F;
-  --text-muted: #6B7280;
-  --border: #E5E7EB;                /* Light Grey */
-  --border-subtle: #F3F4F6;
-  --accent: #D4AF65;                /* Champagne Gold */
-  --accent-hover: #B89245;          /* Deep Gold */
-  --accent-soft: #F9F5EC;
-  --whatsapp: #25D366;
+  /* ONPRINT — Brand Identity & Design System Tokens */
+  --midnight-navy: #101D35;            /* Header, footer, hero sections */
+  --midnight-navy-dark: #0B1426;       /* Deepest Navy Surface */
+  --midnight-navy-elevated: #162542;   /* Elevated Navy Surface */
+  --midnight-navy-surface: #1B2C4D;    /* Navy Card Surface */
+  --midnight-navy-border: #28395A;     /* Navy Border */
+
+  --champagne-gold: #D4AF65;           /* Brand accents, icons, premium details */
+  --champagne-gold-hover: #C39E54;     /* Rich Gold Hover */
+  --champagne-gold-active: #B89347;    /* Deep Gold Active */
+  --champagne-gold-soft: #FDF9F0;      /* Warm Gold Ultra-Soft Tint */
+  --champagne-gold-border: #E8D3A7;    /* Subtle Gold Border */
+
+  --pure-white: #FFFFFF;               /* Product pages, cards, main backgrounds */
+  --warm-ivory: #F5F2EB;               /* Alternate sections, luxury backgrounds */
+  --warm-ivory-dark: #ECE7DC;          /* Slightly deeper warm ivory */
+
+  --slate-navy: #343D4F;               /* Secondary text, muted dark surfaces */
+  --slate-navy-muted: #596579;         /* Muted Slate Body Text */
+  --slate-navy-light: #7E8B9F;         /* Light Muted Slate Text */
+
+  /* Semantic System Aliases */
+  --primary: #D4AF65;                  /* Champagne Gold */
+  --primary-hover: #C39E54;            /* Gold Hover */
+  --primary-active: #B89347;           /* Gold Active */
+  --primary-soft: #FDF9F0;             /* Soft Tint */
+  --primary-soft-border: #E8D3A7;      /* Gold Border */
+
+  --dark: #101D35;                     /* Midnight Navy */
+  --dark-elevated: #162542;            /* Elevated Dark Surface */
+  --dark-surface: #1B2C4D;             /* Dark Card Surface */
+  --dark-border: #28395A;              /* Dark Border */
+
+  --background: #FFFFFF;               /* Pure White Canvas */
+  --background-alt: #F5F2EB;           /* Warm Ivory Alternate */
+  --surface: #FFFFFF;                  /* Pure White Card Surface */
+  --surface-alt: #F5F2EB;              /* Warm Ivory Surface */
+
+  --text-primary: #101D35;             /* Midnight Navy Primary Text */
+  --text-secondary: #343D4F;           /* Slate Navy Secondary Text */
+  --text-muted: #596579;               /* Muted Slate Navy */
+  --text-light: #7E8B9F;               /* Light Muted Text */
+
+  --border: #E5E1D8;                   /* Subtle Warm Border */
+  --border-subtle: #F0ECE4;            /* Soft Border */
+  --border-hover: #D4AF65;             /* Champagne Gold Hover Border */
+
+  --whatsapp: #25D366;                 /* Official WhatsApp Green */
+  --whatsapp-hover: #20BA59;           /* WhatsApp Hover */
 }
 
 @theme {
@@ -31,44 +57,47 @@
   --color-background-alt: var(--background-alt);
   --color-surface: var(--surface);
   --color-surface-alt: var(--surface-alt);
-  --color-surface-dark: var(--surface-dark);
+  --color-surface-dark: var(--dark);
   --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
   --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-soft: var(--accent-soft);
 
-  --color-navy: #101D35;
-  --color-navy-dark: #0B1426;
-  --color-navy-light: #182846;
-  --color-navy-slate: #343D4F;
-  --color-gold: #D4AF65;
-  --color-gold-hover: #B89245;
-  --color-gold-soft: #F9F5EC;
-  --color-ivory: #F5F2EB;
-  --color-border-light: #E5E7EB;
+  /* Primary Brand Theme Tokens */
+  --color-midnight-navy: #101D35;
+  --color-midnight-navy-dark: #0B1426;
+  --color-midnight-navy-light: #162542;
+  --color-champagne-gold: #D4AF65;
+  --color-champagne-gold-hover: #C39E54;
+  --color-champagne-gold-soft: #FDF9F0;
+  --color-pure-white: #FFFFFF;
+  --color-warm-ivory: #F5F2EB;
+  --color-warm-ivory-dark: #ECE7DC;
+  --color-slate-navy: #343D4F;
+  --color-slate-navy-muted: #596579;
+  --color-slate-navy-light: #7E8B9F;
 
-  /* Remap slate scale to Slate Navy & Midnight Navy scale */
-  --color-slate-50: #F8F9FA;
-  --color-slate-100: #F5F2EB;
-  --color-slate-200: #E5E7EB;
-  --color-slate-300: #D1D5DB;
-  --color-slate-400: #9CA3AF;
-  --color-slate-500: #6B7280;
-  --color-slate-600: #343D4F;
-  --color-slate-700: #252D3D;
-  --color-slate-800: #1B2436;
-  --color-slate-900: #101D35;
-  --color-slate-950: #0B1426;
+  /* Backward compatibility aliases mapping old orange/dark classes to new theme */
+  --color-brand-orange: #D4AF65;
+  --color-brand-orange-hover: #C39E54;
+  --color-brand-orange-soft: #FDF9F0;
+  --color-brand-dark: #101D35;
+  --color-brand-surface: #162542;
+
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-900: #0F172A;
+  --color-slate-950: #020617;
 
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
-
-  --color-brand-50: #F9F5EC;
-  --color-brand-100: #F3E8CE;
-  --color-brand-600: #D4AF65;
-  --color-brand-700: #B89245;
 }
 
 html {
@@ -77,8 +106,8 @@ html {
 
 body {
   background-color: var(--background);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: var(--secondary);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'cv11', 'ss01';
@@ -96,17 +125,17 @@ body {
 }
 
 /* =========================================================================
-   PREMIUM NAVY & GOLD BENTO CARDS & SURFACES
+   MODERN ARCHITECTURAL BENTO CARDS & SURFACES
    ========================================================================= */
 
 .bento-card {
   position: relative;
   background: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #E5E1D8;
   border-radius: 1.5rem;
   box-shadow:
-    0 2px 8px -2px rgba(16, 29, 53, 0.04),
-    0 12px 28px -6px rgba(16, 29, 53, 0.05);
+    0 1px 3px 0 rgba(16, 29, 53, 0.02),
+    0 4px 12px -2px rgba(16, 29, 53, 0.04);
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -116,19 +145,19 @@ body {
 .bento-card:hover {
   border-color: #D4AF65;
   box-shadow:
-    0 20px 40px -10px rgba(16, 29, 53, 0.1),
-    0 4px 12px -2px rgba(212, 175, 101, 0.15);
+    0 20px 40px -12px rgba(16, 29, 53, 0.12),
+    0 1px 3px 0 rgba(16, 29, 53, 0.04);
   transform: translateY(-4px);
 }
 
 .bento-card-dark {
   position: relative;
   background: #101D35;
-  border: 1px solid rgba(212, 175, 101, 0.3);
+  border: 1px solid #28395A;
   border-radius: 1.5rem;
   color: #FFFFFF;
   box-shadow:
-    0 24px 50px -12px rgba(11, 20, 38, 0.6),
+    0 24px 50px -12px rgba(11, 20, 38, 0.5),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -139,16 +168,16 @@ body {
 .bento-card-dark:hover {
   border-color: #D4AF65;
   box-shadow:
-    0 28px 60px -12px rgba(11, 20, 38, 0.7),
-    0 0 30px -5px rgba(212, 175, 101, 0.25);
+    0 28px 60px -12px rgba(11, 20, 38, 0.65),
+    0 0 25px -5px rgba(212, 175, 101, 0.2);
   transform: translateY(-4px);
 }
 
 .card-clean {
   background-color: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #E5E1D8;
   border-radius: 1.25rem;
-  box-shadow: 0 2px 8px -2px rgba(16, 29, 53, 0.04);
+  box-shadow: 0 1px 3px rgba(16, 29, 53, 0.02);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -161,15 +190,17 @@ body {
 .btn-primary {
   background: #D4AF65;
   color: #101D35;
-  font-weight: 700;
+  font-weight: 800;
+  border: 1px solid #D4AF65;
   border-radius: 9999px;
-  box-shadow: 0 4px 14px rgba(212, 175, 101, 0.25);
+  box-shadow: 0 4px 14px rgba(212, 175, 101, 0.28);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
-  background: #B89245;
-  box-shadow: 0 8px 24px rgba(184, 146, 69, 0.35);
+  background: #C39E54;
+  border-color: #C39E54;
+  box-shadow: 0 8px 24px rgba(212, 175, 101, 0.38);
   transform: translateY(-2px);
 }
 
@@ -183,60 +214,28 @@ body {
 }
 
 .btn-secondary:hover {
-  background-color: #182846;
-  border-color: #182846;
+  background-color: #162542;
+  border-color: #D4AF65;
   transform: translateY(-2px);
 }
 
-/* =========================================================================
-   CHAMPAGNE GOLD FOIL TEXT & BADGES
-   ========================================================================= */
-
-@keyframes foil-pan {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.foil-text-gradient {
-  background: linear-gradient(
-    110deg,
-    #D4AF65 0%,
-    #F3E3B6 35%,
-    #FFFFFF 50%,
-    #F3E3B6 65%,
-    #B89245 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: foil-pan 6s ease-in-out infinite;
-}
-
-.gold-badge {
-  background: linear-gradient(135deg, rgba(212, 175, 101, 0.18) 0%, rgba(212, 175, 101, 0.08) 100%);
-  border: 1px solid rgba(212, 175, 101, 0.45);
-  color: #D4AF65;
-}
-
-/* Custom Navy Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F2EB;
+  background: #F4F4F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #101D35;
+  background: #A1A1AA;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF65;
+  background: #71717A;
 }
 
 /* Infinite Marquee */
@@ -248,90 +247,10 @@ body {
 .hero-marquee-track {
   display: flex;
   width: max-content;
-  animation: onprint-marquee 34s linear infinite;
+  animation: onprint-marquee 32s linear infinite;
+  will-change: transform;
 }
 
 .hero-marquee-track:hover {
   animation-play-state: paused;
-}
-
-/* Luxury Shimmer Sweep for Buttons & Badges */
-@keyframes shimmer-sweep {
-  0% { transform: translateX(-150%); }
-  50%, 100% { transform: translateX(150%); }
-}
-
-.animate-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.animate-shimmer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.35) 50%,
-    transparent 100%
-  );
-  transform: translateX(-150%);
-  animation: shimmer-sweep 3.5s infinite ease-in-out;
-  pointer-events: none;
-}
-
-/* Radar Pulse / Live Status Ping */
-@keyframes radar-ring {
-  0% {
-    transform: scale(0.95);
-    opacity: 0.8;
-  }
-  70% {
-    transform: scale(2.2);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(2.2);
-    opacity: 0;
-  }
-}
-
-.animate-radar-ring {
-  animation: radar-ring 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-@keyframes sweep-light {
-  0% {
-    transform: translateX(-150%) skewX(-20deg);
-    opacity: 0;
-  }
-  30% {
-    opacity: 0.85;
-  }
-  70% {
-    opacity: 0.85;
-  }
-  100% {
-    transform: translateX(250%) skewX(-20deg);
-    opacity: 0;
-  }
-}
-
-.animate-sweep-light {
-  animation: sweep-light 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }

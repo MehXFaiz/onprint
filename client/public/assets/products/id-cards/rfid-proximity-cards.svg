@@ -71,6 +71,6 @@
 
     <!-- Bottom Footer -->
     <text x="45" y="565" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="800">STANDARD CR80 ISO 0.84mm • WATERPROOF</text>
-    <text x="475" y="565" fill="#A82F19" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="end">ONPRINT DUBAI</text>
+    <text x="475" y="565" fill="#D4AF65" font-family="system-ui, sans-serif" font-size="12" font-weight="900" text-anchor="end">ONPRINT DUBAI</text>
   </g>
 </svg>

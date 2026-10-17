@@ -134,7 +134,7 @@ export default function RegisterPage() {
               variant="accent"
               size="lg"
               icon={false}
-              className="w-full justify-center mt-2 shadow-md shadow-[#A82F19]/20"
+              className="w-full justify-center mt-2 shadow-md shadow-[#D4AF65]/20"
             >
               {loading ? 'Creating Account...' : 'Register Client Account'}
             </Button>

@@ -107,7 +107,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@company.com"
-                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#A82F19]"
+                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
             </div>
 
@@ -122,7 +122,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#A82F19]"
+                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
             </div>
 
@@ -131,7 +131,7 @@ export default function LoginPage() {
               variant="accent"
               size="lg"
               icon={false}
-              className="w-full justify-center mt-2 shadow-md shadow-[#A82F19]/20"
+              className="w-full justify-center mt-2 shadow-md shadow-[#D4AF65]/20"
             >
               {loading ? 'Authenticating...' : 'Sign In to Portal'}
             </Button>

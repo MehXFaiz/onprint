@@ -71,12 +71,12 @@ function SectionCardGroup({ section, onQuickView }) {
   const visibleItems = section.items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
 
   return (
-    <div className="relative rounded-3xl border border-[#E5E7EB] bg-white p-5 sm:p-8 lg:p-10 shadow-xs transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl">
+    <div className="relative rounded-3xl border border-[#E5E1D8] bg-white p-5 sm:p-8 lg:p-10 shadow-xs transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl">
       {/* Top Header Section */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-zinc-100">
         <div>
           {/* Eyebrow Chip */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#E5E7EB] bg-[#F5F2EB] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-[#101D35] mb-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#E5E1D8] bg-[#F5F2EB] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-[#101D35] mb-3">
             <span className="flex h-2 w-2 rounded-full bg-[#D4AF65] animate-pulse" />
             <span>SECTION {section.sectionNumber}</span>
             <span className="text-zinc-300">•</span>
@@ -95,7 +95,7 @@ function SectionCardGroup({ section, onQuickView }) {
               <span className="h-1 w-1.5 rounded-full bg-zinc-200" />
             </div>
           </div>
-          <p className="mt-3 max-w-2xl text-xs sm:text-sm text-[#343D4F] leading-relaxed">
+          <p className="mt-3 max-w-2xl text-xs sm:text-sm text-[#52525B] leading-relaxed">
             {section.subtitle}
           </p>
         </div>
@@ -249,7 +249,7 @@ export default function ProductSectionsShowcase({
     return null
   }
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-white border-y border-[#E5E7EB]">
+    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-white border-y border-[#E5E1D8]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Intro Banner */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -276,7 +276,7 @@ export default function ProductSectionsShowcase({
         </div>
 
         {/* Bottom Guarantee Banner */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-[#E5E7EB] bg-[#F5F2EB]/50 p-5 sm:p-7 shadow-xs">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-[#E5E1D8] bg-[#F5F2EB]/50 p-5 sm:p-7 shadow-xs">
           <div className="flex items-start sm:items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#101D35] text-[#D4AF65] font-bold shadow-2xs">
               <ShieldCheck className="h-5 w-5 text-[#D4AF65]" />

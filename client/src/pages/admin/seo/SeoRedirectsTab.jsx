@@ -177,7 +177,7 @@ export default function SeoRedirectsTab({ showToast }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#A82F19]/10 px-2.5 py-0.5 text-xs font-bold text-[#A82F19]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 text-xs font-bold text-[#D4AF65]">
                 <RotateCcw className="h-3.5 w-3.5" />
                 HTTP Status & 404 Defense
               </span>
@@ -201,7 +201,7 @@ export default function SeoRedirectsTab({ showToast }) {
                 setFormData(initialForm)
                 setShowAddModal(true)
               }}
-              className="text-xs font-bold bg-[#A82F19] text-white hover:bg-[#8f2714]"
+              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
             >
               <Plus className="h-3.5 w-3.5 mr-1.5" />
               Add Redirect Rule
@@ -229,9 +229,9 @@ export default function SeoRedirectsTab({ showToast }) {
             <div className="mt-0.5 text-[10px] text-blue-600">Short-term routing</div>
           </div>
 
-          <div className="rounded-xl border border-[#A82F19]/20 bg-[#A82F19]/5 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#A82F19]">Hits Intercepted</div>
-            <div className="mt-1 text-2xl font-black text-[#A82F19]">{summary.hits}</div>
+          <div className="rounded-xl border border-[#D4AF65]/20 bg-[#D4AF65]/5 p-4">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF65]">Hits Intercepted</div>
+            <div className="mt-1 text-2xl font-black text-[#D4AF65]">{summary.hits}</div>
             <div className="mt-0.5 text-[10px] text-neutral-500">404s prevented</div>
           </div>
         </div>
@@ -249,7 +249,7 @@ export default function SeoRedirectsTab({ showToast }) {
                 setTestInput(e.target.value)
                 setTestResult(null)
               }}
-              className="w-full px-4 py-2.5 text-xs rounded-xl border border-neutral-300 bg-neutral-50/50 focus:outline-none focus:border-[#A82F19] font-mono"
+              className="w-full px-4 py-2.5 text-xs rounded-xl border border-neutral-300 bg-neutral-50/50 focus:outline-none focus:border-[#D4AF65] font-mono"
             />
           </div>
           <Button
@@ -258,7 +258,7 @@ export default function SeoRedirectsTab({ showToast }) {
             size="sm"
             className="text-xs font-bold shrink-0 w-full sm:w-auto"
           >
-            <Play className="h-3.5 w-3.5 mr-1.5 text-[#A82F19]" />
+            <Play className="h-3.5 w-3.5 mr-1.5 text-[#D4AF65]" />
             Test Path
           </Button>
         </form>
@@ -272,7 +272,7 @@ export default function SeoRedirectsTab({ showToast }) {
                   <span className="font-bold text-emerald-700">Intercepted!</span>{' '}
                   <span className="font-mono text-neutral-800">{testResult.source}</span> redirects with{' '}
                   <span className="font-bold text-neutral-900">{testResult.statusCode}</span> to{' '}
-                  <span className="font-mono font-bold text-[#A82F19]">{testResult.target}</span>
+                  <span className="font-mono font-bold text-[#D4AF65]">{testResult.target}</span>
                 </div>
               </>
             ) : (
@@ -297,14 +297,14 @@ export default function SeoRedirectsTab({ showToast }) {
             placeholder="Search source, target, or notes..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#A82F19]"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#D4AF65]"
           />
         </div>
 
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#A82F19] w-full sm:w-auto"
+          className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D4AF65] w-full sm:w-auto"
         >
           <option value="all">All HTTP Codes</option>
           <option value="301">301 Moved Permanently</option>
@@ -355,7 +355,7 @@ export default function SeoRedirectsTab({ showToast }) {
                       </span>
                     </td>
 
-                    <td className="py-3 px-4 font-mono text-[#A82F19] font-bold">
+                    <td className="py-3 px-4 font-mono text-[#D4AF65] font-bold">
                       <div className="flex items-center gap-1.5">
                         <ArrowRight className="h-3 w-3 text-neutral-400 shrink-0" />
                         <span className="truncate max-w-xs">{item.target_path}</span>
@@ -445,7 +445,7 @@ export default function SeoRedirectsTab({ showToast }) {
                   placeholder="/old-catalog/business-cards"
                   value={formData.source_path}
                   onChange={(e) => setFormData({ ...formData, source_path: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs focus:outline-none focus:border-[#A82F19]"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs focus:outline-none focus:border-[#D4AF65]"
                 />
                 <span className="text-[10px] text-neutral-400 mt-0.5 block">
                   The incoming 404 or deprecated URL path
@@ -462,7 +462,7 @@ export default function SeoRedirectsTab({ showToast }) {
                   placeholder="/business-card-printing-dubai"
                   value={formData.target_path}
                   onChange={(e) => setFormData({ ...formData, target_path: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs focus:outline-none focus:border-[#A82F19]"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs focus:outline-none focus:border-[#D4AF65]"
                 />
               </div>
 
@@ -474,7 +474,7 @@ export default function SeoRedirectsTab({ showToast }) {
                   <select
                     value={formData.status_code}
                     onChange={(e) => setFormData({ ...formData, status_code: Number(e.target.value) })}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs font-semibold focus:outline-none focus:border-[#A82F19]"
+                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs font-semibold focus:outline-none focus:border-[#D4AF65]"
                   >
                     <option value={301}>301 Permanent (SEO Best)</option>
                     <option value={302}>302 Found (Temporary)</option>
@@ -488,7 +488,7 @@ export default function SeoRedirectsTab({ showToast }) {
                   <select
                     value={formData.is_active}
                     onChange={(e) => setFormData({ ...formData, is_active: Number(e.target.value) })}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs font-semibold focus:outline-none focus:border-[#A82F19]"
+                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs font-semibold focus:outline-none focus:border-[#D4AF65]"
                   >
                     <option value={1}>Active (Enabled)</option>
                     <option value={0}>Disabled</option>
@@ -505,7 +505,7 @@ export default function SeoRedirectsTab({ showToast }) {
                   placeholder="Legacy WordPress URL migration..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#A82F19]"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D4AF65]"
                 />
               </div>
 
@@ -524,7 +524,7 @@ export default function SeoRedirectsTab({ showToast }) {
                   variant="accent"
                   size="sm"
                   disabled={actionLoading}
-                  className="text-xs font-bold bg-[#A82F19] text-white hover:bg-[#8f2714]"
+                  className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#C39E54]"
                 >
                   {actionLoading ? 'Saving...' : editingItem ? 'Update Rule' : 'Create Rule'}
                 </Button>

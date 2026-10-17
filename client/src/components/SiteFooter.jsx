@@ -8,9 +8,9 @@ import { getServiceWhatsAppUrl, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-[#E5E7EB] bg-[#101D35] text-slate-300">
+    <footer className="border-t border-[#28395A] bg-[#101D35] text-slate-300">
       {/* 1. HIGH-CONTRAST CALL TO ACTION BANNER */}
-      <div className="border-b border-[#D4AF65]/25 bg-[#0B1426] text-white py-16 sm:py-20 relative overflow-hidden">
+      <div className="border-b border-[#28395A] bg-[#0B1426] text-white py-16 sm:py-20 relative overflow-hidden">
         <div
           className="pointer-events-none absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl"
           aria-hidden="true"
@@ -35,7 +35,7 @@ export default function SiteFooter() {
           <div className="flex flex-wrap items-center justify-center gap-3.5">
             <Link
               to="/get-a-quote"
-              className="inline-flex items-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-6 sm:px-7 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/20 transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C39E54] px-6 sm:px-7 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/25 transition-all"
               onClick={() => trackGetQuoteClick({ source_page: 'footer_cta_banner' })}
             >
               <span>Request Custom Quote</span>
@@ -58,7 +58,7 @@ export default function SiteFooter() {
         </Container>
       </div>
 
-      {/* 2. MAIN MODERNIST NAVY & GOLD FOOTER GRID */}
+      {/* 2. MAIN MODERNIST FOOTER GRID */}
       <Container className="py-14 sm:py-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 text-slate-300">
         {/* Col 1: Brand Info */}
         <div className="space-y-4 lg:col-span-2 pr-4">
@@ -118,124 +118,113 @@ export default function SiteFooter() {
             </li>
             <li>
               <Link to="/categories/stickers-printing-dubai" className="transition-colors hover:text-[#D4AF65]">
-                Stickers &amp; Roll Labels
+                Custom Sticker &amp; Label Printing
               </Link>
             </li>
             <li>
               <Link to="/categories/roll-up-banners-dubai" className="transition-colors hover:text-[#D4AF65]">
-                Roll-Up Banner Displays
+                Roll-Up Banners Dubai
               </Link>
             </li>
             <li>
               <Link to="/categories/letterheads-printing-dubai" className="transition-colors hover:text-[#D4AF65]">
-                Corporate Letterheads
+                Executive Letterheads
               </Link>
             </li>
             <li>
-              <Link to="/products" className="transition-colors font-bold text-[#D4AF65] hover:text-white">
-                Browse Full Catalog →
+              <Link to="/categories/bottle-printing-dubai" className="transition-colors hover:text-[#D4AF65]">
+                Custom Bottle Printing
+              </Link>
+            </li>
+            <li>
+              <Link to="/products" className="inline-flex items-center gap-1 text-[#D4AF65] hover:underline font-bold pt-1">
+                <span>View Full 200+ Catalog</span>
+                <ArrowRight className="h-3 w-3" />
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* Col 3: Services & Company */}
+        {/* Col 3: Services & Pressroom */}
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF65]">Pressroom</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF65]">Commercial Services</p>
           <ul className="mt-4 space-y-2.5 text-xs sm:text-sm font-medium">
             <li>
-              <Link to="/about" className="transition-colors hover:text-[#D4AF65]">
-                About ONPRINT
+              <Link to="/services" className="transition-colors hover:text-[#D4AF65]">
+                All Printing Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/services#production-process" className="transition-colors hover:text-[#D4AF65]">
+                German Heidelberg Offset
               </Link>
             </li>
             <li>
               <Link to="/services" className="transition-colors hover:text-[#D4AF65]">
-                Printing Disciplines
+                HP Indigo Digital Press
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="transition-colors hover:text-[#D4AF65]">
+                24K Hot Foil Stamping
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="transition-colors hover:text-[#D4AF65]">
+                Raised 3D Spot UV
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="transition-colors hover:text-[#D4AF65]">
+                Same-Day Rush Dispatch
               </Link>
             </li>
             <li>
               <Link to="/portfolio" className="transition-colors hover:text-[#D4AF65]">
-                Client Portfolio
-              </Link>
-            </li>
-            <li>
-              <Link to="/blog" className="transition-colors hover:text-[#D4AF65]">
-                Printing Journal &amp; Guides
-              </Link>
-            </li>
-            <li>
-              <Link to="/track-order" className="transition-colors hover:text-[#D4AF65]">
-                Track Existing Order
-              </Link>
-            </li>
-            <li>
-              <Link to="/faq" className="transition-colors hover:text-[#D4AF65]">
-                Prepress &amp; Delivery FAQ
+                Selected Portfolio
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* Col 4: Dubai Atelier & Contact */}
+        {/* Col 4: Pressroom Address & Hours */}
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF65]">Dubai Facility</p>
-          <ul className="mt-4 space-y-3 text-xs sm:text-sm">
-            <li className="flex items-start gap-2.5">
-              <MapPin className="h-4 w-4 text-[#D4AF65] shrink-0 mt-0.5" />
-              <span className="text-slate-200 leading-snug">
-                Al Quoz Industrial 4 Pressroom, Dubai, UAE
-              </span>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <Mail className="h-4 w-4 text-[#D4AF65] shrink-0" />
-              <a href="mailto:0nprint183@gmail.com" className="transition-colors hover:text-[#D4AF65]">
-                0nprint183@gmail.com
-              </a>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 shrink-0">
-                <WhatsAppIcon className="h-3 w-3 fill-current" />
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF65]">Pressroom &amp; Atelier</p>
+          <div className="mt-4 space-y-3 text-xs leading-relaxed text-slate-300">
+            <div className="flex items-start gap-2.5">
+              <MapPin className="h-4 w-4 shrink-0 text-[#D4AF65] mt-0.5" />
+              <span>Al Quoz Industrial Area 4, Dubai, United Arab Emirates</span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <Clock className="h-4 w-4 shrink-0 text-[#D4AF65] mt-0.5" />
+              <div>
+                <p>Monday – Saturday: 9:00 AM – 8:00 PM</p>
+                <p className="text-emerald-400 font-semibold mt-0.5">24h Priority Emergency Hotline</p>
               </div>
-              <a
-                href={getServiceWhatsAppUrl('general')}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  trackWhatsAppClick({ source_page: 'footer_contact_list', service: 'general', button_location: 'footer_contact' })
-                }
-                className="font-bold text-emerald-400 transition-colors hover:text-emerald-300"
-              >
-                {FORMATTED_PHONE}
-              </a>
-            </li>
-            <li className="flex items-center gap-2.5 text-xs text-slate-400 pt-1">
-              <Clock className="h-3.5 w-3.5 text-[#D4AF65] shrink-0" />
-              <span>Mon–Sat: 8:30 AM – 6:30 PM GST</span>
-            </li>
-          </ul>
-
-          <div className="mt-4 pt-3 border-t border-white/10">
-            <div className="flex items-center gap-2 text-xs font-semibold text-white bg-white/5 border border-[#D4AF65]/30 rounded-xl p-2.5">
-              <ShieldCheck className="h-4 w-4 text-[#D4AF65] shrink-0" />
-              <span>100% Pre-Flight Insured Quality</span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
+              <span>UAE Delivery Across All 7 Emirates: Dubai, Abu Dhabi, Sharjah, Ajman, RAK, Fujairah, UAQ</span>
             </div>
           </div>
         </div>
       </Container>
 
-      {/* 3. COPYRIGHT & LEGAL BAR */}
-      <div className="border-t border-white/10 bg-[#0B1426] py-6 text-xs text-slate-400">
+      {/* 3. BOTTOM COPYRIGHT & LEGAL BAR */}
+      <div className="border-t border-[#28395A] bg-[#0B1426] py-6 text-xs text-slate-400">
         <Container className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} ONPRINT Commercial Printing LLC — Dubai, UAE. All rights reserved.</p>
-          <div className="flex items-center gap-6 font-medium">
-            <Link to="/privacy-policy" className="hover:text-[#D4AF65] transition-colors">
+          <p>© {new Date().getFullYear()} ONPRINT Commercial Printing LLC. All rights reserved. Registered in Dubai, UAE.</p>
+          <div className="flex items-center gap-6">
+            <Link to="/privacy-policy" className="hover:text-slate-200 transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="hover:text-[#D4AF65] transition-colors">
+            <span className="text-slate-600">|</span>
+            <Link to="/terms" className="hover:text-slate-200 transition-colors">
               Terms &amp; Conditions
             </Link>
-            <Link to="/contact" className="hover:text-[#D4AF65] transition-colors">
-              Contact Pressroom
+            <span className="text-slate-600">|</span>
+            <Link to="/track-order" className="hover:text-slate-200 transition-colors">
+              Track Order
             </Link>
           </div>
         </Container>

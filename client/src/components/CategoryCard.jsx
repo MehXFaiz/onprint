@@ -73,7 +73,7 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
               {category.name}
             </Link>
           </h3>
-          <p className="mt-1 text-xs text-[#343D4F] line-clamp-2 leading-relaxed">
+          <p className="mt-1 text-xs text-[#52525B] line-clamp-2 leading-relaxed">
             {category.description || `Explore precision custom ${category.name?.toLowerCase()} printing in Dubai.`}
           </p>
         </div>

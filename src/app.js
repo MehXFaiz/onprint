@@ -118,7 +118,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
           <ul style="line-height: 1.8; color: #475569;">
             ${productData.price ? `<li><strong>Starting Price:</strong> AED ${escapeHtml(productData.price)}</li>` : ''}
             ${productData.minimumQuantity ? `<li><strong>Minimum Order Quantity (MOQ):</strong> ${escapeHtml(productData.minimumQuantity)} units</li>` : ''}
-            ${productData.category?.name ? `<li><strong>Category:</strong> <a href="/categories/${escapeHtml(productData.category.slug || '')}" style="color: #A82F19;">${escapeHtml(productData.category.name)}</a></li>` : ''}
+            ${productData.category?.name ? `<li><strong>Category:</strong> <a href="/categories/${escapeHtml(productData.category.slug || '')}" style="color: #D4AF65;">${escapeHtml(productData.category.name)}</a></li>` : ''}
             <li><strong>Production Hub:</strong> Al Quoz Central Pressroom, Dubai, UAE</li>
             <li><strong>Turnaround:</strong> Express Same-Day Rush or Standard 24–48 Hours across Dubai, Abu Dhabi &amp; all Emirates</li>
           </ul>
@@ -159,7 +159,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
           <ul style="line-height: 2;">
             ${matchingProducts.map(p => `
               <li>
-                <a href="/products/${escapeHtml(p.slug)}" style="color: #A82F19; font-weight: 600; text-decoration: underline;">${escapeHtml(p.name)}</a>
+                <a href="/products/${escapeHtml(p.slug)}" style="color: #D4AF65; font-weight: 600; text-decoration: underline;">${escapeHtml(p.name)}</a>
                 ${p.shortDescription ? ` — <span style="color: #64748b;">${escapeHtml(p.shortDescription)}</span>` : ''}
               </li>
             `).join('')}
@@ -410,27 +410,27 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
   return `
     <div style="font-family: system-ui, -apple-system, sans-serif; color: #0f172a; background: #ffffff; max-width: 1200px; margin: 0 auto; padding: 20px;">
       <header style="border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-        <a href="/" style="font-size: 1.5rem; font-weight: 900; color: #0f172a; text-decoration: none; letter-spacing: 0.1em;">
-          ON<span style="color: #A82F19;">PRINT</span>
+        <a href="/" style="font-size: 1.5rem; font-weight: 900; color: #101D35; text-decoration: none; letter-spacing: 0.1em;">
+          ON<span style="color: #D4AF65;">PRINT</span>
         </a>
         <nav style="display: flex; gap: 14px; font-size: 0.875rem; font-weight: 600; flex-wrap: wrap;">
-          <a href="/" style="color: #0f172a; text-decoration: none;">Home</a>
-          <a href="/products" style="color: #0f172a; text-decoration: none;">Products</a>
-          <a href="/categories" style="color: #0f172a; text-decoration: none;">Categories</a>
-          <a href="/business-card-printing-dubai" style="color: #A82F19; text-decoration: none;">Business Cards</a>
-          <a href="/categories/letterheads-printing-dubai" style="color: #0f172a; text-decoration: none;">Stationery</a>
-          <a href="/services" style="color: #0f172a; text-decoration: none;">Services</a>
-          <a href="/blog" style="color: #0f172a; text-decoration: none;">Guides</a>
-          <a href="/about" style="color: #0f172a; text-decoration: none;">About</a>
-          <a href="/contact" style="color: #0f172a; text-decoration: none;">Contact</a>
-          <a href="/get-a-quote" style="color: #ffffff; background: #A82F19; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">Get a Quote</a>
+          <a href="/" style="color: #101D35; text-decoration: none;">Home</a>
+          <a href="/products" style="color: #101D35; text-decoration: none;">Products</a>
+          <a href="/categories" style="color: #101D35; text-decoration: none;">Categories</a>
+          <a href="/business-card-printing-dubai" style="color: #D4AF65; text-decoration: none; font-weight: 700;">Business Cards</a>
+          <a href="/categories/letterheads-printing-dubai" style="color: #101D35; text-decoration: none;">Stationery</a>
+          <a href="/services" style="color: #101D35; text-decoration: none;">Services</a>
+          <a href="/blog" style="color: #101D35; text-decoration: none;">Guides</a>
+          <a href="/about" style="color: #101D35; text-decoration: none;">About</a>
+          <a href="/contact" style="color: #101D35; text-decoration: none;">Contact</a>
+          <a href="/get-a-quote" style="color: #101D35; background: #D4AF65; font-weight: 700; padding: 6px 14px; border-radius: 9999px; text-decoration: none;">Get a Quote</a>
         </nav>
       </header>
 
       <main id="main-content">
         <article>
-          <h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2;">${escapeHtml(pageHeading)}</h1>
-          <p style="font-size: 1.125rem; color: #475569; line-height: 1.6; margin-bottom: 2rem;">${escapeHtml(metaDesc)}</p>
+          <h1 style="font-size: 2.25rem; font-weight: 800; color: #101D35; margin-bottom: 1rem; line-height: 1.2;">${escapeHtml(pageHeading)}</h1>
+          <p style="font-size: 1.125rem; color: #343D4F; line-height: 1.6; margin-bottom: 2rem;">${escapeHtml(metaDesc)}</p>
           ${dynamicBody}
         </article>
       </main>
@@ -439,7 +439,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
         <div>
           <strong>ONPRINT Printing &amp; Branding Solutions</strong><br />
           Al Quoz, Dubai, United Arab Emirates<br />
-          Email: <a href="mailto:0nprint183@gmail.com" style="color: #A82F19;">0nprint183@gmail.com</a> | WhatsApp: <a href="https://wa.me/447344546056?text=${encodeURIComponent(`Hello 0nprint, I am visiting ${siteUrl}${requestPath === '/' ? '' : requestPath} and would like to request printing prices and custom quotation details.`)}" style="color: #A82F19;">+44 7344546056</a>
+          Email: <a href="mailto:0nprint183@gmail.com" style="color: #D4AF65;">0nprint183@gmail.com</a> | WhatsApp: <a href="https://wa.me/447344546056?text=${encodeURIComponent(`Hello 0nprint, I am visiting ${siteUrl}${requestPath === '/' ? '' : requestPath} and would like to request printing prices and custom quotation details.`)}" style="color: #D4AF65;">+44 7344546056</a>
         </div>
         <div>
           <a href="/privacy-policy" style="color: #64748b; margin-right: 12px;">Privacy Policy</a>

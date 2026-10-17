@@ -153,7 +153,7 @@ export default function MugsLeadPage() {
       />
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-slate-200/80">
+      <section className="relative overflow-hidden bg-[#101D35] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#28395A]">
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65] bg-[#D4AF65]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
@@ -161,16 +161,16 @@ export default function MugsLeadPage() {
               <span>Commercial Drinkware Press • Al Quoz, Dubai</span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
               Custom Coffee Mug Printing{' '}
               <span className="font-serif italic text-[#D4AF65]">in Dubai &amp; UAE</span>
             </h1>
 
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
               Dishwasher-safe ceramic mugs, magic heat-activated mugs, and double-wall tumblers for corporate gifting and brand merchandising. Instant quote with WhatsApp pre-press verification.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-slate-700">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-slate-300">
               <span className="inline-flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-[#D4AF65]" />
                 Dishwasher &amp; Microwave Safe
@@ -264,7 +264,7 @@ export default function MugsLeadPage() {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                           placeholder="Your name"
                         />
                       </div>
@@ -278,7 +278,7 @@ export default function MugsLeadPage() {
                           required
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                           placeholder="+971 50 123 4567"
                         />
                       </div>
@@ -295,7 +295,7 @@ export default function MugsLeadPage() {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                           placeholder="you@company.ae"
                         />
                       </div>
@@ -306,7 +306,7 @@ export default function MugsLeadPage() {
                           name="company"
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                           placeholder="Brand / Company"
                         />
                       </div>
@@ -322,7 +322,7 @@ export default function MugsLeadPage() {
                           required
                           value={formData.mugType}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                         >
                           {MUG_TYPES.map((type) => (
                             <option key={type.id} value={type.name}>
@@ -340,7 +340,7 @@ export default function MugsLeadPage() {
                           required
                           value={formData.quantity}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
+                          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                         >
                           {QUANTITY_OPTIONS.map((qty) => (
                             <option key={qty} value={qty}>
@@ -357,7 +357,7 @@ export default function MugsLeadPage() {
                         name="boxPackaging"
                         value={formData.boxPackaging}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19]"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                       >
                         <option value="Individual White Gift Box">Individual White Cardboard Gift Box (Standard)</option>
                         <option value="Custom Printed Box">Custom Branded Rigid Gift Box with Logo</option>
@@ -374,7 +374,7 @@ export default function MugsLeadPage() {
                         value={formData.message}
                         onChange={handleChange}
                         rows={3}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#A82F19] resize-none"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] resize-none"
                         placeholder="e.g. Single logo facing right-handed drinker, or full panoramic 360 wrap..."
                       />
                     </div>
@@ -382,7 +382,7 @@ export default function MugsLeadPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#8F2412] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#D4AF65]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                      className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#C39E54] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#D4AF65]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? 'Submitting Specifications…' : 'Submit Specification & Get Official Quote →'}
                     </button>

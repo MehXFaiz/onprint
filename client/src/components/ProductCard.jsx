@@ -177,7 +177,7 @@ export default function ProductCard({
         {/* Top-Left Floating Badge Group */}
         <div className="absolute left-3 top-3 z-20 pointer-events-none flex flex-wrap items-center gap-1.5">
           {isFeatured ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wider text-[#101D35] shadow-xs">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[9.5px] font-black uppercase tracking-wider text-[#101D35] shadow-xs">
               <Sparkles className="h-3 w-3" />
               Signature
             </span>
@@ -262,7 +262,7 @@ export default function ProductCard({
         <div className="min-w-0 space-y-1.5">
           {categoryName ? (
             <div className="flex items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F5F2EB] border border-[#E5E7EB] px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#343D4F] truncate max-w-full">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F4F4F5] border border-[#E5E7EB] px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#52525B] truncate max-w-full">
                 <span className="h-1 w-1 rounded-full bg-[#D4AF65]" />
                 {categoryName}
               </span>
@@ -278,7 +278,7 @@ export default function ProductCard({
           </h3>
 
           {/* Short Description */}
-          <p className="text-xs leading-relaxed text-[#343D4F] line-clamp-2 break-words">
+          <p className="text-xs leading-relaxed text-[#52525B] line-clamp-2 break-words">
             {product.shortDescription || product.description || `High-precision custom commercial printing for ${product.name} in Dubai.`}
           </p>
 

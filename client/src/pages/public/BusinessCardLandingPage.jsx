@@ -1292,11 +1292,11 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {filteredCards?.map((card) => (
-              <div
-                key={card.id}
-                className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-neutral-200/90 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#D4AF65] hover:shadow-xl"
-              >
+            {filteredCards?.map((card, idx) => (
+              <Reveal key={card.id} delay={Math.min((idx % 4) * 0.08, 0.3)}>
+                <div
+                  className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-neutral-200/90 bg-white shadow-xs transition-all duration-300 card-hover-lift hover-shimmer h-full"
+                >
                 <div>
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
                     <img
@@ -1352,6 +1352,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   </button>
                 </div>
               </div>
+            </Reveal>
             ))}
           </div>
         </section>
@@ -1371,23 +1372,24 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {INDUSTRY_SOLUTIONS?.map((item) => {
+            {INDUSTRY_SOLUTIONS?.map((item, idx) => {
               const Icon = item.icon
               return (
-                <div
-                  key={item.title}
-                  className="rounded-3xl border border-neutral-200 bg-neutral-50/70 p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF65] hover:bg-white hover:shadow-lg"
-                >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#D4AF65] to-[#101D35] text-white shadow-sm mb-4">
-                    <Icon className="h-5 w-5" />
+                <Reveal key={item.title} delay={Math.min((idx % 3) * 0.08, 0.3)}>
+                  <div
+                    className="rounded-3xl border border-neutral-200 bg-neutral-50/70 p-6 shadow-xs card-hover-lift hover-shimmer hover:bg-white h-full"
+                  >
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#D4AF65] to-[#101D35] text-white shadow-sm mb-4">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display text-base font-black text-neutral-950">{item.title}</h3>
+                    <p className="mt-2 text-xs text-neutral-600 leading-relaxed">{item.desc}</p>
+                    <div className="mt-4 rounded-xl border border-neutral-200 bg-white p-3 text-[11px]">
+                      <span className="font-bold text-[#D4AF65] block mb-0.5">Recommended Spec:</span>
+                      <span className="text-neutral-800 font-medium">{item.recommended}</span>
+                    </div>
                   </div>
-                  <h3 className="font-display text-base font-black text-neutral-950">{item.title}</h3>
-                  <p className="mt-2 text-xs text-neutral-600 leading-relaxed">{item.desc}</p>
-                  <div className="mt-4 rounded-xl border border-neutral-200 bg-white p-3 text-[11px]">
-                    <span className="font-bold text-[#D4AF65] block mb-0.5">Recommended Spec:</span>
-                    <span className="text-neutral-800 font-medium">{item.recommended}</span>
-                  </div>
-                </div>
+                </Reveal>
               )
             })}
           </div>
@@ -1620,22 +1622,23 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {DUBAI_AREAS?.map((area) => (
-                <div
-                  key={area.name}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs transition-colors hover:border-[#D4AF65]/40 hover:bg-white/10"
-                >
-                  <div className="flex items-center justify-between">
-                    <h4 className="font-display text-sm font-black text-white">{area.name}</h4>
-                    <span className="rounded-md bg-[#D4AF65] px-2 py-0.5 text-[8.5px] font-bold uppercase tracking-wider text-white">
-                      {area.dispatch}
+              {DUBAI_AREAS?.map((area, idx) => (
+                <Reveal key={area.name} delay={Math.min((idx % 3) * 0.05, 0.25)}>
+                  <div
+                    className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs transition-colors hover:border-[#D4AF65]/40 hover:bg-white/10 card-hover-lift hover-shimmer h-full"
+                  >
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-display text-sm font-black text-white">{area.name}</h4>
+                      <span className="rounded-md bg-[#D4AF65] px-2 py-0.5 text-[8.5px] font-bold uppercase tracking-wider text-white">
+                        {area.dispatch}
+                      </span>
+                    </div>
+                    <span className="mt-1 block text-[10.5px] font-bold text-[#D4AF65]">
+                      {area.hub}
                     </span>
+                    <p className="mt-2 text-xs text-neutral-300 leading-relaxed">{area.desc}</p>
                   </div>
-                  <span className="mt-1 block text-[10.5px] font-bold text-[#D4AF65]">
-                    {area.hub}
-                  </span>
-                  <p className="mt-2 text-xs text-neutral-300 leading-relaxed">{area.desc}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>

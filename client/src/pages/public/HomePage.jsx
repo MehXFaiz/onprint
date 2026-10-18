@@ -586,7 +586,7 @@ export default function HomePage() {
                   {/* Top Card: Executive Stationery */}
                   <Link
                     to="/categories/letterheads-printing-dubai"
-                    className="rounded-2xl sm:rounded-3xl border border-[#28395A] bg-[#162542] relative group flex-1 overflow-hidden p-1.5 sm:p-2 block shadow-[0_12px_30px_-6px_rgba(11,20,38,0.4)]"
+                    className="rounded-2xl sm:rounded-3xl border border-[#28395A] bg-[#162542] relative group flex-1 overflow-hidden p-1.5 sm:p-2 block shadow-[0_12px_30px_-6px_rgba(11,20,38,0.4)] card-hover-lift hover-shimmer"
                   >
                     <div className="relative h-[145px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-[#101D35]">
                       <picture>
@@ -620,7 +620,7 @@ export default function HomePage() {
                   {/* Bottom Card: Painted Edge Cards */}
                   <Link
                     to="/products/luxury-business-cards"
-                    className="rounded-2xl sm:rounded-3xl border border-[#28395A] bg-[#162542] relative group flex-1 overflow-hidden p-1.5 sm:p-2 block shadow-[0_12px_30px_-6px_rgba(11,20,38,0.4)]"
+                    className="rounded-2xl sm:rounded-3xl border border-[#28395A] bg-[#162542] relative group flex-1 overflow-hidden p-1.5 sm:p-2 block shadow-[0_12px_30px_-6px_rgba(11,20,38,0.4)] card-hover-lift hover-shimmer"
                   >
                     <div className="relative h-[145px] sm:h-[192px] w-full overflow-hidden rounded-xl bg-[#101D35]">
                       <picture>
@@ -717,7 +717,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {/* Card 1: Business Card Printing */}
             <Reveal delay={0.05}>
-              <div className="rounded-3xl border border-[#28395A] bg-[#162542] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-md hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300">
+              <div className="rounded-3xl border border-[#28395A] bg-[#162542] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-md hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#101D35] mb-4 border border-[#28395A]">
                     <picture>
@@ -805,7 +805,7 @@ export default function HomePage() {
 
             {/* Card 2: Roll-Up Banners */}
             <Reveal delay={0.1}>
-              <div className="rounded-3xl border border-[#28395A] bg-[#162542] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-md hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300">
+              <div className="rounded-3xl border border-[#28395A] bg-[#162542] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-md hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#101D35] mb-4 border border-[#28395A]">
                     <picture>
@@ -893,7 +893,7 @@ export default function HomePage() {
 
             {/* Card 3: Custom Sticker Printing */}
             <Reveal delay={0.15}>
-              <div className="rounded-3xl border border-[#28395A] bg-[#162542] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-md hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300">
+              <div className="rounded-3xl border border-[#28395A] bg-[#162542] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-md hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#101D35] mb-4 border border-[#28395A]">
                     <picture>
@@ -981,7 +981,7 @@ export default function HomePage() {
 
             {/* Card 4: Custom Stamp Printing */}
             <Reveal delay={0.2}>
-              <div className="rounded-3xl border border-[#28395A] bg-[#162542] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-md hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300">
+              <div className="rounded-3xl border border-[#28395A] bg-[#162542] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-md hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#101D35] mb-4 border border-[#28395A]">
                     <picture>
@@ -1418,14 +1418,16 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
-              {processSteps.map((item) => (
-                <div key={item.step} className="rounded-2xl border border-[#28395A] bg-[#162542] p-5">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#101D35] border border-[#28395A] text-[#D4AF65] text-xs font-bold">
-                    {item.step}
-                  </span>
-                  <h4 className="font-bold text-sm text-white mt-3">{item.title}</h4>
-                  <p className="mt-1 text-xs text-slate-300 leading-relaxed">{item.description}</p>
-                </div>
+              {processSteps.map((item, idx) => (
+                <Reveal key={item.step} delay={idx * 0.08}>
+                  <div className="rounded-2xl border border-[#28395A] bg-[#162542] p-5 h-full card-hover-lift hover-shimmer shadow-md hover:border-[#D4AF65]">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#101D35] border border-[#28395A] text-[#D4AF65] text-xs font-bold">
+                      {item.step}
+                    </span>
+                    <h4 className="font-bold text-sm text-white mt-3">{item.title}</h4>
+                    <p className="mt-1 text-xs text-slate-300 leading-relaxed">{item.description}</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>

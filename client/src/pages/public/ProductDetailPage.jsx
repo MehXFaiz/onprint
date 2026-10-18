@@ -816,7 +816,7 @@ export default function ProductDetailPage() {
                         key={imgIdx}
                         type="button"
                         onClick={() => setCategoryLightbox({ cat, imgIdx, label })}
-                        className="group relative aspect-square overflow-hidden rounded-2xl border border-border bg-accent-soft/30 transition-all hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                        className="group relative aspect-square overflow-hidden rounded-2xl border border-border bg-accent-soft/30 transition-all hover:shadow-xl cursor-pointer card-hover-lift hover-shimmer"
                       >
                         <img
                           src={imgUrl}

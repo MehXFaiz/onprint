@@ -39,7 +39,7 @@ export default function ServiceCard({ service, className = '' }) {
 
   return (
     <div
-      className={`group/card relative flex flex-col justify-between h-full overflow-hidden rounded-2xl border border-[#28395A] bg-[#162542] shadow-md transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-xl ${className}`}
+      className={`group/card relative flex flex-col justify-between h-full overflow-hidden rounded-2xl border border-[#28395A] bg-[#162542] shadow-md transition-all duration-300 card-hover-lift hover-shimmer ${className}`}
     >
       {/* Top Image Container */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#101D35] border-b border-[#28395A]">

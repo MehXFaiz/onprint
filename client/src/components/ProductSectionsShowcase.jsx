@@ -71,7 +71,7 @@ function SectionCardGroup({ section, onQuickView }) {
   const visibleItems = section.items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
 
   return (
-    <div className="relative rounded-3xl border border-[#28395A] bg-[#162542] p-5 sm:p-8 lg:p-10 shadow-md transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl">
+    <div className="relative rounded-3xl border border-[#28395A] bg-[#162542] p-5 sm:p-8 lg:p-10 shadow-md transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl hover-shimmer">
       {/* Top Header Section */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-[#28395A]">
         <div>

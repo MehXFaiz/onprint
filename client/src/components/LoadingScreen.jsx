@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import logoLight from '../assets/logo_light.png'
+import logoIconLight from '../assets/logo_icon_light.png'
 
 const SESSION_KEY = 'onprint-splash-v7'
 
@@ -438,7 +438,7 @@ export default function LoadingScreen() {
 
                 {/* Actual ONPRINT High-Res Light Logo Emblem */}
                 <img
-                  src={logoLight}
+                  src={logoIconLight}
                   alt="ONPRINT"
                   className="relative z-10 h-full w-full object-contain filter drop-shadow-[0_10px_22px_rgba(0,0,0,0.85)]"
                   loading="eager"

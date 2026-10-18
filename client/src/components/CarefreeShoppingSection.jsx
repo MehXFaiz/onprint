@@ -83,8 +83,9 @@ export default function CarefreeShoppingSection() {
                     initial={{ opacity: 0, x: 16 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
+                    whileHover={{ x: 4, transition: { duration: 0.2 } }}
                     transition={{ delay: idx * 0.08, duration: 0.45 }}
-                    className="rounded-2xl border border-[#28395A] bg-[#162542] p-4 shadow-md hover:border-[#D4AF65] transition-colors"
+                    className="rounded-2xl border border-[#28395A] bg-[#162542] p-4 shadow-md hover:border-[#D4AF65] hover:shadow-lg transition-all cursor-pointer card-hover-lift hover-shimmer"
                   >
                     <div className="flex items-start gap-4">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#101D35] border border-[#28395A] text-white shadow-xs">

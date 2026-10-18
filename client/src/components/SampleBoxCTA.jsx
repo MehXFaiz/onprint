@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { Sparkles, Check, ArrowRight, ShieldCheck, Truck } from 'lucide-react'
 import Container from './Container'
 
@@ -7,8 +8,14 @@ export default function SampleBoxCTA() {
   return (
     <section className="relative overflow-hidden bg-[#101D35] py-16 sm:py-20 text-white border-y border-[#28395A]">
       <Container className="relative z-10">
-        <div className="bento-card-dark p-8 sm:p-12 lg:p-14 relative overflow-hidden bg-[#162542] border border-[#28395A] rounded-3xl shadow-xl">
-          <div className="pointer-events-none absolute -right-16 -bottom-16 h-72 w-72 rounded-full bg-[#D4AF65]/15 blur-3xl" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-30px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="bento-card-dark p-8 sm:p-12 lg:p-14 relative overflow-hidden bg-[#162542] border border-[#28395A] rounded-3xl shadow-xl hover-shimmer card-hover-lift"
+        >
+          <div className="pointer-events-none absolute -right-16 -bottom-16 h-72 w-72 rounded-full bg-[#D4AF65]/15 blur-3xl animate-pulse" />
           <div className="pointer-events-none absolute -left-16 -top-16 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
@@ -70,7 +77,7 @@ export default function SampleBoxCTA() {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </Container>
     </section>
   )

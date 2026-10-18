@@ -131,7 +131,7 @@ export default function ProductCard({
         ease: [0.16, 1, 0.3, 1],
       }}
       whileHover={prefersReducedMotion ? undefined : { y: -5 }}
-      className={`group flex flex-col h-full w-full min-w-0 overflow-hidden rounded-3xl border border-[#28395A] bg-[#162542] shadow-md hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 ${className}`}
+      className={`group flex flex-col h-full w-full min-w-0 overflow-hidden rounded-3xl border border-[#28395A] bg-[#162542] shadow-md hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 hover-shimmer ${className}`}
     >
       {/* Product Image Studio Stage */}
       <div

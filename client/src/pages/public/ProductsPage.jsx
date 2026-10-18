@@ -9,6 +9,7 @@ import EmptyState from '../../components/EmptyState'
 import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
+import Reveal from '../../components/Reveal'
 import { getProducts } from '../../services/products'
 import { getCategories } from '../../services/categories'
 import { trackViewCategory, trackSearch } from '../../utils/analytics'
@@ -449,30 +450,32 @@ export default function ProductsPage() {
         </div>
 
         {/* Conversion CTA Section at Bottom */}
-        <div className="mt-20 rounded-3xl border border-primary bg-primary p-8 text-background shadow-xl sm:p-12">
-          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-            <div>
-              <span className="rounded-full bg-accent/20 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-accent">
-                Custom Press Orders
-              </span>
-              <h2 className="font-display mt-4 text-2xl font-extrabold tracking-tight sm:text-4xl text-background">
-                Have a custom printing requirement in Dubai?
-              </h2>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-background/80">
-                Let's create something extraordinary for your brand. From custom embossing and spot UV to bespoke printing formats, our press team is ready in Al Quoz, Dubai.
-              </p>
-            </div>
+        <Reveal>
+          <div className="mt-20 rounded-3xl border border-primary bg-primary p-8 text-background shadow-xl sm:p-12 card-hover-lift hover-shimmer">
+            <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+              <div>
+                <span className="rounded-full bg-accent/20 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-accent">
+                  Custom Press Orders
+                </span>
+                <h2 className="font-display mt-4 text-2xl font-extrabold tracking-tight sm:text-4xl text-background">
+                  Have a custom printing requirement in Dubai?
+                </h2>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-background/80">
+                  Let's create something extraordinary for your brand. From custom embossing and spot UV to bespoke printing formats, our press team is ready in Al Quoz, Dubai.
+                </p>
+              </div>
 
-            <div className="flex flex-wrap gap-4 shrink-0">
-              <Button to="/get-a-quote" variant="accent" size="lg">
-                Request a Quote
-              </Button>
-              <Button to="/contact" variant="outline" size="lg" className="border-background/30 text-background hover:bg-background hover:text-primary">
-                Contact Studio
-              </Button>
+              <div className="flex flex-wrap gap-4 shrink-0">
+                <Button to="/get-a-quote" variant="accent" size="lg">
+                  Request a Quote
+                </Button>
+                <Button to="/contact" variant="outline" size="lg" className="border-background/30 text-background hover:bg-background hover:text-primary">
+                  Contact Studio
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Container>
 
       {/* Product Detail Modal */}

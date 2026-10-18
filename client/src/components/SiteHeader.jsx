@@ -293,16 +293,17 @@ export default function SiteHeader() {
         <Link
           to="/"
           onClick={() => setMobileMenuOpen(false)}
-          className="group shrink-0 flex items-center gap-2 sm:gap-2.5 min-w-0"
+          className="group shrink-0 flex items-center gap-2 sm:gap-3 min-w-0"
         >
           <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: 'spring', stiffness: 380, damping: 25 }}
+            className="flex items-center"
           >
-            <Logo variant="light" size="sm" className="h-7 sm:h-8" />
+            <Logo variant="light" size="md" />
           </motion.div>
-          <div className="hidden 2xl:flex items-center gap-1.5 pl-2.5 border-l border-[#28395A]">
+          <div className="hidden min-[1180px]:flex items-center gap-1.5 pl-3 border-l border-[#28395A]">
             <span className="text-[10px] font-black uppercase tracking-wider text-white">
               DUBAI
             </span>

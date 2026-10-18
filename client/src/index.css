@@ -348,3 +348,102 @@ body {
 .hero-marquee-track:hover {
   animation-play-state: paused;
 }
+
+/* =========================================================================
+   WEBSITE-WIDE LUXURY ANIMATION KEYFRAMES & UTILITIES
+   ========================================================================= */
+
+/* 1. Gentle Floating Animation (Hero badges, floating cards, trust seals) */
+@keyframes onprint-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+.animate-float {
+  animation: onprint-float 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-delayed {
+  animation: onprint-float 6s ease-in-out 1.5s infinite;
+  will-change: transform;
+}
+
+/* 2. Soft Ambient Gold Pulse (Badges, WhatsApp live dots, Primary CTAs) */
+@keyframes onprint-gold-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 101, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(212, 175, 101, 0);
+  }
+}
+
+.animate-gold-pulse {
+  animation: onprint-gold-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 3. Metallic Light Sweep / Shimmer Across Cards & Buttons */
+@keyframes onprint-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.hover-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: -100%;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(212, 175, 101, 0.12) 40%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(212, 175, 101, 0.12) 60%,
+    transparent 80%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  transition: transform 0.85s ease;
+  pointer-events: none;
+}
+
+.hover-shimmer:hover::after {
+  transform: translateX(100%) rotate(25deg);
+}
+
+/* 4. Luxury Card Hover Elevation */
+.card-hover-lift {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px -10px rgba(11, 20, 38, 0.65), 0 0 25px -4px rgba(212, 175, 101, 0.2);
+  border-color: #D4AF65;
+}
+
+/* 5. Smooth Image Zoom on Hover */
+.group:hover .img-hover-scale {
+  transform: scale(1.05);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-hover-scale {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+

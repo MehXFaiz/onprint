@@ -41,9 +41,9 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="py-16 sm:py-24 bg-neutral-50/50 min-h-[calc(100vh-200px)] flex items-center">
+    <div className="py-16 sm:py-24 bg-[#101D35] min-h-[calc(100vh-200px)] flex items-center">
       <Container className="flex flex-col items-center justify-center">
-        <div className="w-full max-w-md rounded-3xl border border-neutral-200/80 bg-white p-8 shadow-xl sm:p-10">
+        <div className="w-full max-w-md rounded-3xl border border-[#28395A] bg-[#162542] p-8 shadow-2xl sm:p-10 text-white">
           <div className="text-center">
             <Link to="/" className="inline-block">
               <Logo size="md" />
@@ -52,23 +52,23 @@ export default function RegisterPage() {
               <UserPlus className="h-3.5 w-3.5" />
               <span>Client Registration</span>
             </div>
-            <h1 className="font-display mt-2 text-2xl font-black tracking-tight text-neutral-900">
+            <h1 className="font-display mt-2 text-2xl font-black tracking-tight text-white">
               Create Your Account
             </h1>
-            <p className="mt-1 text-xs text-neutral-500">
+            <p className="mt-1 text-xs text-slate-400">
               Instant access to custom print quotes, proof approvals, and order tracking.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-4">
             {errors.general && (
-              <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs font-semibold text-red-700">
+              <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-3 text-xs font-semibold text-red-300">
                 {errors.general}
               </div>
             )}
 
             <div>
-              <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-neutral-900">
+              <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-slate-200">
                 Full Name *
               </label>
               <input
@@ -78,13 +78,13 @@ export default function RegisterPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Sarah Al-Maktoum"
-                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-2 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
               {errors.name && <p className="mt-1 text-xs font-semibold text-[#D4AF65]">{errors.name}</p>}
             </div>
 
             <div>
-              <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-neutral-900">
+              <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-slate-200">
                 Email Address *
               </label>
               <input
@@ -94,13 +94,13 @@ export default function RegisterPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="sarah@company.ae"
-                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-2 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
               {errors.email && <p className="mt-1 text-xs font-semibold text-[#D4AF65]">{errors.email}</p>}
             </div>
 
             <div>
-              <label htmlFor="company" className="text-xs font-bold uppercase tracking-wider text-neutral-900">
+              <label htmlFor="company" className="text-xs font-bold uppercase tracking-wider text-slate-200">
                 Company / Brand Name (Optional)
               </label>
               <input
@@ -109,12 +109,12 @@ export default function RegisterPage() {
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 placeholder="Dubai Creative Studio LLC"
-                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-2 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="text-xs font-bold uppercase tracking-wider text-neutral-900">
+              <label htmlFor="password" className="text-xs font-bold uppercase tracking-wider text-slate-200">
                 Password *
               </label>
               <input
@@ -124,7 +124,7 @@ export default function RegisterPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="mt-2 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-sm text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-2 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
               {errors.password && <p className="mt-1 text-xs font-semibold text-[#D4AF65]">{errors.password}</p>}
             </div>
@@ -134,13 +134,13 @@ export default function RegisterPage() {
               variant="accent"
               size="lg"
               icon={false}
-              className="w-full justify-center mt-2 shadow-md shadow-[#D4AF65]/20"
+              className="w-full justify-center mt-2 shadow-md shadow-[#D4AF65]/20 font-bold"
             >
               {loading ? 'Creating Account...' : 'Register Client Account'}
             </Button>
           </form>
 
-          <div className="mt-6 text-center text-xs font-medium text-neutral-500 pt-6 border-t border-neutral-100">
+          <div className="mt-6 text-center text-xs font-medium text-slate-400 pt-6 border-t border-[#28395A]">
             Already have an account?{' '}
             <Link to="/login" className="font-bold text-[#D4AF65] hover:underline">
               Sign In

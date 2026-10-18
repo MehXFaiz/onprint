@@ -3,22 +3,27 @@ import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import logoIconLight from '../assets/logo_icon_light.png'
 
-const SESSION_KEY = 'onprint-splash-v7'
+const SESSION_KEY = 'onprint_splash_shown'
 
-// Luxury motion curve - ultra smooth, fluid, cinematic deceleration
+// Ultra-smooth luxury easing curve (cinematic deceleration)
 const LUXURY_EASE = [0.22, 1, 0.36, 1]
-const GENTLE_EASE = [0.25, 0.1, 0.25, 1]
 
 export default function LoadingScreen() {
   const location = useLocation()
   const reduce = useReducedMotion()
   const [visible, setVisible] = useState(false)
-  const [phase, setPhase] = useState(0) // 0: sweep & paper entry, 1: logo & light sweep, 2: progress line, 3: tagline & loading, 4: smooth exit
+  const [phase, setPhase] = useState(0)
+  // phase 0: initial blank canvas (Midnight Navy)
+  // phase 1: print-reveal logo (smooth left-to-right)
+  // phase 2: Champagne Gold line beneath logo
+  // phase 3: subtle gold light sweep across logo
+  // phase 4: tagline reveal ("YOUR IDEAS. BEAUTIFULLY PRINTED.")
+  // phase 5: smooth fade-out transition into homepage
+
   const isMountedRef = useRef(true)
 
-  // Critical SEO & Core Web Vitals Optimization:
-  // Never display splash screen on deep commercial/service/product landing pages.
-  // Deep landing pages MUST render meaningful content immediately with 0 delay.
+  // Show splash ONLY on the root homepage ('/' or '')
+  // Deep product, service, and landing pages render instantly with 0 delay.
   const isRootPage = location.pathname === '/' || location.pathname === ''
 
   useEffect(() => {
@@ -28,46 +33,69 @@ export default function LoadingScreen() {
       return
     }
 
-    // Check if session storage already saw splash in this session
-    if (typeof window !== 'undefined' && window.sessionStorage.getItem(SESSION_KEY)) {
+    // Safely check sessionStorage
+    try {
+      if (typeof window !== 'undefined' && window.sessionStorage.getItem(SESSION_KEY)) {
+        return
+      }
+    } catch {
+      // If sessionStorage is unavailable or blocked, proceed safely
+    }
+
+    // If user prefers reduced motion, skip splash immediately
+    if (reduce) {
+      try {
+        if (typeof window !== 'undefined') {
+          window.sessionStorage.setItem(SESSION_KEY, '1')
+        }
+      } catch {}
       return
     }
 
-    // If reduced motion is requested by user OS, skip animation instantly
-    if (reduce) {
+    // Mark as shown for the current browser session
+    try {
       if (typeof window !== 'undefined') {
         window.sessionStorage.setItem(SESSION_KEY, '1')
       }
-      return
-    }
-
-    // Mark as shown for the current browsing session
-    if (typeof window !== 'undefined') {
-      window.sessionStorage.setItem(SESSION_KEY, '1')
-    }
+    } catch {}
 
     setVisible(true)
 
-    // Fast, ultra-smooth cinematic timeline (0.75s total) so navigation is never obstructed:
+    // Sequence timing: ~1.2s total active sequence + 0.35s exit fade
+    // 1. Start print-reveal of logo
     const t1 = setTimeout(() => {
       if (isMountedRef.current) setPhase(1)
-    }, 150)
+    }, 80)
 
+    // 2. Animate thin Champagne Gold line beneath the logo
     const t2 = setTimeout(() => {
       if (isMountedRef.current) setPhase(2)
-    }, 350)
+    }, 520)
 
+    // 3. Subtle gold light sweep across the logo
     const t3 = setTimeout(() => {
       if (isMountedRef.current) setPhase(3)
-    }, 500)
+    }, 680)
 
+    // 4. Reveal tagline: "YOUR IDEAS. BEAUTIFULLY PRINTED."
     const t4 = setTimeout(() => {
       if (isMountedRef.current) setPhase(4)
-    }, 650)
+    }, 820)
 
-    const exitTimer = setTimeout(() => {
+    // 5. Begin smooth transition into the homepage
+    const t5 = setTimeout(() => {
+      if (isMountedRef.current) setPhase(5)
+    }, 1200)
+
+    // 6. Complete unmount
+    const tExit = setTimeout(() => {
       if (isMountedRef.current) setVisible(false)
-    }, 750)
+    }, 1500)
+
+    // Hard fallback safety timer (guarantees exit even if any timer is delayed)
+    const tFallback = setTimeout(() => {
+      if (isMountedRef.current) setVisible(false)
+    }, 1650)
 
     return () => {
       isMountedRef.current = false
@@ -75,11 +103,13 @@ export default function LoadingScreen() {
       clearTimeout(t2)
       clearTimeout(t3)
       clearTimeout(t4)
-      clearTimeout(exitTimer)
+      clearTimeout(t5)
+      clearTimeout(tExit)
+      clearTimeout(tFallback)
     }
   }, [reduce, isRootPage])
 
-  // Allow clicking anywhere or pressing Esc/Enter/Space to smoothly bypass
+  // Allow clicking anywhere or pressing Escape / Enter / Space to bypass immediately
   useEffect(() => {
     function handleKeyDown(e) {
       if (visible && (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ')) {
@@ -94,444 +124,165 @@ export default function LoadingScreen() {
 
   return (
     <AnimatePresence>
-      {visible && (
+      {visible && phase < 5 && (
         <motion.div
-          key="onprint-cinematic-splash"
+          key="onprint-luxury-splash"
           onClick={() => setVisible(false)}
           className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#101D35] text-white overflow-hidden select-none cursor-pointer"
-          style={{
-            perspective: '1400px',
-            transformStyle: 'preserve-3d',
-          }}
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            scale: 1.01,
-            pointerEvents: 'none',
             transition: { duration: 0.35, ease: LUXURY_EASE },
           }}
           role="status"
           aria-live="polite"
-          aria-label="ONPRINT Luxury Splash"
+          aria-label="ONPRINT Luxury Printing Dubai"
         >
-          {/* Accessible Skip Button */}
+          {/* Subtle Atelier Ambient Vignette (Deep Midnight Navy Depth) */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(22, 37, 66, 0.75) 0%, rgba(16, 29, 53, 0.95) 65%, #0B1426 100%)',
+            }}
+          />
+
+          {/* Minimalist Accessible Skip Button */}
           <button
             type="button"
             onClick={(e) => {
               e.stopPropagation()
               setVisible(false)
             }}
-            className="absolute top-5 right-5 z-50 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium tracking-wider text-white/80 hover:text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all pointer-events-auto cursor-pointer"
+            className="absolute top-5 right-5 sm:top-6 sm:right-8 z-50 px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors pointer-events-auto cursor-pointer"
             aria-label="Skip splash screen"
           >
             SKIP ✕
           </button>
-          {/* ======================================================== */}
-          {/* 1. DEEP MATTE BLACK BACKGROUND & SUBTLE NOISE TEXTURE     */}
-          {/* ======================================================== */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {/* Lightweight High-Performance Studio Texture */}
-            <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]" />
 
-            {/* Subtle Vignette & Studio Lighting Falloff */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  'radial-gradient(ellipse 85% 70% at 50% 50%, rgba(22, 37, 66, 0.75) 0%, rgba(11, 20, 38, 0.98) 75%, #101D35 100%)',
-              }}
-            />
-
-            {/* Dramatic Champagne Gold Rim Lighting Sweep (Step 1) - Silky Slow */}
-            <motion.div
-              className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[800px] sm:w-[1100px] h-[400px] sm:h-[550px] rounded-full blur-[130px] pointer-events-none"
-              style={{
-                background:
-                  'radial-gradient(circle, rgba(212, 175, 101, 0.26) 0%, rgba(212, 175, 101, 0.08) 50%, transparent 75%)',
-              }}
-              initial={{ scale: 0.65, opacity: 0, y: -50 }}
-              animate={{
-                scale: [0.65, 1.15, 1],
-                opacity: [0, 0.9, 0.65],
-                y: [-50, 20, 0],
-              }}
-              transition={{
-                duration: 3.2,
-                ease: LUXURY_EASE,
-              }}
-            />
-
-            {/* Bottom Subtle Gold Counter-Light for Depth */}
-            <motion.div
-              className="absolute -bottom-[25%] left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[380px] rounded-full blur-[110px] pointer-events-none"
-              style={{
-                background:
-                  'radial-gradient(circle, rgba(212, 175, 101, 0.16) 0%, rgba(212, 175, 101, 0.03) 60%, transparent 80%)',
-              }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.65, 0.45] }}
-              transition={{ duration: 3.2, delay: 0.3, ease: GENTLE_EASE }}
-            />
-
-            {/* Diagonal Anamorphic Gold Light Beam Sweeping Across Frame */}
-            <motion.div
-              className="absolute inset-0 pointer-events-none overflow-hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
+          {/* Centerpiece Container */}
+          <div className="relative z-10 flex flex-col items-center justify-center px-4 max-w-lg mx-auto w-full">
+            {/* ======================================================== */}
+            {/* 1. ONPRINT LOGO PRINT-REVEAL (Left to Right)             */}
+            {/* ======================================================== */}
+            <div className="relative inline-flex items-center justify-center py-2 px-1">
+              {/* Animated Reveal Wrapper with Left-to-Right Clip Mask */}
               <motion.div
-                className="absolute top-0 bottom-0 w-[180px] sm:w-[260px]"
-                style={{
-                  background:
-                    'linear-gradient(90deg, transparent 0%, rgba(212, 175, 101, 0.12) 42%, rgba(255, 255, 255, 0.22) 50%, rgba(212, 175, 101, 0.12) 58%, transparent 100%)',
-                  transform: 'skewX(-26deg)',
-                  filter: 'blur(14px)',
-                }}
-                initial={{ left: '-35%' }}
-                animate={{ left: '135%' }}
-                transition={{
-                  duration: 2.8,
-                  ease: [0.25, 0.1, 0.25, 1],
-                }}
-              />
-            </motion.div>
-          </div>
-
-          {/* ======================================================== */}
-          {/* 2. 3D PREMIUM PRINT MATERIALS FLOWING FROM EDGES          */}
-          {/* (Step 2: Business cards, luxury boxes, glossy sheets)     */}
-          {/* Center kept pristine so Logo is the undeniable hero       */}
-          {/* Slow, fluid, physics-grade drift                          */}
-          {/* ======================================================== */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {/* Top-Left: Luxury Heavy Cotton Business Card (600 GSM, 24K Gilded Edge) */}
-            <motion.div
-              className="absolute -top-12 -left-12 sm:-top-8 sm:-left-8 w-44 sm:w-60 h-28 sm:h-36 rounded-xl border border-white/10 overflow-hidden"
-              style={{
-                background: 'linear-gradient(135deg, #162542 0%, #101D35 60%, #0B1426 100%)',
-                boxShadow:
-                  '0 25px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px rgba(212,175,101,0.3)',
-                transformStyle: 'preserve-3d',
-              }}
-              initial={{
-                x: -160,
-                y: -120,
-                rotateX: 28,
-                rotateY: 24,
-                rotateZ: -26,
-                opacity: 0,
-              }}
-              animate={{
-                x: [-160, -10, -5],
-                y: [-120, 10, 14],
-                rotateX: [28, 16, 14],
-                rotateY: [24, 14, 12],
-                rotateZ: [-26, -16, -14],
-                opacity: [0, 0.85, 0.85],
-              }}
-              transition={{
-                duration: 3.4,
-                ease: LUXURY_EASE,
-              }}
-            >
-              {/* Subtle Foil Pattern On Card */}
-              <div className="absolute inset-0 p-4 flex flex-col justify-between opacity-50">
-                <div className="flex items-center gap-1.5">
-                  <div className="h-2 w-2 rounded-full bg-[#D4AF65]" />
-                  <div className="h-1.5 w-14 rounded-full bg-white/20" />
-                </div>
-                <div className="space-y-1">
-                  <div className="h-1 w-20 rounded-full bg-white/15" />
-                  <div className="h-1 w-12 rounded-full bg-white/10" />
-                </div>
-              </div>
-              {/* Gilded Edge Highlight */}
-              <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF65] via-amber-300 to-[#D4AF65] opacity-80" />
-            </motion.div>
-
-            {/* Top-Right: Glossy Coated Art Paper Sheet with Rim Reflection */}
-            <motion.div
-              className="absolute -top-16 -right-14 sm:-top-10 sm:-right-8 w-52 sm:w-72 h-36 sm:h-48 rounded-2xl border border-white/10 overflow-hidden"
-              style={{
-                background:
-                  'linear-gradient(215deg, rgba(22,37,66,0.7) 0%, rgba(16,29,53,0.85) 60%, rgba(11,20,38,0.95) 100%)',
-                boxShadow:
-                  '0 30px 70px rgba(0,0,0,0.9), inset 1px 1px 0 rgba(255,255,255,0.22), inset -1px -1px 0 rgba(212,175,101,0.25)',
-                backdropFilter: 'blur(12px)',
-                transformStyle: 'preserve-3d',
-              }}
-              initial={{
-                x: 180,
-                y: -140,
-                rotateX: -24,
-                rotateY: -32,
-                rotateZ: 20,
-                opacity: 0,
-              }}
-              animate={{
-                x: [180, 20, 16],
-                y: [-140, 10, 14],
-                rotateX: [-24, -14, -12],
-                rotateY: [-32, -18, -16],
-                rotateZ: [20, 12, 10],
-                opacity: [0, 0.8, 0.8],
-              }}
-              transition={{
-                duration: 3.5,
-                delay: 0.1,
-                ease: LUXURY_EASE,
-              }}
-            >
-              {/* Specular Light Reflection Sweep on Glossy Surface */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    'linear-gradient(135deg, transparent 35%, rgba(255,255,255,0.18) 50%, transparent 65%)',
-                }}
-              />
-            </motion.div>
-
-            {/* Bottom-Left: Luxury Midnight Navy Rigid Packaging Box Corner */}
-            <motion.div
-              className="absolute -bottom-14 -left-12 sm:-bottom-10 sm:-left-6 w-48 sm:w-64 h-32 sm:h-44 rounded-xl border border-white/5 overflow-hidden"
-              style={{
-                background: 'linear-gradient(45deg, #0B1426 0%, #101D35 50%, #162542 100%)',
-                boxShadow:
-                  '0 -20px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 20px rgba(0,0,0,0.7)',
-                transformStyle: 'preserve-3d',
-              }}
-              initial={{
-                x: -170,
-                y: 150,
-                rotateX: -28,
-                rotateY: 28,
-                rotateZ: 14,
-                opacity: 0,
-              }}
-              animate={{
-                x: [-170, -15, -12],
-                y: [150, -15, -18],
-                rotateX: [-28, -16, -14],
-                rotateY: [28, 16, 14],
-                rotateZ: [14, 8, 7],
-                opacity: [0, 0.85, 0.85],
-              }}
-              transition={{
-                duration: 3.6,
-                delay: 0.15,
-                ease: LUXURY_EASE,
-              }}
-            >
-              {/* Embossed Detail Line */}
-              <div className="absolute inset-x-0 top-3 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF65]/40 to-transparent" />
-            </motion.div>
-
-            {/* Bottom-Right: Foil-Stamped Print Sample / Presentation Sheet */}
-            <motion.div
-              className="absolute -bottom-16 -right-12 sm:-bottom-10 sm:-right-8 w-44 sm:w-60 h-28 sm:h-36 rounded-xl border border-white/10 overflow-hidden"
-              style={{
-                background: 'linear-gradient(315deg, #0B1426 0%, #101D35 70%, #162542 100%)',
-                boxShadow:
-                  '0 -25px 60px rgba(0,0,0,0.95), inset -1px -1px 0 rgba(212,175,101,0.35), inset 1px 1px 0 rgba(255,255,255,0.15)',
-                transformStyle: 'preserve-3d',
-              }}
-              initial={{
-                x: 160,
-                y: 140,
-                rotateX: 24,
-                rotateY: -28,
-                rotateZ: -18,
-                opacity: 0,
-              }}
-              animate={{
-                x: [160, 15, 12],
-                y: [140, -15, -18],
-                rotateX: [24, 14, 12],
-                rotateY: [-28, -16, -14],
-                rotateZ: [-18, -10, -9],
-                opacity: [0, 0.85, 0.85],
-              }}
-              transition={{
-                duration: 3.65,
-                delay: 0.18,
-                ease: LUXURY_EASE,
-              }}
-            >
-              {/* Metallic Foil Stamp Accents */}
-              <div className="absolute top-3 right-4 flex items-center gap-1.5 opacity-70">
-                <div className="h-1.5 w-1.5 rounded-full bg-[#D4AF65]" />
-                <div className="text-[7px] font-mono tracking-widest text-[#D4AF65] font-bold">
-                  24K FOIL
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* ======================================================== */}
-          {/* 3. CENTERPIECE: METALLIC LOGO WITH CHAMPAGNE GOLD ACCENT  */}
-          {/* (Step 3: Reveal with metallic sweep & subtle 3D depth)   */}
-          {/* Silky smooth glide upward with graceful ease-out curve    */}
-          {/* ======================================================== */}
-          <div className="relative z-20 flex flex-col items-center justify-center px-4 sm:px-6 text-center max-w-xl mx-auto w-full">
-            {/* 3D Floating Emblem Card */}
-            <motion.div
-              className="relative flex items-center justify-center mb-6 sm:mb-8"
-              initial={{ opacity: 0, scale: 0.86, y: 28 }}
-              animate={
-                phase >= 1
-                  ? { opacity: 1, scale: 1, y: 0 }
-                  : { opacity: 0, scale: 0.86, y: 28 }
-              }
-              transition={{
-                duration: 1.25,
-                ease: LUXURY_EASE,
-              }}
-            >
-              {/* Dramatic Champagne Gold Studio Backlight Glow Behind Logo */}
-              <motion.div
-                className="absolute inset-[-28px] sm:inset-[-42px] rounded-full pointer-events-none"
-                style={{
-                  background:
-                    'radial-gradient(circle, rgba(212, 175, 101, 0.38) 0%, rgba(212, 175, 101, 0.12) 42%, transparent 70%)',
-                  filter: 'blur(32px)',
-                }}
-                initial={{ opacity: 0, scale: 0.8 }}
+                className="relative inline-flex items-center justify-center gap-3 sm:gap-4 overflow-hidden"
+                initial={{ clipPath: 'inset(0 100% 0 0)' }}
                 animate={
                   phase >= 1
-                    ? { opacity: [0.3, 0.85, 0.7], scale: [0.8, 1.1, 1] }
-                    : { opacity: 0, scale: 0.8 }
+                    ? { clipPath: 'inset(0 0% 0 0)' }
+                    : { clipPath: 'inset(0 100% 0 0)' }
                 }
                 transition={{
-                  duration: 2.2,
-                  ease: GENTLE_EASE,
-                }}
-              />
-
-              {/* Sophisticated Metallic Specular Card Frame */}
-              <div
-                className="relative flex items-center justify-center h-28 w-28 sm:h-36 sm:w-36 rounded-3xl p-5 overflow-hidden border border-white/15"
-                style={{
-                  background:
-                    'linear-gradient(160deg, rgba(22,37,66,0.88) 0%, rgba(11,20,38,0.96) 100%)',
-                  boxShadow:
-                    '0 24px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -1px 0 rgba(212,175,101,0.3)',
-                  backdropFilter: 'blur(16px)',
+                  duration: 0.55,
+                  ease: LUXURY_EASE,
                 }}
               >
-                {/* Real-time Metallic Light Sweep Across Emblem */}
+                {/* Official ONPRINT Light Icon Emblem */}
+                <div className="relative shrink-0 flex items-center justify-center">
+                  <img
+                    src={logoIconLight}
+                    alt="ONPRINT Icon"
+                    className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 object-contain drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
+                    loading="eager"
+                  />
+                </div>
+
+                {/* Official ONPRINT Brand Wordmark */}
+                <div className="flex flex-col justify-center leading-none">
+                  <span className="font-black uppercase font-display text-3xl sm:text-4xl md:text-5xl tracking-widest text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]">
+                    ON<span className="text-[#D4AF65]">PRINT</span>
+                  </span>
+                </div>
+
+                {/* Subtle Gold Light Sweep Across Logo (Step 4) */}
                 <motion.div
-                  className="absolute inset-0 pointer-events-none"
+                  className="pointer-events-none absolute inset-0 z-20"
                   style={{
                     background:
-                      'linear-gradient(118deg, transparent 20%, rgba(255, 255, 255, 0.35) 48%, rgba(212, 175, 101, 0.38) 52%, transparent 80%)',
+                      'linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.35) 48%, rgba(212, 175, 101, 0.55) 52%, transparent 80%)',
+                    transform: 'skewX(-22deg)',
                   }}
-                  initial={{ x: '-160%' }}
-                  animate={phase >= 1 ? { x: '160%' } : { x: '-160%' }}
+                  initial={{ x: '-160%', opacity: 0 }}
+                  animate={
+                    phase >= 3
+                      ? { x: '160%', opacity: [0, 1, 1, 0] }
+                      : { x: '-160%', opacity: 0 }
+                  }
                   transition={{
-                    duration: 1.8,
-                    delay: 0.25,
+                    duration: 0.48,
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
                 />
+              </motion.div>
 
-                {/* Actual ONPRINT High-Res Light Logo Emblem */}
-                <img
-                  src={logoIconLight}
-                  alt="ONPRINT"
-                  className="relative z-10 h-full w-full object-contain filter drop-shadow-[0_10px_22px_rgba(0,0,0,0.85)]"
-                  loading="eager"
-                />
-              </div>
-            </motion.div>
-
-            {/* Bold Elegant Brand Name in Metallic White */}
-            <motion.div
-              className="flex items-center justify-center text-3xl sm:text-5xl font-black uppercase tracking-[0.18em] sm:tracking-[0.28em] text-[#F5F5F5]"
-              style={{
-                textShadow:
-                  '0 2px 20px rgba(255, 255, 255, 0.25), 0 10px 30px rgba(0, 0, 0, 0.9)',
-              }}
-              initial={{ opacity: 0, y: 18, filter: 'blur(8px)' }}
-              animate={
-                phase >= 1
-                  ? { opacity: 1, y: 0, filter: 'blur(0px)' }
-                  : { opacity: 0, y: 18, filter: 'blur(8px)' }
-              }
-              transition={{
-                duration: 1.15,
-                delay: 0.15,
-                ease: LUXURY_EASE,
-              }}
-            >
-              <span className="text-[#F5F5F5]">ON</span>
-              <span className="text-[#D4AF65] ml-0.5">PRINT</span>
-            </motion.div>
-
-            {/* ======================================================== */}
-            {/* 4. THIN CHAMPAGNE GOLD PROGRESS LINE (Step 4)             */}
-            {/* Silky smooth continuous glide                             */}
-            {/* ======================================================== */}
-            <div className="mt-5 sm:mt-6 w-48 sm:w-64 h-[2px] bg-white/10 rounded-full overflow-hidden relative">
+              {/* Vertical Precision Printhead Guide (Sweeps Left to Right with Reveal) */}
               <motion.div
-                className="h-full rounded-full relative"
+                className="pointer-events-none absolute top-0 bottom-0 w-[2px] z-30"
                 style={{
                   background:
-                    'linear-gradient(90deg, #D4AF65 0%, #D4AF65 50%, #D4AF65 100%)',
-                  boxShadow: '0 0 16px rgba(212, 175, 101, 0.85)',
+                    'linear-gradient(180deg, transparent 0%, #D4AF65 25%, #FFFFFF 50%, #D4AF65 75%, transparent 100%)',
+                  boxShadow:
+                    '0 0 10px rgba(212, 175, 101, 0.9), 0 0 20px rgba(212, 175, 101, 0.5)',
                 }}
-                initial={{ width: '0%' }}
-                animate={phase >= 2 ? { width: '100%' } : { width: '0%' }}
+                initial={{ left: '0%', opacity: 0 }}
+                animate={
+                  phase === 1
+                    ? { left: ['0%', '100%'], opacity: [0, 1, 1, 0] }
+                    : { left: '100%', opacity: 0 }
+                }
                 transition={{
-                  duration: 1.4,
-                  ease: [0.22, 1, 0.36, 1],
+                  duration: 0.55,
+                  ease: LUXURY_EASE,
                 }}
-              >
-                {/* Glowing Leading Flare */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-white shadow-[0_0_10px_#ffffff] -mr-1" />
-              </motion.div>
+              />
             </div>
 
             {/* ======================================================== */}
-            {/* 5. TAGLINE: PRINT · BRAND · GROW (Step 5)                 */}
+            {/* 2. THIN CHAMPAGNE GOLD LINE BENEATH LOGO (Step 3)        */}
             {/* ======================================================== */}
-            <motion.div
-              className="mt-4 sm:mt-5 text-[11px] sm:text-xs font-semibold tracking-[0.22em] sm:tracking-[0.44em] text-[#E2E8F0] uppercase"
-              initial={{ opacity: 0, y: 10 }}
-              animate={phase >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            <div className="mt-4 sm:mt-5 w-48 sm:w-64 md:w-80 h-[1.5px] rounded-full overflow-hidden relative">
+              <motion.div
+                className="h-full w-full rounded-full"
+                style={{
+                  background:
+                    'linear-gradient(90deg, transparent 0%, #D4AF65 20%, #D4AF65 80%, transparent 100%)',
+                  boxShadow: '0 0 12px rgba(212, 175, 101, 0.75)',
+                }}
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={
+                  phase >= 2
+                    ? { scaleX: 1, opacity: 1 }
+                    : { scaleX: 0, opacity: 0 }
+                }
+                transition={{
+                  duration: 0.42,
+                  ease: LUXURY_EASE,
+                }}
+              />
+            </div>
+
+            {/* ======================================================== */}
+            {/* 3. TAGLINE REVEAL (Step 5)                                */}
+            {/* "YOUR IDEAS. BEAUTIFULLY PRINTED."                       */}
+            {/* ======================================================== */}
+            <motion.p
+              className="mt-3.5 sm:mt-4 text-[10px] sm:text-xs md:text-sm font-medium tracking-[0.22em] sm:tracking-[0.32em] text-slate-200 uppercase text-center"
+              initial={{ opacity: 0, y: 6 }}
+              animate={
+                phase >= 4
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 6 }
+              }
               transition={{
-                duration: 0.95,
+                duration: 0.35,
                 ease: LUXURY_EASE,
               }}
             >
-              <span>PRINT</span>
-              <span className="text-[#D4AF65] mx-2 font-bold">·</span>
-              <span>BRAND</span>
-              <span className="text-[#D4AF65] mx-2 font-bold">·</span>
-              <span>GROW</span>
-            </motion.div>
-
-            {/* ======================================================== */}
-            {/* 6. "LOADING YOUR IDEAS…" (Step 6)                         */}
-            {/* Small, elegant, letter-spaced typography, NO fake numbers  */}
-            {/* ======================================================== */}
-            <motion.div
-              className="mt-6 flex items-center justify-center gap-2.5 text-[9px] sm:text-[10px] font-mono tracking-[0.2em] sm:tracking-[0.38em] text-[#CBD5E1] uppercase"
-              initial={{ opacity: 0 }}
-              animate={phase >= 3 ? { opacity: 0.85 } : { opacity: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-            >
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#D4AF65] animate-pulse" />
-              <span>LOADING YOUR IDEAS…</span>
-            </motion.div>
-          </div>
-
-          {/* ======================================================== */}
-          {/* SUBTLE ESCAPE SHORTCUT HINT (Non-intrusive)               */}
-          {/* ======================================================== */}
-          <div className="absolute bottom-6 right-8 text-[9px] font-mono tracking-widest text-white/30 hidden sm:block pointer-events-none">
-            ESC TO SKIP
+              YOUR IDEAS. BEAUTIFULLY PRINTED.
+            </motion.p>
           </div>
         </motion.div>
       )}

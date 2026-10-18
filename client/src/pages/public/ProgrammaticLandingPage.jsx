@@ -81,8 +81,8 @@ export default function ProgrammaticLandingPage() {
   if (!pageData) {
     return (
       <Container className="py-20 text-center">
-        <h1 className="text-2xl font-bold text-neutral-900">Printing Service Location Not Found</h1>
-        <p className="mt-2 text-sm text-neutral-600">
+        <h1 className="text-2xl font-bold text-white">Printing Service Location Not Found</h1>
+        <p className="mt-2 text-sm text-slate-300">
           The requested location or commercial solution could not be found.
         </p>
         <div className="mt-6">
@@ -103,7 +103,7 @@ export default function ProgrammaticLandingPage() {
   ]
 
   return (
-    <div className="bg-background text-neutral-900 pb-20">
+    <div className="bg-[#101D35] text-slate-200 pb-20">
       <SEOHead
         title={pageData.title}
         description={pageData.metaDescription}
@@ -113,28 +113,28 @@ export default function ProgrammaticLandingPage() {
       />
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-neutral-950 text-white pt-10 pb-16 sm:pb-20 border-b border-neutral-800">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(168,47,25,0.15),transparent_50%)]" />
+      <section className="relative overflow-hidden bg-[#101D35] text-white pt-10 pb-16 sm:pb-20 border-b border-[#28395A]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,101,0.12),transparent_50%)]" />
         <Container className="relative z-10">
-          <Breadcrumbs items={breadcrumbs} className="text-neutral-400 mb-6" />
+          <Breadcrumbs items={breadcrumbs} className="text-slate-400 mb-6" />
 
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65] px-3.5 py-1 text-xs font-extrabold text-[#D4AF65] mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/40 px-3.5 py-1 text-xs font-extrabold text-[#D4AF65] mb-4">
               {isLocation ? <MapPin className="h-3.5 w-3.5" /> : <Sparkles className="h-3.5 w-3.5" />}
               <span>{isLocation ? `Dubai Coverage: ${pageData.name}` : 'Commercial Industry Solution'}</span>
             </div>
 
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
               {pageData.h1}
             </h1>
 
-            <p className="mt-4 text-base sm:text-lg text-neutral-300 leading-relaxed max-w-3xl">
+            <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
               {pageData.subheading}
             </p>
 
             {/* Quick Action Badges */}
-            <div className="mt-8 flex flex-wrap items-center gap-3 text-xs font-bold text-neutral-300">
-              <span className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 border border-neutral-800 px-3 py-1.5">
+            <div className="mt-8 flex flex-wrap items-center gap-3 text-xs font-bold text-slate-300">
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-[#162542] border border-[#28395A] px-3 py-1.5">
                 <Clock className="h-3.5 w-3.5 text-[#D4AF65]" />
                 Same-Day Dispatch
               </span>
@@ -171,34 +171,34 @@ export default function ProgrammaticLandingPage() {
       {pageData.logistics && (
         <section className="relative -mt-6 z-20">
           <Container>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl border border-neutral-200 bg-white p-6 shadow-md">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl border border-[#28395A] bg-[#162542] p-6 shadow-xl">
               <div className="flex items-start gap-3">
-                <div className="rounded-xl bg-[#D4AF65]/10 p-2.5 text-[#D4AF65] shrink-0">
+                <div className="rounded-xl bg-[#D4AF65]/15 p-2.5 text-[#D4AF65] shrink-0">
                   <Clock className="h-5 w-5" />
                 </div>
                 <div>
-                  <h2 className="text-xs font-extrabold uppercase tracking-wider text-neutral-500">Turnaround Time</h2>
-                  <p className="mt-1 text-sm font-bold text-neutral-900">{pageData.logistics.turnaround}</p>
+                  <h2 className="text-xs font-extrabold uppercase tracking-wider text-[#D4AF65]">Turnaround Time</h2>
+                  <p className="mt-1 text-sm font-bold text-white">{pageData.logistics.turnaround}</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 border-t md:border-t-0 md:border-l border-neutral-100 pt-4 md:pt-0 md:pl-6">
-                <div className="rounded-xl bg-blue-50 p-2.5 text-blue-600 shrink-0">
+              <div className="flex items-start gap-3 border-t md:border-t-0 md:border-l border-[#28395A] pt-4 md:pt-0 md:pl-6">
+                <div className="rounded-xl bg-[#D4AF65]/15 p-2.5 text-[#D4AF65] shrink-0">
                   <Printer className="h-5 w-5" />
                 </div>
                 <div>
-                  <h2 className="text-xs font-extrabold uppercase tracking-wider text-neutral-500">Production Facility</h2>
-                  <p className="mt-1 text-sm font-bold text-neutral-900">{pageData.logistics.dispatchHub}</p>
+                  <h2 className="text-xs font-extrabold uppercase tracking-wider text-[#D4AF65]">Production Facility</h2>
+                  <p className="mt-1 text-sm font-bold text-white">{pageData.logistics.dispatchHub}</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 border-t md:border-t-0 md:border-l border-neutral-100 pt-4 md:pt-0 md:pl-6">
-                <div className="rounded-xl bg-emerald-50 p-2.5 text-emerald-600 shrink-0">
+              <div className="flex items-start gap-3 border-t md:border-t-0 md:border-l border-[#28395A] pt-4 md:pt-0 md:pl-6">
+                <div className="rounded-xl bg-emerald-500/15 p-2.5 text-emerald-400 shrink-0">
                   <Truck className="h-5 w-5" />
                 </div>
                 <div>
-                  <h2 className="text-xs font-extrabold uppercase tracking-wider text-neutral-500">Delivery Policy</h2>
-                  <p className="mt-1 text-sm font-bold text-neutral-900">{pageData.logistics.deliveryFee}</p>
+                  <h2 className="text-xs font-extrabold uppercase tracking-wider text-[#D4AF65]">Delivery Policy</h2>
+                  <p className="mt-1 text-sm font-bold text-white">{pageData.logistics.deliveryFee}</p>
                 </div>
               </div>
             </div>
@@ -213,11 +213,11 @@ export default function ProgrammaticLandingPage() {
             {/* Main Editorial Content */}
             <div className="lg:col-span-8 space-y-8">
               {pageData.contentSections?.map((section, idx) => (
-                <div key={idx} className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs">
-                  <h2 className="font-display text-xl sm:text-2xl font-black text-neutral-900 tracking-tight">
+                <div key={idx} className="rounded-2xl border border-[#28395A] bg-[#162542] p-6 sm:p-8 shadow-md">
+                  <h2 className="font-display text-xl sm:text-2xl font-black text-white tracking-tight">
                     {section.title}
                   </h2>
-                  <p className="mt-4 text-sm sm:text-base text-neutral-600 leading-relaxed">
+                  <p className="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
                     {section.content}
                   </p>
                 </div>
@@ -225,8 +225,8 @@ export default function ProgrammaticLandingPage() {
 
               {/* Popular Products or Recommended Packages Grid */}
               {pageData.popularProducts && pageData.popularProducts.length > 0 && (
-                <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs">
-                  <h2 className="font-display text-xl font-black text-neutral-900 tracking-tight mb-5">
+                <div className="rounded-2xl border border-[#28395A] bg-[#162542] p-6 sm:p-8 shadow-md">
+                  <h2 className="font-display text-xl font-black text-white tracking-tight mb-5">
                     Popular Print Products in {pageData.name}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -234,16 +234,16 @@ export default function ProgrammaticLandingPage() {
                       <Link
                         key={idx}
                         to={`/categories/${prod.slug}`}
-                        className="group flex flex-col justify-between rounded-xl border border-neutral-200/80 p-4 transition-all hover:border-[#D4AF65] hover:shadow-xs bg-neutral-50/50"
+                        className="group flex flex-col justify-between rounded-xl border border-[#28395A] p-4 transition-all hover:border-[#D4AF65] hover:shadow-xs bg-[#101D35]"
                       >
                         <div>
                           <div className="flex items-center justify-between">
-                            <h3 className="font-bold text-sm text-neutral-900 group-hover:text-[#D4AF65] transition-colors">
+                            <h3 className="font-bold text-sm text-white group-hover:text-[#D4AF65] transition-colors">
                               {prod.name}
                             </h3>
-                            <ArrowRight className="h-3.5 w-3.5 text-neutral-400 group-hover:text-[#D4AF65] transition-transform group-hover:translate-x-1" />
+                            <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#D4AF65] transition-transform group-hover:translate-x-1" />
                           </div>
-                          <p className="mt-1.5 text-xs text-neutral-500 leading-relaxed">
+                          <p className="mt-1.5 text-xs text-slate-400 leading-relaxed">
                             {prod.highlight}
                           </p>
                         </div>
@@ -255,16 +255,16 @@ export default function ProgrammaticLandingPage() {
 
               {/* Recommended Packages for Use Cases */}
               {pageData.recommendedPackages && pageData.recommendedPackages.length > 0 && (
-                <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs">
-                  <h2 className="font-display text-xl font-black text-neutral-900 tracking-tight mb-5">
+                <div className="rounded-2xl border border-[#28395A] bg-[#162542] p-6 sm:p-8 shadow-md">
+                  <h2 className="font-display text-xl font-black text-white tracking-tight mb-5">
                     Recommended Production Packages
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {pageData.recommendedPackages.map((pkg, idx) => (
-                      <div key={idx} className="rounded-xl border border-neutral-200 p-5 bg-neutral-50/50 flex flex-col justify-between">
+                      <div key={idx} className="rounded-xl border border-[#28395A] p-5 bg-[#101D35] flex flex-col justify-between">
                         <div>
-                          <h3 className="font-extrabold text-sm text-neutral-900">{pkg.title}</h3>
-                          <ul className="mt-3 space-y-1.5 text-xs text-neutral-600">
+                          <h3 className="font-extrabold text-sm text-white">{pkg.title}</h3>
+                          <ul className="mt-3 space-y-1.5 text-xs text-slate-300">
                             {pkg.items?.map((item, itemIdx) => (
                               <li key={itemIdx} className="flex items-start gap-2">
                                 <CheckCircle2 className="h-3.5 w-3.5 text-[#D4AF65] shrink-0 mt-0.5" />
@@ -273,11 +273,14 @@ export default function ProgrammaticLandingPage() {
                             ))}
                           </ul>
                         </div>
-                        <div className="mt-5 pt-3 border-t border-neutral-200/60">
+                        <div className="mt-5 pt-3 border-t border-[#28395A]">
                           <Link to="/get-a-quote">
-                            <Button variant="outline" size="sm" className="w-full text-xs font-bold border-neutral-300">
+                            <button
+                              type="button"
+                              className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#B89245] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-[#101D35] transition-all cursor-pointer shadow-sm"
+                            >
                               Order This Package
-                            </Button>
+                            </button>
                           </Link>
                         </div>
                       </div>
@@ -288,16 +291,16 @@ export default function ProgrammaticLandingPage() {
 
               {/* FAQ Section */}
               {pageData.faqs && pageData.faqs.length > 0 && (
-                <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs">
+                <div className="rounded-2xl border border-[#28395A] bg-[#162542] p-6 sm:p-8 shadow-md">
                   <div className="flex items-center gap-2 text-xs font-extrabold text-[#D4AF65] uppercase tracking-wider mb-2">
                     <Info className="h-4 w-4" />
                     <span>Frequently Asked Questions</span>
                   </div>
-                  <h2 className="font-display text-xl sm:text-2xl font-black text-neutral-900 tracking-tight">
+                  <h2 className="font-display text-xl sm:text-2xl font-black text-white tracking-tight">
                     {isLocation ? `${pageData.name} Printing FAQ` : `${pageData.name} FAQ`}
                   </h2>
 
-                  <div className="mt-6 divide-y divide-neutral-100">
+                  <div className="mt-6 divide-y divide-[#28395A]">
                     {pageData.faqs.map((faq, idx) => {
                       const isOpen = openFaq === idx
                       return (
@@ -305,11 +308,11 @@ export default function ProgrammaticLandingPage() {
                           <button
                             type="button"
                             onClick={() => setOpenFaq(isOpen ? null : idx)}
-                            className="flex w-full items-center justify-between text-left text-sm font-bold text-neutral-900 hover:text-[#D4AF65] transition-colors"
+                            className="flex w-full items-center justify-between text-left text-sm font-bold text-white hover:text-[#D4AF65] transition-colors"
                           >
                             <span>{faq.question}</span>
                             <ChevronDown
-                              className={`h-4 w-4 text-neutral-400 transition-transform ${
+                              className={`h-4 w-4 text-slate-400 transition-transform ${
                                 isOpen ? 'rotate-180 text-[#D4AF65]' : ''
                               }`}
                             />
@@ -323,7 +326,7 @@ export default function ProgrammaticLandingPage() {
                                 transition={{ duration: 0.2 }}
                                 className="overflow-hidden"
                               >
-                                <p className="mt-2.5 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-4">
+                                <p className="mt-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed pr-4">
                                   {faq.answer}
                                 </p>
                               </motion.div>
@@ -340,30 +343,36 @@ export default function ProgrammaticLandingPage() {
             {/* Right Sidebar: Contact & Quick Links */}
             <div className="lg:col-span-4 space-y-6">
               {/* Quick Quote Widget Card */}
-              <div className="rounded-2xl border border-neutral-900 bg-neutral-950 p-6 text-white shadow-xl">
-                <h3 className="font-display text-lg font-black tracking-tight">
+              <div className="rounded-2xl border border-[#28395A] bg-[#162542] p-6 text-white shadow-xl">
+                <h3 className="font-display text-lg font-black tracking-tight text-white">
                   Need Fast Commercial Print in Dubai?
                 </h3>
-                <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
+                <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                   Send us your artwork or specifications. Get a tailored quotation within 15 minutes during business hours.
                 </p>
 
                 <div className="mt-5 space-y-3">
                   <Link to="/get-a-quote" className="block w-full">
-                    <Button variant="accent" size="md" className="w-full font-bold shadow-md shadow-[#D4AF65]/25">
+                    <button
+                      type="button"
+                      className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#B89245] px-4 py-3 text-xs font-black uppercase tracking-wider text-[#101D35] transition-all cursor-pointer shadow-md shadow-[#D4AF65]/20"
+                    >
                       Request Bespoke Estimate
-                    </Button>
+                    </button>
                   </Link>
 
                   <Link to="/contact" className="block w-full">
-                    <Button variant="outline" size="md" className="w-full border-neutral-700 text-white hover:bg-neutral-900 text-xs font-bold">
-                      <Mail className="h-3.5 w-3.5 mr-2" />
-                      Contact Studio
-                    </Button>
+                    <button
+                      type="button"
+                      className="w-full rounded-xl border border-[#28395A] bg-[#101D35] hover:border-[#D4AF65] hover:text-[#D4AF65] px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-200 transition-all cursor-pointer flex items-center justify-center gap-2"
+                    >
+                      <Mail className="h-3.5 w-3.5" />
+                      <span>Contact Studio</span>
+                    </button>
                   </Link>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-neutral-800 text-[11px] text-neutral-400 space-y-1.5">
+                <div className="mt-6 pt-5 border-t border-[#28395A] text-[11px] text-slate-300 space-y-1.5">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                     <span>Free sample box delivered across Dubai</span>
@@ -376,8 +385,8 @@ export default function ProgrammaticLandingPage() {
               </div>
 
               {/* Related Categories Navigation */}
-              <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
-                <h3 className="font-display text-sm font-black uppercase tracking-wider text-neutral-900 mb-3">
+              <div className="rounded-2xl border border-[#28395A] bg-[#162542] p-6 shadow-md">
+                <h3 className="font-display text-sm font-black uppercase tracking-wider text-[#D4AF65] mb-3">
                   Key Printing Disciplines
                 </h3>
                 <nav className="space-y-1.5 text-xs font-bold">
@@ -386,48 +395,48 @@ export default function ProgrammaticLandingPage() {
                       <Link
                         key={cat.id}
                         to={`/categories/${cat.slug}`}
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-slate-200 hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                       >
                         <span>{cat.name}</span>
-                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                        <ArrowRight className="h-3 w-3 text-slate-400" />
                       </Link>
                     ))
                   ) : (
                     <>
                       <Link
                         to="/categories/brochures-printing"
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-slate-200 hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                       >
                         <span>Brochures &amp; Catalogs</span>
-                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                        <ArrowRight className="h-3 w-3 text-slate-400" />
                       </Link>
                       <Link
                         to="/categories/business-cards-printing"
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-slate-200 hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                       >
                         <span>Luxury Business Cards</span>
-                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                        <ArrowRight className="h-3 w-3 text-slate-400" />
                       </Link>
                       <Link
                         to="/categories/flyers-printing-in-dubai"
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-slate-200 hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                       >
                         <span>Commercial Flyers &amp; Menus</span>
-                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                        <ArrowRight className="h-3 w-3 text-slate-400" />
                       </Link>
                       <Link
                         to="/categories/id-card-printing-dubai"
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-slate-200 hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                       >
                         <span>Corporate PVC ID Cards</span>
-                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                        <ArrowRight className="h-3 w-3 text-slate-400" />
                       </Link>
                       <Link
                         to="/categories/letterheads-printing-dubai"
-                        className="flex items-center justify-between p-2 rounded-lg text-neutral-700 hover:bg-neutral-50 hover:text-[#D4AF65] transition-colors"
+                        className="flex items-center justify-between p-2 rounded-lg text-slate-200 hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                       >
                         <span>Official Letterheads</span>
-                        <ArrowRight className="h-3 w-3 text-neutral-400" />
+                        <ArrowRight className="h-3 w-3 text-slate-400" />
                       </Link>
                     </>
                   )}

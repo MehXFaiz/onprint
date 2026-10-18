@@ -116,30 +116,30 @@ export default function ImageUploader({
 
   return (
     <div className={`space-y-4 ${className}`}>
-      <label className="block text-xs font-bold uppercase tracking-wider text-neutral-900">
+      <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
         {label}
       </label>
 
       {/* Error Alert */}
       {error && (
-        <div className="flex items-center gap-2 rounded-2xl border border-red-200 bg-red-50 p-3.5 text-xs font-semibold text-red-700">
-          <AlertCircle className="h-4 w-4 shrink-0 text-red-600" />
+        <div className="flex items-center gap-2 rounded-2xl border border-red-500/40 bg-red-500/10 p-3.5 text-xs font-semibold text-red-300">
+          <AlertCircle className="h-4 w-4 shrink-0 text-red-400" />
           <span>{error}</span>
           <button
             type="button"
             onClick={() => setError(null)}
-            className="ml-auto p-1 hover:bg-red-100 rounded-lg transition-colors"
+            className="ml-auto p-1 hover:bg-red-500/20 rounded-lg transition-colors"
           >
-            <X className="h-3.5 w-3.5 text-red-600" />
+            <X className="h-3.5 w-3.5 text-red-400" />
           </button>
         </div>
       )}
 
       {/* Single Mode Preview Display */}
       {!multiple && imageList.length > 0 && (
-        <div className="rounded-3xl border border-neutral-200 bg-neutral-50 p-4 sm:p-5 space-y-4">
+        <div className="rounded-3xl border border-[#28395A] bg-[#101D35] p-4 sm:p-5 space-y-4">
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <div className="h-28 w-28 shrink-0 overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-xs flex items-center justify-center relative group">
+            <div className="h-28 w-28 shrink-0 overflow-hidden rounded-2xl border border-[#28395A] bg-[#162542] shadow-xs flex items-center justify-center relative group">
               <img
                 src={imageList[0].url}
                 alt={altText || 'Preview'}
@@ -152,18 +152,18 @@ export default function ImageUploader({
             </div>
 
             <div className="flex-1 min-w-0 text-center sm:text-left space-y-1">
-              <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs font-bold text-neutral-900">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+              <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs font-bold text-white">
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                 <span className="truncate">{getFilenameFromUrl(imageList[0].url)}</span>
               </div>
-              <p className="text-[11px] text-neutral-500 font-mono truncate">{imageList[0].url}</p>
+              <p className="text-[11px] text-slate-400 font-mono truncate">{imageList[0].url}</p>
 
               <div className="pt-2 flex items-center justify-center sm:justify-start gap-2">
                 <button
                   type="button"
                   disabled={uploading}
                   onClick={() => fileInputRef.current?.click()}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-300 bg-white px-3 py-1.5 text-xs font-bold text-neutral-800 hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#28395A] bg-[#162542] px-3 py-1.5 text-xs font-bold text-slate-200 hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors cursor-pointer"
                 >
                   <RefreshCw className="h-3.5 w-3.5" />
                   Replace
@@ -173,7 +173,7 @@ export default function ImageUploader({
                   type="button"
                   disabled={uploading}
                   onClick={() => handleRemove(0)}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-bold text-red-700 hover:bg-red-100 transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-red-500/40 bg-red-500/15 px-3 py-1.5 text-xs font-bold text-red-300 hover:bg-red-500/25 transition-colors cursor-pointer"
                 >
                   <X className="h-3.5 w-3.5" />
                   Remove
@@ -184,8 +184,8 @@ export default function ImageUploader({
 
           {/* SEO Alt Text Input */}
           {onAltTextChange && (
-            <div className="pt-2 border-t border-neutral-200/80">
-              <label className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-neutral-700 mb-1">
+            <div className="pt-2 border-t border-[#28395A]">
+              <label className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#D4AF65] mb-1">
                 <Tag className="h-3 w-3 text-[#D4AF65]" />
                 SEO Image Alt Text
               </label>
@@ -194,7 +194,7 @@ export default function ImageUploader({
                 value={altText}
                 onChange={(e) => onAltTextChange(e.target.value)}
                 placeholder="Descriptive alt text for Google SEO (e.g. Mug Printing in Dubai)"
-                className="w-full rounded-xl border border-neutral-300 bg-white px-3 py-2 text-xs text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none"
+                className="w-full rounded-xl border border-[#28395A] bg-[#162542] px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
             </div>
           )}
@@ -208,9 +208,9 @@ export default function ImageUploader({
             {imageList.map((item, idx) => (
               <div
                 key={idx}
-                className="group relative rounded-2xl border border-neutral-200 bg-white p-2 shadow-xs space-y-1.5"
+                className="group relative rounded-2xl border border-[#28395A] bg-[#101D35] p-2 shadow-xs space-y-1.5"
               >
-                <div className="h-24 w-full overflow-hidden rounded-xl bg-neutral-100 flex items-center justify-center relative">
+                <div className="h-24 w-full overflow-hidden rounded-xl bg-[#162542] flex items-center justify-center relative">
                   <img
                     src={item.url}
                     alt={item.alt || `Product Image ${idx + 1}`}
@@ -223,12 +223,12 @@ export default function ImageUploader({
                   <button
                     type="button"
                     onClick={() => handleRemove(idx)}
-                    className="absolute top-1 right-1 rounded-lg bg-neutral-900/80 p-1 text-white opacity-90 hover:bg-red-600 transition-colors"
+                    className="absolute top-1 right-1 rounded-lg bg-neutral-900/80 p-1 text-white opacity-90 hover:bg-red-600 transition-colors cursor-pointer"
                   >
                     <X className="h-3.5 w-3.5" />
                   </button>
                 </div>
-                <div className="text-[10px] text-neutral-500 font-mono truncate px-1">
+                <div className="text-[10px] text-slate-400 font-mono truncate px-1">
                   {getFilenameFromUrl(item.url)}
                 </div>
               </div>
@@ -247,8 +247,8 @@ export default function ImageUploader({
           onClick={() => !uploading && fileInputRef.current?.click()}
           className={`relative flex flex-col items-center justify-center rounded-3xl border-2 border-dashed p-6 sm:p-8 text-center transition-all cursor-pointer ${
             dragActive
-              ? 'border-[#D4AF65] bg-[#D4AF65]/10 scale-[0.99]'
-              : 'border-neutral-300 bg-neutral-50/60 hover:border-[#D4AF65] hover:bg-white'
+              ? 'border-[#D4AF65] bg-[#D4AF65]/15 scale-[0.99]'
+              : 'border-[#28395A] bg-[#101D35]/60 hover:border-[#D4AF65] hover:bg-[#101D35]'
           } ${uploading ? 'opacity-70 pointer-events-none' : ''}`}
         >
           <input
@@ -263,8 +263,8 @@ export default function ImageUploader({
           {uploading ? (
             <div className="space-y-3 flex flex-col items-center py-2">
               <Loader2 className="h-8 w-8 animate-spin text-[#D4AF65]" />
-              <div className="text-xs font-bold text-neutral-900">Uploading Image ({progress}%)...</div>
-              <div className="w-48 h-1.5 bg-neutral-200 rounded-full overflow-hidden">
+              <div className="text-xs font-bold text-white">Uploading Image ({progress}%)...</div>
+              <div className="w-48 h-1.5 bg-[#162542] rounded-full overflow-hidden border border-[#28395A]">
                 <div
                   className="h-full bg-[#D4AF65] transition-all duration-300"
                   style={{ width: `${progress}%` }}
@@ -273,18 +273,18 @@ export default function ImageUploader({
             </div>
           ) : (
             <div className="space-y-3 flex flex-col items-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65]/10 text-[#D4AF65]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65]/15 text-[#D4AF65] border border-[#D4AF65]/30">
                 <UploadCloud className="h-6 w-6" />
               </div>
 
               <div>
-                <div className="text-xs font-bold text-neutral-900">
+                <div className="text-xs font-bold text-white">
                   <span className="text-[#D4AF65]">Click to choose file</span> or drag & drop image here
                 </div>
-                <p className="text-[11px] text-neutral-500 mt-1">{description}</p>
+                <p className="text-[11px] text-slate-400 mt-1">{description}</p>
               </div>
 
-              <div className="rounded-xl border border-neutral-300 bg-white px-4 py-2 text-xs font-bold text-neutral-900 shadow-xs hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors">
+              <div className="rounded-xl border border-[#28395A] bg-[#162542] px-4 py-2 text-xs font-bold text-slate-200 shadow-xs hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors">
                 Choose File
               </div>
             </div>

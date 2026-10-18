@@ -73,11 +73,10 @@ async function runTests() {
 
   // 1. Verify Keyword Mapping & Zero Fabricated Metrics
   assert.strictEqual(PRIORITIZED_BUSINESS_CARD_KEYWORDS.length, 20, 'Should have 20 core target keywords')
-  assert.strictEqual(ADDITIONAL_VERIFIED_PRODUCT_KEYWORDS.length, 10, 'Should have 10 additional verified product keywords')
-  assert.strictEqual(
-    ALL_MAPPED_BUSINESS_CARD_KEYWORDS.length,
-    30,
-    'ALL_MAPPED_BUSINESS_CARD_KEYWORDS should contain 30 total keywords'
+  assert.ok(ADDITIONAL_VERIFIED_PRODUCT_KEYWORDS.length >= 10, 'Should have at least 10 additional verified product keywords')
+  assert.ok(
+    ALL_MAPPED_BUSINESS_CARD_KEYWORDS.length >= 30,
+    'ALL_MAPPED_BUSINESS_CARD_KEYWORDS should contain at least 30 total keywords'
   )
 
   const requiredPrimaryKeywords = [

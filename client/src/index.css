@@ -242,9 +242,9 @@ body {
 }
 
 /* Convert any remaining white/ivory section backgrounds to #101D35 */
-.public-navy-theme:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F5F2EB\], .bg-slate-50, .bg-zinc-50),
-.public-navy-theme > div:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F5F2EB\], .bg-slate-50, .bg-zinc-50),
-.public-navy-theme section:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F5F2EB\], .bg-slate-50, .bg-zinc-50, .bg-slate-50\/60, .bg-slate-100) {
+.public-navy-theme:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F5F2EB\], .bg-slate-50, .bg-zinc-50, .bg-neutral-50, .bg-gray-50),
+.public-navy-theme > div:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F5F2EB\], .bg-slate-50, .bg-zinc-50, .bg-neutral-50, .bg-gray-50),
+.public-navy-theme section:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F5F2EB\], .bg-slate-50, .bg-zinc-50, .bg-slate-50\/60, .bg-slate-100, .bg-neutral-50, .bg-neutral-100, .bg-gray-50, .bg-gray-100) {
   background-color: #101D35 !important;
 }
 
@@ -265,7 +265,16 @@ body {
   .bg-slate-100,
   .bg-zinc-50,
   .bg-zinc-100,
-  .bg-zinc-200\/70
+  .bg-zinc-200\/70,
+  .bg-neutral-50,
+  .bg-neutral-50\/70,
+  .bg-neutral-50\/80,
+  .bg-neutral-100,
+  .bg-neutral-100\/70,
+  .bg-neutral-200,
+  .bg-gray-50,
+  .bg-gray-100,
+  .bg-gray-200
 ) {
   background-color: #162542 !important;
 }
@@ -280,25 +289,40 @@ body {
   .border-zinc-100,
   .border-zinc-200,
   .border-zinc-200\/80,
+  .border-neutral-100,
+  .border-neutral-200,
+  .border-neutral-200\/80,
+  .border-neutral-200\/90,
+  .border-neutral-300,
+  .border-gray-100,
+  .border-gray-200,
   .divide-slate-200 > :not([hidden]) ~ :not([hidden]),
   .divide-zinc-100 > :not([hidden]) ~ :not([hidden]),
-  .divide-zinc-200 > :not([hidden]) ~ :not([hidden])
+  .divide-zinc-200 > :not([hidden]) ~ :not([hidden]),
+  .divide-neutral-100 > :not([hidden]) ~ :not([hidden]),
+  .divide-neutral-200 > :not([hidden]) ~ :not([hidden]),
+  .divide-gray-200 > :not([hidden]) ~ :not([hidden])
 ) {
   border-color: #28395A !important;
 }
 
-/* Ensure dark text utilities on navy surfaces become crisp white or light slate, EXCEPT on gold/emerald badges */
+/* Ensure dark headings and prominent text utilities on navy surfaces become crisp, radiant white */
 .public-navy-theme :not(.bg-\[\#D4AF65\]):not(.bg-accent):not(.btn-primary):not(.bg-emerald-50):not(.bg-emerald-50\/80):not(.bg-emerald-50\/70):is(
   .text-\[\#101D35\],
   .text-zinc-950,
   .text-zinc-900,
   .text-slate-950,
   .text-slate-900,
+  .text-neutral-950,
+  .text-neutral-900,
+  .text-gray-950,
+  .text-gray-900,
   .text-black
 ) {
   color: #FFFFFF !important;
 }
 
+/* Ensure secondary, body, and description text becomes soft, highly legible light slate #CBD5E1 */
 .public-navy-theme :not(.bg-\[\#D4AF65\]):not(.bg-accent):not(.btn-primary):is(
   .text-\[\#343D4F\],
   .text-\[\#52525B\],
@@ -306,11 +330,47 @@ body {
   .text-zinc-800,
   .text-zinc-700,
   .text-zinc-600,
+  .text-zinc-500,
   .text-slate-800,
   .text-slate-700,
-  .text-slate-600
+  .text-slate-600,
+  .text-slate-500,
+  .text-neutral-800,
+  .text-neutral-700,
+  .text-neutral-600,
+  .text-neutral-500,
+  .text-neutral-400,
+  .text-gray-800,
+  .text-gray-700,
+  .text-gray-600,
+  .text-gray-500
 ) {
   color: #CBD5E1 !important;
+}
+
+/* Map dark black buttons on navy cards to luxury Champagne Gold buttons with dark navy text */
+.public-navy-theme button:is(.bg-neutral-900, .bg-neutral-950, .bg-black):not(.btn-luxury-custom),
+.public-navy-theme a:is(.bg-neutral-900, .bg-neutral-950, .bg-black):not(.btn-luxury-custom) {
+  background-color: #D4AF65 !important;
+  border-color: #D4AF65 !important;
+  color: #101D35 !important;
+  font-weight: 800 !important;
+}
+
+.public-navy-theme button:is(.bg-neutral-900, .bg-neutral-950, .bg-black):hover,
+.public-navy-theme a:is(.bg-neutral-900, .bg-neutral-950, .bg-black):hover {
+  background-color: #B89245 !important;
+  border-color: #B89245 !important;
+  color: #101D35 !important;
+}
+
+/* Ensure all text and icons inside Champagne Gold buttons/elements remain Midnight Navy #101D35 for maximum readability */
+.public-navy-theme :is(.bg-\[\#D4AF65\], .btn-primary, [class*="bg-[#D4AF65]"]):not([class*="bg-[#D4AF65]/"]) :is(span, p, svg, strong, b) {
+  color: #101D35 !important;
+}
+
+.public-navy-theme :is(.bg-\[\#D4AF65\], .btn-primary, [class*="bg-[#D4AF65]"]):not([class*="bg-[#D4AF65]/"]):hover :is(span, p, svg, strong, b) {
+  color: #101D35 !important;
 }
 
 /* Custom Scrollbar */

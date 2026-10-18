@@ -135,7 +135,7 @@ export default function ServiceDetailPage() {
             </h1>
 
             {/* Intro: Answer-first direct factual summary */}
-            <div className="mt-6 rounded-2xl bg-neutral-50/90 border border-neutral-200/80 p-5 text-sm sm:text-base leading-relaxed text-neutral-800">
+            <div className="mt-6 rounded-2xl bg-[#162542] border border-[#28395A] p-5 text-sm sm:text-base leading-relaxed text-slate-200">
               <p>{sectionE.intro}</p>
             </div>
 
@@ -275,11 +275,11 @@ export default function ServiceDetailPage() {
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Materials */}
-            <div className="rounded-xl border border-border/70 bg-neutral-50/60 p-5">
-              <h3 className="text-xs font-extrabold uppercase tracking-wider text-neutral-500 mb-3">
+            <div className="rounded-xl border border-[#28395A] bg-[#101D35] p-5">
+              <h3 className="text-xs font-extrabold uppercase tracking-wider text-[#D4AF65] mb-3">
                 Materials &amp; Substrates
               </h3>
-              <ul className="space-y-2.5 text-xs text-neutral-800 font-medium">
+              <ul className="space-y-2.5 text-xs text-slate-200 font-medium">
                 {sectionE.availableOptions.materials.map((mat, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0 mt-1.5" />
@@ -290,11 +290,11 @@ export default function ServiceDetailPage() {
             </div>
 
             {/* Sizes */}
-            <div className="rounded-xl border border-border/70 bg-neutral-50/60 p-5">
-              <h3 className="text-xs font-extrabold uppercase tracking-wider text-neutral-500 mb-3">
+            <div className="rounded-xl border border-[#28395A] bg-[#101D35] p-5">
+              <h3 className="text-xs font-extrabold uppercase tracking-wider text-[#D4AF65] mb-3">
                 Sizes &amp; Dimensions
               </h3>
-              <ul className="space-y-2.5 text-xs text-neutral-800 font-medium">
+              <ul className="space-y-2.5 text-xs text-slate-200 font-medium">
                 {sectionE.availableOptions.sizes.map((sz, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0 mt-1.5" />
@@ -305,11 +305,11 @@ export default function ServiceDetailPage() {
             </div>
 
             {/* Finishes */}
-            <div className="rounded-xl border border-border/70 bg-neutral-50/60 p-5">
-              <h3 className="text-xs font-extrabold uppercase tracking-wider text-neutral-500 mb-3">
+            <div className="rounded-xl border border-[#28395A] bg-[#101D35] p-5">
+              <h3 className="text-xs font-extrabold uppercase tracking-wider text-[#D4AF65] mb-3">
                 Finishes &amp; Embellishments
               </h3>
-              <ul className="space-y-2.5 text-xs text-neutral-800 font-medium">
+              <ul className="space-y-2.5 text-xs text-slate-200 font-medium">
                 {sectionE.availableOptions.finishes.map((fn, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0 mt-1.5" />
@@ -366,8 +366,8 @@ export default function ServiceDetailPage() {
 
           <div className="mt-6 space-y-3">
             {sectionE.whoUses.map((aud, i) => (
-              <div key={i} className="flex items-center gap-3 p-3.5 rounded-xl bg-background border border-border/60 text-xs sm:text-sm font-semibold text-neutral-800">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent font-bold text-xs">
+              <div key={i} className="flex items-center gap-3 p-3.5 rounded-xl bg-[#101D35] border border-[#28395A] text-xs sm:text-sm font-semibold text-slate-200">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#D4AF65]/15 text-[#D4AF65] font-bold text-xs">
                   {i + 1}
                 </span>
                 <span>{aud}</span>
@@ -392,12 +392,12 @@ export default function ServiceDetailPage() {
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {sectionE.processSteps.map((step) => (
-              <div key={step.step} className="rounded-xl border border-border/70 bg-neutral-50/50 p-5 relative">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-neutral-900 text-white font-mono font-bold text-xs mb-3">
+              <div key={step.step} className="rounded-xl border border-[#28395A] bg-[#101D35] p-5 relative">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#D4AF65] text-[#101D35] font-mono font-bold text-xs mb-3">
                   0{step.step}
                 </span>
-                <h3 className="font-display text-sm font-bold text-neutral-900 mb-1.5">{step.title}</h3>
-                <p className="text-xs text-neutral-600 leading-relaxed">{step.desc}</p>
+                <h3 className="font-display text-sm font-bold text-white mb-1.5">{step.title}</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -418,21 +418,21 @@ export default function ServiceDetailPage() {
           </p>
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-            <div className="rounded-xl border border-border/70 bg-neutral-50/60 p-4">
-              <span className="font-bold text-neutral-900 block mb-1">Accepted File Formats</span>
-              <p className="text-neutral-600">{sectionE.artworkRequirements.formats}</p>
+            <div className="rounded-xl border border-[#28395A] bg-[#101D35] p-4">
+              <span className="font-bold text-white block mb-1">Accepted File Formats</span>
+              <p className="text-slate-300">{sectionE.artworkRequirements.formats}</p>
             </div>
-            <div className="rounded-xl border border-border/70 bg-neutral-50/60 p-4">
-              <span className="font-bold text-neutral-900 block mb-1">Resolution</span>
-              <p className="text-neutral-600">{sectionE.artworkRequirements.resolution}</p>
+            <div className="rounded-xl border border-[#28395A] bg-[#101D35] p-4">
+              <span className="font-bold text-white block mb-1">Resolution</span>
+              <p className="text-slate-300">{sectionE.artworkRequirements.resolution}</p>
             </div>
-            <div className="rounded-xl border border-border/70 bg-neutral-50/60 p-4">
-              <span className="font-bold text-neutral-900 block mb-1">Bleed &amp; Safety Margin</span>
-              <p className="text-neutral-600">{sectionE.artworkRequirements.bleed}</p>
+            <div className="rounded-xl border border-[#28395A] bg-[#101D35] p-4">
+              <span className="font-bold text-white block mb-1">Bleed &amp; Safety Margin</span>
+              <p className="text-slate-300">{sectionE.artworkRequirements.bleed}</p>
             </div>
-            <div className="rounded-xl border border-border/70 bg-neutral-50/60 p-4">
-              <span className="font-bold text-neutral-900 block mb-1">Color Mode &amp; Profiling</span>
-              <p className="text-neutral-600">{sectionE.artworkRequirements.colorMode}</p>
+            <div className="rounded-xl border border-[#28395A] bg-[#101D35] p-4">
+              <span className="font-bold text-white block mb-1">Color Mode &amp; Profiling</span>
+              <p className="text-slate-300">{sectionE.artworkRequirements.colorMode}</p>
             </div>
           </div>
         </div>

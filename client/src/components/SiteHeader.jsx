@@ -288,7 +288,7 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full select-none bg-[#101D35] border-b border-[#28395A] shadow-md transition-all duration-200">
-      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4 min-w-0">
+      <div className="mx-auto max-w-[1440px] px-3 sm:px-5 lg:px-6 2xl:px-8 py-2 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-3 lg:gap-4 min-w-0">
         {/* Brand Logo & Dubai Flagship Pill */}
         <Link
           to="/"
@@ -300,9 +300,9 @@ export default function SiteHeader() {
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
-            <Logo variant="light" size="md" />
+            <Logo variant="light" size="sm" className="h-7 sm:h-8" />
           </motion.div>
-          <div className="hidden xl:flex items-center gap-1.5 pl-3 border-l border-[#28395A]">
+          <div className="hidden 2xl:flex items-center gap-1.5 pl-2.5 border-l border-[#28395A]">
             <span className="text-[10px] font-black uppercase tracking-wider text-white">
               DUBAI
             </span>
@@ -315,7 +315,7 @@ export default function SiteHeader() {
 
         {/* Desktop Navigation Links — Unified Glider */}
         <nav
-          className="hidden lg:flex items-center gap-0.5 bg-[#162542] px-3 py-1.5 rounded-full border border-[#28395A] shadow-2xs backdrop-blur-md relative"
+          className="hidden lg:flex items-center gap-0.5 bg-[#162542] px-2.5 py-1 2xl:px-3 2xl:py-1.5 rounded-full border border-[#28395A] shadow-2xs backdrop-blur-md relative shrink-0"
           aria-label="Main Navigation"
           onMouseLeave={() => setHoveredNav(null)}
         >
@@ -331,7 +331,7 @@ export default function SiteHeader() {
             <button
               type="button"
               onClick={() => setActiveDropdown((prev) => (prev === 'catalog' ? null : 'catalog'))}
-              className={`relative z-10 flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold transition-colors cursor-pointer ${
+              className={`relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors cursor-pointer ${
                 activeDropdown === 'catalog' || location.pathname === '/products' || location.pathname === '/categories'
                   ? 'text-[#D4AF65] font-black'
                   : 'text-white/90 hover:text-[#D4AF65]'
@@ -360,14 +360,14 @@ export default function SiteHeader() {
               {activeDropdown === 'catalog' && (
                 <motion.div
                   initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute left-0 top-full mt-3 w-[min(940px,calc(100vw-48px))] rounded-3xl border border-[#28395A] bg-[#101D35]/98 backdrop-blur-2xl p-6 shadow-[0_28px_64px_-12px_rgba(0,0,0,0.5)] z-50 text-white"
-                  >
-                    <div className="grid grid-cols-12 gap-6">
-                      {/* Left Spotlight Banner — Deep Navy & Champagne Gold */}
-                      <div className="col-span-4 rounded-2xl bg-[#162542] p-5 flex flex-col justify-between text-white relative overflow-hidden shadow-xl border border-[#28395A]">
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                  transition={{ duration: 0.18 }}
+                  className="absolute left-0 sm:-left-8 lg:-left-16 xl:left-0 top-full mt-3 w-[min(880px,calc(100vw-48px))] max-w-[calc(100vw-32px)] rounded-3xl border border-[#28395A] bg-[#101D35]/98 backdrop-blur-2xl p-5 xl:p-6 shadow-[0_28px_64px_-12px_rgba(0,0,0,0.5)] z-50 text-white"
+                >
+                  <div className="grid grid-cols-12 gap-6">
+                    {/* Left Spotlight Banner — Deep Navy & Champagne Gold */}
+                    <div className="col-span-4 rounded-2xl bg-[#162542] p-5 flex flex-col justify-between text-white relative overflow-hidden shadow-xl border border-[#28395A]">
                         <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 rounded-full bg-[#D4AF65]/15 blur-2xl pointer-events-none" />
 
                         <div className="relative z-10">
@@ -474,7 +474,7 @@ export default function SiteHeader() {
               to="/business-card-printing-dubai"
               onMouseEnter={() => setHoveredNav('cards')}
               className={({ isActive }) =>
-                `relative z-10 flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
+                `relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
                   isActive ? 'text-[#D4AF65] font-black' : 'text-white/90 hover:text-[#D4AF65]'
                 }`
               }
@@ -499,7 +499,7 @@ export default function SiteHeader() {
               to="/categories/custom-stamps-seals"
               onMouseEnter={() => setHoveredNav('stamps')}
               className={({ isActive }) =>
-                `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
+                `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
                   isActive ? 'text-[#D4AF65] font-black' : 'text-white/90 hover:text-[#D4AF65]'
                 }`
               }
@@ -524,7 +524,7 @@ export default function SiteHeader() {
               to="/categories/stickers-printing-dubai"
               onMouseEnter={() => setHoveredNav('stickers')}
               className={({ isActive }) =>
-                `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
+                `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
                   isActive ? 'text-[#D4AF65] font-black' : 'text-white/90 hover:text-[#D4AF65]'
                 }`
               }
@@ -541,42 +541,20 @@ export default function SiteHeader() {
               )}
             </NavLink>
 
-            {/* Rollup Banners */}
+            {/* Luxury Finishes Showcase */}
             <NavLink
-              to="/categories/roll-up-banners-dubai"
-              onMouseEnter={() => setHoveredNav('banners')}
+              to="/finishes"
+              onMouseEnter={() => setHoveredNav('finishes')}
               className={({ isActive }) =>
-                `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#D4AF65] font-black' : 'text-white/90 hover:text-[#D4AF65]'
-                }`
-              }
-            >
-              <Layers className="h-3.5 w-3.5 text-[#D4AF65]" />
-              <span>Banners</span>
-
-              {hoveredNav === 'banners' && (
-                <motion.div
-                  layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#D4AF65]/40 text-[#D4AF65] -z-10"
-                  transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                />
-              )}
-            </NavLink>
-
-            {/* Services Link */}
-            <NavLink
-              to="/services"
-              onMouseEnter={() => setHoveredNav('services')}
-              className={({ isActive }) =>
-                `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors whitespace-nowrap ${
+                `relative z-10 hidden lg:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
                   isActive ? 'text-[#D4AF65] font-black' : 'text-white/90 hover:text-[#D4AF65]'
                 }`
               }
             >
               <Palette className="h-3.5 w-3.5 text-[#D4AF65]" />
-              <span>Services</span>
+              <span>Finishes</span>
 
-              {hoveredNav === 'services' && (
+              {hoveredNav === 'finishes' && (
                 <motion.div
                   layoutId="navHoverCapsule"
                   className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#D4AF65]/40 text-[#D4AF65] -z-10"
@@ -597,8 +575,8 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown((prev) => (prev === 'company' ? null : 'company'))}
-                className={`relative z-10 flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-bold transition-colors cursor-pointer ${
-                  activeDropdown === 'company' || ['/services', '/about', '/blog', '/contact'].includes(location.pathname)
+                className={`relative z-10 flex items-center gap-1 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors cursor-pointer ${
+                  activeDropdown === 'company' || ['/services', '/about', '/blog', '/contact', '/corporate-quotes'].includes(location.pathname)
                     ? 'text-[#D4AF65] font-black'
                     : 'text-white/90 hover:text-[#D4AF65]'
                 }`}
@@ -664,7 +642,6 @@ export default function SiteHeader() {
                       </div>
                     </Link>
 
-
                     <Link
                       to="/about"
                       onClick={() => setActiveDropdown(null)}
@@ -707,29 +684,31 @@ export default function SiteHeader() {
           </nav>
 
           {/* Right Action Hub */}
-          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-            {/* Direct Phone Hotline */}
+          <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-2.5 shrink-0">
+            {/* Direct Phone Hotline (Sleek icon capsule on 2xl, full number on min-1680px) */}
             <a
               href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              className="hidden 2xl:inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-[#D4AF65] transition-colors whitespace-nowrap"
-              title="Direct Pressroom Hotline"
+              className="hidden 2xl:inline-flex items-center gap-1.5 h-8.5 px-2.5 rounded-full border border-[#28395A] bg-[#162542] hover:bg-[#1B2C4D] text-xs font-bold text-white hover:text-[#D4AF65] transition-all whitespace-nowrap shadow-2xs"
+              title={`Direct Pressroom Hotline: ${FORMATTED_PHONE}`}
+              aria-label="Call Pressroom"
             >
               <Phone className="h-3.5 w-3.5 text-[#D4AF65]" />
-              <span>{FORMATTED_PHONE}</span>
+              <span className="hidden min-[1680px]:inline text-[11px] font-semibold">{FORMATTED_PHONE}</span>
             </a>
+
             {/* Quick Search Capsule Button */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
               type="button"
               onClick={() => setSearchModalOpen(true)}
-              className="flex h-9 w-9 xl:h-auto xl:w-auto items-center justify-center gap-2 rounded-full border border-[#28395A] bg-[#162542] hover:bg-[#1B2C4D] hover:border-[#D4AF65]/60 xl:px-3 xl:py-1.5 text-xs text-slate-300 transition-all cursor-pointer group shrink-0"
+              className="flex h-8.5 w-8.5 min-[1600px]:w-auto min-[1600px]:px-3 items-center justify-center gap-2 rounded-full border border-[#28395A] bg-[#162542] hover:bg-[#1B2C4D] hover:border-[#D4AF65]/60 text-xs text-slate-300 transition-all cursor-pointer group shrink-0"
               title="Search products (Press / or ⌘K)"
               aria-label="Search products"
             >
-              <Search className="h-4 w-4 xl:h-3.5 xl:w-3.5 text-slate-300 group-hover:text-[#D4AF65] transition-colors shrink-0" />
-              <span className="hidden xl:inline text-[11px] font-medium text-slate-300">Search catalog...</span>
-              <kbd className="hidden xl:inline-block rounded-md bg-[#101D35] border border-[#28395A] px-1.5 py-0.5 text-[9px] font-bold text-[#D4AF65] shadow-2xs">
+              <Search className="h-3.5 w-3.5 text-slate-300 group-hover:text-[#D4AF65] transition-colors shrink-0" />
+              <span className="hidden min-[1600px]:inline text-[11px] font-medium text-slate-300">Search...</span>
+              <kbd className="hidden min-[1600px]:inline-block rounded-md bg-[#101D35] border border-[#28395A] px-1 py-0.2 text-[8px] font-bold text-[#D4AF65]">
                 ⌘K
               </kbd>
             </motion.button>
@@ -737,15 +716,16 @@ export default function SiteHeader() {
             {/* Track Orders / Shopping Bag Button */}
             <Link
               to="/track-order"
-              className="hidden sm:flex relative h-9 w-9 items-center justify-center rounded-full border border-[#28395A] bg-[#162542] text-slate-300 hover:bg-[#1B2C4D] hover:text-[#D4AF65] transition-all shadow-2xs shrink-0"
-              title="Track Orders"
+              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-[#28395A] bg-[#162542] text-slate-300 hover:bg-[#1B2C4D] hover:text-[#D4AF65] transition-all shadow-2xs shrink-0"
+              title="Track Production & Delivery"
+              aria-label="Track order"
             >
-              <Truck className="h-4 w-4" />
+              <Truck className="h-3.5 w-3.5" />
             </Link>
 
             {/* Direct 1-Click WhatsApp CTA + Concierge Popover Toggle */}
             <div className="relative flex items-center shrink-0">
-              <div className="inline-flex items-center rounded-full border border-emerald-500/40 bg-[#162542] shadow-2xs overflow-hidden">
+              <div className="inline-flex items-center h-8.5 rounded-full border border-emerald-500/40 bg-[#162542] shadow-2xs overflow-hidden">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -757,13 +737,13 @@ export default function SiteHeader() {
                       label: 'header_whatsapp_direct',
                     })
                   }
-                  className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-bold text-emerald-400 hover:bg-[#25D366] hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-bold text-emerald-400 hover:bg-[#25D366] hover:text-white transition-colors cursor-pointer"
                   aria-label="Get Price on WhatsApp"
                   title="Chat directly on WhatsApp"
                 >
-                  <WhatsAppIcon className="h-4 w-4 sm:h-3.5 sm:w-3.5 fill-current shrink-0" />
-                  <span className="hidden min-[380px]:inline text-[11px] font-extrabold">WhatsApp</span>
-                  <span className="relative flex h-2 w-2 ml-0.5 shrink-0">
+                  <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
+                  <span className="hidden min-[420px]:inline text-[11px] font-extrabold">WhatsApp</span>
+                  <span className="relative flex h-2 w-2 shrink-0">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
@@ -774,7 +754,7 @@ export default function SiteHeader() {
                     setWhatsappPopoverOpen((v) => !v)
                     setUserMenuOpen(false)
                   }}
-                  className={`px-1.5 py-1.5 border-l border-[#28395A] text-emerald-400 hover:bg-[#1B2C4D] transition-colors cursor-pointer ${
+                  className={`px-1.5 py-1 border-l border-[#28395A] text-emerald-400 hover:bg-[#1B2C4D] transition-colors cursor-pointer h-full flex items-center ${
                     whatsappPopoverOpen ? 'bg-[#1B2C4D]' : ''
                   }`}
                   aria-label="Show WhatsApp hotline number"
@@ -927,7 +907,7 @@ export default function SiteHeader() {
             >
               <Link
                 to="/get-a-quote"
-                className="group/cta relative inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-4 sm:px-5 py-2 text-xs font-black text-[#101D35] shadow-sm shadow-[#D4AF65]/30 transition-all whitespace-nowrap overflow-hidden"
+                className="group/cta relative inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-3.5 lg:px-4 py-1.5 sm:py-2 text-xs font-black text-[#101D35] shadow-sm shadow-[#D4AF65]/30 transition-all whitespace-nowrap overflow-hidden"
                 onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
               >
                 <span>Get Instant Quote</span>
@@ -941,9 +921,9 @@ export default function SiteHeader() {
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="flex lg:hidden h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-[#28395A] bg-[#162542] text-white hover:bg-[#1B2C4D] transition-colors cursor-pointer"
+              className="flex lg:hidden h-8.5 w-8.5 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full border border-[#28395A] bg-[#162542] text-white hover:bg-[#1B2C4D] transition-colors cursor-pointer"
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileMenuOpen ? <X className="h-4.5 w-4.5" /> : <Menu className="h-4.5 w-4.5" />}
             </button>
           </div>
         </div>

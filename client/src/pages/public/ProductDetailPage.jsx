@@ -568,7 +568,7 @@ export default function ProductDetailPage() {
                     Volume Tier Quantity Presets
                   </p>
                   {volumeDiscountPct > 0 && (
-                    <span className="text-[11px] font-extrabold text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-full px-2.5 py-0.5">
+                    <span className="text-[11px] font-extrabold text-emerald-400 bg-emerald-950/60 border border-emerald-500/40 rounded-full px-2.5 py-0.5">
                       🎉 {volumeDiscountPct}% Volume Discount Applied
                     </span>
                   )}
@@ -588,13 +588,13 @@ export default function ProductDetailPage() {
                       onClick={() => setQuantity(tier.qty)}
                       className={`flex flex-col items-center justify-center rounded-xl border p-2 text-center transition-all cursor-pointer ${
                         quantity === tier.qty
-                          ? 'border-[#D4AF65] bg-amber-50/70 text-[#101D35] font-black shadow-xs ring-1 ring-[#D4AF65]'
-                          : 'border-border bg-surface text-secondary hover:border-primary hover:text-primary font-semibold'
+                          ? 'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] font-black shadow-xs ring-1 ring-[#D4AF65]'
+                          : 'border-[#28395A] bg-[#162542] text-slate-200 hover:border-[#D4AF65] hover:text-white font-semibold'
                       }`}
                     >
                       <span className="text-xs">{tier.label}</span>
                       {tier.discount > 0 && (
-                        <span className="text-[10px] text-emerald-600 font-bold">-{tier.discount}%</span>
+                        <span className={`text-[10px] font-bold ${quantity === tier.qty ? 'text-[#101D35]/80' : 'text-emerald-400'}`}>-{tier.discount}%</span>
                       )}
                     </button>
                   ))}
@@ -633,10 +633,10 @@ export default function ProductDetailPage() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="font-display text-2xl font-black text-[#101D35]">
+                      <span className="font-display text-2xl font-black text-white">
                         AED {pricingBreakdown.totalAmount.toFixed(2)}
                       </span>
-                      <p className="text-[10px] text-secondary">
+                      <p className="text-[10px] text-slate-300">
                         (AED {pricingBreakdown.subtotal.toFixed(2)} ex. VAT)
                       </p>
                     </div>
@@ -720,7 +720,7 @@ export default function ProductDetailPage() {
                         button_location: 'product_detail_order_whatsapp',
                       })
                     }}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#25D366] bg-emerald-50/70 hover:bg-[#25D366] text-emerald-950 hover:text-white px-5 py-3.5 text-xs sm:text-sm font-black transition-all hover:-translate-y-0.5 cursor-pointer w-full"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#25D366] bg-[#25D366]/15 hover:bg-[#25D366] text-[#25D366] hover:text-white px-5 py-3.5 text-xs sm:text-sm font-black transition-all hover:-translate-y-0.5 cursor-pointer w-full"
                   >
                     <WhatsAppIcon className="h-4.5 w-4.5 fill-current shrink-0" />
                     <span>Order on WhatsApp</span>
@@ -926,31 +926,31 @@ export default function ProductDetailPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm">
               <tbody className="divide-y divide-border">
-                <tr className="hover:bg-zinc-50/60 transition-colors">
+                <tr className="hover:bg-white/5 transition-colors">
                   <td className="py-3.5 pr-4 font-bold text-primary w-1/3 sm:w-1/4">Print Technology</td>
                   <td className="py-3.5 text-secondary">German Heidelberg Speedmaster Offset &amp; HP Indigo HD Digital Press</td>
                 </tr>
-                <tr className="hover:bg-zinc-50/60 transition-colors">
+                <tr className="hover:bg-white/5 transition-colors">
                   <td className="py-3.5 pr-4 font-bold text-primary">Color Calibration</td>
                   <td className="py-3.5 text-secondary">ISO 12647-2 Certified CMYK with Solid Pantone Spot Color Matching</td>
                 </tr>
-                <tr className="hover:bg-zinc-50/60 transition-colors">
+                <tr className="hover:bg-white/5 transition-colors">
                   <td className="py-3.5 pr-4 font-bold text-primary">Substrates Available</td>
                   <td className="py-3.5 text-secondary">350 GSM Silk Artboard, 400 GSM Matte, 450 GSM Velvet Soft-Touch, 600–700 GSM Archival Italian Cotton</td>
                 </tr>
-                <tr className="hover:bg-zinc-50/60 transition-colors">
+                <tr className="hover:bg-white/5 transition-colors">
                   <td className="py-3.5 pr-4 font-bold text-primary">Signature Embellishments</td>
                   <td className="py-3.5 text-secondary">24K Gold &amp; Silver Hot Foil, Raised 3D Spot UV, Blind Debossing, Gilded Painted Edges</td>
                 </tr>
-                <tr className="hover:bg-zinc-50/60 transition-colors">
+                <tr className="hover:bg-white/5 transition-colors">
                   <td className="py-3.5 pr-4 font-bold text-primary">Artwork Pre-Flight</td>
                   <td className="py-3.5 text-secondary">Complimentary 300 DPI vector audit, bleed margin verification, and PDF digital proof</td>
                 </tr>
-                <tr className="hover:bg-zinc-50/60 transition-colors">
+                <tr className="hover:bg-white/5 transition-colors">
                   <td className="py-3.5 pr-4 font-bold text-primary">Turnaround &amp; Dispatch</td>
                   <td className="py-3.5 text-secondary">Same-day priority &amp; 24–48h express dispatch directly from Al Quoz, Dubai</td>
                 </tr>
-                <tr className="hover:bg-zinc-50/60 transition-colors">
+                <tr className="hover:bg-white/5 transition-colors">
                   <td className="py-3.5 pr-4 font-bold text-primary">Doorstep Delivery</td>
                   <td className="py-3.5 text-secondary">Insured courier delivery across Dubai, Abu Dhabi, Sharjah, and all 7 UAE Emirates</td>
                 </tr>

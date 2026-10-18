@@ -147,7 +147,7 @@ export default function StickersLeadPage() {
   ]
 
   return (
-    <div className="bg-white text-slate-900 selection:bg-[#D4AF65] selection:text-white">
+    <div className="bg-[#101D35] text-slate-200">
       <SEOHead
         title="Custom Sticker Printing Dubai | Instant Quote & Express UAE Delivery | ONPRINT"
         description="Configure custom waterproof vinyl stickers, die-cut decals, holographic stickers, and roll labels in Dubai. Same-day express turnaround and free digital proofing in Al Quoz."

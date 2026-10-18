@@ -306,8 +306,9 @@ body {
   border-color: #28395A !important;
 }
 
-/* Ensure dark headings and prominent text utilities on navy surfaces become crisp, radiant white */
-.public-navy-theme :not(.bg-\[\#D4AF65\]):not(.bg-accent):not(.btn-primary):not(.bg-emerald-50):not(.bg-emerald-50\/80):not(.bg-emerald-50\/70):is(
+/* Ensure dark headings and prominent text utilities on navy surfaces become crisp, radiant white,
+   unless they are inside a solid gold or light container (like a gold button or white badge) */
+.public-navy-theme :is(
   .text-\[\#101D35\],
   .text-zinc-950,
   .text-zinc-900,
@@ -318,12 +319,12 @@ body {
   .text-gray-950,
   .text-gray-900,
   .text-black
-) {
+):not(.btn-primary):not(.btn-primary *):not(.bg-\[\#D4AF65\]):not(.bg-\[\#D4AF65\] *):not(.bg-accent):not(.bg-accent *):not(.bg-white):not(.bg-white *):not(.bg-slate-50):not(.bg-slate-50 *):not(.bg-slate-100):not(.bg-slate-100 *):not(.bg-amber-50):not(.bg-amber-50 *):not(.bg-emerald-50):not(.bg-emerald-50 *):not(.bg-amber-100 *):not([data-theme="light"] *) {
   color: #FFFFFF !important;
 }
 
 /* Ensure secondary, body, and description text becomes soft, highly legible light slate #CBD5E1 */
-.public-navy-theme :not(.bg-\[\#D4AF65\]):not(.bg-accent):not(.btn-primary):is(
+.public-navy-theme :is(
   .text-\[\#343D4F\],
   .text-\[\#52525B\],
   .text-\[\#596579\],
@@ -344,8 +345,30 @@ body {
   .text-gray-700,
   .text-gray-600,
   .text-gray-500
-) {
+):not(.btn-primary):not(.btn-primary *):not(.bg-\[\#D4AF65\]):not(.bg-\[\#D4AF65\] *):not(.bg-accent):not(.bg-accent *):not(.bg-white):not(.bg-white *):not(.bg-slate-50):not(.bg-slate-50 *):not(.bg-slate-100):not(.bg-slate-100 *):not(.bg-amber-50):not(.bg-amber-50 *) {
   color: #CBD5E1 !important;
+}
+
+/* Ensure headings and text inside white or light containers remain dark and crystal clear */
+.public-navy-theme :is(.bg-white, [class*="bg-[#FFFFFF]"], [class*="bg-[#ffffff]"], .bg-slate-50, .bg-amber-50) :is(h1, h2, h3, h4, h5, h6, strong, b, .font-bold:not([class*="text-[#D4AF65]"]):not([class*="text-emerald"])) {
+  color: #101D35 !important;
+}
+
+.public-navy-theme :is(.bg-white, [class*="bg-[#FFFFFF]"], [class*="bg-[#ffffff]"], .bg-slate-50, .bg-amber-50) :is(p:not([class*="text-[#D4AF65]"]), .text-slate-600, .text-slate-500, .text-\[\#343D4F\]) {
+  color: #343D4F !important;
+}
+
+/* Ensure form controls (inputs, textareas, selects) on navy surfaces have clean contrast */
+.public-navy-theme input:not([type="checkbox"]):not([type="radio"]),
+.public-navy-theme textarea,
+.public-navy-theme select {
+  background-color: #162542 !important;
+  border-color: #28395A !important;
+  color: #FFFFFF !important;
+}
+.public-navy-theme input::placeholder,
+.public-navy-theme textarea::placeholder {
+  color: #94A3B8 !important;
 }
 
 /* Map dark black buttons on navy cards to luxury Champagne Gold buttons with dark navy text */
@@ -364,12 +387,15 @@ body {
   color: #101D35 !important;
 }
 
-/* Ensure all text and icons inside Champagne Gold buttons/elements remain Midnight Navy #101D35 for maximum readability */
-.public-navy-theme :is(.bg-\[\#D4AF65\], .btn-primary, [class*="bg-[#D4AF65]"]):not([class*="bg-[#D4AF65]/"]) :is(span, p, svg, strong, b) {
+/* Primary Champagne Gold buttons text and icon contrast */
+.btn-primary,
+button.btn-primary,
+a.btn-primary {
   color: #101D35 !important;
 }
-
-.public-navy-theme :is(.bg-\[\#D4AF65\], .btn-primary, [class*="bg-[#D4AF65]"]):not([class*="bg-[#D4AF65]/"]):hover :is(span, p, svg, strong, b) {
+.btn-primary > :is(span, p, strong, b),
+button.btn-primary > :is(span, p, strong, b),
+a.btn-primary > :is(span, p, strong, b) {
   color: #101D35 !important;
 }
 

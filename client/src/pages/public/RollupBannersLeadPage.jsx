@@ -219,7 +219,7 @@ export default function RollupBannersLeadPage() {
   ]
 
   return (
-    <div className="bg-white text-[#101D35] selection:bg-[#D4AF65] selection:text-white">
+    <div className="bg-[#101D35] text-slate-200">
       <SEOHead
         title="Rollup Banner Printing Dubai | Pull-Up Stands Quote & Same-Day Dispatch | ONPRINT"
         description="Instant custom roll-up banner printing quote in Dubai. 85x200cm standard, luxury teardrop, wide exhibition stands & desktop banners with anti-curl greyback film and carry bag."

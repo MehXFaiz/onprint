@@ -131,15 +131,15 @@ export default function FaqPage() {
         <Breadcrumbs items={[{ name: 'FAQ & Print Knowledgebase' }]} />
 
         {/* Hero Header */}
-        <div className="border-b border-slate-200 pb-8 text-center sm:text-left">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35]/5 border border-[#D4AF65]/30 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#101D35]">
+        <div className="border-b border-[#28395A] pb-8 text-center sm:text-left">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#162542] border border-[#D4AF65]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
             <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
             <span>COMMERCIAL PRINT KNOWLEDGEBASE</span>
           </div>
-          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-[#101D35] sm:text-5xl">
+          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
             Frequently Asked Questions
           </h1>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
             Everything you need to know about our Al Quoz pressroom capabilities, paper stock selections, prepress specifications, volume tier pricing, and doorstep delivery across the UAE.
           </p>
 
@@ -151,7 +151,7 @@ export default function FaqPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by keyword (e.g. foil, turnaround, 300 DPI, VAT, delivery)…"
-              className="w-full rounded-xl border border-slate-300 bg-white py-2.5 pl-10 pr-4 text-xs sm:text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:outline-none shadow-xs"
+              className="w-full rounded-xl border border-[#28395A] bg-[#162542] py-2.5 pl-10 pr-4 text-xs sm:text-sm font-medium text-white placeholder:text-slate-400 focus:border-[#D4AF65] focus:outline-none shadow-xs"
             />
           </div>
         </div>
@@ -165,8 +165,8 @@ export default function FaqPage() {
               onClick={() => setSelectedCategory(cat)}
               className={`rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-[#101D35] text-[#D4AF65] shadow-xs'
-                  : 'bg-white border border-slate-200 text-slate-600 hover:border-[#D4AF65] hover:text-[#101D35]'
+                  ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                  : 'bg-[#162542] border border-[#28395A] text-slate-200 hover:border-[#D4AF65] hover:text-[#D4AF65]'
               }`}
             >
               {cat}
@@ -175,11 +175,11 @@ export default function FaqPage() {
         </div>
 
         {/* FAQ Accordion List */}
-        <div className="mt-8 divide-y divide-slate-200 border-t border-b border-slate-200 bg-white rounded-2xl p-4 sm:p-8 shadow-xs">
+        <div className="mt-8 divide-y divide-[#28395A] border border-[#28395A] bg-[#162542] rounded-2xl p-4 sm:p-8 shadow-xs">
           {filteredFaqs.length === 0 ? (
             <div className="py-12 text-center">
-              <HelpCircle className="h-10 w-10 text-slate-300 mx-auto mb-2" />
-              <p className="text-sm font-bold text-slate-700">No questions matched your search query</p>
+              <HelpCircle className="h-10 w-10 text-slate-400 mx-auto mb-2" />
+              <p className="text-sm font-bold text-slate-200">No questions matched your search query</p>
               <button
                 type="button"
                 onClick={() => {
@@ -199,13 +199,13 @@ export default function FaqPage() {
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF65] block mb-1">
                       {faq.category}
                     </span>
-                    <h2 className="font-display text-sm font-bold text-[#101D35] sm:text-base group-hover:text-[#D4AF65] transition-colors">
+                    <h2 className="font-display text-sm font-bold text-white sm:text-base group-hover:text-[#D4AF65] transition-colors">
                       {faq.question}
                     </h2>
                   </div>
                   <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180 group-hover:text-[#D4AF65]" />
                 </summary>
-                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-600 pl-0 sm:pl-2 border-l-2 border-[#D4AF65]/30">
+                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-300 pl-0 sm:pl-2 border-l-2 border-[#D4AF65]/30">
                   {faq.answer}
                 </p>
               </details>

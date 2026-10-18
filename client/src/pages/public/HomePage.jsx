@@ -308,7 +308,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="bg-[#101D35] text-slate-300 selection:bg-[#D4AF65] selection:text-[#101D35]">
+    <div className="bg-[#101D35] text-slate-300">
       {/* SEO Head Management & Structured Data */}
       <SEOHead
         title="Printing Company in Dubai | ONPRINT – Commercial & Luxury Printing UAE"
@@ -341,7 +341,7 @@ export default function HomePage() {
             className="lg:col-span-6 space-y-6"
           >
             {/* Top Small Atelier Eyebrow Pill */}
-            <div className="inline-flex flex-wrap items-center gap-2 sm:gap-2.5 rounded-2xl sm:rounded-full border border-[#D4AF65]/40 bg-[#162542]/80 px-3.5 sm:px-4 py-1.5 shadow-2xs backdrop-blur-md text-white max-w-full">
+            <div className="inline-flex flex-wrap items-center gap-2 sm:gap-2.5 rounded-2xl sm:rounded-full border border-[#D4AF65]/40 bg-[#162542] px-3.5 sm:px-4 py-1.5 shadow-2xs backdrop-blur-md text-white max-w-full">
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
@@ -360,7 +360,7 @@ export default function HomePage() {
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-[3.4rem] xl:text-[3.9rem] font-bold leading-[1.08] tracking-tight text-white">
               Tactile Luxury &amp; Commercial<br className="hidden sm:inline" />{' '}
               Printing in{' '}
-              <span className="relative inline-block font-serif italic text-white font-black">
+              <span className="relative inline-block font-serif italic text-[#D4AF65] font-black">
                 Dubai, UAE
                 <span
                   className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-[#D4AF65] via-[#D4AF65]/60 to-transparent"
@@ -370,8 +370,8 @@ export default function HomePage() {
             </h1>
 
             {/* Supporting Text */}
-            <p className="max-w-xl text-sm sm:text-lg leading-[1.75] text-slate-300 font-normal">
-              Direct in-house pressroom in <strong className="text-white font-bold">Al Quoz, Dubai</strong>. Crafting calibrated German Heidelberg color accuracy, <strong className="text-white font-bold">600 GSM cotton &amp; 24K foil business cards</strong>, exhibition roll-up banners, waterproof stickers, and official company seals with same-day UAE dispatch.
+            <p className="max-w-xl text-sm sm:text-lg leading-[1.75] text-slate-200 font-normal">
+              Direct in-house pressroom in <strong className="text-white font-bold">Al Quoz, Dubai</strong>. Crafting calibrated German Heidelberg color accuracy, <strong className="text-[#D4AF65] font-bold">600 GSM cotton &amp; 24K foil business cards</strong>, exhibition roll-up banners, waterproof stickers, and official company seals with same-day UAE dispatch.
             </p>
 
             {/* 4 Tactile Feature Pills */}
@@ -384,12 +384,12 @@ export default function HomePage() {
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.15 + idx * 0.07, duration: 0.45 }}
-                    className="flex items-center gap-2.5 rounded-xl border border-[#28395A] bg-[#162542]/80 px-3.5 py-2.5 text-xs sm:text-[12.5px] font-semibold text-white shadow-2xs"
+                    className="flex items-center gap-2.5 rounded-xl border border-[#28395A] bg-[#162542] px-3.5 py-2.5 text-xs sm:text-[12.5px] font-semibold text-white shadow-2xs"
                   >
-                    <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#D4AF65]/10 text-[#D4AF65] border border-[#28395A] shrink-0">
-                      <Icon className="h-3.5 w-3.5" />
+                    <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#D4AF65]/15 text-[#D4AF65] border border-[#28395A] shrink-0">
+                      <Icon className="h-3.5 w-3.5 text-[#D4AF65]" />
                     </div>
-                    <span>{feat.label}</span>
+                    <span className="text-white font-semibold">{feat.label}</span>
                   </motion.div>
                 )
               })}
@@ -483,17 +483,17 @@ export default function HomePage() {
                           setIsAutoPlaying(false)
                         }}
                         className={`relative rounded-xl px-2.5 sm:px-3 py-1.5 text-[11px] font-bold transition-colors cursor-pointer ${
-                          isActive ? 'text-[#D4AF65]' : 'text-slate-300 hover:text-white'
+                          isActive ? 'text-[#101D35]' : 'text-slate-200 hover:text-white'
                         }`}
                       >
                         {isActive && (
                           <motion.div
                             layoutId="heroAtelierTab"
-                            className="absolute inset-0 rounded-xl bg-[#101D35] border border-[#D4AF65]/40 shadow-xs -z-10"
+                            className="absolute inset-0 rounded-xl bg-[#D4AF65] shadow-xs -z-10"
                             transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                           />
                         )}
-                        <span className="relative z-10">{item.category}</span>
+                        <span className="relative z-10 font-bold">{item.category}</span>
                       </button>
                     )
                   })}
@@ -564,14 +564,14 @@ export default function HomePage() {
                       <h3 className="font-serif text-base sm:text-lg font-bold text-white mt-0.5 leading-snug">
                         {activeAtelierItem.title}
                       </h3>
-                      <p className="text-[11px] text-zinc-300 mt-1 line-clamp-2">
+                      <p className="text-[11px] text-slate-200 mt-1 line-clamp-2">
                         {activeAtelierItem.subtitle}
                       </p>
                       <div className="mt-2.5 flex flex-wrap gap-1.5">
                         {activeAtelierItem.specs.map((spec) => (
                           <span
                             key={spec}
-                            className="rounded-md bg-white/12 border border-white/15 px-2 py-0.5 text-[9.5px] font-semibold text-zinc-100 backdrop-blur-xs"
+                            className="rounded-md bg-[#101D35]/80 border border-[#28395A] px-2 py-0.5 text-[9.5px] font-semibold text-slate-200 backdrop-blur-xs"
                           >
                             {spec}
                           </span>

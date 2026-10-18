@@ -221,14 +221,14 @@ export default function PortfolioPage() {
           onClick={() => setSelectedCaseStudy(null)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-border bg-white p-5 sm:p-8 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-[#28395A] bg-[#162542] p-5 sm:p-8 shadow-2xl text-white"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               type="button"
               onClick={() => setSelectedCaseStudy(null)}
-              className="absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors cursor-pointer"
+              className="absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full bg-[#101D35] text-slate-300 hover:text-white transition-colors cursor-pointer border border-[#28395A]"
               aria-label="Close modal"
             >
               <X className="h-5 w-5" />
@@ -240,11 +240,11 @@ export default function PortfolioPage() {
                 <span className="rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 font-extrabold uppercase text-[#D4AF65]">
                   {selectedCaseStudy.category}
                 </span>
-                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 font-bold text-slate-700">
+                <span className="rounded-full bg-[#101D35] border border-[#28395A] px-2.5 py-0.5 font-bold text-slate-300">
                   Industry: {selectedCaseStudy.industry || selectedCaseStudy.clientSector}
                 </span>
               </div>
-              <h2 className="font-display mt-3 text-2xl sm:text-3xl font-black text-black">
+              <h2 className="font-display mt-3 text-2xl sm:text-3xl font-black text-white">
                 {selectedCaseStudy.projectName || selectedCaseStudy.title}
               </h2>
               <p className="mt-1 text-sm font-semibold text-[#D4AF65]">
@@ -253,7 +253,7 @@ export default function PortfolioPage() {
             </div>
 
             {/* Case Study Image */}
-            <div className="mt-6 aspect-[16/9] overflow-hidden rounded-xl bg-slate-100">
+            <div className="mt-6 aspect-[16/9] overflow-hidden rounded-xl bg-[#101D35] border border-[#28395A]">
               <img
                 src={selectedCaseStudy.image}
                 alt={selectedCaseStudy.title}
@@ -264,53 +264,53 @@ export default function PortfolioPage() {
             {/* Structured Case Study Grid */}
             <div className="mt-8 space-y-6">
               {/* Challenge */}
-              <div className="rounded-xl border border-border bg-slate-50/70 p-5">
-                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-slate-900">
+              <div className="rounded-xl border border-[#28395A] bg-[#101D35] p-5">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white">
                   <Briefcase className="h-4 w-4 text-[#D4AF65]" />
                   <span>The Project Challenge</span>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">
                   {selectedCaseStudy.challenge || 'Client required high-precision commercial printing with strict color calibration and fast delivery in the UAE.'}
                 </p>
               </div>
 
               {/* Solution */}
-              <div className="rounded-xl border border-border bg-slate-50/70 p-5">
-                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-slate-900">
+              <div className="rounded-xl border border-[#28395A] bg-[#101D35] p-5">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white">
                   <FileText className="h-4 w-4 text-[#D4AF65]" />
                   <span>The Engineering &amp; Press Solution</span>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">
                   {selectedCaseStudy.solution || 'Produced on calibrated presses with custom dieline verification, pre-flight file checks, and hand-finished embellishments.'}
                 </p>
               </div>
 
               {/* Materials & Finishes */}
-              <div className="rounded-xl border border-border bg-slate-50/70 p-5">
-                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-slate-900">
+              <div className="rounded-xl border border-[#28395A] bg-[#101D35] p-5">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white">
                   <Layers className="h-4 w-4 text-[#D4AF65]" />
                   <span>Materials &amp; Finishes Used</span>
                 </div>
-                <p className="mt-2 text-sm font-semibold text-slate-800">
+                <p className="mt-2 text-sm font-semibold text-slate-200">
                   {selectedCaseStudy.materialsAndFinishes || selectedCaseStudy.specs}
                 </p>
               </div>
 
               {/* Verified Result */}
-              <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-5">
-                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-900">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+              <div className="rounded-xl border border-emerald-500/40 bg-emerald-950/40 p-5">
+                <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-400">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400" />
                   <span>Verified Outcome</span>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-emerald-800 font-medium">
+                <p className="mt-2 text-sm leading-relaxed text-emerald-300 font-medium">
                   {selectedCaseStudy.result || 'Delivered on schedule with 100% color fidelity and client approval across the UAE.'}
                 </p>
               </div>
             </div>
 
             {/* Modal Actions */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border pt-6">
-              <span className="text-xs text-slate-500">
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#28395A] pt-6">
+              <span className="text-xs text-slate-400">
                 Facility: Al Quoz, Dubai
               </span>
               <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">

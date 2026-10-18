@@ -143,7 +143,7 @@ export default function MugsLeadPage() {
   ]
 
   return (
-    <div className="bg-white text-slate-900 selection:bg-[#D4AF65] selection:text-white">
+    <div className="bg-[#101D35] text-slate-200">
       <SEOHead
         title="Custom Mug Printing Dubai | Coffee Mugs & Travel Tumblers | ONPRINT"
         description="Configure custom printed ceramic coffee mugs, magic color-change mugs, and insulated tumblers in Dubai. 1440 DPI wrap printing, individual gift boxes, and express UAE delivery."

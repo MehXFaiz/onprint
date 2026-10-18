@@ -271,7 +271,7 @@ Please confirm availability and dispatch schedule.`
   }
 
   return (
-    <div className="bg-white text-[#101D35] selection:bg-[#D4AF65] selection:text-white">
+    <div className="bg-[#101D35] text-slate-200">
       <SEOHead
         title="Business Card Printing Dubai | Instant Custom Quote & Express UAE Delivery | ONPRINT"
         description="Configure luxury business cards in Dubai. 350-600 GSM Italian cotton, 24K hot foil, velvet soft-touch, spot UV, and painted edges with same-day express press turnaround in Al Quoz."

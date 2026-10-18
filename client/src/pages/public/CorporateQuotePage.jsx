@@ -243,30 +243,30 @@ export default function CorporateQuotePage() {
 
         {/* Success Confirmation State */}
         {submittedData ? (
-          <div className="mt-12 rounded-3xl border border-emerald-200 bg-white p-8 sm:p-12 shadow-md text-center max-w-2xl mx-auto">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 mb-6">
+          <div className="mt-12 rounded-3xl border border-emerald-500/40 bg-[#162542] p-8 sm:p-12 shadow-md text-center max-w-2xl mx-auto">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-950/60 text-emerald-400 border border-emerald-500/40 mb-6">
               <CheckCircle2 className="h-8 w-8" />
             </div>
 
-            <span className="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-black uppercase tracking-wider text-emerald-800 mb-2">
+            <span className="inline-block rounded-full bg-emerald-950/80 border border-emerald-400/40 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-emerald-400 mb-2">
               Corporate RFQ Logged
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#101D35]">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
               Request Received for {submittedData.companyName}
             </h2>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-slate-300">
               Your reference code has been generated. Our Senior Key Account Director will review your multi-item specifications, credit terms, and deliver an itemized proposal within 2–4 business hours.
             </p>
 
-            <div className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-slate-50 border border-slate-200 p-4 font-mono text-base font-black text-[#101D35]">
+            <div className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-[#101D35] border border-[#28395A] p-4 font-mono text-base font-black text-white">
               <span>{submittedData.referenceNumber}</span>
               <button
                 type="button"
                 onClick={handleCopy}
-                className="p-1 rounded hover:bg-slate-200 text-slate-500 transition-colors"
+                className="p-1 rounded hover:bg-[#162542] text-slate-400 hover:text-white transition-colors"
                 title="Copy reference"
               >
-                {copiedRef ? <Check className="h-4 w-4 text-emerald-600" /> : <Copy className="h-4 w-4" />}
+                {copiedRef ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
               </button>
             </div>
 
@@ -283,7 +283,7 @@ export default function CorporateQuotePage() {
 
               <Link
                 to={`/track-order?ref=${encodeURIComponent(submittedData.referenceNumber)}`}
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-[#28395A] bg-[#101D35] hover:border-[#D4AF65] px-6 py-3 text-xs sm:text-sm font-bold text-slate-200 transition-colors"
               >
                 <span>Track RFQ Status</span>
                 <ArrowRight className="h-4 w-4" />
@@ -300,16 +300,16 @@ export default function CorporateQuotePage() {
             )}
 
             {/* Section 1: Company & Procurement Details */}
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xs space-y-6">
-              <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-[#D4AF65]">
+            <div className="rounded-3xl border border-[#28395A] bg-[#162542] p-6 sm:p-10 shadow-xs space-y-6">
+              <div className="flex items-center gap-3 border-b border-[#28395A] pb-4">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#101D35] border border-[#28395A] text-[#D4AF65]">
                   <Building2 className="h-5 w-5" />
                 </div>
                 <div>
-                  <h2 className="font-display text-lg font-bold text-[#101D35]">
+                  <h2 className="font-display text-lg font-bold text-white">
                     1. Company &amp; Procurement Entity
                   </h2>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-300">
                     Official UAE registered entity details for tax invoicing and credit vetting.
                   </p>
                 </div>
@@ -317,7 +317,7 @@ export default function CorporateQuotePage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                     Company Registered Name *
                   </label>
                   <input
@@ -326,12 +326,12 @@ export default function CorporateQuotePage() {
                     value={companyName}
                     onChange={(e) => setCompanyName(e.target.value)}
                     placeholder="e.g. Al Futtaim Group / Emaar Hospitality"
-                    className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                     Trade License Number (Optional)
                   </label>
                   <input
@@ -339,12 +339,12 @@ export default function CorporateQuotePage() {
                     value={tradeLicenseNumber}
                     onChange={(e) => setTradeLicenseNumber(e.target.value)}
                     placeholder="e.g. 1048291 (DED / Freezone)"
-                    className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none font-mono"
+                    className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                     TRN / Tax Registration Number (Optional)
                   </label>
                   <input
@@ -352,12 +352,12 @@ export default function CorporateQuotePage() {
                     value={trnNumber}
                     onChange={(e) => setTrnNumber(e.target.value)}
                     placeholder="15-digit FTA TRN"
-                    className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none font-mono"
+                    className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                     Contact Person Name *
                   </label>
                   <input
@@ -366,12 +366,12 @@ export default function CorporateQuotePage() {
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
                     placeholder="e.g. Tariq Mansoor"
-                    className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                     Department / Role
                   </label>
                   <input
@@ -379,12 +379,12 @@ export default function CorporateQuotePage() {
                     value={department}
                     onChange={(e) => setDepartment(e.target.value)}
                     placeholder="e.g. Procurement / Marketing / GM"
-                    className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                     Corporate Email *
                   </label>
                   <input
@@ -393,12 +393,12 @@ export default function CorporateQuotePage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="procurement@company.ae"
-                    className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                     Contact Phone / WhatsApp *
                   </label>
                   <input
@@ -407,18 +407,18 @@ export default function CorporateQuotePage() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+971 50 123 4567"
-                    className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                     Annual Print Budget Estimate
                   </label>
                   <select
                     value={annualVolumeEstimate}
                     onChange={(e) => setAnnualVolumeEstimate(e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none cursor-pointer"
+                    className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-white focus:border-[#D4AF65] focus:outline-none cursor-pointer"
                   >
                     {VOLUME_TIERS.map((tier) => (
                       <option key={tier} value={tier}>
@@ -429,13 +429,13 @@ export default function CorporateQuotePage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                     Requested Payment Facility
                   </label>
                   <select
                     value={creditTermsRequested}
                     onChange={(e) => setCreditTermsRequested(e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none cursor-pointer"
+                    className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-white focus:border-[#D4AF65] focus:outline-none cursor-pointer"
                   >
                     <option value="Prepaid">Prepaid / Card / Bank Transfer (Fastest Dispatch)</option>
                     <option value="30 Days Net">30 Days Net (Subject to Trade License Check)</option>
@@ -446,17 +446,17 @@ export default function CorporateQuotePage() {
             </div>
 
             {/* Section 2: Multi-Item Print Specifications */}
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xs space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+            <div className="rounded-3xl border border-[#28395A] bg-[#162542] p-6 sm:p-10 shadow-xs space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#28395A] pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-[#D4AF65]">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#101D35] border border-[#28395A] text-[#D4AF65]">
                     <Layers className="h-5 w-5" />
                   </div>
                   <div>
-                    <h2 className="font-display text-lg font-bold text-[#101D35]">
+                    <h2 className="font-display text-lg font-bold text-white">
                       2. Print Items &amp; Package Specifications
                     </h2>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-slate-300">
                       Add all collateral items required in this procurement cycle.
                     </p>
                   </div>
@@ -465,7 +465,7 @@ export default function CorporateQuotePage() {
                 <button
                   type="button"
                   onClick={handleAddItem}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#D4AF65] bg-amber-50/60 px-3.5 py-2 text-xs font-bold text-[#101D35] hover:bg-[#D4AF65] hover:text-white transition-colors cursor-pointer self-start sm:self-auto"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#D4AF65] bg-[#D4AF65]/15 px-3.5 py-2 text-xs font-bold text-[#D4AF65] hover:bg-[#D4AF65] hover:text-[#101D35] transition-colors cursor-pointer self-start sm:self-auto"
                 >
                   <Plus className="h-4 w-4" /> Add Another Product Line
                 </button>
@@ -476,17 +476,17 @@ export default function CorporateQuotePage() {
                 {items.map((item, idx) => (
                   <div
                     key={idx}
-                    className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 sm:p-5 relative transition-all"
+                    className="rounded-2xl border border-[#28395A] bg-[#101D35] p-4 sm:p-5 relative transition-all"
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs font-extrabold uppercase tracking-wider text-[#101D35]">
+                      <span className="text-xs font-extrabold uppercase tracking-wider text-[#D4AF65]">
                         Line Item #{idx + 1}
                       </span>
                       {items.length > 1 && (
                         <button
                           type="button"
                           onClick={() => handleRemoveItem(idx)}
-                          className="text-slate-400 hover:text-red-600 transition-colors cursor-pointer p-1"
+                          className="text-slate-400 hover:text-red-400 transition-colors cursor-pointer p-1"
                           title="Remove line"
                         >
                           <Trash2 className="h-4 w-4" />
@@ -496,7 +496,7 @@ export default function CorporateQuotePage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div>
-                        <label className="block text-[11px] font-bold uppercase text-slate-600">
+                        <label className="block text-[11px] font-bold uppercase text-slate-200">
                           Product / Collateral Category
                         </label>
                         <input
@@ -504,12 +504,12 @@ export default function CorporateQuotePage() {
                           value={item.productName}
                           onChange={(e) => handleItemChange(idx, 'productName', e.target.value)}
                           placeholder="e.g. Luxury Business Cards / Rigid Boxes"
-                          className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-[#28395A] bg-[#162542] px-3 py-2 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-[11px] font-bold uppercase text-slate-600">
+                        <label className="block text-[11px] font-bold uppercase text-slate-200">
                           Target Quantity (Units)
                         </label>
                         <input
@@ -518,12 +518,12 @@ export default function CorporateQuotePage() {
                           step={50}
                           value={item.quantity}
                           onChange={(e) => handleItemChange(idx, 'quantity', parseInt(e.target.value, 10) || 1)}
-                          className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:outline-none font-mono"
+                          className="mt-1 w-full rounded-lg border border-[#28395A] bg-[#162542] px-3 py-2 text-xs font-semibold text-white focus:border-[#D4AF65] focus:outline-none font-mono"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-[11px] font-bold uppercase text-slate-600">
+                        <label className="block text-[11px] font-bold uppercase text-slate-200">
                           Finishing &amp; Substrate Specs
                         </label>
                         <input
@@ -531,7 +531,7 @@ export default function CorporateQuotePage() {
                           value={item.specifications}
                           onChange={(e) => handleItemChange(idx, 'specifications', e.target.value)}
                           placeholder="e.g. 400 GSM, 24K Gold Foil, Spot UV"
-                          className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 focus:border-[#D4AF65] focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-[#28395A] bg-[#162542] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -541,16 +541,16 @@ export default function CorporateQuotePage() {
             </div>
 
             {/* Section 3: Delivery Logistics & Artwork */}
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xs space-y-6">
-              <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-[#D4AF65]">
+            <div className="rounded-3xl border border-[#28395A] bg-[#162542] p-6 sm:p-10 shadow-xs space-y-6">
+              <div className="flex items-center gap-3 border-b border-[#28395A] pb-4">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#101D35] border border-[#28395A] text-[#D4AF65]">
                   <Truck className="h-5 w-5" />
                 </div>
                 <div>
-                  <h2 className="font-display text-lg font-bold text-[#101D35]">
+                  <h2 className="font-display text-lg font-bold text-white">
                     3. Delivery Logistics &amp; Artwork Upload
                   </h2>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-300">
                     Upload brand guidelines, vector artwork (up to 50MB), or provide delivery notes.
                   </p>
                 </div>
@@ -558,7 +558,7 @@ export default function CorporateQuotePage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                     Delivery Destination / Multi-Branch Notes
                   </label>
                   <input
@@ -566,11 +566,11 @@ export default function CorporateQuotePage() {
                     value={deliveryLocations}
                     onChange={(e) => setDeliveryLocations(e.target.value)}
                     placeholder="e.g. Downtown Dubai HQ + Abu Dhabi Branch"
-                    className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                   />
 
                   <div className="mt-4">
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-200">
                       Additional Prepress / Brand Notes (Optional)
                     </label>
                     <textarea
@@ -578,22 +578,22 @@ export default function CorporateQuotePage() {
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder="Specify exact Pantone solid coated codes, delivery deadline urgency, or packaging carton preferences…"
-                      className="mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/50 p-3 text-xs text-slate-900 focus:border-[#D4AF65] focus:bg-white focus:outline-none"
+                      className="mt-1.5 w-full rounded-xl border border-[#28395A] bg-[#101D35] p-3 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
                 </div>
 
                 {/* Upload Box */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-200 mb-1.5">
                     Artwork / Brand Kit Upload (Optional)
                   </label>
-                  <label className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50/60 p-6 text-center hover:border-[#D4AF65] hover:bg-amber-50/20 transition-all cursor-pointer">
+                  <label className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#28395A] bg-[#101D35] p-6 text-center hover:border-[#D4AF65] transition-all cursor-pointer">
                     <UploadCloud className="h-8 w-8 text-[#D4AF65] mb-2" />
-                    <span className="text-xs font-bold text-slate-900">
+                    <span className="text-xs font-bold text-white">
                       Click to browse or drop brand files
                     </span>
-                    <span className="text-[11px] text-slate-500 mt-1">
+                    <span className="text-[11px] text-slate-400 mt-1">
                       PDF, AI, EPS, PSD, TIFF, ZIP up to 50MB per file
                     </span>
                     <input
@@ -607,11 +607,11 @@ export default function CorporateQuotePage() {
 
                   {files.length > 0 && (
                     <div className="mt-3 space-y-1.5">
-                      <p className="text-[11px] font-bold text-slate-700">Selected Files ({files.length}):</p>
+                      <p className="text-[11px] font-bold text-slate-200">Selected Files ({files.length}):</p>
                       {files.map((f, i) => (
-                        <div key={i} className="flex items-center justify-between rounded-lg bg-slate-100 px-3 py-1.5 text-xs">
-                          <span className="truncate text-slate-800">{f.name}</span>
-                          <span className="text-slate-500 text-[10px]">
+                        <div key={i} className="flex items-center justify-between rounded-lg bg-[#101D35] border border-[#28395A] px-3 py-1.5 text-xs">
+                          <span className="truncate text-white">{f.name}</span>
+                          <span className="text-slate-400 text-[10px]">
                             {(f.size / (1024 * 1024)).toFixed(1)} MB
                           </span>
                         </div>
@@ -620,7 +620,7 @@ export default function CorporateQuotePage() {
                   )}
 
                   {uploadProgress > 0 && uploadProgress < 100 && (
-                    <div className="mt-2 w-full bg-slate-200 rounded-full h-2">
+                    <div className="mt-2 w-full bg-[#101D35] rounded-full h-2">
                       <div
                         className="bg-[#D4AF65] h-2 rounded-full transition-all duration-300"
                         style={{ width: `${uploadProgress}%` }}

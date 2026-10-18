@@ -48,7 +48,7 @@ export default function CategoriesPage() {
   ]
 
   return (
-    <div className="bg-[#FFFFFF] text-[#343D4F] py-12 sm:py-16">
+    <div className="bg-[#101D35] text-slate-200 py-12 sm:py-16">
       {/* SEO Head Management */}
       <SEOHead
         title="Printing Categories Dubai | Commercial Printing Solutions | ONPRINT"
@@ -68,29 +68,29 @@ export default function CategoriesPage() {
         />
 
         {/* Page Hero Header */}
-        <div className="mt-8 border-b border-[#E5E1D8] pb-10">
+        <div className="mt-8 border-b border-[#28395A] pb-10">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65] bg-[#FFFFFF] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#D4AF65]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#162542] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#D4AF65]">
               <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
               Dubai Commercial Printing Press
             </div>
-            <h1 className="font-display mt-4 text-3xl font-black tracking-tight text-[#101D35] sm:text-5xl">
+            <h1 className="font-display mt-4 text-3xl font-black tracking-tight text-white sm:text-5xl">
               Professional Printing Categories
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#343D4F] sm:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
               Explore our comprehensive range of high-precision commercial printing services and corporate brand collaterals manufactured locally in Dubai with express delivery across the UAE.
             </p>
           </Reveal>
 
           {/* Search Bar */}
           <div className="mt-8 max-w-md relative">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#596579]" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search categories (e.g. Brochures, Business Cards)..."
-              className="w-full rounded-2xl border border-[#E5E1D8] bg-[#FFFFFF] pl-10 pr-4 py-3 text-xs font-semibold text-[#101D35] placeholder-[#596579] focus:border-[#D4AF65] focus:outline-none shadow-xs"
+              className="w-full rounded-2xl border border-[#28395A] bg-[#162542] pl-10 pr-4 py-3 text-xs font-semibold text-white placeholder:text-slate-400 focus:border-[#D4AF65] focus:outline-none shadow-xs"
             />
           </div>
         </div>
@@ -134,15 +134,15 @@ export default function CategoriesPage() {
         </div>
 
         {/* Value Props Strip */}
-        <div className="mt-20 rounded-3xl border border-[#E5E1D8] bg-[#FFFFFF] p-8 sm:p-12 shadow-sm">
+        <div className="mt-20 rounded-3xl border border-[#28395A] bg-[#162542] p-8 sm:p-12 shadow-sm">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             <div className="flex items-start gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#D4AF65]/10 text-[#D4AF65]">
                 <ShieldCheck className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-bold text-sm text-[#101D35]">Strict Quality Control</h4>
-                <p className="mt-1 text-xs text-[#343D4F]">
+                <h4 className="font-bold text-sm text-white">Strict Quality Control</h4>
+                <p className="mt-1 text-xs text-slate-300">
                   Every print job undergoes prepress verification, Pantone calibration, and tactile finishing inspections.
                 </p>
               </div>
@@ -153,8 +153,8 @@ export default function CategoriesPage() {
                 <Zap className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-bold text-sm text-[#101D35]">Express Same-Day Turnaround</h4>
-                <p className="mt-1 text-xs text-[#343D4F]">
+                <h4 className="font-bold text-sm text-white">Express Same-Day Turnaround</h4>
+                <p className="mt-1 text-xs text-slate-300">
                   Need urgent collaterals for a Dubai World Trade Centre exhibition? We dispatch fast across the UAE.
                 </p>
               </div>
@@ -165,8 +165,8 @@ export default function CategoriesPage() {
                 <Award className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-bold text-sm text-[#101D35]">Luxury Paper Stocks</h4>
-                <p className="mt-1 text-xs text-[#343D4F]">
+                <h4 className="font-bold text-sm text-white">Luxury Paper Stocks</h4>
+                <p className="mt-1 text-xs text-slate-300">
                   Curated selection of FSC-certified cardstocks, soft-touch laminates, metallic gold foils, and painted edges.
                 </p>
               </div>

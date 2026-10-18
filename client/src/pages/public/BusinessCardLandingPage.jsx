@@ -746,7 +746,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   }
 
   return (
-    <div className="bg-[#FFFFFF] text-[#343D4F] pt-4 sm:pt-6 pb-12 sm:pb-16">
+    <div className="bg-[#101D35] text-slate-200 pt-4 sm:pt-6 pb-12 sm:pb-16">
       {/* Dynamic SEO & Schema Engine */}
       <SEOHead
         title={pageData?.title || 'Business Card Printing Dubai | ONPRINT'}

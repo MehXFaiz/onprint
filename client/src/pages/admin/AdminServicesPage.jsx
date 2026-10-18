@@ -4,8 +4,8 @@ import { Wrench, Plus, Search, Edit2, Trash2, CheckCircle2, X, AlertTriangle } f
 import Button from '../../components/Button'
 
 const MOCK_SERVICES = [
-  { id: 1, name: 'Brochures Printing', slug: 'brochures-printing', description: 'Premium bi-fold, tri-fold, and multi-page marketing brochures on luxury coated art paper.', status: 'active', displayOrder: 1 },
-  { id: 2, name: 'Business Cards Printing', slug: 'business-cards-printing', description: 'Executive 350gsm–600gsm cotton & silk business cards with soft-touch velvet lamination and gold foil.', status: 'active', displayOrder: 2 },
+  { id: 1, name: 'Business Cards Printing', slug: 'business-cards-printing', description: 'Executive 350gsm–600gsm cotton & silk business cards with soft-touch velvet lamination and gold foil.', status: 'active', displayOrder: 1 },
+  { id: 2, name: 'Brochures Printing', slug: 'brochures-printing', description: 'Premium bi-fold, tri-fold, and multi-page marketing brochures on luxury coated art paper.', status: 'active', displayOrder: 2 },
   { id: 3, name: 'Flyers Printing In Dubai', slug: 'flyers-printing-in-dubai', description: 'High-impact marketing flyers printed on 170gsm–300gsm gloss or matte art paper with vibrant CMYK.', status: 'active', displayOrder: 3 },
   { id: 4, name: 'ID Card Printing Dubai', slug: 'id-card-printing-dubai', description: 'Secure CR80 standard PVC employee identity cards with high-definition thermal printing and smart chips.', status: 'active', displayOrder: 4 },
   { id: 5, name: 'Lanyard Printing Dubai', slug: 'lanyard-printing-dubai', description: 'Custom branded satin and woven polyester neck lanyards with safety breakaway clips and metal hooks.', status: 'active', displayOrder: 5 },

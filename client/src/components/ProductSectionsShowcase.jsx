@@ -8,48 +8,93 @@ import { getProducts } from '../services/products'
 
 function isProductInCategory(product, category) {
   if (!product || !category) return false
-  const catId = category.id !== undefined && category.id !== null ? Number(category.id) : null
-  const catKey = String(category.category_key || category._id || '').toLowerCase()
-  const catSlug = String(category.slug || '').toLowerCase()
-  const catName = String(category.name || '').toLowerCase()
 
-  // 1. Direct Category Match (Strict Priority)
+  const catSlug = String(category.slug || '').trim().toLowerCase()
+  const catKey = String(category.category_key || category._id || '').trim().toLowerCase()
+  const catName = String(category.name || '').trim().toLowerCase()
+  const catId = category.id !== undefined && category.id !== null ? Number(category.id) : null
+
+  // Extract primary product category details
   const prodCat = product.category
-  const prodCatId = product.category_id !== undefined && product.category_id !== null ? Number(product.category_id) : (prodCat?.id !== undefined ? Number(prodCat.id) : null)
-  
-  if (catId !== null && prodCatId !== null && catId === prodCatId) {
+  let pCatSlug = ''
+  let pCatKey = ''
+  let pCatName = ''
+  let pCatId = product.category_id !== undefined && product.category_id !== null ? Number(product.category_id) : null
+
+  if (prodCat && typeof prodCat === 'object') {
+    pCatSlug = String(prodCat.slug || '').trim().toLowerCase()
+    pCatKey = String(prodCat._id || prodCat.category_key || '').trim().toLowerCase()
+    pCatName = String(prodCat.name || '').trim().toLowerCase()
+    if (pCatId === null && prodCat.id !== undefined && prodCat.id !== null) {
+      pCatId = Number(prodCat.id)
+    }
+  } else if (typeof prodCat === 'string') {
+    pCatSlug = prodCat.trim().toLowerCase()
+  }
+
+  // Guard: Protect against cross-contamination between brochures and business cards
+  const prodName = String(product.name || '').toLowerCase()
+  const prodSlug = String(product.slug || '').toLowerCase()
+  const isBrochureCategory = catSlug === 'brochures-printing' || catSlug === 'brochures' || catSlug === 'cat-brochures-printing'
+  const isBusinessCardProduct = prodSlug.includes('business-card') || prodName.includes('business card') || prodSlug.includes('visiting-card')
+
+  if (isBrochureCategory && isBusinessCardProduct) {
+    return false
+  }
+
+  // 1. Semantic Slug Matching with common alias normalization (Authoritative)
+  if (catSlug && pCatSlug) {
+    if (catSlug === pCatSlug) return true
+    if (isBrochureCategory && (pCatSlug === 'brochures-printing' || pCatSlug === 'brochures')) return true
+    if ((catSlug === 'business-cards-printing' || catSlug === 'business-cards') && (pCatSlug === 'business-cards-printing' || pCatSlug === 'business-cards')) return true
+    if ((catSlug === 'stickers-labels-printing' || catSlug === 'stickers-printing-dubai') && (pCatSlug === 'stickers-labels-printing' || pCatSlug === 'stickers-printing-dubai')) return true
+    if ((catSlug === 'rollup-banners' || catSlug === 'cat-rollup-banners-dubai') && (pCatSlug === 'rollup-banners' || pCatSlug === 'cat-rollup-banners-dubai')) return true
+  }
+
+  // 2. Category Key / _id match
+  if (catKey && pCatKey && catKey === pCatKey) {
     return true
   }
 
-  if (prodCat && typeof prodCat === 'object') {
-    const pCatSlug = String(prodCat.slug || '').toLowerCase()
-    const pCatKey = String(prodCat._id || prodCat.category_key || '').toLowerCase()
-    const pCatName = String(prodCat.name || '').toLowerCase()
-
-    if (catSlug && pCatSlug === catSlug) return true
-    if (catKey && pCatKey === catKey) return true
-    if (catName && pCatName === catName) return true
+  // 3. Exact Category Name match
+  if (catName && pCatName && catName === pCatName) {
+    return true
   }
 
-  if (typeof prodCat === 'string') {
-    const pCatStr = prodCat.toLowerCase()
-    if (catSlug && pCatStr === catSlug) return true
-    if (catKey && pCatStr === catKey) return true
-    if (catName && pCatStr === catName) return true
-  }
-
+  // 4. Check secondary categories array
   if (Array.isArray(product.categories) && product.categories.length > 0) {
-    return product.categories.some((c) => {
+    const secondaryMatch = product.categories.some((c) => {
       if (!c) return false
-      const cId = c.id !== undefined && c.id !== null ? Number(c.id) : null
-      const cSlug = String(c.slug || '').toLowerCase()
-      const cKey = String(c._id || c.category_key || '').toLowerCase()
-      return (
-        (catId !== null && cId !== null && catId === cId) ||
-        (catSlug && cSlug === catSlug) ||
-        (catKey && cKey === catKey)
-      )
+      const cSlug = String(c.slug || '').trim().toLowerCase()
+      const cKey = String(c._id || c.category_key || '').trim().toLowerCase()
+      const cName = String(c.name || '').trim().toLowerCase()
+
+      if (catSlug && cSlug && catSlug === cSlug) return true
+      if (catKey && cKey && catKey === cKey) return true
+      if (catName && cName && catName === cName) return true
+      return false
     })
+    if (secondaryMatch) return true
+  }
+
+  // 5. Explicit heuristic match for known products by slug / name
+  if (isBrochureCategory) {
+    if (prodSlug.includes('brochure') || prodName.includes('brochure') || prodSlug === 'digital-offset-printing') {
+      return true
+    }
+  }
+
+  if (catSlug === 'business-cards-printing' || catSlug === 'business-cards') {
+    if (isBusinessCardProduct) {
+      return true
+    }
+  }
+
+  // 6. Fallback Numeric ID match: ONLY if neither has a conflicting slug
+  if (catId !== null && pCatId !== null && catId === pCatId) {
+    if (!catSlug || !pCatSlug || catSlug === pCatSlug) {
+      return true
+    }
   }
 
   return false
@@ -209,9 +254,16 @@ export default function ProductSectionsShowcase({
   }, [initialCategories, initialProducts])
 
   const sections = useMemo(() => {
-    const cats = internalCategories || []
+    const rawCats = internalCategories || []
     const prods = internalProducts || []
-    if (!cats.length || !prods.length) return []
+    if (!rawCats.length || !prods.length) return []
+
+    // Sort categories deterministically by display_order / displayOrder / id
+    const cats = [...rawCats].sort((a, b) => {
+      const orderA = Number(a.display_order ?? a.displayOrder ?? a.order ?? a.id ?? 99)
+      const orderB = Number(b.display_order ?? b.displayOrder ?? b.order ?? b.id ?? 99)
+      return orderA - orderB
+    })
 
     const dynamicSections = []
     let sectionIdx = 1

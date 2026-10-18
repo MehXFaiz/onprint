@@ -478,28 +478,8 @@ module.exports = {
   ],
   "services": [
     {
-      "_id": "serv-brochures-printing",
-      "id": 1,
-      "name": "Brochures Printing",
-      "slug": "brochures-printing",
-      "category": {
-        "_id": "cat-brochures-printing",
-        "name": "Office Stationery Printing",
-        "slug": "brochures-printing"
-      },
-      "shortDescription": "Premium bi-fold, tri-fold, and multi-page marketing brochures on luxury coated art paper with precision folding.",
-      "description": "Showcase your corporate offerings with luxury multi-page brochures, bi-fold & tri-fold marketing leaflets, saddle-stitched catalogs, and custom presentation folders with soft-touch matte lamination and spot UV.",
-      "image": "/uploads/categories/brochures-printing.jpg",
-      "imageAlt": "Professional commercial printed brochures in Dubai",
-      "seoTitle": "Brochures Printing in Dubai | Luxury Commercial Brochures | ONPRINT",
-      "seoDescription": "Professional corporate brochure printing in Dubai. Bi-fold, tri-fold, and multi-page marketing brochures with fast UAE delivery.",
-      "seoKeywords": "brochures printing dubai, brochure printing dubai, corporate brochures uae",
-      "order": 1,
-      "active": true
-    },
-    {
       "_id": "serv-business-cards-printing",
-      "id": 2,
+      "id": 1,
       "name": "Business Cards Printing",
       "slug": "business-cards-printing",
       "category": {
@@ -514,6 +494,26 @@ module.exports = {
       "seoTitle": "Business Cards Printing in Dubai | Luxury Executive Cards | ONPRINT",
       "seoDescription": "Executive business card printing in Dubai. 350gsm-600gsm cotton card stocks, soft-touch matte lamination, gold foil, and spot UV.",
       "seoKeywords": "business cards printing dubai, luxury business cards dubai, visiting cards uae",
+      "order": 1,
+      "active": true
+    },
+    {
+      "_id": "serv-brochures-printing",
+      "id": 2,
+      "name": "Brochures Printing",
+      "slug": "brochures-printing",
+      "category": {
+        "_id": "cat-brochures-printing",
+        "name": "Office Stationery Printing",
+        "slug": "brochures-printing"
+      },
+      "shortDescription": "Premium bi-fold, tri-fold, and multi-page marketing brochures on luxury coated art paper with precision folding.",
+      "description": "Showcase your corporate offerings with luxury multi-page brochures, bi-fold & tri-fold marketing leaflets, saddle-stitched catalogs, and custom presentation folders with soft-touch matte lamination and spot UV.",
+      "image": "/uploads/categories/brochures-printing.jpg",
+      "imageAlt": "Professional commercial printed brochures in Dubai",
+      "seoTitle": "Brochures Printing in Dubai | Luxury Commercial Brochures | ONPRINT",
+      "seoDescription": "Professional corporate brochure printing in Dubai. Bi-fold, tri-fold, and multi-page marketing brochures with fast UAE delivery.",
+      "seoKeywords": "brochures printing dubai, brochure printing dubai, corporate brochures uae",
       "order": 2,
       "active": true
     },

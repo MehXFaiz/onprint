@@ -32,14 +32,14 @@ export default function SiteFooter() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3.5">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto">
             <Link
               to="/get-a-quote"
-              className="inline-flex items-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-6 sm:px-7 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/25 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-6 sm:px-7 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/25 transition-all text-center"
               onClick={() => trackGetQuoteClick({ source_page: 'footer_cta_banner' })}
             >
               <span>Request Custom Quote</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 shrink-0" />
             </Link>
 
             <a
@@ -49,9 +49,9 @@ export default function SiteFooter() {
               onClick={() =>
                 trackWhatsAppClick({ source_page: 'footer_cta_banner', service: 'general', button_location: 'footer_banner' })
               }
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-[#25D366] hover:text-white border border-white/20 hover:border-[#25D366] px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 hover:bg-[#25D366] hover:text-white border border-white/20 hover:border-[#25D366] px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer text-center"
             >
-              <WhatsAppIcon className="h-4 w-4 fill-current text-white" />
+              <WhatsAppIcon className="h-4 w-4 fill-current text-white shrink-0" />
               <span>WhatsApp Concierge</span>
             </a>
           </div>
@@ -61,7 +61,7 @@ export default function SiteFooter() {
       {/* 2. MAIN MODERNIST FOOTER GRID */}
       <Container className="py-14 sm:py-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 text-slate-300">
         {/* Col 1: Brand Info */}
-        <div className="space-y-4 lg:col-span-2 pr-4">
+        <div className="space-y-4 lg:col-span-2 lg:pr-4">
           <Link to="/" className="inline-block">
             <Logo variant="light" size="md" />
           </Link>
@@ -211,18 +211,18 @@ export default function SiteFooter() {
       </Container>
 
       {/* 3. BOTTOM COPYRIGHT & LEGAL BAR */}
-      <div className="border-t border-[#28395A] bg-[#0B1426] py-6 text-xs text-slate-400">
-        <Container className="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="border-t border-[#28395A] bg-[#0B1426] py-6 pb-20 sm:pb-6 text-xs text-slate-400">
+        <Container className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p>© {new Date().getFullYear()} ONPRINT Commercial Printing LLC. All rights reserved. Registered in Dubai, UAE.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6">
             <Link to="/privacy-policy" className="hover:text-slate-200 transition-colors">
               Privacy Policy
             </Link>
-            <span className="text-slate-600">|</span>
+            <span className="text-slate-600 hidden sm:inline">|</span>
             <Link to="/terms" className="hover:text-slate-200 transition-colors">
               Terms &amp; Conditions
             </Link>
-            <span className="text-slate-600">|</span>
+            <span className="text-slate-600 hidden sm:inline">|</span>
             <Link to="/track-order" className="hover:text-slate-200 transition-colors">
               Track Order
             </Link>

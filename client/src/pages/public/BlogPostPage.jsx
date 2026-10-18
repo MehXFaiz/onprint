@@ -15,6 +15,7 @@ import {
   Check,
   HelpCircle,
   List,
+  MessageCircle,
 } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
@@ -25,6 +26,8 @@ import EmptyState from '../../components/EmptyState'
 import Reveal from '../../components/Reveal'
 import { getPublicBlogBySlug } from '../../services/blog'
 import { getBlogCoverImage } from '../../assets/productImages'
+import { getWhatsAppUrl } from '../../utils/whatsapp'
+import { trackWhatsAppClick } from '../../utils/analytics'
 
 /**
  * Basic HTML sanitizer to strip malicious scripts and event handlers
@@ -248,14 +251,14 @@ export default function BlogPostPage() {
             </span>
             {formatDate(post.published_at || post.publishedAt) && (
               <>
-                <span className="h-3 w-[1px] bg-border" />
+                <span className="hidden sm:inline-block h-3 w-[1px] bg-border" />
                 <span className="flex items-center gap-1">
                   <Calendar className="h-3.5 w-3.5" />
                   {formatDate(post.published_at || post.publishedAt)}
                 </span>
               </>
             )}
-            <span className="h-3 w-[1px] bg-border" />
+            <span className="hidden sm:inline-block h-3 w-[1px] bg-border" />
             <span>By {post.author_name || post.author || 'ONPRINT Editorial Team'}</span>
           </div>
 
@@ -498,6 +501,27 @@ export default function BlogPostPage() {
                         View Product
                       </Button>
                     )}
+                    <a
+                      href={getWhatsAppUrl({
+                        productName: productData.name,
+                        pageUrl: shareUrl,
+                        specifications: `Enquiring from guide: ${post.title}`,
+                      })}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackWhatsAppClick({
+                          source_page: `/blog/${post.slug}`,
+                          button_location: 'blog_featured_product_whatsapp',
+                          product_name: productData.name,
+                          label: `blog_featured_product_${post.slug}`,
+                        })
+                      }
+                      className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-white shadow-xs transition-all hover:bg-[#1da851]"
+                    >
+                      <MessageCircle className="h-3.5 w-3.5" />
+                      <span>WhatsApp Quote</span>
+                    </a>
                     <Button to="/get-a-quote" variant="accent" size="sm">
                       Request Quote
                     </Button>
@@ -508,9 +532,70 @@ export default function BlogPostPage() {
           </section>
         )}
 
+        {/* Phase 6: Contextual Internal Linking Hub for Business Card & Commercial Printing Guides */}
+        <section
+          aria-label="Related Products, Finishing Options & Quote Tools"
+          className="mt-8 rounded-2xl border border-border bg-surface p-5 sm:p-6 shadow-xs"
+        >
+          <div className="flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-wider text-accent">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>Explore Matching Products, Finishes &amp; Specifications</span>
+          </div>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Link
+              to="/business-card-printing-dubai"
+              className="rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-bold text-primary transition-colors hover:border-accent hover:text-accent"
+            >
+              Business Card Printing Dubai Hub
+            </Link>
+            <Link
+              to="/products/premium-business-cards"
+              className="rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-bold text-primary transition-colors hover:border-accent hover:text-accent"
+            >
+              400 GSM Premium Business Cards
+            </Link>
+            <Link
+              to="/luxury-business-cards"
+              className="rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-bold text-primary transition-colors hover:border-accent hover:text-accent"
+            >
+              600 GSM Cotton Luxury Cards
+            </Link>
+            <Link
+              to="/foil-business-cards"
+              className="rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-bold text-primary transition-colors hover:border-accent hover:text-accent"
+            >
+              24K Gold &amp; Silver Foil Cards
+            </Link>
+            <Link
+              to="/spot-uv-business-cards"
+              className="rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-bold text-primary transition-colors hover:border-accent hover:text-accent"
+            >
+              3D Raised Spot UV Cards
+            </Link>
+            <Link
+              to="/embossed-business-cards"
+              className="rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-bold text-primary transition-colors hover:border-accent hover:text-accent"
+            >
+              Embossed &amp; Debossed Cards
+            </Link>
+            <Link
+              to="/same-day-business-card-printing"
+              className="rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-bold text-primary transition-colors hover:border-accent hover:text-accent"
+            >
+              Same-Day 4-Hour Express Printing
+            </Link>
+            <Link
+              to="/get-a-quote"
+              className="rounded-lg border border-accent/40 bg-accent-soft px-3 py-1.5 text-xs font-extrabold text-accent transition-colors hover:bg-accent hover:text-white"
+            >
+              Interactive Specification &amp; Quote Builder →
+            </Link>
+          </div>
+        </section>
+
         {/* Dynamic Related Category Section */}
         {post.categoryData && (
-          <section aria-label="Explore Category" className="mt-6 rounded-2xl border border-border/80 bg-neutral-50/50 p-5 flex items-center justify-between gap-4">
+          <section aria-label="Explore Category" className="mt-6 rounded-2xl border border-border/80 bg-neutral-50/50 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <Layers className="h-5 w-5 text-accent shrink-0" />
               <div>
@@ -531,12 +616,12 @@ export default function BlogPostPage() {
         {/* Article Footer */}
         <footer className="mt-16 border-t border-border pt-12">
           {/* Studio Author & Verification Box */}
-          <div className="flex items-center gap-5 rounded-2xl border border-border bg-surface p-6 sm:p-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 rounded-2xl border border-border bg-surface p-5 sm:p-8">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary font-display text-lg font-black text-background">
               ONP
             </div>
             <div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <h3 className="font-display text-base font-bold text-primary">
                   {post.author_name || post.author || 'ONPRINT Editorial Team'}
                 </h3>
@@ -550,23 +635,46 @@ export default function BlogPostPage() {
             </div>
           </div>
 
-          {/* High-Converting Quote Call-to-Action */}
+          {/* High-Converting Quote & WhatsApp Call-to-Action */}
           <div className="mt-12 rounded-3xl border border-primary bg-primary p-6 sm:p-10 text-background shadow-xl">
-            <div className="flex flex-col items-stretch sm:flex-row sm:items-center justify-between gap-6">
+            <div className="flex flex-col items-stretch lg:flex-row lg:items-center justify-between gap-6">
               <div>
                 <span className="inline-block rounded-full bg-accent/20 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-accent">
                   Ready to Print in Dubai?
                 </span>
                 <h3 className="font-display mt-3 text-xl font-extrabold text-background sm:text-2xl">
-                  Need professional printing for your business?
+                  Need a custom quote for {productData?.name || categoryName || 'business cards'}?
                 </h3>
                 <p className="mt-1 text-xs text-background/80 sm:text-sm">
-                  Request a bespoke estimate from ONPRINT with fast turnaround and free Dubai delivery.
+                  Message our Al Quoz pre-press desk directly on WhatsApp with your specifications or submit a structured quote request.
                 </p>
               </div>
-              <Button to="/get-a-quote" variant="accent" size="lg" className="shrink-0 text-center justify-center">
-                Request a Quote
-              </Button>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+                <a
+                  href={getWhatsAppUrl({
+                    productName: productData?.name || categoryName || 'Business Cards',
+                    pageUrl: shareUrl,
+                    specifications: `Reading guide: ${post.title}`,
+                  })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source_page: `/blog/${post.slug}`,
+                      button_location: 'blog_footer_whatsapp_cta',
+                      product_name: productData?.name || categoryName || 'Business Cards',
+                      label: `blog_footer_${post.slug}`,
+                    })
+                  }
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg transition-all hover:bg-[#1da851]"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  <span>Get a Quote on WhatsApp</span>
+                </a>
+                <Button to="/get-a-quote" variant="accent" size="lg" className="shrink-0 text-center justify-center">
+                  Request a Quote
+                </Button>
+              </div>
             </div>
           </div>
 
@@ -576,7 +684,7 @@ export default function BlogPostPage() {
               <h2 className="font-display text-2xl font-bold tracking-tight text-primary">
                 Related Printing Guides
               </h2>
-              <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+              <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
                 {post.related.map((item) => (
                   <div
                     key={item.id || item.slug}

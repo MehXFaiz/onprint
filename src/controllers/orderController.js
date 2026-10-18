@@ -1,6 +1,7 @@
 const { pool } = require('../config/database')
 const ApiError = require('../utils/ApiError')
 const persistentStore = require('../data/persistentStore')
+const { sendNotification } = require('../services/notificationService')
 
 async function createOrder(req, res, next) {
   let connection = null
@@ -256,7 +257,66 @@ async function getOrderById(req, res, next) {
       })
     }
 
-    throw new ApiError(404, 'Order not found')
+    // Check if customer is tracking a quote reference (e.g. ONP-Q-XXXXXX)
+    const localQuote = persistentStore.getQuote(id)
+    if (localQuote) {
+      return res.json({
+        success: true,
+        data: {
+          _id: `quote-${localQuote.id}`,
+          id: localQuote.id,
+          orderNumber: localQuote.quoteNumber,
+          quoteNumber: localQuote.quoteNumber,
+          isQuote: true,
+          customerName: localQuote.name,
+          customerEmail: localQuote.email,
+          customerPhone: localQuote.phone,
+          company: localQuote.company,
+          status: localQuote.status || 'New',
+          productName: localQuote.productName || localQuote.items?.[0]?.productName || 'Custom Print Job',
+          quantity: localQuote.quantity || 1,
+          specs: localQuote.specs || '',
+          finishes: localQuote.finishes || [],
+          deliveryLocation: localQuote.deliveryLocation || 'Dubai',
+          notes: localQuote.notes || '',
+          artworkFile: localQuote.artworkFile || localQuote.artworkFiles?.[0] || null,
+          totalPrice: localQuote.totalPrice || localQuote.estimatedPrice || 0,
+          currency: 'AED',
+          createdAt: localQuote.createdAt,
+          items: localQuote.items || [],
+        },
+      })
+    }
+
+    // Check if customer is tracking a corporate quote (e.g. ONP-CORP-XXXXXX)
+    const localCorp = persistentStore.getCorporateQuote(id)
+    if (localCorp) {
+      return res.json({
+        success: true,
+        data: {
+          _id: `corp-${localCorp.id}`,
+          id: localCorp.id,
+          orderNumber: localCorp.referenceNumber,
+          isCorporate: true,
+          customerName: localCorp.contactName,
+          customerEmail: localCorp.email,
+          customerPhone: localCorp.phone,
+          company: localCorp.companyName,
+          status: localCorp.status || 'New',
+          productName: 'Corporate Print Procurement Package',
+          quantity: localCorp.items?.length || 1,
+          specs: `Corporate Account (${localCorp.creditTermsRequested || 'Prepaid'})`,
+          notes: localCorp.notes || '',
+          artworkFile: localCorp.artworkFiles?.[0] || null,
+          totalPrice: 0,
+          currency: 'AED',
+          createdAt: localCorp.createdAt,
+          items: localCorp.items || [],
+        },
+      })
+    }
+
+    throw new ApiError(404, 'Order or quote reference not found')
   } catch (err) {
     next(err)
   }
@@ -265,11 +325,11 @@ async function getOrderById(req, res, next) {
 async function updateOrderStatus(req, res, next) {
   try {
     const { id } = req.params
-    const { status } = req.body
+    const { status, courierPartner, trackingNumber, proofUrl } = req.body
 
     if (!status) throw new ApiError(400, 'Status is required')
 
-    persistentStore.updateOrderStatus(id, status)
+    const updated = persistentStore.updateOrderStatus(id, status)
 
     try {
       await pool.execute(
@@ -280,11 +340,39 @@ async function updateOrderStatus(req, res, next) {
       // MySQL unavailable
     }
 
-    res.json({ success: true, message: 'Order status updated successfully' })
+    // Trigger customer notification for milestone
+    const targetOrder = updated || persistentStore.getOrder(id)
+    if (targetOrder?.customerEmail) {
+      let eventType = null
+      const s = status.toLowerCase()
+      if (s.includes('proof')) eventType = 'proof_ready'
+      else if (s.includes('approved')) eventType = 'artwork_approved'
+      else if (s.includes('production') || s.includes('printing')) eventType = 'production_milestone'
+      else if (s.includes('dispatch') || s.includes('out for delivery')) eventType = 'order_dispatched'
+      else if (s.includes('deliver') || s.includes('complete')) eventType = 'order_delivered'
+
+      if (eventType) {
+        sendNotification({
+          eventType,
+          recipientEmail: targetOrder.customerEmail,
+          recipientPhone: targetOrder.customerPhone,
+          recipientName: targetOrder.customerName,
+          referenceNumber: targetOrder.orderNumber,
+          payload: {
+            courierPartner,
+            trackingNumber,
+            proofUrl,
+          },
+        }).catch((e) => console.warn('[Order Notification] Failed:', e.message))
+      }
+    }
+
+    res.json({ success: true, message: `Order status updated to ${status}` })
   } catch (err) {
     next(err)
   }
 }
+
 
 async function deleteOrder(req, res, next) {
   let connection = null

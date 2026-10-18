@@ -108,7 +108,7 @@ export default function AdminServiceFormPage() {
   return (
     <div className="space-y-6 max-w-5xl">
       {/* Breadcrumbs */}
-      <nav className="flex items-center gap-2 text-xs font-semibold text-neutral-500">
+      <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-neutral-500">
         <Link to="/admin" className="hover:text-neutral-900 transition-colors">
           Admin
         </Link>
@@ -130,13 +130,13 @@ export default function AdminServiceFormPage() {
             Manage printing service details and search engine ranking parameters.
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
           <Button
             type="button"
             variant="outline"
             onClick={() => navigate('/admin/services')}
             disabled={submitting}
-            className="border-neutral-200 text-neutral-700 hover:bg-neutral-50 text-xs"
+            className="w-full sm:w-auto justify-center border-neutral-200 text-neutral-700 hover:bg-neutral-50 text-xs"
           >
             <ArrowLeft className="h-4 w-4 mr-1.5" />
             Cancel
@@ -146,7 +146,7 @@ export default function AdminServiceFormPage() {
             variant="accent"
             onClick={handleSubmit}
             disabled={submitting}
-            className="text-xs font-bold"
+            className="w-full sm:w-auto justify-center text-xs font-bold"
           >
             <Save className="h-4 w-4 mr-1.5" />
             {submitting ? 'Saving...' : isEdit ? 'Save Changes' : 'Create Service'}
@@ -239,7 +239,7 @@ export default function AdminServiceFormPage() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-1">
                 <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
                   SEO Meta Title
                 </label>
@@ -257,7 +257,7 @@ export default function AdminServiceFormPage() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-1">
                 <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
                   SEO Meta Description
                 </label>

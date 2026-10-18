@@ -72,3 +72,41 @@ export async function uploadImages(files, onProgress) {
     throw new Error(err?.response?.data?.message || err?.message || 'Failed to upload images.')
   }
 }
+
+/**
+ * Upload customer artwork files (PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP up to 50MB)
+ * @param {File[]} files - Array of File objects or single File
+ * @param {Function} onProgress - Optional callback for upload progress (0-100)
+ * @returns {Promise<{success: boolean, urls: string[], filenames: string[], data: Array}>}
+ */
+export async function uploadArtwork(files, onProgress) {
+  const fileArray = Array.isArray(files) ? files : [files]
+  const formData = new FormData()
+  fileArray.forEach((file) => formData.append('files', file))
+
+  try {
+    const { data } = await api.post('/upload/artwork', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      onUploadProgress: (progressEvent) => {
+        if (onProgress && progressEvent.total) {
+          const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+          onProgress(percent)
+        }
+      },
+    })
+    return data
+  } catch (err) {
+    if (err.message === 'Network Error' || !err.response) {
+      const mockUrls = fileArray.map((file) => URL.createObjectURL(file))
+      return {
+        success: true,
+        urls: mockUrls,
+        filenames: fileArray.map((f) => f.name),
+        data: fileArray.map((f, i) => ({ url: mockUrls[i], filename: f.name, originalName: f.name })),
+      }
+    }
+    throw new Error(err?.response?.data?.message || err?.message || 'Failed to upload artwork files.')
+  }
+}

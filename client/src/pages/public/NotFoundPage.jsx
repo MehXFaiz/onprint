@@ -24,14 +24,14 @@ export default function NotFoundPage() {
       <p className="mt-4 max-w-md text-secondary">
         The page you're looking for may have been moved, renamed, or is temporarily unavailable.
       </p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-        <Button to="/" variant="accent">
+      <div className="mt-8 flex w-full max-w-md sm:max-w-none flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <Button to="/" variant="accent" className="w-full sm:w-auto justify-center">
           Return to Home
         </Button>
-        <Button to="/products" variant="secondary">
+        <Button to="/products" variant="secondary" className="w-full sm:w-auto justify-center">
           Explore Products
         </Button>
-        <Button to="/services" variant="outline">
+        <Button to="/services" variant="outline" className="w-full sm:w-auto justify-center">
           View Print Services
         </Button>
       </div>

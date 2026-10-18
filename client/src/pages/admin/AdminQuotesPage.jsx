@@ -316,13 +316,13 @@ export default function AdminQuotesPage() {
                         className={`rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase border cursor-pointer ${getStatusBadgeClass(q.status)}`}
                       >
                         <option value="New">New</option>
-                        <option value="Contacted">Contacted</option>
-                        <option value="Quoted">Quoted</option>
-                        <option value="Won">Won (Order)</option>
-                        <option value="Lost">Lost</option>
-                        {['Pending', 'Approved', 'Rejected'].includes(q.status) && (
-                          <option value={q.status}>{q.status}</option>
-                        )}
+                        <option value="Under Review">Under Review</option>
+                        <option value="Awaiting Artwork">Awaiting Artwork</option>
+                        <option value="Quote Prepared">Quote Prepared</option>
+                        <option value="Sent to Customer">Sent to Customer</option>
+                        <option value="Accepted">Accepted</option>
+                        <option value="Declined">Declined</option>
+                        <option value="Converted to Order">Converted to Order</option>
                       </select>
                     </td>
                     <td className="py-3 px-4 text-right">
@@ -383,7 +383,7 @@ export default function AdminQuotesPage() {
 
       {/* Floating Bottom Bulk Action Bar */}
       {selectedQuoteIds.length > 0 && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 bg-neutral-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-neutral-700">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex w-[calc(100vw-2rem)] sm:w-auto max-w-full flex-wrap justify-center items-center gap-3 bg-neutral-900 text-white px-3.5 py-2.5 sm:px-5 sm:py-3 rounded-2xl shadow-2xl border border-neutral-700">
           <div className="flex items-center gap-2">
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-xs font-bold text-white">
               {selectedQuoteIds.length}
@@ -414,7 +414,7 @@ export default function AdminQuotesPage() {
       {/* Single Delete Confirmation Modal */}
       {deletingQuote && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-4 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-center gap-3 text-red-600">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
                 <AlertTriangle className="h-5 w-5" />
@@ -450,7 +450,7 @@ export default function AdminQuotesPage() {
       {/* Bulk Delete Confirmation Modal */}
       {isBulkDeleting && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-4 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-start gap-3 text-red-600">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100 mt-0.5">
                 <AlertTriangle className="h-5 w-5" />

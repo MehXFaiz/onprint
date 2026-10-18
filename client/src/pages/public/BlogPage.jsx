@@ -324,7 +324,7 @@ export default function BlogPage() {
 
           {/* Pagination Controls */}
           {!loading && pagination.totalPages > 1 && (
-            <div className="mt-16 flex items-center justify-center gap-2 border-t border-border pt-8">
+            <div className="mt-16 flex flex-wrap items-center justify-center gap-2 border-t border-border pt-8">
               <button
                 type="button"
                 onClick={() => handlePageChange(pagination.page - 1)}
@@ -335,7 +335,7 @@ export default function BlogPage() {
                 <span>Previous</span>
               </button>
 
-              <div className="flex items-center gap-1 px-2">
+              <div className="flex flex-wrap items-center justify-center gap-1 px-2">
                 {Array.from({ length: pagination.totalPages }, (_, i) => i + 1).map((pageNum) => (
                   <button
                     key={pageNum}

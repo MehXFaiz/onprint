@@ -156,6 +156,15 @@ function loadStore() {
       if (!Array.isArray(parsed.seo_conversions)) {
         parsed.seo_conversions = []
       }
+      if (!Array.isArray(parsed.reviews)) {
+        parsed.reviews = []
+      }
+      if (!Array.isArray(parsed.corporate_quotes)) {
+        parsed.corporate_quotes = []
+      }
+      if (!Array.isArray(parsed.notification_logs)) {
+        parsed.notification_logs = []
+      }
       if (ensureBusinessCardGuidesAndProspects(parsed)) {
         saveStore(parsed)
       }
@@ -169,6 +178,9 @@ function loadStore() {
     quotes: [],
     messages: [],
     blogs: [],
+    reviews: [],
+    corporate_quotes: [],
+    notification_logs: [],
     geo_faqs: [...GEO_FAQS],
     geo_content: [...GEO_CONTENT_RECORDS],
     ai_visibility: [...DUBAI_AI_VISIBILITY_QUERIES],
@@ -386,10 +398,9 @@ function getQuotes() {
 
 function addQuote(quoteData) {
   const store = loadStore()
-  const year = new Date().getFullYear()
   const randomSeq = Math.floor(100000 + Math.random() * 900000)
-  const orderNumber = quoteData.orderNumber || quoteData.quoteNumber || `ONP-${year}-${randomSeq}`
-  const quoteNumber = orderNumber
+  const quoteNumber = quoteData.quoteNumber || quoteData.orderNumber || `ONP-Q-${randomSeq}`
+  const orderNumber = quoteNumber
   const id = store.quotes.length > 0 ? Math.max(...store.quotes.map((q) => q.id || 0)) + 1 : 1
 
   const newQuote = {
@@ -403,17 +414,25 @@ function addQuote(quoteData) {
     company: quoteData.company || null,
     notes: quoteData.notes || null,
     status: quoteData.status || 'New',
-    totalPrice: Number(quoteData.totalPrice || 0),
+    totalPrice: Number(quoteData.totalPrice || quoteData.estimatedPrice || 0),
+    estimatedPrice: Number(quoteData.estimatedPrice || quoteData.totalPrice || 0),
     specs: quoteData.specs || null,
+    finishes: quoteData.finishes || [],
+    deliveryUrgency: quoteData.deliveryUrgency || 'Standard',
+    deliveryLocation: quoteData.deliveryLocation || 'Dubai',
     artworkFile: quoteData.artworkFile || null,
+    artworkFiles: quoteData.artworkFiles || (quoteData.artworkFile ? [quoteData.artworkFile] : []),
+    staffNotes: quoteData.staffNotes || null,
+    formalPdfQuote: quoteData.formalPdfQuote || null,
     createdAt: quoteData.createdAt || new Date().toISOString(),
     productName: quoteData.productName || quoteData.items?.[0]?.productName || 'Custom Print Job',
+    quantity: quoteData.quantity || quoteData.items?.[0]?.quantity || 1,
     items: quoteData.items || [],
   }
 
   store.quotes.unshift(newQuote)
   const newStatusLower = (newQuote.status || '').toLowerCase()
-  if (newStatusLower === 'approved' || newStatusLower === 'won') {
+  if (newStatusLower === 'approved' || newStatusLower === 'won' || newStatusLower === 'converted to order') {
     syncQuoteToOrder(newQuote, store)
   }
   saveStore(store)
@@ -1358,6 +1377,247 @@ function addSeoConversion(data = {}) {
   return entry
 }
 
+// ---------------------------------------------------------------------------
+// Corporate / Bulk Quotes Store
+// ---------------------------------------------------------------------------
+function getCorporateQuotes() {
+  const store = loadStore()
+  return Array.isArray(store.corporate_quotes) ? store.corporate_quotes : []
+}
+
+function addCorporateQuote(data = {}) {
+  const store = loadStore()
+  if (!Array.isArray(store.corporate_quotes)) {
+    store.corporate_quotes = []
+  }
+  const id = store.corporate_quotes.length > 0 ? Math.max(...store.corporate_quotes.map((c) => Number(c.id) || 0)) + 1 : 1
+  const randomSeq = Math.floor(100000 + Math.random() * 900000)
+  const referenceNumber = data.referenceNumber || data.reference_number || `ONP-CORP-${randomSeq}`
+
+  const entry = {
+    _id: `corp-${id}`,
+    id,
+    referenceNumber,
+    reference_number: referenceNumber,
+    companyName: data.companyName || data.company_name || 'Corporate Client',
+    contactName: data.contactName || data.contact_name || 'Procurement Officer',
+    department: data.department || null,
+    email: (data.email || '').toLowerCase().trim(),
+    phone: data.phone || '',
+    tradeLicenseNumber: data.tradeLicenseNumber || data.trade_license_number || null,
+    trnNumber: data.trnNumber || data.trn_number || null,
+    annualVolumeEstimate: data.annualVolumeEstimate || data.annual_volume_estimate || 'Not specified',
+    creditTermsRequested: data.creditTermsRequested || data.credit_terms_requested || 'Prepaid',
+    deliveryLocations: Array.isArray(data.deliveryLocations) ? data.deliveryLocations : (data.deliveryLocations ? [data.deliveryLocations] : ['Dubai']),
+    items: Array.isArray(data.items) ? data.items : [],
+    notes: data.notes || null,
+    artworkFiles: Array.isArray(data.artworkFiles) ? data.artworkFiles : [],
+    status: data.status || 'New',
+    assignedAccountManager: data.assignedAccountManager || 'Senior Corporate Account Executive',
+    staffNotes: data.staffNotes || null,
+    createdAt: new Date().toISOString(),
+  }
+
+  store.corporate_quotes.unshift(entry)
+  saveStore(store)
+  return entry
+}
+
+function getCorporateQuote(id) {
+  const store = loadStore()
+  const clean = String(id).trim().toLowerCase()
+  return (store.corporate_quotes || []).find((c) => String(c.id) === clean || String(c.referenceNumber).toLowerCase() === clean || String(c._id).toLowerCase() === clean) || null
+}
+
+function updateCorporateQuoteStatus(id, status, staffNotes = null) {
+  const store = loadStore()
+  const clean = String(id).trim().toLowerCase()
+  const item = (store.corporate_quotes || []).find((c) => String(c.id) === clean || String(c.referenceNumber).toLowerCase() === clean || String(c._id).toLowerCase() === clean)
+  if (item) {
+    item.status = status
+    if (staffNotes) item.staffNotes = staffNotes
+    item.updatedAt = new Date().toISOString()
+    saveStore(store)
+    return item
+  }
+  return null
+}
+
+// ---------------------------------------------------------------------------
+// Customer Reviews Store
+// ---------------------------------------------------------------------------
+const SEED_REVIEWS = [
+  {
+    id: 1,
+    product_slug: 'business-card-printing-dubai',
+    product_name: 'Luxury Business Cards',
+    customer_name: 'Rashid Al-Nuaimi',
+    company: 'Nuaimi Holdings DIFC',
+    rating: 5,
+    title: 'Flawless 600 GSM Cotton and Gold Foil Execution',
+    comment: 'The GMUND cotton stock and heated brass foil finish exceeded our board expectations. Crisp registration and delivered to our DIFC gate in under 48 hours.',
+    verified_purchase: true,
+    order_number: 'ONP-2026-881290',
+    status: 'approved',
+    helpful_votes: 18,
+    staff_response: {
+      response: 'Thank you Mr. Rashid. It was a pleasure crafting the custom brass dies for Nuaimi Holdings.',
+      responder_name: 'ONPRINT Master Pressman',
+      responded_at: '2026-09-12T10:00:00.000Z',
+    },
+    created_at: '2026-09-10T14:30:00.000Z',
+  },
+  {
+    id: 2,
+    product_slug: 'stickers-printing-dubai',
+    product_name: 'Die-Cut Vinyl Product Labels',
+    customer_name: 'Camilla Dupont',
+    company: 'Maison Botanique Dubai',
+    rating: 5,
+    title: 'Completely Waterproof & Passed Cold Immersion Tests',
+    comment: 'Our organic skincare bottles sit in iced water baths during salon treatments. These matte vinyl labels showed zero peeling or ink bleeding.',
+    verified_purchase: true,
+    order_number: 'ONP-2026-773412',
+    status: 'approved',
+    helpful_votes: 12,
+    staff_response: null,
+    created_at: '2026-09-18T16:15:00.000Z',
+  },
+  {
+    id: 3,
+    product_slug: 'roll-up-banners-dubai',
+    product_name: 'Exhibition Rollup Banners',
+    customer_name: 'Vikram Mehta',
+    company: 'Apex Cloud Solutions',
+    rating: 5,
+    title: 'Anti-Curl Greyback Film Saved Our GITEX Booth',
+    comment: 'Under the high-wattage lights at DWTC, regular banners curl inwards. The ONPRINT blockout greyback banners stood perfectly rigid and flat throughout the 5 days.',
+    verified_purchase: true,
+    order_number: 'ONP-2026-904123',
+    status: 'approved',
+    helpful_votes: 9,
+    staff_response: {
+      response: 'We engineered the 440 GSM blockout greyback specifically for DWTC arena floodlights. Delighted to hear it performed flawlessly!',
+      responder_name: 'ONPRINT Large Format Team',
+      responded_at: '2026-09-26T09:00:00.000Z',
+    },
+    created_at: '2026-09-25T11:00:00.000Z',
+  },
+]
+
+function getReviews(filter = {}) {
+  const store = loadStore()
+  if (!Array.isArray(store.reviews) || store.reviews.length === 0) {
+    store.reviews = [...SEED_REVIEWS]
+    saveStore(store)
+  }
+  let list = store.reviews
+  if (filter.product_slug) {
+    list = list.filter((r) => r.product_slug === filter.product_slug || !r.product_slug)
+  }
+  if (filter.status) {
+    list = list.filter((r) => r.status === filter.status)
+  }
+  return list
+}
+
+function addReview(data = {}) {
+  const store = loadStore()
+  if (!Array.isArray(store.reviews)) {
+    store.reviews = [...SEED_REVIEWS]
+  }
+  const id = store.reviews.length > 0 ? Math.max(...store.reviews.map((r) => Number(r.id) || 0)) + 1 : 1
+  const entry = {
+    _id: `rev-${id}`,
+    id,
+    product_slug: data.product_slug || data.productSlug || null,
+    product_name: data.product_name || data.productName || 'Commercial Print Work',
+    customer_name: data.customer_name || data.customerName || 'Valued Customer',
+    company: data.company || null,
+    rating: Math.min(5, Math.max(1, Number(data.rating) || 5)),
+    title: data.title || 'Verified Print Quality',
+    comment: data.comment || '',
+    verified_purchase: Boolean(data.verified_purchase || data.order_number || data.orderNumber),
+    order_number: data.order_number || data.orderNumber || null,
+    status: 'approved',
+    helpful_votes: 0,
+    staff_response: null,
+    created_at: new Date().toISOString(),
+  }
+  store.reviews.unshift(entry)
+  saveStore(store)
+  return entry
+}
+
+function updateReviewStatus(id, status) {
+  const store = loadStore()
+  const review = (store.reviews || []).find((r) => String(r.id) === String(id) || String(r._id) === String(id))
+  if (review) {
+    review.status = status
+    saveStore(store)
+    return review
+  }
+  return null
+}
+
+function voteHelpfulReview(id) {
+  const store = loadStore()
+  const review = (store.reviews || []).find((r) => String(r.id) === String(id) || String(r._id) === String(id))
+  if (review) {
+    review.helpful_votes = (review.helpful_votes || 0) + 1
+    saveStore(store)
+    return review
+  }
+  return null
+}
+
+function respondToReview(id, responseText, responderName = 'ONPRINT Production Team') {
+  const store = loadStore()
+  const review = (store.reviews || []).find((r) => String(r.id) === String(id) || String(r._id) === String(id))
+  if (review) {
+    review.staff_response = {
+      response: responseText,
+      responder_name: responderName,
+      responded_at: new Date().toISOString(),
+    }
+    saveStore(store)
+    return review
+  }
+  return null
+}
+
+// ---------------------------------------------------------------------------
+// Notification Logs Store
+// ---------------------------------------------------------------------------
+function addNotificationLog(logData = {}) {
+  const store = loadStore()
+  if (!Array.isArray(store.notification_logs)) {
+    store.notification_logs = []
+  }
+  const id = store.notification_logs.length > 0 ? Math.max(...store.notification_logs.map((n) => Number(n.id) || 0)) + 1 : 1
+  const entry = {
+    id,
+    idempotencyKey: logData.idempotencyKey || `${logData.eventType}-${logData.referenceNumber}-${Date.now()}`,
+    eventType: logData.eventType || 'generic',
+    recipientEmail: logData.recipientEmail || '',
+    recipientPhone: logData.recipientPhone || null,
+    referenceNumber: logData.referenceNumber || null,
+    channel: logData.channel || 'email',
+    subject: logData.subject || '',
+    status: logData.status || 'sent',
+    payload: logData.payload || {},
+    createdAt: new Date().toISOString(),
+  }
+  store.notification_logs.unshift(entry)
+  saveStore(store)
+  return entry
+}
+
+function getNotificationLogs() {
+  const store = loadStore()
+  return Array.isArray(store.notification_logs) ? store.notification_logs : []
+}
+
 module.exports = {
   getOrders,
   addOrder,
@@ -1416,6 +1676,17 @@ module.exports = {
   updateBusinessCardBacklinkProspect,
   getSeoConversions,
   addSeoConversion,
+  getCorporateQuotes,
+  addCorporateQuote,
+  getCorporateQuote,
+  updateCorporateQuoteStatus,
+  getReviews,
+  addReview,
+  updateReviewStatus,
+  voteHelpfulReview,
+  respondToReview,
+  addNotificationLog,
+  getNotificationLogs,
 }
 
 

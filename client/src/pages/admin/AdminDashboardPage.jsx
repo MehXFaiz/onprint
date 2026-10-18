@@ -208,7 +208,7 @@ export default function AdminDashboardPage() {
     <div className="space-y-8">
       {/* Top Controls Bar */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
-        <div className="flex items-center gap-2 text-xs font-bold text-neutral-700">
+        <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-neutral-700">
           <Calendar className="h-4 w-4 text-[#D4AF65]" />
           <span>Filter Metric Window:</span>
           <select
@@ -351,10 +351,10 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Secondary Metric Summary Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4">
         <Link
           to="/admin/messages"
-          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-amber-500 transition-colors"
+          className="rounded-2xl border border-neutral-200/80 bg-white p-3.5 sm:p-4 shadow-xs hover:border-amber-500 transition-colors"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wider">
             <MessageSquare className="h-3.5 w-3.5 text-amber-600" />
@@ -366,7 +366,7 @@ export default function AdminDashboardPage() {
 
         <Link
           to="/admin/customers"
-          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-neutral-300 transition-colors"
+          className="rounded-2xl border border-neutral-200/80 bg-white p-3.5 sm:p-4 shadow-xs hover:border-neutral-300 transition-colors"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wider">
             <Users className="h-3.5 w-3.5 text-indigo-600" />
@@ -378,7 +378,7 @@ export default function AdminDashboardPage() {
 
         <Link
           to="/admin/services"
-          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-neutral-300 transition-colors"
+          className="rounded-2xl border border-neutral-200/80 bg-white p-3.5 sm:p-4 shadow-xs hover:border-neutral-300 transition-colors"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wider">
             <Wrench className="h-3.5 w-3.5 text-sky-600" />
@@ -390,7 +390,7 @@ export default function AdminDashboardPage() {
 
         <Link
           to="/admin/categories"
-          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-[#D4AF65] transition-colors"
+          className="rounded-2xl border border-neutral-200/80 bg-white p-3.5 sm:p-4 shadow-xs hover:border-[#D4AF65] transition-colors"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wider">
             <FolderTree className="h-3.5 w-3.5 text-[#D4AF65]" />
@@ -402,7 +402,7 @@ export default function AdminDashboardPage() {
 
         <Link
           to="/admin/blog"
-          className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs hover:border-[#D4AF65] transition-colors col-span-2 sm:col-span-1"
+          className="rounded-2xl border border-neutral-200/80 bg-white p-3.5 sm:p-4 shadow-xs hover:border-[#D4AF65] transition-colors xs:col-span-2 sm:col-span-1"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-neutral-500 uppercase tracking-wider">
             <BookOpen className="h-3.5 w-3.5 text-[#D4AF65]" />
@@ -438,15 +438,15 @@ export default function AdminDashboardPage() {
             ) : (
               <div className="divide-y divide-neutral-100">
                 {recentOrders.slice(0, 4).map((order) => (
-                  <div key={order.id} className="py-3 flex items-center justify-between text-xs">
-                    <div>
-                      <div className="font-bold text-neutral-900">{order.productName || 'Print Order'}</div>
-                      <div className="text-[11px] text-neutral-500">
+                  <div key={order.id} className="py-3 flex items-center justify-between gap-2 text-xs">
+                    <div className="min-w-0 flex-1">
+                      <div className="font-bold text-neutral-900 truncate">{order.productName || 'Print Order'}</div>
+                      <div className="text-[11px] text-neutral-500 truncate">
                         {order.orderNumber} • {order.customerName}
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 shrink-0">
                       <span className="font-bold text-neutral-900">
                         AED {(order.totalPrice || 0).toLocaleString()}
                       </span>
@@ -484,15 +484,15 @@ export default function AdminDashboardPage() {
             ) : (
               <div className="divide-y divide-neutral-100">
                 {recentQuotes.slice(0, 4).map((quote) => (
-                  <div key={quote.id} className="py-3 flex items-center justify-between text-xs">
-                    <div>
-                      <div className="font-bold text-neutral-900">{quote.name}</div>
-                      <div className="text-[11px] text-neutral-500">
+                  <div key={quote.id} className="py-3 flex items-center justify-between gap-2 text-xs">
+                    <div className="min-w-0 flex-1">
+                      <div className="font-bold text-neutral-900 truncate">{quote.name}</div>
+                      <div className="text-[11px] text-neutral-500 truncate">
                         {quote.quoteNumber} • {quote.email}
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 shrink-0">
                       <span className="rounded-full bg-purple-50 px-2 py-0.5 text-[9px] font-bold text-purple-700 border border-purple-200">
                         {quote.status}
                       </span>

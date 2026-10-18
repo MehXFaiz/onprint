@@ -14,6 +14,7 @@ import { getProductImage, getProductCategoriesWithImages, getAllProductCategoryI
 import { trackViewProduct, trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick, trackContactFormStart } from '../../utils/analytics'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getServiceWhatsAppUrl } from '../../utils/whatsapp'
+import ProductReviewsSection from '../../components/ProductReviewsSection'
 
 const CARD_FALLBACK_SIZES = [
   { label: 'EU Standard (85 × 55 mm)', priceModifier: 0 },
@@ -145,12 +146,48 @@ export default function ProductDetailPage() {
       .catch(() => setStatus('error'))
   }, [slug])
 
-  const estimatedPrice = useMemo(() => {
+  // Volume tier discounts
+  const volumeDiscountPct = useMemo(() => {
+    if (quantity >= 5000) return 35
+    if (quantity >= 2500) return 25
+    if (quantity >= 1000) return 20
+    if (quantity >= 500) return 12
+    if (quantity >= 250) return 6
+    return 0
+  }, [quantity])
+
+  const pricingBreakdown = useMemo(() => {
     if (!product || product.price == null) return null
-    const modifiers = (size?.priceModifier || 0) + (material?.priceModifier || 0) + (finish?.priceModifier || 0)
-    const unit = product.minimumQuantity || 1
-    return Math.round((product.price + modifiers) * (quantity / unit) * 100) / 100
-  }, [product, size, material, finish, quantity])
+    const baseBatch = Number(product.price) || 50
+    const minQty = Number(product.minimumQuantity) || 100
+    const rawUnit = baseBatch / minQty
+
+    const discMultiplier = 1 - volumeDiscountPct / 100
+    const sizeMod = Number(size?.priceModifier || 0)
+    const matMod = Number(material?.priceModifier || 0)
+    const finMod = Number(finish?.priceModifier || 0)
+
+    const unitWithStock = (rawUnit * discMultiplier) + (sizeMod / minQty) + (matMod / minQty)
+    let subtotal = Math.round(((unitWithStock * quantity) + finMod) * 100) / 100
+    subtotal = Math.max(subtotal, 40)
+
+    const vatRate = 0.05
+    const vatAmount = Math.round(subtotal * vatRate * 100) / 100
+    const totalAmount = Math.round((subtotal + vatAmount) * 100) / 100
+    const unitPrice = Math.round((subtotal / quantity) * 100) / 100
+
+    return {
+      subtotal,
+      vatAmount,
+      totalAmount,
+      unitPrice,
+      volumeDiscountPct,
+    }
+  }, [product, size, material, finish, quantity, volumeDiscountPct])
+
+  const estimatedPrice = useMemo(() => {
+    return pricingBreakdown?.totalAmount || null
+  }, [pricingBreakdown])
 
   const enrichedCategories = useMemo(() => getProductCategoriesWithImages(product), [product])
   const allCategoryImagesFlat = useMemo(() => getAllProductCategoryImages(product), [product])
@@ -277,14 +314,14 @@ export default function ProductDetailPage() {
           <div className="lg:col-span-6">
             {/* Mode Toggle Switch */}
             <div className="mb-4 flex items-center justify-between">
-              <div className="flex items-center gap-1 rounded-xl border border-black/10 bg-white p-1 shadow-xs">
+              <div className="flex items-center gap-1 rounded-xl border border-border bg-surface p-1 shadow-xs">
                 <button
                   type="button"
                   onClick={() => setViewMode('360')}
                   className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     viewMode === '360'
-                      ? 'bg-[#D4AF65] text-white shadow-xs'
-                      : 'text-black/60 hover:text-black'
+                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                      : 'text-secondary hover:text-primary'
                   }`}
                 >
                   <Compass className="h-3.5 w-3.5" />
@@ -295,8 +332,8 @@ export default function ProductDetailPage() {
                   onClick={() => setViewMode('photo')}
                   className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     viewMode === 'photo'
-                      ? 'bg-[#D4AF65] text-white shadow-xs'
-                      : 'text-black/60 hover:text-black'
+                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                      : 'text-secondary hover:text-primary'
                   }`}
                 >
                   <ImageIcon className="h-3.5 w-3.5" />
@@ -496,7 +533,7 @@ export default function ProductDetailPage() {
                       })
                     }
                     onChange={(e) => setDeliveryLocation(e.target.value)}
-                    placeholder="e.g. Dubai / Lahore / Karachi"
+                    placeholder="e.g. Dubai / Abu Dhabi / Sharjah"
                     className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-xs font-semibold text-primary focus:border-accent focus:outline-none"
                   />
                 </div>
@@ -523,6 +560,90 @@ export default function ProductDetailPage() {
                   className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-xs text-primary focus:border-accent focus:outline-none"
                 />
               </div>
+
+              {/* Volume Tiers Quick Selector */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-xs font-bold uppercase tracking-wider text-primary">
+                    Volume Tier Quantity Presets
+                  </p>
+                  {volumeDiscountPct > 0 && (
+                    <span className="text-[11px] font-extrabold text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-full px-2.5 py-0.5">
+                      🎉 {volumeDiscountPct}% Volume Discount Applied
+                    </span>
+                  )}
+                </div>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                  {[
+                    { qty: 100, label: '100', discount: 0 },
+                    { qty: 250, label: '250', discount: 6 },
+                    { qty: 500, label: '500', discount: 12 },
+                    { qty: 1000, label: '1,000', discount: 20 },
+                    { qty: 2500, label: '2,500', discount: 25 },
+                    { qty: 5000, label: '5,000', discount: 35 },
+                  ].map((tier) => (
+                    <button
+                      key={tier.qty}
+                      type="button"
+                      onClick={() => setQuantity(tier.qty)}
+                      className={`flex flex-col items-center justify-center rounded-xl border p-2 text-center transition-all cursor-pointer ${
+                        quantity === tier.qty
+                          ? 'border-[#D4AF65] bg-amber-50/70 text-[#101D35] font-black shadow-xs ring-1 ring-[#D4AF65]'
+                          : 'border-border bg-surface text-secondary hover:border-primary hover:text-primary font-semibold'
+                      }`}
+                    >
+                      <span className="text-xs">{tier.label}</span>
+                      {tier.discount > 0 && (
+                        <span className="text-[10px] text-emerald-600 font-bold">-{tier.discount}%</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Server-Authoritative Price Calculation Breakdown */}
+              {pricingBreakdown && (
+                <div className="rounded-2xl border border-border/80 bg-surface/90 p-4 sm:p-5 shadow-xs">
+                  <div className="flex items-center justify-between border-b border-border/60 pb-3">
+                    <div>
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-secondary">
+                        Unit Rate
+                      </span>
+                      <p className="font-mono text-sm font-black text-primary">
+                        AED {pricingBreakdown.unitPrice.toFixed(2)} <span className="text-xs font-normal text-secondary">/ unit</span>
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-secondary">
+                        5% UAE VAT (FTA)
+                      </span>
+                      <p className="font-mono text-xs font-bold text-secondary">
+                        + AED {pricingBreakdown.vatAmount.toFixed(2)}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 flex items-baseline justify-between">
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                        Total Order Estimate
+                      </span>
+                      <p className="text-[11px] text-secondary">
+                        {quantity} units • Standard proofing included
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <span className="font-display text-2xl font-black text-[#101D35]">
+                        AED {pricingBreakdown.totalAmount.toFixed(2)}
+                      </span>
+                      <p className="text-[10px] text-secondary">
+                        (AED {pricingBreakdown.subtotal.toFixed(2)} ex. VAT)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
 
               {/* High-Converting Multi-Channel Conversion CTAs */}
               <div className="mt-8 space-y-3">
@@ -655,7 +776,7 @@ export default function ProductDetailPage() {
                   onClick={() => { setActiveCategoryTab(idx); setCategoryLightbox(null) }}
                   className={`rounded-xl border px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     activeCategoryTab === idx
-                      ? 'border-[#D4AF65] bg-[#D4AF65] text-white shadow-xs'
+                      ? 'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] shadow-xs'
                       : 'border-border bg-surface text-secondary hover:border-primary hover:text-primary'
                   }`}
                 >
@@ -837,6 +958,9 @@ export default function ProductDetailPage() {
             </table>
           </div>
         </div>
+
+        {/* Customer Reviews & Ratings with Schema.org AggregateRating */}
+        <ProductReviewsSection product={product} categorySlug={product.category?.slug} />
 
         {/* Product FAQs */}
         <div className="mt-16 rounded-2xl border border-border bg-surface p-8 shadow-xs sm:p-12">

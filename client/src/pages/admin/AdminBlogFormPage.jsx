@@ -796,7 +796,7 @@ export default function AdminBlogFormPage() {
         <div className="space-y-6 lg:col-span-8">
           {/* Article Info & Rich Content */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-100 pb-3">
               <h2 className="font-display text-base font-bold text-neutral-900">
                 Article Information &amp; Content
               </h2>
@@ -998,7 +998,7 @@ export default function AdminBlogFormPage() {
 
             {/* SEO Meta Title */}
             <div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
                   SEO Meta Title (Title Tag)
                 </label>
@@ -1020,7 +1020,7 @@ export default function AdminBlogFormPage() {
 
             {/* Meta Description */}
             <div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
                   SEO Meta Description
                 </label>
@@ -1181,7 +1181,7 @@ export default function AdminBlogFormPage() {
 
           {/* FAQ Accordion Section (Rich Snippet & Schema) */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-100 pb-3">
               <div className="flex items-center gap-2">
                 <HelpCircle className="h-4 w-4 text-[#D4AF65]" />
                 <h2 className="font-display text-base font-bold text-neutral-900">
@@ -1812,7 +1812,7 @@ export default function AdminBlogFormPage() {
               </div>
 
               {/* Keywords */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="rounded-xl border border-neutral-200 p-3 bg-neutral-50/50">
                   <div className="font-bold text-neutral-700 uppercase tracking-wider text-[10px]">
                     Focus Keyword
@@ -1852,12 +1852,12 @@ export default function AdminBlogFormPage() {
               )}
             </div>
 
-            <div className="flex items-center justify-between border-t border-neutral-100 bg-neutral-50/80 px-6 py-4">
+            <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 border-t border-neutral-100 bg-neutral-50/80 px-4 sm:px-6 py-4">
               <Button
                 type="button"
                 variant="outline"
                 onClick={() => setShowSeoReviewModal(false)}
-                className="text-xs"
+                className="text-xs justify-center"
               >
                 Cancel &amp; Discard
               </Button>
@@ -1865,7 +1865,7 @@ export default function AdminBlogFormPage() {
                 type="button"
                 variant="accent"
                 onClick={() => handleApplySeoSuggestions()}
-                className="text-xs font-bold bg-emerald-600 hover:bg-emerald-700"
+                className="text-xs font-bold bg-emerald-600 hover:bg-emerald-700 justify-center"
               >
                 <Check className="h-4 w-4 mr-1" />
                 <span>Confirm &amp; Apply SEO Metadata</span>

@@ -44,6 +44,9 @@ const {
   SeoPageMetric,
   SeoIntegration,
   SeoLog,
+  Review,
+  CorporateQuote,
+  NotificationLog,
 } = models
 
 // Serverless-optimized global connection caching
@@ -233,6 +236,9 @@ const TABLE_MODEL_MAP = {
   seo_page_metrics: SeoPageMetric,
   seo_integrations: SeoIntegration,
   seo_logs: SeoLog,
+  reviews: Review,
+  corporate_quotes: CorporateQuote,
+  notification_logs: NotificationLog,
 }
 
 function normalizeDoc(doc) {

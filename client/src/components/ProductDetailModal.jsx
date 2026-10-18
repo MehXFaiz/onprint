@@ -52,7 +52,7 @@ export default function ProductDetailModal({ product, onClose }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           onClick={onClose}
-          className="absolute inset-0 bg-black/75 backdrop-blur-md"
+          className="absolute inset-0 bg-[#0B1426]/80 backdrop-blur-md"
         />
 
         {/* Modal Window */}
@@ -61,31 +61,31 @@ export default function ProductDetailModal({ product, onClose }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 12 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl border border-black/10 bg-white shadow-2xl"
+          className="relative z-10 w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl border border-[#28395A] bg-[#162542] shadow-2xl text-white"
         >
           {/* Close Button */}
           <button
             type="button"
             onClick={onClose}
             aria-label="Close product modal"
-            className="absolute right-4 top-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-black shadow-md transition-colors hover:bg-[#D4AF65] hover:text-white cursor-pointer"
+            className="absolute right-4 top-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-[#101D35] border border-[#28395A] text-white shadow-md transition-colors hover:bg-[#D4AF65] hover:text-[#101D35] cursor-pointer"
           >
             <X className="h-4 w-4" />
           </button>
 
           <div className="grid grid-cols-1 md:grid-cols-12">
             {/* 360 Inspection Canvas Column */}
-            <div className="relative flex flex-col justify-between bg-[#fbfaf8] p-5 sm:p-7 md:col-span-6 md:border-r border-black/10">
+            <div className="relative flex flex-col justify-between bg-[#101D35] p-5 sm:p-7 md:col-span-6 md:border-r border-[#28395A]">
               {/* Mode Toggle Switch */}
               <div className="mb-4 flex items-center justify-between">
-                <div className="flex items-center gap-1 rounded-xl border border-black/10 bg-white p-1 shadow-xs">
+                <div className="flex items-center gap-1 rounded-xl border border-[#28395A] bg-[#162542] p-1 shadow-xs">
                   <button
                     type="button"
                     onClick={() => setViewMode('360')}
                     className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                       viewMode === '360'
-                        ? 'bg-[#D4AF65] text-white shadow-xs'
-                        : 'text-black/60 hover:text-black'
+                        ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                        : 'text-slate-300 hover:text-white'
                     }`}
                   >
                     <Compass className="h-3.5 w-3.5" />
@@ -96,8 +96,8 @@ export default function ProductDetailModal({ product, onClose }) {
                     onClick={() => setViewMode('photo')}
                     className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                       viewMode === 'photo'
-                        ? 'bg-[#D4AF65] text-white shadow-xs'
-                        : 'text-black/60 hover:text-black'
+                        ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                        : 'text-slate-300 hover:text-white'
                     }`}
                   >
                     <ImageIcon className="h-3.5 w-3.5" />
@@ -106,7 +106,7 @@ export default function ProductDetailModal({ product, onClose }) {
                 </div>
 
                 {isFeatured && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#101D35] shadow-xs">
                     <Sparkles className="h-3 w-3" />
                     Featured
                   </span>
@@ -114,7 +114,7 @@ export default function ProductDetailModal({ product, onClose }) {
               </div>
 
               {/* Viewer Stage */}
-              <div className="relative w-full overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+              <div className="relative w-full overflow-hidden rounded-2xl border border-[#28395A] bg-[#162542] shadow-sm">
                 {viewMode === '360' ? (
                   <Product360Viewer
                     product={product}
@@ -122,7 +122,7 @@ export default function ProductDetailModal({ product, onClose }) {
                     height="aspect-[4/3]"
                   />
                 ) : (
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5f3ef]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#101D35]">
                     {primaryImage ? (
                       <img
                         src={primaryImage}
@@ -130,7 +130,7 @@ export default function ProductDetailModal({ product, onClose }) {
                         className="h-full w-full object-cover"
                       />
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center text-xs font-bold uppercase tracking-widest text-black/40">
+                      <div className="flex h-full w-full items-center justify-center text-xs font-bold uppercase tracking-widest text-slate-400">
                         ONPRINT PRESS
                       </div>
                     )}
@@ -139,8 +139,8 @@ export default function ProductDetailModal({ product, onClose }) {
               </div>
 
               {/* Footnote note */}
-              <div className="mt-3 flex items-center justify-between text-[11px] font-semibold text-black/50">
-                <span>Category: <strong className="text-black">{categoryName}</strong></span>
+              <div className="mt-3 flex items-center justify-between text-[11px] font-semibold text-slate-400">
+                <span>Category: <strong className="text-white">{categoryName}</strong></span>
                 <span className="text-[#D4AF65] font-bold">Interactive 3D Preview</span>
               </div>
             </div>
@@ -148,44 +148,44 @@ export default function ProductDetailModal({ product, onClose }) {
             {/* Content Details Column */}
             <div className="flex flex-col justify-between p-6 sm:p-8 md:col-span-6">
               <div>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest text-accent">
+                <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF65]">
                   {product.price ? `Starting from AED ${product.price}` : 'Custom Quote Available'}
                 </span>
 
-                <h2 className="font-display mt-1 text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
+                <h2 className="font-display mt-1 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
                   {product.name}
                 </h2>
 
-                <p className="mt-3 text-xs leading-relaxed text-secondary sm:text-sm">
+                <p className="mt-3 text-xs leading-relaxed text-slate-300 sm:text-sm">
                   {product.description || product.shortDescription}
                 </p>
 
                 {/* Specs Pill Summary */}
-                <div className="mt-6 space-y-2.5 rounded-2xl border border-border/80 bg-background/80 p-4">
+                <div className="mt-6 space-y-2.5 rounded-2xl border border-[#28395A] bg-[#101D35] p-4">
                   {product.minimumQuantity && (
                     <div className="flex items-center justify-between text-xs">
-                      <span className="flex items-center gap-2 text-secondary">
-                        <Package className="h-3.5 w-3.5 text-accent" />
+                      <span className="flex items-center gap-2 text-slate-300">
+                        <Package className="h-3.5 w-3.5 text-[#D4AF65]" />
                         Minimum Order:
                       </span>
-                      <span className="font-bold text-primary">{product.minimumQuantity} units</span>
+                      <span className="font-bold text-white">{product.minimumQuantity} units</span>
                     </div>
                   )}
 
                   <div className="flex items-center justify-between text-xs">
-                    <span className="flex items-center gap-2 text-secondary">
-                      <ShieldCheck className="h-3.5 w-3.5 text-accent" />
+                    <span className="flex items-center gap-2 text-slate-300">
+                      <ShieldCheck className="h-3.5 w-3.5 text-[#D4AF65]" />
                       Quality Check:
                     </span>
-                    <span className="font-bold text-primary">Pre-flight QC Included</span>
+                    <span className="font-bold text-white">Pre-flight QC Included</span>
                   </div>
 
                   <div className="flex items-center justify-between text-xs">
-                    <span className="flex items-center gap-2 text-secondary">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-accent" />
+                    <span className="flex items-center gap-2 text-slate-300">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#D4AF65]" />
                       Production:
                     </span>
-                    <span className="font-bold text-primary">Dubai Express Press</span>
+                    <span className="font-bold text-white">Dubai Express Press</span>
                   </div>
                 </div>
               </div>
@@ -240,7 +240,7 @@ export default function ProductDetailModal({ product, onClose }) {
                 <Link
                   to={`/products/${product.slug}`}
                   onClick={onClose}
-                  className="inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold uppercase tracking-wider text-primary transition-colors hover:text-accent cursor-pointer text-center"
+                  className="inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:text-[#D4AF65] cursor-pointer text-center"
                 >
                   <span>View Complete Specifications</span>
                   <ArrowRight className="h-3.5 w-3.5" />

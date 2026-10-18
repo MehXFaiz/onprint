@@ -626,3 +626,65 @@ export function trackAdminLogin({ success = true } = {}) {
   })
 }
 
+let hasTrackedOrganicLanding = false
+
+/**
+ * 16. Phase 5: Organic Landing-Page Visit Tracking
+ * Fires once per session when the visitor lands on the website, tagging organic search referrers vs direct/referral.
+ */
+export function trackOrganicLandingVisit({ page_path, referrer } = {}) {
+  if (typeof window === 'undefined' || hasTrackedOrganicLanding) return
+  hasTrackedOrganicLanding = true
+
+  const resolvedPath = page_path || getCurrentPagePath()
+  const ref = (referrer !== undefined ? referrer : document.referrer || '').toLowerCase()
+  const isOrganicSearch = /google\.|bing\.|duckduckgo\.|yahoo\.|yandex\.|ecosia\./i.test(ref)
+  let referrerHost = 'direct'
+  if (ref) {
+    try {
+      referrerHost = new URL(ref).hostname
+    } catch {
+      referrerHost = 'referral'
+    }
+  }
+
+  trackEvent('organic_landing_visit', {
+    landing_page: resolvedPath,
+    traffic_channel: isOrganicSearch ? 'organic_search' : ref ? 'referral' : 'direct',
+    referrer_host: referrerHost,
+    is_business_card_landing: /business-card|foil|spot-uv|embossed|velvet/i.test(resolvedPath),
+    device_category: getDeviceCategory(),
+  })
+}
+
+/**
+ * 17. Phase 5: Business-Card Product & Spoke View Tracking
+ */
+export function trackBusinessCardProductView({ product_name, product_slug, finish_type, gsm_tier } = {}) {
+  const pagePath = getCurrentPagePath()
+  trackEvent('business_card_product_view', {
+    page_path: pagePath,
+    product_name: product_name || 'Business Cards',
+    product_slug: product_slug || pagePath.replace(/^\//, ''),
+    finish_type: finish_type || undefined,
+    gsm_tier: gsm_tier || undefined,
+    device_category: getDeviceCategory(),
+  })
+}
+
+/**
+ * 18. Phase 5: Confirmed Corporate Enquiry Submission (Separate from mere CTA clicks; zero PII)
+ */
+export function trackCorporateEnquirySubmit({ source_page, product_name, inquiry_type = 'corporate_print_enquiry' } = {}) {
+  const pagePath = getCurrentPagePath()
+  const device = getDeviceCategory()
+  trackEvent('corporate_enquiry_submit', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    product_name: product_name || 'Corporate Printing',
+    inquiry_type,
+    device_category: device,
+  })
+}
+
+

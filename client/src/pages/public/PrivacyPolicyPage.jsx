@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
           {sections.map((s) => (
             <article key={s.title} className="py-8">
               <h2 className="font-display text-lg sm:text-xl font-bold text-primary">{s.title}</h2>
-              <p className="mt-3 text-sm sm:text-base leading-relaxed text-secondary text-justify">{s.body}</p>
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-secondary text-left sm:text-justify break-words">{s.body}</p>
             </article>
           ))}
         </div>

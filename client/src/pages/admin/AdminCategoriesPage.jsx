@@ -134,7 +134,7 @@ export default function AdminCategoriesPage() {
       {/* Toast Notification */}
       {toast && (
         <div
-          className={`fixed top-6 right-6 z-50 flex items-center gap-2.5 rounded-2xl px-4 py-3 text-xs font-bold shadow-2xl transition-all ${
+          className={`fixed top-6 right-6 left-4 sm:left-auto max-w-[calc(100vw-2rem)] z-50 flex items-center gap-2.5 rounded-2xl px-4 py-3 text-xs font-bold shadow-2xl transition-all ${
             typeof toast === 'string'
               ? 'bg-neutral-900 text-white border border-neutral-700'
               : toast.type === 'error'
@@ -391,7 +391,7 @@ export default function AdminCategoriesPage() {
                   className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs space-y-3"
                 >
                   <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
                       <div className="h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 flex items-center justify-center">
                         {cat.image ? (
                           <img src={cat.image} alt={cat.name} className="h-full w-full object-cover" />
@@ -399,9 +399,9 @@ export default function AdminCategoriesPage() {
                           <ImageIcon className="h-4 w-4 text-neutral-400" />
                         )}
                       </div>
-                      <div>
-                        <div className="font-bold text-sm text-neutral-900">{cat.name}</div>
-                        <div className="font-mono text-[10px] text-neutral-500">{cat.slug}</div>
+                      <div className="min-w-0">
+                        <div className="font-bold text-sm text-neutral-900 truncate">{cat.name}</div>
+                        <div className="font-mono text-[10px] text-neutral-500 truncate">{cat.slug}</div>
                       </div>
                     </div>
 

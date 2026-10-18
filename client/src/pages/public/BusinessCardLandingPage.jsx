@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BUSINESS_CARDS_LANDING_DATA } from '../../data/businessCardsLandingData'
@@ -51,7 +51,14 @@ import Reveal from '../../components/Reveal'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { CornerMarks, CmykDots } from '../../components/PrintMarks'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackProductInquiry, trackQuoteRequest, trackWhatsAppClick } from '../../utils/analytics'
+import {
+  trackGetQuoteClick,
+  trackProductInquiry,
+  trackQuoteRequest,
+  trackWhatsAppClick,
+  trackBusinessCardProductView,
+  trackCorporateEnquirySubmit,
+} from '../../utils/analytics'
 import { openWhatsAppDirectly, getWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
 import luxuryBusinessCardsImg from '../../assets/products/luxury_business_cards.jpg'
 import softTouchCardImg from '../../assets/products/card-soft-touch.jpg'

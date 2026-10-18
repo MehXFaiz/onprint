@@ -1,102 +1,233 @@
-import { ChevronDown, Sparkles } from 'lucide-react'
+import { useState, useMemo } from 'react'
+import {
+  ChevronDown,
+  Sparkles,
+  Search,
+  HelpCircle,
+  Layers,
+  FileCheck,
+  ShieldCheck,
+  CreditCard,
+  Truck,
+  MessageSquare,
+} from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 
-const faqs = [
+const CATEGORIES = [
+  'All Topics',
+  'Ordering & Turnaround',
+  'Artwork & Prepress',
+  'Luxury Finishes & Papers',
+  'Pricing & 5% VAT',
+  'Corporate & Delivery',
+]
+
+const ALL_FAQS = [
   {
-    question: 'What printing services does ONPRINT offer in Dubai?',
+    category: 'Ordering & Turnaround',
+    question: 'What is the standard turnaround time for printing orders in Dubai?',
     answer:
-      'ONPRINT offers digital and offset printing, executive office stationery (business cards, letterheads, presentation folders), corporate gift items (mugs, water bottles, notebooks, apparel), large-format roll-ups, outdoor flags, and die-cut vinyl stickers.',
+      'Digital print orders (business cards, flyers, brochures, roll-up banners, and stickers) are typically produced within 24 to 48 hours following digital proof approval. Large offset press runs (5,000+ units) and multi-stage luxury embellishments (hot foil stamping, 3D spot UV, and edge painting) take 3 to 5 business days. Same-day express rush printing is available for time-critical corporate events.',
   },
   {
-    question: 'How long does a typical print order take across Dubai & UAE?',
+    category: 'Ordering & Turnaround',
+    question: 'How do I place an urgent same-day printing order in Dubai?',
     answer:
-      'Standard digital printing runs take 24 to 48 hours once artwork proof is confirmed. Large offset runs and multi-stage luxury foil-embossed collateral typically take 3 to 5 business days. Express same-day production is available for urgent deadlines.',
+      'For same-day rush printing, contact our Al Quoz pressroom directly via WhatsApp (+44 7344546056) or submit your print-ready PDF artwork through our Get a Quote wizard selecting "Same-Day Rush (Under 12h)". We prioritize priority press slots on our HP Indigo and digital wide-format presses.',
   },
   {
-    question: 'What file formats and resolutions do you accept for artwork?',
+    category: 'Ordering & Turnaround',
+    question: 'Can I inspect physical sample swatches before placing a large volume order?',
     answer:
-      'We accept print-ready PDF/X-1a, Adobe Illustrator (AI), and EPS files with all fonts outlined and 3mm bleed included. High-resolution JPG or PNG files at 300+ DPI in CMYK format are also accepted for simpler items.',
+      'Yes. Corporate clients and brand agencies are welcome to visit our Al Quoz facility to inspect substrate swatch books (350 GSM Silk, 450 GSM Velvet Soft-Touch, 600 GSM Archival Italian Cotton) and foil color charts. We also dispatch swatch sample kits across Dubai and Abu Dhabi upon request.',
   },
   {
-    question: 'Is there a minimum order quantity (MOQ)?',
+    category: 'Artwork & Prepress',
+    question: 'What file formats, color profiles, and bleed margins do you require for artwork?',
     answer:
-      'Minimums vary by product category. Most corporate stationery items start at 50 to 100 units, while large-format roll-up banners, beach flags, and acrylic nameplates can be ordered starting from 1 unit.',
+      'We recommend print-ready PDF/X-1a or PDF/X-4 files saved at 300+ DPI in CMYK color mode. Please convert all fonts to outlines (curves) and include a minimum 3mm bleed margin on all four sides with crop marks. We also accept layered Adobe Illustrator (.ai) and Photoshop (.psd) files.',
   },
   {
-    question: 'Can I see a proof before my order goes to press?',
+    category: 'Artwork & Prepress',
+    question: 'Do you provide a digital proof before printing begins?',
     answer:
-      'Yes. Every order includes a complimentary pre-flight check and digital PDF proof for approval before production begins. Physical printed sample proofs are available for large volume or color-critical runs.',
+      'Every single order includes a complimentary prepress audit and digital PDF proof. Our prepress engineers check resolution, color profiles, safe zones, and trim margins. We never put plates on press until you have explicitly reviewed and approved your digital proof.',
   },
   {
-    question: 'Do you offer rush or express same-day printing in Dubai?',
+    category: 'Artwork & Prepress',
+    question: 'How do I prepare vector mask layers for Spot UV and Hot Foil stamping?',
     answer:
-      'Yes, express rush printing is available for business cards, flyers, roll-up banner stands, and brochures subject to daily press schedule. Contact our sales desk at 0nprint183@gmail.com or submit our online quote form for urgent requests.',
+      'For specialty finishes, supply your artwork with a separate vector separation layer on top of your CMYK design. Color the foil or UV elements as 100% Solid K (Black) or a dedicated 100% Pantone Spot color swatch named "Foil" or "Spot UV", set to overprint.',
   },
   {
-    question: 'What are your payment and corporate invoicing terms?',
+    category: 'Luxury Finishes & Papers',
+    question: 'What signature embellishments and luxury finishes do you offer?',
     answer:
-      'We accept major credit/debit cards, bank wire transfers, and corporate cheques. Registered UAE corporate accounts can apply for 30-day credit invoicing terms after initial completed transactions.',
+      'Our Al Quoz pressroom specializes in 8 tactile crafts: 24K Gold & Silver Metallic Foil Stamping, Raised 3D Spot UV (Scodix), Blind Letterpress Debossing / Embossing, Velvet Soft-Touch Lamination, Precision Custom Die-Cutting, Painted / Gilded Edges, 600 GSM Cotton Letterpress, and PUR Book Binding.',
   },
   {
-    question: 'Do you deliver across all Emirates in the UAE?',
+    category: 'Luxury Finishes & Papers',
+    question: 'What is the difference between Matte, Gloss, and Velvet Soft-Touch lamination?',
     answer:
-      'Yes. We offer tracked doorstep courier delivery across Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain, as well as local collection from our Al Quoz print facility.',
+      'Gloss lamination provides a high-shine, vibrant finish ideal for photo-heavy brochures and product labels. Matte lamination eliminates glare, offering a smooth, glare-free finish. Velvet Soft-Touch lamination provides an ultra-luxurious, suede-like tactile feel that protects cards and packaging from fingerprints and scuffs.',
+  },
+  {
+    category: 'Pricing & 5% VAT',
+    question: 'How does volume tier discount pricing work on ONPRINT?',
+    answer:
+      'We offer automatic volume discounts built directly into our price calculators: 6% discount at 250 units, 12% at 500 units, 20% at 1,000 units, 25% at 2,500 units, and 35% discount for 5,000+ units. High-volume runs leverage our German Heidelberg Speedmaster offset press to dramatically reduce unit costs.',
+  },
+  {
+    category: 'Pricing & 5% VAT',
+    question: 'Are prices subject to UAE Federal Tax Authority (FTA) 5% VAT?',
+    answer:
+      'Yes, in compliance with UAE Federal Tax Authority regulations, all commercial print services are subject to standard 5% UAE VAT. Every order includes a fully itemized Tax Invoice containing our TRN (100482910400003) for your corporate accounting and VAT reclaim.',
+  },
+  {
+    category: 'Corporate & Delivery',
+    question: 'Do you offer 30-day or 60-day credit facilities for corporate accounts?',
+    answer:
+      'Yes. Registered UAE companies, government entities, and marketing agencies can apply for 30-day or 60-day credit terms via our Corporate Procurement portal (/corporate-quotes). Account approval is processed within 24 business hours upon trade license and TRN verification.',
+  },
+  {
+    category: 'Corporate & Delivery',
+    question: 'Where do you deliver across the United Arab Emirates?',
+    answer:
+      'We offer door-to-door courier delivery across Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain. We also handle split-shipments for national retail chains and multi-branch corporate offices.',
   },
 ]
 
 export default function FaqPage() {
+  const [selectedCategory, setSelectedCategory] = useState('All Topics')
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const filteredFaqs = useMemo(() => {
+    return ALL_FAQS.filter((faq) => {
+      const matchesCategory =
+        selectedCategory === 'All Topics' || faq.category === selectedCategory
+      const matchesSearch =
+        !searchQuery.trim() ||
+        faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+      return matchesCategory && matchesSearch
+    })
+  }, [selectedCategory, searchQuery])
+
   return (
-    <div className="py-16 sm:py-24">
+    <div className="py-16 sm:py-24 bg-slate-50/50 min-h-screen">
       <SEOHead
-        title="Dubai Printing FAQ | Turnaround, Specs & Delivery | ONPRINT"
-        description="Frequently asked questions about commercial printing in Dubai. Learn about turnaround times, minimum order quantities, artwork specifications, paper stocks, and UAE delivery."
-        keywords="printing faq dubai, printing turnaround dubai, artwork specs printing uae, printing questions dubai"
+        title="Commercial Printing FAQ Dubai | Turnaround, Specs & Prices | ONPRINT"
+        description="Comprehensive answers to commercial printing questions in Dubai: turnaround times, CMYK bleed specifications, luxury foil & spot UV finishes, 5% UAE VAT, and corporate credit terms."
+        keywords="printing faq dubai, commercial printing turnaround, cmyk bleed artwork specs, luxury business cards faq, uae vat printing invoice"
         canonicalPath="/faq"
-        faqList={faqs}
+        faqList={filteredFaqs}
         breadcrumbs={[{ name: 'FAQ', url: '/faq' }]}
       />
 
       <Container className="max-w-4xl">
-        <Breadcrumbs items={[{ name: 'FAQ' }]} />
+        <Breadcrumbs items={[{ name: 'FAQ & Print Knowledgebase' }]} />
 
-        <div className="border-b border-border pb-8">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-accent">
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>SUPPORT &amp; SPECIFICATIONS</span>
+        {/* Hero Header */}
+        <div className="border-b border-slate-200 pb-8 text-center sm:text-left">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35]/5 border border-[#D4AF65]/30 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#101D35]">
+            <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+            <span>COMMERCIAL PRINT KNOWLEDGEBASE</span>
           </div>
-          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
-            Frequently Asked Questions About Printing in Dubai
+          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-[#101D35] sm:text-5xl">
+            Frequently Asked Questions
           </h1>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-secondary sm:text-base">
-            Everything you need to know about our printing processes, paper stock grades, artwork requirements, turnarounds, and delivery across the UAE.
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+            Everything you need to know about our Al Quoz pressroom capabilities, paper stock selections, prepress specifications, volume tier pricing, and doorstep delivery across the UAE.
           </p>
+
+          {/* Real-Time Search Bar */}
+          <div className="mt-6 relative max-w-xl">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by keyword (e.g. foil, turnaround, 300 DPI, VAT, delivery)…"
+              className="w-full rounded-xl border border-slate-300 bg-white py-2.5 pl-10 pr-4 text-xs sm:text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:outline-none shadow-xs"
+            />
+          </div>
         </div>
 
-        <div className="mt-12 divide-y divide-border border-t border-b border-border">
-          {faqs.map((faq) => (
-            <details key={faq.question} className="group py-6">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
-                <h2 className="font-display text-base font-bold text-primary sm:text-lg group-hover:text-accent transition-colors">
-                  {faq.question}
-                </h2>
-                <ChevronDown className="h-5 w-5 shrink-0 text-secondary transition-transform duration-300 group-open:rotate-180 group-hover:text-accent" />
-              </summary>
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-secondary">{faq.answer}</p>
-            </details>
+        {/* Category Filter Tabs */}
+        <div className="mt-8 flex flex-wrap gap-2">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => setSelectedCategory(cat)}
+              className={`rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
+                selectedCategory === cat
+                  ? 'bg-[#101D35] text-[#D4AF65] shadow-xs'
+                  : 'bg-white border border-slate-200 text-slate-600 hover:border-[#D4AF65] hover:text-[#101D35]'
+              }`}
+            >
+              {cat}
+            </button>
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col items-start gap-4 rounded-2xl border border-border bg-surface p-8 sm:flex-row sm:items-center sm:justify-between">
+        {/* FAQ Accordion List */}
+        <div className="mt-8 divide-y divide-slate-200 border-t border-b border-slate-200 bg-white rounded-2xl p-4 sm:p-8 shadow-xs">
+          {filteredFaqs.length === 0 ? (
+            <div className="py-12 text-center">
+              <HelpCircle className="h-10 w-10 text-slate-300 mx-auto mb-2" />
+              <p className="text-sm font-bold text-slate-700">No questions matched your search query</p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery('')
+                  setSelectedCategory('All Topics')
+                }}
+                className="mt-2 text-xs font-bold text-[#D4AF65] hover:underline cursor-pointer"
+              >
+                Reset search filters
+              </button>
+            </div>
+          ) : (
+            filteredFaqs.map((faq) => (
+              <details key={faq.question} className="group py-5 first:pt-2 last:pb-2">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF65] block mb-1">
+                      {faq.category}
+                    </span>
+                    <h2 className="font-display text-sm font-bold text-[#101D35] sm:text-base group-hover:text-[#D4AF65] transition-colors">
+                      {faq.question}
+                    </h2>
+                  </div>
+                  <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180 group-hover:text-[#D4AF65]" />
+                </summary>
+                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-600 pl-0 sm:pl-2 border-l-2 border-[#D4AF65]/30">
+                  {faq.answer}
+                </p>
+              </details>
+            ))
+          )}
+        </div>
+
+        {/* Support CTA Box */}
+        <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-[#101D35] p-6 sm:p-8 text-white sm:flex-row sm:items-center sm:justify-between shadow-lg">
           <div>
-            <h3 className="font-display text-base font-bold text-primary">Still have a specific question about your print job?</h3>
-            <p className="mt-1 text-xs text-secondary">Our print specialists in Al Quoz, Dubai are ready to assist you.</p>
+            <h3 className="font-display text-base font-bold text-white">
+              Have a custom specification or non-standard print request?
+            </h3>
+            <p className="mt-1 text-xs text-slate-300">
+              Our print engineers in Al Quoz, Dubai are available for instant technical consultation.
+            </p>
           </div>
-          <Button to="/contact" variant="accent" icon={false} className="shrink-0">
-            Contact Support Desk
-          </Button>
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <Button to="/contact" variant="accent" size="sm" icon={false} className="w-full sm:w-auto font-bold">
+              Contact Support Desk
+            </Button>
+          </div>
         </div>
       </Container>
     </div>

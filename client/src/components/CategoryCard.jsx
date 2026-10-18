@@ -23,10 +23,10 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
         ease: [0.22, 1, 0.36, 1],
       }}
       whileHover={{ y: -5 }}
-      className="group relative flex flex-col justify-between h-full overflow-hidden rounded-3xl border border-[#E5E7EB] bg-white shadow-xs transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl"
+      className="group relative flex flex-col justify-between h-full overflow-hidden rounded-3xl border border-[#28395A] bg-[#162542] shadow-md transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl"
     >
       {/* Top Image Container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100 border-b border-zinc-100">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#101D35] border-b border-[#28395A]">
         <img
           src={imageUrl}
           alt={altText}
@@ -45,7 +45,7 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
 
         {/* Top Badges */}
         <div className="absolute left-3 top-3 flex items-center gap-1.5 z-20">
-          <span className="inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-zinc-900 shadow-xs border border-zinc-200 backdrop-blur-md">
+          <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/90 px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-white shadow-xs border border-[#28395A] backdrop-blur-md">
             <Sparkles className="h-3 w-3 text-[#D4AF65]" />
             Dubai Press
           </span>
@@ -53,7 +53,7 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
 
         {category.productCount > 0 && (
           <div className="absolute right-3 top-3 z-20">
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/90 px-2.5 py-0.5 text-[9.5px] font-bold text-white shadow-md border border-white/10 backdrop-blur-md">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/90 px-2.5 py-0.5 text-[9.5px] font-bold text-white shadow-md border border-[#28395A] backdrop-blur-md">
               <Layers className="h-3 w-3 text-[#D4AF65]" />
               {category.productCount} Items
             </span>
@@ -67,18 +67,18 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
           <span className="text-[9.5px] font-black uppercase tracking-widest text-[#D4AF65]">
             PRINTING CATEGORY
           </span>
-          <h3 className="mt-1 text-base font-bold tracking-tight text-[#101D35] transition-colors group-hover:text-[#D4AF65]">
+          <h3 className="mt-1 text-base font-bold tracking-tight text-white transition-colors group-hover:text-[#D4AF65]">
             <Link to={categoryLink} className="focus:outline-none">
               <span className="absolute inset-0 z-10" aria-hidden="true" />
               {category.name}
             </Link>
           </h3>
-          <p className="mt-1 text-xs text-[#52525B] line-clamp-2 leading-relaxed">
+          <p className="mt-1 text-xs text-slate-300 line-clamp-2 leading-relaxed">
             {category.description || `Explore precision custom ${category.name?.toLowerCase()} printing in Dubai.`}
           </p>
         </div>
 
-        <div className="mt-4 flex items-center justify-between border-t border-[#E5E7EB] pt-3 text-xs font-bold text-[#101D35] group-hover:text-[#D4AF65] transition-colors">
+        <div className="mt-4 flex items-center justify-between border-t border-[#28395A] pt-3 text-xs font-bold text-white group-hover:text-[#D4AF65] transition-colors">
           <span>Explore Category</span>
           <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#D4AF65]" />
         </div>

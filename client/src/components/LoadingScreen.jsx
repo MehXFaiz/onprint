@@ -138,16 +138,16 @@ export default function LoadingScreen() {
               className="absolute inset-0"
               style={{
                 background:
-                  'radial-gradient(ellipse 85% 70% at 50% 50%, rgba(22, 22, 22, 0.75) 0%, rgba(8, 8, 8, 0.98) 75%, #101D35 100%)',
+                  'radial-gradient(ellipse 85% 70% at 50% 50%, rgba(22, 37, 66, 0.75) 0%, rgba(11, 20, 38, 0.98) 75%, #101D35 100%)',
               }}
             />
 
-            {/* Dramatic Vivid Orange Rim Lighting Sweep (Step 1) - Silky Slow */}
+            {/* Dramatic Champagne Gold Rim Lighting Sweep (Step 1) - Silky Slow */}
             <motion.div
               className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[800px] sm:w-[1100px] h-[400px] sm:h-[550px] rounded-full blur-[130px] pointer-events-none"
               style={{
                 background:
-                  'radial-gradient(circle, rgba(255, 85, 0, 0.26) 0%, rgba(255, 85, 0, 0.08) 50%, transparent 75%)',
+                  'radial-gradient(circle, rgba(212, 175, 101, 0.26) 0%, rgba(212, 175, 101, 0.08) 50%, transparent 75%)',
               }}
               initial={{ scale: 0.65, opacity: 0, y: -50 }}
               animate={{
@@ -161,19 +161,19 @@ export default function LoadingScreen() {
               }}
             />
 
-            {/* Bottom Subtle Amber Counter-Light for Depth */}
+            {/* Bottom Subtle Gold Counter-Light for Depth */}
             <motion.div
               className="absolute -bottom-[25%] left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[380px] rounded-full blur-[110px] pointer-events-none"
               style={{
                 background:
-                  'radial-gradient(circle, rgba(255, 85, 0, 0.16) 0%, rgba(255, 85, 0, 0.03) 60%, transparent 80%)',
+                  'radial-gradient(circle, rgba(212, 175, 101, 0.16) 0%, rgba(212, 175, 101, 0.03) 60%, transparent 80%)',
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0.65, 0.45] }}
               transition={{ duration: 3.2, delay: 0.3, ease: GENTLE_EASE }}
             />
 
-            {/* Diagonal Anamorphic Orange Light Beam Sweeping Across Frame */}
+            {/* Diagonal Anamorphic Gold Light Beam Sweeping Across Frame */}
             <motion.div
               className="absolute inset-0 pointer-events-none overflow-hidden"
               initial={{ opacity: 0 }}
@@ -184,7 +184,7 @@ export default function LoadingScreen() {
                 className="absolute top-0 bottom-0 w-[180px] sm:w-[260px]"
                 style={{
                   background:
-                    'linear-gradient(90deg, transparent 0%, rgba(255, 85, 0, 0.12) 42%, rgba(255, 255, 255, 0.22) 50%, rgba(255, 85, 0, 0.12) 58%, transparent 100%)',
+                    'linear-gradient(90deg, transparent 0%, rgba(212, 175, 101, 0.12) 42%, rgba(255, 255, 255, 0.22) 50%, rgba(212, 175, 101, 0.12) 58%, transparent 100%)',
                   transform: 'skewX(-26deg)',
                   filter: 'blur(14px)',
                 }}
@@ -209,9 +209,9 @@ export default function LoadingScreen() {
             <motion.div
               className="absolute -top-12 -left-12 sm:-top-8 sm:-left-8 w-44 sm:w-60 h-28 sm:h-36 rounded-xl border border-white/10 overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, #181818 0%, #101010 60%, #0d0d0d 100%)',
+                background: 'linear-gradient(135deg, #162542 0%, #101D35 60%, #0B1426 100%)',
                 boxShadow:
-                  '0 25px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px rgba(255,85,0,0.3)',
+                  '0 25px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px rgba(212,175,101,0.3)',
                 transformStyle: 'preserve-3d',
               }}
               initial={{
@@ -255,9 +255,9 @@ export default function LoadingScreen() {
               className="absolute -top-16 -right-14 sm:-top-10 sm:-right-8 w-52 sm:w-72 h-36 sm:h-48 rounded-2xl border border-white/10 overflow-hidden"
               style={{
                 background:
-                  'linear-gradient(215deg, rgba(35,35,35,0.7) 0%, rgba(18,18,18,0.85) 60%, rgba(10,10,10,0.95) 100%)',
+                  'linear-gradient(215deg, rgba(22,37,66,0.7) 0%, rgba(16,29,53,0.85) 60%, rgba(11,20,38,0.95) 100%)',
                 boxShadow:
-                  '0 30px 70px rgba(0,0,0,0.9), inset 1px 1px 0 rgba(255,255,255,0.22), inset -1px -1px 0 rgba(255,85,0,0.25)',
+                  '0 30px 70px rgba(0,0,0,0.9), inset 1px 1px 0 rgba(255,255,255,0.22), inset -1px -1px 0 rgba(212,175,101,0.25)',
                 backdropFilter: 'blur(12px)',
                 transformStyle: 'preserve-3d',
               }}
@@ -293,11 +293,11 @@ export default function LoadingScreen() {
               />
             </motion.div>
 
-            {/* Bottom-Left: Luxury Matte Black Rigid Packaging Box Corner */}
+            {/* Bottom-Left: Luxury Midnight Navy Rigid Packaging Box Corner */}
             <motion.div
               className="absolute -bottom-14 -left-12 sm:-bottom-10 sm:-left-6 w-48 sm:w-64 h-32 sm:h-44 rounded-xl border border-white/5 overflow-hidden"
               style={{
-                background: 'linear-gradient(45deg, #0e0e0e 0%, #151515 50%, #1c1c1c 100%)',
+                background: 'linear-gradient(45deg, #0B1426 0%, #101D35 50%, #162542 100%)',
                 boxShadow:
                   '0 -20px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 20px rgba(0,0,0,0.7)',
                 transformStyle: 'preserve-3d',
@@ -332,9 +332,9 @@ export default function LoadingScreen() {
             <motion.div
               className="absolute -bottom-16 -right-12 sm:-bottom-10 sm:-right-8 w-44 sm:w-60 h-28 sm:h-36 rounded-xl border border-white/10 overflow-hidden"
               style={{
-                background: 'linear-gradient(315deg, #101010 0%, #1a1a1a 70%, #242424 100%)',
+                background: 'linear-gradient(315deg, #0B1426 0%, #101D35 70%, #162542 100%)',
                 boxShadow:
-                  '0 -25px 60px rgba(0,0,0,0.95), inset -1px -1px 0 rgba(255,85,0,0.35), inset 1px 1px 0 rgba(255,255,255,0.15)',
+                  '0 -25px 60px rgba(0,0,0,0.95), inset -1px -1px 0 rgba(212,175,101,0.35), inset 1px 1px 0 rgba(255,255,255,0.15)',
                 transformStyle: 'preserve-3d',
               }}
               initial={{
@@ -370,11 +370,11 @@ export default function LoadingScreen() {
           </div>
 
           {/* ======================================================== */}
-          {/* 3. CENTERPIECE: METALLIC LOGO WITH VIVID ORANGE ACCENT    */}
+          {/* 3. CENTERPIECE: METALLIC LOGO WITH CHAMPAGNE GOLD ACCENT  */}
           {/* (Step 3: Reveal with metallic sweep & subtle 3D depth)   */}
           {/* Silky smooth glide upward with graceful ease-out curve    */}
           {/* ======================================================== */}
-          <div className="relative z-20 flex flex-col items-center justify-center px-6 text-center max-w-xl mx-auto">
+          <div className="relative z-20 flex flex-col items-center justify-center px-4 sm:px-6 text-center max-w-xl mx-auto w-full">
             {/* 3D Floating Emblem Card */}
             <motion.div
               className="relative flex items-center justify-center mb-6 sm:mb-8"
@@ -389,12 +389,12 @@ export default function LoadingScreen() {
                 ease: LUXURY_EASE,
               }}
             >
-              {/* Dramatic Orange Studio Backlight Glow Behind Logo */}
+              {/* Dramatic Champagne Gold Studio Backlight Glow Behind Logo */}
               <motion.div
                 className="absolute inset-[-28px] sm:inset-[-42px] rounded-full pointer-events-none"
                 style={{
                   background:
-                    'radial-gradient(circle, rgba(255, 85, 0, 0.38) 0%, rgba(255, 85, 0, 0.12) 42%, transparent 70%)',
+                    'radial-gradient(circle, rgba(212, 175, 101, 0.38) 0%, rgba(212, 175, 101, 0.12) 42%, transparent 70%)',
                   filter: 'blur(32px)',
                 }}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -414,9 +414,9 @@ export default function LoadingScreen() {
                 className="relative flex items-center justify-center h-28 w-28 sm:h-36 sm:w-36 rounded-3xl p-5 overflow-hidden border border-white/15"
                 style={{
                   background:
-                    'linear-gradient(160deg, rgba(25,25,25,0.88) 0%, rgba(12,12,12,0.96) 100%)',
+                    'linear-gradient(160deg, rgba(22,37,66,0.88) 0%, rgba(11,20,38,0.96) 100%)',
                   boxShadow:
-                    '0 24px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -1px 0 rgba(255,85,0,0.3)',
+                    '0 24px 60px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -1px 0 rgba(212,175,101,0.3)',
                   backdropFilter: 'blur(16px)',
                 }}
               >
@@ -425,7 +425,7 @@ export default function LoadingScreen() {
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
-                      'linear-gradient(118deg, transparent 20%, rgba(255, 255, 255, 0.35) 48%, rgba(255, 85, 0, 0.38) 52%, transparent 80%)',
+                      'linear-gradient(118deg, transparent 20%, rgba(255, 255, 255, 0.35) 48%, rgba(212, 175, 101, 0.38) 52%, transparent 80%)',
                   }}
                   initial={{ x: '-160%' }}
                   animate={phase >= 1 ? { x: '160%' } : { x: '-160%' }}
@@ -436,7 +436,7 @@ export default function LoadingScreen() {
                   }}
                 />
 
-                {/* Actual ONPRINT High-Res Light Logo Emblem with Vivid Orange Accent */}
+                {/* Actual ONPRINT High-Res Light Logo Emblem */}
                 <img
                   src={logoLight}
                   alt="ONPRINT"
@@ -448,7 +448,7 @@ export default function LoadingScreen() {
 
             {/* Bold Elegant Brand Name in Metallic White */}
             <motion.div
-              className="flex items-center justify-center text-3xl sm:text-5xl font-black uppercase tracking-[0.28em] text-[#F5F5F5]"
+              className="flex items-center justify-center text-3xl sm:text-5xl font-black uppercase tracking-[0.18em] sm:tracking-[0.28em] text-[#F5F5F5]"
               style={{
                 textShadow:
                   '0 2px 20px rgba(255, 255, 255, 0.25), 0 10px 30px rgba(0, 0, 0, 0.9)',
@@ -470,7 +470,7 @@ export default function LoadingScreen() {
             </motion.div>
 
             {/* ======================================================== */}
-            {/* 4. THIN VIVID ORANGE PROGRESS LINE (Step 4)               */}
+            {/* 4. THIN CHAMPAGNE GOLD PROGRESS LINE (Step 4)             */}
             {/* Silky smooth continuous glide                             */}
             {/* ======================================================== */}
             <div className="mt-5 sm:mt-6 w-48 sm:w-64 h-[2px] bg-white/10 rounded-full overflow-hidden relative">
@@ -479,7 +479,7 @@ export default function LoadingScreen() {
                 style={{
                   background:
                     'linear-gradient(90deg, #D4AF65 0%, #D4AF65 50%, #D4AF65 100%)',
-                  boxShadow: '0 0 16px rgba(255, 85, 0, 0.85)',
+                  boxShadow: '0 0 16px rgba(212, 175, 101, 0.85)',
                 }}
                 initial={{ width: '0%' }}
                 animate={phase >= 2 ? { width: '100%' } : { width: '0%' }}
@@ -497,7 +497,7 @@ export default function LoadingScreen() {
             {/* 5. TAGLINE: PRINT · BRAND · GROW (Step 5)                 */}
             {/* ======================================================== */}
             <motion.div
-              className="mt-4 sm:mt-5 text-[11px] sm:text-xs font-semibold tracking-[0.44em] text-[#E2E8F0] uppercase"
+              className="mt-4 sm:mt-5 text-[11px] sm:text-xs font-semibold tracking-[0.22em] sm:tracking-[0.44em] text-[#E2E8F0] uppercase"
               initial={{ opacity: 0, y: 10 }}
               animate={phase >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{
@@ -517,7 +517,7 @@ export default function LoadingScreen() {
             {/* Small, elegant, letter-spaced typography, NO fake numbers  */}
             {/* ======================================================== */}
             <motion.div
-              className="mt-6 flex items-center justify-center gap-2.5 text-[9px] sm:text-[10px] font-mono tracking-[0.38em] text-[#888888] uppercase"
+              className="mt-6 flex items-center justify-center gap-2.5 text-[9px] sm:text-[10px] font-mono tracking-[0.2em] sm:tracking-[0.38em] text-[#CBD5E1] uppercase"
               initial={{ opacity: 0 }}
               animate={phase >= 3 ? { opacity: 0.85 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}

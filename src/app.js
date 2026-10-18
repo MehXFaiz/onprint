@@ -21,6 +21,10 @@ const adminRoutes = require('./routes/adminRoutes')
 const uploadRoutes = require('./routes/uploadRoutes')
 const blogRoutes = require('./routes/blogRoutes')
 const seoRoutes = require('./routes/seoRoutes')
+const corporateQuoteRoutes = require('./routes/corporateQuoteRoutes')
+const reviewRoutes = require('./routes/reviewRoutes')
+const pricingRoutes = require('./routes/pricingRoutes')
+
 const { getRobotsTxt, getSitemapXml, getLlmsTxt, getAdsTxt } = require('./controllers/seoController')
 const { BUSINESS_CARDS_LANDING_DATA } = require('./data/businessCardsLandingData')
 const { COMMERCIAL_LANDING_PAGES } = require('./data/commercialLandingPagesData')
@@ -1292,6 +1296,10 @@ function createApp() {
   app.use('/api/blog', blogRoutes)
   app.use('/api/blogs', blogRoutes)
   app.use('/api/seo', seoRoutes)
+  app.use('/api/corporate-quotes', corporateQuoteRoutes)
+  app.use('/api/reviews', reviewRoutes)
+  app.use('/api/pricing', pricingRoutes)
+
 
   // Single-process deployment for GoDaddy / cPanel / Node.js Apps
   app.use('/assets', express.static(path.join(CLIENT_DIST, 'assets'), staticCacheOptions))

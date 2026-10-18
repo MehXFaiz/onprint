@@ -43,7 +43,7 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen bg-neutral-900 flex items-center justify-center p-4">
-      <div className="w-full max-w-md rounded-3xl border border-neutral-800 bg-neutral-950 p-8 shadow-2xl">
+      <div className="w-full max-w-md rounded-3xl border border-neutral-800 bg-neutral-950 p-5 sm:p-8 shadow-2xl">
         <div className="text-center">
           <Link to="/" className="inline-block">
             <Logo variant="light" size="xl" />

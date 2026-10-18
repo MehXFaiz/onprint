@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowUpRight, Sparkles, X, CheckCircle2, Layers, Briefcase, FileText, ChevronRight } from 'lucide-react'
+import { ArrowUpRight, Sparkles, X, CheckCircle2, Layers, Briefcase, FileText, ChevronRight, MessageCircle } from 'lucide-react'
 import Container from '../../components/Container'
 import Reveal from '../../components/Reveal'
 import EmptyState from '../../components/EmptyState'
@@ -8,6 +8,8 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { portfolioCategories, portfolioItems } from '../../data/portfolio'
 import { Link } from 'react-router-dom'
+import { getWhatsAppUrl } from '../../utils/whatsapp'
+import { trackWhatsAppClick } from '../../utils/analytics'
 
 function PortfolioTile({ item, onSelectCaseStudy }) {
   return (
@@ -34,7 +36,7 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
         <button
           type="button"
           onClick={() => onSelectCaseStudy(item)}
-          className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#D4AF65] text-white opacity-0 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 cursor-pointer"
+          className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#D4AF65] text-white opacity-100 sm:opacity-0 shadow-md transition-all duration-300 group-hover:scale-105 sm:group-hover:opacity-100 cursor-pointer"
           title="View full case study"
         >
           <ArrowUpRight className="h-4 w-4" />
@@ -65,7 +67,19 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
           )}
         </div>
 
-        <div className="mt-5 space-y-3 border-t border-black/8 pt-4">
+        <div className="mt-5 space-y-2.5 border-t border-black/8 pt-4">
+          {item.relatedProduct && (
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-semibold text-neutral-500">Matching Product:</span>
+              <Link
+                to={item.relatedProduct.url}
+                className="inline-flex items-center gap-1 font-extrabold text-black hover:text-[#D4AF65] hover:underline"
+              >
+                <span>{item.relatedProduct.name}</span>
+                <ArrowUpRight className="h-3 w-3" />
+              </Link>
+            </div>
+          )}
           <div className="flex items-center justify-between">
             <button
               type="button"
@@ -75,13 +89,27 @@ function PortfolioTile({ item, onSelectCaseStudy }) {
               <span>Read Case Study</span>
               <ChevronRight className="h-3 w-3" />
             </button>
-            <Link
-              to={`/get-a-quote?service=${encodeURIComponent(item.title)}`}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#D4AF65] hover:underline"
+            <a
+              href={getWhatsAppUrl({
+                productName: item.relatedProduct?.name || item.title,
+                specifications: item.specs,
+                pageUrl: 'https://www.0nprint.com/portfolio',
+              })}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackWhatsAppClick({
+                  source_page: '/portfolio',
+                  button_location: `portfolio_card_${item.id}`,
+                  product_name: item.relatedProduct?.name || item.title,
+                  label: `portfolio_card_${item.id}`,
+                })
+              }
+              className="inline-flex items-center gap-1 text-xs font-extrabold text-[#1da851] hover:underline"
             >
-              <span>Quote Spec</span>
-              <ArrowUpRight className="h-3 w-3" />
-            </Link>
+              <MessageCircle className="h-3.5 w-3.5" />
+              <span>WhatsApp Spec Quote</span>
+            </a>
           </div>
         </div>
       </div>
@@ -151,13 +179,13 @@ export default function PortfolioPage() {
         </div>
 
         {/* Filter Pills */}
-        <div className="mt-8 flex flex-wrap gap-2.5 border-b border-border pb-8">
+        <div className="mt-8 flex flex-wrap gap-2 sm:gap-2.5 border-b border-border pb-8">
           {portfolioCategories.map((cat) => (
             <button
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`rounded-full px-3.5 py-1.5 sm:px-5 sm:py-2 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 activeCategory === cat
                   ? 'bg-primary text-background shadow-xs'
                   : 'border border-border bg-surface text-secondary hover:border-primary hover:text-primary'
@@ -193,7 +221,7 @@ export default function PortfolioPage() {
           onClick={() => setSelectedCaseStudy(null)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-border bg-white p-5 sm:p-8 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -285,12 +313,13 @@ export default function PortfolioPage() {
               <span className="text-xs text-slate-500">
                 Facility: Al Quoz, Dubai
               </span>
-              <div className="flex items-center gap-3 w-full sm:w-auto">
+              <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
                 <Button
                   type="button"
                   variant="outline"
                   size="sm"
                   onClick={() => setSelectedCaseStudy(null)}
+                  className="w-full sm:w-auto justify-center"
                 >
                   Close
                 </Button>

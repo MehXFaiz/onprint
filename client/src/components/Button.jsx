@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight, Loader2 } from 'lucide-react'
 
 const baseClasses =
-  'group relative overflow-hidden inline-flex items-center justify-center gap-2 whitespace-nowrap font-bold tracking-tight transition-all duration-300 cursor-pointer rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF65] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
+  'group relative overflow-hidden inline-flex items-center justify-center gap-2 max-w-full text-center leading-snug sm:whitespace-nowrap font-bold tracking-tight transition-all duration-300 cursor-pointer rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF65] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
 
 const variants = {
   primary:
@@ -11,9 +11,9 @@ const variants = {
   accent:
     'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245] hover:border-[#B89245] shadow-[0_4px_14px_rgba(212,175,101,0.28)]',
   secondary:
-    'border-[#101D35] bg-[#101D35] text-white hover:bg-[#162542] hover:border-[#D4AF65] shadow-xs',
+    'border-[#28395A] bg-[#162542] text-white hover:bg-[#1B2C4D] hover:border-[#D4AF65] shadow-xs',
   outline:
-    'border-[#D4AF65] bg-white text-[#101D35] hover:border-[#B89245] hover:bg-[#F5F2EB] shadow-2xs',
+    'border-[#D4AF65] bg-[#162542] text-white hover:border-[#B89245] hover:bg-[#D4AF65] hover:text-[#101D35] shadow-2xs',
   darkOutline:
     'border-[#D4AF65] bg-transparent text-white hover:bg-[#D4AF65] hover:text-[#101D35] hover:border-[#D4AF65] shadow-xs',
   navyOutline:
@@ -21,13 +21,13 @@ const variants = {
   whatsapp:
     'border-[#25D366] bg-[#25D366] text-white hover:bg-[#20ba59] hover:border-[#20ba59] shadow-sm shadow-emerald-600/20',
   ghost:
-    'border-transparent bg-transparent text-[#343D4F] hover:text-[#101D35] hover:bg-[#F5F2EB]',
+    'border-transparent bg-transparent text-slate-300 hover:text-[#D4AF65] hover:bg-[#162542]',
 }
 
 const sizes = {
   sm: 'px-3.5 py-2 text-xs',
-  md: 'px-5 py-2.5 text-sm',
-  lg: 'px-7 py-3.5 text-base',
+  md: 'px-4 sm:px-5 py-2.5 text-xs sm:text-sm',
+  lg: 'px-5 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base',
 }
 
 export default function Button({

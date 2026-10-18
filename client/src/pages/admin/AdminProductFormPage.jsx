@@ -177,7 +177,7 @@ export default function AdminProductFormPage() {
   return (
     <div className="space-y-6">
       {/* Breadcrumbs */}
-      <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500">
+      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-neutral-500">
         <Link to="/admin" className="hover:text-neutral-900 transition-colors">
           Dashboard
         </Link>
@@ -199,13 +199,13 @@ export default function AdminProductFormPage() {
             Manage product specs, pricing, imagery, and Google Search metadata.
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
           <Button
             type="button"
             variant="outline"
             onClick={() => navigate('/admin/products')}
             disabled={submitting}
-            className="border-neutral-200 text-neutral-700 hover:bg-neutral-50 text-xs"
+            className="w-full sm:w-auto justify-center border-neutral-200 text-neutral-700 hover:bg-neutral-50 text-xs"
           >
             <ArrowLeft className="h-4 w-4 mr-1.5" />
             Cancel
@@ -215,7 +215,7 @@ export default function AdminProductFormPage() {
             variant="accent"
             onClick={handleSubmit}
             disabled={submitting}
-            className="text-xs font-bold"
+            className="w-full sm:w-auto justify-center text-xs font-bold"
           >
             <Save className="h-4 w-4 mr-1.5" />
             {submitting ? 'Saving...' : isEdit ? 'Save Changes' : 'Create Product'}
@@ -364,7 +364,7 @@ export default function AdminProductFormPage() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-1">
                 <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
                   SEO Meta Title
                 </label>
@@ -382,7 +382,7 @@ export default function AdminProductFormPage() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-1">
                 <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
                   SEO Meta Description
                 </label>

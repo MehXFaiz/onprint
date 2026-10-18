@@ -53,8 +53,8 @@ export const organizationSchema = {
       telephone: FORMATTED_PHONE,
       email: '0nprint183@gmail.com',
       contactType: 'customer service / sales',
-      areaServed: ['AE', 'PK'],
-      availableLanguage: ['English', 'Arabic', 'Urdu'],
+      areaServed: ['AE'],
+      availableLanguage: ['English', 'Arabic'],
     },
   ],
   sameAs: [
@@ -68,8 +68,9 @@ export const organizationSchema = {
     { '@type': 'City', name: 'Sharjah' },
     { '@type': 'City', name: 'Ajman' },
     { '@type': 'City', name: 'Ras Al Khaimah' },
+    { '@type': 'City', name: 'Fujairah' },
+    { '@type': 'City', name: 'Umm Al Quwain' },
     { '@type': 'Country', name: 'United Arab Emirates' },
-    { '@type': 'Country', name: 'Pakistan' },
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',

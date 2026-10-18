@@ -221,8 +221,63 @@ async function notifyNewContactMessage(contact) {
   }
 }
 
+/**
+ * Dispatches an alert when a high-value corporate quote is submitted
+ */
+async function notifyCorporateQuote(corpQuote) {
+  const ref = corpQuote.referenceNumber || corpQuote.reference_number || 'ONP-CORP'
+  const company = corpQuote.companyName || corpQuote.company_name || 'Enterprise Client'
+  const contact = corpQuote.contactName || corpQuote.contact_name || 'Corporate Representative'
+  const email = corpQuote.email || 'N/A'
+  const phone = corpQuote.phone || 'N/A'
+  const itemsCount = corpQuote.items?.length || 0
+
+  console.log(`\n======================================================`)
+  console.log(`[ONPRINT CORPORATE PROCUREMENT ALERT] ${ref}`)
+  console.log(`Company: ${company} | Contact: ${contact}`)
+  console.log(`Email: ${email} | Phone: ${phone}`)
+  console.log(`Items count: ${itemsCount} | Terms: ${corpQuote.creditTermsRequested || 'Prepaid'}`)
+  console.log(`======================================================\n`)
+
+  const transporter = getTransporter()
+  if (!transporter) return false
+
+  const html = `
+    <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #D4AF65; border-radius: 12px; overflow: hidden;">
+      <div style="background-color: #101D35; padding: 24px; text-align: center; border-bottom: 3px solid #D4AF65;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 20px;">ONPRINT DUBAI</h1>
+        <p style="color: #D4AF65; margin: 4px 0 0; font-size: 12px; font-weight: 700; text-transform: uppercase;">Corporate Procurement RFQ Alert</p>
+      </div>
+      <div style="padding: 24px; color: #1e293b;">
+        <p><strong>Reference:</strong> ${ref}</p>
+        <p><strong>Company:</strong> ${company}</p>
+        <p><strong>Representative:</strong> ${contact} (${corpQuote.department || 'Procurement'})</p>
+        <p><strong>Email:</strong> ${email} | <strong>Phone:</strong> ${phone}</p>
+        <p><strong>Trade License:</strong> ${corpQuote.tradeLicenseNumber || 'N/A'} | <strong>TRN:</strong> ${corpQuote.trnNumber || 'N/A'}</p>
+        <p><strong>Annual Volume:</strong> ${corpQuote.annualVolumeEstimate || 'Not specified'}</p>
+        <p><strong>Credit Terms Requested:</strong> ${corpQuote.creditTermsRequested || 'Prepaid'}</p>
+      </div>
+    </div>
+  `
+
+  try {
+    await transporter.sendMail({
+      from: `"ONPRINT Corporate Desk" <${process.env.SMTP_USER || process.env.GMAIL_USER || 'no-reply@0nprint.com'}>`,
+      to: BUSINESS_EMAIL,
+      subject: `[CORPORATE RFQ] ${ref} - ${company} (${contact})`,
+      html,
+    })
+    return true
+  } catch (err) {
+    console.warn('[Notification Service] Corporate RFQ email error:', err.message)
+    return false
+  }
+}
+
 module.exports = {
   notifyNewQuote,
   notifyNewContactMessage,
+  notifyCorporateQuote,
   BUSINESS_EMAIL,
 }
+

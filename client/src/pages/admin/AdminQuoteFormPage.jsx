@@ -91,7 +91,7 @@ export default function AdminQuoteFormPage() {
   return (
     <div className="space-y-6 max-w-4xl">
       {/* Breadcrumbs */}
-      <nav className="flex items-center gap-2 text-xs font-semibold text-neutral-500">
+      <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-neutral-500">
         <Link to="/admin" className="hover:text-neutral-900 transition-colors">
           Admin
         </Link>
@@ -231,10 +231,10 @@ export default function AdminQuoteFormPage() {
         </div>
 
         {/* Footer Actions */}
-        <div className="flex items-center justify-end gap-3 rounded-2xl bg-white p-4 border border-neutral-200/80 shadow-xs">
+        <div className="flex flex-wrap items-center justify-end gap-3 rounded-2xl bg-white p-4 border border-neutral-200/80 shadow-xs">
           <Link
             to="/admin/quotes"
-            className="rounded-xl border border-neutral-300 px-5 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50 transition-colors"
+            className="w-full sm:w-auto text-center rounded-xl border border-neutral-300 px-5 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50 transition-colors"
           >
             Cancel
           </Link>
@@ -244,7 +244,7 @@ export default function AdminQuoteFormPage() {
             variant="accent"
             icon={false}
             disabled={submitting}
-            className="!px-6 shadow-md shadow-[#D4AF65]/20"
+            className="w-full sm:w-auto justify-center !px-6 shadow-md shadow-[#D4AF65]/20"
           >
             <Save className="h-4 w-4 mr-1.5" />
             {submitting ? 'Saving...' : isEdit ? 'Update Quote' : 'Save Quote'}

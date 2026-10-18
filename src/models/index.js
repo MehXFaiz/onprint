@@ -38,6 +38,9 @@ const SeoKeywordSnapshot = require('./SeoKeywordSnapshot')
 const SeoPageMetric = require('./SeoPageMetric')
 const SeoIntegration = require('./SeoIntegration')
 const SeoLog = require('./SeoLog')
+const Review = require('./Review')
+const CorporateQuote = require('./CorporateQuote')
+const NotificationLog = require('./NotificationLog')
 
 module.exports = {
   User,
@@ -47,6 +50,9 @@ module.exports = {
   Blog,
   Quote,
   Order,
+  Review,
+  CorporateQuote,
+  NotificationLog,
   ContactMessage,
   NewsletterSubscriber,
   SiteSetting,

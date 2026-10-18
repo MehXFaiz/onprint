@@ -161,11 +161,11 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="relative mx-auto flex h-[320px] w-full max-w-xs sm:max-w-md items-center justify-center sm:h-[400px]">
-            <CornerMarks className="absolute -left-2 -top-2 h-8 w-8 text-primary/40" />
-            <CornerMarks className="absolute -bottom-2 -right-2 h-8 w-8 rotate-180 text-primary/40" />
+          <div className="relative mx-auto flex min-h-[300px] w-full max-w-xs sm:max-w-md items-center justify-center sm:h-[400px]">
+            <CornerMarks className="absolute left-0 top-0 sm:-left-2 sm:-top-2 h-8 w-8 text-primary/40" />
+            <CornerMarks className="absolute bottom-0 right-0 sm:-bottom-2 sm:-right-2 h-8 w-8 rotate-180 text-primary/40" />
             <div className="relative h-full w-full overflow-hidden rounded-2xl border border-border bg-surface shadow-xl">
-              <div className="flex h-full flex-col justify-between p-8">
+              <div className="flex h-full flex-col justify-between p-5 sm:p-8">
                 <div className="flex items-center justify-between border-b border-border/60 pb-4">
                   <span className="font-display text-lg font-extrabold text-primary">ONPRINT UAE</span>
                   <span className="text-xs font-bold text-accent">AL QUOZ FACILITY</span>
@@ -223,7 +223,7 @@ export default function AboutPage() {
           <div className="space-y-10">
             {geoQuestions.map((item, idx) => (
               <Reveal key={item.id} delay={idx * 0.06}>
-                <article id={item.id} className="rounded-2xl border border-border bg-surface p-8 shadow-xs hover:border-primary/40 transition-colors">
+                <article id={item.id} className="rounded-2xl border border-border bg-surface p-5 sm:p-8 lg:p-12 shadow-xs hover:border-primary/40 transition-colors">
                   <header>
                     <span className="text-xs font-bold uppercase tracking-wider text-accent">Fact 0{idx + 1}</span>
                     <h3 className="font-display text-2xl font-extrabold text-primary mt-1">
@@ -257,7 +257,7 @@ export default function AboutPage() {
       {/* Verified NAP & Facility Location Card */}
       <section className="border-b border-border bg-surface py-16">
         <Container>
-          <div className="rounded-2xl border border-border bg-background p-8 sm:p-12 shadow-sm">
+          <div className="rounded-2xl border border-border bg-background p-5 sm:p-8 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
               <div className="lg:col-span-1 space-y-3">
                 <span className="text-xs font-bold uppercase tracking-widest text-accent">Direct Contact</span>
@@ -362,7 +362,7 @@ export default function AboutPage() {
               }
               return (
                 <Reveal key={item.title} delay={index * 0.08}>
-                  <div className="flex gap-5 rounded-2xl border border-border bg-background p-8 shadow-xs transition-all duration-300 hover:border-primary/40 hover:shadow-md">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 rounded-2xl border border-border bg-background p-5 sm:p-8 shadow-xs transition-all duration-300 hover:border-primary/40 hover:shadow-md">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
                       {renderValueIcon()}
                     </div>

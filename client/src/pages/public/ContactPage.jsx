@@ -235,11 +235,11 @@ export default function ContactPage() {
                 return null
               }
               return (
-                <div key={label} className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-6 shadow-xs">
+                <div key={label} className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-4 sm:p-6 shadow-xs">
                   <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${isWhatsApp ? 'bg-emerald-50 text-[#25D366]' : 'bg-accent-soft text-accent'}`}>
                     {renderContactIcon()}
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-xs font-bold uppercase tracking-wider text-secondary">{label}</p>
                     {href ? (
                       <a
@@ -255,12 +255,12 @@ export default function ContactPage() {
                             })
                           }
                         }}
-                        className={`mt-1 block text-base font-bold text-primary transition-colors ${isWhatsApp ? 'hover:text-[#25D366]' : 'hover:text-accent'}`}
+                        className={`mt-1 block break-words text-base font-bold text-primary transition-colors ${isWhatsApp ? 'hover:text-[#25D366]' : 'hover:text-accent'}`}
                       >
                         {value}
                       </a>
                     ) : (
-                      <p className="mt-1 text-base font-bold text-primary">{value}</p>
+                      <p className="mt-1 break-words text-base font-bold text-primary">{value}</p>
                     )}
                   </div>
                 </div>
@@ -272,7 +272,7 @@ export default function ContactPage() {
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="rounded-2xl border border-border bg-surface p-8 shadow-xs sm:p-10 lg:col-span-7"
+            className="rounded-2xl border border-border bg-surface p-5 shadow-xs sm:p-8 lg:p-10 lg:col-span-7"
           >
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent mb-2">
               <MessageSquare className="h-4 w-4" />
@@ -352,7 +352,7 @@ export default function ContactPage() {
                   value={values.deliveryLocation}
                   onFocus={handleFieldFocus}
                   onChange={handleChange('deliveryLocation')}
-                  placeholder="e.g. Dubai, Abu Dhabi, Lahore, Karachi"
+                  placeholder="e.g. Dubai, Abu Dhabi, Sharjah, Ajman"
                   className="mt-2 w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-primary focus:border-accent focus:outline-none"
                 />
               </div>

@@ -61,13 +61,14 @@ export async function fetchQuotes() {
 export async function createQuote(quoteData) {
   const current = getStoredQuotes()
   const randomSeq = Math.floor(100000 + Math.random() * 900000)
-  const orderNumber = `ONP-2026-${randomSeq}`
+  const quoteNumber = quoteData.quoteNumber || quoteData.orderNumber || `ONP-Q-${randomSeq}`
+  const orderNumber = quoteNumber
   const initialStatus = quoteData.status || 'New'
   const newQuote = {
     _id: `ONP-${randomSeq}`,
     id: Date.now(),
     orderNumber,
-    quoteNumber: orderNumber,
+    quoteNumber,
     createdAt: new Date().toISOString(),
     status: initialStatus,
     ...quoteData,
@@ -97,7 +98,7 @@ export async function createQuote(quoteData) {
       specs: newQuote.specs || '',
       notes: newQuote.notes || '',
       artworkFile: newQuote.artworkFile || null,
-      quoteNumber: orderNumber,
+      quoteNumber,
       items: [
         {
           productName: newQuote.productName || 'Custom Print Job',
@@ -114,7 +115,7 @@ export async function createQuote(quoteData) {
   }
 
   const sLower = (newQuote.status || '').toLowerCase()
-  if (sLower === 'approved' || sLower === 'won') {
+  if (sLower === 'approved' || sLower === 'won' || sLower === 'accepted' || sLower === 'converted to order') {
     syncApprovedQuoteToOrder(newQuote)
   }
 
@@ -126,13 +127,18 @@ export async function createQuote(quoteData) {
       company: quoteData.company,
       notes: quoteData.notes,
       specs: quoteData.specs,
+      finishes: quoteData.finishes,
+      deliveryUrgency: quoteData.deliveryUrgency,
+      deliveryLocation: quoteData.deliveryLocation,
       artworkFile: quoteData.artworkFile,
+      artworkFiles: quoteData.artworkFiles,
       productName: quoteData.productName,
       quantity: quoteData.quantity,
       totalPrice: quoteData.totalPrice || 0,
+      estimatedPrice: quoteData.estimatedPrice || quoteData.totalPrice || 0,
       status: initialStatus,
       orderNumber,
-      quoteNumber: orderNumber,
+      quoteNumber,
       items: [
         {
           productName: quoteData.productName || 'Custom Print Request',
@@ -143,8 +149,8 @@ export async function createQuote(quoteData) {
       ],
     })
 
-    if (res.data?.success && (res.data?.data?.orderNumber || res.data?.data?.quoteNumber)) {
-      const returnedNumber = res.data.data.orderNumber || res.data.data.quoteNumber
+    if (res.data?.success && (res.data?.data?.quoteNumber || res.data?.data?.orderNumber)) {
+      const returnedNumber = res.data.data.quoteNumber || res.data.data.orderNumber
       newQuote.orderNumber = returnedNumber
       newQuote.quoteNumber = returnedNumber
       newQuote.id = res.data.data.id || newQuote.id

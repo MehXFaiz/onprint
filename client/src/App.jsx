@@ -18,7 +18,10 @@ const BlogPostPage = lazy(() => import('./pages/public/BlogPostPage'))
 const PortfolioPage = lazy(() => import('./pages/public/PortfolioPage'))
 const ContactPage = lazy(() => import('./pages/public/ContactPage'))
 const GetQuotePage = lazy(() => import('./pages/public/GetQuotePage'))
+const CorporateQuotePage = lazy(() => import('./pages/public/CorporateQuotePage'))
+const FinishingShowcasePage = lazy(() => import('./pages/public/FinishingShowcasePage'))
 const TrackOrderPage = lazy(() => import('./pages/public/TrackOrderPage'))
+
 const FaqPage = lazy(() => import('./pages/public/FaqPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/public/PrivacyPolicyPage'))
 const TermsPage = lazy(() => import('./pages/public/TermsPage'))
@@ -170,6 +173,10 @@ function App() {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/finishes" element={<FinishingShowcasePage />} />
+            <Route path="/finishing-showcase" element={<Navigate to="/finishes" replace />} />
+            <Route path="/corporate-quotes" element={<CorporateQuotePage />} />
+            <Route path="/bulk-orders" element={<CorporateQuotePage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/get-a-quote" element={<GetQuotePage />} />
             <Route path="/quote" element={<Navigate to="/get-a-quote" replace />} />
@@ -177,6 +184,7 @@ function App() {
             <Route path="/quote-request" element={<Navigate to="/get-a-quote" replace />} />
             <Route path="/pricing" element={<Navigate to="/get-a-quote" replace />} />
             <Route path="/track-order" element={<TrackOrderPage />} />
+
             <Route path="/track" element={<Navigate to="/track-order" replace />} />
             <Route path="/orders/track" element={<Navigate to="/track-order" replace />} />
             <Route path="/order-tracking" element={<Navigate to="/track-order" replace />} />

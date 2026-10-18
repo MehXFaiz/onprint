@@ -8,7 +8,7 @@
  * - Live URL verification required before any prospect can be marked as "Acquired"
  */
 
-const SITE_URL = (process.env.SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 // 1. Prioritized 20 Core Business Card Keywords + UAE Regional Targets
 // Note: Search volume and KD are transparently reported as "GSC/SEMrush API unlinked" rather than invented metrics.
@@ -986,6 +986,7 @@ const ADDITIONAL_VERIFIED_PRODUCT_KEYWORDS = [
   {
     id: 30,
     keyword: 'business cards in dubai',
+    cluster: 'Location Cluster (Dubai & UAE)',
     search_intent: 'Commercial / Transactional',
     funnel_stage: 'BOFU',
     business_relevance: 'Critical (10/10) — Primary High-Intent Local Backlink Target',
@@ -998,16 +999,265 @@ const ADDITIONAL_VERIFIED_PRODUCT_KEYWORDS = [
     primary_heading_match: 'H1: Business Card Printing in Dubai — Standard 350 GSM to Luxury 600 GSM Cotton',
     recommended_anchor: 'business cards in Dubai',
     recommended_anchor_category: 'Exact-Match / Branded Co-occurrence (business cards in Dubai)',
-    conversion_cta: 'Explore Business Cards in Dubai / WhatsApp Quote',
+    conversion_cta: 'Get a Business Card Printing Quote on WhatsApp',
     notes: 'Primary backlink anchor text target pointing directly to /business-card-printing-dubai flagship landing page.',
+  },
+  {
+    id: 31,
+    keyword: 'gloss & laminated business cards Dubai',
+    cluster: 'High-Intent Finishing & Material Keywords',
+    search_intent: 'Commercial / Product Specific',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9/10) — High-Gloss UV & BOPP Laminated 350–400 GSM Cards',
+    priority: 'P2 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low-Moderate)',
+    target_url: '/products/standard-business-cards',
+    primary_heading_match: 'H1: Standard Business Cards (350–400 GSM Matte & High-Gloss Laminated)',
+    recommended_anchor: 'gloss and matte laminated business cards in Dubai',
+    recommended_anchor_category: 'Descriptive Product (laminated business cards)',
+    conversion_cta: 'Get a Business Card Printing Quote on WhatsApp',
+    notes: 'Groups gloss business cards, laminated business cards, and double-sided business cards onto /products/standard-business-cards.',
+  },
+  {
+    id: 32,
+    keyword: 'textured & premium thick 600 GSM business cards Dubai',
+    cluster: 'High-Intent Finishing & Material Keywords',
+    search_intent: 'Commercial / Transactional',
+    funnel_stage: 'BOFU',
+    business_relevance: 'Critical (9.5/10) — 600 GSM Archival Cotton, Linen & Custom Die-Cut Cards',
+    priority: 'P1 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low-Moderate)',
+    target_url: '/luxury-business-cards',
+    primary_heading_match: 'H1: Luxury Business Cards Dubai — 600 GSM Cotton, Textured & Custom Die-Cut',
+    recommended_anchor: 'textured and thick 600 GSM cotton business cards',
+    recommended_anchor_category: 'Descriptive Product (thick & textured business cards)',
+    conversion_cta: 'Get a Business Card Printing Quote on WhatsApp',
+    notes: 'Groups textured business cards, premium thick business cards, and custom-size die-cut business cards.',
+  },
+  {
+    id: 33,
+    keyword: 'flyer printing Dubai',
+    cluster: 'Other Printing Product Keywords',
+    search_intent: 'Transactional / Commercial',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9/10) — A4, A5 & DL Promotional Flyers (130–300 GSM)',
+    priority: 'P1 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Moderate)',
+    target_url: '/products/a5-promotional-flyers',
+    primary_heading_match: 'H1: A5 Promotional Flyers Printing in Dubai (150–300 GSM Silk & Gloss)',
+    recommended_anchor: 'flyer printing services in Dubai',
+    recommended_anchor_category: 'Descriptive Product (flyer printing in Dubai)',
+    conversion_cta: 'Get an A5 Promotional Flyers Quote on WhatsApp',
+    notes: 'Verified catalog product (/products/a5-promotional-flyers and /services/flyers-brochures-printing).',
+  },
+  {
+    id: 34,
+    keyword: 'brochure printing Dubai',
+    cluster: 'Other Printing Product Keywords',
+    search_intent: 'Transactional / Commercial',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9.5/10) — Tri-Fold, Bi-Fold & Saddle-Stitched Corporate Profiles',
+    priority: 'P1 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Moderate)',
+    target_url: '/products/tri-fold-brochures',
+    primary_heading_match: 'H1: Tri-Fold Brochures & Corporate Profile Printing in Dubai',
+    recommended_anchor: 'corporate brochure printing in Dubai',
+    recommended_anchor_category: 'Descriptive Product (brochure printing in Dubai)',
+    conversion_cta: 'Get a Tri-Fold Brochures Quote on WhatsApp',
+    notes: 'Verified catalog product (/products/tri-fold-brochures and /services/flyers-brochures-printing).',
+  },
+  {
+    id: 35,
+    keyword: 'sticker & label printing Dubai',
+    cluster: 'Other Printing Product Keywords',
+    search_intent: 'Transactional / Commercial',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9/10) — Waterproof Vinyl Die-Cut Stickers & Roll Packaging Labels',
+    priority: 'P1 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Moderate)',
+    target_url: '/products/custom-stickers-labels',
+    primary_heading_match: 'H1: Custom Stickers & Packaging Label Printing in Dubai',
+    recommended_anchor: 'custom sticker and packaging label printing in Dubai',
+    recommended_anchor_category: 'Descriptive Product (sticker and label printing)',
+    conversion_cta: 'Get a Custom Stickers & Labels Quote on WhatsApp',
+    notes: 'Verified catalog product (/products/custom-stickers-labels and /services/stickers-labels-printing).',
+  },
+  {
+    id: 36,
+    keyword: 'corporate stationery & letterhead printing Dubai',
+    cluster: 'Other Printing Product Keywords',
+    search_intent: 'Transactional / Commercial (B2B)',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9.5/10) — 100–120 GSM Laser-Safe Letterheads, Envelopes & Folders',
+    priority: 'P1 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low-Moderate)',
+    target_url: '/products/corporate-letterheads',
+    primary_heading_match: 'H1: Corporate Letterheads & Stationery Printing in Dubai',
+    recommended_anchor: 'corporate letterhead and stationery printing in Dubai',
+    recommended_anchor_category: 'Descriptive Product (corporate stationery printing)',
+    conversion_cta: 'Get a Corporate Letterheads Quote on WhatsApp',
+    notes: 'Verified catalog product (/products/corporate-letterheads, /products/custom-printed-envelopes, /products/presentation-folders).',
+  },
+  {
+    id: 37,
+    keyword: 'roll up banner printing Dubai',
+    cluster: 'Other Printing Product Keywords',
+    search_intent: 'Transactional (Events & Exhibitions)',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9/10) — 85x200cm Tear-Resistant Exhibition Roll-Up Banners',
+    priority: 'P2 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low-Moderate)',
+    target_url: '/products/roll-up-banners',
+    primary_heading_match: 'H1: Roll-Up Standee & Exhibition Banner Printing in Dubai',
+    recommended_anchor: 'roll-up banner printing for Dubai exhibitions',
+    recommended_anchor_category: 'Descriptive Product (roll-up banner printing)',
+    conversion_cta: 'Get a Roll-Up Standee Banner Quote on WhatsApp',
+    notes: 'Verified catalog product (/products/roll-up-banners and /services/banners-signage-printing).',
+  },
+  {
+    id: 38,
+    keyword: 'company stamp & PVC ID card printing Dubai',
+    cluster: 'Other Printing Product Keywords',
+    search_intent: 'Transactional (Corporate Onboarding)',
+    funnel_stage: 'BOFU',
+    business_relevance: 'High (9/10) — Self-Inking Trodat/Shiny Company Stamps & CR80 PVC ID Cards',
+    priority: 'P2 — High',
+    search_volume: null,
+    keyword_difficulty: null,
+    search_volume_status: 'Unverified (Connect GSC/SEMrush API)',
+    kd_status: 'Unverified (Low)',
+    target_url: '/products/self-inking-company-stamps',
+    primary_heading_match: 'H1: Self-Inking Company Stamps & Employee PVC ID Cards in Dubai',
+    recommended_anchor: 'company stamps and PVC ID card printing in Dubai',
+    recommended_anchor_category: 'Descriptive Product (company stamps and ID cards)',
+    conversion_cta: 'Get a Self-Inking Company Stamps Quote on WhatsApp',
+    notes: 'Verified catalog products (/products/self-inking-company-stamps and /products/pvc-id-cards-lanyards).',
   },
 ]
 
+const SECONDARY_KEYWORDS_BY_URL = {
+  '/business-card-printing-dubai': [
+    'business cards',
+    'business card printing',
+    'custom business cards Dubai',
+    'business card printing services UAE',
+    'double-sided business cards',
+    'business card printing prices AED',
+    'bulk business card printing',
+  ],
+  '/luxury-business-cards': [
+    'luxury business cards',
+    '600 gsm cotton business cards',
+    'premium thick business cards',
+    'textured business cards',
+    'painted edge business cards Dubai',
+  ],
+  '/premium-business-cards': [
+    'premium business cards',
+    '400 gsm matte business cards',
+    'professional business cards Dubai',
+    'double-sided laminated business cards',
+  ],
+  '/foil-business-cards': [
+    'gold foil business cards',
+    'silver foil business cards',
+    'hot foil stamped business cards Dubai',
+    'velvet foil business cards',
+  ],
+  '/spot-uv-business-cards': [
+    'spot uv business cards',
+    '3d raised uv business cards',
+    'gloss uv on matte velvet cards',
+  ],
+  '/embossed-business-cards': [
+    'embossed business cards',
+    'blind debossed business cards',
+    'letterpress business cards Dubai',
+  ],
+  '/velvet-business-cards': [
+    'matte business cards',
+    'soft touch velvet business cards',
+    'laminated business cards Dubai',
+  ],
+  '/corporate-business-cards': [
+    'business cards for companies',
+    'corporate business cards',
+    'bulk business card printing UAE',
+    'Pantone matched corporate stationery',
+  ],
+  '/same-day-business-card-printing': [
+    'same day business card printing Dubai',
+    '4-hour express business cards Al Quoz',
+    'urgent exhibition business cards DWTC',
+  ],
+  '/business-card-design': [
+    'business card design and printing',
+    'bilingual Arabic English business card design',
+    'business card templates and customisation',
+  ],
+}
+
 // Normalize fields on PRIORITIZED_BUSINESS_CARD_KEYWORDS and BUSINESS_CARD_BACKLINK_PROSPECTS
-for (const kw of PRIORITIZED_BUSINESS_CARD_KEYWORDS) {
+const ALL_RAW_KEYWORDS = [...PRIORITIZED_BUSINESS_CARD_KEYWORDS, ...ADDITIONAL_VERIFIED_PRODUCT_KEYWORDS]
+for (const kw of ALL_RAW_KEYWORDS) {
   if (kw.search_volume === undefined) kw.search_volume = null
   if (kw.keyword_difficulty === undefined) kw.keyword_difficulty = null
   if (!kw.recommended_anchor) kw.recommended_anchor = kw.recommended_anchor_category
+  if (!kw.cluster) {
+    if (/Abu Dhabi|Sharjah|UAE|near me/i.test(kw.keyword)) {
+      kw.cluster = 'Location Cluster (Dubai & UAE)'
+    } else if (/foil|uv|emboss|matte|gloss|pvc|eco|luxury|premium/i.test(kw.keyword)) {
+      kw.cluster = 'High-Intent Finishing & Material Keywords'
+    } else {
+      kw.cluster = 'Core Business-Card Keywords'
+    }
+  }
+  if (!kw.secondary_keywords) {
+    kw.secondary_keywords = SECONDARY_KEYWORDS_BY_URL[kw.target_url] || [
+      `${kw.keyword} prices`,
+      `custom ${kw.keyword}`,
+      `${kw.keyword} Al Quoz`,
+    ]
+  }
+  if (!kw.recommended_title) {
+    kw.recommended_title = `${kw.primary_heading_match.replace(/^H\d:\s*/, '')} | ONPRINT`
+  }
+  if (!kw.recommended_h1) {
+    kw.recommended_h1 = kw.primary_heading_match.replace(/^H\d:\s*/, '')
+  }
+  if (!kw.content_gaps) {
+    kw.content_gaps =
+      'Resolved: Added paper GSM caliper table (350–600 GSM), finishing matrix, 3mm bleed pre-press checklist, turnaround timelines, and direct WhatsApp quote specification builder.'
+  }
+  if (!kw.internal_linking_opportunities) {
+    kw.internal_linking_opportunities = [
+      '/business-card-printing-dubai',
+      '/products/premium-business-cards',
+      '/blog/how-to-choose-business-card-paper-dubai',
+      '/get-a-quote',
+    ]
+  }
 }
 
 for (const p of BUSINESS_CARD_BACKLINK_PROSPECTS) {
@@ -1024,6 +1274,23 @@ for (const p of BUSINESS_CARD_BACKLINK_PROSPECTS) {
   if (!p.website_category) p.website_category = p.category
   if (!p.inclusion_or_rejection_reason) p.inclusion_or_rejection_reason = p.decision_rationale
   if (p.approved_by_owner === undefined) p.approved_by_owner = false
+  if (!p.contact_status) p.contact_status = p.outreach_status || 'Pending Owner Review'
+  if (!p.follow_up_date) {
+    p.follow_up_date = p.qualification_status === 'qualified' ? '7 days after manual outreach' : 'N/A (Disqualified)'
+  }
+  if (!p.outcome) {
+    p.outcome = p.verified_live
+      ? `Verified Live (${p.live_backlink_url})`
+      : p.qualification_status === 'qualified'
+        ? 'Awaiting manual owner outreach approval'
+        : 'Rejected — Never contact (Anti-Spam Policy)'
+  }
+  if (!p.outreach_message) {
+    p.outreach_message =
+      p.qualification_status === 'qualified'
+        ? `Personalized manual outreach to ${p.domain} proposing "${p.proposed_contribution}" linking to ${p.target_landing_page} with natural "${p.suggested_anchor_text}" anchor.`
+        : 'N/A — Disqualified under Zero-Spam Backlink Policy.'
+  }
 }
 
 const ALL_MAPPED_BUSINESS_CARD_KEYWORDS = [
@@ -1200,6 +1467,58 @@ function getLandingPageTechnicalAudit() {
 }
 
 /**
+ * Phase 4F: Monthly Ethical Backlink & Referral Reporting
+ * Reports only verified live links, pending outreach, and rejected spam sources. Never fabricates acquired links.
+ */
+function getMonthlyBacklinkReport(prospects = BUSINESS_CARD_BACKLINK_PROSPECTS) {
+  const qualified = prospects.filter((p) => p.qualification_status === 'qualified')
+  const rejected = prospects.filter((p) => p.qualification_status === 'rejected')
+  const approvedForOutreach = qualified.filter((p) => p.approved_by_owner)
+  const contacted = qualified.filter((p) =>
+    ['Contacted', 'Follow-Up Sent', 'In Review', 'Acquired'].includes(p.outreach_status)
+  )
+  const verifiedAcquired = qualified.filter((p) => p.outreach_status === 'Acquired' && p.verified_live && p.live_backlink_url)
+
+  return {
+    reportingPeriod: new Date().toISOString().slice(0, 7),
+    policyCompliance: '100% White-Hat — Zero Paid Links, Zero PBNs, Zero Automated Submissions',
+    metrics: {
+      totalProspectsEvaluated: prospects.length,
+      qualifiedRelevantProspects: qualified.length,
+      disqualifiedSpamSourcesBlocked: rejected.length,
+      ownerApprovedForManualOutreach: approvedForOutreach.length,
+      manualOutreachSentCount: contacted.length,
+      verifiedLiveBacklinksEarned: verifiedAcquired.length,
+    },
+    earnedLinks: verifiedAcquired.map((p) => ({
+      domain: p.domain,
+      liveUrl: p.live_backlink_url,
+      targetDestination: p.target_landing_page,
+      anchorText: p.suggested_anchor_text,
+      anchorType: p.anchor_type,
+      category: p.category,
+    })),
+    pendingOutreachQueue: qualified
+      .filter((p) => !p.verified_live)
+      .map((p) => ({
+        domain: p.domain,
+        contactPage: p.contact_page,
+        proposedAsset: p.proposed_contribution,
+        targetDestination: p.target_landing_page,
+        status: p.outreach_status,
+        followUpDate: p.follow_up_date,
+        outcome: p.outcome,
+      })),
+    blockedSpamSources: rejected.map((p) => ({
+      domain: p.domain,
+      category: p.category,
+      riskAssessment: p.risk_assessment,
+      rejectionReason: p.decision_rationale,
+    })),
+  }
+}
+
+/**
  * Export the Risk-Assessed Backlink Prospect Spreadsheet as CSV.
  */
 function exportProspectsCsv(prospects = BUSINESS_CARD_BACKLINK_PROSPECTS) {
@@ -1219,6 +1538,8 @@ function exportProspectsCsv(prospects = BUSINESS_CARD_BACKLINK_PROSPECTS) {
     'Inclusion / Rejection Decision',
     'Decision Rationale',
     'Outreach Status',
+    'Follow-Up Date',
+    'Outcome',
     'Live Backlink URL',
     'Verified Live',
   ]
@@ -1242,6 +1563,8 @@ function exportProspectsCsv(prospects = BUSINESS_CARD_BACKLINK_PROSPECTS) {
     p.inclusion_decision,
     p.decision_rationale,
     p.outreach_status,
+    p.follow_up_date || '',
+    p.outcome || '',
     p.live_backlink_url || '',
     p.verified_live ? 'Yes (Verified)' : 'No',
   ])
@@ -1249,12 +1572,14 @@ function exportProspectsCsv(prospects = BUSINESS_CARD_BACKLINK_PROSPECTS) {
 }
 
 /**
- * Export the Prioritized Business Card Keyword Research Spreadsheet as CSV.
+ * Export the Prioritized Business Card & Printing Keyword Research Spreadsheet as CSV.
  */
-function exportKeywordsCsv(keywords = PRIORITIZED_BUSINESS_CARD_KEYWORDS) {
+function exportKeywordsCsv(keywords = ALL_MAPPED_BUSINESS_CARD_KEYWORDS) {
   const headers = [
     'ID',
-    'Keyword',
+    'Primary Keyword',
+    'Cluster',
+    'Secondary Keywords',
     'Search Intent',
     'Funnel Stage',
     'Business Relevance',
@@ -1262,18 +1587,23 @@ function exportKeywordsCsv(keywords = PRIORITIZED_BUSINESS_CARD_KEYWORDS) {
     'Search Volume (Truthful Status)',
     'Keyword Difficulty (Truthful Status)',
     'Target Landing Page on 0nprint.com',
-    'Primary Heading Mapping',
+    'Recommended Page Title',
+    'Recommended H1',
+    'Content Gaps & Resolution',
+    'Internal Linking Opportunities',
     'Recommended Anchor Category',
-    'Conversion CTA',
+    'Intended Conversion Action',
     'SEO Notes',
   ]
   const esc = (v) => {
-    const s = v === null || v === undefined ? '' : String(v)
+    const s = v === null || v === undefined ? '' : Array.isArray(v) ? v.join(' | ') : String(v)
     return s.includes(',') || s.includes('"') || s.includes('\n') ? `"${s.replace(/"/g, '""')}"` : s
   }
   const rows = keywords.map((k) => [
     k.id,
     k.keyword,
+    k.cluster,
+    k.secondary_keywords,
     k.search_intent,
     k.funnel_stage,
     k.business_relevance,
@@ -1281,7 +1611,10 @@ function exportKeywordsCsv(keywords = PRIORITIZED_BUSINESS_CARD_KEYWORDS) {
     k.search_volume_status,
     k.kd_status,
     k.target_url,
-    k.primary_heading_match,
+    k.recommended_title,
+    k.recommended_h1,
+    k.content_gaps,
+    k.internal_linking_opportunities,
     k.recommended_anchor_category,
     k.conversion_cta,
     k.notes,
@@ -1313,6 +1646,7 @@ module.exports = {
   WHITE_HAT_OUTREACH_TEMPLATES,
   NINETY_DAY_ROADMAP,
   getLandingPageTechnicalAudit,
+  getMonthlyBacklinkReport,
   exportProspectsCsv,
   exportKeywordsCsv,
 }

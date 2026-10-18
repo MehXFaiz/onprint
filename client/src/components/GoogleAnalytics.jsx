@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import {
   initGA,
   trackPageView,
+  trackOrganicLandingVisit,
   trackPhoneClick,
   trackEmailClick,
   trackWhatsAppClick,
@@ -48,10 +49,12 @@ export default function GoogleAnalytics() {
 
     // Small delay ensures SEOHead useEffect has updated document.title
     const timer = setTimeout(() => {
+      const fullPath = location.pathname + location.search
+      trackOrganicLandingVisit({ page_path: fullPath })
       trackPageView({
         page_title: document.title,
         page_location: window.location.href,
-        page_path: location.pathname + location.search,
+        page_path: fullPath,
       })
     }, 60)
 

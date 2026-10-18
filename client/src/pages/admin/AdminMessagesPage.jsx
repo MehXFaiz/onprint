@@ -60,7 +60,7 @@ export default function AdminMessagesPage() {
     <div className="space-y-6">
       {/* Toast Notification */}
       {toast && (
-        <div className="fixed top-6 right-6 z-50 flex items-center gap-2.5 rounded-2xl bg-neutral-900 border border-neutral-700 px-4 py-3 text-xs font-bold text-white shadow-2xl">
+        <div className="fixed top-6 right-6 left-4 sm:left-auto max-w-[calc(100vw-2rem)] z-50 flex items-center gap-2.5 rounded-2xl bg-neutral-900 border border-neutral-700 px-4 py-3 text-xs font-bold text-white shadow-2xl">
           <CheckCircle2 className="h-4 w-4 text-emerald-400" />
           <span>{toast}</span>
         </div>
@@ -162,9 +162,9 @@ export default function AdminMessagesPage() {
                     {msg.message}
                   </p>
 
-                  <div className="mt-3 flex items-center justify-between text-[10px] text-neutral-400 border-t border-neutral-100 pt-2">
-                    <span>{msg.email}</span>
-                    <span>{formattedDate}</span>
+                  <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-neutral-400 border-t border-neutral-100 pt-2">
+                    <span className="truncate min-w-0">{msg.email}</span>
+                    <span className="shrink-0">{formattedDate}</span>
                   </div>
                 </div>
               )
@@ -204,11 +204,11 @@ export default function AdminMessagesPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 min-w-0">
                   <Mail className="h-4 w-4 text-[#D4AF65] shrink-0" />
-                  <div>
+                  <div className="min-w-0">
                     <div className="text-[10px] uppercase font-bold text-neutral-400">Email</div>
-                    <div className="font-mono text-neutral-800">{selectedMessage.email}</div>
+                    <div className="font-mono text-neutral-800 break-all">{selectedMessage.email}</div>
                   </div>
                 </div>
 

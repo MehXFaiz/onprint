@@ -36,7 +36,7 @@ export default function AdminSettingsPage() {
     <div className="space-y-6 max-w-4xl">
       {/* Toast Notification */}
       {toast && (
-        <div className="fixed top-6 right-6 z-50 flex items-center gap-2.5 rounded-2xl bg-neutral-900 border border-neutral-700 px-4 py-3 text-xs font-bold text-white shadow-2xl">
+        <div className="fixed top-6 right-6 left-4 sm:left-auto max-w-[calc(100vw-2rem)] z-50 flex items-center gap-2.5 rounded-2xl bg-neutral-900 border border-neutral-700 px-4 py-3 text-xs font-bold text-white shadow-2xl">
           <CheckCircle2 className="h-4 w-4 text-emerald-400" />
           <span>{toast}</span>
         </div>

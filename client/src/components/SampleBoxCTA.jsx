@@ -5,9 +5,9 @@ import Container from './Container'
 
 export default function SampleBoxCTA() {
   return (
-    <section className="relative overflow-hidden bg-[#F5F2EB] py-16 sm:py-20 text-[#101D35] border-y border-[#E5E1D8]">
+    <section className="relative overflow-hidden bg-[#101D35] py-16 sm:py-20 text-white border-y border-[#28395A]">
       <Container className="relative z-10">
-        <div className="bento-card-dark p-8 sm:p-12 lg:p-14 relative overflow-hidden bg-[#101D35] border border-[#28395A] rounded-3xl shadow-xl">
+        <div className="bento-card-dark p-8 sm:p-12 lg:p-14 relative overflow-hidden bg-[#162542] border border-[#28395A] rounded-3xl shadow-xl">
           <div className="pointer-events-none absolute -right-16 -bottom-16 h-72 w-72 rounded-full bg-[#D4AF65]/15 blur-3xl" />
           <div className="pointer-events-none absolute -left-16 -top-16 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
 
@@ -57,14 +57,14 @@ export default function SampleBoxCTA() {
             <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col items-stretch justify-center gap-3.5 lg:pl-6">
               <Link
                 to="/contact?inquiry=Sample+Box+Request"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-8 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-lg transition-all cursor-pointer text-center"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-4 sm:px-8 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-lg transition-all cursor-pointer text-center"
               >
                 <span>Claim Free Sample Kit</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 shrink-0" />
               </Link>
               <Link
                 to="/get-a-quote"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 hover:bg-white hover:text-[#101D35] px-8 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer text-center"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 hover:bg-white hover:text-[#101D35] px-4 sm:px-8 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer text-center"
               >
                 <span>Instant Project Quote</span>
               </Link>

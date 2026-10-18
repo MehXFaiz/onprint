@@ -7,10 +7,14 @@ const { authenticateToken, requireAdmin } = require('../middleware/auth')
 
 const router = express.Router()
 
-// Ensure /uploads directory exists
+// Ensure /uploads and /uploads/artwork directories exist
 const UPLOADS_DIR = path.join(__dirname, '..', '..', 'uploads')
+const ARTWORK_DIR = path.join(UPLOADS_DIR, 'artwork')
 if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true })
+}
+if (!fs.existsSync(ARTWORK_DIR)) {
+  fs.mkdirSync(ARTWORK_DIR, { recursive: true })
 }
 
 // Slugify filename for SEO friendly URL generation
@@ -29,13 +33,35 @@ function slugifyFilename(originalName) {
   return `${cleanName}-${Date.now()}${ext}`
 }
 
-// Multer Storage Configuration
+// Secure artwork filename generator
+function secureArtworkFilename(originalName) {
+  const ext = path.extname(originalName).toLowerCase()
+  const cleanBase = path.basename(originalName, ext)
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]/g, '_')
+    .slice(0, 30)
+  const randomSuffix = Math.random().toString(36).substring(2, 8)
+  return `onprint-art-${cleanBase || 'file'}-${Date.now()}-${randomSuffix}${ext}`
+}
+
+// Multer Storage Configuration for Catalog/CMS Images
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, UPLOADS_DIR)
   },
   filename: (req, file, cb) => {
     const filename = slugifyFilename(file.originalname)
+    cb(null, filename)
+  },
+})
+
+// Multer Storage Configuration for Customer Artwork
+const artworkStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, ARTWORK_DIR)
+  },
+  filename: (req, file, cb) => {
+    const filename = secureArtworkFilename(file.originalname)
     cb(null, filename)
   },
 })
@@ -58,7 +84,18 @@ const fileFilter = (req, file, cb) => {
   }
 }
 
-// Configure Multer Middleware (5MB File Size Limit)
+// Customer Artwork Filter: PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP
+const ALLOWED_ARTWORK_EXTS = ['.pdf', '.ai', '.eps', '.psd', '.tiff', '.tif', '.jpg', '.jpeg', '.png', '.zip']
+const artworkFileFilter = (req, file, cb) => {
+  const ext = path.extname(file.originalname).toLowerCase()
+  if (ALLOWED_ARTWORK_EXTS.includes(ext)) {
+    cb(null, true)
+  } else {
+    cb(new Error(`File format ${ext} is not supported. Supported artwork formats: PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP.`))
+  }
+}
+
+// Configure Multer Middleware (5MB limit for regular images)
 const upload = multer({
   storage,
   fileFilter,
@@ -67,13 +104,22 @@ const upload = multer({
   },
 })
 
+// Configure Multer Middleware (50MB limit for customer artwork)
+const uploadArtwork = multer({
+  storage: artworkStorage,
+  fileFilter: artworkFileFilter,
+  limits: {
+    fileSize: 50 * 1024 * 1024, // 50MB limit
+  },
+})
+
 // Helper middleware for custom Multer error handling
-function handleMulterUpload(uploadMiddleware) {
+function handleMulterUpload(uploadMiddleware, maxMb = 5) {
   return (req, res, next) => {
     uploadMiddleware(req, res, (err) => {
       if (err instanceof multer.MulterError) {
         if (err.code === 'LIMIT_FILE_SIZE') {
-          return next(new ApiError(400, 'File size exceeds maximum allowed limit of 5MB.'))
+          return next(new ApiError(400, `File size exceeds maximum allowed limit of ${maxMb}MB. For larger artwork files, please provide a WeTransfer or Dropbox link in project notes.`))
         }
         return next(new ApiError(400, `Upload error: ${err.message}`))
       } else if (err) {
@@ -152,6 +198,39 @@ router.post(
         message: `${uploadedFiles.length} images uploaded successfully`,
         data: uploadedFiles,
         urls: uploadedFiles.map((f) => f.url),
+      })
+    } catch (err) {
+      next(err)
+    }
+  }
+)
+
+// Customer Artwork Upload Endpoint (Supports up to 10 files, PDF/AI/EPS/PSD/TIFF/JPG/PNG/ZIP up to 50MB)
+router.post(
+  '/artwork',
+  handleMulterUpload(uploadArtwork.array('files', 10), 50),
+  async (req, res, next) => {
+    try {
+      if (!req.files || req.files.length === 0) {
+        throw new ApiError(400, 'Please select at least one artwork file to upload.')
+      }
+
+      const uploadedFiles = req.files.map((file) => ({
+        url: `/uploads/artwork/${file.filename}`,
+        filename: file.filename,
+        originalName: file.originalname,
+        mimeType: file.mimetype,
+        size: file.size,
+      }))
+
+      console.log(`[Upload] Customer artwork files uploaded successfully: ${uploadedFiles.map((f) => f.filename).join(', ')}`)
+
+      res.status(201).json({
+        success: true,
+        message: `${uploadedFiles.length} artwork file(s) uploaded successfully`,
+        data: uploadedFiles,
+        urls: uploadedFiles.map((f) => f.url),
+        filenames: uploadedFiles.map((f) => f.filename),
       })
     } catch (err) {
       next(err)

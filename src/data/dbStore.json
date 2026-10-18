@@ -16008,5 +16008,100 @@
       "inclusion_or_rejection_reason": "Zero real readers; violates Google link spam policies.",
       "approved_by_owner": false
     }
-  ]
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "product_slug": "business-card-printing-dubai",
+      "product_name": "Luxury Business Cards",
+      "customer_name": "Rashid Al-Nuaimi",
+      "company": "Nuaimi Holdings DIFC",
+      "rating": 5,
+      "title": "Flawless 600 GSM Cotton and Gold Foil Execution",
+      "comment": "The GMUND cotton stock and heated brass foil finish exceeded our board expectations. Crisp registration and delivered to our DIFC gate in under 48 hours.",
+      "verified_purchase": true,
+      "order_number": "ONP-2026-881290",
+      "status": "approved",
+      "helpful_votes": 18,
+      "staff_response": {
+        "response": "Thank you Mr. Rashid. It was a pleasure crafting the custom brass dies for Nuaimi Holdings.",
+        "responder_name": "ONPRINT Master Pressman",
+        "responded_at": "2026-09-12T10:00:00.000Z"
+      },
+      "created_at": "2026-09-10T14:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "product_slug": "stickers-printing-dubai",
+      "product_name": "Die-Cut Vinyl Product Labels",
+      "customer_name": "Camilla Dupont",
+      "company": "Maison Botanique Dubai",
+      "rating": 5,
+      "title": "Completely Waterproof & Passed Cold Immersion Tests",
+      "comment": "Our organic skincare bottles sit in iced water baths during salon treatments. These matte vinyl labels showed zero peeling or ink bleeding.",
+      "verified_purchase": true,
+      "order_number": "ONP-2026-773412",
+      "status": "approved",
+      "helpful_votes": 12,
+      "staff_response": null,
+      "created_at": "2026-09-18T16:15:00.000Z"
+    },
+    {
+      "id": 3,
+      "product_slug": "roll-up-banners-dubai",
+      "product_name": "Exhibition Rollup Banners",
+      "customer_name": "Vikram Mehta",
+      "company": "Apex Cloud Solutions",
+      "rating": 5,
+      "title": "Anti-Curl Greyback Film Saved Our GITEX Booth",
+      "comment": "Under the high-wattage lights at DWTC, regular banners curl inwards. The ONPRINT blockout greyback banners stood perfectly rigid and flat throughout the 5 days.",
+      "verified_purchase": true,
+      "order_number": "ONP-2026-904123",
+      "status": "approved",
+      "helpful_votes": 9,
+      "staff_response": {
+        "response": "We engineered the 440 GSM blockout greyback specifically for DWTC arena floodlights. Delighted to hear it performed flawlessly!",
+        "responder_name": "ONPRINT Large Format Team",
+        "responded_at": "2026-09-26T09:00:00.000Z"
+      },
+      "created_at": "2026-09-25T11:00:00.000Z"
+    }
+  ],
+  "corporate_quotes": [
+    {
+      "_id": "corp-1",
+      "id": 1,
+      "referenceNumber": "ONP-CORP-685191",
+      "reference_number": "ONP-CORP-685191",
+      "companyName": "Al Hilal Investment Holdings",
+      "contactName": "Nasser Al-Mansoor",
+      "department": null,
+      "email": "nasser@alhilal.ae",
+      "phone": "+971 50 999 8888",
+      "tradeLicenseNumber": null,
+      "trnNumber": null,
+      "annualVolumeEstimate": "AED 50,000 – AED 150,000 / year",
+      "creditTermsRequested": "30 Days Net",
+      "deliveryLocations": [
+        "Dubai"
+      ],
+      "items": [
+        {
+          "productName": "Luxury Gold Foil Cards",
+          "quantity": 2000
+        },
+        {
+          "productName": "Custom Rigid Boxes",
+          "quantity": 500
+        }
+      ],
+      "notes": null,
+      "artworkFiles": [],
+      "status": "New",
+      "assignedAccountManager": "Senior Corporate Account Executive",
+      "staffNotes": null,
+      "createdAt": "2026-10-18T10:16:04.335Z"
+    }
+  ],
+  "notification_logs": []
 }

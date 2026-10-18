@@ -278,6 +278,8 @@ export default function SiteHeader() {
         setSearchModalOpen(false)
         setActiveDropdown(null)
         setWhatsappPopoverOpen(false)
+        setMobileMenuOpen(false)
+        setUserMenuOpen(false)
       }
     }
     window.addEventListener('keydown', handleKeyDown)
@@ -286,12 +288,12 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full select-none bg-[#101D35] border-b border-[#28395A] shadow-md transition-all duration-200">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3 sm:gap-4">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4 min-w-0">
         {/* Brand Logo & Dubai Flagship Pill */}
         <Link
           to="/"
           onClick={() => setMobileMenuOpen(false)}
-          className="group shrink-0 flex items-center gap-2.5"
+          className="group shrink-0 flex items-center gap-2 sm:gap-2.5 min-w-0"
         >
           <motion.div
             whileHover={{ scale: 1.02 }}
@@ -361,11 +363,11 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute left-0 top-full mt-3 w-[min(940px,calc(100vw-48px))] rounded-3xl border border-zinc-200 bg-white/98 backdrop-blur-2xl p-6 shadow-[0_28px_64px_-12px_rgba(0,0,0,0.12)] z-50 text-zinc-900"
+                    className="absolute left-0 top-full mt-3 w-[min(940px,calc(100vw-48px))] rounded-3xl border border-[#28395A] bg-[#101D35]/98 backdrop-blur-2xl p-6 shadow-[0_28px_64px_-12px_rgba(0,0,0,0.5)] z-50 text-white"
                   >
                     <div className="grid grid-cols-12 gap-6">
-                      {/* Left Spotlight Banner — Deep Obsidian & Electric Orange */}
-                      <div className="col-span-4 rounded-2xl bg-[#101D35] p-5 flex flex-col justify-between text-white relative overflow-hidden shadow-xl border border-[#28395A]/50">
+                      {/* Left Spotlight Banner — Deep Navy & Champagne Gold */}
+                      <div className="col-span-4 rounded-2xl bg-[#162542] p-5 flex flex-col justify-between text-white relative overflow-hidden shadow-xl border border-[#28395A]">
                         <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 rounded-full bg-[#D4AF65]/15 blur-2xl pointer-events-none" />
 
                         <div className="relative z-10">
@@ -376,40 +378,40 @@ export default function SiteHeader() {
                           <h4 className="mt-3 text-base font-bold text-white tracking-tight leading-snug">
                             Commercial Precision &amp; Tactile Craft
                           </h4>
-                          <p className="mt-1.5 text-xs leading-relaxed text-zinc-400">
+                          <p className="mt-1.5 text-xs leading-relaxed text-slate-300">
                             Heidelberg offset, HP Indigo digital, 24K hot foil stamping, and 700 GSM cotton stocks.
                           </p>
 
-                          <div className="mt-4 pt-3.5 border-t border-zinc-800 space-y-2">
-                            <span className="text-[10px] font-black uppercase tracking-wider text-zinc-500 block">
+                          <div className="mt-4 pt-3.5 border-t border-[#28395A] space-y-2">
+                            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block">
                               Popular Categories
                             </span>
                             <Link
                               to="/business-card-printing-dubai"
                               onClick={() => setActiveDropdown(null)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl bg-[#101D35] hover:bg-[#162542] border border-[#28395A]/60 text-xs font-bold text-white transition-all"
+                              className="group flex items-center justify-between p-2.5 rounded-xl bg-[#101D35] hover:bg-[#1B2C4D] border border-[#28395A] text-xs font-bold text-white transition-all"
                             >
                               <span className="flex items-center gap-2">
                                 <span className="h-2 w-2 rounded-full bg-[#D4AF65]" />
                                 <span>Luxury Business Cards</span>
                               </span>
-                              <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-white transition-colors" />
+                              <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-white transition-colors" />
                             </Link>
                             <Link
                               to="/categories/custom-stamps-seals"
                               onClick={() => setActiveDropdown(null)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl bg-[#101D35] hover:bg-[#162542] border border-[#28395A]/60 text-xs font-bold text-white transition-all"
+                              className="group flex items-center justify-between p-2.5 rounded-xl bg-[#101D35] hover:bg-[#1B2C4D] border border-[#28395A] text-xs font-bold text-white transition-all"
                             >
                               <span className="flex items-center gap-2">
                                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
                                 <span>Official Stamps &amp; Seals</span>
                               </span>
-                              <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-white transition-colors" />
+                              <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-white transition-colors" />
                             </Link>
                           </div>
                         </div>
 
-                        <div className="pt-4 border-t border-zinc-800 flex items-center justify-between relative z-10">
+                        <div className="pt-4 border-t border-[#28395A] flex items-center justify-between relative z-10">
                           <Link
                             to="/products"
                             onClick={() => setActiveDropdown(null)}
@@ -426,18 +428,18 @@ export default function SiteHeader() {
                         {megaMenuGroups.map((group) => {
                           const Icon = group.icon || Layers
                           return (
-                            <div key={group.key} className="p-3 rounded-2xl bg-[#F4F4F5]/50 hover:bg-[#F4F4F5] border border-[#E5E7EB] transition-all">
+                            <div key={group.key} className="p-3 rounded-2xl bg-[#162542] hover:bg-[#1B2C4D] border border-[#28395A] transition-all">
                               <div className="flex items-center justify-between mb-2">
                                 <div className="flex items-center gap-2">
-                                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#101D35] text-[#D4AF65] shrink-0">
+                                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#101D35] border border-[#28395A] text-[#D4AF65] shrink-0">
                                     <Icon className="h-4 w-4" />
                                   </div>
-                                  <h5 className="text-xs font-bold text-zinc-950 truncate">
+                                  <h5 className="text-xs font-bold text-white truncate">
                                     {group.label}
                                   </h5>
                                 </div>
                                 {group.badge && (
-                                  <span className="rounded-full bg-zinc-200/70 px-2 py-0.5 text-[9px] font-bold text-zinc-700">
+                                  <span className="rounded-full bg-[#101D35] border border-[#28395A] px-2 py-0.5 text-[9px] font-bold text-[#D4AF65]">
                                     {group.badge}
                                   </span>
                                 )}
@@ -449,7 +451,7 @@ export default function SiteHeader() {
                                     <Link
                                       to={`/categories/${item.slug}`}
                                       onClick={() => setActiveDropdown(null)}
-                                      className="group/link flex items-center justify-between text-xs font-medium text-zinc-600 hover:text-zinc-950 transition-colors py-0.5"
+                                      className="group/link flex items-center justify-between text-xs font-medium text-slate-300 hover:text-[#D4AF65] transition-colors py-0.5"
                                     >
                                       <span className="truncate group-hover/link:translate-x-0.5 transition-transform">{item.name}</span>
                                       <ChevronRight className="h-3 w-3 opacity-0 group-hover/link:opacity-100 text-[#D4AF65] transition-opacity shrink-0" />
@@ -639,6 +641,31 @@ export default function SiteHeader() {
                     </Link>
 
                     <Link
+                      to="/finishes"
+                      onClick={() => setActiveDropdown(null)}
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-200 hover:bg-[#162542] hover:text-[#D4AF65] transition-colors"
+                    >
+                      <Palette className="h-4 w-4 text-[#D4AF65]" />
+                      <div>
+                        <div className="leading-tight">Luxury Finishes Showcase</div>
+                        <span className="text-[10px] font-normal text-slate-400">Foil, Spot UV, Debossing &amp; Edges</span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      to="/corporate-quotes"
+                      onClick={() => setActiveDropdown(null)}
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-200 hover:bg-[#162542] hover:text-[#D4AF65] transition-colors"
+                    >
+                      <Building2 className="h-4 w-4 text-[#D4AF65]" />
+                      <div>
+                        <div className="leading-tight">Corporate &amp; Bulk Quotes</div>
+                        <span className="text-[10px] font-normal text-slate-400">Trade credit &amp; multi-product RFQ</span>
+                      </div>
+                    </Link>
+
+
+                    <Link
                       to="/about"
                       onClick={() => setActiveDropdown(null)}
                       className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-200 hover:bg-[#162542] hover:text-[#D4AF65] transition-colors"
@@ -696,12 +723,13 @@ export default function SiteHeader() {
               whileTap={{ scale: 0.97 }}
               type="button"
               onClick={() => setSearchModalOpen(true)}
-              className="flex items-center gap-2 rounded-full border border-[#28395A] bg-[#162542] hover:bg-[#1B2C4D] hover:border-[#D4AF65]/60 px-3 py-1.5 text-xs text-slate-300 transition-all cursor-pointer group"
+              className="flex h-9 w-9 xl:h-auto xl:w-auto items-center justify-center gap-2 rounded-full border border-[#28395A] bg-[#162542] hover:bg-[#1B2C4D] hover:border-[#D4AF65]/60 xl:px-3 xl:py-1.5 text-xs text-slate-300 transition-all cursor-pointer group shrink-0"
               title="Search products (Press / or ⌘K)"
+              aria-label="Search products"
             >
-              <Search className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950 transition-colors" />
-              <span className="hidden xl:inline text-[11px] font-medium text-zinc-500">Search catalog...</span>
-              <kbd className="hidden xl:inline-block rounded-md bg-white border border-zinc-200 px-1.5 py-0.5 text-[9px] font-bold text-zinc-500 shadow-2xs">
+              <Search className="h-4 w-4 xl:h-3.5 xl:w-3.5 text-slate-300 group-hover:text-[#D4AF65] transition-colors shrink-0" />
+              <span className="hidden xl:inline text-[11px] font-medium text-slate-300">Search catalog...</span>
+              <kbd className="hidden xl:inline-block rounded-md bg-[#101D35] border border-[#28395A] px-1.5 py-0.5 text-[9px] font-bold text-[#D4AF65] shadow-2xs">
                 ⌘K
               </kbd>
             </motion.button>
@@ -709,15 +737,15 @@ export default function SiteHeader() {
             {/* Track Orders / Shopping Bag Button */}
             <Link
               to="/track-order"
-              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-[#28395A] bg-[#162542] text-slate-300 hover:bg-[#1B2C4D] hover:text-[#D4AF65] transition-all shadow-2xs"
+              className="hidden sm:flex relative h-9 w-9 items-center justify-center rounded-full border border-[#28395A] bg-[#162542] text-slate-300 hover:bg-[#1B2C4D] hover:text-[#D4AF65] transition-all shadow-2xs shrink-0"
               title="Track Orders"
             >
               <Truck className="h-4 w-4" />
             </Link>
 
             {/* Direct 1-Click WhatsApp CTA + Concierge Popover Toggle */}
-            <div className="relative flex items-center">
-              <div className="inline-flex items-center rounded-full border border-emerald-300/80 bg-emerald-50/80 shadow-2xs overflow-hidden">
+            <div className="relative flex items-center shrink-0">
+              <div className="inline-flex items-center rounded-full border border-emerald-500/40 bg-[#162542] shadow-2xs overflow-hidden">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -729,13 +757,13 @@ export default function SiteHeader() {
                       label: 'header_whatsapp_direct',
                     })
                   }
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-emerald-950 hover:bg-[#25D366] hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-bold text-emerald-400 hover:bg-[#25D366] hover:text-white transition-colors cursor-pointer"
                   aria-label="Get Price on WhatsApp"
                   title="Chat directly on WhatsApp"
                 >
-                  <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
-                  <span className="inline text-[11px] font-extrabold">WhatsApp</span>
-                  <span className="relative flex h-2 w-2 ml-0.5">
+                  <WhatsAppIcon className="h-4 w-4 sm:h-3.5 sm:w-3.5 fill-current shrink-0" />
+                  <span className="hidden min-[380px]:inline text-[11px] font-extrabold">WhatsApp</span>
+                  <span className="relative flex h-2 w-2 ml-0.5 shrink-0">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
@@ -746,8 +774,8 @@ export default function SiteHeader() {
                     setWhatsappPopoverOpen((v) => !v)
                     setUserMenuOpen(false)
                   }}
-                  className={`px-1.5 py-1.5 border-l border-emerald-200 text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer ${
-                    whatsappPopoverOpen ? 'bg-emerald-200/70' : ''
+                  className={`px-1.5 py-1.5 border-l border-[#28395A] text-emerald-400 hover:bg-[#1B2C4D] transition-colors cursor-pointer ${
+                    whatsappPopoverOpen ? 'bg-[#1B2C4D]' : ''
                   }`}
                   aria-label="Show WhatsApp hotline number"
                   title="View & copy WhatsApp number"
@@ -764,17 +792,17 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute right-0 top-full mt-2.5 w-72 sm:w-76 rounded-2xl border border-zinc-200 bg-white/98 backdrop-blur-2xl p-4 shadow-2xl z-50 text-zinc-800"
+                    className="fixed right-3 left-3 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-full sm:mt-2.5 sm:w-76 rounded-2xl border border-[#28395A] bg-[#101D35]/98 backdrop-blur-2xl p-4 shadow-2xl z-50 text-white"
                   >
-                    <div className="flex items-center justify-between border-b border-zinc-100 pb-3 mb-3">
+                    <div className="flex items-center justify-between border-b border-[#28395A] pb-3 mb-3">
                       <div className="flex items-center gap-2.5">
                         <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs">
                           <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-zinc-950 leading-tight">WhatsApp Concierge</div>
-                          <div className="flex items-center gap-1 text-[10px] font-medium text-emerald-600">
-                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          <div className="text-xs font-bold text-white leading-tight">WhatsApp Concierge</div>
+                          <div className="flex items-center gap-1 text-[10px] font-medium text-emerald-400">
+                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                             <span>Online • Instant Turnaround</span>
                           </div>
                         </div>
@@ -782,30 +810,30 @@ export default function SiteHeader() {
                       <button
                         type="button"
                         onClick={() => setWhatsappPopoverOpen(false)}
-                        className="text-zinc-400 hover:text-zinc-600 p-1 rounded-md hover:bg-zinc-100 transition-colors cursor-pointer"
+                        className="text-slate-400 hover:text-white p-1 rounded-md hover:bg-[#162542] transition-colors cursor-pointer"
                         aria-label="Close"
                       >
                         <X className="h-4 w-4" />
                       </button>
                     </div>
 
-                    <div className="rounded-xl bg-zinc-50 p-3 border border-zinc-200/80 mb-3">
-                      <span className="block text-[10px] font-bold uppercase tracking-wider text-zinc-400">Direct Hotline</span>
-                      <div className="mt-1 flex items-center justify-between">
-                        <span className="text-sm font-black tracking-tight text-zinc-950">{FORMATTED_PHONE}</span>
+                    <div className="rounded-xl bg-[#162542] p-3 border border-[#28395A] mb-3">
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Direct Hotline</span>
+                      <div className="mt-1 flex items-center justify-between gap-2">
+                        <span className="text-sm font-black tracking-tight text-white">{FORMATTED_PHONE}</span>
                         <button
                           type="button"
                           onClick={handleCopyNumber}
-                          className="flex items-center gap-1 rounded-lg bg-white px-2 py-1 text-[11px] font-bold text-zinc-700 shadow-2xs border border-zinc-200 hover:bg-zinc-100 transition-colors cursor-pointer"
+                          className="flex items-center gap-1 rounded-lg bg-[#101D35] px-2 py-1 text-[11px] font-bold text-slate-200 shadow-2xs border border-[#28395A] hover:bg-[#1B2C4D] transition-colors cursor-pointer shrink-0"
                         >
                           {copied ? (
                             <>
-                              <Check className="h-3 w-3 text-emerald-600" />
-                              <span className="text-emerald-700">Copied!</span>
+                              <Check className="h-3 w-3 text-emerald-400" />
+                              <span className="text-emerald-400">Copied!</span>
                             </>
                           ) : (
                             <>
-                              <Copy className="h-3 w-3 text-zinc-500" />
+                              <Copy className="h-3 w-3 text-slate-400" />
                               <span>Copy</span>
                             </>
                           )}
@@ -837,17 +865,17 @@ export default function SiteHeader() {
 
             {/* Authenticated Admin Badge */}
             {isAuthenticated && isAdmin ? (
-              <div className="relative">
+              <div className="relative shrink-0">
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-50 px-2 py-1.5 text-xs font-semibold text-zinc-700 hover:bg-zinc-100 cursor-pointer shadow-2xs"
+                  className="flex items-center gap-1.5 rounded-full border border-[#28395A] bg-[#162542] px-2 py-1.5 text-xs font-semibold text-white hover:bg-[#1B2C4D] cursor-pointer shadow-2xs"
                 >
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-950 text-white text-[10px] font-bold">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#D4AF65] text-[#101D35] text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
                   <span className="hidden xl:inline max-w-[70px] truncate">{user?.name || 'Admin'}</span>
-                  <ChevronDown className={`h-3 w-3 text-zinc-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`h-3 w-3 text-slate-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 <AnimatePresence>
@@ -857,19 +885,19 @@ export default function SiteHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2.5 w-52 rounded-2xl border border-zinc-200 bg-white p-2 shadow-xl z-50 text-zinc-800"
+                      className="absolute right-0 top-full mt-2.5 w-52 rounded-2xl border border-[#28395A] bg-[#101D35] p-2 shadow-xl z-50 text-white"
                     >
-                      <div className="px-3 py-2 border-b border-zinc-100 mb-1">
-                        <div className="font-bold text-xs text-zinc-950 truncate">{user?.name || 'Administrator'}</div>
-                        <div className="text-[10px] text-zinc-500 truncate">{user?.email}</div>
+                      <div className="px-3 py-2 border-b border-[#28395A] mb-1">
+                        <div className="font-bold text-xs text-white truncate">{user?.name || 'Administrator'}</div>
+                        <div className="text-[10px] text-slate-400 truncate">{user?.email}</div>
                       </div>
 
                       <Link
                         to="/admin"
                         onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-zinc-700 hover:text-zinc-950 hover:bg-zinc-50 rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-slate-200 hover:text-white hover:bg-[#162542] rounded-lg transition-colors"
                       >
-                        <ShieldCheck className="w-4 h-4 text-zinc-400" />
+                        <ShieldCheck className="w-4 h-4 text-[#D4AF65]" />
                         <span>Admin Dashboard</span>
                       </Link>
 
@@ -879,7 +907,7 @@ export default function SiteHeader() {
                           setUserMenuOpen(false)
                           logout()
                         }}
-                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors mt-1 border-t border-zinc-100 cursor-pointer"
+                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-400 hover:bg-red-500/10 rounded-lg transition-colors mt-1 border-t border-[#28395A] cursor-pointer"
                       >
                         <LogOut className="w-4 h-4" />
                         <span>Sign Out</span>
@@ -890,11 +918,12 @@ export default function SiteHeader() {
               </div>
             ) : null}
 
-            {/* Primary High-Converting CTA Button: Minimal Obsidian Pill */}
+            {/* Primary High-Converting CTA Button (Desktop/Tablet) */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
+              className="hidden sm:block shrink-0"
             >
               <Link
                 to="/get-a-quote"
@@ -910,8 +939,9 @@ export default function SiteHeader() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen((v) => !v)}
+              aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="flex lg:hidden h-9 w-9 items-center justify-center rounded-full border border-[#28395A] bg-[#162542] text-white hover:bg-[#1B2C4D] transition-colors cursor-pointer"
+              className="flex lg:hidden h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-[#28395A] bg-[#162542] text-white hover:bg-[#1B2C4D] transition-colors cursor-pointer"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -921,31 +951,31 @@ export default function SiteHeader() {
       {/* 3. UNIVERSAL SEARCH MODAL WITH SPRING ANIMATION */}
       <AnimatePresence>
         {searchModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-zinc-950/60 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-24 px-3 sm:px-4 bg-[#0B1426]/80 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: -16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: -16 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-2xl rounded-3xl border border-zinc-200 bg-white p-5 sm:p-6 shadow-2xl text-zinc-800"
+              className="w-full max-w-2xl rounded-3xl border border-[#28395A] bg-[#101D35] p-4 sm:p-6 shadow-2xl text-white"
             >
               {/* Search Bar Input */}
-              <div className="flex items-center justify-between border-b border-zinc-200 pb-4">
-                <div className="flex items-center gap-3 flex-1">
-                  <Search className="h-5 w-5 text-[#D4AF65]" />
+              <div className="flex items-center justify-between border-b border-[#28395A] pb-3.5 sm:pb-4 gap-2">
+                <div className="flex items-center gap-2.5 sm:gap-3 flex-1 min-w-0">
+                  <Search className="h-5 w-5 text-[#D4AF65] shrink-0" />
                   <input
                     ref={searchInputRef}
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search 200+ products, categories, or luxury finishes..."
-                    className="w-full bg-transparent text-sm sm:text-base font-semibold text-zinc-950 placeholder:text-zinc-400 focus:outline-none"
+                    placeholder="Search 200+ products, categories, or finishes..."
+                    className="w-full bg-transparent text-sm sm:text-base font-semibold text-white placeholder:text-slate-400 focus:outline-none min-w-0"
                   />
                 </div>
                 <button
                   type="button"
                   onClick={() => setSearchModalOpen(false)}
-                  className="rounded-full p-1.5 text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 cursor-pointer"
+                  className="rounded-full p-1.5 text-slate-400 hover:text-white hover:bg-[#162542] cursor-pointer shrink-0"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -955,57 +985,57 @@ export default function SiteHeader() {
               <div className="mt-4 max-h-[60vh] overflow-y-auto space-y-4 pr-1">
                 {searchQuery.trim() === '' ? (
                   <div className="py-2">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-zinc-400 block mb-2.5">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-2.5">
                       Popular Print Categories in Dubai
                     </span>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    <div className="grid grid-cols-1 min-[380px]:grid-cols-2 sm:grid-cols-3 gap-2">
                       <Link
                         to="/business-card-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-[#28395A] bg-[#162542] hover:border-[#D4AF65] hover:bg-[#1B2C4D] text-xs font-bold text-slate-200 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-zinc-950 transition-colors">Business Cards</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
+                        <span className="group-hover:text-white transition-colors">Business Cards</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#D4AF65] shrink-0" />
                       </Link>
                       <Link
                         to="/categories/custom-stamps-seals"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-[#28395A] bg-[#162542] hover:border-[#D4AF65] hover:bg-[#1B2C4D] text-xs font-bold text-slate-200 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-zinc-950 transition-colors">Stamps &amp; Seals</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
+                        <span className="group-hover:text-white transition-colors">Stamps &amp; Seals</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#D4AF65] shrink-0" />
                       </Link>
                       <Link
                         to="/categories/letterheads-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-[#28395A] bg-[#162542] hover:border-[#D4AF65] hover:bg-[#1B2C4D] text-xs font-bold text-slate-200 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-zinc-950 transition-colors">Letterheads</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
+                        <span className="group-hover:text-white transition-colors">Letterheads</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#D4AF65] shrink-0" />
                       </Link>
                       <Link
                         to="/categories/stickers-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-[#28395A] bg-[#162542] hover:border-[#D4AF65] hover:bg-[#1B2C4D] text-xs font-bold text-slate-200 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-zinc-950 transition-colors">Stickers &amp; Labels</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
+                        <span className="group-hover:text-white transition-colors">Stickers &amp; Labels</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#D4AF65] shrink-0" />
                       </Link>
                       <Link
                         to="/categories/brochures-printing"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-[#28395A] bg-[#162542] hover:border-[#D4AF65] hover:bg-[#1B2C4D] text-xs font-bold text-slate-200 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-zinc-950 transition-colors">Brochures &amp; Flyers</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
+                        <span className="group-hover:text-white transition-colors">Brochures &amp; Flyers</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#D4AF65] shrink-0" />
                       </Link>
                       <Link
                         to="/categories/mug-printing-dubai"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-50 text-xs font-bold text-zinc-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-xl border border-[#28395A] bg-[#162542] hover:border-[#D4AF65] hover:bg-[#1B2C4D] text-xs font-bold text-slate-200 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-zinc-950 transition-colors">Corporate Gifts</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-950" />
+                        <span className="group-hover:text-white transition-colors">Corporate Gifts</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#D4AF65] shrink-0" />
                       </Link>
                     </div>
                   </div>
@@ -1022,13 +1052,13 @@ export default function SiteHeader() {
                               key={p._id || p.id}
                               to={`/products/${p.slug}`}
                               onClick={() => setSearchModalOpen(false)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl border border-zinc-100 hover:border-zinc-950 hover:bg-zinc-50 transition-all"
+                              className="group flex items-center justify-between p-2.5 rounded-xl border border-[#28395A] bg-[#162542] hover:border-[#D4AF65] hover:bg-[#1B2C4D] transition-all"
                             >
                               <div>
-                                <h6 className="text-xs font-bold text-zinc-950 group-hover:text-[#D4AF65] transition-colors">{p.name}</h6>
-                                <p className="text-[10px] text-zinc-400 line-clamp-1">{p.shortDescription}</p>
+                                <h6 className="text-xs font-bold text-white group-hover:text-[#D4AF65] transition-colors">{p.name}</h6>
+                                <p className="text-[10px] text-slate-400 line-clamp-1">{p.shortDescription}</p>
                               </div>
-                              <span className="text-xs font-black text-zinc-950">
+                              <span className="text-xs font-black text-[#D4AF65]">
                                 {p.price ? `${p.price} AED` : 'Quote'}
                               </span>
                             </Link>
@@ -1039,7 +1069,7 @@ export default function SiteHeader() {
 
                     {searchResults.categories.length > 0 && (
                       <div>
-                        <span className="text-[10px] font-black uppercase tracking-wider text-zinc-400 block mb-2">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block mb-2">
                           Matching Categories
                         </span>
                         <div className="grid grid-cols-2 gap-2">
@@ -1048,7 +1078,7 @@ export default function SiteHeader() {
                               key={c.id || c._id}
                               to={`/categories/${c.slug}`}
                               onClick={() => setSearchModalOpen(false)}
-                              className="p-2.5 rounded-xl border border-zinc-200 hover:border-zinc-950 text-xs font-bold text-zinc-800 hover:text-zinc-950 transition-colors"
+                              className="p-2.5 rounded-xl border border-[#28395A] bg-[#162542] hover:border-[#D4AF65] text-xs font-bold text-slate-200 hover:text-white transition-colors"
                             >
                               {c.name}
                             </Link>
@@ -1059,7 +1089,7 @@ export default function SiteHeader() {
 
                     {searchResults.products.length === 0 && searchResults.categories.length === 0 && (
                       <div className="py-8 text-center">
-                        <p className="text-xs text-zinc-500">No direct matches found for "{searchQuery}".</p>
+                        <p className="text-xs text-slate-400">No direct matches found for "{searchQuery}".</p>
                         <Link
                           to={`/products?search=${encodeURIComponent(searchQuery)}`}
                           onClick={() => setSearchModalOpen(false)}
@@ -1087,7 +1117,7 @@ export default function SiteHeader() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-zinc-950/60 backdrop-blur-sm"
+              className="fixed inset-0 bg-[#0B1426]/80 backdrop-blur-sm"
             />
 
             {/* Slide-in Drawer Container */}
@@ -1096,17 +1126,17 @@ export default function SiteHeader() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-              className="relative ml-auto flex h-full w-full max-w-md flex-col bg-white shadow-2xl z-50 overflow-hidden"
+              className="relative ml-auto flex h-full w-full max-w-md flex-col bg-[#101D35] border-l border-[#28395A] shadow-2xl z-50 overflow-hidden text-white"
             >
               {/* Drawer Header */}
-              <div className="flex items-center justify-between border-b border-zinc-100 p-4 shrink-0">
+              <div className="flex items-center justify-between border-b border-[#28395A] p-4 shrink-0">
                 <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2">
-                  <Logo variant="default" size="sm" />
+                  <Logo variant="light" size="sm" />
                 </Link>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 hover:bg-zinc-200 transition-colors cursor-pointer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#162542] border border-[#28395A] text-slate-300 hover:bg-[#1B2C4D] hover:text-white transition-colors cursor-pointer"
                   aria-label="Close menu"
                 >
                   <X className="h-5 w-5" />
@@ -1122,13 +1152,13 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     setSearchModalOpen(true)
                   }}
-                  className="flex w-full items-center justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-3 text-xs text-zinc-500 hover:bg-zinc-100 transition-all cursor-pointer"
+                  className="flex w-full items-center justify-between rounded-xl border border-[#28395A] bg-[#162542] p-3 text-xs text-slate-300 hover:bg-[#1B2C4D] transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
                     <Search className="h-4 w-4 text-[#D4AF65]" />
                     <span>Search 200+ print products...</span>
                   </div>
-                  <ArrowRight className="h-3.5 w-3.5 text-zinc-400" />
+                  <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
                 </button>
 
                 {/* WhatsApp Concierge Card */}
@@ -1140,7 +1170,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     trackWhatsAppClick({ source_page: 'header_mobile_menu', service: 'general', button_location: 'mobile_concierge' })
                   }}
-                  className="flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50/70 p-3 text-emerald-950 transition-all shadow-xs"
+                  className="flex items-center justify-between rounded-2xl border border-emerald-500/30 bg-[#162542] p-3 text-white transition-all shadow-xs"
                 >
                   <div className="flex items-center gap-2.5">
                     <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs shrink-0">
@@ -1148,10 +1178,10 @@ export default function SiteHeader() {
                     </div>
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-xs font-bold text-emerald-950">WhatsApp Concierge</span>
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-xs font-bold text-white">WhatsApp Concierge</span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                       </div>
-                      <span className="text-[11px] font-bold text-emerald-800">{FORMATTED_PHONE}</span>
+                      <span className="text-[11px] font-bold text-emerald-400">{FORMATTED_PHONE}</span>
                     </div>
                   </div>
                   <span className="rounded-lg bg-[#25D366] text-white px-2.5 py-1 text-[11px] font-bold shadow-xs">
@@ -1165,7 +1195,7 @@ export default function SiteHeader() {
                   <Link
                     to="/"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
                   >
                     <span>Home</span>
                   </Link>
@@ -1174,7 +1204,7 @@ export default function SiteHeader() {
                   <Link
                     to="/business-card-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-950 bg-zinc-100"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-white bg-[#162542] border border-[#28395A]"
                   >
                     <div className="flex items-center gap-2">
                       <CreditCard className="h-4 w-4 text-[#D4AF65]" />
@@ -1189,13 +1219,13 @@ export default function SiteHeader() {
                   <Link
                     to="/categories/custom-stamps-seals"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <Stamp className="h-4 w-4 text-zinc-400" />
+                      <Stamp className="h-4 w-4 text-[#D4AF65]" />
                       <span>Company Stamps &amp; Seals</span>
                     </div>
-                    <span className="rounded bg-zinc-200 text-zinc-800 px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#162542] border border-[#28395A] text-[#D4AF65] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       2H
                     </span>
                   </Link>
@@ -1204,10 +1234,10 @@ export default function SiteHeader() {
                   <Link
                     to="/categories/stickers-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <Layers className="h-4 w-4 text-zinc-400" />
+                      <Layers className="h-4 w-4 text-[#D4AF65]" />
                       <span>Stickers &amp; Labels</span>
                     </div>
                   </Link>
@@ -1216,10 +1246,10 @@ export default function SiteHeader() {
                   <Link
                     to="/categories/roll-up-banners-dubai"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <Layers className="h-4 w-4 text-zinc-400" />
+                      <Layers className="h-4 w-4 text-[#D4AF65]" />
                       <span>Roll-Up Banners</span>
                     </div>
                   </Link>
@@ -1228,29 +1258,29 @@ export default function SiteHeader() {
                   <Link
                     to="/categories/letterheads-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <FileText className="h-4 w-4 text-zinc-400" />
+                      <FileText className="h-4 w-4 text-[#D4AF65]" />
                       <span>Letterheads &amp; Stationery</span>
                     </div>
                   </Link>
 
                   {/* Product Catalog Accordion */}
-                  <div className="border-t border-b border-zinc-100 py-1 my-1">
+                  <div className="border-t border-b border-[#28395A] py-1 my-1">
                     <button
                       type="button"
                       onClick={() => setMobileAccordion((p) => ({ ...p, catalog: !p.catalog }))}
-                      className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 cursor-pointer"
+                      className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] cursor-pointer"
                     >
                       <div className="flex items-center gap-2">
-                        <Layers className="h-4 w-4 text-zinc-950" />
+                        <Layers className="h-4 w-4 text-[#D4AF65]" />
                         <span>All Print Categories</span>
                       </div>
                       {mobileAccordion.catalog ? (
-                        <Minus className="h-4 w-4 text-zinc-400" />
+                        <Minus className="h-4 w-4 text-slate-400" />
                       ) : (
-                        <Plus className="h-4 w-4 text-zinc-400" />
+                        <Plus className="h-4 w-4 text-slate-400" />
                       )}
                     </button>
 
@@ -1265,7 +1295,7 @@ export default function SiteHeader() {
                           <Link
                             to="/products"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-bold text-zinc-950 hover:bg-zinc-100"
+                            className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-bold text-[#D4AF65] hover:bg-[#162542]"
                           >
                             <span>Browse All Products Catalog</span>
                             <ArrowRight className="h-3 w-3 text-[#D4AF65]" />
@@ -1275,10 +1305,10 @@ export default function SiteHeader() {
                               key={cat.slug || cat.id}
                               to={`/categories/${cat.slug}`}
                               onClick={() => setMobileMenuOpen(false)}
-                              className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-medium text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950"
+                              className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-medium text-slate-300 hover:bg-[#162542] hover:text-white"
                             >
                               <span>{cat.name}</span>
-                              <ChevronRight className="h-3 w-3 text-zinc-300" />
+                              <ChevronRight className="h-3 w-3 text-slate-400" />
                             </Link>
                           ))}
                         </motion.div>
@@ -1290,22 +1320,53 @@ export default function SiteHeader() {
                   <Link
                     to="/services"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-zinc-400" />
-                      <span>Printing Services &amp; Finishes</span>
+                      <Sparkles className="h-4 w-4 text-[#D4AF65]" />
+                      <span>Printing Services &amp; Solutions</span>
                     </div>
                   </Link>
+
+                  {/* Luxury Finishes Showcase */}
+                  <Link
+                    to="/finishes"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Palette className="h-4 w-4 text-[#D4AF65]" />
+                      <span>Luxury Finishes (Foil &amp; 3D UV)</span>
+                    </div>
+                    <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                      8 CRAFTS
+                    </span>
+                  </Link>
+
+                  {/* Corporate & Bulk Quotes */}
+                  <Link
+                    to="/corporate-quotes"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Building2 className="h-4 w-4 text-[#D4AF65]" />
+                      <span>Corporate &amp; Bulk Quotes</span>
+                    </div>
+                    <span className="rounded bg-[#162542] border border-[#28395A] text-[#D4AF65] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                      B2B
+                    </span>
+                  </Link>
+
 
                   {/* About */}
                   <Link
                     to="/about"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <Building2 className="h-4 w-4 text-zinc-400" />
+                      <Building2 className="h-4 w-4 text-[#D4AF65]" />
                       <span>About ONPRINT Pressroom</span>
                     </div>
                   </Link>
@@ -1314,10 +1375,10 @@ export default function SiteHeader() {
                   <Link
                     to="/blog"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <BookOpen className="h-4 w-4 text-zinc-400" />
+                      <BookOpen className="h-4 w-4 text-[#D4AF65]" />
                       <span>Blog &amp; Insights</span>
                     </div>
                   </Link>
@@ -1326,10 +1387,10 @@ export default function SiteHeader() {
                   <Link
                     to="/contact"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-zinc-800 hover:bg-zinc-50 hover:text-zinc-950"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-200 hover:bg-[#162542] hover:text-white"
                   >
                     <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-zinc-400" />
+                      <MapPin className="h-4 w-4 text-[#D4AF65]" />
                       <span>Contact &amp; Pressroom</span>
                     </div>
                   </Link>
@@ -1337,7 +1398,7 @@ export default function SiteHeader() {
               </div>
 
               {/* Drawer Footer Actions */}
-              <div className="border-t border-zinc-200 p-4 space-y-2 shrink-0 bg-zinc-50">
+              <div className="border-t border-[#28395A] p-4 space-y-2 shrink-0 bg-[#0B1426]">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -1371,9 +1432,9 @@ export default function SiteHeader() {
                 <Link
                   to="/track-order"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white py-2.5 text-xs font-bold text-zinc-700 hover:bg-zinc-50 transition-colors shadow-2xs"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-[#28395A] bg-[#162542] py-2.5 text-xs font-bold text-slate-200 hover:bg-[#1B2C4D] hover:text-white transition-colors shadow-2xs"
                 >
-                  <Truck className="h-4 w-4 text-zinc-950" />
+                  <Truck className="h-4 w-4 text-[#D4AF65]" />
                   <span>Track Existing Order</span>
                 </Link>
               </div>

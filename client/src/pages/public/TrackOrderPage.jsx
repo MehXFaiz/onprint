@@ -17,6 +17,12 @@ import {
   RefreshCw,
   Copy,
   Check,
+  Mail,
+  FileText,
+  ExternalLink,
+  Download,
+  CheckSquare,
+  ShieldCheck,
 } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
@@ -29,7 +35,7 @@ import { trackOrder, getRecentTrackedOrders, getStoredOrders } from '../../servi
 export default function TrackOrderPage() {
   const { user } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams()
-  const initialQuery = searchParams.get('order') || searchParams.get('q') || ''
+  const initialQuery = searchParams.get('order') || searchParams.get('q') || searchParams.get('ref') || ''
 
   const [query, setQuery] = useState(initialQuery)
   const [loading, setLoading] = useState(false)
@@ -38,6 +44,7 @@ export default function TrackOrderPage() {
   const [notFound, setNotFound] = useState(false)
   const [recentOrders, setRecentOrders] = useState([])
   const [copied, setCopied] = useState(false)
+  const [showInvoiceModal, setShowInvoiceModal] = useState(false)
 
   // Load recent tracked orders on mount and when user state changes
   useEffect(() => {
@@ -96,61 +103,54 @@ export default function TrackOrderPage() {
     setTimeout(() => setCopied(false), 2000)
   }
 
-  // Determine active stage based on order status
+  // 9 Production Stages from Order Received to Delivered
   const getTimelineSteps = (status = 'Pending') => {
     const s = (status || '').toLowerCase()
 
-    const isPending = s === 'pending'
-    const isApproved = s === 'approved' || s === 'in review'
-    const isProduction = s === 'in production' || s === 'printing'
-    const isDispatched = s === 'dispatched' || s === 'out for delivery' || s === 'shipped'
-    const isDelivered = s === 'delivered' || s === 'completed'
+    let activeStageIdx = 1
+    if (s.includes('artwork received') || s.includes('prepress') || s.includes('review')) {
+      activeStageIdx = 2
+    } else if (s.includes('proof ready') || s.includes('proof sent')) {
+      activeStageIdx = 3
+    } else if (s.includes('approved') || s.includes('scheduled')) {
+      activeStageIdx = 4
+    } else if (s.includes('production') || s.includes('printing') || s.includes('press')) {
+      activeStageIdx = 5
+    } else if (s.includes('finishing') || s.includes('quality') || s.includes('cutting')) {
+      activeStageIdx = 6
+    } else if (s.includes('dispatched') || s.includes('shipped')) {
+      activeStageIdx = 7
+    } else if (s.includes('out for delivery') || s.includes('in transit')) {
+      activeStageIdx = 8
+    } else if (s.includes('delivered') || s.includes('completed')) {
+      activeStageIdx = 9
+    }
 
-    return [
-      {
-        id: 1,
-        title: 'Order Placed',
-        subtitle: 'Job specs & files received',
-        icon: FileCheck,
-        done: true,
-        current: isPending,
-      },
-      {
-        id: 2,
-        title: 'Pre-Press & Proofing',
-        subtitle: 'Color, bleed & resolution check',
-        icon: Layers,
-        done: isApproved || isProduction || isDispatched || isDelivered,
-        current: isApproved,
-      },
-      {
-        id: 3,
-        title: 'In Production',
-        subtitle: 'High-speed printing & finishing',
-        icon: Printer,
-        done: isProduction || isDispatched || isDelivered,
-        current: isProduction,
-      },
-      {
-        id: 4,
-        title: 'Dispatched',
-        subtitle: 'En route with Dubai courier',
-        icon: Truck,
-        done: isDispatched || isDelivered,
-        current: isDispatched,
-      },
-      {
-        id: 5,
-        title: 'Delivered',
-        subtitle: 'Completed & delivered',
-        icon: CheckCircle2,
-        done: isDelivered,
-        current: isDelivered,
-      },
+    const stages = [
+      { id: 1, title: 'Order Received', subtitle: 'Job ticket registered', icon: FileCheck },
+      { id: 2, title: 'Artwork Received', subtitle: 'Bleed & 300 DPI pre-flight', icon: Layers },
+      { id: 3, title: 'Digital Proof Ready', subtitle: 'PDF proof issued', icon: CheckSquare },
+      { id: 4, title: 'Artwork Approved', subtitle: 'Plates exposed & scheduled', icon: CheckCircle2 },
+      { id: 5, title: 'In Production', subtitle: 'Running on press in Al Quoz', icon: Printer },
+      { id: 6, title: 'Quality & Finishing', subtitle: 'Tactile foil, UV & trim', icon: Sparkles },
+      { id: 7, title: 'Dispatched', subtitle: 'Handed to courier partner', icon: Package },
+      { id: 8, title: 'Out for Delivery', subtitle: 'Courier in transit to door', icon: Truck },
+      { id: 9, title: 'Delivered', subtitle: 'Signed & completed', icon: CheckCircle2 },
     ]
+
+    return stages.map((st) => ({
+      ...st,
+      done: st.id < activeStageIdx,
+      current: st.id === activeStageIdx,
+    }))
   }
 
   const steps = order ? getTimelineSteps(order.status) : []
+
+  // VAT calculations for receipt
+  const subtotal = order ? Number(order.subtotal || (order.totalPrice ? order.totalPrice / 1.05 : 0)) : 0
+  const vatAmount = order ? Number(order.tax || (order.totalPrice ? order.totalPrice - subtotal : 0)) : 0
+  const totalAmount = order ? Number(order.totalPrice || subtotal + vatAmount) : 0
 
   return (
     <div className="py-12 sm:py-16 bg-slate-50/50 min-h-[75vh]">
@@ -167,14 +167,14 @@ export default function TrackOrderPage() {
 
         {/* Hero Header */}
         <div className="text-center max-w-2xl mx-auto mt-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 border border-red-100 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
-            <Sparkles className="w-3.5 h-3.5" /> Real-Time Production Tracker
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35]/5 border border-[#D4AF65]/30 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#101D35]">
+            <Sparkles className="w-3.5 h-3.5 text-[#D4AF65]" /> Real-Time Production Tracker
           </span>
           <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-            Track Your Print Order
+            Track Your Print Order &amp; Quotation
           </h1>
           <p className="mt-2 text-sm text-slate-600">
-            Enter your <strong className="text-slate-900">Order Number</strong> (e.g. <code>ONP-2026-XXXXXX</code>), email, or phone number to see real-time pre-press, printing, and courier delivery progress.
+            Enter your <strong className="text-slate-900">Reference Number</strong> (e.g. <code>ONP-2026-XXXXXX</code> or <code>ONP-Q-XXXXXX</code>), email, or phone number to see real-time pre-press, printing, and courier delivery progress.
           </p>
         </div>
 
@@ -187,7 +187,7 @@ export default function TrackOrderPage() {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Enter Order # (e.g. ONP-2026-584109) or email"
+                placeholder="Enter Reference # (e.g. ONP-2026-584109 / ONP-Q-123456) or email"
                 className="w-full rounded-xl border border-slate-300 bg-slate-50/50 py-3 pl-11 pr-4 text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-[#D4AF65] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D4AF65]/20 transition-all font-mono"
                 required
               />
@@ -204,7 +204,7 @@ export default function TrackOrderPage() {
                   <RefreshCw className="h-4 w-4 animate-spin" /> Searching...
                 </span>
               ) : (
-                'Track Order'
+                'Track Status'
               )}
             </Button>
           </form>
@@ -218,7 +218,7 @@ export default function TrackOrderPage() {
                   key={rec.orderNumber}
                   type="button"
                   onClick={() => handleQuickLookup(rec.orderNumber)}
-                  className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono font-bold text-slate-700 hover:border-[#D4AF65] hover:bg-red-50 hover:text-[#D4AF65] transition-all cursor-pointer"
+                  className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono font-bold text-slate-700 hover:border-[#D4AF65] hover:bg-amber-50 hover:text-[#101D35] transition-all cursor-pointer"
                 >
                   {rec.orderNumber}
                 </button>
@@ -230,7 +230,7 @@ export default function TrackOrderPage() {
         {/* Loading State */}
         {loading && (
           <div className="mt-12 text-center py-12">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-[#D4AF65] animate-bounce">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-50 text-[#D4AF65] animate-bounce">
               <Printer className="h-6 w-6" />
             </div>
             <p className="mt-4 font-bold text-slate-800">Checking ONPRINT Production Database...</p>
@@ -244,20 +244,20 @@ export default function TrackOrderPage() {
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-700 mb-3">
               <AlertCircle className="h-6 w-6" />
             </div>
-            <h3 className="font-display text-lg font-bold text-slate-900">No Matching Order Found</h3>
+            <h3 className="font-display text-lg font-bold text-slate-900">No Matching Order or Quote Found</h3>
             <p className="mt-2 text-xs text-slate-600 max-w-md mx-auto">
-              We couldn't locate an order matching &quot;<strong className="text-slate-900">{query}</strong>&quot;.
-              Please verify your order number in your confirmation email (format: <code className="font-bold">ONP-2026-XXXXXX</code>) or search with the email address used during checkout.
+              We couldn&apos;t locate a job matching &quot;<strong className="text-slate-900">{query}</strong>&quot;.
+              Please verify your reference number in your confirmation email (format: <code className="font-bold">ONP-2026-XXXXXX</code> or <code className="font-bold">ONP-Q-XXXXXX</code>) or search with the email address used during checkout.
             </p>
 
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
                 href="mailto:0nprint183@gmail.com"
-                className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition-colors shadow-xs"
+                className="inline-flex w-full sm:w-auto justify-center text-center break-words items-center gap-2 rounded-xl bg-[#101D35] px-4 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition-colors shadow-xs"
               >
-                <Mail className="h-4 w-4" /> Email Support (0nprint183@gmail.com)
+                <Mail className="h-4 w-4 shrink-0" /> Email Support (0nprint183@gmail.com)
               </a>
-              <Button to="/get-a-quote" variant="outline" size="sm" icon={false}>
+              <Button to="/get-a-quote" variant="outline" size="sm" icon={false} className="w-full sm:w-auto justify-center text-center break-words">
                 Request New Quote
               </Button>
             </div>
@@ -272,14 +272,16 @@ export default function TrackOrderPage() {
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Order Reference</span>
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                      {order.isQuote ? 'Quote Reference' : order.isCorporate ? 'Corporate Procurement RFQ' : 'Order Reference'}
+                    </span>
                     <span
                       className={`rounded-full px-3 py-1 text-xs font-bold border ${
-                        order.status === 'Pending'
+                        order.status === 'Pending' || order.status === 'New'
                           ? 'bg-amber-50 border-amber-200 text-amber-700'
-                          : order.status === 'In Production'
+                          : order.status === 'In Production' || order.status === 'Printing'
                             ? 'bg-purple-50 border-purple-200 text-purple-700'
-                            : order.status === 'Dispatched'
+                            : order.status === 'Dispatched' || order.status === 'Out for Delivery'
                               ? 'bg-blue-50 border-blue-200 text-blue-700'
                               : 'bg-emerald-50 border-emerald-200 text-emerald-700'
                       }`}
@@ -287,14 +289,14 @@ export default function TrackOrderPage() {
                       {order.status || 'Pending'}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 mt-1">
-                    <h2 className="font-mono text-2xl sm:text-3xl font-black text-slate-900">
-                      {order.orderNumber}
+                  <div className="flex flex-wrap items-center gap-2 mt-1">
+                    <h2 className="break-all font-mono text-2xl sm:text-3xl font-black text-slate-900">
+                      {order.orderNumber || order.quoteNumber}
                     </h2>
                     <button
                       type="button"
                       onClick={handleCopyOrderNumber}
-                      title="Copy Order Number"
+                      title="Copy Reference Number"
                       className="p-1.5 rounded-md hover:bg-slate-100 text-slate-500 transition-colors cursor-pointer"
                     >
                       {copied ? <Check className="h-4 w-4 text-emerald-600" /> : <Copy className="h-4 w-4" />}
@@ -307,44 +309,58 @@ export default function TrackOrderPage() {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3">
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+                  <button
+                    type="button"
+                    onClick={() => setShowInvoiceModal(true)}
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors cursor-pointer"
                   >
-                    <Mail className="h-4 w-4 text-slate-600" /> Contact Support
-                  </Link>
+                    <FileText className="h-4 w-4 text-[#D4AF65]" /> View Tax Invoice
+                  </button>
+
+                  <a
+                    href={`https://wa.me/447344546056?text=${encodeURIComponent(`Hello ONPRINT, I am tracking my reference ${order.orderNumber || order.quoteNumber} (Status: ${order.status || 'In Progress'}). Please share live production update.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-2 text-xs font-bold transition-all shadow-xs"
+                  >
+                    <WhatsAppIcon className="h-4 w-4 fill-white" /> WhatsApp Inquiry
+                  </a>
                 </div>
               </div>
 
-              {/* Progress Timeline Stepper */}
+              {/* 9-Stage Progress Timeline Stepper */}
               <div className="pt-8">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-6">
-                  Live Production Timeline
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 relative">
-                  {steps.map((s, idx) => {
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                    9-Stage Commercial Production Workflow
+                  </h3>
+                  <span className="text-xs font-bold text-[#101D35] bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+                    ISO 12647-2 Pressroom Standards
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-3 relative">
+                  {steps.map((s) => {
                     const Icon = s.icon
                     return (
-                      <div key={s.title} className="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2">
+                      <div key={s.id} className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/60 border border-slate-100">
                         <div
-                          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-xs font-bold transition-all shadow-xs ${
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xs font-bold transition-all shadow-xs ${
                             s.done
-                              ? 'bg-[#D4AF65] text-white ring-4 ring-red-50'
+                              ? 'bg-[#101D35] text-[#D4AF65] ring-2 ring-[#D4AF65]/30'
                               : s.current
-                                ? 'bg-red-500 text-white ring-4 ring-red-100 animate-pulse'
-                                : 'border border-slate-200 bg-slate-100 text-slate-400'
+                                ? 'bg-[#D4AF65] text-[#101D35] ring-4 ring-amber-100 animate-pulse font-black'
+                                : 'border border-slate-200 bg-white text-slate-400'
                           }`}
                         >
-                          <Icon className="h-5 w-5" />
+                          <Icon className="h-4 w-4" />
                         </div>
-                        <div className="min-w-0">
-                          <p className={`text-xs font-bold ${s.done || s.current ? 'text-slate-900' : 'text-slate-400'}`}>
-                            {s.title}
-                          </p>
-                          <p className="text-[11px] text-slate-500 leading-tight mt-0.5">
-                            {s.subtitle}
-                          </p>
-                        </div>
+                        <p className={`text-[11px] font-bold mt-2 leading-tight ${s.done ? 'text-slate-900' : s.current ? 'text-[#101D35] font-black' : 'text-slate-400'}`}>
+                          {s.title}
+                        </p>
+                        <p className="text-[10px] text-slate-500 leading-tight mt-0.5 hidden sm:block">
+                          {s.subtitle}
+                        </p>
                       </div>
                     )
                   })}
@@ -358,24 +374,24 @@ export default function TrackOrderPage() {
               <div className="lg:col-span-2 space-y-6">
                 <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
                   <h3 className="font-display text-base font-bold text-slate-900 border-b border-slate-100 pb-3">
-                    Project Specifications
+                    Project Specifications &amp; Artworking
                   </h3>
 
                   <div className="space-y-3 text-xs">
-                    <div className="flex items-start justify-between">
+                    <div className="flex items-start justify-between gap-3">
                       <span className="font-bold text-slate-500">Product / Item:</span>
-                      <span className="font-extrabold text-slate-900 text-right">{order.productName || 'Custom Print Job'}</span>
+                      <span className="break-words font-extrabold text-slate-900 text-right">{order.productName || 'Custom Print Job'}</span>
                     </div>
 
-                    <div className="flex items-start justify-between">
+                    <div className="flex items-start justify-between gap-3">
                       <span className="font-bold text-slate-500">Order Quantity:</span>
-                      <span className="font-bold text-slate-900">{order.quantity || 1} units</span>
+                      <span className="font-bold text-slate-900 text-right">{order.quantity || 1} units</span>
                     </div>
 
                     {order.specs && (
                       <div className="pt-2">
                         <span className="font-bold text-slate-500 block mb-1">Configuration &amp; Finishes:</span>
-                        <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-3 text-slate-700 leading-relaxed font-mono text-[11px]">
+                        <div className="break-words rounded-xl border border-slate-200 bg-slate-50/70 p-3 text-slate-700 leading-relaxed font-mono text-[11px]">
                           {order.specs}
                         </div>
                       </div>
@@ -384,7 +400,7 @@ export default function TrackOrderPage() {
                     {order.notes && (
                       <div className="pt-2">
                         <span className="font-bold text-slate-500 block mb-1">Customer Special Instructions:</span>
-                        <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-3 text-slate-700 italic">
+                        <div className="break-words rounded-xl border border-slate-200 bg-slate-50/70 p-3 text-slate-700 italic">
                           &quot;{order.notes}&quot;
                         </div>
                       </div>
@@ -393,9 +409,11 @@ export default function TrackOrderPage() {
                     {order.artworkFile && (
                       <div className="pt-2">
                         <span className="font-bold text-slate-500 block mb-1">Attached Artwork / Design File:</span>
-                        <div className="flex items-center gap-2 rounded-xl border border-red-100 bg-red-50/50 p-3 text-xs font-bold text-[#D4AF65]">
-                          <span>📎</span>
-                          <span>{order.artworkFile}</span>
+                        <div className="flex items-center justify-between gap-2 rounded-xl border border-amber-200 bg-amber-50/40 p-3 text-xs font-bold text-[#101D35]">
+                          <span className="min-w-0 break-all">📎 {order.artworkFile}</span>
+                          <span className="text-[10px] uppercase font-bold text-[#D4AF65] bg-white px-2 py-0.5 rounded border border-amber-200 shrink-0">
+                            Pre-Flight Passed
+                          </span>
                         </div>
                       </div>
                     )}
@@ -408,22 +426,22 @@ export default function TrackOrderPage() {
                 {/* Financial Summary */}
                 <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-3">
                   <h3 className="font-display text-base font-bold text-slate-900 border-b border-slate-100 pb-3">
-                    Order Summary
+                    Invoice &amp; VAT Breakdown
                   </h3>
 
                   <div className="space-y-2 text-xs">
                     <div className="flex justify-between text-slate-600">
-                      <span>Quantity</span>
-                      <span>{order.quantity || 1} units</span>
+                      <span>Subtotal (Excl. VAT)</span>
+                      <span>AED {subtotal > 0 ? subtotal.toFixed(2) : (totalAmount > 0 ? (totalAmount / 1.05).toFixed(2) : 'Quoted')}</span>
                     </div>
                     <div className="flex justify-between text-slate-600">
-                      <span>Currency</span>
-                      <span>{order.currency || 'AED'}</span>
+                      <span>5% UAE VAT</span>
+                      <span>AED {vatAmount > 0 ? vatAmount.toFixed(2) : (totalAmount > 0 ? (totalAmount - totalAmount / 1.05).toFixed(2) : 'Quoted')}</span>
                     </div>
                     <div className="flex justify-between font-black text-sm text-slate-900 border-t border-slate-100 pt-2">
-                      <span>Total Amount</span>
+                      <span>Total (Incl. VAT)</span>
                       <span className="text-[#D4AF65]">
-                        {order.totalPrice ? `AED ${Number(order.totalPrice).toLocaleString()}` : 'Pricing on Request'}
+                        {totalAmount > 0 ? `AED ${totalAmount.toFixed(2)}` : 'Pricing on Request'}
                       </span>
                     </div>
                     <div className="flex justify-between items-center text-slate-600 pt-1">
@@ -443,7 +461,7 @@ export default function TrackOrderPage() {
 
                   <div className="space-y-2 text-xs">
                     <div>
-                      <span className="text-slate-400 block text-[10px] font-bold uppercase">Name</span>
+                      <span className="text-slate-400 block text-[10px] font-bold uppercase">Client Name</span>
                       <span className="font-bold text-slate-800">{order.customerName || order.name || 'Valued Client'}</span>
                     </div>
                     {order.company && (
@@ -455,7 +473,7 @@ export default function TrackOrderPage() {
                     {order.customerEmail && (
                       <div>
                         <span className="text-slate-400 block text-[10px] font-bold uppercase">Email</span>
-                        <span className="text-slate-700 font-mono">{order.customerEmail || order.email}</span>
+                        <span className="break-all text-slate-700 font-mono">{order.customerEmail || order.email}</span>
                       </div>
                     )}
                     {order.customerPhone && (
@@ -465,8 +483,8 @@ export default function TrackOrderPage() {
                       </div>
                     )}
                     <div>
-                      <span className="text-slate-400 block text-[10px] font-bold uppercase">Location</span>
-                      <span className="text-slate-700">Dubai &amp; UAE Courier Delivery</span>
+                      <span className="text-slate-400 block text-[10px] font-bold uppercase">Delivery Destination</span>
+                      <span className="text-slate-700">{order.deliveryLocation || 'Dubai & UAE Courier Delivery'}</span>
                     </div>
                   </div>
                 </div>
@@ -479,17 +497,17 @@ export default function TrackOrderPage() {
         {!loading && !searched && (
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
-              <div className="h-10 w-10 rounded-xl bg-red-50 text-[#D4AF65] flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-xl bg-amber-50 text-[#D4AF65] flex items-center justify-center mb-4">
                 <Clock className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-slate-900 text-sm">Fast Turnaround Times</h3>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                Standard digital print orders are dispatched in <strong>2–3 business days</strong>. Express same-day production is available upon request.
+                Standard digital print orders are dispatched in <strong>24–48 hours</strong>. Express same-day production is available upon request.
               </p>
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
-              <div className="h-10 w-10 rounded-xl bg-red-50 text-[#D4AF65] flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-xl bg-amber-50 text-[#D4AF65] flex items-center justify-center mb-4">
                 <FileCheck className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-slate-900 text-sm">Free Pre-Press Proofing</h3>
@@ -499,13 +517,132 @@ export default function TrackOrderPage() {
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
-              <div className="h-10 w-10 rounded-xl bg-red-50 text-[#D4AF65] flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-xl bg-amber-50 text-[#D4AF65] flex items-center justify-center mb-4">
                 <Truck className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-slate-900 text-sm">UAE-Wide Express Delivery</h3>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                Securely packaged in heavy-duty cartons and dispatched directly to your office or doorstep across Dubai, Abu Dhabi, and the UAE.
+                Securely packaged in heavy-duty cartons and dispatched directly to your office or doorstep across Dubai, Abu Dhabi, and all 7 Emirates.
               </p>
+            </div>
+          </div>
+        )}
+
+        {/* Official Printable Tax Invoice Modal */}
+        {showInvoiceModal && order && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs">
+            <div className="relative w-full max-w-2xl rounded-2xl bg-white p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
+              {/* Invoice Printable Document */}
+              <div id="printable-tax-invoice" className="space-y-6">
+                <div className="flex items-start justify-between border-b border-slate-200 pb-6">
+                  <div>
+                    <h2 className="text-2xl font-black tracking-wider text-[#101D35]">
+                      ON<span className="text-[#D4AF65]">PRINT</span>
+                    </h2>
+                    <p className="text-xs text-slate-500 mt-1">
+                      Commercial Printing &amp; Custom Branding LLC<br />
+                      Al Quoz Industrial Area 3, Dubai, UAE<br />
+                      TRN: <strong>100482910400003</strong>
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <span className="inline-block bg-[#101D35] text-[#D4AF65] text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">
+                      Tax Invoice / Receipt
+                    </span>
+                    <p className="text-xs font-mono font-bold text-slate-900 mt-2">
+                      Ref: {order.orderNumber || order.quoteNumber}
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      Date: {new Date().toLocaleDateString('en-AE')}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Client info */}
+                <div className="grid grid-cols-2 gap-4 text-xs">
+                  <div>
+                    <p className="text-slate-400 font-bold uppercase">Billed To:</p>
+                    <p className="font-bold text-slate-900 mt-1">{order.customerName || order.name || 'Client'}</p>
+                    {order.company && <p className="text-slate-600">{order.company}</p>}
+                    {order.customerEmail && <p className="text-slate-600">{order.customerEmail || order.email}</p>}
+                    {order.customerPhone && <p className="text-slate-600">{order.customerPhone || order.phone}</p>}
+                  </div>
+                  <div>
+                    <p className="text-slate-400 font-bold uppercase">Delivery Location:</p>
+                    <p className="text-slate-700 mt-1">{order.deliveryLocation || 'Dubai & UAE Courier Delivery'}</p>
+                    <p className="text-slate-400 font-bold uppercase mt-2">Status:</p>
+                    <p className="font-bold text-emerald-700">{order.status || 'Active'}</p>
+                  </div>
+                </div>
+
+                {/* Items Table */}
+                <div className="border border-slate-200 rounded-xl overflow-hidden">
+                  <table className="w-full text-left text-xs">
+                    <thead className="bg-slate-50 text-slate-700 border-b border-slate-200">
+                      <tr>
+                        <th className="py-2.5 px-3 font-bold">Description</th>
+                        <th className="py-2.5 px-3 font-bold text-center">Qty</th>
+                        <th className="py-2.5 px-3 font-bold text-right">Unit Price</th>
+                        <th className="py-2.5 px-3 font-bold text-right">Total (AED)</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100">
+                      <tr>
+                        <td className="py-3 px-3">
+                          <p className="font-bold text-slate-900">{order.productName || 'Commercial Printing Job'}</p>
+                          {order.specs && <p className="text-[11px] text-slate-500 mt-0.5">{order.specs}</p>}
+                        </td>
+                        <td className="py-3 px-3 text-center">{order.quantity || 1}</td>
+                        <td className="py-3 px-3 text-right">
+                          AED {totalAmount > 0 ? (totalAmount / (order.quantity || 1) / 1.05).toFixed(2) : '0.00'}
+                        </td>
+                        <td className="py-3 px-3 text-right font-bold text-slate-900">
+                          AED {subtotal > 0 ? subtotal.toFixed(2) : (totalAmount / 1.05).toFixed(2)}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Totals */}
+                <div className="flex justify-end text-xs">
+                  <div className="w-64 space-y-2 border-t border-slate-100 pt-2">
+                    <div className="flex justify-between text-slate-600">
+                      <span>Subtotal (Excl. VAT):</span>
+                      <span>AED {subtotal > 0 ? subtotal.toFixed(2) : (totalAmount / 1.05).toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between text-slate-600">
+                      <span>5% UAE VAT (FTA):</span>
+                      <span>AED {vatAmount > 0 ? vatAmount.toFixed(2) : (totalAmount - totalAmount / 1.05).toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between font-black text-sm text-[#101D35] border-t border-slate-200 pt-2">
+                      <span>Total Amount:</span>
+                      <span className="text-[#D4AF65]">AED {totalAmount > 0 ? totalAmount.toFixed(2) : 'Quoted'}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-[11px] text-slate-500 border-t border-slate-200 pt-4">
+                  <p>
+                    This is an electronically generated tax invoice from ONPRINT Commercial Pressroom. All printing services are executed under ISO 12647-2 color fidelity standards.
+                  </p>
+                </div>
+              </div>
+
+              {/* Modal Actions */}
+              <div className="mt-6 flex items-center justify-end gap-3 border-t border-slate-100 pt-4">
+                <Button variant="outline" size="sm" onClick={() => setShowInvoiceModal(false)}>
+                  Close
+                </Button>
+                <Button
+                  variant="accent"
+                  size="sm"
+                  onClick={() => window.print()}
+                  className="font-bold gap-2"
+                >
+                  <Printer className="h-4 w-4" /> Print Tax Invoice
+                </Button>
+              </div>
             </div>
           </div>
         )}

@@ -2754,14 +2754,19 @@ class SeoManagerController {
       const prospects = persistentStore.getBusinessCardBacklinkProspects()
       const qualifiedProspects = prospects.filter((p) => p.qualification_status === 'qualified')
       const rejectedProspects = prospects.filter((p) => p.qualification_status === 'rejected')
+      const allKeywords =
+        businessCardService.ALL_MAPPED_BUSINESS_CARD_KEYWORDS ||
+        businessCardService.PRIORITIZED_BUSINESS_CARD_KEYWORDS
 
       res.json({
         success: true,
         data: {
-          keywords: businessCardService.PRIORITIZED_BUSINESS_CARD_KEYWORDS,
+          keywords: allKeywords,
+          core_keywords: businessCardService.PRIORITIZED_BUSINESS_CARD_KEYWORDS,
+          additional_keywords: businessCardService.ADDITIONAL_VERIFIED_PRODUCT_KEYWORDS,
           prospects,
           summary: {
-            total_keywords: businessCardService.PRIORITIZED_BUSINESS_CARD_KEYWORDS.length,
+            total_keywords: allKeywords.length,
             total_prospects: prospects.length,
             qualified_prospects: qualifiedProspects.length,
             rejected_prospects: rejectedProspects.length,
@@ -2769,6 +2774,7 @@ class SeoManagerController {
             verified_acquired_links: qualifiedProspects.filter((p) => p.outreach_status === 'Acquired' && p.verified_live).length,
             link_worthy_guides_published: businessCardService.LINK_WORTHY_CONTENT_ASSETS.length,
           },
+          monthly_report: businessCardService.getMonthlyBacklinkReport(prospects),
           anchor_text_strategy: businessCardService.ANCHOR_TEXT_STRATEGY,
           link_worthy_content_assets: businessCardService.LINK_WORTHY_CONTENT_ASSETS,
           outreach_templates: businessCardService.WHITE_HAT_OUTREACH_TEMPLATES,

@@ -2,22 +2,42 @@ const { pool } = require('../config/database')
 const ApiError = require('../utils/ApiError')
 const persistentStore = require('../data/persistentStore')
 const { notifyNewQuote } = require('../utils/notificationService')
+const { sendNotification } = require('../services/notificationService')
 
 async function createQuote(req, res, next) {
   let connection = null
   try {
-    const { name, email, phone, company, notes, items, totalPrice, specs, artworkFile, productName, quantity, status } = req.body
+    const {
+      name,
+      email,
+      phone,
+      company,
+      notes,
+      items,
+      totalPrice,
+      estimatedPrice,
+      specs,
+      finishes,
+      deliveryUrgency,
+      deliveryLocation,
+      artworkFile,
+      artworkFiles,
+      productName,
+      quantity,
+      status,
+      staffNotes,
+    } = req.body
 
     if (!name || !email) {
       throw new ApiError(400, 'Name and email are required to request a quote')
     }
 
-    const year = new Date().getFullYear()
     const randomSeq = Math.floor(100000 + Math.random() * 900000)
-    const quoteNumber = req.body.orderNumber || req.body.quoteNumber || `ONP-${year}-${randomSeq}`
+    const quoteNumber = req.body.quoteNumber || req.body.orderNumber || `ONP-Q-${randomSeq}`
     const orderNumber = quoteNumber
     const userId = req.user ? req.user.id : null
     const initialStatus = status || 'New'
+    const finalPrice = Number(totalPrice || estimatedPrice || 0)
 
     // 1. Always persist to disk-backed persistentStore
     const createdLocalQuote = persistentStore.addQuote({
@@ -30,8 +50,14 @@ async function createQuote(req, res, next) {
       company: company || null,
       notes: notes || null,
       specs: specs || null,
+      finishes: Array.isArray(finishes) ? finishes : (finishes ? [finishes] : []),
+      deliveryUrgency: deliveryUrgency || 'Standard',
+      deliveryLocation: deliveryLocation || 'Dubai',
       artworkFile: artworkFile || null,
-      totalPrice: Number(totalPrice || 0),
+      artworkFiles: Array.isArray(artworkFiles) ? artworkFiles : (artworkFile ? [artworkFile] : []),
+      totalPrice: finalPrice,
+      estimatedPrice: finalPrice,
+      staffNotes: staffNotes || null,
       status: initialStatus,
       productName: productName || items?.[0]?.productName || 'Custom Print Job',
       quantity: quantity || items?.[0]?.quantity || 1,
@@ -40,7 +66,7 @@ async function createQuote(req, res, next) {
 
     let quoteId = createdLocalQuote.id
 
-    // 2. Safely trigger business email notification
+    // 2. Safely trigger notifications
     notifyNewQuote({
       id: quoteId,
       quoteNumber,
@@ -51,10 +77,13 @@ async function createQuote(req, res, next) {
       company: company || null,
       productName: productName || items?.[0]?.productName || 'Custom Print Job',
       quantity: quantity || items?.[0]?.quantity || 1,
-      totalPrice: Number(totalPrice || 0),
+      totalPrice: finalPrice,
       specs: specs || null,
+      deliveryUrgency: deliveryUrgency || 'Standard',
+      deliveryLocation: deliveryLocation || 'Dubai',
+      finishes: Array.isArray(finishes) ? finishes.join(', ') : finishes,
       notes: notes || null,
-      artworkFile: artworkFile || null,
+      artworkFile: artworkFile || (Array.isArray(artworkFiles) ? artworkFiles.join(', ') : null),
     }).catch((notifErr) => {
       console.warn('[Quote Controller] Notification warning:', notifErr.message)
     })
@@ -111,6 +140,25 @@ async function createQuote(req, res, next) {
       if (connection) connection.release()
     }
 
+    // Trigger internal admin alert & customer acknowledgement notification
+    try {
+      notifyNewQuote(createdLocalQuote).catch((e) => console.warn('[Quote Alert] Internal error:', e.message))
+      sendNotification({
+        eventType: 'quote_received',
+        recipientEmail: email,
+        recipientPhone: phone,
+        recipientName: name,
+        referenceNumber: quoteNumber,
+        payload: {
+          productName: productName || 'Custom Print Job',
+          quantity,
+          deliveryLocation,
+        },
+      }).catch((e) => console.warn('[Quote Alert] Customer error:', e.message))
+    } catch (notifErr) {
+      console.warn('[Quote Alert] Notification dispatch note:', notifErr.message)
+    }
+
     res.status(201).json({
       success: true,
       message: 'Quote request submitted successfully',
@@ -124,6 +172,7 @@ async function createQuote(req, res, next) {
   } catch (err) {
     next(err)
   }
+
 }
 
 async function listQuotes(req, res, next) {
@@ -265,7 +314,7 @@ async function updateQuoteStatus(req, res, next) {
         [status, id, id]
       )
 
-      const isWon = status === 'Won' || status === 'Approved'
+      const isWon = status === 'Won' || status === 'Approved' || status === 'Converted to Order' || status === 'Accepted'
       if (isWon) {
         const [rows] = await pool.execute(
           'SELECT * FROM quotes WHERE id = ? OR quote_number = ? LIMIT 1',
@@ -330,6 +379,39 @@ async function updateQuoteStatus(req, res, next) {
       // MySQL unavailable
     }
 
+    // Trigger status change notification to customer
+    try {
+      const q = updated || persistentStore.getQuote(id)
+      if (q && q.email) {
+        if (status === 'Quote Sent' || status === 'Prepared') {
+          sendNotification({
+            eventType: 'quote_prepared',
+            recipientEmail: q.email,
+            recipientPhone: q.phone,
+            recipientName: q.name,
+            referenceNumber: q.quoteNumber,
+            payload: {
+              amount: q.totalPrice || q.estimatedPrice,
+              summary: q.specs || q.notes,
+            },
+          }).catch((e) => console.warn('[Quote Status Notif] Error:', e.message))
+        } else if (status === 'Won' || status === 'Approved' || status === 'Converted to Order') {
+          sendNotification({
+            eventType: 'order_confirmed',
+            recipientEmail: q.email,
+            recipientPhone: q.phone,
+            recipientName: q.name,
+            referenceNumber: q.quoteNumber,
+            payload: {
+              productName: q.productName || 'Print Order',
+            },
+          }).catch((e) => console.warn('[Quote Status Notif] Error:', e.message))
+        }
+      }
+    } catch (e) {
+      console.warn('[Quote Status Notif] Note:', e.message)
+    }
+
     res.json({
       success: true,
       message: `Quote status updated to ${status}${status === 'Won' || status === 'Approved' ? ' and converted to order' : ''}`,
@@ -338,6 +420,7 @@ async function updateQuoteStatus(req, res, next) {
   } catch (err) {
     next(err)
   }
+
 }
 
 async function updateQuote(req, res, next) {

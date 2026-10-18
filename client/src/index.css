@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  /* Official 5-Color Unified Palette */
-  --color-primary: #101D35;            /* Midnight Navy: Header, footer, hero sections */
+  /* Official Unified Midnight Navy Palette */
+  --color-primary: #FFFFFF;            /* Crisp White Primary Text on Navy Canvas */
   --color-accent: #D4AF65;             /* Champagne Gold: Brand accents, icons, premium details */
-  --color-white: #FFFFFF;              /* Pure White: Product pages, cards, main backgrounds */
-  --color-ivory: #F5F2EB;              /* Warm Ivory: Alternate sections, luxury backgrounds */
-  --color-secondary: #343D4F;          /* Slate Navy: Secondary text, muted dark surfaces */
+  --color-white: #FFFFFF;              /* Pure White: Text & highlights */
+  --color-ivory: #101D35;              /* Unified Midnight Navy */
+  --color-secondary: #CBD5E1;          /* Light Slate Secondary Text on Navy */
 
-  --color-background: #FFFFFF;         /* Main Canvas */
-  --color-background-alt: #F5F2EB;     /* Alternate Warm Ivory Surface */
-  --color-surface: #FFFFFF;            /* Pure White Card Surface */
-  --color-surface-alt: #F5F2EB;        /* Warm Ivory Card Surface */
-  --color-surface-dark: #101D35;       /* Midnight Navy Surface */
-  --color-text: #101D35;               /* Midnight Navy Primary Text */
-  --color-text-secondary: #343D4F;     /* Slate Navy Secondary Text */
-  --color-border: #D4AF65;             /* Champagne Gold Accent Border */
+  --color-background: #101D35;         /* Main Midnight Navy Canvas */
+  --color-background-alt: #101D35;     /* Unified Midnight Navy Canvas */
+  --color-surface: #162542;            /* Elevated Midnight Navy Card Surface */
+  --color-surface-alt: #162542;        /* Elevated Midnight Navy Card Surface */
+  --color-surface-dark: #0B1426;       /* Deep Midnight Navy Surface */
+  --color-text: #FFFFFF;               /* Pure White Primary Text */
+  --color-text-secondary: #CBD5E1;     /* Light Slate Secondary Text */
+  --color-border: #28395A;             /* Midnight Navy Border */
 
   /* Dedicated Tokens */
   --midnight-navy: #101D35;
@@ -27,29 +27,29 @@
   --champagne-gold: #D4AF65;
   --champagne-gold-hover: #B89245;     /* Official Gold Hover */
   --champagne-gold-active: #A07D38;
-  --champagne-gold-soft: #FDF9F0;
-  --champagne-gold-border: #E8D3A7;
+  --champagne-gold-soft: rgba(212, 175, 101, 0.14);
+  --champagne-gold-border: #D4AF65;
 
   --pure-white: #FFFFFF;
-  --warm-ivory: #F5F2EB;
-  --warm-ivory-dark: #ECE7DC;
+  --warm-ivory: #101D35;
+  --warm-ivory-dark: #162542;
 
-  --slate-navy: #343D4F;
-  --slate-navy-muted: #596579;
-  --slate-navy-light: #7E8B9F;
+  --slate-navy: #CBD5E1;
+  --slate-navy-muted: #94A3B8;
+  --slate-navy-light: #CBD5E1;
 
   /* Aliases */
-  --primary: #101D35;
+  --primary: #FFFFFF;
   --accent: #D4AF65;
   --accent-hover: #B89245;
-  --background: #FFFFFF;
-  --background-alt: #F5F2EB;
-  --surface: #FFFFFF;
-  --surface-alt: #F5F2EB;
-  --dark: #101D35;
-  --text-primary: #101D35;
-  --text-secondary: #343D4F;
-  --border: #E5E1D8;
+  --background: #101D35;
+  --background-alt: #101D35;
+  --surface: #162542;
+  --surface-alt: #162542;
+  --dark: #0B1426;
+  --text-primary: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --border: #28395A;
   --border-hover: #D4AF65;
 
   --whatsapp: #25D366;                 /* Functional official WhatsApp green */
@@ -59,6 +59,8 @@
 @theme {
   --color-primary: var(--color-primary);
   --color-accent: var(--color-accent);
+  --color-accent-hover: #B89245;
+  --color-accent-soft: rgba(212, 175, 101, 0.14);
   --color-white: var(--color-white);
   --color-ivory: var(--color-ivory);
   --color-secondary: var(--color-secondary);
@@ -76,18 +78,18 @@
   --color-midnight-navy-light: #162542;
   --color-champagne-gold: #D4AF65;
   --color-champagne-gold-hover: #B89245;
-  --color-champagne-gold-soft: #FDF9F0;
+  --color-champagne-gold-soft: rgba(212, 175, 101, 0.14);
   --color-pure-white: #FFFFFF;
-  --color-warm-ivory: #F5F2EB;
-  --color-warm-ivory-dark: #ECE7DC;
-  --color-slate-navy: #343D4F;
-  --color-slate-navy-muted: #596579;
-  --color-slate-navy-light: #7E8B9F;
+  --color-warm-ivory: #101D35;
+  --color-warm-ivory-dark: #162542;
+  --color-slate-navy: #CBD5E1;
+  --color-slate-navy-muted: #94A3B8;
+  --color-slate-navy-light: #CBD5E1;
 
   /* Backward compatibility aliases mapping old orange/dark classes to new theme */
   --color-brand-orange: #D4AF65;
   --color-brand-orange-hover: #B89245;
-  --color-brand-orange-soft: #FDF9F0;
+  --color-brand-orange-soft: rgba(212, 175, 101, 0.14);
   --color-brand-dark: #101D35;
   --color-brand-surface: #162542;
 
@@ -109,12 +111,13 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #101D35;
 }
 
 body {
-  background-color: var(--background);
+  background-color: #101D35;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: var(--text-secondary);
+  color: #CBD5E1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'cv11', 'ss01';
@@ -132,17 +135,18 @@ body {
 }
 
 /* =========================================================================
-   MODERN ARCHITECTURAL BENTO CARDS & SURFACES
+   MODERN ARCHITECTURAL BENTO CARDS & SURFACES (UNIFIED MIDNIGHT NAVY)
    ========================================================================= */
 
 .bento-card {
   position: relative;
-  background: #FFFFFF;
-  border: 1px solid #E5E1D8;
+  background: #162542;
+  border: 1px solid #28395A;
   border-radius: 1.5rem;
+  color: #FFFFFF;
   box-shadow:
-    0 1px 3px 0 rgba(16, 29, 53, 0.02),
-    0 4px 12px -2px rgba(16, 29, 53, 0.04);
+    0 12px 30px -8px rgba(11, 20, 38, 0.45),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -152,8 +156,8 @@ body {
 .bento-card:hover {
   border-color: #D4AF65;
   box-shadow:
-    0 20px 40px -12px rgba(16, 29, 53, 0.12),
-    0 1px 3px 0 rgba(16, 29, 53, 0.04);
+    0 20px 40px -12px rgba(11, 20, 38, 0.65),
+    0 0 20px -5px rgba(212, 175, 101, 0.18);
   transform: translateY(-4px);
 }
 
@@ -181,16 +185,17 @@ body {
 }
 
 .card-clean {
-  background-color: #FFFFFF;
-  border: 1px solid #E5E1D8;
+  background-color: #162542;
+  border: 1px solid #28395A;
   border-radius: 1.25rem;
-  box-shadow: 0 1px 3px rgba(16, 29, 53, 0.02);
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px -6px rgba(11, 20, 38, 0.4);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-clean:hover {
   border-color: #D4AF65;
-  box-shadow: 0 16px 32px -8px rgba(16, 29, 53, 0.08);
+  box-shadow: 0 16px 32px -8px rgba(11, 20, 38, 0.6);
   transform: translateY(-3px);
 }
 
@@ -212,18 +217,100 @@ body {
 }
 
 .btn-secondary {
-  background-color: #101D35;
+  background-color: #162542;
   color: #FFFFFF;
-  border: 1px solid #101D35;
+  border: 1px solid #28395A;
   border-radius: 9999px;
   font-weight: 700;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  background-color: #162542;
+  background-color: #1B2C4D;
   border-color: #D4AF65;
   transform: translateY(-2px);
+}
+
+/* =========================================================================
+   UNIFIED PUBLIC NAVY BLUE THEME ENFORCEMENT
+   Ensures no white/ivory backgrounds or unreadable dark text leak on any page
+   ========================================================================= */
+
+.public-navy-theme {
+  background-color: #101D35;
+  color: #CBD5E1;
+}
+
+/* Convert any remaining white/ivory section backgrounds to #101D35 */
+.public-navy-theme:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F5F2EB\], .bg-slate-50, .bg-zinc-50),
+.public-navy-theme > div:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F5F2EB\], .bg-slate-50, .bg-zinc-50),
+.public-navy-theme section:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F5F2EB\], .bg-slate-50, .bg-zinc-50, .bg-slate-50\/60, .bg-slate-100) {
+  background-color: #101D35 !important;
+}
+
+/* Convert any remaining white/ivory card, modal, input, and surface backgrounds to elevated navy #162542 */
+.public-navy-theme :not(section):is(
+  .bg-white,
+  .bg-white\/95,
+  .bg-white\/98,
+  .bg-white\/90,
+  .bg-white\/85,
+  .bg-white\/80,
+  .bg-\[\#FFFFFF\],
+  .bg-\[\#F5F2EB\],
+  .bg-\[\#F4F4F5\],
+  .bg-\[\#F4F4F5\]\/50,
+  .bg-slate-50,
+  .bg-slate-50\/60,
+  .bg-slate-100,
+  .bg-zinc-50,
+  .bg-zinc-100,
+  .bg-zinc-200\/70
+) {
+  background-color: #162542 !important;
+}
+
+/* Convert light borders to navy border #28395A */
+.public-navy-theme :is(
+  .border-\[\#E5E1D8\],
+  .border-\[\#E5E7EB\],
+  .border-slate-100,
+  .border-slate-200,
+  .border-slate-200\/80,
+  .border-zinc-100,
+  .border-zinc-200,
+  .border-zinc-200\/80,
+  .divide-slate-200 > :not([hidden]) ~ :not([hidden]),
+  .divide-zinc-100 > :not([hidden]) ~ :not([hidden]),
+  .divide-zinc-200 > :not([hidden]) ~ :not([hidden])
+) {
+  border-color: #28395A !important;
+}
+
+/* Ensure dark text utilities on navy surfaces become crisp white or light slate, EXCEPT on gold/emerald badges */
+.public-navy-theme :not(.bg-\[\#D4AF65\]):not(.bg-accent):not(.btn-primary):not(.bg-emerald-50):not(.bg-emerald-50\/80):not(.bg-emerald-50\/70):is(
+  .text-\[\#101D35\],
+  .text-zinc-950,
+  .text-zinc-900,
+  .text-slate-950,
+  .text-slate-900,
+  .text-black
+) {
+  color: #FFFFFF !important;
+}
+
+.public-navy-theme :not(.bg-\[\#D4AF65\]):not(.bg-accent):not(.btn-primary):is(
+  .text-\[\#343D4F\],
+  .text-\[\#52525B\],
+  .text-\[\#596579\],
+  .text-zinc-800,
+  .text-zinc-700,
+  .text-zinc-600,
+  .text-slate-800,
+  .text-slate-700,
+  .text-slate-600
+) {
+  color: #CBD5E1 !important;
 }
 
 /* Custom Scrollbar */
@@ -233,16 +320,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F4F4F5;
+  background: #0B1426;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #A1A1AA;
+  background: #28395A;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #71717A;
+  background: #D4AF65;
 }
 
 /* Infinite Marquee */

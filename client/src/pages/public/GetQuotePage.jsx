@@ -85,20 +85,20 @@ function StepIndicator({ current }) {
               <span
                 className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-display text-xs font-extrabold tabular-nums transition-all ${
                   done
-                    ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                    ? 'bg-[#D4AF65] text-[#0F172A] shadow-xs'
                     : active
-                      ? 'bg-white text-[#101D35] shadow-md ring-2 ring-[#D4AF65]'
-                      : 'border border-white/10 bg-white/5 text-slate-400'
+                      ? 'bg-[#0F172A] text-white shadow-md ring-2 ring-[#D4AF65]'
+                      : 'border border-slate-200 bg-slate-50 text-slate-400'
                 }`}
               >
                 {done ? <Check className="h-4 w-4 stroke-[3]" /> : stepNumber}
               </span>
               {stepNumber < steps.length && (
-                <span className={`mx-2 h-0.5 flex-1 transition-colors ${done ? 'bg-[#D4AF65]' : 'bg-white/10'}`} />
+                <span className={`mx-2 h-0.5 flex-1 transition-colors ${done ? 'bg-[#D4AF65]' : 'bg-slate-200'}`} />
               )}
             </div>
             <span
-              className={`mt-2.5 hidden text-xs font-bold sm:block ${active ? 'text-[#D4AF65]' : 'text-slate-400'}`}
+              className={`mt-2.5 hidden text-xs font-bold sm:block ${active ? 'text-[#B89245]' : 'text-slate-500'}`}
             >
               {label}
             </span>
@@ -111,14 +111,14 @@ function StepIndicator({ current }) {
 
 function FieldLabel({ htmlFor, children, optional }) {
   return (
-    <label htmlFor={htmlFor} className="text-xs font-bold uppercase tracking-wider text-slate-200">
+    <label htmlFor={htmlFor} className="text-xs font-bold uppercase tracking-wider text-slate-700">
       {children} {optional && <span className="font-normal text-slate-400 lowercase">(optional)</span>}
     </label>
   )
 }
 
 const inputClasses =
-  'mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white placeholder:text-slate-500 transition-colors focus:border-[#D4AF65] focus:bg-white/10 focus:outline-none'
+  'mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 placeholder:text-slate-400 transition-colors focus:border-[#D4AF65] focus:outline-none focus:ring-2 focus:ring-[#D4AF65]/20 shadow-2xs'
 
 export default function GetQuotePage() {
   const { state } = useLocation()
@@ -385,33 +385,33 @@ export default function GetQuotePage() {
 
     return (
       <Container className="flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#D4AF65]/15 border border-[#D4AF65]/30 text-[#D4AF65]">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-50 border border-amber-200 text-[#B89245] shadow-xs">
           <CheckCircle2 className="h-9 w-9" />
         </div>
-        <span className="mt-4 rounded-full bg-[#D4AF65]/20 px-3 py-1 text-xs font-black uppercase tracking-wider text-[#D4AF65]">
+        <span className="mt-4 rounded-full bg-amber-100/70 border border-amber-200 px-3 py-1 text-xs font-black uppercase tracking-wider text-[#B89245]">
           Quotation Submitted &bull; Reference #{quoteNum}
         </span>
-        <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
           Quote Request Received!
         </h1>
-        <p className="mt-3 max-w-lg text-sm text-slate-300 leading-relaxed">
-          Thank you, <strong className="text-white">{form.name}</strong>. Our prepress estimator in Al Quoz, Dubai has received your specifications for <strong className="text-white">{prodName}</strong>. A formal proposal will be dispatched to <strong className="text-white">{form.email}</strong>.
+        <p className="mt-3 max-w-lg text-sm text-slate-600 leading-relaxed">
+          Thank you, <strong className="text-slate-900">{form.name}</strong>. Our prepress estimator in Al Quoz, Dubai has received your specifications for <strong className="text-slate-900">{prodName}</strong>. A formal proposal will be dispatched to <strong className="text-slate-900">{form.email}</strong>.
         </p>
 
         {/* WhatsApp Card */}
-        <div className="mt-8 w-full max-w-lg rounded-2xl bg-emerald-950/40 border border-emerald-500/30 p-5 text-center space-y-3">
-          <div className="flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-400">
-            <WhatsAppIcon className="h-4 w-4 fill-emerald-400" />
+        <div className="mt-8 w-full max-w-lg rounded-2xl bg-emerald-50 border border-emerald-200 p-5 text-center space-y-3 shadow-xs">
+          <div className="flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-800">
+            <WhatsAppIcon className="h-4 w-4 fill-emerald-600" />
             <span>Express WhatsApp Priority Channel</span>
           </div>
-          <p className="text-xs text-emerald-200/90 leading-relaxed">
-            Need urgent same-day turnaround or custom material consultation? Chat directly with our senior pressman on WhatsApp quoting reference <code className="font-bold text-white font-mono">{quoteNum}</code>.
+          <p className="text-xs text-emerald-800 leading-relaxed">
+            Need urgent same-day turnaround or custom material consultation? Chat directly with our senior pressman on WhatsApp quoting reference <code className="font-bold text-slate-900 font-mono bg-white px-1.5 py-0.5 rounded border border-emerald-200">{quoteNum}</code>.
           </p>
           <a
             href={directWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-xs font-black text-white shadow-lg shadow-emerald-600/30 transition-all hover:scale-[1.02] cursor-pointer w-full"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-xs font-black text-white shadow-md shadow-emerald-600/30 transition-all hover:scale-[1.02] cursor-pointer w-full"
           >
             <WhatsAppIcon className="h-4.5 w-4.5 fill-white" />
             <span>Chat on WhatsApp Now (Ref: {quoteNum})</span>
@@ -419,32 +419,32 @@ export default function GetQuotePage() {
         </div>
 
         {/* Summary Card */}
-        <div className="mt-6 w-full max-w-lg rounded-2xl border border-white/10 bg-white/5 p-5 text-left text-xs space-y-2.5">
-          <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
-            <span className="font-bold uppercase tracking-wider text-slate-400">Quote Reference</span>
-            <span className="font-mono font-black text-[#D4AF65] text-sm">{quoteNum}</span>
+        <div className="mt-6 w-full max-w-lg rounded-2xl border border-slate-200 bg-slate-50 p-5 text-left text-xs space-y-2.5 shadow-2xs">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
+            <span className="font-bold uppercase tracking-wider text-slate-500">Quote Reference</span>
+            <span className="font-mono font-black text-[#B89245] text-sm">{quoteNum}</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-slate-400">Service:</span>
-            <span className="font-bold text-white">{prodName}</span>
+            <span className="text-slate-500">Service:</span>
+            <span className="font-bold text-slate-900">{prodName}</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-slate-400">Quantity:</span>
-            <span className="font-bold text-white">{orderQty} units</span>
+            <span className="text-slate-500">Quantity:</span>
+            <span className="font-bold text-slate-900">{orderQty} units</span>
           </div>
           {form.finishes.length > 0 && (
             <div className="flex items-start justify-between gap-4">
-              <span className="text-slate-400">Finishes:</span>
-              <span className="font-bold text-white text-right">{form.finishes.join(', ')}</span>
+              <span className="text-slate-500">Finishes:</span>
+              <span className="font-bold text-slate-900 text-right">{form.finishes.join(', ')}</span>
             </div>
           )}
           <div className="flex items-center justify-between">
-            <span className="text-slate-400">Turnaround:</span>
-            <span className="font-semibold text-white">{form.deliveryUrgency}</span>
+            <span className="text-slate-500">Turnaround:</span>
+            <span className="font-semibold text-slate-900">{form.deliveryUrgency}</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-slate-400">Destination:</span>
-            <span className="font-semibold text-white">{form.deliveryLocation}</span>
+            <span className="text-slate-500">Destination:</span>
+            <span className="font-semibold text-slate-900">{form.deliveryLocation}</span>
           </div>
         </div>
 
@@ -474,19 +474,19 @@ export default function GetQuotePage() {
         <Breadcrumbs items={[{ name: 'Get a Quote' }]} />
 
         <div className="flex items-center gap-2">
-          <span className="rounded-full bg-[#D4AF65]/15 border border-[#D4AF65]/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+          <span className="rounded-full bg-amber-100/70 border border-amber-200 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#B89245]">
             ONPRINT Commercial Quote Desk
           </span>
-          <span className="hidden sm:inline-flex items-center gap-1 text-xs text-slate-400">
-            <Clock className="h-3.5 w-3.5 text-[#D4AF65]" />
+          <span className="hidden sm:inline-flex items-center gap-1 text-xs text-slate-500">
+            <Clock className="h-3.5 w-3.5 text-[#B89245]" />
             <span>Same-Day Estimations</span>
           </span>
         </div>
 
-        <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
           Request a Custom Printing Quote
         </h1>
-        <p className="mt-2 text-sm text-slate-300">
+        <p className="mt-2 text-sm text-slate-600">
           From luxury business cards to corporate brochures and packaging, enter your specifications or attach print-ready artwork for guaranteed Dubai factory pricing.
         </p>
 
@@ -494,16 +494,16 @@ export default function GetQuotePage() {
           <StepIndicator current={step} />
         </div>
 
-        <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 md:p-10 shadow-2xl backdrop-blur-md">
+        <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 md:p-10 shadow-lg">
           {/* Step 1: Product Selection */}
           {step === 1 && (
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#B89245] mb-2">
                 <Layers className="h-4 w-4" />
                 <span>Step 1 of 5</span>
               </div>
-              <h2 className="font-display text-xl font-bold text-white">1. What print item do you need?</h2>
-              <p className="mt-1.5 text-xs text-slate-400">
+              <h2 className="font-display text-xl font-bold text-slate-900">1. What print item do you need?</h2>
+              <p className="mt-1.5 text-xs text-slate-500">
                 Choose from our popular Al Quoz pressroom products or define your bespoke requirements.
               </p>
 
@@ -516,8 +516,8 @@ export default function GetQuotePage() {
                       onClick={() => selectProduct(c.name)}
                       className={`rounded-xl border p-3.5 text-left text-xs font-bold transition-all cursor-pointer ${
                         form.product === c.name
-                          ? 'border-[#D4AF65] bg-[#D4AF65]/20 text-[#D4AF65] shadow-xs ring-1 ring-[#D4AF65]'
-                          : 'border-white/10 bg-white/5 text-slate-300 hover:border-white/30 hover:bg-white/10'
+                          ? 'border-[#D4AF65] bg-amber-50 text-[#B89245] shadow-xs ring-1 ring-[#D4AF65]'
+                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 shadow-2xs'
                       }`}
                     >
                       {c.name}
@@ -537,7 +537,7 @@ export default function GetQuotePage() {
                   aria-invalid={Boolean(errors.product)}
                   className={inputClasses}
                 />
-                {errors.product && <p className="mt-1.5 text-xs font-semibold text-rose-400">{errors.product}</p>}
+                {errors.product && <p className="mt-1.5 text-xs font-semibold text-rose-500">{errors.product}</p>}
               </div>
             </div>
           )}
@@ -545,11 +545,11 @@ export default function GetQuotePage() {
           {/* Step 2: Specifications, Finishes & Delivery */}
           {step === 2 && (
             <div className="space-y-6">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#B89245]">
                 <Sparkles className="h-4 w-4" />
                 <span>Step 2 of 5</span>
               </div>
-              <h2 className="font-display text-xl font-bold text-white">2. Project Specifications &amp; Finishes</h2>
+              <h2 className="font-display text-xl font-bold text-slate-900">2. Project Specifications &amp; Finishes</h2>
 
               {/* Quantity Preset Tiers */}
               <div>
@@ -562,8 +562,8 @@ export default function GetQuotePage() {
                       onClick={() => setForm((p) => ({ ...p, quantity: String(q) }))}
                       className={`rounded-lg border px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                         form.quantity === String(q)
-                          ? 'border-[#D4AF65] bg-[#D4AF65] text-[#101D35]'
-                          : 'border-white/10 bg-white/5 text-slate-300 hover:border-white/30'
+                          ? 'border-[#D4AF65] bg-[#D4AF65] text-[#0F172A]'
+                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 shadow-2xs'
                       }`}
                     >
                       {q.toLocaleString()} units
@@ -580,7 +580,7 @@ export default function GetQuotePage() {
                   aria-invalid={Boolean(errors.quantity)}
                   className={inputClasses}
                 />
-                {errors.quantity && <p className="mt-1.5 text-xs font-semibold text-rose-400">{errors.quantity}</p>}
+                {errors.quantity && <p className="mt-1.5 text-xs font-semibold text-rose-500">{errors.quantity}</p>}
               </div>
 
               {/* Size & Substrate */}
@@ -620,15 +620,15 @@ export default function GetQuotePage() {
                         key={f.id}
                         className={`flex items-center gap-3 rounded-xl border p-3 text-xs font-bold transition-all cursor-pointer ${
                           checked
-                            ? 'border-[#D4AF65] bg-[#D4AF65]/15 text-[#D4AF65]'
-                            : 'border-white/10 bg-white/5 text-slate-300 hover:border-white/20'
+                            ? 'border-[#D4AF65] bg-amber-50 text-[#B89245]'
+                            : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 shadow-2xs'
                         }`}
                       >
                         <input
                           type="checkbox"
                           checked={checked}
                           onChange={() => toggleFinish(f.label)}
-                          className="h-4 w-4 rounded border-white/20 text-[#D4AF65] focus:ring-[#D4AF65]"
+                          className="h-4 w-4 rounded border-slate-300 text-[#D4AF65] focus:ring-[#D4AF65]"
                         />
                         <span>{f.label}</span>
                       </label>
@@ -647,13 +647,13 @@ export default function GetQuotePage() {
                     onChange={updateField('deliveryUrgency')}
                     className={inputClasses}
                   >
-                    <option value="Standard (2–3 business days)" className="bg-[#101D35] text-white">
+                    <option value="Standard (2–3 business days)">
                       Standard Production (2–3 business days)
                     </option>
-                    <option value="Express Priority (24 hours)" className="bg-[#101D35] text-white">
+                    <option value="Express Priority (24 hours)">
                       Express Priority (24 hours)
                     </option>
-                    <option value="Rush Same-Day (Subject to schedule)" className="bg-[#101D35] text-white">
+                    <option value="Rush Same-Day (Subject to schedule)">
                       Rush Same-Day (Subject to press capacity)
                     </option>
                   </select>
@@ -667,7 +667,7 @@ export default function GetQuotePage() {
                     className={inputClasses}
                   >
                     {DELIVERY_LOCATIONS.map((loc) => (
-                      <option key={loc} value={loc} className="bg-[#101D35] text-white">
+                      <option key={loc} value={loc}>
                         {loc}
                       </option>
                     ))}
@@ -693,27 +693,27 @@ export default function GetQuotePage() {
           {/* Step 3: Artwork Upload with Validation */}
           {step === 3 && (
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#B89245] mb-2">
                 <Upload className="h-4 w-4" />
                 <span>Step 3 of 5</span>
               </div>
-              <h2 className="font-display text-xl font-bold text-white">3. Upload Customer Artwork</h2>
-              <p className="mt-1 text-xs text-slate-400">
+              <h2 className="font-display text-xl font-bold text-slate-900">3. Upload Customer Artwork</h2>
+              <p className="mt-1 text-xs text-slate-500">
                 Support for all industry-standard vector and prepress file formats up to 50MB. (Optional)
               </p>
 
-              {prefillNote && <p className="mt-3 text-xs font-bold text-[#D4AF65]">{prefillNote}</p>}
+              {prefillNote && <p className="mt-3 text-xs font-bold text-[#B89245]">{prefillNote}</p>}
 
               {/* File Dropzone */}
               <label
                 htmlFor="artwork"
-                className="mt-6 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-white/20 bg-white/5 p-8 text-center transition-colors hover:border-[#D4AF65] hover:bg-white/10"
+                className="mt-6 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 p-8 text-center transition-colors hover:border-[#D4AF65] hover:bg-amber-50/20 shadow-2xs"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65]/20 text-[#D4AF65]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-[#B89245]">
                   <Upload className="h-6 w-6" />
                 </div>
-                <span className="text-sm font-bold text-white">Choose Artwork Files or Drag &amp; Drop</span>
-                <span className="text-xs text-slate-400">
+                <span className="text-sm font-bold text-slate-900">Choose Artwork Files or Drag &amp; Drop</span>
+                <span className="text-xs text-slate-500">
                   Allowed formats: <strong>PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP</strong> (Max 50MB per file)
                 </span>
                 <input
@@ -727,20 +727,20 @@ export default function GetQuotePage() {
               </label>
 
               {errors.artwork && (
-                <div className="mt-3 flex items-center gap-2 rounded-xl bg-rose-950/40 border border-rose-500/30 p-3 text-xs text-rose-300">
-                  <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
+                <div className="mt-3 flex items-center gap-2 rounded-xl bg-rose-50 border border-rose-200 p-3 text-xs text-rose-700">
+                  <AlertCircle className="h-4 w-4 shrink-0 text-rose-600" />
                   <span>{errors.artwork}</span>
                 </div>
               )}
 
               {/* Upload Progress Bar */}
               {isUploading && (
-                <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-3">
-                  <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
+                <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-3">
+                  <div className="flex justify-between text-xs font-semibold text-slate-700 mb-1.5">
                     <span>Uploading artwork files...</span>
                     <span>{uploadProgress}%</span>
                   </div>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
                     <div
                       className="h-full bg-[#D4AF65] transition-all duration-300"
                       style={{ width: `${uploadProgress}%` }}
@@ -752,19 +752,19 @@ export default function GetQuotePage() {
               {/* Attached Files List */}
               {artworkFiles.length > 0 && (
                 <div className="mt-6 space-y-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
                     Attached Files ({artworkFiles.length})
                   </span>
                   <ul className="space-y-2">
                     {artworkFiles.map((file, index) => (
                       <li
                         key={`${file.name}-${index}`}
-                        className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-xs font-medium text-white"
+                        className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-medium text-slate-900 shadow-2xs"
                       >
                         <div className="flex items-center gap-2 min-w-0">
-                          <FileText className="h-4 w-4 text-[#D4AF65] shrink-0" />
+                          <FileText className="h-4 w-4 text-[#B89245] shrink-0" />
                           <span className="truncate">{file.name}</span>
-                          <span className="text-[11px] text-slate-400 shrink-0">
+                          <span className="text-[11px] text-slate-500 shrink-0">
                             ({(file.size / (1024 * 1024)).toFixed(2)} MB)
                           </span>
                         </div>
@@ -772,7 +772,7 @@ export default function GetQuotePage() {
                           type="button"
                           onClick={() => removeFile(index)}
                           aria-label={`Remove ${file.name}`}
-                          className="ml-3 shrink-0 text-slate-400 hover:text-rose-400 cursor-pointer"
+                          className="ml-3 shrink-0 text-slate-400 hover:text-rose-600 cursor-pointer"
                         >
                           <X className="h-4 w-4" />
                         </button>
@@ -783,12 +783,12 @@ export default function GetQuotePage() {
               )}
 
               {/* Cloud WeTransfer / Dropbox fallback link */}
-              <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-slate-300">
-                  <ExternalLink className="h-3.5 w-3.5 text-[#D4AF65]" />
+              <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
+                  <ExternalLink className="h-3.5 w-3.5 text-[#B89245]" />
                   <span>Files Exceeding 50MB?</span>
                 </div>
-                <p className="text-[11px] text-slate-400 leading-relaxed">
+                <p className="text-[11px] text-slate-600 leading-relaxed">
                   For large multi-page catalogs, packaging dielines, or heavy print archives, please paste a shared link below from WeTransfer, Google Drive, or Dropbox:
                 </p>
                 <input
@@ -805,12 +805,12 @@ export default function GetQuotePage() {
           {/* Step 4: Contact Information */}
           {step === 4 && (
             <div className="space-y-6">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#B89245]">
                 <FileText className="h-4 w-4" />
                 <span>Step 4 of 5</span>
               </div>
-              <h2 className="font-display text-xl font-bold text-white">4. Contact Information</h2>
-              <p className="text-xs text-slate-400">
+              <h2 className="font-display text-xl font-bold text-slate-900">4. Contact Information</h2>
+              <p className="text-xs text-slate-500">
                 Where should we send your official quotation and pre-flight digital proof?
               </p>
 
@@ -826,7 +826,7 @@ export default function GetQuotePage() {
                     aria-invalid={Boolean(errors.name)}
                     className={inputClasses}
                   />
-                  {errors.name && <p className="mt-1.5 text-xs font-semibold text-rose-400">{errors.name}</p>}
+                  {errors.name && <p className="mt-1.5 text-xs font-semibold text-rose-500">{errors.name}</p>}
                 </div>
                 <div>
                   <FieldLabel htmlFor="email">Email Address *</FieldLabel>
@@ -839,7 +839,7 @@ export default function GetQuotePage() {
                     aria-invalid={Boolean(errors.email)}
                     className={inputClasses}
                   />
-                  {errors.email && <p className="mt-1.5 text-xs font-semibold text-rose-400">{errors.email}</p>}
+                  {errors.email && <p className="mt-1.5 text-xs font-semibold text-rose-500">{errors.email}</p>}
                 </div>
               </div>
 
@@ -855,7 +855,7 @@ export default function GetQuotePage() {
                     aria-invalid={Boolean(errors.phone)}
                     className={inputClasses}
                   />
-                  {errors.phone && <p className="mt-1.5 text-xs font-semibold text-rose-400">{errors.phone}</p>}
+                  {errors.phone && <p className="mt-1.5 text-xs font-semibold text-rose-500">{errors.phone}</p>}
                 </div>
                 <div>
                   <FieldLabel htmlFor="company" optional>Company / Organization Name</FieldLabel>
@@ -875,16 +875,16 @@ export default function GetQuotePage() {
           {/* Step 5: Review & Submit */}
           {step === 5 && (
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#B89245] mb-2">
                 <CheckCircle2 className="h-4 w-4" />
                 <span>Step 5 of 5</span>
               </div>
-              <h2 className="font-display text-2xl font-bold text-white">5. Review Your Request</h2>
-              <p className="mt-1 text-xs text-slate-400">
+              <h2 className="font-display text-2xl font-bold text-slate-900">5. Review Your Request</h2>
+              <p className="mt-1 text-xs text-slate-500">
                 Please verify your project parameters before generating your official quotation ticket.
               </p>
 
-              <dl className="mt-6 divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/5">
+              <dl className="mt-6 divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-slate-50 shadow-2xs">
                 {[
                   ['Project Item', form.product],
                   ['Quantity', `${form.quantity} units`],
@@ -903,16 +903,16 @@ export default function GetQuotePage() {
                   .filter(([, value]) => value)
                   .map(([label, value]) => (
                     <div key={label} className="flex flex-col gap-1 px-5 py-3 sm:flex-row sm:justify-between sm:gap-4">
-                      <dt className="text-xs font-bold uppercase tracking-wider text-slate-400">{label}</dt>
-                      <dd className="text-sm font-bold text-white sm:text-right">{value}</dd>
+                      <dt className="text-xs font-bold uppercase tracking-wider text-slate-500">{label}</dt>
+                      <dd className="text-sm font-bold text-slate-900 sm:text-right">{value}</dd>
                     </div>
                   ))}
               </dl>
 
               {/* Express WhatsApp Banner */}
-              <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
-                <div className="flex items-center gap-2.5 text-xs text-emerald-200 font-medium text-left">
-                  <WhatsAppIcon className="h-5 w-5 fill-emerald-400 shrink-0" />
+              <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-xl bg-emerald-50 border border-emerald-200">
+                <div className="flex items-center gap-2.5 text-xs text-emerald-800 font-medium text-left">
+                  <WhatsAppIcon className="h-5 w-5 fill-emerald-600 shrink-0" />
                   <span>Prefer an instant quotation on WhatsApp? Send these specs directly to our production engineer.</span>
                 </div>
                 <a
@@ -944,7 +944,7 @@ export default function GetQuotePage() {
             type="button"
             onClick={goBack}
             disabled={step === 1}
-            className="inline-flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-400 transition-colors hover:text-white disabled:invisible cursor-pointer py-2 sm:py-0"
+            className="inline-flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 transition-colors hover:text-slate-900 disabled:invisible cursor-pointer py-2 sm:py-0"
           >
             <ChevronLeft className="h-4 w-4" />
             Previous Step

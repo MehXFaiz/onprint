@@ -746,7 +746,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   }
 
   return (
-    <div className="bg-[#101D35] text-slate-200 pt-4 sm:pt-6 pb-12 sm:pb-16">
+    <div className="bg-white text-slate-900 pt-4 sm:pt-6 pb-12 sm:pb-16">
       {/* Dynamic SEO & Schema Engine */}
       <SEOHead
         title={pageData?.title || 'Business Card Printing Dubai | ONPRINT'}
@@ -1250,22 +1250,22 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 2. COMPREHENSIVE BUSINESS CARD OPTIONS & FINISHES SHOWCASE */}
-        <section className="mt-16 sm:mt-24 border-t border-[#28395A] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-slate-200 pt-12 sm:pt-16">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end mb-8">
             <div>
-              <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+              <span className="text-xs font-black uppercase tracking-widest text-[#B89245]">
                 PRODUCT SPECIFICATIONS
               </span>
-              <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-white">
+              <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">
                 Business Card Materials &amp; Finish Variations
               </h2>
-              <p className="mt-2 text-sm text-slate-300 max-w-xl">
+              <p className="mt-2 text-sm text-slate-600 max-w-xl">
                 From simple everyday standard cards to executive luxury finishes, choose the exact substrate for your brand.
               </p>
             </div>
 
             {/* Category Filter Pills */}
-            <div className="flex flex-wrap items-center gap-1.5 bg-[#162542] border border-[#28395A] p-1.5 rounded-2xl">
+            <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 border border-slate-200 p-1.5 rounded-2xl shadow-2xs">
               {[
                 { id: 'all', label: 'All Cards' },
                 { id: 'basic', label: 'Simple & Basic Cards' },
@@ -1281,8 +1281,8 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   onClick={() => setActiveCategory(tab.id)}
                   className={`rounded-xl px-3 py-1.5 text-xs font-black transition-all cursor-pointer ${
                     activeCategory === tab.id
-                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[#0F172A] text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {tab.label}
@@ -1295,10 +1295,10 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             {filteredCards?.map((card, idx) => (
               <Reveal key={card.id} delay={Math.min((idx % 4) * 0.08, 0.3)}>
                 <div
-                  className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#28395A] bg-[#162542] shadow-md transition-all duration-300 card-hover-lift hover-shimmer h-full"
+                  className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xs transition-all duration-300 card-hover-lift hover:shimmer h-full hover:border-[#D4AF65] hover:shadow-xl"
                 >
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#101D35]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
                     <img
                       src={card.image}
                       alt={`${card.title} in Dubai`}
@@ -1306,33 +1306,33 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       loading="lazy"
                     />
                     <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                      <span className="rounded-md bg-[#101D35]/90 border border-[#28395A] px-2 py-0.5 text-[8.5px] font-black uppercase tracking-wider text-[#D4AF65] backdrop-blur-xs">
+                      <span className="rounded-md bg-white/95 border border-slate-200 px-2 py-0.5 text-[8.5px] font-black uppercase tracking-wider text-slate-800 backdrop-blur-xs shadow-xs">
                         {card.badge}
                       </span>
                     </div>
-                    <span className="absolute bottom-2.5 right-2.5 rounded-md bg-[#D4AF65] px-2 py-0.5 text-[8.5px] font-mono font-black text-[#101D35] shadow-sm">
+                    <span className="absolute bottom-2.5 right-2.5 rounded-md bg-[#D4AF65] px-2 py-0.5 text-[8.5px] font-mono font-black text-[#0F172A] shadow-xs">
                       {card.gsm}
                     </span>
                   </div>
 
                   <div className="p-5">
-                    <h3 className="font-display text-base font-black text-white group-hover:text-[#D4AF65] transition-colors line-clamp-1">
+                    <h3 className="font-display text-base font-black text-slate-900 group-hover:text-[#B89245] transition-colors line-clamp-1">
                       {card.title}
                     </h3>
-                    <p className="mt-2 text-xs text-slate-300 leading-relaxed line-clamp-3">
+                    <p className="mt-2 text-xs text-slate-600 leading-relaxed line-clamp-3">
                       {card.description}
                     </p>
 
-                    <div className="mt-3 border-t border-[#28395A] pt-3 text-[11px] text-slate-400">
-                      <span className="font-bold text-[#D4AF65] block mb-1">Ideal For:</span>
-                      <span className="line-clamp-2 text-slate-300">{card.suitableFor}</span>
+                    <div className="mt-3 border-t border-slate-100 pt-3 text-[11px] text-slate-500">
+                      <span className="font-bold text-[#B89245] block mb-1">Ideal For:</span>
+                      <span className="line-clamp-2 text-slate-600">{card.suitableFor}</span>
                     </div>
 
                     <div className="mt-2.5 flex flex-wrap gap-1">
                       {(card?.popularFinishes || []).map((f) => (
                         <span
                           key={f}
-                          className="rounded-md bg-[#101D35] border border-[#28395A] px-2 py-0.5 text-[9.5px] font-bold text-slate-200"
+                          className="rounded-md bg-slate-50 border border-slate-200 px-2 py-0.5 text-[9.5px] font-bold text-slate-700"
                         >
                           {f}
                         </span>
@@ -1345,7 +1345,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   <button
                     type="button"
                     onClick={() => scrollToQuote(card.title, card.specs.split('•')[0].trim())}
-                    className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#B89245] py-2.5 text-xs font-black uppercase tracking-wider text-[#101D35] transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-md shadow-[#D4AF65]/20"
+                    className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#B89245] py-2.5 text-xs font-black uppercase tracking-wider text-[#0F172A] transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-xs"
                   >
                     <span>Quote This Card</span>
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -1358,15 +1358,15 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 3. INDUSTRY-SPECIFIC BUSINESS CARD SEO & USE CASES (12 SECTORS) */}
-        <section className="mt-16 sm:mt-24 border-t border-[#28395A] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-slate-200 pt-12 sm:pt-16">
           <div className="mx-auto max-w-3xl text-center mb-12">
-            <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+            <span className="text-xs font-black uppercase tracking-widest text-[#B89245]">
               TAILORED INDUSTRY SPECIFICATIONS
             </span>
-            <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-white">
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">
               Engineered for Dubai’s Commercial Sectors
             </h2>
-            <p className="mt-2 text-sm text-slate-300">
+            <p className="mt-2 text-sm text-slate-600">
               Specific card weights, finish combinations, and layouts designed for maximum conversion in your industry.
             </p>
           </div>
@@ -1377,16 +1377,16 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               return (
                 <Reveal key={item.title} delay={Math.min((idx % 3) * 0.08, 0.3)}>
                   <div
-                    className="rounded-3xl border border-[#28395A] bg-[#162542] p-6 shadow-md card-hover-lift hover-shimmer h-full"
+                    className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xs card-hover-lift hover-shimmer h-full hover:border-[#D4AF65] hover:shadow-xl"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#D4AF65] to-[#101D35] text-white shadow-sm mb-4">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-50 border border-amber-200 text-[#B89245] shadow-2xs mb-4">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <h3 className="font-display text-base font-black text-white">{item.title}</h3>
-                    <p className="mt-2 text-xs text-slate-300 leading-relaxed">{item.desc}</p>
-                    <div className="mt-4 rounded-xl border border-[#28395A] bg-[#101D35] p-3 text-[11px]">
-                      <span className="font-bold text-[#D4AF65] block mb-0.5">Recommended Spec:</span>
-                      <span className="text-slate-200 font-medium">{item.recommended}</span>
+                    <h3 className="font-display text-base font-black text-slate-900">{item.title}</h3>
+                    <p className="mt-2 text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+                    <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-3 text-[11px]">
+                      <span className="font-bold text-[#B89245] block mb-0.5">Recommended Spec:</span>
+                      <span className="text-slate-700 font-medium">{item.recommended}</span>
                     </div>
                   </div>
                 </Reveal>
@@ -1396,22 +1396,22 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 4. BUSINESS CARD KNOWLEDGE HUB & TECHNICAL PRE-PRESS GUIDES */}
-        <section className="mt-16 sm:mt-24 border-t border-[#28395A] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-slate-200 pt-12 sm:pt-16">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
-              <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+              <span className="text-xs font-black uppercase tracking-widest text-[#B89245]">
                 KNOWLEDGE &amp; PRE-PRESS RESOURCE CENTER
               </span>
-              <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-white">
+              <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">
                 Business Card Guides &amp; Specifications
               </h2>
-              <p className="mt-2 text-sm text-slate-300 max-w-xl">
+              <p className="mt-2 text-sm text-slate-600 max-w-xl">
                 Technical resources, size standards, and paper weight comparisons curated by ONPRINT pre-press engineers.
               </p>
             </div>
 
             {/* Guide Tabs */}
-            <div className="flex flex-wrap items-center gap-1.5 bg-[#162542] border border-[#28395A] p-1.5 rounded-2xl">
+            <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 border border-slate-200 p-1.5 rounded-2xl shadow-2xs">
               {[
                 { id: 'size', label: 'Size Standards' },
                 { id: 'gsm', label: 'GSM Paper Guide' },
@@ -1425,8 +1425,8 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   onClick={() => setActiveGuideTab(g.id)}
                   className={`rounded-xl px-3 py-1.5 text-xs font-black transition-all cursor-pointer ${
                     activeGuideTab === g.id
-                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[#0F172A] text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {g.label}
@@ -1435,7 +1435,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-[#28395A] bg-[#162542] p-6 sm:p-10 shadow-xs">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xs">
             {activeGuideTab === 'size' && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-4">
@@ -1746,20 +1746,20 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 8. COMPREHENSIVE 16-QUESTION FAQ ACCORDION */}
-        <section className="mt-16 sm:mt-24 border-t border-[#28395A] pt-12 sm:pt-16 max-w-4xl mx-auto">
+        <section className="mt-16 sm:mt-24 border-t border-slate-200 pt-12 sm:pt-16 max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+            <span className="text-xs font-black uppercase tracking-widest text-[#B89245]">
               FREQUENTLY ASKED QUESTIONS
             </span>
-            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black text-white">
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black text-slate-900">
               Business Card Printing FAQ
             </h2>
-            <p className="mt-2 text-sm text-slate-300">
+            <p className="mt-2 text-sm text-slate-600">
               Clear answers on turnaround times, pricing, paper stocks, and embellishments in Dubai.
             </p>
           </div>
 
-          <div className="divide-y divide-[#28395A] border-t border-b border-[#28395A]">
+          <div className="divide-y divide-slate-200 border-t border-b border-slate-200">
             {BUSINESS_CARD_FAQS?.map((faq, index) => {
               const isOpen = openFaq === index
               return (
@@ -1769,12 +1769,12 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     onClick={() => setOpenFaq(isOpen ? -1 : index)}
                     className="flex w-full cursor-pointer items-center justify-between text-left gap-4"
                   >
-                    <h3 className="font-display text-sm sm:text-base font-bold text-white hover:text-[#D4AF65] transition-colors">
+                    <h3 className="font-display text-sm sm:text-base font-bold text-slate-900 hover:text-[#B89245] transition-colors">
                       {faq.question}
                     </h3>
                     <ChevronDown
                       className={`h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 text-[#D4AF65]' : ''
+                        isOpen ? 'rotate-180 text-[#B89245]' : ''
                       }`}
                     />
                   </button>
@@ -1782,7 +1782,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
-                      className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-300"
+                      className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-600"
                     >
                       {faq.answer}
                     </motion.div>
@@ -1794,7 +1794,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 8.5. TOPICAL CLUSTER INTERLINKING DIRECTORY */}
-        <section className="mt-16 sm:mt-24 border-t border-[#28395A] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-slate-200 pt-12 sm:pt-16">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
               BUSINESS CARDS TOPICAL CLUSTER

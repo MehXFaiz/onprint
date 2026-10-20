@@ -248,7 +248,7 @@ export default function ProductsPage() {
   }, [activeDepartment])
 
   return (
-    <div className="py-10 sm:py-16 bg-[#F5F2EB]/40 min-h-screen">
+    <div className="py-10 sm:py-16 bg-[#101C35] text-[#F5F1E8] min-h-screen">
       {/* SEO Head Management */}
       <SEOHead
         title={`${activeHeading} | ONPRINT Dubai Commercial Printing Press`}
@@ -270,16 +270,16 @@ export default function ProductsPage() {
         />
 
         {/* Editorial Page Header */}
-        <div className="mt-6 flex flex-col justify-between gap-6 lg:flex-row lg:items-end border-b border-slate-200 pb-8">
+        <div className="mt-6 flex flex-col justify-between gap-6 lg:flex-row lg:items-end border-b border-[#263654] pb-8">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D4AF65]">
-              <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D6BC8A]">
+              <Sparkles className="h-3.5 w-3.5 text-[#D6BC8A]" />
               <span>{activeEyebrow}</span>
             </div>
-            <h1 className="font-display mt-3 text-3xl font-black tracking-tight text-[#101D35] sm:text-4xl lg:text-5xl">
+            <h1 className="font-display mt-3 text-3xl font-black tracking-tight text-[#F5F1E8] sm:text-4xl lg:text-5xl">
               {activeHeading}
             </h1>
-            <p className="mt-2 text-sm leading-relaxed text-[#343D4F] sm:text-base">
+            <p className="mt-2 text-sm leading-relaxed text-[#A0AEC0] sm:text-base">
               {activeDescription}
             </p>
           </div>
@@ -292,7 +292,7 @@ export default function ProductsPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search 110+ products…"
-              className="w-full rounded-2xl border border-slate-300 bg-white pl-10 pr-9 py-2.5 text-xs font-semibold text-[#101D35] transition-all focus:border-[#D4AF65] focus:outline-none shadow-xs"
+              className="w-full rounded-2xl border border-[#263654] bg-[#1B2943] pl-10 pr-9 py-2.5 text-xs font-semibold text-[#F5F1E8] placeholder:text-[#52647D] transition-all focus:border-[#D6BC8A] focus:outline-none shadow-xs"
             />
             {searchQuery && (
               <button
@@ -310,9 +310,9 @@ export default function ProductsPage() {
         </div>
 
         {/* Master Department Navigation Tabs */}
-        <div className="mt-8 border-b border-slate-200 pb-4">
+        <div className="mt-8 border-b border-[#263654] pb-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-black uppercase tracking-wider text-[#B89245]">
+            <span className="text-[10px] font-black uppercase tracking-wider text-[#D6BC8A]">
               Departments
             </span>
             <span className="text-xs font-bold text-slate-500">
@@ -326,8 +326,8 @@ export default function ProductsPage() {
               onClick={() => handleSelectDepartment('')}
               className={`shrink-0 rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                 !activeDeptParam && !activeCategoryParam
-                  ? 'bg-[#101D35] text-white shadow-md'
-                  : 'border border-slate-300 bg-white text-slate-700 hover:border-[#101D35] hover:text-[#101D35]'
+                  ? 'bg-[#D6BC8A] text-[#101C35] shadow-md font-black'
+                  : 'border border-[#263654] bg-[#1B2943] text-[#F5F1E8] hover:border-[#D6BC8A] hover:text-[#D6BC8A]'
               }`}
             >
               All Products ({products.length})
@@ -348,13 +348,13 @@ export default function ProductsPage() {
                   onClick={() => handleSelectDepartment(dept.slug)}
                   className={`shrink-0 rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                     isSelected
-                      ? 'bg-[#101D35] text-white shadow-md'
-                      : 'border border-slate-300 bg-white text-slate-700 hover:border-[#101D35] hover:text-[#101D35]'
+                      ? 'bg-[#D6BC8A] text-[#101C35] shadow-md font-black'
+                      : 'border border-[#263654] bg-[#1B2943] text-[#F5F1E8] hover:border-[#D6BC8A] hover:text-[#D6BC8A]'
                   }`}
                 >
-                  <Icon className={`h-3.5 w-3.5 ${isSelected ? 'text-[#D4AF65]' : 'text-slate-400'}`} />
+                  <Icon className={`h-3.5 w-3.5 ${isSelected ? 'text-[#D6BC8A]' : 'text-slate-400'}`} />
                   <span>{dept.shortName || dept.name}</span>
-                  <span className={`text-[10px] ${isSelected ? 'text-[#D4AF65]' : 'text-slate-400'} font-semibold`}>
+                  <span className={`text-[10px] ${isSelected ? 'text-[#D6BC8A]' : 'text-slate-400'} font-semibold`}>
                     ({deptProdCount})
                   </span>
                 </button>
@@ -364,7 +364,7 @@ export default function ProductsPage() {
 
           {/* Subcategory Filter Pills (Shown when a Department is active) */}
           {activeDepartment && (
-            <div className="mt-3 pt-3 border-t border-slate-200/80 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <div className="mt-3 pt-3 border-t border-[#263654]/80 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
               <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 mr-1 shrink-0">
                 Filter by Category:
               </span>
@@ -373,8 +373,8 @@ export default function ProductsPage() {
                 onClick={() => handleSelectCategory('')}
                 className={`shrink-0 rounded-xl px-3 py-1 text-xs font-bold transition-all cursor-pointer ${
                   !activeCategoryParam
-                    ? 'bg-[#D4AF65] text-[#101D35]'
-                    : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100'
+                    ? 'bg-[#D6BC8A] text-[#101C35] font-black'
+                    : 'bg-[#1B2943] border border-[#263654] text-[#F5F1E8] hover:bg-[#263654]'
                 }`}
               >
                 All in {activeDepartment.shortName || activeDepartment.name}
@@ -388,8 +388,8 @@ export default function ProductsPage() {
                     onClick={() => handleSelectCategory(sub.slug)}
                     className={`shrink-0 rounded-xl px-3 py-1 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                       isSubSelected
-                        ? 'bg-[#D4AF65] text-[#101D35]'
-                        : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100'
+                        ? 'bg-[#D6BC8A] text-[#101C35] font-black'
+                        : 'bg-[#1B2943] border border-[#263654] text-[#F5F1E8] hover:bg-[#263654]'
                     }`}
                   >
                     <span>{sub.name}</span>
@@ -432,7 +432,7 @@ export default function ProductsPage() {
             )}
 
             {activeCategoryParam && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65]/20 border border-[#D4AF65]/40 px-3 py-1 text-xs font-semibold text-slate-900">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#D6BC8A]/20 border border-[#D6BC8A]/40 px-3 py-1 text-xs font-semibold text-slate-900">
                 <span>Cat: {activeHeading}</span>
                 <button
                   type="button"
@@ -447,12 +447,12 @@ export default function ProductsPage() {
 
           {/* Sort Selector */}
           <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
-            <SlidersHorizontal className="h-3.5 w-3.5 text-[#D4AF65]" />
+            <SlidersHorizontal className="h-3.5 w-3.5 text-[#D6BC8A]" />
             <span>Sort by:</span>
             <select
               value={sortParam}
               onChange={(e) => updateFilters({ sort: e.target.value })}
-              className="rounded-xl border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-[#101D35] focus:border-[#D4AF65] focus:outline-none"
+              className="rounded-xl border border-[#263654] bg-[#1B2943] px-3 py-1.5 text-xs font-semibold text-[#F5F1E8] focus:border-[#D6BC8A] focus:outline-none"
             >
               <option value="featured">Featured / Most Popular</option>
               <option value="name-asc">Product Name (A → Z)</option>
@@ -498,7 +498,7 @@ export default function ProductsPage() {
 
         {/* Pagination Controls */}
         {!loading && !error && totalPages > 1 && (
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200 pt-6">
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#263654] pt-6">
             <span className="text-xs font-bold text-slate-500">
               Showing {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, totalItems)} of {totalItems} products
             </span>
@@ -508,7 +508,7 @@ export default function ProductsPage() {
                 type="button"
                 disabled={currentPage <= 1}
                 onClick={() => updateFilters({ page: String(currentPage - 1) })}
-                className="flex h-9 items-center gap-1 rounded-xl border border-slate-300 bg-white px-3 text-xs font-bold text-slate-700 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="flex h-9 items-center gap-1 rounded-xl border border-[#263654] bg-[#1B2943] px-3 text-xs font-bold text-[#F5F1E8] hover:bg-[#263654] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ChevronLeft className="h-4 w-4" />
                 <span>Prev</span>
@@ -536,7 +536,7 @@ export default function ProductsPage() {
                 type="button"
                 disabled={currentPage >= totalPages}
                 onClick={() => updateFilters({ page: String(currentPage + 1) })}
-                className="flex h-9 items-center gap-1 rounded-xl border border-slate-300 bg-white px-3 text-xs font-bold text-slate-700 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="flex h-9 items-center gap-1 rounded-xl border border-[#263654] bg-[#1B2943] px-3 text-xs font-bold text-[#F5F1E8] hover:bg-[#263654] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <span>Next</span>
                 <ChevronRight className="h-4 w-4" />
@@ -550,7 +550,7 @@ export default function ProductsPage() {
           <div className="mt-20 rounded-3xl border border-[#101D35] bg-[#101D35] p-8 text-white shadow-xl sm:p-12">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div>
-                <span className="rounded-full bg-[#D4AF65]/20 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-[#D4AF65]">
+                <span className="rounded-full bg-[#D6BC8A]/20 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-[#D6BC8A]">
                   Al Quoz Pressroom • Dubai, UAE
                 </span>
                 <h2 className="font-display mt-4 text-2xl font-black tracking-tight sm:text-4xl text-white">

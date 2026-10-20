@@ -1036,6 +1036,8 @@ const PUBLIC_STATIC_PATHS = new Set([
 ])
 
 async function isKnownPublicPath(requestPath) {
+  if (requestPath === '/admin' || requestPath.startsWith('/admin/')) return true
+  if (requestPath === '/finishes' || requestPath === '/corporate-quotes' || requestPath === '/bulk-orders') return true
   if (PUBLIC_STATIC_PATHS.has(requestPath)) return true
 
   const dynamicRoute = requestPath.match(/^\/(categories|products|services|blog|printing-services|printing-solutions)\/([^/]+)$/)
@@ -1129,7 +1131,8 @@ function createApp() {
     optionsSuccessStatus: 204,
   }
 
-  app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false }))
+  app.disable('x-powered-by')
+  app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false, hidePoweredBy: false }))
   app.use(compression())
   app.use(cors(corsOptions))
   app.options('*', cors(corsOptions))

@@ -8,7 +8,6 @@ import {
   Users,
   CheckCircle,
   Sparkles,
-  ChevronDown,
   Clock,
   ArrowRight,
   Package,
@@ -1295,38 +1294,6 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* ========================================================================= */}
-      {/* 12. DUBAI PRINTING FAQ ACCORDION                                         */}
-      {/* ========================================================================= */}
-      <section className="border-t border-[#1E2C4F] bg-[#0B132B] py-16 sm:py-24 text-[#F5F3EE]">
-        <Container className="max-w-4xl">
-          <div className="text-center mb-10">
-            <span className="text-xs font-black uppercase tracking-wider text-[#D6C29A]">DUBAI PRINTING FAQ</span>
-            <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#F5F3EE]">
-              Frequently Asked Questions About Printing in Dubai
-            </h2>
-            <p className="mx-auto mt-1 max-w-xl text-sm text-[#B8C2D9]">
-              Key information on order turnarounds, minimum quantities, paper stocks, and corporate gifting in the UAE.
-            </p>
-          </div>
-
-          <div className="divide-y divide-[#1E2C4F] border-t border-b border-[#1E2C4F]">
-            {homeFaqs.map((faq) => (
-              <details key={faq.question} className="group py-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
-                  <h3 className="font-display text-base font-bold text-[#F5F3EE] group-hover:text-[#D6C29A] transition-colors">
-                    {faq.question}
-                  </h3>
-                  <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-180 group-hover:text-[#D6C29A]" />
-                </summary>
-                <p className="mt-2.5 text-sm leading-relaxed text-[#B8C2D9]">
-                  {faq.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-        </Container>
-      </section>
 
       {/* ========================================================================= */}
       {/* 13. BOTTOM CONVERSION CALL TO ACTION                                      */}

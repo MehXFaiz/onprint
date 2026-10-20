@@ -25,7 +25,6 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import Reveal from '../../components/Reveal'
 import LoadingState from '../../components/LoadingState'
 import ProductCard from '../../components/ProductCard'
-import ProductSectionsShowcase from '../../components/ProductSectionsShowcase'
 import CarefreeShoppingSection from '../../components/CarefreeShoppingSection'
 import ProductDetailModal from '../../components/ProductDetailModal'
 import LuxuryFinishesShowcase from '../../components/LuxuryFinishesShowcase'
@@ -1324,16 +1323,7 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. DYNAMIC PRODUCT SECTIONS SHOWCASE (Brochures, Stickers, Boxes, etc.)   */}
-      {/* ========================================================================= */}
-      <ProductSectionsShowcase
-        categories={categories}
-        products={allProducts}
-        onQuickView={setQuickViewProduct}
-      />
-
-      {/* ========================================================================= */}
-      {/* 5. LUXURY FINISHES SHOWCASE                                              */}
+      {/* 3. LUXURY FINISHES SHOWCASE                                              */}
       {/* ========================================================================= */}
       <LuxuryFinishesShowcase />
 

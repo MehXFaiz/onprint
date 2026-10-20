@@ -16,7 +16,6 @@ import {
   MapPin,
   Star,
   Printer,
-  Sliders,
   Play,
   ArrowUpRight,
 } from 'lucide-react'
@@ -196,15 +195,6 @@ const atelierShowcaseItems = [
   },
 ]
 
-const quickCalcCategories = [
-  { id: 'business-cards', name: 'Business Cards', minQty: '100 pcs', turnaround: 'Same-Day / 24h', stock: '350–600 GSM Cotton / Velvet' },
-  { id: 'stickers', name: 'Stickers & Labels', minQty: '100 pcs', turnaround: 'Same-Day', stock: 'Waterproof Vinyl / Matte' },
-  { id: 'rollup-banners', name: 'Roll-Up Banners', minQty: '1 unit', turnaround: 'Same-Day / 24h', stock: 'Anti-Curl Film / Aluminium Cassette' },
-  { id: 'bottle-printing', name: 'Custom Bottles', minQty: '25 pcs', turnaround: '24–48h', stock: 'Stainless Steel / Aluminium / Laser-Etched' },
-  { id: 'stationery', name: 'Letterheads & Stationery', minQty: '100 pcs', turnaround: '24–48h', stock: '120 GSM Smooth Uncoated' },
-  { id: 'brochures', name: 'Brochures & Flyers', minQty: '250 pcs', turnaround: '24–48h', stock: '170–350 GSM Silk Art' },
-]
-
 export default function HomePage() {
   const [services, setServices] = useState(null)
   const [categories, setCategories] = useState(null)
@@ -214,10 +204,6 @@ export default function HomePage() {
   const [quickViewProduct, setQuickViewProduct] = useState(null)
   const [activeAtelierIdx, setActiveAtelierIdx] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-
-  // Interactive Instant Spec Estimator State
-  const [selectedCalcCategory, setSelectedCalcCategory] = useState(quickCalcCategories[0])
-  const [selectedFinish, setSelectedFinish] = useState('24K Gold Foil')
   const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0, glareX: 50, glareY: 50 })
 
   const handleHeroMouseMove = (e) => {
@@ -296,16 +282,6 @@ export default function HomePage() {
   }, [])
 
   const activeAtelierItem = atelierShowcaseItems[activeAtelierIdx] || atelierShowcaseItems[0]
-
-  const getWhatsAppCalcLink = () => {
-    return getServiceWhatsAppUrl(selectedCalcCategory.id, {
-      productName: selectedCalcCategory.name,
-      material: selectedCalcCategory.stock,
-      finish: selectedFinish,
-      quantity: selectedCalcCategory.minQty,
-      deadline: selectedCalcCategory.turnaround,
-    })
-  }
 
   return (
     <div className="bg-white text-slate-900">

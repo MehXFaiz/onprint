@@ -111,7 +111,7 @@ export default function AdminOrderFormPage() {
         <div>
           <Link
             to="/admin/orders"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:underline mb-2"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D6BC8A] hover:underline mb-2"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Back to Orders
@@ -136,7 +136,7 @@ export default function AdminOrderFormPage() {
         <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs space-y-5">
           <div className="border-b border-neutral-100 pb-4">
             <h3 className="font-display text-base font-bold text-neutral-900 flex items-center gap-2">
-              <ShoppingBag className="h-4 w-4 text-[#D4AF65]" />
+              <ShoppingBag className="h-4 w-4 text-[#D6BC8A]" />
               Order Specifications
             </h3>
             <p className="text-xs text-neutral-500">Customer information and ordered items.</p>
@@ -153,7 +153,7 @@ export default function AdminOrderFormPage() {
                 value={form.customerName}
                 onChange={(e) => setForm({ ...form, customerName: e.target.value })}
                 placeholder="Ahmed Al Mansoori"
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
 
@@ -166,7 +166,7 @@ export default function AdminOrderFormPage() {
                 value={form.customerEmail}
                 onChange={(e) => setForm({ ...form, customerEmail: e.target.value })}
                 placeholder="ahmed@emirateslogistics.ae"
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
           </div>
@@ -182,7 +182,7 @@ export default function AdminOrderFormPage() {
                 value={form.productName}
                 onChange={(e) => setForm({ ...form, productName: e.target.value })}
                 placeholder="Custom Water Bottles Printing in Dubai"
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
 
@@ -195,7 +195,7 @@ export default function AdminOrderFormPage() {
                 value={form.company}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
                 placeholder="Emirates Logistics"
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
           </div>
@@ -209,7 +209,7 @@ export default function AdminOrderFormPage() {
                 type="number"
                 value={form.quantity}
                 onChange={(e) => setForm({ ...form, quantity: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
 
@@ -221,7 +221,7 @@ export default function AdminOrderFormPage() {
                 type="number"
                 value={form.totalPrice}
                 onChange={(e) => setForm({ ...form, totalPrice: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
 
@@ -232,7 +232,7 @@ export default function AdminOrderFormPage() {
               <select
                 value={form.status}
                 onChange={(e) => setForm({ ...form, status: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs font-bold text-neutral-900 focus:border-[#D4AF65] focus:outline-none cursor-pointer"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs font-bold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none cursor-pointer"
               >
                 <option value="Pending">Pending</option>
                 <option value="Processing">Processing</option>
@@ -253,7 +253,7 @@ export default function AdminOrderFormPage() {
               value={form.notes}
               onChange={(e) => setForm({ ...form, notes: e.target.value })}
               placeholder="Special debossing, spot UV, or courier delivery notes..."
-              className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+              className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
             />
           </div>
         </div>
@@ -272,7 +272,7 @@ export default function AdminOrderFormPage() {
             variant="accent"
             icon={false}
             disabled={submitting}
-            className="w-full sm:w-auto justify-center !px-6 shadow-md shadow-[#D4AF65]/20"
+            className="w-full sm:w-auto justify-center !px-6 shadow-md shadow-[#D6BC8A]/20"
           >
             <Save className="h-4 w-4 mr-1.5" />
             {submitting ? 'Saving...' : isEdit ? 'Update Order' : 'Save Order'}

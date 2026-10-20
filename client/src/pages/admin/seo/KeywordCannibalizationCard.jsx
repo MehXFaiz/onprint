@@ -47,7 +47,7 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-100 pb-2.5">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-neutral-400 font-bold uppercase">Shared Keyword:</span>
-                <span className="rounded-md bg-[#D4AF65]/10 text-[#D4AF65] px-2.5 py-0.5 text-xs font-black">
+                <span className="rounded-md bg-[#D6BC8A]/10 text-[#D6BC8A] px-2.5 py-0.5 text-xs font-black">
                   &quot;{item.keyword}&quot;
                 </span>
               </div>
@@ -87,7 +87,7 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
                     </div>
                     <button
                       onClick={() => onEditPage && onEditPage(sec)}
-                      className="text-[11px] font-bold text-[#D4AF65] hover:underline flex items-center gap-1 shrink-0 cursor-pointer ml-2"
+                      className="text-[11px] font-bold text-[#D6BC8A] hover:underline flex items-center gap-1 shrink-0 cursor-pointer ml-2"
                     >
                       <Edit3 className="h-3 w-3" /> Fix
                     </button>
@@ -98,7 +98,7 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
 
             {/* Resolution Strategy Guidance */}
             <div className="rounded-lg bg-neutral-50 p-2.5 text-[11px] text-neutral-600 flex items-start gap-2">
-              <Link2 className="h-3.5 w-3.5 text-[#D4AF65] shrink-0 mt-0.5" />
+              <Link2 className="h-3.5 w-3.5 text-[#D6BC8A] shrink-0 mt-0.5" />
               <div>
                 <strong className="text-neutral-900 font-bold">Recommended Resolution: </strong>
                 {item.recommendation ||

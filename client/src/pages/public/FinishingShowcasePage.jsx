@@ -8,7 +8,7 @@ import LuxuryFinishesShowcase from '../../components/LuxuryFinishesShowcase'
 
 export default function FinishingShowcasePage() {
   return (
-    <div className="py-16 sm:py-24 bg-[#101D35] text-white">
+    <div className="py-16 sm:py-24 bg-[#101C35] text-[#F5F1E8]">
       <SEOHead
         title="Luxury Printing Finishes & Embellishments Dubai | ONPRINT"
         description="Explore tactile commercial printing finishes engineered on our Al Quoz press floor: 24K gold foil, raised 3D spot UV, blind debossing, velvet lamination, gilded edges, letterpress, and PUR binding."
@@ -22,14 +22,14 @@ export default function FinishingShowcasePage() {
 
         {/* Hero Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#162542] border border-[#28395A] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#D4AF65]">
-            <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#1B2943] border border-[#263654] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#D6BC8A]">
+            <Sparkles className="h-3.5 w-3.5 text-[#D6BC8A]" />
             <span>Al Quoz Master Presswork</span>
           </div>
-          <h1 className="font-display mt-3 text-3xl font-black tracking-tight text-white sm:text-5xl">
+          <h1 className="font-display mt-3 text-3xl font-black tracking-tight text-[#F5F1E8] sm:text-5xl">
             Commercial Print Finishes &amp; Tactile Embellishments
           </h1>
-          <p className="mt-4 text-base text-slate-300 leading-relaxed">
+          <p className="mt-4 text-base text-[#A0AEC0] leading-relaxed">
             Elevate executive stationery, luxury packaging, and corporate publications with signature embellishments calibrated for exceptional tactile impact under Dubai lighting.
           </p>
 
@@ -49,19 +49,19 @@ export default function FinishingShowcasePage() {
 
       {/* Technical Specifications Grid */}
       <Container className="mt-20">
-        <div className="rounded-3xl border border-[#28395A] bg-[#162542] p-8 sm:p-12 shadow-xl">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-3">
+        <div className="rounded-3xl border border-[#263654] bg-[#1B2943] p-8 sm:p-12 shadow-xl">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6BC8A] mb-3">
             <ShieldCheck className="h-4 w-4" />
             <span>Pre-Press &amp; Production Standards</span>
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl font-black text-white mb-6">
+          <h2 className="font-display text-2xl sm:text-3xl font-black text-[#F5F1E8] mb-6">
             Prepress Guidelines for Specialty Finishes
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-slate-300">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-[#A0AEC0]">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5 space-y-2">
-              <h3 className="font-bold text-white text-sm flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#D4AF65]" />
+              <h3 className="font-bold text-[#F5F1E8] text-sm flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#D6BC8A]" />
                 Foil &amp; Spot UV Layering
               </h3>
               <p className="leading-relaxed">
@@ -70,8 +70,8 @@ export default function FinishingShowcasePage() {
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5 space-y-2">
-              <h3 className="font-bold text-white text-sm flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#D4AF65]" />
+              <h3 className="font-bold text-[#F5F1E8] text-sm flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#D6BC8A]" />
                 Embossing &amp; Debossing Dies
               </h3>
               <p className="leading-relaxed">
@@ -80,8 +80,8 @@ export default function FinishingShowcasePage() {
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5 space-y-2">
-              <h3 className="font-bold text-white text-sm flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#D4AF65]" />
+              <h3 className="font-bold text-[#F5F1E8] text-sm flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#D6BC8A]" />
                 Bleed &amp; Dieline Precision
               </h3>
               <p className="leading-relaxed">
@@ -90,13 +90,13 @@ export default function FinishingShowcasePage() {
             </div>
           </div>
 
-          <div className="mt-8 pt-8 border-t border-[#28395A] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-slate-400">
+          <div className="mt-8 pt-8 border-t border-[#263654] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-[#6B7C96]">
               Need assistance setting up your artwork layers? Our Al Quoz prepress team provides complimentary file pre-flight checks.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:underline shrink-0"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D6BC8A] hover:underline shrink-0"
             >
               <span>Contact Prepress Engineer</span>
               <ChevronRight className="h-4 w-4" />

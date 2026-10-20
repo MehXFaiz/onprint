@@ -154,7 +154,7 @@ export default function AdminCategoriesPage() {
       {/* Header Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-neutral-200/80 shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6BC8A]">
             <FolderTree className="h-4 w-4" />
             <span>Store Organization</span>
           </div>
@@ -170,7 +170,7 @@ export default function AdminCategoriesPage() {
           onClick={() => navigate('/admin/categories/new')}
           variant="accent"
           icon={false}
-          className="shadow-md shadow-[#D4AF65]/20 self-start sm:self-auto cursor-pointer"
+          className="shadow-md shadow-[#D6BC8A]/20 self-start sm:self-auto cursor-pointer"
         >
           <Plus className="h-4 w-4 mr-1.5" />
           Add Category
@@ -187,7 +187,7 @@ export default function AdminCategoriesPage() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search categories by name or slug..."
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none"
+            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D6BC8A] focus:outline-none"
           />
         </div>
 
@@ -197,7 +197,7 @@ export default function AdminCategoriesPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D4AF65] focus:outline-none cursor-pointer"
+            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D6BC8A] focus:outline-none cursor-pointer"
           >
             <option value="all">Status: All</option>
             <option value="active">Active Only</option>
@@ -211,7 +211,7 @@ export default function AdminCategoriesPage() {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D4AF65] focus:outline-none cursor-pointer"
+            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D6BC8A] focus:outline-none cursor-pointer"
           >
             <option value="display_order_asc">Display Order (Asc)</option>
             <option value="display_order_desc">Display Order (Desc)</option>
@@ -230,7 +230,7 @@ export default function AdminCategoriesPage() {
             title="Refresh from MySQL"
             className="flex h-9 w-9 items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors disabled:opacity-50 cursor-pointer"
           >
-            <RefreshCw className={`h-4 w-4 text-[#D4AF65] ${refreshing ? 'animate-spin' : ''}`} />
+            <RefreshCw className={`h-4 w-4 text-[#D6BC8A] ${refreshing ? 'animate-spin' : ''}`} />
           </button>
         </div>
       </div>
@@ -249,7 +249,7 @@ export default function AdminCategoriesPage() {
           <button
             type="button"
             onClick={() => fetchCategoryList(true)}
-            className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-4 py-2 text-xs font-bold text-white hover:bg-[#D4AF65] transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-4 py-2 text-xs font-bold text-white hover:bg-[#D6BC8A] transition-colors"
           >
             <RefreshCw className="h-3.5 w-3.5" />
             Retry MySQL Connection
@@ -257,7 +257,7 @@ export default function AdminCategoriesPage() {
         </div>
       ) : filteredCategories.length === 0 ? (
         <div className="rounded-3xl border border-neutral-200/80 bg-white p-12 text-center space-y-4">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-red-50 text-[#D4AF65]">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-red-50 text-[#D6BC8A]">
             <FolderTree className="h-7 w-7" />
           </div>
           <div>
@@ -467,7 +467,7 @@ export default function AdminCategoriesPage() {
               </button>
               <button
                 type="button"
-                className="rounded-xl bg-[#D4AF65] px-3 py-1.5 font-bold text-white shadow-xs"
+                className="rounded-xl bg-[#D6BC8A] px-3 py-1.5 font-bold text-white shadow-xs"
               >
                 1
               </button>
@@ -510,7 +510,7 @@ export default function AdminCategoriesPage() {
                       setDeletingCategory(null)
                       setDeleteError(null)
                     }}
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-[#D4AF65] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-[#D6BC8A] transition-colors cursor-pointer"
                   >
                     Deactivate Category Instead
                   </button>

@@ -121,7 +121,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 text-xs font-bold text-[#D4AF65]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
                 <Target className="h-3.5 w-3.5" />
                 7-Intent Matrix & Decay Defense
               </span>
@@ -251,7 +251,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
         <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
           <div>
             <div className="flex items-center gap-2">
-              <Layers className="h-4 w-4 text-[#D4AF65]" />
+              <Layers className="h-4 w-4 text-[#D6BC8A]" />
               <h3 className="font-bold text-neutral-900 text-base">7 Search Intent Content Coverage Matrix</h3>
             </div>
             <p className="text-xs text-neutral-500 mt-0.5">
@@ -329,7 +329,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
                         href={`https://www.0nprint.com${row.path}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 text-[#D4AF65] hover:underline font-bold text-xs"
+                        className="inline-flex items-center gap-1 text-[#D6BC8A] hover:underline font-bold text-xs"
                       >
                         Visit Page <ExternalLink className="h-3 w-3" />
                       </a>
@@ -347,7 +347,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-neutral-100 pb-4">
           <div>
             <div className="flex items-center gap-2">
-              <Zap className="h-4 w-4 text-[#D4AF65]" />
+              <Zap className="h-4 w-4 text-[#D6BC8A]" />
               <h3 className="font-bold text-neutral-900 text-base">Striking Distance Opportunity Keywords</h3>
             </div>
             <p className="text-xs text-neutral-500 mt-0.5">
@@ -424,7 +424,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
                     </td>
 
                     <td className="py-3 px-3">
-                      <span className="font-black text-[#D4AF65] text-sm">
+                      <span className="font-black text-[#D6BC8A] text-sm">
                         {kw.opportunity_score || 75} / 100
                       </span>
                     </td>

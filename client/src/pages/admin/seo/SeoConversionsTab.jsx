@@ -118,7 +118,7 @@ export default function SeoConversionsTab({ showToast }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 text-xs font-bold text-[#D4AF65]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
                 <TrendingUp className="h-3.5 w-3.5" />
                 Real-Time Organic Attribution
               </span>
@@ -179,9 +179,9 @@ export default function SeoConversionsTab({ showToast }) {
             <div className="mt-0.5 text-[10px] text-blue-600">Direct tel: clicks</div>
           </div>
 
-          <div className="rounded-xl border border-[#D4AF65]/20 bg-[#D4AF65]/5 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF65]">Confirmed Orders</div>
-            <div className="mt-1 text-2xl font-black text-[#D4AF65]">{summary.confirmedOrdersCount || 0}</div>
+          <div className="rounded-xl border border-[#D6BC8A]/20 bg-[#D6BC8A]/5 p-4">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#D6BC8A]">Confirmed Orders</div>
+            <div className="mt-1 text-2xl font-black text-[#D6BC8A]">{summary.confirmedOrdersCount || 0}</div>
             <div className="mt-0.5 text-[10px] text-neutral-500">Verified database orders</div>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function SeoConversionsTab({ showToast }) {
                     </div>
                     <div className="w-full bg-neutral-100 rounded-full h-2 overflow-hidden">
                       <div
-                        className="bg-[#D4AF65] h-2 rounded-full transition-all duration-500"
+                        className="bg-[#D6BC8A] h-2 rounded-full transition-all duration-500"
                         style={{ width: `${pct}%` }}
                       />
                     </div>
@@ -255,7 +255,7 @@ export default function SeoConversionsTab({ showToast }) {
                     {dev}
                   </div>
                   <div className="text-xl font-black text-neutral-900">{count}</div>
-                  <div className="text-xs font-semibold text-[#D4AF65] mt-0.5">{pct}%</div>
+                  <div className="text-xs font-semibold text-[#D6BC8A] mt-0.5">{pct}%</div>
                 </div>
               )
             })}
@@ -276,14 +276,14 @@ export default function SeoConversionsTab({ showToast }) {
             placeholder="Search page path, product, or event type..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#D4AF65]"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#D6BC8A]"
           />
         </div>
 
         <select
           value={eventTypeFilter}
           onChange={(e) => setEventTypeFilter(e.target.value)}
-          className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D4AF65] w-full sm:w-auto"
+          className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D6BC8A] w-full sm:w-auto"
         >
           <option value="all">All Event Types</option>
           <option value="whatsapp_click">WhatsApp Click (whatsapp_click)</option>

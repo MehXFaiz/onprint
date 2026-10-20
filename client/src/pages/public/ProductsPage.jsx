@@ -272,7 +272,7 @@ export default function ProductsPage() {
         {/* Editorial Page Header */}
         <div className="mt-6 flex flex-col justify-between gap-6 lg:flex-row lg:items-end border-b border-[#263654] pb-8">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D6BC8A]">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#101C35] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D6BC8A]">
               <Sparkles className="h-3.5 w-3.5 text-[#D6BC8A]" />
               <span>{activeEyebrow}</span>
             </div>
@@ -523,7 +523,7 @@ export default function ProductsPage() {
                     onClick={() => updateFilters({ page: String(p) })}
                     className={`flex h-9 w-9 items-center justify-center rounded-xl text-xs font-black transition-all cursor-pointer ${
                       isCurr
-                        ? 'bg-[#101D35] text-white shadow-xs'
+                        ? 'bg-[#101C35] text-white shadow-xs'
                         : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
                     }`}
                   >
@@ -547,7 +547,7 @@ export default function ProductsPage() {
 
         {/* Dubai Commercial Press Trust Strip */}
         <Reveal>
-          <div className="mt-20 rounded-3xl border border-[#101D35] bg-[#101D35] p-8 text-white shadow-xl sm:p-12">
+          <div className="mt-20 rounded-3xl border border-[#101C35] bg-[#101C35] p-8 text-white shadow-xl sm:p-12">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div>
                 <span className="rounded-full bg-[#D6BC8A]/20 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-[#D6BC8A]">
@@ -569,7 +569,7 @@ export default function ProductsPage() {
                   to="/contact"
                   variant="outline"
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white hover:text-[#101D35]"
+                  className="border-white/30 text-white hover:bg-white hover:text-[#101C35]"
                 >
                   Contact Studio
                 </Button>

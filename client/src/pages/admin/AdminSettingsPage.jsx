@@ -45,7 +45,7 @@ export default function AdminSettingsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-neutral-200/80 shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6BC8A]">
             <Settings className="h-4 w-4" />
             <span>Platform Configuration</span>
           </div>
@@ -63,7 +63,7 @@ export default function AdminSettingsPage() {
         <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs space-y-5">
           <div className="border-b border-neutral-100 pb-4">
             <h3 className="font-display text-base font-bold text-neutral-900 flex items-center gap-2">
-              <Building className="h-4 w-4 text-[#D4AF65]" />
+              <Building className="h-4 w-4 text-[#D6BC8A]" />
               Studio Branding & Identity
             </h3>
             <p className="text-xs text-neutral-500">Business identity shown in footers, invoices, and customer communications.</p>
@@ -79,7 +79,7 @@ export default function AdminSettingsPage() {
                 required
                 value={form.studioName}
                 onChange={(e) => setForm({ ...form, studioName: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
 
@@ -91,7 +91,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={form.tagline}
                 onChange={(e) => setForm({ ...form, tagline: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function AdminSettingsPage() {
         <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs space-y-5">
           <div className="border-b border-neutral-100 pb-4">
             <h3 className="font-display text-base font-bold text-neutral-900 flex items-center gap-2">
-              <Mail className="h-4 w-4 text-[#D4AF65]" />
+              <Mail className="h-4 w-4 text-[#D6BC8A]" />
               Customer Contact & Dispatch Info
             </h3>
             <p className="text-xs text-neutral-500">Email addresses and phone numbers displayed on the website contact page.</p>
@@ -134,7 +134,7 @@ export default function AdminSettingsPage() {
                 type="email"
                 value={form.supportEmail}
                 onChange={(e) => setForm({ ...form, supportEmail: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
 
@@ -146,7 +146,7 @@ export default function AdminSettingsPage() {
                 type="email"
                 value={form.salesEmail}
                 onChange={(e) => setForm({ ...form, salesEmail: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
 
@@ -172,7 +172,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={form.whatsapp}
                 onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
           </div>
@@ -185,7 +185,7 @@ export default function AdminSettingsPage() {
               type="text"
               value={form.address}
               onChange={(e) => setForm({ ...form, address: e.target.value })}
-              className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+              className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
             />
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function AdminSettingsPage() {
         <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs space-y-5">
           <div className="border-b border-neutral-100 pb-4">
             <h3 className="font-display text-base font-bold text-neutral-900 flex items-center gap-2">
-              <Globe className="h-4 w-4 text-[#D4AF65]" />
+              <Globe className="h-4 w-4 text-[#D6BC8A]" />
               Commercial & Tax Parameters
             </h3>
             <p className="text-xs text-neutral-500">VAT calculations, default currency, and quote submission controls.</p>
@@ -221,7 +221,7 @@ export default function AdminSettingsPage() {
                 type="number"
                 value={form.vatRate}
                 onChange={(e) => setForm({ ...form, vatRate: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
 
@@ -233,7 +233,7 @@ export default function AdminSettingsPage() {
                 type="number"
                 value={form.minOrderAmount}
                 onChange={(e) => setForm({ ...form, minOrderAmount: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
           </div>
@@ -244,7 +244,7 @@ export default function AdminSettingsPage() {
                 type="checkbox"
                 checked={form.enableOnlineQuote}
                 onChange={(e) => setForm({ ...form, enableOnlineQuote: e.target.checked })}
-                className="h-4 w-4 rounded border-neutral-300 text-[#D4AF65] focus:ring-[#D4AF65]"
+                className="h-4 w-4 rounded border-neutral-300 text-[#D6BC8A] focus:ring-[#D6BC8A]"
               />
               <span className="text-xs font-bold text-neutral-900">Allow Online Custom Quote Requests</span>
             </label>
@@ -258,7 +258,7 @@ export default function AdminSettingsPage() {
             variant="accent"
             icon={false}
             disabled={submitting}
-            className="!px-6 shadow-md shadow-[#D4AF65]/20"
+            className="!px-6 shadow-md shadow-[#D6BC8A]/20"
           >
             <Save className="h-4 w-4 mr-1.5" />
             {submitting ? 'Saving Settings...' : 'Save Settings'}

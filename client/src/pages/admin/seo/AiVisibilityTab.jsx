@@ -102,7 +102,7 @@ export default function AiVisibilityTab({ showToast }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 text-xs font-bold text-[#D4AF65]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
                 <Bot className="h-3.5 w-3.5" />
                 AI Search Monitor
               </span>
@@ -183,7 +183,7 @@ export default function AiVisibilityTab({ showToast }) {
               {loading ? (
                 <tr>
                   <td colSpan={5} className="px-5 py-8 text-center text-neutral-500">
-                    <RefreshCw className="h-5 w-5 animate-spin mx-auto text-[#D4AF65] mb-2" />
+                    <RefreshCw className="h-5 w-5 animate-spin mx-auto text-[#D6BC8A] mb-2" />
                     Loading tracked queries…
                   </td>
                 </tr>
@@ -317,7 +317,7 @@ export default function AiVisibilityTab({ showToast }) {
                   <select
                     value={logFormData.ai_engine}
                     onChange={(e) => setLogFormData({ ...logFormData, ai_engine: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D4AF65]"
+                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
                   >
                     <option value="Perplexity">Perplexity</option>
                     <option value="ChatGPT Search">ChatGPT Search</option>
@@ -332,7 +332,7 @@ export default function AiVisibilityTab({ showToast }) {
                   <select
                     value={logFormData.onprint_cited}
                     onChange={(e) => setLogFormData({ ...logFormData, onprint_cited: Number(e.target.value) })}
-                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D4AF65]"
+                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
                   >
                     <option value={1}>Yes, Cited with link or mention</option>
                     <option value={0}>No, Not cited in top results</option>
@@ -347,7 +347,7 @@ export default function AiVisibilityTab({ showToast }) {
                   value={logFormData.query_prompt}
                   onChange={(e) => setLogFormData({ ...logFormData, query_prompt: e.target.value })}
                   placeholder="e.g. Best commercial printing press in Al Quoz Dubai"
-                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D4AF65]"
+                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
                   required
                 />
               </div>
@@ -361,7 +361,7 @@ export default function AiVisibilityTab({ showToast }) {
                     onChange={(e) => setLogFormData({ ...logFormData, citation_rank: Number(e.target.value) })}
                     min={1}
                     max={10}
-                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D4AF65]"
+                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
                   />
                 </div>
 
@@ -372,7 +372,7 @@ export default function AiVisibilityTab({ showToast }) {
                     value={logFormData.source_url_cited}
                     onChange={(e) => setLogFormData({ ...logFormData, source_url_cited: e.target.value })}
                     placeholder="https://www.0nprint.com/..."
-                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D4AF65]"
+                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
                   />
                 </div>
               </div>
@@ -384,7 +384,7 @@ export default function AiVisibilityTab({ showToast }) {
                   value={logFormData.extracted_snippet}
                   onChange={(e) => setLogFormData({ ...logFormData, extracted_snippet: e.target.value })}
                   placeholder="Paste snippet where ONPRINT was mentioned in the AI response..."
-                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D4AF65]"
+                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
                 />
               </div>
 

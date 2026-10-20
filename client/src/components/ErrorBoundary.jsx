@@ -33,8 +33,8 @@ export default class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="flex min-h-screen flex-col items-center justify-center bg-[#101D35] px-4 text-center">
-          <div className="max-w-md rounded-2xl bg-[#162542] p-8 shadow-2xl border border-[#28395A] text-white">
+        <div className="flex min-h-screen flex-col items-center justify-center bg-[#101C35] px-4 text-center">
+          <div className="max-w-md rounded-2xl bg-[#1B2943] p-8 shadow-2xl border border-[#263654] text-white">
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-red-500/15 text-red-400 mb-4 border border-red-500/30">
               <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -48,13 +48,13 @@ export default class ErrorBoundary extends React.Component {
               <button
                 type="button"
                 onClick={this.handleReload}
-                className="rounded-xl bg-[#D4AF65] px-5 py-2.5 text-sm font-bold text-[#101D35] shadow-md hover:bg-[#B89245] transition cursor-pointer"
+                className="rounded-xl bg-[#D6BC8A] px-5 py-2.5 text-sm font-bold text-[#101C35] shadow-md hover:bg-[#D6BC8A] transition cursor-pointer"
               >
                 Refresh Page
               </button>
               <a
                 href="/"
-                className="rounded-xl border border-[#28395A] bg-[#101D35] px-5 py-2.5 text-sm font-bold text-slate-200 hover:border-[#D4AF65] hover:text-[#D4AF65] transition"
+                className="rounded-xl border border-[#263654] bg-[#101C35] px-5 py-2.5 text-sm font-bold text-slate-200 hover:border-[#D6BC8A] hover:text-[#D6BC8A] transition"
               >
                 Go Home
               </a>

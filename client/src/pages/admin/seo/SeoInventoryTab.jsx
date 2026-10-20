@@ -135,7 +135,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 text-xs font-bold text-[#D4AF65]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
                 <Layers className="h-3.5 w-3.5" />
                 Live Architecture & Crawl
               </span>
@@ -168,7 +168,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
               size="sm"
               onClick={() => loadInventory(true)}
               disabled={crawling || loading}
-              className="text-xs font-bold bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245]"
+              className="text-xs font-bold bg-[#D6BC8A] text-[#101C35] hover:bg-[#D6BC8A]"
             >
               <RefreshCw className={`h-3.5 w-3.5 mr-1.5 ${crawling ? 'animate-spin' : ''}`} />
               {crawling ? 'Crawling Pages...' : 'Re-Crawl Site Now'}
@@ -208,9 +208,9 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
             <div className="mt-0.5 text-[10px] text-neutral-500">&lt; 300 total words</div>
           </div>
 
-          <div className="rounded-xl border border-[#D4AF65]/20 bg-[#D4AF65]/5 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF65]">Avg Health Score</div>
-            <div className="mt-1 text-2xl font-black text-[#D4AF65]">{summary.avgHealthScore || 0}%</div>
+          <div className="rounded-xl border border-[#D6BC8A]/20 bg-[#D6BC8A]/5 p-4">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#D6BC8A]">Avg Health Score</div>
+            <div className="mt-1 text-2xl font-black text-[#D6BC8A]">{summary.avgHealthScore || 0}%</div>
             <div className="mt-0.5 text-[10px] text-neutral-500">Across all catalog</div>
           </div>
         </div>
@@ -225,7 +225,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
             placeholder="Search path, title, or target keyword..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#D4AF65]"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#D6BC8A]"
           />
         </div>
 
@@ -233,7 +233,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D4AF65]"
+            className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D6BC8A]"
           >
             <option value="all">All Page Types</option>
             <option value="commercial">Commercial Hubs</option>
@@ -247,7 +247,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
           <select
             value={issueFilter}
             onChange={(e) => setIssueFilter(e.target.value)}
-            className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D4AF65]"
+            className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D6BC8A]"
           >
             <option value="all">All Issues & Health</option>
             <option value="orphan">Orphan Pages (&le; 1 link)</option>
@@ -263,7 +263,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
       <div className="rounded-2xl border border-neutral-200/80 bg-white overflow-hidden shadow-xs">
         {loading ? (
           <div className="p-12 text-center text-sm text-neutral-500">
-            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D4AF65] mb-2" />
+            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6BC8A] mb-2" />
             Crawling ONPRINT URLs and computing health metrics...
           </div>
         ) : filteredItems.length === 0 ? (
@@ -401,7 +401,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                             href={item.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="p-1.5 text-neutral-500 hover:text-[#D4AF65] rounded-lg hover:bg-neutral-100"
+                            className="p-1.5 text-neutral-500 hover:text-[#D6BC8A] rounded-lg hover:bg-neutral-100"
                             title="Visit URL"
                           >
                             <ExternalLink className="h-3.5 w-3.5" />
@@ -411,7 +411,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                             <button
                               type="button"
                               onClick={() => onEditPage(item)}
-                              className="p-1.5 text-neutral-500 hover:text-[#D4AF65] rounded-lg hover:bg-neutral-100 cursor-pointer"
+                              className="p-1.5 text-neutral-500 hover:text-[#D6BC8A] rounded-lg hover:bg-neutral-100 cursor-pointer"
                               title="Edit SEO"
                             >
                               <Edit3 className="h-3.5 w-3.5" />

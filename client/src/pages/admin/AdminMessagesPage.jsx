@@ -69,7 +69,7 @@ export default function AdminMessagesPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-neutral-200/80 shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6BC8A]">
             <MessageSquare className="h-4 w-4" />
             <span>Communications Hub</span>
           </div>
@@ -91,7 +91,7 @@ export default function AdminMessagesPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search messages by sender, email, subject..."
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none"
+            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D6BC8A] focus:outline-none"
           />
         </div>
 
@@ -100,7 +100,7 @@ export default function AdminMessagesPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full sm:w-auto rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D4AF65] focus:outline-none cursor-pointer"
+            className="w-full sm:w-auto rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D6BC8A] focus:outline-none cursor-pointer"
           >
             <option value="all">All Statuses</option>
             <option value="unread">Unread Only</option>
@@ -134,9 +134,9 @@ export default function AdminMessagesPage() {
                   }}
                   className={`rounded-2xl border p-4 shadow-xs cursor-pointer transition-all ${
                     isSelected
-                      ? 'border-[#D4AF65] bg-red-50/20 shadow-sm'
+                      ? 'border-[#D6BC8A] bg-red-50/20 shadow-sm'
                       : msg.status === 'unread'
-                      ? 'border-[#D4AF65]/40 bg-red-50/10 font-bold'
+                      ? 'border-[#D6BC8A]/40 bg-red-50/10 font-bold'
                       : 'border-neutral-200/80 bg-white hover:border-neutral-300'
                   }`}
                 >
@@ -197,7 +197,7 @@ export default function AdminMessagesPage() {
               {/* Sender Details */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-2xl bg-neutral-50 p-4 text-xs">
                 <div className="flex items-center gap-2">
-                  <User className="h-4 w-4 text-[#D4AF65] shrink-0" />
+                  <User className="h-4 w-4 text-[#D6BC8A] shrink-0" />
                   <div>
                     <div className="text-[10px] uppercase font-bold text-neutral-400">Sender</div>
                     <div className="font-bold text-neutral-900">{selectedMessage.name}</div>
@@ -205,7 +205,7 @@ export default function AdminMessagesPage() {
                 </div>
 
                 <div className="flex items-center gap-2 min-w-0">
-                  <Mail className="h-4 w-4 text-[#D4AF65] shrink-0" />
+                  <Mail className="h-4 w-4 text-[#D6BC8A] shrink-0" />
                   <div className="min-w-0">
                     <div className="text-[10px] uppercase font-bold text-neutral-400">Email</div>
                     <div className="font-mono text-neutral-800 break-all">{selectedMessage.email}</div>
@@ -213,7 +213,7 @@ export default function AdminMessagesPage() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-[#D4AF65] shrink-0" />
+                  <Phone className="h-4 w-4 text-[#D6BC8A] shrink-0" />
                   <div>
                     <div className="text-[10px] uppercase font-bold text-neutral-400">Phone</div>
                     <div className="font-bold text-neutral-800">{selectedMessage.phone || '—'}</div>
@@ -235,7 +235,7 @@ export default function AdminMessagesPage() {
               <div className="flex items-center justify-end gap-3 border-t border-neutral-100 pt-4">
                 <a
                   href={`mailto:${selectedMessage.email}?subject=RE: ${encodeURIComponent(selectedMessage.subject)}`}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-5 py-2.5 text-xs font-bold text-white hover:bg-[#D4AF65] transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-5 py-2.5 text-xs font-bold text-white hover:bg-[#D6BC8A] transition-colors"
                 >
                   <Mail className="h-4 w-4" />
                   Reply via Email

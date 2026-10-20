@@ -399,12 +399,12 @@ export default function BottlesLeadPage() {
                       onClick={() => setQuantity(qty)}
                       className={`flex flex-col items-center justify-center rounded-xl border py-3 transition-all ${
                         isSelected
-                          ? 'border-accent bg-accent text-[#101D35] shadow-md'
+                          ? 'border-accent bg-accent text-[#101C35] shadow-md'
                           : 'border-border bg-surface-alt/40 text-primary hover:border-accent/40'
                       }`}
                     >
                       <span className="text-base font-extrabold">{qty}</span>
-                      <span className={`text-[10px] ${isSelected ? 'text-[#101D35]/80 font-bold' : 'text-secondary'}`}>Units</span>
+                      <span className={`text-[10px] ${isSelected ? 'text-[#101C35]/80 font-bold' : 'text-secondary'}`}>Units</span>
                     </button>
                   )
                 })}

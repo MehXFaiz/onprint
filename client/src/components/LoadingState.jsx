@@ -48,7 +48,7 @@ export default function LoadingState({
       role="status"
       className={`flex items-center justify-center gap-3 py-16 text-sm font-medium text-black/60 ${className}`}
     >
-      <span className="h-5 w-5 animate-spin rounded-full border-2 border-black/10 border-t-[#D4AF65]" aria-hidden="true" />
+      <span className="h-5 w-5 animate-spin rounded-full border-2 border-black/10 border-t-[#D6BC8A]" aria-hidden="true" />
       <span>{label}</span>
     </div>
   )

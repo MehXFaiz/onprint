@@ -48,7 +48,7 @@ export default function AdminLoginPage() {
           <Link to="/" className="inline-block">
             <Logo variant="light" size="xl" />
           </Link>
-          <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+          <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#D6BC8A]">
             <ShieldCheck className="h-4 w-4" />
             <span>Admin Control Panel</span>
           </div>
@@ -64,20 +64,20 @@ export default function AdminLoginPage() {
         <div className="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/60 p-3.5">
           <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">
             <span className="flex items-center gap-1">
-              <ShieldCheck className="h-3.5 w-3.5 text-[#D4AF65]" />
+              <ShieldCheck className="h-3.5 w-3.5 text-[#D6BC8A]" />
               Default Admin (1-Click Fill)
             </span>
           </div>
           <button
             type="button"
             onClick={handleFillAdmin}
-            className="flex w-full items-center justify-between rounded-xl border border-neutral-800 bg-neutral-950 p-2.5 text-left text-xs font-semibold text-neutral-200 transition-all hover:border-[#D4AF65] hover:bg-neutral-900 cursor-pointer"
+            className="flex w-full items-center justify-between rounded-xl border border-neutral-800 bg-neutral-950 p-2.5 text-left text-xs font-semibold text-neutral-200 transition-all hover:border-[#D6BC8A] hover:bg-neutral-900 cursor-pointer"
           >
             <div>
               <div className="font-bold text-white">admin@onprint.ae</div>
               <div className="text-[10px] text-neutral-400">Password: admin123</div>
             </div>
-            <ArrowRight className="h-4 w-4 text-[#D4AF65]" />
+            <ArrowRight className="h-4 w-4 text-[#D6BC8A]" />
           </button>
         </div>
 
@@ -99,7 +99,7 @@ export default function AdminLoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="admin@onprint.ae"
-              className="mt-2 w-full rounded-xl border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 text-sm text-white focus:border-[#D4AF65] focus:outline-none"
+              className="mt-2 w-full rounded-xl border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 text-sm text-white focus:border-[#D6BC8A] focus:outline-none"
             />
           </div>
 
@@ -114,7 +114,7 @@ export default function AdminLoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="mt-2 w-full rounded-xl border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 text-sm text-white focus:border-[#D4AF65] focus:outline-none"
+              className="mt-2 w-full rounded-xl border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 text-sm text-white focus:border-[#D6BC8A] focus:outline-none"
             />
           </div>
 
@@ -123,7 +123,7 @@ export default function AdminLoginPage() {
             variant="accent"
             size="lg"
             icon={false}
-            className="w-full justify-center mt-2 shadow-md shadow-[#D4AF65]/30"
+            className="w-full justify-center mt-2 shadow-md shadow-[#D6BC8A]/30"
           >
             {loading ? 'Authenticating...' : 'Sign In as Admin'}
           </Button>

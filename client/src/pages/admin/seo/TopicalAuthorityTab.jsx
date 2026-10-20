@@ -601,7 +601,7 @@ export default function TopicalAuthorityTab({ showToast }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 text-xs font-bold text-[#D4AF65]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
                 <Network className="h-3.5 w-3.5" />
                 Topical Authority Architecture
               </span>
@@ -663,7 +663,7 @@ export default function TopicalAuthorityTab({ showToast }) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search clusters, entities, keywords..."
-            className="w-full rounded-xl border border-neutral-200 pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-[#D4AF65]"
+            className="w-full rounded-xl border border-neutral-200 pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
           />
         </div>
 
@@ -672,7 +672,7 @@ export default function TopicalAuthorityTab({ showToast }) {
           <select
             value={intentFilter}
             onChange={(e) => setIntentFilter(e.target.value)}
-            className="rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D4AF65]"
+            className="rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
           >
             <option value="All">All Intents</option>
             <option value="Commercial">Commercial</option>
@@ -724,7 +724,7 @@ export default function TopicalAuthorityTab({ showToast }) {
                           target="_blank"
                           rel="noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1 rounded-full bg-neutral-100 px-2.5 py-0.5 text-[10px] font-mono text-neutral-700 hover:text-[#D4AF65]"
+                          className="inline-flex items-center gap-1 rounded-full bg-neutral-100 px-2.5 py-0.5 text-[10px] font-mono text-neutral-700 hover:text-[#D6BC8A]"
                         >
                           <span>{cluster.target_url}</span>
                           <ExternalLink className="h-2.5 w-2.5" />
@@ -750,9 +750,9 @@ export default function TopicalAuthorityTab({ showToast }) {
                         e.stopPropagation()
                         handleGenerateBrief(cluster)
                       }}
-                      className="text-xs font-bold border-neutral-300 text-neutral-800 hover:border-[#D4AF65]"
+                      className="text-xs font-bold border-neutral-300 text-neutral-800 hover:border-[#D6BC8A]"
                     >
-                      <Sparkles className="h-3.5 w-3.5 mr-1 text-[#D4AF65]" />
+                      <Sparkles className="h-3.5 w-3.5 mr-1 text-[#D6BC8A]" />
                       <span>Content Brief</span>
                     </Button>
                     <div className="p-2 text-neutral-400">
@@ -772,7 +772,7 @@ export default function TopicalAuthorityTab({ showToast }) {
                   {/* Primary Dubai Keywords */}
                   <div>
                     <h4 className="font-bold text-neutral-800 mb-2 flex items-center gap-1.5">
-                      <Target className="h-4 w-4 text-[#D4AF65]" />
+                      <Target className="h-4 w-4 text-[#D6BC8A]" />
                       Primary Dubai Target Queries (GEO / Search)
                     </h4>
                     <div className="flex flex-wrap gap-2">
@@ -781,7 +781,7 @@ export default function TopicalAuthorityTab({ showToast }) {
                           key={idx}
                           type="button"
                           onClick={() => handleCopy(kw)}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium text-neutral-800 hover:border-[#D4AF65] transition-colors cursor-pointer"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium text-neutral-800 hover:border-[#D6BC8A] transition-colors cursor-pointer"
                           title="Click to copy query"
                         >
                           <span>{kw}</span>
@@ -807,7 +807,7 @@ export default function TopicalAuthorityTab({ showToast }) {
                           key={idx}
                           className="flex items-center gap-2 rounded-xl border border-neutral-200/80 bg-white p-3 text-xs text-neutral-700"
                         >
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF65] shrink-0" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#D6BC8A] shrink-0" />
                           <span>{sub}</span>
                         </div>
                       ))}
@@ -857,7 +857,7 @@ export default function TopicalAuthorityTab({ showToast }) {
           >
             <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
               <div>
-                <span className="text-[10px] font-extrabold uppercase text-[#D4AF65]">
+                <span className="text-[10px] font-extrabold uppercase text-[#D6BC8A]">
                   AI SEO &amp; GEO Content Strategy
                 </span>
                 <h3 className="font-display text-xl font-black text-neutral-900">
@@ -875,7 +875,7 @@ export default function TopicalAuthorityTab({ showToast }) {
 
             {briefLoading ? (
               <div className="py-16 text-center text-xs text-neutral-500">
-                <RefreshCw className="h-8 w-8 animate-spin mx-auto text-[#D4AF65] mb-3" />
+                <RefreshCw className="h-8 w-8 animate-spin mx-auto text-[#D6BC8A] mb-3" />
                 Synthesizing Dubai search intent, technical specs, and H2/H3 outline…
               </div>
             ) : activeBrief ? (

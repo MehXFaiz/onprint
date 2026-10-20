@@ -22,7 +22,7 @@
   --color-background: #101C35;         /* Main Midnight Navy Canvas */
   --color-background-alt: #0B1426;     /* Deep Midnight Navy Alternating Canvas */
   --color-surface: #1B2943;            /* Elevated Navy Card Surface */
-  --color-surface-alt: #162542;        /* Elevated Surface Variant */
+  --color-surface-alt: #1B2943;        /* Elevated Surface Variant */
   --color-surface-dark: #0B1426;       /* Deepest Navy Surface */
   --color-text: #F5F1E8;               /* Warm Ivory Primary Text */
   --color-text-secondary: #94A3B8;     /* Muted Secondary Text */
@@ -56,7 +56,7 @@
   --background: #101C35;
   --background-alt: #0B1426;
   --surface: #1B2943;
-  --surface-alt: #162542;
+  --surface-alt: #1B2943;
   --dark: #0B1426;
   --text-primary: #F5F1E8;
   --text-secondary: #94A3B8;

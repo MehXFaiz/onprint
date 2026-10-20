@@ -46,7 +46,7 @@ export default function AdminServicesPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-neutral-200/80 shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6BC8A]">
             <Wrench className="h-4 w-4" />
             <span>Workshop Offerings</span>
           </div>
@@ -62,7 +62,7 @@ export default function AdminServicesPage() {
           onClick={() => navigate('/admin/services/new')}
           variant="accent"
           icon={false}
-          className="shadow-md shadow-[#D4AF65]/20 self-start sm:self-auto cursor-pointer"
+          className="shadow-md shadow-[#D6BC8A]/20 self-start sm:self-auto cursor-pointer"
         >
           <Plus className="h-4 w-4 mr-1.5" />
           Add Service
@@ -90,7 +90,7 @@ export default function AdminServicesPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search services..."
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D4AF65] focus:outline-none"
+            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D6BC8A] focus:outline-none"
           />
         </div>
       </div>
@@ -156,7 +156,7 @@ export default function AdminServicesPage() {
           >
             Previous
           </button>
-          <button type="button" className="rounded-xl bg-[#D4AF65] px-3 py-1.5 font-bold text-white shadow-xs">
+          <button type="button" className="rounded-xl bg-[#D6BC8A] px-3 py-1.5 font-bold text-white shadow-xs">
             1
           </button>
           <button

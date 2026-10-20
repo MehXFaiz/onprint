@@ -126,16 +126,16 @@ function SectionCardGroup({ section, onQuickView }) {
   const visibleItems = section.items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
 
   return (
-    <div className="relative rounded-3xl border border-slate-200 bg-white p-5 sm:p-8 lg:p-10 shadow-xs transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl hover-shimmer">
+    <div className="relative rounded-3xl border border-slate-200 bg-white p-5 sm:p-8 lg:p-10 shadow-xs transition-all duration-300 hover:border-[#D6BC8A] hover:shadow-xl hover-shimmer">
       {/* Top Header Section */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-slate-100">
         <div>
           {/* Eyebrow Chip */}
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-slate-800 mb-3">
-            <span className="flex h-2 w-2 rounded-full bg-[#B89245] animate-pulse" />
+            <span className="flex h-2 w-2 rounded-full bg-[#D6BC8A] animate-pulse" />
             <span>SECTION {section.sectionNumber}</span>
             <span className="text-slate-400">•</span>
-            <span className="text-[#B89245]">{section.badge}</span>
+            <span className="text-[#D6BC8A]">{section.badge}</span>
           </div>
 
           {/* Section Main Title */}
@@ -145,7 +145,7 @@ function SectionCardGroup({ section, onQuickView }) {
             </h3>
             {/* Signature Underline Accent Bar */}
             <div className="mt-3 flex items-center gap-2">
-              <span className="h-1 w-16 rounded-full bg-[#D4AF65]" />
+              <span className="h-1 w-16 rounded-full bg-[#D6BC8A]" />
               <span className="h-1 w-3.5 rounded-full bg-slate-300" />
               <span className="h-1 w-1.5 rounded-full bg-slate-200" />
             </div>
@@ -168,7 +168,7 @@ function SectionCardGroup({ section, onQuickView }) {
               <button
                 onClick={handlePrevPage}
                 aria-label={`Previous slide for ${section.title}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition-all hover:border-[#D4AF65] hover:bg-[#D4AF65] hover:text-[#0F172A] active:scale-95 cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition-all hover:border-[#D6BC8A] hover:bg-[#D6BC8A] hover:text-[#0F172A] active:scale-95 cursor-pointer"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -176,7 +176,7 @@ function SectionCardGroup({ section, onQuickView }) {
               <button
                 onClick={handleNextPage}
                 aria-label={`Next slide for ${section.title}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D4AF65] bg-[#D4AF65] text-[#0F172A] shadow-xs transition-all hover:bg-[#B89245] hover:border-[#B89245] active:scale-95 cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D6BC8A] bg-[#D6BC8A] text-[#0F172A] shadow-xs transition-all hover:bg-[#D6BC8A] hover:border-[#D6BC8A] active:scale-95 cursor-pointer"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -218,7 +218,7 @@ function SectionCardGroup({ section, onQuickView }) {
               aria-label={`Go to page ${idx + 1} of ${section.title}`}
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 currentPage === idx
-                  ? 'w-8 bg-[#D4AF65]'
+                  ? 'w-8 bg-[#D6BC8A]'
                   : 'w-2 bg-slate-200 hover:bg-slate-400'
               }`}
             />
@@ -315,14 +315,14 @@ export default function ProductSectionsShowcase({
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Intro Banner */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#B89245] shadow-2xs">
-            <Sparkles className="h-3.5 w-3.5 text-[#B89245]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#D6BC8A] shadow-2xs">
+            <Sparkles className="h-3.5 w-3.5 text-[#D6BC8A]" />
             Dubai Premium Print Showcase
           </div>
 
           <h2 className="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl text-slate-900">
             <span>Explore Our </span>
-            <span className="text-[#B89245]">Product Collections</span>
+            <span className="text-[#D6BC8A]">Product Collections</span>
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -340,8 +340,8 @@ export default function ProductSectionsShowcase({
         {/* Bottom Guarantee Banner */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs">
           <div className="flex items-start sm:items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 border border-amber-200 text-[#B89245] font-bold shadow-2xs">
-              <ShieldCheck className="h-5 w-5 text-[#B89245]" />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 border border-amber-200 text-[#D6BC8A] font-bold shadow-2xs">
+              <ShieldCheck className="h-5 w-5 text-[#D6BC8A]" />
             </div>
             <div>
               <h4 className="text-sm sm:text-base font-bold text-slate-900">Need a custom bulk quantity or unique specification?</h4>
@@ -351,7 +351,7 @@ export default function ProductSectionsShowcase({
 
           <Link
             to="/get-a-quote"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-6 py-3 text-xs font-black uppercase tracking-wider text-[#0F172A] shadow-xs transition-all active:scale-95 shrink-0 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#D6BC8A] hover:bg-[#D6BC8A] px-6 py-3 text-xs font-black uppercase tracking-wider text-[#0F172A] shadow-xs transition-all active:scale-95 shrink-0 cursor-pointer"
           >
             <span>Request Custom Quote</span>
             <ArrowUpRight className="h-4 w-4" />

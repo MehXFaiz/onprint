@@ -68,7 +68,7 @@ export default function AdminPortfolioFormPage() {
         <div>
           <Link
             to="/admin/portfolio"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:underline mb-2"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D6BC8A] hover:underline mb-2"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Back to Portfolio
@@ -93,7 +93,7 @@ export default function AdminPortfolioFormPage() {
         <div className="rounded-3xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs space-y-5">
           <div className="border-b border-neutral-100 pb-4">
             <h3 className="font-display text-base font-bold text-neutral-900 flex items-center gap-2">
-              <ImageIcon className="h-4 w-4 text-[#D4AF65]" />
+              <ImageIcon className="h-4 w-4 text-[#D6BC8A]" />
               Project Showcase Details
             </h3>
             <p className="text-xs text-neutral-500">Project title, client name, and category.</p>
@@ -110,7 +110,7 @@ export default function AdminPortfolioFormPage() {
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
                 placeholder="e.g. Executive Leather Journals"
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
 
@@ -123,7 +123,7 @@ export default function AdminPortfolioFormPage() {
                 value={form.client}
                 onChange={(e) => setForm({ ...form, client: e.target.value })}
                 placeholder="e.g. Vertex Tech Dubai"
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
               />
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function AdminPortfolioFormPage() {
               <select
                 value={form.category}
                 onChange={(e) => setForm({ ...form, category: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs font-bold text-neutral-900 focus:border-[#D4AF65] focus:outline-none cursor-pointer"
+                className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs font-bold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none cursor-pointer"
               >
                 <option value="Corporate Gifts">Corporate Gifts</option>
                 <option value="Stationery">Office Stationery</option>
@@ -163,7 +163,7 @@ export default function AdminPortfolioFormPage() {
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
               placeholder="Describe printing technique, material finishing, and client outcome..."
-              className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D4AF65] focus:outline-none"
+              className="mt-1.5 w-full rounded-xl border border-neutral-300 bg-white px-3.5 py-2.5 text-xs text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
             />
           </div>
         </div>
@@ -182,7 +182,7 @@ export default function AdminPortfolioFormPage() {
             variant="accent"
             icon={false}
             disabled={submitting}
-            className="w-full sm:w-auto justify-center !px-6 shadow-md shadow-[#D4AF65]/20"
+            className="w-full sm:w-auto justify-center !px-6 shadow-md shadow-[#D6BC8A]/20"
           >
             <Save className="h-4 w-4 mr-1.5" />
             {submitting ? 'Saving...' : isEdit ? 'Update Project' : 'Save Project'}

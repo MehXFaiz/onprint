@@ -53,7 +53,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
       {/* Header Banner */}
       <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 px-2.5 py-0.5 text-xs font-bold text-[#D4AF65]">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
             <Crosshair className="h-3.5 w-3.5" />
             Competitive GEO Intelligence
           </span>
@@ -75,7 +75,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
               value={competitorUrl}
               onChange={(e) => setCompetitorUrl(e.target.value)}
               placeholder="https://competitor-dubai-printer.com/business-cards"
-              className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-neutral-200 bg-white focus:outline-none focus:border-[#D4AF65] transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-neutral-200 bg-white focus:outline-none focus:border-[#D6BC8A] transition-colors"
               required
             />
           </div>
@@ -87,7 +87,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
               value={targetKeyword}
               onChange={(e) => setTargetKeyword(e.target.value)}
               placeholder="Target Keyword (optional)"
-              className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-neutral-200 bg-white focus:outline-none focus:border-[#D4AF65] transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-neutral-200 bg-white focus:outline-none focus:border-[#D6BC8A] transition-colors"
             />
           </div>
 
@@ -117,7 +117,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
             </div>
             <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-xs">
               <span className="text-xs text-neutral-500 block">Schema Types Present</span>
-              <span className="text-sm font-bold text-[#D4AF65] mt-1 block">
+              <span className="text-sm font-bold text-[#D6BC8A] mt-1 block">
                 {analysisResult.schema_types?.length > 0 ? analysisResult.schema_types.join(', ') : 'None Detected'}
               </span>
             </div>
@@ -156,7 +156,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
           {/* Content Gaps & Missing Subtopics */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#D4AF65] uppercase tracking-wider mb-3">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#D6BC8A] uppercase tracking-wider mb-3">
                 <AlertTriangle className="h-4 w-4" />
                 <span>Identified Content Gaps</span>
               </div>
@@ -171,7 +171,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
                   'Absence of FAQPage schema markup for rich snippets',
                 ]).map((gap, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-neutral-700">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF65] shrink-0 mt-1.5" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#D6BC8A] shrink-0 mt-1.5" />
                     <span>{gap}</span>
                   </li>
                 ))}
@@ -206,7 +206,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
           {/* Actionable Content Recommendations */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-[#D4AF65]" />
+              <Sparkles className="h-4 w-4 text-[#D6BC8A]" />
               <h3 className="font-display text-base font-bold text-neutral-900">
                 Actionable Recommendations for ONPRINT
               </h3>
@@ -219,7 +219,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
                 'Inject FAQPage structured data with direct 40–80 word answer snippets.',
               ]).map((rec, idx) => (
                 <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-neutral-50 border border-neutral-100">
-                  <span className="font-display font-extrabold text-[#D4AF65] text-xs">
+                  <span className="font-display font-extrabold text-[#D6BC8A] text-xs">
                     0{idx + 1}
                   </span>
                   <span className="text-neutral-800 leading-relaxed">{rec}</span>

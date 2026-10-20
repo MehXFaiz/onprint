@@ -10,7 +10,7 @@ export function CornerMarks({ className = '' }) {
 }
 
 export function CmykDots({ className = '' }) {
-  const colors = ['#000000', '#D4AF65', '#FFFFFF', '#000000']
+  const colors = ['#000000', '#D6BC8A', '#FFFFFF', '#000000']
   return (
     <div className={`flex items-center gap-1.5 ${className}`} aria-hidden="true">
       {colors.map((color, idx) => (

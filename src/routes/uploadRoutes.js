@@ -10,11 +10,15 @@ const router = express.Router()
 // Ensure /uploads and /uploads/artwork directories exist
 const UPLOADS_DIR = path.join(__dirname, '..', '..', 'uploads')
 const ARTWORK_DIR = path.join(UPLOADS_DIR, 'artwork')
-if (!fs.existsSync(UPLOADS_DIR)) {
-  fs.mkdirSync(UPLOADS_DIR, { recursive: true })
-}
-if (!fs.existsSync(ARTWORK_DIR)) {
-  fs.mkdirSync(ARTWORK_DIR, { recursive: true })
+try {
+  if (!fs.existsSync(UPLOADS_DIR)) {
+    fs.mkdirSync(UPLOADS_DIR, { recursive: true })
+  }
+  if (!fs.existsSync(ARTWORK_DIR)) {
+    fs.mkdirSync(ARTWORK_DIR, { recursive: true })
+  }
+} catch (err) {
+  console.warn('[Upload] Note: Unable to create local upload directory (read-only filesystem):', err.message)
 }
 
 // Slugify filename for SEO friendly URL generation

@@ -18,8 +18,12 @@ const router = express.Router()
 
 // Ensure /uploads/categories directory exists
 const UPLOADS_DIR = path.join(__dirname, '..', '..', 'uploads', 'categories')
-if (!fs.existsSync(UPLOADS_DIR)) {
-  fs.mkdirSync(UPLOADS_DIR, { recursive: true })
+try {
+  if (!fs.existsSync(UPLOADS_DIR)) {
+    fs.mkdirSync(UPLOADS_DIR, { recursive: true })
+  }
+} catch (err) {
+  console.warn('[CategoryUpload] Note: Unable to create local directory (read-only filesystem):', err.message)
 }
 
 // Multer Storage Configuration

@@ -740,8 +740,6 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const productSchema = {
     name: `${pageData?.h1 || 'Business Cards'} - ONPRINT Dubai`,
     description: pageData?.metaDescription || 'Business card printing in Dubai.',
-    price: '45.00',
-    currency: 'AED',
     image: '/uploads/categories/business-cards-printing.jpg',
   }
 
@@ -2016,10 +2014,10 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   desc: 'Prevent edge cracking, RGB color shifts, 4-color text blur, and uncalibrated QR codes.',
                 },
                 {
-                  title: 'Business Card Printing FAQs for Dubai Customers: Pricing, GSM & Delivery',
+                  title: 'Business Card Printing FAQs for Dubai Customers: GSM & Delivery',
                   slug: '/blog/business-card-printing-faqs-dubai-customers',
                   tag: 'Complete Dubai FAQ',
-                  desc: 'Direct answers on AED pricing tiers, 4-hour rush cutoffs, PVC cards, and UAE delivery.',
+                  desc: 'Direct answers on paper weights, 4-hour rush cutoffs, PVC cards, and UAE delivery.',
                 },
               ].map((guide) => (
                 <Link

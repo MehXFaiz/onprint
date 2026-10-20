@@ -345,7 +345,7 @@ export default function ProductSectionsShowcase({
             </div>
             <div>
               <h4 className="text-sm sm:text-base font-bold text-[#F5F3EE]">Need a custom bulk quantity or unique specification?</h4>
-              <p className="text-xs text-[#B8C2D9]">Our Dubai prepress team provides instant digital proofs and free material sample boxes.</p>
+              <p className="text-xs text-[#B8C2D9]">Our Dubai prepress team provides instant digital proofs and express doorstep UAE delivery.</p>
             </div>
           </div>
 

@@ -375,7 +375,7 @@ export default function ProgrammaticLandingPage() {
                 <div className="mt-6 pt-5 border-t border-[#1E2C4F] text-[11px] text-slate-300 space-y-1.5">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-                    <span>Free sample box delivered across Dubai</span>
+                    <span>Express doorstep delivery across Dubai & UAE</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />

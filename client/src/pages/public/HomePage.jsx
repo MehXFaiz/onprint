@@ -28,7 +28,7 @@ import ProductCard from '../../components/ProductCard'
 import CarefreeShoppingSection from '../../components/CarefreeShoppingSection'
 import ProductDetailModal from '../../components/ProductDetailModal'
 import LuxuryFinishesShowcase from '../../components/LuxuryFinishesShowcase'
-import SampleBoxCTA from '../../components/SampleBoxCTA'
+import InfiniteProductMarquee from '../../components/InfiniteProductMarquee'
 import HeroPrintEstimator from '../../components/HeroPrintEstimator'
 import SEOHead from '../../components/SEOHead'
 import { CornerMarks, CmykDots } from '../../components/PrintMarks'
@@ -1061,9 +1061,9 @@ export default function HomePage() {
       <CarefreeShoppingSection />
 
       {/* ========================================================================= */}
-      {/* 7. COMPLIMENTARY SAMPLE BOX CTA                                          */}
+      {/* 7. LIVE PRODUCTION SHOWCASE & PRODUCT MARQUEE                             */}
       {/* ========================================================================= */}
-      <SampleBoxCTA />
+      <InfiniteProductMarquee />
 
       {/* ========================================================================= */}
       {/* 8. FEATURED PRODUCTS CATALOG                                             */}

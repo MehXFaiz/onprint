@@ -233,8 +233,8 @@ export default function TrackOrderPage() {
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-50 text-[#D6C29A] animate-bounce">
               <Printer className="h-6 w-6" />
             </div>
-            <p className="mt-4 font-bold text-slate-800">Checking ONPRINT Production Database...</p>
-            <p className="text-xs text-slate-500 mt-1">Retrieving job tickets, proofs, and dispatch records.</p>
+            <p className="mt-4 font-bold text-[#F5F3EE]">Checking ONPRINT Production Database...</p>
+            <p className="text-xs text-[#B8C2D9] mt-1">Retrieving job tickets, proofs, and dispatch records.</p>
           </div>
         )}
 

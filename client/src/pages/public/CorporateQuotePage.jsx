@@ -49,10 +49,10 @@ const FINISHING_OPTIONS = [
 ]
 
 const VOLUME_TIERS = [
-  'Under AED 15,000 / year',
-  'AED 15,000 – AED 50,000 / year',
-  'AED 50,000 – AED 150,000 / year',
-  'AED 150,000+ / year (Enterprise SLA)',
+  'Under 10,000 units / year',
+  '10,000 – 50,000 units / year',
+  '50,000 – 150,000 units / year',
+  '150,000+ units / year (Enterprise SLA)',
 ]
 
 export default function CorporateQuotePage() {

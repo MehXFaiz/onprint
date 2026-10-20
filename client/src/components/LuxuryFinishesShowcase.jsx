@@ -269,7 +269,7 @@ export default function LuxuryFinishesShowcase() {
                     to="/contact"
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-[#1E2C4F] bg-[#0B132B] hover:border-[#D6C29A] hover:bg-[#14213D] px-5 py-3 text-xs font-bold text-[#F5F3EE] transition-all cursor-pointer shadow-xs"
                   >
-                    <span>Request Sample Box</span>
+                    <span>Book VIP Consultation</span>
                   </Link>
                 </div>
               </div>

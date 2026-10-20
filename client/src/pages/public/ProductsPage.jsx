@@ -301,7 +301,7 @@ export default function ProductsPage() {
                   setSearchQuery('')
                   updateFilters({ search: '' })
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-800 cursor-pointer"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#B8C2D9] hover:text-[#F5F3EE] cursor-pointer"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -419,12 +419,12 @@ export default function ProductsPage() {
             )}
 
             {activeDeptParam && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold text-slate-800">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#14213D] border border-[#1E2C4F] px-3 py-1 text-xs font-semibold text-[#F5F3EE]">
                 <span>Dept: {activeDepartment?.name}</span>
                 <button
                   type="button"
                   onClick={() => handleSelectDepartment('')}
-                  className="hover:text-red-600 ml-1"
+                  className="hover:text-red-400 ml-1 cursor-pointer"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -432,12 +432,12 @@ export default function ProductsPage() {
             )}
 
             {activeCategoryParam && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#D6C29A]/20 border border-[#D6C29A]/40 px-3 py-1 text-xs font-semibold text-slate-900">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#D6C29A]/15 border border-[#D6C29A]/40 px-3 py-1 text-xs font-semibold text-[#D6C29A]">
                 <span>Cat: {activeHeading}</span>
                 <button
                   type="button"
                   onClick={() => handleSelectCategory('')}
-                  className="hover:text-red-600 ml-1"
+                  className="hover:text-red-400 ml-1 cursor-pointer"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -446,7 +446,7 @@ export default function ProductsPage() {
           </div>
 
           {/* Sort Selector */}
-          <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
+          <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9]">
             <SlidersHorizontal className="h-3.5 w-3.5 text-[#D6C29A]" />
             <span>Sort by:</span>
             <select

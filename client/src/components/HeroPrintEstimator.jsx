@@ -295,18 +295,12 @@ export default function HeroPrintEstimator() {
     const text = `Hello 0nprint, I would like to order ${product.name} via your website estimator:
 • Specification / Finish: ${option.name}
 • Selected Quantity: ${quantity} ${product.unit}
-• Estimated Total: AED ${estimatedPrice}
-Please confirm production schedule, artwork pre-flight check, and doorstep Dubai delivery.`
+Please confirm official quote, turnaround time, artwork pre-flight check, and doorstep Dubai delivery.`
     return `https://wa.me/971562947183?text=${encodeURIComponent(text)}`
   }
 
   const getFinishWhatsAppUrl = (finish) => {
-    const text = `Hello 0nprint, I am interested in ordering print with ${finish.title} (${finish.stock}). Please share available cardstock choices, prices, and sample delivery details.`
-    return `https://wa.me/971562947183?text=${encodeURIComponent(text)}`
-  }
-
-  const getSampleBoxWhatsAppUrl = () => {
-    const text = `Hello 0nprint, I would like to request a Complimentary Material & Finishes Sample Box delivered to our UAE office. Please share courier dispatch details.`
+    const text = `Hello 0nprint, I am interested in ordering print with ${finish.title} (${finish.stock}). Please share available cardstock choices, formal quotation, and delivery details.`
     return `https://wa.me/971562947183?text=${encodeURIComponent(text)}`
   }
 
@@ -315,50 +309,37 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
       {/* Outer Elevated Luxury Card Container */}
       <div className="relative rounded-3xl border border-[#1E2C4F] bg-[#14213D] shadow-2xl text-[#F5F3EE] p-4 sm:p-6 backdrop-blur-xl transition-all duration-300 hover:border-[#D6C29A] hover:shadow-[0_24px_50px_-12px_rgba(16,29,53,0.18)]">
         {/* Top Mode Navigation Switcher Tabs */}
-        <div className="mb-4 flex items-center justify-between gap-1.5 rounded-2xl border border-slate-200 bg-slate-100/80 p-1.5 shadow-2xs">
+        <div className="mb-4 flex items-center justify-between gap-1.5 rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-1.5 shadow-xs">
           <div className="flex items-center gap-1 w-full sm:w-auto">
             <button
               type="button"
               onClick={() => setActiveTab('estimator')}
-              className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-xs font-black transition-all cursor-pointer ${
+              className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-black transition-all cursor-pointer ${
                 activeTab === 'estimator'
-                  ? 'bg-[#0B132B] text-[#D6C29A] shadow-xs'
-                  : 'text-[#B8C2D9] hover:text-[#F5F3EE] hover:bg-[#14213D]/60'
+                  ? 'bg-[#D6C29A] text-[#0B132B] shadow-xs'
+                  : 'text-[#F5F3EE] hover:text-[#D6C29A] hover:bg-[#14213D]'
               }`}
             >
-              <Zap className="h-3.5 w-3.5 text-[#D6C29A]" />
+              <Zap className="h-3.5 w-3.5" />
               <span>Instant Estimator</span>
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab('finishes')}
-              className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-xs font-black transition-all cursor-pointer ${
+              className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-black transition-all cursor-pointer ${
                 activeTab === 'finishes'
-                  ? 'bg-[#0B132B] text-[#D6C29A] shadow-xs'
-                  : 'text-[#B8C2D9] hover:text-[#F5F3EE] hover:bg-[#14213D]/60'
+                  ? 'bg-[#D6C29A] text-[#0B132B] shadow-xs'
+                  : 'text-[#F5F3EE] hover:text-[#D6C29A] hover:bg-[#14213D]'
               }`}
             >
-              <Sparkles className="h-3.5 w-3.5 text-[#D6C29A]" />
+              <Sparkles className="h-3.5 w-3.5" />
               <span>Luxury Finishes</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setActiveTab('samples')}
-              className={`hidden sm:inline-flex items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-xs font-black transition-all cursor-pointer ${
-                activeTab === 'samples'
-                  ? 'bg-[#0B132B] text-[#D6C29A] shadow-xs'
-                  : 'text-[#B8C2D9] hover:text-[#F5F3EE] hover:bg-[#14213D]/60'
-              }`}
-            >
-              <Package className="h-3.5 w-3.5 text-[#D6C29A]" />
-              <span>Free Sample Box</span>
             </button>
           </div>
 
-          <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-1 rounded-lg border border-emerald-200">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/30">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Live Prepress
           </span>
         </div>
@@ -376,10 +357,10 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
             {/* Step 1: Product Selector Chips */}
             <div>
               <div className="flex items-center justify-between pb-1.5">
-                <span className="text-[11px] font-black uppercase tracking-wider text-slate-500">
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#D6C29A]">
                   1. Select Print Discipline
                 </span>
-                <span className="text-[10px] font-bold text-slate-400">
+                <span className="text-[10px] font-bold text-[#B8C2D9]">
                   {product.turnaround}
                 </span>
               </div>
@@ -394,11 +375,11 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
                       onClick={() => handleProductChange(idx)}
                       className={`flex flex-col items-center justify-center gap-1 rounded-xl p-2 text-center transition-all cursor-pointer border ${
                         isSelected
-                          ? 'border-[#0B132B] bg-[#0B132B] text-white shadow-xs'
-                          : 'border-slate-200 bg-[#0B132B]/70 text-[#B8C2D9] hover:bg-slate-100 hover:border-slate-300'
+                          ? 'border-[#D6C29A] bg-[#0B132B] text-[#D6C29A] shadow-xs'
+                          : 'border-[#1E2C4F] bg-[#0B132B]/80 text-[#F5F3EE] hover:bg-[#14213D] hover:border-[#D6C29A]/50'
                       }`}
                     >
-                      <Icon className={`h-4 w-4 ${isSelected ? 'text-[#D6C29A]' : 'text-slate-500'}`} />
+                      <Icon className={`h-4 w-4 ${isSelected ? 'text-[#D6C29A]' : 'text-[#B8C2D9]'}`} />
                       <span className="text-[11px] font-bold leading-tight truncate w-full">
                         {p.shortName}
                       </span>
@@ -409,7 +390,7 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
             </div>
 
             {/* Compact Product Visual Banner */}
-            <div className="relative h-28 sm:h-32 w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 group">
+            <div className="relative h-28 sm:h-32 w-full overflow-hidden rounded-2xl border border-[#1E2C4F] bg-slate-900 group">
               <picture>
                 {product.imageWebp && (
                   <source type="image/webp" srcSet={product.imageWebp} />
@@ -430,7 +411,7 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
                 <span className="rounded-full bg-[#0B132B]/90 border border-[#D6C29A]/40 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#D6C29A] backdrop-blur-md">
                   {product.badge}
                 </span>
-                <span className="rounded-full bg-white/95 px-2.5 py-0.5 text-[9px] font-black text-[#F5F3EE] backdrop-blur-md shadow-xs">
+                <span className="rounded-full bg-[#0B132B]/90 border border-[#1E2C4F] px-2.5 py-0.5 text-[9px] font-black text-[#F5F3EE] backdrop-blur-md shadow-xs">
                   ⚡ {product.turnaround}
                 </span>
               </div>
@@ -457,7 +438,7 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
             {/* Step 2: Paper Stock / Finishing Option Pills */}
             <div>
               <div className="flex items-center justify-between pb-1.5">
-                <span className="text-[11px] font-black uppercase tracking-wider text-slate-500">
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#D6C29A]">
                   2. Select Paper Stock &amp; Finish
                 </span>
                 <span className="text-[10px] font-bold text-[#D6C29A]">
@@ -474,19 +455,19 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
                       onClick={() => setSelectedOptionIdx(idx)}
                       className={`flex items-center justify-between gap-2 rounded-xl px-3 py-2 text-left transition-all cursor-pointer border ${
                         isSelected
-                          ? 'border-[#D6C29A] bg-[#D6C29A]/10 text-[#F5F3EE] shadow-xs'
-                          : 'border-[#1E2C4F] bg-[#0B132B] text-[#B8C2D9] hover:border-slate-300 hover:bg-[#0B132B]'
+                          ? 'border-[#D6C29A] bg-[#D6C29A]/15 text-[#F5F3EE] shadow-xs'
+                          : 'border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] hover:border-[#D6C29A]/50 hover:bg-[#14213D]'
                       }`}
                     >
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${isSelected ? 'bg-[#D6C29A]' : 'bg-slate-300'}`} />
+                          <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${isSelected ? 'bg-[#D6C29A]' : 'bg-slate-400'}`} />
                           <span className="text-xs font-bold truncate">
                             {opt.name}
                           </span>
                         </div>
                       </div>
-                      <span className="text-[10px] font-black px-1.5 py-0.5 rounded-md bg-slate-100 text-[#B8C2D9] shrink-0">
+                      <span className="text-[10px] font-black px-1.5 py-0.5 rounded-md bg-[#14213D] border border-[#1E2C4F] text-[#D6C29A] shrink-0">
                         {opt.tag}
                       </span>
                     </button>
@@ -498,11 +479,11 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
             {/* Step 3: Quantity Selector */}
             <div>
               <div className="flex items-center justify-between pb-1.5">
-                <span className="text-[11px] font-black uppercase tracking-wider text-slate-500">
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#D6C29A]">
                   3. Select Quantity
                 </span>
-                <span className="text-[10px] font-medium text-slate-500">
-                  Bulk discounts automatically applied
+                <span className="text-[10px] font-medium text-[#B8C2D9]">
+                  Volume discounts automatically applied
                 </span>
               </div>
               <div className="flex flex-wrap items-center gap-1.5">
@@ -515,8 +496,8 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
                       onClick={() => setSelectedQtyIdx(idx)}
                       className={`flex-1 min-w-[65px] rounded-xl py-1.5 px-2 text-center text-xs font-black transition-all cursor-pointer border ${
                         isSelected
-                          ? 'border-[#0B132B] bg-[#0B132B] text-[#D6C29A] shadow-xs'
-                          : 'border-slate-200 bg-[#0B132B] text-[#B8C2D9] hover:border-slate-300 hover:bg-[#14213D]'
+                          ? 'border-[#D6C29A] bg-[#D6C29A] text-[#0B132B] shadow-xs'
+                          : 'border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] hover:border-[#D6C29A]/50 hover:bg-[#14213D]'
                       }`}
                     >
                       <span>{qty}</span> <span className="text-[10px] font-medium">{product.unit}</span>
@@ -526,41 +507,41 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
               </div>
             </div>
 
-            {/* Dynamic Estimated Total & Guarantee Bar */}
-            <div className="rounded-2xl border border-slate-200 bg-[#0B132B]/90 p-3.5 sm:p-4">
+            {/* Custom Production Quote Bar */}
+            <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-3.5 sm:p-4">
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
-                    Estimated Production Total
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9] block">
+                    Custom Production Quote
                   </span>
                   <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-2xl sm:text-3xl font-black text-[#F5F3EE] tracking-tight">
-                      AED {estimatedPrice}
+                    <span className="text-2xl sm:text-3xl font-black text-[#D6C29A] tracking-tight">
+                      Quote on Request
                     </span>
-                    <span className="text-[11px] font-semibold text-slate-500">
-                      net • {quantity} {product.unit}
+                    <span className="text-[11px] font-semibold text-[#B8C2D9]">
+                      • {quantity} {product.unit}
                     </span>
                   </div>
                 </div>
 
                 <div className="text-right shrink-0 space-y-0.5">
-                  <div className="inline-flex items-center gap-1 rounded-md bg-emerald-100/90 px-2 py-0.5 text-[10px] font-black text-emerald-800">
-                    <Clock className="h-3 w-3 text-emerald-700" />
+                  <div className="inline-flex items-center gap-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 text-[10px] font-black text-emerald-400">
+                    <Clock className="h-3 w-3 text-emerald-400" />
                     <span>{product.turnaround}</span>
                   </div>
-                  <p className="text-[10px] font-medium text-slate-500">
+                  <p className="text-[10px] font-medium text-[#B8C2D9]">
                     Doorstep Delivery in UAE
                   </p>
                 </div>
               </div>
 
-              <div className="mt-2.5 pt-2 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-medium text-[#B8C2D9]">
+              <div className="mt-2.5 pt-2 border-t border-[#1E2C4F] flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-medium text-[#B8C2D9]">
                 <span className="flex items-center gap-1">
-                  <Check className="h-3 w-3 text-emerald-600 shrink-0" />
+                  <Check className="h-3 w-3 text-emerald-400 shrink-0" />
                   Free 300 DPI Pre-Flight Check
                 </span>
                 <span className="flex items-center gap-1">
-                  <Check className="h-3 w-3 text-emerald-600 shrink-0" />
+                  <Check className="h-3 w-3 text-emerald-400 shrink-0" />
                   Digital Proof Approval Included
                 </span>
               </div>
@@ -594,14 +575,13 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
                   <Upload className="h-3 w-3" />
                   <span>Upload Artwork / Custom RFQ</span>
                 </Link>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('samples')}
-                  className="inline-flex items-center gap-1 hover:text-[#D6C29A] transition-colors cursor-pointer"
+                <Link
+                  to="/corporate-quotes"
+                  className="inline-flex items-center gap-1 hover:text-[#D6C29A] transition-colors"
                 >
-                  <Package className="h-3 w-3" />
-                  <span>Request Free Swatch Box →</span>
-                </button>
+                  <ArrowRight className="h-3 w-3" />
+                  <span>Corporate RFQ &amp; Trade Credit →</span>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -628,8 +608,8 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
                     onClick={() => setActiveFinishIdx(idx)}
                     className={`rounded-xl py-2 px-1.5 text-center text-[11px] font-black transition-all cursor-pointer border ${
                       isSelected
-                        ? 'border-[#0B132B] bg-[#0B132B] text-[#D6C29A] shadow-xs'
-                        : 'border-slate-200 bg-[#0B132B] text-[#B8C2D9] hover:bg-slate-100'
+                        ? 'border-[#D6C29A] bg-[#D6C29A] text-[#0B132B] shadow-xs'
+                        : 'border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] hover:bg-[#14213D] hover:border-[#D6C29A]/40'
                     }`}
                   >
                     <span className="truncate block">{finish.category}</span>
@@ -643,7 +623,7 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
               const currentFinish = LUXURY_FINISHES_GALLERY[activeFinishIdx] || LUXURY_FINISHES_GALLERY[0]
               return (
                 <div className="space-y-3.5">
-                  <div className="relative h-44 sm:h-52 w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 group">
+                  <div className="relative h-44 sm:h-52 w-full overflow-hidden rounded-2xl border border-[#1E2C4F] bg-slate-900 group">
                     <img
                       src={currentFinish.image}
                       alt={currentFinish.title}
@@ -659,7 +639,7 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
                       <span className="rounded-full bg-[#0B132B]/90 border border-[#D6C29A]/40 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#D6C29A] backdrop-blur-md">
                         {currentFinish.badge}
                       </span>
-                      <span className="rounded-full bg-[#D6C29A] px-2.5 py-0.5 text-[9px] font-black text-[#F5F3EE] shadow-xs">
+                      <span className="rounded-full bg-[#D6C29A] px-2.5 py-0.5 text-[9px] font-black text-[#0B132B] shadow-xs">
                         {currentFinish.metric}
                       </span>
                     </div>
@@ -678,7 +658,7 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
                   </div>
 
                   {/* Highlights List */}
-                  <div className="rounded-2xl border border-slate-200 bg-[#0B132B] p-3 space-y-1.5">
+                  <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-3 space-y-1.5">
                     {currentFinish.highlights.map((h) => (
                       <div key={h} className="flex items-center gap-2 text-xs font-semibold text-[#B8C2D9]">
                         <CheckCircle className="h-3.5 w-3.5 text-[#D6C29A] shrink-0" />
@@ -700,84 +680,6 @@ Please confirm production schedule, artwork pre-flight check, and doorstep Dubai
                 </div>
               )
             })()}
-          </motion.div>
-        )}
-
-        {/* Tab 3: Free Sample Kit Mode */}
-        {activeTab === 'samples' && (
-          <motion.div
-            key="samples-tab"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25 }}
-            className="space-y-4"
-          >
-            <div className="relative h-36 sm:h-40 w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 group">
-              <img
-                src="/assets/products/service_executive_stationery.jpg"
-                alt="Luxury Material Swatch Box Dubai"
-                width="480"
-                height="160"
-                className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
-              <div className="absolute top-2.5 left-2.5">
-                <span className="rounded-full bg-[#0B132B] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#D6C29A] border border-[#D6C29A]/30">
-                  100% Free For UAE Businesses
-                </span>
-              </div>
-              <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
-                <h4 className="font-serif text-base sm:text-lg font-bold text-white">
-                  Physical Material &amp; Finishes Sample Box
-                </h4>
-                <p className="text-[11px] text-slate-300 mt-0.5">
-                  Delivered straight to your office anywhere in Dubai &amp; the UAE
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-[#B8C2D9]">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-[#0B132B]">
-                <Check className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                <span>18 Paper Stocks (130–700 GSM)</span>
-              </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-[#0B132B]">
-                <Truck className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                <span>Dispatched within 24h in Dubai</span>
-              </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-[#0B132B]">
-                <Sparkles className="h-3.5 w-3.5 text-[#D6C29A] shrink-0" />
-                <span>6 Real Hot Foil Stamping Chips</span>
-              </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 bg-[#0B132B]">
-                <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                <span>3D Spot UV &amp; Velvet Swatches</span>
-              </div>
-            </div>
-
-            <div className="space-y-2 pt-1">
-              <a
-                href={getSampleBoxWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] py-3 px-4 text-xs sm:text-sm font-black text-white shadow-md transition-all cursor-pointer text-center"
-              >
-                <WhatsAppIcon className="h-4 w-4 fill-white shrink-0" />
-                <span>Claim Free Sample Kit on WhatsApp</span>
-              </a>
-
-              <div className="text-center">
-                <Link
-                  to="/contact?inquiry=Sample+Box+Request"
-                  className="text-xs font-bold text-[#B8C2D9] hover:text-[#D6C29A] transition-colors"
-                >
-                  Or submit delivery address via web form →
-                </Link>
-              </div>
-            </div>
           </motion.div>
         )}
       </div>

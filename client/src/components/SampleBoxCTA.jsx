@@ -22,7 +22,7 @@ export default function SampleBoxCTA() {
             <div className="lg:col-span-7 space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D6C29A] shadow-2xs">
                 <Sparkles className="h-3.5 w-3.5 text-[#D6C29A]" />
-                <span>Complimentary Swatch Kit • Dubai &amp; UAE</span>
+                <span>Executive Print Consultation • Dubai &amp; UAE</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#F5F3EE] tracking-tight leading-tight">
@@ -66,7 +66,7 @@ export default function SampleBoxCTA() {
                 to="/contact?inquiry=Sample+Box+Request"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D6C29A] hover:bg-[#C8B185] px-4 sm:px-8 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider text-[#0B132B] shadow-md transition-all cursor-pointer text-center"
               >
-                <span>Claim Free Sample Kit</span>
+                <span>Schedule VIP Print Consultation</span>
                 <ArrowRight className="h-4 w-4 shrink-0" />
               </Link>
               <Link

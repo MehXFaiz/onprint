@@ -33,7 +33,7 @@ const BANNER_MODELS = [
     name: 'Standard Retractable Stand (85cm × 200cm)',
     tag: 'Bestseller Standard',
     badge: 'Same-Day / 24h',
-    pricePerUnit: 'AED 140',
+    pricePerUnit: 'Custom Quote',
     basePrice: 140,
     minQty: 1,
     image: '/assets/products/rollup_banner_showcase.jpg',
@@ -45,7 +45,7 @@ const BANNER_MODELS = [
     name: 'Luxury Teardrop Footless Stand (85cm × 200cm)',
     tag: 'Executive Grade',
     badge: '24h Express',
-    pricePerUnit: 'AED 240',
+    pricePerUnit: 'Custom Quote',
     basePrice: 240,
     minQty: 1,
     image: '/assets/products/rollup-banners/executive-matte-black-rollup-banner.svg',
@@ -57,7 +57,7 @@ const BANNER_MODELS = [
     name: 'Wide Exhibition Display (100cm × 200cm)',
     tag: 'Panoramic Impact',
     badge: '24–48h',
-    pricePerUnit: 'AED 220',
+    pricePerUnit: 'Custom Quote',
     basePrice: 220,
     minQty: 1,
     image: '/assets/products/rollup_banner_showcase.jpg',
@@ -69,7 +69,7 @@ const BANNER_MODELS = [
     name: 'Giant Stage Banner (120cm × 200cm)',
     tag: 'Stage & Event',
     badge: '24–48h',
-    pricePerUnit: 'AED 290',
+    pricePerUnit: 'Custom Quote',
     basePrice: 290,
     minQty: 1,
     image: '/assets/products/rollup_banner_showcase.jpg',
@@ -81,7 +81,7 @@ const BANNER_MODELS = [
     name: 'Double-Sided 360° Stand (85cm × 200cm)',
     tag: 'Two-Way Walkway',
     badge: '2–3 Days',
-    pricePerUnit: 'AED 290',
+    pricePerUnit: 'Custom Quote',
     basePrice: 290,
     minQty: 1,
     image: '/assets/products/rollup-banners/double-sided-rollup-banner-85x200.svg',
@@ -93,7 +93,7 @@ const BANNER_MODELS = [
     name: 'Desktop Mini Tabletop Stand (A3 / A4)',
     tag: 'Counter & POS',
     badge: '24h Express',
-    pricePerUnit: 'AED 65',
+    pricePerUnit: 'Custom Quote',
     basePrice: 65,
     minQty: 2,
     image: '/assets/products/rollup-banners/desktop-mini-tabletop-rollup-banner.svg',
@@ -359,7 +359,7 @@ export default function RollupBannersLeadPage() {
                       >
                         <div className="text-xs font-bold text-[#F5F3EE]">{qty.label}</div>
                         <div className="text-[11px] font-semibold text-[#D6C29A] mt-0.5">
-                          ~AED {unitEst} / unit
+                          Volume Tier
                         </div>
                       </button>
                     )
@@ -401,8 +401,8 @@ export default function RollupBannersLeadPage() {
                           </div>
                           <span className="text-xs font-bold text-[#F5F3EE]">{turn.label}</span>
                         </div>
-                        <span className="text-xs font-bold text-[#B8C2D9]">
-                          {turn.surcharge === 0 ? 'Included' : `+AED ${turn.surcharge}`}
+                        <span className="text-xs font-bold text-[#D6C29A]">
+                          {turn.surcharge === 0 ? 'Standard Press' : 'Express Rush'}
                         </span>
                       </div>
                     )
@@ -416,7 +416,7 @@ export default function RollupBannersLeadPage() {
               <div className="sticky top-24 rounded-2xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] p-6 shadow-sm">
                 <div className="border-b border-[#1E2C4F] pb-4">
                   <span className="text-xs font-black uppercase tracking-wider text-[#D6C29A]">
-                    INSTANT PRICING ESTIMATE
+                    OFFICIAL QUOTATION
                   </span>
                   <h3 className="font-serif text-xl font-bold text-[#F5F3EE] mt-1">
                     Your Specification Summary
@@ -426,35 +426,35 @@ export default function RollupBannersLeadPage() {
                 <div className="space-y-2.5 py-4 border-b border-[#1E2C4F] text-xs">
                   <div className="flex justify-between">
                     <span className="text-[#B8C2D9]">Banner Stand:</span>
-                    <span className="font-bold text-slate-800 text-right">{selectedModel.name}</span>
+                    <span className="font-bold text-[#F5F3EE] text-right">{selectedModel.name}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-[#B8C2D9]">Quantity:</span>
-                    <span className="font-bold text-slate-800">{selectedQty.label}</span>
+                    <span className="font-bold text-[#F5F3EE]">{selectedQty.label}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-[#B8C2D9]">Media Substrate:</span>
-                    <span className="font-bold text-slate-800">300 GSM Anti-Curl Greyback</span>
+                    <span className="font-bold text-[#F5F3EE]">300 GSM Anti-Curl Greyback</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-[#B8C2D9]">Turnaround Speed:</span>
-                    <span className="font-bold text-slate-800">{selectedTurnaround.label}</span>
+                    <span className="font-bold text-[#F5F3EE]">{selectedTurnaround.label}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-[#B8C2D9]">Accessories:</span>
-                    <span className="font-bold text-emerald-700">Padded Bag Included</span>
+                    <span className="font-bold text-emerald-400">Padded Bag Included</span>
                   </div>
                 </div>
 
                 <div className="py-4 border-b border-[#1E2C4F] flex items-baseline justify-between">
                   <span className="text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
-                    Estimated Subtotal:
+                    Official Quotation:
                   </span>
                   <div className="text-right">
-                    <span className="text-2xl font-black text-[#D6C29A]">
-                      AED {estimatedTotal}
+                    <span className="text-xl font-black text-[#D6C29A]">
+                      Quote on Request
                     </span>
-                    <div className="text-[10px] text-slate-400">Excl. 5% UAE VAT</div>
+                    <div className="text-[10px] text-[#B8C2D9]">Direct WhatsApp Confirmation</div>
                   </div>
                 </div>
 
@@ -496,7 +496,7 @@ export default function RollupBannersLeadPage() {
                     <button
                       type="button"
                       onClick={() => setSubmittedQuote(null)}
-                      className="text-xs text-[#B8C2D9] hover:text-slate-800 underline cursor-pointer"
+                      className="text-xs text-[#B8C2D9] hover:text-[#F5F3EE] underline cursor-pointer"
                     >
                       Edit specifications
                     </button>
@@ -513,7 +513,7 @@ export default function RollupBannersLeadPage() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Your name"
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-slate-400 focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                        className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
                       />
                     </div>
 
@@ -528,7 +528,7 @@ export default function RollupBannersLeadPage() {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+971 50 123 4567"
-                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-slate-400 focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                          className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
                         />
                       </div>
                       <div>
@@ -541,7 +541,7 @@ export default function RollupBannersLeadPage() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="you@company.ae"
-                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-slate-400 focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                          className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
                         />
                       </div>
                     </div>
@@ -556,7 +556,7 @@ export default function RollupBannersLeadPage() {
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                           placeholder="Company / Exhibitor"
-                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-slate-400 focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                          className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
                         />
                       </div>
                       <div>
@@ -568,7 +568,7 @@ export default function RollupBannersLeadPage() {
                           value={formData.venueDelivery}
                           onChange={(e) => setFormData({ ...formData, venueDelivery: e.target.value })}
                           placeholder="e.g. DWTC Hall 4, DIFC..."
-                          className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-slate-400 focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                          className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
                         />
                       </div>
                     </div>
@@ -582,7 +582,7 @@ export default function RollupBannersLeadPage() {
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                         placeholder="e.g. We have high-res PDF ready, need delivery by Thursday 2 PM..."
-                        className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs text-[#F5F3EE] placeholder:text-slate-400 focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none resize-none"
+                        className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none resize-none"
                       />
                     </div>
 

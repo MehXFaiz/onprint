@@ -39,7 +39,7 @@ const CARD_OPTIONS = [
     name: '350 GSM Silk / Smooth Matte',
     tag: 'Popular Standard',
     badge: 'Same-Day / 24h',
-    pricePer100: 'AED 85',
+    pricePer100: 'Custom Quote',
     basePrice: 85,
     minQty: 100,
     image: '/assets/products/basic_business_cards.jpg',
@@ -51,7 +51,7 @@ const CARD_OPTIONS = [
     name: '400 GSM Velvet Soft-Touch',
     tag: 'Tactile Upgrade',
     badge: '24h Express',
-    pricePer100: 'AED 120',
+    pricePer100: 'Custom Quote',
     basePrice: 120,
     minQty: 100,
     image: '/assets/products/card-soft-touch.jpg',
@@ -63,7 +63,7 @@ const CARD_OPTIONS = [
     name: '24K Hot Stamped Gold Foil',
     tag: 'Signature Craft',
     badge: '3-4 Days',
-    pricePer100: 'AED 180',
+    pricePer100: 'Custom Quote',
     basePrice: 180,
     minQty: 100,
     image: '/assets/products/card-velvet-foil.jpg',
@@ -75,7 +75,7 @@ const CARD_OPTIONS = [
     name: '600 GSM Italian Cotton Board',
     tag: 'Presidential Luxury',
     badge: '3-5 Days',
-    pricePer100: 'AED 240',
+    pricePer100: 'Custom Quote',
     basePrice: 240,
     minQty: 100,
     image: '/assets/products/luxury_business_cards_dubai.jpg',
@@ -87,7 +87,7 @@ const CARD_OPTIONS = [
     name: '700 GSM Gilded Painted Edge',
     tag: '360° Profile',
     badge: '4-5 Days',
-    pricePer100: 'AED 290',
+    pricePer100: 'Custom Quote',
     basePrice: 290,
     minQty: 100,
     image: '/assets/products/card-painted-edge.jpg',
@@ -99,7 +99,7 @@ const CARD_OPTIONS = [
     name: 'Raised 3D Spot UV & Scodix',
     tag: 'Dimensional Gloss',
     badge: '2-3 Days',
-    pricePer100: 'AED 160',
+    pricePer100: 'Custom Quote',
     basePrice: 160,
     minQty: 100,
     image: '/assets/products/luxury_business_cards.jpg',
@@ -179,7 +179,7 @@ export default function BusinessCardsLeadPage() {
 • Quantity: ${selectedQty.label}
 • Finishes: ${addonLabels || 'Standard'}
 • Turnaround: ${selectedTurnaround.label}
-• Est. Price: ~AED ${estimatedTotal}
+• Request: Official Quotation & Dispatch Schedule
 
 Client Name: ${formData.name || 'Not specified'}
 Company: ${formData.company || 'Not specified'}
@@ -482,7 +482,7 @@ Please confirm availability and dispatch schedule.`
                           <span className="text-xs font-bold">{addon.label}</span>
                         </div>
                         <span className="text-[11px] font-bold text-[#D6C29A]">
-                          {addon.price > 0 ? `+AED ${addon.price}` : 'Included'}
+                          {addon.price > 0 ? 'Custom Craft' : 'Included'}
                         </span>
                       </button>
                     )
@@ -522,7 +522,7 @@ Please confirm availability and dispatch schedule.`
                           {option.label}
                         </span>
                         <span className="text-[11px] font-semibold text-[#B8C2D9] mt-2">
-                          {option.extra > 0 ? `+AED ${option.extra}` : 'Free Standard'}
+                          {option.extra > 0 ? 'Express Priority' : 'Free Standard'}
                         </span>
                       </button>
                     )
@@ -546,10 +546,10 @@ Please confirm availability and dispatch schedule.`
                   </div>
                   <div className="text-right">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
-                      ESTIMATED TOTAL
+                      PRICING
                     </span>
-                    <div className="text-2xl font-black text-[#F5F3EE]">
-                      AED {estimatedTotal}
+                    <div className="text-xl font-black text-[#D6C29A]">
+                      Quote on Request
                     </div>
                   </div>
                 </div>

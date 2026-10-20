@@ -377,9 +377,9 @@ export default function ProductReviewsSection({ product, categorySlug }) {
 
             {submitSuccess ? (
               <div className="py-8 text-center">
-                <CheckCircle2 className="h-12 w-12 text-emerald-600 mx-auto mb-3" />
-                <h4 className="font-bold text-slate-900">Thank You For Your Review!</h4>
-                <p className="text-xs text-slate-500 mt-1">
+                <CheckCircle2 className="h-12 w-12 text-emerald-400 mx-auto mb-3" />
+                <h4 className="font-bold text-[#F5F3EE]">Thank You For Your Review!</h4>
+                <p className="text-xs text-[#B8C2D9] mt-1">
                   Your feedback has been logged and published.
                 </p>
               </div>
@@ -404,12 +404,12 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                           className={`h-6 w-6 ${
                             star <= (hoverRating || formData.rating)
                               ? 'fill-[#D6C29A] text-[#D6C29A]'
-                              : 'text-slate-300'
+                              : 'text-[#1E2C4F]'
                           }`}
                         />
                       </button>
                     ))}
-                    <span className="text-xs font-bold text-slate-600 ml-2">
+                    <span className="text-xs font-bold text-[#D6C29A] ml-2">
                       {formData.rating} / 5 Stars
                     </span>
                   </div>
@@ -425,7 +425,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                     value={formData.title}
                     onChange={(e) => setFormData((prev) => ({ ...prev, title: e.target.value }))}
                     placeholder="e.g. Crisp Foil Detail and Heavyweight Stock"
-                    className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold text-slate-900 focus:border-[#D6C29A] focus:outline-none"
+                    className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
 
@@ -439,7 +439,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                     value={formData.comment}
                     onChange={(e) => setFormData((prev) => ({ ...prev, comment: e.target.value }))}
                     placeholder="Mention the quality of colors, tactile finishes, turnaround speed, and delivery…"
-                    className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] p-3 text-xs text-slate-900 focus:border-[#D6C29A] focus:outline-none"
+                    className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] p-3 text-xs placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
 
@@ -454,7 +454,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                       value={formData.authorName}
                       onChange={(e) => setFormData((prev) => ({ ...prev, authorName: e.target.value }))}
                       placeholder="e.g. Sarah Mansoori"
-                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold text-slate-900 focus:border-[#D6C29A] focus:outline-none"
+                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none"
                     />
                   </div>
 
@@ -467,7 +467,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                       value={formData.company}
                       onChange={(e) => setFormData((prev) => ({ ...prev, company: e.target.value }))}
                       placeholder="e.g. Brand Studio Dubai"
-                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold text-slate-900 focus:border-[#D6C29A] focus:outline-none"
+                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -483,7 +483,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                       value={formData.authorEmail}
                       onChange={(e) => setFormData((prev) => ({ ...prev, authorEmail: e.target.value }))}
                       placeholder="sarah@company.ae"
-                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold text-slate-900 focus:border-[#D6C29A] focus:outline-none"
+                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none"
                     />
                   </div>
 
@@ -496,7 +496,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                       value={formData.orderReference}
                       onChange={(e) => setFormData((prev) => ({ ...prev, orderReference: e.target.value }))}
                       placeholder="e.g. ONP-2026-104829"
-                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold text-slate-900 focus:border-[#D6C29A] focus:outline-none font-mono"
+                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none font-mono"
                     />
                   </div>
                 </div>

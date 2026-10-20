@@ -42,7 +42,7 @@ const BOTTLE_OPTIONS = [
     name: 'Matte Thermal Stainless Steel Flask (500ml)',
     tag: 'Corporate Best Seller',
     badge: '3-4 Days',
-    pricePerUnit: 'AED 38',
+    pricePerUnit: 'Custom Quote',
     basePrice: 38,
     minQty: 20,
     image: '/assets/products/bottle_matte_thermal.jpg',
@@ -54,7 +54,7 @@ const BOTTLE_OPTIONS = [
     name: 'Smart LED Temperature Flask (500ml)',
     tag: 'Tech Innovation',
     badge: '3-5 Days',
-    pricePerUnit: 'AED 48',
+    pricePerUnit: 'Custom Quote',
     basePrice: 48,
     minQty: 15,
     image: '/assets/products/bottle_smart_led.jpg',
@@ -66,7 +66,7 @@ const BOTTLE_OPTIONS = [
     name: 'Borosilicate Glass with Bamboo Lid (550ml)',
     tag: 'Eco Sustainability',
     badge: '3-4 Days',
-    pricePerUnit: 'AED 42',
+    pricePerUnit: 'Custom Quote',
     basePrice: 42,
     minQty: 20,
     image: '/assets/products/bottle_glass_bamboo.jpg',
@@ -78,7 +78,7 @@ const BOTTLE_OPTIONS = [
     name: 'Aluminium Sports Bottle with Carabiner (600ml)',
     tag: 'Value / Events',
     badge: '2-3 Days',
-    pricePerUnit: 'AED 22',
+    pricePerUnit: 'Custom Quote',
     basePrice: 22,
     minQty: 30,
     image: '/assets/products/bottle_sports_aluminium.jpg',
@@ -90,7 +90,7 @@ const BOTTLE_OPTIONS = [
     name: 'Ergonomic Gym Protein Shaker (700ml)',
     tag: 'Fitness & Sports',
     badge: '2-3 Days',
-    pricePerUnit: 'AED 26',
+    pricePerUnit: 'Custom Quote',
     basePrice: 26,
     minQty: 25,
     image: '/assets/products/bottle_protein_shaker.jpg',
@@ -102,7 +102,7 @@ const BOTTLE_OPTIONS = [
     name: 'Executive Copper-Vacuum Luxury Flask (650ml)',
     tag: 'VIP Executive',
     badge: '4-5 Days',
-    pricePerUnit: 'AED 55',
+    pricePerUnit: 'Custom Quote',
     basePrice: 55,
     minQty: 15,
     image: '/assets/products/bottle_luxury_copper.jpg',
@@ -203,7 +203,7 @@ export default function BottlesLeadPage() {
         company: formState.company || 'N/A',
         product: selectedBottle.name,
         quantity: `${quantity} units`,
-        specs: `Branding: ${selectedBranding.name} | Unit Est: AED ${unitPrice} | Total Est: AED ${estimatedTotal}`,
+        specs: `Branding: ${selectedBranding.name} | Request: Official Quotation & Schedule`,
         notes: formState.notes || 'None',
       })
     } catch (err) {
@@ -221,7 +221,7 @@ export default function BottlesLeadPage() {
         company: formState.company || 'N/A',
         product: selectedBottle.name,
         quantity: `${quantity} units`,
-        specs: `Branding: ${selectedBranding.name} | Unit Est: AED ${unitPrice} | Total Est: AED ${estimatedTotal}`,
+        specs: `Branding: ${selectedBranding.name} | Request: Official Quotation & Schedule`,
         notes: formState.notes || 'None',
       })
     } finally {
@@ -245,7 +245,7 @@ export default function BottlesLeadPage() {
     <div className="py-12 sm:py-20 bg-surface-alt/30">
       <SEOHead
         title="Get Bottle Printing Quote Dubai | Water Bottles & Laser Engraving | ONPRINT"
-        description="Instant custom water bottle printing quote in Dubai from AED 22. Thermal stainless steel, glass bamboo bottles, aluminium sports bottles & protein shakers. Fast UAE delivery."
+        description="Instant custom water bottle printing quote in Dubai. Thermal stainless steel, glass bamboo bottles, aluminium sports bottles & protein shakers. Fast UAE delivery."
         keywords="bottle printing dubai, custom bottle printing dubai, water bottle printing dubai, personalized bottle printing uae, stainless steel bottle printing dubai, metal bottle engraving dubai, promotional water bottles uae, branded bottles dubai"
         canonicalPath="/quote/bottles"
         breadcrumbs={breadcrumbs}
@@ -431,15 +431,15 @@ export default function BottlesLeadPage() {
                   <span className="font-semibold text-primary">{quantity} Units</span>
                 </div>
                 <div className="mt-2 flex items-center justify-between text-xs text-secondary">
-                  <span>Estimated Unit Rate:</span>
-                  <span className="font-bold text-accent">AED {unitPrice} / unit</span>
+                  <span>Pricing Status:</span>
+                  <span className="font-bold text-accent">Quote on Request</span>
                 </div>
                 <div className="mt-4 border-t border-border pt-3 flex items-center justify-between">
-                  <span className="text-sm font-bold text-primary">Estimated Total:</span>
-                  <span className="text-2xl font-black text-primary">AED {estimatedTotal.toLocaleString()}</span>
+                  <span className="text-sm font-bold text-primary">Official Quotation:</span>
+                  <span className="text-xl font-black text-accent">Instant Quote on Request</span>
                 </div>
                 <p className="mt-1 text-[11px] text-tertiary">
-                  *Excludes 5% UAE VAT. Final price confirmed upon artwork review.
+                  *Formal pricing and fast turnaround schedule confirmed via WhatsApp concierge.
                 </p>
               </div>
 

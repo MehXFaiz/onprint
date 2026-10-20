@@ -956,9 +956,18 @@ export const getProductImage = resolveProductImage
  * Resolver for blog cover images
  */
 export function getBlogCoverImage(post) {
-  if (!post) return img1
+  if (!post) return '/assets/products/service_corporate_gifts.jpg'
   const raw = post.featured_image || post.cover_image || post.image_url || post.image
   if (typeof raw === 'string' && raw.trim() !== '' && !raw.includes('trae.ai')) {
+    if (raw.includes('ceramic-mug.jpg')) {
+      return '/assets/products/service_corporate_gifts.jpg'
+    }
+    if (raw.includes('notebook-hc-1.jpg')) {
+      return '/assets/products/service_executive_stationery.jpg'
+    }
+    if (raw.includes('brochure-soft-touch.jpg')) {
+      return '/assets/products/brochures.jpg'
+    }
     return raw
   }
   if (post.product_slug && productSlugImageMap[post.product_slug]) {
@@ -967,7 +976,7 @@ export function getBlogCoverImage(post) {
   if (post.category_slug && categorySlugImageMap[post.category_slug]) {
     return categorySlugImageMap[post.category_slug]
   }
-  return img1
+  return '/assets/products/service_corporate_gifts.jpg'
 }
 
 export default resolveProductImage

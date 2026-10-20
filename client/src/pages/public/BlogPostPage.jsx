@@ -280,6 +280,10 @@ export default function BlogPostPage() {
             alt={post.image_alt || post.imageAlt || post.title}
             className="h-full w-full object-cover"
             loading="eager"
+            onError={(e) => {
+              e.currentTarget.onerror = null
+              e.currentTarget.src = '/assets/products/service_corporate_gifts.jpg'
+            }}
           />
         </div>
 
@@ -697,6 +701,10 @@ export default function BlogPostPage() {
                           alt={item.image_alt || item.imageAlt || item.title}
                           className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                           loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.onerror = null
+                            e.currentTarget.src = '/assets/products/service_corporate_gifts.jpg'
+                          }}
                         />
                       </div>
                       <span className="mt-4 block text-[10px] font-bold uppercase tracking-wider text-accent">

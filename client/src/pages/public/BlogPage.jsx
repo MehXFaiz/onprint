@@ -227,6 +227,10 @@ export default function BlogPage() {
                       alt={featuredPost.image_alt || featuredPost.imageAlt || featuredPost.title}
                       className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                       loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.onerror = null
+                        e.currentTarget.src = '/assets/products/service_corporate_gifts.jpg'
+                      }}
                     />
                   </div>
                   <div className="lg:col-span-6">
@@ -284,6 +288,10 @@ export default function BlogPage() {
                           alt={post.image_alt || post.imageAlt || post.title}
                           className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                           loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.onerror = null
+                            e.currentTarget.src = '/assets/products/service_corporate_gifts.jpg'
+                          }}
                         />
                       </div>
 

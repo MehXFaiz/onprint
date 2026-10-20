@@ -1257,6 +1257,10 @@ export default function HomePage() {
                           alt={blog.image_alt || blog.imageAlt || blog.title}
                           className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                           loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.onerror = null
+                            e.currentTarget.src = '/assets/products/service_corporate_gifts.jpg'
+                          }}
                         />
                       </div>
 

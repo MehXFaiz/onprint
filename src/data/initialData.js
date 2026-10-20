@@ -81,20 +81,20 @@ module.exports = {
       "category_key": "cat-id-card-printing-dubai",
       "name": "ID Card Printing Dubai",
       "slug": "id-card-printing-dubai",
-      "description": "Secure CR80 standard PVC employee identity cards with high-definition thermal printing, smart chips, magnetic strips, and barcodes.",
-      "image": "/uploads/categories/id-card-printing-dubai.jpg",
-      "image_url": "/uploads/categories/id-card-printing-dubai.jpg",
+      "description": "High-definition UV printed CR80 PVC employee ID cards, staff badges, and VIP membership cards with vibrant scratch-resistant cured inks, raised 3D spot UV, and luxury matte or gloss finishes.",
+      "image": "/assets/products/id-cards/uv_id_card_hero.jpg",
+      "image_url": "/assets/products/id-cards/uv_id_card_hero.jpg",
       "status": "active",
       "display_order": 4,
       "active": true,
-      "seoTitle": "ID Card Printing Dubai | Corporate Employee & PVC Cards | ONPRINT",
-      "seoDescription": "High-security corporate PVC ID card printing in Dubai. Crisp photo resolution, smart NFC chips, barcodes, and custom lanyards for UAE businesses.",
+      "seoTitle": "UV ID Card Printing Dubai | Custom PVC Employee & Staff Badges | ONPRINT",
+      "seoDescription": "Premium UV printed ID cards in Dubai. CR80 PVC employee badges, raised 3D spot UV cards, frosted transparent passes, and metallic VIP cards with same-day express turnaround.",
       "seoKeywords": "id card printing dubai, pvc id cards dubai, corporate employee badges uae, student id card printing",
       "seoHeading": "Corporate PVC ID Card Printing Solutions Dubai",
       "canonicalUrl": "https://www.0nprint.com/categories/id-card-printing-dubai",
       "imageAlt": "Corporate employee PVC identity cards with chips in Dubai",
-      "seo_title": "ID Card Printing Dubai | Corporate Employee & PVC Cards | ONPRINT",
-      "seo_description": "High-security corporate PVC ID card printing in Dubai. Crisp photo resolution, smart NFC chips, barcodes, and custom lanyards for UAE businesses.",
+      "seo_title": "UV ID Card Printing Dubai | Custom PVC Employee & Staff Badges | ONPRINT",
+      "seo_description": "Premium UV printed ID cards in Dubai. CR80 PVC employee badges, raised 3D spot UV cards, frosted transparent passes, and metallic VIP cards with same-day express turnaround.",
       "seo_keywords": "id card printing dubai, pvc id cards dubai, corporate employee badges uae, student id card printing",
       "seo_heading": "Corporate PVC ID Card Printing Solutions Dubai",
       "canonical_url": "https://www.0nprint.com/categories/id-card-printing-dubai",
@@ -547,12 +547,12 @@ module.exports = {
         "name": "Office Stationery Printing",
         "slug": "id-card-printing-dubai"
       },
-      "shortDescription": "Secure CR80 standard PVC employee identity cards with high-definition thermal printing and smart chips.",
-      "description": "Secure corporate ID card printing in Dubai. High-definition thermal transfer on CR80 PVC cards, compatible with RFID smart chips, magnetic strips, barcodes, and custom security overlays.",
-      "image": "/uploads/categories/id-card-printing-dubai.jpg",
+      "shortDescription": "High-definition UV printed CR80 PVC employee ID cards, staff badges, and VIP membership cards with scratch-resistant cured inks.",
+      "description": "High-definition UV printed corporate employee ID cards and staff badges in Dubai. Ultra-durable UV flatbed printing on standard CR80 PVC, with optional raised 3D spot UV emblems, frosted translucent cards, and luxury metallic finishes.",
+      "image": "/assets/products/id-cards/uv_id_card_hero.jpg",
       "imageAlt": "Corporate employee PVC identity cards with chips in Dubai",
-      "seoTitle": "ID Card Printing Dubai | Corporate PVC & Staff Badges | ONPRINT",
-      "seoDescription": "High-security corporate PVC ID card printing in Dubai. Crisp photo resolution, smart NFC chips, barcodes, and accessories.",
+      "seoTitle": "UV ID Card Printing Dubai | Corporate PVC & Staff Badges | ONPRINT",
+      "seoDescription": "High-definition UV printed corporate PVC ID cards in Dubai. Crisp photographic portraits, raised 3D spot UV, frosted finishes, and same-day express turnaround.",
       "seoKeywords": "id card printing dubai, pvc id cards dubai, employee badges uae",
       "order": 4,
       "active": true
@@ -1898,754 +1898,6 @@ module.exports = {
       "image_alt": "Custom Die-Cut Shaped Flyers printing Dubai"
     },
     {
-      "_id": "prod-401",
-      "id": 401,
-      "product_key": "prod-401",
-      "name": "Secure Smart NFC PVC ID Cards",
-      "slug": "secure-smart-nfc-pvc-id-cards",
-      "description": "High-security corporate employee ID cards manufactured from durable CR80 PVC with integrated contactless NTAG213/216 smart chips, QR codes, magnetic stripes, and anti-scratch protective lamination. Perfect for digital tap-to-share business cards and modern IoT office access in Dubai.",
-      "shortDescription": "CR80 standard PVC identity cards with embedded NFC/RFID chips, high-definition photo print and security overlay.",
-      "short_description": "CR80 standard PVC identity cards with embedded NFC/RFID chips, high-definition photo print and security overlay.",
-      "price": 25,
-      "min_quantity": 10,
-      "minimumQuantity": 10,
-      "minimum_quantity": 10,
-      "unit": "pcs",
-      "featured": true,
-      "active": true,
-      "images": [
-        "/assets/products/id-cards/smart-nfc-pvc-id.png"
-      ],
-      "image": "/assets/products/id-cards/smart-nfc-pvc-id.png",
-      "image_url": "/assets/products/id-cards/smart-nfc-pvc-id.png",
-      "category_id": 4,
-      "category": {
-        "_id": "cat-id-card-printing-dubai",
-        "id": 4,
-        "name": "ID Card Printing Dubai",
-        "slug": "id-card-printing-dubai"
-      },
-      "categories": [
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai"
-        }
-      ],
-      "specifications": {
-        "materials": [
-          {
-            "label": "0.86mm Embedded NFC PVC Core",
-            "value": "nfc-pvc-086"
-          },
-          {
-            "label": "0.76mm Polycarbonate Hybrid",
-            "value": "polycarbonate"
-          }
-        ],
-        "finishes": [
-          {
-            "label": "Matte Velvet Anti-Glare Overlay",
-            "value": "matte-velvet"
-          },
-          {
-            "label": "Gloss Scratch-Resistant Finish",
-            "value": "gloss-scratch"
-          }
-        ],
-        "turnaround": [
-          {
-            "label": "Express 24-Hour Dispatch",
-            "value": "express-24h"
-          },
-          {
-            "label": "Standard 2–3 Days",
-            "value": "standard"
-          }
-        ]
-      },
-      "seoTitle": "Secure Smart NFC PVC ID Cards Dubai | Contactless Smart Badges | ONPRINT",
-      "seoDescription": "High-security corporate PVC ID cards with embedded NFC smart chips in Dubai. High-resolution photo printing, barcodes, and custom security overlays.",
-      "seoKeywords": "nfc id cards dubai, pvc id card printing uae, corporate smart badges dubai, contactless id cards uae",
-      "seoHeading": "Secure Smart NFC PVC ID Cards Dubai",
-      "canonicalUrl": "https://www.0nprint.com/products/secure-smart-nfc-pvc-id-cards",
-      "imageAlt": "Secure smart NFC PVC employee ID cards in Dubai",
-      "seo_title": "Secure Smart NFC PVC ID Cards Dubai | Contactless Smart Badges | ONPRINT",
-      "seo_description": "High-security corporate PVC ID cards with embedded NFC smart chips in Dubai. High-resolution photo printing, barcodes, and custom security overlays.",
-      "seo_keywords": "nfc id cards dubai, pvc id card printing uae, corporate smart badges dubai, contactless id cards uae",
-      "seo_heading": "Secure Smart NFC PVC ID Cards Dubai",
-      "canonical_url": "https://www.0nprint.com/products/secure-smart-nfc-pvc-id-cards",
-      "image_alt": "Secure smart NFC PVC employee ID cards in Dubai"
-    },
-    {
-      "_id": "prod-402",
-      "id": 402,
-      "product_key": "prod-402",
-      "name": "RFID Proximity Access Control Cards",
-      "slug": "rfid-proximity-access-cards",
-      "description": "Commercial 125kHz RFID proximity cards engineered for seamless compatibility with UAE office biometric turnstiles, automated barrier gates, and secure zone readers. Features durable composite core with crisp edge-to-edge full-color surface printing.",
-      "shortDescription": "125kHz EM4100 & HID compatible proximity identity cards for contactless turnstiles, parking gates, and biometric door systems.",
-      "short_description": "125kHz EM4100 & HID compatible proximity identity cards for contactless turnstiles, parking gates, and biometric door systems.",
-      "price": 12,
-      "min_quantity": 25,
-      "minimumQuantity": 25,
-      "minimum_quantity": 25,
-      "unit": "pcs",
-      "featured": true,
-      "active": true,
-      "images": [
-        "/assets/products/id-cards/rfid-proximity-access-cards.jpg"
-      ],
-      "image": "/assets/products/id-cards/rfid-proximity-access-cards.jpg",
-      "image_url": "/assets/products/id-cards/rfid-proximity-access-cards.jpg",
-      "category_id": 4,
-      "category": {
-        "_id": "cat-id-card-printing-dubai",
-        "id": 4,
-        "name": "ID Card Printing Dubai",
-        "slug": "id-card-printing-dubai"
-      },
-      "categories": [
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai"
-        }
-      ],
-      "specifications": {
-        "materials": [
-          {
-            "label": "125kHz ISO Thin PVC (0.84mm)",
-            "value": "iso-thin-pvc"
-          },
-          {
-            "label": "Heavy-Duty ABS Clamshell (1.8mm)",
-            "value": "clamshell-abs"
-          }
-        ],
-        "finishes": [
-          {
-            "label": "Dual-Sided Thermal Lamination",
-            "value": "dual-thermal"
-          },
-          {
-            "label": "Silk Matte Protective Coat",
-            "value": "silk-matte"
-          }
-        ],
-        "turnaround": [
-          {
-            "label": "Express 24-48h UAE Delivery",
-            "value": "express-24h"
-          },
-          {
-            "label": "Standard 3 Days",
-            "value": "standard"
-          }
-        ]
-      },
-      "seoTitle": "RFID Proximity Access Cards Dubai | 125kHz Turnstile & Door Badges | ONPRINT",
-      "seoDescription": "Order custom printed 125kHz RFID proximity access cards in Dubai. High durability, long-range barrier scanning, and custom corporate branding.",
-      "seoKeywords": "rfid access cards dubai, proximity cards uae, 125khz id cards dubai, door access badges uae",
-      "seoHeading": "RFID Proximity Access Control ID Cards Dubai",
-      "canonicalUrl": "https://www.0nprint.com/products/rfid-proximity-access-cards",
-      "imageAlt": "RFID proximity access control cards in Dubai",
-      "seo_title": "RFID Proximity Access Cards Dubai | 125kHz Turnstile & Door Badges | ONPRINT",
-      "seo_description": "Order custom printed 125kHz RFID proximity access cards in Dubai. High durability, long-range barrier scanning, and custom corporate branding.",
-      "seo_keywords": "rfid access cards dubai, proximity cards uae, 125khz id cards dubai, door access badges uae",
-      "seo_heading": "RFID Proximity Access Control ID Cards Dubai",
-      "canonical_url": "https://www.0nprint.com/products/rfid-proximity-access-cards",
-      "image_alt": "RFID proximity access control cards in Dubai"
-    },
-    {
-      "_id": "prod-403",
-      "id": 403,
-      "product_key": "prod-403",
-      "name": "High-Security Holographic Employee Badges",
-      "slug": "holographic-security-id-cards",
-      "description": "Bank-grade high-security identification cards featuring optical variable holographic overlays, microscopic guilloche security borders, and UV ultraviolet invisible watermarks. Engineered to eliminate forgery and unauthorized replication for government, defense, and high-security enterprise facilities across the UAE.",
-      "shortDescription": "Anti-counterfeit employee identity cards with embedded 3D optical holographic foil, microtext patterns, and UV invisible ink.",
-      "short_description": "Anti-counterfeit employee identity cards with embedded 3D optical holographic foil, microtext patterns, and UV invisible ink.",
-      "price": 18,
-      "min_quantity": 20,
-      "minimumQuantity": 20,
-      "minimum_quantity": 20,
-      "unit": "pcs",
-      "featured": true,
-      "active": true,
-      "images": [
-        "/assets/products/id-cards/holographic-security-id-cards.jpg"
-      ],
-      "image": "/assets/products/id-cards/holographic-security-id-cards.jpg",
-      "image_url": "/assets/products/id-cards/holographic-security-id-cards.jpg",
-      "category_id": 4,
-      "category": {
-        "_id": "cat-id-card-printing-dubai",
-        "id": 4,
-        "name": "ID Card Printing Dubai",
-        "slug": "id-card-printing-dubai"
-      },
-      "categories": [
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai"
-        }
-      ],
-      "specifications": {
-        "materials": [
-          {
-            "label": "30mil Composite Security PVC",
-            "value": "composite-30mil"
-          },
-          {
-            "label": "Teslin High-Durability Synthetic",
-            "value": "teslin-synthetic"
-          }
-        ],
-        "finishes": [
-          {
-            "label": "Custom Optical Hologram Foil",
-            "value": "hologram-foil"
-          },
-          {
-            "label": "UV Fluorescent Security Print",
-            "value": "uv-fluorescent"
-          }
-        ],
-        "turnaround": [
-          {
-            "label": "Express 48h Production",
-            "value": "express-48h"
-          },
-          {
-            "label": "Standard 3–4 Days",
-            "value": "standard"
-          }
-        ]
-      },
-      "seoTitle": "Holographic Security ID Cards Dubai | Anti-Counterfeit Badges | ONPRINT",
-      "seoDescription": "High-security holographic ID card printing in Dubai. 3D holographic overlays, UV invisible security printing, and tamper-evident lamination.",
-      "seoKeywords": "holographic id cards dubai, security badges uae, anti counterfeit id printing dubai, uv security cards",
-      "seoHeading": "High-Security Holographic Employee ID Cards Dubai",
-      "canonicalUrl": "https://www.0nprint.com/products/holographic-security-id-cards",
-      "imageAlt": "Holographic security employee ID badges in Dubai",
-      "seo_title": "Holographic Security ID Cards Dubai | Anti-Counterfeit Badges | ONPRINT",
-      "seo_description": "High-security holographic ID card printing in Dubai. 3D holographic overlays, UV invisible security printing, and tamper-evident lamination.",
-      "seo_keywords": "holographic id cards dubai, security badges uae, anti counterfeit id printing dubai, uv security cards",
-      "seo_heading": "High-Security Holographic Employee ID Cards Dubai",
-      "canonical_url": "https://www.0nprint.com/products/holographic-security-id-cards",
-      "image_alt": "Holographic security employee ID badges in Dubai"
-    },
-    {
-      "_id": "prod-404",
-      "id": 404,
-      "product_key": "prod-404",
-      "name": "HiCo Magnetic Stripe Corporate ID Cards",
-      "slug": "magnetic-stripe-corporate-id-cards",
-      "description": "Heavy-duty magnetic stripe identity cards equipped with 2750 Oe High Coercivity (HiCo) 3-track magnetic bands. Ideal for Dubai corporate time & attendance terminals, hotel electronic key card locks, gym memberships, and cafeteria POS payment swiping.",
-      "shortDescription": "High-coercivity 2750 Oe 3-track magnetic stripe cards for time-attendance logging, hotel key locks, and POS terminals.",
-      "short_description": "High-coercivity 2750 Oe 3-track magnetic stripe cards for time-attendance logging, hotel key locks, and POS terminals.",
-      "price": 10,
-      "min_quantity": 50,
-      "minimumQuantity": 50,
-      "minimum_quantity": 50,
-      "unit": "pcs",
-      "featured": false,
-      "active": true,
-      "images": [
-        "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg"
-      ],
-      "image": "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg",
-      "image_url": "/assets/products/id-cards/magnetic-stripe-corporate-id-cards.jpg",
-      "category_id": 4,
-      "category": {
-        "_id": "cat-id-card-printing-dubai",
-        "id": 4,
-        "name": "ID Card Printing Dubai",
-        "slug": "id-card-printing-dubai"
-      },
-      "categories": [
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai"
-        }
-      ],
-      "specifications": {
-        "materials": [
-          {
-            "label": "Standard CR80 0.76mm PVC",
-            "value": "cr80-076"
-          },
-          {
-            "label": "Extra Heavy 0.86mm Rigid PVC",
-            "value": "cr80-086"
-          }
-        ],
-        "finishes": [
-          {
-            "label": "High-Gloss Mirror Lamination",
-            "value": "gloss-mirror"
-          },
-          {
-            "label": "Matte Velvet Anti-Fingerprint",
-            "value": "matte-velvet"
-          }
-        ],
-        "turnaround": [
-          {
-            "label": "Same-Day / 24h Express Dubai",
-            "value": "express-sameday"
-          },
-          {
-            "label": "Standard 2 Days",
-            "value": "standard"
-          }
-        ]
-      },
-      "seoTitle": "HiCo Magnetic Stripe ID Cards Dubai | Hotel Keys & Time Attendance | ONPRINT",
-      "seoDescription": "Order HiCo magnetic stripe ID cards in Dubai. 3-track encoded magnetic cards for hotel key systems, time attendance clocks, and POS swiping.",
-      "seoKeywords": "magnetic stripe cards dubai, hico key cards uae, hotel key card printing dubai, magnetic badge printing",
-      "seoHeading": "HiCo Magnetic Stripe Corporate ID Cards Dubai",
-      "canonicalUrl": "https://www.0nprint.com/products/magnetic-stripe-corporate-id-cards",
-      "imageAlt": "HiCo magnetic stripe corporate ID cards in Dubai",
-      "seo_title": "HiCo Magnetic Stripe ID Cards Dubai | Hotel Keys & Time Attendance | ONPRINT",
-      "seo_description": "Order HiCo magnetic stripe ID cards in Dubai. 3-track encoded magnetic cards for hotel key systems, time attendance clocks, and POS swiping.",
-      "seo_keywords": "magnetic stripe cards dubai, hico key cards uae, hotel key card printing dubai, magnetic badge printing",
-      "seo_heading": "HiCo Magnetic Stripe Corporate ID Cards Dubai",
-      "canonical_url": "https://www.0nprint.com/products/magnetic-stripe-corporate-id-cards",
-      "image_alt": "HiCo magnetic stripe corporate ID cards in Dubai"
-    },
-    {
-      "_id": "prod-405",
-      "id": 405,
-      "product_key": "prod-405",
-      "name": "Full-Color Laminated Photo Staff ID Cards",
-      "slug": "photo-id-staff-cards",
-      "description": "Commercial grade photographic employee badges printed with 600 DPI edge-to-edge dye-sublimation technology for razor-sharp portraits and true corporate color reproduction. Finished with tough gloss or satin matte scratch-proof overlay, pre-punched for crocodile clips or neck lanyards.",
-      "shortDescription": "600 DPI edge-to-edge retransfer photo ID badges with crystal-clear lamination and optional lanyard slot punching.",
-      "short_description": "600 DPI edge-to-edge retransfer photo ID badges with crystal-clear lamination and optional lanyard slot punching.",
-      "price": 8,
-      "min_quantity": 10,
-      "minimumQuantity": 10,
-      "minimum_quantity": 10,
-      "unit": "pcs",
-      "featured": false,
-      "active": true,
-      "images": [
-        "/assets/products/id-cards/photo-id-staff-cards.jpg"
-      ],
-      "image": "/assets/products/id-cards/photo-id-staff-cards.jpg",
-      "image_url": "/assets/products/id-cards/photo-id-staff-cards.jpg",
-      "category_id": 4,
-      "category": {
-        "_id": "cat-id-card-printing-dubai",
-        "id": 4,
-        "name": "ID Card Printing Dubai",
-        "slug": "id-card-printing-dubai"
-      },
-      "categories": [
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai"
-        }
-      ],
-      "specifications": {
-        "materials": [
-          {
-            "label": "30mil Pure White PVC Core",
-            "value": "white-pvc-30mil"
-          },
-          {
-            "label": "Biodegradable Eco-PVC",
-            "value": "eco-pvc"
-          }
-        ],
-        "finishes": [
-          {
-            "label": "Crystal Clear Gloss Overlay",
-            "value": "gloss-clear"
-          },
-          {
-            "label": "Pre-punched Oval Lanyard Slot",
-            "value": "slot-punched"
-          }
-        ],
-        "turnaround": [
-          {
-            "label": "24-Hour Express UAE",
-            "value": "express-24h"
-          },
-          {
-            "label": "Standard 2–3 Days",
-            "value": "standard"
-          }
-        ]
-      },
-      "seoTitle": "Photo ID Staff Cards Dubai | Full Color Retransfer Employee Badges | ONPRINT",
-      "seoDescription": "Professional photo ID card printing in Dubai. 600 DPI high-definition portrait printing, durable lamination, and lanyard slot punching.",
-      "seoKeywords": "photo id cards dubai, employee badges printing uae, staff identity cards dubai, laminated id cards",
-      "seoHeading": "Full-Color Laminated Photo Staff ID Cards Dubai",
-      "canonicalUrl": "https://www.0nprint.com/products/photo-id-staff-cards",
-      "imageAlt": "Full color laminated photo staff ID cards in Dubai",
-      "seo_title": "Photo ID Staff Cards Dubai | Full Color Retransfer Employee Badges | ONPRINT",
-      "seo_description": "Professional photo ID card printing in Dubai. 600 DPI high-definition portrait printing, durable lamination, and lanyard slot punching.",
-      "seo_keywords": "photo id cards dubai, employee badges printing uae, staff identity cards dubai, laminated id cards",
-      "seo_heading": "Full-Color Laminated Photo Staff ID Cards Dubai",
-      "canonical_url": "https://www.0nprint.com/products/photo-id-staff-cards",
-      "image_alt": "Full color laminated photo staff ID cards in Dubai"
-    },
-    {
-      "_id": "prod-406",
-      "id": 406,
-      "product_key": "prod-406",
-      "name": "Student & University Campus ID Cards",
-      "slug": "student-campus-id-cards",
-      "description": "Robust, tamper-resistant student ID cards designed for UAE schools, colleges, and universities. Features high-resolution photo portraits, unique student roll numbers, 1D/2D barcodes for library checkout, QR verification, and optional MIFARE campus smart canteen integration.",
-      "shortDescription": "Durable CR80 school and university student identity cards with barcodes, QR codes, photo portraits, and library access.",
-      "short_description": "Durable CR80 school and university student identity cards with barcodes, QR codes, photo portraits, and library access.",
-      "price": 7,
-      "min_quantity": 25,
-      "minimumQuantity": 25,
-      "minimum_quantity": 25,
-      "unit": "pcs",
-      "featured": false,
-      "active": true,
-      "images": [
-        "/assets/products/id-cards/student-campus-id-cards.jpg"
-      ],
-      "image": "/assets/products/id-cards/student-campus-id-cards.jpg",
-      "image_url": "/assets/products/id-cards/student-campus-id-cards.jpg",
-      "category_id": 4,
-      "category": {
-        "_id": "cat-id-card-printing-dubai",
-        "id": 4,
-        "name": "ID Card Printing Dubai",
-        "slug": "id-card-printing-dubai"
-      },
-      "categories": [
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai"
-        }
-      ],
-      "specifications": {
-        "materials": [
-          {
-            "label": "Durable CR80 0.76mm PVC",
-            "value": "cr80-pvc"
-          },
-          {
-            "label": "Recycled Eco PVC Composite",
-            "value": "eco-composite"
-          }
-        ],
-        "finishes": [
-          {
-            "label": "Anti-Glare Matte Lamination",
-            "value": "anti-glare"
-          },
-          {
-            "label": "Variable Data & Barcode Print",
-            "value": "variable-barcode"
-          }
-        ],
-        "turnaround": [
-          {
-            "label": "Express 48h Batch Dispatch",
-            "value": "express-48h"
-          },
-          {
-            "label": "Standard 3 Days",
-            "value": "standard"
-          }
-        ]
-      },
-      "seoTitle": "Student ID Cards Printing Dubai | School & University Campus Badges | ONPRINT",
-      "seoDescription": "Custom student ID card printing in Dubai. School and university identity cards with barcodes, QR codes, photo portraits, and library access.",
-      "seoKeywords": "student id cards dubai, school id badges uae, university student cards dubai, campus id printing",
-      "seoHeading": "Student & University Campus ID Cards Dubai",
-      "canonicalUrl": "https://www.0nprint.com/products/student-campus-id-cards",
-      "imageAlt": "Student and university campus ID cards in Dubai",
-      "seo_title": "Student ID Cards Printing Dubai | School & University Campus Badges | ONPRINT",
-      "seo_description": "Custom student ID card printing in Dubai. School and university identity cards with barcodes, QR codes, photo portraits, and library access.",
-      "seo_keywords": "student id cards dubai, school id badges uae, university student cards dubai, campus id printing",
-      "seo_heading": "Student & University Campus ID Cards Dubai",
-      "canonical_url": "https://www.0nprint.com/products/student-campus-id-cards",
-      "image_alt": "Student and university campus ID cards in Dubai"
-    },
-    {
-      "_id": "prod-407",
-      "id": 407,
-      "product_key": "prod-407",
-      "name": "Visitor Pass Cards & Clear Badge Holders",
-      "slug": "visitor-pass-cards-holders",
-      "description": "Comprehensive visitor management cards featuring bold color-coded security zone stripes, sequential numbering, high-gloss reusable wipe-clean PVC surfaces, and transparent acrylic protective badge holders with swivel clips or safety breakaway neck straps.",
-      "shortDescription": "Reusable color-coded corporate visitor badges with bold sequential numbering and heavy-duty transparent acrylic holders.",
-      "short_description": "Reusable color-coded corporate visitor badges with bold sequential numbering and heavy-duty transparent acrylic holders.",
-      "price": 6,
-      "min_quantity": 50,
-      "minimumQuantity": 50,
-      "minimum_quantity": 50,
-      "unit": "pcs",
-      "featured": false,
-      "active": true,
-      "images": [
-        "/assets/products/id-cards/visitor-pass-cards-holders.jpg"
-      ],
-      "image": "/assets/products/id-cards/visitor-pass-cards-holders.jpg",
-      "image_url": "/assets/products/id-cards/visitor-pass-cards-holders.jpg",
-      "category_id": 4,
-      "category": {
-        "_id": "cat-id-card-printing-dubai",
-        "id": 4,
-        "name": "ID Card Printing Dubai",
-        "slug": "id-card-printing-dubai"
-      },
-      "categories": [
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai"
-        }
-      ],
-      "specifications": {
-        "materials": [
-          {
-            "label": "Rigid 0.76mm PVC + Clear Acrylic Case",
-            "value": "pvc-acrylic-case"
-          },
-          {
-            "label": "Soft Vinyl Waterproof Pouch",
-            "value": "vinyl-pouch"
-          }
-        ],
-        "finishes": [
-          {
-            "label": "High-Gloss Sealed Surface",
-            "value": "gloss-sealed"
-          },
-          {
-            "label": "Swivel Bulldog Clip & Pin",
-            "value": "clip-fastener"
-          }
-        ],
-        "turnaround": [
-          {
-            "label": "Same-Day Dispatch in Dubai",
-            "value": "sameday"
-          },
-          {
-            "label": "Standard 2 Days UAE",
-            "value": "standard"
-          }
-        ]
-      },
-      "seoTitle": "Visitor Pass Cards & Badges Dubai | Reusable Office Visitor Badges | ONPRINT",
-      "seoDescription": "Visitor pass cards and badge printing in Dubai. Reusable color-coded PVC passes, sequential numbering, and rigid acrylic badge holders.",
-      "seoKeywords": "visitor pass cards dubai, office visitor badges uae, temporary security badges dubai, visitor card holders",
-      "seoHeading": "Visitor Pass Cards & Clear Badge Holders Dubai",
-      "canonicalUrl": "https://www.0nprint.com/products/visitor-pass-cards-holders",
-      "imageAlt": "Visitor pass cards and clear badge holders in Dubai",
-      "seo_title": "Visitor Pass Cards & Badges Dubai | Reusable Office Visitor Badges | ONPRINT",
-      "seo_description": "Visitor pass cards and badge printing in Dubai. Reusable color-coded PVC passes, sequential numbering, and rigid acrylic badge holders.",
-      "seo_keywords": "visitor pass cards dubai, office visitor badges uae, temporary security badges dubai, visitor card holders",
-      "seo_heading": "Visitor Pass Cards & Clear Badge Holders Dubai",
-      "canonical_url": "https://www.0nprint.com/products/visitor-pass-cards-holders",
-      "image_alt": "Visitor pass cards and clear badge holders in Dubai"
-    },
-    {
-      "_id": "prod-408",
-      "id": 408,
-      "product_key": "prod-408",
-      "name": "Executive Matte Black & Metallic VIP ID Cards",
-      "slug": "executive-metallic-vip-id-cards",
-      "description": "Bespoke VIP and executive membership identity cards crafted from solid black matte PVC or precision-milled stainless steel. Features luxury metallic hot-foil stamping, laser-engraved serial numbers, custom embossing, and magnetic stripe or smart chip integration for exclusive Dubai clubs and executive suites.",
-      "shortDescription": "Ultra-luxury executive VIP membership cards with matte black velvet finish, laser engraving, and metallic gold/silver foil.",
-      "short_description": "Ultra-luxury executive VIP membership cards with matte black velvet finish, laser engraving, and metallic gold/silver foil.",
-      "price": 35,
-      "min_quantity": 10,
-      "minimumQuantity": 10,
-      "minimum_quantity": 10,
-      "unit": "pcs",
-      "featured": true,
-      "active": true,
-      "images": [
-        "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg"
-      ],
-      "image": "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg",
-      "image_url": "/assets/products/id-cards/executive-metallic-vip-id-cards.jpg",
-      "category_id": 4,
-      "category": {
-        "_id": "cat-id-card-printing-dubai",
-        "id": 4,
-        "name": "ID Card Printing Dubai",
-        "slug": "id-card-printing-dubai"
-      },
-      "categories": [
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai"
-        }
-      ],
-      "specifications": {
-        "materials": [
-          {
-            "label": "0.8mm Solid Matte Black Polymer",
-            "value": "solid-matte-black"
-          },
-          {
-            "label": "Brushed Stainless Steel 0.5mm",
-            "value": "brushed-steel"
-          }
-        ],
-        "finishes": [
-          {
-            "label": "Laser Engraving & Gold Hot Foil",
-            "value": "laser-gold-foil"
-          },
-          {
-            "label": "Raised Embossed Silver Foil",
-            "value": "embossed-silver"
-          }
-        ],
-        "turnaround": [
-          {
-            "label": "Express 3 Days Dubai",
-            "value": "express-3d"
-          },
-          {
-            "label": "Standard 5 Days",
-            "value": "standard"
-          }
-        ]
-      },
-      "seoTitle": "Executive VIP & Metal ID Cards Dubai | Luxury Membership Cards | ONPRINT",
-      "seoDescription": "Luxury executive VIP and metal ID card printing in Dubai. Matte black finish, gold foil stamping, laser engraving, and bespoke club membership cards.",
-      "seoKeywords": "vip id cards dubai, metal membership cards uae, luxury executive badges dubai, gold foil id cards",
-      "seoHeading": "Executive Matte Black & Metallic VIP ID Cards Dubai",
-      "canonicalUrl": "https://www.0nprint.com/products/executive-metallic-vip-id-cards",
-      "imageAlt": "Executive matte black and metallic VIP ID cards in Dubai",
-      "seo_title": "Executive VIP & Metal ID Cards Dubai | Luxury Membership Cards | ONPRINT",
-      "seo_description": "Luxury executive VIP and metal ID card printing in Dubai. Matte black finish, gold foil stamping, laser engraving, and bespoke club membership cards.",
-      "seo_keywords": "vip id cards dubai, metal membership cards uae, luxury executive badges dubai, gold foil id cards",
-      "seo_heading": "Executive Matte Black & Metallic VIP ID Cards Dubai",
-      "canonical_url": "https://www.0nprint.com/products/executive-metallic-vip-id-cards",
-      "image_alt": "Executive matte black and metallic VIP ID cards in Dubai"
-    },
-    {
-      "_id": "prod-409",
-      "id": 409,
-      "product_key": "prod-409",
-      "name": "Frosted Translucent Designer PVC Cards",
-      "slug": "frosted-translucent-pvc-id-cards",
-      "description": "Premium semi-transparent frosted translucent PVC cards designed for modern creative agencies, luxury VIP passes, and high-end executive memberships in Dubai. Features textured anti-scratch surface and custom spot white print backing.",
-      "shortDescription": "Semi-transparent frosted matte CR80 PVC cards with opaque spot white underlay, vibrant CMYK color, and waterproof durability.",
-      "short_description": "Semi-transparent frosted matte CR80 PVC cards with opaque spot white underlay, vibrant CMYK color, and waterproof durability.",
-      "price": 22,
-      "min_quantity": 15,
-      "minimumQuantity": 15,
-      "minimum_quantity": 15,
-      "unit": "pcs",
-      "featured": true,
-      "active": true,
-      "images": [
-        "/assets/products/id-cards/transparent-id-cards.jpg"
-      ],
-      "image": "/assets/products/id-cards/transparent-id-cards.jpg",
-      "image_url": "/assets/products/id-cards/transparent-id-cards.jpg",
-      "category_id": 4,
-      "category": {
-        "_id": "cat-id-card-printing-dubai",
-        "id": 4,
-        "name": "ID Card Printing Dubai",
-        "slug": "id-card-printing-dubai"
-      },
-      "categories": [
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai"
-        }
-      ],
-      "specifications": [],
-      "seoTitle": "Frosted Translucent PVC Cards Dubai | Clear Member Badges | ONPRINT",
-      "seoDescription": "Semi-transparent frosted PVC card printing in Dubai. Distinctive frosted matte texture, spot white print layer, and waterproof durability.",
-      "seoKeywords": "frosted id cards dubai, translucent pvc cards uae, clear member badges dubai",
-      "seoHeading": "Frosted Translucent Designer PVC Cards Dubai",
-      "canonicalUrl": "https://www.0nprint.com/products/frosted-translucent-pvc-id-cards",
-      "imageAlt": "Frosted translucent designer PVC cards in Dubai",
-      "seo_title": "Frosted Translucent PVC Cards Dubai | Clear Member Badges | ONPRINT",
-      "seo_description": "Semi-transparent frosted PVC card printing in Dubai. Distinctive frosted matte texture, spot white print layer, and waterproof durability.",
-      "seo_keywords": "frosted id cards dubai, translucent pvc cards uae, clear member badges dubai",
-      "seo_heading": "Frosted Translucent Designer PVC Cards Dubai",
-      "canonical_url": "https://www.0nprint.com/products/frosted-translucent-pvc-id-cards",
-      "image_alt": "Frosted translucent designer PVC cards in Dubai"
-    },
-    {
-      "_id": "prod-410",
-      "id": 410,
-      "product_key": "prod-410",
-      "name": "Eco-Friendly Bamboo & Wood Smart NFC Cards",
-      "slug": "eco-bamboo-wood-nfc-cards",
-      "description": "Eco-conscious luxury smart identity cards crafted from 100% natural FSC-certified bamboo and birch wood. Embedded with contactless NTAG213/216 chips for digital tap-to-share business cards, modern office turnstiles, and zero-plastic sustainability initiatives across the UAE.",
-      "shortDescription": "Sustainable laser-engraved birch and bamboo smart identification cards with embedded contactless NFC microchips.",
-      "short_description": "Sustainable laser-engraved birch and bamboo smart identification cards with embedded contactless NFC microchips.",
-      "price": 28,
-      "min_quantity": 10,
-      "minimumQuantity": 10,
-      "minimum_quantity": 10,
-      "unit": "pcs",
-      "featured": true,
-      "active": true,
-      "images": [
-        "/assets/products/id-cards/smart-nfc-pvc-id.png"
-      ],
-      "image": "/assets/products/id-cards/smart-nfc-pvc-id.png",
-      "image_url": "/assets/products/id-cards/smart-nfc-pvc-id.png",
-      "category_id": 4,
-      "category": {
-        "_id": "cat-id-card-printing-dubai",
-        "id": 4,
-        "name": "ID Card Printing Dubai",
-        "slug": "id-card-printing-dubai"
-      },
-      "categories": [
-        {
-          "_id": "cat-id-card-printing-dubai",
-          "id": 4,
-          "name": "ID Card Printing Dubai",
-          "slug": "id-card-printing-dubai"
-        }
-      ],
-      "specifications": [],
-      "seoTitle": "Eco-Friendly Bamboo Smart NFC Cards Dubai | Wooden Badges | ONPRINT",
-      "seoDescription": "Sustainable wooden and bamboo NFC smart cards in Dubai. Laser engraving, embedded contactless microchips, and 100% biodegradable natural wood.",
-      "seoKeywords": "wooden nfc cards dubai, bamboo id cards uae, eco friendly smart badges dubai",
-      "seoHeading": "Eco-Friendly Bamboo & Wood Smart NFC Cards Dubai",
-      "canonicalUrl": "https://www.0nprint.com/products/eco-bamboo-wood-nfc-cards",
-      "imageAlt": "Eco-friendly bamboo and wood smart NFC cards in Dubai",
-      "seo_title": "Eco-Friendly Bamboo Smart NFC Cards Dubai | Wooden Badges | ONPRINT",
-      "seo_description": "Sustainable wooden and bamboo NFC smart cards in Dubai. Laser engraving, embedded contactless microchips, and 100% biodegradable natural wood.",
-      "seo_keywords": "wooden nfc cards dubai, bamboo id cards uae, eco friendly smart badges dubai",
-      "seo_heading": "Eco-Friendly Bamboo & Wood Smart NFC Cards Dubai",
-      "canonical_url": "https://www.0nprint.com/products/eco-bamboo-wood-nfc-cards",
-      "image_alt": "Eco-friendly bamboo and wood smart NFC cards in Dubai"
-    },
-    {
       "_id": "prod-501",
       "id": 501,
       "product_key": "prod-501",
@@ -3663,10 +2915,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/name-badges/acrylic-desk-nameplate.svg"
+        "/assets/products/name-badges/acrylic-desk-nameplate.jpg"
       ],
-      "image": "/assets/products/name-badges/acrylic-desk-nameplate.svg",
-      "image_url": "/assets/products/name-badges/acrylic-desk-nameplate.svg",
+      "image": "/assets/products/name-badges/acrylic-desk-nameplate.jpg",
+      "image_url": "/assets/products/name-badges/acrylic-desk-nameplate.jpg",
       "category_id": 7,
       "category": {
         "_id": "cat-name-badges-printing-dubai",
@@ -3713,10 +2965,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/name-badges/metal-architectural-wall-plaque.svg"
+        "/assets/products/name-badges/metal-architectural-wall-plaque.jpg"
       ],
-      "image": "/assets/products/name-badges/metal-architectural-wall-plaque.svg",
-      "image_url": "/assets/products/name-badges/metal-architectural-wall-plaque.svg",
+      "image": "/assets/products/name-badges/metal-architectural-wall-plaque.jpg",
+      "image_url": "/assets/products/name-badges/metal-architectural-wall-plaque.jpg",
       "category_id": 7,
       "category": {
         "_id": "cat-name-badges-printing-dubai",
@@ -3763,10 +3015,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/name-badges/brushed-gold-magnetic-badge.svg"
+        "/assets/products/name-badges/brushed-gold-magnetic-badge.jpg"
       ],
-      "image": "/assets/products/name-badges/brushed-gold-magnetic-badge.svg",
-      "image_url": "/assets/products/name-badges/brushed-gold-magnetic-badge.svg",
+      "image": "/assets/products/name-badges/brushed-gold-magnetic-badge.jpg",
+      "image_url": "/assets/products/name-badges/brushed-gold-magnetic-badge.jpg",
       "category_id": 7,
       "category": {
         "_id": "cat-name-badges-printing-dubai",
@@ -3813,10 +3065,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/name-badges/domed-epoxy-resin-badge.svg"
+        "/assets/products/name-badges/domed-epoxy-resin-badge.jpg"
       ],
-      "image": "/assets/products/name-badges/domed-epoxy-resin-badge.svg",
-      "image_url": "/assets/products/name-badges/domed-epoxy-resin-badge.svg",
+      "image": "/assets/products/name-badges/domed-epoxy-resin-badge.jpg",
+      "image_url": "/assets/products/name-badges/domed-epoxy-resin-badge.jpg",
       "category_id": 7,
       "category": {
         "_id": "cat-name-badges-printing-dubai",
@@ -3863,10 +3115,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/name-badges/reusable-window-insert-badge.svg"
+        "/assets/products/name-badges/reusable-window-insert-badge.jpg"
       ],
-      "image": "/assets/products/name-badges/reusable-window-insert-badge.svg",
-      "image_url": "/assets/products/name-badges/reusable-window-insert-badge.svg",
+      "image": "/assets/products/name-badges/reusable-window-insert-badge.jpg",
+      "image_url": "/assets/products/name-badges/reusable-window-insert-badge.jpg",
       "category_id": 7,
       "category": {
         "_id": "cat-name-badges-printing-dubai",
@@ -3913,10 +3165,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/name-badges/executive-matte-black-badge.svg"
+        "/assets/products/name-badges/executive-matte-black-badge.jpg"
       ],
-      "image": "/assets/products/name-badges/executive-matte-black-badge.svg",
-      "image_url": "/assets/products/name-badges/executive-matte-black-badge.svg",
+      "image": "/assets/products/name-badges/executive-matte-black-badge.jpg",
+      "image_url": "/assets/products/name-badges/executive-matte-black-badge.jpg",
       "category_id": 7,
       "category": {
         "_id": "cat-name-badges-printing-dubai",
@@ -5013,10 +4265,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/stickers.jpg"
+        "/assets/products/stickers/die-cut-vinyl-stickers.jpg"
       ],
-      "image": "/assets/products/stickers.jpg",
-      "image_url": "/assets/products/stickers.jpg",
+      "image": "/assets/products/stickers/die-cut-vinyl-stickers.jpg",
+      "image_url": "/assets/products/stickers/die-cut-vinyl-stickers.jpg",
       "category_id": 13,
       "category": {
         "_id": "cat-stickers-labels-printing",
@@ -5063,10 +4315,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/stickers.jpg"
+        "/assets/products/stickers/waterproof-vinyl-stickers.jpg"
       ],
-      "image": "/assets/products/stickers.jpg",
-      "image_url": "/assets/products/stickers.jpg",
+      "image": "/assets/products/stickers/waterproof-vinyl-stickers.jpg",
+      "image_url": "/assets/products/stickers/waterproof-vinyl-stickers.jpg",
       "category_id": 13,
       "category": {
         "_id": "cat-stickers-labels-printing",
@@ -5113,10 +4365,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/service_stickers_labels.jpg"
+        "/assets/products/stickers/custom-roll-labels.jpg"
       ],
-      "image": "/assets/products/service_stickers_labels.jpg",
-      "image_url": "/assets/products/service_stickers_labels.jpg",
+      "image": "/assets/products/stickers/custom-roll-labels.jpg",
+      "image_url": "/assets/products/stickers/custom-roll-labels.jpg",
       "category_id": 13,
       "category": {
         "_id": "cat-stickers-labels-printing",
@@ -5163,10 +4415,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/stickers.jpg"
+        "/assets/products/stickers/clear-transparent-vinyl-stickers.jpg"
       ],
-      "image": "/assets/products/stickers.jpg",
-      "image_url": "/assets/products/stickers.jpg",
+      "image": "/assets/products/stickers/clear-transparent-vinyl-stickers.jpg",
+      "image_url": "/assets/products/stickers/clear-transparent-vinyl-stickers.jpg",
       "category_id": 13,
       "category": {
         "_id": "cat-stickers-labels-printing",
@@ -5213,10 +4465,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/service_stickers_labels.jpg"
+        "/assets/products/stickers/holographic-foil-stickers.jpg"
       ],
-      "image": "/assets/products/service_stickers_labels.jpg",
-      "image_url": "/assets/products/service_stickers_labels.jpg",
+      "image": "/assets/products/stickers/holographic-foil-stickers.jpg",
+      "image_url": "/assets/products/stickers/holographic-foil-stickers.jpg",
       "category_id": 13,
       "category": {
         "_id": "cat-stickers-labels-printing",
@@ -5263,10 +4515,10 @@ module.exports = {
       "featured": true,
       "active": true,
       "images": [
-        "/assets/products/stickers.jpg"
+        "/assets/products/stickers/cosmetic-bottle-labels.jpg"
       ],
-      "image": "/assets/products/stickers.jpg",
-      "image_url": "/assets/products/stickers.jpg",
+      "image": "/assets/products/stickers/cosmetic-bottle-labels.jpg",
+      "image_url": "/assets/products/stickers/cosmetic-bottle-labels.jpg",
       "category_id": 13,
       "category": {
         "_id": "cat-stickers-labels-printing",
@@ -5295,6 +4547,156 @@ module.exports = {
       "seo_heading": "Cosmetic, Bottle & Jar Packaging Labels",
       "canonical_url": "https://www.0nprint.com/products/cosmetic-bottle-labels",
       "image_alt": "Cosmetic and bottle packaging label printing in Dubai"
+    },
+    {
+      "_id": "prod-1307",
+      "id": 1307,
+      "product_key": "prod-1307",
+      "name": "Luxury Gold Foil Stamped Stickers & Packaging Seals",
+      "slug": "gold-foil-stickers",
+      "description": "Ultra-luxurious 24K hot-stamped gold foil stickers and embossed packaging seals. Deep midnight black and metallic gold foil on heavy velvet-matte adhesive paper for VIP packaging, gift boxes, and certificate seals.",
+      "shortDescription": "Reflective 24K hot-stamped metallic gold foil seals and embossed packaging stickers.",
+      "short_description": "Reflective 24K hot-stamped metallic gold foil seals and embossed packaging stickers.",
+      "price": 95,
+      "min_quantity": 100,
+      "minimumQuantity": 100,
+      "minimum_quantity": 100,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stickers/gold-foil-stamped-stickers.jpg"
+      ],
+      "image": "/assets/products/stickers/gold-foil-stamped-stickers.jpg",
+      "image_url": "/assets/products/stickers/gold-foil-stamped-stickers.jpg",
+      "category_id": 13,
+      "category": {
+        "_id": "cat-stickers-labels-printing",
+        "id": 13,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Stickers & Product Labels",
+          "slug": "stickers-labels-printing"
+        }
+      ],
+      "specifications": [],
+      "seoTitle": "Gold Foil Sticker Printing Dubai | Luxury Embossed Foil Seals | ONPRINT",
+      "seoDescription": "Custom gold foil sticker printing in Dubai. Reflective 24K hot-stamped metallic foil seals and embossed stickers for luxury packaging and gift boxes.",
+      "seoKeywords": "gold foil stickers dubai, metallic foil seals uae, luxury embossed stickers dubai, hot foil stamping stickers",
+      "seoHeading": "Luxury Gold Foil Stamped Stickers & Seals",
+      "canonicalUrl": "https://www.0nprint.com/products/gold-foil-stickers",
+      "imageAlt": "Gold foil stamped luxury stickers in Dubai",
+      "seo_title": "Gold Foil Sticker Printing Dubai | Luxury Embossed Foil Seals | ONPRINT",
+      "seo_description": "Custom gold foil sticker printing in Dubai. Reflective 24K hot-stamped metallic foil seals and embossed stickers for luxury packaging and gift boxes.",
+      "seo_keywords": "gold foil stickers dubai, metallic foil seals uae, luxury embossed stickers dubai, hot foil stamping stickers",
+      "seo_heading": "Luxury Gold Foil Stamped Stickers & Seals",
+      "canonical_url": "https://www.0nprint.com/products/gold-foil-stickers",
+      "image_alt": "Gold foil stamped luxury stickers in Dubai"
+    },
+    {
+      "_id": "prod-1308",
+      "id": 1308,
+      "product_key": "prod-1308",
+      "name": "Eco-Friendly Kraft Paper Packaging Stickers",
+      "slug": "kraft-paper-stickers",
+      "description": "Rustic, eco-conscious brown Kraft paper stickers made from 100% recycled organic fibers. Earthy natural paper texture with crisp artisan printing, perfect for sustainable branding, organic skincare, and artisan bakeries.",
+      "shortDescription": "100% recycled natural brown kraft paper stickers for sustainable organic branding.",
+      "short_description": "100% recycled natural brown kraft paper stickers for sustainable organic branding.",
+      "price": 50,
+      "min_quantity": 100,
+      "minimumQuantity": 100,
+      "minimum_quantity": 100,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stickers/kraft-eco-friendly-stickers.jpg"
+      ],
+      "image": "/assets/products/stickers/kraft-eco-friendly-stickers.jpg",
+      "image_url": "/assets/products/stickers/kraft-eco-friendly-stickers.jpg",
+      "category_id": 13,
+      "category": {
+        "_id": "cat-stickers-labels-printing",
+        "id": 13,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Stickers & Product Labels",
+          "slug": "stickers-labels-printing"
+        }
+      ],
+      "specifications": [],
+      "seoTitle": "Kraft Paper Sticker Printing Dubai | Eco-Friendly Recycled Labels | ONPRINT",
+      "seoDescription": "Order eco-friendly Kraft paper stickers in Dubai. 100% recycled natural brown kraft labels for organic skincare, gourmet food, and artisan packaging.",
+      "seoKeywords": "kraft paper stickers dubai, eco friendly stickers uae, recycled kraft labels dubai, organic product stickers",
+      "seoHeading": "Eco-Friendly Kraft Paper Stickers",
+      "canonicalUrl": "https://www.0nprint.com/products/kraft-paper-stickers",
+      "imageAlt": "Eco-friendly kraft paper stickers in Dubai",
+      "seo_title": "Kraft Paper Sticker Printing Dubai | Eco-Friendly Recycled Labels | ONPRINT",
+      "seo_description": "Order eco-friendly Kraft paper stickers in Dubai. 100% recycled natural brown kraft labels for organic skincare, gourmet food, and artisan packaging.",
+      "seo_keywords": "kraft paper stickers dubai, eco friendly stickers uae, recycled kraft labels dubai, organic product stickers",
+      "seo_heading": "Eco-Friendly Kraft Paper Stickers",
+      "canonical_url": "https://www.0nprint.com/products/kraft-paper-stickers",
+      "image_alt": "Eco-friendly kraft paper stickers in Dubai"
+    },
+    {
+      "_id": "prod-1309",
+      "id": 1309,
+      "product_key": "prod-1309",
+      "name": "3D Domed Epoxy Resin Decals & Badges",
+      "slug": "domed-epoxy-stickers",
+      "description": "Heavy-duty 3D crystal dome polyurethane resin stickers. Crystal clear, flexible, UV-proof dome with brilliant glossy lens effect and permanent high-tack adhesive for electronics, industrial equipment, and vehicle badges.",
+      "shortDescription": "Crystal-clear 3D polyurethane resin dome decals for equipment, appliances, and luxury branding.",
+      "short_description": "Crystal-clear 3D polyurethane resin dome decals for equipment, appliances, and luxury branding.",
+      "price": 110,
+      "min_quantity": 50,
+      "minimumQuantity": 50,
+      "minimum_quantity": 50,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stickers/domed-epoxy-stickers.jpg"
+      ],
+      "image": "/assets/products/stickers/domed-epoxy-stickers.jpg",
+      "image_url": "/assets/products/stickers/domed-epoxy-stickers.jpg",
+      "category_id": 13,
+      "category": {
+        "_id": "cat-stickers-labels-printing",
+        "id": 13,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      },
+      "categories": [
+        {
+          "_id": "cat-stickers-labels-printing",
+          "id": 13,
+          "name": "Stickers & Product Labels",
+          "slug": "stickers-labels-printing"
+        }
+      ],
+      "specifications": [],
+      "seoTitle": "3D Domed Epoxy Sticker Printing Dubai | Crystal Gel Badges | ONPRINT",
+      "seoDescription": "Custom 3D domed epoxy sticker printing in Dubai. Scratch-resistant, UV-proof polyurethane dome decals for industrial machinery, automotive, and tech equipment.",
+      "seoKeywords": "domed epoxy stickers dubai, 3d gel stickers uae, crystal dome decals dubai, polyurethane dome badges",
+      "seoHeading": "3D Domed Epoxy Resin Decals",
+      "canonicalUrl": "https://www.0nprint.com/products/domed-epoxy-stickers",
+      "imageAlt": "3D domed epoxy decals in Dubai",
+      "seo_title": "3D Domed Epoxy Sticker Printing Dubai | Crystal Gel Badges | ONPRINT",
+      "seo_description": "Custom 3D domed epoxy sticker printing in Dubai. Scratch-resistant, UV-proof polyurethane dome decals for industrial machinery, automotive, and tech equipment.",
+      "seo_keywords": "domed epoxy stickers dubai, 3d gel stickers uae, crystal dome decals dubai, polyurethane dome badges",
+      "seo_heading": "3D Domed Epoxy Resin Decals",
+      "canonical_url": "https://www.0nprint.com/products/domed-epoxy-stickers",
+      "image_alt": "3D domed epoxy decals in Dubai"
     },
     {
       "_id": "prod-1401",
@@ -7329,6 +6731,456 @@ module.exports = {
       "seo_heading": "Executive Stealth Matte Black Roll-Up Banner Dubai",
       "canonical_url": "https://www.0nprint.com/products/executive-matte-black-rollup-banner",
       "image_alt": "Executive Stealth Matte Black Roll-Up Banner in Dubai"
+    },
+    {
+      "_id": "prod-401",
+      "id": 401,
+      "product_key": "prod-401",
+      "name": "Standard Full-Color UV PVC ID Cards",
+      "slug": "standard-uv-pvc-id-cards",
+      "description": "Professional edge-to-edge full-color UV flatbed printing on premium CR80 standard (0.76mm) solid white PVC cardstock. Instantly UV-cured for ultra-vivid photographic skin tones, razor-sharp corporate logos, waterproof scratch resistance, and durable anti-fade performance for employee and staff identification in Dubai.",
+      "shortDescription": "High-definition edge-to-edge full-color UV flatbed printing on durable CR80 solid white PVC with anti-scratch curing.",
+      "short_description": "High-definition edge-to-edge full-color UV flatbed printing on durable CR80 solid white PVC with anti-scratch curing.",
+      "price": 12,
+      "min_quantity": 10,
+      "minimumQuantity": 10,
+      "minimum_quantity": 10,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/id-cards/uv_standard_pvc_id.jpg"
+      ],
+      "image": "/assets/products/id-cards/uv_standard_pvc_id.jpg",
+      "image_url": "/assets/products/id-cards/uv_standard_pvc_id.jpg",
+      "category_id": 4,
+      "category": {
+        "_id": "cat-id-card-printing-dubai",
+        "id": 4,
+        "name": "ID Card Printing Dubai",
+        "slug": "id-card-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-id-card-printing-dubai",
+          "id": 4,
+          "name": "ID Card Printing Dubai",
+          "slug": "id-card-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Standard CR80 0.76mm Solid PVC",
+            "value": "cr80-076-pvc"
+          },
+          {
+            "label": "Heavy-Duty 0.82mm Rigid Composite PVC",
+            "value": "composite-082-pvc"
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Full-Color UV Cured Surface Protection",
+            "value": "uv-full-cured"
+          },
+          {
+            "label": "Dual-Sided Edge-to-Edge UV Print",
+            "value": "dual-side-uv"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Same-Day / 24h Express Dubai",
+            "value": "express-24h"
+          },
+          {
+            "label": "Standard 2–3 Days UAE",
+            "value": "standard"
+          }
+        ]
+      },
+      "seoTitle": "Standard Full-Color UV PVC ID Cards Dubai | Staff Badges | ONPRINT",
+      "seoDescription": "High-definition UV printed CR80 PVC identity cards in Dubai. Full-color edge-to-edge photo printing with scratch-resistant cured inks for corporate employees.",
+      "seoKeywords": "uv id card printing dubai, full color pvc id cards, staff identity badges uae, corporate employee cards dubai",
+      "seoHeading": "Standard Full-Color UV PVC ID Cards Dubai",
+      "canonicalUrl": "https://www.0nprint.com/products/standard-uv-pvc-id-cards",
+      "imageAlt": "Standard full-color UV printed PVC employee identity cards in Dubai"
+    },
+    {
+      "_id": "prod-402",
+      "id": 402,
+      "product_key": "prod-402",
+      "name": "Raised 3D Spot UV Employee Badges",
+      "slug": "raised-3d-spot-uv-id-cards",
+      "description": "Transform corporate staff badges into executive luxury statements with raised 3D spot UV dimensional varnish. Printed on rich silky matte dark PVC with tactile, glossy raised UV layered over company crests, employee names, and security emblems for high-end visual and tactile contrast.",
+      "shortDescription": "Luxury matte PVC identity cards featuring high-tactile raised 3D gloss UV varnish over corporate logos and staff credentials.",
+      "short_description": "Luxury matte PVC identity cards featuring high-tactile raised 3D gloss UV varnish over corporate logos and staff credentials.",
+      "price": 22,
+      "min_quantity": 10,
+      "minimumQuantity": 10,
+      "minimum_quantity": 10,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/id-cards/uv_raised_spot_uv_id.jpg"
+      ],
+      "image": "/assets/products/id-cards/uv_raised_spot_uv_id.jpg",
+      "image_url": "/assets/products/id-cards/uv_raised_spot_uv_id.jpg",
+      "category_id": 4,
+      "category": {
+        "_id": "cat-id-card-printing-dubai",
+        "id": 4,
+        "name": "ID Card Printing Dubai",
+        "slug": "id-card-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-id-card-printing-dubai",
+          "id": 4,
+          "name": "ID Card Printing Dubai",
+          "slug": "id-card-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Silky Matte Anti-Glare CR80 PVC (0.76mm)",
+            "value": "matte-cr80"
+          },
+          {
+            "label": "Heavyweight Rigid Composite Base",
+            "value": "rigid-composite"
+          }
+        ],
+        "finishes": [
+          {
+            "label": "High-Tactile Raised 3D Spot UV Logo",
+            "value": "raised-3d-uv"
+          },
+          {
+            "label": "Embossed Dimensional Clear Texture",
+            "value": "embossed-uv"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "24-Hour Priority Press Dubai",
+            "value": "express-24h"
+          },
+          {
+            "label": "Standard 2–3 Days UAE",
+            "value": "standard"
+          }
+        ]
+      },
+      "seoTitle": "Raised 3D Spot UV Employee Badges Dubai | Luxury Staff Cards | ONPRINT",
+      "seoDescription": "Luxury raised 3D spot UV staff ID badges in Dubai. Dimensional gloss UV varnish over matte PVC for executive corporate identity and high security.",
+      "seoKeywords": "raised spot uv id cards dubai, 3d uv staff badges, luxury corporate id cards uae, embossed spot uv cards",
+      "seoHeading": "Raised 3D Spot UV Employee Badges Dubai",
+      "canonicalUrl": "https://www.0nprint.com/products/raised-3d-spot-uv-id-cards",
+      "imageAlt": "Luxury raised 3D spot UV employee identity cards in Dubai"
+    },
+    {
+      "_id": "prod-403",
+      "id": 403,
+      "product_key": "prod-403",
+      "name": "Frosted Translucent UV Plastic Cards",
+      "slug": "frosted-translucent-uv-id-cards",
+      "description": "Architectural semi-transparent frosted CR80 polymer cards designed for innovative tech brands, creative agencies, and VIP lounge access in Dubai. Dual-layer printing utilizes opaque white UV ink beneath vibrant CMYK graphics to deliver sharp readability while celebrating translucent light-transmitting card edges.",
+      "shortDescription": "Semi-transparent frosted CR80 cards with opaque white UV underlay and vivid color printing for a modern tech-forward look.",
+      "short_description": "Semi-transparent frosted CR80 cards with opaque white UV underlay and vivid color printing for a modern tech-forward look.",
+      "price": 20,
+      "min_quantity": 10,
+      "minimumQuantity": 10,
+      "minimum_quantity": 10,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/id-cards/uv_frosted_translucent_id.jpg"
+      ],
+      "image": "/assets/products/id-cards/uv_frosted_translucent_id.jpg",
+      "image_url": "/assets/products/id-cards/uv_frosted_translucent_id.jpg",
+      "category_id": 4,
+      "category": {
+        "_id": "cat-id-card-printing-dubai",
+        "id": 4,
+        "name": "ID Card Printing Dubai",
+        "slug": "id-card-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-id-card-printing-dubai",
+          "id": 4,
+          "name": "ID Card Printing Dubai",
+          "slug": "id-card-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Frosted Semi-Clear CR80 Polymer (0.76mm)",
+            "value": "frosted-cr80"
+          },
+          {
+            "label": "Crystal Clear Ultra-Transparent Polymer",
+            "value": "clear-cr80"
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Dual-Layer Opaque White + CMYK UV",
+            "value": "white-cmyk-uv"
+          },
+          {
+            "label": "Scratch-Resistant Matte Frosted Glaze",
+            "value": "matte-frosted"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "24–48 Hours Dubai Express",
+            "value": "express-48h"
+          },
+          {
+            "label": "Standard 2–3 Days UAE",
+            "value": "standard"
+          }
+        ]
+      },
+      "seoTitle": "Frosted Translucent UV Plastic Cards Dubai | Transparent ID Badges | ONPRINT",
+      "seoDescription": "Architectural frosted translucent UV printed ID cards in Dubai. Opaque white underlay, full-color UV inks, and clear edges for creative & tech brands.",
+      "seoKeywords": "frosted id cards dubai, translucent plastic cards uae, transparent pvc badges dubai, clear member cards",
+      "seoHeading": "Frosted Translucent UV Plastic Cards Dubai",
+      "canonicalUrl": "https://www.0nprint.com/products/frosted-translucent-uv-id-cards",
+      "imageAlt": "Frosted translucent UV plastic employee ID cards in Dubai"
+    },
+    {
+      "_id": "prod-404",
+      "id": 404,
+      "product_key": "prod-404",
+      "name": "Matte Anti-Scratch Velvet UV ID Cards",
+      "slug": "matte-anti-scratch-uv-id-cards",
+      "description": "Industrial-grade employee identification cards featuring anti-glare velvet soft-touch surface lamination combined with high-adhesion cured UV inks. Engineered specifically to eliminate surface glare, resist daily pocket key scratches, and withstand sanitization wipes in clinics, hotels, and corporate offices.",
+      "shortDescription": "Anti-glare velvet soft-touch laminated PVC identity cards with ultra-durable cured UV inks built for heavy daily use.",
+      "short_description": "Anti-glare velvet soft-touch laminated PVC identity cards with ultra-durable cured UV inks built for heavy daily use.",
+      "price": 16,
+      "min_quantity": 10,
+      "minimumQuantity": 10,
+      "minimum_quantity": 10,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/id-cards/uv_matte_velvet_id.jpg"
+      ],
+      "image": "/assets/products/id-cards/uv_matte_velvet_id.jpg",
+      "image_url": "/assets/products/id-cards/uv_matte_velvet_id.jpg",
+      "category_id": 4,
+      "category": {
+        "_id": "cat-id-card-printing-dubai",
+        "id": 4,
+        "name": "ID Card Printing Dubai",
+        "slug": "id-card-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-id-card-printing-dubai",
+          "id": 4,
+          "name": "ID Card Printing Dubai",
+          "slug": "id-card-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Velvet Soft-Touch CR80 Core (0.76mm)",
+            "value": "velvet-cr80"
+          },
+          {
+            "label": "Anti-Bending Reinforced Core",
+            "value": "reinforced-core"
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Anti-Scratch Velvet Matte Finish",
+            "value": "anti-scratch-matte"
+          },
+          {
+            "label": "UV Color-Locked Surface Seal",
+            "value": "uv-color-lock"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Same-Day / 24h Express Dubai",
+            "value": "express-24h"
+          },
+          {
+            "label": "Standard 2–3 Days UAE",
+            "value": "standard"
+          }
+        ]
+      },
+      "seoTitle": "Matte Anti-Scratch Velvet UV ID Cards Dubai | Heavy Duty Badges | ONPRINT",
+      "seoDescription": "Velvet soft-touch matte anti-scratch UV printed ID cards in Dubai. Non-glare durable PVC employee badges engineered for daily corporate & hospital use.",
+      "seoKeywords": "matte id cards dubai, anti scratch pvc badges uae, velvet soft touch employee cards, durable id printing dubai",
+      "seoHeading": "Matte Anti-Scratch Velvet UV ID Cards Dubai",
+      "canonicalUrl": "https://www.0nprint.com/products/matte-anti-scratch-uv-id-cards",
+      "imageAlt": "Matte anti-scratch velvet UV employee identity cards in Dubai"
+    },
+    {
+      "_id": "prod-405",
+      "id": 405,
+      "product_key": "prod-405",
+      "name": "Metallic Gold & Silver Luster UV Cards",
+      "slug": "metallic-luster-uv-id-cards",
+      "description": "Executive identity and VIP club cards manufactured on shimmering brushed metallic gold or silver luster PVC cardstock. Precision UV flatbed overprinting renders crisp text, photo IDs, and intricate brand vector art directly onto the reflective metallic substrate. Perfect for VIP concierge, club memberships, and luxury boardroom passes in Dubai.",
+      "shortDescription": "Shimmering brushed metallic gold and silver finish PVC cards overprinted with precision jet-black and color UV inks.",
+      "short_description": "Shimmering brushed metallic gold and silver finish PVC cards overprinted with precision jet-black and color UV inks.",
+      "price": 26,
+      "min_quantity": 10,
+      "minimumQuantity": 10,
+      "minimum_quantity": 10,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/id-cards/uv_metallic_gold_silver_id.jpg"
+      ],
+      "image": "/assets/products/id-cards/uv_metallic_gold_silver_id.jpg",
+      "image_url": "/assets/products/id-cards/uv_metallic_gold_silver_id.jpg",
+      "category_id": 4,
+      "category": {
+        "_id": "cat-id-card-printing-dubai",
+        "id": 4,
+        "name": "ID Card Printing Dubai",
+        "slug": "id-card-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-id-card-printing-dubai",
+          "id": 4,
+          "name": "ID Card Printing Dubai",
+          "slug": "id-card-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Brushed Metallic Gold PVC (0.76mm)",
+            "value": "metallic-gold"
+          },
+          {
+            "label": "Brushed Metallic Silver PVC (0.76mm)",
+            "value": "metallic-silver"
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Precision High-Contrast UV Overprint",
+            "value": "high-contrast-uv"
+          },
+          {
+            "label": "Mirror Luster Protective Clear Seal",
+            "value": "mirror-luster-seal"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "24-Hour Express Dubai",
+            "value": "express-24h"
+          },
+          {
+            "label": "Standard 2–3 Days UAE",
+            "value": "standard"
+          }
+        ]
+      },
+      "seoTitle": "Metallic Gold & Silver Luster UV Cards Dubai | VIP Membership Badges | ONPRINT",
+      "seoDescription": "Executive brushed metallic gold & silver UV printed PVC cards in Dubai. High-density UV overprint for luxury VIP membership cards, passes, and executive IDs.",
+      "seoKeywords": "metallic id cards dubai, gold pvc cards uae, silver vip membership cards dubai, metallic luster id printing",
+      "seoHeading": "Metallic Gold & Silver Luster UV Cards Dubai",
+      "canonicalUrl": "https://www.0nprint.com/products/metallic-luster-uv-id-cards",
+      "imageAlt": "Metallic gold and silver luster UV printed VIP identification cards in Dubai"
+    },
+    {
+      "_id": "prod-406",
+      "id": 406,
+      "product_key": "prod-406",
+      "name": "High-Gloss Photo Finish UV Identity Cards",
+      "slug": "high-gloss-photo-uv-id-cards",
+      "description": "Studio-grade employee photo identification cards sealed with a glass-like high-gloss UV finish. Enhances depth, contrast, and vibrant saturation to reproduce authentic employee skin tones and crisp photographic detail. Features high-contrast scannable QR codes and barcodes for seamless access control and event registration in the UAE.",
+      "shortDescription": "Ultra-glossy UV protective glazed staff ID cards with true-to-life photographic skin tones and scannable QR/barcodes.",
+      "short_description": "Ultra-glossy UV protective glazed staff ID cards with true-to-life photographic skin tones and scannable QR/barcodes.",
+      "price": 14,
+      "min_quantity": 10,
+      "minimumQuantity": 10,
+      "minimum_quantity": 10,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/id-cards/uv_high_gloss_photo_id.jpg"
+      ],
+      "image": "/assets/products/id-cards/uv_high_gloss_photo_id.jpg",
+      "image_url": "/assets/products/id-cards/uv_high_gloss_photo_id.jpg",
+      "category_id": 4,
+      "category": {
+        "_id": "cat-id-card-printing-dubai",
+        "id": 4,
+        "name": "ID Card Printing Dubai",
+        "slug": "id-card-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-id-card-printing-dubai",
+          "id": 4,
+          "name": "ID Card Printing Dubai",
+          "slug": "id-card-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Gloss Pure White CR80 PVC (0.76mm)",
+            "value": "gloss-white-cr80"
+          },
+          {
+            "label": "Photo-Grade Ultra-Smooth Polymer",
+            "value": "photo-polymer"
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Mirror High-Gloss UV Glaze",
+            "value": "high-gloss-uv"
+          },
+          {
+            "label": "High-Contrast Optical QR / Barcode Print",
+            "value": "qr-barcode-uv"
+          }
+        ],
+        "turnaround": [
+          {
+            "label": "Same-Day / 24h Express Dubai",
+            "value": "express-24h"
+          },
+          {
+            "label": "Standard 2–3 Days UAE",
+            "value": "standard"
+          }
+        ]
+      },
+      "seoTitle": "High-Gloss Photo Finish UV Identity Cards Dubai | Photo ID Badges | ONPRINT",
+      "seoDescription": "Studio-grade photo ID cards with mirror high-gloss UV finish in Dubai. True photographic color reproduction, scannable QR codes, and same-day delivery.",
+      "seoKeywords": "photo id cards dubai, high gloss staff badges uae, photo employee id card printing, qr code id cards dubai",
+      "seoHeading": "High-Gloss Photo Finish UV Identity Cards Dubai",
+      "canonicalUrl": "https://www.0nprint.com/products/high-gloss-photo-uv-id-cards",
+      "imageAlt": "High-gloss photo finish UV employee identity cards in Dubai"
     }
   ],
   "orders": [],
@@ -7336,4 +7188,4 @@ module.exports = {
   "customers": [],
   "messages": [],
   "settings": {}
-}
+};

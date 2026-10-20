@@ -88,6 +88,13 @@ import bottleProteinShakerImg from './products/bottle_protein_shaker.jpg'
 import bottleLuxuryCopperImg from './products/bottle_luxury_copper.jpg'
 
 // Dedicated high-resolution ID Card variety images
+import uvIdCardHeroImg from './products/id-cards/uv_id_card_hero.jpg'
+import uvStandardPvcIdImg from './products/id-cards/uv_standard_pvc_id.jpg'
+import uvRaisedSpotUvIdImg from './products/id-cards/uv_raised_spot_uv_id.jpg'
+import uvFrostedTranslucentIdImg from './products/id-cards/uv_frosted_translucent_id.jpg'
+import uvMatteVelvetIdImg from './products/id-cards/uv_matte_velvet_id.jpg'
+import uvMetallicGoldSilverIdImg from './products/id-cards/uv_metallic_gold_silver_id.jpg'
+import uvHighGlossPhotoIdImg from './products/id-cards/uv_high_gloss_photo_id.jpg'
 import smartNfcIdCardImg from './products/id-cards/smart-nfc-pvc-id.png'
 import rfidAccessCardImg from './products/id-cards/rfid-proximity-access-cards.jpg'
 import holographicSecurityIdCardImg from './products/id-cards/holographic-security-id-cards.jpg'
@@ -115,12 +122,13 @@ import letterheadEnvelopesSuiteImg from './products/letterhead_envelopes_suite.j
 import letterheadPresentationFoldersImg from './products/letterhead_presentation_folders.jpg'
 
 // Dedicated high-resolution Name Badge & Nameplate variety images
-import acrylicDeskNameplateImg from './products/name-badges/acrylic-desk-nameplate.svg'
-import metalArchitecturalPlaqueImg from './products/name-badges/metal-architectural-wall-plaque.svg'
-import brushedGoldMagneticBadgeImg from './products/name-badges/brushed-gold-magnetic-badge.svg'
-import domedEpoxyResinBadgeImg from './products/name-badges/domed-epoxy-resin-badge.svg'
-import reusableWindowBadgeImg from './products/name-badges/reusable-window-insert-badge.svg'
-import executiveMatteBlackBadgeImg from './products/name-badges/executive-matte-black-badge.svg'
+import nameBadgesCategoryHeroImg from './products/name-badges/name-badges-printing-dubai.jpg'
+import acrylicDeskNameplateImg from './products/name-badges/acrylic-desk-nameplate.jpg'
+import metalArchitecturalPlaqueImg from './products/name-badges/metal-architectural-wall-plaque.jpg'
+import brushedGoldMagneticBadgeImg from './products/name-badges/brushed-gold-magnetic-badge.jpg'
+import domedEpoxyResinBadgeImg from './products/name-badges/domed-epoxy-resin-badge.jpg'
+import reusableWindowBadgeImg from './products/name-badges/reusable-window-insert-badge.jpg'
+import executiveMatteBlackBadgeImg from './products/name-badges/executive-matte-black-badge.jpg'
 
 // Dedicated high-resolution Stamp variety images
 import selfInkingStampImg from './products/stamps/self-inking-company-stamp.jpg'
@@ -156,6 +164,17 @@ import stationeryNcrDuplicateBooksImg from './products/stationery/stationery-ncr
 import stationeryStringTieEnvelopesImg from './products/stationery/stationery-string-tie-envelopes.jpg'
 import stationeryStickyNotesCubesImg from './products/stationery/stationery-sticky-notes-cubes.jpg'
 
+// Dedicated high-resolution Sticker variety images
+import dieCutVinylStickersImg from './products/stickers/die-cut-vinyl-stickers.jpg'
+import holographicFoilStickersImg from './products/stickers/holographic-foil-stickers.jpg'
+import clearTransparentVinylStickersImg from './products/stickers/clear-transparent-vinyl-stickers.jpg'
+import customRollLabelsImg from './products/stickers/custom-roll-labels.jpg'
+import goldFoilStampedStickersImg from './products/stickers/gold-foil-stamped-stickers.jpg'
+import kraftEcoFriendlyStickersImg from './products/stickers/kraft-eco-friendly-stickers.jpg'
+import waterproofVinylStickersImg from './products/stickers/waterproof-vinyl-stickers.jpg'
+import cosmeticBottleLabelsImg from './products/stickers/cosmetic-bottle-labels.jpg'
+import domedEpoxyStickersImg from './products/stickers/domed-epoxy-stickers.jpg'
+
 import { categoryImageMap, getCategoryImages as getMapCategoryImages } from './categoryImageMap'
 
 const businessCardsImg = '/uploads/categories/business-cards-printing.jpg'
@@ -163,6 +182,7 @@ const penPrintingImg = '/uploads/categories/letterheads-printing-dubai.jpg'
 const letterheadImg = letterheadGoldFoilImg
 
 export const productImages = {
+  nameBadgesCategoryHero: nameBadgesCategoryHeroImg,
   acrylicDeskNameplate: acrylicDeskNameplateImg,
   metalArchitecturalPlaque: metalArchitecturalPlaqueImg,
   brushedGoldMagneticBadge: brushedGoldMagneticBadgeImg,
@@ -198,13 +218,22 @@ export const productImages = {
   stationeryNcrDuplicateBooks: stationeryNcrDuplicateBooksImg,
   stationeryStringTieEnvelopes: stationeryStringTieEnvelopesImg,
   stationeryStickyNotesCubes: stationeryStickyNotesCubesImg,
+  dieCutVinylStickers: dieCutVinylStickersImg,
+  holographicFoilStickers: holographicFoilStickersImg,
+  clearTransparentVinylStickers: clearTransparentVinylStickersImg,
+  customRollLabels: customRollLabelsImg,
+  goldFoilStampedStickers: goldFoilStampedStickersImg,
+  kraftEcoFriendlyStickers: kraftEcoFriendlyStickersImg,
+  waterproofVinylStickers: waterproofVinylStickersImg,
+  cosmeticBottleLabels: cosmeticBottleLabelsImg,
+  domedEpoxyStickers: domedEpoxyStickersImg,
   brochures: brochuresImg,
   brochureBifold: brochureBifoldImg,
   brochureTrifold: brochureTrifoldImg,
   brochureBooklet: brochureBookletImg,
   brochureGatefold: brochureGatefoldImg,
   brochureZfold: brochureZfoldImg,
-  badges: badgesImg,
+  badges: nameBadgesCategoryHeroImg,
   idCards: idCardsImg,
   rollup: rollupImg,
   rollupShowcase: rollupShowcaseImg,
@@ -334,11 +363,11 @@ export const productSlugImageMap = {
   'high-impact-gloss-marketing-flyers': flyerGlossMatteImg,
   'commercial-marketing-flyers': flyerA4BusinessImg,
   'promotional-flyers': flyerA5PromotionalImg,
-  'id-card-printing-dubai': idCardsImg,
+  'id-card-printing-dubai': uvIdCardHeroImg,
   'lanyard-printing-dubai': standardPolyesterLanyardImg,
   'letterheads-printing-dubai': letterheadGoldFoilImg,
   'letterhead-printing-dubai': letterheadGoldFoilImg,
-  'name-badges-printing-dubai': badgesImg,
+  'name-badges-printing-dubai': nameBadgesCategoryHeroImg,
   'mug-printing-dubai': mugWhiteCeramicImg,
   'mugs-printing-dubai': mugWhiteCeramicImg,
   'bottle-printing-dubai': bottleSmartLedImg,
@@ -401,26 +430,33 @@ export const productSlugImageMap = {
   'raised-ink-business-cards': velvetFoilBusinessCardImg,
   'plastic-pvc-business-cards': softTouchBusinessCardImg,
 
-  // Dedicated ID Card Products
-  'secure-smart-nfc-pvc-id-cards': smartNfcIdCardImg,
-  'smart-nfc-id-cards': smartNfcIdCardImg,
-  'rfid-proximity-access-cards': rfidAccessCardImg,
-  'rfid-proximity-cards': rfidAccessCardImg,
-  'holographic-security-id-cards': holographicSecurityIdCardImg,
-  'holographic-id-cards': holographicSecurityIdCardImg,
-  'magnetic-stripe-corporate-id-cards': magneticStripeIdCardImg,
-  'magnetic-stripe-cards': magneticStripeIdCardImg,
-  'photo-id-staff-cards': photoIdStaffCardImg,
-  'photo-id-cards': photoIdStaffCardImg,
-  'student-campus-id-cards': studentCampusIdCardImg,
-  'student-id-cards': studentCampusIdCardImg,
-  'visitor-pass-cards-holders': visitorPassHoldersImg,
-  'visitor-pass-cards': visitorPassHoldersImg,
-  'executive-metallic-vip-id-cards': executiveVipMetalCardImg,
-  'metal-id-cards': executiveVipMetalCardImg,
-  'access-control-cards': rfidAccessCardImg,
-  'frosted-translucent-pvc-id-cards': transparentIdCardsImg,
-  'eco-bamboo-wood-nfc-cards': smartNfcIdCardImg,
+  // Dedicated UV ID Card Products
+  'standard-uv-pvc-id-cards': uvStandardPvcIdImg,
+  'raised-3d-spot-uv-id-cards': uvRaisedSpotUvIdImg,
+  'frosted-translucent-uv-id-cards': uvFrostedTranslucentIdImg,
+  'matte-anti-scratch-uv-id-cards': uvMatteVelvetIdImg,
+  'metallic-luster-uv-id-cards': uvMetallicGoldSilverIdImg,
+  'high-gloss-photo-uv-id-cards': uvHighGlossPhotoIdImg,
+  'uv-id-card-printing': uvIdCardHeroImg,
+  'secure-smart-nfc-pvc-id-cards': uvStandardPvcIdImg,
+  'smart-nfc-id-cards': uvStandardPvcIdImg,
+  'rfid-proximity-access-cards': uvMatteVelvetIdImg,
+  'rfid-proximity-cards': uvMatteVelvetIdImg,
+  'holographic-security-id-cards': uvRaisedSpotUvIdImg,
+  'holographic-id-cards': uvRaisedSpotUvIdImg,
+  'magnetic-stripe-corporate-id-cards': uvStandardPvcIdImg,
+  'magnetic-stripe-cards': uvStandardPvcIdImg,
+  'photo-id-staff-cards': uvHighGlossPhotoIdImg,
+  'photo-id-cards': uvHighGlossPhotoIdImg,
+  'student-campus-id-cards': uvStandardPvcIdImg,
+  'student-id-cards': uvStandardPvcIdImg,
+  'visitor-pass-cards-holders': uvMatteVelvetIdImg,
+  'visitor-pass-cards': uvMatteVelvetIdImg,
+  'executive-metallic-vip-id-cards': uvMetallicGoldSilverIdImg,
+  'metal-id-cards': uvMetallicGoldSilverIdImg,
+  'access-control-cards': uvMatteVelvetIdImg,
+  'frosted-translucent-pvc-id-cards': uvFrostedTranslucentIdImg,
+  'eco-bamboo-wood-nfc-cards': uvStandardPvcIdImg,
 
   // Mug Products
   'classic-white-ceramic-mugs': mugWhiteCeramicImg,
@@ -488,12 +524,27 @@ export const productSlugImageMap = {
   'executive-matte-black-roll-up-banner': executiveMatteBlackRollupBannerImg,
   'roll-up-banners': standardRollupBannerImg,
   'beach-flags': flagsImg,
-  'die-cut-stickers': serviceStickersLabelsImg,
-  'waterproof-vinyl-stickers': stickersImg,
-  'custom-roll-labels': serviceStickersLabelsImg,
-  'clear-transparent-stickers': stickersImg,
-  'holographic-stickers': serviceStickersLabelsImg,
-  'cosmetic-bottle-labels': stickersImg,
+  // Stickers & Product Labels Varieties
+  'die-cut-stickers': dieCutVinylStickersImg,
+  'custom-contour-die-cut-stickers': dieCutVinylStickersImg,
+  'waterproof-vinyl-stickers': waterproofVinylStickersImg,
+  'outdoor-waterproof-vinyl-decals': waterproofVinylStickersImg,
+  'custom-roll-labels': customRollLabelsImg,
+  'machine-packaging-roll-labels': customRollLabelsImg,
+  'clear-transparent-stickers': clearTransparentVinylStickersImg,
+  'transparent-clear-vinyl-stickers': clearTransparentVinylStickersImg,
+  'holographic-stickers': holographicFoilStickersImg,
+  'iridescent-holographic-foil-stickers': holographicFoilStickersImg,
+  'cosmetic-bottle-labels': cosmeticBottleLabelsImg,
+  'jar-cosmetic-packaging-labels': cosmeticBottleLabelsImg,
+  'gold-foil-stickers': goldFoilStampedStickersImg,
+  'gold-foil-stamped-stickers': goldFoilStampedStickersImg,
+  'luxury-gold-foil-seals': goldFoilStampedStickersImg,
+  'kraft-paper-stickers': kraftEcoFriendlyStickersImg,
+  'kraft-eco-friendly-stickers': kraftEcoFriendlyStickersImg,
+  'eco-friendly-kraft-labels': kraftEcoFriendlyStickersImg,
+  'domed-epoxy-stickers': domedEpoxyStickersImg,
+  '3d-gel-domed-epoxy-decals': domedEpoxyStickersImg,
   'power-banks-printing': luxuryCorporateGiftsDubaiImg,
   'engraved-keychains': keychainImg,
   'executive-notebooks': serviceExecutiveStationeryImg,
@@ -569,8 +620,8 @@ export const productSlugImageMap = {
   'roll-up-printing-dubai': rollupImg,
   'flags-printing-in-dubai': flagsImg,
   'flag-printing-dubai': flagsImg,
-  'stickers-printing-in-dubai': stickersImg,
-  'stickers-printing-dubai': stickersImg,
+  'stickers-printing-in-dubai': dieCutVinylStickersImg,
+  'stickers-printing-dubai': dieCutVinylStickersImg,
   'name-plates-printing-in-dubai': namePlatesImg,
   'name-plate-printing-dubai': namePlatesImg,
   'custom-mouse-pad': img2,
@@ -585,18 +636,18 @@ export const categorySlugImageMap = {
   'brochures-printing': brochuresImg,
   'business-cards-printing': businessCardsImg,
   'flyers-printing-in-dubai': flyerCategoryHeroImg,
-  'id-card-printing-dubai': idCardsImg,
+  'id-card-printing-dubai': uvIdCardHeroImg,
   'lanyard-printing-dubai': standardPolyesterLanyardImg,
   'stamps-printing-dubai': selfInkingStampImg,
   'custom-stamps-dubai': selfInkingStampImg,
   'letterheads-printing-dubai': letterheadImg,
-  'name-badges-printing-dubai': badgesImg,
+  'name-badges-printing-dubai': nameBadgesCategoryHeroImg,
   'mug-printing-dubai': mugWhiteCeramicImg,
   'bottle-printing-dubai': bottleSmartLedImg,
   'corporate-gift-items': luxuryCorporateGiftsDubaiImg,
   'signage-banners-printing': serviceExhibitionSignageImg,
   'custom-apparel-printing': img3,
-  'stickers-labels-printing': serviceStickersLabelsImg,
+  'stickers-labels-printing': dieCutVinylStickersImg,
   'catalogs-booklets-printing': brochureBookletImg,
   'office-stationery-printing': stationeryCategoryHeroImg,
   'hospitality-event-printing': img14,
@@ -643,14 +694,19 @@ const slugKeywordImageMap = [
   [['standard silk', 'silk business card'], bcStandardSilkImg],
 
   // ID Cards
-  [['smart nfc', 'nfc pvc', 'nfc smart'], smartNfcIdCardImg],
-  [['rfid', 'proximity card', 'access control'], rfidAccessCardImg],
-  [['holographic', 'security id', 'hologram'], holographicSecurityIdCardImg],
-  [['magnetic stripe', 'magnetic strip', 'magstripe'], magneticStripeIdCardImg],
-  [['photo id', 'staff card', 'employee id'], photoIdStaffCardImg],
-  [['student id', 'campus card', 'student pass'], studentCampusIdCardImg],
-  [['visitor pass', 'pass holder', 'visitor badge'], visitorPassHoldersImg],
-  [['metal id', 'metallic vip', 'vip card'], executiveVipMetalCardImg],
+  [['raised spot uv', 'spot uv id', '3d uv id', 'raised uv id'], uvRaisedSpotUvIdImg],
+  [['frosted id', 'translucent id', 'transparent id'], uvFrostedTranslucentIdImg],
+  [['metallic id', 'metallic gold id', 'metallic silver id', 'metallic luster'], uvMetallicGoldSilverIdImg],
+  [['matte id', 'velvet id', 'anti scratch id', 'anti-scratch id'], uvMatteVelvetIdImg],
+  [['gloss photo id', 'photo id', 'gloss id', 'staff id'], uvHighGlossPhotoIdImg],
+  [['uv id', 'uv printed id', 'pvc id', 'standard id', 'id card'], uvStandardPvcIdImg],
+  [['smart nfc', 'nfc pvc', 'nfc smart'], uvStandardPvcIdImg],
+  [['rfid', 'proximity card', 'access control'], uvMatteVelvetIdImg],
+  [['holographic', 'security id', 'hologram'], uvRaisedSpotUvIdImg],
+  [['magnetic stripe', 'magnetic strip', 'magstripe'], uvStandardPvcIdImg],
+  [['student id', 'campus card', 'student pass'], uvStandardPvcIdImg],
+  [['visitor pass', 'pass holder', 'visitor badge'], uvMatteVelvetIdImg],
+  [['metal id', 'metallic vip', 'vip card'], uvMetallicGoldSilverIdImg],
 
   // Printing & Finishes
   [['digital & offset', 'digital offset', 'offset printing', 'digital printing'], serviceDigitalOffsetImg],
@@ -721,6 +777,17 @@ const slugKeywordImageMap = [
   [['lanyard', 'neck strap', 'ribbon'], standardPolyesterLanyardImg],
   [['name badge', 'name tag', 'magnetic badge', 'staff badge'], brushedGoldMagneticBadgeImg],
   [['nameplate', 'name plate', 'door sign', 'desk sign'], acrylicDeskNameplateImg],
+
+  // Dedicated Sticker & Label Varieties Matching
+  [['die-cut sticker', 'die cut sticker', 'die-cut', 'die cut', 'contour sticker', 'contour-cut sticker'], dieCutVinylStickersImg],
+  [['holographic', 'rainbow foil sticker', 'iridescent sticker', 'holo sticker', 'prism sticker'], holographicFoilStickersImg],
+  [['clear transparent', 'clear sticker', 'transparent sticker', 'see-through sticker', 'clear vinyl'], clearTransparentVinylStickersImg],
+  [['roll label', 'packaging label', 'roll sticker', 'custom roll labels', 'machine label'], customRollLabelsImg],
+  [['gold foil sticker', 'gold foil stamped', 'embossed sticker', 'metallic gold seal', 'luxury foil seal', 'hot stamped sticker', 'gold foil'], goldFoilStampedStickersImg],
+  [['kraft sticker', 'kraft paper sticker', 'eco sticker', 'recycled sticker', 'kraft label', 'kraft paper'], kraftEcoFriendlyStickersImg],
+  [['domed epoxy', 'epoxy sticker', '3d dome', 'crystal dome', 'gel badge', 'resin decal'], domedEpoxyStickersImg],
+  [['cosmetic label', 'bottle label', 'jar label', 'cosmetic sticker', 'packaging labels'], cosmeticBottleLabelsImg],
+  [['waterproof vinyl sticker', 'waterproof sticker', 'vinyl decal', 'outdoor sticker'], waterproofVinylStickersImg],
   [['sticker', 'label', 'decal'], serviceStickersLabelsImg],
   [['flag', 'beach flag', 'feather flag', 'teardrop'], flagsImg],
   [['keychain', 'key ring', 'keyring'], keychainImg],

@@ -60,18 +60,18 @@ export const initialCategories = [
     "id": 4,
     "name": "ID Card Printing Dubai",
     "slug": "id-card-printing-dubai",
-    "description": "Secure CR80 standard PVC employee identity cards with high-definition thermal printing, smart chips, magnetic strips, and barcodes.",
-    "image": "/uploads/categories/id-card-printing-dubai.jpg",
-    "image_url": "/uploads/categories/id-card-printing-dubai.jpg",
+    "description": "High-definition UV printed CR80 PVC employee ID cards, staff badges, and VIP membership cards with vibrant scratch-resistant cured inks, raised 3D spot UV, and luxury matte or gloss finishes.",
+    "image": "/assets/products/id-cards/uv_id_card_hero.jpg",
+    "image_url": "/assets/products/id-cards/uv_id_card_hero.jpg",
     "status": "active",
     "display_order": 4,
     "active": true,
-    "seoTitle": "ID Card Printing Dubai | Corporate Employee & PVC Cards | ONPRINT",
-    "seoDescription": "High-security corporate PVC ID card printing in Dubai. Crisp photo resolution, smart NFC chips, barcodes, and custom lanyards for UAE businesses.",
-    "seoKeywords": "id card printing dubai, pvc id cards dubai, corporate employee badges uae, student id card printing",
-    "seoHeading": "Corporate PVC ID Card Printing Solutions Dubai",
+    "seoTitle": "UV ID Card Printing Dubai | Custom PVC Employee & Staff Badges | ONPRINT",
+    "seoDescription": "Premium UV printed ID cards in Dubai. CR80 PVC employee badges, raised 3D spot UV cards, frosted transparent passes, and metallic VIP cards with same-day express turnaround.",
+    "seoKeywords": "uv id card printing dubai, pvc id card printing dubai, employee badges dubai, staff id cards uae, custom id printing dubai",
+    "seoHeading": "Professional UV ID Card & Staff Badge Printing in Dubai",
     "canonicalUrl": "https://www.0nprint.com/categories/id-card-printing-dubai",
-    "imageAlt": "Corporate employee PVC identity cards with chips in Dubai"
+    "imageAlt": "Professional UV printed PVC employee identity cards in Dubai"
   },
   {
     "_id": "cat-lanyard-printing-dubai",
@@ -345,7 +345,7 @@ export const initialCategories = [
   }
 ]
 
-const STORAGE_KEY = 'onprint_categories_data_v5'
+const STORAGE_KEY = 'onprint_categories_data_v6'
 
 function getStoredCategories() {
   try {

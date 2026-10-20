@@ -8,9 +8,9 @@ import { getServiceWhatsAppUrl, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-[#28395A] bg-[#101D35] text-slate-300">
+    <footer className="border-t border-slate-800 bg-slate-950 text-slate-400">
       {/* 1. HIGH-CONTRAST CALL TO ACTION BANNER */}
-      <div className="border-b border-[#28395A] bg-[#0B1426] text-white py-16 sm:py-20 relative overflow-hidden">
+      <div className="border-b border-slate-800 bg-slate-900 text-white py-16 sm:py-20 relative overflow-hidden">
         <div
           className="pointer-events-none absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl"
           aria-hidden="true"
@@ -35,7 +35,7 @@ export default function SiteFooter() {
           <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto">
             <Link
               to="/get-a-quote"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-6 sm:px-7 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/25 transition-all text-center"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-6 sm:px-7 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#0F172A] shadow-lg shadow-[#D4AF65]/25 transition-all text-center"
               onClick={() => trackGetQuoteClick({ source_page: 'footer_cta_banner' })}
             >
               <span>Request Custom Quote</span>
@@ -49,9 +49,9 @@ export default function SiteFooter() {
               onClick={() =>
                 trackWhatsAppClick({ source_page: 'footer_cta_banner', service: 'general', button_location: 'footer_banner' })
               }
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 hover:bg-[#25D366] hover:text-white border border-white/20 hover:border-[#25D366] px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer text-center"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer text-center shadow-md shadow-emerald-500/20"
             >
-              <WhatsAppIcon className="h-4 w-4 fill-current text-white shrink-0" />
+              <WhatsAppIcon className="h-4 w-4 fill-white text-white shrink-0" />
               <span>WhatsApp Concierge</span>
             </a>
           </div>
@@ -65,7 +65,7 @@ export default function SiteFooter() {
           <Link to="/" className="inline-block">
             <Logo variant="light" size="lg" />
           </Link>
-          <p className="text-xs sm:text-sm leading-relaxed text-slate-300 max-w-sm">
+          <p className="text-xs sm:text-sm leading-relaxed text-slate-400 max-w-sm">
             ONPRINT is Dubai’s premier commercial printing house in Al Quoz. Delivering precision 600–700 GSM cotton business cards, metallic foil packaging, corporate stationery, official seals, and high-impact signage across the UAE.
           </p>
 
@@ -77,7 +77,7 @@ export default function SiteFooter() {
               onClick={() =>
                 trackWhatsAppClick({ source_page: 'footer_contact_pills', service: 'general', button_location: 'footer_social' })
               }
-              className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-950/50 px-3 py-1.5 text-xs font-bold text-emerald-400 hover:bg-[#25D366] hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/60 px-3 py-1.5 text-xs font-bold text-emerald-400 hover:bg-[#25D366] hover:text-white transition-colors"
               aria-label="WhatsApp Direct Chat"
             >
               <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
@@ -85,7 +85,7 @@ export default function SiteFooter() {
             </a>
             <a
               href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-bold text-white hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-full border border-slate-700 bg-slate-900 px-3 py-1.5 text-xs font-bold text-white hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
               aria-label={`Call ${FORMATTED_PHONE}`}
             >
               <Phone className="h-3 w-3 text-[#D4AF65]" />
@@ -93,7 +93,7 @@ export default function SiteFooter() {
             </a>
             <a
               href="mailto:0nprint183@gmail.com"
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-bold text-white hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-full border border-slate-700 bg-slate-900 px-3 py-1.5 text-xs font-bold text-white hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
               aria-label="Email 0nprint183@gmail.com"
             >
               <Mail className="h-3 w-3 text-[#D4AF65]" />
@@ -190,7 +190,7 @@ export default function SiteFooter() {
         {/* Col 4: Pressroom Address & Hours */}
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF65]">Pressroom &amp; Atelier</p>
-          <div className="mt-4 space-y-3 text-xs leading-relaxed text-slate-300">
+          <div className="mt-4 space-y-3 text-xs leading-relaxed text-slate-400">
             <div className="flex items-start gap-2.5">
               <MapPin className="h-4 w-4 shrink-0 text-[#D4AF65] mt-0.5" />
               <span>Al Quoz Industrial Area 4, Dubai, United Arab Emirates</span>
@@ -198,7 +198,7 @@ export default function SiteFooter() {
             <div className="flex items-start gap-2.5">
               <Clock className="h-4 w-4 shrink-0 text-[#D4AF65] mt-0.5" />
               <div>
-                <p>Monday – Saturday: 9:00 AM – 8:00 PM</p>
+                <p className="text-slate-300">Monday – Saturday: 9:00 AM – 8:00 PM</p>
                 <p className="text-emerald-400 font-semibold mt-0.5">24h Priority Emergency Hotline</p>
               </div>
             </div>
@@ -211,19 +211,19 @@ export default function SiteFooter() {
       </Container>
 
       {/* 3. BOTTOM COPYRIGHT & LEGAL BAR */}
-      <div className="border-t border-[#28395A] bg-[#0B1426] py-6 pb-20 sm:pb-6 text-xs text-slate-400">
+      <div className="border-t border-slate-800 bg-slate-900 py-6 pb-20 sm:pb-6 text-xs text-slate-500">
         <Container className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p>© {new Date().getFullYear()} ONPRINT Commercial Printing LLC. All rights reserved. Registered in Dubai, UAE.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6">
-            <Link to="/privacy-policy" className="hover:text-slate-200 transition-colors">
+            <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors">
               Privacy Policy
             </Link>
-            <span className="text-slate-600 hidden sm:inline">|</span>
-            <Link to="/terms" className="hover:text-slate-200 transition-colors">
+            <span className="text-slate-700 hidden sm:inline">|</span>
+            <Link to="/terms" className="hover:text-slate-300 transition-colors">
               Terms &amp; Conditions
             </Link>
-            <span className="text-slate-600 hidden sm:inline">|</span>
-            <Link to="/track-order" className="hover:text-slate-200 transition-colors">
+            <span className="text-slate-700 hidden sm:inline">|</span>
+            <Link to="/track-order" className="hover:text-slate-300 transition-colors">
               Track Order
             </Link>
           </div>

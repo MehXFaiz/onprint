@@ -1,4 +1,34 @@
 export const categoryImageMap = {
+  "standard-uv-pvc-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/uv_standard_pvc_id.jpg"
+    ]
+  },
+  "raised-3d-spot-uv-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/uv_raised_spot_uv_id.jpg"
+    ]
+  },
+  "frosted-translucent-uv-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/uv_frosted_translucent_id.jpg"
+    ]
+  },
+  "matte-anti-scratch-uv-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/uv_matte_velvet_id.jpg"
+    ]
+  },
+  "metallic-luster-uv-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/uv_metallic_gold_silver_id.jpg"
+    ]
+  },
+  "high-gloss-photo-uv-id-cards": {
+    "id-card-printing-dubai": [
+      "/assets/products/id-cards/uv_high_gloss_photo_id.jpg"
+    ]
+  },
   "presentation-folders": {
     "office-stationery-printing": [
       "/assets/products/stationery/stationery-presentation-folders.jpg"
@@ -234,7 +264,7 @@ export const categoryImageMap = {
   },
   "acrylic-nameplates": {
     "name-badges-printing-dubai": [
-      "/assets/products/name-badges/acrylic-desk-nameplate.svg"
+      "/assets/products/name-badges/acrylic-desk-nameplate.jpg"
     ]
   },
   "beach-flags": {
@@ -244,7 +274,7 @@ export const categoryImageMap = {
   },
   "die-cut-stickers": {
     "stickers-labels-printing": [
-      "/assets/products/stickers.jpg"
+      "/assets/products/stickers/die-cut-vinyl-stickers.jpg"
     ]
   },
   "engraved-keychains": {
@@ -289,7 +319,7 @@ export const categoryImageMap = {
   },
   "metal-name-signs": {
     "name-badges-printing-dubai": [
-      "/assets/products/name-badges/metal-architectural-wall-plaque.svg"
+      "/assets/products/name-badges/metal-architectural-wall-plaque.jpg"
     ]
   },
   "wall-acrylic-signage": {
@@ -409,22 +439,22 @@ export const categoryImageMap = {
   },
   "professional-magnetic-metal-name-badges": {
     "name-badges-printing-dubai": [
-      "/assets/products/name-badges/brushed-gold-magnetic-badge.svg"
+      "/assets/products/name-badges/brushed-gold-magnetic-badge.jpg"
     ]
   },
   "domed-epoxy-magnetic-staff-badges": {
     "name-badges-printing-dubai": [
-      "/assets/products/name-badges/domed-epoxy-resin-badge.svg"
+      "/assets/products/name-badges/domed-epoxy-resin-badge.jpg"
     ]
   },
   "reusable-window-magnetic-badges": {
     "name-badges-printing-dubai": [
-      "/assets/products/name-badges/reusable-window-insert-badge.svg"
+      "/assets/products/name-badges/reusable-window-insert-badge.jpg"
     ]
   },
   "executive-matte-black-magnetic-badges": {
     "name-badges-printing-dubai": [
-      "/assets/products/name-badges/executive-matte-black-badge.svg"
+      "/assets/products/name-badges/executive-matte-black-badge.jpg"
     ]
   },
   "standard-polyester-lanyards": {
@@ -528,27 +558,42 @@ export const categoryImageMap = {
   },
   "waterproof-vinyl-stickers": {
     "stickers-labels-printing": [
-      "/assets/products/stickers.jpg"
+      "/assets/products/stickers/waterproof-vinyl-stickers.jpg"
     ]
   },
   "custom-roll-labels": {
     "stickers-labels-printing": [
-      "/assets/products/service_stickers_labels.jpg"
+      "/assets/products/stickers/custom-roll-labels.jpg"
     ]
   },
   "clear-transparent-stickers": {
     "stickers-labels-printing": [
-      "/assets/products/stickers.jpg"
+      "/assets/products/stickers/clear-transparent-vinyl-stickers.jpg"
     ]
   },
   "holographic-stickers": {
     "stickers-labels-printing": [
-      "/assets/products/service_stickers_labels.jpg"
+      "/assets/products/stickers/holographic-foil-stickers.jpg"
     ]
   },
   "cosmetic-bottle-labels": {
     "stickers-labels-printing": [
-      "/assets/products/stickers.jpg"
+      "/assets/products/stickers/cosmetic-bottle-labels.jpg"
+    ]
+  },
+  "gold-foil-stickers": {
+    "stickers-labels-printing": [
+      "/assets/products/stickers/gold-foil-stamped-stickers.jpg"
+    ]
+  },
+  "kraft-paper-stickers": {
+    "stickers-labels-printing": [
+      "/assets/products/stickers/kraft-eco-friendly-stickers.jpg"
+    ]
+  },
+  "domed-epoxy-stickers": {
+    "stickers-labels-printing": [
+      "/assets/products/stickers/domed-epoxy-stickers.jpg"
     ]
   },
   "self-inking-company-stamps": {

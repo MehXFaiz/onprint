@@ -55,7 +55,6 @@ function OptionGroup({ label, options, selected, onSelect }) {
             }`}
           >
             {option.label}
-            {option.priceModifier > 0 && <span className="ml-1 text-[11px] opacity-70">+AED {option.priceModifier}</span>}
           </button>
         ))}
       </div>
@@ -431,12 +430,12 @@ export default function ProductDetailPage() {
               {product.description || product.shortDescription}
             </p>
 
-            {/* Base Price & MOQ */}
+            {/* Quote & MOQ */}
             <div className="mt-6 flex items-baseline gap-4 border-y border-border/60 py-4">
               <div>
-                <span className="text-xs font-semibold text-secondary">Starting from</span>
-                <p className="font-display text-2xl font-black text-primary">
-                  AED {product.price ? product.price.toFixed(2) : '50.00'}
+                <span className="text-xs font-semibold text-secondary">Pricing</span>
+                <p className="font-display text-xl font-black text-primary">
+                  Custom Quote
                 </p>
               </div>
               <div className="border-l border-border/60 pl-4">
@@ -568,7 +567,7 @@ export default function ProductDetailPage() {
                     Volume Tier Quantity Presets
                   </p>
                   {volumeDiscountPct > 0 && (
-                    <span className="text-[11px] font-extrabold text-emerald-400 bg-emerald-950/60 border border-emerald-500/40 rounded-full px-2.5 py-0.5">
+                    <span className="text-[11px] font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2.5 py-0.5 shadow-2xs">
                       🎉 {volumeDiscountPct}% Volume Discount Applied
                     </span>
                   )}
@@ -588,61 +587,56 @@ export default function ProductDetailPage() {
                       onClick={() => setQuantity(tier.qty)}
                       className={`flex flex-col items-center justify-center rounded-xl border p-2 text-center transition-all cursor-pointer ${
                         quantity === tier.qty
-                          ? 'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] font-black shadow-xs ring-1 ring-[#D4AF65]'
-                          : 'border-[#28395A] bg-[#162542] text-slate-200 hover:border-[#D4AF65] hover:text-white font-semibold'
+                          ? 'border-[#D4AF65] bg-[#D4AF65] text-[#0F172A] font-black shadow-xs ring-1 ring-[#D4AF65]'
+                          : 'border-slate-200 bg-white text-slate-700 hover:border-[#D4AF65] hover:text-slate-900 font-semibold shadow-2xs'
                       }`}
                     >
                       <span className="text-xs">{tier.label}</span>
                       {tier.discount > 0 && (
-                        <span className={`text-[10px] font-bold ${quantity === tier.qty ? 'text-[#101D35]/80' : 'text-emerald-400'}`}>-{tier.discount}%</span>
+                        <span className={`text-[10px] font-bold ${quantity === tier.qty ? 'text-[#0F172A]/80' : 'text-emerald-600'}`}>-{tier.discount}%</span>
                       )}
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Server-Authoritative Price Calculation Breakdown */}
-              {pricingBreakdown && (
-                <div className="rounded-2xl border border-border/80 bg-surface/90 p-4 sm:p-5 shadow-xs">
-                  <div className="flex items-center justify-between border-b border-border/60 pb-3">
-                    <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-secondary">
-                        Unit Rate
-                      </span>
-                      <p className="font-mono text-sm font-black text-primary">
-                        AED {pricingBreakdown.unitPrice.toFixed(2)} <span className="text-xs font-normal text-secondary">/ unit</span>
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-secondary">
-                        5% UAE VAT (FTA)
-                      </span>
-                      <p className="font-mono text-xs font-bold text-secondary">
-                        + AED {pricingBreakdown.vatAmount.toFixed(2)}
-                      </p>
-                    </div>
+              {/* Order Estimate Summary */}
+              <div className="rounded-2xl border border-border/80 bg-surface/90 p-4 sm:p-5 shadow-xs">
+                <div className="flex items-center justify-between border-b border-border/60 pb-3">
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-secondary">
+                      Turnaround
+                    </span>
+                    <p className="text-sm font-bold text-primary">
+                      Same-Day / 24h Express
+                    </p>
                   </div>
-
-                  <div className="mt-3 flex items-baseline justify-between">
-                    <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-primary">
-                        Total Order Estimate
-                      </span>
-                      <p className="text-[11px] text-secondary">
-                        {quantity} units • Standard proofing included
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <span className="font-display text-2xl font-black text-white">
-                        AED {pricingBreakdown.totalAmount.toFixed(2)}
-                      </span>
-                      <p className="text-[10px] text-slate-300">
-                        (AED {pricingBreakdown.subtotal.toFixed(2)} ex. VAT)
-                      </p>
-                    </div>
+                  <div className="text-right">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-secondary">
+                      Pre-Press QC
+                    </span>
+                    <p className="text-xs font-bold text-emerald-600">
+                      Included Free
+                    </p>
                   </div>
                 </div>
-              )}
+
+                <div className="mt-3 flex items-baseline justify-between">
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                      Selected Quantity
+                    </span>
+                    <p className="text-[11px] text-secondary">
+                      {quantity} units • Free digital proof included
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-display text-lg font-black text-[#D4AF65]">
+                      Instant Quote
+                    </span>
+                  </div>
+                </div>
+              </div>
 
 
               {/* High-Converting Multi-Channel Conversion CTAs */}
@@ -659,7 +653,6 @@ export default function ProductDetailPage() {
                       material: material?.label,
                       finish: finish?.label,
                       deliveryLocation: deliveryLocation.trim() || undefined,
-                      price: estimatedPrice || undefined,
                       notes: notes.trim() || undefined,
                       intent: 'price',
                     })}
@@ -684,7 +677,7 @@ export default function ProductDetailPage() {
                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-5 py-3.5 text-xs sm:text-sm font-black text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer w-full"
                   >
                     <WhatsAppIcon className="h-4.5 w-4.5 fill-white shrink-0" />
-                    <span>Get Price on WhatsApp</span>
+                    <span>Get Quote on WhatsApp</span>
                   </a>
 
                   <a
@@ -698,7 +691,6 @@ export default function ProductDetailPage() {
                       material: material?.label,
                       finish: finish?.label,
                       deliveryLocation: deliveryLocation.trim() || undefined,
-                      price: estimatedPrice || undefined,
                       notes: notes.trim() || undefined,
                       intent: 'order',
                     })}
@@ -776,7 +768,7 @@ export default function ProductDetailPage() {
                   onClick={() => { setActiveCategoryTab(idx); setCategoryLightbox(null) }}
                   className={`rounded-xl border px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     activeCategoryTab === idx
-                      ? 'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] shadow-xs'
+                      ? 'border-[#D4AF65] bg-[#D4AF65] text-[#0F172A] shadow-xs'
                       : 'border-border bg-surface text-secondary hover:border-primary hover:text-primary'
                   }`}
                 >

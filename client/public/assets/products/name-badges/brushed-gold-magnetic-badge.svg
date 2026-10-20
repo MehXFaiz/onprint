@@ -118,7 +118,7 @@
 
       <!-- Title & Dept -->
       <text x="0" y="88" fill="#D4AF65" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="3">SENIOR CLIENT DIRECTOR</text>
-      <text x="0" y="115" fill="#475569" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" letter-spacing="2">PRIVATE WEALTH & COMMERCIAL PRINTING</text>
+      <text x="0" y="115" fill="#475569" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" letter-spacing="2">PRIVATE WEALTH &amp; COMMERCIAL PRINTING</text>
     </g>
 
     <!-- Magnetic Fastener Icon Badge in Bottom Left -->

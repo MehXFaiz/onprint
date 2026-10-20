@@ -49,6 +49,7 @@ function isProductInCategory(product, category) {
     if ((catSlug === 'business-cards-printing' || catSlug === 'business-cards') && (pCatSlug === 'business-cards-printing' || pCatSlug === 'business-cards')) return true
     if ((catSlug === 'stickers-labels-printing' || catSlug === 'stickers-printing-dubai') && (pCatSlug === 'stickers-labels-printing' || pCatSlug === 'stickers-printing-dubai')) return true
     if ((catSlug === 'rollup-banners' || catSlug === 'cat-rollup-banners-dubai') && (pCatSlug === 'rollup-banners' || pCatSlug === 'cat-rollup-banners-dubai')) return true
+    if ((catSlug === 'id-card-printing-dubai' || catSlug === 'id-cards' || catSlug === 'id-card-printing') && (pCatSlug === 'id-card-printing-dubai' || pCatSlug === 'id-cards' || pCatSlug === 'id-card-printing')) return true
   }
 
   // 2. Category Key / _id match
@@ -90,6 +91,15 @@ function isProductInCategory(product, category) {
     }
   }
 
+  if (catSlug === 'id-card-printing-dubai' || catSlug === 'id-cards' || catSlug === 'id-card-printing') {
+    if (prodSlug.includes('name-badge') || pCatSlug === 'name-badges-printing-dubai') {
+      return false
+    }
+    if (prodSlug.includes('id-card') || prodName.includes('id card') || prodSlug.includes('id-badge')) {
+      return true
+    }
+  }
+
   // 6. Fallback Numeric ID match: ONLY if neither has a conflicting slug
   if (catId !== null && pCatId !== null && catId === pCatId) {
     if (!catSlug || !pCatSlug || catSlug === pCatSlug) {
@@ -116,31 +126,31 @@ function SectionCardGroup({ section, onQuickView }) {
   const visibleItems = section.items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
 
   return (
-    <div className="relative rounded-3xl border border-[#28395A] bg-[#162542] p-5 sm:p-8 lg:p-10 shadow-md transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl hover-shimmer">
+    <div className="relative rounded-3xl border border-slate-200 bg-white p-5 sm:p-8 lg:p-10 shadow-xs transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl hover-shimmer">
       {/* Top Header Section */}
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-[#28395A]">
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-slate-100">
         <div>
           {/* Eyebrow Chip */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#28395A] bg-[#101D35] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-white mb-3">
-            <span className="flex h-2 w-2 rounded-full bg-[#D4AF65] animate-pulse" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-slate-800 mb-3">
+            <span className="flex h-2 w-2 rounded-full bg-[#B89245] animate-pulse" />
             <span>SECTION {section.sectionNumber}</span>
             <span className="text-slate-400">•</span>
-            <span className="text-[#D4AF65]">{section.badge}</span>
+            <span className="text-[#B89245]">{section.badge}</span>
           </div>
 
           {/* Section Main Title */}
           <div className="relative">
-            <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl lg:text-4xl">
+            <h3 className="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
               {section.title}
             </h3>
             {/* Signature Underline Accent Bar */}
             <div className="mt-3 flex items-center gap-2">
               <span className="h-1 w-16 rounded-full bg-[#D4AF65]" />
-              <span className="h-1 w-3.5 rounded-full bg-slate-500" />
-              <span className="h-1 w-1.5 rounded-full bg-slate-600" />
+              <span className="h-1 w-3.5 rounded-full bg-slate-300" />
+              <span className="h-1 w-1.5 rounded-full bg-slate-200" />
             </div>
           </div>
-          <p className="mt-3 max-w-2xl text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <p className="mt-3 max-w-2xl text-xs sm:text-sm text-slate-600 leading-relaxed">
             {section.subtitle}
           </p>
         </div>
@@ -148,7 +158,7 @@ function SectionCardGroup({ section, onQuickView }) {
         {/* Carousel Slider Next/Prev Arrows Controls */}
         {totalPages > 1 && (
           <div className="flex items-center gap-3 shrink-0">
-            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#28395A] bg-[#101D35] px-3 py-1.5 text-xs font-bold text-slate-200">
+            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-700">
               <span>{currentPage + 1}</span>
               <span className="text-slate-400">/</span>
               <span>{totalPages}</span>
@@ -158,7 +168,7 @@ function SectionCardGroup({ section, onQuickView }) {
               <button
                 onClick={handlePrevPage}
                 aria-label={`Previous slide for ${section.title}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#28395A] bg-[#101D35] text-slate-200 shadow-xs transition-all hover:border-[#D4AF65] hover:bg-[#D4AF65] hover:text-[#101D35] active:scale-95 cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition-all hover:border-[#D4AF65] hover:bg-[#D4AF65] hover:text-[#0F172A] active:scale-95 cursor-pointer"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -166,7 +176,7 @@ function SectionCardGroup({ section, onQuickView }) {
               <button
                 onClick={handleNextPage}
                 aria-label={`Next slide for ${section.title}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D4AF65] bg-[#D4AF65] text-[#101D35] shadow-xs transition-all hover:bg-[#B89245] hover:border-[#B89245] active:scale-95 cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D4AF65] bg-[#D4AF65] text-[#0F172A] shadow-xs transition-all hover:bg-[#B89245] hover:border-[#B89245] active:scale-95 cursor-pointer"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -209,7 +219,7 @@ function SectionCardGroup({ section, onQuickView }) {
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 currentPage === idx
                   ? 'w-8 bg-[#D4AF65]'
-                  : 'w-2 bg-[#28395A] hover:bg-slate-400'
+                  : 'w-2 bg-slate-200 hover:bg-slate-400'
               }`}
             />
           ))}
@@ -301,21 +311,21 @@ export default function ProductSectionsShowcase({
     return null
   }
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-[#101D35] border-y border-[#28395A]">
+    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-slate-50 border-y border-slate-200/90">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Intro Banner */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#28395A] bg-[#162542] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white shadow-2xs">
-            <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#B89245] shadow-2xs">
+            <Sparkles className="h-3.5 w-3.5 text-[#B89245]" />
             Dubai Premium Print Showcase
           </div>
 
-          <h2 className="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl text-white">
+          <h2 className="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl text-slate-900">
             <span>Explore Our </span>
-            <span className="text-[#D4AF65]">Product Collections</span>
+            <span className="text-[#B89245]">Product Collections</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             From executive office stationery and promotional marketing collaterals to large-format outdoor displays.
           </p>
         </div>
@@ -328,20 +338,20 @@ export default function ProductSectionsShowcase({
         </div>
 
         {/* Bottom Guarantee Banner */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-[#28395A] bg-[#162542] p-5 sm:p-7 shadow-md">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs">
           <div className="flex items-start sm:items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#101D35] border border-[#28395A] text-[#D4AF65] font-bold shadow-2xs">
-              <ShieldCheck className="h-5 w-5 text-[#D4AF65]" />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 border border-amber-200 text-[#B89245] font-bold shadow-2xs">
+              <ShieldCheck className="h-5 w-5 text-[#B89245]" />
             </div>
             <div>
-              <h4 className="text-sm sm:text-base font-bold text-white">Need a custom bulk quantity or unique specification?</h4>
-              <p className="text-xs text-slate-300">Our Dubai prepress team provides instant digital proofs and free material sample boxes.</p>
+              <h4 className="text-sm sm:text-base font-bold text-slate-900">Need a custom bulk quantity or unique specification?</h4>
+              <p className="text-xs text-slate-600">Our Dubai prepress team provides instant digital proofs and free material sample boxes.</p>
             </div>
           </div>
 
           <Link
             to="/get-a-quote"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-6 py-3 text-xs font-black uppercase tracking-wider text-[#101D35] shadow-xs transition-all active:scale-95 shrink-0 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-6 py-3 text-xs font-black uppercase tracking-wider text-[#0F172A] shadow-xs transition-all active:scale-95 shrink-0 cursor-pointer"
           >
             <span>Request Custom Quote</span>
             <ArrowUpRight className="h-4 w-4" />

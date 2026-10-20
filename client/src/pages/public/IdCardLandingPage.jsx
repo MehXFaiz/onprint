@@ -37,93 +37,93 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { createQuote } from '../../services/quotes'
 import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick } from '../../utils/analytics'
 import { openWhatsAppDirectly, getWhatsAppUrl, getServiceWhatsAppUrl, FORMATTED_PHONE, WHATSAPP_PHONE } from '../../utils/whatsapp'
-import idCardsImg from '../../assets/products/id_cards.jpg'
+import idCardsImg from '../../assets/products/id-cards/uv_id_card_hero.jpg'
 
 // ID Card Types and Variations
 const ID_CARD_TYPES = [
   {
-    id: 'standard-pvc-id',
-    title: 'Standard PVC ID Cards',
-    category: 'standard',
+    id: 'standard-uv-pvc-id',
+    title: 'Standard Full-Color UV PVC ID Cards',
+    category: 'uv-printing',
     thickness: '0.76mm (CR80)',
-    badge: 'Most Popular • From AED 5',
-    priceHint: 'From AED 5 / card',
-    image: '/assets/products/id-cards/standard-pvc-id.jpg',
-    description:
-      'Durable 30mil PVC cards with full-color printing, perfect for employee badges, student IDs, and membership cards. Water-resistant and long-lasting.',
-    specs: '30mil PVC • Full Color CMYK • Standard CR80 Size • Magnetic Stripe Available',
-    suitableFor: 'Corporate Employees, Students, Gym Members, Club Members, Conference Attendees',
-    features: ['Water Resistant', 'Scratch Resistant', 'UV Protected', 'Full Color Printing'],
-  },
-  {
-    id: 'holographic-id-cards',
-    title: 'Holographic ID Cards',
-    category: 'security',
-    thickness: '0.76mm',
-    badge: 'High Security',
-    priceHint: 'From AED 8 / card',
-    image: '/assets/products/id-cards/holographic-id-cards.jpg',
-    description:
-      'Enhanced security with embedded holographic overlay that prevents counterfeiting and tampering. Ideal for high-security environments.',
-    specs: '30mil PVC • Holographic Overlay • UV Features • Anti-Counterfeit',
-    suitableFor: 'Government Buildings, Banks, Military, High-Security Facilities, VIP Access',
-    features: ['Holographic Overlay', 'UV Security Features', 'Tamper-Evident', 'Anti-Forgery'],
-  },
-  {
-    id: 'smart-nfc-id-cards',
-    title: 'Smart NFC ID Cards',
-    category: 'smart',
-    thickness: '0.86mm',
-    badge: 'Contactless',
+    badge: 'Most Popular • From AED 12',
     priceHint: 'From AED 12 / card',
-    image: '/assets/products/id-cards/smart-nfc-id-cards.jpg',
+    image: '/assets/products/id-cards/uv_standard_pvc_id.jpg',
     description:
-      'Embedded NFC chip for contactless access control, payment systems, and data storage. Compatible with modern access control systems.',
-    specs: 'NFC Chip Embedded • 13.56MHz Frequency • Contactless • Data Storage',
-    suitableFor: 'Office Buildings, Hotels, Hospitals, Universities, Smart Buildings',
-    features: ['Contactless Access', 'Data Storage', 'Multi-Application', 'Secure Encryption'],
+      'Professional edge-to-edge full-color UV flatbed printing on premium CR80 solid white PVC. Ultra-vivid photographic skin tones, waterproof scratch resistance, and durable anti-fade performance.',
+    specs: 'CR80 Solid PVC (0.76mm) • Full Color UV Flatbed • Scratch-Resistant Curing • Same-Day Dispatch',
+    suitableFor: 'Corporate Employees, Students, Healthcare Staff, Retail Personnel, Event Teams',
+    features: ['UV Cured Inks', 'Water & Scratch Resistant', 'Edge-to-Edge Print', 'Vibrant Skin Tones'],
   },
   {
-    id: 'rfid-proximity-cards',
-    title: 'RFID Proximity Cards',
-    category: 'smart',
-    thickness: '1.8mm',
-    badge: 'Long Range',
-    priceHint: 'From AED 10 / card',
-    image: '/assets/products/id-cards/rfid-proximity-cards.jpg',
+    id: 'raised-3d-spot-uv-id',
+    title: 'Raised 3D Spot UV Employee Badges',
+    category: 'luxury',
+    thickness: '0.76mm (CR80)',
+    badge: 'Executive Luxury • From AED 22',
+    priceHint: 'From AED 22 / card',
+    image: '/assets/products/id-cards/uv_raised_spot_uv_id.jpg',
     description:
-      '125kHz RFID technology for long-range access control. Reliable and compatible with most proximity readers in the UAE.',
-    specs: '125kHz RFID • Long Range • Proximity Reader Compatible • Durable',
-    suitableFor: 'Parking Access, Building Entry, Turnstiles, Gated Communities',
-    features: ['Long Range', 'Proximity Detection', 'Durable Construction', 'Universal Compatibility'],
+      'Turn corporate staff badges into executive luxury statements with raised 3D spot UV dimensional varnish layered over company logos and staff names against a silky matte cardstock.',
+    specs: 'Silky Matte PVC • Dimensional 3D Raised UV • High-Tactile Texture • Premium Contrast',
+    suitableFor: 'C-Suite Executives, Law Firms, Financial Centers, VIP Corporate Passes, Board Members',
+    features: ['Raised 3D Gloss Varnish', 'Tactile Dimensional Feel', 'Silky Matte Base', 'High Contrast'],
   },
   {
-    id: 'magnetic-stripe-cards',
-    title: 'Magnetic Stripe ID Cards',
-    category: 'standard',
-    thickness: '0.76mm',
-    badge: 'Payment Ready',
-    priceHint: 'From AED 6 / card',
-    image: '/assets/products/id-cards/magnetic-stripe-cards.jpg',
+    id: 'frosted-translucent-uv-id',
+    title: 'Frosted Translucent UV Plastic Cards',
+    category: 'specialty',
+    thickness: '0.76mm (CR80)',
+    badge: 'Modern Tech • From AED 20',
+    priceHint: 'From AED 20 / card',
+    image: '/assets/products/id-cards/uv_frosted_translucent_id.jpg',
     description:
-      'High-coercivity magnetic stripe for payment systems, time tracking, and access control. Compatible with standard magnetic readers.',
-    specs: 'HiCo Magnetic Stripe • 3-Track Encoding • Swipe Compatible • Durable',
-    suitableFor: 'Hotels, Cafeterias, Time Attendance, Payment Systems, Loyalty Programs',
-    features: ['HiCo Magnetic Stripe', '3-Track Encoding', 'Swipe Compatible', 'Long-Lasting'],
+      'Semi-transparent frosted CR80 cards with opaque white UV underlay and vivid color printing. Clean architectural see-through borders with high readability.',
+    specs: 'Frosted Semi-Clear Polymer • White + CMYK UV Inks • Smooth Beveled Edges • Waterproof',
+    suitableFor: 'Tech Startups, Creative Studios, Architectural Firms, VIP Lounge Access, Media Teams',
+    features: ['Semi-Transparent Polymer', 'Opaque White Underlay', 'Water & Tear-Proof', 'Unique Modern Look'],
   },
   {
-    id: 'photo-id-cards',
-    title: 'Photo ID Cards with Lamination',
-    category: 'standard',
-    thickness: '0.76mm',
-    badge: 'Professional',
-    priceHint: 'From AED 7 / card',
-    image: '/assets/products/id-cards/photo-id-cards.jpg',
+    id: 'matte-anti-scratch-uv-id',
+    title: 'Matte Anti-Scratch Velvet UV ID Cards',
+    category: 'heavy-duty',
+    thickness: '0.76mm (CR80)',
+    badge: 'Heavy Duty • From AED 16',
+    priceHint: 'From AED 16 / card',
+    image: '/assets/products/id-cards/uv_matte_velvet_id.jpg',
     description:
-      'Professional photo ID cards with protective lamination. Includes employee photo, name, designation, and company branding.',
-    specs: 'Photo Printing • Laminated Protection • Custom Branding • QR Code Optional',
-    suitableFor: 'Corporate Offices, Schools, Healthcare, Security Personnel, Event Staff',
-    features: ['Photo Quality', 'Laminated', 'Custom Design', 'QR Code Option'],
+      'Anti-glare velvet soft-touch laminated PVC identity cards with ultra-durable cured UV inks built to withstand daily pocket friction, scuffs, and sanitization wipes.',
+    specs: 'Velvet Soft-Touch Core • Non-Glare Matte Coating • High Friction Resistance • UV Cured',
+    suitableFor: 'Hospitals & Clinics, Construction Sites, Engineering Teams, Hotels, Heavy Daily Use',
+    features: ['Anti-Scratch Coating', 'Non-Glare Velvet Finish', 'Sanitization Resistant', 'Durable Core'],
+  },
+  {
+    id: 'metallic-luster-uv-id',
+    title: 'Metallic Gold & Silver Luster UV Cards',
+    category: 'luxury',
+    thickness: '0.76mm (CR80)',
+    badge: 'VIP Club • From AED 26',
+    priceHint: 'From AED 26 / card',
+    image: '/assets/products/id-cards/uv_metallic_gold_silver_id.jpg',
+    description:
+      'Shimmering brushed metallic gold and silver finish PVC cards overprinted with precision jet-black and color UV inks for luxury concierge and VIP memberships.',
+    specs: 'Brushed Metallic Luster PVC • High-Density UV Overprint • Mirror Finish Details • Deluxe Feel',
+    suitableFor: 'VIP Memberships, Luxury Concierge, Private Clubs, Executive Suites, High-End Events',
+    features: ['Brushed Gold & Silver Luster', 'Jet-Black UV Inks', 'Reflective Sheen', 'Executive Feel'],
+  },
+  {
+    id: 'high-gloss-photo-uv-id',
+    title: 'High-Gloss Photo Finish UV Identity Cards',
+    category: 'uv-printing',
+    thickness: '0.76mm (CR80)',
+    badge: 'Photo Vivid • From AED 14',
+    priceHint: 'From AED 14 / card',
+    image: '/assets/products/id-cards/uv_high_gloss_photo_id.jpg',
+    description:
+      'Studio-grade photo ID cards sealed with a mirror high-gloss UV finish. Maximum color saturation, true skin tone reproduction, and high-contrast scannable QR codes and barcodes.',
+    specs: 'Gloss CR80 PVC • Optical Clear UV Glaze • 600 DPI Photo Fidelity • Scannable Barcodes',
+    suitableFor: 'Security Personnel, Conference Passes, Corporate Identification, Turnstile QR Entry',
+    features: ['Mirror High-Gloss Glaze', 'True Skin Tones', 'Scannable QR & Barcode', 'Photo Clarity'],
   },
   {
     id: 'custom-shaped-id-cards',
@@ -404,14 +404,13 @@ export default function IdCardLandingPage() {
               >
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#162542] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#D4AF65] mb-6">
                   <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
-                  Professional ID Card Solutions
+                  Professional UV ID Card Solutions
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                  ID Card Printing in Dubai
+                  UV ID Card Printing in Dubai
                 </h1>
                 <p className="text-lg md:text-xl text-slate-300 mb-8">
-                  Premium ID cards with smart technology, security features, and custom designs. 
-                  From standard PVC cards to NFC smart cards and holographic security badges.
+                  High-definition UV printed employee identity cards, corporate staff badges, and VIP passes on premium CR80 PVC. Vibrant scratch-resistant cured inks, raised 3D spot UV, and frosted translucent finishes.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button to="/get-a-quote" size="lg">

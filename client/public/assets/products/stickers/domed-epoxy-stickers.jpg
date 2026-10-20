@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Custom Domed Epoxy Magnetic Staff Badges">
+  <defs>
+    <!-- Studio Radial Gradient Background -->
+    <radialGradient id="domedStudioBg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="55%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+
+    <!-- Vibrant Multi-Color Subsurface Print Base -->
+    <linearGradient id="printVibrant" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#311042"/>
+    </linearGradient>
+
+    <!-- 3D Domed Epoxy Glass Bubble Reflection Gradient -->
+    <linearGradient id="epoxyDomeReflection" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="65%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <!-- Soft Radial Highlight on Top Lens -->
+    <radialGradient id="lensHighlight" cx="30%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Soft Drop Shadow for Thick 3D Domed Badge -->
+    <filter id="domedDropShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#0f172a" flood-opacity="0.32"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#4338ca" flood-opacity="0.15"/>
+    </filter>
+
+    <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="1200" height="900" fill="url(#domedStudioBg)"/>
+
+  <!-- Pedestal Shadow -->
+  <ellipse cx="600" cy="630" rx="440" ry="65" fill="#cbd5e1" fill-opacity="0.5"/>
+
+  <!-- MAIN 3D DOMED EPOXY BADGE GROUP (680 x 280) -->
+  <g transform="translate(260, 280)" filter="url(#domedDropShadow)">
+    
+    <!-- Outer Base Bezel with Deep Rounding (680 x 280, rx=35) -->
+    <rect width="680" height="280" rx="35" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+
+    <!-- Vivid UV Full-Color Under-Print Layer -->
+    <rect x="6" y="6" width="668" height="268" rx="30" fill="url(#printVibrant)"/>
+
+    <!-- Geometric Tech / Holographic Wave Under-Pattern -->
+    <path d="M 6 120 Q 200 40 400 160 T 674 80 L 674 274 L 6 274 Z" fill="#A82F19" fill-opacity="0.25"/>
+    <path d="M 6 180 Q 220 100 440 220 T 674 150 L 674 274 L 6 274 Z" fill="#6366f1" fill-opacity="0.3"/>
+
+    <!-- Employee Photo Frame with Crystal Rim -->
+    <g transform="translate(45, 45)">
+      <rect width="135" height="175" rx="20" fill="#ffffff" stroke="#e0e7ff" stroke-width="3"/>
+      <!-- Stylized Avatar / Portrait -->
+      <circle cx="67.5" cy="65" r="38" fill="#3b82f6"/>
+      <circle cx="67.5" cy="55" r="22" fill="#ffffff"/>
+      <path d="M 25 145 C 25 105 45 95 67.5 95 C 90 95 110 105 110 145 Z" fill="#ffffff"/>
+      <rect x="10" y="145" width="115" height="20" rx="6" fill="#A82F19"/>
+      <text x="67.5" y="159" fill="#ffffff" font-family="system-ui, sans-serif" font-size="9" font-weight="900" text-anchor="middle" letter-spacing="1">VERIFIED STAFF</text>
+    </g>
+
+    <!-- Staff Details & Logo Block -->
+    <g transform="translate(210, 60)">
+      <!-- Company Brand -->
+      <g transform="translate(0, 0)">
+        <rect width="28" height="28" rx="6" fill="#A82F19"/>
+        <polygon points="14,6 22,14 14,22 6,14" fill="#ffffff"/>
+        <text x="36" y="20" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="900" letter-spacing="2">ONPRINT MEDIA GROUP</text>
+      </g>
+
+      <!-- Staff Name -->
+      <text x="0" y="75" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="900" letter-spacing="1.5">SARAH JENNINGS</text>
+      
+      <!-- Role -->
+      <text x="0" y="112" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="3">SENIOR CREATIVE PRODUCER</text>
+      <text x="0" y="136" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="2">GLOBAL EVENT & PRODUCTION CREW</text>
+    </g>
+
+    <!-- Magnetic Safe Badge Pill in Bottom Right -->
+    <g transform="translate(480, 215)">
+      <rect width="165" height="30" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <circle cx="18" cy="15" r="5" fill="#22c55e"/>
+      <text x="32" y="20" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="9.5" font-weight="800" letter-spacing="1">3D DOMED EPOXY</text>
+    </g>
+
+    <!-- 3D CRYSTAL CLEAR POLYURETHANE RESIN DOME OVERLAY -->
+    <!-- The Curved Gloss Dome Top Lens -->
+    <path d="M 12 35 C 12 18 24 10 40 10 L 640 10 C 656 10 668 18 668 35 L 668 120 C 500 150 180 150 12 120 Z" fill="url(#lensHighlight)"/>
+
+    <!-- Specular Bubble Reflection Arch (Curved 3D Glass Arc) -->
+    <path d="M 40 18 C 180 4 500 4 640 18 C 655 20 660 30 655 45 C 500 30 180 30 25 45 C 20 30 25 20 40 18 Z" fill="#ffffff" fill-opacity="0.85"/>
+
+    <!-- Lower Rim Specular Reflection -->
+    <path d="M 40 262 C 200 274 480 274 640 262 C 655 260 658 250 650 240 C 480 255 200 255 30 240 C 22 250 25 260 40 262 Z" fill="#ffffff" fill-opacity="0.35"/>
+  </g>
+
+  <!-- Spec Tag -->
+  <g transform="translate(860, 790)">
+    <rect width="280" height="65" rx="12" fill="#ffffff" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="28" fill="#0f172a" font-family="system-ui, sans-serif" font-size="14" font-weight="800">3D Crystal Epoxy Resin</text>
+    <text x="20" y="48" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Polyurethane Lens • High Gloss</text>
+  </g>
+</svg>

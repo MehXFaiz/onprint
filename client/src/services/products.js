@@ -3,7 +3,7 @@ import catalogProducts from '../data/catalogProducts.json'
 
 export const defaultProducts = catalogProducts
 
-const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v6'
+const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v8'
 
 export function getStoredProducts() {
   try {
@@ -65,6 +65,41 @@ export function getStoredProducts() {
               id: 5,
               name: 'Lanyard Printing Dubai',
               slug: 'lanyard-printing-dubai'
+            }
+          }
+        }
+
+        if (
+          name.includes('name badge') ||
+          slug.includes('name-badge') ||
+          name.includes('nameplate') ||
+          slug.includes('nameplate') ||
+          name.includes('name sign') ||
+          slug.includes('name-sign') ||
+          slug.includes('magnetic-badge') ||
+          p.category_id === 7 ||
+          (p.category && (p.category.id === 7 || p.category.slug === 'name-badges-printing-dubai'))
+        ) {
+          return {
+            ...p,
+            category_id: 7,
+            category: {
+              _id: 'cat-name-badges-printing-dubai',
+              id: 7,
+              name: 'Name Badges Printing Dubai',
+              slug: 'name-badges-printing-dubai'
+            }
+          }
+        }
+
+        if (name.includes('id card') || slug.includes('id-card') || (name.includes('staff badge') && !slug.includes('epoxy') && !slug.includes('magnetic')) || slug.includes('id-badge')) {
+          return {
+            ...p,
+            category: {
+              _id: 'cat-id-card-printing-dubai',
+              id: 4,
+              name: 'ID Card Printing Dubai',
+              slug: 'id-card-printing-dubai'
             }
           }
         }

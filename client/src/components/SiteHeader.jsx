@@ -29,7 +29,9 @@ import {
   Tag,
   Palette,
   Stamp,
-  BadgeCheck
+  BadgeCheck,
+  Briefcase,
+  Megaphone
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Logo from './Logo'
@@ -39,6 +41,15 @@ import { trackGetQuoteClick, trackWhatsAppClick } from '../utils/analytics'
 import { getCategories } from '../services/categories'
 import { getProducts } from '../services/products'
 import { getServiceWhatsAppUrl, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../utils/whatsapp'
+import { MASTER_DEPARTMENTS, isDepartmentSlug } from '../data/masterDepartments'
+
+const DEPARTMENT_ICONS = {
+  'business-office-printing': Briefcase,
+  'marketing-promotional-printing': Megaphone,
+  'stickers-labels-packaging': Tag,
+  'signage-displays-banners': Layers,
+  'specialty-corporate-gifts': Sparkles,
+}
 
 const NAV_GROUPS = [
   {
@@ -140,6 +151,7 @@ export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [hoveredNav, setHoveredNav] = useState(null)
+  const [activeMegaDeptSlug, setActiveMegaDeptSlug] = useState('business-office-printing')
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
@@ -147,11 +159,15 @@ export default function SiteHeader() {
   const [searchModalOpen, setSearchModalOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [copied, setCopied] = useState(false)
-  const [mobileAccordion, setMobileAccordion] = useState({ catalog: false, services: false, company: false })
+  const [mobileOpenDept, setMobileOpenDept] = useState('business-office-printing')
 
   const location = useLocation()
   const searchInputRef = useRef(null)
   const dropdownTimeoutRef = useRef(null)
+
+  const activeMegaDepartment = useMemo(() => {
+    return MASTER_DEPARTMENTS.find((d) => d.slug === activeMegaDeptSlug) || MASTER_DEPARTMENTS[0]
+  }, [activeMegaDeptSlug])
 
   const handleCopyNumber = () => {
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
@@ -169,7 +185,7 @@ export default function SiteHeader() {
   const handleMouseLeaveDropdown = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null)
-    }, 180)
+    }, 200)
   }
 
   const productsLoadedRef = useRef(false)
@@ -177,7 +193,7 @@ export default function SiteHeader() {
   const loadSearchProducts = () => {
     if (productsLoadedRef.current) return
     productsLoadedRef.current = true
-    getProducts({ active: true, limit: 30 })
+    getProducts({ active: true, limit: 120 })
       .then((prodList) => {
         setProducts(Array.isArray(prodList) ? prodList : prodList?.products || [])
       })
@@ -206,7 +222,7 @@ export default function SiteHeader() {
       } else {
         loadSearchProducts()
       }
-    }, 2500)
+    }, 2000)
 
     return () => {
       isMounted = false
@@ -220,22 +236,42 @@ export default function SiteHeader() {
     }
   }, [searchModalOpen])
 
-  const megaMenuGroups = useMemo(() => buildMegaMenuGroups(categories), [categories])
-
   const searchResults = useMemo(() => {
     const q = searchQuery.trim().toLowerCase()
-    if (!q) return { products: [], categories: [] }
+    if (!q) return { products: [], categories: [], departments: [] }
 
     const matchedProds = (products || [])
-      .filter((p) => (p.name || '').toLowerCase().includes(q) || (p.shortDescription || '').toLowerCase().includes(q))
-      .slice(0, 5)
+      .filter((p) => {
+        const name = (p.name || '').toLowerCase()
+        const desc = (p.shortDescription || p.description || '').toLowerCase()
+        const cat = (p.category?.name || '').toLowerCase()
+        return name.includes(q) || desc.includes(q) || cat.includes(q)
+      })
+      .slice(0, 6)
 
-    const matchedCats = (categories || [])
-      .filter((c) => (c.name || '').toLowerCase().includes(q) || (c.description || '').toLowerCase().includes(q))
-      .slice(0, 4)
+    const matchedDepts = MASTER_DEPARTMENTS.filter(
+      (d) => d.name.toLowerCase().includes(q) || d.description.toLowerCase().includes(q)
+    ).slice(0, 3)
 
-    return { products: matchedProds, categories: matchedCats }
-  }, [searchQuery, products, categories])
+    const allSubcats = []
+    MASTER_DEPARTMENTS.forEach((dept) => {
+      dept.subcategories.forEach((sub) => {
+        if (sub.name.toLowerCase().includes(q) || sub.shortDesc.toLowerCase().includes(q)) {
+          allSubcats.push({
+            ...sub,
+            departmentSlug: dept.slug,
+            departmentName: dept.name,
+          })
+        }
+      })
+    })
+
+    return {
+      products: matchedProds,
+      categories: allSubcats.slice(0, 4),
+      departments: matchedDepts,
+    }
+  }, [searchQuery, products])
 
   useEffect(() => {
     function onScroll() {
@@ -387,7 +423,7 @@ export default function SiteHeader() {
               )}
             </button>
 
-            {/* Mega-Menu Dropdown Panel with High-Contrast Bento Layout */}
+            {/* Mega-Menu Dropdown Panel with DLX-Inspired Master Department Architecture */}
             <AnimatePresence>
               {activeDropdown === 'catalog' && (
                 <motion.div
@@ -395,116 +431,161 @@ export default function SiteHeader() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute left-0 sm:-left-8 lg:-left-16 xl:left-0 top-full mt-3 w-[min(880px,calc(100vw-48px))] max-w-[calc(100vw-32px)] rounded-3xl border border-slate-200 bg-white/98 backdrop-blur-2xl p-5 xl:p-6 shadow-[0_28px_64px_-12px_rgba(15,23,42,0.15)] z-50 text-slate-900"
+                  className="absolute left-0 sm:-left-8 lg:-left-20 xl:left-0 top-full mt-3 w-[min(960px,calc(100vw-32px))] max-w-[calc(100vw-32px)] rounded-3xl border border-slate-200 bg-white/98 backdrop-blur-2xl p-5 shadow-[0_28px_64px_-12px_rgba(15,23,42,0.18)] z-50 text-slate-900"
                 >
-                  <div className="grid grid-cols-12 gap-6">
-                    {/* Left Spotlight Banner */}
-                    <div className="col-span-4 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 p-5 flex flex-col justify-between text-white relative overflow-hidden shadow-lg border border-slate-800">
-                      <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 rounded-full bg-[#D4AF65]/20 blur-2xl pointer-events-none" />
-
-                      <div className="relative z-10">
-                        <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/15 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#D4AF65]">
-                          <Sparkles className="h-2.5 w-2.5 text-[#D4AF65]" />
-                          <span>Pressroom Master</span>
-                        </div>
-                        <h4 className="mt-3 text-base font-bold text-white tracking-tight leading-snug">
-                          Commercial Precision &amp; Tactile Craft
-                        </h4>
-                        <p className="mt-1.5 text-xs leading-relaxed text-slate-300">
-                          Heidelberg offset, HP Indigo digital, 24K hot foil stamping, and 700 GSM cotton stocks.
-                        </p>
-
-                        <div className="mt-4 pt-3.5 border-t border-slate-800 space-y-2">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block">
-                            Priority Products
+                  <div className="grid grid-cols-12 gap-5">
+                    {/* Left Column: 5 Master Departments */}
+                    <div className="col-span-5 border-r border-slate-200/80 pr-4 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center justify-between px-2 pb-2 mb-1.5 border-b border-slate-100">
+                          <span className="text-[10px] font-black uppercase tracking-widest text-[#B89245]">
+                            Master Departments
                           </span>
-                          <Link
-                            to="/business-card-printing-dubai"
-                            onClick={() => setActiveDropdown(null)}
-                            className="group flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-xs font-bold text-white transition-all"
-                          >
-                            <span className="flex items-center gap-2">
-                              <span className="h-2 w-2 rounded-full bg-[#D4AF65]" />
-                              <span>Luxury Business Cards</span>
-                            </span>
-                            <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-white transition-colors" />
-                          </Link>
-                          <Link
-                            to="/categories/rollup-banners"
-                            onClick={() => setActiveDropdown(null)}
-                            className="group flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-xs font-bold text-white transition-all"
-                          >
-                            <span className="flex items-center gap-2">
-                              <span className="h-2 w-2 rounded-full bg-amber-400" />
-                              <span>Roll-Up Banners</span>
-                            </span>
-                            <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-white transition-colors" />
-                          </Link>
-                          <Link
-                            to="/categories/custom-stamps-seals"
-                            onClick={() => setActiveDropdown(null)}
-                            className="group flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-xs font-bold text-white transition-all"
-                          >
-                            <span className="flex items-center gap-2">
-                              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                              <span>Official Stamps &amp; Seals</span>
-                            </span>
-                            <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-white transition-colors" />
-                          </Link>
+                          <span className="text-[10px] font-bold text-slate-400">110+ Products</span>
+                        </div>
+                        <div className="space-y-1">
+                          {MASTER_DEPARTMENTS.map((dept) => {
+                            const Icon = DEPARTMENT_ICONS[dept.slug] || Layers
+                            const isSelected = activeMegaDeptSlug === dept.slug
+                            const prodCount = dept.subcategories.reduce((acc, s) => acc + (s.productSlugs?.length || 0), 0)
+                            return (
+                              <button
+                                key={dept.slug}
+                                type="button"
+                                onMouseEnter={() => setActiveMegaDeptSlug(dept.slug)}
+                                onClick={() => setActiveMegaDeptSlug(dept.slug)}
+                                className={`w-full text-left flex items-center justify-between p-2.5 rounded-2xl transition-all cursor-pointer group ${
+                                  isSelected
+                                    ? 'bg-gradient-to-r from-[#101D35] to-[#1a2d52] text-white shadow-md'
+                                    : 'hover:bg-slate-100/90 text-slate-700'
+                                }`}
+                              >
+                                <div className="flex items-center gap-2.5 min-w-0">
+                                  <div
+                                    className={`flex h-8 w-8 items-center justify-center rounded-xl shrink-0 transition-colors ${
+                                      isSelected
+                                        ? 'bg-[#D4AF65] text-[#101D35]'
+                                        : 'bg-white border border-slate-200 text-slate-600 group-hover:text-[#B89245]'
+                                    }`}
+                                  >
+                                    <Icon className="h-4 w-4" />
+                                  </div>
+                                  <div className="min-w-0">
+                                    <div className={`text-xs font-bold truncate ${isSelected ? 'text-white' : 'text-slate-900'}`}>
+                                      {dept.name}
+                                    </div>
+                                    <div className={`text-[10px] truncate ${isSelected ? 'text-[#D4AF65]' : 'text-slate-400'}`}>
+                                      {dept.subcategories.length} subcategories • {prodCount} products
+                                    </div>
+                                  </div>
+                                </div>
+                                <ChevronRight
+                                  className={`h-4 w-4 shrink-0 transition-transform ${
+                                    isSelected ? 'text-[#D4AF65] translate-x-0.5' : 'text-slate-300 group-hover:text-slate-500'
+                                  }`}
+                                />
+                              </button>
+                            )
+                          })}
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t border-slate-800 flex items-center justify-between relative z-10">
+                      {/* Bottom Footer Actions */}
+                      <div className="pt-3 border-t border-slate-200/80 space-y-2 mt-2">
                         <Link
                           to="/products"
                           onClick={() => setActiveDropdown(null)}
-                          className="text-xs font-black text-white hover:text-[#D4AF65] transition-colors flex items-center gap-1.5"
+                          className="flex items-center justify-between p-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-bold text-slate-800 transition-colors"
                         >
-                          <span>Browse All 200+ Products</span>
-                          <ArrowRight className="h-3.5 w-3.5 text-[#D4AF65]" />
+                          <span className="flex items-center gap-1.5">
+                            <Layers className="h-3.5 w-3.5 text-[#D4AF65]" />
+                            <span>Browse All 110+ Products</span>
+                          </span>
+                          <ArrowRight className="h-3 w-3 text-[#D4AF65]" />
+                        </Link>
+                        <Link
+                          to="/corporate-quotes"
+                          onClick={() => setActiveDropdown(null)}
+                          className="flex items-center justify-between p-2 rounded-xl bg-amber-50/60 hover:bg-amber-100/60 border border-amber-200/60 text-xs font-bold text-amber-950 transition-colors"
+                        >
+                          <span className="flex items-center gap-1.5">
+                            <Building2 className="h-3.5 w-3.5 text-[#B89245]" />
+                            <span>Corporate &amp; Trade RFQ</span>
+                          </span>
+                          <ArrowUpRight className="h-3 w-3 text-[#B89245]" />
                         </Link>
                       </div>
                     </div>
 
-                    {/* Right Categories Grid */}
-                    <div className="col-span-8 grid grid-cols-2 gap-x-4 gap-y-3 max-h-[390px] overflow-y-auto pr-1">
-                      {megaMenuGroups.map((group) => {
-                        const Icon = group.icon || Layers
-                        return (
-                          <div key={group.key} className="p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/90 border border-slate-200/80 transition-all group/item">
-                            <div className="flex items-center justify-between mb-2">
-                              <div className="flex items-center gap-2">
-                                <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white border border-slate-200 text-[#D4AF65] shrink-0 shadow-xs">
-                                  <Icon className="h-4 w-4" />
-                                </div>
-                                <h5 className="text-xs font-bold text-slate-900 group-hover/item:text-[#B89245] transition-colors truncate">
-                                  {group.label}
-                                </h5>
-                              </div>
-                              {group.badge && (
-                                <span className="rounded-full bg-white border border-slate-200 px-2 py-0.5 text-[9px] font-bold text-[#B89245]">
-                                  {group.badge}
-                                </span>
-                              )}
-                            </div>
-
-                            <ul className="space-y-1 pl-9">
-                              {group.items.slice(0, 4).map((item) => (
-                                <li key={item.slug || item.id}>
-                                  <Link
-                                    to={`/categories/${item.slug}`}
-                                    onClick={() => setActiveDropdown(null)}
-                                    className="group/link flex items-center justify-between text-xs font-medium text-slate-600 hover:text-slate-900 transition-colors py-0.5"
-                                  >
-                                    <span className="truncate group-hover/link:translate-x-0.5 transition-transform">{item.name}</span>
-                                    <ChevronRight className="h-3 w-3 opacity-0 group-hover/link:opacity-100 text-[#D4AF65] transition-opacity shrink-0" />
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
+                    {/* Right Column: Selected Department Subcategories */}
+                    <div className="col-span-7 flex flex-col justify-between">
+                      <div>
+                        {/* Department Header Banner */}
+                        <div className="flex items-start justify-between pb-3 mb-3 border-b border-slate-100">
+                          <div>
+                            <span className="text-[9px] font-black uppercase tracking-widest text-[#B89245] block">
+                              {activeMegaDepartment.eyebrow}
+                            </span>
+                            <h4 className="text-base font-black text-slate-900 tracking-tight">
+                              {activeMegaDepartment.name}
+                            </h4>
+                            <p className="text-[11px] text-slate-500 leading-snug line-clamp-1 mt-0.5">
+                              {activeMegaDepartment.description}
+                            </p>
                           </div>
-                        )
-                      })}
+                          <Link
+                            to={`/categories/${activeMegaDepartment.slug}`}
+                            onClick={() => setActiveDropdown(null)}
+                            className="shrink-0 inline-flex items-center gap-1 text-[11px] font-black text-[#B89245] hover:text-[#9A752E] px-2.5 py-1 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/30 hover:bg-[#D4AF65]/20 transition-all"
+                          >
+                            <span>Explore Department</span>
+                            <ArrowRight className="h-3 w-3" />
+                          </Link>
+                        </div>
+
+                        {/* Subcategory Cards Grid */}
+                        <div className="grid grid-cols-2 gap-2.5 max-h-[340px] overflow-y-auto pr-1">
+                          {activeMegaDepartment.subcategories.map((sub) => (
+                            <Link
+                              key={sub.slug}
+                              to={`/categories/${sub.slug}`}
+                              onClick={() => setActiveDropdown(null)}
+                              className="group p-2.5 rounded-2xl border border-slate-200/80 bg-slate-50/70 hover:bg-white hover:border-[#D4AF65] hover:shadow-sm transition-all flex flex-col justify-between"
+                            >
+                              <div>
+                                <div className="flex items-center justify-between mb-1">
+                                  <span className="text-xs font-bold text-slate-900 group-hover:text-[#B89245] transition-colors truncate">
+                                    {sub.name}
+                                  </span>
+                                  <span className="rounded-full bg-white border border-slate-200 px-1.5 py-0.2 text-[9px] font-bold text-slate-600 shrink-0">
+                                    {sub.productSlugs?.length || 0}
+                                  </span>
+                                </div>
+                                <p className="text-[10px] text-slate-500 leading-snug line-clamp-2">
+                                  {sub.shortDesc}
+                                </p>
+                              </div>
+                              {sub.featuredBadge && (
+                                <div className="mt-2 flex items-center justify-between pt-1 border-t border-slate-100">
+                                  <span className="text-[9px] font-extrabold text-[#B89245] uppercase tracking-wider">
+                                    {sub.featuredBadge}
+                                  </span>
+                                  <ChevronRight className="h-3 w-3 text-slate-400 group-hover:text-[#B89245] group-hover:translate-x-0.5 transition-all" />
+                                </div>
+                              )}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Reassurance Footer Banner */}
+                      <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-500">
+                        <span className="flex items-center gap-1 font-semibold text-slate-700">
+                          <Truck className="h-3 w-3 text-emerald-600" />
+                          <span>Al Quoz Pressroom • Express Dispatch Across UAE</span>
+                        </span>
+                        <span className="font-bold text-[#B89245]">Heidelberg &amp; HP Indigo Press</span>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -1008,109 +1089,151 @@ export default function SiteHeader() {
               <div className="mt-4 max-h-[60vh] overflow-y-auto space-y-4 pr-1">
                 {searchQuery.trim() === '' ? (
                   <div className="py-2">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 block mb-2.5">
-                      Popular Print Categories in Dubai
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#B89245] block mb-2.5">
+                      Explore Master Departments (Dubai Pressroom)
                     </span>
                     <div className="grid grid-cols-1 min-[380px]:grid-cols-2 sm:grid-cols-3 gap-2">
+                      {MASTER_DEPARTMENTS.map((dept) => {
+                        const Icon = DEPARTMENT_ICONS[dept.slug] || Layers
+                        const count = dept.subcategories.reduce((acc, s) => acc + (s.productSlugs?.length || 0), 0)
+                        return (
+                          <Link
+                            key={dept.slug}
+                            to={`/categories/${dept.slug}`}
+                            onClick={() => setSearchModalOpen(false)}
+                            className="p-3 rounded-2xl border border-slate-200 bg-slate-50/80 hover:border-[#D4AF65] hover:bg-white text-xs font-bold text-slate-800 transition-all flex items-center justify-between group shadow-2xs"
+                          >
+                            <div className="flex items-center gap-2 min-w-0">
+                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white border border-slate-200 text-[#D4AF65] shrink-0">
+                                <Icon className="h-3.5 w-3.5" />
+                              </div>
+                              <div className="min-w-0">
+                                <div className="truncate group-hover:text-slate-950 transition-colors font-extrabold">{dept.shortName || dept.name}</div>
+                                <div className="text-[9px] text-slate-400 font-semibold">{count} products</div>
+                              </div>
+                            </div>
+                            <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#B89245] shrink-0" />
+                          </Link>
+                        )
+                      })}
                       <Link
-                        to="/business-card-printing-dubai"
+                        to="/products"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] hover:bg-slate-100 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-2xl border border-dashed border-[#D4AF65] bg-[#D4AF65]/10 hover:bg-[#D4AF65]/20 text-xs font-black text-slate-900 transition-all flex items-center justify-between group"
                       >
-                        <span className="group-hover:text-slate-950 transition-colors">Business Cards</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#B89245] shrink-0" />
-                      </Link>
-                      <Link
-                        to="/categories/rollup-banners"
-                        onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] hover:bg-slate-100 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
-                      >
-                        <span className="group-hover:text-slate-950 transition-colors">Roll-Up Banners</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#B89245] shrink-0" />
-                      </Link>
-                      <Link
-                        to="/categories/stickers-labels-printing"
-                        onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] hover:bg-slate-100 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
-                      >
-                        <span className="group-hover:text-slate-950 transition-colors">Stickers &amp; Labels</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#B89245] shrink-0" />
-                      </Link>
-                      <Link
-                        to="/categories/custom-stamps-seals"
-                        onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] hover:bg-slate-100 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
-                      >
-                        <span className="group-hover:text-slate-950 transition-colors">Stamps &amp; Seals</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#B89245] shrink-0" />
-                      </Link>
-                      <Link
-                        to="/categories/bottle-printing-dubai"
-                        onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] hover:bg-slate-100 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
-                      >
-                        <span className="group-hover:text-slate-950 transition-colors">Custom Bottles</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#B89245] shrink-0" />
-                      </Link>
-                      <Link
-                        to="/categories/letterheads-printing-dubai"
-                        onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] hover:bg-slate-100 text-xs font-bold text-slate-800 transition-all flex items-center justify-between group"
-                      >
-                        <span className="group-hover:text-slate-950 transition-colors">Letterheads</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#B89245] shrink-0" />
+                        <div className="flex items-center gap-2">
+                          <Layers className="h-4 w-4 text-[#D4AF65]" />
+                          <span>All 110+ Products</span>
+                        </div>
+                        <ArrowRight className="h-3.5 w-3.5 text-[#D4AF65] group-hover:translate-x-0.5 transition-transform" />
                       </Link>
                     </div>
                   </div>
                 ) : (
                   <div>
-                    {searchResults.products.length > 0 && (
+                    {searchResults.departments?.length > 0 && (
+                      <div className="mb-3.5">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#B89245] block mb-2">
+                          Matching Master Departments
+                        </span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {searchResults.departments.map((dept) => {
+                            const Icon = DEPARTMENT_ICONS[dept.slug] || Layers
+                            return (
+                              <Link
+                                key={dept.slug}
+                                to={`/categories/${dept.slug}`}
+                                onClick={() => setSearchModalOpen(false)}
+                                className="flex items-center justify-between p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] hover:bg-white transition-all"
+                              >
+                                <div className="flex items-center gap-2">
+                                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-white text-[#D4AF65] border border-slate-200">
+                                    <Icon className="h-3 w-3" />
+                                  </div>
+                                  <span className="text-xs font-extrabold text-slate-900">{dept.name}</span>
+                                </div>
+                                <ArrowRight className="h-3 w-3 text-[#D4AF65]" />
+                              </Link>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {searchResults.products?.length > 0 && (
                       <div className="mb-4">
                         <span className="text-[10px] font-black uppercase tracking-wider text-[#B89245] block mb-2">
                           Matching Products ({searchResults.products.length})
                         </span>
-                        <div className="space-y-1.5">
-                          {searchResults.products.map((p) => (
-                            <Link
-                              key={p._id || p.id}
-                              to={`/products/${p.slug}`}
-                              onClick={() => setSearchModalOpen(false)}
-                              className="group flex items-center justify-between p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] hover:bg-slate-100 transition-all"
-                            >
-                              <div>
-                                <h6 className="text-xs font-bold text-slate-900 group-hover:text-[#B89245] transition-colors">{p.name}</h6>
-                                <p className="text-[10px] text-slate-500 line-clamp-1">{p.shortDescription}</p>
-                              </div>
-                              <span className="text-xs font-black text-[#B89245]">
-                                {p.price ? `${p.price} AED` : 'Quote'}
-                              </span>
-                            </Link>
-                          ))}
+                        <div className="space-y-2">
+                          {searchResults.products.map((p) => {
+                            const imgSrc = p.images?.[0] || p.image || '/assets/products/luxury_business_cards_dubai.jpg'
+                            return (
+                              <Link
+                                key={p._id || p.id}
+                                to={`/products/${p.slug}`}
+                                onClick={() => setSearchModalOpen(false)}
+                                className="group flex items-center justify-between p-2.5 rounded-2xl border border-slate-200 bg-slate-50/70 hover:border-[#D4AF65] hover:bg-white hover:shadow-xs transition-all gap-3"
+                              >
+                                <div className="flex items-center gap-3 min-w-0">
+                                  <div className="h-11 w-11 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                                    <img
+                                      src={imgSrc}
+                                      alt={p.name}
+                                      className="h-full w-full object-cover group-hover:scale-105 transition-transform"
+                                      onError={(e) => { e.currentTarget.style.display = 'none' }}
+                                    />
+                                  </div>
+                                  <div className="min-w-0">
+                                    <div className="flex items-center gap-1.5">
+                                      <h6 className="text-xs font-black text-slate-900 group-hover:text-[#B89245] transition-colors truncate">{p.name}</h6>
+                                      {p.category?.name && (
+                                        <span className="hidden sm:inline-block rounded-full bg-slate-100 border border-slate-200 px-1.5 py-0.2 text-[8px] font-bold text-slate-500 uppercase shrink-0">
+                                          {p.category.name}
+                                        </span>
+                                      )}
+                                    </div>
+                                    <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">{p.shortDescription || p.description}</p>
+                                  </div>
+                                </div>
+                                <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#B89245] group-hover:text-[#9A752E] px-2.5 py-1 rounded-full bg-[#D4AF65]/10 shrink-0">
+                                  <span>View &amp; Quote</span>
+                                  <ArrowRight className="h-3 w-3" />
+                                </span>
+                              </Link>
+                            )
+                          })}
                         </div>
                       </div>
                     )}
 
-                    {searchResults.categories.length > 0 && (
+                    {searchResults.categories?.length > 0 && (
                       <div>
                         <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 block mb-2">
-                          Matching Categories
+                          Matching Categories &amp; Subcategories
                         </span>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {searchResults.categories.map((c) => (
                             <Link
-                              key={c.id || c._id}
+                              key={c.slug || c.id}
                               to={`/categories/${c.slug}`}
                               onClick={() => setSearchModalOpen(false)}
-                              className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] text-xs font-bold text-slate-800 hover:text-slate-950 transition-colors"
+                              className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] text-xs font-bold text-slate-800 hover:text-slate-950 transition-colors flex items-center justify-between"
                             >
-                              {c.name}
+                              <div className="truncate">
+                                <div>{c.name}</div>
+                                {c.departmentName && (
+                                  <div className="text-[9px] text-slate-400 font-normal">{c.departmentName}</div>
+                                )}
+                              </div>
+                              <ChevronRight className="h-3.5 w-3.5 text-slate-400 shrink-0" />
                             </Link>
                           ))}
                         </div>
                       </div>
                     )}
 
-                    {searchResults.products.length === 0 && searchResults.categories.length === 0 && (
+                    {searchResults.products?.length === 0 && searchResults.categories?.length === 0 && (!searchResults.departments || searchResults.departments.length === 0) && (
                       <div className="py-8 text-center">
                         <p className="text-xs text-slate-500">No direct matches found for "{searchQuery}".</p>
                         <Link
@@ -1212,7 +1335,7 @@ export default function SiteHeader() {
                   </span>
                 </a>
 
-                {/* Navigation Items & Accordions */}
+                {/* Navigation Items & Master Department Accordions */}
                 <div className="space-y-1">
                   {/* Home */}
                   <Link
@@ -1223,7 +1346,7 @@ export default function SiteHeader() {
                     <span>Home</span>
                   </Link>
 
-                  {/* Business Cards (Highlighted) */}
+                  {/* Business Cards (Highlighted Dubai Flagship) */}
                   <Link
                     to="/business-card-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
@@ -1231,125 +1354,93 @@ export default function SiteHeader() {
                   >
                     <div className="flex items-center gap-2">
                       <CreditCard className="h-4 w-4 text-[#D4AF65]" />
-                      <span>Business Cards</span>
+                      <span>Luxury Business Cards</span>
                     </div>
                     <span className="rounded bg-[#D4AF65] text-slate-900 px-1.5 py-0.5 text-[9px] font-black uppercase">
-                      DUBAI
+                      DUBAI FLAGSHIP
                     </span>
                   </Link>
 
-                  {/* Rollup Banners */}
+                  {/* Master Department Accordions */}
+                  <div className="pt-2 pb-1">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#B89245] px-3.5 block mb-1">
+                      Departments &amp; Catalog
+                    </span>
+
+                    <div className="space-y-1 border-y border-slate-200 py-1.5">
+                      {MASTER_DEPARTMENTS.map((dept) => {
+                        const Icon = DEPARTMENT_ICONS[dept.slug] || Layers
+                        const isOpen = mobileOpenDept === dept.slug
+                        const count = dept.subcategories.reduce((acc, s) => acc + (s.productSlugs?.length || 0), 0)
+
+                        return (
+                          <div key={dept.slug} className="rounded-xl overflow-hidden border border-slate-200/80 bg-slate-50/50">
+                            <button
+                              type="button"
+                              onClick={() => setMobileOpenDept((cur) => (cur === dept.slug ? null : dept.slug))}
+                              className="flex w-full items-center justify-between p-3 text-left text-xs font-bold text-slate-900 hover:bg-slate-100 transition-colors"
+                            >
+                              <div className="flex items-center gap-2.5 min-w-0">
+                                <div className={`flex h-7 w-7 items-center justify-center rounded-lg ${isOpen ? 'bg-[#D4AF65] text-[#101D35]' : 'bg-white text-slate-700 border border-slate-200'} shrink-0`}>
+                                  <Icon className="h-3.5 w-3.5" />
+                                </div>
+                                <div className="min-w-0">
+                                  <div className="truncate font-extrabold text-slate-900">{dept.name}</div>
+                                  <div className="text-[9px] text-slate-400 font-semibold">{dept.subcategories.length} subcategories • {count} prods</div>
+                                </div>
+                              </div>
+                              <ChevronDown className={`h-4 w-4 text-slate-400 shrink-0 transition-transform ${isOpen ? 'rotate-180 text-[#B89245]' : ''}`} />
+                            </button>
+
+                            <AnimatePresence>
+                              {isOpen && (
+                                <motion.div
+                                  initial={{ opacity: 0, height: 0 }}
+                                  animate={{ opacity: 1, height: 'auto' }}
+                                  exit={{ opacity: 0, height: 0 }}
+                                  className="px-3 pb-3 pt-1 border-t border-slate-200 bg-white space-y-1"
+                                >
+                                  <Link
+                                    to={`/categories/${dept.slug}`}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="flex items-center justify-between rounded-lg p-2 text-xs font-black text-[#B89245] bg-[#D4AF65]/10 hover:bg-[#D4AF65]/20 mb-2"
+                                  >
+                                    <span>Explore Department Overview</span>
+                                    <ArrowRight className="h-3 w-3" />
+                                  </Link>
+
+                                  {dept.subcategories.map((sub) => (
+                                    <Link
+                                      key={sub.slug}
+                                      to={`/categories/${sub.slug}`}
+                                      onClick={() => setMobileMenuOpen(false)}
+                                      className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-xs text-slate-700 hover:bg-slate-100 hover:text-slate-950 transition-colors"
+                                    >
+                                      <span className="truncate font-medium">{sub.name}</span>
+                                      <span className="text-[10px] text-slate-400 font-bold shrink-0">{sub.productSlugs?.length || 0} items</span>
+                                    </Link>
+                                  ))}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  {/* All Products Catalog Link */}
                   <Link
-                    to="/categories/rollup-banners"
+                    to="/products"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-extrabold text-[#B89245] hover:bg-[#D4AF65]/10"
                   >
                     <div className="flex items-center gap-2">
                       <Layers className="h-4 w-4 text-[#D4AF65]" />
-                      <span>Roll-Up Banners</span>
+                      <span>All 110+ Products Catalog</span>
                     </div>
+                    <ArrowRight className="h-3.5 w-3.5 text-[#D4AF65]" />
                   </Link>
-
-                  {/* Stickers */}
-                  <Link
-                    to="/categories/stickers-labels-printing"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Tag className="h-4 w-4 text-[#D4AF65]" />
-                      <span>Stickers &amp; Labels</span>
-                    </div>
-                  </Link>
-
-                  {/* Stamps & Seals */}
-                  <Link
-                    to="/categories/custom-stamps-seals"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Stamp className="h-4 w-4 text-[#D4AF65]" />
-                      <span>Company Stamps &amp; Seals</span>
-                    </div>
-                    <span className="rounded bg-slate-200 border border-slate-300 text-slate-700 px-1.5 py-0.5 text-[9px] font-black uppercase">
-                      2H
-                    </span>
-                  </Link>
-
-                  {/* Custom Bottles */}
-                  <Link
-                    to="/categories/bottle-printing-dubai"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-[#D4AF65]" />
-                      <span>Custom Bottle Printing</span>
-                    </div>
-                  </Link>
-
-                  {/* Letterheads & Stationery */}
-                  <Link
-                    to="/categories/letterheads-printing-dubai"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
-                  >
-                    <div className="flex items-center gap-2">
-                      <FileText className="h-4 w-4 text-[#D4AF65]" />
-                      <span>Letterheads &amp; Stationery</span>
-                    </div>
-                  </Link>
-
-                  {/* Product Catalog Accordion */}
-                  <div className="border-t border-b border-slate-200 py-1 my-1">
-                    <button
-                      type="button"
-                      onClick={() => setMobileAccordion((p) => ({ ...p, catalog: !p.catalog }))}
-                      className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 cursor-pointer"
-                    >
-                      <div className="flex items-center gap-2">
-                        <Layers className="h-4 w-4 text-[#D4AF65]" />
-                        <span>All Print Categories</span>
-                      </div>
-                      {mobileAccordion.catalog ? (
-                        <Minus className="h-4 w-4 text-slate-400" />
-                      ) : (
-                        <Plus className="h-4 w-4 text-slate-400" />
-                      )}
-                    </button>
-
-                    <AnimatePresence>
-                      {mobileAccordion.catalog && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="pl-4 pr-2 pb-2 space-y-1 overflow-hidden"
-                        >
-                          <Link
-                            to="/products"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-bold text-[#B89245] hover:bg-slate-100"
-                          >
-                            <span>Browse All Products Catalog</span>
-                            <ArrowRight className="h-3 w-3 text-[#B89245]" />
-                          </Link>
-                          {categories.slice(0, 10).map((cat) => (
-                            <Link
-                              key={cat.slug || cat.id}
-                              to={`/categories/${cat.slug}`}
-                              onClick={() => setMobileMenuOpen(false)}
-                              className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-950"
-                            >
-                              <span>{cat.name}</span>
-                              <ChevronRight className="h-3 w-3 text-slate-400" />
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
 
                   {/* Services */}
                   <Link

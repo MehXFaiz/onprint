@@ -11,7 +11,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     subheading: 'Dubai’s premier commercial pressroom for professional, custom, and luxury business cards. From affordable everyday 350 GSM cards starting at AED 45 to double-sided matte, glossy, textured cotton, 24K hot gold foil, and sculptural embossed cards. Order business cards online with 4-hour express rush or visit our Al Quoz press studio.',
     cardCategory: 'all',
     heroStats: [
-      { label: 'Starting Price', val: 'From AED 45 / 100' },
+      { label: 'Pricing Model', val: 'Bespoke Custom Quote' },
       { label: 'Same-Day Rush', val: '4-Hour Express' },
       { label: 'Paper Caliper', val: '300 – 700 GSM Thick' },
       { label: 'Standard & Custom', val: '85x55, 90x50, Custom' },
@@ -122,7 +122,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     subheading: 'High-quality visiting cards engineered for Dubai entrepreneurs, trade houses, executive managers, and consulting firms. From basic affordable 300-350 GSM cards starting at AED 45 to standard bilingual English-Arabic cards and executive gold-foiled cards, ONPRINT provides fast, dependable pressroom fulfillment.',
     cardCategory: 'corporate',
     heroStats: [
-      { label: 'Starting Price', val: 'From AED 45 / 100' },
+      { label: 'Pricing Model', val: 'Bespoke Custom Quote' },
       { label: 'Paper Stock', val: '300 - 450 GSM' },
       { label: 'Bilingual Layout', val: 'Arabic + English' },
       { label: 'Turnaround', val: 'Same-Day / 24h' },

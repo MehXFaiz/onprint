@@ -1,4 +1,9 @@
 import api from './api'
+import {
+  getDepartmentForCategory,
+  getDepartmentBySlug,
+  isDepartmentSlug,
+} from '../data/masterDepartments'
 
 export const initialCategories = [
   {
@@ -426,16 +431,53 @@ export async function getCategories(params = {}) {
     const term = params.search.toLowerCase()
     list = list.filter((c) => c.name.toLowerCase().includes(term) || c.slug.toLowerCase().includes(term))
   }
-  return list
+
+  // Enrich with Master Department metadata
+  return list.map((c) => {
+    const dept = getDepartmentForCategory(c.slug)
+    return {
+      ...c,
+      department_slug: dept?.slug || c.department_slug || '',
+      department_name: dept?.name || c.department_name || '',
+    }
+  })
 }
 
 export async function getCategoryById(id) {
   const cleanId = String(id || '').trim().toLowerCase()
+
+  // Check if requested ID is a Master Department slug
+  if (isDepartmentSlug(cleanId)) {
+    const dept = getDepartmentBySlug(cleanId)
+    if (dept) {
+      return {
+        name: dept.name,
+        slug: dept.slug,
+        eyebrow: dept.eyebrow,
+        badge: dept.badge,
+        description: dept.description,
+        image: dept.heroImage,
+        image_url: dept.heroImage,
+        isDepartment: true,
+        department: dept,
+        seoTitle: dept.metaTitle,
+        seoDescription: dept.metaDescription,
+      }
+    }
+  }
+
   const isStickerSlug = cleanId === 'stickers-printing-dubai' || cleanId === 'stickers-labels-printing' || cleanId === 'custom-stickers-dubai'
 
   try {
     const { data } = await api.get(`/categories/${id}`)
-    if (data?.data) return data.data
+    if (data?.data) {
+      const dept = getDepartmentForCategory(data.data.slug)
+      return {
+        ...data.data,
+        department_slug: dept?.slug || data.data.department_slug || '',
+        department_name: dept?.name || data.data.department_name || '',
+      }
+    }
   } catch (err) {
     console.warn('[Category] Fetch by ID note:', err.message)
   }
@@ -449,7 +491,14 @@ export async function getCategoryById(id) {
     if (isStickerSlug && (cSlug === 'stickers-labels-printing' || cSlug === 'stickers-printing-dubai')) return true
     return false
   })
-  if (found) return found
+  if (found) {
+    const dept = getDepartmentForCategory(found.slug)
+    return {
+      ...found,
+      department_slug: dept?.slug || found.department_slug || '',
+      department_name: dept?.name || found.department_name || '',
+    }
+  }
 
   const fallback = initialCategories.find((c) => {
     const cSlug = (c.slug || '').toLowerCase()
@@ -459,7 +508,14 @@ export async function getCategoryById(id) {
     if (isStickerSlug && (cSlug === 'stickers-labels-printing' || cSlug === 'stickers-printing-dubai')) return true
     return false
   })
-  if (fallback) return fallback
+  if (fallback) {
+    const dept = getDepartmentForCategory(fallback.slug)
+    return {
+      ...fallback,
+      department_slug: dept?.slug || fallback.department_slug || '',
+      department_name: dept?.name || fallback.department_name || '',
+    }
+  }
 
   return null
 }

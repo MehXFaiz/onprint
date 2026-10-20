@@ -307,8 +307,15 @@ export default function AdminCategoriesPage() {
                         </div>
                       </td>
 
-                      {/* Name */}
-                      <td className="py-3 px-4 font-bold text-neutral-900">{cat.name}</td>
+                      {/* Name & Department Badge */}
+                      <td className="py-3 px-4">
+                        <div className="font-bold text-neutral-900">{cat.name}</div>
+                        {cat.department_name && (
+                          <span className="inline-block mt-0.5 rounded-full bg-amber-50 border border-amber-200 px-2 py-0.2 text-[9px] font-bold text-amber-800">
+                            {cat.department_name}
+                          </span>
+                        )}
+                      </td>
 
                       {/* Slug */}
                       <td className="py-3 px-4 font-mono text-[11px] text-neutral-500">{cat.slug}</td>

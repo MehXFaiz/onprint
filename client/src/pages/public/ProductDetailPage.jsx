@@ -282,7 +282,7 @@ export default function ProductDetailPage() {
     <div className="py-16 sm:py-24">
       {/* Dynamic SEOHead & Product Schema */}
       <SEOHead
-        title={product.seoTitle || `${product.name} | Custom Printing & Prices | ONPRINT`}
+        title={product.seoTitle || `${product.name} | Custom Commercial Printing | ONPRINT`}
         description={product.seoDescription || product.description || product.shortDescription}
         keywords={product.seoKeywords || `${product.name.toLowerCase()}, custom ${product.name.toLowerCase()} printing, printing prices and quotations, business card printing, visiting card printing`}
         canonicalPath={`/products/${product.slug}`}

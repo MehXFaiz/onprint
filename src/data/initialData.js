@@ -23,7 +23,9 @@ module.exports = {
       "seo_keywords": "business card printing dubai, custom business cards dubai, premium business cards dubai, luxury business cards dubai, corporate business cards dubai",
       "seo_heading": "Luxury Executive Business Card Printing in Dubai",
       "canonical_url": "https://www.0nprint.com/categories/business-cards-printing",
-      "image_alt": "Luxury gold foil executive business cards in Dubai"
+      "image_alt": "Luxury gold foil executive business cards in Dubai",
+      "department_slug": "business-office-printing",
+      "department_name": "Business & Office Printing"
     },
     {
       "_id": "cat-brochures-printing",
@@ -48,7 +50,9 @@ module.exports = {
       "seo_keywords": "brochure printing dubai, brochure printing services dubai, custom brochure printing dubai, corporate brochure printing uae, bi fold brochure dubai",
       "seo_heading": "Commercial Brochure Printing in Dubai",
       "canonical_url": "https://www.0nprint.com/categories/brochures-printing",
-      "image_alt": "Professional commercial printed brochures in Dubai"
+      "image_alt": "Professional commercial printed brochures in Dubai",
+      "department_slug": "marketing-promotional-printing",
+      "department_name": "Marketing & Promotional Printing"
     },
     {
       "_id": "cat-flyers-printing-in-dubai",
@@ -73,7 +77,9 @@ module.exports = {
       "seo_keywords": "flyer printing dubai, flyer printing services dubai, custom flyer printing dubai, promotional flyer printing dubai, leaflet printing dubai",
       "seo_heading": "High-Impact Marketing Flyer Printing in Dubai",
       "canonical_url": "https://www.0nprint.com/categories/flyers-printing-in-dubai",
-      "image_alt": "Full color commercial marketing flyers printed in Dubai"
+      "image_alt": "Full color commercial marketing flyers printed in Dubai",
+      "department_slug": "marketing-promotional-printing",
+      "department_name": "Marketing & Promotional Printing"
     },
     {
       "_id": "cat-id-card-printing-dubai",
@@ -98,7 +104,9 @@ module.exports = {
       "seo_keywords": "id card printing dubai, pvc id cards dubai, corporate employee badges uae, student id card printing",
       "seo_heading": "Corporate PVC ID Card Printing Solutions Dubai",
       "canonical_url": "https://www.0nprint.com/categories/id-card-printing-dubai",
-      "image_alt": "Corporate employee PVC identity cards with chips in Dubai"
+      "image_alt": "Corporate employee PVC identity cards with chips in Dubai",
+      "department_slug": "specialty-corporate-gifts",
+      "department_name": "Specialty Printing & Corporate Gifts"
     },
     {
       "_id": "cat-lanyard-printing-dubai",
@@ -123,7 +131,9 @@ module.exports = {
       "seo_keywords": "lanyard printing dubai, custom lanyards dubai, branded neck straps uae, event lanyards dubai",
       "seo_heading": "Custom Branded Neck Lanyard Printing in Dubai",
       "canonical_url": "https://www.0nprint.com/categories/lanyard-printing-dubai",
-      "image_alt": "Custom branded corporate neck lanyards in Dubai"
+      "image_alt": "Custom branded corporate neck lanyards in Dubai",
+      "department_slug": "specialty-corporate-gifts",
+      "department_name": "Specialty Printing & Corporate Gifts"
     },
     {
       "_id": "cat-letterheads-printing-dubai",
@@ -148,7 +158,9 @@ module.exports = {
       "seo_keywords": "letterheads printing dubai, letterhead printing dubai, corporate stationery uae, official letterhead paper",
       "seo_heading": "Executive Corporate Letterhead Printing in Dubai",
       "canonical_url": "https://www.0nprint.com/categories/letterheads-printing-dubai",
-      "image_alt": "Executive corporate stationery letterhead and envelope in Dubai"
+      "image_alt": "Executive corporate stationery letterhead and envelope in Dubai",
+      "department_slug": "business-office-printing",
+      "department_name": "Business & Office Printing"
     },
     {
       "_id": "cat-name-badges-printing-dubai",
@@ -173,7 +185,9 @@ module.exports = {
       "seo_keywords": "name badges printing dubai, magnetic name badges dubai, staff badge printing uae, acrylic name tag printing",
       "seo_heading": "Professional Magnetic Name Badges Printing Dubai",
       "canonical_url": "https://www.0nprint.com/categories/name-badges-printing-dubai",
-      "image_alt": "Professional magnetic metal and acrylic name badges in Dubai"
+      "image_alt": "Professional magnetic metal and acrylic name badges in Dubai",
+      "department_slug": "signage-displays-banners",
+      "department_name": "Signage, Displays & Banners"
     },
     {
       "_id": "cat-mug-printing-dubai",
@@ -198,7 +212,9 @@ module.exports = {
       "seo_keywords": "mug printing dubai, custom mugs dubai, printed mugs uae, personalized coffee mugs dubai",
       "seo_heading": "Custom Mug Printing Solutions in Dubai",
       "canonical_url": "https://www.0nprint.com/categories/mug-printing-dubai",
-      "image_alt": "Custom printed corporate ceramic mugs and drinkware in Dubai"
+      "image_alt": "Custom printed corporate ceramic mugs and drinkware in Dubai",
+      "department_slug": "specialty-corporate-gifts",
+      "department_name": "Specialty Printing & Corporate Gifts"
     },
     {
       "_id": "cat-bottle-printing-dubai",
@@ -223,7 +239,9 @@ module.exports = {
       "seo_keywords": "bottle printing dubai, water bottle printing dubai, custom flasks uae, branded sports bottles dubai",
       "seo_heading": "Custom Water Bottle Printing & Laser Engraving Dubai",
       "canonical_url": "https://www.0nprint.com/categories/bottle-printing-dubai",
-      "image_alt": "Custom printed and laser engraved water bottles in Dubai"
+      "image_alt": "Custom printed and laser engraved water bottles in Dubai",
+      "department_slug": "specialty-corporate-gifts",
+      "department_name": "Specialty Printing & Corporate Gifts"
     },
     {
       "_id": "cat-corporate-gift-items",
@@ -248,7 +266,9 @@ module.exports = {
       "seo_keywords": "corporate gifts dubai, promotional merchandise dubai, executive gift sets uae, custom branded gifts dubai",
       "seo_heading": "Executive Corporate Gifts & VIP Merchandise Dubai",
       "canonical_url": "https://www.0nprint.com/categories/corporate-gift-items",
-      "image_alt": "Luxury corporate executive gift sets in Dubai"
+      "image_alt": "Luxury corporate executive gift sets in Dubai",
+      "department_slug": "specialty-corporate-gifts",
+      "department_name": "Specialty Printing & Corporate Gifts"
     },
     {
       "_id": "cat-signage-banners-printing",
@@ -273,7 +293,9 @@ module.exports = {
       "seo_keywords": "signage printing dubai, exhibition banners dubai, roll up banner dubai, trade show displays uae",
       "seo_heading": "High-Impact Signage & Exhibition Banners in Dubai",
       "canonical_url": "https://www.0nprint.com/categories/signage-banners-printing",
-      "image_alt": "Commercial exhibition banners and trade show signage in Dubai"
+      "image_alt": "Commercial exhibition banners and trade show signage in Dubai",
+      "department_slug": "signage-displays-banners",
+      "department_name": "Signage, Displays & Banners"
     },
     {
       "_id": "cat-custom-apparel-printing",
@@ -298,7 +320,9 @@ module.exports = {
       "seo_keywords": "t shirt printing dubai, custom apparel dubai, corporate uniform printing uae, embroidered caps dubai",
       "seo_heading": "Custom Corporate Apparel & Branded Wearables Dubai",
       "canonical_url": "https://www.0nprint.com/categories/custom-apparel-printing",
-      "image_alt": "Custom screen printed corporate t-shirts and apparel in Dubai"
+      "image_alt": "Custom screen printed corporate t-shirts and apparel in Dubai",
+      "department_slug": "specialty-corporate-gifts",
+      "department_name": "Specialty Printing & Corporate Gifts"
     },
     {
       "_id": "cat-stickers-labels-printing",
@@ -323,7 +347,9 @@ module.exports = {
       "seo_keywords": "sticker printing dubai, custom labels dubai, die cut stickers uae, packaging labels dubai",
       "seo_heading": "Precision Die-Cut Stickers & Product Labels Dubai",
       "canonical_url": "https://www.0nprint.com/categories/stickers-labels-printing",
-      "image_alt": "Custom die cut vinyl stickers and foil labels in Dubai"
+      "image_alt": "Custom die cut vinyl stickers and foil labels in Dubai",
+      "department_slug": "stickers-labels-packaging",
+      "department_name": "Stickers & Product Labels"
     },
     {
       "_id": "cat-catalogs-booklets-printing",
@@ -348,7 +374,9 @@ module.exports = {
       "seo_keywords": "catalog printing dubai, booklet printing uae, annual report printing dubai, company profile printing",
       "seo_heading": "Corporate Booklets, Catalogs & Annual Reports Dubai",
       "canonical_url": "https://www.0nprint.com/categories/catalogs-booklets-printing",
-      "image_alt": "Multi-page executive corporate booklets and catalogs in Dubai"
+      "image_alt": "Multi-page executive corporate booklets and catalogs in Dubai",
+      "department_slug": "marketing-promotional-printing",
+      "department_name": "Marketing & Promotional Printing"
     },
     {
       "_id": "cat-office-stationery-printing",
@@ -373,7 +401,9 @@ module.exports = {
       "seo_keywords": "office stationery dubai, presentation folder printing dubai, corporate envelopes uae, desk pads printing",
       "seo_heading": "Executive Corporate Stationery & Envelopes in Dubai",
       "canonical_url": "https://www.0nprint.com/categories/office-stationery-printing",
-      "image_alt": "Executive corporate stationery and presentation folders in Dubai"
+      "image_alt": "Executive corporate stationery and presentation folders in Dubai",
+      "department_slug": "business-office-printing",
+      "department_name": "Business & Office Printing"
     },
     {
       "_id": "cat-hospitality-event-printing",
@@ -398,7 +428,9 @@ module.exports = {
       "seo_keywords": "restaurant menu printing dubai, wedding invitation printing dubai, event stationery uae, hospitality printing dubai",
       "seo_heading": "Hospitality, Menus & Event Stationery Solutions Dubai",
       "canonical_url": "https://www.0nprint.com/categories/hospitality-event-printing",
-      "image_alt": "Luxury restaurant menus and wedding invitation suites in Dubai"
+      "image_alt": "Luxury restaurant menus and wedding invitation suites in Dubai",
+      "department_slug": "marketing-promotional-printing",
+      "department_name": "Marketing & Promotional Printing"
     },
     {
       "_id": "cat-promotional-drinkware-tech",
@@ -423,7 +455,9 @@ module.exports = {
       "seo_keywords": "mug printing dubai, custom water bottles dubai, promotional tech items uae, branded power banks dubai",
       "seo_heading": "Promotional Branded Drinkware & Tech Accessories Dubai",
       "canonical_url": "https://www.0nprint.com/categories/promotional-drinkware-tech",
-      "image_alt": "Custom branded drinkware and promotional tech accessories in Dubai"
+      "image_alt": "Custom branded drinkware and promotional tech accessories in Dubai",
+      "department_slug": "specialty-corporate-gifts",
+      "department_name": "Specialty Printing & Corporate Gifts"
     },
     {
       "_id": "cat-stamps-printing-dubai",
@@ -448,7 +482,9 @@ module.exports = {
       "seo_keywords": "rubber stamp dubai, company stamp maker dubai, self inking stamps dubai, official seal stamp uae",
       "seo_heading": "Custom Company Rubber Stamps & Official Seals Dubai",
       "canonical_url": "https://www.0nprint.com/categories/stamps-printing-dubai",
-      "image_alt": "Official custom company rubber stamps and corporate seals in Dubai"
+      "image_alt": "Official custom company rubber stamps and corporate seals in Dubai",
+      "department_slug": "business-office-printing",
+      "department_name": "Business & Office Printing"
     },
     {
       "_id": "cat-rollup-banners-dubai",
@@ -473,7 +509,9 @@ module.exports = {
       "seo_keywords": "rollup banner dubai, roll up banner printing dubai, pull up banner stand dubai, retractable banner dubai",
       "seo_heading": "Premium Roll-Up Banner Printing & Retractable Stands Dubai",
       "canonical_url": "https://www.0nprint.com/categories/rollup-banners",
-      "image_alt": "Professional retractable roll-up banner stand printing in Dubai"
+      "image_alt": "Professional retractable roll-up banner stand printing in Dubai",
+      "department_slug": "signage-displays-banners",
+      "department_name": "Signage, Displays & Banners"
     }
   ],
   "services": [
@@ -7188,4 +7226,4 @@ module.exports = {
   "customers": [],
   "messages": [],
   "settings": {}
-};
+}

@@ -274,14 +274,6 @@ export default function ProductCard({
             {product.shortDescription || product.description || `High-precision custom commercial printing for ${product.name} in Dubai.`}
           </p>
 
-          {/* Price Indicator (Where available) */}
-          {(product.startingPrice || product.price) ? (
-            <div className="pt-1 flex items-baseline gap-1.5">
-              <span className="text-[11px] font-semibold text-slate-500">From</span>
-              <span className="text-sm font-black text-slate-900">AED {product.startingPrice || product.price}</span>
-            </div>
-          ) : null}
-
           {/* Specifications Chips */}
           {featuresList.length > 0 && (
             <div className="pt-2.5 border-t border-slate-100 flex flex-wrap gap-1.5 min-w-0">

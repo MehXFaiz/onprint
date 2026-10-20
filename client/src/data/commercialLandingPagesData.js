@@ -1020,15 +1020,15 @@ const COMMERCIAL_LANDING_PAGES = {
       "metaDescription": "Custom bottle printing & laser engraving in Dubai from AED 22. Thermal stainless steel, glass bamboo bottles, aluminium sports bottles & protein shakers. Fast UAE delivery.",
       "focusKeyword": "bottle printing dubai",
       "secondaryKeywords": "custom bottle printing dubai, water bottle printing dubai, personalized bottle printing uae, stainless steel bottle printing dubai, metal bottle engraving dubai, promotional water bottles uae, branded bottles dubai, corporate bottle printing uae, customized water bottles dubai, logo printing on bottles dubai, reusable bottle printing dubai, bulk bottle printing dubai, glass bottle printing dubai, sports bottle printing dubai, bottle printing price dubai, wholesale branded bottles uae",
-      "badge": "CUSTOM BOTTLE PRINTING & ENGRAVING DUBAI • FROM AED 22",
+      "badge": "CUSTOM BOTTLE PRINTING & ENGRAVING DUBAI • BESPOKE QUOTE",
       "h1": "Custom Bottle Printing & Logo Engraving in Dubai, UAE",
       "subheading": "Precision bottle printing and rotary laser engraving in Al Quoz, Dubai. From double-wall stainless steel thermal flasks and eco-friendly borosilicate glass bottles to lightweight aluminium sports bottles and gym shakers with custom company logos, ONPRINT delivers scratch-resistant, dishwasher-safe drinkware for corporate gifting, events, and brand merchandise.",
       "quoteLink": "/quote/bottles",
       "whatsappText": "Hello ONPRINT Dubai, I would like to get a quote for Custom Water Bottle Printing with company logo.",
       "stats": [
         {
-          "label": "Starting Price",
-          "value": "From AED 22 / Unit"
+          "label": "Pricing Model",
+          "value": "Custom Quote Available"
         },
         {
           "label": "Minimum Order",

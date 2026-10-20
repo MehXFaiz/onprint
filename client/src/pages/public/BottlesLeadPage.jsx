@@ -278,7 +278,7 @@ export default function BottlesLeadPage() {
             <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-secondary sm:text-sm">
               <span className="inline-flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-accent" />
-                From AED 22 / Unit
+                Custom Quote Available
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-accent" />
@@ -327,7 +327,7 @@ export default function BottlesLeadPage() {
                         <span className="inline-block rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">
                           {bottle.tag}
                         </span>
-                        <span className="text-xs font-bold text-accent">{bottle.pricePerUnit}</span>
+                        <span className="text-xs font-bold text-accent">Custom Quote</span>
                       </div>
                       <div className="mt-3 font-semibold text-sm text-primary line-clamp-1">{bottle.name}</div>
                       <p className="mt-1 text-xs text-secondary line-clamp-2">{bottle.description}</p>

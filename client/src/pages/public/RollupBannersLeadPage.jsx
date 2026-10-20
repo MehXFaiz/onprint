@@ -311,7 +311,7 @@ export default function RollupBannersLeadPage() {
                           <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-700">
                             {model.tag}
                           </span>
-                          <span className="text-xs font-bold text-[#D4AF65]">{model.pricePerUnit}</span>
+                          <span className="text-xs font-bold text-[#D4AF65]">Custom Quote</span>
                         </div>
                         <h3 className="mt-2.5 font-bold text-xs text-slate-900 leading-snug">
                           {model.name}

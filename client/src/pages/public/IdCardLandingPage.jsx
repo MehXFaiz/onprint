@@ -46,8 +46,8 @@ const ID_CARD_TYPES = [
     title: 'Standard Full-Color UV PVC ID Cards',
     category: 'uv-printing',
     thickness: '0.76mm (CR80)',
-    badge: 'Most Popular • From AED 12',
-    priceHint: 'From AED 12 / card',
+    badge: 'Most Popular',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/uv_standard_pvc_id.jpg',
     description:
       'Professional edge-to-edge full-color UV flatbed printing on premium CR80 solid white PVC. Ultra-vivid photographic skin tones, waterproof scratch resistance, and durable anti-fade performance.',
@@ -60,8 +60,8 @@ const ID_CARD_TYPES = [
     title: 'Raised 3D Spot UV Employee Badges',
     category: 'luxury',
     thickness: '0.76mm (CR80)',
-    badge: 'Executive Luxury • From AED 22',
-    priceHint: 'From AED 22 / card',
+    badge: 'Executive Luxury',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/uv_raised_spot_uv_id.jpg',
     description:
       'Turn corporate staff badges into executive luxury statements with raised 3D spot UV dimensional varnish layered over company logos and staff names against a silky matte cardstock.',
@@ -74,8 +74,8 @@ const ID_CARD_TYPES = [
     title: 'Frosted Translucent UV Plastic Cards',
     category: 'specialty',
     thickness: '0.76mm (CR80)',
-    badge: 'Modern Tech • From AED 20',
-    priceHint: 'From AED 20 / card',
+    badge: 'Modern Tech',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/uv_frosted_translucent_id.jpg',
     description:
       'Semi-transparent frosted CR80 cards with opaque white UV underlay and vivid color printing. Clean architectural see-through borders with high readability.',
@@ -88,8 +88,8 @@ const ID_CARD_TYPES = [
     title: 'Matte Anti-Scratch Velvet UV ID Cards',
     category: 'heavy-duty',
     thickness: '0.76mm (CR80)',
-    badge: 'Heavy Duty • From AED 16',
-    priceHint: 'From AED 16 / card',
+    badge: 'Heavy Duty',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/uv_matte_velvet_id.jpg',
     description:
       'Anti-glare velvet soft-touch laminated PVC identity cards with ultra-durable cured UV inks built to withstand daily pocket friction, scuffs, and sanitization wipes.',
@@ -102,8 +102,8 @@ const ID_CARD_TYPES = [
     title: 'Metallic Gold & Silver Luster UV Cards',
     category: 'luxury',
     thickness: '0.76mm (CR80)',
-    badge: 'VIP Club • From AED 26',
-    priceHint: 'From AED 26 / card',
+    badge: 'VIP Club',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/uv_metallic_gold_silver_id.jpg',
     description:
       'Shimmering brushed metallic gold and silver finish PVC cards overprinted with precision jet-black and color UV inks for luxury concierge and VIP memberships.',
@@ -116,8 +116,8 @@ const ID_CARD_TYPES = [
     title: 'High-Gloss Photo Finish UV Identity Cards',
     category: 'uv-printing',
     thickness: '0.76mm (CR80)',
-    badge: 'Photo Vivid • From AED 14',
-    priceHint: 'From AED 14 / card',
+    badge: 'Photo Vivid',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/uv_high_gloss_photo_id.jpg',
     description:
       'Studio-grade photo ID cards sealed with a mirror high-gloss UV finish. Maximum color saturation, true skin tone reproduction, and high-contrast scannable QR codes and barcodes.',
@@ -131,7 +131,7 @@ const ID_CARD_TYPES = [
     category: 'specialty',
     thickness: '0.76mm',
     badge: 'Unique Design',
-    priceHint: 'From AED 15 / card',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/custom-shaped-id-cards.jpg',
     description:
       'Stand out with custom-shaped ID cards. Die-cut to your specifications with unique contours and brand-aligned designs.',
@@ -145,7 +145,7 @@ const ID_CARD_TYPES = [
     category: 'luxury',
     thickness: '0.5mm',
     badge: 'Executive',
-    priceHint: 'From AED 35 / card',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/metal-id-cards.jpg',
     description:
       'Premium metal ID cards for executive access and VIP membership. Laser-etched with precision for lasting impressions.',
@@ -159,7 +159,7 @@ const ID_CARD_TYPES = [
     category: 'eco',
     thickness: '0.76mm',
     badge: 'Sustainable',
-    priceHint: 'From AED 8 / card',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/eco-friendly-id-cards.jpg',
     description:
       'Environmentally conscious ID cards made from bio-based PVC. Same durability as traditional cards with reduced environmental impact.',
@@ -173,7 +173,7 @@ const ID_CARD_TYPES = [
     category: 'specialty',
     thickness: '0.76mm',
     badge: 'Modern',
-    priceHint: 'From AED 9 / card',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/transparent-id-cards.jpg',
     description:
       'Modern transparent ID cards with clear PVC material. Unique aesthetic with printed elements visible through the card.',
@@ -187,7 +187,7 @@ const ID_CARD_TYPES = [
     category: 'standard',
     thickness: '0.76mm',
     badge: 'Information Rich',
-    priceHint: 'From AED 6 / card',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/dual-sided-id-cards.jpg',
     description:
       'Maximize information with dual-sided printing. Front for photo and basic info, back for terms, conditions, and additional data.',
@@ -201,7 +201,7 @@ const ID_CARD_TYPES = [
     category: 'corporate',
     thickness: '0.76mm',
     badge: 'Personalized',
-    priceHint: 'From AED 5 / card',
+    priceHint: 'Custom Quote Available',
     image: '/assets/products/id-cards/variable-data-id-cards.jpg',
     description:
       'Personalized ID cards with variable data printing. Each card unique with individual names, photos, numbers, and barcodes.',

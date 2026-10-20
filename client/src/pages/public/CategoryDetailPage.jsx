@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import {
   Sparkles,
@@ -11,6 +11,11 @@ import {
   Award,
   ArrowRight,
   HelpCircle,
+  Search,
+  ChevronRight,
+  FolderTree,
+  Building2,
+  X,
 } from 'lucide-react'
 import Container from '../../components/Container'
 import Button from '../../components/Button'
@@ -25,6 +30,12 @@ import { getProducts } from '../../services/products'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getServiceWhatsAppUrl } from '../../utils/whatsapp'
 import { trackWhatsAppClick, trackGetQuoteClick } from '../../utils/analytics'
+import {
+  isDepartmentSlug,
+  getDepartmentBySlug,
+  getDepartmentForCategory,
+  MASTER_DEPARTMENTS,
+} from '../../data/masterDepartments'
 
 export default function CategoryDetailPage() {
   const { slug } = useParams()
@@ -35,39 +46,84 @@ export default function CategoryDetailPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [quickViewProduct, setQuickViewProduct] = useState(null)
+  const [selectedSubcatFilter, setSelectedSubcatFilter] = useState('all')
+  const [deptSearchQuery, setDeptSearchQuery] = useState('')
+
+  const isDept = isDepartmentSlug(slug)
+  const departmentInfo = useMemo(() => {
+    if (isDept) {
+      return getDepartmentBySlug(slug)
+    }
+    return getDepartmentForCategory(slug)
+  }, [isDept, slug])
 
   useEffect(() => {
     let isMounted = true
     setLoading(true)
     setError(false)
+    setSelectedSubcatFilter('all')
+    setDeptSearchQuery('')
 
     async function loadCategoryData() {
       try {
-        const catData = await getCategoryById(slug)
-        const allCats = await getCategories()
-        if (isMounted && Array.isArray(allCats)) {
-          setOtherCategories(allCats.filter((c) => c.slug !== slug && String(c.id) !== slug).slice(0, 6))
-        }
+        const allCats = await getCategories().catch(() => [])
 
-        if (!catData) {
-          // If not found by direct ID/slug lookup, fetch list and find by slug
-          const matched = allCats.find((c) => c.slug === slug || String(c.id) === slug)
+        if (isDept) {
+          const dept = getDepartmentBySlug(slug)
+          if (!dept) {
+            if (isMounted) setError(true)
+            return
+          }
+
+          if (isMounted) {
+            setCategory({
+              name: dept.name,
+              slug: dept.slug,
+              eyebrow: dept.eyebrow,
+              badge: dept.badge,
+              description: dept.description,
+              image: dept.heroImage,
+              image_url: dept.heroImage,
+              isDepartment: true,
+              department: dept,
+              seoTitle: dept.metaTitle,
+              seoDescription: dept.metaDescription,
+            })
+          }
+
+          // Fetch all products to filter by department subcategories
+          const prodsRes = await getProducts({ limit: 120, active: true }).catch(() => ({ data: [] }))
+          const allProds = prodsRes.data || []
+          const deptProds = allProds.filter((p) => {
+            return dept.subcategories.some(
+              (sub) => sub.productSlugs.includes(p.slug) || p.category?.slug === sub.slug
+            )
+          })
+
+          if (isMounted) {
+            setProducts(deptProds)
+            setOtherCategories(MASTER_DEPARTMENTS.filter((d) => d.slug !== slug))
+          }
+        } else {
+          // Standard Category / Subcategory Lookup
+          const catData = await getCategoryById(slug)
+          const matched = catData || allCats.find((c) => c.slug === slug || String(c.id) === slug)
+
           if (matched && isMounted) {
             setCategory(matched)
+            if (Array.isArray(allCats)) {
+              setOtherCategories(allCats.filter((c) => c.slug !== slug && String(c.id) !== slug).slice(0, 6))
+            }
+
+            // Fetch products matching category
+            const prodsRes = await getProducts({ category: slug, limit: 60 }).catch(() => ({ data: [] }))
+            setProducts(prodsRes.data || [])
           } else if (isMounted) {
             setError(true)
           }
-        } else if (isMounted) {
-          setCategory(catData)
-        }
-
-        // Fetch products matching category
-        const prodsRes = await getProducts({ category: slug, pageSize: 50 })
-        if (isMounted) {
-          setProducts(prodsRes.data || [])
         }
       } catch (err) {
-        console.error('Failed to load category:', err)
+        console.error('Failed to load category details:', err)
         if (isMounted) setError(true)
       } finally {
         if (isMounted) setLoading(false)
@@ -79,13 +135,38 @@ export default function CategoryDetailPage() {
     return () => {
       isMounted = false
     }
-  }, [slug])
+  }, [slug, isDept])
+
+  // Filter products on department view if subcategory filter or search is active
+  const displayedProducts = useMemo(() => {
+    let result = products
+
+    if (isDept && selectedSubcatFilter !== 'all') {
+      const subObj = departmentInfo?.subcategories.find((s) => s.slug === selectedSubcatFilter)
+      if (subObj) {
+        result = result.filter(
+          (p) => subObj.productSlugs.includes(p.slug) || p.category?.slug === subObj.slug
+        )
+      }
+    }
+
+    if (deptSearchQuery.trim()) {
+      const q = deptSearchQuery.toLowerCase().trim()
+      result = result.filter(
+        (p) =>
+          (p.name || '').toLowerCase().includes(q) ||
+          (p.shortDescription || '').toLowerCase().includes(q)
+      )
+    }
+
+    return result
+  }, [products, isDept, selectedSubcatFilter, departmentInfo, deptSearchQuery])
 
   if (loading) {
     return (
-      <div className="py-24">
+      <div className="py-24 bg-[#101D35]">
         <Container>
-          <LoadingState label="Loading category details..." />
+          <LoadingState label="Loading printing department details..." />
         </Container>
       </div>
     )
@@ -93,16 +174,21 @@ export default function CategoryDetailPage() {
 
   if (error || !category) {
     return (
-      <div className="py-24 text-center">
+      <div className="py-24 text-center bg-[#101D35]">
         <Container>
           <div className="max-w-md mx-auto space-y-4">
             <h1 className="font-display text-2xl font-black text-white">Category Not Found</h1>
             <p className="text-sm text-slate-300">
-              The category you are looking for does not exist or has been moved.
+              The category you are looking for does not exist or has been restructured.
             </p>
-            <Button to="/categories" variant="accent" size="sm">
-              Browse All Categories
-            </Button>
+            <div className="flex justify-center gap-3">
+              <Button to="/categories" variant="accent" size="sm">
+                Browse Departments
+              </Button>
+              <Button to="/products" variant="secondary" size="sm">
+                All 110+ Products
+              </Button>
+            </div>
           </div>
         </Container>
       </div>
@@ -117,61 +203,52 @@ export default function CategoryDetailPage() {
     category.description ||
     `Order high-precision ${categoryName} in Dubai with ONPRINT. Premium cardstocks, rich Pantone colors, and express same-day delivery across the UAE.`
 
-  const seoTitle = category.seo_title || category.seoTitle || `${categoryName} in Dubai | ONPRINT`
-  const seoDescription = category.seo_description || category.seoDescription || categoryDesc
-  const seoKeywords = category.seo_keywords || category.seoKeywords || `${categoryName.toLowerCase()}, printing in dubai, onprint uae`
-  const seoHeading = category.seo_heading || category.seoHeading || `${categoryName} in Dubai`
+  const seoTitle = category.seoTitle || category.seo_title || `${categoryName} in Dubai | ONPRINT`
+  const seoDescription = category.seoDescription || category.seo_description || categoryDesc
+  const seoKeywords = category.seoKeywords || category.seo_keywords || `${categoryName.toLowerCase()}, commercial printing in dubai, onprint uae`
+  const seoHeading = category.seoHeading || category.seo_heading || categoryName
   const canonicalPath = `/categories/${category.slug}`
 
+  // Build breadcrumbs reflecting hierarchy
   const breadcrumbsList = [
     { name: 'Home', url: '/' },
-    { name: 'Categories', url: '/categories' },
-    { name: categoryName, url: canonicalPath },
+    { name: 'Departments', url: '/categories' },
   ]
+  if (!isDept && departmentInfo) {
+    breadcrumbsList.push({ name: departmentInfo.name, url: `/categories/${departmentInfo.slug}` })
+  }
+  breadcrumbsList.push({ name: categoryName, url: canonicalPath })
+
+  const breadcrumbsUi = [
+    { name: 'Home', path: '/' },
+    { name: 'Departments', path: '/categories' },
+  ]
+  if (!isDept && departmentInfo) {
+    breadcrumbsUi.push({ name: departmentInfo.name, path: `/categories/${departmentInfo.slug}` })
+  }
+  breadcrumbsUi.push({ name: categoryName })
 
   const categoryFaqs = [
     {
-      question: `What materials and cardstocks are available for ${categoryName} in Dubai?`,
-      answer: `ONPRINT provides an extensive selection of premium FSC-certified stocks ranging from 120gsm fine stationery papers to 450gsm heavy cotton and silk boards, as well as waterproof synthetic substrates and presentation boards.`
+      question: `What materials and print stocks are used for ${categoryName} in Dubai?`,
+      answer: `ONPRINT crafts ${categoryName} using FSC-certified stocks from 120gsm to 450gsm, premium cotton boards, heavy aluminum cassettes, synthetic waterproof films, and luxury metallic foiling.`,
     },
     {
-      question: `What is the standard production turnaround time for ${categoryName}?`,
-      answer: `We offer express same-day and 24-hour turnaround for rush corporate orders in Dubai, and standard 2–3 business days dispatch across Abu Dhabi, Sharjah, and all UAE Emirates.`
+      question: `What is the delivery turnaround time in Dubai and across the UAE?`,
+      answer: `We provide 24-hour rush dispatch for urgent corporate jobs in Dubai, and 2–3 business days standard delivery across Abu Dhabi, Sharjah, and all Northern Emirates.`,
     },
     {
-      question: `Can I request physical color-matched proofs before mass printing?`,
-      answer: `Yes. Our prepress studio in Al Quoz, Dubai provides digital PDF proofs and physical ISO-calibrated press proofs with exact Pantone color matching and finish verification.`
+      question: `Can I get physical color-matched samples or pre-flight proofs?`,
+      answer: `Yes. Our Al Quoz pressroom conducts free pre-flight artwork inspections, PDF proofs, and physical Pantone spot-color match verification upon request.`,
     },
     {
       question: `Do you provide bulk order discounts for UAE businesses?`,
-      answer: `Yes. Volume tier pricing is automatically calculated for large quantities, corporate stationery contracts, and exhibition events. Contact our print sales team for tailored corporate accounts.`
-    }
+      answer: `Yes. Volume tier pricing is automatically applied for corporate stationery reorders, exhibitions, and marketing campaigns. Contact our hotline or WhatsApp for trade pricing.`,
+    },
   ]
 
-  // Structured Data (CollectionPage + LocalBusiness)
-  const collectionJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: seoTitle,
-    description: seoDescription,
-    url: `https://www.0nprint.com${canonicalPath}`,
-    image: categoryImage.startsWith('http') ? categoryImage : `https://www.0nprint.com${categoryImage}`,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'ONPRINT Printing & Branding Solutions',
-      email: '0nprint183@gmail.com',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Al Quoz',
-        addressLocality: 'Dubai',
-        addressRegion: 'Dubai',
-        addressCountry: 'AE',
-      },
-    },
-  }
-
   return (
-    <div className="bg-[#101D35] text-slate-200 py-12 sm:py-16">
+    <div className="bg-[#101D35] text-slate-200 py-10 sm:py-16">
       {/* SEO Head Management */}
       <SEOHead
         title={seoTitle}
@@ -184,30 +261,25 @@ export default function CategoryDetailPage() {
         ogType="website"
       />
 
-      {/* JSON-LD Script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
-      />
-
       <Container>
         {/* Breadcrumbs */}
-        <Breadcrumbs
-          items={[
-            { name: 'Home', path: '/' },
-            { name: 'Categories', path: '/categories' },
-            { name: categoryName },
-          ]}
-        />
+        <Breadcrumbs items={breadcrumbsUi} />
 
         {/* Hero Section */}
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
           {/* Left Column: Information */}
           <div className="lg:col-span-7 space-y-6">
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#162542] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#D4AF65] shadow-xs">
-                <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
-                Commercial Printing Press Dubai
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#162542] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D4AF65] shadow-xs">
+                  <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+                  {isDept ? (category.badge || 'MASTER DEPARTMENT') : (departmentInfo ? departmentInfo.name : 'COMMERCIAL SUITE')}
+                </span>
+                {isDept && (
+                  <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-bold text-slate-300">
+                    {products.length} Products Catalog
+                  </span>
+                )}
               </div>
             </Reveal>
 
@@ -240,18 +312,18 @@ export default function CategoryDetailPage() {
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-600/25 transition-all hover:-translate-y-0.5 cursor-pointer text-center"
                 >
                   <WhatsAppIcon className="h-4 w-4 fill-white" />
-                  <span>Get a Quote on WhatsApp</span>
+                  <span>Get WhatsApp Quote</span>
                 </a>
                 <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#D4AF65]/25 text-center justify-center">
-                  Request a Free Quote
+                  Request Instant Quote
                 </Button>
                 <Button
-                  to={`/products?category=${category.slug}`}
+                  to="/products"
                   variant="secondary"
                   size="lg"
                   className="border-[#28395A] text-white hover:border-[#D4AF65] hover:text-[#D4AF65] text-center justify-center"
                 >
-                  View Products Catalog
+                  Browse Full Catalog
                 </Button>
               </div>
             </Reveal>
@@ -261,11 +333,11 @@ export default function CategoryDetailPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 border-t border-[#28395A] pt-6 text-xs font-bold text-white">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-[#D4AF65] shrink-0" />
-                  <span>300+ DPI Precision CMYK</span>
+                  <span>German Heidelberg &amp; HP Indigo Presses</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-[#D4AF65] shrink-0" />
-                  <span>Free Design Pre-flight Check</span>
+                  <span>FSC-Certified Stocks &amp; 24K Gold Foils</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-[#D4AF65] shrink-0" />
@@ -273,7 +345,7 @@ export default function CategoryDetailPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-[#D4AF65] shrink-0" />
-                  <span>Doorstep UAE Delivery</span>
+                  <span>Doorstep UAE Delivery &amp; Tracking</span>
                 </div>
               </div>
             </Reveal>
@@ -298,7 +370,7 @@ export default function CategoryDetailPage() {
                   />
                 </div>
                 <div className="p-3 flex items-center justify-between text-[11px] font-bold text-slate-300">
-                  <span>Dubai Commercial Press</span>
+                  <span>Dubai Commercial Press • Al Quoz</span>
                   <span className="text-[#D4AF65] font-black">100% Quality Inspected</span>
                 </div>
               </div>
@@ -306,37 +378,179 @@ export default function CategoryDetailPage() {
           </div>
         </div>
 
-        {/* Dynamic Products Showcase for this Category */}
-        <div className="mt-20 border-t border-[#28395A] pt-16">
-          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end mb-10">
+        {/* IF MASTER DEPARTMENT: RENDER SUBCATEGORY EXPLORATION CARDS */}
+        {isDept && departmentInfo && (
+          <div className="mt-16 border-t border-[#28395A] pt-12">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+                  EXPLORE DEPARTMENT CATEGORIES
+                </span>
+                <h3 className="font-display text-2xl font-black text-white mt-1">
+                  Subcategories in {departmentInfo.name}
+                </h3>
+              </div>
+              <span className="text-xs text-slate-400 font-semibold hidden sm:inline">
+                Click any category for direct specifications
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {departmentInfo.subcategories.map((sub) => (
+                <Link
+                  key={sub.slug}
+                  to={`/categories/${sub.slug}`}
+                  className="group relative rounded-2xl border border-[#28395A] bg-[#162542] p-4 hover:border-[#D4AF65] transition-all hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#101D35] mb-3">
+                      <img
+                        src={sub.image}
+                        alt={sub.name}
+                        className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => {
+                          e.target.onerror = null
+                          e.target.src = '/assets/products/luxury_business_cards_dubai.jpg'
+                        }}
+                      />
+                    </div>
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-display text-sm font-bold text-white group-hover:text-[#D4AF65] transition-colors">
+                        {sub.name}
+                      </h4>
+                      <span className="rounded-full bg-[#101D35] border border-[#28395A] px-2 py-0.5 text-[10px] font-bold text-[#D4AF65]">
+                        {sub.productSlugs.length} items
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                      {sub.shortDesc}
+                    </p>
+                  </div>
+
+                  <div className="mt-3 pt-2 border-t border-[#28395A] flex items-center justify-between text-xs font-bold text-[#D4AF65]">
+                    <span>{sub.featuredBadge || 'View Collection'}</span>
+                    <ChevronRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* IF SINGLE CATEGORY: SIBLING PILLS IN SAME DEPARTMENT */}
+        {!isDept && departmentInfo && departmentInfo.subcategories?.length > 1 && (
+          <div className="mt-12 rounded-2xl border border-[#28395A] bg-[#162542] p-4 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-black uppercase text-[#D4AF65] mr-2">
+              Related in {departmentInfo.name}:
+            </span>
+            {departmentInfo.subcategories.map((sub) => {
+              const isCurrent = sub.slug === slug
+              return (
+                <Link
+                  key={sub.slug}
+                  to={`/categories/${sub.slug}`}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                    isCurrent
+                      ? 'bg-[#D4AF65] text-[#101D35]'
+                      : 'bg-[#101D35] text-slate-300 hover:text-white hover:border-[#D4AF65] border border-[#28395A]'
+                  }`}
+                >
+                  {sub.name}
+                </Link>
+              )
+            })}
+          </div>
+        )}
+
+        {/* Dynamic Products Showcase */}
+        <div className="mt-16 border-t border-[#28395A] pt-12">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end mb-8">
             <div>
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF65]">
                 PRODUCT CATALOG
               </span>
               <h2 className="font-display mt-1 text-2xl font-black tracking-tight text-white sm:text-3xl">
-                {categoryName} Products
+                {categoryName} Products ({displayedProducts.length})
               </h2>
             </div>
-            <Link
-              to={`/products?category=${category.slug}`}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:underline"
-            >
-              Browse All {categoryName} <ArrowRight className="h-4 w-4" />
-            </Link>
+
+            {/* Department In-Page Search Bar */}
+            <div className="relative w-full sm:w-64">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <input
+                type="text"
+                value={deptSearchQuery}
+                onChange={(e) => setDeptSearchQuery(e.target.value)}
+                placeholder={`Search in ${categoryName}...`}
+                className="w-full rounded-xl border border-[#28395A] bg-[#162542] pl-9 pr-8 py-2 text-xs font-semibold text-white placeholder:text-slate-400 focus:border-[#D4AF65] focus:outline-none"
+              />
+              {deptSearchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setDeptSearchQuery('')}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              )}
+            </div>
           </div>
 
-          {products.length === 0 ? (
+          {/* Subcategory Filter Tabs for Department Pages */}
+          {isDept && departmentInfo && (
+            <div className="mb-8 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+              <button
+                type="button"
+                onClick={() => setSelectedSubcatFilter('all')}
+                className={`px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer shrink-0 ${
+                  selectedSubcatFilter === 'all'
+                    ? 'bg-[#D4AF65] text-[#101D35] shadow-sm'
+                    : 'bg-[#162542] border border-[#28395A] text-slate-300 hover:text-white'
+                }`}
+              >
+                All Products ({products.length})
+              </button>
+              {departmentInfo.subcategories.map((sub) => {
+                const count = sub.productSlugs.length
+                return (
+                  <button
+                    key={sub.slug}
+                    type="button"
+                    onClick={() => setSelectedSubcatFilter(sub.slug)}
+                    className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 flex items-center gap-1.5 ${
+                      selectedSubcatFilter === sub.slug
+                        ? 'bg-[#D4AF65] text-[#101D35] shadow-sm'
+                        : 'bg-[#162542] border border-[#28395A] text-slate-300 hover:text-white'
+                    }`}
+                  >
+                    <span>{sub.name}</span>
+                    <span className="text-[10px] opacity-75">({count})</span>
+                  </button>
+                )
+              })}
+            </div>
+          )}
+
+          {displayedProducts.length === 0 ? (
             <div className="rounded-3xl border border-[#28395A] bg-[#162542] p-10 text-center space-y-3">
               <p className="text-sm font-semibold text-slate-200">
-                Custom orders available for {categoryName}. Get in touch for tailored specifications.
+                {deptSearchQuery
+                  ? `No products found matching "${deptSearchQuery}". Try clearing search.`
+                  : `Custom orders available for ${categoryName}. Get in touch for tailored specifications.`}
               </p>
-              <Button to="/get-a-quote" variant="accent" size="sm">
-                Request Custom Quotation
-              </Button>
+              {deptSearchQuery ? (
+                <Button onClick={() => setDeptSearchQuery('')} variant="accent" size="sm">
+                  Clear Search
+                </Button>
+              ) : (
+                <Button to="/get-a-quote" variant="accent" size="sm">
+                  Request Custom Quotation
+                </Button>
+              )}
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {products.map((product, idx) => (
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
+              {displayedProducts.map((product, idx) => (
                 <ProductCard
                   key={product._id || product.id}
                   product={product}
@@ -348,12 +562,12 @@ export default function CategoryDetailPage() {
           )}
 
           {/* Natural Repeated In-Page WhatsApp Conversion Banner */}
-          <div className="mt-8 rounded-2xl border border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50/50 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="mt-12 rounded-2xl border border-emerald-500/40 bg-gradient-to-r from-emerald-950/40 to-[#101D35] p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <p className="font-extrabold text-base text-emerald-950">
+              <p className="font-extrabold text-base text-white">
                 Need tailored sizing, bulk discounts, or urgent 24h printing for {categoryName}?
               </p>
-              <p className="text-xs text-emerald-800 mt-1">
+              <p className="text-xs text-emerald-300 mt-1">
                 Our Dubai pre-press team is online to review artwork, confirm paper swatches, and quote instantly.
               </p>
             </div>
@@ -449,52 +663,9 @@ export default function CategoryDetailPage() {
             ))}
           </div>
         </div>
-
-        {/* Other Printing Disciplines Internal Linking */}
-        {otherCategories.length > 0 && (
-          <div className="mt-16">
-            <div className="flex items-center justify-between gap-4 mb-4">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#D4AF65]">
-                EXPLORE PRINT DISCIPLINES
-              </span>
-              <Link
-                to="/categories"
-                className="text-xs font-bold text-slate-300 hover:text-[#D4AF65] transition-colors"
-              >
-                View all categories &rarr;
-              </Link>
-            </div>
-            <div className="flex flex-wrap gap-2.5">
-              {otherCategories.map((cat) => (
-                <Link
-                  key={cat.slug || cat.id}
-                  to={`/categories/${cat.slug}`}
-                  className="rounded-xl border border-[#28395A] bg-[#162542] px-4 py-2.5 text-xs font-bold text-slate-200 shadow-xs transition-all hover:border-[#D4AF65] hover:text-[#D4AF65] hover:-translate-y-0.5"
-                >
-                  {cat.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* CTA Banner */}
-        <div className="mt-16 rounded-3xl border border-[#28395A] bg-[#162542] p-6 sm:p-10 md:p-12 text-[#FFFFFF] shadow-2xl flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-6">
-          <div>
-            <h3 className="font-display text-2xl font-black text-[#FFFFFF] sm:text-3xl">
-              Ready to Order {categoryName}?
-            </h3>
-            <p className="mt-2 text-xs sm:text-sm text-[#FFFFFF]/70 max-w-lg">
-              Send us your artwork or consult with our prepress team for instant digital proofs and volume discounts.
-            </p>
-          </div>
-          <Button to="/get-a-quote" variant="accent" size="lg" className="shrink-0 font-bold text-center justify-center">
-            Get an Instant Quote
-          </Button>
-        </div>
       </Container>
 
-      {/* Quick View Product Modal */}
+      {/* Product Detail Modal */}
       {quickViewProduct && (
         <ProductDetailModal
           product={quickViewProduct}

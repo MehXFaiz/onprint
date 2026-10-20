@@ -103,6 +103,13 @@ export const SERVICE_INQUIRY_MESSAGES = {
   'office-stationery-printing':
     'Hello 0nprint, I am interested in ordering Corporate Office Stationery in Dubai. Please share your prices, specifications, and delivery details.',
 
+  'letterheads':
+    'Hello 0nprint, I am interested in ordering Corporate Official Letterheads (100gsm/120gsm bond, textured linen, gold foil accents). Please share your prices, paper stocks, and delivery details.',
+  'envelopes':
+    'Hello 0nprint, I am interested in ordering Custom Branded Envelopes (DL, C5, C4 with peel & seal strips). Please share your sizes, minimum quantities, prices, and delivery details.',
+  'vouchers':
+    'Hello 0nprint, I am interested in ordering Custom Gift Vouchers & Coupons (Sequential Numbering, Perforated Stubs, Foil Accents). Please share your options, prices, and delivery details.',
+
   'general':
     'Hello 0nprint, I am interested in your custom printing services (Business Cards, Flyers, Brochures, Stickers, Banners & Corporate Merchandise). Please share your prices, available options, and delivery details.',
 }
@@ -125,7 +132,10 @@ export function resolveServiceKey(slugOrKey = '') {
   if (s.includes('lanyard')) return 'lanyards'
   if (s.includes('flyer') || s.includes('leaflet')) return 'flyers'
   if (s.includes('brochure') || s.includes('catalog')) return 'brochures'
-  if (s.includes('stationery') || s.includes('letterhead') || s.includes('folder') || s.includes('envelope') || s.includes('notebook') || s.includes('pen')) return 'stationery'
+  if (s.includes('letterhead')) return 'letterheads'
+  if (s.includes('envelope')) return 'envelopes'
+  if (s.includes('voucher') || s.includes('coupon') || s.includes('certificate')) return 'vouchers'
+  if (s.includes('stationery') || s.includes('folder') || s.includes('notebook') || s.includes('pen')) return 'stationery'
   return 'general'
 }
 

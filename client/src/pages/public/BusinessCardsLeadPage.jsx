@@ -396,7 +396,7 @@ Please confirm availability and dispatch schedule.`
                         </div>
 
                         <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between w-full text-[11px]">
-                          <span className="font-semibold text-slate-600">From {card.pricePer100}</span>
+                          <span className="font-semibold text-slate-600">Custom Quote</span>
                           <span
                             className={`font-bold flex items-center gap-1 ${
                               isSelected ? 'text-[#D4AF65]' : 'text-slate-400 group-hover:text-slate-600'

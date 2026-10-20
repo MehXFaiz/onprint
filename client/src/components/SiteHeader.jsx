@@ -323,13 +323,13 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full select-none bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs transition-all duration-200 text-slate-900">
+    <header className="sticky top-0 z-50 w-full select-none bg-[#101C35]/95 backdrop-blur-md border-b border-[#263654] shadow-md transition-all duration-200 text-[#F5F1E8]">
       {/* Top Utility Bar (Al Quoz Pressroom & Hotline - inspired by DLX Print) */}
-      <div className="hidden md:block bg-slate-50 border-b border-slate-200/80 text-[11px] text-slate-600 py-1.5 px-4 sm:px-5 lg:px-6 2xl:px-8">
+      <div className="hidden md:block bg-[#0B1426] border-b border-[#263654] text-[11px] text-[#A0AEC0] py-1.5 px-4 sm:px-5 lg:px-6 2xl:px-8">
         <div className="mx-auto max-w-[1440px] flex items-center justify-between">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 font-medium text-slate-700">
-              <MapPin className="h-3 w-3 text-[#D4AF65]" />
+              <MapPin className="h-3 w-3 text-[#D6BC8A]" />
               <span>Al Quoz Industrial 4, Dubai, UAE</span>
             </span>
             <span className="text-slate-300">•</span>
@@ -339,16 +339,16 @@ export default function SiteHeader() {
             </span>
           </div>
           <div className="flex items-center gap-4 font-semibold">
-            <a href={`tel:+${RAW_WHATSAPP_NUMBER}`} className="flex items-center gap-1 text-slate-700 hover:text-[#B89245] transition-colors">
-              <Phone className="h-3 w-3 text-[#D4AF65]" />
+            <a href={`tel:+${RAW_WHATSAPP_NUMBER}`} className="flex items-center gap-1 text-slate-700 hover:text-[#D6BC8A] transition-colors">
+              <Phone className="h-3 w-3 text-[#D6BC8A]" />
               <span>Hotline: {FORMATTED_PHONE}</span>
             </a>
             <span className="text-slate-300">•</span>
-            <Link to="/corporate-quotes" className="text-slate-700 hover:text-[#B89245] transition-colors">
+            <Link to="/corporate-quotes" className="text-slate-700 hover:text-[#D6BC8A] transition-colors">
               Corporate Quotes
             </Link>
             <span className="text-slate-300">•</span>
-            <Link to="/track-order" className="text-slate-700 hover:text-[#B89245] transition-colors">
+            <Link to="/track-order" className="text-slate-700 hover:text-[#D6BC8A] transition-colors">
               Track Order
             </Link>
           </div>
@@ -374,8 +374,8 @@ export default function SiteHeader() {
             <span className="text-[10px] font-black uppercase tracking-wider text-slate-900">
               DUBAI
             </span>
-            <span className="h-1 w-1 rounded-full bg-[#D4AF65]" />
-            <span className="text-[9px] font-semibold text-[#D4AF65] uppercase tracking-tight">
+            <span className="h-1 w-1 rounded-full bg-[#D6BC8A]" />
+            <span className="text-[9px] font-semibold text-[#D6BC8A] uppercase tracking-tight">
               PRESSROOM
             </span>
           </div>
@@ -383,7 +383,7 @@ export default function SiteHeader() {
 
         {/* Desktop Navigation Links — Unified Glider */}
         <nav
-          className="hidden lg:flex items-center gap-0.5 bg-slate-100/90 px-2.5 py-1 2xl:px-3 2xl:py-1.5 rounded-full border border-slate-200/90 shadow-2xs backdrop-blur-md relative shrink-0"
+          className="hidden lg:flex items-center gap-0.5 bg-[#1B2943]/90 px-2.5 py-1 2xl:px-3 2xl:py-1.5 rounded-full border border-[#263654] shadow-2xs backdrop-blur-md relative shrink-0"
           aria-label="Main Navigation"
           onMouseLeave={() => setHoveredNav(null)}
         >
@@ -401,15 +401,15 @@ export default function SiteHeader() {
               onClick={() => setActiveDropdown((prev) => (prev === 'catalog' ? null : 'catalog'))}
               className={`relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors cursor-pointer ${
                 activeDropdown === 'catalog' || location.pathname === '/products' || location.pathname === '/categories'
-                  ? 'text-[#B89245] font-black'
+                  ? 'text-[#D6BC8A] font-black'
                   : 'text-slate-700 hover:text-slate-950'
               }`}
             >
-              <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#D4AF65]' : 'text-slate-500'}`} />
+              <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#D6BC8A]' : 'text-slate-500'}`} />
               <span>Catalog</span>
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'catalog' ? 'rotate-180 text-[#D4AF65]' : 'text-slate-400'
+                  activeDropdown === 'catalog' ? 'rotate-180 text-[#D6BC8A]' : 'text-slate-400'
                 }`}
               />
 
@@ -417,7 +417,7 @@ export default function SiteHeader() {
               {(hoveredNav === 'catalog' || activeDropdown === 'catalog') && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 text-slate-900 -z-10"
+                  className="absolute inset-0 rounded-full bg-[#101C35] shadow-xs border border-[#263654] text-[#F5F1E8] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -431,14 +431,14 @@ export default function SiteHeader() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute left-0 sm:-left-8 lg:-left-20 xl:left-0 top-full mt-3 w-[min(960px,calc(100vw-32px))] max-w-[calc(100vw-32px)] rounded-3xl border border-slate-200 bg-white/98 backdrop-blur-2xl p-5 shadow-[0_28px_64px_-12px_rgba(15,23,42,0.18)] z-50 text-slate-900"
+                  className="absolute left-0 sm:-left-8 lg:-left-20 xl:left-0 top-full mt-3 w-[min(960px,calc(100vw-32px))] max-w-[calc(100vw-32px)] rounded-3xl border border-[#263654] bg-[#1B2943]/98 backdrop-blur-2xl p-5 shadow-[0_28px_64px_-12px_rgba(11,20,38,0.85)] z-50 text-[#F5F1E8]"
                 >
                   <div className="grid grid-cols-12 gap-5">
                     {/* Left Column: 5 Master Departments */}
-                    <div className="col-span-5 border-r border-slate-200/80 pr-4 flex flex-col justify-between">
+                    <div className="col-span-5 border-r border-[#263654] pr-4 flex flex-col justify-between">
                       <div>
                         <div className="flex items-center justify-between px-2 pb-2 mb-1.5 border-b border-slate-100">
-                          <span className="text-[10px] font-black uppercase tracking-widest text-[#B89245]">
+                          <span className="text-[10px] font-black uppercase tracking-widest text-[#D6BC8A]">
                             Master Departments
                           </span>
                           <span className="text-[10px] font-bold text-slate-400">110+ Products</span>
@@ -456,7 +456,7 @@ export default function SiteHeader() {
                                 onClick={() => setActiveMegaDeptSlug(dept.slug)}
                                 className={`w-full text-left flex items-center justify-between p-2.5 rounded-2xl transition-all cursor-pointer group ${
                                   isSelected
-                                    ? 'bg-gradient-to-r from-[#101D35] to-[#1a2d52] text-white shadow-md'
+                                    ? 'bg-gradient-to-r from-[#101C35] to-[#1a2d52] text-white shadow-md'
                                     : 'hover:bg-slate-100/90 text-slate-700'
                                 }`}
                               >
@@ -464,8 +464,8 @@ export default function SiteHeader() {
                                   <div
                                     className={`flex h-8 w-8 items-center justify-center rounded-xl shrink-0 transition-colors ${
                                       isSelected
-                                        ? 'bg-[#D4AF65] text-[#101D35]'
-                                        : 'bg-white border border-slate-200 text-slate-600 group-hover:text-[#B89245]'
+                                        ? 'bg-[#D6BC8A] text-[#101C35]'
+                                        : 'bg-white border border-slate-200 text-slate-600 group-hover:text-[#D6BC8A]'
                                     }`}
                                   >
                                     <Icon className="h-4 w-4" />
@@ -474,14 +474,14 @@ export default function SiteHeader() {
                                     <div className={`text-xs font-bold truncate ${isSelected ? 'text-white' : 'text-slate-900'}`}>
                                       {dept.name}
                                     </div>
-                                    <div className={`text-[10px] truncate ${isSelected ? 'text-[#D4AF65]' : 'text-slate-400'}`}>
+                                    <div className={`text-[10px] truncate ${isSelected ? 'text-[#D6BC8A]' : 'text-slate-400'}`}>
                                       {dept.subcategories.length} subcategories • {prodCount} products
                                     </div>
                                   </div>
                                 </div>
                                 <ChevronRight
                                   className={`h-4 w-4 shrink-0 transition-transform ${
-                                    isSelected ? 'text-[#D4AF65] translate-x-0.5' : 'text-slate-300 group-hover:text-slate-500'
+                                    isSelected ? 'text-[#D6BC8A] translate-x-0.5' : 'text-slate-300 group-hover:text-slate-500'
                                   }`}
                                 />
                               </button>
@@ -498,10 +498,10 @@ export default function SiteHeader() {
                           className="flex items-center justify-between p-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-bold text-slate-800 transition-colors"
                         >
                           <span className="flex items-center gap-1.5">
-                            <Layers className="h-3.5 w-3.5 text-[#D4AF65]" />
+                            <Layers className="h-3.5 w-3.5 text-[#D6BC8A]" />
                             <span>Browse All 110+ Products</span>
                           </span>
-                          <ArrowRight className="h-3 w-3 text-[#D4AF65]" />
+                          <ArrowRight className="h-3 w-3 text-[#D6BC8A]" />
                         </Link>
                         <Link
                           to="/corporate-quotes"
@@ -509,10 +509,10 @@ export default function SiteHeader() {
                           className="flex items-center justify-between p-2 rounded-xl bg-amber-50/60 hover:bg-amber-100/60 border border-amber-200/60 text-xs font-bold text-amber-950 transition-colors"
                         >
                           <span className="flex items-center gap-1.5">
-                            <Building2 className="h-3.5 w-3.5 text-[#B89245]" />
+                            <Building2 className="h-3.5 w-3.5 text-[#D6BC8A]" />
                             <span>Corporate &amp; Trade RFQ</span>
                           </span>
-                          <ArrowUpRight className="h-3 w-3 text-[#B89245]" />
+                          <ArrowUpRight className="h-3 w-3 text-[#D6BC8A]" />
                         </Link>
                       </div>
                     </div>
@@ -523,7 +523,7 @@ export default function SiteHeader() {
                         {/* Department Header Banner */}
                         <div className="flex items-start justify-between pb-3 mb-3 border-b border-slate-100">
                           <div>
-                            <span className="text-[9px] font-black uppercase tracking-widest text-[#B89245] block">
+                            <span className="text-[9px] font-black uppercase tracking-widest text-[#D6BC8A] block">
                               {activeMegaDepartment.eyebrow}
                             </span>
                             <h4 className="text-base font-black text-slate-900 tracking-tight">
@@ -536,7 +536,7 @@ export default function SiteHeader() {
                           <Link
                             to={`/categories/${activeMegaDepartment.slug}`}
                             onClick={() => setActiveDropdown(null)}
-                            className="shrink-0 inline-flex items-center gap-1 text-[11px] font-black text-[#B89245] hover:text-[#9A752E] px-2.5 py-1 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/30 hover:bg-[#D4AF65]/20 transition-all"
+                            className="shrink-0 inline-flex items-center gap-1 text-[11px] font-black text-[#D6BC8A] hover:text-[#9A752E] px-2.5 py-1 rounded-full bg-[#D6BC8A]/10 border border-[#D6BC8A]/30 hover:bg-[#D6BC8A]/20 transition-all"
                           >
                             <span>Explore Department</span>
                             <ArrowRight className="h-3 w-3" />
@@ -550,11 +550,11 @@ export default function SiteHeader() {
                               key={sub.slug}
                               to={`/categories/${sub.slug}`}
                               onClick={() => setActiveDropdown(null)}
-                              className="group p-2.5 rounded-2xl border border-slate-200/80 bg-slate-50/70 hover:bg-white hover:border-[#D4AF65] hover:shadow-sm transition-all flex flex-col justify-between"
+                              className="group p-2.5 rounded-2xl border border-slate-200/80 bg-slate-50/70 hover:bg-white hover:border-[#D6BC8A] hover:shadow-sm transition-all flex flex-col justify-between"
                             >
                               <div>
                                 <div className="flex items-center justify-between mb-1">
-                                  <span className="text-xs font-bold text-slate-900 group-hover:text-[#B89245] transition-colors truncate">
+                                  <span className="text-xs font-bold text-slate-900 group-hover:text-[#D6BC8A] transition-colors truncate">
                                     {sub.name}
                                   </span>
                                   <span className="rounded-full bg-white border border-slate-200 px-1.5 py-0.2 text-[9px] font-bold text-slate-600 shrink-0">
@@ -567,10 +567,10 @@ export default function SiteHeader() {
                               </div>
                               {sub.featuredBadge && (
                                 <div className="mt-2 flex items-center justify-between pt-1 border-t border-slate-100">
-                                  <span className="text-[9px] font-extrabold text-[#B89245] uppercase tracking-wider">
+                                  <span className="text-[9px] font-extrabold text-[#D6BC8A] uppercase tracking-wider">
                                     {sub.featuredBadge}
                                   </span>
-                                  <ChevronRight className="h-3 w-3 text-slate-400 group-hover:text-[#B89245] group-hover:translate-x-0.5 transition-all" />
+                                  <ChevronRight className="h-3 w-3 text-slate-400 group-hover:text-[#D6BC8A] group-hover:translate-x-0.5 transition-all" />
                                 </div>
                               )}
                             </Link>
@@ -584,7 +584,7 @@ export default function SiteHeader() {
                           <Truck className="h-3 w-3 text-emerald-600" />
                           <span>Al Quoz Pressroom • Express Dispatch Across UAE</span>
                         </span>
-                        <span className="font-bold text-[#B89245]">Heidelberg &amp; HP Indigo Press</span>
+                        <span className="font-bold text-[#D6BC8A]">Heidelberg &amp; HP Indigo Press</span>
                       </div>
                     </div>
                   </div>
@@ -599,20 +599,20 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('cards')}
               className={({ isActive }) =>
                 `relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#B89245] font-black' : 'text-slate-700 hover:text-slate-950'
+                  isActive ? 'text-[#D6BC8A] font-black' : 'text-slate-700 hover:text-slate-950'
                 }`
               }
             >
-              <CreditCard className="h-3.5 w-3.5 text-[#D4AF65]" />
+              <CreditCard className="h-3.5 w-3.5 text-[#D6BC8A]" />
               <span>Cards</span>
-              <span className="rounded-full bg-[#D4AF65] text-slate-900 px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
+              <span className="rounded-full bg-[#D6BC8A] text-slate-900 px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
                 DUBAI
               </span>
 
               {hoveredNav === 'cards' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 text-slate-900 -z-10"
+                  className="absolute inset-0 rounded-full bg-[#101C35] shadow-xs border border-[#263654] text-[#F5F1E8] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -624,11 +624,11 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('stamps')}
               className={({ isActive }) =>
                 `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#B89245] font-black' : 'text-slate-700 hover:text-slate-950'
+                  isActive ? 'text-[#D6BC8A] font-black' : 'text-slate-700 hover:text-slate-950'
                 }`
               }
             >
-              <Stamp className="h-3.5 w-3.5 text-[#D4AF65]" />
+              <Stamp className="h-3.5 w-3.5 text-[#D6BC8A]" />
               <span>Stamps</span>
               <span className="rounded-full bg-slate-200 border border-slate-300 text-slate-700 px-1.5 py-0.2 text-[8px] font-black uppercase">
                 2H
@@ -637,7 +637,7 @@ export default function SiteHeader() {
               {hoveredNav === 'stamps' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 text-slate-900 -z-10"
+                  className="absolute inset-0 rounded-full bg-[#101C35] shadow-xs border border-[#263654] text-[#F5F1E8] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -649,17 +649,17 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('stickers')}
               className={({ isActive }) =>
                 `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#B89245] font-black' : 'text-slate-700 hover:text-slate-950'
+                  isActive ? 'text-[#D6BC8A] font-black' : 'text-slate-700 hover:text-slate-950'
                 }`
               }
             >
-              <Tag className="h-3.5 w-3.5 text-[#D4AF65]" />
+              <Tag className="h-3.5 w-3.5 text-[#D6BC8A]" />
               <span>Stickers</span>
 
               {hoveredNav === 'stickers' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 text-slate-900 -z-10"
+                  className="absolute inset-0 rounded-full bg-[#101C35] shadow-xs border border-[#263654] text-[#F5F1E8] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -671,17 +671,17 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('finishes')}
               className={({ isActive }) =>
                 `relative z-10 hidden lg:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#B89245] font-black' : 'text-slate-700 hover:text-slate-950'
+                  isActive ? 'text-[#D6BC8A] font-black' : 'text-slate-700 hover:text-slate-950'
                 }`
               }
             >
-              <Palette className="h-3.5 w-3.5 text-[#D4AF65]" />
+              <Palette className="h-3.5 w-3.5 text-[#D6BC8A]" />
               <span>Finishes</span>
 
               {hoveredNav === 'finishes' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 text-slate-900 -z-10"
+                  className="absolute inset-0 rounded-full bg-[#101C35] shadow-xs border border-[#263654] text-[#F5F1E8] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -701,21 +701,21 @@ export default function SiteHeader() {
                 onClick={() => setActiveDropdown((prev) => (prev === 'company' ? null : 'company'))}
                 className={`relative z-10 flex items-center gap-1 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors cursor-pointer ${
                   activeDropdown === 'company' || ['/services', '/about', '/blog', '/contact', '/corporate-quotes'].includes(location.pathname)
-                    ? 'text-[#B89245] font-black'
+                    ? 'text-[#D6BC8A] font-black'
                     : 'text-slate-700 hover:text-slate-950'
                 }`}
               >
                 <span>Company</span>
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    activeDropdown === 'company' ? 'rotate-180 text-[#D4AF65]' : 'text-slate-400'
+                    activeDropdown === 'company' ? 'rotate-180 text-[#D6BC8A]' : 'text-slate-400'
                   }`}
                 />
 
                 {(hoveredNav === 'company' || activeDropdown === 'company') && (
                   <motion.div
                     layoutId="navHoverCapsule"
-                    className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-200/80 text-slate-900 -z-10"
+                    className="absolute inset-0 rounded-full bg-[#101C35] shadow-xs border border-[#263654] text-[#F5F1E8] -z-10"
                     transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                   />
                 )}
@@ -728,14 +728,14 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-2xl border border-slate-200 bg-white/98 backdrop-blur-2xl p-2 shadow-2xl z-50 text-slate-900"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-2xl border border-[#263654] bg-[#1B2943]/98 backdrop-blur-2xl p-2 shadow-2xl z-50 text-[#F5F1E8]"
                   >
                     <Link
                       to="/services"
                       onClick={() => setActiveDropdown(null)}
                       className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100 hover:text-slate-950 transition-colors"
                     >
-                      <Sparkles className="h-4 w-4 text-[#D4AF65]" />
+                      <Sparkles className="h-4 w-4 text-[#D6BC8A]" />
                       <div>
                         <div className="leading-tight">All Printing Services</div>
                         <span className="text-[10px] font-normal text-slate-500">Offset, Digital &amp; Large Format</span>
@@ -747,7 +747,7 @@ export default function SiteHeader() {
                       onClick={() => setActiveDropdown(null)}
                       className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100 hover:text-slate-950 transition-colors"
                     >
-                      <Palette className="h-4 w-4 text-[#D4AF65]" />
+                      <Palette className="h-4 w-4 text-[#D6BC8A]" />
                       <div>
                         <div className="leading-tight">Luxury Finishes Showcase</div>
                         <span className="text-[10px] font-normal text-slate-500">Foil, Spot UV, Debossing &amp; Edges</span>
@@ -759,7 +759,7 @@ export default function SiteHeader() {
                       onClick={() => setActiveDropdown(null)}
                       className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100 hover:text-slate-950 transition-colors"
                     >
-                      <Building2 className="h-4 w-4 text-[#D4AF65]" />
+                      <Building2 className="h-4 w-4 text-[#D6BC8A]" />
                       <div>
                         <div className="leading-tight">Corporate &amp; Bulk Quotes</div>
                         <span className="text-[10px] font-normal text-slate-500">Trade credit &amp; multi-product RFQ</span>
@@ -795,7 +795,7 @@ export default function SiteHeader() {
                       onClick={() => setActiveDropdown(null)}
                       className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100 hover:text-slate-950 transition-colors"
                     >
-                      <MapPin className="h-4 w-4 text-[#D4AF65]" />
+                      <MapPin className="h-4 w-4 text-[#D6BC8A]" />
                       <div>
                         <div className="leading-tight">Contact &amp; Location</div>
                         <span className="text-[10px] font-normal text-slate-500">Al Quoz Industrial 4, Dubai</span>
@@ -812,11 +812,11 @@ export default function SiteHeader() {
             {/* Direct Phone Hotline */}
             <a
               href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              className="hidden 2xl:inline-flex items-center gap-1.5 h-8.5 px-2.5 rounded-full border border-slate-200 bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-800 hover:text-[#B89245] transition-all whitespace-nowrap shadow-2xs"
+              className="hidden 2xl:inline-flex items-center gap-1.5 h-8.5 px-2.5 rounded-full border border-slate-200 bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-800 hover:text-[#D6BC8A] transition-all whitespace-nowrap shadow-2xs"
               title={`Direct Pressroom Hotline: ${FORMATTED_PHONE}`}
               aria-label="Call Pressroom"
             >
-              <Phone className="h-3.5 w-3.5 text-[#D4AF65]" />
+              <Phone className="h-3.5 w-3.5 text-[#D6BC8A]" />
               <span className="hidden min-[1680px]:inline text-[11px] font-semibold">{FORMATTED_PHONE}</span>
             </a>
 
@@ -830,7 +830,7 @@ export default function SiteHeader() {
               title="Search products (Press / or ⌘K)"
               aria-label="Search products"
             >
-              <Search className="h-3.5 w-3.5 text-slate-500 group-hover:text-[#B89245] transition-colors shrink-0" />
+              <Search className="h-3.5 w-3.5 text-slate-500 group-hover:text-[#D6BC8A] transition-colors shrink-0" />
               <span className="hidden min-[1600px]:inline text-[11px] font-medium text-slate-700">Search...</span>
               <kbd className="hidden min-[1600px]:inline-block rounded-md bg-white border border-slate-200 px-1 py-0.2 text-[8px] font-bold text-slate-600">
                 ⌘K
@@ -896,7 +896,7 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="fixed right-3 left-3 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-full sm:mt-2.5 sm:w-76 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl z-50 text-slate-900"
+                    className="fixed right-3 left-3 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-full sm:mt-2.5 sm:w-76 rounded-2xl border border-[#263654] bg-[#1B2943] p-4 shadow-2xl z-50 text-[#F5F1E8]"
                   >
                     <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-3">
                       <div className="flex items-center gap-2.5">
@@ -975,7 +975,7 @@ export default function SiteHeader() {
                   onClick={() => setUserMenuOpen((v) => !v)}
                   className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100 px-2 py-1.5 text-xs font-semibold text-slate-800 hover:bg-slate-200 cursor-pointer shadow-2xs"
                 >
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#D4AF65] text-slate-900 text-[10px] font-bold">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#D6BC8A] text-slate-900 text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
                   <span className="hidden xl:inline max-w-[70px] truncate">{user?.name || 'Admin'}</span>
@@ -1001,7 +1001,7 @@ export default function SiteHeader() {
                         onClick={() => setUserMenuOpen(false)}
                         className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-100 rounded-lg transition-colors"
                       >
-                        <ShieldCheck className="w-4 h-4 text-[#D4AF65]" />
+                        <ShieldCheck className="w-4 h-4 text-[#D6BC8A]" />
                         <span>Admin Dashboard</span>
                       </Link>
 
@@ -1031,7 +1031,7 @@ export default function SiteHeader() {
             >
               <Link
                 to="/get-a-quote"
-                className="group/cta relative inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#B89245] px-3.5 lg:px-4 py-1.5 sm:py-2 text-xs font-black text-slate-900 shadow-sm transition-all whitespace-nowrap overflow-hidden"
+                className="group/cta relative inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A] hover:bg-[#D6BC8A] px-3.5 lg:px-4 py-1.5 sm:py-2 text-xs font-black text-slate-900 shadow-sm transition-all whitespace-nowrap overflow-hidden"
                 onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
               >
                 <span>Get Instant Quote</span>
@@ -1061,12 +1061,12 @@ export default function SiteHeader() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: -16 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-2xl rounded-3xl border border-slate-200 bg-white p-4 sm:p-6 shadow-2xl text-slate-900"
+              className="w-full max-w-2xl rounded-3xl border border-[#263654] bg-[#1B2943] p-4 sm:p-6 shadow-2xl text-[#F5F1E8]"
             >
               {/* Search Bar Input */}
               <div className="flex items-center justify-between border-b border-slate-200 pb-3.5 sm:pb-4 gap-2">
                 <div className="flex items-center gap-2.5 sm:gap-3 flex-1 min-w-0">
-                  <Search className="h-5 w-5 text-[#D4AF65] shrink-0" />
+                  <Search className="h-5 w-5 text-[#D6BC8A] shrink-0" />
                   <input
                     ref={searchInputRef}
                     type="text"
@@ -1089,7 +1089,7 @@ export default function SiteHeader() {
               <div className="mt-4 max-h-[60vh] overflow-y-auto space-y-4 pr-1">
                 {searchQuery.trim() === '' ? (
                   <div className="py-2">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-[#B89245] block mb-2.5">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#D6BC8A] block mb-2.5">
                       Explore Master Departments (Dubai Pressroom)
                     </span>
                     <div className="grid grid-cols-1 min-[380px]:grid-cols-2 sm:grid-cols-3 gap-2">
@@ -1101,10 +1101,10 @@ export default function SiteHeader() {
                             key={dept.slug}
                             to={`/categories/${dept.slug}`}
                             onClick={() => setSearchModalOpen(false)}
-                            className="p-3 rounded-2xl border border-slate-200 bg-slate-50/80 hover:border-[#D4AF65] hover:bg-white text-xs font-bold text-slate-800 transition-all flex items-center justify-between group shadow-2xs"
+                            className="p-3 rounded-2xl border border-slate-200 bg-slate-50/80 hover:border-[#D6BC8A] hover:bg-white text-xs font-bold text-slate-800 transition-all flex items-center justify-between group shadow-2xs"
                           >
                             <div className="flex items-center gap-2 min-w-0">
-                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white border border-slate-200 text-[#D4AF65] shrink-0">
+                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white border border-slate-200 text-[#D6BC8A] shrink-0">
                                 <Icon className="h-3.5 w-3.5" />
                               </div>
                               <div className="min-w-0">
@@ -1112,20 +1112,20 @@ export default function SiteHeader() {
                                 <div className="text-[9px] text-slate-400 font-semibold">{count} products</div>
                               </div>
                             </div>
-                            <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#B89245] shrink-0" />
+                            <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#D6BC8A] shrink-0" />
                           </Link>
                         )
                       })}
                       <Link
                         to="/products"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-2xl border border-dashed border-[#D4AF65] bg-[#D4AF65]/10 hover:bg-[#D4AF65]/20 text-xs font-black text-slate-900 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-2xl border border-dashed border-[#D6BC8A] bg-[#D6BC8A]/10 hover:bg-[#D6BC8A]/20 text-xs font-black text-slate-900 transition-all flex items-center justify-between group"
                       >
                         <div className="flex items-center gap-2">
-                          <Layers className="h-4 w-4 text-[#D4AF65]" />
+                          <Layers className="h-4 w-4 text-[#D6BC8A]" />
                           <span>All 110+ Products</span>
                         </div>
-                        <ArrowRight className="h-3.5 w-3.5 text-[#D4AF65] group-hover:translate-x-0.5 transition-transform" />
+                        <ArrowRight className="h-3.5 w-3.5 text-[#D6BC8A] group-hover:translate-x-0.5 transition-transform" />
                       </Link>
                     </div>
                   </div>
@@ -1133,7 +1133,7 @@ export default function SiteHeader() {
                   <div>
                     {searchResults.departments?.length > 0 && (
                       <div className="mb-3.5">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#B89245] block mb-2">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#D6BC8A] block mb-2">
                           Matching Master Departments
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -1144,15 +1144,15 @@ export default function SiteHeader() {
                                 key={dept.slug}
                                 to={`/categories/${dept.slug}`}
                                 onClick={() => setSearchModalOpen(false)}
-                                className="flex items-center justify-between p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] hover:bg-white transition-all"
+                                className="flex items-center justify-between p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D6BC8A] hover:bg-white transition-all"
                               >
                                 <div className="flex items-center gap-2">
-                                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-white text-[#D4AF65] border border-slate-200">
+                                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-white text-[#D6BC8A] border border-slate-200">
                                     <Icon className="h-3 w-3" />
                                   </div>
                                   <span className="text-xs font-extrabold text-slate-900">{dept.name}</span>
                                 </div>
-                                <ArrowRight className="h-3 w-3 text-[#D4AF65]" />
+                                <ArrowRight className="h-3 w-3 text-[#D6BC8A]" />
                               </Link>
                             )
                           })}
@@ -1162,7 +1162,7 @@ export default function SiteHeader() {
 
                     {searchResults.products?.length > 0 && (
                       <div className="mb-4">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#B89245] block mb-2">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#D6BC8A] block mb-2">
                           Matching Products ({searchResults.products.length})
                         </span>
                         <div className="space-y-2">
@@ -1173,7 +1173,7 @@ export default function SiteHeader() {
                                 key={p._id || p.id}
                                 to={`/products/${p.slug}`}
                                 onClick={() => setSearchModalOpen(false)}
-                                className="group flex items-center justify-between p-2.5 rounded-2xl border border-slate-200 bg-slate-50/70 hover:border-[#D4AF65] hover:bg-white hover:shadow-xs transition-all gap-3"
+                                className="group flex items-center justify-between p-2.5 rounded-2xl border border-slate-200 bg-slate-50/70 hover:border-[#D6BC8A] hover:bg-white hover:shadow-xs transition-all gap-3"
                               >
                                 <div className="flex items-center gap-3 min-w-0">
                                   <div className="h-11 w-11 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
@@ -1186,7 +1186,7 @@ export default function SiteHeader() {
                                   </div>
                                   <div className="min-w-0">
                                     <div className="flex items-center gap-1.5">
-                                      <h6 className="text-xs font-black text-slate-900 group-hover:text-[#B89245] transition-colors truncate">{p.name}</h6>
+                                      <h6 className="text-xs font-black text-slate-900 group-hover:text-[#D6BC8A] transition-colors truncate">{p.name}</h6>
                                       {p.category?.name && (
                                         <span className="hidden sm:inline-block rounded-full bg-slate-100 border border-slate-200 px-1.5 py-0.2 text-[8px] font-bold text-slate-500 uppercase shrink-0">
                                           {p.category.name}
@@ -1196,7 +1196,7 @@ export default function SiteHeader() {
                                     <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">{p.shortDescription || p.description}</p>
                                   </div>
                                 </div>
-                                <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#B89245] group-hover:text-[#9A752E] px-2.5 py-1 rounded-full bg-[#D4AF65]/10 shrink-0">
+                                <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#D6BC8A] group-hover:text-[#9A752E] px-2.5 py-1 rounded-full bg-[#D6BC8A]/10 shrink-0">
                                   <span>View &amp; Quote</span>
                                   <ArrowRight className="h-3 w-3" />
                                 </span>
@@ -1218,7 +1218,7 @@ export default function SiteHeader() {
                               key={c.slug || c.id}
                               to={`/categories/${c.slug}`}
                               onClick={() => setSearchModalOpen(false)}
-                              className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D4AF65] text-xs font-bold text-slate-800 hover:text-slate-950 transition-colors flex items-center justify-between"
+                              className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-[#D6BC8A] text-xs font-bold text-slate-800 hover:text-slate-950 transition-colors flex items-center justify-between"
                             >
                               <div className="truncate">
                                 <div>{c.name}</div>
@@ -1239,7 +1239,7 @@ export default function SiteHeader() {
                         <Link
                           to={`/products?search=${encodeURIComponent(searchQuery)}`}
                           onClick={() => setSearchModalOpen(false)}
-                          className="mt-2 inline-block text-xs font-bold text-[#B89245] underline"
+                          className="mt-2 inline-block text-xs font-bold text-[#D6BC8A] underline"
                         >
                           Search entire store catalog
                         </Link>
@@ -1272,7 +1272,7 @@ export default function SiteHeader() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-              className="relative ml-auto flex h-full w-full max-w-md flex-col bg-white border-l border-slate-200 shadow-2xl z-50 overflow-hidden text-slate-900"
+              className="relative ml-auto flex h-full w-full max-w-md flex-col bg-[#101C35] border-l border-[#263654] shadow-2xl z-50 overflow-hidden text-[#F5F1E8]"
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between border-b border-slate-200 p-4 shrink-0">
@@ -1301,7 +1301,7 @@ export default function SiteHeader() {
                   className="flex w-full items-center justify-between rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700 hover:bg-slate-100 transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
-                    <Search className="h-4 w-4 text-[#D4AF65]" />
+                    <Search className="h-4 w-4 text-[#D6BC8A]" />
                     <span>Search 200+ print products...</span>
                   </div>
                   <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
@@ -1350,20 +1350,20 @@ export default function SiteHeader() {
                   <Link
                     to="/business-card-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-900 bg-[#D4AF65]/10 border border-[#D4AF65]/30"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-900 bg-[#D6BC8A]/10 border border-[#D6BC8A]/30"
                   >
                     <div className="flex items-center gap-2">
-                      <CreditCard className="h-4 w-4 text-[#D4AF65]" />
+                      <CreditCard className="h-4 w-4 text-[#D6BC8A]" />
                       <span>Luxury Business Cards</span>
                     </div>
-                    <span className="rounded bg-[#D4AF65] text-slate-900 px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#D6BC8A] text-slate-900 px-1.5 py-0.5 text-[9px] font-black uppercase">
                       DUBAI FLAGSHIP
                     </span>
                   </Link>
 
                   {/* Master Department Accordions */}
                   <div className="pt-2 pb-1">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#B89245] px-3.5 block mb-1">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#D6BC8A] px-3.5 block mb-1">
                       Departments &amp; Catalog
                     </span>
 
@@ -1381,7 +1381,7 @@ export default function SiteHeader() {
                               className="flex w-full items-center justify-between p-3 text-left text-xs font-bold text-slate-900 hover:bg-slate-100 transition-colors"
                             >
                               <div className="flex items-center gap-2.5 min-w-0">
-                                <div className={`flex h-7 w-7 items-center justify-center rounded-lg ${isOpen ? 'bg-[#D4AF65] text-[#101D35]' : 'bg-white text-slate-700 border border-slate-200'} shrink-0`}>
+                                <div className={`flex h-7 w-7 items-center justify-center rounded-lg ${isOpen ? 'bg-[#D6BC8A] text-[#101C35]' : 'bg-white text-slate-700 border border-slate-200'} shrink-0`}>
                                   <Icon className="h-3.5 w-3.5" />
                                 </div>
                                 <div className="min-w-0">
@@ -1389,7 +1389,7 @@ export default function SiteHeader() {
                                   <div className="text-[9px] text-slate-400 font-semibold">{dept.subcategories.length} subcategories • {count} prods</div>
                                 </div>
                               </div>
-                              <ChevronDown className={`h-4 w-4 text-slate-400 shrink-0 transition-transform ${isOpen ? 'rotate-180 text-[#B89245]' : ''}`} />
+                              <ChevronDown className={`h-4 w-4 text-slate-400 shrink-0 transition-transform ${isOpen ? 'rotate-180 text-[#D6BC8A]' : ''}`} />
                             </button>
 
                             <AnimatePresence>
@@ -1403,7 +1403,7 @@ export default function SiteHeader() {
                                   <Link
                                     to={`/categories/${dept.slug}`}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="flex items-center justify-between rounded-lg p-2 text-xs font-black text-[#B89245] bg-[#D4AF65]/10 hover:bg-[#D4AF65]/20 mb-2"
+                                    className="flex items-center justify-between rounded-lg p-2 text-xs font-black text-[#D6BC8A] bg-[#D6BC8A]/10 hover:bg-[#D6BC8A]/20 mb-2"
                                   >
                                     <span>Explore Department Overview</span>
                                     <ArrowRight className="h-3 w-3" />
@@ -1433,13 +1433,13 @@ export default function SiteHeader() {
                   <Link
                     to="/products"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-extrabold text-[#B89245] hover:bg-[#D4AF65]/10"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-extrabold text-[#D6BC8A] hover:bg-[#D6BC8A]/10"
                   >
                     <div className="flex items-center gap-2">
-                      <Layers className="h-4 w-4 text-[#D4AF65]" />
+                      <Layers className="h-4 w-4 text-[#D6BC8A]" />
                       <span>All 110+ Products Catalog</span>
                     </div>
-                    <ArrowRight className="h-3.5 w-3.5 text-[#D4AF65]" />
+                    <ArrowRight className="h-3.5 w-3.5 text-[#D6BC8A]" />
                   </Link>
 
                   {/* Services */}
@@ -1449,7 +1449,7 @@ export default function SiteHeader() {
                     className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
                   >
                     <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-[#D4AF65]" />
+                      <Sparkles className="h-4 w-4 text-[#D6BC8A]" />
                       <span>Printing Services &amp; Solutions</span>
                     </div>
                   </Link>
@@ -1461,10 +1461,10 @@ export default function SiteHeader() {
                     className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
                   >
                     <div className="flex items-center gap-2">
-                      <Palette className="h-4 w-4 text-[#D4AF65]" />
+                      <Palette className="h-4 w-4 text-[#D6BC8A]" />
                       <span>Luxury Finishes (Foil &amp; 3D UV)</span>
                     </div>
-                    <span className="rounded bg-[#D4AF65] text-slate-900 px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#D6BC8A] text-slate-900 px-1.5 py-0.5 text-[9px] font-black uppercase">
                       8 CRAFTS
                     </span>
                   </Link>
@@ -1476,7 +1476,7 @@ export default function SiteHeader() {
                     className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
                   >
                     <div className="flex items-center gap-2">
-                      <Building2 className="h-4 w-4 text-[#D4AF65]" />
+                      <Building2 className="h-4 w-4 text-[#D6BC8A]" />
                       <span>Corporate &amp; Bulk Quotes</span>
                     </div>
                     <span className="rounded bg-slate-200 border border-slate-300 text-slate-700 px-1.5 py-0.5 text-[9px] font-black uppercase">
@@ -1491,7 +1491,7 @@ export default function SiteHeader() {
                     className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
                   >
                     <div className="flex items-center gap-2">
-                      <Building2 className="h-4 w-4 text-[#D4AF65]" />
+                      <Building2 className="h-4 w-4 text-[#D6BC8A]" />
                       <span>About ONPRINT Pressroom</span>
                     </div>
                   </Link>
@@ -1503,7 +1503,7 @@ export default function SiteHeader() {
                     className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
                   >
                     <div className="flex items-center gap-2">
-                      <BookOpen className="h-4 w-4 text-[#D4AF65]" />
+                      <BookOpen className="h-4 w-4 text-[#D6BC8A]" />
                       <span>Blog &amp; Insights</span>
                     </div>
                   </Link>
@@ -1515,7 +1515,7 @@ export default function SiteHeader() {
                     className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100 hover:text-slate-950"
                   >
                     <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-[#D4AF65]" />
+                      <MapPin className="h-4 w-4 text-[#D6BC8A]" />
                       <span>Contact &amp; Pressroom</span>
                     </div>
                   </Link>
@@ -1523,7 +1523,7 @@ export default function SiteHeader() {
               </div>
 
               {/* Drawer Footer Actions */}
-              <div className="border-t border-slate-200 p-4 space-y-2 shrink-0 bg-slate-50">
+              <div className="border-t border-[#263654] p-4 space-y-2 shrink-0 bg-[#0B1426]">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -1548,7 +1548,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D4AF65] hover:bg-[#B89245] py-3 text-sm font-black text-slate-900 shadow-md transition-all"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D6BC8A] hover:bg-[#D6BC8A] py-3 text-sm font-black text-slate-900 shadow-md transition-all"
                 >
                   <span>Get Instant Quote</span>
                   <ArrowRight className="h-4 w-4" />
@@ -1559,7 +1559,7 @@ export default function SiteHeader() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-100 hover:text-slate-950 transition-colors shadow-2xs"
                 >
-                  <Truck className="h-4 w-4 text-[#D4AF65]" />
+                  <Truck className="h-4 w-4 text-[#D6BC8A]" />
                   <span>Track Existing Order</span>
                 </Link>
               </div>

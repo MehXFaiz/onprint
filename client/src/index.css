@@ -1,56 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  /* Official Clean Light Theme Palette (Inspired by DLX Print) */
-  --color-primary: #0F172A;            /* Slate 900: High-contrast primary headings & text */
-  --color-accent: #D4AF65;             /* Champagne Gold: Brand accents, icons, premium details */
+  /* Approved Luxury Dark Theme Palette:
+     Primary Background / Midnight Navy: #101C35
+     Champagne Gold / Premium Accent:   #D6BC8A
+     Warm Ivory / Text & Contrast:       #F5F1E8
+     Slate Blue / Secondary UI:          #52647D
+     Elevated Card Background:           #1B2943
+     Deep Utility Navy:                  #0B1426
+     Navy Border:                        #263654
+  */
+  --color-primary: #F5F1E8;            /* Warm Ivory: High-contrast primary headings & text */
+  --color-accent: #D6BC8A;             /* Champagne Gold: Brand accents, icons, premium details */
+  --color-accent-hover: #C4A870;       /* Gold hover */
+  --color-accent-soft: rgba(214, 188, 138, 0.14);
   --color-white: #FFFFFF;              /* Pure White */
-  --color-ivory: #F8FAFC;              /* Light Slate background */
-  --color-secondary: #475569;          /* Slate 600: Crisp secondary body text */
+  --color-ivory: #F5F1E8;              /* Warm Ivory text */
+  --color-secondary: #52647D;          /* Slate Blue: Secondary UI & supporting tone */
+  --color-secondary-light: #94A3B8;    /* Muted text on dark */
 
-  --color-background: #FFFFFF;         /* Main Pure White Canvas */
-  --color-background-alt: #F8FAFC;     /* Light Slate Alternating Canvas */
-  --color-surface: #FFFFFF;            /* Pure White Card Surface */
-  --color-surface-alt: #F1F5F9;        /* Light Slate 100 Elevated Surface */
-  --color-surface-dark: #0F172A;       /* Deep Slate Surface */
-  --color-text: #0F172A;               /* Deep Slate Primary Text */
-  --color-text-secondary: #475569;     /* Slate 600 Secondary Text */
-  --color-border: #E2E8F0;             /* Crisp Slate 200 Border */
+  --color-background: #101C35;         /* Main Midnight Navy Canvas */
+  --color-background-alt: #0B1426;     /* Deep Midnight Navy Alternating Canvas */
+  --color-surface: #1B2943;            /* Elevated Navy Card Surface */
+  --color-surface-alt: #162542;        /* Elevated Surface Variant */
+  --color-surface-dark: #0B1426;       /* Deepest Navy Surface */
+  --color-text: #F5F1E8;               /* Warm Ivory Primary Text */
+  --color-text-secondary: #94A3B8;     /* Muted Secondary Text */
+  --color-border: #263654;             /* Refined Navy Border */
 
   /* Dedicated Tokens */
-  --midnight-navy: #0F172A;
-  --midnight-navy-dark: #020617;
-  --midnight-navy-elevated: #1E293B;
-  --midnight-navy-surface: #334155;
-  --midnight-navy-border: #CBD5E1;
+  --midnight-navy: #101C35;
+  --midnight-navy-dark: #0B1426;
+  --midnight-navy-elevated: #1B2943;
+  --midnight-navy-surface: #1B2943;
+  --midnight-navy-border: #263654;
 
-  --champagne-gold: #D4AF65;
-  --champagne-gold-hover: #B89245;     /* Official Gold Hover */
-  --champagne-gold-active: #A07D38;
-  --champagne-gold-soft: rgba(212, 175, 101, 0.14);
-  --champagne-gold-border: #D4AF65;
+  --champagne-gold: #D6BC8A;
+  --champagne-gold-hover: #C4A870;
+  --champagne-gold-active: #B5985E;
+  --champagne-gold-soft: rgba(214, 188, 138, 0.14);
+  --champagne-gold-border: #D6BC8A;
 
   --pure-white: #FFFFFF;
-  --warm-ivory: #F8FAFC;
-  --warm-ivory-dark: #F1F5F9;
+  --warm-ivory: #F5F1E8;
+  --warm-ivory-dark: #E2DDD3;
 
-  --slate-navy: #475569;
-  --slate-navy-muted: #64748B;
-  --slate-navy-light: #94A3B8;
+  --slate-blue: #52647D;
+  --slate-blue-muted: #6B7C96;
+  --slate-blue-light: #94A3B8;
 
   /* Aliases */
-  --primary: #0F172A;
-  --accent: #D4AF65;
-  --accent-hover: #B89245;
-  --background: #FFFFFF;
-  --background-alt: #F8FAFC;
-  --surface: #FFFFFF;
-  --surface-alt: #F1F5F9;
-  --dark: #0F172A;
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --border: #E2E8F0;
-  --border-hover: #D4AF65;
+  --primary: #F5F1E8;
+  --accent: #D6BC8A;
+  --accent-hover: #C4A870;
+  --background: #101C35;
+  --background-alt: #0B1426;
+  --surface: #1B2943;
+  --surface-alt: #162542;
+  --dark: #0B1426;
+  --text-primary: #F5F1E8;
+  --text-secondary: #94A3B8;
+  --border: #263654;
+  --border-hover: #D6BC8A;
 
   --whatsapp: #25D366;                 /* Functional official WhatsApp green */
   --whatsapp-hover: #20BA59;
@@ -59,8 +70,8 @@
 @theme {
   --color-primary: var(--color-primary);
   --color-accent: var(--color-accent);
-  --color-accent-hover: #B89245;
-  --color-accent-soft: rgba(212, 175, 101, 0.14);
+  --color-accent-hover: #C4A870;
+  --color-accent-soft: rgba(214, 188, 138, 0.14);
   --color-white: var(--color-white);
   --color-ivory: var(--color-ivory);
   --color-secondary: var(--color-secondary);
@@ -73,37 +84,23 @@
   --color-border: var(--border);
 
   /* Primary Brand Theme Tokens */
-  --color-midnight-navy: #0F172A;
-  --color-midnight-navy-dark: #020617;
-  --color-midnight-navy-light: #1E293B;
-  --color-champagne-gold: #D4AF65;
-  --color-champagne-gold-hover: #B89245;
-  --color-champagne-gold-soft: rgba(212, 175, 101, 0.14);
+  --color-midnight-navy: #101C35;
+  --color-midnight-navy-dark: #0B1426;
+  --color-midnight-navy-light: #1B2943;
+  --color-midnight-navy-elevated: #1B2943;
+  --color-champagne-gold: #D6BC8A;
+  --color-champagne-gold-hover: #C4A870;
+  --color-champagne-gold-soft: rgba(214, 188, 138, 0.14);
   --color-pure-white: #FFFFFF;
-  --color-warm-ivory: #F8FAFC;
-  --color-warm-ivory-dark: #F1F5F9;
-  --color-slate-navy: #475569;
-  --color-slate-navy-muted: #64748B;
-  --color-slate-navy-light: #94A3B8;
+  --color-warm-ivory: #F5F1E8;
+  --color-slate-blue: #52647D;
 
-  /* Backward compatibility aliases mapping old orange/dark classes to new theme */
-  --color-brand-orange: #D4AF65;
-  --color-brand-orange-hover: #B89245;
-  --color-brand-orange-soft: rgba(212, 175, 101, 0.14);
-  --color-brand-dark: #0F172A;
-  --color-brand-surface: #FFFFFF;
-
-  --color-slate-50: #F8FAFC;
-  --color-slate-100: #F1F5F9;
-  --color-slate-200: #E2E8F0;
-  --color-slate-300: #CBD5E1;
-  --color-slate-400: #94A3B8;
-  --color-slate-500: #64748B;
-  --color-slate-600: #475569;
-  --color-slate-700: #334155;
-  --color-slate-800: #1E293B;
-  --color-slate-900: #0F172A;
-  --color-slate-950: #020617;
+  /* Backward compatibility aliases */
+  --color-brand-orange: #D6BC8A;
+  --color-brand-orange-hover: #C4A870;
+  --color-brand-orange-soft: rgba(214, 188, 138, 0.14);
+  --color-brand-dark: #101C35;
+  --color-brand-surface: #1B2943;
 
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
@@ -111,13 +108,14 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #FFFFFF;
+  background-color: #101C35;
+  color: #F5F1E8;
 }
 
 body {
-  background-color: #FFFFFF;
+  background-color: #101C35;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #0F172A;
+  color: #F5F1E8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'cv11', 'ss01';
@@ -125,28 +123,28 @@ body {
 }
 
 ::selection {
-  background: #D4AF65;
-  color: #0F172A;
+  background: #D6BC8A;
+  color: #101C35;
 }
 
 :focus-visible {
-  outline: 2px solid #D4AF65;
+  outline: 2px solid #D6BC8A;
   outline-offset: 2px;
 }
 
 /* =========================================================================
-   MODERN ARCHITECTURAL BENTO CARDS & SURFACES (CLEAN LIGHT THEME)
+   MODERN ARCHITECTURAL BENTO CARDS & SURFACES (LUXURY NAVY & GOLD)
    ========================================================================= */
 
 .bento-card {
   position: relative;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  background: #1B2943;
+  border: 1px solid #263654;
   border-radius: 1.5rem;
-  color: #0F172A;
+  color: #F5F1E8;
   box-shadow:
-    0 4px 20px -4px rgba(15, 23, 42, 0.05),
-    0 2px 6px -2px rgba(15, 23, 42, 0.03);
+    0 10px 30px -10px rgba(11, 20, 38, 0.6),
+    inset 0 1px 0 0 rgba(245, 241, 232, 0.05);
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -154,22 +152,22 @@ body {
 }
 
 .bento-card:hover {
-  border-color: #D4AF65;
+  border-color: #D6BC8A;
   box-shadow:
-    0 16px 36px -8px rgba(15, 23, 42, 0.1),
-    0 0 20px -5px rgba(212, 175, 101, 0.15);
+    0 20px 45px -10px rgba(11, 20, 38, 0.8),
+    0 0 25px -4px rgba(214, 188, 138, 0.22);
   transform: translateY(-4px);
 }
 
 .bento-card-dark {
   position: relative;
-  background: #0F172A;
-  border: 1px solid #1E293B;
+  background: #0B1426;
+  border: 1px solid #263654;
   border-radius: 1.5rem;
-  color: #FFFFFF;
+  color: #F5F1E8;
   box-shadow:
-    0 20px 40px -12px rgba(15, 23, 42, 0.4),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+    0 20px 40px -12px rgba(11, 20, 38, 0.7),
+    inset 0 1px 0 0 rgba(245, 241, 232, 0.05);
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -177,94 +175,97 @@ body {
 }
 
 .bento-card-dark:hover {
-  border-color: #D4AF65;
+  border-color: #D6BC8A;
   box-shadow:
-    0 24px 50px -12px rgba(15, 23, 42, 0.5),
-    0 0 25px -5px rgba(212, 175, 101, 0.2);
+    0 24px 50px -12px rgba(11, 20, 38, 0.9),
+    0 0 25px -5px rgba(214, 188, 138, 0.25);
   transform: translateY(-4px);
 }
 
 .card-clean {
-  background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  background-color: #1B2943;
+  border: 1px solid #263654;
   border-radius: 1.25rem;
-  color: #0F172A;
-  box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.05);
+  color: #F5F1E8;
+  box-shadow: 0 8px 24px -6px rgba(11, 20, 38, 0.5);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-clean:hover {
-  border-color: #D4AF65;
-  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.1);
+  border-color: #D6BC8A;
+  box-shadow:
+    0 16px 36px -8px rgba(11, 20, 38, 0.7),
+    0 0 20px -4px rgba(214, 188, 138, 0.2);
   transform: translateY(-3px);
 }
 
 .btn-primary {
-  background: #D4AF65;
-  color: #0F172A;
+  background: #D6BC8A;
+  color: #101C35;
   font-weight: 800;
-  border: 1px solid #D4AF65;
+  border: 1px solid #D6BC8A;
   border-radius: 9999px;
-  box-shadow: 0 4px 14px rgba(212, 175, 101, 0.28);
+  box-shadow: 0 4px 16px rgba(214, 188, 138, 0.3);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
-  background: #B89245;
-  border-color: #B89245;
-  box-shadow: 0 8px 24px rgba(184, 146, 69, 0.38);
+  background: #C4A870;
+  border-color: #C4A870;
+  box-shadow: 0 8px 26px rgba(214, 188, 138, 0.45);
   transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background-color: #FFFFFF;
-  color: #0F172A;
-  border: 1px solid #CBD5E1;
+  background-color: #1B2943;
+  color: #F5F1E8;
+  border: 1px solid #52647D;
   border-radius: 9999px;
   font-weight: 700;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  background-color: #F8FAFC;
-  border-color: #D4AF65;
+  background-color: #263654;
+  border-color: #D6BC8A;
+  color: #D6BC8A;
   transform: translateY(-2px);
 }
 
-/* Clean Custom Scrollbar */
+/* Luxury Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #0B1426;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #263654;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF65;
+  background: #D6BC8A;
 }
 
 /* =========================================================================
-   LIGHT THEME FORM CONTROLS & UTILITIES
+   LUXURY DARK THEME FORM CONTROLS & UTILITIES
    ========================================================================= */
 
 input:not([type="checkbox"]):not([type="radio"]),
 textarea,
 select {
-  background-color: #FFFFFF;
-  border-color: #E2E8F0;
-  color: #0F172A;
+  background-color: #1B2943;
+  border-color: #263654;
+  color: #F5F1E8;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #94A3B8;
+  color: #52647D;
 }
 
 /* Infinite Marquee */
@@ -288,7 +289,7 @@ textarea::placeholder {
    WEBSITE-WIDE LUXURY ANIMATION KEYFRAMES & UTILITIES
    ========================================================================= */
 
-/* 1. Gentle Floating Animation (Hero badges, floating cards, trust seals) */
+/* 1. Gentle Floating Animation */
 @keyframes onprint-float {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
@@ -308,13 +309,13 @@ textarea::placeholder {
   will-change: transform;
 }
 
-/* 2. Soft Ambient Gold Pulse (Badges, WhatsApp live dots, Primary CTAs) */
+/* 2. Soft Ambient Gold Pulse */
 @keyframes onprint-gold-pulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(212, 175, 101, 0.4);
+    box-shadow: 0 0 0 0 rgba(214, 188, 138, 0.45);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(212, 175, 101, 0);
+    box-shadow: 0 0 0 10px rgba(214, 188, 138, 0);
   }
 }
 
@@ -344,9 +345,9 @@ textarea::placeholder {
   background: linear-gradient(
     115deg,
     transparent 20%,
-    rgba(212, 175, 101, 0.12) 40%,
-    rgba(255, 255, 255, 0.22) 50%,
-    rgba(212, 175, 101, 0.12) 60%,
+    rgba(214, 188, 138, 0.15) 40%,
+    rgba(245, 241, 232, 0.25) 50%,
+    rgba(214, 188, 138, 0.15) 60%,
     transparent 80%
   );
   transform: translateX(-100%) rotate(25deg);
@@ -367,8 +368,8 @@ textarea::placeholder {
 
 .card-hover-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 35px -10px rgba(11, 20, 38, 0.65), 0 0 25px -4px rgba(212, 175, 101, 0.2);
-  border-color: #D4AF65;
+  box-shadow: 0 20px 35px -10px rgba(11, 20, 38, 0.75), 0 0 25px -4px rgba(214, 188, 138, 0.25);
+  border-color: #D6BC8A;
 }
 
 /* 5. Smooth Image Zoom on Hover */
@@ -381,4 +382,3 @@ textarea::placeholder {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
-

@@ -3,25 +3,25 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight, Loader2 } from 'lucide-react'
 
 const baseClasses =
-  'group relative overflow-hidden inline-flex items-center justify-center gap-2 max-w-full text-center leading-snug sm:whitespace-nowrap font-bold tracking-tight transition-all duration-300 cursor-pointer rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF65] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
+  'group relative overflow-hidden inline-flex items-center justify-center gap-2 max-w-full text-center leading-snug sm:whitespace-nowrap font-bold tracking-tight transition-all duration-300 cursor-pointer rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D6BC8A] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
 
 const variants = {
   primary:
-    'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245] hover:border-[#B89245] shadow-[0_4px_14px_rgba(212,175,101,0.28)] hover:shadow-[0_8px_24px_rgba(184,146,69,0.38)]',
+    'border-[#D6BC8A] bg-[#D6BC8A] text-[#101C35] hover:bg-[#C4A870] hover:border-[#C4A870] shadow-[0_4px_14px_rgba(214,188,138,0.28)] hover:shadow-[0_8px_24px_rgba(214,188,138,0.38)]',
   accent:
-    'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] hover:bg-[#B89245] hover:border-[#B89245] shadow-[0_4px_14px_rgba(212,175,101,0.28)]',
+    'border-[#D6BC8A] bg-[#D6BC8A] text-[#101C35] hover:bg-[#C4A870] hover:border-[#C4A870] shadow-[0_4px_14px_rgba(214,188,138,0.28)]',
   secondary:
-    'border-[#28395A] bg-[#162542] text-white hover:bg-[#1B2C4D] hover:border-[#D4AF65] shadow-xs',
+    'border-[#263654] bg-[#1B2943] text-[#F5F1E8] hover:bg-[#263654] hover:border-[#D6BC8A] hover:text-[#D6BC8A] shadow-xs',
   outline:
-    'border-[#D4AF65] bg-[#162542] text-white hover:border-[#B89245] hover:bg-[#D4AF65] hover:text-[#101D35] shadow-2xs',
+    'border-[#D6BC8A] bg-transparent text-[#F5F1E8] hover:border-[#C4A870] hover:bg-[#D6BC8A] hover:text-[#101C35] shadow-2xs',
   darkOutline:
-    'border-[#D4AF65] bg-transparent text-white hover:bg-[#D4AF65] hover:text-[#101D35] hover:border-[#D4AF65] shadow-xs',
+    'border-[#D6BC8A] bg-transparent text-[#F5F1E8] hover:bg-[#D6BC8A] hover:text-[#101C35] hover:border-[#D6BC8A] shadow-xs',
   navyOutline:
-    'border-[#D4AF65] bg-transparent text-white hover:bg-[#D4AF65] hover:text-[#101D35] hover:border-[#D4AF65] shadow-xs',
+    'border-[#263654] bg-[#1B2943] text-[#F5F1E8] hover:border-[#D6BC8A] hover:text-[#D6BC8A] shadow-xs',
   whatsapp:
     'border-[#25D366] bg-[#25D366] text-white hover:bg-[#20ba59] hover:border-[#20ba59] shadow-sm shadow-emerald-600/20',
   ghost:
-    'border-transparent bg-transparent text-slate-300 hover:text-[#D4AF65] hover:bg-[#162542]',
+    'border-transparent bg-transparent text-[#94A3B8] hover:text-[#D6BC8A] hover:bg-[#1B2943]',
 }
 
 const sizes = {
@@ -79,15 +79,24 @@ export default function Button({
       </Link>
     )
   }
+
   if (href) {
+    const isExternal = href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:')
     return (
-      <a href={href} className={classes} {...props}>
+      <a
+        href={href}
+        className={classes}
+        target={isExternal && href.startsWith('http') ? '_blank' : undefined}
+        rel={isExternal && href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        {...props}
+      >
         {content}
       </a>
     )
   }
+
   return (
-    <button type="button" disabled={loading || props.disabled} className={classes} {...props}>
+    <button type="button" className={classes} disabled={loading} {...props}>
       {content}
     </button>
   )

@@ -4,15 +4,15 @@ import logoIconLightImg from '../assets/logo_icon_light.png'
 
 export default function Logo({
   className = '',
-  variant = 'default', // 'default' (for light backgrounds) | 'light' (for dark backgrounds)
+  variant = 'light', // Default to 'light' for luxury dark navy backgrounds
   size = 'md', // 'sm' | 'md' | 'lg' | 'xl' | 'splash'
   showText = true,
   iconOnly = false,
 }) {
-  const isLight = variant === 'light'
+  const isLight = variant === 'light' || variant === 'default' // In luxury dark theme, both use the light icon & warm ivory text
   const isIcon = iconOnly || !showText
 
-  const iconSrc = isLight ? logoIconLightImg : logoIconImg
+  const iconSrc = logoIconLightImg || logoIconImg
 
   const sizeMap = {
     sm: {
@@ -57,7 +57,7 @@ export default function Logo({
           src={iconSrc}
           alt="ONPRINT Dubai Logo"
           loading="eager"
-          className={`${currentSize.icon} object-contain shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(212,175,101,0.45)] drop-shadow-xs`}
+          className={`${currentSize.icon} object-contain shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(214,188,138,0.55)] drop-shadow-xs`}
         />
       </div>
 
@@ -65,15 +65,12 @@ export default function Logo({
       {!isIcon && (
         <div className="flex flex-col justify-center leading-none">
           <span
-            className={`font-black uppercase font-display select-none transition-colors duration-200 ${currentSize.text} ${currentSize.tracking} ${
-              isLight ? 'text-white' : 'text-[#101D35]'
-            }`}
+            className={`font-black uppercase font-display select-none transition-colors duration-200 text-[#F5F1E8] ${currentSize.text} ${currentSize.tracking}`}
           >
-            ON<span className="text-[#D4AF65]">PRINT</span>
+            ON<span className="text-[#D6BC8A]">PRINT</span>
           </span>
         </div>
       )}
     </div>
   )
 }
-

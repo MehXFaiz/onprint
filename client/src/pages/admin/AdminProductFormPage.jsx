@@ -165,7 +165,7 @@ export default function AdminProductFormPage() {
   if (loading) {
     return (
       <div className="flex min-h-[400px] items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D6BC8A] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D6C29A] border-t-transparent" />
       </div>
     )
   }
@@ -177,25 +177,25 @@ export default function AdminProductFormPage() {
   return (
     <div className="space-y-6">
       {/* Breadcrumbs */}
-      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-neutral-500">
-        <Link to="/admin" className="hover:text-neutral-900 transition-colors">
+      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#B8C2D9]">
+        <Link to="/admin" className="hover:text-[#F5F3EE] transition-colors">
           Dashboard
         </Link>
         <ChevronRight className="h-3.5 w-3.5" />
-        <Link to="/admin/products" className="hover:text-neutral-900 transition-colors">
+        <Link to="/admin/products" className="hover:text-[#F5F3EE] transition-colors">
           Products
         </Link>
         <ChevronRight className="h-3.5 w-3.5" />
-        <span className="text-neutral-900">{isEdit ? 'Edit Product' : 'Add Product'}</span>
+        <span className="text-[#F5F3EE]">{isEdit ? 'Edit Product' : 'Add Product'}</span>
       </div>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-neutral-200 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#1E2C4F] pb-5">
         <div>
-          <h1 className="font-display text-2xl font-black tracking-tight text-neutral-900">
+          <h1 className="font-display text-2xl font-black tracking-tight text-[#F5F3EE]">
             {isEdit ? `Edit Product: ${form.name}` : 'Add New Product'}
           </h1>
-          <p className="text-xs text-neutral-500 mt-1">
+          <p className="text-xs text-[#B8C2D9] mt-1">
             Manage product specs, pricing, imagery, and Google Search metadata.
           </p>
         </div>
@@ -205,7 +205,7 @@ export default function AdminProductFormPage() {
             variant="outline"
             onClick={() => navigate('/admin/products')}
             disabled={submitting}
-            className="w-full sm:w-auto justify-center border-neutral-200 text-neutral-700 hover:bg-neutral-50 text-xs"
+            className="w-full sm:w-auto justify-center border-[#1E2C4F] text-[#F5F3EE] hover:bg-[#0B132B] text-xs"
           >
             <ArrowLeft className="h-4 w-4 mr-1.5" />
             Cancel
@@ -234,13 +234,13 @@ export default function AdminProductFormPage() {
         {/* Left Column */}
         <div className="space-y-6 lg:col-span-8">
           {/* General Card */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-neutral-900 border-b border-neutral-100 pb-3">
+          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#1E2C4F] pb-3">
               Product Information
             </h2>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 Product Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -249,16 +249,16 @@ export default function AdminProductFormPage() {
                 onChange={handleNameChange}
                 placeholder="e.g. Executive Leather Hardcover Notebook"
                 required
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 URL Slug <span className="text-red-500">*</span>
               </label>
-              <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-500 focus-within:border-[#D6BC8A]">
-                <span className="text-neutral-400">/products/</span>
+              <div className="flex items-center rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-semibold text-[#B8C2D9] focus-within:border-[#D6C29A]">
+                <span className="text-[#B8C2D9]/70">/products/</span>
                 <input
                   type="text"
                   value={form.slug}
@@ -268,20 +268,20 @@ export default function AdminProductFormPage() {
                   }}
                   placeholder="executive-leather-notebook"
                   required
-                  className="w-full bg-transparent pl-1 font-semibold text-neutral-900 focus:outline-none"
+                  className="w-full bg-transparent pl-1 font-semibold text-[#F5F3EE] focus:outline-none"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   Category
                 </label>
                 <select
                   value={form.categoryName}
                   onChange={(e) => setForm((prev) => ({ ...prev, categoryName: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                 >
                   {categories.length > 0 ? (
                     categories.map((c) => (
@@ -300,7 +300,7 @@ export default function AdminProductFormPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   Base Price (AED)
                 </label>
                 <input
@@ -309,12 +309,12 @@ export default function AdminProductFormPage() {
                   step="0.5"
                   value={form.price}
                   onChange={(e) => setForm((prev) => ({ ...prev, price: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   Minimum Quantity (MOQ)
                 </label>
                 <input
@@ -322,13 +322,13 @@ export default function AdminProductFormPage() {
                   min="1"
                   value={form.minimumQuantity}
                   onChange={(e) => setForm((prev) => ({ ...prev, minimumQuantity: e.target.value }))}
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 Short Summary (Card Preview)
               </label>
               <input
@@ -336,12 +336,12 @@ export default function AdminProductFormPage() {
                 value={form.shortDescription}
                 onChange={(e) => setForm((prev) => ({ ...prev, shortDescription: e.target.value }))}
                 placeholder="High-grade thermal bottles with LED smart display…"
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2 text-xs font-medium text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 Full Technical Description
               </label>
               <textarea
@@ -349,26 +349,26 @@ export default function AdminProductFormPage() {
                 value={form.description}
                 onChange={(e) => setForm((prev) => ({ ...prev, description: e.target.value }))}
                 placeholder="Detailed specifications, paper stocks, print methods, and finishing options…"
-                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] p-3 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>
 
           {/* SEO & Meta Tags Card */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <div className="flex items-center gap-2 border-b border-neutral-100 pb-3">
-              <Search className="h-4 w-4 text-[#D6BC8A]" />
-              <h2 className="font-display text-base font-bold text-neutral-900">
+          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
+            <div className="flex items-center gap-2 border-b border-[#1E2C4F] pb-3">
+              <Search className="h-4 w-4 text-[#D6C29A]" />
+              <h2 className="font-display text-base font-bold text-[#F5F3EE]">
                 Google Search Optimization (SEO)
               </h2>
             </div>
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-1">
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   SEO Meta Title
                 </label>
-                <span className={`text-[11px] font-bold ${form.seoTitle.length > 60 ? 'text-amber-600' : 'text-neutral-400'}`}>
+                <span className={`text-[11px] font-bold ${form.seoTitle.length > 60 ? 'text-amber-600' : 'text-[#B8C2D9]/70'}`}>
                   {form.seoTitle.length} / 60 chars
                 </span>
               </div>
@@ -377,16 +377,16 @@ export default function AdminProductFormPage() {
                 value={form.seoTitle}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoTitle: e.target.value }))}
                 placeholder="e.g. Custom Mugs Printing Dubai | Corporate Photo Mugs | ONPRINT"
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-1">
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   SEO Meta Description
                 </label>
-                <span className={`text-[11px] font-bold ${form.seoDescription.length > 160 ? 'text-amber-600' : 'text-neutral-400'}`}>
+                <span className={`text-[11px] font-bold ${form.seoDescription.length > 160 ? 'text-amber-600' : 'text-[#B8C2D9]/70'}`}>
                   {form.seoDescription.length} / 160 chars
                 </span>
               </div>
@@ -395,13 +395,13 @@ export default function AdminProductFormPage() {
                 value={form.seoDescription}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoDescription: e.target.value }))}
                 placeholder="Write a clear meta description highlighting Dubai delivery, quality materials, and custom printing..."
-                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] p-3 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   SEO Keywords
                 </label>
                 <input
@@ -409,12 +409,12 @@ export default function AdminProductFormPage() {
                   value={form.seoKeywords}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoKeywords: e.target.value }))}
                   placeholder="mug printing dubai, custom mugs uae"
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   Primary H1 Heading
                 </label>
                 <input
@@ -422,25 +422,25 @@ export default function AdminProductFormPage() {
                   value={form.seoHeading}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoHeading: e.target.value }))}
                   placeholder={form.name || 'Defaults to Product Name'}
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Live Google SERP Snippet Preview */}
-            <div className="mt-4 rounded-xl border border-neutral-200 bg-neutral-50 p-4">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-500">
+            <div className="mt-4 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
                 Google SERP Snippet Preview
               </span>
               <div className="mt-2 space-y-1">
-                <div className="flex items-center gap-1.5 text-xs text-neutral-600 truncate">
-                  <Globe className="h-3 w-3 text-neutral-400" />
+                <div className="flex items-center gap-1.5 text-xs text-[#B8C2D9] truncate">
+                  <Globe className="h-3 w-3 text-[#B8C2D9]/70" />
                   <span>{serpUrl}</span>
                 </div>
                 <div className="text-sm font-bold text-blue-800 hover:underline cursor-pointer">
                   {serpTitle}
                 </div>
-                <div className="text-xs text-neutral-600 line-clamp-2">
+                <div className="text-xs text-[#B8C2D9] line-clamp-2">
                   {serpDesc}
                 </div>
               </div>
@@ -451,19 +451,19 @@ export default function AdminProductFormPage() {
         {/* Right Column */}
         <div className="space-y-6 lg:col-span-4">
           {/* Status & Options */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-neutral-900 border-b border-neutral-100 pb-3">
+          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#1E2C4F] pb-3">
               Publishing Options
             </h2>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 Visibility Status
               </label>
               <select
                 value={form.status}
                 onChange={(e) => setForm((prev) => ({ ...prev, status: e.target.value }))}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               >
                 <option value="active">Active (Visible in Catalog)</option>
                 <option value="inactive">Inactive (Draft / Hidden)</option>
@@ -475,15 +475,15 @@ export default function AdminProductFormPage() {
                 type="checkbox"
                 checked={form.featured}
                 onChange={(e) => setForm((prev) => ({ ...prev, featured: e.target.checked }))}
-                className="h-4 w-4 rounded border-neutral-300 text-[#D6BC8A] focus:ring-[#D6BC8A]"
+                className="h-4 w-4 rounded border-[#1E2C4F] text-[#D6C29A] focus:ring-[#D6C29A]"
               />
-              <span className="text-xs font-bold text-neutral-800">Feature on Homepage</span>
+              <span className="text-xs font-bold text-[#F5F3EE]">Feature on Homepage</span>
             </label>
           </div>
 
           {/* Product Image & ALT */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-neutral-900 border-b border-neutral-100 pb-3">
+          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#1E2C4F] pb-3">
               Product Image &amp; ALT
             </h2>
 
@@ -493,7 +493,7 @@ export default function AdminProductFormPage() {
             />
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 Image ALT Text (SEO)
               </label>
               <input
@@ -501,7 +501,7 @@ export default function AdminProductFormPage() {
                 value={form.imageAlt}
                 onChange={(e) => setForm((prev) => ({ ...prev, imageAlt: e.target.value }))}
                 placeholder={form.name || 'Descriptive ALT tag for Google Image search'}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>

@@ -44,16 +44,16 @@ export default function AdminServicesPage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-neutral-200/80 shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#14213D] p-6 rounded-3xl border border-[#1E2C4F] shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6BC8A]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
             <Wrench className="h-4 w-4" />
             <span>Workshop Offerings</span>
           </div>
-          <h1 className="font-display mt-1 text-2xl font-black text-neutral-900">
+          <h1 className="font-display mt-1 text-2xl font-black text-[#F5F3EE]">
             Print Services Management
           </h1>
-          <p className="mt-0.5 text-xs text-neutral-500">
+          <p className="mt-0.5 text-xs text-[#B8C2D9]">
             Configure custom printing solutions, offset production, and luxury finishes in Dubai.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function AdminServicesPage() {
           onClick={() => navigate('/admin/services/new')}
           variant="accent"
           icon={false}
-          className="shadow-md shadow-[#D6BC8A]/20 self-start sm:self-auto cursor-pointer"
+          className="shadow-md shadow-[#D6C29A]/20 self-start sm:self-auto cursor-pointer"
         >
           <Plus className="h-4 w-4 mr-1.5" />
           Add Service
@@ -76,30 +76,30 @@ export default function AdminServicesPage() {
             {notification}
           </span>
           <button onClick={() => setNotification(null)}>
-            <X className="h-4 w-4 text-neutral-400 hover:text-white" />
+            <X className="h-4 w-4 text-[#B8C2D9]/70 hover:text-white" />
           </button>
         </div>
       )}
 
       {/* Filter */}
-      <div className="bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
+      <div className="bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs">
         <div className="relative max-w-md">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search services..."
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D6BC8A] focus:outline-none"
+            className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] placeholder-neutral-400 focus:border-[#D6C29A] focus:outline-none"
           />
         </div>
       </div>
 
       {/* Table */}
-      <div className="w-full overflow-x-auto rounded-3xl border border-neutral-200/80 bg-white shadow-xs">
+      <div className="w-full overflow-x-auto rounded-3xl border border-[#1E2C4F] bg-[#14213D] shadow-xs">
         <table className="w-full min-w-[650px] text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-neutral-200 bg-neutral-50 text-[11px] font-extrabold uppercase tracking-wider text-neutral-500">
+            <tr className="border-b border-[#1E2C4F] bg-[#0B132B] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
               <th className="py-3.5 px-4">Service Name</th>
               <th className="py-3.5 px-4">Slug</th>
               <th className="py-3.5 px-4">Description</th>
@@ -107,12 +107,12 @@ export default function AdminServicesPage() {
               <th className="py-3.5 px-4 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-neutral-100 font-medium text-neutral-800">
+          <tbody className="divide-y divide-neutral-100 font-medium text-[#F5F3EE]">
             {filtered.map((s) => (
-              <tr key={s.id} className="hover:bg-neutral-50/60 transition-colors">
-                <td className="py-3 px-4 font-bold text-neutral-900">{s.name}</td>
-                <td className="py-3 px-4 font-mono text-[11px] text-neutral-500">{s.slug}</td>
-                <td className="py-3 px-4 max-w-sm truncate text-neutral-500">{s.description}</td>
+              <tr key={s.id} className="hover:bg-[#0B132B]/60 transition-colors">
+                <td className="py-3 px-4 font-bold text-[#F5F3EE]">{s.name}</td>
+                <td className="py-3 px-4 font-mono text-[11px] text-[#B8C2D9]">{s.slug}</td>
+                <td className="py-3 px-4 max-w-sm truncate text-[#B8C2D9]">{s.description}</td>
                 <td className="py-3 px-4">
                   <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-extrabold uppercase text-emerald-700 border border-emerald-200">
                     {s.status}
@@ -122,7 +122,7 @@ export default function AdminServicesPage() {
                   <div className="flex items-center justify-end gap-2">
                     <button
                       onClick={() => navigate(`/admin/services/${s.id}/edit`)}
-                      className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
+                      className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors"
                       title="Edit Service"
                     >
                       <Edit2 className="h-4 w-4" />
@@ -143,26 +143,26 @@ export default function AdminServicesPage() {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs text-xs font-semibold text-neutral-600">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs text-xs font-semibold text-[#B8C2D9]">
         <div>
-          Showing <span className="font-bold text-neutral-900">{filtered.length}</span> of{' '}
-          <span className="font-bold text-neutral-900">{services.length}</span> services
+          Showing <span className="font-bold text-[#F5F3EE]">{filtered.length}</span> of{' '}
+          <span className="font-bold text-[#F5F3EE]">{services.length}</span> services
         </div>
         <div className="flex items-center gap-1.5">
           <button
             type="button"
             disabled
-            className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Previous
           </button>
-          <button type="button" className="rounded-xl bg-[#D6BC8A] px-3 py-1.5 font-bold text-white shadow-xs">
+          <button type="button" className="rounded-xl bg-[#D6C29A] px-3 py-1.5 font-bold text-white shadow-xs">
             1
           </button>
           <button
             type="button"
             disabled
-            className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Next
           </button>
@@ -172,24 +172,24 @@ export default function AdminServicesPage() {
       {/* Delete Confirmation Modal */}
       {deletingService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-center gap-3 text-red-600">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
                 <AlertTriangle className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-display text-lg font-bold text-neutral-900">Delete Service?</h3>
-                <p className="text-xs text-neutral-500">
+                <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Delete Service?</h3>
+                <p className="text-xs text-[#B8C2D9]">
                   Are you sure you want to delete &quot;{deletingService.name}&quot;?
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-neutral-100">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#1E2C4F]">
               <button
                 type="button"
                 onClick={() => setDeletingService(null)}
-                className="rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50"
+                className="rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B]"
               >
                 Cancel
               </button>

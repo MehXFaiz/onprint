@@ -152,16 +152,16 @@ export default function AdminCategoriesPage() {
       )}
 
       {/* Header Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-neutral-200/80 shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#14213D] p-6 rounded-3xl border border-[#1E2C4F] shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6BC8A]">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
             <FolderTree className="h-4 w-4" />
             <span>Store Organization</span>
           </div>
-          <h1 className="font-display mt-1 text-2xl font-black tracking-tight text-neutral-900">
+          <h1 className="font-display mt-1 text-2xl font-black tracking-tight text-[#F5F3EE]">
             Category Management
           </h1>
-          <p className="mt-0.5 text-xs text-neutral-500">
+          <p className="mt-0.5 text-xs text-[#B8C2D9]">
             Manage your product categories in GoDaddy MySQL database.
           </p>
         </div>
@@ -170,7 +170,7 @@ export default function AdminCategoriesPage() {
           onClick={() => navigate('/admin/categories/new')}
           variant="accent"
           icon={false}
-          className="shadow-md shadow-[#D6BC8A]/20 self-start sm:self-auto cursor-pointer"
+          className="shadow-md shadow-[#D6C29A]/20 self-start sm:self-auto cursor-pointer"
         >
           <Plus className="h-4 w-4 mr-1.5" />
           Add Category
@@ -178,26 +178,26 @@ export default function AdminCategoriesPage() {
       </div>
 
       {/* Filter & Controls Bar */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs">
         {/* Search */}
         <div className="md:col-span-5 relative">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search categories by name or slug..."
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D6BC8A] focus:outline-none"
+            className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] placeholder-neutral-400 focus:border-[#D6C29A] focus:outline-none"
           />
         </div>
 
         {/* Status Filter */}
         <div className="md:col-span-3 flex items-center gap-2">
-          <Filter className="h-4 w-4 text-neutral-400 shrink-0" />
+          <Filter className="h-4 w-4 text-[#B8C2D9]/70 shrink-0" />
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D6BC8A] focus:outline-none cursor-pointer"
+            className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
           >
             <option value="all">Status: All</option>
             <option value="active">Active Only</option>
@@ -207,11 +207,11 @@ export default function AdminCategoriesPage() {
 
         {/* Sort dropdown */}
         <div className="md:col-span-3 flex items-center gap-2">
-          <ArrowUpDown className="h-4 w-4 text-neutral-400 shrink-0" />
+          <ArrowUpDown className="h-4 w-4 text-[#B8C2D9]/70 shrink-0" />
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D6BC8A] focus:outline-none cursor-pointer"
+            className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
           >
             <option value="display_order_asc">Display Order (Asc)</option>
             <option value="display_order_desc">Display Order (Desc)</option>
@@ -228,16 +228,16 @@ export default function AdminCategoriesPage() {
             onClick={() => fetchCategoryList(true)}
             disabled={refreshing}
             title="Refresh from MySQL"
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors disabled:opacity-50 cursor-pointer"
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors disabled:opacity-50 cursor-pointer"
           >
-            <RefreshCw className={`h-4 w-4 text-[#D6BC8A] ${refreshing ? 'animate-spin' : ''}`} />
+            <RefreshCw className={`h-4 w-4 text-[#D6C29A] ${refreshing ? 'animate-spin' : ''}`} />
           </button>
         </div>
       </div>
 
       {/* Main Content Area */}
       {loading ? (
-        <div className="space-y-3 bg-white p-6 rounded-3xl border border-neutral-200 animate-pulse">
+        <div className="space-y-3 bg-[#14213D] p-6 rounded-3xl border border-[#1E2C4F] animate-pulse">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="h-16 rounded-xl bg-neutral-100" />
           ))}
@@ -245,24 +245,24 @@ export default function AdminCategoriesPage() {
       ) : error ? (
         <div className="rounded-3xl border border-red-200 bg-red-50 p-8 text-center space-y-3">
           <AlertTriangle className="h-8 w-8 text-red-600 mx-auto" />
-          <div className="font-bold text-sm text-neutral-900">{error}</div>
+          <div className="font-bold text-sm text-[#F5F3EE]">{error}</div>
           <button
             type="button"
             onClick={() => fetchCategoryList(true)}
-            className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-4 py-2 text-xs font-bold text-white hover:bg-[#D6BC8A] transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-4 py-2 text-xs font-bold text-white hover:bg-[#D6C29A] transition-colors"
           >
             <RefreshCw className="h-3.5 w-3.5" />
             Retry MySQL Connection
           </button>
         </div>
       ) : filteredCategories.length === 0 ? (
-        <div className="rounded-3xl border border-neutral-200/80 bg-white p-12 text-center space-y-4">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-red-50 text-[#D6BC8A]">
+        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-12 text-center space-y-4">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-red-50 text-[#D6C29A]">
             <FolderTree className="h-7 w-7" />
           </div>
           <div>
-            <h3 className="font-display text-lg font-bold text-neutral-900">No categories found</h3>
-            <p className="mt-1 text-xs text-neutral-500 max-w-sm mx-auto">
+            <h3 className="font-display text-lg font-bold text-[#F5F3EE]">No categories found</h3>
+            <p className="mt-1 text-xs text-[#B8C2D9] max-w-sm mx-auto">
               {searchTerm
                 ? 'No categories match your search terms.'
                 : 'Get started by creating your first product category.'}
@@ -276,10 +276,10 @@ export default function AdminCategoriesPage() {
       ) : (
         <>
           {/* Desktop & Tablet Table View */}
-          <div className="hidden md:block w-full overflow-x-auto rounded-3xl border border-neutral-200/80 bg-white shadow-xs">
+          <div className="hidden md:block w-full overflow-x-auto rounded-3xl border border-[#1E2C4F] bg-[#14213D] shadow-xs">
             <table className="w-full min-w-[750px] text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-neutral-200 bg-neutral-50 text-[11px] font-extrabold uppercase tracking-wider text-neutral-500">
+                <tr className="border-b border-[#1E2C4F] bg-[#0B132B] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
                   <th className="py-3.5 px-4">Image</th>
                   <th className="py-3.5 px-4">Category Name</th>
                   <th className="py-3.5 px-4">Slug</th>
@@ -290,26 +290,26 @@ export default function AdminCategoriesPage() {
                   <th className="py-3.5 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-neutral-100 font-medium text-neutral-800">
+              <tbody className="divide-y divide-neutral-100 font-medium text-[#F5F3EE]">
                 {filteredCategories.map((cat) => {
                   const isActive = cat.status === 'active' || cat.active
                   const targetId = cat.id || cat._id
                   return (
-                    <tr key={targetId} className="hover:bg-neutral-50/60 transition-colors">
+                    <tr key={targetId} className="hover:bg-[#0B132B]/60 transition-colors">
                       {/* Image Thumbnail */}
                       <td className="py-3 px-4">
-                        <div className="h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 flex items-center justify-center">
+                        <div className="h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-[#1E2C4F] bg-neutral-100 flex items-center justify-center">
                           {cat.image ? (
                             <img src={cat.image} alt={cat.name} className="h-full w-full object-cover" />
                           ) : (
-                            <ImageIcon className="h-4 w-4 text-neutral-400" />
+                            <ImageIcon className="h-4 w-4 text-[#B8C2D9]/70" />
                           )}
                         </div>
                       </td>
 
                       {/* Name & Department Badge */}
                       <td className="py-3 px-4">
-                        <div className="font-bold text-neutral-900">{cat.name}</div>
+                        <div className="font-bold text-[#F5F3EE]">{cat.name}</div>
                         {cat.department_name && (
                           <span className="inline-block mt-0.5 rounded-full bg-amber-50 border border-amber-200 px-2 py-0.2 text-[9px] font-bold text-amber-800">
                             {cat.department_name}
@@ -318,10 +318,10 @@ export default function AdminCategoriesPage() {
                       </td>
 
                       {/* Slug */}
-                      <td className="py-3 px-4 font-mono text-[11px] text-neutral-500">{cat.slug}</td>
+                      <td className="py-3 px-4 font-mono text-[11px] text-[#B8C2D9]">{cat.slug}</td>
 
                       {/* Description */}
-                      <td className="py-3 px-4 max-w-xs truncate text-neutral-500">
+                      <td className="py-3 px-4 max-w-xs truncate text-[#B8C2D9]">
                         {cat.description || '—'}
                       </td>
 
@@ -334,7 +334,7 @@ export default function AdminCategoriesPage() {
                           className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider transition-colors cursor-pointer ${
                             isActive
                               ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100'
-                              : 'bg-neutral-100 text-neutral-600 border border-neutral-200 hover:bg-neutral-200'
+                              : 'bg-neutral-100 text-[#B8C2D9] border border-[#1E2C4F] hover:bg-neutral-200'
                           }`}
                         >
                           <span
@@ -347,14 +347,14 @@ export default function AdminCategoriesPage() {
                       </td>
 
                       {/* Display Order */}
-                      <td className="py-3 px-4 text-center font-bold text-neutral-700">
+                      <td className="py-3 px-4 text-center font-bold text-[#F5F3EE]">
                         {cat.displayOrder || 0}
                       </td>
 
                       {/* Products Count */}
                       <td className="py-3 px-4 text-center">
-                        <span className="inline-flex items-center gap-1 rounded-md bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-700">
-                          <Package className="h-3 w-3 text-neutral-500" />
+                        <span className="inline-flex items-center gap-1 rounded-md bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-[#F5F3EE]">
+                          <Package className="h-3 w-3 text-[#B8C2D9]" />
                           {cat.productCount || 0}
                         </span>
                       </td>
@@ -366,7 +366,7 @@ export default function AdminCategoriesPage() {
                             type="button"
                             onClick={() => navigate(`/admin/categories/${targetId}/edit`)}
                             title="Edit Category"
-                            className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors cursor-pointer"
                           >
                             <Edit2 className="h-4 w-4" />
                           </button>
@@ -395,20 +395,20 @@ export default function AdminCategoriesPage() {
               return (
                 <div
                   key={targetId}
-                  className="rounded-2xl border border-neutral-200/80 bg-white p-4 shadow-xs space-y-3"
+                  className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 shadow-xs space-y-3"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-center gap-3 min-w-0">
-                      <div className="h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 flex items-center justify-center">
+                      <div className="h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-[#1E2C4F] bg-neutral-100 flex items-center justify-center">
                         {cat.image ? (
                           <img src={cat.image} alt={cat.name} className="h-full w-full object-cover" />
                         ) : (
-                          <ImageIcon className="h-4 w-4 text-neutral-400" />
+                          <ImageIcon className="h-4 w-4 text-[#B8C2D9]/70" />
                         )}
                       </div>
                       <div className="min-w-0">
-                        <div className="font-bold text-sm text-neutral-900 truncate">{cat.name}</div>
-                        <div className="font-mono text-[10px] text-neutral-500 truncate">{cat.slug}</div>
+                        <div className="font-bold text-sm text-[#F5F3EE] truncate">{cat.name}</div>
+                        <div className="font-mono text-[10px] text-[#B8C2D9] truncate">{cat.slug}</div>
                       </div>
                     </div>
 
@@ -416,7 +416,7 @@ export default function AdminCategoriesPage() {
                       type="button"
                       onClick={() => handleToggleStatus(cat)}
                       className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider ${
-                        isActive ? 'bg-emerald-50 text-emerald-700' : 'bg-neutral-100 text-neutral-600'
+                        isActive ? 'bg-emerald-50 text-emerald-700' : 'bg-neutral-100 text-[#B8C2D9]'
                       }`}
                     >
                       {isActive ? 'Active' : 'Inactive'}
@@ -424,16 +424,16 @@ export default function AdminCategoriesPage() {
                   </div>
 
                   {cat.description && (
-                    <p className="text-xs text-neutral-600 line-clamp-2">{cat.description}</p>
+                    <p className="text-xs text-[#B8C2D9] line-clamp-2">{cat.description}</p>
                   )}
 
-                  <div className="flex items-center justify-between border-t border-neutral-100 pt-3 text-xs">
-                    <span className="text-neutral-500 font-medium">Order: {cat.displayOrder || 0}</span>
+                  <div className="flex items-center justify-between border-t border-[#1E2C4F] pt-3 text-xs">
+                    <span className="text-[#B8C2D9] font-medium">Order: {cat.displayOrder || 0}</span>
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
                         onClick={() => navigate(`/admin/categories/${targetId}/edit`)}
-                        className="inline-flex items-center gap-1 rounded-lg border border-neutral-200 px-2.5 py-1 text-xs font-bold text-neutral-700 hover:bg-neutral-50"
+                        className="inline-flex items-center gap-1 rounded-lg border border-[#1E2C4F] px-2.5 py-1 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B]"
                       >
                         <Edit2 className="h-3.5 w-3.5" /> Edit
                       </button>
@@ -452,29 +452,29 @@ export default function AdminCategoriesPage() {
           </div>
 
           {/* Pagination Controls */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs text-xs font-semibold text-neutral-600">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs text-xs font-semibold text-[#B8C2D9]">
             <div>
-              Showing <span className="font-bold text-neutral-900">{filteredCategories.length}</span> of{' '}
-              <span className="font-bold text-neutral-900">{categories.length}</span> categories
+              Showing <span className="font-bold text-[#F5F3EE]">{filteredCategories.length}</span> of{' '}
+              <span className="font-bold text-[#F5F3EE]">{categories.length}</span> categories
             </div>
             <div className="flex items-center gap-1.5">
               <button
                 type="button"
                 disabled
-                className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+                className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
               >
                 Previous
               </button>
               <button
                 type="button"
-                className="rounded-xl bg-[#D6BC8A] px-3 py-1.5 font-bold text-white shadow-xs"
+                className="rounded-xl bg-[#D6C29A] px-3 py-1.5 font-bold text-white shadow-xs"
               >
                 1
               </button>
               <button
                 type="button"
                 disabled
-                className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+                className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
               >
                 Next
               </button>
@@ -486,14 +486,14 @@ export default function AdminCategoriesPage() {
       {/* Delete Confirmation Modal */}
       {deletingCategory && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-center gap-3 text-red-600">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
                 <AlertTriangle className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-display text-lg font-bold text-neutral-900">Delete Category?</h3>
-                <p className="text-xs text-neutral-500">
+                <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Delete Category?</h3>
+                <p className="text-xs text-[#B8C2D9]">
                   Are you sure you want to delete &quot;{deletingCategory.name}&quot;?
                 </p>
               </div>
@@ -510,7 +510,7 @@ export default function AdminCategoriesPage() {
                       setDeletingCategory(null)
                       setDeleteError(null)
                     }}
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-[#D6BC8A] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 px-3 py-1.5 text-xs font-bold text-white hover:bg-[#D6C29A] transition-colors cursor-pointer"
                   >
                     Deactivate Category Instead
                   </button>
@@ -518,14 +518,14 @@ export default function AdminCategoriesPage() {
               </div>
             )}
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-neutral-100">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#1E2C4F]">
               <button
                 type="button"
                 onClick={() => {
                   setDeletingCategory(null)
                   setDeleteError(null)
                 }}
-                className="rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50"
+                className="rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B]"
               >
                 Cancel
               </button>

@@ -1,67 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  /* Approved Luxury Dark Theme Palette:
-     Primary Background / Midnight Navy: #101C35
-     Champagne Gold / Premium Accent:   #D6BC8A
-     Warm Ivory / Text & Contrast:       #F5F1E8
-     Slate Blue / Secondary UI:          #52647D
-     Elevated Card Background:           #1B2943
-     Deep Utility Navy:                  #0B1426
-     Navy Border:                        #263654
+  /* Approved Premium Cohesive Palette:
+     Primary Background: Deep Navy        #0B132B
+     Secondary Surfaces: Navy Surface    #14213D
+     Champagne Gold Accent: Gold Accent  #D6C29A
+     Main Text: Warm White              #F5F3EE
+     Secondary Text: Muted Blue-Grey    #B8C2D9
+     Navy Border: Structural Border     #1E2C4F
+     Deep Utility Navy: Midnight Base   #070D1E
   */
-  --color-primary: #F5F1E8;            /* Warm Ivory: High-contrast primary headings & text */
-  --color-accent: #D6BC8A;             /* Champagne Gold: Brand accents, icons, premium details */
-  --color-accent-hover: #C4A870;       /* Gold hover */
-  --color-accent-soft: rgba(214, 188, 138, 0.14);
+  --color-primary: #F5F3EE;            /* Warm White: High-contrast primary headings & text */
+  --color-accent: #D6C29A;             /* Champagne Gold: Brand accents, icons, premium details */
+  --color-accent-hover: #C8B185;       /* Gold hover */
+  --color-accent-soft: rgba(214, 194, 154, 0.15);
   --color-white: #FFFFFF;              /* Pure White */
-  --color-ivory: #F5F1E8;              /* Warm Ivory text */
-  --color-secondary: #52647D;          /* Slate Blue: Secondary UI & supporting tone */
-  --color-secondary-light: #94A3B8;    /* Muted text on dark */
+  --color-ivory: #F5F3EE;              /* Warm White text */
+  --color-secondary: #B8C2D9;          /* Muted Blue-Grey: Secondary UI & supporting tone */
+  --color-secondary-light: #B8C2D9;    /* Muted text on dark */
 
-  --color-background: #101C35;         /* Main Midnight Navy Canvas */
-  --color-background-alt: #0B1426;     /* Deep Midnight Navy Alternating Canvas */
-  --color-surface: #1B2943;            /* Elevated Navy Card Surface */
-  --color-surface-alt: #1B2943;        /* Elevated Surface Variant */
-  --color-surface-dark: #0B1426;       /* Deepest Navy Surface */
-  --color-text: #F5F1E8;               /* Warm Ivory Primary Text */
-  --color-text-secondary: #94A3B8;     /* Muted Secondary Text */
-  --color-border: #263654;             /* Refined Navy Border */
+  --color-background: #0B132B;         /* Main Deep Navy Canvas */
+  --color-background-alt: #070D1E;     /* Deep Navy Alternating Canvas */
+  --color-surface: #14213D;            /* Secondary Surface: Elevated Navy Card */
+  --color-surface-alt: #14213D;        /* Secondary Surface Variant */
+  --color-surface-dark: #070D1E;       /* Deepest Navy Surface */
+  --color-text: #F5F3EE;               /* Warm White Primary Text */
+  --color-text-secondary: #B8C2D9;     /* Muted Secondary Text */
+  --color-border: #1E2C4F;             /* Refined Navy Border */
 
   /* Dedicated Tokens */
-  --midnight-navy: #101C35;
-  --midnight-navy-dark: #0B1426;
-  --midnight-navy-elevated: #1B2943;
-  --midnight-navy-surface: #1B2943;
-  --midnight-navy-border: #263654;
+  --midnight-navy: #0B132B;
+  --midnight-navy-dark: #070D1E;
+  --midnight-navy-elevated: #14213D;
+  --midnight-navy-surface: #14213D;
+  --midnight-navy-border: #1E2C4F;
 
-  --champagne-gold: #D6BC8A;
-  --champagne-gold-hover: #C4A870;
+  --champagne-gold: #D6C29A;
+  --champagne-gold-hover: #C8B185;
   --champagne-gold-active: #B5985E;
-  --champagne-gold-soft: rgba(214, 188, 138, 0.14);
-  --champagne-gold-border: #D6BC8A;
+  --champagne-gold-soft: rgba(214, 194, 154, 0.15);
+  --champagne-gold-border: #D6C29A;
 
   --pure-white: #FFFFFF;
-  --warm-ivory: #F5F1E8;
+  --warm-ivory: #F5F3EE;
   --warm-ivory-dark: #E2DDD3;
 
-  --slate-blue: #52647D;
-  --slate-blue-muted: #6B7C96;
-  --slate-blue-light: #94A3B8;
+  --slate-blue: #B8C2D9;
+  --slate-blue-muted: #8E9BB5;
+  --slate-blue-light: #B8C2D9;
 
   /* Aliases */
-  --primary: #F5F1E8;
-  --accent: #D6BC8A;
-  --accent-hover: #C4A870;
-  --background: #101C35;
-  --background-alt: #0B1426;
-  --surface: #1B2943;
-  --surface-alt: #1B2943;
-  --dark: #0B1426;
-  --text-primary: #F5F1E8;
-  --text-secondary: #94A3B8;
-  --border: #263654;
-  --border-hover: #D6BC8A;
+  --primary: #F5F3EE;
+  --accent: #D6C29A;
+  --accent-hover: #C8B185;
+  --background: #0B132B;
+  --background-alt: #070D1E;
+  --surface: #14213D;
+  --surface-alt: #14213D;
+  --dark: #070D1E;
+  --text-primary: #F5F3EE;
+  --text-secondary: #B8C2D9;
+  --border: #1E2C4F;
+  --border-hover: #D6C29A;
 
   --whatsapp: #25D366;                 /* Functional official WhatsApp green */
   --whatsapp-hover: #20BA59;
@@ -70,8 +70,8 @@
 @theme {
   --color-primary: var(--color-primary);
   --color-accent: var(--color-accent);
-  --color-accent-hover: #C4A870;
-  --color-accent-soft: rgba(214, 188, 138, 0.14);
+  --color-accent-hover: #C8B185;
+  --color-accent-soft: rgba(214, 194, 154, 0.15);
   --color-white: var(--color-white);
   --color-ivory: var(--color-ivory);
   --color-secondary: var(--color-secondary);
@@ -84,23 +84,23 @@
   --color-border: var(--border);
 
   /* Primary Brand Theme Tokens */
-  --color-midnight-navy: #101C35;
-  --color-midnight-navy-dark: #0B1426;
-  --color-midnight-navy-light: #1B2943;
-  --color-midnight-navy-elevated: #1B2943;
-  --color-champagne-gold: #D6BC8A;
-  --color-champagne-gold-hover: #C4A870;
-  --color-champagne-gold-soft: rgba(214, 188, 138, 0.14);
+  --color-midnight-navy: #0B132B;
+  --color-midnight-navy-dark: #070D1E;
+  --color-midnight-navy-light: #14213D;
+  --color-midnight-navy-elevated: #14213D;
+  --color-champagne-gold: #D6C29A;
+  --color-champagne-gold-hover: #C8B185;
+  --color-champagne-gold-soft: rgba(214, 194, 154, 0.15);
   --color-pure-white: #FFFFFF;
-  --color-warm-ivory: #F5F1E8;
-  --color-slate-blue: #52647D;
+  --color-warm-ivory: #F5F3EE;
+  --color-slate-blue: #B8C2D9;
 
   /* Backward compatibility aliases */
-  --color-brand-orange: #D6BC8A;
-  --color-brand-orange-hover: #C4A870;
-  --color-brand-orange-soft: rgba(214, 188, 138, 0.14);
-  --color-brand-dark: #101C35;
-  --color-brand-surface: #1B2943;
+  --color-brand-orange: #D6C29A;
+  --color-brand-orange-hover: #C8B185;
+  --color-brand-orange-soft: rgba(214, 194, 154, 0.15);
+  --color-brand-dark: #0B132B;
+  --color-brand-surface: #14213D;
 
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
@@ -108,27 +108,32 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #101C35;
-  color: #F5F1E8;
+  background-color: #0B132B !important;
+  color: #F5F3EE;
 }
 
 body {
-  background-color: #101C35;
+  background-color: #0B132B !important;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #F5F1E8;
+  color: #F5F3EE;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'cv11', 'ss01';
   overflow-x: clip;
 }
 
+#root {
+  background-color: #0B132B !important;
+  color: #F5F3EE;
+}
+
 ::selection {
-  background: #D6BC8A;
-  color: #101C35;
+  background: #D6C29A;
+  color: #0B132B;
 }
 
 :focus-visible {
-  outline: 2px solid #D6BC8A;
+  outline: 2px solid #D6C29A;
   outline-offset: 2px;
 }
 
@@ -138,13 +143,13 @@ body {
 
 .bento-card {
   position: relative;
-  background: #1B2943;
-  border: 1px solid #263654;
+  background: #14213D;
+  border: 1px solid #1E2C4F;
   border-radius: 1.5rem;
-  color: #F5F1E8;
+  color: #F5F3EE;
   box-shadow:
-    0 10px 30px -10px rgba(11, 20, 38, 0.6),
-    inset 0 1px 0 0 rgba(245, 241, 232, 0.05);
+    0 10px 30px -10px rgba(7, 13, 30, 0.6),
+    inset 0 1px 0 0 rgba(245, 243, 238, 0.05);
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -152,22 +157,22 @@ body {
 }
 
 .bento-card:hover {
-  border-color: #D6BC8A;
+  border-color: #D6C29A;
   box-shadow:
-    0 20px 45px -10px rgba(11, 20, 38, 0.8),
-    0 0 25px -4px rgba(214, 188, 138, 0.22);
+    0 20px 45px -10px rgba(7, 13, 30, 0.8),
+    0 0 25px -4px rgba(214, 194, 154, 0.25);
   transform: translateY(-4px);
 }
 
 .bento-card-dark {
   position: relative;
-  background: #0B1426;
-  border: 1px solid #263654;
+  background: #070D1E;
+  border: 1px solid #1E2C4F;
   border-radius: 1.5rem;
-  color: #F5F1E8;
+  color: #F5F3EE;
   box-shadow:
-    0 20px 40px -12px rgba(11, 20, 38, 0.7),
-    inset 0 1px 0 0 rgba(245, 241, 232, 0.05);
+    0 20px 40px -12px rgba(7, 13, 30, 0.7),
+    inset 0 1px 0 0 rgba(245, 243, 238, 0.05);
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -175,60 +180,60 @@ body {
 }
 
 .bento-card-dark:hover {
-  border-color: #D6BC8A;
+  border-color: #D6C29A;
   box-shadow:
-    0 24px 50px -12px rgba(11, 20, 38, 0.9),
-    0 0 25px -5px rgba(214, 188, 138, 0.25);
+    0 24px 50px -12px rgba(7, 13, 30, 0.9),
+    0 0 25px -5px rgba(214, 194, 154, 0.28);
   transform: translateY(-4px);
 }
 
 .card-clean {
-  background-color: #1B2943;
-  border: 1px solid #263654;
+  background-color: #14213D;
+  border: 1px solid #1E2C4F;
   border-radius: 1.25rem;
-  color: #F5F1E8;
-  box-shadow: 0 8px 24px -6px rgba(11, 20, 38, 0.5);
+  color: #F5F3EE;
+  box-shadow: 0 8px 24px -6px rgba(7, 13, 30, 0.5);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-clean:hover {
-  border-color: #D6BC8A;
+  border-color: #D6C29A;
   box-shadow:
-    0 16px 36px -8px rgba(11, 20, 38, 0.7),
-    0 0 20px -4px rgba(214, 188, 138, 0.2);
+    0 16px 36px -8px rgba(7, 13, 30, 0.7),
+    0 0 20px -4px rgba(214, 194, 154, 0.22);
   transform: translateY(-3px);
 }
 
 .btn-primary {
-  background: #D6BC8A;
-  color: #101C35;
+  background: #D6C29A;
+  color: #0B132B;
   font-weight: 800;
-  border: 1px solid #D6BC8A;
+  border: 1px solid #D6C29A;
   border-radius: 9999px;
-  box-shadow: 0 4px 16px rgba(214, 188, 138, 0.3);
+  box-shadow: 0 4px 16px rgba(214, 194, 154, 0.3);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
-  background: #C4A870;
-  border-color: #C4A870;
-  box-shadow: 0 8px 26px rgba(214, 188, 138, 0.45);
+  background: #C8B185;
+  border-color: #C8B185;
+  box-shadow: 0 8px 26px rgba(214, 194, 154, 0.45);
   transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background-color: #1B2943;
-  color: #F5F1E8;
-  border: 1px solid #52647D;
+  background-color: #14213D;
+  color: #F5F3EE;
+  border: 1px solid #1E2C4F;
   border-radius: 9999px;
   font-weight: 700;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  background-color: #263654;
-  border-color: #D6BC8A;
-  color: #D6BC8A;
+  background-color: #1E2C4F;
+  border-color: #D6C29A;
+  color: #D6C29A;
   transform: translateY(-2px);
 }
 
@@ -239,16 +244,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B1426;
+  background: #070D1E;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #263654;
+  background: #1E2C4F;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D6BC8A;
+  background: #D6C29A;
 }
 
 /* =========================================================================
@@ -258,14 +263,14 @@ body {
 input:not([type="checkbox"]):not([type="radio"]),
 textarea,
 select {
-  background-color: #1B2943;
-  border-color: #263654;
-  color: #F5F1E8;
+  background-color: #14213D;
+  border-color: #1E2C4F;
+  color: #F5F3EE;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #52647D;
+  color: #B8C2D9;
 }
 
 /* Infinite Marquee */
@@ -312,10 +317,10 @@ textarea::placeholder {
 /* 2. Soft Ambient Gold Pulse */
 @keyframes onprint-gold-pulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(214, 188, 138, 0.45);
+    box-shadow: 0 0 0 0 rgba(214, 194, 154, 0.45);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(214, 188, 138, 0);
+    box-shadow: 0 0 0 10px rgba(214, 194, 154, 0);
   }
 }
 
@@ -345,9 +350,9 @@ textarea::placeholder {
   background: linear-gradient(
     115deg,
     transparent 20%,
-    rgba(214, 188, 138, 0.15) 40%,
-    rgba(245, 241, 232, 0.25) 50%,
-    rgba(214, 188, 138, 0.15) 60%,
+    rgba(214, 194, 154, 0.15) 40%,
+    rgba(245, 243, 238, 0.25) 50%,
+    rgba(214, 194, 154, 0.15) 60%,
     transparent 80%
   );
   transform: translateX(-100%) rotate(25deg);
@@ -368,8 +373,8 @@ textarea::placeholder {
 
 .card-hover-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 35px -10px rgba(11, 20, 38, 0.75), 0 0 25px -4px rgba(214, 188, 138, 0.25);
-  border-color: #D6BC8A;
+  box-shadow: 0 20px 35px -10px rgba(7, 13, 30, 0.75), 0 0 25px -4px rgba(214, 194, 154, 0.25);
+  border-color: #D6C29A;
 }
 
 /* 5. Smooth Image Zoom on Hover */

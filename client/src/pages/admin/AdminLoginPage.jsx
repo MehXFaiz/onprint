@@ -48,14 +48,14 @@ export default function AdminLoginPage() {
           <Link to="/" className="inline-block">
             <Logo variant="light" size="xl" />
           </Link>
-          <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#D6BC8A]">
+          <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
             <ShieldCheck className="h-4 w-4" />
             <span>Admin Control Panel</span>
           </div>
           <h1 className="font-display mt-2 text-2xl font-black tracking-tight text-white">
             Staff Portal Login
           </h1>
-          <p className="mt-1 text-xs text-neutral-400">
+          <p className="mt-1 text-xs text-[#B8C2D9]/70">
             Sign in to manage product uploads, inventory, and order dispatch.
           </p>
         </div>
@@ -64,20 +64,20 @@ export default function AdminLoginPage() {
         <div className="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/60 p-3.5">
           <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">
             <span className="flex items-center gap-1">
-              <ShieldCheck className="h-3.5 w-3.5 text-[#D6BC8A]" />
+              <ShieldCheck className="h-3.5 w-3.5 text-[#D6C29A]" />
               Default Admin (1-Click Fill)
             </span>
           </div>
           <button
             type="button"
             onClick={handleFillAdmin}
-            className="flex w-full items-center justify-between rounded-xl border border-neutral-800 bg-neutral-950 p-2.5 text-left text-xs font-semibold text-neutral-200 transition-all hover:border-[#D6BC8A] hover:bg-neutral-900 cursor-pointer"
+            className="flex w-full items-center justify-between rounded-xl border border-neutral-800 bg-neutral-950 p-2.5 text-left text-xs font-semibold text-neutral-200 transition-all hover:border-[#D6C29A] hover:bg-neutral-900 cursor-pointer"
           >
             <div>
               <div className="font-bold text-white">admin@onprint.ae</div>
-              <div className="text-[10px] text-neutral-400">Password: admin123</div>
+              <div className="text-[10px] text-[#B8C2D9]/70">Password: admin123</div>
             </div>
-            <ArrowRight className="h-4 w-4 text-[#D6BC8A]" />
+            <ArrowRight className="h-4 w-4 text-[#D6C29A]" />
           </button>
         </div>
 
@@ -99,7 +99,7 @@ export default function AdminLoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="admin@onprint.ae"
-              className="mt-2 w-full rounded-xl border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 text-sm text-white focus:border-[#D6BC8A] focus:outline-none"
+              className="mt-2 w-full rounded-xl border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 text-sm text-white focus:border-[#D6C29A] focus:outline-none"
             />
           </div>
 
@@ -114,7 +114,7 @@ export default function AdminLoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="mt-2 w-full rounded-xl border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 text-sm text-white focus:border-[#D6BC8A] focus:outline-none"
+              className="mt-2 w-full rounded-xl border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 text-sm text-white focus:border-[#D6C29A] focus:outline-none"
             />
           </div>
 
@@ -123,7 +123,7 @@ export default function AdminLoginPage() {
             variant="accent"
             size="lg"
             icon={false}
-            className="w-full justify-center mt-2 shadow-md shadow-[#D6BC8A]/30"
+            className="w-full justify-center mt-2 shadow-md shadow-[#D6C29A]/30"
           >
             {loading ? 'Authenticating...' : 'Sign In as Admin'}
           </Button>
@@ -132,7 +132,7 @@ export default function AdminLoginPage() {
         <div className="mt-8 text-center border-t border-neutral-800/80 pt-6">
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#B8C2D9]/70 hover:text-white transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Back to Public Website

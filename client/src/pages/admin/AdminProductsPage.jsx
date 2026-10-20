@@ -52,12 +52,12 @@ export default function AdminProductsPage() {
   return (
     <div className="space-y-8">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200 pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1E2C4F] pb-6">
         <div>
-          <h1 className="font-display text-2xl sm:text-3xl font-black text-neutral-900">
+          <h1 className="font-display text-2xl sm:text-3xl font-black text-[#F5F3EE]">
             Products Catalog Manager
           </h1>
-          <p className="mt-1 text-xs sm:text-sm text-neutral-500">
+          <p className="mt-1 text-xs sm:text-sm text-[#B8C2D9]">
             Upload, update, and organize customized print items for Dubai businesses.
           </p>
         </div>
@@ -66,7 +66,7 @@ export default function AdminProductsPage() {
           onClick={() => navigate('/admin/products/new')}
           variant="accent"
           icon={false}
-          className="shadow-md shadow-[#D6BC8A]/20 self-start sm:self-auto cursor-pointer"
+          className="shadow-md shadow-[#D6C29A]/20 self-start sm:self-auto cursor-pointer"
         >
           <Plus className="h-4 w-4 mr-1.5" />
           Add Product
@@ -80,30 +80,30 @@ export default function AdminProductsPage() {
             {notification}
           </span>
           <button onClick={() => setNotification(null)}>
-            <X className="h-4 w-4 text-neutral-400 hover:text-white" />
+            <X className="h-4 w-4 text-[#B8C2D9]/70 hover:text-white" />
           </button>
         </div>
       )}
 
       {/* Filter Toolbar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs">
         <div className="relative w-full sm:w-80">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search products..."
-            className="w-full rounded-xl border border-neutral-300 bg-neutral-50 pl-10 pr-4 py-2 text-xs font-medium text-neutral-900 placeholder-neutral-400 focus:border-[#D6BC8A] focus:outline-none"
+            className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] placeholder-neutral-400 focus:border-[#D6C29A] focus:outline-none"
           />
         </div>
 
         <div className="flex items-center gap-2 w-full sm:w-auto">
-          <Filter className="h-4 w-4 text-neutral-400 shrink-0" />
+          <Filter className="h-4 w-4 text-[#B8C2D9]/70 shrink-0" />
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full sm:w-auto rounded-xl border border-neutral-300 bg-neutral-50 px-3 py-2 text-xs font-bold text-neutral-800 focus:border-[#D6BC8A] focus:outline-none cursor-pointer"
+            className="w-full sm:w-auto rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
           >
             <option value="ALL">All Categories</option>
             {categories.map((c) => (
@@ -125,10 +125,10 @@ export default function AdminProductsPage() {
           return (
             <div
               key={targetId}
-              className="rounded-3xl border border-neutral-200/80 bg-white p-5 shadow-xs flex flex-col justify-between hover:border-neutral-300 transition-all"
+              className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs flex flex-col justify-between hover:border-[#1E2C4F] transition-all"
             >
               <div>
-                <div className="relative h-44 w-full overflow-hidden rounded-2xl bg-neutral-100 mb-4 border border-neutral-100">
+                <div className="relative h-44 w-full overflow-hidden rounded-2xl bg-neutral-100 mb-4 border border-[#1E2C4F]">
                   <img
                     src={img || getProductImage(p)}
                     alt={p.name}
@@ -139,33 +139,33 @@ export default function AdminProductsPage() {
                     className="h-full w-full object-cover"
                   />
                   {p.featured && (
-                    <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-[#D6BC8A] px-2.5 py-0.5 text-[9px] font-extrabold uppercase text-white shadow-xs">
+                    <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-[#D6C29A] px-2.5 py-0.5 text-[9px] font-extrabold uppercase text-white shadow-xs">
                       <Sparkles className="h-3 w-3" /> Featured
                     </span>
                   )}
                 </div>
 
-                <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#D6BC8A]">
+                <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#D6C29A]">
                   {catName}
                 </div>
-                <h3 className="font-display font-bold text-base text-neutral-900 mt-1 line-clamp-1">
+                <h3 className="font-display font-bold text-base text-[#F5F3EE] mt-1 line-clamp-1">
                   {p.name}
                 </h3>
-                <p className="text-xs text-neutral-500 mt-1 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-[#B8C2D9] mt-1 line-clamp-2 leading-relaxed">
                   {p.shortDescription}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#1E2C4F] flex items-center justify-between">
                 <div>
-                  <div className="text-[10px] font-semibold text-neutral-400">Min MOQ: {p.minimumQuantity || 1}</div>
-                  <div className="font-black text-sm text-neutral-900">AED {p.price || 50}</div>
+                  <div className="text-[10px] font-semibold text-[#B8C2D9]/70">Min MOQ: {p.minimumQuantity || 1}</div>
+                  <div className="font-black text-sm text-[#F5F3EE]">AED {p.price || 50}</div>
                 </div>
 
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => navigate(`/admin/products/${targetId}/edit`)}
-                    className="rounded-xl border border-neutral-200 p-2 text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 transition-colors"
+                    className="rounded-xl border border-[#1E2C4F] p-2 text-[#B8C2D9] hover:bg-[#0B132B] hover:text-[#F5F3EE] transition-colors"
                     title="Edit Product"
                   >
                     <Edit2 className="h-4 w-4" />
@@ -185,26 +185,26 @@ export default function AdminProductsPage() {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-neutral-200/80 shadow-xs text-xs font-semibold text-neutral-600">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs text-xs font-semibold text-[#B8C2D9]">
         <div>
-          Showing <span className="font-bold text-neutral-900">{filteredProducts.length}</span> of{' '}
-          <span className="font-bold text-neutral-900">{products.length}</span> products
+          Showing <span className="font-bold text-[#F5F3EE]">{filteredProducts.length}</span> of{' '}
+          <span className="font-bold text-[#F5F3EE]">{products.length}</span> products
         </div>
         <div className="flex items-center gap-1.5">
           <button
             type="button"
             disabled
-            className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Previous
           </button>
-          <button type="button" className="rounded-xl bg-[#D6BC8A] px-3 py-1.5 font-bold text-white shadow-xs">
+          <button type="button" className="rounded-xl bg-[#D6C29A] px-3 py-1.5 font-bold text-white shadow-xs">
             1
           </button>
           <button
             type="button"
             disabled
-            className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-neutral-400 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Next
           </button>
@@ -214,24 +214,24 @@ export default function AdminProductsPage() {
       {/* Delete Confirmation Modal */}
       {deletingProduct && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-center gap-3 text-red-600">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
                 <AlertTriangle className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-display text-lg font-bold text-neutral-900">Delete Product?</h3>
-                <p className="text-xs text-neutral-500">
+                <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Delete Product?</h3>
+                <p className="text-xs text-[#B8C2D9]">
                   Are you sure you want to delete &quot;{deletingProduct.name}&quot; from shop catalog?
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-neutral-100">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#1E2C4F]">
               <button
                 type="button"
                 onClick={() => setDeletingProduct(null)}
-                className="rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-50"
+                className="rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B]"
               >
                 Cancel
               </button>

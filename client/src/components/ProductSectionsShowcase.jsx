@@ -126,31 +126,31 @@ function SectionCardGroup({ section, onQuickView }) {
   const visibleItems = section.items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
 
   return (
-    <div className="relative rounded-3xl border border-slate-200 bg-white p-5 sm:p-8 lg:p-10 shadow-xs transition-all duration-300 hover:border-[#D6BC8A] hover:shadow-xl hover-shimmer">
+    <div className="relative rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-5 sm:p-8 lg:p-10 shadow-xs transition-all duration-300 hover:border-[#D6C29A] hover:shadow-xl hover-shimmer text-[#F5F3EE]">
       {/* Top Header Section */}
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-slate-100">
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-[#1E2C4F]">
         <div>
           {/* Eyebrow Chip */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-slate-800 mb-3">
-            <span className="flex h-2 w-2 rounded-full bg-[#D6BC8A] animate-pulse" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-[#D6C29A] mb-3">
+            <span className="flex h-2 w-2 rounded-full bg-[#D6C29A] animate-pulse" />
             <span>SECTION {section.sectionNumber}</span>
             <span className="text-slate-400">•</span>
-            <span className="text-[#D6BC8A]">{section.badge}</span>
+            <span className="text-[#D6C29A]">{section.badge}</span>
           </div>
 
           {/* Section Main Title */}
           <div className="relative">
-            <h3 className="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+            <h3 className="text-2xl font-black tracking-tight text-[#F5F3EE] sm:text-3xl lg:text-4xl">
               {section.title}
             </h3>
             {/* Signature Underline Accent Bar */}
             <div className="mt-3 flex items-center gap-2">
-              <span className="h-1 w-16 rounded-full bg-[#D6BC8A]" />
-              <span className="h-1 w-3.5 rounded-full bg-slate-300" />
-              <span className="h-1 w-1.5 rounded-full bg-slate-200" />
+              <span className="h-1 w-16 rounded-full bg-[#D6C29A]" />
+              <span className="h-1 w-3.5 rounded-full bg-[#1E2C4F]" />
+              <span className="h-1 w-1.5 rounded-full bg-[#1E2C4F]/50" />
             </div>
           </div>
-          <p className="mt-3 max-w-2xl text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <p className="mt-3 max-w-2xl text-xs sm:text-sm text-[#B8C2D9] leading-relaxed">
             {section.subtitle}
           </p>
         </div>
@@ -158,7 +158,7 @@ function SectionCardGroup({ section, onQuickView }) {
         {/* Carousel Slider Next/Prev Arrows Controls */}
         {totalPages > 1 && (
           <div className="flex items-center gap-3 shrink-0">
-            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-700">
+            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-xs font-bold text-[#F5F3EE]">
               <span>{currentPage + 1}</span>
               <span className="text-slate-400">/</span>
               <span>{totalPages}</span>
@@ -168,7 +168,7 @@ function SectionCardGroup({ section, onQuickView }) {
               <button
                 onClick={handlePrevPage}
                 aria-label={`Previous slide for ${section.title}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition-all hover:border-[#D6BC8A] hover:bg-[#D6BC8A] hover:text-[#0F172A] active:scale-95 cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#1E2C4F] bg-[#0B132B] text-[#B8C2D9] shadow-xs transition-all hover:border-[#D6C29A] hover:bg-[#D6C29A] hover:text-[#0B132B] active:scale-95 cursor-pointer"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -176,7 +176,7 @@ function SectionCardGroup({ section, onQuickView }) {
               <button
                 onClick={handleNextPage}
                 aria-label={`Next slide for ${section.title}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D6BC8A] bg-[#D6BC8A] text-[#0F172A] shadow-xs transition-all hover:bg-[#D6BC8A] hover:border-[#D6BC8A] active:scale-95 cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D6C29A] bg-[#D6C29A] text-[#0B132B] shadow-xs transition-all hover:bg-[#D6C29A]/90 hover:border-[#D6C29A] active:scale-95 cursor-pointer"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -218,8 +218,8 @@ function SectionCardGroup({ section, onQuickView }) {
               aria-label={`Go to page ${idx + 1} of ${section.title}`}
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 currentPage === idx
-                  ? 'w-8 bg-[#D6BC8A]'
-                  : 'w-2 bg-slate-200 hover:bg-slate-400'
+                  ? 'w-8 bg-[#D6C29A]'
+                  : 'w-2 bg-[#1E2C4F] hover:bg-[#D6C29A]'
               }`}
             />
           ))}
@@ -311,21 +311,21 @@ export default function ProductSectionsShowcase({
     return null
   }
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-slate-50 border-y border-slate-200/90">
+    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-[#0B132B] border-y border-[#1E2C4F]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Intro Banner */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#D6BC8A] shadow-2xs">
-            <Sparkles className="h-3.5 w-3.5 text-[#D6BC8A]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#D6C29A]/30 bg-[#14213D] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#D6C29A] shadow-2xs">
+            <Sparkles className="h-3.5 w-3.5 text-[#D6C29A]" />
             Dubai Premium Print Showcase
           </div>
 
-          <h2 className="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl text-slate-900">
+          <h2 className="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl text-[#F5F3EE]">
             <span>Explore Our </span>
-            <span className="text-[#D6BC8A]">Product Collections</span>
+            <span className="text-[#D6C29A]">Product Collections</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="text-sm sm:text-base text-[#B8C2D9] leading-relaxed">
             From executive office stationery and promotional marketing collaterals to large-format outdoor displays.
           </p>
         </div>
@@ -338,20 +338,20 @@ export default function ProductSectionsShowcase({
         </div>
 
         {/* Bottom Guarantee Banner */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-5 sm:p-7 shadow-xs text-[#F5F3EE]">
           <div className="flex items-start sm:items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 border border-amber-200 text-[#D6BC8A] font-bold shadow-2xs">
-              <ShieldCheck className="h-5 w-5 text-[#D6BC8A]" />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0B132B] border border-[#1E2C4F] text-[#D6C29A] font-bold shadow-2xs">
+              <ShieldCheck className="h-5 w-5 text-[#D6C29A]" />
             </div>
             <div>
-              <h4 className="text-sm sm:text-base font-bold text-slate-900">Need a custom bulk quantity or unique specification?</h4>
-              <p className="text-xs text-slate-600">Our Dubai prepress team provides instant digital proofs and free material sample boxes.</p>
+              <h4 className="text-sm sm:text-base font-bold text-[#F5F3EE]">Need a custom bulk quantity or unique specification?</h4>
+              <p className="text-xs text-[#B8C2D9]">Our Dubai prepress team provides instant digital proofs and free material sample boxes.</p>
             </div>
           </div>
 
           <Link
             to="/get-a-quote"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#D6BC8A] hover:bg-[#D6BC8A] px-6 py-3 text-xs font-black uppercase tracking-wider text-[#0F172A] shadow-xs transition-all active:scale-95 shrink-0 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#D6C29A] hover:bg-[#D6C29A] px-6 py-3 text-xs font-black uppercase tracking-wider text-[#0F172A] shadow-xs transition-all active:scale-95 shrink-0 cursor-pointer"
           >
             <span>Request Custom Quote</span>
             <ArrowUpRight className="h-4 w-4" />

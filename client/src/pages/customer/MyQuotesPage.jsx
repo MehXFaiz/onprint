@@ -27,10 +27,10 @@ export default function MyQuotesPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#263654] pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1E2C4F] pb-4">
         <div>
-          <h1 className="font-display text-2xl font-black text-[#F5F1E8]">My Quote Requests</h1>
-          <p className="text-xs text-[#F5F1E8]/60">View estimates, pricing proposals, and custom project inquiries.</p>
+          <h1 className="font-display text-2xl font-black text-[#F5F3EE]">My Quote Requests</h1>
+          <p className="text-xs text-[#F5F3EE]/60">View estimates, pricing proposals, and custom project inquiries.</p>
         </div>
         <Button to="/get-a-quote" variant="accent" size="sm" icon={false}>
           <Plus className="h-4 w-4 mr-1" />
@@ -39,10 +39,10 @@ export default function MyQuotesPage() {
       </div>
 
       {quotes.length === 0 ? (
-        <div className="rounded-3xl border border-[#263654] bg-[#1B2943] p-12 text-center shadow-xs">
+        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-12 text-center shadow-xs">
           <FileText className="h-10 w-10 text-[#52647D] mx-auto mb-3" />
-          <h3 className="font-display text-lg font-bold text-[#F5F1E8]">No quote requests yet</h3>
-          <p className="text-xs text-[#F5F1E8]/60 mt-1 max-w-sm mx-auto">
+          <h3 className="font-display text-lg font-bold text-[#F5F3EE]">No quote requests yet</h3>
+          <p className="text-xs text-[#F5F3EE]/60 mt-1 max-w-sm mx-auto">
             Need custom finishes, bulk pricing, or unique dimensions? Submit a quote request today.
           </p>
           <Button to="/get-a-quote" variant="accent" size="md" icon={false} className="mt-6">
@@ -54,44 +54,44 @@ export default function MyQuotesPage() {
           {quotes.map((quote) => (
             <div
               key={quote._id || quote.id || quote.quoteNumber}
-              className="rounded-2xl border border-[#263654] bg-[#1B2943] p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-[#D6BC8A]/40 transition-all"
+              className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-[#D6C29A]/40 transition-all"
             >
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-[#D6BC8A]">{quote.quoteNumber}</span>
+                  <span className="font-mono text-xs font-bold text-[#D6C29A]">{quote.quoteNumber}</span>
                   <span
                     className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${
                       quote.status === 'Approved'
                         ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
                         : quote.status === 'Rejected'
                           ? 'bg-red-500/10 border-red-500/30 text-red-300'
-                          : 'bg-[#D6BC8A]/10 border-[#D6BC8A]/30 text-[#D6BC8A]'
+                          : 'bg-[#D6C29A]/10 border-[#D6C29A]/30 text-[#D6C29A]'
                     }`}
                   >
                     {quote.status || 'Pending'}
                   </span>
                 </div>
-                <h3 className="font-bold text-lg text-[#F5F1E8] mt-1">{quote.productName || 'Custom Print Job'}</h3>
-                {quote.specs && <p className="text-xs text-[#F5F1E8]/70 mt-1">{quote.specs}</p>}
-                {quote.notes && <p className="text-[11px] text-[#F5F1E8]/50 italic mt-1">Note: {quote.notes}</p>}
+                <h3 className="font-bold text-lg text-[#F5F3EE] mt-1">{quote.productName || 'Custom Print Job'}</h3>
+                {quote.specs && <p className="text-xs text-[#F5F3EE]/70 mt-1">{quote.specs}</p>}
+                {quote.notes && <p className="text-[11px] text-[#F5F3EE]/50 italic mt-1">Note: {quote.notes}</p>}
                 {quote.artworkFile && (
-                  <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#D6BC8A] bg-[#101C35] px-2 py-0.5 rounded-md border border-[#263654]">
+                  <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#D6C29A] bg-[#0B132B] px-2 py-0.5 rounded-md border border-[#1E2C4F]">
                     📎 {quote.artworkFile}
                   </div>
                 )}
               </div>
 
-              <div className="flex items-center gap-6 border-t md:border-t-0 border-[#263654] pt-3 md:pt-0 shrink-0">
+              <div className="flex items-center gap-6 border-t md:border-t-0 border-[#1E2C4F] pt-3 md:pt-0 shrink-0">
                 <div>
-                  <div className="text-[10px] font-bold uppercase text-[#F5F1E8]/50">Est. Total</div>
-                  <div className="font-black text-[#D6BC8A] text-sm">
+                  <div className="text-[10px] font-bold uppercase text-[#F5F3EE]/50">Est. Total</div>
+                  <div className="font-black text-[#D6C29A] text-sm">
                     {quote.totalPrice ? `AED ${Number(quote.totalPrice).toLocaleString()}` : 'Pricing on Request'}
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-[10px] font-bold uppercase text-[#F5F1E8]/50">Quantity</div>
-                  <div className="font-bold text-[#F5F1E8] text-xs">{quote.quantity || 1} units</div>
+                  <div className="text-[10px] font-bold uppercase text-[#F5F3EE]/50">Quantity</div>
+                  <div className="font-bold text-[#F5F3EE] text-xs">{quote.quantity || 1} units</div>
                 </div>
               </div>
             </div>

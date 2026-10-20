@@ -3,25 +3,25 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight, Loader2 } from 'lucide-react'
 
 const baseClasses =
-  'group relative overflow-hidden inline-flex items-center justify-center gap-2 max-w-full text-center leading-snug sm:whitespace-nowrap font-bold tracking-tight transition-all duration-300 cursor-pointer rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D6BC8A] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
+  'group relative overflow-hidden inline-flex items-center justify-center gap-2 max-w-full text-center leading-snug sm:whitespace-nowrap font-bold tracking-tight transition-all duration-300 cursor-pointer rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D6C29A] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
 
 const variants = {
   primary:
-    'border-[#D6BC8A] bg-[#D6BC8A] text-[#101C35] hover:bg-[#C4A870] hover:border-[#C4A870] shadow-[0_4px_14px_rgba(214,188,138,0.28)] hover:shadow-[0_8px_24px_rgba(214,188,138,0.38)]',
+    'border-[#D6C29A] bg-[#D6C29A] text-[#0B132B] hover:bg-[#C8B185] hover:border-[#C8B185] shadow-[0_4px_14px_rgba(214,188,138,0.28)] hover:shadow-[0_8px_24px_rgba(214,188,138,0.38)]',
   accent:
-    'border-[#D6BC8A] bg-[#D6BC8A] text-[#101C35] hover:bg-[#C4A870] hover:border-[#C4A870] shadow-[0_4px_14px_rgba(214,188,138,0.28)]',
+    'border-[#D6C29A] bg-[#D6C29A] text-[#0B132B] hover:bg-[#C8B185] hover:border-[#C8B185] shadow-[0_4px_14px_rgba(214,188,138,0.28)]',
   secondary:
-    'border-[#263654] bg-[#1B2943] text-[#F5F1E8] hover:bg-[#263654] hover:border-[#D6BC8A] hover:text-[#D6BC8A] shadow-xs',
+    'border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] hover:bg-[#1E2C4F] hover:border-[#D6C29A] hover:text-[#D6C29A] shadow-xs',
   outline:
-    'border-[#D6BC8A] bg-transparent text-[#F5F1E8] hover:border-[#C4A870] hover:bg-[#D6BC8A] hover:text-[#101C35] shadow-2xs',
+    'border-[#D6C29A] bg-transparent text-[#F5F3EE] hover:border-[#C8B185] hover:bg-[#D6C29A] hover:text-[#0B132B] shadow-2xs',
   darkOutline:
-    'border-[#D6BC8A] bg-transparent text-[#F5F1E8] hover:bg-[#D6BC8A] hover:text-[#101C35] hover:border-[#D6BC8A] shadow-xs',
+    'border-[#D6C29A] bg-transparent text-[#F5F3EE] hover:bg-[#D6C29A] hover:text-[#0B132B] hover:border-[#D6C29A] shadow-xs',
   navyOutline:
-    'border-[#263654] bg-[#1B2943] text-[#F5F1E8] hover:border-[#D6BC8A] hover:text-[#D6BC8A] shadow-xs',
+    'border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] hover:border-[#D6C29A] hover:text-[#D6C29A] shadow-xs',
   whatsapp:
     'border-[#25D366] bg-[#25D366] text-white hover:bg-[#20ba59] hover:border-[#20ba59] shadow-sm shadow-emerald-600/20',
   ghost:
-    'border-transparent bg-transparent text-[#94A3B8] hover:text-[#D6BC8A] hover:bg-[#1B2943]',
+    'border-transparent bg-transparent text-[#94A3B8] hover:text-[#D6C29A] hover:bg-[#14213D]',
 }
 
 const sizes = {

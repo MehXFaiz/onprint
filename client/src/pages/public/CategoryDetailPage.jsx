@@ -164,7 +164,7 @@ export default function CategoryDetailPage() {
 
   if (loading) {
     return (
-      <div className="py-24 bg-[#101C35]">
+      <div className="py-24 bg-[#0B132B]">
         <Container>
           <LoadingState label="Loading printing department details..." />
         </Container>
@@ -174,7 +174,7 @@ export default function CategoryDetailPage() {
 
   if (error || !category) {
     return (
-      <div className="py-24 text-center bg-[#101C35]">
+      <div className="py-24 text-center bg-[#0B132B]">
         <Container>
           <div className="max-w-md mx-auto space-y-4">
             <h1 className="font-display text-2xl font-black text-white">Category Not Found</h1>
@@ -248,7 +248,7 @@ export default function CategoryDetailPage() {
   ]
 
   return (
-    <div className="bg-[#101C35] text-slate-200 py-10 sm:py-16">
+    <div className="bg-[#0B132B] text-slate-200 py-10 sm:py-16">
       {/* SEO Head Management */}
       <SEOHead
         title={seoTitle}
@@ -271,8 +271,8 @@ export default function CategoryDetailPage() {
           <div className="lg:col-span-7 space-y-6">
             <Reveal>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#D6BC8A]/40 bg-[#1B2943] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D6BC8A] shadow-xs">
-                  <Sparkles className="h-3.5 w-3.5 text-[#D6BC8A]" />
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#D6C29A]/40 bg-[#14213D] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D6C29A] shadow-xs">
+                  <Sparkles className="h-3.5 w-3.5 text-[#D6C29A]" />
                   {isDept ? (category.badge || 'MASTER DEPARTMENT') : (departmentInfo ? departmentInfo.name : 'COMMERCIAL SUITE')}
                 </span>
                 {isDept && (
@@ -314,14 +314,14 @@ export default function CategoryDetailPage() {
                   <WhatsAppIcon className="h-4 w-4 fill-white" />
                   <span>Get WhatsApp Quote</span>
                 </a>
-                <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#D6BC8A]/25 text-center justify-center">
+                <Button to="/get-a-quote" variant="accent" size="lg" className="shadow-lg shadow-[#D6C29A]/25 text-center justify-center">
                   Request Instant Quote
                 </Button>
                 <Button
                   to="/products"
                   variant="secondary"
                   size="lg"
-                  className="border-[#263654] text-white hover:border-[#D6BC8A] hover:text-[#D6BC8A] text-center justify-center"
+                  className="border-[#1E2C4F] text-white hover:border-[#D6C29A] hover:text-[#D6C29A] text-center justify-center"
                 >
                   Browse Full Catalog
                 </Button>
@@ -330,21 +330,21 @@ export default function CategoryDetailPage() {
 
             {/* Quality Checklist */}
             <Reveal delay={0.4}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 border-t border-[#263654] pt-6 text-xs font-bold text-white">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 border-t border-[#1E2C4F] pt-6 text-xs font-bold text-white">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#D6BC8A] shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-[#D6C29A] shrink-0" />
                   <span>German Heidelberg &amp; HP Indigo Presses</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#D6BC8A] shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-[#D6C29A] shrink-0" />
                   <span>FSC-Certified Stocks &amp; 24K Gold Foils</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#D6BC8A] shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-[#D6C29A] shrink-0" />
                   <span>24–48h Express Dubai Dispatch</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-[#D6BC8A] shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-[#D6C29A] shrink-0" />
                   <span>Doorstep UAE Delivery &amp; Tracking</span>
                 </div>
               </div>
@@ -354,8 +354,8 @@ export default function CategoryDetailPage() {
           {/* Right Column: Hero Category Image */}
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
-              <div className="group relative overflow-hidden rounded-3xl border border-[#263654] bg-[#1B2943] p-2 shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
-                <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#101C35]">
+              <div className="group relative overflow-hidden rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-2 shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
+                <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0B132B]">
                   <img
                     src={categoryImage}
                     alt={category.image_alt || category.imageAlt || categoryName}
@@ -371,7 +371,7 @@ export default function CategoryDetailPage() {
                 </div>
                 <div className="p-3 flex items-center justify-between text-[11px] font-bold text-slate-300">
                   <span>Dubai Commercial Press • Al Quoz</span>
-                  <span className="text-[#D6BC8A] font-black">100% Quality Inspected</span>
+                  <span className="text-[#D6C29A] font-black">100% Quality Inspected</span>
                 </div>
               </div>
             </Reveal>
@@ -380,10 +380,10 @@ export default function CategoryDetailPage() {
 
         {/* IF MASTER DEPARTMENT: RENDER SUBCATEGORY EXPLORATION CARDS */}
         {isDept && departmentInfo && (
-          <div className="mt-16 border-t border-[#263654] pt-12">
+          <div className="mt-16 border-t border-[#1E2C4F] pt-12">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <span className="text-xs font-black uppercase tracking-widest text-[#D6BC8A]">
+                <span className="text-xs font-black uppercase tracking-widest text-[#D6C29A]">
                   EXPLORE DEPARTMENT CATEGORIES
                 </span>
                 <h3 className="font-display text-2xl font-black text-white mt-1">
@@ -400,10 +400,10 @@ export default function CategoryDetailPage() {
                 <Link
                   key={sub.slug}
                   to={`/categories/${sub.slug}`}
-                  className="group relative rounded-2xl border border-[#263654] bg-[#1B2943] p-4 hover:border-[#D6BC8A] transition-all hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between"
+                  className="group relative rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 hover:border-[#D6C29A] transition-all hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between"
                 >
                   <div>
-                    <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#101C35] mb-3">
+                    <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#0B132B] mb-3">
                       <img
                         src={sub.image}
                         alt={sub.name}
@@ -415,10 +415,10 @@ export default function CategoryDetailPage() {
                       />
                     </div>
                     <div className="flex items-center justify-between mb-1">
-                      <h4 className="font-display text-sm font-bold text-white group-hover:text-[#D6BC8A] transition-colors">
+                      <h4 className="font-display text-sm font-bold text-white group-hover:text-[#D6C29A] transition-colors">
                         {sub.name}
                       </h4>
-                      <span className="rounded-full bg-[#101C35] border border-[#263654] px-2 py-0.5 text-[10px] font-bold text-[#D6BC8A]">
+                      <span className="rounded-full bg-[#0B132B] border border-[#1E2C4F] px-2 py-0.5 text-[10px] font-bold text-[#D6C29A]">
                         {sub.productSlugs.length} items
                       </span>
                     </div>
@@ -427,7 +427,7 @@ export default function CategoryDetailPage() {
                     </p>
                   </div>
 
-                  <div className="mt-3 pt-2 border-t border-[#263654] flex items-center justify-between text-xs font-bold text-[#D6BC8A]">
+                  <div className="mt-3 pt-2 border-t border-[#1E2C4F] flex items-center justify-between text-xs font-bold text-[#D6C29A]">
                     <span>{sub.featuredBadge || 'View Collection'}</span>
                     <ChevronRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -439,8 +439,8 @@ export default function CategoryDetailPage() {
 
         {/* IF SINGLE CATEGORY: SIBLING PILLS IN SAME DEPARTMENT */}
         {!isDept && departmentInfo && departmentInfo.subcategories?.length > 1 && (
-          <div className="mt-12 rounded-2xl border border-[#263654] bg-[#1B2943] p-4 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-black uppercase text-[#D6BC8A] mr-2">
+          <div className="mt-12 rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-black uppercase text-[#D6C29A] mr-2">
               Related in {departmentInfo.name}:
             </span>
             {departmentInfo.subcategories.map((sub) => {
@@ -451,8 +451,8 @@ export default function CategoryDetailPage() {
                   to={`/categories/${sub.slug}`}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                     isCurrent
-                      ? 'bg-[#D6BC8A] text-[#101C35]'
-                      : 'bg-[#101C35] text-slate-300 hover:text-white hover:border-[#D6BC8A] border border-[#263654]'
+                      ? 'bg-[#D6C29A] text-[#0B132B]'
+                      : 'bg-[#0B132B] text-slate-300 hover:text-white hover:border-[#D6C29A] border border-[#1E2C4F]'
                   }`}
                 >
                   {sub.name}
@@ -463,10 +463,10 @@ export default function CategoryDetailPage() {
         )}
 
         {/* Dynamic Products Showcase */}
-        <div className="mt-16 border-t border-[#263654] pt-12">
+        <div className="mt-16 border-t border-[#1E2C4F] pt-12">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end mb-8">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#D6BC8A]">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#D6C29A]">
                 PRODUCT CATALOG
               </span>
               <h2 className="font-display mt-1 text-2xl font-black tracking-tight text-white sm:text-3xl">
@@ -482,7 +482,7 @@ export default function CategoryDetailPage() {
                 value={deptSearchQuery}
                 onChange={(e) => setDeptSearchQuery(e.target.value)}
                 placeholder={`Search in ${categoryName}...`}
-                className="w-full rounded-xl border border-[#263654] bg-[#1B2943] pl-9 pr-8 py-2 text-xs font-semibold text-white placeholder:text-slate-400 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] pl-9 pr-8 py-2 text-xs font-semibold text-white placeholder:text-slate-400 focus:border-[#D6C29A] focus:outline-none"
               />
               {deptSearchQuery && (
                 <button
@@ -504,8 +504,8 @@ export default function CategoryDetailPage() {
                 onClick={() => setSelectedSubcatFilter('all')}
                 className={`px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer shrink-0 ${
                   selectedSubcatFilter === 'all'
-                    ? 'bg-[#D6BC8A] text-[#101C35] shadow-sm'
-                    : 'bg-[#1B2943] border border-[#263654] text-slate-300 hover:text-white'
+                    ? 'bg-[#D6C29A] text-[#0B132B] shadow-sm'
+                    : 'bg-[#14213D] border border-[#1E2C4F] text-slate-300 hover:text-white'
                 }`}
               >
                 All Products ({products.length})
@@ -519,8 +519,8 @@ export default function CategoryDetailPage() {
                     onClick={() => setSelectedSubcatFilter(sub.slug)}
                     className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 flex items-center gap-1.5 ${
                       selectedSubcatFilter === sub.slug
-                        ? 'bg-[#D6BC8A] text-[#101C35] shadow-sm'
-                        : 'bg-[#1B2943] border border-[#263654] text-slate-300 hover:text-white'
+                        ? 'bg-[#D6C29A] text-[#0B132B] shadow-sm'
+                        : 'bg-[#14213D] border border-[#1E2C4F] text-slate-300 hover:text-white'
                     }`}
                   >
                     <span>{sub.name}</span>
@@ -532,7 +532,7 @@ export default function CategoryDetailPage() {
           )}
 
           {displayedProducts.length === 0 ? (
-            <div className="rounded-3xl border border-[#263654] bg-[#1B2943] p-10 text-center space-y-3">
+            <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-10 text-center space-y-3">
               <p className="text-sm font-semibold text-slate-200">
                 {deptSearchQuery
                   ? `No products found matching "${deptSearchQuery}". Try clearing search.`
@@ -562,7 +562,7 @@ export default function CategoryDetailPage() {
           )}
 
           {/* Natural Repeated In-Page WhatsApp Conversion Banner */}
-          <div className="mt-12 rounded-2xl border border-emerald-500/40 bg-gradient-to-r from-emerald-950/40 to-[#101C35] p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="mt-12 rounded-2xl border border-emerald-500/40 bg-gradient-to-r from-emerald-950/40 to-[#0B132B] p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <p className="font-extrabold text-base text-white">
                 Need tailored sizing, bulk discounts, or urgent 24h printing for {categoryName}?
@@ -592,9 +592,9 @@ export default function CategoryDetailPage() {
         </div>
 
         {/* Technical Specs & Printing Details */}
-        <div className="mt-20 rounded-3xl border border-[#263654] bg-[#1B2943] p-8 sm:p-12 shadow-sm space-y-8">
+        <div className="mt-20 rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-8 sm:p-12 shadow-sm space-y-8">
           <div>
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#D6BC8A]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#D6C29A]">
               PRODUCTION SPECIFICATIONS
             </span>
             <h3 className="font-display mt-2 text-xl font-bold tracking-tight text-white sm:text-2xl">
@@ -603,8 +603,8 @@ export default function CategoryDetailPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-[#263654] bg-[#101C35] p-5 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D6BC8A]">
+            <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D6C29A]">
                 <Printer className="h-4 w-4" />
                 <span>Print Technology</span>
               </div>
@@ -613,8 +613,8 @@ export default function CategoryDetailPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#263654] bg-[#101C35] p-5 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D6BC8A]">
+            <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D6C29A]">
                 <Layers className="h-4 w-4" />
                 <span>Paper Stocks</span>
               </div>
@@ -623,8 +623,8 @@ export default function CategoryDetailPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#263654] bg-[#101C35] p-5 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D6BC8A]">
+            <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D6C29A]">
                 <Award className="h-4 w-4" />
                 <span>Specialty Finishes</span>
               </div>
@@ -633,8 +633,8 @@ export default function CategoryDetailPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#263654] bg-[#101C35] p-5 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D6BC8A]">
+            <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D6C29A]">
                 <Clock className="h-4 w-4" />
                 <span>Turnaround Times</span>
               </div>
@@ -646,15 +646,15 @@ export default function CategoryDetailPage() {
         </div>
 
         {/* Category FAQs for SEO Rich Snippets */}
-        <div className="mt-16 rounded-3xl border border-[#263654] bg-[#1B2943] p-8 sm:p-12 shadow-sm space-y-6">
-          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D6BC8A]">
+        <div className="mt-16 rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-8 sm:p-12 shadow-sm space-y-6">
+          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#D6C29A]">
             <HelpCircle className="h-4 w-4" />
             <span>Frequently Asked Questions</span>
           </div>
           <h2 className="font-display text-xl font-bold tracking-tight text-white sm:text-2xl">
             {categoryName} Specifications &amp; Ordering FAQs
           </h2>
-          <div className="mt-6 divide-y divide-[#263654] border-t border-[#263654]">
+          <div className="mt-6 divide-y divide-[#1E2C4F] border-t border-[#1E2C4F]">
             {categoryFaqs.map((faq, index) => (
               <div key={index} className="py-5">
                 <h3 className="font-display text-base font-bold text-white">{faq.question}</h3>

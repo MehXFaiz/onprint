@@ -37,7 +37,7 @@ const CLASSIFICATION_STYLES = {
   'Confirmed harmful': 'bg-red-500/15 text-red-400 border-red-500/30',
   'Suspicious — needs review': 'bg-amber-500/15 text-amber-300 border-amber-500/30',
   'Potentially legitimate': 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
-  Unknown: 'bg-slate-500/15 text-slate-300 border-slate-500/30',
+  Unknown: 'bg-[#0B132B]0/15 text-slate-300 border-slate-500/30',
 }
 
 export default function BacklinkAuditTab({ showToast }) {
@@ -342,7 +342,7 @@ export default function BacklinkAuditTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header & Executive Disavow Safety Banner */}
-      <div className="bg-[#101C35] border border-[#263654] rounded-2xl p-6">
+      <div className="bg-[#0B132B] border border-[#1E2C4F] rounded-2xl p-6">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2.5">
@@ -364,13 +364,13 @@ export default function BacklinkAuditTab({ showToast }) {
             </button>
             <button
               onClick={handleExportClassifiedCsv}
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1B2943] hover:bg-slate-700 text-slate-200 border border-[#343D4F] text-xs font-semibold transition"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#14213D] hover:bg-slate-700 text-slate-200 border border-[#343D4F] text-xs font-semibold transition"
             >
               <Download className="w-4 h-4" /> Export Classified CSV
             </button>
             <button
               onClick={fetchAudit}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#1B2943] hover:bg-slate-700 text-slate-300 border border-[#343D4F] text-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#14213D] hover:bg-slate-700 text-slate-300 border border-[#343D4F] text-xs"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} /> Refresh
             </button>
@@ -388,10 +388,10 @@ export default function BacklinkAuditTab({ showToast }) {
               {summary.disavowRecommendation?.rationale}
             </p>
             <div className="flex flex-wrap gap-3 pt-1 text-[11px] text-slate-400">
-              <span className="px-2 py-0.5 rounded bg-[#0B1426]/70 border border-[#263654] text-amber-300 font-mono">
+              <span className="px-2 py-0.5 rounded bg-[#070D1E]/70 border border-[#1E2C4F] text-amber-300 font-mono">
                 Uploaded CSV: 0nprint.com-Latest links-2026-10-16.csv (1 link: 2ip.io)
               </span>
-              <span className="px-2 py-0.5 rounded bg-[#0B1426]/70 border border-[#263654] text-emerald-400">
+              <span className="px-2 py-0.5 rounded bg-[#070D1E]/70 border border-[#1E2C4F] text-emerald-400">
                 Safety Guardrail Active: Never auto-disavows based solely on low Authority Score or foreign language
               </span>
             </div>
@@ -401,61 +401,61 @@ export default function BacklinkAuditTab({ showToast }) {
 
       {/* KPI Metrics Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
-        <div className="bg-[#101C35] border border-[#263654] rounded-xl p-4">
+        <div className="bg-[#0B132B] border border-[#1E2C4F] rounded-xl p-4">
           <div className="text-xs text-slate-400">Referring Domains / Links</div>
           <div className="text-2xl font-bold text-white mt-1">
             {summary.totalReferringDomains || 0} <span className="text-sm font-normal text-slate-400">/ {summary.totalBacklinks || 0}</span>
           </div>
-          <div className="text-[11px] text-slate-500 mt-1">
+          <div className="text-[11px] text-[#B8C2D9] mt-1">
             {summary.gscExportLinksCount || 0} GSC CSV • {summary.repositoryTrackedCitationsCount || 0} Citations
           </div>
         </div>
 
-        <div className="bg-[#101C35] border border-red-500/30 rounded-xl p-4">
+        <div className="bg-[#0B132B] border border-red-500/30 rounded-xl p-4">
           <div className="text-xs text-red-400 flex items-center gap-1.5">
             <ShieldAlert className="w-3.5 h-3.5" /> Confirmed Harmful
           </div>
           <div className="text-2xl font-bold text-red-400 mt-1">{categories.confirmedHarmful || 0}</div>
-          <div className="text-[11px] text-slate-500 mt-1">Explicit spam / link schemes</div>
+          <div className="text-[11px] text-[#B8C2D9] mt-1">Explicit spam / link schemes</div>
         </div>
 
-        <div className="bg-[#101C35] border border-amber-500/30 rounded-xl p-4">
+        <div className="bg-[#0B132B] border border-amber-500/30 rounded-xl p-4">
           <div className="text-xs text-amber-300 flex items-center gap-1.5">
             <AlertTriangle className="w-3.5 h-3.5" /> Suspicious (Review)
           </div>
           <div className="text-2xl font-bold text-amber-300 mt-1">{categories.suspicious || 0}</div>
-          <div className="text-[11px] text-slate-500 mt-1">Includes 2ip.io IP scraper</div>
+          <div className="text-[11px] text-[#B8C2D9] mt-1">Includes 2ip.io IP scraper</div>
         </div>
 
-        <div className="bg-[#101C35] border border-emerald-500/30 rounded-xl p-4">
+        <div className="bg-[#0B132B] border border-emerald-500/30 rounded-xl p-4">
           <div className="text-xs text-emerald-400 flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5" /> Potentially Legitimate
           </div>
           <div className="text-2xl font-bold text-emerald-400 mt-1">{categories.potentiallyLegitimate || 0}</div>
-          <div className="text-[11px] text-slate-500 mt-1">Protected UAE citations</div>
+          <div className="text-[11px] text-[#B8C2D9] mt-1">Protected UAE citations</div>
         </div>
 
-        <div className="bg-[#101C35] border border-[#343D4F] rounded-xl p-4">
+        <div className="bg-[#0B132B] border border-[#343D4F] rounded-xl p-4">
           <div className="text-xs text-slate-300 flex items-center gap-1.5">
             <HelpCircle className="w-3.5 h-3.5" /> Unknown
           </div>
           <div className="text-2xl font-bold text-slate-200 mt-1">{categories.unknown || 0}</div>
-          <div className="text-[11px] text-slate-500 mt-1">Insufficient evidence</div>
+          <div className="text-[11px] text-[#B8C2D9] mt-1">Insufficient evidence</div>
         </div>
 
-        <div className="bg-[#101C35] border border-purple-500/30 rounded-xl p-4">
+        <div className="bg-[#0B132B] border border-purple-500/30 rounded-xl p-4">
           <div className="text-xs text-purple-300 flex items-center gap-1.5">
             <Lock className="w-3.5 h-3.5" /> Disavow Approved
           </div>
           <div className="text-2xl font-bold text-purple-300 mt-1">{summary.disavowApprovedCount || 0}</div>
-          <div className="text-[11px] text-slate-500 mt-1">
+          <div className="text-[11px] text-[#B8C2D9] mt-1">
             {summary.reviewQueueCount || 0} awaiting review
           </div>
         </div>
       </div>
 
       {/* Sub-navigation Tabs */}
-      <div className="flex flex-wrap gap-2 border-b border-[#263654] pb-3">
+      <div className="flex flex-wrap gap-2 border-b border-[#1E2C4F] pb-3">
         {[
           { id: 'domain_review', label: `1. Forensic Domain Review (${summary.totalBacklinks || 0})`, icon: ShieldAlert },
           { id: 'disavow_queue', label: `2. Disavow Approval Queue & disavow.txt (${summary.disavowApprovedCount || 0} Approved)`, icon: FileText },
@@ -472,7 +472,7 @@ export default function BacklinkAuditTab({ showToast }) {
               className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition border ${
                 active
                   ? 'bg-amber-500 text-slate-950 border-amber-400'
-                  : 'bg-[#101C35] text-slate-300 border-[#263654] hover:bg-[#1B2943]'
+                  : 'bg-[#0B132B] text-slate-300 border-[#1E2C4F] hover:bg-[#14213D]'
               }`}
             >
               <Icon className="w-3.5 h-3.5" />
@@ -484,11 +484,11 @@ export default function BacklinkAuditTab({ showToast }) {
 
       {/* SUBVIEW 1: FORENSIC DOMAIN & LINK REVIEW TABLE */}
       {subView === 'domain_review' && (
-        <div className="bg-[#101C35] border border-[#263654] rounded-2xl p-5 space-y-4">
+        <div className="bg-[#0B132B] border border-[#1E2C4F] rounded-2xl p-5 space-y-4">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2.5">
               <div className="relative">
-                <Search className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
+                <Search className="w-4 h-4 text-[#B8C2D9] absolute left-3 top-2.5" />
                 <input
                   type="text"
                   value={search}
@@ -497,7 +497,7 @@ export default function BacklinkAuditTab({ showToast }) {
                     setPage(1)
                   }}
                   placeholder="Search domain, URL, anchor, evidence..."
-                  className="bg-[#0B1426] border border-[#263654] rounded-xl pl-9 pr-3 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none w-64"
+                  className="bg-[#070D1E] border border-[#1E2C4F] rounded-xl pl-9 pr-3 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none w-64"
                 />
               </div>
 
@@ -507,7 +507,7 @@ export default function BacklinkAuditTab({ showToast }) {
                   setClassificationFilter(e.target.value)
                   setPage(1)
                 }}
-                className="bg-[#0B1426] border border-[#263654] rounded-xl px-3 py-1.5 text-xs text-slate-200"
+                className="bg-[#070D1E] border border-[#1E2C4F] rounded-xl px-3 py-1.5 text-xs text-slate-200"
               >
                 <option value="all">All 4 Classifications</option>
                 <option value="Confirmed harmful">Confirmed harmful</option>
@@ -522,7 +522,7 @@ export default function BacklinkAuditTab({ showToast }) {
                   setSourceFilter(e.target.value)
                   setPage(1)
                 }}
-                className="bg-[#0B1426] border border-[#263654] rounded-xl px-3 py-1.5 text-xs text-slate-200"
+                className="bg-[#070D1E] border border-[#1E2C4F] rounded-xl px-3 py-1.5 text-xs text-slate-200"
               >
                 <option value="all">All Data Sources</option>
                 <option value="gsc_latest_links_csv">GSC Latest Links CSV Export</option>
@@ -533,7 +533,7 @@ export default function BacklinkAuditTab({ showToast }) {
 
             {/* Bulk Actions */}
             {selectedIds.length > 0 && (
-              <div className="flex flex-wrap items-center gap-2 bg-[#0B1426] border border-[#263654] px-3 py-1.5 rounded-xl">
+              <div className="flex flex-wrap items-center gap-2 bg-[#070D1E] border border-[#1E2C4F] px-3 py-1.5 rounded-xl">
                 <span className="text-xs text-amber-400 font-semibold">{selectedIds.length} selected:</span>
                 <button
                   onClick={() =>
@@ -577,7 +577,7 @@ export default function BacklinkAuditTab({ showToast }) {
                       review_status: 'reviewed_manual',
                     })
                   }
-                  className="px-2.5 py-1 rounded bg-[#1B2943] text-slate-300 text-[11px] hover:bg-slate-700"
+                  className="px-2.5 py-1 rounded bg-[#14213D] text-slate-300 text-[11px] hover:bg-slate-700"
                 >
                   Remove from Disavow
                 </button>
@@ -588,7 +588,7 @@ export default function BacklinkAuditTab({ showToast }) {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-[#263654] text-[11px] uppercase text-slate-400">
+                <tr className="border-b border-[#1E2C4F] text-[11px] uppercase text-slate-400">
                   <th className="py-3 px-2 w-8">
                     <button onClick={handleSelectAll} className="text-slate-400 hover:text-white">
                       {selectedIds.length > 0 && selectedIds.length === items.length ? (
@@ -611,7 +611,7 @@ export default function BacklinkAuditTab({ showToast }) {
                   const badgeStyle = CLASSIFICATION_STYLES[item.classification] || CLASSIFICATION_STYLES.Unknown
                   const isLegit = item.classification === 'Potentially legitimate'
                   return (
-                    <tr key={item.id} className={`hover:bg-[#1B2943]/30 ${isSelected ? 'bg-amber-500/5' : ''}`}>
+                    <tr key={item.id} className={`hover:bg-[#14213D]/30 ${isSelected ? 'bg-amber-500/5' : ''}`}>
                       <td className="py-3.5 px-2 align-top">
                         <button onClick={() => handleSelectToggle(item.id)} className="text-slate-400 hover:text-white">
                           {isSelected ? <CheckSquare className="w-4 h-4 text-amber-400" /> : <Square className="w-4 h-4" />}
@@ -620,7 +620,7 @@ export default function BacklinkAuditTab({ showToast }) {
                       <td className="py-3.5 px-3 align-top max-w-xs">
                         <div className="flex items-center gap-2">
                           <span className="font-bold text-white text-sm">{item.linking_domain}</span>
-                          <span className="px-2 py-0.5 rounded text-[10px] bg-[#1B2943] text-slate-300 border border-[#343D4F]">
+                          <span className="px-2 py-0.5 rounded text-[10px] bg-[#14213D] text-slate-300 border border-[#343D4F]">
                             {item.source_dataset === 'gsc_latest_links_csv'
                               ? 'GSC CSV Export'
                               : item.source_dataset === 'semrush_backlink_export'
@@ -636,7 +636,7 @@ export default function BacklinkAuditTab({ showToast }) {
                         >
                           {item.linking_url} <ExternalLink className="w-3 h-3 shrink-0" />
                         </a>
-                        <div className="text-[11px] text-slate-500 mt-1">
+                        <div className="text-[11px] text-[#B8C2D9] mt-1">
                           Last crawled: <span className="text-slate-300">{item.last_checked_at || 'N/A'}</span>
                           {item.authority !== null && item.authority !== undefined && (
                             <> • Authority: <span className="text-slate-300">{item.authority}</span></>
@@ -659,7 +659,7 @@ export default function BacklinkAuditTab({ showToast }) {
                               ⚠ Mismatched Target
                             </span>
                           )}
-                          <span className="px-1.5 py-0.5 rounded bg-[#1B2943] text-slate-300 text-[10px]">
+                          <span className="px-1.5 py-0.5 rounded bg-[#14213D] text-slate-300 text-[10px]">
                             {item.link_type}
                           </span>
                         </div>
@@ -687,7 +687,7 @@ export default function BacklinkAuditTab({ showToast }) {
                               {item.risk_score}/100
                             </span>
                           </div>
-                          <div className="w-36 h-1.5 bg-[#1B2943] rounded-full overflow-hidden">
+                          <div className="w-36 h-1.5 bg-[#14213D] rounded-full overflow-hidden">
                             <div
                               className={`h-full ${
                                 item.risk_score >= 75
@@ -713,7 +713,7 @@ export default function BacklinkAuditTab({ showToast }) {
                             <li key={idx}>{ev}</li>
                           ))}
                         </ul>
-                        <div className="mt-2 p-2 rounded-lg bg-[#0B1426]/80 border border-[#263654] text-[11px] text-amber-200/90">
+                        <div className="mt-2 p-2 rounded-lg bg-[#070D1E]/80 border border-[#1E2C4F] text-[11px] text-amber-200/90">
                           <span className="font-semibold text-amber-400">Action: </span>
                           {item.recommended_action}
                         </div>
@@ -728,7 +728,7 @@ export default function BacklinkAuditTab({ showToast }) {
                                 classification: e.target.value,
                               })
                             }
-                            className="bg-[#0B1426] border border-[#343D4F] rounded-lg px-2 py-1 text-[11px] text-slate-200 w-44"
+                            className="bg-[#070D1E] border border-[#343D4F] rounded-lg px-2 py-1 text-[11px] text-slate-200 w-44"
                           >
                             <option value="Confirmed harmful">Confirmed harmful</option>
                             <option value="Suspicious — needs review">Suspicious — needs review</option>
@@ -747,7 +747,7 @@ export default function BacklinkAuditTab({ showToast }) {
                                     review_status: 'reviewed_manual',
                                   })
                                 }
-                                className="px-2.5 py-1 rounded-lg bg-[#1B2943] hover:bg-slate-700 text-slate-300 text-[11px]"
+                                className="px-2.5 py-1 rounded-lg bg-[#14213D] hover:bg-slate-700 text-slate-300 text-[11px]"
                               >
                                 Remove from Disavow
                               </button>
@@ -781,7 +781,7 @@ export default function BacklinkAuditTab({ showToast }) {
       {subView === 'disavow_queue' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left Column: Approval Queue & Generator Controls */}
-          <div className="bg-[#101C35] border border-[#263654] rounded-2xl p-5 space-y-4">
+          <div className="bg-[#0B132B] border border-[#1E2C4F] rounded-2xl p-5 space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Lock className="w-4 h-4 text-amber-400" /> Human Review Queue & Disavow Safety Gate
             </h3>
@@ -791,7 +791,7 @@ export default function BacklinkAuditTab({ showToast }) {
 
             <div className="space-y-3">
               {(auditData?.reviewQueue || []).map((qItem) => (
-                <div key={qItem.id} className="p-3.5 rounded-xl bg-[#0B1426] border border-[#263654] space-y-2">
+                <div key={qItem.id} className="p-3.5 rounded-xl bg-[#070D1E] border border-[#1E2C4F] space-y-2">
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="font-bold text-white text-sm">{qItem.linking_domain}</span>
@@ -803,7 +803,7 @@ export default function BacklinkAuditTab({ showToast }) {
                       <select
                         value={qItem.disavow_scope || 'domain'}
                         onChange={(e) => handleSingleReview(qItem.id, { disavow_scope: e.target.value })}
-                        className="bg-[#101C35] border border-[#343D4F] rounded px-2 py-1 text-[11px] text-slate-200"
+                        className="bg-[#0B132B] border border-[#343D4F] rounded px-2 py-1 text-[11px] text-slate-200"
                       >
                         <option value="domain">domain:{qItem.linking_domain}</option>
                         <option value="url">URL-level only</option>
@@ -832,13 +832,13 @@ export default function BacklinkAuditTab({ showToast }) {
             </div>
 
             {/* Explicit Approval & Version Generation Box */}
-            <div className="p-4 rounded-xl bg-[#0B1426] border border-amber-500/30 space-y-3 mt-4">
+            <div className="p-4 rounded-xl bg-[#070D1E] border border-amber-500/30 space-y-3 mt-4">
               <div className="text-xs font-bold text-amber-300">Generate & Record Validated disavow.txt Snapshot</div>
               <div className="flex gap-3">
                 <select
                   value={disavowMode}
                   onChange={(e) => setDisavowMode(e.target.value)}
-                  className="bg-[#101C35] border border-[#343D4F] rounded-xl px-3 py-2 text-xs text-white"
+                  className="bg-[#0B132B] border border-[#343D4F] rounded-xl px-3 py-2 text-xs text-white"
                 >
                   <option value="approved_only">Strict Mode: Explicitly Approved Domains Only</option>
                   <option value="candidate_draft">Draft Preview Mode: Include Suspicious Candidate (domain:2ip.io)</option>
@@ -848,7 +848,7 @@ export default function BacklinkAuditTab({ showToast }) {
                   value={disavowNotes}
                   onChange={(e) => setDisavowNotes(e.target.value)}
                   placeholder="Audit version note (optional)..."
-                  className="flex-1 bg-[#101C35] border border-[#343D4F] rounded-xl px-3 py-2 text-xs text-white"
+                  className="flex-1 bg-[#0B132B] border border-[#343D4F] rounded-xl px-3 py-2 text-xs text-white"
                 />
               </div>
 
@@ -875,7 +875,7 @@ export default function BacklinkAuditTab({ showToast }) {
           </div>
 
           {/* Right Column: Live Validated disavow.txt Output & Version History */}
-          <div className="bg-[#101C35] border border-[#263654] rounded-2xl p-5 space-y-4">
+          <div className="bg-[#0B132B] border border-[#1E2C4F] rounded-2xl p-5 space-y-4">
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-base font-bold text-white">Validated Google Disavow File Preview</h3>
@@ -893,7 +893,7 @@ export default function BacklinkAuditTab({ showToast }) {
                       'disavow-copy'
                     )
                   }
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1B2943] hover:bg-slate-700 text-slate-200 text-xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#14213D] hover:bg-slate-700 text-slate-200 text-xs"
                 >
                   {copiedId === 'disavow-copy' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   Copy
@@ -914,7 +914,7 @@ export default function BacklinkAuditTab({ showToast }) {
               </div>
             </div>
 
-            <pre className="p-4 rounded-xl bg-[#0B1426] border border-[#263654] text-[11px] font-mono text-emerald-300 overflow-x-auto whitespace-pre-wrap leading-relaxed max-h-80">
+            <pre className="p-4 rounded-xl bg-[#070D1E] border border-[#1E2C4F] text-[11px] font-mono text-emerald-300 overflow-x-auto whitespace-pre-wrap leading-relaxed max-h-80">
               {disavowMode === 'candidate_draft'
                 ? disavowInfo.candidateDraft?.content
                 : disavowInfo.approvedFile?.content}
@@ -924,19 +924,19 @@ export default function BacklinkAuditTab({ showToast }) {
             <div className="pt-2">
               <h4 className="text-xs font-bold uppercase text-slate-400 mb-2">Disavow File Version History</h4>
               {(disavowInfo.versions || []).length === 0 ? (
-                <div className="text-xs text-slate-500 italic">No disavow versions saved yet. Use the generator on the left to record v1.0.</div>
+                <div className="text-xs text-[#B8C2D9] italic">No disavow versions saved yet. Use the generator on the left to record v1.0.</div>
               ) : (
                 <div className="space-y-2 max-h-48 overflow-y-auto">
                   {disavowInfo.versions.map((ver) => (
-                    <div key={ver.id} className="p-3 rounded-xl bg-[#0B1426] border border-[#263654] flex items-center justify-between text-xs">
+                    <div key={ver.id} className="p-3 rounded-xl bg-[#070D1E] border border-[#1E2C4F] flex items-center justify-between text-xs">
                       <div>
                         <span className="font-bold text-amber-400">{ver.version}</span>
                         <span className="text-slate-400 ml-2">({ver.directives_count} directives • {ver.mode})</span>
-                        <div className="text-[11px] text-slate-500">{new Date(ver.created_at).toLocaleString()} — {ver.notes}</div>
+                        <div className="text-[11px] text-[#B8C2D9]">{new Date(ver.created_at).toLocaleString()} — {ver.notes}</div>
                       </div>
                       <button
                         onClick={() => handleDownloadText(ver.content, `disavow-${ver.version}.txt`)}
-                        className="px-2.5 py-1 rounded bg-[#1B2943] hover:bg-slate-700 text-slate-200 text-[11px]"
+                        className="px-2.5 py-1 rounded bg-[#14213D] hover:bg-slate-700 text-slate-200 text-[11px]"
                       >
                         Download
                       </button>
@@ -952,7 +952,7 @@ export default function BacklinkAuditTab({ showToast }) {
       {/* SUBVIEW 3: REMOVAL REQUEST TRACKING & OUTREACH TEMPLATES */}
       {subView === 'removal_requests' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-[#101C35] border border-[#263654] rounded-2xl p-5 space-y-4">
+          <div className="bg-[#0B132B] border border-[#1E2C4F] rounded-2xl p-5 space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Mail className="w-4 h-4 text-amber-400" /> Backlink Removal Request Tracker
             </h3>
@@ -962,7 +962,7 @@ export default function BacklinkAuditTab({ showToast }) {
 
             <div className="space-y-3">
               {removalRequests.map((reqItem) => (
-                <div key={reqItem.id} className="p-4 rounded-xl bg-[#0B1426] border border-[#263654] space-y-2 text-xs">
+                <div key={reqItem.id} className="p-4 rounded-xl bg-[#070D1E] border border-[#1E2C4F] space-y-2 text-xs">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-white text-sm">{reqItem.linking_domain}</span>
                     <select
@@ -973,7 +973,7 @@ export default function BacklinkAuditTab({ showToast }) {
                           verified_removed: e.target.value === 'removed_verified',
                         })
                       }
-                      className="bg-[#101C35] border border-[#343D4F] rounded-lg px-2.5 py-1 text-[11px] text-amber-300"
+                      className="bg-[#0B132B] border border-[#343D4F] rounded-lg px-2.5 py-1 text-[11px] text-amber-300"
                     >
                       <option value="draft_ready">Draft Ready</option>
                       <option value="sent">Outreach Sent</option>
@@ -994,7 +994,7 @@ export default function BacklinkAuditTab({ showToast }) {
             </div>
 
             {/* Log New Removal Request Form */}
-            <form onSubmit={handleCreateRemoval} className="p-4 rounded-xl bg-[#0B1426] border border-[#263654] space-y-3">
+            <form onSubmit={handleCreateRemoval} className="p-4 rounded-xl bg-[#070D1E] border border-[#1E2C4F] space-y-3">
               <div className="text-xs font-bold text-white">Record New Removal / Delisting Outreach</div>
               <div className="grid grid-cols-2 gap-2.5">
                 <input
@@ -1002,28 +1002,28 @@ export default function BacklinkAuditTab({ showToast }) {
                   placeholder="Referring Domain (e.g. example.com)"
                   value={newRemoval.linking_domain}
                   onChange={(e) => setNewRemoval({ ...newRemoval, linking_domain: e.target.value })}
-                  className="bg-[#101C35] border border-[#263654] rounded-lg px-3 py-1.5 text-xs text-white"
+                  className="bg-[#0B132B] border border-[#1E2C4F] rounded-lg px-3 py-1.5 text-xs text-white"
                 />
                 <input
                   type="text"
                   placeholder="Linking URL"
                   value={newRemoval.linking_url}
                   onChange={(e) => setNewRemoval({ ...newRemoval, linking_url: e.target.value })}
-                  className="bg-[#101C35] border border-[#263654] rounded-lg px-3 py-1.5 text-xs text-white"
+                  className="bg-[#0B132B] border border-[#1E2C4F] rounded-lg px-3 py-1.5 text-xs text-white"
                 />
                 <input
                   type="text"
                   placeholder="Contact / Abuse URL"
                   value={newRemoval.contact_page}
                   onChange={(e) => setNewRemoval({ ...newRemoval, contact_page: e.target.value })}
-                  className="bg-[#101C35] border border-[#263654] rounded-lg px-3 py-1.5 text-xs text-white"
+                  className="bg-[#0B132B] border border-[#1E2C4F] rounded-lg px-3 py-1.5 text-xs text-white"
                 />
                 <input
                   type="text"
                   placeholder="Webmaster Email"
                   value={newRemoval.contact_email}
                   onChange={(e) => setNewRemoval({ ...newRemoval, contact_email: e.target.value })}
-                  className="bg-[#101C35] border border-[#263654] rounded-lg px-3 py-1.5 text-xs text-white"
+                  className="bg-[#0B132B] border border-[#1E2C4F] rounded-lg px-3 py-1.5 text-xs text-white"
                 />
               </div>
               <input
@@ -1031,7 +1031,7 @@ export default function BacklinkAuditTab({ showToast }) {
                 placeholder="Outreach notes / response summary"
                 value={newRemoval.notes}
                 onChange={(e) => setNewRemoval({ ...newRemoval, notes: e.target.value })}
-                className="w-full bg-[#101C35] border border-[#263654] rounded-lg px-3 py-1.5 text-xs text-white"
+                className="w-full bg-[#0B132B] border border-[#1E2C4F] rounded-lg px-3 py-1.5 text-xs text-white"
               />
               <button
                 type="submit"
@@ -1043,26 +1043,26 @@ export default function BacklinkAuditTab({ showToast }) {
           </div>
 
           {/* Outreach Templates */}
-          <div className="bg-[#101C35] border border-[#263654] rounded-2xl p-5 space-y-4">
+          <div className="bg-[#0B132B] border border-[#1E2C4F] rounded-2xl p-5 space-y-4">
             <h3 className="text-base font-bold text-white">Professional Backlink Removal Outreach Templates</h3>
             <div className="space-y-4">
               {outreachTemplates.map((tpl) => (
-                <div key={tpl.id} className="p-4 rounded-xl bg-[#0B1426] border border-[#263654] space-y-2">
+                <div key={tpl.id} className="p-4 rounded-xl bg-[#070D1E] border border-[#1E2C4F] space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-amber-300 text-xs">{tpl.name}</span>
                     <button
                       onClick={() => handleCopyText(`Subject: ${tpl.subject}\n\n${tpl.body}`, tpl.id)}
-                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#1B2943] hover:bg-slate-700 text-slate-200 text-[11px]"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#14213D] hover:bg-slate-700 text-slate-200 text-[11px]"
                     >
                       {copiedId === tpl.id ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
                       Copy Template
                     </button>
                   </div>
                   <div className="text-[11px] text-slate-400">{tpl.scenario}</div>
-                  <div className="text-xs text-white font-mono bg-[#101C35] p-2 rounded border border-[#263654]">
+                  <div className="text-xs text-white font-mono bg-[#0B132B] p-2 rounded border border-[#1E2C4F]">
                     Subject: {tpl.subject}
                   </div>
-                  <pre className="text-[11px] text-slate-300 font-mono whitespace-pre-wrap bg-[#101C35] p-3 rounded border border-[#263654] max-h-48 overflow-y-auto">
+                  <pre className="text-[11px] text-slate-300 font-mono whitespace-pre-wrap bg-[#0B132B] p-3 rounded border border-[#1E2C4F] max-h-48 overflow-y-auto">
                     {tpl.body}
                   </pre>
                 </div>
@@ -1074,7 +1074,7 @@ export default function BacklinkAuditTab({ showToast }) {
 
       {/* SUBVIEW 4: CSV IMPORT & DRY-RUN PREVIEW */}
       {subView === 'csv_import' && (
-        <div className="bg-[#101C35] border border-[#263654] rounded-2xl p-6 space-y-4">
+        <div className="bg-[#0B132B] border border-[#1E2C4F] rounded-2xl p-6 space-y-4">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Upload className="w-4 h-4 text-amber-400" /> Import SEMrush Backlink Audit CSV or Google Search Console Links CSV
           </h3>
@@ -1083,7 +1083,7 @@ export default function BacklinkAuditTab({ showToast }) {
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
-            <label className="px-4 py-2 rounded-xl bg-[#1B2943] hover:bg-slate-700 text-slate-200 text-xs font-semibold cursor-pointer border border-[#343D4F]">
+            <label className="px-4 py-2 rounded-xl bg-[#14213D] hover:bg-slate-700 text-slate-200 text-xs font-semibold cursor-pointer border border-[#343D4F]">
               Choose .CSV File
               <input type="file" accept=".csv,.txt" onChange={handleFileUpload} className="hidden" />
             </label>
@@ -1095,14 +1095,14 @@ export default function BacklinkAuditTab({ showToast }) {
             value={csvText}
             onChange={(e) => setCsvText(e.target.value)}
             placeholder={`Paste CSV content here, e.g.:\nLinking page,Last crawled\nhttps://2ip.io/ru/domain-list-by-ip/aih.life/,2026-09-17`}
-            className="w-full bg-[#0B1426] border border-[#263654] rounded-xl p-3.5 text-xs font-mono text-slate-200 focus:border-amber-500 focus:outline-none"
+            className="w-full bg-[#070D1E] border border-[#1E2C4F] rounded-xl p-3.5 text-xs font-mono text-slate-200 focus:border-amber-500 focus:outline-none"
           />
 
           <div className="flex gap-3">
             <button
               onClick={handlePreviewCsv}
               disabled={importingCsv}
-              className="px-4 py-2 rounded-xl bg-[#1B2943] hover:bg-slate-700 text-amber-300 border border-amber-500/30 text-xs font-semibold"
+              className="px-4 py-2 rounded-xl bg-[#14213D] hover:bg-slate-700 text-amber-300 border border-amber-500/30 text-xs font-semibold"
             >
               1. Preview & Run Forensic Classification (Dry Run)
             </button>
@@ -1116,14 +1116,14 @@ export default function BacklinkAuditTab({ showToast }) {
           </div>
 
           {csvPreview && (
-            <div className="p-4 rounded-xl bg-[#0B1426] border border-[#263654] space-y-3">
+            <div className="p-4 rounded-xl bg-[#070D1E] border border-[#1E2C4F] space-y-3">
               <div className="text-xs font-bold text-emerald-400">
                 Dry-Run Preview: Detected format "{csvPreview.detectedFormat}" • {csvPreview.validCount} unique valid link(s) • {csvPreview.duplicatesRemoved} duplicate(s) stripped
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="border-b border-[#263654] text-slate-400">
+                    <tr className="border-b border-[#1E2C4F] text-slate-400">
                       <th className="py-2">Domain</th>
                       <th className="py-2">Linking URL</th>
                       <th className="py-2">Proposed Classification</th>
@@ -1150,30 +1150,30 @@ export default function BacklinkAuditTab({ showToast }) {
       {/* SUBVIEW 5: GOOGLE SEARCH CONSOLE VERIFICATION & AUDIT LOGS */}
       {subView === 'gsc_and_logs' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-[#101C35] border border-[#263654] rounded-2xl p-5 space-y-4">
+          <div className="bg-[#0B132B] border border-[#1E2C4F] rounded-2xl p-5 space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Globe className="w-4 h-4 text-amber-400" /> Google Search Console Verification & Comparison
             </h3>
             <div className="space-y-2.5 text-xs">
-              <div className="p-3 rounded-xl bg-[#0B1426] border border-[#263654] flex justify-between">
+              <div className="p-3 rounded-xl bg-[#070D1E] border border-[#1E2C4F] flex justify-between">
                 <span className="text-slate-400">Target Property</span>
                 <span className="text-white font-mono">https://0nprint.com/</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#0B1426] border border-[#263654] flex justify-between">
+              <div className="p-3 rounded-xl bg-[#070D1E] border border-[#1E2C4F] flex justify-between">
                 <span className="text-slate-400">Latest GSC Links CSV Imported</span>
                 <span className="text-emerald-400 font-mono">{gscVerification.latestCsvImported} ({gscVerification.latestCsvLinksCount} link)</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#0B1426] border border-[#263654] flex justify-between">
+              <div className="p-3 rounded-xl bg-[#070D1E] border border-[#1E2C4F] flex justify-between">
                 <span className="text-slate-400">Manual Actions Status</span>
                 <span className="text-emerald-400 font-semibold">{gscVerification.manualActionsStatus}</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#0B1426] border border-[#263654] flex justify-between">
+              <div className="p-3 rounded-xl bg-[#070D1E] border border-[#1E2C4F] flex justify-between">
                 <span className="text-slate-400">Security Issues Status</span>
                 <span className="text-emerald-400 font-semibold">{gscVerification.securityIssuesStatus}</span>
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#0B1426] border border-[#263654] space-y-2 text-xs text-slate-300">
+            <div className="p-4 rounded-xl bg-[#070D1E] border border-[#1E2C4F] space-y-2 text-xs text-slate-300">
               <div className="font-bold text-white">GSC vs. SEMrush & Repository Comparison</div>
               <p>
                 1. <strong>Google Search Console Export (<code className="text-amber-300">0nprint.com-Latest links-2026-10-16.csv</code>)</strong> reports 1 crawled external link: <code className="text-amber-300">https://2ip.io/ru/domain-list-by-ip/aih.life/</code> (last crawled 2026-09-17).
@@ -1184,19 +1184,19 @@ export default function BacklinkAuditTab({ showToast }) {
             </div>
           </div>
 
-          <div className="bg-[#101C35] border border-[#263654] rounded-2xl p-5 space-y-4">
+          <div className="bg-[#0B132B] border border-[#1E2C4F] rounded-2xl p-5 space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <History className="w-4 h-4 text-amber-400" /> Immutable Backlink Forensics Audit Log
             </h3>
             <div className="space-y-2.5 max-h-96 overflow-y-auto">
               {auditLogs.map((log) => (
-                <div key={log.id} className="p-3 rounded-xl bg-[#0B1426] border border-[#263654] text-xs space-y-1">
+                <div key={log.id} className="p-3 rounded-xl bg-[#070D1E] border border-[#1E2C4F] text-xs space-y-1">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-amber-300 font-mono text-[11px]">{log.action}</span>
-                    <span className="text-[11px] text-slate-500">{new Date(log.created_at).toLocaleString()}</span>
+                    <span className="text-[11px] text-[#B8C2D9]">{new Date(log.created_at).toLocaleString()}</span>
                   </div>
                   <div className="text-slate-300">{log.details}</div>
-                  <div className="text-[10px] text-slate-500">Actor: {log.actor}</div>
+                  <div className="text-[10px] text-[#B8C2D9]">Actor: {log.actor}</div>
                 </div>
               ))}
             </div>

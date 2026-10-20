@@ -27,10 +27,10 @@ export default function MyOrdersPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#263654] pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1E2C4F] pb-4">
         <div>
-          <h1 className="font-display text-2xl font-black text-[#F5F1E8]">My Print Orders</h1>
-          <p className="text-xs text-[#F5F1E8]/60">Track all your corporate printing runs and artwork statuses.</p>
+          <h1 className="font-display text-2xl font-black text-[#F5F3EE]">My Print Orders</h1>
+          <p className="text-xs text-[#F5F3EE]/60">Track all your corporate printing runs and artwork statuses.</p>
         </div>
         <Button to="/get-a-quote" variant="accent" size="sm" icon={false}>
           <Plus className="h-4 w-4 mr-1" />
@@ -39,10 +39,10 @@ export default function MyOrdersPage() {
       </div>
 
       {orders.length === 0 ? (
-        <div className="rounded-3xl border border-[#263654] bg-[#1B2943] p-12 text-center shadow-xs">
+        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-12 text-center shadow-xs">
           <Package className="h-10 w-10 text-[#52647D] mx-auto mb-3" />
-          <h3 className="font-display text-lg font-bold text-[#F5F1E8]">No print orders yet</h3>
-          <p className="text-xs text-[#F5F1E8]/60 mt-1 max-w-sm mx-auto">
+          <h3 className="font-display text-lg font-bold text-[#F5F3EE]">No print orders yet</h3>
+          <p className="text-xs text-[#F5F3EE]/60 mt-1 max-w-sm mx-auto">
             Submit your first custom print quote request, and your order will appear here with live tracking.
           </p>
           <Button to="/get-a-quote" variant="accent" size="md" icon={false} className="mt-6">
@@ -54,42 +54,42 @@ export default function MyOrdersPage() {
           {orders.map((order) => (
             <div
               key={order._id || order.id || order.orderNumber}
-              className="rounded-2xl border border-[#263654] bg-[#1B2943] p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-[#D6BC8A]/40 transition-all"
+              className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-[#D6C29A]/40 transition-all"
             >
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-[#D6BC8A]">{order.orderNumber}</span>
+                  <span className="font-mono text-xs font-bold text-[#D6C29A]">{order.orderNumber}</span>
                   <span
                     className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${
                       order.status === 'Pending'
                         ? 'bg-amber-500/10 border-amber-500/30 text-amber-300'
                         : order.status === 'In Production'
-                          ? 'bg-[#D6BC8A]/10 border-[#D6BC8A]/30 text-[#D6BC8A]'
+                          ? 'bg-[#D6C29A]/10 border-[#D6C29A]/30 text-[#D6C29A]'
                           : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
                     }`}
                   >
                     {order.status}
                   </span>
                 </div>
-                <h3 className="font-bold text-lg text-[#F5F1E8] mt-1">{order.productName}</h3>
-                {order.specs && <p className="text-xs text-[#F5F1E8]/70 mt-1">{order.specs}</p>}
-                {order.notes && <p className="text-[11px] text-[#F5F1E8]/50 italic mt-1">Note: {order.notes}</p>}
+                <h3 className="font-bold text-lg text-[#F5F3EE] mt-1">{order.productName}</h3>
+                {order.specs && <p className="text-xs text-[#F5F3EE]/70 mt-1">{order.specs}</p>}
+                {order.notes && <p className="text-[11px] text-[#F5F3EE]/50 italic mt-1">Note: {order.notes}</p>}
                 {order.artworkFile && (
-                  <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#D6BC8A] bg-[#101C35] px-2 py-0.5 rounded-md border border-[#263654]">
+                  <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#D6C29A] bg-[#0B132B] px-2 py-0.5 rounded-md border border-[#1E2C4F]">
                     📎 {order.artworkFile}
                   </div>
                 )}
               </div>
 
-              <div className="flex items-center gap-6 border-t md:border-t-0 border-[#263654] pt-3 md:pt-0 shrink-0">
+              <div className="flex items-center gap-6 border-t md:border-t-0 border-[#1E2C4F] pt-3 md:pt-0 shrink-0">
                 <div>
-                  <div className="text-[10px] font-bold uppercase text-[#F5F1E8]/50">Total Price</div>
-                  <div className="font-black text-[#D6BC8A] text-sm">AED {Number(order.totalPrice || 0).toLocaleString()}</div>
+                  <div className="text-[10px] font-bold uppercase text-[#F5F3EE]/50">Total Price</div>
+                  <div className="font-black text-[#D6C29A] text-sm">AED {Number(order.totalPrice || 0).toLocaleString()}</div>
                 </div>
 
                 <div>
-                  <div className="text-[10px] font-bold uppercase text-[#F5F1E8]/50">Quantity</div>
-                  <div className="font-bold text-[#F5F1E8] text-xs">{order.quantity} units</div>
+                  <div className="text-[10px] font-bold uppercase text-[#F5F3EE]/50">Quantity</div>
+                  <div className="font-bold text-[#F5F3EE] text-xs">{order.quantity} units</div>
                 </div>
               </div>
             </div>

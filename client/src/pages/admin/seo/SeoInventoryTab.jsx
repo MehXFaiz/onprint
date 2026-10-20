@@ -131,20 +131,20 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs">
+      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
                 <Layers className="h-3.5 w-3.5" />
                 Live Architecture & Crawl
               </span>
-              <span className="text-xs font-semibold text-neutral-500">Requirements 1 & 9</span>
+              <span className="text-xs font-semibold text-[#B8C2D9]">Requirements 1 & 9</span>
             </div>
-            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-neutral-900">
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#F5F3EE]">
               SEO Site Inventory & Orphan Pages
             </h2>
-            <p className="mt-1 text-sm text-neutral-600 max-w-2xl">
+            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
               20-column live crawl report of ONPRINT URLs covering canonical alignment, internal link depth, thin content, schema markup, and orphan pages.
             </p>
           </div>
@@ -156,7 +156,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
               size="sm"
               onClick={exportCsv}
               disabled={loading || !inventory.length}
-              className="text-xs font-bold border-neutral-300"
+              className="text-xs font-bold border-[#1E2C4F]"
             >
               <Download className="h-3.5 w-3.5 mr-1.5" />
               Export CSV
@@ -168,7 +168,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
               size="sm"
               onClick={() => loadInventory(true)}
               disabled={crawling || loading}
-              className="text-xs font-bold bg-[#D6BC8A] text-[#101C35] hover:bg-[#D6BC8A]"
+              className="text-xs font-bold bg-[#D6C29A] text-[#0B132B] hover:bg-[#D6C29A]"
             >
               <RefreshCw className={`h-3.5 w-3.5 mr-1.5 ${crawling ? 'animate-spin' : ''}`} />
               {crawling ? 'Crawling Pages...' : 'Re-Crawl Site Now'}
@@ -178,10 +178,10 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
 
         {/* Summary Metrics */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          <div className="rounded-xl border border-neutral-200/70 bg-neutral-50 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-500">Total Crawled</div>
-            <div className="mt-1 text-2xl font-black text-neutral-900">{summary.totalPages || 0}</div>
-            <div className="mt-0.5 text-[10px] text-neutral-500">Live indexed routes</div>
+          <div className="rounded-xl border border-[#1E2C4F]/70 bg-[#0B132B] p-4">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Total Crawled</div>
+            <div className="mt-1 text-2xl font-black text-[#F5F3EE]">{summary.totalPages || 0}</div>
+            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Live indexed routes</div>
           </div>
 
           <div className="rounded-xl border border-emerald-200/70 bg-emerald-50/50 p-4">
@@ -202,16 +202,16 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
             <div className="mt-0.5 text-[10px] text-red-600">&le; 1 internal link in</div>
           </div>
 
-          <div className="rounded-xl border border-neutral-200/70 bg-neutral-50 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-500">Thin Content</div>
-            <div className="mt-1 text-2xl font-black text-neutral-900">{summary.thinContentCount || 0}</div>
-            <div className="mt-0.5 text-[10px] text-neutral-500">&lt; 300 total words</div>
+          <div className="rounded-xl border border-[#1E2C4F]/70 bg-[#0B132B] p-4">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Thin Content</div>
+            <div className="mt-1 text-2xl font-black text-[#F5F3EE]">{summary.thinContentCount || 0}</div>
+            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">&lt; 300 total words</div>
           </div>
 
-          <div className="rounded-xl border border-[#D6BC8A]/20 bg-[#D6BC8A]/5 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#D6BC8A]">Avg Health Score</div>
-            <div className="mt-1 text-2xl font-black text-[#D6BC8A]">{summary.avgHealthScore || 0}%</div>
-            <div className="mt-0.5 text-[10px] text-neutral-500">Across all catalog</div>
+          <div className="rounded-xl border border-[#D6C29A]/20 bg-[#D6C29A]/5 p-4">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#D6C29A]">Avg Health Score</div>
+            <div className="mt-1 text-2xl font-black text-[#D6C29A]">{summary.avgHealthScore || 0}%</div>
+            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Across all catalog</div>
           </div>
         </div>
       </div>
@@ -219,13 +219,13 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
       {/* Filter and Search Bar */}
       <div className="flex flex-col md:flex-row gap-3 items-center justify-between">
         <div className="relative w-full md:w-80">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
           <input
             type="text"
             placeholder="Search path, title, or target keyword..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#D6BC8A]"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] focus:outline-none focus:border-[#D6C29A]"
           />
         </div>
 
@@ -233,7 +233,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D6BC8A]"
+            className="px-3 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] font-semibold focus:outline-none focus:border-[#D6C29A]"
           >
             <option value="all">All Page Types</option>
             <option value="commercial">Commercial Hubs</option>
@@ -247,7 +247,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
           <select
             value={issueFilter}
             onChange={(e) => setIssueFilter(e.target.value)}
-            className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D6BC8A]"
+            className="px-3 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] font-semibold focus:outline-none focus:border-[#D6C29A]"
           >
             <option value="all">All Issues & Health</option>
             <option value="orphan">Orphan Pages (&le; 1 link)</option>
@@ -260,21 +260,21 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
       </div>
 
       {/* Crawl Table */}
-      <div className="rounded-2xl border border-neutral-200/80 bg-white overflow-hidden shadow-xs">
+      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] overflow-hidden shadow-xs">
         {loading ? (
-          <div className="p-12 text-center text-sm text-neutral-500">
-            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6BC8A] mb-2" />
+          <div className="p-12 text-center text-sm text-[#B8C2D9]">
+            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6C29A] mb-2" />
             Crawling ONPRINT URLs and computing health metrics...
           </div>
         ) : filteredItems.length === 0 ? (
-          <div className="p-12 text-center text-sm text-neutral-500">
+          <div className="p-12 text-center text-sm text-[#B8C2D9]">
             No pages match the selected search or filter criteria.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-neutral-200 bg-neutral-50/80 text-neutral-600 font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#1E2C4F] bg-[#0B132B]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">URL & Path</th>
                   <th className="py-3 px-3">Type</th>
                   <th className="py-3 px-3">Status</th>
@@ -296,21 +296,21 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                   return (
                     <tr
                       key={item.path}
-                      className={`hover:bg-neutral-50/60 transition-colors ${
+                      className={`hover:bg-[#0B132B]/60 transition-colors ${
                         isOrphan ? 'bg-red-50/20' : ''
                       }`}
                     >
                       <td className="py-3 px-4 max-w-xs sm:max-w-md">
-                        <div className="font-bold text-neutral-900 truncate font-mono text-[11px]">
+                        <div className="font-bold text-[#F5F3EE] truncate font-mono text-[11px]">
                           {item.path}
                         </div>
-                        <div className="text-[11px] text-neutral-500 truncate mt-0.5">
+                        <div className="text-[11px] text-[#B8C2D9] truncate mt-0.5">
                           {item.title || '(No Title Specified)'}
                         </div>
                       </td>
 
                       <td className="py-3 px-3">
-                        <span className="inline-block uppercase font-bold text-[10px] tracking-wider px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-700">
+                        <span className="inline-block uppercase font-bold text-[10px] tracking-wider px-2 py-0.5 rounded-full bg-neutral-100 text-[#F5F3EE]">
                           {item.page_type}
                         </span>
                       </td>
@@ -338,7 +338,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                         </div>
                       </td>
 
-                      <td className="py-3 px-3 font-semibold text-neutral-700">
+                      <td className="py-3 px-3 font-semibold text-[#F5F3EE]">
                         {item.word_count}{' '}
                         {isThin && (
                           <span className="ml-1 text-[10px] text-amber-600 font-bold bg-amber-50 px-1 rounded">
@@ -350,12 +350,12 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                       <td className="py-3 px-3 font-mono text-[11px]">
                         <span
                           className={`font-bold ${
-                            isOrphan ? 'text-red-600 bg-red-50 px-1.5 py-0.5 rounded' : 'text-neutral-900'
+                            isOrphan ? 'text-red-600 bg-red-50 px-1.5 py-0.5 rounded' : 'text-[#F5F3EE]'
                           }`}
                         >
                           {item.internal_links_in} in
                         </span>{' '}
-                        <span className="text-neutral-400">/</span> {item.internal_links_out} out
+                        <span className="text-[#B8C2D9]/70">/</span> {item.internal_links_out} out
                       </td>
 
                       <td className="py-3 px-3">
@@ -387,7 +387,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                           <button
                             type="button"
                             onClick={() => setExpandedRow(isExpanded ? null : item.path)}
-                            className="p-1.5 text-neutral-500 hover:text-neutral-900 rounded-lg hover:bg-neutral-100 cursor-pointer"
+                            className="p-1.5 text-[#B8C2D9] hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F] cursor-pointer"
                             title="View Crawl Details"
                           >
                             {isExpanded ? (
@@ -401,7 +401,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                             href={item.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="p-1.5 text-neutral-500 hover:text-[#D6BC8A] rounded-lg hover:bg-neutral-100"
+                            className="p-1.5 text-[#B8C2D9] hover:text-[#D6C29A] rounded-lg hover:bg-[#1E2C4F]"
                             title="Visit URL"
                           >
                             <ExternalLink className="h-3.5 w-3.5" />
@@ -411,7 +411,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                             <button
                               type="button"
                               onClick={() => onEditPage(item)}
-                              className="p-1.5 text-neutral-500 hover:text-[#D6BC8A] rounded-lg hover:bg-neutral-100 cursor-pointer"
+                              className="p-1.5 text-[#B8C2D9] hover:text-[#D6C29A] rounded-lg hover:bg-[#1E2C4F] cursor-pointer"
                               title="Edit SEO"
                             >
                               <Edit3 className="h-3.5 w-3.5" />
@@ -431,7 +431,7 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
       {/* Expanded Row Detail Modal */}
       {expandedRow && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 space-y-4 max-h-[85vh] overflow-y-auto">
+          <div className="bg-[#14213D] rounded-2xl max-w-2xl w-full p-6 space-y-4 max-h-[85vh] overflow-y-auto">
             {(() => {
               const item = inventory.find((i) => i.path === expandedRow)
               if (!item) return null
@@ -439,43 +439,43 @@ export default function SeoInventoryTab({ showToast, onEditPage }) {
                 <div>
                   <div className="flex items-center justify-between border-b pb-3">
                     <div>
-                      <h3 className="font-black text-lg text-neutral-900">Crawl Inspection: {item.path}</h3>
-                      <p className="text-xs text-neutral-500">Full 20-point on-page diagnostic</p>
+                      <h3 className="font-black text-lg text-[#F5F3EE]">Crawl Inspection: {item.path}</h3>
+                      <p className="text-xs text-[#B8C2D9]">Full 20-point on-page diagnostic</p>
                     </div>
                     <button
                       onClick={() => setExpandedRow(null)}
-                      className="p-1 rounded-lg text-neutral-400 hover:text-neutral-700"
+                      className="p-1 rounded-lg text-[#B8C2D9]/70 hover:text-[#F5F3EE]"
                     >
                       <XCircle className="h-5 w-5" />
                     </button>
                   </div>
 
                   <div className="mt-4 space-y-3 text-xs">
-                    <div className="grid grid-cols-2 gap-3 bg-neutral-50 p-3 rounded-xl">
+                    <div className="grid grid-cols-2 gap-3 bg-[#0B132B] p-3 rounded-xl">
                       <div>
-                        <span className="text-neutral-500 font-bold">Canonical:</span>
-                        <div className="font-mono text-[11px] truncate text-neutral-800">{item.canonical}</div>
+                        <span className="text-[#B8C2D9] font-bold">Canonical:</span>
+                        <div className="font-mono text-[11px] truncate text-[#F5F3EE]">{item.canonical}</div>
                       </div>
                       <div>
-                        <span className="text-neutral-500 font-bold">Target Keyword:</span>
-                        <div className="font-semibold text-neutral-800">{item.target_keyword || 'N/A'}</div>
+                        <span className="text-[#B8C2D9] font-bold">Target Keyword:</span>
+                        <div className="font-semibold text-[#F5F3EE]">{item.target_keyword || 'N/A'}</div>
                       </div>
                     </div>
 
                     <div>
-                      <span className="text-neutral-500 font-bold">Meta Description:</span>
-                      <p className="text-neutral-800 mt-0.5 bg-neutral-50 p-2.5 rounded-lg">
+                      <span className="text-[#B8C2D9] font-bold">Meta Description:</span>
+                      <p className="text-[#F5F3EE] mt-0.5 bg-[#0B132B] p-2.5 rounded-lg">
                         {item.meta_description || 'None'}
                       </p>
                     </div>
 
                     <div>
-                      <span className="text-neutral-500 font-bold">H1 Heading:</span>
-                      <p className="text-neutral-800 font-semibold mt-0.5">{item.h1 || 'Missing H1 Heading'}</p>
+                      <span className="text-[#B8C2D9] font-bold">H1 Heading:</span>
+                      <p className="text-[#F5F3EE] font-semibold mt-0.5">{item.h1 || 'Missing H1 Heading'}</p>
                     </div>
 
                     <div>
-                      <span className="text-neutral-500 font-bold">Detected Schemas:</span>
+                      <span className="text-[#B8C2D9] font-bold">Detected Schemas:</span>
                       <div className="flex flex-wrap gap-1.5 mt-1">
                         {(item.schema_types || []).map((st) => (
                           <span key={st} className="px-2 py-0.5 bg-emerald-50 text-emerald-700 font-bold rounded-md">

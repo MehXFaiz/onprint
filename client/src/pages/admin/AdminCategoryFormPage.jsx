@@ -155,7 +155,7 @@ export default function AdminCategoryFormPage() {
   if (loading) {
     return (
       <div className="flex min-h-[400px] items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D6BC8A] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D6C29A] border-t-transparent" />
       </div>
     )
   }
@@ -167,25 +167,25 @@ export default function AdminCategoryFormPage() {
   return (
     <div className="space-y-6">
       {/* Breadcrumbs */}
-      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-neutral-500">
-        <Link to="/admin" className="hover:text-neutral-900 transition-colors">
+      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#B8C2D9]">
+        <Link to="/admin" className="hover:text-[#F5F3EE] transition-colors">
           Dashboard
         </Link>
         <ChevronRight className="h-3.5 w-3.5" />
-        <Link to="/admin/categories" className="hover:text-neutral-900 transition-colors">
+        <Link to="/admin/categories" className="hover:text-[#F5F3EE] transition-colors">
           Categories
         </Link>
         <ChevronRight className="h-3.5 w-3.5" />
-        <span className="text-neutral-900">{isEdit ? 'Edit Category' : 'Create Category'}</span>
+        <span className="text-[#F5F3EE]">{isEdit ? 'Edit Category' : 'Create Category'}</span>
       </div>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-neutral-200 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#1E2C4F] pb-5">
         <div>
-          <h1 className="font-display text-2xl font-black tracking-tight text-neutral-900">
+          <h1 className="font-display text-2xl font-black tracking-tight text-[#F5F3EE]">
             {isEdit ? `Edit Category: ${form.name}` : 'Add New Category'}
           </h1>
-          <p className="text-xs text-neutral-500 mt-1">
+          <p className="text-xs text-[#B8C2D9] mt-1">
             Configure category metadata, imagery, and Google Search Optimization settings.
           </p>
         </div>
@@ -195,7 +195,7 @@ export default function AdminCategoryFormPage() {
             variant="outline"
             onClick={() => navigate('/admin/categories')}
             disabled={submitting}
-            className="w-full sm:w-auto justify-center border-neutral-200 text-neutral-700 hover:bg-neutral-50 text-xs"
+            className="w-full sm:w-auto justify-center border-[#1E2C4F] text-[#F5F3EE] hover:bg-[#0B132B] text-xs"
           >
             <ArrowLeft className="h-4 w-4 mr-1.5" />
             Cancel
@@ -224,13 +224,13 @@ export default function AdminCategoryFormPage() {
         {/* Left Column: Details & SEO */}
         <div className="space-y-6 lg:col-span-8">
           {/* General Information Card */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-neutral-900 border-b border-neutral-100 pb-3">
+          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#1E2C4F] pb-3">
               General Information
             </h2>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 Category Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -239,29 +239,29 @@ export default function AdminCategoryFormPage() {
                 onChange={handleNameChange}
                 placeholder="e.g. Brochures Printing"
                 required
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 URL Slug <span className="text-red-500">*</span>
               </label>
-              <div className="flex items-center rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-500 focus-within:border-[#D6BC8A]">
-                <span className="text-neutral-400">/categories/</span>
+              <div className="flex items-center rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-semibold text-[#B8C2D9] focus-within:border-[#D6C29A]">
+                <span className="text-[#B8C2D9]/70">/categories/</span>
                 <input
                   type="text"
                   value={form.slug}
                   onChange={handleSlugChange}
                   placeholder="brochures-printing"
                   required
-                  className="w-full bg-transparent pl-1 font-semibold text-neutral-900 focus:outline-none"
+                  className="w-full bg-transparent pl-1 font-semibold text-[#F5F3EE] focus:outline-none"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 Description
               </label>
               <textarea
@@ -269,26 +269,26 @@ export default function AdminCategoryFormPage() {
                 value={form.description}
                 onChange={(e) => setForm((prev) => ({ ...prev, description: e.target.value }))}
                 placeholder="Describe the products grouped under this category…"
-                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] p-3 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>
 
           {/* SEO & Meta Tags Card */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <div className="flex items-center gap-2 border-b border-neutral-100 pb-3">
-              <Search className="h-4 w-4 text-[#D6BC8A]" />
-              <h2 className="font-display text-base font-bold text-neutral-900">
+          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
+            <div className="flex items-center gap-2 border-b border-[#1E2C4F] pb-3">
+              <Search className="h-4 w-4 text-[#D6C29A]" />
+              <h2 className="font-display text-base font-bold text-[#F5F3EE]">
                 Google Search Engine Optimization (SEO)
               </h2>
             </div>
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-1">
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   SEO Meta Title
                 </label>
-                <span className={`text-[11px] font-bold ${form.seoTitle.length > 60 ? 'text-amber-600' : 'text-neutral-400'}`}>
+                <span className={`text-[11px] font-bold ${form.seoTitle.length > 60 ? 'text-amber-600' : 'text-[#B8C2D9]/70'}`}>
                   {form.seoTitle.length} / 60 chars
                 </span>
               </div>
@@ -297,16 +297,16 @@ export default function AdminCategoryFormPage() {
                 value={form.seoTitle}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoTitle: e.target.value }))}
                 placeholder="e.g. Corporate Gifts Dubai | Custom Promotional Items | ONPRINT"
-                className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-1">
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   SEO Meta Description
                 </label>
-                <span className={`text-[11px] font-bold ${form.seoDescription.length > 160 ? 'text-amber-600' : 'text-neutral-400'}`}>
+                <span className={`text-[11px] font-bold ${form.seoDescription.length > 160 ? 'text-amber-600' : 'text-[#B8C2D9]/70'}`}>
                   {form.seoDescription.length} / 160 chars
                 </span>
               </div>
@@ -315,13 +315,13 @@ export default function AdminCategoryFormPage() {
                 value={form.seoDescription}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoDescription: e.target.value }))}
                 placeholder="Write an enticing summary for Google searchers (130-160 characters)..."
-                className="w-full rounded-xl border border-neutral-300 p-3 text-xs font-medium text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] p-3 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   SEO Keywords (Comma Separated)
                 </label>
                 <input
@@ -329,12 +329,12 @@ export default function AdminCategoryFormPage() {
                   value={form.seoKeywords}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoKeywords: e.target.value }))}
                   placeholder="corporate gifts dubai, promotional gifts uae"
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                   Primary H1 Heading Override
                 </label>
                 <input
@@ -342,25 +342,25 @@ export default function AdminCategoryFormPage() {
                   value={form.seoHeading}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoHeading: e.target.value }))}
                   placeholder={form.name || 'Defaults to Category Name'}
-                  className="w-full rounded-xl border border-neutral-300 px-4 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Live Google SERP Snippet Preview */}
-            <div className="mt-4 rounded-xl border border-neutral-200 bg-neutral-50 p-4">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-500">
+            <div className="mt-4 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
                 Google SERP Snippet Preview
               </span>
               <div className="mt-2 space-y-1">
-                <div className="flex items-center gap-1.5 text-xs text-neutral-600 truncate">
-                  <Globe className="h-3 w-3 text-neutral-400" />
+                <div className="flex items-center gap-1.5 text-xs text-[#B8C2D9] truncate">
+                  <Globe className="h-3 w-3 text-[#B8C2D9]/70" />
                   <span>{serpUrl}</span>
                 </div>
                 <div className="text-sm font-bold text-blue-800 hover:underline cursor-pointer">
                   {serpTitle}
                 </div>
-                <div className="text-xs text-neutral-600 line-clamp-2">
+                <div className="text-xs text-[#B8C2D9] line-clamp-2">
                   {serpDesc}
                 </div>
               </div>
@@ -371,19 +371,19 @@ export default function AdminCategoryFormPage() {
         {/* Right Column: Image & Publishing */}
         <div className="space-y-6 lg:col-span-4">
           {/* Publishing Settings */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-neutral-900 border-b border-neutral-100 pb-3">
+          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#1E2C4F] pb-3">
               Publishing
             </h2>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 Visibility Status
               </label>
               <select
                 value={form.status}
                 onChange={(e) => setForm((prev) => ({ ...prev, status: e.target.value }))}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               >
                 <option value="active">Active (Visible)</option>
                 <option value="inactive">Inactive (Hidden)</option>
@@ -391,21 +391,21 @@ export default function AdminCategoryFormPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 Display Order
               </label>
               <input
                 type="number"
                 value={form.displayOrder}
                 onChange={(e) => setForm((prev) => ({ ...prev, displayOrder: e.target.value, display_order: e.target.value }))}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>
 
           {/* Image & Alt Text */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-neutral-900 border-b border-neutral-100 pb-3">
+          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#1E2C4F] pb-3">
               Category Image &amp; ALT
             </h2>
 
@@ -415,7 +415,7 @@ export default function AdminCategoryFormPage() {
             />
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 Image ALT Text (SEO)
               </label>
               <input
@@ -423,7 +423,7 @@ export default function AdminCategoryFormPage() {
                 value={form.imageAlt}
                 onChange={(e) => setForm((prev) => ({ ...prev, imageAlt: e.target.value }))}
                 placeholder={form.name || 'Descriptive ALT tag for screen readers & Google Images'}
-                className="w-full rounded-xl border border-neutral-300 px-3 py-2 text-xs font-semibold text-neutral-900 focus:border-[#D6BC8A] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>

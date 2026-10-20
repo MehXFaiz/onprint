@@ -147,20 +147,20 @@ Dubai, UAE`
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs">
+      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
                 <Sparkles className="h-3.5 w-3.5" />
                 Unlinked Brand Mentions & PR
               </span>
-              <span className="text-xs font-semibold text-neutral-500">Requirements 30 & 31</span>
+              <span className="text-xs font-semibold text-[#B8C2D9]">Requirements 30 & 31</span>
             </div>
-            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-neutral-900">
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#F5F3EE]">
               Brand Mention Tracker & Reclamation
             </h2>
-            <p className="mt-1 text-sm text-neutral-600 max-w-2xl">
+            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
               Tracks editorial citations and press mentions of &quot;ONPRINT&quot; and &quot;0nprint&quot; across UAE media and directories to convert unlinked brand equity into high-authority dofollow backlinks.
             </p>
           </div>
@@ -171,7 +171,7 @@ Dubai, UAE`
               variant="accent"
               size="sm"
               onClick={() => setShowAddModal(true)}
-              className="text-xs font-bold bg-[#D6BC8A] text-[#101C35] hover:bg-[#D6BC8A]"
+              className="text-xs font-bold bg-[#D6C29A] text-[#0B132B] hover:bg-[#D6C29A]"
             >
               <Plus className="h-3.5 w-3.5 mr-1.5" />
               Log Brand Mention
@@ -181,10 +181,10 @@ Dubai, UAE`
 
         {/* Top Metric Cards */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div className="rounded-xl border border-neutral-200/70 bg-neutral-50 p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-500">Total Mentions</div>
-            <div className="mt-1 text-2xl font-black text-neutral-900">{summary.total}</div>
-            <div className="mt-0.5 text-[10px] text-neutral-500">Tracked in media</div>
+          <div className="rounded-xl border border-[#1E2C4F]/70 bg-[#0B132B] p-4">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Total Mentions</div>
+            <div className="mt-1 text-2xl font-black text-[#F5F3EE]">{summary.total}</div>
+            <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Tracked in media</div>
           </div>
 
           <div className="rounded-xl border border-amber-200/70 bg-amber-50/50 p-4">
@@ -210,20 +210,20 @@ Dubai, UAE`
       {/* Filter and Search Bar */}
       <div className="flex flex-col sm:flex-row gap-3 items-center justify-between">
         <div className="relative w-full sm:w-80">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
           <input
             type="text"
             placeholder="Search domain, article, or snippet..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-300 bg-white focus:outline-none focus:border-[#D6BC8A]"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] focus:outline-none focus:border-[#D6C29A]"
           />
         </div>
 
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-700 font-semibold focus:outline-none focus:border-[#D6BC8A] w-full sm:w-auto"
+          className="px-3 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] font-semibold focus:outline-none focus:border-[#D6C29A] w-full sm:w-auto"
         >
           <option value="all">All Mentions</option>
           <option value="unlinked">Unlinked Mentions Only</option>
@@ -235,20 +235,20 @@ Dubai, UAE`
       </div>
 
       {/* Mentions Table */}
-      <div className="rounded-2xl border border-neutral-200/80 bg-white overflow-hidden shadow-xs">
+      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] overflow-hidden shadow-xs">
         {loading ? (
-          <div className="p-12 text-center text-sm text-neutral-500">
+          <div className="p-12 text-center text-sm text-[#B8C2D9]">
             Loading brand mentions...
           </div>
         ) : filteredMentions.length === 0 ? (
-          <div className="p-12 text-center text-sm text-neutral-500">
+          <div className="p-12 text-center text-sm text-[#B8C2D9]">
             No brand mentions match the active filter.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-neutral-200 bg-neutral-50/80 text-neutral-600 font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#1E2C4F] bg-[#0B132B]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">Publication Domain & Title</th>
                   <th className="py-3 px-3">DR</th>
                   <th className="py-3 px-4">Brand Mention Snippet</th>
@@ -261,23 +261,23 @@ Dubai, UAE`
                 {filteredMentions.map((item) => {
                   const isLinked = Boolean(item.is_linked)
                   return (
-                    <tr key={item.id} className="hover:bg-neutral-50/60 transition-colors">
+                    <tr key={item.id} className="hover:bg-[#0B132B]/60 transition-colors">
                       <td className="py-3 px-4 max-w-xs">
-                        <div className="font-bold text-neutral-900 truncate">
+                        <div className="font-bold text-[#F5F3EE] truncate">
                           {item.mentioning_domain}
                         </div>
-                        <div className="text-[11px] text-neutral-500 truncate mt-0.5">
+                        <div className="text-[11px] text-[#B8C2D9] truncate mt-0.5">
                           {item.article_title || 'Article Feature'}
                         </div>
                       </td>
 
                       <td className="py-3 px-3">
-                        <span className="font-black text-xs text-neutral-800 bg-neutral-100 px-2 py-0.5 rounded-md">
+                        <span className="font-black text-xs text-[#F5F3EE] bg-neutral-100 px-2 py-0.5 rounded-md">
                           DR {item.domain_authority || 40}
                         </span>
                       </td>
 
-                      <td className="py-3 px-4 max-w-sm text-neutral-700 italic text-[11px]">
+                      <td className="py-3 px-4 max-w-sm text-[#F5F3EE] italic text-[11px]">
                         &quot;{item.mention_snippet}&quot;
                       </td>
 
@@ -301,7 +301,7 @@ Dubai, UAE`
                               ? 'bg-emerald-50 text-emerald-700'
                               : item.outreach_status === 'CONTACTED'
                               ? 'bg-blue-50 text-blue-700'
-                              : 'bg-neutral-100 text-neutral-600'
+                              : 'bg-neutral-100 text-[#B8C2D9]'
                           }`}
                         >
                           {item.outreach_status}
@@ -313,10 +313,10 @@ Dubai, UAE`
                           <button
                             type="button"
                             onClick={() => setShowPitchModal(item)}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-lg border border-neutral-300 text-neutral-700 hover:bg-neutral-100"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-lg border border-[#1E2C4F] text-[#F5F3EE] hover:bg-[#1E2C4F]"
                             title="Generate Pitch"
                           >
-                            <Mail className="h-3 w-3 text-[#D6BC8A]" />
+                            <Mail className="h-3 w-3 text-[#D6C29A]" />
                             Pitch
                           </button>
 
@@ -338,7 +338,7 @@ Dubai, UAE`
                             href={item.source_url}
                             target="_blank"
                             rel="noreferrer"
-                            className="p-1.5 text-neutral-400 hover:text-[#D6BC8A] rounded-lg hover:bg-neutral-100"
+                            className="p-1.5 text-[#B8C2D9]/70 hover:text-[#D6C29A] rounded-lg hover:bg-[#1E2C4F]"
                             title="View Mention Live"
                           >
                             <ExternalLink className="h-3.5 w-3.5" />
@@ -347,7 +347,7 @@ Dubai, UAE`
                           <button
                             type="button"
                             onClick={() => handleDelete(item.id)}
-                            className="p-1.5 text-neutral-400 hover:text-red-600 rounded-lg hover:bg-red-50 cursor-pointer"
+                            className="p-1.5 text-[#B8C2D9]/70 hover:text-red-600 rounded-lg hover:bg-red-50 cursor-pointer"
                           >
                             <Trash2 className="h-3.5 w-3.5" />
                           </button>
@@ -365,12 +365,12 @@ Dubai, UAE`
       {/* Add Mention Modal */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 space-y-4">
+          <div className="bg-[#14213D] rounded-2xl max-w-md w-full p-6 space-y-4">
             <div className="flex items-center justify-between border-b pb-3">
-              <h3 className="font-black text-lg text-neutral-900">Log Discovered Brand Mention</h3>
+              <h3 className="font-black text-lg text-[#F5F3EE]">Log Discovered Brand Mention</h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="p-1 text-neutral-400 hover:text-neutral-700"
+                className="p-1 text-[#B8C2D9]/70 hover:text-[#F5F3EE]"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -378,70 +378,70 @@ Dubai, UAE`
 
             <form onSubmit={handleSubmit} className="space-y-3.5 text-xs">
               <div>
-                <label className="font-bold text-neutral-700 block mb-1">Source URL *</label>
+                <label className="font-bold text-[#F5F3EE] block mb-1">Source URL *</label>
                 <input
                   type="url"
                   required
                   placeholder="https://gulfnews.com/business/printing-trends"
                   value={formData.source_url}
                   onChange={(e) => setFormData({ ...formData, source_url: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 font-mono text-xs focus:outline-none focus:border-[#D6BC8A]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] font-mono text-xs focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">Domain</label>
+                  <label className="font-bold text-[#F5F3EE] block mb-1">Domain</label>
                   <input
                     type="text"
                     placeholder="gulfnews.com"
                     value={formData.mentioning_domain}
                     onChange={(e) => setFormData({ ...formData, mentioning_domain: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs focus:outline-none focus:border-[#D6C29A]"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">Domain Rating (DR)</label>
+                  <label className="font-bold text-[#F5F3EE] block mb-1">Domain Rating (DR)</label>
                   <input
                     type="number"
                     value={formData.domain_authority}
                     onChange={(e) => setFormData({ ...formData, domain_authority: Number(e.target.value) })}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs focus:outline-none focus:border-[#D6C29A]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-neutral-700 block mb-1">Article Headline</label>
+                <label className="font-bold text-[#F5F3EE] block mb-1">Article Headline</label>
                 <input
                   type="text"
                   placeholder="Top Commercial Printing Facilities in Dubai 2026"
                   value={formData.article_title}
                   onChange={(e) => setFormData({ ...formData, article_title: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-neutral-700 block mb-1">Brand Mention Snippet *</label>
+                <label className="font-bold text-[#F5F3EE] block mb-1">Brand Mention Snippet *</label>
                 <textarea
                   rows={3}
                   required
                   placeholder="...press facilities like ONPRINT located in Al Quoz provide express Heidelberg offset output..."
                   value={formData.mention_snippet}
                   onChange={(e) => setFormData({ ...formData, mention_snippet: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">Is Currently Linked?</label>
+                  <label className="font-bold text-[#F5F3EE] block mb-1">Is Currently Linked?</label>
                   <select
                     value={formData.is_linked}
                     onChange={(e) => setFormData({ ...formData, is_linked: Number(e.target.value) })}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs font-semibold focus:outline-none focus:border-[#D6BC8A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs font-semibold focus:outline-none focus:border-[#D6C29A]"
                   >
                     <option value={0}>No (Unlinked Mention)</option>
                     <option value={1}>Yes (Active Backlink)</option>
@@ -449,13 +449,13 @@ Dubai, UAE`
                 </div>
 
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">Contact Email</label>
+                  <label className="font-bold text-[#F5F3EE] block mb-1">Contact Email</label>
                   <input
                     type="email"
                     placeholder="editor@publication.ae"
                     value={formData.contact_email}
                     onChange={(e) => setFormData({ ...formData, contact_email: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-neutral-300 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs focus:outline-none focus:border-[#D6C29A]"
                   />
                 </div>
               </div>
@@ -475,7 +475,7 @@ Dubai, UAE`
                   variant="accent"
                   size="sm"
                   disabled={actionLoading}
-                  className="text-xs font-bold bg-[#D6BC8A] text-[#101C35] hover:bg-[#D6BC8A]"
+                  className="text-xs font-bold bg-[#D6C29A] text-[#0B132B] hover:bg-[#D6C29A]"
                 >
                   {actionLoading ? 'Saving...' : 'Save Mention'}
                 </Button>
@@ -488,18 +488,18 @@ Dubai, UAE`
       {/* Outreach Pitch Generator Modal */}
       {showPitchModal && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4">
+          <div className="bg-[#14213D] rounded-2xl max-w-xl w-full p-6 space-y-4">
             <div className="flex items-center justify-between border-b pb-3">
               <div>
-                <h3 className="font-black text-lg text-neutral-900">Editorial Reclamation Pitch</h3>
-                <p className="text-xs text-neutral-500">Pre-composed email template for {showPitchModal.mentioning_domain}</p>
+                <h3 className="font-black text-lg text-[#F5F3EE]">Editorial Reclamation Pitch</h3>
+                <p className="text-xs text-[#B8C2D9]">Pre-composed email template for {showPitchModal.mentioning_domain}</p>
               </div>
               <button
                 onClick={() => {
                   setShowPitchModal(null)
                   setCopied(false)
                 }}
-                className="p-1 text-neutral-400 hover:text-neutral-700"
+                className="p-1 text-[#B8C2D9]/70 hover:text-[#F5F3EE]"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -510,8 +510,8 @@ Dubai, UAE`
             </div>
 
             <div className="flex items-center justify-between pt-2">
-              <span className="text-xs text-neutral-500">
-                Target link: <span className="font-mono text-neutral-800 font-bold">https://www.0nprint.com</span>
+              <span className="text-xs text-[#B8C2D9]">
+                Target link: <span className="font-mono text-[#F5F3EE] font-bold">https://www.0nprint.com</span>
               </span>
               <div className="flex items-center gap-2">
                 <Button
@@ -547,7 +547,7 @@ Dubai, UAE`
                     await handleUpdateStatus(showPitchModal.id, 'CONTACTED')
                     setShowPitchModal(null)
                   }}
-                  className="text-xs font-bold bg-[#D6BC8A] text-[#101C35] hover:bg-[#D6BC8A]"
+                  className="text-xs font-bold bg-[#D6C29A] text-[#0B132B] hover:bg-[#D6C29A]"
                 >
                   Mark as Contacted
                 </Button>

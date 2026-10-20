@@ -97,24 +97,24 @@ export default function AiAnalysisModal({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-neutral-900/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-150">
-      <div className="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl border border-neutral-200 overflow-hidden flex flex-col max-h-[92vh]">
+      <div className="relative w-full max-w-5xl bg-[#14213D] rounded-2xl shadow-2xl border border-[#1E2C4F] overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-neutral-200 bg-neutral-50/80 flex items-center justify-between shrink-0">
+        <div className="px-6 py-4 border-b border-[#1E2C4F] bg-[#0B132B]/80 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-[#D6BC8A]/10 text-[#D6BC8A] flex items-center justify-center">
+            <div className="h-10 w-10 rounded-xl bg-[#D6C29A]/10 text-[#D6C29A] flex items-center justify-center">
               <Sparkles className="h-5 w-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="font-display font-black text-lg text-neutral-900 tracking-tight">
+                <h2 className="font-display font-black text-lg text-[#F5F3EE] tracking-tight">
                   AI Page SEO Optimizer
                 </h2>
-                <span className="rounded-full bg-neutral-200 px-2 py-0.5 text-[10px] font-bold text-neutral-700 uppercase">
+                <span className="rounded-full bg-neutral-200 px-2 py-0.5 text-[10px] font-bold text-[#F5F3EE] uppercase">
                   {page.page_type}
                 </span>
               </div>
-              <p className="text-xs text-neutral-500 font-mono mt-0.5">
-                Target URL: <strong className="text-neutral-800">{page.url}</strong>
+              <p className="text-xs text-[#B8C2D9] font-mono mt-0.5">
+                Target URL: <strong className="text-[#F5F3EE]">{page.url}</strong>
               </p>
             </div>
           </div>
@@ -122,14 +122,14 @@ export default function AiAnalysisModal({
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsEditing(!isEditing)}
-              className="px-3 py-1.5 rounded-lg border border-neutral-300 text-xs font-bold text-neutral-700 hover:bg-neutral-100 flex items-center gap-1 cursor-pointer transition-colors"
+              className="px-3 py-1.5 rounded-lg border border-[#1E2C4F] text-xs font-bold text-[#F5F3EE] hover:bg-[#1E2C4F] flex items-center gap-1 cursor-pointer transition-colors"
             >
               <Edit3 className="h-3.5 w-3.5" />
               {isEditing ? 'Done Editing' : 'Edit Recommendations'}
             </button>
             <button
               onClick={onClose}
-              className="h-8 w-8 rounded-lg text-neutral-400 hover:text-neutral-700 hover:bg-neutral-200/60 flex items-center justify-center transition-colors cursor-pointer"
+              className="h-8 w-8 rounded-lg text-[#B8C2D9]/70 hover:text-[#F5F3EE] hover:bg-neutral-200/60 flex items-center justify-center transition-colors cursor-pointer"
             >
               <X className="h-4 w-4" />
             </button>
@@ -158,11 +158,11 @@ export default function AiAnalysisModal({
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {loading ? (
             <div className="py-20 text-center space-y-3">
-              <Sparkles className="h-8 w-8 text-[#D6BC8A] animate-spin mx-auto" />
-              <div className="text-sm font-bold text-neutral-900">
+              <Sparkles className="h-8 w-8 text-[#D6C29A] animate-spin mx-auto" />
+              <div className="text-sm font-bold text-[#F5F3EE]">
                 Running Neural On-Page Audit &amp; SERP Strategy Engine...
               </div>
-              <p className="text-xs text-neutral-500 max-w-sm mx-auto">
+              <p className="text-xs text-[#B8C2D9] max-w-sm mx-auto">
                 Analyzing search intent, target keywords, SERP click triggers, and Dubai market competitors.
               </p>
             </div>
@@ -170,8 +170,8 @@ export default function AiAnalysisModal({
             <div className="space-y-6">
               {/* Score Progression & Strategy Summary */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4">
-                  <span className="text-[10px] font-extrabold uppercase text-neutral-400">Current Health Score</span>
+                <div className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+                  <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Current Health Score</span>
                   <div className="flex items-center gap-2 mt-1">
                     <span
                       className={`text-2xl font-black ${
@@ -185,26 +185,26 @@ export default function AiAnalysisModal({
                       {current.seoScore || page.seo_score || 50}/100
                     </span>
                   </div>
-                  <p className="text-[11px] text-neutral-500 mt-1">Based on existing tags and keywords</p>
+                  <p className="text-[11px] text-[#B8C2D9] mt-1">Based on existing tags and keywords</p>
                 </div>
 
-                <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4">
-                  <span className="text-[10px] font-extrabold uppercase text-neutral-400">Projected Health Score</span>
+                <div className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+                  <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Projected Health Score</span>
                   <div className="flex items-center gap-2 mt-1">
                     <span className="text-2xl font-black text-emerald-600">
                       {analysis.recommendation?.projectedScore || 94}/100
                     </span>
                     <TrendingUp className="h-4 w-4 text-emerald-600" />
                   </div>
-                  <p className="text-[11px] text-neutral-500 mt-1">Upon applying these AI recommendations</p>
+                  <p className="text-[11px] text-[#B8C2D9] mt-1">Upon applying these AI recommendations</p>
                 </div>
 
-                <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4">
-                  <span className="text-[10px] font-extrabold uppercase text-neutral-400">Target Search Intent</span>
-                  <div className="text-xs font-bold text-neutral-900 mt-1 uppercase tracking-wider">
+                <div className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+                  <span className="text-[10px] font-extrabold uppercase text-[#B8C2D9]/70">Target Search Intent</span>
+                  <div className="text-xs font-bold text-[#F5F3EE] mt-1 uppercase tracking-wider">
                     {analysis.recommendation?.searchIntent || 'Commercial Investigation'}
                   </div>
-                  <p className="text-[11px] text-neutral-500 mt-1">Optimized for Dubai B2B purchase intent</p>
+                  <p className="text-[11px] text-[#B8C2D9] mt-1">Optimized for Dubai B2B purchase intent</p>
                 </div>
               </div>
 
@@ -213,8 +213,8 @@ export default function AiAnalysisModal({
                 <div className="flex items-start gap-2.5">
                   <Cpu className="h-4 w-4 text-amber-700 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-neutral-900">AI Strategy Rationale</h4>
-                    <p className="text-xs text-neutral-700 mt-0.5 leading-relaxed">
+                    <h4 className="text-xs font-bold text-[#F5F3EE]">AI Strategy Rationale</h4>
+                    <p className="text-xs text-[#F5F3EE] mt-0.5 leading-relaxed">
                       {analysis.recommendation?.rationale ||
                         'Aligns meta tags with target Dubai search keywords, ensures optimal length for Google mobile & desktop display, and improves CTR with authentic commercial propositions.'}
                     </p>
@@ -223,69 +223,69 @@ export default function AiAnalysisModal({
               </div>
 
               {/* Side-by-Side Comparison Table */}
-              <div className="rounded-xl border border-neutral-200 overflow-hidden">
+              <div className="rounded-xl border border-[#1E2C4F] overflow-hidden">
                 <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-neutral-200">
                   {/* Left Column: CURRENT */}
-                  <div className="p-5 bg-neutral-50/50 space-y-4">
-                    <div className="flex items-center justify-between border-b border-neutral-200 pb-2">
-                      <span className="text-xs font-black text-neutral-500 uppercase tracking-wider">
+                  <div className="p-5 bg-[#0B132B] space-y-4">
+                    <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-2">
+                      <span className="text-xs font-black text-[#B8C2D9] uppercase tracking-wider">
                         Current Page SEO
                       </span>
-                      <span className="text-[10px] text-neutral-400 font-mono">Live in DB</span>
+                      <span className="text-[10px] text-[#B8C2D9]/70 font-mono">Live in DB</span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Focus Keyword</span>
-                      <div className="text-xs font-bold text-neutral-800 bg-white p-2.5 rounded-lg border border-neutral-200">
+                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">Focus Keyword</span>
+                      <div className="text-xs font-bold text-[#F5F3EE] bg-[#14213D] p-2.5 rounded-lg border border-[#1E2C4F]">
                         {current.focusKeyword || page.focus_keyword || '(None set)'}
                       </div>
                     </div>
 
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] font-bold text-neutral-400 uppercase">Meta Title</span>
-                        <span className="text-[10px] font-mono text-neutral-400">
+                        <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Meta Title</span>
+                        <span className="text-[10px] font-mono text-[#B8C2D9]/70">
                           {(current.metaTitle || page.meta_title || '').length} chars
                         </span>
                       </div>
-                      <div className="text-xs text-neutral-800 bg-white p-2.5 rounded-lg border border-neutral-200">
+                      <div className="text-xs text-[#F5F3EE] bg-[#14213D] p-2.5 rounded-lg border border-[#1E2C4F]">
                         {current.metaTitle || page.meta_title || '(None set)'}
                       </div>
                     </div>
 
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] font-bold text-neutral-400 uppercase">Meta Description</span>
-                        <span className="text-[10px] font-mono text-neutral-400">
+                        <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Meta Description</span>
+                        <span className="text-[10px] font-mono text-[#B8C2D9]/70">
                           {(current.metaDescription || page.meta_description || '').length} chars
                         </span>
                       </div>
-                      <div className="text-xs text-neutral-800 bg-white p-2.5 rounded-lg border border-neutral-200 leading-relaxed">
+                      <div className="text-xs text-[#F5F3EE] bg-[#14213D] p-2.5 rounded-lg border border-[#1E2C4F] leading-relaxed">
                         {current.metaDescription || page.meta_description || '(None set)'}
                       </div>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">H1 Heading</span>
-                      <div className="text-xs text-neutral-800 bg-white p-2.5 rounded-lg border border-neutral-200">
+                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">H1 Heading</span>
+                      <div className="text-xs text-[#F5F3EE] bg-[#14213D] p-2.5 rounded-lg border border-[#1E2C4F]">
                         {current.h1 || page.h1 || '(None set)'}
                       </div>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Schema Type</span>
-                      <div className="text-xs font-mono text-neutral-800 bg-white p-2.5 rounded-lg border border-neutral-200">
+                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">Schema Type</span>
+                      <div className="text-xs font-mono text-[#F5F3EE] bg-[#14213D] p-2.5 rounded-lg border border-[#1E2C4F]">
                         {current.schemaType || page.schema_type || 'WebPage'}
                       </div>
                     </div>
                   </div>
 
                   {/* Right Column: AI RECOMMENDATION */}
-                  <div className="p-5 bg-white space-y-4">
-                    <div className="flex items-center justify-between border-b border-neutral-200 pb-2">
+                  <div className="p-5 bg-[#14213D] space-y-4">
+                    <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-2">
                       <div className="flex items-center gap-1.5">
-                        <Sparkles className="h-3.5 w-3.5 text-[#D6BC8A]" />
-                        <span className="text-xs font-black text-[#D6BC8A] uppercase tracking-wider">
+                        <Sparkles className="h-3.5 w-3.5 text-[#D6C29A]" />
+                        <span className="text-xs font-black text-[#D6C29A] uppercase tracking-wider">
                           AI Recommendation
                         </span>
                       </div>
@@ -297,16 +297,16 @@ export default function AiAnalysisModal({
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Focus Keyword</span>
+                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">Focus Keyword</span>
                       {isEditing ? (
                         <input
                           type="text"
                           value={rec.focus_keyword}
                           onChange={(e) => setEditableRec({ ...rec, focus_keyword: e.target.value })}
-                          className="w-full text-xs font-bold text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#D6BC8A] focus:outline-none"
+                          className="w-full text-xs font-bold text-[#F5F3EE] bg-[#0B132B] p-2 rounded-lg border border-[#D6C29A] focus:outline-none"
                         />
                       ) : (
-                        <div className="text-xs font-bold text-neutral-900 bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200">
+                        <div className="text-xs font-bold text-[#F5F3EE] bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200">
                           {rec.focus_keyword}
                         </div>
                       )}
@@ -314,7 +314,7 @@ export default function AiAnalysisModal({
 
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] font-bold text-neutral-400 uppercase">Meta Title</span>
+                        <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Meta Title</span>
                         <span
                           className={`text-[10px] font-mono font-bold ${
                             rec.meta_title.length >= 50 && rec.meta_title.length <= 60
@@ -330,10 +330,10 @@ export default function AiAnalysisModal({
                           type="text"
                           value={rec.meta_title}
                           onChange={(e) => setEditableRec({ ...rec, meta_title: e.target.value })}
-                          className="w-full text-xs font-bold text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#D6BC8A] focus:outline-none"
+                          className="w-full text-xs font-bold text-[#F5F3EE] bg-[#0B132B] p-2 rounded-lg border border-[#D6C29A] focus:outline-none"
                         />
                       ) : (
-                        <div className="text-xs font-bold text-neutral-900 bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200">
+                        <div className="text-xs font-bold text-[#F5F3EE] bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200">
                           {rec.meta_title}
                         </div>
                       )}
@@ -341,7 +341,7 @@ export default function AiAnalysisModal({
 
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] font-bold text-neutral-400 uppercase">Meta Description</span>
+                        <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase">Meta Description</span>
                         <span
                           className={`text-[10px] font-mono font-bold ${
                             rec.meta_description.length >= 140 && rec.meta_description.length <= 160
@@ -357,38 +357,38 @@ export default function AiAnalysisModal({
                           rows={3}
                           value={rec.meta_description}
                           onChange={(e) => setEditableRec({ ...rec, meta_description: e.target.value })}
-                          className="w-full text-xs text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#D6BC8A] focus:outline-none leading-relaxed"
+                          className="w-full text-xs text-[#F5F3EE] bg-[#0B132B] p-2 rounded-lg border border-[#D6C29A] focus:outline-none leading-relaxed"
                         />
                       ) : (
-                        <div className="text-xs text-neutral-900 bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200 leading-relaxed">
+                        <div className="text-xs text-[#F5F3EE] bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200 leading-relaxed">
                           {rec.meta_description}
                         </div>
                       )}
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">H1 Heading</span>
+                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">H1 Heading</span>
                       {isEditing ? (
                         <input
                           type="text"
                           value={rec.h1}
                           onChange={(e) => setEditableRec({ ...rec, h1: e.target.value })}
-                          className="w-full text-xs text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#D6BC8A] focus:outline-none"
+                          className="w-full text-xs text-[#F5F3EE] bg-[#0B132B] p-2 rounded-lg border border-[#D6C29A] focus:outline-none"
                         />
                       ) : (
-                        <div className="text-xs text-neutral-900 bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200">
+                        <div className="text-xs text-[#F5F3EE] bg-emerald-50/50 p-2.5 rounded-lg border border-emerald-200">
                           {rec.h1}
                         </div>
                       )}
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-bold text-neutral-400 uppercase block mb-1">Schema Type</span>
+                      <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block mb-1">Schema Type</span>
                       {isEditing ? (
                         <select
                           value={rec.schema_type}
                           onChange={(e) => setEditableRec({ ...rec, schema_type: e.target.value })}
-                          className="w-full text-xs font-mono text-neutral-900 bg-neutral-50 p-2 rounded-lg border border-[#D6BC8A] focus:outline-none"
+                          className="w-full text-xs font-mono text-[#F5F3EE] bg-[#0B132B] p-2 rounded-lg border border-[#D6C29A] focus:outline-none"
                         >
                           <option value="WebPage">WebPage</option>
                           <option value="Service">Service</option>
@@ -414,7 +414,7 @@ export default function AiAnalysisModal({
         </div>
 
         {/* Footer Actions */}
-        <div className="px-6 py-4 border-t border-neutral-200 bg-neutral-50/80 flex items-center justify-between shrink-0">
+        <div className="px-6 py-4 border-t border-[#1E2C4F] bg-[#0B132B]/80 flex items-center justify-between shrink-0">
           <Button
             type="button"
             variant="outline"
@@ -433,7 +433,7 @@ export default function AiAnalysisModal({
               size="sm"
               onClick={handleApply}
               disabled={applying || loading}
-              className="text-xs font-bold shadow-md shadow-[#D6BC8A]/20"
+              className="text-xs font-bold shadow-md shadow-[#D6C29A]/20"
             >
               <Check className="h-3.5 w-3.5 mr-1.5" />
               {applying ? 'Applying Changes...' : 'Apply Recommendations'}

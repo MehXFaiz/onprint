@@ -3,16 +3,16 @@ export default function SectionHeading({ eyebrow, title, subtitle, center = fals
   return (
     <div className={`flex flex-col ${center ? 'mx-auto max-w-3xl items-center text-center' : 'max-w-3xl'} ${className}`}>
       {eyebrow && (
-        <div className={`mb-3 inline-flex items-center gap-2 rounded-full border border-[#D6BC8A] bg-[#FFFFFF] px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-widest ${
-          light ? 'border-[#FFFFFF]/30 bg-[#101C35] text-[#FFFFFF]' : 'text-[#D6BC8A]'
+        <div className={`mb-3 inline-flex items-center gap-2 rounded-full border border-[#D6C29A] bg-[#FFFFFF] px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-widest ${
+          light ? 'border-[#FFFFFF]/30 bg-[#0B132B] text-[#FFFFFF]' : 'text-[#D6C29A]'
         }`}>
-          <span className="h-1.5 w-1.5 rounded-full bg-[#D6BC8A]" aria-hidden="true" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#D6C29A]" aria-hidden="true" />
           <span>{eyebrow}</span>
         </div>
       )}
       <h2
         className={`font-display text-3xl font-black tracking-tight text-balance sm:text-4xl lg:text-5xl ${
-          light ? 'text-[#FFFFFF]' : 'text-[#101C35]'
+          light ? 'text-[#FFFFFF]' : 'text-[#0B132B]'
         }`}
       >
         {title}
@@ -20,9 +20,9 @@ export default function SectionHeading({ eyebrow, title, subtitle, center = fals
       
       {/* Signature Gold Underline Bar */}
       <div className={`mt-3.5 flex items-center gap-1.5 ${center ? 'justify-center' : ''}`}>
-        <span className="h-1.5 w-20 rounded-full bg-[#D6BC8A]" />
-        <span className="h-1.5 w-4 rounded-full bg-[#D6BC8A]/10" />
-        <span className="h-1.5 w-1.5 rounded-full bg-[#D6BC8A]/10" />
+        <span className="h-1.5 w-20 rounded-full bg-[#D6C29A]" />
+        <span className="h-1.5 w-4 rounded-full bg-[#D6C29A]/10" />
+        <span className="h-1.5 w-1.5 rounded-full bg-[#D6C29A]/10" />
       </div>
 
       {subtitle && (

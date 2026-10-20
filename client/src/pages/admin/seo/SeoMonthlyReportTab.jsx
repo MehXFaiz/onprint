@@ -53,20 +53,20 @@ export default function SeoMonthlyReportTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header & Controls Bar */}
-      <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-xs print:hidden">
+      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs print:hidden">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
                 <Calendar className="h-3.5 w-3.5" />
                 Executive Reporting & Strategy
               </span>
-              <span className="text-xs font-semibold text-neutral-500">Requirements 38 & 41</span>
+              <span className="text-xs font-semibold text-[#B8C2D9]">Requirements 38 & 41</span>
             </div>
-            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-neutral-900">
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#F5F3EE]">
               Monthly SEO Report & Prioritized Roadmap
             </h2>
-            <p className="mt-1 text-sm text-neutral-600 max-w-2xl">
+            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
               Automated organic performance summary and triaged HIGH / MEDIUM / LOW execution roadmap for executive stakeholders and search marketing leads.
             </p>
           </div>
@@ -77,7 +77,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
               <select
                 value={selectedMonth}
                 onChange={(e) => setSelectedMonth(Number(e.target.value))}
-                className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-800 font-bold focus:outline-none focus:border-[#D6BC8A]"
+                className="px-3 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] font-bold focus:outline-none focus:border-[#D6C29A]"
               >
                 {[
                   'January', 'February', 'March', 'April', 'May', 'June',
@@ -90,7 +90,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(Number(e.target.value))}
-                className="px-3 py-2 text-xs rounded-xl border border-neutral-300 bg-white text-neutral-800 font-bold focus:outline-none focus:border-[#D6BC8A]"
+                className="px-3 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] font-bold focus:outline-none focus:border-[#D6C29A]"
               >
                 <option value={2026}>2026</option>
                 <option value={2025}>2025</option>
@@ -102,7 +102,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
               variant="outline"
               size="sm"
               onClick={handlePrint}
-              className="text-xs font-bold border-neutral-300"
+              className="text-xs font-bold border-[#1E2C4F]"
             >
               <Printer className="h-3.5 w-3.5 mr-1.5" />
               Print / Save PDF
@@ -112,17 +112,17 @@ export default function SeoMonthlyReportTab({ showToast }) {
       </div>
 
       {/* Printable Report Document Container */}
-      <div className="bg-white rounded-2xl border border-neutral-200/80 p-8 sm:p-12 shadow-sm space-y-10 print:border-none print:shadow-none print:p-0">
+      <div className="bg-[#14213D] rounded-2xl border border-[#1E2C4F] p-8 sm:p-12 shadow-sm space-y-10 print:border-none print:shadow-none print:p-0">
         {/* Document Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b-2 border-neutral-900 pb-6 gap-4">
           <div>
-            <div className="text-xs font-extrabold text-[#D6BC8A] tracking-widest uppercase">
+            <div className="text-xs font-extrabold text-[#D6C29A] tracking-widest uppercase">
               ONPRINT Commercial SEO Intelligence
             </div>
-            <h1 className="font-display text-3xl font-black text-neutral-900 tracking-tight mt-1">
+            <h1 className="font-display text-3xl font-black text-[#F5F3EE] tracking-tight mt-1">
               Monthly Organic Performance Audit
             </h1>
-            <p className="text-xs text-neutral-500 mt-1">
+            <p className="text-xs text-[#B8C2D9] mt-1">
               Target Market: Dubai & United Arab Emirates | Domain: https://www.0nprint.com
             </p>
           </div>
@@ -131,17 +131,17 @@ export default function SeoMonthlyReportTab({ showToast }) {
             <span className="inline-block px-3 py-1 bg-neutral-900 text-white text-xs font-black rounded-lg">
               {new Date(selectedYear, selectedMonth - 1).toLocaleString('default', { month: 'long', year: 'numeric' })}
             </span>
-            <div className="text-[11px] text-neutral-400 mt-1">Generated: {new Date().toLocaleDateString()}</div>
+            <div className="text-[11px] text-[#B8C2D9]/70 mt-1">Generated: {new Date().toLocaleDateString()}</div>
           </div>
         </div>
 
         {/* Executive Summary Narrative */}
-        <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200/70 space-y-3">
-          <h3 className="font-bold text-neutral-900 text-sm flex items-center gap-2">
+        <div className="bg-[#0B132B] p-6 rounded-2xl border border-[#1E2C4F]/70 space-y-3">
+          <h3 className="font-bold text-[#F5F3EE] text-sm flex items-center gap-2">
             <ShieldCheck className="h-4 w-4 text-emerald-600" />
             Executive Performance Summary
           </h3>
-          <p className="text-xs text-neutral-700 leading-relaxed">
+          <p className="text-xs text-[#F5F3EE] leading-relaxed">
             During this period, ONPRINT expanded commercial keyword coverage across high-intent queries including
             luxury business card printing, perfume packaging, and same-day banner production in Al Quoz and Business Bay.
             Organic conversion tracking recorded steady growth in WhatsApp quotation inquiries and direct telephone calls.
@@ -151,43 +151,43 @@ export default function SeoMonthlyReportTab({ showToast }) {
 
         {/* Core KPIs Grid */}
         <div>
-          <h3 className="font-bold text-neutral-900 text-sm mb-4 uppercase tracking-wider text-[11px]">
+          <h3 className="font-bold text-[#F5F3EE] text-sm mb-4 uppercase tracking-wider text-[11px]">
             Key Performance Indicators (KPIs)
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="border border-neutral-200 rounded-xl p-4 bg-white">
-              <div className="text-[10px] font-bold uppercase text-neutral-400">Total Crawled Pages</div>
-              <div className="text-2xl font-black text-neutral-900 mt-1">{kpis.totalPages || 38}</div>
+            <div className="border border-[#1E2C4F] rounded-xl p-4 bg-[#14213D]">
+              <div className="text-[10px] font-bold uppercase text-[#B8C2D9]/70">Total Crawled Pages</div>
+              <div className="text-2xl font-black text-[#F5F3EE] mt-1">{kpis.totalPages || 38}</div>
               <div className="text-[10px] text-emerald-600 font-semibold mt-0.5">100% Indexable</div>
             </div>
 
-            <div className="border border-neutral-200 rounded-xl p-4 bg-white">
-              <div className="text-[10px] font-bold uppercase text-neutral-400">Total Organic Leads</div>
-              <div className="text-2xl font-black text-[#D6BC8A] mt-1">{kpis.totalConversions || 142}</div>
-              <div className="text-[10px] text-neutral-500 font-semibold mt-0.5">WhatsApp, Calls, RFQs</div>
+            <div className="border border-[#1E2C4F] rounded-xl p-4 bg-[#14213D]">
+              <div className="text-[10px] font-bold uppercase text-[#B8C2D9]/70">Total Organic Leads</div>
+              <div className="text-2xl font-black text-[#D6C29A] mt-1">{kpis.totalConversions || 142}</div>
+              <div className="text-[10px] text-[#B8C2D9] font-semibold mt-0.5">WhatsApp, Calls, RFQs</div>
             </div>
 
-            <div className="border border-neutral-200 rounded-xl p-4 bg-white">
-              <div className="text-[10px] font-bold uppercase text-neutral-400">Striking Distance (T1-T3)</div>
-              <div className="text-2xl font-black text-neutral-900 mt-1">{kpis.strikingDistanceCount || 24}</div>
-              <div className="text-[10px] text-neutral-500 font-semibold mt-0.5">Positions 4–30</div>
+            <div className="border border-[#1E2C4F] rounded-xl p-4 bg-[#14213D]">
+              <div className="text-[10px] font-bold uppercase text-[#B8C2D9]/70">Striking Distance (T1-T3)</div>
+              <div className="text-2xl font-black text-[#F5F3EE] mt-1">{kpis.strikingDistanceCount || 24}</div>
+              <div className="text-[10px] text-[#B8C2D9] font-semibold mt-0.5">Positions 4–30</div>
             </div>
 
-            <div className="border border-neutral-200 rounded-xl p-4 bg-white">
-              <div className="text-[10px] font-bold uppercase text-neutral-400">Backlink Portfolio</div>
-              <div className="text-2xl font-black text-neutral-900 mt-1">{kpis.backlinksTotal || 350}+</div>
+            <div className="border border-[#1E2C4F] rounded-xl p-4 bg-[#14213D]">
+              <div className="text-[10px] font-bold uppercase text-[#B8C2D9]/70">Backlink Portfolio</div>
+              <div className="text-2xl font-black text-[#F5F3EE] mt-1">{kpis.backlinksTotal || 350}+</div>
               <div className="text-[10px] text-emerald-600 font-semibold mt-0.5">UAE Directories & PR</div>
             </div>
           </div>
         </div>
 
         {/* SECTION: Prioritized Action Roadmap (Requirement 41) */}
-        <div className="space-y-6 pt-4 border-t border-neutral-100">
+        <div className="space-y-6 pt-4 border-t border-[#1E2C4F]">
           <div>
-            <h3 className="font-bold text-neutral-900 text-base">
+            <h3 className="font-bold text-[#F5F3EE] text-base">
               Prioritized Strategic Action Roadmap
             </h3>
-            <p className="text-xs text-neutral-500 mt-0.5">
+            <p className="text-xs text-[#B8C2D9] mt-0.5">
               Strictly triaged by business impact, technical dependency, and ease of implementation.
             </p>
           </div>
@@ -198,7 +198,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-red-100 text-red-800">
                 High Priority (Immediate Sprints)
               </span>
-              <span className="text-xs text-neutral-500">Critical technical & commercial revenue blockers</span>
+              <span className="text-xs text-[#B8C2D9]">Critical technical & commercial revenue blockers</span>
             </div>
 
             <div className="grid grid-cols-1 gap-2.5">
@@ -224,12 +224,12 @@ export default function SeoMonthlyReportTab({ showToast }) {
               ]).map((t, idx) => (
                 <div key={idx} className="border border-red-200/80 bg-red-50/20 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <div className="font-bold text-neutral-900 text-xs">{t.task}</div>
-                    <div className="text-[11px] text-neutral-600 mt-0.5">{t.impact}</div>
+                    <div className="font-bold text-[#F5F3EE] text-xs">{t.task}</div>
+                    <div className="text-[11px] text-[#B8C2D9] mt-0.5">{t.impact}</div>
                   </div>
                   <div className="flex items-center gap-3 shrink-0">
-                    <span className="text-[10px] font-semibold uppercase text-neutral-500">Effort: {t.effort}</span>
-                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-white border border-neutral-300 text-neutral-800">
+                    <span className="text-[10px] font-semibold uppercase text-[#B8C2D9]">Effort: {t.effort}</span>
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#14213D] border border-[#1E2C4F] text-[#F5F3EE]">
                       {t.status}
                     </span>
                   </div>
@@ -244,7 +244,7 @@ export default function SeoMonthlyReportTab({ showToast }) {
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-amber-100 text-amber-800">
                 Medium Priority (30-Day Horizon)
               </span>
-              <span className="text-xs text-neutral-500">Content gap fulfillment and outreach scaling</span>
+              <span className="text-xs text-[#B8C2D9]">Content gap fulfillment and outreach scaling</span>
             </div>
 
             <div className="grid grid-cols-1 gap-2.5">
@@ -270,12 +270,12 @@ export default function SeoMonthlyReportTab({ showToast }) {
               ]).map((t, idx) => (
                 <div key={idx} className="border border-amber-200/80 bg-amber-50/20 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <div className="font-bold text-neutral-900 text-xs">{t.task}</div>
-                    <div className="text-[11px] text-neutral-600 mt-0.5">{t.impact}</div>
+                    <div className="font-bold text-[#F5F3EE] text-xs">{t.task}</div>
+                    <div className="text-[11px] text-[#B8C2D9] mt-0.5">{t.impact}</div>
                   </div>
                   <div className="flex items-center gap-3 shrink-0">
-                    <span className="text-[10px] font-semibold uppercase text-neutral-500">Effort: {t.effort}</span>
-                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-white border border-neutral-300 text-neutral-800">
+                    <span className="text-[10px] font-semibold uppercase text-[#B8C2D9]">Effort: {t.effort}</span>
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#14213D] border border-[#1E2C4F] text-[#F5F3EE]">
                       {t.status}
                     </span>
                   </div>
@@ -287,10 +287,10 @@ export default function SeoMonthlyReportTab({ showToast }) {
           {/* LOW PRIORITY */}
           <div className="space-y-3 pt-2">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-neutral-100 text-neutral-700">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-neutral-100 text-[#F5F3EE]">
                 Low Priority (Continuous Hygiene)
               </span>
-              <span className="text-xs text-neutral-500">Image SEO, internal linking enhancements & ongoing audits</span>
+              <span className="text-xs text-[#B8C2D9]">Image SEO, internal linking enhancements & ongoing audits</span>
             </div>
 
             <div className="grid grid-cols-1 gap-2.5">
@@ -308,14 +308,14 @@ export default function SeoMonthlyReportTab({ showToast }) {
                   status: 'In Progress'
                 },
               ]).map((t, idx) => (
-                <div key={idx} className="border border-neutral-200 bg-neutral-50/50 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div key={idx} className="border border-[#1E2C4F] bg-[#0B132B] rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <div className="font-bold text-neutral-900 text-xs">{t.task}</div>
-                    <div className="text-[11px] text-neutral-600 mt-0.5">{t.impact}</div>
+                    <div className="font-bold text-[#F5F3EE] text-xs">{t.task}</div>
+                    <div className="text-[11px] text-[#B8C2D9] mt-0.5">{t.impact}</div>
                   </div>
                   <div className="flex items-center gap-3 shrink-0">
-                    <span className="text-[10px] font-semibold uppercase text-neutral-500">Effort: {t.effort}</span>
-                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-white border border-neutral-300 text-neutral-800">
+                    <span className="text-[10px] font-semibold uppercase text-[#B8C2D9]">Effort: {t.effort}</span>
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-[#14213D] border border-[#1E2C4F] text-[#F5F3EE]">
                       {t.status}
                     </span>
                   </div>
@@ -326,9 +326,9 @@ export default function SeoMonthlyReportTab({ showToast }) {
         </div>
 
         {/* Sign-off Footer */}
-        <div className="pt-8 border-t border-neutral-200 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-neutral-500 gap-2">
+        <div className="pt-8 border-t border-[#1E2C4F] flex flex-col sm:flex-row sm:items-center justify-between text-xs text-[#B8C2D9] gap-2">
           <div>Report prepared autonomously by ONPRINT AI SEO Engine</div>
-          <div className="font-semibold text-neutral-800">Verified & Approved for Pressroom Operations</div>
+          <div className="font-semibold text-[#F5F3EE]">Verified & Approved for Pressroom Operations</div>
         </div>
       </div>
     </div>

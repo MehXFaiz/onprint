@@ -318,21 +318,21 @@ export default function KeywordArchitectureTab({
   return (
     <div className="space-y-6">
       {/* Header & Metric Cards */}
-      <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-3 py-1 text-xs font-bold text-[#D6BC8A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-3 py-1 text-xs font-bold text-[#D6C29A]">
                 <Key className="h-3.5 w-3.5" /> High-Intent SERP Architecture
               </span>
-              <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-neutral-600">
+              <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-[#B8C2D9]">
                 Dubai & UAE Regional Targeting
               </span>
             </div>
-            <h2 className="mt-2 font-display text-xl sm:text-2xl font-black text-neutral-900">
+            <h2 className="mt-2 font-display text-xl sm:text-2xl font-black text-[#F5F3EE]">
               Commercial Keyword Architecture & SERP Dashboard
             </h2>
-            <p className="mt-1 text-xs sm:text-sm text-neutral-600 max-w-3xl leading-relaxed">
+            <p className="mt-1 text-xs sm:text-sm text-[#B8C2D9] max-w-3xl leading-relaxed">
               Targeting high-intent B2B search terms across commercial printing, luxury corporate stationery, customized packaging, large format printing, and eco-friendly solutions. Strict single-owner mapping prevents internal keyword cannibalization.
             </p>
           </div>
@@ -371,14 +371,14 @@ export default function KeywordArchitectureTab({
         <div className="mt-5 rounded-xl border border-blue-100 bg-blue-50/60 p-3.5 text-xs text-blue-900 flex items-start gap-3">
           <ShieldCheck className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
           <div className="leading-relaxed">
-            <span className="font-bold">Google Essentials & Real-Time Integrity Policy:</span> In strict adherence to our data integrity standards, search volume, CPC, ranking, and competition are never fabricated. Metrics show <span className="font-semibold text-neutral-700 bg-white/80 px-1.5 py-0.5 rounded border border-blue-200">Connect API</span> or <span className="font-semibold text-neutral-700 bg-white/80 px-1.5 py-0.5 rounded border border-blue-200">—</span> until live Google Search Console or Google Ads API sync is active.
+            <span className="font-bold">Google Essentials & Real-Time Integrity Policy:</span> In strict adherence to our data integrity standards, search volume, CPC, ranking, and competition are never fabricated. Metrics show <span className="font-semibold text-[#F5F3EE] bg-[#14213D]/80 px-1.5 py-0.5 rounded border border-blue-200">Connect API</span> or <span className="font-semibold text-[#F5F3EE] bg-[#14213D]/80 px-1.5 py-0.5 rounded border border-blue-200">—</span> until live Google Search Console or Google Ads API sync is active.
           </div>
         </div>
 
         {/* Quick Filter & Search Bar */}
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
           <div className="relative">
-            <Search className="absolute left-3 top-2.5 h-4 w-4 text-neutral-400" />
+            <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#B8C2D9]/70" />
             <input
               type="text"
               placeholder="Search keywords or URL..."
@@ -387,7 +387,7 @@ export default function KeywordArchitectureTab({
                 setSearch(e.target.value)
                 setCurrentPage(1)
               }}
-              className="w-full rounded-xl border border-neutral-200 pl-9 pr-3 py-2 text-xs focus:border-[#D6BC8A] focus:outline-none"
+              className="w-full rounded-xl border border-[#1E2C4F] pl-9 pr-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
             />
           </div>
 
@@ -397,7 +397,7 @@ export default function KeywordArchitectureTab({
               setGroupFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs focus:border-[#D6BC8A] focus:outline-none"
+            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Groups (A–N)</option>
             {KEYWORD_GROUPS_LIST.map((g) => (
@@ -413,7 +413,7 @@ export default function KeywordArchitectureTab({
               setCategoryFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs focus:border-[#D6BC8A] focus:outline-none"
+            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Clusters / Categories</option>
             {categories.map((c) => (
@@ -429,7 +429,7 @@ export default function KeywordArchitectureTab({
               setIntentFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs focus:border-[#D6BC8A] focus:outline-none"
+            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Search Intents</option>
             <option value="Commercial">Commercial</option>
@@ -445,7 +445,7 @@ export default function KeywordArchitectureTab({
               setPriorityFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs focus:border-[#D6BC8A] focus:outline-none"
+            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Priorities</option>
             <option value="High">High Priority</option>
@@ -459,7 +459,7 @@ export default function KeywordArchitectureTab({
               setStatusFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs focus:border-[#D6BC8A] focus:outline-none"
+            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Statuses</option>
             <option value="Published">Published</option>
@@ -470,9 +470,9 @@ export default function KeywordArchitectureTab({
         </div>
 
         {/* Count overview */}
-        <div className="mt-3 flex items-center justify-between text-xs text-neutral-500">
+        <div className="mt-3 flex items-center justify-between text-xs text-[#B8C2D9]">
           <span>
-            Showing <strong className="text-neutral-900">{filteredItems.length}</strong> keywords (Page {currentPage} of {totalPages})
+            Showing <strong className="text-[#F5F3EE]">{filteredItems.length}</strong> keywords (Page {currentPage} of {totalPages})
           </span>
           {(search || categoryFilter !== 'all' || intentFilter !== 'all' || priorityFilter !== 'all' || statusFilter !== 'all') && (
             <button
@@ -484,7 +484,7 @@ export default function KeywordArchitectureTab({
                 setStatusFilter('all')
                 setCurrentPage(1)
               }}
-              className="text-[#D6BC8A] hover:underline font-semibold cursor-pointer"
+              className="text-[#D6C29A] hover:underline font-semibold cursor-pointer"
             >
               Reset Filters
             </button>
@@ -493,14 +493,14 @@ export default function KeywordArchitectureTab({
       </div>
 
       {/* Main Table */}
-      <div className="rounded-2xl border border-neutral-200/80 bg-white shadow-xs overflow-hidden">
+      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
           {paginatedItems.length > 0 ? (
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-neutral-100 bg-neutral-50/75 text-[10px] uppercase font-black text-neutral-400">
+                <tr className="border-b border-[#1E2C4F] bg-[#0B132B]/75 text-[10px] uppercase font-black text-[#B8C2D9]/70">
                   <th
-                    className="p-3.5 cursor-pointer hover:text-neutral-800"
+                    className="p-3.5 cursor-pointer hover:text-[#F5F3EE]"
                     onClick={() => handleSort('keyword')}
                   >
                     <div className="flex items-center gap-1">
@@ -508,7 +508,7 @@ export default function KeywordArchitectureTab({
                     </div>
                   </th>
                   <th
-                    className="p-3.5 cursor-pointer hover:text-neutral-800"
+                    className="p-3.5 cursor-pointer hover:text-[#F5F3EE]"
                     onClick={() => handleSort('search_intent')}
                   >
                     <div className="flex items-center gap-1">
@@ -518,7 +518,7 @@ export default function KeywordArchitectureTab({
                   <th className="p-3.5">Target URL</th>
                   <th className="p-3.5">Location</th>
                   <th
-                    className="p-3.5 cursor-pointer hover:text-neutral-800"
+                    className="p-3.5 cursor-pointer hover:text-[#F5F3EE]"
                     onClick={() => handleSort('cluster')}
                   >
                     <div className="flex items-center gap-1">
@@ -547,20 +547,20 @@ export default function KeywordArchitectureTab({
                       : 'bg-blue-50 text-blue-700 border-blue-200'
 
                   return (
-                    <tr key={item.id} className="hover:bg-neutral-50/60 transition-colors">
+                    <tr key={item.id} className="hover:bg-[#0B132B]/60 transition-colors">
                       {/* Keyword */}
-                      <td className="p-3.5 font-bold text-neutral-900 max-w-[200px] truncate" title={item.keyword}>
+                      <td className="p-3.5 font-bold text-[#F5F3EE] max-w-[200px] truncate" title={item.keyword}>
                         <div className="flex items-center gap-1.5">
                           <span>{item.keyword}</span>
                         </div>
                         {item.notes && (
-                          <div className="text-[10px] font-normal text-neutral-400 truncate mt-0.5">
+                          <div className="text-[10px] font-normal text-[#B8C2D9]/70 truncate mt-0.5">
                             {item.notes}
                           </div>
                         )}
                         <div className="flex items-center gap-1.5 mt-1">
                           {item.keyword_group && (
-                            <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-extrabold uppercase bg-neutral-100 text-neutral-700 border border-neutral-200">
+                            <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-extrabold uppercase bg-neutral-100 text-[#F5F3EE] border border-[#1E2C4F]">
                               Grp {item.keyword_group}
                             </span>
                           )}
@@ -568,7 +568,7 @@ export default function KeywordArchitectureTab({
                             <span className={`inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-bold ${
                               item.conversion_value === 'High'
                                 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                                : 'bg-neutral-100 text-neutral-600 border border-neutral-200'
+                                : 'bg-neutral-100 text-[#B8C2D9] border border-[#1E2C4F]'
                             }`}>
                               {item.conversion_value}
                             </span>
@@ -590,40 +590,40 @@ export default function KeywordArchitectureTab({
                             href={item.target_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-neutral-600 hover:text-[#D6BC8A] font-medium"
+                            className="inline-flex items-center gap-1 text-[#B8C2D9] hover:text-[#D6C29A] font-medium"
                             title={item.target_url}
                           >
                             <span className="truncate">{item.target_page || item.target_url.replace(/^https?:\/\/[^/]+/, '') || '/'}</span>
                             <ExternalLink className="h-3 w-3 shrink-0 opacity-60" />
                           </a>
                         ) : (
-                          <span className="text-neutral-400 italic">Unassigned</span>
+                          <span className="text-[#B8C2D9]/70 italic">Unassigned</span>
                         )}
                       </td>
 
                       {/* Location */}
-                      <td className="p-3.5 whitespace-nowrap text-neutral-600 font-medium">
+                      <td className="p-3.5 whitespace-nowrap text-[#B8C2D9] font-medium">
                         {item.city || 'Dubai'}, {item.country || 'UAE'}
                       </td>
 
                       {/* Category */}
-                      <td className="p-3.5 whitespace-nowrap text-neutral-700 font-medium">
+                      <td className="p-3.5 whitespace-nowrap text-[#F5F3EE] font-medium">
                         {item.category || item.cluster || 'General Printing'}
                       </td>
 
                       {/* Current Ranking */}
                       <td className="p-3.5 text-center whitespace-nowrap">
                         {item.current_ranking != null ? (
-                          <span className="font-bold text-neutral-900">{item.current_ranking}</span>
+                          <span className="font-bold text-[#F5F3EE]">{item.current_ranking}</span>
                         ) : (
-                          <span className="text-neutral-400 font-mono text-[11px]" title="Live SERP API not connected">
+                          <span className="text-[#B8C2D9]/70 font-mono text-[11px]" title="Live SERP API not connected">
                             —
                           </span>
                         )}
                       </td>
 
                       {/* Previous Ranking */}
-                      <td className="p-3.5 text-center whitespace-nowrap text-neutral-400">
+                      <td className="p-3.5 text-center whitespace-nowrap text-[#B8C2D9]/70">
                         {item.previous_ranking != null ? (
                           <span>{item.previous_ranking}</span>
                         ) : (
@@ -634,28 +634,28 @@ export default function KeywordArchitectureTab({
                       {/* Search Volume */}
                       <td className="p-3.5 text-center whitespace-nowrap">
                         {item.search_volume != null ? (
-                          <span className="font-bold text-neutral-800">{item.search_volume}</span>
+                          <span className="font-bold text-[#F5F3EE]">{item.search_volume}</span>
                         ) : (
-                          <span className="text-[10px] font-semibold text-neutral-400 bg-neutral-100/80 px-1.5 py-0.5 rounded" title="Connect GSC or Ads API for verified metrics">
+                          <span className="text-[10px] font-semibold text-[#B8C2D9]/70 bg-neutral-100/80 px-1.5 py-0.5 rounded" title="Connect GSC or Ads API for verified metrics">
                             Connect API
                           </span>
                         )}
                       </td>
 
                       {/* CPC */}
-                      <td className="p-3.5 text-center whitespace-nowrap text-neutral-400 font-mono text-[11px]">
+                      <td className="p-3.5 text-center whitespace-nowrap text-[#B8C2D9]/70 font-mono text-[11px]">
                         {item.cpc != null ? `$${item.cpc}` : '—'}
                       </td>
 
                       {/* Competition */}
-                      <td className="p-3.5 text-center whitespace-nowrap text-neutral-400 text-[11px]">
+                      <td className="p-3.5 text-center whitespace-nowrap text-[#B8C2D9]/70 text-[11px]">
                         {item.competition || '—'}
                       </td>
 
                       {/* Last Checked */}
-                      <td className="p-3.5 text-center whitespace-nowrap text-neutral-400 text-[11px]">
+                      <td className="p-3.5 text-center whitespace-nowrap text-[#B8C2D9]/70 text-[11px]">
                         {item.last_checked || (
-                          <span className="text-[10px] text-neutral-400 italic">Pending</span>
+                          <span className="text-[10px] text-[#B8C2D9]/70 italic">Pending</span>
                         )}
                       </td>
 
@@ -668,13 +668,13 @@ export default function KeywordArchitectureTab({
                                 ? 'text-emerald-600'
                                 : item.ranking_change < 0
                                 ? 'text-red-600'
-                                : 'text-neutral-500'
+                                : 'text-[#B8C2D9]'
                             }`}
                           >
                             {item.ranking_change > 0 ? `+${item.ranking_change}` : item.ranking_change}
                           </span>
                         ) : (
-                          <span className="text-neutral-400 font-mono text-[11px]">—</span>
+                          <span className="text-[#B8C2D9]/70 font-mono text-[11px]">—</span>
                         )}
                       </td>
 
@@ -683,14 +683,14 @@ export default function KeywordArchitectureTab({
                         <div className="flex items-center justify-end gap-1.5">
                           <button
                             onClick={() => handleOpenEdit(item)}
-                            className="rounded-lg p-1.5 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900 transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors cursor-pointer"
                             title="Edit Keyword"
                           >
                             <Edit3 className="h-3.5 w-3.5" />
                           </button>
                           <button
                             onClick={() => setDeletingItem(item)}
-                            className="rounded-lg p-1.5 text-neutral-500 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
                             title="Delete Keyword"
                           >
                             <Trash2 className="h-3.5 w-3.5" />
@@ -703,18 +703,18 @@ export default function KeywordArchitectureTab({
               </tbody>
             </table>
           ) : (
-            <div className="py-16 text-center text-sm text-neutral-500">
+            <div className="py-16 text-center text-sm text-[#B8C2D9]">
               <Key className="h-8 w-8 text-neutral-300 mx-auto mb-2" />
-              <p className="font-bold text-neutral-700">No keyword targets found</p>
-              <p className="text-xs text-neutral-400 mt-1">Try clearing your filters or add a new keyword target.</p>
+              <p className="font-bold text-[#F5F3EE]">No keyword targets found</p>
+              <p className="text-xs text-[#B8C2D9]/70 mt-1">Try clearing your filters or add a new keyword target.</p>
             </div>
           )}
         </div>
 
         {/* Pagination Bar */}
         {totalPages > 1 && (
-          <div className="border-t border-neutral-100 p-4 flex items-center justify-between text-xs">
-            <span className="text-neutral-500">
+          <div className="border-t border-[#1E2C4F] p-4 flex items-center justify-between text-xs">
+            <span className="text-[#B8C2D9]">
               Showing {(currentPage - 1) * pageSize + 1} to{' '}
               {Math.min(currentPage * pageSize, filteredItems.length)} of {filteredItems.length}
             </span>
@@ -722,17 +722,17 @@ export default function KeywordArchitectureTab({
               <button
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                className="rounded-lg border border-neutral-200 px-3 py-1.5 text-xs font-semibold hover:bg-neutral-50 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="rounded-lg border border-[#1E2C4F] px-3 py-1.5 text-xs font-semibold hover:bg-[#0B132B] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
                 Previous
               </button>
-              <span className="px-2 text-neutral-600 font-bold">
+              <span className="px-2 text-[#B8C2D9] font-bold">
                 {currentPage} / {totalPages}
               </span>
               <button
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                className="rounded-lg border border-neutral-200 px-3 py-1.5 text-xs font-semibold hover:bg-neutral-50 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="rounded-lg border border-[#1E2C4F] px-3 py-1.5 text-xs font-semibold hover:bg-[#0B132B] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
                 Next
               </button>
@@ -744,45 +744,45 @@ export default function KeywordArchitectureTab({
       {/* ADD KEYWORD MODAL */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl border border-neutral-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
-              <h3 className="font-display text-lg font-bold text-neutral-900">Add Keyword Target</h3>
+          <div className="w-full max-w-lg rounded-2xl bg-[#14213D] p-6 shadow-2xl border border-[#1E2C4F] animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4">
+              <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Add Keyword Target</h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="rounded-lg p-1 text-neutral-400 hover:text-neutral-700 cursor-pointer"
+                className="rounded-lg p-1 text-[#B8C2D9]/70 hover:text-[#F5F3EE] cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
             <form onSubmit={handleSaveAdd} className="mt-4 space-y-4 text-xs">
               <div>
-                <label className="block font-bold text-neutral-700 mb-1">Keyword *</label>
+                <label className="block font-bold text-[#F5F3EE] mb-1">Keyword *</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. luxury business card printing Dubai"
                   value={formData.keyword}
                   onChange={(e) => setFormData({ ...formData, keyword: e.target.value })}
-                  className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">Cluster / Category</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">Cluster / Category</label>
                   <input
                     type="text"
                     value={formData.cluster}
                     onChange={(e) => setFormData({ ...formData, cluster: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">Search Intent</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">Search Intent</label>
                   <select
                     value={formData.search_intent}
                     onChange={(e) => setFormData({ ...formData, search_intent: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none bg-white"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
                   >
                     <option value="Commercial">Commercial</option>
                     <option value="Transactional">Transactional</option>
@@ -794,33 +794,33 @@ export default function KeywordArchitectureTab({
               </div>
 
               <div>
-                <label className="block font-bold text-neutral-700 mb-1">Target URL</label>
+                <label className="block font-bold text-[#F5F3EE] mb-1">Target URL</label>
                 <input
                   type="url"
                   placeholder="https://www.0nprint.com/services/..."
                   value={formData.target_url}
                   onChange={(e) => setFormData({ ...formData, target_url: e.target.value })}
-                  className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">Target Page Label</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">Target Page Label</label>
                   <input
                     type="text"
                     placeholder="e.g. Business Cards Landing Page"
                     value={formData.target_page}
                     onChange={(e) => setFormData({ ...formData, target_page: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">Priority</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">Priority</label>
                   <select
                     value={formData.priority}
                     onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none bg-white"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
                   >
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
@@ -831,37 +831,37 @@ export default function KeywordArchitectureTab({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">City</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">City</label>
                   <input
                     type="text"
                     value={formData.city}
                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">Country</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">Country</label>
                   <input
                     type="text"
                     value={formData.country}
                     onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-neutral-700 mb-1">Notes</label>
+                <label className="block font-bold text-[#F5F3EE] mb-1">Notes</label>
                 <textarea
                   rows={2}
                   placeholder="Strategic notes, secondary variations..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-neutral-100">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#1E2C4F]">
                 <Button
                   type="button"
                   variant="outline"
@@ -890,44 +890,44 @@ export default function KeywordArchitectureTab({
       {/* EDIT KEYWORD MODAL */}
       {editingItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl border border-neutral-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
-              <h3 className="font-display text-lg font-bold text-neutral-900">Edit Keyword Target</h3>
+          <div className="w-full max-w-lg rounded-2xl bg-[#14213D] p-6 shadow-2xl border border-[#1E2C4F] animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4">
+              <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Edit Keyword Target</h3>
               <button
                 onClick={() => setEditingItem(null)}
-                className="rounded-lg p-1 text-neutral-400 hover:text-neutral-700 cursor-pointer"
+                className="rounded-lg p-1 text-[#B8C2D9]/70 hover:text-[#F5F3EE] cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
             <form onSubmit={handleSaveEdit} className="mt-4 space-y-4 text-xs">
               <div>
-                <label className="block font-bold text-neutral-700 mb-1">Keyword *</label>
+                <label className="block font-bold text-[#F5F3EE] mb-1">Keyword *</label>
                 <input
                   type="text"
                   required
                   value={formData.keyword}
                   onChange={(e) => setFormData({ ...formData, keyword: e.target.value })}
-                  className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none font-bold"
+                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none font-bold"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">Cluster / Category</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">Cluster / Category</label>
                   <input
                     type="text"
                     value={formData.cluster}
                     onChange={(e) => setFormData({ ...formData, cluster: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">Search Intent</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">Search Intent</label>
                   <select
                     value={formData.search_intent}
                     onChange={(e) => setFormData({ ...formData, search_intent: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none bg-white"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
                   >
                     <option value="Commercial">Commercial</option>
                     <option value="Transactional">Transactional</option>
@@ -939,31 +939,31 @@ export default function KeywordArchitectureTab({
               </div>
 
               <div>
-                <label className="block font-bold text-neutral-700 mb-1">Target URL</label>
+                <label className="block font-bold text-[#F5F3EE] mb-1">Target URL</label>
                 <input
                   type="url"
                   value={formData.target_url}
                   onChange={(e) => setFormData({ ...formData, target_url: e.target.value })}
-                  className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">Target Page</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">Target Page</label>
                   <input
                     type="text"
                     value={formData.target_page}
                     onChange={(e) => setFormData({ ...formData, target_page: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">Priority</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">Priority</label>
                   <select
                     value={formData.priority}
                     onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none bg-white"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
                   >
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
@@ -974,11 +974,11 @@ export default function KeywordArchitectureTab({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">Status</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">Status</label>
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none bg-white"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
                   >
                     <option value="Tracking">Tracking</option>
                     <option value="Published">Published</option>
@@ -987,27 +987,27 @@ export default function KeywordArchitectureTab({
                   </select>
                 </div>
                 <div>
-                  <label className="block font-bold text-neutral-700 mb-1">City / Country</label>
+                  <label className="block font-bold text-[#F5F3EE] mb-1">City / Country</label>
                   <input
                     type="text"
                     value={`${formData.city}, ${formData.country}`}
                     disabled
-                    className="w-full rounded-xl border border-neutral-200 p-2.5 bg-neutral-100 text-neutral-500 cursor-not-allowed"
+                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 bg-neutral-100 text-[#B8C2D9] cursor-not-allowed"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-neutral-700 mb-1">Notes</label>
+                <label className="block font-bold text-[#F5F3EE] mb-1">Notes</label>
                 <textarea
                   rows={2}
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full rounded-xl border border-neutral-200 p-2.5 focus:border-[#D6BC8A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-neutral-100">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#1E2C4F]">
                 <Button
                   type="button"
                   variant="outline"
@@ -1036,14 +1036,14 @@ export default function KeywordArchitectureTab({
       {/* DELETE CONFIRMATION MODAL */}
       {deletingItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl border border-neutral-200 animate-in fade-in zoom-in-95">
+          <div className="w-full max-w-md rounded-2xl bg-[#14213D] p-6 shadow-2xl border border-[#1E2C4F] animate-in fade-in zoom-in-95">
             <div className="flex items-center gap-3 text-red-600 mb-3">
               <AlertCircle className="h-6 w-6 shrink-0" />
-              <h3 className="font-display text-base font-bold text-neutral-900">Confirm Keyword Deletion</h3>
+              <h3 className="font-display text-base font-bold text-[#F5F3EE]">Confirm Keyword Deletion</h3>
             </div>
-            <p className="text-xs text-neutral-600 leading-relaxed">
+            <p className="text-xs text-[#B8C2D9] leading-relaxed">
               Are you sure you want to delete the keyword{' '}
-              <strong className="text-neutral-900 font-bold">"{deletingItem.keyword}"</strong>? This will remove it from SERP tracking and site architecture.
+              <strong className="text-[#F5F3EE] font-bold">"{deletingItem.keyword}"</strong>? This will remove it from SERP tracking and site architecture.
             </p>
             <div className="mt-5 flex items-center justify-end gap-2">
               <Button

@@ -597,25 +597,25 @@ export default function TopicalAuthorityTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
                 <Network className="h-3.5 w-3.5" />
                 Topical Authority Architecture
               </span>
-              <span className="text-xs font-semibold text-neutral-500">Requirement 4 &amp; 11</span>
+              <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 4 &amp; 11</span>
             </div>
-            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-neutral-900">
+            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#F5F3EE]">
               Topical Map &amp; Pillar-Cluster Architecture
             </h2>
-            <p className="mt-1 text-sm text-neutral-600 max-w-2xl">
+            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
               20 core commercial printing and corporate branding clusters (A–T) mapped to search intent, target landing URLs, and hub-and-spoke internal linking directives.
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
-            <span className="rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2 text-xs font-mono font-bold text-neutral-700">
+            <span className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-2 text-xs font-mono font-bold text-[#F5F3EE]">
               20 / 20 Clusters Active
             </span>
           </div>
@@ -623,11 +623,11 @@ export default function TopicalAuthorityTab({ showToast }) {
 
         {/* Quick Stats Grid */}
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <div className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-4">
-            <span className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider block mb-1">
+          <div className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+            <span className="text-[11px] font-bold text-[#B8C2D9] uppercase tracking-wider block mb-1">
               Topical Clusters
             </span>
-            <div className="text-2xl font-black text-neutral-900">20</div>
+            <div className="text-2xl font-black text-[#F5F3EE]">20</div>
             <span className="text-[11px] text-emerald-600 font-semibold mt-1 block">Full Dubai Coverage</span>
           </div>
           <div className="rounded-xl border border-emerald-200 bg-emerald-50/40 p-4">
@@ -655,24 +655,24 @@ export default function TopicalAuthorityTab({ showToast }) {
       </div>
 
       {/* Filter Bar */}
-      <div className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-xs flex flex-col sm:flex-row gap-3 items-center justify-between">
+      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 shadow-xs flex flex-col sm:flex-row gap-3 items-center justify-between">
         <div className="relative w-full sm:w-80">
-          <Search className="absolute left-3 top-2.5 h-4 w-4 text-neutral-400" />
+          <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#B8C2D9]/70" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search clusters, entities, keywords..."
-            className="w-full rounded-xl border border-neutral-200 pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
+            className="w-full rounded-xl border border-[#1E2C4F] pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
           />
         </div>
 
         <div className="flex items-center gap-2 w-full sm:w-auto">
-          <label className="text-xs font-bold text-neutral-600 shrink-0">Search Intent:</label>
+          <label className="text-xs font-bold text-[#B8C2D9] shrink-0">Search Intent:</label>
           <select
             value={intentFilter}
             onChange={(e) => setIntentFilter(e.target.value)}
-            className="rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
+            className="rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
           >
             <option value="All">All Intents</option>
             <option value="Commercial">Commercial</option>
@@ -689,8 +689,8 @@ export default function TopicalAuthorityTab({ showToast }) {
           return (
             <div
               key={cluster.id}
-              className={`rounded-2xl border transition-all duration-200 bg-white overflow-hidden ${
-                isExpanded ? 'border-neutral-900 shadow-md' : 'border-neutral-200/80 hover:border-neutral-300 shadow-2xs'
+              className={`rounded-2xl border transition-all duration-200 bg-[#14213D] overflow-hidden ${
+                isExpanded ? 'border-neutral-900 shadow-md' : 'border-[#1E2C4F] hover:border-[#1E2C4F] shadow-2xs'
               }`}
             >
               <div
@@ -705,7 +705,7 @@ export default function TopicalAuthorityTab({ showToast }) {
 
                     <div className="space-y-1 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-neutral-400">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#B8C2D9]/70">
                           Cluster {cluster.letter}
                         </span>
                         <span
@@ -724,19 +724,19 @@ export default function TopicalAuthorityTab({ showToast }) {
                           target="_blank"
                           rel="noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1 rounded-full bg-neutral-100 px-2.5 py-0.5 text-[10px] font-mono text-neutral-700 hover:text-[#D6BC8A]"
+                          className="inline-flex items-center gap-1 rounded-full bg-neutral-100 px-2.5 py-0.5 text-[10px] font-mono text-[#F5F3EE] hover:text-[#D6C29A]"
                         >
                           <span>{cluster.target_url}</span>
                           <ExternalLink className="h-2.5 w-2.5" />
                         </a>
                       </div>
 
-                      <h3 className="font-display text-base font-bold text-neutral-900 pt-0.5">
+                      <h3 className="font-display text-base font-bold text-[#F5F3EE] pt-0.5">
                         {cluster.name}
                       </h3>
 
-                      <p className="text-xs text-neutral-500 font-medium">
-                        Focus Entity: <span className="text-neutral-800 font-semibold">{cluster.focus_entity}</span>
+                      <p className="text-xs text-[#B8C2D9] font-medium">
+                        Focus Entity: <span className="text-[#F5F3EE] font-semibold">{cluster.focus_entity}</span>
                       </p>
                     </div>
                   </div>
@@ -750,15 +750,15 @@ export default function TopicalAuthorityTab({ showToast }) {
                         e.stopPropagation()
                         handleGenerateBrief(cluster)
                       }}
-                      className="text-xs font-bold border-neutral-300 text-neutral-800 hover:border-[#D6BC8A]"
+                      className="text-xs font-bold border-[#1E2C4F] text-[#F5F3EE] hover:border-[#D6C29A]"
                     >
-                      <Sparkles className="h-3.5 w-3.5 mr-1 text-[#D6BC8A]" />
+                      <Sparkles className="h-3.5 w-3.5 mr-1 text-[#D6C29A]" />
                       <span>Content Brief</span>
                     </Button>
-                    <div className="p-2 text-neutral-400">
+                    <div className="p-2 text-[#B8C2D9]/70">
                       <ChevronDown
                         className={`h-5 w-5 transition-transform duration-200 ${
-                          isExpanded ? 'rotate-180 text-neutral-800' : ''
+                          isExpanded ? 'rotate-180 text-[#F5F3EE]' : ''
                         }`}
                       />
                     </div>
@@ -768,11 +768,11 @@ export default function TopicalAuthorityTab({ showToast }) {
 
               {/* Expanded Body Details */}
               {isExpanded && (
-                <div className="border-t border-neutral-100 bg-neutral-50/50 p-5 space-y-5 text-xs">
+                <div className="border-t border-[#1E2C4F] bg-[#0B132B] p-5 space-y-5 text-xs">
                   {/* Primary Dubai Keywords */}
                   <div>
-                    <h4 className="font-bold text-neutral-800 mb-2 flex items-center gap-1.5">
-                      <Target className="h-4 w-4 text-[#D6BC8A]" />
+                    <h4 className="font-bold text-[#F5F3EE] mb-2 flex items-center gap-1.5">
+                      <Target className="h-4 w-4 text-[#D6C29A]" />
                       Primary Dubai Target Queries (GEO / Search)
                     </h4>
                     <div className="flex flex-wrap gap-2">
@@ -781,14 +781,14 @@ export default function TopicalAuthorityTab({ showToast }) {
                           key={idx}
                           type="button"
                           onClick={() => handleCopy(kw)}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium text-neutral-800 hover:border-[#D6BC8A] transition-colors cursor-pointer"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2C4F] bg-[#14213D] px-3 py-1.5 text-xs font-medium text-[#F5F3EE] hover:border-[#D6C29A] transition-colors cursor-pointer"
                           title="Click to copy query"
                         >
                           <span>{kw}</span>
                           {copiedKeyword === kw ? (
                             <Check className="h-3 w-3 text-emerald-600" />
                           ) : (
-                            <Copy className="h-3 w-3 text-neutral-400" />
+                            <Copy className="h-3 w-3 text-[#B8C2D9]/70" />
                           )}
                         </button>
                       ))}
@@ -797,7 +797,7 @@ export default function TopicalAuthorityTab({ showToast }) {
 
                   {/* Subtopics & Content Hierarchy */}
                   <div>
-                    <h4 className="font-bold text-neutral-800 mb-2 flex items-center gap-1.5">
+                    <h4 className="font-bold text-[#F5F3EE] mb-2 flex items-center gap-1.5">
                       <FileText className="h-4 w-4 text-blue-600" />
                       Recommended H2 Supporting Subtopics &amp; Knowledge Assets
                     </h4>
@@ -805,9 +805,9 @@ export default function TopicalAuthorityTab({ showToast }) {
                       {cluster.subtopics.map((sub, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center gap-2 rounded-xl border border-neutral-200/80 bg-white p-3 text-xs text-neutral-700"
+                          className="flex items-center gap-2 rounded-xl border border-[#1E2C4F] bg-[#14213D] p-3 text-xs text-[#F5F3EE]"
                         >
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#D6BC8A] shrink-0" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#D6C29A] shrink-0" />
                           <span>{sub}</span>
                         </div>
                       ))}
@@ -816,7 +816,7 @@ export default function TopicalAuthorityTab({ showToast }) {
 
                   {/* Internal Linking Architecture */}
                   <div>
-                    <h4 className="font-bold text-neutral-800 mb-2 flex items-center gap-1.5">
+                    <h4 className="font-bold text-[#F5F3EE] mb-2 flex items-center gap-1.5">
                       <Link2 className="h-4 w-4 text-purple-600" />
                       Required Hub-and-Spoke Internal Links
                     </h4>
@@ -852,79 +852,79 @@ export default function TopicalAuthorityTab({ showToast }) {
           onClick={() => setBriefModalOpen(false)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-neutral-200 bg-white p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
+            <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4">
               <div>
-                <span className="text-[10px] font-extrabold uppercase text-[#D6BC8A]">
+                <span className="text-[10px] font-extrabold uppercase text-[#D6C29A]">
                   AI SEO &amp; GEO Content Strategy
                 </span>
-                <h3 className="font-display text-xl font-black text-neutral-900">
+                <h3 className="font-display text-xl font-black text-[#F5F3EE]">
                   {briefLoading ? 'Generating Content Brief…' : `Content Brief: ${activeBrief?.topic || ''}`}
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setBriefModalOpen(false)}
-                className="p-2 text-neutral-400 hover:text-neutral-700 rounded-lg hover:bg-neutral-100"
+                className="p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F]"
               >
                 ✕
               </button>
             </div>
 
             {briefLoading ? (
-              <div className="py-16 text-center text-xs text-neutral-500">
-                <RefreshCw className="h-8 w-8 animate-spin mx-auto text-[#D6BC8A] mb-3" />
+              <div className="py-16 text-center text-xs text-[#B8C2D9]">
+                <RefreshCw className="h-8 w-8 animate-spin mx-auto text-[#D6C29A] mb-3" />
                 Synthesizing Dubai search intent, technical specs, and H2/H3 outline…
               </div>
             ) : activeBrief ? (
               <div className="mt-5 space-y-5 text-xs leading-relaxed">
                 {/* Meta Tags Recommendation */}
-                <div className="rounded-xl border border-neutral-200 bg-neutral-50/70 p-4 space-y-2">
+                <div className="rounded-xl border border-[#1E2C4F] bg-[#0B132B]/70 p-4 space-y-2">
                   <div>
-                    <span className="font-bold text-neutral-800">Target URL: </span>
-                    <span className="font-mono text-neutral-600">{activeBrief.target_url}</span>
+                    <span className="font-bold text-[#F5F3EE]">Target URL: </span>
+                    <span className="font-mono text-[#B8C2D9]">{activeBrief.target_url}</span>
                   </div>
                   <div>
-                    <span className="font-bold text-neutral-800">Suggested Title: </span>
-                    <span className="text-neutral-900 font-semibold">{activeBrief.suggested_meta_title}</span>
+                    <span className="font-bold text-[#F5F3EE]">Suggested Title: </span>
+                    <span className="text-[#F5F3EE] font-semibold">{activeBrief.suggested_meta_title}</span>
                   </div>
                   <div>
-                    <span className="font-bold text-neutral-800">Suggested Description: </span>
-                    <span className="text-neutral-700">{activeBrief.suggested_meta_description}</span>
+                    <span className="font-bold text-[#F5F3EE]">Suggested Description: </span>
+                    <span className="text-[#F5F3EE]">{activeBrief.suggested_meta_description}</span>
                   </div>
                 </div>
 
                 {/* Scope & Word Count */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  <div className="rounded-xl border border-neutral-200 p-3">
-                    <span className="text-[10px] font-bold text-neutral-400 uppercase block">Search Intent</span>
-                    <span className="text-xs font-bold text-neutral-900">{activeBrief.search_intent}</span>
+                  <div className="rounded-xl border border-[#1E2C4F] p-3">
+                    <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block">Search Intent</span>
+                    <span className="text-xs font-bold text-[#F5F3EE]">{activeBrief.search_intent}</span>
                   </div>
-                  <div className="rounded-xl border border-neutral-200 p-3">
-                    <span className="text-[10px] font-bold text-neutral-400 uppercase block">Word Count Target</span>
-                    <span className="text-xs font-bold text-neutral-900">{activeBrief.recommended_word_count}</span>
+                  <div className="rounded-xl border border-[#1E2C4F] p-3">
+                    <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block">Word Count Target</span>
+                    <span className="text-xs font-bold text-[#F5F3EE]">{activeBrief.recommended_word_count}</span>
                   </div>
-                  <div className="col-span-2 sm:col-span-1 rounded-xl border border-neutral-200 p-3">
-                    <span className="text-[10px] font-bold text-neutral-400 uppercase block">Primary Query</span>
-                    <span className="text-xs font-bold text-neutral-900 truncate block">{activeBrief.primary_keyword}</span>
+                  <div className="col-span-2 sm:col-span-1 rounded-xl border border-[#1E2C4F] p-3">
+                    <span className="text-[10px] font-bold text-[#B8C2D9]/70 uppercase block">Primary Query</span>
+                    <span className="text-xs font-bold text-[#F5F3EE] truncate block">{activeBrief.primary_keyword}</span>
                   </div>
                 </div>
 
                 {/* Content Hierarchy Outline */}
                 <div>
-                  <h4 className="font-bold text-neutral-900 mb-2">Recommended Section Outline (H2 / H3)</h4>
+                  <h4 className="font-bold text-[#F5F3EE] mb-2">Recommended Section Outline (H2 / H3)</h4>
                   <div className="space-y-2.5">
                     {activeBrief.content_structure?.map((section, idx) => (
-                      <div key={idx} className="rounded-xl border border-neutral-200 p-3.5 bg-white">
+                      <div key={idx} className="rounded-xl border border-[#1E2C4F] p-3.5 bg-[#14213D]">
                         <div className="flex items-center gap-2 mb-1.5">
                           <span className="rounded bg-neutral-900 text-white font-mono px-1.5 py-0.5 text-[10px] font-bold">
                             {section.level?.toUpperCase()}
                           </span>
-                          <span className="font-bold text-neutral-900">{section.heading}</span>
+                          <span className="font-bold text-[#F5F3EE]">{section.heading}</span>
                         </div>
-                        <ul className="list-disc pl-5 space-y-1 text-neutral-600 text-[11px]">
+                        <ul className="list-disc pl-5 space-y-1 text-[#B8C2D9] text-[11px]">
                           {section.talking_points?.map((tp, tpIdx) => (
                             <li key={tpIdx}>{tp}</li>
                           ))}
@@ -937,12 +937,12 @@ export default function TopicalAuthorityTab({ showToast }) {
                 {/* FAQ Targets */}
                 {activeBrief.faq_targets && (
                   <div>
-                    <h4 className="font-bold text-neutral-900 mb-2">Answer-First FAQ Targets (Schema Ready)</h4>
+                    <h4 className="font-bold text-[#F5F3EE] mb-2">Answer-First FAQ Targets (Schema Ready)</h4>
                     <div className="space-y-2">
                       {activeBrief.faq_targets.map((faq, idx) => (
-                        <div key={idx} className="rounded-xl border border-neutral-200 p-3 bg-neutral-50/50">
-                          <p className="font-bold text-neutral-800">Q: {faq.question}</p>
-                          <p className="mt-1 text-neutral-600 text-[11px]">A: {faq.answer_guideline}</p>
+                        <div key={idx} className="rounded-xl border border-[#1E2C4F] p-3 bg-[#0B132B]">
+                          <p className="font-bold text-[#F5F3EE]">Q: {faq.question}</p>
+                          <p className="mt-1 text-[#B8C2D9] text-[11px]">A: {faq.answer_guideline}</p>
                         </div>
                       ))}
                     </div>
@@ -951,7 +951,7 @@ export default function TopicalAuthorityTab({ showToast }) {
               </div>
             ) : null}
 
-            <div className="mt-6 flex justify-end border-t border-neutral-200 pt-4">
+            <div className="mt-6 flex justify-end border-t border-[#1E2C4F] pt-4">
               <Button variant="accent" size="sm" onClick={() => setBriefModalOpen(false)}>
                 Close Brief
               </Button>

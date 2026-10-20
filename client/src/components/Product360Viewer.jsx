@@ -118,14 +118,14 @@ export default function Product360Viewer({
 
   return (
     <div
-      className={`group/viewer relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-black/10 bg-gradient-to-b from-[#f8f7f4] via-[#f1eeea] to-[#e7e3dc] select-none ${className}`}
+      className={`group/viewer relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-[#1E2C4F] bg-gradient-to-b from-[#0B132B] via-[#14213D] to-[#0B132B] text-[#F5F3EE] select-none ${className}`}
     >
       <div className="absolute left-3 right-3 top-3 z-30 flex flex-wrap items-center justify-between gap-1.5 pointer-events-none">
-        <div className="flex items-center gap-1.5 rounded-full border border-black/10 bg-white/90 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-black/80 shadow-xs backdrop-blur-md">
-          <Compass className="h-3 w-3 text-[#D6BC8A]" />
+        <div className="flex items-center gap-1.5 rounded-full border border-[#1E2C4F] bg-[#14213D]/90 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-[#F5F3EE] shadow-xs backdrop-blur-md">
+          <Compass className="h-3 w-3 text-[#D6C29A]" />
           <span>360° Studio</span>
           <span className="text-black/30">•</span>
-          <span className="text-[#D6BC8A]">{normalizedAngle}°</span>
+          <span className="text-[#D6C29A]">{normalizedAngle}°</span>
           {hasFrameRotation && (
             <>
               <span className="text-black/30">•</span>
@@ -141,8 +141,8 @@ export default function Product360Viewer({
             title="Toggle Spot UV / Specular Light Reflection"
             className={`flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border transition-all cursor-pointer ${
               specularSheen
-                ? 'border-[#D6BC8A] bg-[#D6BC8A] text-[#101C35] shadow-xs'
-                : 'border-black/15 bg-white/90 text-black/70 hover:text-black'
+                ? 'border-[#D6C29A] bg-[#D6C29A] text-[#0B132B] shadow-xs'
+                : 'border-[#1E2C4F] bg-[#14213D]/90 text-[#B8C2D9] hover:text-[#F5F3EE]'
             }`}
           >
             <Sparkles className="h-3.5 w-3.5" />
@@ -151,7 +151,7 @@ export default function Product360Viewer({
             type="button"
             onClick={() => setIsZoomed(!isZoomed)}
             title={isZoomed ? 'Zoom Out' : 'Zoom In'}
-            className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-black/15 bg-white/90 text-black/70 transition-all hover:text-black shadow-xs cursor-pointer"
+            className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-[#1E2C4F] bg-[#14213D]/90 text-[#B8C2D9] transition-all hover:text-[#F5F3EE] shadow-xs cursor-pointer"
           >
             {isZoomed ? <Minimize2 className="h-3.5 w-3.5" /> : <Maximize2 className="h-3.5 w-3.5" />}
           </button>
@@ -191,7 +191,7 @@ export default function Product360Viewer({
             {rotationFrames.map((src, idx) => (
               <div
                 key={idx}
-                className="absolute inset-0 rounded-2xl overflow-hidden border border-black/10 bg-white shadow-2xl transition-opacity duration-100 ease-out"
+                className="absolute inset-0 rounded-2xl overflow-hidden border border-[#1E2C4F] bg-white shadow-2xl transition-opacity duration-100 ease-out"
                 style={{
                   opacity: idx === currentFrameIndex ? 1 : 0,
                   zIndex: idx === currentFrameIndex ? 2 : 1,
@@ -227,7 +227,7 @@ export default function Product360Viewer({
             }}
           >
             <div
-              className="absolute inset-0 rounded-2xl overflow-hidden border border-black/10 bg-white shadow-2xl"
+              className="absolute inset-0 rounded-2xl overflow-hidden border border-[#1E2C4F] bg-white shadow-2xl"
               style={{
                 backfaceVisibility: 'hidden',
                 transform: 'translateZ(6px)',
@@ -258,7 +258,7 @@ export default function Product360Viewer({
             </div>
 
             <div
-              className="absolute inset-0 rounded-2xl overflow-hidden border border-black/10 bg-white shadow-2xl"
+              className="absolute inset-0 rounded-2xl overflow-hidden border border-[#1E2C4F] bg-white shadow-2xl"
               style={{
                 backfaceVisibility: 'hidden',
                 transform: 'rotateY(180deg) translateZ(6px)',
@@ -272,10 +272,10 @@ export default function Product360Viewer({
                   draggable={false}
                 />
               ) : (
-                <div className="relative flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-[#101C35] via-[#1B2943] to-[#0B1426] text-white">
+                <div className="relative flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-[#0B132B] via-[#14213D] to-[#070D1E] text-white">
                   {/* Subtle Background Gold Grid Watermark */}
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#D6BC8A_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
-                  <div className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-[#D6BC8A]/15 blur-2xl" />
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#D6C29A_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
+                  <div className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-[#D6C29A]/15 blur-2xl" />
 
                   <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-2.5 text-[9px] font-mono tracking-widest text-white/60">
                     <div className="flex items-center gap-1.5">
@@ -283,32 +283,32 @@ export default function Product360Viewer({
                       <span className="h-2 w-2 rounded-xs bg-[#ff00ea]" title="Magenta" />
                       <span className="h-2 w-2 rounded-xs bg-[#ffee00]" title="Yellow" />
                       <span className="h-2 w-2 rounded-xs bg-black border border-white/30" title="Key/Black" />
-                      <span className="ml-1 text-[8.5px] font-bold text-[#D6BC8A]">ISO 12647-2 CALIBRATED</span>
+                      <span className="ml-1 text-[8.5px] font-bold text-[#D6C29A]">ISO 12647-2 CALIBRATED</span>
                     </div>
-                    <span className="rounded-md bg-[#D6BC8A] px-1.5 py-0.5 text-[7.5px] font-black uppercase tracking-wider text-[#101C35]">
+                    <span className="rounded-md bg-[#D6C29A] px-1.5 py-0.5 text-[7.5px] font-black uppercase tracking-wider text-[#0B132B]">
                       REVERSE PROOF
                     </span>
                   </div>
 
                   <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center px-2">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D6BC8A]/40 bg-gradient-to-br from-[#D6BC8A]/20 to-transparent shadow-[0_8px_20px_rgba(212,175,101,0.15)]">
-                      <Layers className="h-7 w-7 text-[#D6BC8A]" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D6C29A]/40 bg-gradient-to-br from-[#D6C29A]/20 to-transparent shadow-[0_8px_20px_rgba(212,175,101,0.15)]">
+                      <Layers className="h-7 w-7 text-[#D6C29A]" />
                     </div>
                     <h4 className="mt-3.5 font-display text-sm font-black tracking-tight text-white line-clamp-1">
                       {product?.name || 'Custom Print Services'}
                     </h4>
-                    <p className="mt-1 text-[9.5px] font-bold uppercase tracking-[0.22em] text-[#D6BC8A]/90">
+                    <p className="mt-1 text-[9.5px] font-bold uppercase tracking-[0.22em] text-[#D6C29A]/90">
                       ONPRINT Atelier • Dubai, UAE
                     </p>
                     <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[9px] font-semibold text-white/90 backdrop-blur-xs">
-                      <ShieldCheck className="h-3 w-3 text-[#D6BC8A]" />
+                      <ShieldCheck className="h-3 w-3 text-[#D6C29A]" />
                       <span>Heidelberg Precision Offset &amp; Spot UV</span>
                     </div>
                   </div>
 
                   <div className="relative z-10 flex items-center justify-between border-t border-white/10 pt-2 text-[8px] font-mono uppercase tracking-wider text-white/45">
                     <span>1200 DPI Laser Direct</span>
-                    <span className="text-[#D6BC8A]/80">AL QUOZ 3 PRESSROOM</span>
+                    <span className="text-[#D6C29A]/80">AL QUOZ 3 PRESSROOM</span>
                   </div>
                 </div>
               )}
@@ -324,28 +324,28 @@ export default function Product360Viewer({
             </div>
 
             <div
-              className="absolute top-0 bottom-0 right-0 w-[12px] rounded-r-xs bg-gradient-to-r from-[#D6BC8A] to-[#D6BC8A]"
+              className="absolute top-0 bottom-0 right-0 w-[12px] rounded-r-xs bg-gradient-to-r from-[#D6C29A] to-[#D6C29A]"
               style={{
                 transform: 'rotateY(90deg) translateZ(6px) translateX(6px)',
                 transformOrigin: 'right center',
               }}
             />
             <div
-              className="absolute top-0 bottom-0 left-0 w-[12px] rounded-l-xs bg-gradient-to-l from-[#D6BC8A] to-[#D6BC8A]"
+              className="absolute top-0 bottom-0 left-0 w-[12px] rounded-l-xs bg-gradient-to-l from-[#D6C29A] to-[#D6C29A]"
               style={{
                 transform: 'rotateY(-90deg) translateZ(6px) translateX(-6px)',
                 transformOrigin: 'left center',
               }}
             />
             <div
-              className="absolute top-0 left-0 right-0 h-[12px] bg-gradient-to-b from-[#1B2943] to-[#101C35]"
+              className="absolute top-0 left-0 right-0 h-[12px] bg-gradient-to-b from-[#14213D] to-[#0B132B]"
               style={{
                 transform: 'rotateX(90deg) translateZ(6px) translateY(-6px)',
                 transformOrigin: 'top center',
               }}
             />
             <div
-              className="absolute bottom-0 left-0 right-0 h-[12px] bg-gradient-to-t from-[#0B1426] to-[#D6BC8A]"
+              className="absolute bottom-0 left-0 right-0 h-[12px] bg-gradient-to-t from-[#070D1E] to-[#D6C29A]"
               style={{
                 transform: 'rotateX(-90deg) translateZ(6px) translateY(6px)',
                 transformOrigin: 'bottom center',
@@ -355,24 +355,24 @@ export default function Product360Viewer({
         )}
 
         <div
-          className={`pointer-events-none absolute bottom-4 z-20 flex items-center gap-2 rounded-full border border-black/10 bg-white/95 px-3 py-1.5 text-[10px] font-bold text-black/75 shadow-md backdrop-blur-md transition-all duration-300 ${
+          className={`pointer-events-none absolute bottom-4 z-20 flex items-center gap-2 rounded-full border border-[#1E2C4F] bg-[#14213D]/95 px-3 py-1.5 text-[10px] font-bold text-[#B8C2D9] shadow-md backdrop-blur-md transition-all duration-300 ${
             isDragging ? 'opacity-0 scale-95' : 'opacity-100'
           }`}
         >
-          <span className="text-[#D6BC8A] font-black">↔</span>
+          <span className="text-[#D6C29A] font-black">↔</span>
           <span>Drag horizontally to rotate 360°</span>
         </div>
       </div>
 
-      <div className="relative z-30 flex w-full flex-wrap items-center justify-between gap-2 border-t border-black/8 bg-white/90 px-4 py-2.5 backdrop-blur-md">
+      <div className="relative z-30 flex w-full flex-wrap items-center justify-between gap-2 border-t border-[#1E2C4F] bg-[#14213D] px-4 py-2.5 backdrop-blur-md text-[#F5F3EE]">
         <div className="flex items-center gap-1 overflow-x-auto py-0.5 max-w-full">
           <button
             type="button"
             onClick={() => snapToAngle(0)}
             className={`shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 350 || normalizedAngle <= 10
-                ? 'bg-[#D6BC8A] text-[#101C35] shadow-xs'
-                : 'border border-black/10 bg-white text-black/70 hover:border-black/30 hover:text-black'
+                ? 'bg-[#D6C29A] text-[#0B132B] shadow-xs'
+                : 'border border-[#1E2C4F] bg-[#0B132B] text-[#B8C2D9] hover:border-[#D6C29A] hover:text-[#D6C29A]'
             }`}
           >
             Front
@@ -382,8 +382,8 @@ export default function Product360Viewer({
             onClick={() => snapToAngle(90)}
             className={`shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 80 && normalizedAngle <= 100
-                ? 'bg-[#D6BC8A] text-[#101C35] shadow-xs'
-                : 'border border-black/10 bg-white text-black/70 hover:border-black/30 hover:text-black'
+                ? 'bg-[#D6C29A] text-[#0B132B] shadow-xs'
+                : 'border border-[#1E2C4F] bg-[#0B132B] text-[#B8C2D9] hover:border-[#D6C29A] hover:text-[#D6C29A]'
             }`}
           >
             Edge (90°)
@@ -393,8 +393,8 @@ export default function Product360Viewer({
             onClick={() => snapToAngle(180)}
             className={`shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 170 && normalizedAngle <= 190
-                ? 'bg-[#D6BC8A] text-[#101C35] shadow-xs'
-                : 'border border-black/10 bg-white text-black/70 hover:border-black/30 hover:text-black'
+                ? 'bg-[#D6C29A] text-[#0B132B] shadow-xs'
+                : 'border border-[#1E2C4F] bg-[#0B132B] text-[#B8C2D9] hover:border-[#D6C29A] hover:text-[#D6C29A]'
             }`}
           >
             Back (180°)
@@ -404,8 +404,8 @@ export default function Product360Viewer({
             onClick={() => snapToAngle(270)}
             className={`shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 260 && normalizedAngle <= 280
-                ? 'bg-[#D6BC8A] text-[#101C35] shadow-xs'
-                : 'border border-black/10 bg-white text-black/70 hover:border-black/30 hover:text-black'
+                ? 'bg-[#D6C29A] text-[#0B132B] shadow-xs'
+                : 'border border-[#1E2C4F] bg-[#0B132B] text-[#B8C2D9] hover:border-[#D6C29A] hover:text-[#D6C29A]'
             }`}
           >
             Edge (270°)
@@ -416,16 +416,16 @@ export default function Product360Viewer({
           <button
             type="button"
             onClick={toggleAutoSpin}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-black/10 bg-white px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-black/75 shadow-xs transition-colors hover:border-[#D6BC8A] hover:text-[#D6BC8A] cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2C4F] bg-[#0B132B] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#F5F3EE] shadow-xs transition-colors hover:border-[#D6C29A] hover:text-[#D6C29A] cursor-pointer"
           >
             {isPlaying ? (
               <>
-                <Pause className="h-3 w-3 text-[#D6BC8A]" />
+                <Pause className="h-3 w-3 text-[#D6C29A]" />
                 <span>Pause</span>
               </>
             ) : (
               <>
-                <Play className="h-3 w-3 text-[#D6BC8A]" />
+                <Play className="h-3 w-3 text-[#D6C29A]" />
                 <span>Spin</span>
               </>
             )}
@@ -435,7 +435,7 @@ export default function Product360Viewer({
             type="button"
             onClick={resetView}
             title="Reset to 0°"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/10 bg-white text-black/60 shadow-xs transition-colors hover:text-black cursor-pointer"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#1E2C4F] bg-[#0B132B] text-[#B8C2D9] shadow-xs transition-colors hover:text-[#F5F3EE] hover:border-[#D6C29A] cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
           </button>

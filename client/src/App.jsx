@@ -72,8 +72,8 @@ const AdminSettingsPage = lazy(() => import('./pages/admin/AdminSettingsPage'))
 
 function SuspenseFallback() {
   return (
-    <div className="flex min-h-[50vh] items-center justify-center">
-      <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D6BC8A] border-t-transparent" />
+    <div className="flex min-h-[60vh] w-full items-center justify-center bg-[#0B132B]">
+      <div className="h-9 w-9 animate-spin rounded-full border-2 border-[#1E2C4F] border-t-[#D6C29A]" />
     </div>
   )
 }

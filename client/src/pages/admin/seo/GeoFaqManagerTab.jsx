@@ -206,20 +206,20 @@ export default function GeoFaqManagerTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6BC8A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6BC8A]">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
                 <HelpCircle className="h-3.5 w-3.5" />
                 GEO &amp; AEO Answer Engine
               </span>
-              <span className="text-xs font-semibold text-neutral-500">Requirement 27</span>
+              <span className="text-xs font-semibold text-[#B8C2D9]">Requirement 27</span>
             </div>
-            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-neutral-900">
+            <h2 className="font-display mt-2 text-2xl font-black tracking-tight text-[#F5F3EE]">
               GEO FAQ Database Manager
             </h2>
-            <p className="mt-1 text-sm text-neutral-600 max-w-2xl">
+            <p className="mt-1 text-sm text-[#B8C2D9] max-w-2xl">
               Authentic, verified Dubai printing FAQs structured for generative AI citation, direct answer extraction, and automated JSON-LD schema generation.
             </p>
           </div>
@@ -250,26 +250,26 @@ export default function GeoFaqManagerTab({ showToast }) {
         </div>
 
         {/* Stats Row */}
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-neutral-100 pt-4 text-xs">
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-[#1E2C4F] pt-4 text-xs">
           <div>
-            <span className="text-neutral-500 block">Total FAQs in Database</span>
-            <span className="text-lg font-black text-neutral-900">{faqs.length}</span>
+            <span className="text-[#B8C2D9] block">Total FAQs in Database</span>
+            <span className="text-lg font-black text-[#F5F3EE]">{faqs.length}</span>
           </div>
           <div>
-            <span className="text-neutral-500 block">Active / Published</span>
+            <span className="text-[#B8C2D9] block">Active / Published</span>
             <span className="text-lg font-black text-emerald-600">
               {faqs.filter((f) => f.is_active).length}
             </span>
           </div>
           <div>
-            <span className="text-neutral-500 block">Unique Target URLs</span>
-            <span className="text-lg font-black text-neutral-900">
+            <span className="text-[#B8C2D9] block">Unique Target URLs</span>
+            <span className="text-lg font-black text-[#F5F3EE]">
               {new Set(faqs.map((f) => f.target_url)).size}
             </span>
           </div>
           <div>
-            <span className="text-neutral-500 block">Coverage Disciplines</span>
-            <span className="text-lg font-black text-[#D6BC8A]">8 Categories</span>
+            <span className="text-[#B8C2D9] block">Coverage Disciplines</span>
+            <span className="text-lg font-black text-[#D6C29A]">8 Categories</span>
           </div>
         </div>
       </div>
@@ -277,13 +277,13 @@ export default function GeoFaqManagerTab({ showToast }) {
       {/* Filter & Search Bar */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
         <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search FAQs, answers, keywords, or URLs…"
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-neutral-200 bg-white focus:outline-none focus:border-[#D6BC8A] transition-colors"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] focus:outline-none focus:border-[#D6C29A] transition-colors"
           />
         </div>
 
@@ -292,7 +292,7 @@ export default function GeoFaqManagerTab({ showToast }) {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="text-xs rounded-xl border border-neutral-200 bg-white px-3 py-2 text-neutral-700 focus:outline-none focus:border-[#D6BC8A]"
+            className="text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-[#F5F3EE] focus:outline-none focus:border-[#D6C29A]"
           >
             {CATEGORIES.map((cat) => (
               <option key={cat} value={cat}>
@@ -305,7 +305,7 @@ export default function GeoFaqManagerTab({ showToast }) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="text-xs rounded-xl border border-neutral-200 bg-white px-3 py-2 text-neutral-700 focus:outline-none focus:border-[#D6BC8A]"
+            className="text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-[#F5F3EE] focus:outline-none focus:border-[#D6C29A]"
           >
             <option value="All">All Statuses</option>
             <option value="Active">Active Only</option>
@@ -317,12 +317,12 @@ export default function GeoFaqManagerTab({ showToast }) {
       {/* FAQ Items List */}
       <div className="space-y-3">
         {loading ? (
-          <div className="p-12 text-center text-xs text-neutral-500 bg-white rounded-2xl border border-neutral-200">
-            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6BC8A] mb-2" />
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#14213D] rounded-2xl border border-[#1E2C4F]">
+            <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6C29A] mb-2" />
             Loading GEO FAQ Database…
           </div>
         ) : filteredFaqs.length === 0 ? (
-          <div className="p-12 text-center text-xs text-neutral-500 bg-white rounded-2xl border border-neutral-200">
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#14213D] rounded-2xl border border-[#1E2C4F]">
             No FAQs match your search criteria.
           </div>
         ) : (
@@ -331,15 +331,15 @@ export default function GeoFaqManagerTab({ showToast }) {
             return (
               <div
                 key={faq.id}
-                className={`rounded-2xl border transition-all duration-200 bg-white ${
-                  isExpanded ? 'border-neutral-900 shadow-md' : 'border-neutral-200/80 hover:border-neutral-300 shadow-2xs'
+                className={`rounded-2xl border transition-all duration-200 bg-[#14213D] ${
+                  isExpanded ? 'border-neutral-900 shadow-md' : 'border-[#1E2C4F] hover:border-[#1E2C4F] shadow-2xs'
                 }`}
               >
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-4">
                     <div className="space-y-1.5 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[10px] font-extrabold uppercase text-neutral-700">
+                        <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[10px] font-extrabold uppercase text-[#F5F3EE]">
                           {faq.category}
                         </span>
                         <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-medium text-blue-700">
@@ -358,19 +358,19 @@ export default function GeoFaqManagerTab({ showToast }) {
                           </span>
                         )}
                         {!faq.is_active && faq.status !== 'published' && (
-                          <span className="rounded-full bg-neutral-200 px-2 py-0.5 text-[10px] font-bold text-neutral-600">
+                          <span className="rounded-full bg-neutral-200 px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9]">
                             Inactive
                           </span>
                         )}
                       </div>
 
-                      <h3 className="font-display text-base font-bold text-neutral-900 pt-1">
+                      <h3 className="font-display text-base font-bold text-[#F5F3EE] pt-1">
                         {faq.question}
                       </h3>
 
                       {/* Direct Answer Preview (AEO) */}
-                      <p className="text-xs text-neutral-700 leading-relaxed bg-neutral-50 p-3 rounded-xl border border-neutral-100">
-                        <strong className="text-[#D6BC8A] font-bold">Direct Snippet: </strong>
+                      <p className="text-xs text-[#F5F3EE] leading-relaxed bg-[#0B132B] p-3 rounded-xl border border-[#1E2C4F]">
+                        <strong className="text-[#D6C29A] font-bold">Direct Snippet: </strong>
                         {faq.answer || faq.direct_answer}
                       </p>
                     </div>
@@ -379,7 +379,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setSchemaPreviewItem(faq)}
-                        className="p-2 text-neutral-500 hover:text-neutral-900 rounded-lg hover:bg-neutral-100 transition-colors"
+                        className="p-2 text-[#B8C2D9] hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F] transition-colors"
                         title="View JSON-LD Schema snippet"
                       >
                         <Code className="h-4 w-4" />
@@ -387,7 +387,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => openEditModal(faq)}
-                        className="p-2 text-neutral-500 hover:text-[#D6BC8A] rounded-lg hover:bg-neutral-100 transition-colors"
+                        className="p-2 text-[#B8C2D9] hover:text-[#D6C29A] rounded-lg hover:bg-[#1E2C4F] transition-colors"
                         title="Edit FAQ"
                       >
                         <Edit3 className="h-4 w-4" />
@@ -395,7 +395,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setDeletingItem(faq)}
-                        className="p-2 text-neutral-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors"
+                        className="p-2 text-[#B8C2D9]/70 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors"
                         title="Delete FAQ"
                       >
                         <Trash2 className="h-4 w-4" />
@@ -403,7 +403,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setExpandedId(isExpanded ? null : faq.id)}
-                        className="p-2 text-neutral-400 hover:text-neutral-900 rounded-lg hover:bg-neutral-100 transition-colors"
+                        className="p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F] transition-colors"
                         title="Toggle Details"
                       >
                         <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
@@ -413,13 +413,13 @@ export default function GeoFaqManagerTab({ showToast }) {
 
                   {/* Expanded Details */}
                   {isExpanded && (
-                    <div className="mt-4 pt-4 border-t border-neutral-100 space-y-3 text-xs">
+                    <div className="mt-4 pt-4 border-t border-[#1E2C4F] space-y-3 text-xs">
                       {faq.expanded_answer && (
                         <div>
-                          <span className="font-bold text-neutral-700 block mb-1">
+                          <span className="font-bold text-[#F5F3EE] block mb-1">
                             Expanded Comprehensive Answer:
                           </span>
-                          <p className="text-neutral-600 leading-relaxed whitespace-pre-line bg-white p-3 rounded-lg border border-neutral-200">
+                          <p className="text-[#B8C2D9] leading-relaxed whitespace-pre-line bg-[#14213D] p-3 rounded-lg border border-[#1E2C4F]">
                             {faq.expanded_answer}
                           </p>
                         </div>
@@ -427,9 +427,9 @@ export default function GeoFaqManagerTab({ showToast }) {
 
                       {faq.keywords && (
                         <div className="flex items-center gap-2">
-                          <Tag className="h-3.5 w-3.5 text-neutral-400" />
-                          <span className="font-semibold text-neutral-600">Target Keywords:</span>
-                          <span className="text-neutral-800">{faq.keywords}</span>
+                          <Tag className="h-3.5 w-3.5 text-[#B8C2D9]/70" />
+                          <span className="font-semibold text-[#B8C2D9]">Target Keywords:</span>
+                          <span className="text-[#F5F3EE]">{faq.keywords}</span>
                         </div>
                       )}
                     </div>
@@ -453,7 +453,7 @@ export default function GeoFaqManagerTab({ showToast }) {
           }}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-neutral-200 bg-white p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -462,26 +462,26 @@ export default function GeoFaqManagerTab({ showToast }) {
                 setShowAddModal(false)
                 setEditingItem(null)
               }}
-              className="absolute top-5 right-5 p-2 text-neutral-400 hover:text-neutral-700 rounded-lg hover:bg-neutral-100"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F]"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <h3 className="font-display text-xl font-black text-neutral-900">
+            <h3 className="font-display text-xl font-black text-[#F5F3EE]">
               {editingItem ? 'Edit GEO FAQ' : 'Add New GEO FAQ'}
             </h3>
-            <p className="mt-1 text-xs text-neutral-500">
+            <p className="mt-1 text-xs text-[#B8C2D9]">
               Formulate a direct, factual answer that AI engines (ChatGPT, Perplexity, Gemini) can parse as a self-contained snippet.
             </p>
 
             <form onSubmit={editingItem ? handleUpdate : handleCreate} className="mt-6 space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">Category</label>
+                  <label className="font-bold text-[#F5F3EE] block mb-1">Category</label>
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   >
                     {CATEGORIES.filter((c) => c !== 'All').map((cat) => (
                       <option key={cat} value={cat}>
@@ -492,32 +492,32 @@ export default function GeoFaqManagerTab({ showToast }) {
                 </div>
 
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">Target Page URL</label>
+                  <label className="font-bold text-[#F5F3EE] block mb-1">Target Page URL</label>
                   <input
                     type="text"
                     value={formData.target_url}
                     onChange={(e) => setFormData({ ...formData, target_url: e.target.value })}
                     placeholder="e.g. /business-card-printing-dubai"
-                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-neutral-700 block mb-1">Question</label>
+                <label className="font-bold text-[#F5F3EE] block mb-1">Question</label>
                 <input
                   type="text"
                   value={formData.question}
                   onChange={(e) => setFormData({ ...formData, question: e.target.value })}
                   placeholder="e.g. What is the turnaround time for business card printing in Dubai?"
-                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   required
                 />
               </div>
 
               <div>
-                <label className="font-bold text-neutral-700 block mb-1">
+                <label className="font-bold text-[#F5F3EE] block mb-1">
                   Direct Answer (AEO Snippet — 40–80 words)
                 </label>
                 <textarea
@@ -525,13 +525,13 @@ export default function GeoFaqManagerTab({ showToast }) {
                   value={formData.direct_answer}
                   onChange={(e) => setFormData({ ...formData, direct_answer: e.target.value })}
                   placeholder="Direct, truthful answer starting with ONPRINT or clear specification..."
-                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   required
                 />
               </div>
 
               <div>
-                <label className="font-bold text-neutral-700 block mb-1">
+                <label className="font-bold text-[#F5F3EE] block mb-1">
                   Expanded Answer (Optional comprehensive technical details)
                 </label>
                 <textarea
@@ -539,29 +539,29 @@ export default function GeoFaqManagerTab({ showToast }) {
                   value={formData.expanded_answer}
                   onChange={(e) => setFormData({ ...formData, expanded_answer: e.target.value })}
                   placeholder="Additional specifications, paper weights, turnaround options, or finishing techniques..."
-                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">Related Target Keyword</label>
+                  <label className="font-bold text-[#F5F3EE] block mb-1">Related Target Keyword</label>
                   <input
                     type="text"
                     value={formData.related_keyword}
                     onChange={(e) => setFormData({ ...formData, related_keyword: e.target.value, keywords: e.target.value })}
                     placeholder="e.g. business card printing dubai"
-                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   />
-                  <p className="text-[10px] text-neutral-400 mt-0.5">Primary query targeted by this answer</p>
+                  <p className="text-[10px] text-[#B8C2D9]/70 mt-0.5">Primary query targeted by this answer</p>
                 </div>
 
                 <div>
-                  <label className="font-bold text-neutral-700 block mb-1">Search Intent</label>
+                  <label className="font-bold text-[#F5F3EE] block mb-1">Search Intent</label>
                   <select
                     value={formData.search_intent}
                     onChange={(e) => setFormData({ ...formData, search_intent: e.target.value })}
-                    className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-xs focus:outline-none focus:border-[#D6BC8A]"
+                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   >
                     <option value="Commercial">Commercial</option>
                     <option value="Transactional">Transactional</option>
@@ -572,18 +572,18 @@ export default function GeoFaqManagerTab({ showToast }) {
               </div>
 
               <div className="pt-2">
-                <label className="flex items-center gap-2 cursor-pointer font-bold text-neutral-700">
+                <label className="flex items-center gap-2 cursor-pointer font-bold text-[#F5F3EE]">
                   <input
                     type="checkbox"
                     checked={Boolean(formData.is_active)}
                     onChange={(e) => setFormData({ ...formData, is_active: e.target.checked ? 1 : 0 })}
-                    className="rounded border-neutral-300 text-[#D6BC8A] focus:ring-[#D6BC8A]"
+                    className="rounded border-[#1E2C4F] text-[#D6C29A] focus:ring-[#D6C29A]"
                   />
                   <span>Active &amp; Published in Schema</span>
                 </label>
               </div>
 
-              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-neutral-100">
+              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#1E2C4F]">
                 <Button
                   type="button"
                   variant="outline"
@@ -611,9 +611,9 @@ export default function GeoFaqManagerTab({ showToast }) {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs"
         >
-          <div className="w-full max-w-md rounded-2xl border border-neutral-200 bg-white p-6 shadow-2xl">
-            <h4 className="font-display text-lg font-black text-neutral-900">Delete FAQ?</h4>
-            <p className="mt-2 text-xs text-neutral-600">
+          <div className="w-full max-w-md rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl">
+            <h4 className="font-display text-lg font-black text-[#F5F3EE]">Delete FAQ?</h4>
+            <p className="mt-2 text-xs text-[#B8C2D9]">
               Are you sure you want to delete: <strong>&ldquo;{deletingItem.question}&rdquo;</strong>? This will remove it from the database and generated FAQ schemas.
             </p>
             <div className="mt-6 flex justify-end gap-3">
@@ -643,21 +643,21 @@ export default function GeoFaqManagerTab({ showToast }) {
           onClick={() => setSchemaPreviewItem(null)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-neutral-200 bg-white p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setSchemaPreviewItem(null)}
-              className="absolute top-5 right-5 p-2 text-neutral-400 hover:text-neutral-700 rounded-lg hover:bg-neutral-100"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F]"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <h3 className="font-display text-lg font-black text-neutral-900">
+            <h3 className="font-display text-lg font-black text-[#F5F3EE]">
               FAQPage JSON-LD Schema Snippet
             </h3>
-            <p className="mt-1 text-xs text-neutral-500">
+            <p className="mt-1 text-xs text-[#B8C2D9]">
               This schema is injected on <code>https://www.0nprint.com{schemaPreviewItem.target_url}</code> for Google Rich Snippets &amp; LLM extraction.
             </p>
 

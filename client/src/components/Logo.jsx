@@ -65,9 +65,9 @@ export default function Logo({
       {!isIcon && (
         <div className="flex flex-col justify-center leading-none">
           <span
-            className={`font-black uppercase font-display select-none transition-colors duration-200 text-[#F5F1E8] ${currentSize.text} ${currentSize.tracking}`}
+            className={`font-black uppercase font-display select-none transition-colors duration-200 text-[#F5F3EE] ${currentSize.text} ${currentSize.tracking}`}
           >
-            ON<span className="text-[#D6BC8A]">PRINT</span>
+            ON<span className="text-[#D6C29A]">PRINT</span>
           </span>
         </div>
       )}

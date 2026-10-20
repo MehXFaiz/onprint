@@ -2049,7 +2049,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 9. BOTTOM HIGH-CONVERTING CALL TO ACTION */}
-        <section className="mt-16 sm:mt-24 rounded-3xl bg-[#162542] border border-[#28395A] p-8 sm:p-12 lg:p-16 text-white text-center shadow-2xl relative overflow-hidden">
+        <section className="mt-16 sm:mt-24 rounded-3xl bg-slate-950 border border-slate-800 p-8 sm:p-12 lg:p-16 text-white text-center shadow-2xl relative overflow-hidden">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,rgba(212,175,55,0.15),transparent_70%),radial-gradient(ellipse_60%_50%_at_50%_90%,rgba(168,47,25,0.22),transparent_70%)]" />
 
           <div className="relative z-10 max-w-2xl mx-auto space-y-5">
@@ -2070,7 +2070,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               <button
                 type="button"
                 onClick={() => scrollToQuote()}
-                className="w-full sm:w-auto rounded-2xl bg-[#D4AF65] hover:bg-[#B89245] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
+                className="w-full sm:w-auto rounded-2xl bg-[#D4AF65] hover:bg-[#B89245] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#0F172A] shadow-xl shadow-[#D4AF65]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
               >
                 Request Custom Quotation
               </button>

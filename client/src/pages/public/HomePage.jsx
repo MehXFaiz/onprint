@@ -208,7 +208,7 @@ export default function HomePage() {
       />
 
       {/* ========================================================================= */}
-      {/* 1. WARM EDITORIAL & MODERN CRAFT HERO (CLEAN LIGHT THEME)                 */}
+      {/* 1. LUXURY MIDNIGHT NAVY & GOLD EDITORIAL HERO                 */}
       {/* ========================================================================= */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#101D35] via-[#172644] to-[#101D35] text-[#F5F2EB] pt-8 sm:pt-12 lg:pt-14 pb-14 sm:pb-20">
         {/* Subtle Ambient Radial Glows */}
@@ -216,11 +216,6 @@ export default function HomePage() {
           className="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-[#D4AF65]/10 blur-[120px] -z-10"
           aria-hidden="true"
         />
-        <div
-          className="pointer-events-none absolute top-1/4 -right-40 h-[520px] w-[520px] rounded-full bg-slate-200/50 blur-[120px] -z-10"
-          aria-hidden="true"
-        />
-
         <Container className="relative z-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Left Column: Editorial Headline & Value Proposition */}
           <motion.div

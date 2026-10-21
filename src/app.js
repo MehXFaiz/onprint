@@ -32,6 +32,7 @@ const initialData = require('./data/initialData')
 const programmaticSeoService = require('./services/programmaticSeoService')
 
 const CLIENT_DIST = path.join(__dirname, '..', 'dist')
+const WHATSAPP_NUMBER = (process.env.WHATSAPP_NUMBER || '447344546056').replace(/[^\d]/g, '').replace(/^00/, '')
 
 function escapeHtml(value = '') {
   return String(value)
@@ -109,7 +110,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
       </section>` : ''}
       <section style="margin-top: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
         <p style="margin: 0; font-weight: bold;">Order Business Cards or Request Pre-Press Support in Dubai:</p>
-        <p style="margin: 6px 0 0 0;">Explore <a href="/business-card-printing-dubai">Business Card Printing Dubai</a> or message our Al Quoz pressroom directly on WhatsApp at <a href="https://wa.me/447344546056?text=Hi%20ONPRINT!%20I%20would%20like%20a%20quotation%20for%20Business%20Card%20Printing%20in%20Dubai.%20Quantity:%20___%20|%20Size:%2090x55mm%20/%2085x55mm%20|%20Finish:%20___%20|%20Delivery%20Location:%20Dubai">+44 7344546056</a>.</p>
+        <p style="margin: 6px 0 0 0;">Explore <a href="/business-card-printing-dubai">Business Card Printing Dubai</a> or message our Al Quoz pressroom directly on WhatsApp at <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20ONPRINT!%20I%20would%20like%20a%20quotation%20for%20Business%20Card%20Printing%20in%20Dubai.%20Quantity:%20100+%20|%20Size:%2085x55mm%20|%20Finish:%20Matte%20|%20Delivery%20Location:%20Dubai">+${WHATSAPP_NUMBER}</a>.</p>
       </section>
     `
   } else if (productData) {
@@ -147,7 +148,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
         ` : ''}
         <div style="margin-top: 24px; padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
           <p style="margin: 0; font-weight: bold; color: #166534;">Direct WhatsApp Quote &amp; Proofing:</p>
-          <p style="margin: 4px 0 0 0; color: #15803d;">Connect directly with our master pressman via WhatsApp at <a href="https://wa.me/447344546056?text=${encodeURIComponent(`Hello 0nprint, I am interested in ordering ${productData.name}. Please share your prices, available options, and delivery details.\n• Page URL: ${siteUrl}/products/${productData.slug}`)}" style="color: #15803d; font-weight: bold;">+44 7344546056</a> for instant volume discounts and free digital proofing.</p>
+          <p style="margin: 4px 0 0 0; color: #15803d;">Connect directly with our master pressman via WhatsApp at <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hello 0nprint, I am interested in ordering ${productData.name}. Please share your prices, available options, and delivery details.\n• Page URL: ${siteUrl}/products/${productData.slug}`)}" style="color: #15803d; font-weight: bold;">+${WHATSAPP_NUMBER}</a> for instant volume discounts and free digital proofing.</p>
         </div>
       </section>
     `
@@ -344,7 +345,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
 
       <section style="margin-bottom: 2rem; padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
         <h3 style="margin-top: 0; color: #166534;">Instant WhatsApp Quotation &amp; Pre-Press Support (+44 7344546056)</h3>
-        <p style="margin: 0; color: #15803d;">Order online or message our Al Quoz pressroom directly on WhatsApp at <a href="https://wa.me/447344546056?text=Hi%20ONPRINT!%20I%20would%20like%20a%20quotation%20for%20Business%20Card%20Printing%20in%20Dubai.%20Please%20share%20pricing%20for:%0A-%20Product:%20Business%20Cards%0A-%20Quantity:%20%0A-%20Size:%20(90x55mm%20/%2085x55mm)%0A-%20Finish%20%26%20Paper:%20%0A-%20Delivery%20Location%20in%20Dubai/UAE:%20" style="color: #15803d; font-weight: bold;">+44 7344546056</a> with your required quantity, size, finish, and delivery location.</p>
+        <p style="margin: 0; color: #15803d;">Order online or message our Al Quoz pressroom directly on WhatsApp at <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20ONPRINT!%20I%20would%20like%20a%20quotation%20for%20Business%20Card%20Printing%20in%20Dubai.%20Please%20share%20pricing%20for:%0A-%20Product:%20Business%20Cards%0A-%20Quantity:%20100+%0A-%20Size:%2085x55mm%0A-%20Finish%20%26%20Paper:%20Matte%20350%20GSM%0A-%20Delivery%20Location%20in%20Dubai/UAE:%20Dubai" style="color: #15803d; font-weight: bold;">+${WHATSAPP_NUMBER}</a> with your required quantity, size, finish, and delivery location.</p>
       </section>
 
       ${bcData.faqs && bcData.faqs.length > 0 ? `
@@ -443,7 +444,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
         <div>
           <strong>ONPRINT Printing &amp; Branding Solutions</strong><br />
           Al Quoz, Dubai, United Arab Emirates<br />
-          Email: <a href="mailto:0nprint183@gmail.com" style="color: #D4AF65;">0nprint183@gmail.com</a> | WhatsApp: <a href="https://wa.me/447344546056?text=${encodeURIComponent(`Hello 0nprint, I am visiting ${siteUrl}${requestPath === '/' ? '' : requestPath} and would like to request printing prices and custom quotation details.`)}" style="color: #D4AF65;">+44 7344546056</a>
+          Email: <a href="mailto:0nprint183@gmail.com" style="color: #D4AF65;">0nprint183@gmail.com</a> | WhatsApp: <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hello 0nprint, I am visiting ${siteUrl}${requestPath === '/' ? '' : requestPath} and would like to request printing prices and custom quotation details.`)}" style="color: #D4AF65;">+${WHATSAPP_NUMBER}</a>
         </div>
         <div>
           <a href="/privacy-policy" style="color: #64748b; margin-right: 12px;">Privacy Policy</a>

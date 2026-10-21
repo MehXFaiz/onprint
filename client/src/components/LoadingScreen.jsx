@@ -128,7 +128,7 @@ export default function LoadingScreen() {
         <motion.div
           key="onprint-luxury-splash"
           onClick={() => setVisible(false)}
-          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#0B132B] text-white overflow-hidden select-none cursor-pointer"
+          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#101D35] text-white overflow-hidden select-none cursor-pointer"
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
@@ -143,7 +143,7 @@ export default function LoadingScreen() {
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(22, 37, 66, 0.75) 0%, rgba(16, 29, 53, 0.95) 65%, #070D1E 100%)',
+                'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(22, 37, 66, 0.75) 0%, rgba(16, 29, 53, 0.95) 65%, #0C1629 100%)',
             }}
           />
 
@@ -193,7 +193,7 @@ export default function LoadingScreen() {
                 {/* Official ONPRINT Brand Wordmark */}
                 <div className="flex flex-col justify-center leading-none">
                   <span className="font-black uppercase font-display text-3xl sm:text-4xl md:text-5xl tracking-widest text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]">
-                    ON<span className="text-[#D6C29A]">PRINT</span>
+                    ON<span className="text-[#D4AF65]">PRINT</span>
                   </span>
                 </div>
 
@@ -223,7 +223,7 @@ export default function LoadingScreen() {
                 className="pointer-events-none absolute top-0 bottom-0 w-[2px] z-30"
                 style={{
                   background:
-                    'linear-gradient(180deg, transparent 0%, #D6C29A 25%, #FFFFFF 50%, #D6C29A 75%, transparent 100%)',
+                    'linear-gradient(180deg, transparent 0%, #D4AF65 25%, #FFFFFF 50%, #D4AF65 75%, transparent 100%)',
                   boxShadow:
                     '0 0 10px rgba(212, 175, 101, 0.9), 0 0 20px rgba(212, 175, 101, 0.5)',
                 }}
@@ -248,7 +248,7 @@ export default function LoadingScreen() {
                 className="h-full w-full rounded-full"
                 style={{
                   background:
-                    'linear-gradient(90deg, transparent 0%, #D6C29A 20%, #D6C29A 80%, transparent 100%)',
+                    'linear-gradient(90deg, transparent 0%, #D4AF65 20%, #D4AF65 80%, transparent 100%)',
                   boxShadow: '0 0 12px rgba(212, 175, 101, 0.75)',
                 }}
                 initial={{ scaleX: 0, opacity: 0 }}

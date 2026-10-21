@@ -302,7 +302,7 @@ export default function BottlesLeadPage() {
           <div className="lg:col-span-7 space-y-8">
             {/* Step 1: Bottle Type Selection */}
             <div className="rounded-2xl border border-border bg-surface p-6 shadow-sm">
-              <div className="flex items-center justify-between border-b border-border pb-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-accent">STEP 1</span>
                   <h2 className="text-lg font-bold text-primary">Select Your Bottle Type</h2>
@@ -399,12 +399,12 @@ export default function BottlesLeadPage() {
                       onClick={() => setQuantity(qty)}
                       className={`flex flex-col items-center justify-center rounded-xl border py-3 transition-all ${
                         isSelected
-                          ? 'border-accent bg-accent text-[#0B132B] shadow-md'
+                          ? 'border-accent bg-accent text-[#101D35] shadow-md'
                           : 'border-border bg-surface-alt/40 text-primary hover:border-accent/40'
                       }`}
                     >
                       <span className="text-base font-extrabold">{qty}</span>
-                      <span className={`text-[10px] ${isSelected ? 'text-[#0B132B]/80 font-bold' : 'text-secondary'}`}>Units</span>
+                      <span className={`text-[10px] ${isSelected ? 'text-[#101D35]/80 font-bold' : 'text-secondary'}`}>Units</span>
                     </button>
                   )
                 })}

@@ -159,7 +159,7 @@ export default function LocationLandingPage({ locationKey }) {
         breadcrumbs={breadcrumbs}
       />
 
-      <div className="min-h-screen bg-[#0B132B] text-slate-200">
+      <div className="min-h-screen bg-[#101D35] text-slate-200">
         <Container>
           <Breadcrumbs items={breadcrumbs} />
 
@@ -172,8 +172,8 @@ export default function LocationLandingPage({ locationKey }) {
                 transition={{ duration: 0.6 }}
                 className="text-center max-w-4xl mx-auto"
               >
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#14213D] border border-[#D6C29A]/40 text-[#D6C29A] text-xs font-semibold uppercase tracking-wider mb-4">
-                  <MapPin className="h-3.5 w-3.5 text-[#D6C29A]" /> Fast Delivery Across {locationData.name}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#172644] border border-[#D4AF65]/40 text-[#D4AF65] text-xs font-semibold uppercase tracking-wider mb-4">
+                  <MapPin className="h-3.5 w-3.5 text-[#D4AF65]" /> Fast Delivery Across {locationData.name}
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                   Commercial Printing Services in {locationData.name}
@@ -216,9 +216,9 @@ export default function LocationLandingPage({ locationKey }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-[#14213D] rounded-lg p-4 border border-[#1E2C4F] text-center hover:border-[#D6C29A] transition-colors"
+                    className="bg-[#172644] rounded-lg p-4 border border-[#203357] text-center hover:border-[#D4AF65] transition-colors"
                   >
-                    <MapPin className="h-5 w-5 text-[#D6C29A] mx-auto mb-2" />
+                    <MapPin className="h-5 w-5 text-[#D4AF65] mx-auto mb-2" />
                     <span className="text-sm font-medium text-slate-200">{area}</span>
                   </motion.div>
                 ))}
@@ -239,9 +239,9 @@ export default function LocationLandingPage({ locationKey }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.08 }}
-                    className="bg-[#14213D] rounded-xl p-6 shadow-sm border border-[#1E2C4F] hover:border-[#D6C29A]/50 hover:shadow-lg transition-all"
+                    className="bg-[#172644] rounded-xl p-6 shadow-sm border border-[#203357] hover:border-[#D4AF65]/50 hover:shadow-lg transition-all"
                   >
-                    <service.icon className="h-10 w-10 text-[#D6C29A] mb-4" />
+                    <service.icon className="h-10 w-10 text-[#D4AF65] mb-4" />
                     <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
                     <p className="text-slate-300">{service.desc}</p>
                   </motion.div>
@@ -252,7 +252,7 @@ export default function LocationLandingPage({ locationKey }) {
 
           {/* Why Choose Us */}
           <Reveal>
-            <section className="py-16 mb-16 bg-[#14213D] text-white rounded-2xl p-8 lg:p-12 border border-[#1E2C4F]">
+            <section className="py-16 mb-16 bg-[#172644] text-white rounded-2xl p-8 lg:p-12 border border-[#203357]">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
                 Why Corporate Clients in {locationData.name} Choose ONPRINT
               </h2>
@@ -265,7 +265,7 @@ export default function LocationLandingPage({ locationKey }) {
                     transition={{ delay: index * 0.05 }}
                     className="flex items-start gap-3"
                   >
-                    <CheckCircle2 className="h-6 w-6 text-[#D6C29A] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-6 w-6 text-[#D4AF65] shrink-0 mt-0.5" />
                     <span className="text-slate-200">{item}</span>
                   </motion.div>
                 ))}
@@ -302,20 +302,20 @@ export default function LocationLandingPage({ locationKey }) {
 
           {/* Contact Info */}
           <Reveal>
-            <section className="py-12 border-t border-[#1E2C4F]">
+            <section className="py-12 border-t border-[#203357]">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <Phone className="h-8 w-8 text-[#D6C29A] mx-auto mb-3" />
+                  <Phone className="h-8 w-8 text-[#D4AF65] mx-auto mb-3" />
                   <h3 className="font-semibold text-white mb-1">Direct Hotline / WhatsApp</h3>
                   <p className="text-slate-300">{FORMATTED_PHONE}</p>
                 </div>
                 <div>
-                  <Mail className="h-8 w-8 text-[#D6C29A] mx-auto mb-3" />
+                  <Mail className="h-8 w-8 text-[#D4AF65] mx-auto mb-3" />
                   <h3 className="font-semibold text-white mb-1">Email Sales Desk</h3>
                   <p className="text-slate-300">0nprint183@gmail.com</p>
                 </div>
                 <div>
-                  <Clock className="h-8 w-8 text-[#D6C29A] mx-auto mb-3" />
+                  <Clock className="h-8 w-8 text-[#D4AF65] mx-auto mb-3" />
                   <h3 className="font-semibold text-white mb-1">Production Hours</h3>
                   <p className="text-slate-300">Mon - Sat: 8:30 AM - 6:30 PM</p>
                 </div>

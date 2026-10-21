@@ -248,7 +248,7 @@ export default function ProductsPage() {
   }, [activeDepartment])
 
   return (
-    <div className="py-10 sm:py-16 bg-[#0B132B] text-[#F5F3EE] min-h-screen">
+    <div className="py-10 sm:py-16 bg-[#101D35] text-[#F5F2EB] min-h-screen">
       {/* SEO Head Management */}
       <SEOHead
         title={`${activeHeading} | ONPRINT Dubai Commercial Printing Press`}
@@ -270,16 +270,16 @@ export default function ProductsPage() {
         />
 
         {/* Editorial Page Header */}
-        <div className="mt-6 flex flex-col justify-between gap-6 lg:flex-row lg:items-end border-b border-[#1E2C4F] pb-8">
+        <div className="mt-6 flex flex-col justify-between gap-6 lg:flex-row lg:items-end border-b border-[#203357] pb-8">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#0B132B] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D6C29A]">
-              <Sparkles className="h-3.5 w-3.5 text-[#D6C29A]" />
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+              <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>{activeEyebrow}</span>
             </div>
-            <h1 className="font-display mt-3 text-3xl font-black tracking-tight text-[#F5F3EE] sm:text-4xl lg:text-5xl">
+            <h1 className="font-display mt-3 text-3xl font-black tracking-tight text-[#F5F2EB] sm:text-4xl lg:text-5xl">
               {activeHeading}
             </h1>
-            <p className="mt-2 text-sm leading-relaxed text-[#A0AEC0] sm:text-base">
+            <p className="mt-2 text-sm leading-relaxed text-[#B0BECE] sm:text-base">
               {activeDescription}
             </p>
           </div>
@@ -292,7 +292,7 @@ export default function ProductsPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search 110+ products…"
-              className="w-full rounded-2xl border border-[#1E2C4F] bg-[#14213D] pl-10 pr-9 py-2.5 text-xs font-semibold text-[#F5F3EE] placeholder:text-[#52647D] transition-all focus:border-[#D6C29A] focus:outline-none shadow-xs"
+              className="w-full rounded-2xl border border-[#203357] bg-[#172644] pl-10 pr-9 py-2.5 text-xs font-semibold text-[#F5F2EB] placeholder:text-[#52647D] transition-all focus:border-[#D4AF65] focus:outline-none shadow-xs"
             />
             {searchQuery && (
               <button
@@ -301,7 +301,7 @@ export default function ProductsPage() {
                   setSearchQuery('')
                   updateFilters({ search: '' })
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#B8C2D9] hover:text-[#F5F3EE] cursor-pointer"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#B0BECE] hover:text-[#F5F2EB] cursor-pointer"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -310,9 +310,9 @@ export default function ProductsPage() {
         </div>
 
         {/* Master Department Navigation Tabs */}
-        <div className="mt-8 border-b border-[#1E2C4F] pb-4">
+        <div className="mt-8 border-b border-[#203357] pb-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-black uppercase tracking-wider text-[#D6C29A]">
+            <span className="text-[10px] font-black uppercase tracking-wider text-[#D4AF65]">
               Departments
             </span>
             <span className="text-xs font-bold text-slate-500">
@@ -326,8 +326,8 @@ export default function ProductsPage() {
               onClick={() => handleSelectDepartment('')}
               className={`shrink-0 rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                 !activeDeptParam && !activeCategoryParam
-                  ? 'bg-[#D6C29A] text-[#0B132B] shadow-md font-black'
-                  : 'border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] hover:border-[#D6C29A] hover:text-[#D6C29A]'
+                  ? 'bg-[#D4AF65] text-[#101D35] shadow-md font-black'
+                  : 'border border-[#203357] bg-[#172644] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
               }`}
             >
               All Products ({products.length})
@@ -348,13 +348,13 @@ export default function ProductsPage() {
                   onClick={() => handleSelectDepartment(dept.slug)}
                   className={`shrink-0 rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                     isSelected
-                      ? 'bg-[#D6C29A] text-[#0B132B] shadow-md font-black'
-                      : 'border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] hover:border-[#D6C29A] hover:text-[#D6C29A]'
+                      ? 'bg-[#D4AF65] text-[#101D35] shadow-md font-black'
+                      : 'border border-[#203357] bg-[#172644] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
                   }`}
                 >
-                  <Icon className={`h-3.5 w-3.5 ${isSelected ? 'text-[#D6C29A]' : 'text-slate-400'}`} />
+                  <Icon className={`h-3.5 w-3.5 ${isSelected ? 'text-[#D4AF65]' : 'text-slate-400'}`} />
                   <span>{dept.shortName || dept.name}</span>
-                  <span className={`text-[10px] ${isSelected ? 'text-[#D6C29A]' : 'text-slate-400'} font-semibold`}>
+                  <span className={`text-[10px] ${isSelected ? 'text-[#D4AF65]' : 'text-slate-400'} font-semibold`}>
                     ({deptProdCount})
                   </span>
                 </button>
@@ -364,7 +364,7 @@ export default function ProductsPage() {
 
           {/* Subcategory Filter Pills (Shown when a Department is active) */}
           {activeDepartment && (
-            <div className="mt-3 pt-3 border-t border-[#1E2C4F]/80 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <div className="mt-3 pt-3 border-t border-[#203357]/80 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
               <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 mr-1 shrink-0">
                 Filter by Category:
               </span>
@@ -373,8 +373,8 @@ export default function ProductsPage() {
                 onClick={() => handleSelectCategory('')}
                 className={`shrink-0 rounded-xl px-3 py-1 text-xs font-bold transition-all cursor-pointer ${
                   !activeCategoryParam
-                    ? 'bg-[#D6C29A] text-[#0B132B] font-black'
-                    : 'bg-[#14213D] border border-[#1E2C4F] text-[#F5F3EE] hover:bg-[#1E2C4F]'
+                    ? 'bg-[#D4AF65] text-[#101D35] font-black'
+                    : 'bg-[#172644] border border-[#203357] text-[#F5F2EB] hover:bg-[#203357]'
                 }`}
               >
                 All in {activeDepartment.shortName || activeDepartment.name}
@@ -388,8 +388,8 @@ export default function ProductsPage() {
                     onClick={() => handleSelectCategory(sub.slug)}
                     className={`shrink-0 rounded-xl px-3 py-1 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                       isSubSelected
-                        ? 'bg-[#D6C29A] text-[#0B132B] font-black'
-                        : 'bg-[#14213D] border border-[#1E2C4F] text-[#F5F3EE] hover:bg-[#1E2C4F]'
+                        ? 'bg-[#D4AF65] text-[#101D35] font-black'
+                        : 'bg-[#172644] border border-[#203357] text-[#F5F2EB] hover:bg-[#203357]'
                     }`}
                   >
                     <span>{sub.name}</span>
@@ -419,7 +419,7 @@ export default function ProductsPage() {
             )}
 
             {activeDeptParam && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#14213D] border border-[#1E2C4F] px-3 py-1 text-xs font-semibold text-[#F5F3EE]">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#172644] border border-[#203357] px-3 py-1 text-xs font-semibold text-[#F5F2EB]">
                 <span>Dept: {activeDepartment?.name}</span>
                 <button
                   type="button"
@@ -432,7 +432,7 @@ export default function ProductsPage() {
             )}
 
             {activeCategoryParam && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#D6C29A]/15 border border-[#D6C29A]/40 px-3 py-1 text-xs font-semibold text-[#D6C29A]">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65]/15 border border-[#D4AF65]/40 px-3 py-1 text-xs font-semibold text-[#D4AF65]">
                 <span>Cat: {activeHeading}</span>
                 <button
                   type="button"
@@ -446,13 +446,13 @@ export default function ProductsPage() {
           </div>
 
           {/* Sort Selector */}
-          <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9]">
-            <SlidersHorizontal className="h-3.5 w-3.5 text-[#D6C29A]" />
+          <div className="flex items-center gap-2 text-xs font-bold text-[#B0BECE]">
+            <SlidersHorizontal className="h-3.5 w-3.5 text-[#D4AF65]" />
             <span>Sort by:</span>
             <select
               value={sortParam}
               onChange={(e) => updateFilters({ sort: e.target.value })}
-              className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-1.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+              className="rounded-xl border border-[#203357] bg-[#172644] px-3 py-1.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
             >
               <option value="featured">Featured / Most Popular</option>
               <option value="name-asc">Product Name (A → Z)</option>
@@ -498,7 +498,7 @@ export default function ProductsPage() {
 
         {/* Pagination Controls */}
         {!loading && !error && totalPages > 1 && (
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#1E2C4F] pt-6">
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#203357] pt-6">
             <span className="text-xs font-bold text-slate-500">
               Showing {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, totalItems)} of {totalItems} products
             </span>
@@ -508,7 +508,7 @@ export default function ProductsPage() {
                 type="button"
                 disabled={currentPage <= 1}
                 onClick={() => updateFilters({ page: String(currentPage - 1) })}
-                className="flex h-9 items-center gap-1 rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 text-xs font-bold text-[#F5F3EE] hover:bg-[#1E2C4F] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="flex h-9 items-center gap-1 rounded-xl border border-[#203357] bg-[#172644] px-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ChevronLeft className="h-4 w-4" />
                 <span>Prev</span>
@@ -523,8 +523,8 @@ export default function ProductsPage() {
                     onClick={() => updateFilters({ page: String(p) })}
                     className={`flex h-9 w-9 items-center justify-center rounded-xl text-xs font-black transition-all cursor-pointer ${
                       isCurr
-                        ? 'bg-[#D6C29A] text-[#0B132B] font-black shadow-xs'
-                        : 'border border-[#1E2C4F] bg-[#14213D] text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE]'
+                        ? 'bg-[#D4AF65] text-[#101D35] font-black shadow-xs'
+                        : 'border border-[#203357] bg-[#172644] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB]'
                     }`}
                   >
                     {p}
@@ -536,7 +536,7 @@ export default function ProductsPage() {
                 type="button"
                 disabled={currentPage >= totalPages}
                 onClick={() => updateFilters({ page: String(currentPage + 1) })}
-                className="flex h-9 items-center gap-1 rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 text-xs font-bold text-[#F5F3EE] hover:bg-[#1E2C4F] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="flex h-9 items-center gap-1 rounded-xl border border-[#203357] bg-[#172644] px-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <span>Next</span>
                 <ChevronRight className="h-4 w-4" />
@@ -547,10 +547,10 @@ export default function ProductsPage() {
 
         {/* Dubai Commercial Press Trust Strip */}
         <Reveal>
-          <div className="mt-20 rounded-3xl border border-[#0B132B] bg-[#0B132B] p-8 text-white shadow-xl sm:p-12">
+          <div className="mt-20 rounded-3xl border border-[#101D35] bg-[#101D35] p-8 text-white shadow-xl sm:p-12">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div>
-                <span className="rounded-full bg-[#D6C29A]/20 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-[#D6C29A]">
+                <span className="rounded-full bg-[#D4AF65]/20 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-[#D4AF65]">
                   Al Quoz Pressroom • Dubai, UAE
                 </span>
                 <h2 className="font-display mt-4 text-2xl font-black tracking-tight sm:text-4xl text-white">
@@ -569,7 +569,7 @@ export default function ProductsPage() {
                   to="/contact"
                   variant="outline"
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white hover:text-[#0B132B]"
+                  className="border-white/30 text-white hover:bg-white hover:text-[#101D35]"
                 >
                   Contact Studio
                 </Button>

@@ -219,7 +219,7 @@ export default function RollupBannersLeadPage() {
   ]
 
   return (
-    <div className="bg-[#0B132B] text-slate-200">
+    <div className="bg-[#101D35] text-slate-200">
       <SEOHead
         title="Rollup Banner Printing Dubai | Pull-Up Stands Quote & Same-Day Dispatch | ONPRINT"
         description="Instant custom roll-up banner printing quote in Dubai. 85x200cm standard, luxury teardrop, wide exhibition stands & desktop banners with anti-curl greyback film and carry bag."
@@ -229,11 +229,11 @@ export default function RollupBannersLeadPage() {
       />
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-[#0B132B] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#1E2C4F]">
+      <section className="relative overflow-hidden bg-[#101D35] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#203357]">
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#D6C29A] bg-[#D6C29A]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65] bg-[#D4AF65]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
                 <Sparkles className="h-3.5 w-3.5" />
                 <span>Exhibition &amp; Display Pressroom • Al Quoz, Dubai</span>
               </div>
@@ -242,7 +242,7 @@ export default function RollupBannersLeadPage() {
             <Reveal delay={0.06}>
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
                 Roll-Up Banner Printing{' '}
-                <span className="font-serif italic text-[#D6C29A]">Engineered for Events</span>
+                <span className="font-serif italic text-[#D4AF65]">Engineered for Events</span>
               </h1>
             </Reveal>
 
@@ -255,15 +255,15 @@ export default function RollupBannersLeadPage() {
             <Reveal delay={0.18}>
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs font-semibold text-slate-300">
                 <span className="inline-flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#D6C29A]" />
+                  <CheckCircle2 className="h-4 w-4 text-[#D4AF65]" />
                   1440 DPI Photographic UV Print
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#D6C29A]" />
+                  <CheckCircle2 className="h-4 w-4 text-[#D4AF65]" />
                   Anti-Curl Stoplight Greyback Film
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-[#D6C29A]" />
+                  <CheckCircle2 className="h-4 w-4 text-[#D4AF65]" />
                   Same-Day Express DWTC Delivery
                 </span>
               </div>
@@ -273,23 +273,23 @@ export default function RollupBannersLeadPage() {
       </section>
 
       {/* Main Interactive Configurator & Lead Form */}
-      <section className="py-12 sm:py-16 bg-[#0B132B]">
+      <section className="py-12 sm:py-16 bg-[#101D35]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Spec Selector */}
             <div className="lg:col-span-7 space-y-6">
               {/* Step 1: Banner Model Selection */}
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] p-6 shadow-xs">
-                <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-3 mb-4">
+              <div className="rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-6 shadow-xs">
+                <div className="flex items-center justify-between border-b border-[#203357] pb-3 mb-4">
                   <div>
-                    <span className="text-xs font-black uppercase tracking-wider text-[#D6C29A]">
+                    <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                       STEP 1
                     </span>
-                    <h2 className="font-serif text-lg font-bold text-[#F5F3EE]">
+                    <h2 className="font-serif text-lg font-bold text-[#F5F2EB]">
                       Choose Your Banner Stand Model
                     </h2>
                   </div>
-                  <span className="text-xs text-[#B8C2D9] font-medium">
+                  <span className="text-xs text-[#B0BECE] font-medium">
                     {BANNER_MODELS.length} Models Available
                   </span>
                 </div>
@@ -303,25 +303,25 @@ export default function RollupBannersLeadPage() {
                         onClick={() => setSelectedModel(model)}
                         className={`cursor-pointer rounded-xl border p-4 transition-all duration-200 ${
                           isSelected
-                            ? 'border-[#D6C29A] bg-[#D6C29A]/10 shadow-sm ring-1 ring-[#D6C29A]'
-                            : 'border-[#1E2C4F] bg-[#0B132B] hover:border-[#D6C29A]'
+                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 shadow-sm ring-1 ring-[#D4AF65]'
+                            : 'border-[#203357] bg-[#101D35] hover:border-[#D4AF65]'
                         }`}
                       >
                         <div className="flex items-start justify-between gap-2">
-                          <span className="rounded-md bg-[#0B132B] text-[#B8C2D9] border border-[#1E2C4F] px-2 py-0.5 text-[10px] font-bold text-[#F5F3EE]">
+                          <span className="rounded-md bg-[#101D35] text-[#B0BECE] border border-[#203357] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB]">
                             {model.tag}
                           </span>
-                          <span className="text-xs font-bold text-[#D6C29A]">Custom Quote</span>
+                          <span className="text-xs font-bold text-[#D4AF65]">Custom Quote</span>
                         </div>
-                        <h3 className="mt-2.5 font-bold text-xs text-[#F5F3EE] leading-snug">
+                        <h3 className="mt-2.5 font-bold text-xs text-[#F5F2EB] leading-snug">
                           {model.name}
                         </h3>
-                        <p className="mt-1 text-[11px] text-[#B8C2D9] line-clamp-2">
+                        <p className="mt-1 text-[11px] text-[#B0BECE] line-clamp-2">
                           {model.description}
                         </p>
-                        <div className="mt-2.5 pt-2 border-t border-[#1E2C4F] flex items-center justify-between text-[10px] font-semibold text-[#B8C2D9]">
+                        <div className="mt-2.5 pt-2 border-t border-[#203357] flex items-center justify-between text-[10px] font-semibold text-[#B0BECE]">
                           <span>{model.specs[0]}</span>
-                          <span className="text-[#D6C29A]">{model.badge}</span>
+                          <span className="text-[#D4AF65]">{model.badge}</span>
                         </div>
                       </div>
                     )
@@ -330,12 +330,12 @@ export default function RollupBannersLeadPage() {
               </div>
 
               {/* Step 2: Quantity Selection */}
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] p-6 shadow-xs">
-                <div className="border-b border-[#1E2C4F] pb-3 mb-4">
-                  <span className="text-xs font-black uppercase tracking-wider text-[#D6C29A]">
+              <div className="rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-6 shadow-xs">
+                <div className="border-b border-[#203357] pb-3 mb-4">
+                  <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                     STEP 2
                   </span>
-                  <h2 className="font-serif text-lg font-bold text-[#F5F3EE]">
+                  <h2 className="font-serif text-lg font-bold text-[#F5F2EB]">
                     Select Order Volume &amp; Quantity
                   </h2>
                 </div>
@@ -353,12 +353,12 @@ export default function RollupBannersLeadPage() {
                         onClick={() => setSelectedQty(qty)}
                         className={`rounded-xl border p-3 text-left transition-all cursor-pointer ${
                           isSelected
-                            ? 'border-[#D6C29A] bg-[#D6C29A]/10 shadow-xs ring-1 ring-[#D6C29A]'
-                            : 'border-[#1E2C4F] bg-[#0B132B] hover:border-[#D6C29A]'
+                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 shadow-xs ring-1 ring-[#D4AF65]'
+                            : 'border-[#203357] bg-[#101D35] hover:border-[#D4AF65]'
                         }`}
                       >
-                        <div className="text-xs font-bold text-[#F5F3EE]">{qty.label}</div>
-                        <div className="text-[11px] font-semibold text-[#D6C29A] mt-0.5">
+                        <div className="text-xs font-bold text-[#F5F2EB]">{qty.label}</div>
+                        <div className="text-[11px] font-semibold text-[#D4AF65] mt-0.5">
                           Volume Tier
                         </div>
                       </button>
@@ -368,12 +368,12 @@ export default function RollupBannersLeadPage() {
               </div>
 
               {/* Step 3: Turnaround Selection */}
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] p-6 shadow-xs">
-                <div className="border-b border-[#1E2C4F] pb-3 mb-4">
-                  <span className="text-xs font-black uppercase tracking-wider text-[#D6C29A]">
+              <div className="rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-6 shadow-xs">
+                <div className="border-b border-[#203357] pb-3 mb-4">
+                  <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                     STEP 3
                   </span>
-                  <h2 className="font-serif text-lg font-bold text-[#F5F3EE]">
+                  <h2 className="font-serif text-lg font-bold text-[#F5F2EB]">
                     Select Turnaround &amp; Urgency
                   </h2>
                 </div>
@@ -387,21 +387,21 @@ export default function RollupBannersLeadPage() {
                         onClick={() => setSelectedTurnaround(turn)}
                         className={`flex cursor-pointer items-center justify-between rounded-xl border p-3.5 transition-all ${
                           isSelected
-                            ? 'border-[#D6C29A] bg-[#D6C29A]/10 shadow-xs ring-1 ring-[#D6C29A]'
-                            : 'border-[#1E2C4F] bg-[#0B132B] hover:border-[#D6C29A]'
+                            ? 'border-[#D4AF65] bg-[#D4AF65]/10 shadow-xs ring-1 ring-[#D4AF65]'
+                            : 'border-[#203357] bg-[#101D35] hover:border-[#D4AF65]'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
                           <div
                             className={`h-4 w-4 rounded-full border flex items-center justify-center ${
-                              isSelected ? 'border-[#D6C29A] bg-[#D6C29A]' : 'border-slate-300'
+                              isSelected ? 'border-[#D4AF65] bg-[#D4AF65]' : 'border-slate-300'
                             }`}
                           >
-                            {isSelected && <div className="h-1.5 w-1.5 rounded-full bg-[#14213D]" />}
+                            {isSelected && <div className="h-1.5 w-1.5 rounded-full bg-[#172644]" />}
                           </div>
-                          <span className="text-xs font-bold text-[#F5F3EE]">{turn.label}</span>
+                          <span className="text-xs font-bold text-[#F5F2EB]">{turn.label}</span>
                         </div>
-                        <span className="text-xs font-bold text-[#D6C29A]">
+                        <span className="text-xs font-bold text-[#D4AF65]">
                           {turn.surcharge === 0 ? 'Standard Press' : 'Express Rush'}
                         </span>
                       </div>
@@ -413,48 +413,48 @@ export default function RollupBannersLeadPage() {
 
             {/* Right Column: Instant Live Estimate & Form */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="sticky top-24 rounded-2xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] p-6 shadow-sm">
-                <div className="border-b border-[#1E2C4F] pb-4">
-                  <span className="text-xs font-black uppercase tracking-wider text-[#D6C29A]">
+              <div className="sticky top-24 rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-6 shadow-sm">
+                <div className="border-b border-[#203357] pb-4">
+                  <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                     OFFICIAL QUOTATION
                   </span>
-                  <h3 className="font-serif text-xl font-bold text-[#F5F3EE] mt-1">
+                  <h3 className="font-serif text-xl font-bold text-[#F5F2EB] mt-1">
                     Your Specification Summary
                   </h3>
                 </div>
 
-                <div className="space-y-2.5 py-4 border-b border-[#1E2C4F] text-xs">
-                  <div className="flex justify-between">
-                    <span className="text-[#B8C2D9]">Banner Stand:</span>
-                    <span className="font-bold text-[#F5F3EE] text-right">{selectedModel.name}</span>
+                <div className="space-y-2.5 py-4 border-b border-[#203357] text-xs">
+                  <div className="flex justify-between gap-2">
+                    <span className="text-[#B0BECE]">Banner Stand:</span>
+                    <span className="font-bold text-[#F5F2EB] text-right">{selectedModel.name}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#B8C2D9]">Quantity:</span>
-                    <span className="font-bold text-[#F5F3EE]">{selectedQty.label}</span>
+                    <span className="text-[#B0BECE]">Quantity:</span>
+                    <span className="font-bold text-[#F5F2EB]">{selectedQty.label}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#B8C2D9]">Media Substrate:</span>
-                    <span className="font-bold text-[#F5F3EE]">300 GSM Anti-Curl Greyback</span>
+                    <span className="text-[#B0BECE]">Media Substrate:</span>
+                    <span className="font-bold text-[#F5F2EB]">300 GSM Anti-Curl Greyback</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#B8C2D9]">Turnaround Speed:</span>
-                    <span className="font-bold text-[#F5F3EE]">{selectedTurnaround.label}</span>
+                    <span className="text-[#B0BECE]">Turnaround Speed:</span>
+                    <span className="font-bold text-[#F5F2EB]">{selectedTurnaround.label}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#B8C2D9]">Accessories:</span>
+                    <span className="text-[#B0BECE]">Accessories:</span>
                     <span className="font-bold text-emerald-400">Padded Bag Included</span>
                   </div>
                 </div>
 
-                <div className="py-4 border-b border-[#1E2C4F] flex items-baseline justify-between">
-                  <span className="text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
+                <div className="py-4 border-b border-[#203357] flex items-baseline justify-between">
+                  <span className="text-xs font-bold text-[#B0BECE] uppercase tracking-wider">
                     Official Quotation:
                   </span>
                   <div className="text-right">
-                    <span className="text-xl font-black text-[#D6C29A]">
+                    <span className="text-xl font-black text-[#D4AF65]">
                       Quote on Request
                     </span>
-                    <div className="text-[10px] text-[#B8C2D9]">Direct WhatsApp Confirmation</div>
+                    <div className="text-[10px] text-[#B0BECE]">Direct WhatsApp Confirmation</div>
                   </div>
                 </div>
 
@@ -465,11 +465,11 @@ export default function RollupBannersLeadPage() {
                       <CheckCircle2 className="w-7 h-7" />
                     </div>
                     <div>
-                      <h4 className="font-serif font-bold text-base text-[#F5F3EE]">
+                      <h4 className="font-serif font-bold text-base text-[#F5F2EB]">
                         Specification Dispatched!
                       </h4>
-                      <p className="text-xs text-[#B8C2D9] mt-1">
-                        Reference: <strong className="text-[#D6C29A] font-mono">{submittedQuote.orderNumber || submittedQuote.quoteNumber}</strong>
+                      <p className="text-xs text-[#B0BECE] mt-1">
+                        Reference: <strong className="text-[#D4AF65] font-mono">{submittedQuote.orderNumber || submittedQuote.quoteNumber}</strong>
                       </p>
                     </div>
 
@@ -496,7 +496,7 @@ export default function RollupBannersLeadPage() {
                     <button
                       type="button"
                       onClick={() => setSubmittedQuote(null)}
-                      className="text-xs text-[#B8C2D9] hover:text-[#F5F3EE] underline cursor-pointer"
+                      className="text-xs text-[#B0BECE] hover:text-[#F5F2EB] underline cursor-pointer"
                     >
                       Edit specifications
                     </button>
@@ -504,8 +504,8 @@ export default function RollupBannersLeadPage() {
                 ) : (
                   <form onSubmit={handleFormSubmit} className="pt-4 space-y-3.5">
                     <div>
-                      <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
-                        Full Name <span className="text-[#D6C29A]">*</span>
+                      <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
+                        Full Name <span className="text-[#D4AF65]">*</span>
                       </label>
                       <input
                         type="text"
@@ -513,14 +513,14 @@ export default function RollupBannersLeadPage() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Your name"
-                        className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                        className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
-                          Phone / WhatsApp <span className="text-[#D6C29A]">*</span>
+                        <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
+                          Phone / WhatsApp <span className="text-[#D4AF65]">*</span>
                         </label>
                         <input
                           type="tel"
@@ -528,12 +528,12 @@ export default function RollupBannersLeadPage() {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+971 50 123 4567"
-                          className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
-                          Email Address <span className="text-[#D6C29A]">*</span>
+                        <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
+                          Email Address <span className="text-[#D4AF65]">*</span>
                         </label>
                         <input
                           type="email"
@@ -541,14 +541,14 @@ export default function RollupBannersLeadPage() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="you@company.ae"
-                          className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                        <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
                           Company Name
                         </label>
                         <input
@@ -556,11 +556,11 @@ export default function RollupBannersLeadPage() {
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                           placeholder="Company / Exhibitor"
-                          className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                        <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
                           Exhibition / Venue (Optional)
                         </label>
                         <input
@@ -568,13 +568,13 @@ export default function RollupBannersLeadPage() {
                           value={formData.venueDelivery}
                           onChange={(e) => setFormData({ ...formData, venueDelivery: e.target.value })}
                           placeholder="e.g. DWTC Hall 4, DIFC..."
-                          className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                      <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
                         Artwork Notes or Special Instructions
                       </label>
                       <textarea
@@ -582,14 +582,14 @@ export default function RollupBannersLeadPage() {
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                         placeholder="e.g. We have high-res PDF ready, need delivery by Thursday 2 PM..."
-                        className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none resize-none"
+                        className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none resize-none"
                       />
                     </div>
 
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full rounded-xl bg-[#D6C29A] hover:bg-[#D6C29A] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-[#0B132B] shadow-md shadow-[#D6C29A]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                      className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#D4AF65] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-[#101D35] shadow-md shadow-[#D4AF65]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? 'Submitting Specifications…' : 'Submit Specification & Get Official Quote →'}
                     </button>
@@ -606,47 +606,47 @@ export default function RollupBannersLeadPage() {
       </section>
 
       {/* Production Standards Section */}
-      <section className="py-14 sm:py-16 bg-[#14213D] border-t border-[#1E2C4F]">
+      <section className="py-14 sm:py-16 bg-[#172644] border-t border-[#203357]">
         <Container className="max-w-5xl">
           <div className="text-center mb-10">
-            <span className="text-xs font-black uppercase tracking-wider text-[#D6C29A]">
+            <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
               LARGE FORMAT ENGINEERING
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F3EE] mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F2EB] mt-1">
               Roll-Up Banner Technical Standards in Dubai
             </h2>
-            <p className="text-xs sm:text-sm text-[#B8C2D9] mt-2 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-[#B0BECE] mt-2 max-w-2xl mx-auto">
               Built to withstand multi-day exhibitions, bright venue halogen lights, and high-traffic event environments.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-6">
-              <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#D6C29A]/10 text-[#D6C29A] mb-4">
+            <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-6">
+              <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#D4AF65]/10 text-[#D4AF65] mb-4">
                 <ShieldCheck className="h-5 w-5" />
               </div>
-              <h3 className="text-sm font-bold text-[#F5F3EE] mb-2">Anti-Curl Stoplight Film</h3>
-              <p className="text-xs sm:text-sm text-[#B8C2D9] leading-relaxed">
+              <h3 className="text-sm font-bold text-[#F5F2EB] mb-2">Anti-Curl Stoplight Film</h3>
+              <p className="text-xs sm:text-sm text-[#B0BECE] leading-relaxed">
                 300 GSM multi-layered composite PET media with an opaque greyback layer that prevents backside halogen lights from bleeding through.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-6">
-              <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#D6C29A]/10 text-[#D6C29A] mb-4">
+            <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-6">
+              <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#D4AF65]/10 text-[#D4AF65] mb-4">
                 <Award className="h-5 w-5" />
               </div>
-              <h3 className="text-sm font-bold text-[#F5F3EE] mb-2">1440 DPI Japanese Inkjet Precision</h3>
-              <p className="text-xs sm:text-sm text-[#B8C2D9] leading-relaxed">
+              <h3 className="text-sm font-bold text-[#F5F2EB] mb-2">1440 DPI Japanese Inkjet Precision</h3>
+              <p className="text-xs sm:text-sm text-[#B0BECE] leading-relaxed">
                 Micro-piezo printheads deliver razor-sharp typography down to 6pt text and rich solid brand Pantone colors without banding.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-6">
-              <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#D6C29A]/10 text-[#D6C29A] mb-4">
+            <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-6">
+              <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#D4AF65]/10 text-[#D4AF65] mb-4">
                 <Clock className="h-5 w-5" />
               </div>
-              <h3 className="text-sm font-bold text-[#F5F3EE] mb-2">Al Quoz Express Turnaround</h3>
-              <p className="text-xs sm:text-sm text-[#B8C2D9] leading-relaxed">
+              <h3 className="text-sm font-bold text-[#F5F2EB] mb-2">Al Quoz Express Turnaround</h3>
+              <p className="text-xs sm:text-sm text-[#B0BECE] leading-relaxed">
                 Direct in-house assembly in central Dubai. Urgent same-day rush orders delivered directly to your booth at DWTC, Expo City, or DIFC.
               </p>
             </div>

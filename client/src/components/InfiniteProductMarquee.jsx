@@ -134,7 +134,7 @@ export default function InfiniteProductMarquee() {
   return (
     <section
       aria-label="ONPRINT Dubai Live Production Showcase"
-      className="relative overflow-hidden bg-[#0B132B] py-16 sm:py-20 md:py-24 border-y border-[#1E2C4F]"
+      className="relative overflow-hidden bg-[#101D35] py-16 sm:py-20 md:py-24 border-y border-[#203357]"
     >
       {/* Background ambient lighting accents */}
       <div
@@ -150,19 +150,19 @@ export default function InfiniteProductMarquee() {
       <Container className="relative z-10 mb-10 sm:mb-14">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/30 bg-[#14213D] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65] shadow-xs">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/30 bg-[#172644] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65] shadow-xs">
               <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Dubai Print Atelier • Continuous Production Showcase</span>
             </div>
 
-            <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#F5F3EE] leading-tight">
+            <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#F5F2EB] leading-tight">
               Mastery in Every Print Run.{' '}
               <span className="block sm:inline font-serif italic font-normal text-[#D4AF65]">
                 Crafted for UAE Brands.
               </span>
             </h2>
 
-            <p className="mt-2 text-sm sm:text-base text-[#A0AEC0] leading-relaxed">
+            <p className="mt-2 text-sm sm:text-base text-[#B0BECE] leading-relaxed">
               From 24K hot foil stamping and 600 GSM cotton business cards to waterproof contour die-cut stickers and
               bespoke rigid gift boxes. Printed with German Heidelberg &amp; calibrated digital presses in Al Quoz, Dubai.
             </p>
@@ -171,7 +171,7 @@ export default function InfiniteProductMarquee() {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               to={sampleBoxInquiryUrl}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C8B185] px-5 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0B132B] shadow-md transition-all hover:scale-[1.02] cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C8B185] px-5 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#101D35] shadow-md transition-all hover:scale-[1.02] cursor-pointer"
             >
               <span>Claim Swatch Kit</span>
               <ArrowRight className="h-4 w-4" />
@@ -180,7 +180,7 @@ export default function InfiniteProductMarquee() {
               href={sampleWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#1E2C4F] bg-[#14213D] hover:bg-[#1E2C4F] hover:border-[#D4AF65] text-[#F5F3EE] px-4 py-2.5 text-xs sm:text-sm font-bold tracking-wider transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#203357] bg-[#172644] hover:bg-[#203357] hover:border-[#D4AF65] text-[#F5F2EB] px-4 py-2.5 text-xs sm:text-sm font-bold tracking-wider transition-all cursor-pointer"
             >
               <MessageCircle className="h-4 w-4 text-[#25D366]" />
               <span className="hidden sm:inline">WhatsApp Us</span>
@@ -193,12 +193,12 @@ export default function InfiniteProductMarquee() {
       <div className="relative w-full overflow-hidden">
         {/* Left infinity fade overlay */}
         <div
-          className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-28 md:w-44 z-20 bg-gradient-to-r from-[#0B132B] via-[#0B132B]/85 to-transparent"
+          className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-28 md:w-44 z-20 bg-gradient-to-r from-[#101D35] via-[#101D35]/85 to-transparent"
           aria-hidden="true"
         />
         {/* Right infinity fade overlay */}
         <div
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-28 md:w-44 z-20 bg-gradient-to-l from-[#0B132B] via-[#0B132B]/85 to-transparent"
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-28 md:w-44 z-20 bg-gradient-to-l from-[#101D35] via-[#101D35]/85 to-transparent"
           aria-hidden="true"
         />
 
@@ -206,13 +206,13 @@ export default function InfiniteProductMarquee() {
         <div className="onprint-marquee-track flex gap-4 sm:gap-6 py-4 px-2">
           {DUPLICATED_ITEMS.map((item, index) => {
             const hasError = imageErrorMap[`${item.id}-${index}`]
-            const fallbackBg = 'linear-gradient(135deg, #14213D 0%, #101D35 100%)'
+            const fallbackBg = 'linear-gradient(135deg, #172644 0%, #101D35 100%)'
 
             return (
               <Link
                 key={`${item.id}-${index}`}
                 to={item.link}
-                className="group relative flex-shrink-0 w-[270px] sm:w-[310px] md:w-[340px] rounded-2xl sm:rounded-3xl bg-[#14213D]/95 border border-[#1E2C4F] p-3 sm:p-3.5 shadow-lg transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#D4AF65] hover:shadow-[0_16px_40px_rgba(212,175,101,0.22)] backdrop-blur-xs select-none block"
+                className="group relative flex-shrink-0 w-[270px] sm:w-[310px] md:w-[340px] rounded-2xl sm:rounded-3xl bg-[#172644]/95 border border-[#203357] p-3 sm:p-3.5 shadow-lg transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#D4AF65] hover:shadow-[0_16px_40px_rgba(212,175,101,0.22)] backdrop-blur-xs select-none block"
               >
                 {/* Product Image Stage */}
                 <div className="relative overflow-hidden rounded-xl sm:rounded-2xl aspect-[16/10] bg-[#101D35]">
@@ -233,8 +233,8 @@ export default function InfiniteProductMarquee() {
                       style={{ background: fallbackBg }}
                     >
                       <Layers className="h-8 w-8 text-[#D4AF65]/60 mb-2" />
-                      <span className="text-xs font-bold text-[#F5F3EE]">{item.title}</span>
-                      <span className="text-[10px] text-[#A0AEC0]">{item.specs}</span>
+                      <span className="text-xs font-bold text-[#F5F2EB]">{item.title}</span>
+                      <span className="text-[10px] text-[#B0BECE]">{item.specs}</span>
                     </div>
                   )}
 
@@ -251,7 +251,7 @@ export default function InfiniteProductMarquee() {
 
                   {/* Material Tag Badge */}
                   <div className="absolute bottom-2.5 right-2.5">
-                    <span className="inline-block rounded-md bg-[#0B132B]/85 px-2 py-0.5 text-[10px] font-semibold text-[#F5F3EE] backdrop-blur-xs border border-[#1E2C4F]">
+                    <span className="inline-block rounded-md bg-[#101D35]/85 px-2 py-0.5 text-[10px] font-semibold text-[#F5F2EB] backdrop-blur-xs border border-[#203357]">
                       {item.tag}
                     </span>
                   </div>
@@ -259,14 +259,14 @@ export default function InfiniteProductMarquee() {
 
                 {/* Card Content */}
                 <div className="pt-3 pb-1 px-1">
-                  <h3 className="text-sm sm:text-base font-bold text-[#F5F3EE] group-hover:text-[#D4AF65] transition-colors duration-300 line-clamp-1">
+                  <h3 className="text-sm sm:text-base font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors duration-300 line-clamp-1">
                     {item.title}
                   </h3>
-                  <p className="mt-1 text-xs text-[#A0AEC0] line-clamp-1">
+                  <p className="mt-1 text-xs text-[#B0BECE] line-clamp-1">
                     {item.specs}
                   </p>
 
-                  <div className="mt-3 pt-2.5 border-t border-[#1E2C4F]/70 flex items-center justify-between text-xs font-semibold text-[#D4AF65]">
+                  <div className="mt-3 pt-2.5 border-t border-[#203357]/70 flex items-center justify-between text-xs font-semibold text-[#D4AF65]">
                     <span className="text-[11px] tracking-wide uppercase">Explore Finish Spec</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
@@ -279,23 +279,23 @@ export default function InfiniteProductMarquee() {
 
       {/* Trust & Assurance Micro-Ribbon */}
       <Container className="relative z-10 mt-10 sm:mt-12">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-[#1E2C4F]/60 text-xs text-[#A0AEC0]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-[#203357]/60 text-xs text-[#B0BECE]">
           <div className="flex items-center gap-2.5">
             <CheckCircle2 className="h-4 w-4 text-[#D4AF65] shrink-0" />
             <span>
-              <strong className="text-[#F5F3EE]">Same-Day &amp; 24h Express</strong> dispatch available across Dubai &amp; UAE.
+              <strong className="text-[#F5F2EB]">Same-Day &amp; 24h Express</strong> dispatch available across Dubai &amp; UAE.
             </span>
           </div>
           <div className="flex items-center gap-2.5">
             <ShieldCheck className="h-4 w-4 text-[#D4AF65] shrink-0" />
             <span>
-              <strong className="text-[#F5F3EE]">Heidelberg &amp; Indigo</strong> calibrated color and micron-level registration.
+              <strong className="text-[#F5F2EB]">Heidelberg &amp; Indigo</strong> calibrated color and micron-level registration.
             </span>
           </div>
           <div className="flex items-center gap-2.5">
             <Layers className="h-4 w-4 text-[#D4AF65] shrink-0" />
             <span>
-              <strong className="text-[#F5F3EE]">Tactile Swatches Included</strong> in our complimentary Dubai sample kits.
+              <strong className="text-[#F5F2EB]">Tactile Swatches Included</strong> in our complimentary Dubai sample kits.
             </span>
           </div>
         </div>

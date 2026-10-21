@@ -13,9 +13,9 @@ export default function PublicLayout() {
   }, [pathname])
 
   return (
-    <div className="flex min-h-screen w-full min-w-0 flex-col bg-[#0B132B] text-[#F5F3EE] antialiased selection:bg-[#D6C29A] selection:text-[#0B132B]">
+    <div className="flex min-h-screen w-full min-w-0 flex-col bg-[#101D35] text-[#F5F2EB] antialiased selection:bg-[#D4AF65] selection:text-[#101D35]">
       <SiteHeader />
-      <main className="flex-1 min-w-0 w-full bg-[#0B132B] text-[#F5F3EE] pb-16 md:pb-0">
+      <main className="flex-1 min-w-0 w-full bg-[#101D35] text-[#F5F2EB] pb-16 md:pb-0">
         <Outlet />
       </main>
       <SiteFooter />

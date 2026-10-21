@@ -29,6 +29,7 @@ import Button from '../../components/Button'
 import SEOHead from '../../components/SEOHead'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
+import { WHATSAPP_PHONE } from '../../utils/whatsapp'
 import { useAuth } from '../../context/AuthContext'
 import { trackOrder, getRecentTrackedOrders, getStoredOrders } from '../../services/orders'
 
@@ -153,7 +154,7 @@ export default function TrackOrderPage() {
   const totalAmount = order ? Number(order.totalPrice || subtotal + vatAmount) : 0
 
   return (
-    <div className="py-12 sm:py-16 bg-[#0B132B] text-[#F5F3EE] min-h-[75vh]">
+    <div className="py-12 sm:py-16 bg-[#101D35] text-[#F5F2EB] min-h-[75vh]">
       <SEOHead
         title="Track Your Order | Real-Time Print Production Status | ONPRINT Dubai"
         description="Track the real-time production, proofing, printing, and delivery status of your ONPRINT Dubai orders using your Order Number."
@@ -167,19 +168,19 @@ export default function TrackOrderPage() {
 
         {/* Hero Header */}
         <div className="text-center max-w-2xl mx-auto mt-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#14213D] border border-[#D6C29A]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
-            <Sparkles className="w-3.5 h-3.5 text-[#D6C29A]" /> Real-Time Production Tracker
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#172644] border border-[#D4AF65]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+            <Sparkles className="w-3.5 h-3.5 text-[#D4AF65]" /> Real-Time Production Tracker
           </span>
           <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             Track Your Print Order &amp; Quotation
           </h1>
           <p className="mt-2 text-sm text-[#A0AEC0]">
-            Enter your <strong className="text-white font-bold">Reference Number</strong> (e.g. <code className="text-[#D6C29A] bg-[#14213D] px-1.5 py-0.5 rounded">ONP-2026-XXXXXX</code> or <code className="text-[#D6C29A] bg-[#14213D] px-1.5 py-0.5 rounded">ONP-Q-XXXXXX</code>), email, or phone number to see real-time pre-press, printing, and courier delivery progress.
+            Enter your <strong className="text-white font-bold">Reference Number</strong> (e.g. <code className="text-[#D4AF65] bg-[#172644] px-1.5 py-0.5 rounded">ONP-2026-XXXXXX</code> or <code className="text-[#D4AF65] bg-[#172644] px-1.5 py-0.5 rounded">ONP-Q-XXXXXX</code>), email, or phone number to see real-time pre-press, printing, and courier delivery progress.
           </p>
         </div>
 
         {/* Search Box Card */}
-        <div className="mt-8 mx-auto max-w-2xl rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 sm:p-6 shadow-sm">
+        <div className="mt-8 mx-auto max-w-2xl rounded-2xl border border-[#203357] bg-[#172644] p-4 sm:p-6 shadow-sm">
           <form onSubmit={handleFormSubmit} className="flex flex-col sm:flex-row items-center gap-3">
             <div className="relative w-full">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#6B7C96]" />
@@ -188,7 +189,7 @@ export default function TrackOrderPage() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Enter Reference # (e.g. ONP-2026-584109 / ONP-Q-123456) or email"
-                className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] py-3 pl-11 pr-4 text-sm font-medium text-white placeholder:text-[#6B7C96] focus:border-[#D6C29A] focus:outline-none focus:ring-2 focus:ring-[#D6C29A]/20 transition-all font-mono"
+                className="w-full rounded-xl border border-[#203357] bg-[#101D35] py-3 pl-11 pr-4 text-sm font-medium text-white placeholder:text-[#6B7C96] focus:border-[#D4AF65] focus:outline-none focus:ring-2 focus:ring-[#D4AF65]/20 transition-all font-mono"
                 required
               />
             </div>
@@ -197,7 +198,7 @@ export default function TrackOrderPage() {
               variant="accent"
               icon={false}
               disabled={loading || !query.trim()}
-              className="w-full sm:w-auto shrink-0 !py-3 !px-7 font-bold shadow-sm shadow-[#D6C29A]/20"
+              className="w-full sm:w-auto shrink-0 !py-3 !px-7 font-bold shadow-sm shadow-[#D4AF65]/20"
             >
               {loading ? (
                 <span className="flex items-center gap-2">
@@ -211,14 +212,14 @@ export default function TrackOrderPage() {
 
           {/* Quick lookup pills */}
           {recentOrders.length > 0 && (
-            <div className="mt-4 pt-3 border-t border-[#1E2C4F] flex flex-wrap items-center gap-2 text-xs">
+            <div className="mt-4 pt-3 border-t border-[#203357] flex flex-wrap items-center gap-2 text-xs">
               <span className="font-semibold text-[#6B7C96]">Recent Orders:</span>
               {recentOrders.map((rec) => (
                 <button
                   key={rec.orderNumber}
                   type="button"
                   onClick={() => handleQuickLookup(rec.orderNumber)}
-                  className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono font-bold text-slate-700 hover:border-[#D6C29A] hover:bg-amber-50 hover:text-[#0B132B] transition-all cursor-pointer"
+                  className="rounded-lg border border-[#203357] bg-[#101D35] px-2.5 py-1 font-mono font-bold text-[#B0BECE] hover:border-[#D4AF65] hover:bg-amber-50 hover:text-[#101D35] transition-all cursor-pointer"
                 >
                   {rec.orderNumber}
                 </button>
@@ -230,11 +231,11 @@ export default function TrackOrderPage() {
         {/* Loading State */}
         {loading && (
           <div className="mt-12 text-center py-12">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-50 text-[#D6C29A] animate-bounce">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-50 text-[#D4AF65] animate-bounce">
               <Printer className="h-6 w-6" />
             </div>
-            <p className="mt-4 font-bold text-[#F5F3EE]">Checking ONPRINT Production Database...</p>
-            <p className="text-xs text-[#B8C2D9] mt-1">Retrieving job tickets, proofs, and dispatch records.</p>
+            <p className="mt-4 font-bold text-[#F5F2EB]">Checking ONPRINT Production Database...</p>
+            <p className="text-xs text-[#B0BECE] mt-1">Retrieving job tickets, proofs, and dispatch records.</p>
           </div>
         )}
 
@@ -244,16 +245,16 @@ export default function TrackOrderPage() {
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-700 mb-3">
               <AlertCircle className="h-6 w-6" />
             </div>
-            <h3 className="font-display text-lg font-bold text-slate-900">No Matching Order or Quote Found</h3>
-            <p className="mt-2 text-xs text-slate-600 max-w-md mx-auto">
-              We couldn&apos;t locate a job matching &quot;<strong className="text-slate-900">{query}</strong>&quot;.
+            <h3 className="font-display text-lg font-bold text-[#F5F2EB]">No Matching Order or Quote Found</h3>
+            <p className="mt-2 text-xs text-[#8E9BB5] max-w-md mx-auto">
+              We couldn&apos;t locate a job matching &quot;<strong className="text-[#F5F2EB]">{query}</strong>&quot;.
               Please verify your reference number in your confirmation email (format: <code className="font-bold">ONP-2026-XXXXXX</code> or <code className="font-bold">ONP-Q-XXXXXX</code>) or search with the email address used during checkout.
             </p>
 
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
                 href="mailto:0nprint183@gmail.com"
-                className="inline-flex w-full sm:w-auto justify-center text-center break-words items-center gap-2 rounded-xl bg-[#0B132B] px-4 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition-colors shadow-xs"
+                className="inline-flex w-full sm:w-auto justify-center text-center break-words items-center gap-2 rounded-xl bg-[#101D35] px-4 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition-colors shadow-xs"
               >
                 <Mail className="h-4 w-4 shrink-0" /> Email Support (0nprint183@gmail.com)
               </a>
@@ -268,8 +269,8 @@ export default function TrackOrderPage() {
         {!loading && order && (
           <div className="mt-10 space-y-6">
             {/* Top Order Card Header */}
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-sm text-white">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#1E2C4F] pb-6">
+            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 sm:p-8 shadow-sm text-white">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#203357] pb-6">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-bold uppercase tracking-wider text-[#6B7C96]">
@@ -297,7 +298,7 @@ export default function TrackOrderPage() {
                       type="button"
                       onClick={handleCopyOrderNumber}
                       title="Copy Reference Number"
-                      className="p-1.5 rounded-md hover:bg-[#0B132B] text-[#6B7C96] hover:text-white transition-colors cursor-pointer"
+                      className="p-1.5 rounded-md hover:bg-[#101D35] text-[#6B7C96] hover:text-white transition-colors cursor-pointer"
                     >
                       {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
                     </button>
@@ -312,13 +313,13 @@ export default function TrackOrderPage() {
                   <button
                     type="button"
                     onClick={() => setShowInvoiceModal(true)}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2 text-xs font-bold text-slate-200 hover:border-[#D6C29A] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2 text-xs font-bold text-slate-200 hover:border-[#D4AF65] transition-colors cursor-pointer"
                   >
-                    <FileText className="h-4 w-4 text-[#D6C29A]" /> View Tax Invoice
+                    <FileText className="h-4 w-4 text-[#D4AF65]" /> View Tax Invoice
                   </button>
 
                   <a
-                    href={`https://wa.me/447344546056?text=${encodeURIComponent(`Hello ONPRINT, I am tracking my reference ${order.orderNumber || order.quoteNumber} (Status: ${order.status || 'In Progress'}). Please share live production update.`)}`}
+                    href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`Hello ONPRINT, I am tracking my reference ${order.orderNumber || order.quoteNumber} (Status: ${order.status || 'In Progress'}). Please share live production update.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-2 text-xs font-bold transition-all shadow-xs"
@@ -334,7 +335,7 @@ export default function TrackOrderPage() {
                   <h3 className="text-xs font-bold uppercase tracking-wider text-[#6B7C96]">
                     9-Stage Commercial Production Workflow
                   </h3>
-                  <span className="text-xs font-bold text-[#D6C29A] bg-[#D6C29A]/10 px-2.5 py-0.5 rounded-full border border-[#D6C29A]/30">
+                  <span className="text-xs font-bold text-[#D4AF65] bg-[#D4AF65]/10 px-2.5 py-0.5 rounded-full border border-[#D4AF65]/30">
                     ISO 12647-2 Pressroom Standards
                   </span>
                 </div>
@@ -343,19 +344,19 @@ export default function TrackOrderPage() {
                   {steps.map((s) => {
                     const Icon = s.icon
                     return (
-                      <div key={s.id} className="flex flex-col items-center text-center p-2 rounded-xl bg-[#0B132B] border border-[#1E2C4F]">
+                      <div key={s.id} className="flex flex-col items-center text-center p-2 rounded-xl bg-[#101D35] border border-[#203357]">
                         <div
                           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xs font-bold transition-all shadow-xs ${
                             s.done
-                              ? 'bg-[#14213D] text-[#D6C29A] ring-1 ring-[#D6C29A]/40'
+                              ? 'bg-[#172644] text-[#D4AF65] ring-1 ring-[#D4AF65]/40'
                               : s.current
-                                ? 'bg-[#D6C29A] text-[#0B132B] ring-4 ring-[#D6C29A]/20 animate-pulse font-black'
-                                : 'border border-[#1E2C4F] bg-[#14213D] text-slate-500'
+                                ? 'bg-[#D4AF65] text-[#101D35] ring-4 ring-[#D4AF65]/20 animate-pulse font-black'
+                                : 'border border-[#203357] bg-[#172644] text-slate-500'
                           }`}
                         >
                           <Icon className="h-4 w-4" />
                         </div>
-                        <p className={`text-[11px] font-bold mt-2 leading-tight ${s.done ? 'text-white' : s.current ? 'text-[#D6C29A] font-black' : 'text-[#6B7C96]'}`}>
+                        <p className={`text-[11px] font-bold mt-2 leading-tight ${s.done ? 'text-white' : s.current ? 'text-[#D4AF65] font-black' : 'text-[#6B7C96]'}`}>
                           {s.title}
                         </p>
                         <p className="text-[10px] text-[#6B7C96] leading-tight mt-0.5 hidden sm:block">
@@ -372,8 +373,8 @@ export default function TrackOrderPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Left Column: Specifications & Artwork */}
               <div className="lg:col-span-2 space-y-6">
-                <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-sm space-y-4 text-white">
-                  <h3 className="font-display text-base font-bold text-white border-b border-[#1E2C4F] pb-3">
+                <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 shadow-sm space-y-4 text-white">
+                  <h3 className="font-display text-base font-bold text-white border-b border-[#203357] pb-3">
                     Project Specifications &amp; Artworking
                   </h3>
 
@@ -391,7 +392,7 @@ export default function TrackOrderPage() {
                     {order.specs && (
                       <div className="pt-2">
                         <span className="font-bold text-[#6B7C96] block mb-1">Configuration &amp; Finishes:</span>
-                        <div className="break-words rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-3 text-slate-200 leading-relaxed font-mono text-[11px]">
+                        <div className="break-words rounded-xl border border-[#203357] bg-[#101D35] p-3 text-slate-200 leading-relaxed font-mono text-[11px]">
                           {order.specs}
                         </div>
                       </div>
@@ -400,7 +401,7 @@ export default function TrackOrderPage() {
                     {order.notes && (
                       <div className="pt-2">
                         <span className="font-bold text-[#6B7C96] block mb-1">Customer Special Instructions:</span>
-                        <div className="break-words rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-3 text-[#A0AEC0] italic">
+                        <div className="break-words rounded-xl border border-[#203357] bg-[#101D35] p-3 text-[#A0AEC0] italic">
                           &quot;{order.notes}&quot;
                         </div>
                       </div>
@@ -409,9 +410,9 @@ export default function TrackOrderPage() {
                     {order.artworkFile && (
                       <div className="pt-2">
                         <span className="font-bold text-[#6B7C96] block mb-1">Attached Artwork / Design File:</span>
-                        <div className="flex items-center justify-between gap-2 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-3 text-xs font-bold text-white">
+                        <div className="flex items-center justify-between gap-2 rounded-xl border border-[#203357] bg-[#101D35] p-3 text-xs font-bold text-white">
                           <span className="min-w-0 break-all text-slate-200">📎 {order.artworkFile}</span>
-                          <span className="text-[10px] uppercase font-bold text-[#D6C29A] bg-[#14213D] px-2 py-0.5 rounded border border-[#1E2C4F] shrink-0">
+                          <span className="text-[10px] uppercase font-bold text-[#D4AF65] bg-[#172644] px-2 py-0.5 rounded border border-[#203357] shrink-0">
                             Pre-Flight Passed
                           </span>
                         </div>
@@ -424,8 +425,8 @@ export default function TrackOrderPage() {
               {/* Right Column: Financials & Customer Info */}
               <div className="space-y-6">
                 {/* Financial Summary */}
-                <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-sm space-y-3 text-white">
-                  <h3 className="font-display text-base font-bold text-white border-b border-[#1E2C4F] pb-3">
+                <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 shadow-sm space-y-3 text-white">
+                  <h3 className="font-display text-base font-bold text-white border-b border-[#203357] pb-3">
                     Invoice &amp; VAT Breakdown
                   </h3>
 
@@ -438,15 +439,15 @@ export default function TrackOrderPage() {
                       <span>5% UAE VAT</span>
                       <span>AED {vatAmount > 0 ? vatAmount.toFixed(2) : (totalAmount > 0 ? (totalAmount - totalAmount / 1.05).toFixed(2) : 'Quoted')}</span>
                     </div>
-                    <div className="flex justify-between font-black text-sm text-white border-t border-[#1E2C4F] pt-2">
+                    <div className="flex justify-between font-black text-sm text-white border-t border-[#203357] pt-2">
                       <span>Total (Incl. VAT)</span>
-                      <span className="text-[#D6C29A]">
+                      <span className="text-[#D4AF65]">
                         {totalAmount > 0 ? `AED ${totalAmount.toFixed(2)}` : 'Pricing on Request'}
                       </span>
                     </div>
                     <div className="flex justify-between items-center text-[#A0AEC0] pt-1">
                       <span>Payment Status</span>
-                      <span className="rounded-md bg-[#0B132B] border border-[#1E2C4F] px-2 py-0.5 text-[10px] font-bold uppercase text-slate-200">
+                      <span className="rounded-md bg-[#101D35] border border-[#203357] px-2 py-0.5 text-[10px] font-bold uppercase text-slate-200">
                         {order.paymentStatus || 'Pending'}
                       </span>
                     </div>
@@ -454,8 +455,8 @@ export default function TrackOrderPage() {
                 </div>
 
                 {/* Customer Details */}
-                <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-sm space-y-3 text-white">
-                  <h3 className="font-display text-base font-bold text-white border-b border-[#1E2C4F] pb-3">
+                <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 shadow-sm space-y-3 text-white">
+                  <h3 className="font-display text-base font-bold text-white border-b border-[#203357] pb-3">
                     Client &amp; Delivery Details
                   </h3>
 
@@ -496,8 +497,8 @@ export default function TrackOrderPage() {
         {/* Initial Empty State / Turnaround Information */}
         {!loading && !searched && (
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs text-white">
-              <div className="h-10 w-10 rounded-xl bg-[#0B132B] border border-[#1E2C4F] text-[#D6C29A] flex items-center justify-center mb-4">
+            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 shadow-xs text-white">
+              <div className="h-10 w-10 rounded-xl bg-[#101D35] border border-[#203357] text-[#D4AF65] flex items-center justify-center mb-4">
                 <Clock className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-white text-sm">Fast Turnaround Times</h3>
@@ -506,8 +507,8 @@ export default function TrackOrderPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs text-white">
-              <div className="h-10 w-10 rounded-xl bg-[#0B132B] border border-[#1E2C4F] text-[#D6C29A] flex items-center justify-center mb-4">
+            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 shadow-xs text-white">
+              <div className="h-10 w-10 rounded-xl bg-[#101D35] border border-[#203357] text-[#D4AF65] flex items-center justify-center mb-4">
                 <FileCheck className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-white text-sm">Free Pre-Press Proofing</h3>
@@ -516,8 +517,8 @@ export default function TrackOrderPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs text-white">
-              <div className="h-10 w-10 rounded-xl bg-[#0B132B] border border-[#1E2C4F] text-[#D6C29A] flex items-center justify-center mb-4">
+            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 shadow-xs text-white">
+              <div className="h-10 w-10 rounded-xl bg-[#101D35] border border-[#203357] text-[#D4AF65] flex items-center justify-center mb-4">
                 <Truck className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-white text-sm">UAE-Wide Express Delivery</h3>
@@ -531,13 +532,13 @@ export default function TrackOrderPage() {
         {/* Official Printable Tax Invoice Modal */}
         {showInvoiceModal && order && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs">
-            <div className="relative w-full max-w-2xl rounded-2xl bg-[#14213D] border border-[#1E2C4F] p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh] text-[#F5F3EE]">
+            <div className="relative w-full max-w-2xl rounded-2xl bg-[#172644] border border-[#203357] p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh] text-[#F5F2EB]">
               {/* Invoice Printable Document */}
               <div id="printable-tax-invoice" className="space-y-6">
-                <div className="flex items-start justify-between border-b border-slate-200 pb-6">
+                <div className="flex items-start justify-between border-b border-[#203357] pb-6">
                   <div>
-                    <h2 className="text-2xl font-black tracking-wider text-[#0B132B]">
-                      ON<span className="text-[#D6C29A]">PRINT</span>
+                    <h2 className="text-2xl font-black tracking-wider text-[#101D35]">
+                      ON<span className="text-[#D4AF65]">PRINT</span>
                     </h2>
                     <p className="text-xs text-slate-500 mt-1">
                       Commercial Printing &amp; Custom Branding LLC<br />
@@ -546,10 +547,10 @@ export default function TrackOrderPage() {
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="inline-block bg-[#0B132B] text-[#D6C29A] text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">
+                    <span className="inline-block bg-[#101D35] text-[#D4AF65] text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">
                       Tax Invoice / Receipt
                     </span>
-                    <p className="text-xs font-mono font-bold text-slate-900 mt-2">
+                    <p className="text-xs font-mono font-bold text-[#F5F2EB] mt-2">
                       Ref: {order.orderNumber || order.quoteNumber}
                     </p>
                     <p className="text-xs text-slate-500">
@@ -562,23 +563,23 @@ export default function TrackOrderPage() {
                 <div className="grid grid-cols-2 gap-4 text-xs">
                   <div>
                     <p className="text-[#6B7C96] font-bold uppercase">Billed To:</p>
-                    <p className="font-bold text-slate-900 mt-1">{order.customerName || order.name || 'Client'}</p>
-                    {order.company && <p className="text-slate-600">{order.company}</p>}
-                    {order.customerEmail && <p className="text-slate-600">{order.customerEmail || order.email}</p>}
-                    {order.customerPhone && <p className="text-slate-600">{order.customerPhone || order.phone}</p>}
+                    <p className="font-bold text-[#F5F2EB] mt-1">{order.customerName || order.name || 'Client'}</p>
+                    {order.company && <p className="text-[#8E9BB5]">{order.company}</p>}
+                    {order.customerEmail && <p className="text-[#8E9BB5]">{order.customerEmail || order.email}</p>}
+                    {order.customerPhone && <p className="text-[#8E9BB5]">{order.customerPhone || order.phone}</p>}
                   </div>
                   <div>
                     <p className="text-[#6B7C96] font-bold uppercase">Delivery Location:</p>
-                    <p className="text-slate-700 mt-1">{order.deliveryLocation || 'Dubai & UAE Courier Delivery'}</p>
+                    <p className="text-[#B0BECE] mt-1">{order.deliveryLocation || 'Dubai & UAE Courier Delivery'}</p>
                     <p className="text-[#6B7C96] font-bold uppercase mt-2">Status:</p>
                     <p className="font-bold text-emerald-700">{order.status || 'Active'}</p>
                   </div>
                 </div>
 
                 {/* Items Table */}
-                <div className="border border-slate-200 rounded-xl overflow-hidden">
+                <div className="border border-[#203357] rounded-xl overflow-hidden">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-50 text-slate-700 border-b border-slate-200">
+                    <thead className="bg-[#101D35] text-[#B0BECE] border-b border-[#203357]">
                       <tr>
                         <th className="py-2.5 px-3 font-bold">Description</th>
                         <th className="py-2.5 px-3 font-bold text-center">Qty</th>
@@ -589,14 +590,14 @@ export default function TrackOrderPage() {
                     <tbody className="divide-y divide-slate-100">
                       <tr>
                         <td className="py-3 px-3">
-                          <p className="font-bold text-slate-900">{order.productName || 'Commercial Printing Job'}</p>
+                          <p className="font-bold text-[#F5F2EB]">{order.productName || 'Commercial Printing Job'}</p>
                           {order.specs && <p className="text-[11px] text-slate-500 mt-0.5">{order.specs}</p>}
                         </td>
                         <td className="py-3 px-3 text-center">{order.quantity || 1}</td>
                         <td className="py-3 px-3 text-right">
                           AED {totalAmount > 0 ? (totalAmount / (order.quantity || 1) / 1.05).toFixed(2) : '0.00'}
                         </td>
-                        <td className="py-3 px-3 text-right font-bold text-slate-900">
+                        <td className="py-3 px-3 text-right font-bold text-[#F5F2EB]">
                           AED {subtotal > 0 ? subtotal.toFixed(2) : (totalAmount / 1.05).toFixed(2)}
                         </td>
                       </tr>
@@ -607,22 +608,22 @@ export default function TrackOrderPage() {
                 {/* Totals */}
                 <div className="flex justify-end text-xs">
                   <div className="w-64 space-y-2 border-t border-slate-100 pt-2">
-                    <div className="flex justify-between text-slate-600">
+                    <div className="flex justify-between text-[#8E9BB5]">
                       <span>Subtotal (Excl. VAT):</span>
                       <span>AED {subtotal > 0 ? subtotal.toFixed(2) : (totalAmount / 1.05).toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between text-slate-600">
+                    <div className="flex justify-between text-[#8E9BB5]">
                       <span>5% UAE VAT (FTA):</span>
                       <span>AED {vatAmount > 0 ? vatAmount.toFixed(2) : (totalAmount - totalAmount / 1.05).toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between font-black text-sm text-[#0B132B] border-t border-slate-200 pt-2">
+                    <div className="flex justify-between font-black text-sm text-[#101D35] border-t border-[#203357] pt-2">
                       <span>Total Amount:</span>
-                      <span className="text-[#D6C29A]">AED {totalAmount > 0 ? totalAmount.toFixed(2) : 'Quoted'}</span>
+                      <span className="text-[#D4AF65]">AED {totalAmount > 0 ? totalAmount.toFixed(2) : 'Quoted'}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-[11px] text-slate-500 border-t border-slate-200 pt-4">
+                <div className="text-[11px] text-slate-500 border-t border-[#203357] pt-4">
                   <p>
                     This is an electronically generated tax invoice from ONPRINT Commercial Pressroom. All printing services are executed under ISO 12647-2 color fidelity standards.
                   </p>

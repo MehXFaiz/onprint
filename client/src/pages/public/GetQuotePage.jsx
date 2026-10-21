@@ -74,51 +74,56 @@ const initialForm = {
 
 function StepIndicator({ current }) {
   return (
-    <ol className="flex items-start">
-      {steps.map((label, index) => {
-        const stepNumber = index + 1
-        const done = stepNumber < current
-        const active = stepNumber === current
-        return (
-          <li key={label} className="flex flex-1 flex-col items-start last:flex-none">
-            <div className="flex w-full items-center">
+    <div>
+      <ol className="flex items-start">
+        {steps.map((label, index) => {
+          const stepNumber = index + 1
+          const done = stepNumber < current
+          const active = stepNumber === current
+          return (
+            <li key={label} className="flex flex-1 flex-col items-start last:flex-none">
+              <div className="flex w-full items-center">
+                <span
+                  className={`flex h-7 w-7 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg sm:rounded-xl font-display text-[11px] sm:text-xs font-extrabold tabular-nums transition-all ${
+                    done
+                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                      : active
+                        ? 'bg-[#101D35] text-white shadow-md ring-2 ring-[#D4AF65]'
+                        : 'border border-[#203357] bg-[#101D35] text-slate-400'
+                  }`}
+                >
+                  {done ? <Check className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[3]" /> : stepNumber}
+                </span>
+                {stepNumber < steps.length && (
+                  <span className={`mx-1 sm:mx-2 h-0.5 flex-1 transition-colors ${done ? 'bg-[#D4AF65]' : 'bg-[#203357]'}`} />
+                )}
+              </div>
               <span
-                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-display text-xs font-extrabold tabular-nums transition-all ${
-                  done
-                    ? 'bg-[#D6C29A] text-[#0B132B] shadow-xs'
-                    : active
-                      ? 'bg-[#0B132B] text-white shadow-md ring-2 ring-[#D6C29A]'
-                      : 'border border-[#1E2C4F] bg-[#0B132B] text-slate-400'
-                }`}
+                className={`mt-2.5 hidden text-xs font-bold sm:block ${active ? 'text-[#D4AF65]' : 'text-[#B0BECE]'}`}
               >
-                {done ? <Check className="h-4 w-4 stroke-[3]" /> : stepNumber}
+                {label}
               </span>
-              {stepNumber < steps.length && (
-                <span className={`mx-2 h-0.5 flex-1 transition-colors ${done ? 'bg-[#D6C29A]' : 'bg-slate-200'}`} />
-              )}
-            </div>
-            <span
-              className={`mt-2.5 hidden text-xs font-bold sm:block ${active ? 'text-[#D6C29A]' : 'text-[#94A3B8]'}`}
-            >
-              {label}
-            </span>
-          </li>
-        )
-      })}
-    </ol>
+            </li>
+          )
+        })}
+      </ol>
+      <div className="sm:hidden text-center mt-2.5 text-xs font-bold text-[#D4AF65]">
+        Step {current} of {steps.length}: {steps[current - 1]}
+      </div>
+    </div>
   )
 }
 
 function FieldLabel({ htmlFor, children, optional }) {
   return (
-    <label htmlFor={htmlFor} className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+    <label htmlFor={htmlFor} className="text-xs font-bold uppercase tracking-wider text-[#F5F2EB]">
       {children} {optional && <span className="font-normal text-slate-400 lowercase">(optional)</span>}
     </label>
   )
 }
 
 const inputClasses =
-  'mt-2 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-4 py-3 text-sm font-medium text-[#F5F3EE] placeholder:text-slate-400 transition-colors focus:border-[#D6C29A] focus:outline-none focus:ring-2 focus:ring-[#D6C29A]/20 shadow-2xs'
+  'mt-2 w-full rounded-xl border border-[#203357] bg-[#101D35] px-4 py-3 text-sm font-medium text-[#F5F2EB] placeholder:text-slate-400 transition-colors focus:border-[#D4AF65] focus:outline-none focus:ring-2 focus:ring-[#D4AF65]/20 shadow-2xs'
 
 export default function GetQuotePage() {
   const { state } = useLocation()
@@ -357,7 +362,7 @@ export default function GetQuotePage() {
           notes: form.notes.trim() || (form.largeFileLink ? `Artwork Link: ${form.largeFileLink}` : 'None'),
           pageUrl: 'https://www.0nprint.com/get-a-quote',
         },
-        { allowSameTabFallback: false }
+        { allowSameTabFallback: true }
       )
     } catch (err) {
       console.error('Failed to submit quote request:', err)
@@ -385,66 +390,66 @@ export default function GetQuotePage() {
 
     return (
       <Container className="flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#0B132B] border border-[#1E2C4F] text-[#D6C29A] shadow-xs">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#101D35] border border-[#203357] text-[#D4AF65] shadow-xs">
           <CheckCircle2 className="h-9 w-9" />
         </div>
-        <span className="mt-4 rounded-full bg-[#0B132B] border border-[#1E2C4F] px-3 py-1 text-xs font-black uppercase tracking-wider text-[#D6C29A]">
+        <span className="mt-4 rounded-full bg-[#101D35] border border-[#203357] px-3 py-1 text-xs font-black uppercase tracking-wider text-[#D4AF65]">
           Quotation Submitted &bull; Reference #{quoteNum}
         </span>
-        <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-[#F5F3EE] sm:text-4xl">
+        <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-[#F5F2EB] sm:text-4xl">
           Quote Request Received!
         </h1>
-        <p className="mt-3 max-w-lg text-sm text-[#A0AEC0] leading-relaxed">
-          Thank you, <strong className="text-[#F5F3EE]">{form.name}</strong>. Our prepress estimator in Al Quoz, Dubai has received your specifications for <strong className="text-[#F5F3EE]">{prodName}</strong>. A formal proposal will be dispatched to <strong className="text-[#F5F3EE]">{form.email}</strong>.
+        <p className="mt-3 max-w-lg text-sm text-[#B0BECE] leading-relaxed">
+          Thank you, <strong className="text-[#F5F2EB]">{form.name}</strong>. Our prepress estimator in Al Quoz, Dubai has received your specifications for <strong className="text-[#F5F2EB]">{prodName}</strong>. A formal proposal will be dispatched to <strong className="text-[#F5F2EB]">{form.email}</strong>.
         </p>
 
         {/* WhatsApp Card */}
-        <div className="mt-8 w-full max-w-lg rounded-2xl bg-emerald-50 border border-emerald-200 p-5 text-center space-y-3 shadow-xs">
-          <div className="flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-800">
-            <WhatsAppIcon className="h-4 w-4 fill-emerald-600" />
+        <div className="mt-8 w-full max-w-lg rounded-2xl bg-emerald-950/40 border border-emerald-500/30 p-5 text-center space-y-3 shadow-xs">
+          <div className="flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-400">
+            <WhatsAppIcon className="h-4 w-4 fill-emerald-400" />
             <span>Express WhatsApp Priority Channel</span>
           </div>
-          <p className="text-xs text-emerald-800 leading-relaxed">
-            Need urgent same-day turnaround or custom material consultation? Chat directly with our senior pressman on WhatsApp quoting reference <code className="font-bold text-[#D6C29A] font-mono bg-[#0B132B] px-1.5 py-0.5 rounded border border-[#1E2C4F]">{quoteNum}</code>.
+          <p className="text-xs text-emerald-200 leading-relaxed">
+            Need urgent same-day turnaround or custom material consultation? Chat directly with our senior pressman on WhatsApp quoting reference <code className="font-bold text-[#D4AF65] font-mono bg-[#101D35] px-1.5 py-0.5 rounded border border-[#203357]">{quoteNum}</code>.
           </p>
           <a
             href={directWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-6 py-3.5 text-xs font-black text-white shadow-md shadow-emerald-600/30 transition-all hover:scale-[1.02] cursor-pointer w-full"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-4 sm:px-6 py-3.5 text-xs font-black text-white shadow-md shadow-emerald-600/30 transition-all hover:scale-[1.02] cursor-pointer w-full text-center"
           >
-            <WhatsAppIcon className="h-4.5 w-4.5 fill-white" />
-            <span>Chat on WhatsApp Now (Ref: {quoteNum})</span>
+            <WhatsAppIcon className="h-4.5 w-4.5 fill-white shrink-0" />
+            <span className="truncate">Chat on WhatsApp Now (Ref: {quoteNum})</span>
           </a>
         </div>
 
         {/* Summary Card */}
-        <div className="mt-6 w-full max-w-lg rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5 text-left text-xs space-y-2.5 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-2.5">
-            <span className="font-bold uppercase tracking-wider text-[#94A3B8]">Quote Reference</span>
-            <span className="font-mono font-black text-[#D6C29A] text-sm">{quoteNum}</span>
+        <div className="mt-6 w-full max-w-lg rounded-2xl border border-[#203357] bg-[#101D35] p-5 text-left text-xs space-y-2.5 shadow-2xs">
+          <div className="flex items-center justify-between border-b border-[#203357] pb-2.5 gap-2">
+            <span className="font-bold uppercase tracking-wider text-[#B0BECE]">Quote Reference</span>
+            <span className="font-mono font-black text-[#D4AF65] text-sm break-all">{quoteNum}</span>
           </div>
-          <div className="flex items-center justify-between">
-            <span className="text-[#94A3B8]">Service:</span>
-            <span className="font-bold text-[#F5F3EE]">{prodName}</span>
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[#B0BECE] shrink-0">Service:</span>
+            <span className="font-bold text-[#F5F2EB] text-right truncate min-w-0">{prodName}</span>
           </div>
-          <div className="flex items-center justify-between">
-            <span className="text-[#94A3B8]">Quantity:</span>
-            <span className="font-bold text-[#F5F3EE]">{orderQty} units</span>
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[#B0BECE] shrink-0">Quantity:</span>
+            <span className="font-bold text-[#F5F2EB] text-right">{orderQty} units</span>
           </div>
           {form.finishes.length > 0 && (
-            <div className="flex items-start justify-between gap-4">
-              <span className="text-[#94A3B8]">Finishes:</span>
-              <span className="font-bold text-[#F5F3EE] text-right">{form.finishes.join(', ')}</span>
+            <div className="flex items-start justify-between gap-3">
+              <span className="text-[#B0BECE] shrink-0">Finishes:</span>
+              <span className="font-bold text-[#F5F2EB] text-right">{form.finishes.join(', ')}</span>
             </div>
           )}
-          <div className="flex items-center justify-between">
-            <span className="text-[#94A3B8]">Turnaround:</span>
-            <span className="font-semibold text-[#F5F3EE]">{form.deliveryUrgency}</span>
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[#B0BECE] shrink-0">Turnaround:</span>
+            <span className="font-semibold text-[#F5F2EB] text-right truncate min-w-0">{form.deliveryUrgency}</span>
           </div>
-          <div className="flex items-center justify-between">
-            <span className="text-[#94A3B8]">Destination:</span>
-            <span className="font-semibold text-[#F5F3EE]">{form.deliveryLocation}</span>
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[#B0BECE] shrink-0">Destination:</span>
+            <span className="font-semibold text-[#F5F2EB] text-right truncate min-w-0">{form.deliveryLocation}</span>
           </div>
         </div>
 
@@ -461,7 +466,7 @@ export default function GetQuotePage() {
   }
 
   return (
-    <div className="py-16 sm:py-24 bg-[#0B132B] text-[#F5F3EE]">
+    <div className="py-16 sm:py-24 bg-[#101D35] text-[#F5F2EB]">
       <SEOHead
         title="Get a Commercial Printing Quote in Dubai | Fast Pricing | ONPRINT"
         description="Request a fast custom print quotation in Dubai. Upload your print-ready artwork (PDF, AI, EPS, PSD, ZIP) and select luxury finishes, substrates, and delivery timelines across the UAE."
@@ -474,19 +479,19 @@ export default function GetQuotePage() {
         <Breadcrumbs items={[{ name: 'Get a Quote' }]} />
 
         <div className="flex items-center gap-2">
-          <span className="rounded-full bg-[#0B132B] border border-[#1E2C4F] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
+          <span className="rounded-full bg-[#101D35] border border-[#203357] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
             ONPRINT Commercial Quote Desk
           </span>
-          <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#94A3B8]">
-            <Clock className="h-3.5 w-3.5 text-[#D6C29A]" />
+          <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[#B0BECE]">
+            <Clock className="h-3.5 w-3.5 text-[#D4AF65]" />
             <span>Same-Day Estimations</span>
           </span>
         </div>
 
-        <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-[#F5F3EE] sm:text-4xl">
+        <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-[#F5F2EB] sm:text-4xl">
           Request a Custom Printing Quote
         </h1>
-        <p className="mt-2 text-sm text-[#A0AEC0]">
+        <p className="mt-2 text-sm text-[#B0BECE]">
           From luxury business cards to corporate brochures and packaging, enter your specifications or attach print-ready artwork for guaranteed Dubai factory pricing.
         </p>
 
@@ -494,30 +499,30 @@ export default function GetQuotePage() {
           <StepIndicator current={step} />
         </div>
 
-        <div className="mt-10 rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 md:p-10 shadow-xl text-[#F5F3EE]">
+        <div className="mt-10 rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-8 md:p-10 shadow-xl text-[#F5F2EB]">
           {/* Step 1: Product Selection */}
           {step === 1 && (
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A] mb-2">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
                 <Layers className="h-4 w-4" />
                 <span>Step 1 of 5</span>
               </div>
-              <h2 className="font-display text-xl font-bold text-[#F5F3EE]">1. What print item do you need?</h2>
-              <p className="mt-1.5 text-xs text-[#94A3B8]">
+              <h2 className="font-display text-xl font-bold text-[#F5F2EB]">1. What print item do you need?</h2>
+              <p className="mt-1.5 text-xs text-[#B0BECE]">
                 Choose from our popular Al Quoz pressroom products or define your bespoke requirements.
               </p>
 
               {categories.length > 0 && (
-                <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                <div className="mt-6 grid grid-cols-1 min-[380px]:grid-cols-2 gap-3 sm:grid-cols-3">
                   {categories.map((c) => (
                     <button
                       key={c._id || c.id || c.slug}
                       type="button"
                       onClick={() => selectProduct(c.name)}
-                      className={`rounded-xl border p-3.5 text-left text-xs font-bold transition-all cursor-pointer ${
+                      className={`rounded-xl border p-3 sm:p-3.5 text-left text-xs font-bold transition-all cursor-pointer ${
                         form.product === c.name
-                          ? 'border-[#D6C29A] bg-[#0B132B] text-[#D6C29A] shadow-xs ring-1 ring-[#D6C29A]'
-                          : 'border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] hover:border-[#D6C29A] hover:bg-[#14213D] shadow-2xs'
+                          ? 'border-[#D4AF65] bg-[#101D35] text-[#D4AF65] shadow-xs ring-1 ring-[#D4AF65]'
+                          : 'border-[#203357] bg-[#101D35] text-[#F5F2EB] hover:border-[#D4AF65] hover:bg-[#172644] shadow-2xs'
                       }`}
                     >
                       {c.name}
@@ -545,11 +550,11 @@ export default function GetQuotePage() {
           {/* Step 2: Specifications, Finishes & Delivery */}
           {step === 2 && (
             <div className="space-y-6">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
                 <Sparkles className="h-4 w-4" />
                 <span>Step 2 of 5</span>
               </div>
-              <h2 className="font-display text-xl font-bold text-[#F5F3EE]">2. Project Specifications &amp; Finishes</h2>
+              <h2 className="font-display text-xl font-bold text-[#F5F2EB]">2. Project Specifications &amp; Finishes</h2>
 
               {/* Quantity Preset Tiers */}
               <div>
@@ -562,8 +567,8 @@ export default function GetQuotePage() {
                       onClick={() => setForm((p) => ({ ...p, quantity: String(q) }))}
                       className={`rounded-lg border px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                         form.quantity === String(q)
-                          ? 'border-[#D6C29A] bg-[#D6C29A] text-[#0B132B]'
-                          : 'border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] hover:border-slate-300 shadow-2xs'
+                          ? 'border-[#D4AF65] bg-[#D4AF65] text-[#101D35]'
+                          : 'border-[#203357] bg-[#101D35] text-[#F5F2EB] hover:border-slate-300 shadow-2xs'
                       }`}
                     >
                       {q.toLocaleString()} units
@@ -620,15 +625,15 @@ export default function GetQuotePage() {
                         key={f.id}
                         className={`flex items-center gap-3 rounded-xl border p-3 text-xs font-bold transition-all cursor-pointer ${
                           checked
-                            ? 'border-[#D6C29A] bg-[#0B132B] text-[#D6C29A]'
-                            : 'border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] hover:border-slate-300 shadow-2xs'
+                            ? 'border-[#D4AF65] bg-[#101D35] text-[#D4AF65]'
+                            : 'border-[#203357] bg-[#101D35] text-[#F5F2EB] hover:border-slate-300 shadow-2xs'
                         }`}
                       >
                         <input
                           type="checkbox"
                           checked={checked}
                           onChange={() => toggleFinish(f.label)}
-                          className="h-4 w-4 rounded border-slate-300 text-[#D6C29A] focus:ring-[#D6C29A]"
+                          className="h-4 w-4 rounded border-slate-300 text-[#D4AF65] focus:ring-[#D4AF65]"
                         />
                         <span>{f.label}</span>
                       </label>
@@ -693,27 +698,27 @@ export default function GetQuotePage() {
           {/* Step 3: Artwork Upload with Validation */}
           {step === 3 && (
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A] mb-2">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
                 <Upload className="h-4 w-4" />
                 <span>Step 3 of 5</span>
               </div>
-              <h2 className="font-display text-xl font-bold text-[#F5F3EE]">3. Upload Customer Artwork</h2>
-              <p className="mt-1 text-xs text-[#94A3B8]">
+              <h2 className="font-display text-xl font-bold text-[#F5F2EB]">3. Upload Customer Artwork</h2>
+              <p className="mt-1 text-xs text-[#B0BECE]">
                 Support for all industry-standard vector and prepress file formats up to 50MB. (Optional)
               </p>
 
-              {prefillNote && <p className="mt-3 text-xs font-bold text-[#D6C29A]">{prefillNote}</p>}
+              {prefillNote && <p className="mt-3 text-xs font-bold text-[#D4AF65]">{prefillNote}</p>}
 
               {/* File Dropzone */}
               <label
                 htmlFor="artwork"
-                className="mt-6 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-[#1E2C4F] bg-[#0B132B] p-8 text-center transition-colors hover:border-[#D6C29A] hover:bg-[#0B132B]/20 shadow-2xs"
+                className="mt-6 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-[#203357] bg-[#101D35] p-5 sm:p-8 text-center transition-colors hover:border-[#D4AF65] hover:bg-[#101D35]/20 shadow-2xs"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#14213D] text-[#D6C29A] border border-[#1E2C4F]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#172644] text-[#D4AF65] border border-[#203357]">
                   <Upload className="h-6 w-6" />
                 </div>
-                <span className="text-sm font-bold text-[#F5F3EE]">Choose Artwork Files or Drag &amp; Drop</span>
-                <span className="text-xs text-[#94A3B8]">
+                <span className="text-sm font-bold text-[#F5F2EB]">Choose Artwork Files or Drag &amp; Drop</span>
+                <span className="text-xs text-[#B0BECE]">
                   Allowed formats: <strong>PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP</strong> (Max 50MB per file)
                 </span>
                 <input
@@ -735,14 +740,14 @@ export default function GetQuotePage() {
 
               {/* Upload Progress Bar */}
               {isUploading && (
-                <div className="mt-4 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-3">
-                  <div className="flex justify-between text-xs font-semibold text-[#F5F3EE] mb-1.5">
+                <div className="mt-4 rounded-xl border border-[#203357] bg-[#101D35] p-3">
+                  <div className="flex justify-between text-xs font-semibold text-[#F5F2EB] mb-1.5">
                     <span>Uploading artwork files...</span>
                     <span>{uploadProgress}%</span>
                   </div>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
                     <div
-                      className="h-full bg-[#D6C29A] transition-all duration-300"
+                      className="h-full bg-[#D4AF65] transition-all duration-300"
                       style={{ width: `${uploadProgress}%` }}
                     />
                   </div>
@@ -752,19 +757,19 @@ export default function GetQuotePage() {
               {/* Attached Files List */}
               {artworkFiles.length > 0 && (
                 <div className="mt-6 space-y-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#94A3B8] block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#B0BECE] block">
                     Attached Files ({artworkFiles.length})
                   </span>
                   <ul className="space-y-2">
                     {artworkFiles.map((file, index) => (
                       <li
                         key={`${file.name}-${index}`}
-                        className="flex items-center justify-between rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-4 py-3 text-xs font-medium text-[#F5F3EE] shadow-2xs"
+                        className="flex items-center justify-between rounded-xl border border-[#203357] bg-[#101D35] px-4 py-3 text-xs font-medium text-[#F5F2EB] shadow-2xs"
                       >
                         <div className="flex items-center gap-2 min-w-0">
-                          <FileText className="h-4 w-4 text-[#D6C29A] shrink-0" />
+                          <FileText className="h-4 w-4 text-[#D4AF65] shrink-0" />
                           <span className="truncate">{file.name}</span>
-                          <span className="text-[11px] text-[#94A3B8] shrink-0">
+                          <span className="text-[11px] text-[#B0BECE] shrink-0">
                             ({(file.size / (1024 * 1024)).toFixed(2)} MB)
                           </span>
                         </div>
@@ -783,12 +788,12 @@ export default function GetQuotePage() {
               )}
 
               {/* Cloud WeTransfer / Dropbox fallback link */}
-              <div className="mt-6 rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#F5F3EE]">
-                  <ExternalLink className="h-3.5 w-3.5 text-[#D6C29A]" />
+              <div className="mt-6 rounded-2xl border border-[#203357] bg-[#101D35] p-4 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#F5F2EB]">
+                  <ExternalLink className="h-3.5 w-3.5 text-[#D4AF65]" />
                   <span>Files Exceeding 50MB?</span>
                 </div>
-                <p className="text-[11px] text-[#A0AEC0] leading-relaxed">
+                <p className="text-[11px] text-[#B0BECE] leading-relaxed">
                   For large multi-page catalogs, packaging dielines, or heavy print archives, please paste a shared link below from WeTransfer, Google Drive, or Dropbox:
                 </p>
                 <input
@@ -805,12 +810,12 @@ export default function GetQuotePage() {
           {/* Step 4: Contact Information */}
           {step === 4 && (
             <div className="space-y-6">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
                 <FileText className="h-4 w-4" />
                 <span>Step 4 of 5</span>
               </div>
-              <h2 className="font-display text-xl font-bold text-[#F5F3EE]">4. Contact Information</h2>
-              <p className="text-xs text-[#94A3B8]">
+              <h2 className="font-display text-xl font-bold text-[#F5F2EB]">4. Contact Information</h2>
+              <p className="text-xs text-[#B0BECE]">
                 Where should we send your official quotation and pre-flight digital proof?
               </p>
 
@@ -875,16 +880,16 @@ export default function GetQuotePage() {
           {/* Step 5: Review & Submit */}
           {step === 5 && (
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A] mb-2">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
                 <CheckCircle2 className="h-4 w-4" />
                 <span>Step 5 of 5</span>
               </div>
-              <h2 className="font-display text-2xl font-bold text-[#F5F3EE]">5. Review Your Request</h2>
-              <p className="mt-1 text-xs text-[#94A3B8]">
+              <h2 className="font-display text-2xl font-bold text-[#F5F2EB]">5. Review Your Request</h2>
+              <p className="mt-1 text-xs text-[#B0BECE]">
                 Please verify your project parameters before generating your official quotation ticket.
               </p>
 
-              <dl className="mt-6 divide-y divide-slate-100 rounded-2xl border border-[#1E2C4F] bg-[#0B132B] shadow-2xs">
+              <dl className="mt-6 divide-y divide-slate-100 rounded-2xl border border-[#203357] bg-[#101D35] shadow-2xs">
                 {[
                   ['Project Item', form.product],
                   ['Quantity', `${form.quantity} units`],
@@ -903,16 +908,16 @@ export default function GetQuotePage() {
                   .filter(([, value]) => value)
                   .map(([label, value]) => (
                     <div key={label} className="flex flex-col gap-1 px-5 py-3 sm:flex-row sm:justify-between sm:gap-4">
-                      <dt className="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">{label}</dt>
-                      <dd className="text-sm font-bold text-[#F5F3EE] sm:text-right">{value}</dd>
+                      <dt className="text-xs font-bold uppercase tracking-wider text-[#B0BECE] shrink-0">{label}</dt>
+                      <dd className="text-sm font-bold text-[#F5F2EB] sm:text-right break-words break-all sm:break-normal">{value}</dd>
                     </div>
                   ))}
               </dl>
 
               {/* Express WhatsApp Banner */}
-              <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-xl bg-emerald-50 border border-emerald-200">
-                <div className="flex items-center gap-2.5 text-xs text-emerald-800 font-medium text-left">
-                  <WhatsAppIcon className="h-5 w-5 fill-emerald-600 shrink-0" />
+              <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
+                <div className="flex items-center gap-2.5 text-xs text-emerald-200 font-medium text-left">
+                  <WhatsAppIcon className="h-5 w-5 fill-emerald-400 shrink-0" />
                   <span>Prefer an instant quotation on WhatsApp? Send these specs directly to our production engineer.</span>
                 </div>
                 <a
@@ -944,7 +949,7 @@ export default function GetQuotePage() {
             type="button"
             onClick={goBack}
             disabled={step === 1}
-            className="inline-flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#94A3B8] transition-colors hover:text-[#F5F3EE] disabled:invisible cursor-pointer py-2 sm:py-0"
+            className="inline-flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#B0BECE] transition-colors hover:text-[#F5F2EB] disabled:invisible cursor-pointer py-2 sm:py-0"
           >
             <ChevronLeft className="h-4 w-4" />
             Previous Step

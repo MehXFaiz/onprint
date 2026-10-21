@@ -205,20 +205,20 @@ export default function ProductReviewsSection({ product, categorySlug }) {
   }, [product, stats, reviews])
 
   return (
-    <section className="mt-16 rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-10 shadow-xs text-[#F5F3EE]">
+    <section className="mt-16 rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-10 shadow-xs text-[#F5F2EB]">
       {/* Google Schema.org Rich Snippet Injector */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1E2C4F] pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#203357] pb-6">
         <div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#0B132B] border border-[#1E2C4F] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
-            <Sparkles className="h-3.5 w-3.5 text-[#D6C29A]" /> Verified Client Reviews
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35] border border-[#203357] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+            <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" /> Verified Client Reviews
           </span>
-          <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#F5F3EE]">
+          <h2 className="font-display mt-2 text-2xl sm:text-3xl font-black tracking-tight text-[#F5F2EB]">
             Client Experiences &amp; Print Quality
           </h2>
-          <p className="text-xs sm:text-sm text-[#B8C2D9] mt-1">
+          <p className="text-xs sm:text-sm text-[#B0BECE] mt-1">
             Real feedback from marketing directors, luxury brands, and UAE procurement teams.
           </p>
         </div>
@@ -226,25 +226,25 @@ export default function ProductReviewsSection({ product, categorySlug }) {
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
-          className="inline-flex items-center gap-2 rounded-xl bg-[#D6C29A] hover:bg-[#D6C29A]/90 text-[#0B132B] px-4 py-2.5 text-xs font-black transition-all shadow-xs cursor-pointer self-start sm:self-auto"
+          className="inline-flex items-center gap-2 rounded-xl bg-[#D4AF65] hover:bg-[#D4AF65]/90 text-[#101D35] px-4 py-2.5 text-xs font-black transition-all shadow-xs cursor-pointer self-start sm:self-auto"
         >
           <Plus className="h-4 w-4" /> Write a Review
         </button>
       </div>
 
       {/* Rating Score Summary Grid */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 rounded-2xl bg-[#0B132B] border border-[#1E2C4F] p-6">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 rounded-2xl bg-[#101D35] border border-[#203357] p-6">
         {/* Score & Stars */}
-        <div className="flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-[#1E2C4F] pb-6 md:pb-0 md:pr-6">
-          <span className="font-display text-5xl font-black text-[#F5F3EE]">
+        <div className="flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-[#203357] pb-6 md:pb-0 md:pr-6">
+          <span className="font-display text-5xl font-black text-[#F5F2EB]">
             {stats.averageRating ? stats.averageRating.toFixed(1) : '4.9'}
           </span>
-          <div className="mt-2 flex items-center gap-1 text-[#D6C29A]">
+          <div className="mt-2 flex items-center gap-1 text-[#D4AF65]">
             {[1, 2, 3, 4, 5].map((s) => (
               <Star key={s} className="h-5 w-5 fill-current" />
             ))}
           </div>
-          <span className="mt-2 text-xs font-semibold text-[#B8C2D9]">
+          <span className="mt-2 text-xs font-semibold text-[#B0BECE]">
             Based on {stats.totalReviews || reviews.length} verified ratings
           </span>
         </div>
@@ -261,17 +261,17 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                 type="button"
                 onClick={() => setSelectedRatingFilter(selectedRatingFilter === stars ? null : stars)}
                 className={`w-full flex items-center gap-3 text-xs cursor-pointer p-1 rounded-md transition-colors ${
-                  selectedRatingFilter === stars ? 'bg-amber-100/50' : 'hover:bg-[#14213D]'
+                  selectedRatingFilter === stars ? 'bg-amber-100/50' : 'hover:bg-[#172644]'
                 }`}
               >
-                <span className="w-12 text-left font-bold text-[#F5F3EE]">{stars} Stars</span>
-                <div className="flex-1 bg-[#1E2C4F] rounded-full h-2.5 overflow-hidden">
+                <span className="w-12 text-left font-bold text-[#F5F2EB]">{stars} Stars</span>
+                <div className="flex-1 bg-[#203357] rounded-full h-2.5 overflow-hidden">
                   <div
-                    className="bg-[#D6C29A] h-full rounded-full transition-all duration-500"
+                    className="bg-[#D4AF65] h-full rounded-full transition-all duration-500"
                     style={{ width: `${pct}%` }}
                   />
                 </div>
-                <span className="w-10 text-right text-[#B8C2D9] font-mono">{pct}%</span>
+                <span className="w-10 text-right text-[#B0BECE] font-mono">{pct}%</span>
               </button>
             )
           })}
@@ -285,7 +285,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
           <button
             type="button"
             onClick={() => setSelectedRatingFilter(null)}
-            className="text-[#D6C29A] font-bold hover:underline cursor-pointer"
+            className="text-[#D4AF65] font-bold hover:underline cursor-pointer"
           >
             Clear filter
           </button>
@@ -293,13 +293,13 @@ export default function ProductReviewsSection({ product, categorySlug }) {
       )}
 
       {/* Reviews List */}
-      <div className="mt-8 space-y-6 divide-y divide-[#1E2C4F]">
+      <div className="mt-8 space-y-6 divide-y divide-[#203357]">
         {filteredReviews.map((rev) => (
           <div key={rev.id || rev._id} className="pt-6 first:pt-0">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
                 <div className="flex items-center gap-2">
-                  <div className="flex text-[#D6C29A]">
+                  <div className="flex text-[#D4AF65]">
                     {[1, 2, 3, 4, 5].map((st) => (
                       <Star
                         key={st}
@@ -307,12 +307,12 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                       />
                     ))}
                   </div>
-                  <span className="font-bold text-sm text-[#F5F3EE]">{rev.title}</span>
+                  <span className="font-bold text-sm text-[#F5F2EB]">{rev.title}</span>
                 </div>
 
-                <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-[#B8C2D9]">
-                  <span className="font-bold text-[#F5F3EE]">{rev.author_name}</span>
-                  {rev.company && <span className="text-[#B8C2D9]/70">• {rev.company}</span>}
+                <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-[#B0BECE]">
+                  <span className="font-bold text-[#F5F2EB]">{rev.author_name}</span>
+                  {rev.company && <span className="text-[#B0BECE]/70">• {rev.company}</span>}
                   {rev.verified_purchase && (
                     <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-2 py-0.5">
                       <ShieldCheck className="h-3 w-3" /> Verified Order
@@ -332,7 +332,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                 className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-semibold transition-all cursor-pointer self-start sm:self-auto ${
                   helpfulVoted[rev.id || rev._id]
                     ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
-                    : 'border-[#1E2C4F] bg-[#0B132B] text-[#B8C2D9] hover:border-[#D6C29A] hover:text-[#D6C29A]'
+                    : 'border-[#203357] bg-[#101D35] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#D4AF65]'
                 }`}
               >
                 <ThumbsUp className="h-3.5 w-3.5" />
@@ -340,16 +340,16 @@ export default function ProductReviewsSection({ product, categorySlug }) {
               </button>
             </div>
 
-            <p className="mt-3 text-xs sm:text-sm text-[#F5F3EE]/90 leading-relaxed">{rev.comment}</p>
+            <p className="mt-3 text-xs sm:text-sm text-[#F5F2EB]/90 leading-relaxed">{rev.comment}</p>
 
             {/* Staff Reply */}
             {rev.staff_reply && (
-              <div className="mt-4 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4 text-xs">
-                <div className="flex items-center gap-2 font-bold text-[#D6C29A] mb-1">
-                  <MessageSquare className="h-3.5 w-3.5 text-[#D6C29A]" />
+              <div className="mt-4 rounded-xl border border-[#203357] bg-[#101D35] p-4 text-xs">
+                <div className="flex items-center gap-2 font-bold text-[#D4AF65] mb-1">
+                  <MessageSquare className="h-3.5 w-3.5 text-[#D4AF65]" />
                   <span>{rev.staff_reply.replied_by || 'Response from ONPRINT Production Desk'}</span>
                 </div>
-                <p className="text-[#B8C2D9] leading-relaxed">{rev.staff_reply.reply_text}</p>
+                <p className="text-[#B0BECE] leading-relaxed">{rev.staff_reply.reply_text}</p>
               </div>
             )}
           </div>
@@ -359,27 +359,27 @@ export default function ProductReviewsSection({ product, categorySlug }) {
       {/* Review Submission Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs">
-          <div className="relative w-full max-w-lg rounded-2xl bg-[#14213D] border border-[#1E2C4F] p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto text-[#F5F3EE]">
+          <div className="relative w-full max-w-lg rounded-2xl bg-[#172644] border border-[#203357] p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto text-[#F5F2EB]">
             <button
               type="button"
               onClick={() => setIsModalOpen(false)}
-              className="absolute right-4 top-4 text-slate-400 hover:text-[#F5F3EE]"
+              className="absolute right-4 top-4 text-slate-400 hover:text-[#F5F2EB]"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <h3 className="font-display text-xl font-black text-[#F5F3EE]">
+            <h3 className="font-display text-xl font-black text-[#F5F2EB]">
               Share Your Print Experience
             </h3>
-            <p className="text-xs text-[#B8C2D9] mt-1">
+            <p className="text-xs text-[#B0BECE] mt-1">
               Help corporate clients make informed decisions about paper stock and finishing quality.
             </p>
 
             {submitSuccess ? (
               <div className="py-8 text-center">
                 <CheckCircle2 className="h-12 w-12 text-emerald-400 mx-auto mb-3" />
-                <h4 className="font-bold text-[#F5F3EE]">Thank You For Your Review!</h4>
-                <p className="text-xs text-[#B8C2D9] mt-1">
+                <h4 className="font-bold text-[#F5F2EB]">Thank You For Your Review!</h4>
+                <p className="text-xs text-[#B0BECE] mt-1">
                   Your feedback has been logged and published.
                 </p>
               </div>
@@ -387,7 +387,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
               <form onSubmit={handleSubmitReview} className="mt-6 space-y-4">
                 {/* Star Picker */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F2EB] mb-1.5">
                     Your Rating *
                   </label>
                   <div className="flex items-center gap-1.5">
@@ -403,20 +403,20 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                         <Star
                           className={`h-6 w-6 ${
                             star <= (hoverRating || formData.rating)
-                              ? 'fill-[#D6C29A] text-[#D6C29A]'
-                              : 'text-[#1E2C4F]'
+                              ? 'fill-[#D4AF65] text-[#D4AF65]'
+                              : 'text-[#203357]'
                           }`}
                         />
                       </button>
                     ))}
-                    <span className="text-xs font-bold text-[#D6C29A] ml-2">
+                    <span className="text-xs font-bold text-[#D4AF65] ml-2">
                       {formData.rating} / 5 Stars
                     </span>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F2EB]">
                     Review Headline *
                   </label>
                   <input
@@ -425,12 +425,12 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                     value={formData.title}
                     onChange={(e) => setFormData((prev) => ({ ...prev, title: e.target.value }))}
                     placeholder="e.g. Crisp Foil Detail and Heavyweight Stock"
-                    className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none"
+                    className="mt-1 w-full rounded-xl border border-[#203357] bg-[#101D35] text-[#F5F2EB] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F2EB]">
                     Your Review / Feedback *
                   </label>
                   <textarea
@@ -439,13 +439,13 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                     value={formData.comment}
                     onChange={(e) => setFormData((prev) => ({ ...prev, comment: e.target.value }))}
                     placeholder="Mention the quality of colors, tactile finishes, turnaround speed, and delivery…"
-                    className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] p-3 text-xs placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none"
+                    className="mt-1 w-full rounded-xl border border-[#203357] bg-[#101D35] text-[#F5F2EB] p-3 text-xs placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F2EB]">
                       Your Name *
                     </label>
                     <input
@@ -454,12 +454,12 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                       value={formData.authorName}
                       onChange={(e) => setFormData((prev) => ({ ...prev, authorName: e.target.value }))}
                       placeholder="e.g. Sarah Mansoori"
-                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none"
+                      className="mt-1 w-full rounded-xl border border-[#203357] bg-[#101D35] text-[#F5F2EB] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F2EB]">
                       Company / Studio
                     </label>
                     <input
@@ -467,14 +467,14 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                       value={formData.company}
                       onChange={(e) => setFormData((prev) => ({ ...prev, company: e.target.value }))}
                       placeholder="e.g. Brand Studio Dubai"
-                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none"
+                      className="mt-1 w-full rounded-xl border border-[#203357] bg-[#101D35] text-[#F5F2EB] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F2EB]">
                       Email Address *
                     </label>
                     <input
@@ -483,12 +483,12 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                       value={formData.authorEmail}
                       onChange={(e) => setFormData((prev) => ({ ...prev, authorEmail: e.target.value }))}
                       placeholder="sarah@company.ae"
-                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none"
+                      className="mt-1 w-full rounded-xl border border-[#203357] bg-[#101D35] text-[#F5F2EB] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE]">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F2EB]">
                       Order / Quote # (For Badge)
                     </label>
                     <input
@@ -496,7 +496,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
                       value={formData.orderReference}
                       onChange={(e) => setFormData((prev) => ({ ...prev, orderReference: e.target.value }))}
                       placeholder="e.g. ONP-2026-104829"
-                      className="mt-1 w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] text-[#F5F3EE] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:outline-none font-mono"
+                      className="mt-1 w-full rounded-xl border border-[#203357] bg-[#101D35] text-[#F5F2EB] px-3.5 py-2 text-xs font-semibold placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:outline-none font-mono"
                     />
                   </div>
                 </div>

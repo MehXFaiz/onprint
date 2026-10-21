@@ -52,7 +52,7 @@ export default function ProductDetailModal({ product, onClose }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           onClick={onClose}
-          className="absolute inset-0 bg-[#070D1E]/80 backdrop-blur-md"
+          className="absolute inset-0 bg-[#0C1629]/80 backdrop-blur-md"
         />
 
         {/* Modal Window */}
@@ -61,31 +61,31 @@ export default function ProductDetailModal({ product, onClose }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 12 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl border border-[#1E2C4F] bg-[#14213D] shadow-2xl text-[#F5F3EE]"
+          className="relative z-10 w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl border border-[#203357] bg-[#172644] shadow-2xl text-[#F5F2EB]"
         >
           {/* Close Button */}
           <button
             type="button"
             onClick={onClose}
             aria-label="Close product modal"
-            className="absolute right-4 top-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-[#0B132B] border border-[#1E2C4F] text-[#F5F3EE] shadow-md transition-colors hover:bg-[#D6C29A] hover:text-[#0B132B] cursor-pointer"
+            className="absolute right-4 top-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-[#101D35] border border-[#203357] text-[#F5F2EB] shadow-md transition-colors hover:bg-[#D4AF65] hover:text-[#101D35] cursor-pointer"
           >
             <X className="h-4 w-4" />
           </button>
 
           <div className="grid grid-cols-1 md:grid-cols-12">
             {/* 360 Inspection Canvas Column */}
-            <div className="relative flex flex-col justify-between bg-[#0B132B] p-5 sm:p-7 md:col-span-6 md:border-r border-[#1E2C4F]">
+            <div className="relative flex flex-col justify-between bg-[#101D35] p-5 sm:p-7 md:col-span-6 md:border-r border-[#203357]">
               {/* Mode Toggle Switch */}
               <div className="mb-4 flex items-center justify-between">
-                <div className="flex items-center gap-1 rounded-xl border border-[#1E2C4F] bg-[#14213D] p-1 shadow-2xs">
+                <div className="flex items-center gap-1 rounded-xl border border-[#203357] bg-[#172644] p-1 shadow-2xs">
                   <button
                     type="button"
                     onClick={() => setViewMode('360')}
                     className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                       viewMode === '360'
-                        ? 'bg-[#D6C29A] text-[#0B132B] shadow-xs'
-                        : 'text-[#A0AEC0] hover:text-[#F5F3EE]'
+                        ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                        : 'text-[#A0AEC0] hover:text-[#F5F2EB]'
                     }`}
                   >
                     <Compass className="h-3.5 w-3.5" />
@@ -96,8 +96,8 @@ export default function ProductDetailModal({ product, onClose }) {
                     onClick={() => setViewMode('photo')}
                     className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                       viewMode === 'photo'
-                        ? 'bg-[#D6C29A] text-[#0B132B] shadow-xs'
-                        : 'text-[#A0AEC0] hover:text-[#F5F3EE]'
+                        ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                        : 'text-[#A0AEC0] hover:text-[#F5F2EB]'
                     }`}
                   >
                     <ImageIcon className="h-3.5 w-3.5" />
@@ -106,7 +106,7 @@ export default function ProductDetailModal({ product, onClose }) {
                 </div>
 
                 {isFeatured && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-[#D6C29A] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#0B132B] shadow-2xs">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#101D35] shadow-2xs">
                     <Sparkles className="h-3 w-3" />
                     Featured
                   </span>
@@ -114,7 +114,7 @@ export default function ProductDetailModal({ product, onClose }) {
               </div>
 
               {/* Viewer Stage */}
-              <div className="relative w-full overflow-hidden rounded-2xl border border-[#1E2C4F] bg-[#070D1E] shadow-2xs">
+              <div className="relative w-full overflow-hidden rounded-2xl border border-[#203357] bg-[#0C1629] shadow-2xs">
                 {viewMode === '360' ? (
                   <Product360Viewer
                     product={product}
@@ -122,7 +122,7 @@ export default function ProductDetailModal({ product, onClose }) {
                     height="aspect-[4/3]"
                   />
                 ) : (
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#070D1E]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0C1629]">
                     {primaryImage ? (
                       <img
                         src={primaryImage}
@@ -140,19 +140,19 @@ export default function ProductDetailModal({ product, onClose }) {
 
               {/* Footnote note */}
               <div className="mt-3 flex items-center justify-between text-[11px] font-semibold text-[#A0AEC0]">
-                <span>Category: <strong className="text-[#F5F3EE]">{categoryName}</strong></span>
-                <span className="text-[#D6C29A] font-bold">Interactive 3D Preview</span>
+                <span>Category: <strong className="text-[#F5F2EB]">{categoryName}</strong></span>
+                <span className="text-[#D4AF65] font-bold">Interactive 3D Preview</span>
               </div>
             </div>
 
             {/* Content Details Column */}
             <div className="flex flex-col justify-between p-6 sm:p-8 md:col-span-6">
               <div>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D6C29A]">
+                <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF65]">
                   Custom Quote Available
                 </span>
 
-                <h2 className="font-display mt-1 text-2xl font-extrabold tracking-tight text-[#F5F3EE] sm:text-3xl">
+                <h2 className="font-display mt-1 text-2xl font-extrabold tracking-tight text-[#F5F2EB] sm:text-3xl">
                   {product.name}
                 </h2>
 
@@ -161,31 +161,31 @@ export default function ProductDetailModal({ product, onClose }) {
                 </p>
 
                 {/* Specs Pill Summary */}
-                <div className="mt-6 space-y-2.5 rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+                <div className="mt-6 space-y-2.5 rounded-2xl border border-[#203357] bg-[#101D35] p-4">
                   {product.minimumQuantity && (
                     <div className="flex items-center justify-between text-xs">
                       <span className="flex items-center gap-2 text-[#A0AEC0]">
-                        <Package className="h-3.5 w-3.5 text-[#D6C29A]" />
+                        <Package className="h-3.5 w-3.5 text-[#D4AF65]" />
                         Minimum Order:
                       </span>
-                      <span className="font-bold text-[#F5F3EE]">{product.minimumQuantity} units</span>
+                      <span className="font-bold text-[#F5F2EB]">{product.minimumQuantity} units</span>
                     </div>
                   )}
 
                   <div className="flex items-center justify-between text-xs">
                     <span className="flex items-center gap-2 text-[#A0AEC0]">
-                      <ShieldCheck className="h-3.5 w-3.5 text-[#D6C29A]" />
+                      <ShieldCheck className="h-3.5 w-3.5 text-[#D4AF65]" />
                       Quality Check:
                     </span>
-                    <span className="font-bold text-[#F5F3EE]">Pre-flight QC Included</span>
+                    <span className="font-bold text-[#F5F2EB]">Pre-flight QC Included</span>
                   </div>
 
                   <div className="flex items-center justify-between text-xs">
                     <span className="flex items-center gap-2 text-[#A0AEC0]">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#D6C29A]" />
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#D4AF65]" />
                       Production:
                     </span>
-                    <span className="font-bold text-[#F5F3EE]">Dubai Express Press</span>
+                    <span className="font-bold text-[#F5F2EB]">Dubai Express Press</span>
                   </div>
                 </div>
               </div>
@@ -197,7 +197,7 @@ export default function ProductDetailModal({ product, onClose }) {
                     to={`/get-a-quote?product=${product.slug}`}
                     variant="primary"
                     size="md"
-                    className="flex-1 justify-center text-xs sm:text-sm font-bold shadow-md shadow-[#D6C29A]/20"
+                    className="flex-1 justify-center text-xs sm:text-sm font-bold shadow-md shadow-[#D4AF65]/20"
                     onClick={() => {
                       trackGetQuoteClick({
                         source_page: 'product_quick_view_modal',
@@ -239,7 +239,7 @@ export default function ProductDetailModal({ product, onClose }) {
                 <Link
                   to={`/products/${product.slug}`}
                   onClick={onClose}
-                  className="inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold uppercase tracking-wider text-[#A0AEC0] transition-colors hover:text-[#D6C29A] cursor-pointer text-center"
+                  className="inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold uppercase tracking-wider text-[#A0AEC0] transition-colors hover:text-[#D4AF65] cursor-pointer text-center"
                 >
                   <span>View Complete Specifications</span>
                   <ArrowRight className="h-3.5 w-3.5" />

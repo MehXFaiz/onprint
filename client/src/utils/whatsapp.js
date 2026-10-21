@@ -14,17 +14,29 @@ export const RAW_WHATSAPP_NUMBER = (
   '447344546056'
 ).toString().trim()
 
-// Sanitize to digits only for wa.me links
-export const WHATSAPP_PHONE = RAW_WHATSAPP_NUMBER.replace(/[^\d]/g, '')
+/**
+ * Normalizes phone string into clean E.164 digits without leading + or 00,
+ * auto-resolving local UAE and UK mobile prefixes.
+ */
+export function normalizeWhatsAppNumber(raw) {
+  let clean = String(raw || '').replace(/[^\d]/g, '').replace(/^00/, '')
+  if (clean.startsWith('05') && clean.length === 10) clean = '971' + clean.slice(1)
+  if (clean.startsWith('5') && clean.length === 9) clean = '971' + clean
+  if (clean.startsWith('07') && clean.length === 11) clean = '44' + clean.slice(1)
+  return clean || '447344546056'
+}
+
+// Sanitize to verified digits only for wa.me links
+export const WHATSAPP_PHONE = normalizeWhatsAppNumber(RAW_WHATSAPP_NUMBER)
 
 /**
  * Returns formatted human-readable international phone string
  */
 export function formatPhoneNumber(digits = WHATSAPP_PHONE) {
-  const clean = String(digits).replace(/[^\d]/g, '')
+  const clean = normalizeWhatsAppNumber(digits)
   if (clean.startsWith('44') && clean.length >= 12) {
-    // Official display format: +44 7344546056
-    return `+${clean.slice(0, 2)} ${clean.slice(2)}`
+    // Official UK display format: +44 7344 546056
+    return `+${clean.slice(0, 2)} ${clean.slice(2, 6)} ${clean.slice(6)}`
   }
   if (clean.startsWith('971') && clean.length >= 11) {
     // UAE format: +971 50 123 4567 or +971 4 800 7746
@@ -165,11 +177,17 @@ export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
   const intent = String(details.intent || 'quote').toLowerCase()
 
   let baseMessage = SERVICE_INQUIRY_MESSAGES[canonicalKey] || SERVICE_INQUIRY_MESSAGES.general
-  if (prodName) {
+  if (canonicalKey === 'business-cards') {
+    const qty = details.quantity || '100+'
+    const mat = details.material || details.paper || details.stock || '350 GSM Silk / Matte'
+    const fin = details.finish || details.finishing || 'Matte Lamination'
+    const loc = details.deliveryLocation || details.location || 'Dubai, UAE'
+    baseMessage = `Hello ONPRINT, I need a quotation for custom ${prodName || 'business cards'}. Quantity: ${qty}. Material/GSM: ${mat}. Finish: ${fin}. Delivery location: ${loc}. Please share available options and pricing.`
+  } else if (prodName) {
     if (intent === 'order') {
-      baseMessage = `Hello 0nprint, I would like to order ${prodName}. Please confirm the total price, artwork check, and delivery details.`
+      baseMessage = `Hello ONPRINT, I would like to order ${prodName}. Please confirm total price, artwork check, and delivery details.`
     } else {
-      baseMessage = `Hello 0nprint, I am interested in ordering ${prodName}. Please share your prices, available options, and delivery details.`
+      baseMessage = `Hello ONPRINT, I am interested in ordering ${prodName}. Please share your prices, available options, and delivery details.`
     }
   }
 
@@ -326,9 +344,10 @@ export function getBusinessCardBuyerIntentUrl(params = {}) {
 }
 
 /**
- * Safely opens WhatsApp click-to-chat in a new tab without automatically submitting.
- * When called asynchronously after an API request (allowSameTabFallback = false),
- * avoids clobbering the current confirmation page if the browser blocks async popups.
+ * Safely opens WhatsApp click-to-chat across mobile and desktop.
+ * - On mobile (iOS / Android), triggers direct app intent via window.location.href
+ *   so the native WhatsApp app opens immediately with the prefilled message.
+ * - On desktop, attempts window.open with fallback to prevent popup-block dropoffs.
  */
 export function openWhatsAppDirectly(paramsOrUrl, options = {}) {
   const { allowSameTabFallback = true } = options
@@ -342,13 +361,23 @@ export function openWhatsAppDirectly(paramsOrUrl, options = {}) {
   }
 
   if (typeof window !== 'undefined') {
+    const isMobile =
+      /android|iphone|ipad|ipod|mobile|blackberry|iemobile|opera mini/i.test(
+        (navigator?.userAgent || '').toLowerCase()
+      )
+
+    if (isMobile) {
+      window.location.href = url
+      return url
+    }
+
     try {
       const opened = window.open(url, '_blank', 'noopener,noreferrer')
-      if (!opened && allowSameTabFallback) {
+      if ((!opened || opened.closed || typeof opened.closed === 'undefined') && allowSameTabFallback) {
         window.location.href = url
       }
     } catch (e) {
-      console.warn('Could not open WhatsApp:', e)
+      console.warn('Could not open WhatsApp popup:', e)
       if (allowSameTabFallback) {
         window.location.href = url
       }

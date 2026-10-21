@@ -39,10 +39,10 @@ export default function ServiceCard({ service, className = '' }) {
 
   return (
     <div
-      className={`group/card relative flex flex-col justify-between h-full overflow-hidden rounded-2xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] shadow-md transition-all duration-300 card-hover-lift hover-shimmer ${className}`}
+      className={`group/card relative flex flex-col justify-between h-full overflow-hidden rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] shadow-md transition-all duration-300 card-hover-lift hover-shimmer ${className}`}
     >
       {/* Top Image Container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0B132B] border-b border-[#1E2C4F]">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#101D35] border-b border-[#203357]">
         <img
           src={serviceImage}
           alt={service.imageAlt || service.name}
@@ -56,26 +56,26 @@ export default function ServiceCard({ service, className = '' }) {
 
         {/* Top Badges */}
         <div className="absolute left-3 top-3 flex items-center gap-1.5 z-10">
-          <span className="inline-flex items-center gap-1.5 rounded-md bg-[#0B132B]/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#F5F3EE] shadow-xs border border-[#1E2C4F] backdrop-blur-xs">
-            <IconComponent className="h-3 w-3 text-[#D6C29A]" />
+          <span className="inline-flex items-center gap-1.5 rounded-md bg-[#101D35]/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#F5F2EB] shadow-xs border border-[#203357] backdrop-blur-xs">
+            <IconComponent className="h-3 w-3 text-[#D4AF65]" />
             <span>Dubai Press</span>
           </span>
         </div>
 
         <div className="absolute right-3 top-3 z-10">
-          <span className="inline-flex items-center gap-1 rounded-md bg-[#0B132B]/90 border border-[#1E2C4F] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#D6C29A] backdrop-blur-xs">
+          <span className="inline-flex items-center gap-1 rounded-md bg-[#101D35]/90 border border-[#203357] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#D4AF65] backdrop-blur-xs">
             Express 24h
           </span>
         </div>
       </div>
 
       {/* Card Body Content */}
-      <div className="flex flex-1 flex-col justify-between p-4.5 bg-[#14213D]">
+      <div className="flex flex-1 flex-col justify-between p-4.5 bg-[#172644]">
         <div>
-          <span className="text-[9.5px] font-bold uppercase tracking-wider text-[#D6C29A]">
+          <span className="text-[9.5px] font-bold uppercase tracking-wider text-[#D4AF65]">
             COMMERCIAL SERVICE
           </span>
-          <h3 className="font-display mt-1 text-sm sm:text-base font-bold tracking-tight text-[#F5F3EE] transition-colors group-hover/card:text-[#D6C29A] leading-snug line-clamp-1">
+          <h3 className="font-display mt-1 text-sm sm:text-base font-bold tracking-tight text-[#F5F2EB] transition-colors group-hover/card:text-[#D4AF65] leading-snug line-clamp-1">
             <Link to={serviceLink} className="focus:outline-none">
               <span className="absolute inset-0 z-10" aria-hidden="true" />
               {service.name}
@@ -90,7 +90,7 @@ export default function ServiceCard({ service, className = '' }) {
         </div>
 
         {/* Footer Action */}
-        <div className="mt-3.5 flex items-center justify-between border-t border-[#1E2C4F] pt-3 text-xs font-bold text-[#D6C29A]">
+        <div className="mt-3.5 flex items-center justify-between border-t border-[#203357] pt-3 text-xs font-bold text-[#D4AF65]">
           <span className="inline-flex items-center gap-1">
             <span>Explore Service</span>
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/card:translate-x-0.5" />

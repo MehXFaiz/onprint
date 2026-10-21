@@ -123,7 +123,7 @@ export default function ContactPage() {
         setSubmitted(true)
 
         // Attempt to open WhatsApp in a new tab without navigating away from the confirmation screen
-        openWhatsAppDirectly(dynamicWhatsAppUrl, { allowSameTabFallback: false })
+        openWhatsAppDirectly(dynamicWhatsAppUrl, { allowSameTabFallback: true })
       } catch (err) {
         console.error('Failed to submit contact inquiry:', err)
         setSubmitError(
@@ -145,7 +145,7 @@ export default function ContactPage() {
           canonicalPath="/contact"
           noindex
         />
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400">
           <CheckCircle2 className="h-8 w-8" />
         </div>
         <h1 className="font-display mt-6 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
@@ -156,11 +156,11 @@ export default function ContactPage() {
           <strong>{values.product}</strong> and will respond within 2 hours.
         </p>
 
-        <div className="mt-6 w-full max-w-md rounded-2xl bg-emerald-500/10 border-2 border-emerald-500 p-4 text-center space-y-2">
-          <p className="text-xs font-black uppercase tracking-wider text-emerald-800">
+        <div className="mt-6 w-full max-w-md rounded-2xl bg-emerald-950/40 border border-emerald-500/40 p-4 text-center space-y-2">
+          <p className="text-xs font-black uppercase tracking-wider text-emerald-400">
             📱 Instant WhatsApp Quotation
           </p>
-          <p className="text-xs text-emerald-900 leading-relaxed font-medium">
+          <p className="text-xs text-emerald-200 leading-relaxed font-medium">
             Your inquiry details ({values.product}, Qty: {values.quantity || 'Custom'}) are pre-filled and ready. Click below to open WhatsApp directly:
           </p>
           <a

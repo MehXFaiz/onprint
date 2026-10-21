@@ -323,32 +323,32 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full select-none bg-[#0B132B]/95 backdrop-blur-md border-b border-[#1E2C4F] shadow-md transition-all duration-200 text-[#F5F3EE]">
+    <header className="sticky top-0 z-50 w-full select-none bg-[#101D35]/95 backdrop-blur-md border-b border-[#203357] shadow-md transition-all duration-200 text-[#F5F2EB]">
       {/* Top Utility Bar (Al Quoz Pressroom & Hotline - inspired by DLX Print) */}
-      <div className="hidden md:block bg-[#070D1E] border-b border-[#1E2C4F] text-[11px] text-[#A0AEC0] py-1.5 px-4 sm:px-5 lg:px-6 2xl:px-8">
+      <div className="hidden md:block bg-[#0C1629] border-b border-[#203357] text-[11px] text-[#B0BECE] py-1.5 px-4 sm:px-5 lg:px-6 2xl:px-8">
         <div className="mx-auto max-w-[1440px] flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 font-medium text-slate-700">
-              <MapPin className="h-3 w-3 text-[#D6C29A]" />
+            <span className="flex items-center gap-1.5 font-medium text-[#B0BECE]">
+              <MapPin className="h-3 w-3 text-[#D4AF65]" />
               <span>Al Quoz Industrial 4, Dubai, UAE</span>
             </span>
-            <span className="text-slate-300">•</span>
-            <span className="flex items-center gap-1.5 text-slate-600">
-              <Truck className="h-3 w-3 text-emerald-600" />
+            <span className="text-[#203357]">•</span>
+            <span className="flex items-center gap-1.5 text-[#B0BECE]">
+              <Truck className="h-3 w-3 text-emerald-400" />
               <span>Doorstep UAE Delivery • Express 24h Turnaround</span>
             </span>
           </div>
           <div className="flex items-center gap-4 font-semibold">
-            <a href={`tel:+${RAW_WHATSAPP_NUMBER}`} className="flex items-center gap-1 text-slate-700 hover:text-[#D6C29A] transition-colors">
-              <Phone className="h-3 w-3 text-[#D6C29A]" />
+            <a href={`tel:+${RAW_WHATSAPP_NUMBER}`} className="flex items-center gap-1 text-[#B0BECE] hover:text-[#D4AF65] transition-colors">
+              <Phone className="h-3 w-3 text-[#D4AF65]" />
               <span>Hotline: {FORMATTED_PHONE}</span>
             </a>
-            <span className="text-slate-300">•</span>
-            <Link to="/corporate-quotes" className="text-slate-700 hover:text-[#D6C29A] transition-colors">
+            <span className="text-[#203357]">•</span>
+            <Link to="/corporate-quotes" className="text-[#B0BECE] hover:text-[#D4AF65] transition-colors">
               Corporate Quotes
             </Link>
-            <span className="text-slate-300">•</span>
-            <Link to="/track-order" className="text-slate-700 hover:text-[#D6C29A] transition-colors">
+            <span className="text-[#203357]">•</span>
+            <Link to="/track-order" className="text-[#B0BECE] hover:text-[#D4AF65] transition-colors">
               Track Order
             </Link>
           </div>
@@ -370,12 +370,12 @@ export default function SiteHeader() {
           >
             <Logo variant="default" size="md" />
           </motion.div>
-          <div className="hidden min-[1180px]:flex items-center gap-1.5 pl-3 border-l border-[#1E2C4F]">
-            <span className="text-[10px] font-black uppercase tracking-wider text-[#F5F3EE]">
+          <div className="hidden min-[1180px]:flex items-center gap-1.5 pl-3 border-l border-[#203357]">
+            <span className="text-[10px] font-black uppercase tracking-wider text-[#F5F2EB]">
               DUBAI
             </span>
-            <span className="h-1 w-1 rounded-full bg-[#D6C29A]" />
-            <span className="text-[9px] font-semibold text-[#D6C29A] uppercase tracking-tight">
+            <span className="h-1 w-1 rounded-full bg-[#D4AF65]" />
+            <span className="text-[9px] font-semibold text-[#D4AF65] uppercase tracking-tight">
               PRESSROOM
             </span>
           </div>
@@ -383,7 +383,7 @@ export default function SiteHeader() {
 
         {/* Desktop Navigation Links — Unified Glider */}
         <nav
-          className="hidden lg:flex items-center gap-0.5 bg-[#14213D]/90 px-2.5 py-1 2xl:px-3 2xl:py-1.5 rounded-full border border-[#1E2C4F] shadow-2xs backdrop-blur-md relative shrink-0"
+          className="hidden lg:flex items-center gap-0.5 bg-[#172644]/90 px-2.5 py-1 2xl:px-3 2xl:py-1.5 rounded-full border border-[#203357] shadow-2xs backdrop-blur-md relative shrink-0"
           aria-label="Main Navigation"
           onMouseLeave={() => setHoveredNav(null)}
         >
@@ -401,15 +401,15 @@ export default function SiteHeader() {
               onClick={() => setActiveDropdown((prev) => (prev === 'catalog' ? null : 'catalog'))}
               className={`relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors cursor-pointer ${
                 activeDropdown === 'catalog' || location.pathname === '/products' || location.pathname === '/categories'
-                  ? 'text-[#D6C29A] font-black'
-                  : 'text-[#F5F3EE] hover:text-[#D6C29A]'
+                  ? 'text-[#D4AF65] font-black'
+                  : 'text-[#F5F2EB] hover:text-[#D4AF65]'
               }`}
             >
-              <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#D6C29A]' : 'text-[#B8C2D9]'}`} />
+              <Layers className={`h-3.5 w-3.5 transition-colors ${activeDropdown === 'catalog' ? 'text-[#D4AF65]' : 'text-[#B0BECE]'}`} />
               <span>Catalog</span>
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'catalog' ? 'rotate-180 text-[#D6C29A]' : 'text-[#B8C2D9]'
+                  activeDropdown === 'catalog' ? 'rotate-180 text-[#D4AF65]' : 'text-[#B0BECE]'
                 }`}
               />
 
@@ -417,7 +417,7 @@ export default function SiteHeader() {
               {(hoveredNav === 'catalog' || activeDropdown === 'catalog') && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#0B132B] shadow-xs border border-[#1E2C4F] text-[#F5F3EE] -z-10"
+                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -431,17 +431,17 @@ export default function SiteHeader() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute left-0 sm:-left-8 lg:-left-20 xl:left-0 top-full mt-3 w-[min(960px,calc(100vw-32px))] max-w-[calc(100vw-32px)] rounded-3xl border border-[#1E2C4F] bg-[#14213D]/98 backdrop-blur-2xl p-5 shadow-[0_28px_64px_-12px_rgba(11,20,38,0.85)] z-50 text-[#F5F3EE]"
+                  className="absolute left-0 sm:-left-8 lg:-left-20 xl:left-0 top-full mt-3 w-[min(960px,calc(100vw-32px))] max-w-[calc(100vw-32px)] rounded-3xl border border-[#203357] bg-[#172644]/98 backdrop-blur-2xl p-5 shadow-[0_28px_64px_-12px_rgba(11,20,38,0.85)] z-50 text-[#F5F2EB]"
                 >
                   <div className="grid grid-cols-12 gap-5">
                     {/* Left Column: 5 Master Departments */}
-                    <div className="col-span-5 border-r border-[#1E2C4F] pr-4 flex flex-col justify-between">
+                    <div className="col-span-5 border-r border-[#203357] pr-4 flex flex-col justify-between">
                       <div>
-                        <div className="flex items-center justify-between px-2 pb-2 mb-1.5 border-b border-[#1E2C4F]">
-                          <span className="text-[10px] font-black uppercase tracking-widest text-[#D6C29A]">
+                        <div className="flex items-center justify-between px-2 pb-2 mb-1.5 border-b border-[#203357]">
+                          <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF65]">
                             Master Departments
                           </span>
-                          <span className="text-[10px] font-bold text-[#B8C2D9]">110+ Products</span>
+                          <span className="text-[10px] font-bold text-[#B0BECE]">110+ Products</span>
                         </div>
                         <div className="space-y-1">
                           {MASTER_DEPARTMENTS.map((dept) => {
@@ -456,32 +456,32 @@ export default function SiteHeader() {
                                 onClick={() => setActiveMegaDeptSlug(dept.slug)}
                                 className={`w-full text-left flex items-center justify-between p-2.5 rounded-2xl transition-all cursor-pointer group ${
                                   isSelected
-                                    ? 'bg-gradient-to-r from-[#0B132B] to-[#1a2d52] text-white shadow-md'
-                                    : 'hover:bg-[#14213D] text-[#B8C2D9]'
+                                    ? 'bg-gradient-to-r from-[#101D35] to-[#1a2d52] text-white shadow-md'
+                                    : 'hover:bg-[#172644] text-[#B0BECE]'
                                 }`}
                               >
                                 <div className="flex items-center gap-2.5 min-w-0">
                                   <div
                                     className={`flex h-8 w-8 items-center justify-center rounded-xl shrink-0 transition-colors ${
                                       isSelected
-                                        ? 'bg-[#D6C29A] text-[#0B132B]'
-                                        : 'bg-[#0B132B] border border-[#1E2C4F] text-[#B8C2D9] group-hover:text-[#D6C29A]'
+                                        ? 'bg-[#D4AF65] text-[#101D35]'
+                                        : 'bg-[#101D35] border border-[#203357] text-[#B0BECE] group-hover:text-[#D4AF65]'
                                     }`}
                                   >
                                     <Icon className="h-4 w-4" />
                                   </div>
                                   <div className="min-w-0">
-                                    <div className={`text-xs font-bold truncate ${isSelected ? 'text-white' : 'text-[#F5F3EE]'}`}>
+                                    <div className={`text-xs font-bold truncate ${isSelected ? 'text-white' : 'text-[#F5F2EB]'}`}>
                                       {dept.name}
                                     </div>
-                                    <div className={`text-[10px] truncate ${isSelected ? 'text-[#D6C29A]' : 'text-[#B8C2D9]'}`}>
+                                    <div className={`text-[10px] truncate ${isSelected ? 'text-[#D4AF65]' : 'text-[#B0BECE]'}`}>
                                       {dept.subcategories.length} subcategories • {prodCount} products
                                     </div>
                                   </div>
                                 </div>
                                 <ChevronRight
                                   className={`h-4 w-4 shrink-0 transition-transform ${
-                                    isSelected ? 'text-[#D6C29A] translate-x-0.5' : 'text-[#B8C2D9] group-hover:text-[#D6C29A]'
+                                    isSelected ? 'text-[#D4AF65] translate-x-0.5' : 'text-[#B0BECE] group-hover:text-[#D4AF65]'
                                   }`}
                                 />
                               </button>
@@ -491,28 +491,28 @@ export default function SiteHeader() {
                       </div>
 
                       {/* Bottom Footer Actions */}
-                      <div className="pt-3 border-t border-[#1E2C4F] space-y-2 mt-2">
+                      <div className="pt-3 border-t border-[#203357] space-y-2 mt-2">
                         <Link
                           to="/products"
                           onClick={() => setActiveDropdown(null)}
-                          className="flex items-center justify-between p-2 rounded-xl bg-[#0B132B] hover:bg-[#1E2C4F] border border-[#1E2C4F] text-xs font-bold text-[#F5F3EE] transition-colors"
+                          className="flex items-center justify-between p-2 rounded-xl bg-[#101D35] hover:bg-[#203357] border border-[#203357] text-xs font-bold text-[#F5F2EB] transition-colors"
                         >
                           <span className="flex items-center gap-1.5">
-                            <Layers className="h-3.5 w-3.5 text-[#D6C29A]" />
+                            <Layers className="h-3.5 w-3.5 text-[#D4AF65]" />
                             <span>Browse All 110+ Products</span>
                           </span>
-                          <ArrowRight className="h-3 w-3 text-[#D6C29A]" />
+                          <ArrowRight className="h-3 w-3 text-[#D4AF65]" />
                         </Link>
                         <Link
                           to="/corporate-quotes"
                           onClick={() => setActiveDropdown(null)}
-                          className="flex items-center justify-between p-2 rounded-xl bg-[#D6C29A]/10 hover:bg-[#D6C29A]/20 border border-[#D6C29A]/30 text-xs font-bold text-[#D6C29A] transition-colors"
+                          className="flex items-center justify-between p-2 rounded-xl bg-[#D4AF65]/10 hover:bg-[#D4AF65]/20 border border-[#D4AF65]/30 text-xs font-bold text-[#D4AF65] transition-colors"
                         >
                           <span className="flex items-center gap-1.5">
-                            <Building2 className="h-3.5 w-3.5 text-[#D6C29A]" />
+                            <Building2 className="h-3.5 w-3.5 text-[#D4AF65]" />
                             <span>Corporate &amp; Trade RFQ</span>
                           </span>
-                          <ArrowUpRight className="h-3 w-3 text-[#D6C29A]" />
+                          <ArrowUpRight className="h-3 w-3 text-[#D4AF65]" />
                         </Link>
                       </div>
                     </div>
@@ -521,22 +521,22 @@ export default function SiteHeader() {
                     <div className="col-span-7 flex flex-col justify-between">
                       <div>
                         {/* Department Header Banner */}
-                        <div className="flex items-start justify-between pb-3 mb-3 border-b border-[#1E2C4F]">
+                        <div className="flex items-start justify-between pb-3 mb-3 border-b border-[#203357]">
                           <div>
-                            <span className="text-[9px] font-black uppercase tracking-widest text-[#D6C29A] block">
+                            <span className="text-[9px] font-black uppercase tracking-widest text-[#D4AF65] block">
                               {activeMegaDepartment.eyebrow}
                             </span>
-                            <h4 className="text-base font-black text-[#F5F3EE] tracking-tight">
+                            <h4 className="text-base font-black text-[#F5F2EB] tracking-tight">
                               {activeMegaDepartment.name}
                             </h4>
-                            <p className="text-[11px] text-[#B8C2D9] leading-snug line-clamp-1 mt-0.5">
+                            <p className="text-[11px] text-[#B0BECE] leading-snug line-clamp-1 mt-0.5">
                               {activeMegaDepartment.description}
                             </p>
                           </div>
                           <Link
                             to={`/categories/${activeMegaDepartment.slug}`}
                             onClick={() => setActiveDropdown(null)}
-                            className="shrink-0 inline-flex items-center gap-1 text-[11px] font-black text-[#D6C29A] hover:text-white px-2.5 py-1 rounded-full bg-[#D6C29A]/10 border border-[#D6C29A]/30 hover:bg-[#D6C29A]/20 transition-all"
+                            className="shrink-0 inline-flex items-center gap-1 text-[11px] font-black text-[#D4AF65] hover:text-white px-2.5 py-1 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/30 hover:bg-[#D4AF65]/20 transition-all"
                           >
                             <span>Explore Department</span>
                             <ArrowRight className="h-3 w-3" />
@@ -550,27 +550,27 @@ export default function SiteHeader() {
                               key={sub.slug}
                               to={`/categories/${sub.slug}`}
                               onClick={() => setActiveDropdown(null)}
-                              className="group p-2.5 rounded-2xl border border-[#1E2C4F] bg-[#0B132B] hover:bg-[#14213D] hover:border-[#D6C29A] hover:shadow-sm transition-all flex flex-col justify-between"
+                              className="group p-2.5 rounded-2xl border border-[#203357] bg-[#101D35] hover:bg-[#172644] hover:border-[#D4AF65] hover:shadow-sm transition-all flex flex-col justify-between"
                             >
                               <div>
                                 <div className="flex items-center justify-between mb-1">
-                                  <span className="text-xs font-bold text-[#F5F3EE] group-hover:text-[#D6C29A] transition-colors truncate">
+                                  <span className="text-xs font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors truncate">
                                     {sub.name}
                                   </span>
-                                  <span className="rounded-full bg-[#14213D] border border-[#1E2C4F] px-1.5 py-0.2 text-[9px] font-bold text-[#B8C2D9] shrink-0">
+                                  <span className="rounded-full bg-[#172644] border border-[#203357] px-1.5 py-0.2 text-[9px] font-bold text-[#B0BECE] shrink-0">
                                     {sub.productSlugs?.length || 0}
                                   </span>
                                 </div>
-                                <p className="text-[10px] text-[#B8C2D9] leading-snug line-clamp-2">
+                                <p className="text-[10px] text-[#B0BECE] leading-snug line-clamp-2">
                                   {sub.shortDesc}
                                 </p>
                               </div>
                               {sub.featuredBadge && (
-                                <div className="mt-2 flex items-center justify-between pt-1 border-t border-[#1E2C4F]">
-                                  <span className="text-[9px] font-extrabold text-[#D6C29A] uppercase tracking-wider">
+                                <div className="mt-2 flex items-center justify-between pt-1 border-t border-[#203357]">
+                                  <span className="text-[9px] font-extrabold text-[#D4AF65] uppercase tracking-wider">
                                     {sub.featuredBadge}
                                   </span>
-                                  <ChevronRight className="h-3 w-3 text-[#B8C2D9] group-hover:text-[#D6C29A] group-hover:translate-x-0.5 transition-all" />
+                                  <ChevronRight className="h-3 w-3 text-[#B0BECE] group-hover:text-[#D4AF65] group-hover:translate-x-0.5 transition-all" />
                                 </div>
                               )}
                             </Link>
@@ -579,12 +579,12 @@ export default function SiteHeader() {
                       </div>
 
                       {/* Reassurance Footer Banner */}
-                      <div className="mt-3 pt-2.5 border-t border-[#1E2C4F] flex items-center justify-between text-[10px] text-[#B8C2D9]">
-                        <span className="flex items-center gap-1 font-semibold text-[#F5F3EE]">
+                      <div className="mt-3 pt-2.5 border-t border-[#203357] flex items-center justify-between text-[10px] text-[#B0BECE]">
+                        <span className="flex items-center gap-1 font-semibold text-[#F5F2EB]">
                           <Truck className="h-3 w-3 text-emerald-400" />
                           <span>Al Quoz Pressroom • Express Dispatch Across UAE</span>
                         </span>
-                        <span className="font-bold text-[#D6C29A]">Heidelberg &amp; HP Indigo Press</span>
+                        <span className="font-bold text-[#D4AF65]">Heidelberg &amp; HP Indigo Press</span>
                       </div>
                     </div>
                   </div>
@@ -599,20 +599,20 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('cards')}
               className={({ isActive }) =>
                 `relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#D6C29A] font-black' : 'text-[#F5F3EE] hover:text-[#D6C29A]'
+                  isActive ? 'text-[#D4AF65] font-black' : 'text-[#F5F2EB] hover:text-[#D4AF65]'
                 }`
               }
             >
-              <CreditCard className="h-3.5 w-3.5 text-[#D6C29A]" />
+              <CreditCard className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Cards</span>
-              <span className="rounded-full bg-[#D6C29A] text-[#0B132B] px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
+              <span className="rounded-full bg-[#D4AF65] text-[#101D35] px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
                 DUBAI
               </span>
 
               {hoveredNav === 'cards' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#0B132B] shadow-xs border border-[#1E2C4F] text-[#F5F3EE] -z-10"
+                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -624,20 +624,20 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('stamps')}
               className={({ isActive }) =>
                 `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#D6C29A] font-black' : 'text-[#F5F3EE] hover:text-[#D6C29A]'
+                  isActive ? 'text-[#D4AF65] font-black' : 'text-[#F5F2EB] hover:text-[#D4AF65]'
                 }`
               }
             >
-              <Stamp className="h-3.5 w-3.5 text-[#D6C29A]" />
+              <Stamp className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Stamps</span>
-              <span className="rounded-full bg-[#0B132B] border border-[#1E2C4F] text-[#D6C29A] px-1.5 py-0.2 text-[8px] font-black uppercase">
+              <span className="rounded-full bg-[#101D35] border border-[#203357] text-[#D4AF65] px-1.5 py-0.2 text-[8px] font-black uppercase">
                 2H
               </span>
 
               {hoveredNav === 'stamps' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#0B132B] shadow-xs border border-[#1E2C4F] text-[#F5F3EE] -z-10"
+                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -649,17 +649,17 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('stickers')}
               className={({ isActive }) =>
                 `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#D6C29A] font-black' : 'text-[#F5F3EE] hover:text-[#D6C29A]'
+                  isActive ? 'text-[#D4AF65] font-black' : 'text-[#F5F2EB] hover:text-[#D4AF65]'
                 }`
               }
             >
-              <Tag className="h-3.5 w-3.5 text-[#D6C29A]" />
+              <Tag className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Stickers</span>
 
               {hoveredNav === 'stickers' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#0B132B] shadow-xs border border-[#1E2C4F] text-[#F5F3EE] -z-10"
+                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -671,17 +671,17 @@ export default function SiteHeader() {
               onMouseEnter={() => setHoveredNav('finishes')}
               className={({ isActive }) =>
                 `relative z-10 hidden lg:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
-                  isActive ? 'text-[#D6C29A] font-black' : 'text-[#F5F3EE] hover:text-[#D6C29A]'
+                  isActive ? 'text-[#D4AF65] font-black' : 'text-[#F5F2EB] hover:text-[#D4AF65]'
                 }`
               }
             >
-              <Palette className="h-3.5 w-3.5 text-[#D6C29A]" />
+              <Palette className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Finishes</span>
 
               {hoveredNav === 'finishes' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#0B132B] shadow-xs border border-[#1E2C4F] text-[#F5F3EE] -z-10"
+                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -701,21 +701,21 @@ export default function SiteHeader() {
                 onClick={() => setActiveDropdown((prev) => (prev === 'company' ? null : 'company'))}
                 className={`relative z-10 flex items-center gap-1 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors cursor-pointer ${
                   activeDropdown === 'company' || ['/services', '/about', '/blog', '/contact', '/corporate-quotes'].includes(location.pathname)
-                    ? 'text-[#D6C29A] font-black'
-                    : 'text-[#F5F3EE] hover:text-[#D6C29A]'
+                    ? 'text-[#D4AF65] font-black'
+                    : 'text-[#F5F2EB] hover:text-[#D4AF65]'
                 }`}
               >
                 <span>Company</span>
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    activeDropdown === 'company' ? 'rotate-180 text-[#D6C29A]' : 'text-[#B8C2D9]'
+                    activeDropdown === 'company' ? 'rotate-180 text-[#D4AF65]' : 'text-[#B0BECE]'
                   }`}
                 />
 
                 {(hoveredNav === 'company' || activeDropdown === 'company') && (
                   <motion.div
                     layoutId="navHoverCapsule"
-                    className="absolute inset-0 rounded-full bg-[#0B132B] shadow-xs border border-[#1E2C4F] text-[#F5F3EE] -z-10"
+                    className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
                     transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                   />
                 )}
@@ -728,77 +728,77 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-2xl border border-[#1E2C4F] bg-[#14213D]/98 backdrop-blur-2xl p-2 shadow-2xl z-50 text-[#F5F3EE]"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-2xl border border-[#203357] bg-[#172644]/98 backdrop-blur-2xl p-2 shadow-2xl z-50 text-[#F5F2EB]"
                   >
                     <Link
                       to="/services"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B] hover:text-[#D6C29A] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                     >
-                      <Sparkles className="h-4 w-4 text-[#D6C29A]" />
+                      <Sparkles className="h-4 w-4 text-[#D4AF65]" />
                       <div>
                         <div className="leading-tight">All Printing Services</div>
-                        <span className="text-[10px] font-normal text-[#B8C2D9]">Offset, Digital &amp; Large Format</span>
+                        <span className="text-[10px] font-normal text-[#B0BECE]">Offset, Digital &amp; Large Format</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/finishes"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B] hover:text-[#D6C29A] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                     >
-                      <Palette className="h-4 w-4 text-[#D6C29A]" />
+                      <Palette className="h-4 w-4 text-[#D4AF65]" />
                       <div>
                         <div className="leading-tight">Luxury Finishes Showcase</div>
-                        <span className="text-[10px] font-normal text-[#B8C2D9]">Foil, Spot UV, Debossing &amp; Edges</span>
+                        <span className="text-[10px] font-normal text-[#B0BECE]">Foil, Spot UV, Debossing &amp; Edges</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/corporate-quotes"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B] hover:text-[#D6C29A] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                     >
-                      <Building2 className="h-4 w-4 text-[#D6C29A]" />
+                      <Building2 className="h-4 w-4 text-[#D4AF65]" />
                       <div>
                         <div className="leading-tight">Corporate &amp; Bulk Quotes</div>
-                        <span className="text-[10px] font-normal text-[#B8C2D9]">Trade credit &amp; multi-product RFQ</span>
+                        <span className="text-[10px] font-normal text-[#B0BECE]">Trade credit &amp; multi-product RFQ</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/about"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B] hover:text-[#D6C29A] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                     >
-                      <Building2 className="h-4 w-4 text-[#D6C29A]" />
+                      <Building2 className="h-4 w-4 text-[#D4AF65]" />
                       <div>
                         <div className="leading-tight">About ONPRINT</div>
-                        <span className="text-[10px] font-normal text-[#B8C2D9]">Dubai Pressroom &amp; Plant</span>
+                        <span className="text-[10px] font-normal text-[#B0BECE]">Dubai Pressroom &amp; Plant</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/blog"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B] hover:text-[#D6C29A] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                     >
-                      <BookOpen className="h-4 w-4 text-[#D6C29A]" />
+                      <BookOpen className="h-4 w-4 text-[#D4AF65]" />
                       <div>
                         <div className="leading-tight">Printing Insights</div>
-                        <span className="text-[10px] font-normal text-[#B8C2D9]">Paper stocks &amp; finishing</span>
+                        <span className="text-[10px] font-normal text-[#B0BECE]">Paper stocks &amp; finishing</span>
                       </div>
                     </Link>
 
                     <Link
                       to="/contact"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B] hover:text-[#D6C29A] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
                     >
-                      <MapPin className="h-4 w-4 text-[#D6C29A]" />
+                      <MapPin className="h-4 w-4 text-[#D4AF65]" />
                       <div>
                         <div className="leading-tight">Contact &amp; Location</div>
-                        <span className="text-[10px] font-normal text-[#B8C2D9]">Al Quoz Industrial 4, Dubai</span>
+                        <span className="text-[10px] font-normal text-[#B0BECE]">Al Quoz Industrial 4, Dubai</span>
                       </div>
                     </Link>
                   </motion.div>
@@ -812,11 +812,11 @@ export default function SiteHeader() {
             {/* Direct Phone Hotline */}
             <a
               href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              className="hidden 2xl:inline-flex items-center gap-1.5 h-8.5 px-2.5 rounded-full border border-[#1E2C4F] bg-[#0B132B] hover:bg-[#14213D] hover:border-[#D6C29A] text-xs font-bold text-[#F5F3EE] transition-all whitespace-nowrap shadow-2xs"
+              className="hidden 2xl:inline-flex items-center gap-1.5 h-8.5 px-2.5 rounded-full border border-[#203357] bg-[#101D35] hover:bg-[#172644] hover:border-[#D4AF65] text-xs font-bold text-[#F5F2EB] transition-all whitespace-nowrap shadow-2xs"
               title={`Direct Pressroom Hotline: ${FORMATTED_PHONE}`}
               aria-label="Call Pressroom"
             >
-              <Phone className="h-3.5 w-3.5 text-[#D6C29A]" />
+              <Phone className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span className="hidden min-[1680px]:inline text-[11px] font-semibold">{FORMATTED_PHONE}</span>
             </a>
 
@@ -826,13 +826,13 @@ export default function SiteHeader() {
               whileTap={{ scale: 0.97 }}
               type="button"
               onClick={() => setSearchModalOpen(true)}
-              className="flex h-8.5 w-8.5 min-[1600px]:w-auto min-[1600px]:px-3 items-center justify-center gap-2 rounded-full border border-[#1E2C4F] bg-[#0B132B] hover:bg-[#14213D] hover:border-[#D6C29A] text-xs text-[#F5F3EE] transition-all cursor-pointer group shrink-0"
+              className="flex h-8.5 w-8.5 min-[1600px]:w-auto min-[1600px]:px-3 items-center justify-center gap-2 rounded-full border border-[#203357] bg-[#101D35] hover:bg-[#172644] hover:border-[#D4AF65] text-xs text-[#F5F2EB] transition-all cursor-pointer group shrink-0"
               title="Search products (Press / or ⌘K)"
               aria-label="Search products"
             >
-              <Search className="h-3.5 w-3.5 text-[#D6C29A] group-hover:scale-110 transition-transform shrink-0" />
-              <span className="hidden min-[1600px]:inline text-[11px] font-medium text-[#B8C2D9]">Search...</span>
-              <kbd className="hidden min-[1600px]:inline-block rounded-md bg-[#14213D] border border-[#1E2C4F] px-1 py-0.2 text-[8px] font-bold text-[#B8C2D9]">
+              <Search className="h-3.5 w-3.5 text-[#D4AF65] group-hover:scale-110 transition-transform shrink-0" />
+              <span className="hidden min-[1600px]:inline text-[11px] font-medium text-[#B0BECE]">Search...</span>
+              <kbd className="hidden min-[1600px]:inline-block rounded-md bg-[#172644] border border-[#203357] px-1 py-0.2 text-[8px] font-bold text-[#B0BECE]">
                 ⌘K
               </kbd>
             </motion.button>
@@ -840,7 +840,7 @@ export default function SiteHeader() {
             {/* Track Orders Button */}
             <Link
               to="/track-order"
-              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-[#1E2C4F] bg-[#14213D] text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-all shadow-2xs shrink-0"
+              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-[#203357] bg-[#172644] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-all shadow-2xs shrink-0"
               title="Track Production & Delivery"
               aria-label="Track order"
             >
@@ -896,15 +896,15 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="fixed right-3 left-3 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-full sm:mt-2.5 sm:w-76 rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 shadow-2xl z-50 text-[#F5F3EE]"
+                    className="fixed right-3 left-3 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-full sm:mt-2.5 sm:w-76 rounded-2xl border border-[#203357] bg-[#172644] p-4 shadow-2xl z-50 text-[#F5F2EB]"
                   >
-                    <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-3 mb-3">
+                    <div className="flex items-center justify-between border-b border-[#203357] pb-3 mb-3">
                       <div className="flex items-center gap-2.5">
                         <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs">
                           <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-[#F5F3EE] leading-tight">WhatsApp Concierge</div>
+                          <div className="text-xs font-bold text-[#F5F2EB] leading-tight">WhatsApp Concierge</div>
                           <div className="flex items-center gap-1 text-[10px] font-medium text-emerald-400">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                             <span>Online • Instant Turnaround</span>
@@ -914,21 +914,21 @@ export default function SiteHeader() {
                       <button
                         type="button"
                         onClick={() => setWhatsappPopoverOpen(false)}
-                        className="text-[#B8C2D9] hover:text-[#F5F3EE] p-1 rounded-md hover:bg-[#0B132B] transition-colors cursor-pointer"
+                        className="text-[#B0BECE] hover:text-[#F5F2EB] p-1 rounded-md hover:bg-[#101D35] transition-colors cursor-pointer"
                         aria-label="Close"
                       >
                         <X className="h-4 w-4" />
                       </button>
                     </div>
 
-                    <div className="rounded-xl bg-[#0B132B] p-3 border border-[#1E2C4F] mb-3">
-                      <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">Direct Hotline</span>
+                    <div className="rounded-xl bg-[#101D35] p-3 border border-[#203357] mb-3">
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B0BECE]">Direct Hotline</span>
                       <div className="mt-1 flex items-center justify-between gap-2">
-                        <span className="text-sm font-black tracking-tight text-[#D6C29A]">{FORMATTED_PHONE}</span>
+                        <span className="text-sm font-black tracking-tight text-[#D4AF65]">{FORMATTED_PHONE}</span>
                         <button
                           type="button"
                           onClick={handleCopyNumber}
-                          className="flex items-center gap-1 rounded-lg bg-[#14213D] px-2 py-1 text-[11px] font-bold text-[#F5F3EE] shadow-2xs border border-[#1E2C4F] hover:bg-[#1E2C4F] transition-colors cursor-pointer shrink-0"
+                          className="flex items-center gap-1 rounded-lg bg-[#172644] px-2 py-1 text-[11px] font-bold text-[#F5F2EB] shadow-2xs border border-[#203357] hover:bg-[#203357] transition-colors cursor-pointer shrink-0"
                         >
                           {copied ? (
                             <>
@@ -937,7 +937,7 @@ export default function SiteHeader() {
                             </>
                           ) : (
                             <>
-                              <Copy className="h-3 w-3 text-[#D6C29A]" />
+                              <Copy className="h-3 w-3 text-[#D4AF65]" />
                               <span>Copy</span>
                             </>
                           )}
@@ -973,13 +973,13 @@ export default function SiteHeader() {
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-1.5 rounded-full border border-[#1E2C4F] bg-[#0B132B] px-2.5 py-1.5 text-xs font-semibold text-[#F5F3EE] hover:bg-[#14213D] cursor-pointer shadow-2xs"
+                  className="flex items-center gap-1.5 rounded-full border border-[#203357] bg-[#101D35] px-2.5 py-1.5 text-xs font-semibold text-[#F5F2EB] hover:bg-[#172644] cursor-pointer shadow-2xs"
                 >
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#D6C29A] text-[#0B132B] text-[10px] font-bold">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#D4AF65] text-[#101D35] text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
                   <span className="hidden xl:inline max-w-[70px] truncate">{user?.name || 'Admin'}</span>
-                  <ChevronDown className={`h-3 w-3 text-[#B8C2D9] transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`h-3 w-3 text-[#B0BECE] transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 <AnimatePresence>
@@ -989,19 +989,19 @@ export default function SiteHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2.5 w-52 rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-2 shadow-xl z-50 text-[#F5F3EE]"
+                      className="absolute right-0 top-full mt-2.5 w-52 rounded-2xl border border-[#203357] bg-[#172644] p-2 shadow-xl z-50 text-[#F5F2EB]"
                     >
-                      <div className="px-3 py-2 border-b border-[#1E2C4F] mb-1">
-                        <div className="font-bold text-xs text-[#F5F3EE] truncate">{user?.name || 'Administrator'}</div>
-                        <div className="text-[10px] text-[#B8C2D9] truncate">{user?.email}</div>
+                      <div className="px-3 py-2 border-b border-[#203357] mb-1">
+                        <div className="font-bold text-xs text-[#F5F2EB] truncate">{user?.name || 'Administrator'}</div>
+                        <div className="text-[10px] text-[#B0BECE] truncate">{user?.email}</div>
                       </div>
 
                       <Link
                         to="/admin"
                         onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-[#F5F3EE] hover:text-[#D6C29A] hover:bg-[#0B132B] rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-[#F5F2EB] hover:text-[#D4AF65] hover:bg-[#101D35] rounded-lg transition-colors"
                       >
-                        <ShieldCheck className="w-4 h-4 text-[#D6C29A]" />
+                        <ShieldCheck className="w-4 h-4 text-[#D4AF65]" />
                         <span>Admin Dashboard</span>
                       </Link>
 
@@ -1011,7 +1011,7 @@ export default function SiteHeader() {
                           setUserMenuOpen(false)
                           logout()
                         }}
-                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-400 hover:bg-red-500/10 rounded-lg transition-colors mt-1 border-t border-[#1E2C4F] cursor-pointer"
+                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-400 hover:bg-red-500/10 rounded-lg transition-colors mt-1 border-t border-[#203357] cursor-pointer"
                       >
                         <LogOut className="w-4 h-4" />
                         <span>Sign Out</span>
@@ -1031,7 +1031,7 @@ export default function SiteHeader() {
             >
               <Link
                 to="/get-a-quote"
-                className="group/cta relative inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A] hover:bg-[#C8B185] px-3.5 lg:px-4 py-1.5 sm:py-2 text-xs font-black text-[#0B132B] shadow-sm transition-all whitespace-nowrap overflow-hidden"
+                className="group/cta relative inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#C8B185] px-3.5 lg:px-4 py-1.5 sm:py-2 text-xs font-black text-[#101D35] shadow-sm transition-all whitespace-nowrap overflow-hidden"
                 onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
               >
                 <span>Get Instant Quote</span>
@@ -1045,7 +1045,7 @@ export default function SiteHeader() {
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="flex lg:hidden h-8.5 w-8.5 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] hover:bg-[#1E2C4F] transition-colors cursor-pointer"
+              className="flex lg:hidden h-8.5 w-8.5 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full border border-[#203357] bg-[#172644] text-[#F5F2EB] hover:bg-[#203357] transition-colors cursor-pointer"
             >
               {mobileMenuOpen ? <X className="h-4.5 w-4.5" /> : <Menu className="h-4.5 w-4.5" />}
             </button>
@@ -1061,25 +1061,25 @@ export default function SiteHeader() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: -16 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-2xl rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-4 sm:p-6 shadow-2xl text-[#F5F3EE]"
+              className="w-full max-w-2xl rounded-3xl border border-[#203357] bg-[#172644] p-4 sm:p-6 shadow-2xl text-[#F5F2EB]"
             >
               {/* Search Bar Input */}
-              <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-3.5 sm:pb-4 gap-2">
+              <div className="flex items-center justify-between border-b border-[#203357] pb-3.5 sm:pb-4 gap-2">
                 <div className="flex items-center gap-2.5 sm:gap-3 flex-1 min-w-0">
-                  <Search className="h-5 w-5 text-[#D6C29A] shrink-0" />
+                  <Search className="h-5 w-5 text-[#D4AF65] shrink-0" />
                   <input
                     ref={searchInputRef}
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search 200+ products, categories, or finishes..."
-                    className="w-full bg-transparent text-sm sm:text-base font-semibold text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:outline-none min-w-0"
+                    className="w-full bg-transparent text-sm sm:text-base font-semibold text-[#F5F2EB] placeholder:text-[#B0BECE] focus:outline-none min-w-0"
                   />
                 </div>
                 <button
                   type="button"
                   onClick={() => setSearchModalOpen(false)}
-                  className="rounded-full p-1.5 text-[#B8C2D9] hover:text-[#F5F3EE] hover:bg-[#0B132B] cursor-pointer shrink-0"
+                  className="rounded-full p-1.5 text-[#B0BECE] hover:text-[#F5F2EB] hover:bg-[#101D35] cursor-pointer shrink-0"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -1089,7 +1089,7 @@ export default function SiteHeader() {
               <div className="mt-4 max-h-[60vh] overflow-y-auto space-y-4 pr-1">
                 {searchQuery.trim() === '' ? (
                   <div className="py-2">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-[#D6C29A] block mb-2.5">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#D4AF65] block mb-2.5">
                       Explore Master Departments (Dubai Pressroom)
                     </span>
                     <div className="grid grid-cols-1 min-[380px]:grid-cols-2 sm:grid-cols-3 gap-2">
@@ -1101,31 +1101,31 @@ export default function SiteHeader() {
                             key={dept.slug}
                             to={`/categories/${dept.slug}`}
                             onClick={() => setSearchModalOpen(false)}
-                            className="p-3 rounded-2xl border border-[#1E2C4F] bg-[#0B132B] hover:border-[#D6C29A] hover:bg-[#14213D] text-xs font-bold text-[#F5F3EE] transition-all flex items-center justify-between group shadow-2xs"
+                            className="p-3 rounded-2xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] hover:bg-[#172644] text-xs font-bold text-[#F5F2EB] transition-all flex items-center justify-between group shadow-2xs"
                           >
                             <div className="flex items-center gap-2 min-w-0">
-                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#14213D] border border-[#1E2C4F] text-[#D6C29A] shrink-0">
+                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#172644] border border-[#203357] text-[#D4AF65] shrink-0">
                                 <Icon className="h-3.5 w-3.5" />
                               </div>
                               <div className="min-w-0">
-                                <div className="truncate group-hover:text-[#F5F3EE] transition-colors font-extrabold text-[#F5F3EE]">{dept.shortName || dept.name}</div>
-                                <div className="text-[9px] text-[#B8C2D9] font-semibold">{count} products</div>
+                                <div className="truncate group-hover:text-[#F5F2EB] transition-colors font-extrabold text-[#F5F2EB]">{dept.shortName || dept.name}</div>
+                                <div className="text-[9px] text-[#B0BECE] font-semibold">{count} products</div>
                               </div>
                             </div>
-                            <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#D6C29A] shrink-0" />
+                            <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#D4AF65] shrink-0" />
                           </Link>
                         )
                       })}
                       <Link
                         to="/products"
                         onClick={() => setSearchModalOpen(false)}
-                        className="p-3 rounded-2xl border border-dashed border-[#D6C29A] bg-[#D6C29A]/10 hover:bg-[#D6C29A]/20 text-xs font-black text-slate-900 transition-all flex items-center justify-between group"
+                        className="p-3 rounded-2xl border border-dashed border-[#D4AF65] bg-[#D4AF65]/10 hover:bg-[#D4AF65]/20 text-xs font-black text-[#F5F2EB] transition-all flex items-center justify-between group"
                       >
                         <div className="flex items-center gap-2">
-                          <Layers className="h-4 w-4 text-[#D6C29A]" />
+                          <Layers className="h-4 w-4 text-[#D4AF65]" />
                           <span>All 110+ Products</span>
                         </div>
-                        <ArrowRight className="h-3.5 w-3.5 text-[#D6C29A] group-hover:translate-x-0.5 transition-transform" />
+                        <ArrowRight className="h-3.5 w-3.5 text-[#D4AF65] group-hover:translate-x-0.5 transition-transform" />
                       </Link>
                     </div>
                   </div>
@@ -1133,7 +1133,7 @@ export default function SiteHeader() {
                   <div>
                     {searchResults.departments?.length > 0 && (
                       <div className="mb-3.5">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#D6C29A] block mb-2">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#D4AF65] block mb-2">
                           Matching Master Departments
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -1144,15 +1144,15 @@ export default function SiteHeader() {
                                 key={dept.slug}
                                 to={`/categories/${dept.slug}`}
                                 onClick={() => setSearchModalOpen(false)}
-                                className="flex items-center justify-between p-2.5 rounded-xl border border-[#1E2C4F] bg-[#0B132B] hover:border-[#D6C29A] hover:bg-[#14213D] transition-all"
+                                className="flex items-center justify-between p-2.5 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] hover:bg-[#172644] transition-all"
                               >
                                 <div className="flex items-center gap-2">
-                                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#14213D] text-[#D6C29A] border border-[#1E2C4F]">
+                                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#172644] text-[#D4AF65] border border-[#203357]">
                                     <Icon className="h-3 w-3" />
                                   </div>
-                                  <span className="text-xs font-extrabold text-[#F5F3EE]">{dept.name}</span>
+                                  <span className="text-xs font-extrabold text-[#F5F2EB]">{dept.name}</span>
                                 </div>
-                                <ArrowRight className="h-3 w-3 text-[#D6C29A]" />
+                                <ArrowRight className="h-3 w-3 text-[#D4AF65]" />
                               </Link>
                             )
                           })}
@@ -1162,7 +1162,7 @@ export default function SiteHeader() {
 
                     {searchResults.products?.length > 0 && (
                       <div className="mb-4">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#D6C29A] block mb-2">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#D4AF65] block mb-2">
                           Matching Products ({searchResults.products.length})
                         </span>
                         <div className="space-y-2">
@@ -1173,10 +1173,10 @@ export default function SiteHeader() {
                                 key={p._id || p.id}
                                 to={`/products/${p.slug}`}
                                 onClick={() => setSearchModalOpen(false)}
-                                className="group flex items-center justify-between p-2.5 rounded-2xl border border-[#1E2C4F] bg-[#0B132B] hover:border-[#D6C29A] hover:bg-[#14213D] hover:shadow-xs transition-all gap-3"
+                                className="group flex items-center justify-between p-2.5 rounded-2xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] hover:bg-[#172644] hover:shadow-xs transition-all gap-3"
                               >
                                 <div className="flex items-center gap-3 min-w-0">
-                                  <div className="h-11 w-11 rounded-xl overflow-hidden bg-[#14213D] border border-[#1E2C4F] shrink-0">
+                                  <div className="h-11 w-11 rounded-xl overflow-hidden bg-[#172644] border border-[#203357] shrink-0">
                                     <img
                                       src={imgSrc}
                                       alt={p.name}
@@ -1186,17 +1186,17 @@ export default function SiteHeader() {
                                   </div>
                                   <div className="min-w-0">
                                     <div className="flex items-center gap-1.5">
-                                      <h6 className="text-xs font-black text-[#F5F3EE] group-hover:text-[#D6C29A] transition-colors truncate">{p.name}</h6>
+                                      <h6 className="text-xs font-black text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors truncate">{p.name}</h6>
                                       {p.category?.name && (
-                                        <span className="hidden sm:inline-block rounded-full bg-[#0B132B] border border-[#1E2C4F] px-1.5 py-0.2 text-[8px] font-bold text-[#D6C29A] uppercase shrink-0">
+                                        <span className="hidden sm:inline-block rounded-full bg-[#101D35] border border-[#203357] px-1.5 py-0.2 text-[8px] font-bold text-[#D4AF65] uppercase shrink-0">
                                           {p.category.name}
                                         </span>
                                       )}
                                     </div>
-                                    <p className="text-[10px] text-[#B8C2D9] line-clamp-1 mt-0.5">{p.shortDescription || p.description}</p>
+                                    <p className="text-[10px] text-[#B0BECE] line-clamp-1 mt-0.5">{p.shortDescription || p.description}</p>
                                   </div>
                                 </div>
-                                <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#D6C29A] group-hover:text-white px-2.5 py-1 rounded-full bg-[#D6C29A]/10 shrink-0">
+                                <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#D4AF65] group-hover:text-white px-2.5 py-1 rounded-full bg-[#D4AF65]/10 shrink-0">
                                   <span>View &amp; Quote</span>
                                   <ArrowRight className="h-3 w-3" />
                                 </span>
@@ -1209,7 +1209,7 @@ export default function SiteHeader() {
 
                     {searchResults.categories?.length > 0 && (
                       <div>
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#D6C29A] block mb-2">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#D4AF65] block mb-2">
                           Matching Categories &amp; Subcategories
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -1218,15 +1218,15 @@ export default function SiteHeader() {
                               key={c.slug || c.id}
                               to={`/categories/${c.slug}`}
                               onClick={() => setSearchModalOpen(false)}
-                              className="p-2.5 rounded-xl border border-[#1E2C4F] bg-[#0B132B] hover:border-[#D6C29A] hover:bg-[#14213D] text-xs font-bold text-[#F5F3EE] hover:text-[#D6C29A] transition-colors flex items-center justify-between"
+                              className="p-2.5 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] hover:bg-[#172644] text-xs font-bold text-[#F5F2EB] hover:text-[#D4AF65] transition-colors flex items-center justify-between"
                             >
                               <div className="truncate">
                                 <div>{c.name}</div>
                                 {c.departmentName && (
-                                  <div className="text-[9px] text-[#B8C2D9] font-normal">{c.departmentName}</div>
+                                  <div className="text-[9px] text-[#B0BECE] font-normal">{c.departmentName}</div>
                                 )}
                               </div>
-                              <ChevronRight className="h-3.5 w-3.5 text-[#D6C29A] shrink-0" />
+                              <ChevronRight className="h-3.5 w-3.5 text-[#D4AF65] shrink-0" />
                             </Link>
                           ))}
                         </div>
@@ -1235,11 +1235,11 @@ export default function SiteHeader() {
 
                     {searchResults.products?.length === 0 && searchResults.categories?.length === 0 && (!searchResults.departments || searchResults.departments.length === 0) && (
                       <div className="py-8 text-center">
-                        <p className="text-xs text-[#B8C2D9]">No direct matches found for "{searchQuery}".</p>
+                        <p className="text-xs text-[#B0BECE]">No direct matches found for "{searchQuery}".</p>
                         <Link
                           to={`/products?search=${encodeURIComponent(searchQuery)}`}
                           onClick={() => setSearchModalOpen(false)}
-                          className="mt-2 inline-block text-xs font-bold text-[#D6C29A] underline"
+                          className="mt-2 inline-block text-xs font-bold text-[#D4AF65] underline"
                         >
                           Search entire store catalog
                         </Link>
@@ -1272,17 +1272,17 @@ export default function SiteHeader() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-              className="relative ml-auto flex h-full w-full max-w-md flex-col bg-[#0B132B] border-l border-[#1E2C4F] shadow-2xl z-50 overflow-hidden text-[#F5F3EE]"
+              className="relative ml-auto flex h-full w-full max-w-md flex-col bg-[#101D35] border-l border-[#203357] shadow-2xl z-50 overflow-hidden text-[#F5F2EB]"
             >
               {/* Drawer Header */}
-              <div className="flex items-center justify-between border-b border-[#1E2C4F] p-4 shrink-0">
+              <div className="flex items-center justify-between border-b border-[#203357] p-4 shrink-0">
                 <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2">
                   <Logo variant="default" size="sm" />
                 </Link>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#14213D] border border-[#1E2C4F] text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors cursor-pointer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#172644] border border-[#203357] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-colors cursor-pointer"
                   aria-label="Close menu"
                 >
                   <X className="h-5 w-5" />
@@ -1298,10 +1298,10 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     setSearchModalOpen(true)
                   }}
-                  className="flex w-full items-center justify-between rounded-xl border border-[#1E2C4F] bg-[#14213D] p-3 text-xs text-[#B8C2D9] hover:bg-[#1E2C4F] transition-all cursor-pointer"
+                  className="flex w-full items-center justify-between rounded-xl border border-[#203357] bg-[#172644] p-3 text-xs text-[#B0BECE] hover:bg-[#203357] transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
-                    <Search className="h-4 w-4 text-[#D6C29A]" />
+                    <Search className="h-4 w-4 text-[#D4AF65]" />
                     <span>Search 200+ print products...</span>
                   </div>
                   <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
@@ -1316,7 +1316,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     trackWhatsAppClick({ source_page: 'header_mobile_menu', service: 'general', button_location: 'mobile_concierge' })
                   }}
-                  className="flex items-center justify-between rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-3 text-[#F5F3EE] transition-all shadow-xs"
+                  className="flex items-center justify-between rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-3 text-[#F5F2EB] transition-all shadow-xs"
                 >
                   <div className="flex items-center gap-2.5">
                     <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs shrink-0">
@@ -1324,10 +1324,10 @@ export default function SiteHeader() {
                     </div>
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-xs font-bold text-[#F5F3EE]">WhatsApp Concierge</span>
+                        <span className="text-xs font-bold text-[#F5F2EB]">WhatsApp Concierge</span>
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                       </div>
-                      <span className="text-[11px] font-bold text-emerald-700">{FORMATTED_PHONE}</span>
+                      <span className="text-[11px] font-bold text-emerald-400">{FORMATTED_PHONE}</span>
                     </div>
                   </div>
                   <span className="rounded-lg bg-[#25D366] text-white px-2.5 py-1 text-[11px] font-bold shadow-xs">
@@ -1341,7 +1341,7 @@ export default function SiteHeader() {
                   <Link
                     to="/"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F3EE] hover:bg-[#14213D]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644]"
                   >
                     <span>Home</span>
                   </Link>
@@ -1350,46 +1350,46 @@ export default function SiteHeader() {
                   <Link
                     to="/business-card-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F3EE] bg-[#D6C29A]/10 border border-[#D6C29A]/30"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] bg-[#D4AF65]/10 border border-[#D4AF65]/30"
                   >
                     <div className="flex items-center gap-2">
-                      <CreditCard className="h-4 w-4 text-[#D6C29A]" />
+                      <CreditCard className="h-4 w-4 text-[#D4AF65]" />
                       <span>Luxury Business Cards</span>
                     </div>
-                    <span className="rounded bg-[#D6C29A] text-[#0B132B] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       DUBAI FLAGSHIP
                     </span>
                   </Link>
 
                   {/* Master Department Accordions */}
                   <div className="pt-2 pb-1">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#D6C29A] px-3.5 block mb-1">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF65] px-3.5 block mb-1">
                       Departments &amp; Catalog
                     </span>
 
-                    <div className="space-y-1 border-y border-[#1E2C4F] py-1.5">
+                    <div className="space-y-1 border-y border-[#203357] py-1.5">
                       {MASTER_DEPARTMENTS.map((dept) => {
                         const Icon = DEPARTMENT_ICONS[dept.slug] || Layers
                         const isOpen = mobileOpenDept === dept.slug
                         const count = dept.subcategories.reduce((acc, s) => acc + (s.productSlugs?.length || 0), 0)
 
                         return (
-                          <div key={dept.slug} className="rounded-xl overflow-hidden border border-[#1E2C4F] bg-[#14213D]">
+                          <div key={dept.slug} className="rounded-xl overflow-hidden border border-[#203357] bg-[#172644]">
                             <button
                               type="button"
                               onClick={() => setMobileOpenDept((cur) => (cur === dept.slug ? null : dept.slug))}
-                              className="flex w-full items-center justify-between p-3 text-left text-xs font-bold text-[#F5F3EE] hover:bg-[#1E2C4F] transition-colors"
+                              className="flex w-full items-center justify-between p-3 text-left text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] transition-colors"
                             >
                               <div className="flex items-center gap-2.5 min-w-0">
-                                <div className={`flex h-7 w-7 items-center justify-center rounded-lg ${isOpen ? 'bg-[#D6C29A] text-[#0B132B]' : 'bg-[#0B132B] text-[#B8C2D9] border border-[#1E2C4F]'} shrink-0`}>
+                                <div className={`flex h-7 w-7 items-center justify-center rounded-lg ${isOpen ? 'bg-[#D4AF65] text-[#101D35]' : 'bg-[#101D35] text-[#B0BECE] border border-[#203357]'} shrink-0`}>
                                   <Icon className="h-3.5 w-3.5" />
                                 </div>
                                 <div className="min-w-0">
-                                  <div className="truncate font-extrabold text-[#F5F3EE]">{dept.name}</div>
-                                  <div className="text-[9px] text-[#B8C2D9] font-semibold">{dept.subcategories.length} subcategories • {count} prods</div>
+                                  <div className="truncate font-extrabold text-[#F5F2EB]">{dept.name}</div>
+                                  <div className="text-[9px] text-[#B0BECE] font-semibold">{dept.subcategories.length} subcategories • {count} prods</div>
                                 </div>
                               </div>
-                              <ChevronDown className={`h-4 w-4 text-[#B8C2D9] shrink-0 transition-transform ${isOpen ? 'rotate-180 text-[#D6C29A]' : ''}`} />
+                              <ChevronDown className={`h-4 w-4 text-[#B0BECE] shrink-0 transition-transform ${isOpen ? 'rotate-180 text-[#D4AF65]' : ''}`} />
                             </button>
 
                             <AnimatePresence>
@@ -1398,12 +1398,12 @@ export default function SiteHeader() {
                                   initial={{ opacity: 0, height: 0 }}
                                   animate={{ opacity: 1, height: 'auto' }}
                                   exit={{ opacity: 0, height: 0 }}
-                                  className="px-3 pb-3 pt-1 border-t border-[#1E2C4F] bg-[#0B132B] space-y-1"
+                                  className="px-3 pb-3 pt-1 border-t border-[#203357] bg-[#101D35] space-y-1"
                                 >
                                   <Link
                                     to={`/categories/${dept.slug}`}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="flex items-center justify-between rounded-lg p-2 text-xs font-black text-[#D6C29A] bg-[#D6C29A]/10 hover:bg-[#D6C29A]/20 mb-2"
+                                    className="flex items-center justify-between rounded-lg p-2 text-xs font-black text-[#D4AF65] bg-[#D4AF65]/10 hover:bg-[#D4AF65]/20 mb-2"
                                   >
                                     <span>Explore Department Overview</span>
                                     <ArrowRight className="h-3 w-3" />
@@ -1414,10 +1414,10 @@ export default function SiteHeader() {
                                       key={sub.slug}
                                       to={`/categories/${sub.slug}`}
                                       onClick={() => setMobileMenuOpen(false)}
-                                      className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-xs text-[#F5F3EE] hover:bg-[#14213D] hover:text-[#D6C29A] transition-colors"
+                                      className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-xs text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65] transition-colors"
                                     >
                                       <span className="truncate font-medium">{sub.name}</span>
-                                      <span className="text-[10px] text-[#B8C2D9] font-bold shrink-0">{sub.productSlugs?.length || 0} items</span>
+                                      <span className="text-[10px] text-[#B0BECE] font-bold shrink-0">{sub.productSlugs?.length || 0} items</span>
                                     </Link>
                                   ))}
                                 </motion.div>
@@ -1433,23 +1433,23 @@ export default function SiteHeader() {
                   <Link
                     to="/products"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-extrabold text-[#D6C29A] hover:bg-[#D6C29A]/10"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-extrabold text-[#D4AF65] hover:bg-[#D4AF65]/10"
                   >
                     <div className="flex items-center gap-2">
-                      <Layers className="h-4 w-4 text-[#D6C29A]" />
+                      <Layers className="h-4 w-4 text-[#D4AF65]" />
                       <span>All 110+ Products Catalog</span>
                     </div>
-                    <ArrowRight className="h-3.5 w-3.5 text-[#D6C29A]" />
+                    <ArrowRight className="h-3.5 w-3.5 text-[#D4AF65]" />
                   </Link>
 
                   {/* Services */}
                   <Link
                     to="/services"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F3EE] hover:bg-[#14213D] hover:text-[#D6C29A]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-[#D6C29A]" />
+                      <Sparkles className="h-4 w-4 text-[#D4AF65]" />
                       <span>Printing Services &amp; Solutions</span>
                     </div>
                   </Link>
@@ -1458,13 +1458,13 @@ export default function SiteHeader() {
                   <Link
                     to="/finishes"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F3EE] hover:bg-[#14213D] hover:text-[#D6C29A]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
-                      <Palette className="h-4 w-4 text-[#D6C29A]" />
+                      <Palette className="h-4 w-4 text-[#D4AF65]" />
                       <span>Luxury Finishes (Foil &amp; 3D UV)</span>
                     </div>
-                    <span className="rounded bg-[#D6C29A] text-[#0B132B] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       8 CRAFTS
                     </span>
                   </Link>
@@ -1473,13 +1473,13 @@ export default function SiteHeader() {
                   <Link
                     to="/corporate-quotes"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F3EE] hover:bg-[#14213D] hover:text-[#D6C29A]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
-                      <Building2 className="h-4 w-4 text-[#D6C29A]" />
+                      <Building2 className="h-4 w-4 text-[#D4AF65]" />
                       <span>Corporate &amp; Bulk Quotes</span>
                     </div>
-                    <span className="rounded bg-[#0B132B] border border-[#1E2C4F] text-[#D6C29A] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#101D35] border border-[#203357] text-[#D4AF65] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       B2B
                     </span>
                   </Link>
@@ -1488,10 +1488,10 @@ export default function SiteHeader() {
                   <Link
                     to="/about"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F3EE] hover:bg-[#14213D] hover:text-[#D6C29A]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
-                      <Building2 className="h-4 w-4 text-[#D6C29A]" />
+                      <Building2 className="h-4 w-4 text-[#D4AF65]" />
                       <span>About ONPRINT Pressroom</span>
                     </div>
                   </Link>
@@ -1500,10 +1500,10 @@ export default function SiteHeader() {
                   <Link
                     to="/blog"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F3EE] hover:bg-[#14213D] hover:text-[#D6C29A]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
-                      <BookOpen className="h-4 w-4 text-[#D6C29A]" />
+                      <BookOpen className="h-4 w-4 text-[#D4AF65]" />
                       <span>Blog &amp; Insights</span>
                     </div>
                   </Link>
@@ -1512,10 +1512,10 @@ export default function SiteHeader() {
                   <Link
                     to="/contact"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F3EE] hover:bg-[#14213D] hover:text-[#D6C29A]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-[#D6C29A]" />
+                      <MapPin className="h-4 w-4 text-[#D4AF65]" />
                       <span>Contact &amp; Pressroom</span>
                     </div>
                   </Link>
@@ -1523,7 +1523,7 @@ export default function SiteHeader() {
               </div>
 
               {/* Drawer Footer Actions */}
-              <div className="border-t border-[#1E2C4F] p-4 space-y-2 shrink-0 bg-[#070D1E]">
+              <div className="border-t border-[#203357] p-4 space-y-2 shrink-0 bg-[#0C1629]">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -1548,7 +1548,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D6C29A] hover:bg-[#C8B185] py-3 text-sm font-black text-[#0B132B] shadow-md transition-all"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D4AF65] hover:bg-[#C8B185] py-3 text-sm font-black text-[#101D35] shadow-md transition-all"
                 >
                   <span>Get Instant Quote</span>
                   <ArrowRight className="h-4 w-4" />
@@ -1557,9 +1557,9 @@ export default function SiteHeader() {
                 <Link
                   to="/track-order"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl border border-[#1E2C4F] bg-[#14213D] py-2.5 text-xs font-bold text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors shadow-2xs"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-[#203357] bg-[#172644] py-2.5 text-xs font-bold text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-colors shadow-2xs"
                 >
-                  <Truck className="h-4 w-4 text-[#D6C29A]" />
+                  <Truck className="h-4 w-4 text-[#D4AF65]" />
                   <span>Track Existing Order</span>
                 </Link>
               </div>

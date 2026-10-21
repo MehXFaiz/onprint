@@ -30,8 +30,8 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick, trackQuoteRequest } from '../../utils/analytics'
-import { openWhatsAppDirectly, getWhatsAppUrl, getServiceWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
+import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick, trackQuoteRequest, trackQualifiedLead, trackArtworkUpload } from '../../utils/analytics'
+import { openWhatsAppDirectly, getWhatsAppUrl, getServiceWhatsAppUrl, formatBusinessCardInquiry, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
 
 const CARD_OPTIONS = [
   {
@@ -148,6 +148,22 @@ export default function BusinessCardsLeadPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submittedQuote, setSubmittedQuote] = useState(null)
+  const [deliveryLocation, setDeliveryLocation] = useState('Dubai, UAE')
+  const [artworkFile, setArtworkFile] = useState(null)
+  const [formError, setFormError] = useState('')
+
+  const handleArtworkChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0]
+      if (file.size > 50 * 1024 * 1024) {
+        setFormError('File size exceeds 50MB limit. Please upload a smaller file or send via WhatsApp.')
+        return
+      }
+      setArtworkFile(file)
+      setFormError('')
+      trackArtworkUpload({ file_count: 1, source_page: 'business_cards_lead_page' })
+    }
+  }
 
   const toggleAddon = (addonId) => {
     setSelectedAddons((prev) =>
@@ -174,25 +190,25 @@ export default function BusinessCardsLeadPage() {
       .filter(Boolean)
       .join(', ')
 
-    const msg = `Hello ONPRINT Dubai, I would like an express quotation for Business Cards:
-• Stock: ${selectedCard.name}
-• Quantity: ${selectedQty.label}
-• Finishes: ${addonLabels || 'Standard'}
-• Turnaround: ${selectedTurnaround.label}
-• Request: Official Quotation & Dispatch Schedule
-
-Client Name: ${formData.name || 'Not specified'}
-Company: ${formData.company || 'Not specified'}
-
-Please confirm availability and dispatch schedule.`
+    const msg = formatBusinessCardInquiry({
+      quantity: selectedQty.label,
+      material: selectedCard.name,
+      finish: addonLabels || 'Standard Clean Cut',
+      location: deliveryLocation || 'Dubai, UAE',
+      artwork: artworkFile,
+      name: formData.name.trim() || undefined,
+      company: formData.company.trim() || undefined,
+      notes: formData.notes.trim() || undefined,
+    })
 
     return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`
   }
 
   const handleSubmitForm = async (e) => {
     e.preventDefault()
-    if (!formData.name || !formData.phone || !formData.email) {
-      alert('Please fill in your name, phone number, and email.')
+    setFormError('')
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.email.trim()) {
+      setFormError('Please enter your full name, phone / WhatsApp number, and email address.')
       return
     }
 
@@ -206,14 +222,14 @@ Please confirm availability and dispatch schedule.`
 
     try {
       const quotePayload = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        company: formData.company.trim(),
         productName: `Business Cards: ${selectedCard.name}`,
         quantity: selectedQty.value,
         totalPrice: estimatedTotal,
-        specs: `Stock: ${selectedCard.name} | Addons: ${addonLabels || 'None'} | Turnaround: ${selectedTurnaround.label}`,
+        specs: `Stock: ${selectedCard.name} | Finishes: ${addonLabels || 'None'} | Turnaround: ${selectedTurnaround.label} | Location: ${deliveryLocation}${artworkFile ? ` | Artwork: ${artworkFile.name}` : ''}`,
         notes: formData.notes,
         status: 'New',
       }
@@ -230,23 +246,33 @@ Please confirm availability and dispatch schedule.`
         source_page: 'business_cards_lead_page',
       })
 
-      // Direct WhatsApp Dispatch
-      openWhatsAppDirectly(
-        {
-          title: 'LUXURY BUSINESS CARDS QUOTE INQUIRY',
-          refNumber: finalQuote.orderNumber || finalQuote.quoteNumber,
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          company: formData.company || 'N/A',
-          product: `Business Cards: ${selectedCard.name}`,
-          quantity: selectedQty.value,
-          specs: `Stock: ${selectedCard.name} | Finishes: ${addonLabels || 'Standard'} | Speed: ${selectedTurnaround.label}`,
-          price: estimatedTotal,
-          notes: formData.notes || 'None',
-        },
-        { allowSameTabFallback: false }
-      )
+      trackQualifiedLead({
+        lead_type: 'business_card_quote',
+        product_name: `Business Cards: ${selectedCard.name}`,
+        quantity: selectedQty.value,
+        material: selectedCard.name,
+        finish: addonLabels || 'Standard Clean Cut',
+        has_artwork: Boolean(artworkFile),
+        delivery_location: deliveryLocation,
+        estimated_value: estimatedTotal,
+        source_page: 'business_cards_lead_page',
+      })
+
+      const refNo = finalQuote.orderNumber || finalQuote.quoteNumber || 'PENDING'
+      const inquiryMsg = formatBusinessCardInquiry({
+        quantity: selectedQty.label,
+        material: selectedCard.name,
+        finish: addonLabels || 'Standard Clean Cut',
+        location: deliveryLocation,
+        artwork: artworkFile,
+        name: formData.name,
+        company: formData.company,
+        notes: formData.notes,
+      })
+      const fullUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+        `${inquiryMsg}\n\n• Quote Reference: ${refNo}`
+      )}`
+      openWhatsAppDirectly(fullUrl, { allowSameTabFallback: false })
     } catch (err) {
       console.error('Quote submission error:', err)
       const fallbackOrderNum = `ONP-2026-${Math.floor(100000 + Math.random() * 900000)}`
@@ -254,17 +280,20 @@ Please confirm availability and dispatch schedule.`
         orderNumber: fallbackOrderNum,
         name: formData.name,
       })
-      openWhatsAppDirectly({
-        title: 'LUXURY BUSINESS CARDS QUOTE INQUIRY',
-        refNumber: fallbackOrderNum,
+      const inquiryMsg = formatBusinessCardInquiry({
+        quantity: selectedQty.label,
+        material: selectedCard.name,
+        finish: addonLabels || 'Standard Clean Cut',
+        location: deliveryLocation,
+        artwork: artworkFile,
         name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        company: formData.company || 'N/A',
-        product: `Business Cards: ${selectedCard.name}`,
-        quantity: selectedQty.value,
-        price: estimatedTotal,
+        company: formData.company,
+        notes: formData.notes,
       })
+      const fullUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+        `${inquiryMsg}\n\n• Quote Reference: ${fallbackOrderNum}`
+      )}`
+      openWhatsAppDirectly(fullUrl, { allowSameTabFallback: false })
     } finally {
       setIsSubmitting(false)
     }
@@ -574,7 +603,7 @@ Please confirm availability and dispatch schedule.`
                   </div>
                   <div className="flex justify-between text-[#B8C2D9]">
                     <span>Delivery Location:</span>
-                    <span className="font-bold text-emerald-600">Dubai &amp; UAE (Doorstep)</span>
+                    <span className="font-bold text-emerald-400">{deliveryLocation}</span>
                   </div>
                 </div>
 
@@ -628,6 +657,11 @@ Please confirm availability and dispatch schedule.`
                   </div>
                 ) : (
                   <form onSubmit={handleSubmitForm} className="space-y-3.5">
+                    {formError && (
+                      <div className="rounded-xl bg-red-950/60 border border-red-500/50 p-3 text-xs text-red-200">
+                        {formError}
+                      </div>
+                    )}
                     <div>
                       <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
                         Full Name <span className="text-[#D6C29A]">*</span>
@@ -696,6 +730,62 @@ Please confirm availability and dispatch schedule.`
                         className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs text-[#F5F3EE] placeholder:text-[#B8C2D9] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none resize-none"
                       />
                     </div>
+                    <div>
+                      <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                        Delivery Destination / UAE City <span className="text-[#D6C29A]">*</span>
+                      </label>
+                      <select
+                        value={deliveryLocation}
+                        onChange={(e) => setDeliveryLocation(e.target.value)}
+                        className="w-full rounded-xl border border-slate-300 bg-[#0B132B] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] outline-none"
+                      >
+                        <option value="Dubai, UAE (Express Doorstep Delivery)">Dubai, UAE (Express Doorstep Delivery)</option>
+                        <option value="Abu Dhabi, UAE (Next-Day Courier)">Abu Dhabi, UAE (Next-Day Courier)</option>
+                        <option value="Sharjah, UAE (Doorstep Delivery)">Sharjah, UAE (Doorstep Delivery)</option>
+                        <option value="Ajman, UAE (Doorstep Delivery)">Ajman, UAE (Doorstep Delivery)</option>
+                        <option value="Ras Al Khaimah, UAE">Ras Al Khaimah, UAE</option>
+                        <option value="Fujairah / Umm Al Quwain, UAE">Fujairah / Umm Al Quwain, UAE</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-[#F5F3EE] mb-1">
+                        Upload Artwork (Optional)
+                      </label>
+                      <div className="relative rounded-xl border border-dashed border-[#1E2C4F] bg-[#0B132B]/60 p-3 text-center hover:border-[#D6C29A] transition-colors">
+                        <input
+                          type="file"
+                          accept=".pdf,.ai,.eps,.jpg,.jpeg,.png,.zip"
+                          onChange={handleArtworkChange}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        />
+                        <div className="flex flex-col items-center gap-1">
+                          <Upload className="h-4 w-4 text-[#D6C29A]" />
+                          <span className="text-xs text-[#F5F3EE] font-semibold">
+                            {artworkFile ? artworkFile.name : 'Click or drag PDF, AI, EPS, or ZIP file'}
+                          </span>
+                          <span className="text-[10px] text-[#B8C2D9]">
+                            {artworkFile
+                              ? `${(artworkFile.size / 1024 / 1024).toFixed(2)} MB • Click to replace`
+                              : 'Up to 50MB • Free Pre-Press Inspection Included'}
+                          </span>
+                        </div>
+                      </div>
+                      {artworkFile && (
+                        <button
+                          type="button"
+                          onClick={() => setArtworkFile(null)}
+                          className="mt-1 text-[11px] text-red-400 hover:text-red-300 underline cursor-pointer"
+                        >
+                          Remove file
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="rounded-xl bg-[#0B132B]/80 border border-[#1E2C4F] p-2.5 text-[11px] text-[#B8C2D9] leading-relaxed">
+                      💡 <strong>Note on WhatsApp Inquiries:</strong> Clicking WhatsApp prepares your exact pre-filled specs. A confirmed binding quotation and delivery schedule are validated with our master pressman in Al Quoz before production starts.
+                    </div>
+
 
                     <button
                       type="submit"

@@ -688,3 +688,47 @@ export function trackCorporateEnquirySubmit({ source_page, product_name, inquiry
 }
 
 
+
+
+/**
+ * 19. Qualified Lead Tracking (Strictly distinguishes confirmed inquiries from mere link clicks)
+ * Fired when a customer submits full quotation specs (contact info, product choice, quantity, finish, delivery location)
+ */
+export function trackQualifiedLead({
+  lead_type = 'business_card_quote',
+  product_name = 'Custom Business Cards',
+  quantity,
+  material,
+  finish,
+  has_artwork = false,
+  delivery_location = 'Dubai, UAE',
+  estimated_value,
+  source_page,
+} = {}) {
+  const pagePath = getCurrentPagePath()
+  const device = getDeviceCategory()
+
+  trackEvent('qualified_lead', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    lead_type,
+    product_name,
+    quantity: quantity ? Number(quantity) : undefined,
+    material: material || undefined,
+    finish: finish || undefined,
+    has_artwork: Boolean(has_artwork),
+    delivery_location,
+    value: estimated_value ? Number(estimated_value) : undefined,
+    currency: 'AED',
+    device_category: device,
+  })
+
+  sendConversionBeacon({
+    conversion_type: 'qualified_lead',
+    source_page: pagePath,
+    source_label: `${lead_type}_${product_name}`,
+    product_name,
+    button_location: 'quote_form_submit',
+    device_category: device,
+  })
+}

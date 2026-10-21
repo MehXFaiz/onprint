@@ -38,11 +38,11 @@ export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 // 2. Official Core Service Prefilled Inquiries (Clean, Direct & High-Converting)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    'Hello 0nprint, I am interested in ordering Business Cards (Visiting Cards). Please share your prices, paper & finish options (Matte, Velvet Soft-Touch, Cotton, Foil, Spot UV, PVC), and delivery details.',
+    'Hello ONPRINT, I need a quotation for custom business cards. Quantity: 100+. Material/GSM: 350 GSM Silk / Matte. Finish: Matte Lamination. Delivery location: Dubai, UAE. Please share available options and pricing.',
   'business-cards-printing':
-    'Hello 0nprint, I am interested in ordering Business Cards (Visiting Cards). Please share your prices, paper & finish options (Matte, Velvet Soft-Touch, Cotton, Foil, Spot UV, PVC), and delivery details.',
+    'Hello ONPRINT, I need a quotation for custom business cards. Quantity: 100+. Material/GSM: 350 GSM Silk / Matte. Finish: Matte Lamination. Delivery location: Dubai, UAE. Please share available options and pricing.',
   'business-card-printing-dubai':
-    'Hello 0nprint, I am interested in ordering Business Cards in Dubai. Please share your prices, paper & finish options, and delivery details.',
+    'Hello ONPRINT, I need a quotation for custom business cards in Dubai. Quantity: 100+. Material/GSM: 350 GSM Silk / Matte. Finish: Matte Lamination. Delivery location: Dubai, UAE. Please share available options and pricing.',
 
   'bottle-printing':
     'Hello 0nprint, I am interested in ordering Custom Printed Water Bottles (Thermal Stainless Steel / Smart LED / Sports Bottles). Please share available models, minimum quantities, UV print / laser engraving prices, and delivery details.',
@@ -289,6 +289,40 @@ export function getWhatsAppUrl(params = {}) {
       ? params.trim()
       : formatWhatsAppMessage(params)
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`
+}
+
+/**
+ * Formats a business card quote inquiry matching the buyer-intent specification:
+ * "Hello ONPRINT, I need a quotation for custom business cards. Quantity: [quantity]. Material/GSM: [material]. Finish: [finish]. Delivery location: [location]. Please share available options and pricing."
+ */
+export function formatBusinessCardInquiry({
+  quantity = '100',
+  material = '350 GSM Silk / Smooth Matte',
+  finish = 'Matte',
+  location = 'Dubai, UAE',
+  artwork = null,
+  name = '',
+  company = '',
+  notes = '',
+} = {}) {
+  const parts = [
+    `Hello ONPRINT, I need a quotation for custom business cards. Quantity: ${quantity}. Material/GSM: ${material}. Finish: ${finish}. Delivery location: ${location}. Please share available options and pricing.`
+  ]
+  const extra = []
+  if (name) extra.push(`• Client Name: ${name}`)
+  if (company) extra.push(`• Company: ${company}`)
+  if (artwork) extra.push(`• Artwork: ${typeof artwork === 'string' ? artwork : (artwork?.name || 'File attached')}`)
+  if (notes) extra.push(`• Notes: ${notes}`)
+
+  if (extra.length > 0) {
+    parts.push(`\n*Additional Details:*\n${extra.join('\n')}`)
+  }
+  return parts.join('\n')
+}
+
+export function getBusinessCardBuyerIntentUrl(params = {}) {
+  const msg = formatBusinessCardInquiry(params)
+  return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`
 }
 
 /**

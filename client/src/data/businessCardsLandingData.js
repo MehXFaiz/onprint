@@ -160,8 +160,8 @@ const BUSINESS_CARDS_LANDING_DATA = {
   'premium-business-cards': {
     slug: 'premium-business-cards',
     path: '/premium-business-cards',
-    title: 'Premium Business Cards Dubai | 400–450 GSM Matte Artboard | ONPRINT',
-    metaDescription: 'Order premium business cards in Dubai. Heavyweight 400–450 GSM artboard with double-sided matte or silk coating. Crisp typography and zero edge curling.',
+    title: 'Custom Business Card Printing | Premium Finishes | ONPRINT',
+    metaDescription: 'Order custom business cards with premium printing and finishing options. Explore your choices and request a personalized printing quote from ONPRINT.',
     focusKeyword: 'premium business cards dubai',
     secondaryKeywords: 'premium business cards, 400 gsm business cards dubai, 450 gsm business cards uae, executive matte business cards, heavy business cards dubai',
     badge: 'EXECUTIVE 400–450 GSM STANDARDS',

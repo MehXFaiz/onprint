@@ -58,8 +58,10 @@ import {
   trackWhatsAppClick,
   trackBusinessCardProductView,
   trackCorporateEnquirySubmit,
+  trackQualifiedLead,
 } from '../../utils/analytics'
-import { openWhatsAppDirectly, getWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
+import { openWhatsAppDirectly,
+  formatBusinessCardInquiry, getWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
 import luxuryBusinessCardsImg from '../../assets/products/luxury_business_cards.jpg'
 import softTouchCardImg from '../../assets/products/card-soft-touch.jpg'
 import velvetFoilCardImg from '../../assets/products/card-velvet-foil.jpg'
@@ -678,6 +680,17 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         source_page: `business_card_${derivedKey}`,
       })
 
+      trackQualifiedLead({
+        lead_type: 'business_card_cluster_quote',
+        product_name: `Business Cards (${formState.cardType})`,
+        quantity: Number(formState.quantity) || 100,
+        material: formState.paper,
+        finish: formState.finish,
+        has_artwork: Boolean(artworkFile),
+        delivery_location: 'Dubai, UAE',
+        source_page: `business_card_${derivedKey}`,
+      })
+
       openWhatsAppDirectly(
         {
           title: 'BUSINESS CARD QUOTE INQUIRY',
@@ -1135,7 +1148,16 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       </button>
 
                       <a
-                        href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`Hello 0nprint, I would like an express business card quotation:\n• Card: ${formState.cardType}\n• Paper: ${formState.paper}\n• Finish: ${formState.finish}\n• Qty: ${formState.quantity} cards\n• Delivery: ${formState.deliveryDate}${formState.name ? `\n• Name: ${formState.name}` : ''}${formState.notes ? `\n• Notes: ${formState.notes}` : ''}\n• Page URL: https://www.0nprint.com/${derivedKey}`)}`}
+                        href={getWhatsAppUrl(formatBusinessCardInquiry({
+                          quantity: formState.quantity,
+                          material: formState.paper,
+                          finish: formState.finish,
+                          location: 'Dubai, UAE',
+                          artwork: artworkFile,
+                          name: formState.name,
+                          company: formState.company,
+                          notes: formState.notes,
+                        }))}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => {

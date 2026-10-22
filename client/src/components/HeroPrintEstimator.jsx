@@ -118,7 +118,7 @@ const ESTIMATOR_PRODUCTS = [
     imageWebp: '/assets/products/flyers/flyer-a5-promotional.webp',
     badge: 'Vivid 4K CMYK',
     turnaround: 'Same-Day / 4h',
-    link: '/services/flyers-printing-in-dubai',
+    link: '/categories/flyers-printing-in-dubai',
     quantities: [250, 500, 1000, 2500, 5000],
     unit: 'pcs',
     options: [

@@ -142,6 +142,10 @@ function App() {
             <Route path="/embossed-business-cards-dubai" element={<Navigate to="/embossed-business-cards" replace />} />
             <Route path="/brochure-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />
             <Route path="/flyer-printing" element={<Navigate to="/flyer-printing-dubai" replace />} />
+            <Route path="/flyers-printing" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
+            <Route path="/flyers" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
+            <Route path="/flyer-and-leaflet-printing" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
+            <Route path="/flyers-and-leaflets" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
             <Route path="/sticker-printing" element={<Navigate to="/sticker-printing-dubai" replace />} />
             <Route path="/stickers" element={<Navigate to="/services/stickers-labels-printing" replace />} />
             <Route path="/stickers-labels-printing" element={<Navigate to="/services/stickers-labels-printing" replace />} />

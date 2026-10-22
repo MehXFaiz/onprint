@@ -38,7 +38,7 @@ export const defaultServices = [
     id: 3,
     name: 'Flyers Printing In Dubai',
     slug: 'flyers-printing-in-dubai',
-    category: { name: 'Office Stationery Printing' },
+    category: { name: 'Marketing Flyers & Leaflets', slug: 'flyers-printing-in-dubai' },
     shortDescription: 'High-impact marketing flyers printed on 170gsm–300gsm gloss or matte art paper with vibrant CMYK color fidelity.',
     description: 'Accelerate your campaigns with high-impact single and double-sided commercial marketing flyers. Printed on premium FSC-certified silk and gloss art paper with express same-day turnaround.',
     image: '/uploads/categories/flyers-printing-in-dubai.jpg',

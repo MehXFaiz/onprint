@@ -480,7 +480,9 @@ export default function HomePage() {
 
                   <div className="space-y-2">
                     <h3 className="font-serif text-lg font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
-                      Flyer &amp; Leaflet Printing
+                      <Link to="/categories/flyers-printing-in-dubai" className="hover:underline focus:outline-none">
+                        Flyer &amp; Leaflet Printing
+                      </Link>
                     </h3>
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       High-impact commercial marketing flyers, folded leaflets, and promotional handbills on premium 130–350 GSM gloss or silk paper.
@@ -521,7 +523,7 @@ export default function HomePage() {
                     <span>Inquire on WhatsApp</span>
                   </a>
                   <Link
-                    to="/services/flyers-printing-in-dubai"
+                    to="/categories/flyers-printing-in-dubai"
                     className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-[#A0AEC0] hover:text-[#D4AF65] py-1 transition-colors"
                   >
                     <span>View Flyer Options</span>

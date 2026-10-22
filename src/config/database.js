@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const models = require('../models')
-const { categories: initialCategories, products: initialProducts } = require('../data/initialData')
+const { categories: initialCategories, products: initialProducts, services: initialServices } = require('../data/initialData')
 
 const {
   User,
@@ -317,13 +317,43 @@ async function executeSql(sql, params = []) {
   if (!cached.conn) {
     const target = extractPrimaryTable(cleanSql)
     if (target === 'categories') {
+      if (params.length > 0 && (upperSql.includes('WHERE') || upperSql.includes('LIMIT 1'))) {
+        const val = String(params[0]).toLowerCase()
+        const match = (initialCategories || []).find(c => (c.slug && c.slug.toLowerCase() === val) || String(c.id) === val || (c.category_key && c.category_key.toLowerCase() === val))
+        return [match ? [match] : [], []]
+      }
       return [initialCategories || [], []]
     }
     if (target === 'products') {
-      return [initialProducts || [], []]
+      let list = initialProducts || []
+      if (params.length > 0 && (upperSql.includes('WHERE ID = ?') || upperSql.includes('WHERE SLUG = ?') || upperSql.includes('P.ID = ?') || upperSql.includes('P.SLUG = ?') || (upperSql.includes('LIMIT 1') && !upperSql.includes('C.SLUG')))) {
+        const val = String(params[0]).toLowerCase()
+        const match = list.find(p => (p.slug && p.slug.toLowerCase() === val) || String(p.id) === val || (p.product_key && p.product_key.toLowerCase() === val))
+        if (match) return [[match], []]
+      }
+      if (upperSql.includes('C.SLUG = ?') || upperSql.includes('CATEGORY_ID = ?') || upperSql.includes('P.CATEGORY_ID = ?')) {
+        const catVal = String(params[0]).toLowerCase()
+        list = list.filter(p => {
+          if (String(p.category_id).toLowerCase() === catVal) return true
+          if (p.category && (
+            (p.category.slug && p.category.slug.toLowerCase() === catVal) ||
+            String(p.category.id).toLowerCase() === catVal ||
+            (p.category._id && String(p.category._id).toLowerCase() === catVal)
+          )) return true
+          if (Array.isArray(p.categories) && p.categories.some(c => (c.slug && c.slug.toLowerCase() === catVal) || String(c.id).toLowerCase() === catVal)) return true
+          return false
+        })
+      }
+      return [list, []]
     }
     if (target === 'services') {
-      return [initialData.services || [], []]
+      const allServices = initialServices || []
+      if (params.length > 0 && (upperSql.includes('WHERE') || upperSql.includes('LIMIT 1'))) {
+        const val = String(params[0]).toLowerCase()
+        const match = allServices.find(s => (s.slug && s.slug.toLowerCase() === val) || String(s.id) === val || (s.service_key && s.service_key.toLowerCase() === val))
+        return [match ? [match] : [], []]
+      }
+      return [allServices, []]
     }
     if (target === 'users' && upperSql.includes('SELECT')) {
       return [[{
@@ -500,6 +530,30 @@ async function executeSql(sql, params = []) {
       }
       const count = await Model.countDocuments(filter)
       return [[{ totalCount: count, count, cnt: count, 'COUNT(*)': count, 'COUNT(b.id)': count, 'COUNT(p.id)': count }], []]
+    }
+
+    // 3c2. SERVICES queries
+    if (targetTable === 'services') {
+      let filter = {}
+      if (params.length > 0) {
+        const val = params[0]
+        if (upperSql.includes('S.SLUG = ?') || upperSql.includes('WHERE SLUG = ?') || upperSql.includes('S.SERVICE_KEY = ?') || upperSql.includes('SLUG = ?')) {
+          filter = { $or: [{ slug: val }, { service_key: val }] }
+          const numId = Number(val)
+          if (!isNaN(numId) && numId > 0) filter.$or.push({ id: numId })
+        } else if (upperSql.includes('WHERE ID = ?') || upperSql.includes('S.ID = ?')) {
+          const numId = Number(val)
+          filter = !isNaN(numId) && numId > 0 ? { $or: [{ id: numId }, { service_key: String(val) }] } : { service_key: String(val) }
+        }
+      }
+      if (upperSql.includes('ACTIVE = 1') || upperSql.includes('S.ACTIVE = 1')) {
+        filter.active = true
+      }
+      let sort = { display_order: 1, id: 1 }
+      let queryObj = Service.find(filter).sort(sort)
+      if (upperSql.includes('LIMIT 1')) queryObj = queryObj.limit(1)
+      const docs = await queryObj.lean()
+      return [docs.map(normalizeDoc), []]
     }
 
     // 3d. CATEGORIES queries

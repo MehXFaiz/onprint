@@ -562,7 +562,7 @@ module.exports = {
       "slug": "flyers-printing-in-dubai",
       "category": {
         "_id": "cat-flyers-printing-in-dubai",
-        "name": "Office Stationery Printing",
+        "name": "Marketing Flyers & Leaflets",
         "slug": "flyers-printing-in-dubai"
       },
       "shortDescription": "High-impact marketing flyers printed on 170gsm–300gsm gloss or matte art paper with vibrant CMYK color fidelity.",

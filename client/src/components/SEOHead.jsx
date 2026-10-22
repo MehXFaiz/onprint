@@ -307,6 +307,11 @@ export default function SEOHead({
     if (effectiveKeywords) setMetaTag('name', 'keywords', effectiveKeywords)
     setMetaTag('name', 'robots', robotsDirective)
 
+    const googleVerification = import.meta.env.VITE_GOOGLE_SITE_VERIFICATION || dbSeo?.google_site_verification
+    if (googleVerification) {
+      setMetaTag('name', 'google-site-verification', googleVerification)
+    }
+
     // 3. Canonical Tag
     setCanonicalUrl(effectiveCanonical)
 

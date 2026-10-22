@@ -118,7 +118,8 @@ const DUBAI_BLOGS = [
       <p>Additionally, 600gsm boards are thick enough to feature <strong>hand-painted edge coloring</strong> or metallic foil edge gilding, creating a dazzling rim of gold, cyan, or corporate pantone color along the sides of the card stack.</p>
 
       <h2>Summary & Expert Recommendation</h2>
-      <p>If you are launching a startup or equipping a 50-person operational team, choose <strong>350gsm with velvet soft-touch lamination</strong>. If you are an executive, consultant, or luxury broker closing deals across Dubai and Abu Dhabi, upgrade to <strong>450gsm or 600gsm cotton with metallic gold foil</strong>. Request our physical sample swatch book or order online through our <a href="${SITE_URL}/get-a-quote">Instant Print Quote Portal</a>.</p>
+      <p>If you are launching a startup or equipping a corporate team, start with our <a href="/products/standard-business-cards">affordable standard 350gsm cards</a> or upgrade to <a href="/products/premium-business-cards">premium 400gsm matte business cards</a> with velvet soft-touch lamination. For founders, directors, and luxury real estate brokers closing major transactions across Dubai, DIFC, and Abu Dhabi, elevate your presence with <a href="/products/velvet-foil-business-cards">24K gold foil business cards</a> or architectural <a href="/products/luxury-painted-edge-business-cards">600–700gsm cotton cards with painted edges</a>.</p>
+      <p>Explore our full collection of finishes at our dedicated <a href="/business-card-printing-dubai">Business Card Printing Dubai Press</a>, browse our catalog of <a href="/categories/business-cards-printing">custom business cards</a>, or configure your batch instantly via our <a href="/quote/business-cards">Business Card Quote Builder</a>.</p>
     `,
   },
 

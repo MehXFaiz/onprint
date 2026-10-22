@@ -228,7 +228,34 @@ export default function CategoryDetailPage() {
   }
   breadcrumbsUi.push({ name: categoryName })
 
-  const categoryFaqs = [
+  const isBusinessCardCategory = (category.slug === 'business-cards-printing' || slug === 'business-cards-printing')
+
+  const categoryFaqs = isBusinessCardCategory ? [
+    {
+      question: 'How much does business card printing cost in Dubai?',
+      answer: 'Standard 300–350 GSM business cards start from AED 45 for 100 cards with full-colour digital printing (AED 120 for 500 cards). Upgraded cards with soft-touch velvet lamination start at AED 75. Luxury finishes like 24K hot foil stamping or raised 3D spot UV start from AED 150. High-volume corporate batches (1,000+ cards) receive tiered volume discounts down to AED 0.19 per card.',
+    },
+    {
+      question: 'What is the standard business card size in Dubai and the UAE?',
+      answer: 'The standard business card dimensions used in Dubai and across the UAE are: 1) European Standard: 85 x 55 mm (standard credit card ratio, fits all wallets), and 2) US Standard: 90 x 50 mm (3.5 x 2.0 inches). We also produce square cards (65 x 65 mm), slim profiles (85 x 40 mm), and custom CNC die-cut shapes with rounded corners.',
+    },
+    {
+      question: 'Can I order double-sided business card printing with bilingual English and Arabic?',
+      answer: 'Yes. Full-colour double-sided printing is standard across all our business card tiers at no extra plate charge. This is the preferred setup for UAE enterprises, featuring English typography on Side A and professional Arabic typography on Side B.',
+    },
+    {
+      question: 'Where can I find business card printing near me in Dubai with same-day delivery?',
+      answer: 'ONPRINT is located in Al Quoz Industrial Area, Dubai, centrally situated near Downtown, DIFC, Business Bay, Al Barsha, and Dubai Marina. We offer Same-Day 4-Hour Express printing for print-ready artwork submitted before 11:00 AM, with express courier delivery directly to your office.',
+    },
+    {
+      question: 'What paper stocks and luxury finishes are available for business cards?',
+      answer: 'We maintain extensive stocks including 300 GSM artboard, 350 GSM silk card, 400 GSM heavyweight matte, 450 GSM velvet board, and 600–700 GSM Italian multi-ply cotton. Available finishes include protective matte/gloss, velvet soft-touch, 24K mirror gold/silver/rose gold hot foil stamping, raised 3D spot UV, sculptural embossing, and 360° painted gilded edges.',
+    },
+    {
+      question: 'How do I order business cards and send my artwork via WhatsApp?',
+      answer: 'Simply click "Get WhatsApp Quote" or "Order on WhatsApp" on any product card. You can message us your required quantity, card finish, and attach your logo or PDF artwork. Our pre-press team conducts a free 300 DPI resolution and CMYK check before printing.',
+    },
+  ] : [
     {
       question: `What materials and print stocks are used for ${categoryName} in Dubai?`,
       answer: `ONPRINT crafts ${categoryName} using FSC-certified stocks from 120gsm to 450gsm, premium cotton boards, heavy aluminum cassettes, synthetic waterproof films, and luxury metallic foiling.`,

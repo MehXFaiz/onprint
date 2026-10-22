@@ -395,7 +395,9 @@ export default function HomePage() {
 
                   <div className="space-y-2">
                     <h3 className="font-serif text-lg font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
-                      Business Card Printing
+                      <Link to="/business-card-printing-dubai" className="hover:underline">
+                        Business Card Printing
+                      </Link>
                     </h3>
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Executive 350–600 GSM Italian cotton &amp; silk artboard. 24K hot gold foil, velvet soft-touch, 3D spot UV &amp; gilded painted edges.

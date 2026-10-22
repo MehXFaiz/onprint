@@ -36,19 +36,58 @@
         "slug": "business-cards-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Standard Business Cards Dubai | 300gsm Card Printing | ONPRINT",
-    "seoDescription": "Order clean 300gsm standard business cards in Dubai with crisp colour printing and practical matte or silk finishes for everyday networking.",
-    "seoKeywords": "standard business cards dubai, 300gsm business cards, affordable card printing dubai",
-    "seoHeading": "Standard 300gsm Business Cards in Dubai",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85 x 55 mm (EU Standard)",
+          "value": "85x55"
+        },
+        {
+          "label": "90 x 50 mm (US Standard)",
+          "value": "90x50"
+        },
+        {
+          "label": "65 x 65 mm (Square)",
+          "value": "65x65"
+        }
+      ],
+      "materials": [
+        {
+          "label": "350 GSM Standard Silk / Matte",
+          "value": "350gsm-silk"
+        },
+        {
+          "label": "300 GSM Economy Artboard",
+          "value": "300gsm-artboard"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Smooth Matte Lamination",
+          "value": "matte"
+        },
+        {
+          "label": "High-Gloss UV Coating",
+          "value": "gloss"
+        },
+        {
+          "label": "Double-Sided Printing",
+          "value": "double-sided"
+        }
+      ]
+    },
+    "seoTitle": "Affordable Business Card Printing Dubai | 350gsm Standard Cards | ONPRINT",
+    "seoDescription": "Affordable business card printing in Dubai from AED 45. Standard 300–350 GSM silk cards with matte or glossy lamination and double-sided printing with express same-day dispatch.",
+    "seoKeywords": "affordable business card printing dubai, standard business cards dubai, glossy business cards dubai, double-sided business card printing dubai, cheap business cards dubai, business card printing near me",
+    "seoHeading": "Affordable Standard Business Card Printing in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/standard-business-cards",
-    "imageAlt": "Standard clean 350gsm business cards printing Dubai",
-    "seo_title": "Standard Business Cards Dubai | 300gsm Card Printing | ONPRINT",
-    "seo_description": "Order clean 300gsm standard business cards in Dubai with crisp colour printing and practical matte or silk finishes for everyday networking.",
-    "seo_keywords": "standard business cards dubai, 300gsm business cards, affordable card printing dubai",
-    "seo_heading": "Standard 300gsm Business Cards in Dubai",
+    "imageAlt": "Affordable double-sided business card printing Dubai",
+    "seo_title": "Affordable Business Card Printing Dubai | 350gsm Standard Cards | ONPRINT",
+    "seo_description": "Affordable business card printing in Dubai from AED 45. Standard 300–350 GSM silk cards with matte or glossy lamination and double-sided printing with express same-day dispatch.",
+    "seo_keywords": "affordable business card printing dubai, standard business cards dubai, glossy business cards dubai, double-sided business card printing dubai, cheap business cards dubai, business card printing near me",
+    "seo_heading": "Affordable Standard Business Card Printing in Dubai",
     "canonical_url": "https://www.0nprint.com/products/standard-business-cards",
-    "image_alt": "Standard clean 350gsm business cards printing Dubai"
+    "image_alt": "Affordable double-sided business card printing Dubai"
   },
   {
     "_id": "prod-102",
@@ -87,17 +126,56 @@
         "slug": "business-cards-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Premium Business Cards Dubai | Luxury Executive Cards | ONPRINT",
-    "seoDescription": "Luxury premium business cards in Dubai with textured stock, gold foil, and custom finishing options for executives and agencies.",
-    "seoKeywords": "premium business cards dubai, luxury cards uae, executive business cards dubai",
-    "seoHeading": "Premium Matte Business Cards",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85 x 55 mm (EU Standard)",
+          "value": "85x55"
+        },
+        {
+          "label": "90 x 50 mm (US Standard)",
+          "value": "90x50"
+        },
+        {
+          "label": "65 x 65 mm (Square)",
+          "value": "65x65"
+        }
+      ],
+      "materials": [
+        {
+          "label": "400 GSM Heavyweight Matte Board",
+          "value": "400gsm-matte"
+        },
+        {
+          "label": "350 GSM Silk Artboard",
+          "value": "350gsm-silk"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Anti-Scuff Matte Coating",
+          "value": "anti-scuff-matte"
+        },
+        {
+          "label": "3mm Rounded Corners",
+          "value": "rounded-corners"
+        },
+        {
+          "label": "Double-Sided Bilingual",
+          "value": "double-sided"
+        }
+      ]
+    },
+    "seoTitle": "Matte Business Cards Dubai | Premium 400gsm Executive Cards | ONPRINT",
+    "seoDescription": "Order premium matte business cards in Dubai. Heavyweight 400 GSM artboard with double-sided anti-scuff matte coating, deep black contrast, and clean square or rounded corners.",
+    "seoKeywords": "matte business cards dubai, premium business cards dubai, professional business card printing dubai, corporate business cards dubai, 400gsm business cards dubai",
+    "seoHeading": "Premium Matte Business Card Printing in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/premium-business-cards",
     "imageAlt": "Premium 400gsm matte business cards Dubai",
-    "seo_title": "Premium Business Cards Dubai | Luxury Executive Cards | ONPRINT",
-    "seo_description": "Luxury premium business cards in Dubai with textured stock, gold foil, and custom finishing options for executives and agencies.",
-    "seo_keywords": "premium business cards dubai, luxury cards uae, executive business cards dubai",
-    "seo_heading": "Premium Matte Business Cards",
+    "seo_title": "Matte Business Cards Dubai | Premium 400gsm Executive Cards | ONPRINT",
+    "seo_description": "Order premium matte business cards in Dubai. Heavyweight 400 GSM artboard with double-sided anti-scuff matte coating, deep black contrast, and clean square or rounded corners.",
+    "seo_keywords": "matte business cards dubai, premium business cards dubai, professional business card printing dubai, corporate business cards dubai, 400gsm business cards dubai",
+    "seo_heading": "Premium Matte Business Card Printing in Dubai",
     "canonical_url": "https://www.0nprint.com/products/premium-business-cards",
     "image_alt": "Premium 400gsm matte business cards Dubai"
   },
@@ -138,19 +216,50 @@
         "slug": "business-cards-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Premium Soft-Touch Business Cards Dubai | ONPRINT",
-    "seoDescription": "Premium 350gsm soft-touch business cards in Dubai with optional spot UV detailing and refined finishing for professional brands.",
-    "seoKeywords": "soft touch business cards dubai, 350gsm business cards, premium visiting cards uae",
-    "seoHeading": "Premium Soft-Touch Business Cards in Dubai",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85 x 55 mm (EU Standard)",
+          "value": "85x55"
+        },
+        {
+          "label": "90 x 50 mm (US Standard)",
+          "value": "90x50"
+        }
+      ],
+      "materials": [
+        {
+          "label": "350 GSM Velvet Board",
+          "value": "350gsm-velvet"
+        },
+        {
+          "label": "400 GSM Heavy Velvet Board",
+          "value": "400gsm-velvet"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Velvet Peach-Skin Soft-Touch",
+          "value": "velvet-softtouch"
+        },
+        {
+          "label": "Anti-Fingerprint Matte Seal",
+          "value": "anti-fingerprint"
+        }
+      ]
+    },
+    "seoTitle": "Soft-Touch Velvet Business Cards Dubai | Tactile Executive Cards | ONPRINT",
+    "seoDescription": "Silky soft-touch business cards in Dubai on 350–400 GSM board. Anti-fingerprint velvet peach-skin lamination delivering tactile luxury for corporate executives and consultants.",
+    "seoKeywords": "soft touch business cards dubai, velvet business cards dubai, custom business cards dubai, premium business cards uae, luxury business cards dubai",
+    "seoHeading": "Tactile Soft-Touch Velvet Business Cards in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/premium-soft-touch-business-cards",
-    "imageAlt": "Premium soft-touch velvet business cards Dubai",
-    "seo_title": "Premium Soft-Touch Business Cards Dubai | ONPRINT",
-    "seo_description": "Premium 350gsm soft-touch business cards in Dubai with optional spot UV detailing and refined finishing for professional brands.",
-    "seo_keywords": "soft touch business cards dubai, 350gsm business cards, premium visiting cards uae",
-    "seo_heading": "Premium Soft-Touch Business Cards in Dubai",
+    "imageAlt": "Soft-touch velvet laminated business cards Dubai",
+    "seo_title": "Soft-Touch Velvet Business Cards Dubai | Tactile Executive Cards | ONPRINT",
+    "seo_description": "Silky soft-touch business cards in Dubai on 350–400 GSM board. Anti-fingerprint velvet peach-skin lamination delivering tactile luxury for corporate executives and consultants.",
+    "seo_keywords": "soft touch business cards dubai, velvet business cards dubai, custom business cards dubai, premium business cards uae, luxury business cards dubai",
+    "seo_heading": "Tactile Soft-Touch Velvet Business Cards in Dubai",
     "canonical_url": "https://www.0nprint.com/products/premium-soft-touch-business-cards",
-    "image_alt": "Premium soft-touch velvet business cards Dubai"
+    "image_alt": "Soft-touch velvet laminated business cards Dubai"
   },
   {
     "_id": "prod-104",
@@ -189,19 +298,62 @@
         "slug": "business-cards-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Velvet Foil Business Cards Dubai | 450gsm Luxury Cards | ONPRINT",
-    "seoDescription": "Make a premium impression with 450gsm velvet foil business cards in Dubai, available with tactile lamination and gold or silver foil.",
-    "seoKeywords": "velvet foil business cards dubai, 450gsm business cards, gold foil visiting cards",
-    "seoHeading": "450gsm Velvet Foil Business Cards in Dubai",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85 x 55 mm (EU Standard)",
+          "value": "85x55"
+        },
+        {
+          "label": "90 x 50 mm (US Standard)",
+          "value": "90x50"
+        }
+      ],
+      "materials": [
+        {
+          "label": "450 GSM Velvet Soft-Touch Board",
+          "value": "450gsm-velvet"
+        },
+        {
+          "label": "400 GSM Matte Board",
+          "value": "400gsm-matte"
+        },
+        {
+          "label": "600 GSM Italian Cotton",
+          "value": "600gsm-cotton"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "24K Mirror Gold Foil",
+          "value": "gold-foil"
+        },
+        {
+          "label": "Rose Gold Metallic Foil",
+          "value": "rosegold-foil"
+        },
+        {
+          "label": "Silver Chrome Metallic Foil",
+          "value": "silver-foil"
+        },
+        {
+          "label": "Copper / Bronze Foil",
+          "value": "copper-foil"
+        }
+      ]
+    },
+    "seoTitle": "Foil Business Cards Dubai | 24K Gold & Metallic Foil Cards | ONPRINT",
+    "seoDescription": "Stunning metallic foil business cards in Dubai. 24K mirror gold, silver, rose gold, and copper foil hot stamped on 450 GSM velvet soft-touch board. Express Al Quoz production.",
+    "seoKeywords": "foil business cards dubai, gold foil business cards dubai, luxury business cards dubai, custom printed business cards uae, metallic foil cards dubai",
+    "seoHeading": "24K Gold & Metallic Foil Business Card Printing in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/velvet-foil-business-cards",
-    "imageAlt": "24K Gold foil velvet business cards Dubai",
-    "seo_title": "Velvet Foil Business Cards Dubai | 450gsm Luxury Cards | ONPRINT",
-    "seo_description": "Make a premium impression with 450gsm velvet foil business cards in Dubai, available with tactile lamination and gold or silver foil.",
-    "seo_keywords": "velvet foil business cards dubai, 450gsm business cards, gold foil visiting cards",
-    "seo_heading": "450gsm Velvet Foil Business Cards in Dubai",
+    "imageAlt": "24K gold foil luxury business cards Dubai",
+    "seo_title": "Foil Business Cards Dubai | 24K Gold & Metallic Foil Cards | ONPRINT",
+    "seo_description": "Stunning metallic foil business cards in Dubai. 24K mirror gold, silver, rose gold, and copper foil hot stamped on 450 GSM velvet soft-touch board. Express Al Quoz production.",
+    "seo_keywords": "foil business cards dubai, gold foil business cards dubai, luxury business cards dubai, custom printed business cards uae, metallic foil cards dubai",
+    "seo_heading": "24K Gold & Metallic Foil Business Card Printing in Dubai",
     "canonical_url": "https://www.0nprint.com/products/velvet-foil-business-cards",
-    "image_alt": "24K Gold foil velvet business cards Dubai"
+    "image_alt": "24K gold foil luxury business cards Dubai"
   },
   {
     "_id": "prod-105",
@@ -240,19 +392,54 @@
         "slug": "business-cards-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Raised Ink Business Cards Dubai | Thermography Cards | ONPRINT",
-    "seoDescription": "Tactile raised ink business cards in Dubai with thermography embossed finish on 450gsm luxury stock for executives and agencies.",
-    "seoKeywords": "raised ink business cards dubai, thermography cards uae, embossed business cards dubai",
-    "seoHeading": "Raised Ink & 3D Spot UV Cards",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85 x 55 mm (EU Standard)",
+          "value": "85x55"
+        },
+        {
+          "label": "90 x 50 mm (US Standard)",
+          "value": "90x50"
+        }
+      ],
+      "materials": [
+        {
+          "label": "400 GSM Silk Artboard",
+          "value": "400gsm-silk"
+        },
+        {
+          "label": "450 GSM Heavyweight Velvet Board",
+          "value": "450gsm-velvet"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Raised 3D Scodix Spot UV",
+          "value": "raised-spot-uv"
+        },
+        {
+          "label": "Sculptural Blind Embossing",
+          "value": "embossing"
+        },
+        {
+          "label": "Deep Blind Debossing",
+          "value": "debossing"
+        }
+      ]
+    },
+    "seoTitle": "Spot UV & Embossed Business Cards Dubai | Raised 3D Scodix Cards | ONPRINT",
+    "seoDescription": "High-build 3D spot UV and embossed business cards in Dubai. Sculptural gloss tactile relief, blind debossing, and textured finishes on 400–450 GSM cardstock.",
+    "seoKeywords": "spot uv business cards dubai, embossed business cards dubai, raised ink business cards dubai, 3d scodix cards uae, debossed business cards dubai",
+    "seoHeading": "Raised 3D Spot UV & Embossed Business Cards in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/raised-ink-business-cards",
-    "imageAlt": "Raised ink 3D Spot UV business cards Dubai",
-    "seo_title": "Raised Ink Business Cards Dubai | Thermography Cards | ONPRINT",
-    "seo_description": "Tactile raised ink business cards in Dubai with thermography embossed finish on 450gsm luxury stock for executives and agencies.",
-    "seo_keywords": "raised ink business cards dubai, thermography cards uae, embossed business cards dubai",
-    "seo_heading": "Raised Ink & 3D Spot UV Cards",
+    "imageAlt": "Raised 3D spot UV and embossed business cards Dubai",
+    "seo_title": "Spot UV & Embossed Business Cards Dubai | Raised 3D Scodix Cards | ONPRINT",
+    "seo_description": "High-build 3D spot UV and embossed business cards in Dubai. Sculptural gloss tactile relief, blind debossing, and textured finishes on 400–450 GSM cardstock.",
+    "seo_keywords": "spot uv business cards dubai, embossed business cards dubai, raised ink business cards dubai, 3d scodix cards uae, debossed business cards dubai",
+    "seo_heading": "Raised 3D Spot UV & Embossed Business Cards in Dubai",
     "canonical_url": "https://www.0nprint.com/products/raised-ink-business-cards",
-    "image_alt": "Raised ink 3D Spot UV business cards Dubai"
+    "image_alt": "Raised 3D spot UV and embossed business cards Dubai"
   },
   {
     "_id": "prod-106",
@@ -291,19 +478,54 @@
         "slug": "business-cards-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Luxury Painted-Edge Business Cards Dubai | 600gsm Cards | ONPRINT",
-    "seoDescription": "Order substantial 600gsm painted-edge business cards in Dubai with foil and embossing options for luxury corporate identities.",
-    "seoKeywords": "painted edge business cards dubai, 600gsm business cards, luxury business cards uae",
-    "seoHeading": "600gsm Luxury Painted-Edge Business Cards in Dubai",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85 x 55 mm (EU Standard)",
+          "value": "85x55"
+        },
+        {
+          "label": "90 x 50 mm (US Standard)",
+          "value": "90x50"
+        }
+      ],
+      "materials": [
+        {
+          "label": "600 GSM Multi-Ply Cotton Board",
+          "value": "600gsm-cotton"
+        },
+        {
+          "label": "700 GSM Archival Italian Board",
+          "value": "700gsm-cotton"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "360° Mirror Gold Gilded Edges",
+          "value": "gold-edge"
+        },
+        {
+          "label": "Silver Chrome Painted Edges",
+          "value": "silver-edge"
+        },
+        {
+          "label": "Custom Pantone Painted Edges",
+          "value": "pantone-edge"
+        }
+      ]
+    },
+    "seoTitle": "Luxury Business Cards Dubai | 600–700gsm Cotton Painted Edge | ONPRINT",
+    "seoDescription": "Flagship luxury business cards in Dubai. Ultra-thick 600–700 GSM multi-ply Italian cotton board with 360° mirror gold, silver, or custom painted gilded edges.",
+    "seoKeywords": "luxury business cards dubai, luxury business cards uae, thick business cards dubai, painted edge business cards dubai, cotton business cards dubai, executive visiting cards",
+    "seoHeading": "Ultra-Thick 600–700gsm Luxury Business Cards in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/luxury-painted-edge-business-cards",
-    "imageAlt": "Luxury gilded painted edge business cards Dubai",
-    "seo_title": "Luxury Painted-Edge Business Cards Dubai | 600gsm Cards | ONPRINT",
-    "seo_description": "Order substantial 600gsm painted-edge business cards in Dubai with foil and embossing options for luxury corporate identities.",
-    "seo_keywords": "painted edge business cards dubai, 600gsm business cards, luxury business cards uae",
-    "seo_heading": "600gsm Luxury Painted-Edge Business Cards in Dubai",
+    "imageAlt": "Ultra-thick luxury painted edge business cards Dubai",
+    "seo_title": "Luxury Business Cards Dubai | 600–700gsm Cotton Painted Edge | ONPRINT",
+    "seo_description": "Flagship luxury business cards in Dubai. Ultra-thick 600–700 GSM multi-ply Italian cotton board with 360° mirror gold, silver, or custom painted gilded edges.",
+    "seo_keywords": "luxury business cards dubai, luxury business cards uae, thick business cards dubai, painted edge business cards dubai, cotton business cards dubai, executive visiting cards",
+    "seo_heading": "Ultra-Thick 600–700gsm Luxury Business Cards in Dubai",
     "canonical_url": "https://www.0nprint.com/products/luxury-painted-edge-business-cards",
-    "image_alt": "Luxury gilded painted edge business cards Dubai"
+    "image_alt": "Ultra-thick luxury painted edge business cards Dubai"
   },
   {
     "_id": "prod-107",
@@ -342,17 +564,52 @@
         "slug": "business-cards-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Plastic PVC Business Cards Dubai | Clear Frosted Waterproof Cards | ONPRINT",
-    "seoDescription": "Waterproof plastic PVC business cards in Dubai. Clear transparent, frosted matte or solid white with optional signature panels and holograms.",
-    "seoKeywords": "pvc business cards dubai, plastic cards uae, clear transparent cards dubai, frosted business cards",
-    "seoHeading": "Plastic PVC Business Cards",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "85.6 x 54 mm (CR80 Credit Card Size)",
+          "value": "cr80"
+        }
+      ],
+      "materials": [
+        {
+          "label": "760 Micron Solid White PVC",
+          "value": "760mic-white"
+        },
+        {
+          "label": "500 Micron Frosted Translucent PVC",
+          "value": "500mic-frosted"
+        },
+        {
+          "label": "500 Micron Crystal Clear PVC",
+          "value": "500mic-clear"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Waterproof Scratch-Resistant Finish",
+          "value": "waterproof"
+        },
+        {
+          "label": "3mm Credit Card Rounded Corners",
+          "value": "rounded-corners"
+        },
+        {
+          "label": "Metallic Hot Foil Stamping",
+          "value": "foil-stamp"
+        }
+      ]
+    },
+    "seoTitle": "Plastic PVC Business Cards Dubai | Waterproof Clear & Frosted | ONPRINT",
+    "seoDescription": "Durable waterproof PVC business cards in Dubai. 760-micron solid white, frosted translucent, or crystal clear plastic cards with optional foil accents and rounded corners.",
+    "seoKeywords": "pvc business cards dubai, plastic business cards dubai, waterproof business cards uae, clear frosted business cards dubai, custom business cards dubai",
+    "seoHeading": "Waterproof Plastic PVC Business Cards in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/plastic-pvc-business-cards",
     "imageAlt": "Waterproof clear and frosted PVC business cards Dubai",
-    "seo_title": "Plastic PVC Business Cards Dubai | Clear Frosted Waterproof Cards | ONPRINT",
-    "seo_description": "Waterproof plastic PVC business cards in Dubai. Clear transparent, frosted matte or solid white with optional signature panels and holograms.",
-    "seo_keywords": "pvc business cards dubai, plastic cards uae, clear transparent cards dubai, frosted business cards",
-    "seo_heading": "Plastic PVC Business Cards",
+    "seo_title": "Plastic PVC Business Cards Dubai | Waterproof Clear & Frosted | ONPRINT",
+    "seo_description": "Durable waterproof PVC business cards in Dubai. 760-micron solid white, frosted translucent, or crystal clear plastic cards with optional foil accents and rounded corners.",
+    "seo_keywords": "pvc business cards dubai, plastic business cards dubai, waterproof business cards uae, clear frosted business cards dubai, custom business cards dubai",
+    "seo_heading": "Waterproof Plastic PVC Business Cards in Dubai",
     "canonical_url": "https://www.0nprint.com/products/plastic-pvc-business-cards",
     "image_alt": "Waterproof clear and frosted PVC business cards Dubai"
   },

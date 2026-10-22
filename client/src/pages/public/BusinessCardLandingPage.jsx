@@ -754,6 +754,13 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
     name: `${pageData?.h1 || 'Business Cards'} - ONPRINT Dubai`,
     description: pageData?.metaDescription || 'Business card printing in Dubai.',
     image: '/uploads/categories/business-cards-printing.jpg',
+    price: 45,
+    currency: 'AED',
+    sku: 'ONP-BC-DUBAI',
+    brand: {
+      '@type': 'Brand',
+      name: 'ONPRINT',
+    },
   }
 
   return (
@@ -1361,15 +1368,40 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   </div>
                 </div>
 
-                <div className="p-5 pt-0">
+                <div className="p-5 pt-0 grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={() => scrollToQuote(card.title, card.specs.split('•')[0].trim())}
-                    className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#D4AF65] py-2.5 text-xs font-black uppercase tracking-wider text-[#0F172A] transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-xs"
+                    className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#C49E52] py-2 text-[11px] font-black uppercase tracking-wider text-[#0F172A] transition-all cursor-pointer flex items-center justify-center gap-1 shadow-xs"
                   >
-                    <span>Quote This Card</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <span>Instant Quote</span>
+                    <ArrowRight className="h-3 w-3" />
                   </button>
+
+                  <a
+                    href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`Hello ONPRINT, I need business card printing in Dubai for ${card.title} (${card.gsm}). Please share your available options, prices, and delivery time.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackWhatsAppClick({
+                        source_page: pageData?.path || '/business-card-printing-dubai',
+                        service: 'business-cards',
+                        product_name: card.title,
+                        button_location: 'card_variation_grid',
+                        label: `card_grid_whatsapp_${card.id}`,
+                      })
+                      trackProductInquiry({
+                        source_page: pageData?.path || '/business-card-printing-dubai',
+                        product_name: card.title,
+                        button_location: 'card_variation_grid',
+                      })
+                    }}
+                    className="w-full rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2 text-[11px] font-bold text-white transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-xs"
+                    title={`Inquire about ${card.title} on WhatsApp`}
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
+                    <span>WhatsApp</span>
+                  </a>
                 </div>
               </div>
             </Reveal>

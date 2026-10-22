@@ -50,11 +50,13 @@ export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 // 2. Official Core Service Prefilled Inquiries (Clean, Direct & High-Converting)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    'Hello ONPRINT, I need a quotation for custom business cards. Quantity: 100+. Material/GSM: 350 GSM Silk / Matte. Finish: Matte Lamination. Delivery location: Dubai, UAE. Please share available options and pricing.',
+    'Hello ONPRINT, I need business card printing in Dubai. Please share your available options, prices, and delivery time.',
   'business-cards-printing':
-    'Hello ONPRINT, I need a quotation for custom business cards. Quantity: 100+. Material/GSM: 350 GSM Silk / Matte. Finish: Matte Lamination. Delivery location: Dubai, UAE. Please share available options and pricing.',
+    'Hello ONPRINT, I need business card printing in Dubai. Please share your available options, prices, and delivery time.',
   'business-card-printing-dubai':
-    'Hello ONPRINT, I need a quotation for custom business cards in Dubai. Quantity: 100+. Material/GSM: 350 GSM Silk / Matte. Finish: Matte Lamination. Delivery location: Dubai, UAE. Please share available options and pricing.',
+    'Hello ONPRINT, I need business card printing in Dubai. Please share your available options, prices, and delivery time.',
+  'business-card-printing-uae':
+    'Hello ONPRINT, I need corporate business card printing across the UAE. Please share your available card stocks, volume prices, and delivery schedule.',
 
   'bottle-printing':
     'Hello 0nprint, I am interested in ordering Custom Printed Water Bottles (Thermal Stainless Steel / Smart LED / Sports Bottles). Please share available models, minimum quantities, UV print / laser engraving prices, and delivery details.',
@@ -178,11 +180,15 @@ export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
 
   let baseMessage = SERVICE_INQUIRY_MESSAGES[canonicalKey] || SERVICE_INQUIRY_MESSAGES.general
   if (canonicalKey === 'business-cards') {
-    const qty = details.quantity || '100+'
-    const mat = details.material || details.paper || details.stock || '350 GSM Silk / Matte'
-    const fin = details.finish || details.finishing || 'Matte Lamination'
-    const loc = details.deliveryLocation || details.location || 'Dubai, UAE'
-    baseMessage = `Hello ONPRINT, I need a quotation for custom ${prodName || 'business cards'}. Quantity: ${qty}. Material/GSM: ${mat}. Finish: ${fin}. Delivery location: ${loc}. Please share available options and pricing.`
+    if (prodName) {
+      if (intent === 'order') {
+        baseMessage = `Hello ONPRINT, I would like to order ${prodName} in Dubai. Please confirm the total price, artwork check, and delivery time.`
+      } else {
+        baseMessage = `Hello ONPRINT, I need business card printing in Dubai for ${prodName}. Please share your available options, prices, and delivery time.`
+      }
+    } else {
+      baseMessage = 'Hello ONPRINT, I need business card printing in Dubai. Please share your available options, prices, and delivery time.'
+    }
   } else if (prodName) {
     if (intent === 'order') {
       baseMessage = `Hello ONPRINT, I would like to order ${prodName}. Please confirm total price, artwork check, and delivery details.`
@@ -324,16 +330,20 @@ export function formatBusinessCardInquiry({
   notes = '',
 } = {}) {
   const parts = [
-    `Hello ONPRINT, I need a quotation for custom business cards. Quantity: ${quantity}. Material/GSM: ${material}. Finish: ${finish}. Delivery location: ${location}. Please share available options and pricing.`
+    'Hello ONPRINT, I need business card printing in Dubai. Please share your available options, prices, and delivery time.'
   ]
   const extra = []
+  if (quantity) extra.push(`• Quantity: ${quantity}`)
+  if (material) extra.push(`• Cardstock: ${material}`)
+  if (finish) extra.push(`• Finish / Coating: ${finish}`)
+  if (location) extra.push(`• Delivery Location: ${location}`)
   if (name) extra.push(`• Client Name: ${name}`)
   if (company) extra.push(`• Company: ${company}`)
   if (artwork) extra.push(`• Artwork: ${typeof artwork === 'string' ? artwork : (artwork?.name || 'File attached')}`)
   if (notes) extra.push(`• Notes: ${notes}`)
 
   if (extra.length > 0) {
-    parts.push(`\n*Additional Details:*\n${extra.join('\n')}`)
+    parts.push(`\n*Specifications:*\n${extra.join('\n')}`)
   }
   return parts.join('\n')
 }

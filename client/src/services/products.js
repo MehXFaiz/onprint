@@ -1,5 +1,6 @@
 import api from './api'
 import catalogProducts from '../data/catalogProducts.json'
+import { resolveCanonicalCategorySlug } from '../utils/categoryMapping'
 
 export const defaultProducts = catalogProducts
 
@@ -346,33 +347,85 @@ export async function getProducts(params = {}) {
   
   if (params.featured) list = list.filter((p) => p.featured)
   if (params.category) {
-    const categoryParam = params.category.toLowerCase()
-    const isStickerCategory = categoryParam === 'stickers-printing-dubai' || categoryParam === 'stickers-labels-printing' || categoryParam === 'custom-stickers-dubai'
+    const rawCategory = String(params.category).toLowerCase().trim()
+    const categoryParam = resolveCanonicalCategorySlug(rawCategory)
 
     list = list.filter((p) => {
       const catSlug = p.category?.slug?.toLowerCase() || ''
+      const catCanonical = resolveCanonicalCategorySlug(catSlug)
       const catId = p.category?._id?.toLowerCase() || ''
       const catName = p.category?.name?.toLowerCase() || ''
-      
-      // Sticker category alias match
-      if (isStickerCategory && (catSlug === 'stickers-labels-printing' || catSlug === 'stickers-printing-dubai' || p.slug.includes('sticker') || p.slug.includes('label'))) {
+
+      // 1. Canonical slug match or raw slug match
+      if (
+        catCanonical === categoryParam ||
+        catSlug === categoryParam ||
+        catSlug === rawCategory ||
+        catId === categoryParam ||
+        catId === rawCategory
+      ) {
         return true
       }
 
-      // Exact match first
-      if (catSlug === categoryParam || catId === categoryParam) return true
-      
-      // Partial name match only if it's a clear match (not just containing the word)
-      if (catName === categoryParam) return true
-      
-      // Check secondary categories
+      // 2. Specific alias fallbacks for main commercial categories
+      if (
+        categoryParam === 'rollup-banners' &&
+        (catSlug.includes('rollup') || catSlug.includes('roll-up') || p.slug.includes('rollup') || p.slug.includes('roll-up') || p.slug.includes('pull-up') || p.slug.includes('retractable'))
+      ) {
+        return true
+      }
+
+      if (
+        categoryParam === 'stickers-labels-printing' &&
+        (catSlug.includes('sticker') || catSlug.includes('label') || p.slug.includes('sticker') || p.slug.includes('label'))
+      ) {
+        return true
+      }
+
+      if (
+        categoryParam === 'stamps-printing-dubai' &&
+        (catSlug.includes('stamp') || catSlug.includes('seal') || p.slug.includes('stamp') || p.slug.includes('seal') || p.slug.includes('dater'))
+      ) {
+        return true
+      }
+
+      if (
+        categoryParam === 'business-cards-printing' &&
+        (catSlug.includes('business-card') || p.slug.includes('business-card'))
+      ) {
+        return true
+      }
+
+      if (
+        categoryParam === 'letterheads-printing-dubai' &&
+        (catSlug.includes('letterhead') || p.slug.includes('letterhead') || p.slug.includes('presentation-folder') || p.slug.includes('corporate-envelope'))
+      ) {
+        return true
+      }
+
+      if (
+        categoryParam === 'bottle-printing-dubai' &&
+        (catSlug.includes('bottle') || p.slug.includes('bottle') || p.slug.includes('flask') || p.slug.includes('shaker'))
+      ) {
+        return true
+      }
+
+      // 3. Partial name match
+      if (catName === categoryParam || catName === rawCategory) return true
+
+      // 4. Secondary categories
       const secondaryCats = p.categories || []
-      const hasSecondaryMatch = secondaryCats.some(cat => 
-        cat.slug?.toLowerCase() === categoryParam || 
-        cat._id?.toLowerCase() === categoryParam ||
-        cat.name?.toLowerCase() === categoryParam
-      )
-      return hasSecondaryMatch
+      return secondaryCats.some((cat) => {
+        const sSlug = cat.slug?.toLowerCase() || ''
+        const sCanonical = resolveCanonicalCategorySlug(sSlug)
+        return (
+          sCanonical === categoryParam ||
+          sSlug === categoryParam ||
+          sSlug === rawCategory ||
+          cat._id?.toLowerCase() === categoryParam ||
+          cat._id?.toLowerCase() === rawCategory
+        )
+      })
     })
   }
   if (params.q) {

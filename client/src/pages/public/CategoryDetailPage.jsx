@@ -36,9 +36,14 @@ import {
   getDepartmentForCategory,
   MASTER_DEPARTMENTS,
 } from '../../data/masterDepartments'
+import {
+  resolveCanonicalCategorySlug,
+  getCategoryImage,
+} from '../../utils/categoryMapping'
 
 export default function CategoryDetailPage() {
   const { slug } = useParams()
+  const canonicalSlug = useMemo(() => resolveCanonicalCategorySlug(slug), [slug])
 
   const [category, setCategory] = useState(null)
   const [products, setProducts] = useState([])
@@ -49,13 +54,13 @@ export default function CategoryDetailPage() {
   const [selectedSubcatFilter, setSelectedSubcatFilter] = useState('all')
   const [deptSearchQuery, setDeptSearchQuery] = useState('')
 
-  const isDept = isDepartmentSlug(slug)
+  const isDept = isDepartmentSlug(slug) || isDepartmentSlug(canonicalSlug)
   const departmentInfo = useMemo(() => {
     if (isDept) {
-      return getDepartmentBySlug(slug)
+      return getDepartmentBySlug(slug) || getDepartmentBySlug(canonicalSlug)
     }
-    return getDepartmentForCategory(slug)
-  }, [isDept, slug])
+    return getDepartmentForCategory(canonicalSlug) || getDepartmentForCategory(slug)
+  }, [isDept, slug, canonicalSlug])
 
   useEffect(() => {
     let isMounted = true
@@ -69,7 +74,7 @@ export default function CategoryDetailPage() {
         const allCats = await getCategories().catch(() => [])
 
         if (isDept) {
-          const dept = getDepartmentBySlug(slug)
+          const dept = getDepartmentBySlug(slug) || getDepartmentBySlug(canonicalSlug)
           if (!dept) {
             if (isMounted) setError(true)
             return
@@ -102,21 +107,33 @@ export default function CategoryDetailPage() {
 
           if (isMounted) {
             setProducts(deptProds)
-            setOtherCategories(MASTER_DEPARTMENTS.filter((d) => d.slug !== slug))
+            setOtherCategories(MASTER_DEPARTMENTS.filter((d) => d.slug !== dept.slug))
           }
         } else {
           // Standard Category / Subcategory Lookup
-          const catData = await getCategoryById(slug)
-          const matched = catData || allCats.find((c) => c.slug === slug || String(c.id) === slug)
+          const catData = await getCategoryById(canonicalSlug || slug)
+          const matched = catData || allCats.find((c) => {
+            const cs = resolveCanonicalCategorySlug(c.slug)
+            return cs === canonicalSlug || c.slug === slug || String(c.id) === slug || String(c.id) === canonicalSlug
+          })
 
           if (matched && isMounted) {
-            setCategory(matched)
+            const verifiedImage = getCategoryImage(matched)
+            const safeCategory = {
+              ...matched,
+              slug: matched.slug || canonicalSlug,
+              image: verifiedImage,
+              image_url: verifiedImage,
+            }
+            setCategory(safeCategory)
             if (Array.isArray(allCats)) {
-              setOtherCategories(allCats.filter((c) => c.slug !== slug && String(c.id) !== slug).slice(0, 6))
+              setOtherCategories(
+                allCats.filter((c) => c.slug !== canonicalSlug && c.slug !== slug && String(c.id) !== slug).slice(0, 6)
+              )
             }
 
             // Fetch products matching category
-            const prodsRes = await getProducts({ category: slug, limit: 60 }).catch(() => ({ data: [] }))
+            const prodsRes = await getProducts({ category: canonicalSlug, limit: 60 }).catch(() => ({ data: [] }))
             setProducts(prodsRes.data || [])
           } else if (isMounted) {
             setError(true)
@@ -135,7 +152,7 @@ export default function CategoryDetailPage() {
     return () => {
       isMounted = false
     }
-  }, [slug, isDept])
+  }, [slug, canonicalSlug, isDept])
 
   // Filter products on department view if subcategory filter or search is active
   const displayedProducts = useMemo(() => {
@@ -196,9 +213,9 @@ export default function CategoryDetailPage() {
   }
 
   const categoryName = category.name || 'Printing Category'
-  const categoryFallbackImage = `/uploads/categories/${category.slug}.jpg`
-  const rawImg = category.image_url || category.image
-  const categoryImage = (!rawImg || rawImg.includes('trae.ai')) ? categoryFallbackImage : rawImg
+  const activeSlug = canonicalSlug || category.slug
+  const categoryImage = getCategoryImage(category)
+  const categoryFallbackImage = `/uploads/categories/${activeSlug}.jpg`
   const categoryDesc =
     category.description ||
     `Order high-precision ${categoryName} in Dubai with ONPRINT. Premium cardstocks, rich Pantone colors, and express same-day delivery across the UAE.`
@@ -207,7 +224,7 @@ export default function CategoryDetailPage() {
   const seoDescription = category.seoDescription || category.seo_description || categoryDesc
   const seoKeywords = category.seoKeywords || category.seo_keywords || `${categoryName.toLowerCase()}, commercial printing in dubai, onprint uae`
   const seoHeading = category.seoHeading || category.seo_heading || categoryName
-  const canonicalPath = `/categories/${category.slug}`
+  const canonicalPath = `/categories/${activeSlug}`
 
   // Build breadcrumbs reflecting hierarchy
   const breadcrumbsList = [
@@ -228,7 +245,44 @@ export default function CategoryDetailPage() {
   }
   breadcrumbsUi.push({ name: categoryName })
 
-  const isBusinessCardCategory = (category.slug === 'business-cards-printing' || slug === 'business-cards-printing')
+  const isBusinessCardCategory = (activeSlug === 'business-cards-printing' || category.slug === 'business-cards-printing' || slug === 'business-cards-printing')
+
+  const isStickerCategory = (
+    activeSlug === 'stickers-labels-printing' ||
+    category.slug === 'stickers-labels-printing' ||
+    slug === 'stickers-labels-printing' ||
+    slug === 'stickers-labels-packaging' ||
+    /sticker|label/i.test(slug) ||
+    /sticker|label/i.test(activeSlug)
+  )
+
+  const stickerFaqs = [
+    {
+      question: 'How much does custom sticker printing cost in Dubai?',
+      answer: 'Custom stickers at ONPRINT start from AED 45 for 100 die-cut or round vinyl stickers. Bulk volume orders benefit from substantial savings—for instance, 1,000 custom vinyl stickers start from AED 0.15 per unit, and bulk product roll labels start from AED 0.08 per label. Pricing varies by size, adhesive material (vinyl, transparent, kraft, foil), and protective finishing.',
+    },
+    {
+      question: 'Are ONPRINT stickers and product labels waterproof and heat-resistant in UAE conditions?',
+      answer: 'Yes. Our waterproof vinyl stickers, cosmetic bottle labels, and food packaging labels are printed on premium polymeric PVC / BOPP vinyl substrates with waterproof UV inks. They resist condensation, oils, chemical contact, deep freezing, and Dubai’s high summer temperatures without peeling or fading.',
+    },
+    {
+      question: 'Can you cut stickers into custom shapes and logos (die-cut / kiss-cut)?',
+      answer: 'Yes. We utilize precision optical digital cutting plotters to cut stickers cleanly into any custom outline, shape, or contour following your exact logo border without expensive physical die tooling fees. We provide individual die-cut handouts, kiss-cut sheets, and continuous rolls.',
+    },
+    {
+      question: 'What is the fastest turnaround time for sticker printing in Dubai?',
+      answer: 'Standard dispatch takes 1 to 2 business days. Express same-day rush production is available in Dubai for urgent exhibitions, events at Dubai World Trade Centre (DWTC), and immediate retail product launches.',
+    },
+    {
+      question: 'Can you produce custom labels on rolls for automatic labelling machines?',
+      answer: 'Yes. We supply machine-ready roll labels compatible with industrial automatic labeling systems and tabletop dispensers, customizable with 25mm (1 inch) or 76mm (3 inch) inner cores and customized winding directions (top-off, bottom-off, left-off, right-off).',
+    },
+    {
+      question: 'How can I request a sticker quote or send my artwork via WhatsApp?',
+      answer: 'Simply select your preferred sticker style, choose size and quantity, and click "Get WhatsApp Quote". You can share your artwork file (Vector PDF, AI, EPS, or high-res PNG) directly via WhatsApp (+44 7344546056). Our production team provides a free cutline proof and digital mockup before printing.',
+    },
+  ];
+
 
   const categoryFaqs = isBusinessCardCategory ? [
     {
@@ -255,7 +309,7 @@ export default function CategoryDetailPage() {
       question: 'How do I order business cards and send my artwork via WhatsApp?',
       answer: 'Simply click "Get WhatsApp Quote" or "Order on WhatsApp" on any product card. You can message us your required quantity, card finish, and attach your logo or PDF artwork. Our pre-press team conducts a free 300 DPI resolution and CMYK check before printing.',
     },
-  ] : [
+  ] : isStickerCategory ? stickerFaqs : [
     {
       question: `What materials and print stocks are used for ${categoryName} in Dubai?`,
       answer: `ONPRINT crafts ${categoryName} using FSC-certified stocks from 120gsm to 450gsm, premium cotton boards, heavy aluminum cassettes, synthetic waterproof films, and luxury metallic foiling.`,

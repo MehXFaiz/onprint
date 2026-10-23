@@ -4,6 +4,10 @@ import {
   getDepartmentBySlug,
   isDepartmentSlug,
 } from '../data/masterDepartments'
+import {
+  resolveCanonicalCategorySlug,
+  getCategoryImage,
+} from '../utils/categoryMapping'
 
 export const initialCategories = [
   {
@@ -315,7 +319,7 @@ export const initialCategories = [
   {
     "_id": "cat-stamps-printing-dubai",
     "id": 18,
-    "name": "Custom Stamps & Seals",
+    "name": "Stamps & Seals",
     "slug": "stamps-printing-dubai",
     "description": "High-precision laser engraved self-inking company rubber stamps, official corporate seals, pocket mobile stamps, heavy-duty dater stamps, and luxury brass wax seals in Dubai.",
     "image": "/uploads/categories/stamps-printing-dubai.jpg",
@@ -323,12 +327,12 @@ export const initialCategories = [
     "status": "active",
     "display_order": 18,
     "active": true,
-    "seoTitle": "Custom Rubber Stamp Making in Dubai | Self-Inking Company Stamps | ONPRINT",
-    "seoDescription": "Official company stamp making in Dubai. Self-inking rubber stamps, round company seals, pocket mobile stamps, and luxury wax seal stamps with 2-hour express delivery.",
-    "seoKeywords": "rubber stamp dubai, company stamp maker dubai, self inking stamps dubai, official seal stamp uae, pocket stamp dubai, dater stamp dubai, wax seal stamp",
-    "seoHeading": "Custom Company Rubber Stamps & Official Seals Dubai",
+    "seoTitle": "Custom Rubber Stamps & Company Stamps in Dubai | ONPRINT",
+    "seoDescription": "Explore custom rubber stamps, company stamps and self-inking stamps from ONPRINT. Request a quote for your stamp requirements in Dubai and the UAE.",
+    "seoKeywords": "rubber stamp dubai, custom stamps dubai, company stamp dubai, company stamp maker dubai, self inking stamp dubai, office stamps dubai, business stamp dubai, stamp printing dubai, custom company stamp uae, round company stamp dubai, date stamp dubai, name stamp dubai, vat stamp uae",
+    "seoHeading": "Custom Rubber Stamps & Company Stamps in Dubai",
     "canonicalUrl": "https://www.0nprint.com/categories/stamps-printing-dubai",
-    "imageAlt": "Official custom company rubber stamps and corporate seals in Dubai"
+    "imageAlt": "Custom Rubber Stamps & Company Stamps in Dubai"
   },
   {
     "_id": "cat-rollup-banners-dubai",
@@ -445,10 +449,11 @@ export async function getCategories(params = {}) {
 
 export async function getCategoryById(id) {
   const cleanId = String(id || '').trim().toLowerCase()
+  const canonicalSlug = resolveCanonicalCategorySlug(cleanId)
 
   // Check if requested ID is a Master Department slug
-  if (isDepartmentSlug(cleanId)) {
-    const dept = getDepartmentBySlug(cleanId)
+  if (isDepartmentSlug(cleanId) || isDepartmentSlug(canonicalSlug)) {
+    const dept = getDepartmentBySlug(cleanId) || getDepartmentBySlug(canonicalSlug)
     if (dept) {
       return {
         name: dept.name,
@@ -466,14 +471,15 @@ export async function getCategoryById(id) {
     }
   }
 
-  const isStickerSlug = cleanId === 'stickers-printing-dubai' || cleanId === 'stickers-labels-printing' || cleanId === 'custom-stickers-dubai'
-
   try {
-    const { data } = await api.get(`/categories/${id}`)
+    const { data } = await api.get(`/categories/${canonicalSlug || id}`)
     if (data?.data) {
       const dept = getDepartmentForCategory(data.data.slug)
+      const verifiedImg = getCategoryImage(data.data)
       return {
         ...data.data,
+        image: verifiedImg,
+        image_url: verifiedImg,
         department_slug: dept?.slug || data.data.department_slug || '',
         department_name: dept?.name || data.data.department_name || '',
       }
@@ -485,16 +491,24 @@ export async function getCategoryById(id) {
   const all = getStoredCategories()
   const found = all.find((c) => {
     const cSlug = (c.slug || '').toLowerCase()
+    const cCanonical = resolveCanonicalCategorySlug(cSlug)
     const cId = String(c.id || '').toLowerCase()
     const cUid = (c._id || '').toLowerCase()
-    if (cId === cleanId || cUid === cleanId || cSlug === cleanId) return true
-    if (isStickerSlug && (cSlug === 'stickers-labels-printing' || cSlug === 'stickers-printing-dubai')) return true
-    return false
+    return (
+      cCanonical === canonicalSlug ||
+      cSlug === cleanId ||
+      cSlug === canonicalSlug ||
+      cId === cleanId ||
+      cUid === cleanId
+    )
   })
   if (found) {
     const dept = getDepartmentForCategory(found.slug)
+    const verifiedImg = getCategoryImage(found)
     return {
       ...found,
+      image: verifiedImg,
+      image_url: verifiedImg,
       department_slug: dept?.slug || found.department_slug || '',
       department_name: dept?.name || found.department_name || '',
     }
@@ -502,16 +516,24 @@ export async function getCategoryById(id) {
 
   const fallback = initialCategories.find((c) => {
     const cSlug = (c.slug || '').toLowerCase()
+    const cCanonical = resolveCanonicalCategorySlug(cSlug)
     const cId = String(c.id || '').toLowerCase()
     const cUid = (c._id || '').toLowerCase()
-    if (cId === cleanId || cUid === cleanId || cSlug === cleanId) return true
-    if (isStickerSlug && (cSlug === 'stickers-labels-printing' || cSlug === 'stickers-printing-dubai')) return true
-    return false
+    return (
+      cCanonical === canonicalSlug ||
+      cSlug === cleanId ||
+      cSlug === canonicalSlug ||
+      cId === cleanId ||
+      cUid === cleanId
+    )
   })
   if (fallback) {
     const dept = getDepartmentForCategory(fallback.slug)
+    const verifiedImg = getCategoryImage(fallback)
     return {
       ...fallback,
+      image: verifiedImg,
+      image_url: verifiedImg,
       department_slug: dept?.slug || fallback.department_slug || '',
       department_name: dept?.name || fallback.department_name || '',
     }

@@ -42,8 +42,21 @@ async function listProducts(req, res, next) {
       const params = []
 
       if (category) {
-        query += ' AND (c.slug = ? OR c.category_key = ? OR CAST(c.id AS CHAR) = ?)'
-        params.push(category, category, category)
+        const aliasMap = {
+          'roll-up-banners-dubai': 'rollup-banners',
+          'rollup-banners-dubai': 'rollup-banners',
+          'roll-up-banners': 'rollup-banners',
+          'stickers-printing-dubai': 'stickers-labels-printing',
+          'custom-stickers-dubai': 'stickers-labels-printing',
+          'custom-stamps-seals': 'stamps-printing-dubai',
+          'stamps': 'stamps-printing-dubai',
+          'business-cards': 'business-cards-printing',
+          'business-cards-dubai': 'business-cards-printing',
+          'corporate-gifts': 'corporate-gift-items',
+        }
+        const targetCategory = aliasMap[category] || category
+        query += ' AND (c.slug = ? OR c.slug = ? OR c.category_key = ? OR CAST(c.id AS CHAR) = ?)'
+        params.push(category, targetCategory, category, category)
       }
 
       if (featured === 'true' || featured === '1') {
@@ -112,14 +125,37 @@ async function listProducts(req, res, next) {
     if (list.length === 0) {
       let filtered = fallbackProducts.filter((p) => p.active !== false)
       if (category) {
+        const aliasMap = {
+          'roll-up-banners-dubai': 'rollup-banners',
+          'rollup-banners-dubai': 'rollup-banners',
+          'roll-up-banners': 'rollup-banners',
+          'stickers-printing-dubai': 'stickers-labels-printing',
+          'custom-stickers-dubai': 'stickers-labels-printing',
+          'custom-stamps-seals': 'stamps-printing-dubai',
+          'stamps': 'stamps-printing-dubai',
+          'business-cards': 'business-cards-printing',
+          'business-cards-dubai': 'business-cards-printing',
+          'corporate-gifts': 'corporate-gift-items',
+        }
         const catQuery = String(category).toLowerCase()
+        const targetQuery = (aliasMap[catQuery] || catQuery).toLowerCase()
+
         filtered = filtered.filter((p) => {
           const pCatSlug = p.category?.slug?.toLowerCase() || ''
           const pCatId = String(p.category?._id || '').toLowerCase()
           const pCatNumId = String(p.category?.id || '')
           const pCatName = p.category?.name?.toLowerCase() || ''
 
-          if (pCatSlug === catQuery || pCatId === catQuery || pCatNumId === catQuery || pCatName === catQuery) {
+          if (
+            pCatSlug === catQuery ||
+            pCatSlug === targetQuery ||
+            pCatId === catQuery ||
+            pCatId === targetQuery ||
+            pCatNumId === catQuery ||
+            pCatNumId === targetQuery ||
+            pCatName === catQuery ||
+            pCatName === targetQuery
+          ) {
             return true
           }
 

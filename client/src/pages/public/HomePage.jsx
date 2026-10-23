@@ -794,7 +794,7 @@ export default function HomePage() {
             <Reveal delay={0.1}>
               <div className="rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0C1629] mb-4 border border-[#203357]">
+                  <Link to="/categories/stickers-labels-printing" className="block relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0C1629] mb-4 border border-[#203357]">
                     <picture>
                       <source
                         type="image/webp"
@@ -802,7 +802,7 @@ export default function HomePage() {
                       />
                       <img
                         src="/assets/products/stickers/die-cut-vinyl-stickers.jpg"
-                        alt="Custom Sticker Printing Dubai"
+                        alt="Custom Sticker Printing Dubai - Waterproof Die-Cut Vinyl"
                         width="400"
                         height="300"
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -820,7 +820,7 @@ export default function HomePage() {
                         Same-Day
                       </span>
                     </div>
-                  </div>
+                  </Link>
 
                   <div className="space-y-2">
                     <h3 className="font-serif text-lg font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
@@ -865,7 +865,7 @@ export default function HomePage() {
                     <span>Inquire on WhatsApp</span>
                   </a>
                   <Link
-                    to="/services/stickers-labels-printing"
+                    to="/categories/stickers-labels-printing"
                     className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-[#A0AEC0] hover:text-[#D4AF65] py-1 transition-colors"
                   >
                     <span>View Sticker Options</span>

@@ -397,13 +397,35 @@ export default function StickersLeadPage() {
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#D4AF65] text-[#101D35] font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#D4AF65]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
-                    >
-                      {isSubmitting ? 'Submitting Specifications…' : 'Submit Specification & Get Official Quote →'}
-                    </button>
+                    <div className="space-y-3">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#C8B185] text-[#101D35] font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#D4AF65]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                      >
+                        {isSubmitting ? 'Submitting Specifications…' : 'Submit Specification & Get Official Quote →'}
+                      </button>
+
+                      <a
+                        href={`https://wa.me/447344546056?text=${encodeURIComponent(
+                          `Hello ONPRINT, I would like a quotation for custom stickers. Sticker type: ${formData.stickerType}. Size: ${formData.size || 'Custom'}. Quantity: ${formData.quantity}. Material/finish: ${formData.finish}. Please share the available options and pricing.`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => {
+                          trackWhatsAppClick({
+                            source_page: '/quote/stickers',
+                            service_name: 'stickers',
+                            button_location: 'stickers_lead_page_quick_chat',
+                            label: 'stickers_lead_direct_whatsapp',
+                          })
+                        }}
+                        className="w-full py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-emerald-600/20 hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 cursor-pointer"
+                      >
+                        <WhatsAppIcon className="h-4 w-4 fill-white" />
+                        <span>Chat &amp; Quote on WhatsApp (+44 7344546056)</span>
+                      </a>
+                    </div>
 
                     <p className="text-center text-[#B0BECE] text-[11px]">
                       Your specifications are kept strictly confidential. Free PDF proofs provided before production.

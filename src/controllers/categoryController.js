@@ -67,8 +67,8 @@ async function listCategories(req, res, next) {
       name: c.name,
       slug: c.slug,
       description: c.description || '',
-      image: c.image || '/assets/products/1 (1).jpg',
-      image_url: c.image_url || c.image || '/assets/products/1 (1).jpg',
+      image: c.image || `/uploads/categories/${c.slug}.jpg`,
+      image_url: c.image_url || c.image || `/uploads/categories/${c.slug}.jpg`,
       status: c.status || (c.active ? 'active' : 'inactive'),
       active: Boolean(c.active !== 0 && c.status !== 'inactive'),
       displayOrder: Number(c.displayOrder || 0),
@@ -93,6 +93,19 @@ async function listCategories(req, res, next) {
 async function getCategoryById(req, res, next) {
   try {
     const { id } = req.params
+    const aliasMap = {
+      'roll-up-banners-dubai': 'rollup-banners',
+      'rollup-banners-dubai': 'rollup-banners',
+      'roll-up-banners': 'rollup-banners',
+      'stickers-printing-dubai': 'stickers-labels-printing',
+      'custom-stickers-dubai': 'stickers-labels-printing',
+      'custom-stamps-seals': 'stamps-printing-dubai',
+      'stamps': 'stamps-printing-dubai',
+      'business-cards': 'business-cards-printing',
+      'business-cards-dubai': 'business-cards-printing',
+      'corporate-gifts': 'corporate-gift-items',
+    }
+    const targetSlug = aliasMap[id] || id
 
     const [rows] = await pool.execute(
       `SELECT 
@@ -106,14 +119,14 @@ async function getCategoryById(req, res, next) {
         c.created_at AS createdAt, c.updated_at AS updatedAt,
         (SELECT COUNT(*) FROM products p WHERE p.category_id = c.id) AS productCount
       FROM categories c
-      WHERE c.id = ? OR c.category_key = ? OR c.slug = ?
+      WHERE c.id = ? OR c.category_key = ? OR c.slug = ? OR c.slug = ?
       LIMIT 1`,
-      [id, id, id]
+      [id, id, id, targetSlug]
     )
 
     if (rows.length === 0) {
       const fallback = fallbackCategories.find(
-        (c) => c.slug === id || c._id === id || String(c.id) === id
+        (c) => c.slug === id || c.slug === targetSlug || c._id === id || String(c.id) === id
       )
       if (fallback) {
         return res.json({ success: true, data: fallback })

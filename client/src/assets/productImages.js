@@ -325,10 +325,19 @@ export const productSlugImageMap = {
   // Stamps Category and Products
   'stamps-printing-dubai': selfInkingStampImg,
   'custom-stamps-dubai': selfInkingStampImg,
+  'custom-stamps-seals': selfInkingStampImg,
+  'company-stamps-dubai': selfInkingStampImg,
+  'custom-rubber-stamps': selfInkingStampImg,
   'self-inking-company-stamps': selfInkingStampImg,
-  'pocket-mobile-stamps': pocketMobileStampImg,
+  'round-company-stamps': selfInkingStampImg,
+  'rectangular-company-stamps': selfInkingStampImg,
   'heavy-duty-dater-stamps': heavyDutyDaterStampImg,
+  'pocket-mobile-stamps': pocketMobileStampImg,
+  'name-signature-stamps': pocketMobileStampImg,
+  'custom-logo-stamps': selfInkingStampImg,
+  'vat-trn-stamps': selfInkingStampImg,
   'luxury-brass-wax-seal-stamps': luxuryWaxSealStampImg,
+  'bulk-corporate-stamp-orders': selfInkingStampImg,
 
   // Service / category-page slug mappings
   'brochures-printing': brochuresImg,

@@ -75,7 +75,7 @@ const ESTIMATOR_PRODUCTS = [
     imageWebp: '/assets/products/stickers.webp',
     badge: 'Waterproof Vinyl',
     turnaround: 'Same-Day Ready',
-    link: '/services/stickers-labels-printing',
+    link: '/categories/stickers-labels-printing',
     quantities: [100, 250, 500, 1000, 2500],
     unit: 'pcs',
     options: [

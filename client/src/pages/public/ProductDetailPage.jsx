@@ -37,6 +37,28 @@ const CARD_FALLBACK_FINISHES = [
   { label: 'Gold Gilded / Painted Edges', priceModifier: 95 },
 ]
 
+const STICKER_FALLBACK_SIZES = [
+  { label: '50 × 50 mm (Standard)', priceModifier: 0 },
+  { label: '75 × 75 mm (Medium)', priceModifier: 15 },
+  { label: '100 × 100 mm (Large)', priceModifier: 30 },
+  { label: 'Custom Die-Cut Contour', priceModifier: 20 },
+]
+
+const STICKER_FALLBACK_MATERIALS = [
+  { label: 'Gloss Waterproof Vinyl', priceModifier: 0 },
+  { label: 'Matte Waterproof Vinyl', priceModifier: 5 },
+  { label: 'Clear Transparent Vinyl', priceModifier: 15 },
+  { label: 'Kraft Paper (Eco-Friendly)', priceModifier: 10 },
+  { label: 'Metallic Gold / Holographic', priceModifier: 25 },
+]
+
+const STICKER_FALLBACK_FINISHES = [
+  { label: 'UV Protective Gloss Lamination', priceModifier: 0 },
+  { label: 'Silk Matte Soft-Touch', priceModifier: 10 },
+  { label: 'Raised Spot Gloss 3D', priceModifier: 35 },
+  { label: '24K Gold Hot Foil Accent', priceModifier: 45 },
+]
+
 function OptionGroup({ label, options, selected, onSelect }) {
   if (!options?.length) return null
   return (
@@ -82,6 +104,13 @@ export default function ProductDetailPage() {
   const [activeCategoryTab, setActiveCategoryTab] = useState(0)
   const [categoryLightbox, setCategoryLightbox] = useState(null)
 
+  const isSticker = useMemo(() => {
+    if (!product) return false
+    return /sticker|label|decal|packaging/i.test(
+      `${product.name || ''} ${product.slug || ''} ${product.category?.name || ''} ${product.category?.slug || ''}`
+    )
+  }, [product])
+
   const isCardOrPrint = useMemo(() => {
     if (!product) return false
     return /card|visiting|stationery|print|luxury|cotton|foil|uv|brochure|flyer/i.test(
@@ -91,21 +120,24 @@ export default function ProductDetailPage() {
 
   const resolvedSizes = useMemo(() => {
     if (product?.specifications?.sizes?.length) return product.specifications.sizes
+    if (isSticker) return STICKER_FALLBACK_SIZES
     if (isCardOrPrint) return CARD_FALLBACK_SIZES
     return []
-  }, [product, isCardOrPrint])
+  }, [product, isSticker, isCardOrPrint])
 
   const resolvedMaterials = useMemo(() => {
     if (product?.specifications?.materials?.length) return product.specifications.materials
+    if (isSticker) return STICKER_FALLBACK_MATERIALS
     if (isCardOrPrint) return CARD_FALLBACK_MATERIALS
     return []
-  }, [product, isCardOrPrint])
+  }, [product, isSticker, isCardOrPrint])
 
   const resolvedFinishes = useMemo(() => {
     if (product?.specifications?.finishes?.length) return product.specifications.finishes
+    if (isSticker) return STICKER_FALLBACK_FINISHES
     if (isCardOrPrint) return CARD_FALLBACK_FINISHES
     return []
-  }, [product, isCardOrPrint])
+  }, [product, isSticker, isCardOrPrint])
 
   useEffect(() => {
     setStatus('loading')
@@ -113,12 +145,21 @@ export default function ProductDetailPage() {
       .then((data) => {
         setProduct(data)
         setQuantity(data.minimumQuantity || 1)
+        const itemIsSticker = /sticker|label|decal|packaging/i.test(
+          `${data.name || ''} ${data.slug || ''} ${data.category?.name || ''} ${data.category?.slug || ''}`
+        )
         const isCard = /card|visiting|stationery|print|luxury|cotton|foil|uv|brochure|flyer/i.test(
           `${data.name || ''} ${data.slug || ''} ${data.category?.name || ''}`
         )
-        const initSizes = data.specifications?.sizes?.length ? data.specifications.sizes : (isCard ? CARD_FALLBACK_SIZES : [])
-        const initMaterials = data.specifications?.materials?.length ? data.specifications.materials : (isCard ? CARD_FALLBACK_MATERIALS : [])
-        const initFinishes = data.specifications?.finishes?.length ? data.specifications.finishes : (isCard ? CARD_FALLBACK_FINISHES : [])
+        const initSizes = data.specifications?.sizes?.length
+          ? data.specifications.sizes
+          : (itemIsSticker ? STICKER_FALLBACK_SIZES : (isCard ? CARD_FALLBACK_SIZES : []))
+        const initMaterials = data.specifications?.materials?.length
+          ? data.specifications.materials
+          : (itemIsSticker ? STICKER_FALLBACK_MATERIALS : (isCard ? CARD_FALLBACK_MATERIALS : []))
+        const initFinishes = data.specifications?.finishes?.length
+          ? data.specifications.finishes
+          : (itemIsSticker ? STICKER_FALLBACK_FINISHES : (isCard ? CARD_FALLBACK_FINISHES : []))
 
         setSize(initSizes[0] || null)
         setMaterial(initMaterials[0] || null)
@@ -249,13 +290,44 @@ export default function ProductDetailPage() {
     ? `/products?category=${product.category._id}`
     : '/products'
 
+  
+  const isStamp = Boolean(
+    product &&
+    (product.category?.slug === 'stamps-printing-dubai' ||
+      product.category?.slug === 'custom-stamps-seals' ||
+      (product.slug && (product.slug.includes('stamp') || product.slug.includes('seal') || product.slug.includes('dater'))))
+  )
+
   const breadcrumbsList = [
     { name: 'Products', url: '/products' },
     ...(product.category ? [{ name: product.category.name, url: categoryUrl }] : []),
     { name: product.name, url: `/products/${product.slug}` },
   ]
 
-  const productFaqs = [
+  const stampCustomFaqs = [
+    {
+      question: `What documents are required to make ${product.name} in Dubai, UAE?`,
+      answer: `In accordance with UAE regulations, official company stamps require a valid UAE Trade License copy (DED mainland or UAE Freezone) and an authorization letter signed by the authorized manager (or manager's Emirates ID copy). Personal name and doctor stamps do not require a trade license.`,
+    },
+    {
+      question: `How fast can I get ${product.name} delivered in Dubai?`,
+      answer: `We provide 2-Hour rush collection at our Al Quoz atelier and same-day delivery across Dubai for orders approved by 2:00 PM. Next-day tracked delivery is provided across Abu Dhabi, Sharjah, and all UAE Emirates.`,
+    },
+    {
+      question: `What ink colors are available for ${product.name}?`,
+      answer: `We offer official document-proof blue ink (certified to ISO 14145-2 anti-fraud standard, recommended by UAE banks), classic black, security red, forest green, and royal violet.`,
+    },
+    {
+      question: `Do you verify artwork and Arabic/English spelling before manufacturing?`,
+      answer: `Yes, every order includes a complimentary prepress inspection and a digital vector PDF proof sent via WhatsApp before laser engraving to guarantee correct typography and trade license compliance.`,
+    },
+    {
+      question: `What is the lifespan of the internal ink pad for ${product.name}?`,
+      answer: `Each Austrian Trodat or Colop casing provides 8,000 to 12,000 crisp impressions before needing an ink pad replacement, which snaps in cleanly without inking your fingers.`,
+    },
+  ]
+
+  const productFaqs = isStamp ? stampCustomFaqs : [
     {
       question: `What is the minimum order quantity for ${product.name}?`,
       answer: `The minimum order quantity for ${product.name} is ${product.minimumQuantity || 1} units. Volume tier pricing is automatically applied when you increase the order quantity.`,
@@ -426,6 +498,14 @@ export default function ProductDetailPage() {
             <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
               {product.seoHeading || product.name}
             </h1>
+            {isStamp && (
+              <div className="mt-3 flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-2.5 text-xs text-emerald-300">
+                <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
+                <span>
+                  <strong>Official Dubai Pressroom:</strong> 2-Hour Express Rush &bull; UAE Trade License Compliant &bull; Trodat &amp; Colop Austrian Casings
+                </span>
+              </div>
+            )}
             <p className="mt-4 text-sm leading-relaxed text-secondary sm:text-base">
               {product.description || product.shortDescription}
             </p>

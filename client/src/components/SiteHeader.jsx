@@ -618,18 +618,18 @@ export default function SiteHeader() {
               )}
             </NavLink>
 
-            {/* Stamps & Seals */}
+            {/* Stamps & Seals — Clearly Visible Main Navigation Item */}
             <NavLink
               to="/categories/custom-stamps-seals"
               onMouseEnter={() => setHoveredNav('stamps')}
               className={({ isActive }) =>
-                `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
+                `relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
                   isActive ? 'text-[#D4AF65] font-black' : 'text-[#F5F2EB] hover:text-[#D4AF65]'
                 }`
               }
             >
               <Stamp className="h-3.5 w-3.5 text-[#D4AF65]" />
-              <span>Stamps</span>
+              <span>Stamps &amp; Seals</span>
               <span className="rounded-full bg-[#101D35] border border-[#203357] text-[#D4AF65] px-1.5 py-0.2 text-[8px] font-black uppercase">
                 2H
               </span>
@@ -648,7 +648,7 @@ export default function SiteHeader() {
               to="/categories/stickers-labels-printing"
               onMouseEnter={() => setHoveredNav('stickers')}
               className={({ isActive }) =>
-                `relative z-10 hidden 2xl:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
+                `relative z-10 hidden xl:flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
                   isActive ? 'text-[#D4AF65] font-black' : 'text-[#F5F2EB] hover:text-[#D4AF65]'
                 }`
               }
@@ -1358,6 +1358,36 @@ export default function SiteHeader() {
                     </div>
                     <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       DUBAI FLAGSHIP
+                    </span>
+                  </Link>
+
+                  {/* Stamps & Seals (Clearly Visible Main Navigation Item) */}
+                  <Link
+                    to="/categories/custom-stamps-seals"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] bg-[#172644] border border-[#203357] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Stamp className="h-4 w-4 text-[#D4AF65]" />
+                      <span>Stamps &amp; Seals</span>
+                    </div>
+                    <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                      2-HOUR EXPRESS
+                    </span>
+                  </Link>
+
+                  {/* Stickers & Product Labels (Dedicated Section in Mobile Drawer) */}
+                  <Link
+                    to="/categories/stickers-labels-printing"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] bg-[#172644] border border-[#203357] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Tag className="h-4 w-4 text-[#D4AF65]" />
+                      <span>Stickers &amp; Product Labels</span>
+                    </div>
+                    <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                      WATERPROOF
                     </span>
                   </Link>
 

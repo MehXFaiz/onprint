@@ -1,16 +1,15 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Sparkles, Layers } from 'lucide-react'
+import { resolveCanonicalCategorySlug, getCategoryImage } from '../utils/categoryMapping'
 
 export default function CategoryCard({ category, priority = false, index = 0 }) {
   if (!category) return null
 
-  let imageUrl = category.image_url || category.image
-  if (!imageUrl || imageUrl.includes('trae.ai')) {
-    imageUrl = `/uploads/categories/${category.slug}.jpg`
-  }
+  const canonicalSlug = resolveCanonicalCategorySlug(category.slug)
+  const imageUrl = getCategoryImage(category)
   const altText = category.image_alt || category.imageAlt || `${category.name} in Dubai`
-  const categoryLink = `/categories/${category.slug}`
+  const categoryLink = `/categories/${canonicalSlug || category.slug}`
 
   return (
     <motion.div
@@ -35,7 +34,7 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
           height={900}
           onError={(e) => {
             e.target.onerror = null
-            e.target.src = `/uploads/categories/${category.slug}.jpg`
+            e.target.src = `/uploads/categories/${canonicalSlug}.jpg`
           }}
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />

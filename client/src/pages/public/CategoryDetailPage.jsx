@@ -25,6 +25,7 @@ import ProductDetailModal from '../../components/ProductDetailModal'
 import LoadingState from '../../components/LoadingState'
 import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
+import BrochureTypesShowcase from '../../components/BrochureTypesShowcase'
 import { getCategoryById, getCategories } from '../../services/categories'
 import { getProducts } from '../../services/products'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
@@ -541,6 +542,11 @@ export default function CategoryDetailPage() {
               )
             })}
           </div>
+        )}
+
+        {/* All Brochure Types Showcase (for Brochures category) */}
+        {(activeSlug === 'brochures-printing' || slug?.includes('brochure')) && (
+          <BrochureTypesShowcase className="mb-12" />
         )}
 
         {/* Dynamic Products Showcase */}

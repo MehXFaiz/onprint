@@ -28,6 +28,7 @@ import { trackViewServices, trackGetQuoteClick, trackProductInquiry, trackWhatsA
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getServiceWhatsAppUrl } from '../../utils/whatsapp'
 import { getServiceSectionEData } from '../../data/serviceGeoContent'
+import BrochureTypesShowcase from '../../components/BrochureTypesShowcase'
 
 export default function ServiceDetailPage() {
   const { slug } = useParams()
@@ -234,6 +235,13 @@ export default function ServiceDetailPage() {
             </div>
           </div>
         </div>
+
+        {/* ========================================================================= */}
+        {/* ALL TYPES OF BROCHURE PRINTING VISUAL SHOWCASE                            */}
+        {/* ========================================================================= */}
+        {(service.slug === 'brochures-printing' || service.slug?.includes('brochure')) && (
+          <BrochureTypesShowcase />
+        )}
 
         {/* ========================================================================= */}
         {/* SECTION E: 3. H2: What ONPRINT Provides                                   */}

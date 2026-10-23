@@ -2,8 +2,8 @@ const BUSINESS_CARDS_LANDING_DATA = {
   'business-card-printing-dubai': {
     slug: 'business-card-printing-dubai',
     path: '/business-card-printing-dubai',
-    title: 'Business Card Printing Dubai | Custom, Luxury & Same-Day Cards | ONPRINT',
-    metaDescription: 'Business card printing in Dubai from AED 45. Professional double-sided matte, glossy, textured & luxury gold foil cards. Order online with same-day Al Quoz dispatch.',
+    title: 'Business Card Printing in Dubai | ONPRINT',
+    metaDescription: 'Explore custom business cards, premium finishes and corporate printing options from ONPRINT. Request a business card quotation for your requirements in Dubai and the UAE.',
     focusKeyword: 'business card printing dubai',
     secondaryKeywords: 'business cards dubai, business card printing near me, business card makers dubai, business card design and printing dubai, custom business cards dubai, professional business cards dubai, business card printing services dubai, affordable business card printing dubai, premium business card printing dubai, business card printing online uae, order business cards online dubai, business card printing company dubai, business card price dubai, luxury business cards dubai, matte business cards dubai, glossy business cards dubai, textured business cards dubai, embossed business cards dubai, foil business cards dubai, spot uv business cards dubai, double sided business card printing dubai, custom size business cards dubai, thick business cards dubai, business cards for companies dubai, corporate business card printing uae, bulk business card printing dubai, same day business card printing dubai',
     badge: 'DUBAI BUSINESS CARD PRESS • FROM AED 45 • AL QUOZ',
@@ -17,7 +17,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
       { label: 'Standard & Custom', val: '85x55, 90x50, Custom' },
     ],
     ctaText: 'Get Free Instant Quote',
-    whatsappText: 'Hello ONPRINT Dubai, I want to inquire about Business Card Printing in Dubai.',
+    whatsappText: 'Hello ONPRINT, I would like a quotation for business cards. Quantity: 100. Paper/GSM: 350 GSM Silk / Matte. Finish: Matte Lamination. Delivery location: Dubai. Please share pricing and available options.',
     technicalSpecs: [
       { feature: 'Available Dimensions', detail: 'EU Standard 85 x 55 mm, US Standard 90 x 50 mm, Square 65 x 65 mm, Slim 85 x 40 mm, Custom CNC Die-Cut Shapes' },
       { feature: 'Core Substrates', detail: '300 GSM Economy Artboard, 350 GSM Standard Silk/Matte, 400 GSM Heavyweight Matte, 450 GSM Velvet Board, 600–700 GSM Italian Archival Cotton' },
@@ -655,6 +655,120 @@ const BUSINESS_CARDS_LANDING_DATA = {
       {
         question: 'Do you deliver business cards to Ajman Free Zone?',
         answer: 'Yes. We deliver directly to trade and commercial offices throughout Ajman Free Zone (AFZA) and Jurf Industrial Area with 24 to 48 hour turnaround.',
+      },
+      {
+        question: 'What is the minimum order quantity for business cards in Ajman?',
+        answer: 'Our minimum order quantity starts at just 100 cards per employee name. We also provide multi-staff corporate pooling discounts for commercial firms across Ajman.',
+      },
+      {
+        question: 'Can I order bilingual Arabic and English business cards for my Ajman business?',
+        answer: 'Yes. All our business cards support full-color double-sided printing, allowing elegant English typography on the front and accurate Arabic calligraphy typography on the reverse.',
+      },
+    ],
+  },
+
+  'matte-business-cards': {
+    slug: 'matte-business-cards',
+    path: '/matte-business-cards',
+    title: 'Matte Business Cards Dubai | Anti-Glare Laminated Cards | ONPRINT',
+    metaDescription: 'Custom matte business card printing in Dubai from AED 45. Durable 350–400 GSM artboard with anti-glare protective lamination. Double-sided printing & fast Al Quoz dispatch.',
+    focusKeyword: 'matte business cards dubai',
+    secondaryKeywords: 'laminated business cards dubai, double sided business cards dubai, matte laminated business cards uae, anti glare visiting cards dubai, matte card printing dubai, textured business cards dubai',
+    badge: 'ANTI-GLARE PROTECTIVE MATTE • 350–400 GSM',
+    h1: 'Matte Business Card Printing in Dubai',
+    subheading: 'Understated elegance, zero reflection, and durable protection. Our matte laminated business cards are engineered with a microscopic anti-glare thermal coating over rigid 350 GSM or 400 GSM artboard. Crisp typography, smooth pen-writable surface, and full-color double-sided printing for bilingual Arabic and English cards.',
+    cardCategory: 'basic',
+    heroStats: [
+      { label: 'Paper Caliper', val: '350 – 400 GSM' },
+      { label: 'Surface Finish', val: 'Anti-Glare Matte' },
+      { label: 'Print Mode', val: 'Double-Sided CMYK' },
+      { label: 'Turnaround', val: 'Same-Day / 24h' },
+    ],
+    ctaText: 'Get Matte Card Quotation',
+    whatsappText: 'Hello ONPRINT, I would like a quotation for business cards. Quantity: 100. Paper/GSM: 350 GSM Matte Artboard. Finish: Matte Lamination. Delivery location: Dubai. Please share pricing and available options.',
+    technicalSpecs: [
+      { feature: 'Substrate Options', detail: '350 GSM Standard Silk Artboard & 400 GSM Heavyweight Executive Artboard' },
+      { feature: 'Lamination Film', detail: '25-micron BOPP thermal matte lamination applied to both sides' },
+      { feature: 'Glare Elimination', detail: '100% matte non-reflective finish; optimized for bright office LED lighting' },
+      { feature: 'Print Configuration', detail: 'Single-sided or full-color double-sided (ideal for Arabic/English bilingual layouts)' },
+      { feature: 'Available Dimensions', detail: '85 x 55 mm (European standard), 90 x 50 mm (US standard), or custom sizes' },
+      { feature: 'Corner Customization', detail: 'Standard 90° square-cut corners or 3mm/6mm precision die-cut rounded corners' },
+      { feature: 'Writing Compatibility', detail: 'Smooth writable surface compatible with permanent ink and ballpoint pens' },
+      { feature: 'Production Center', detail: 'Al Quoz Industrial Area, Dubai with express delivery across the UAE' },
+    ],
+    faqs: [
+      {
+        question: 'What are matte business cards and why are they popular in Dubai?',
+        answer: 'Matte business cards feature a smooth, non-reflective protective lamination that eliminates glare and fingerprint smudges. In Dubai’s corporate environment—especially in corporate offices and trade exhibitions—matte cards convey a clean, professional, and understated aesthetic that remains legible under all lighting conditions.',
+      },
+      {
+        question: 'What paper GSM is used for matte business cards?',
+        answer: 'We typically print matte business cards on 350 GSM silk artboard for high-volume commercial use, or 400 GSM heavyweight artboard for executive management. Both options provide excellent stiffness and zero edge curl.',
+      },
+      {
+        question: 'Can matte business cards be printed double-sided with Arabic and English?',
+        answer: 'Yes. All our matte business cards support full-color double-sided printing. A common standard in Dubai and the UAE is English on Side A and Arabic typography on Side B, ensuring seamless communication across diverse business meetings.',
+      },
+      {
+        question: 'Can I write on a matte laminated business card?',
+        answer: 'Yes. Ballpoint pens and permanent markers write smoothly on our matte lamination without smudging. For fountain pens or ink stamps, we also offer single-sided matte cards with an uncoated writable reverse.',
+      },
+      {
+        question: 'How fast can matte business cards be printed and delivered in Dubai?',
+        answer: 'Standard turnaround is 24 to 48 hours with doorstep delivery across Dubai. If you need urgent cards for an event at DWTC or an urgent meeting in DIFC, we provide 4-hour express same-day rush printing.',
+      },
+    ],
+  },
+
+  'bulk-business-cards': {
+    slug: 'bulk-business-cards',
+    path: '/bulk-business-cards',
+    title: 'Bulk Business Card Printing Dubai | Volume Prices from AED 0.19 | ONPRINT',
+    metaDescription: 'Bulk business card printing in Dubai with wholesale pricing from AED 0.19 per card. Multi-employee name batches, 300–400 GSM cardstock, free pre-press audit & UAE-wide delivery.',
+    focusKeyword: 'bulk business card printing dubai',
+    secondaryKeywords: 'bulk business cards price dubai, business card printing price dubai, cheap business card printing dubai, affordable business cards dubai, business cards quotation dubai, business card printing offers uae, order business cards online dubai',
+    badge: 'VOLUME WHOLESALE PRICING • FROM AED 0.19/CARD',
+    h1: 'Bulk Business Card Printing in Dubai',
+    subheading: 'Maximize your marketing budget with high-volume commercial business card printing. Whether you are ordering 500 cards for a trade fair or 10,000 cards across multiple employee name sets, ONPRINT offers transparent volume-tiered pricing, ISO color consistency, and fast doorstep delivery across Dubai and the UAE.',
+    cardCategory: 'corporate',
+    heroStats: [
+      { label: 'Bulk Tiers', val: '250 to 10,000+ Cards' },
+      { label: 'Unit Cost', val: 'From AED 0.19 / Card' },
+      { label: 'Multi-Name', val: 'Staff Batch Pooling' },
+      { label: 'Turnaround', val: '24–48h Dispatch' },
+    ],
+    ctaText: 'Get Bulk Quotation',
+    whatsappText: 'Hello ONPRINT, I would like a quotation for business cards. Quantity: 1000. Paper/GSM: 350 GSM Standard Silk. Finish: Matte. Delivery location: Dubai. Please share pricing and available options.',
+    technicalSpecs: [
+      { feature: 'Volume Quantity Tiers', detail: '250, 500, 1,000, 2,500, 5,000, and 10,000+ cards' },
+      { feature: 'Multi-Employee Name Pooling', detail: 'Split high volumes across multiple team members (e.g. 10 employees x 250 cards each)' },
+      { feature: 'Substrates Available', detail: '300 GSM Economy Card, 350 GSM Standard Silk/Matte, 400 GSM Executive Matte' },
+      { feature: 'Press Technology', detail: 'High-speed Heidelberg Speedmaster Litho Press and industrial HP Indigo digital presses' },
+      { feature: 'Color Calibration', detail: 'Strict ISO 12647-2 color management ensuring identical brand colors on re-orders' },
+      { feature: 'Corporate Invoicing', detail: 'Official UAE FTA VAT-compliant tax invoices for corporate procurement' },
+      { feature: 'Packaging', detail: 'Durable clear acrylic or rigid cardboard storage boxes (100 or 250 cards per box)' },
+      { feature: 'Delivery Coverage', detail: 'Doorstep courier delivery to Dubai, Abu Dhabi, Sharjah, and all UAE Emirates' },
+    ],
+    faqs: [
+      {
+        question: 'How much does bulk business card printing cost in Dubai?',
+        answer: 'Our bulk business card pricing is tiered for maximum savings. Standard 350 GSM cards start at AED 45 for 100 cards, AED 120 for 500 cards, and drop down to as low as AED 0.19 to AED 0.25 per card for orders of 1,000+ cards. Contact us on WhatsApp for an instant tiered volume quote.',
+      },
+      {
+        question: 'Can we split a bulk order across multiple employee names?',
+        answer: 'Yes! We specialize in corporate multi-name batch printing. For example, a 2,500 card order can be split into 10 sets of 250 cards for 10 different employees, giving your business the benefit of volume-tier pricing across your entire team.',
+      },
+      {
+        question: 'What is the fastest way to get a business card quotation in Dubai?',
+        answer: 'Click our WhatsApp enquiry CTA with your estimated total quantity, preferred paper thickness (350 GSM or 400 GSM), and finish. Our Al Quoz print estimators reply within minutes with clear price options and artwork check.',
+      },
+      {
+        question: 'Do you offer free digital proofs before printing bulk business cards?',
+        answer: 'Yes. Every bulk business card order includes a free pre-press audit and digital PDF contract proof. Production only begins once your design and contact details are 100% verified and approved.',
+      },
+      {
+        question: 'How long does bulk business card production take?',
+        answer: 'Digital runs of up to 2,500 cards typically dispatch within 24 to 48 hours. Large offset litho runs of 5,000 to 20,000 cards take 3 to 4 business days at our Al Quoz pressroom.',
       },
     ],
   },

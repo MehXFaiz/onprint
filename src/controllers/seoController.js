@@ -48,6 +48,8 @@ Allow: /business-card-printing-dubai
 Allow: /business-card-printing-uae
 Allow: /visiting-card-printing-dubai
 Allow: /premium-business-cards
+Allow: /matte-business-cards
+Allow: /bulk-business-cards
 Allow: /luxury-business-cards
 Allow: /foil-business-cards
 Allow: /spot-uv-business-cards
@@ -172,6 +174,8 @@ async function getLlmsTxt(req, res) {
 - [Business Card Printing UAE](${SITE_URL}/business-card-printing-uae) — Corporate business card printing and insured courier delivery across all seven Emirates.
 - [Visiting Card Printing Dubai](${SITE_URL}/visiting-card-printing-dubai) — Custom visiting cards with bilingual English-Arabic typography and standard UAE (90×55 mm) or ISO (85×55 mm) cuts.
 - [Premium Business Cards Dubai](${SITE_URL}/premium-business-cards) — Heavy 400–450 GSM matte and silk artboard executive cards.
+- [Matte Business Cards Dubai](${SITE_URL}/matte-business-cards) — 350–400 GSM artboard sealed with anti-glare thermal matte lamination for clear legibility and pen writeability.
+- [Bulk Business Card Printing Dubai](${SITE_URL}/bulk-business-cards) — Volume wholesale business card pricing from AED 0.19/card with staff batch pooling and fast UAE delivery.
 - [Luxury Business Cards Dubai](${SITE_URL}/luxury-business-cards) — 600–700 GSM Italian cotton board with gilded metallic edges and letterpress debossing.
 - [Foil Business Cards Dubai](${SITE_URL}/foil-business-cards) — 24K mirror gold, rose gold, silver, and copper hot stamped metallic foil cards.
 - [Spot UV Business Cards Dubai](${SITE_URL}/spot-uv-business-cards) — Raised 3D Scodix polymer gloss contrast over matte velvet cards.
@@ -338,6 +342,8 @@ async function getSitemapXml(req, res) {
         { path: '/business-card-printing-uae', priority: '0.9', changefreq: 'weekly' },
         { path: '/visiting-card-printing-dubai', priority: '0.9', changefreq: 'weekly' },
         { path: '/premium-business-cards', priority: '0.9', changefreq: 'weekly' },
+        { path: '/matte-business-cards', priority: '0.9', changefreq: 'weekly' },
+        { path: '/bulk-business-cards', priority: '0.9', changefreq: 'weekly' },
         { path: '/luxury-business-cards', priority: '0.9', changefreq: 'weekly' },
         { path: '/foil-business-cards', priority: '0.9', changefreq: 'weekly' },
         { path: '/spot-uv-business-cards', priority: '0.9', changefreq: 'weekly' },

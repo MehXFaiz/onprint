@@ -76,7 +76,7 @@ const whatsappContent = fs.readFileSync(whatsappModulePath, 'utf8');
 
 assert.ok(whatsappContent.includes('formatBusinessCardInquiry'), 'whatsapp.js must export formatBusinessCardInquiry');
 assert.ok(whatsappContent.includes('getBusinessCardBuyerIntentUrl'), 'whatsapp.js must export getBusinessCardBuyerIntentUrl');
-assert.ok(whatsappContent.includes('Hello ONPRINT, I need a quotation for custom business cards'), 'whatsapp.js must contain prompt specification string');
+assert.ok(whatsappContent.includes('Hello ONPRINT, I would like a quotation for business cards'), 'whatsapp.js must contain prompt specification string');
 
 console.log('  ✓ Buyer-intent business card inquiry format verified.\n');
 

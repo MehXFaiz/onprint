@@ -984,6 +984,8 @@ const COMMERCIAL_STATIC_PATHS = new Set([
   '/business-card-printing-uae',
   '/visiting-card-printing-dubai',
   '/premium-business-cards',
+  '/matte-business-cards',
+  '/bulk-business-cards',
   '/luxury-business-cards',
   '/foil-business-cards',
   '/spot-uv-business-cards',
@@ -1176,7 +1178,16 @@ function createApp() {
   app.get(['/quote', '/get-quote', '/quote-request', '/pricing'], (req, res) => res.redirect(301, '/get-a-quote'))
 
   // Commercial Landing Page Aliases 301 Permanent Redirects (Direct 1-Hop)
-  app.get('/business-card-printing', (req, res) => res.redirect(301, '/business-card-printing-dubai'))
+  app.get(['/business-card-printing', '/business-cards', '/business-cards-dubai'], (req, res) => res.redirect(301, '/business-card-printing-dubai'))
+  app.get(['/business-cards/premium-business-cards', '/custom-business-cards-dubai'], (req, res) => res.redirect(301, '/premium-business-cards'))
+  app.get(['/business-cards/foil-business-cards', '/foil-business-cards-dubai'], (req, res) => res.redirect(301, '/foil-business-cards'))
+  app.get(['/business-cards/matte-business-cards', '/matte-business-cards-dubai'], (req, res) => res.redirect(301, '/matte-business-cards'))
+  app.get('/business-cards/corporate-business-cards', (req, res) => res.redirect(301, '/corporate-business-cards'))
+  app.get(['/business-cards/bulk-business-cards', '/bulk-business-cards-dubai', '/bulk-business-card-printing-dubai'], (req, res) => res.redirect(301, '/bulk-business-cards'))
+  app.get(['/business-cards/luxury-business-cards', '/luxury-business-cards-dubai'], (req, res) => res.redirect(301, '/luxury-business-cards'))
+  app.get('/visiting-cards-dubai', (req, res) => res.redirect(301, '/visiting-card-printing-dubai'))
+  app.get('/spot-uv-business-cards-dubai', (req, res) => res.redirect(301, '/spot-uv-business-cards'))
+  app.get('/embossed-business-cards-dubai', (req, res) => res.redirect(301, '/embossed-business-cards'))
   app.get(['/custom-packaging', '/packaging-printing', '/custom-packaging-dubai', '/packaging-printing-dubai'], (req, res) => res.redirect(301, '/services'))
   app.get('/brochure-printing', (req, res) => res.redirect(301, '/brochure-printing-dubai'))
   app.get('/flyer-printing', (req, res) => res.redirect(301, '/flyer-printing-dubai'))

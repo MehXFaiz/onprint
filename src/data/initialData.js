@@ -14,14 +14,14 @@ const categories = [
     "status": "active",
     "display_order": 1,
     "active": true,
-    "seoTitle": "Business Card Printing Dubai | Custom, Luxury & Same-Day Cards | ONPRINT",
-    "seoDescription": "Commercial business card printing in Dubai from AED 45. 300–700 GSM cotton & artboard, double-sided matte, glossy, 24K gold foil & spot UV. Same-day Al Quoz dispatch.",
+    "seoTitle": "Business Card Printing in Dubai | ONPRINT",
+    "seoDescription": "Explore custom business cards, premium finishes and corporate printing options from ONPRINT. Request a business card quotation for your requirements in Dubai and the UAE.",
     "seoKeywords": "business card printing dubai, business cards dubai, business card printing uae, business card printing near me, custom business cards dubai, business card design and printing dubai, business card printing services dubai, affordable business card printing dubai, premium business cards dubai, luxury business cards dubai, professional business card printing dubai, business card printing company dubai",
     "seoHeading": "Commercial Business Card Printing Services in Dubai",
     "canonicalUrl": "https://www.0nprint.com/categories/business-cards-printing",
     "imageAlt": "Commercial business card printing in Dubai",
-    "seo_title": "Business Card Printing Dubai | Custom, Luxury & Same-Day Cards | ONPRINT",
-    "seo_description": "Commercial business card printing in Dubai from AED 45. 300–700 GSM cotton & artboard, double-sided matte, glossy, 24K gold foil & spot UV. Same-day Al Quoz dispatch.",
+    "seo_title": "Business Card Printing in Dubai | ONPRINT",
+    "seo_description": "Explore custom business cards, premium finishes and corporate printing options from ONPRINT. Request a business card quotation for your requirements in Dubai and the UAE.",
     "seo_keywords": "business card printing dubai, business cards dubai, business card printing uae, business card printing near me, custom business cards dubai, business card design and printing dubai, business card printing services dubai, affordable business card printing dubai, premium business cards dubai, luxury business cards dubai, professional business card printing dubai, business card printing company dubai",
     "seo_heading": "Commercial Business Card Printing Services in Dubai",
     "canonical_url": "https://www.0nprint.com/categories/business-cards-printing",
@@ -332,22 +332,22 @@ const categories = [
     "category_key": "cat-stickers-labels-printing",
     "name": "Stickers & Product Labels",
     "slug": "stickers-labels-printing",
-    "description": "Waterproof die-cut vinyl stickers, foil metallic roll labels, holographic stickers, and embossed packaging seal stickers with UV durability.",
+    "description": "Waterproof die-cut vinyl stickers, product packaging roll labels, metallic gold foil seals, holographic decals, and 3D domed epoxy badges engineered for Dubai and UAE businesses.",
     "image": "/uploads/categories/stickers-labels-printing.jpg",
     "image_url": "/uploads/categories/stickers-labels-printing.jpg",
     "status": "active",
     "display_order": 13,
     "active": true,
-    "seoTitle": "Stickers & Product Label Printing Dubai | ONPRINT",
-    "seoDescription": "Precision die-cut stickers and product roll labels in Dubai. Waterproof vinyl, metallic foil, holographic, and transparent packaging stickers.",
-    "seoKeywords": "sticker printing dubai, custom labels dubai, die cut stickers uae, packaging labels dubai",
-    "seoHeading": "Precision Die-Cut Stickers & Product Labels Dubai",
+    "seoTitle": "Custom Stickers & Product Label Printing Dubai | ONPRINT",
+    "seoDescription": "Custom sticker printing and product labels in Dubai. Waterproof vinyl die-cut stickers, packaging roll labels, gold foil seals, holographic decals & clear stickers with same-day dispatch.",
+    "seoKeywords": "custom stickers dubai, sticker printing dubai, custom sticker printing dubai, sticker printing company dubai, sticker printing uae, custom stickers uae, bulk sticker printing dubai, personalised stickers dubai, custom logo stickers dubai, product labels dubai, packaging stickers dubai, custom labels dubai, waterproof stickers dubai, die cut stickers dubai, vinyl stickers dubai, bottle label printing dubai, food packaging labels dubai, clear transparent stickers dubai",
+    "seoHeading": "Custom Sticker Printing & Product Labels in Dubai",
     "canonicalUrl": "https://www.0nprint.com/categories/stickers-labels-printing",
     "imageAlt": "Custom die cut vinyl stickers and foil labels in Dubai",
-    "seo_title": "Stickers & Product Label Printing Dubai | ONPRINT",
-    "seo_description": "Precision die-cut stickers and product roll labels in Dubai. Waterproof vinyl, metallic foil, holographic, and transparent packaging stickers.",
-    "seo_keywords": "sticker printing dubai, custom labels dubai, die cut stickers uae, packaging labels dubai",
-    "seo_heading": "Precision Die-Cut Stickers & Product Labels Dubai",
+    "seo_title": "Custom Stickers & Product Label Printing Dubai | ONPRINT",
+    "seo_description": "Custom sticker printing and product labels in Dubai. Waterproof vinyl die-cut stickers, packaging roll labels, gold foil seals, holographic decals & clear stickers with same-day dispatch.",
+    "seo_keywords": "custom stickers dubai, sticker printing dubai, custom sticker printing dubai, sticker printing company dubai, sticker printing uae, custom stickers uae, bulk sticker printing dubai, personalised stickers dubai, custom logo stickers dubai, product labels dubai, packaging stickers dubai, custom labels dubai, waterproof stickers dubai, die cut stickers dubai, vinyl stickers dubai, bottle label printing dubai, food packaging labels dubai, clear transparent stickers dubai",
+    "seo_heading": "Custom Sticker Printing & Product Labels in Dubai",
     "canonical_url": "https://www.0nprint.com/categories/stickers-labels-printing",
     "image_alt": "Custom die cut vinyl stickers and foil labels in Dubai",
     "department_slug": "stickers-labels-packaging",
@@ -4583,19 +4583,74 @@ const products = [
         "slug": "stickers-labels-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Die-Cut Stickers Dubai | Vinyl Labels & Packaging Stickers | ONPRINT",
-    "seoDescription": "Custom die-cut vinyl stickers in Dubai for product labels, packaging, and promotional branding with waterproof high-adhesion finish.",
-    "seoKeywords": "die cut stickers dubai, vinyl stickers uae, custom stickers dubai",
-    "seoHeading": "Die-Cut Stickers",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "50 × 50 mm (Standard)",
+          "value": "50x50"
+        },
+        {
+          "label": "75 × 75 mm (Popular)",
+          "value": "75x75"
+        },
+        {
+          "label": "100 × 100 mm (Large)",
+          "value": "100x100"
+        },
+        {
+          "label": "Custom Dieline Contour",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "White Waterproof Vinyl (100μ)",
+          "value": "white-vinyl"
+        },
+        {
+          "label": "Clear Transparent Vinyl",
+          "value": "clear-vinyl"
+        },
+        {
+          "label": "Rainbow Holographic Prism Film",
+          "value": "holographic"
+        },
+        {
+          "label": "Natural Brown Kraft Paper",
+          "value": "kraft"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "High-Gloss UV Protective Lamination",
+          "value": "gloss"
+        },
+        {
+          "label": "Anti-Glare Silky Matte Lamination",
+          "value": "matte"
+        },
+        {
+          "label": "Velvet Soft-Touch Film",
+          "value": "velvet"
+        },
+        {
+          "label": "Metallic Hot Foil Accent",
+          "value": "foil"
+        }
+      ]
+    },
+    "seoTitle": "Die-Cut Stickers Dubai | Custom Contour Vinyl Stickers | ONPRINT",
+    "seoDescription": "Order custom die-cut vinyl stickers in Dubai. Precision laser contour trimming to any custom shape with waterproof UV protective lamination and fast Al Quoz dispatch.",
+    "seoKeywords": "die cut stickers dubai, custom die cut stickers uae, die cut vinyl stickers dubai, contour stickers dubai, logo die cut stickers",
+    "seoHeading": "Custom Die-Cut Vinyl Stickers in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/die-cut-stickers",
-    "imageAlt": "Die-cut vinyl stickers in Dubai",
-    "seo_title": "Die-Cut Stickers Dubai | Vinyl Labels & Packaging Stickers | ONPRINT",
-    "seo_description": "Custom die-cut vinyl stickers in Dubai for product labels, packaging, and promotional branding with waterproof high-adhesion finish.",
-    "seo_keywords": "die cut stickers dubai, vinyl stickers uae, custom stickers dubai",
-    "seo_heading": "Die-Cut Stickers",
+    "imageAlt": "Custom die-cut vinyl stickers with precision contour outline in Dubai",
+    "seo_title": "Die-Cut Stickers Dubai | Custom Contour Vinyl Stickers | ONPRINT",
+    "seo_description": "Order custom die-cut vinyl stickers in Dubai. Precision laser contour trimming to any custom shape with waterproof UV protective lamination and fast Al Quoz dispatch.",
+    "seo_keywords": "die cut stickers dubai, custom die cut stickers uae, die cut vinyl stickers dubai, contour stickers dubai, logo die cut stickers",
+    "seo_heading": "Custom Die-Cut Vinyl Stickers in Dubai",
     "canonical_url": "https://www.0nprint.com/products/die-cut-stickers",
-    "image_alt": "Die-cut vinyl stickers in Dubai"
+    "image_alt": "Custom die-cut vinyl stickers with precision contour outline in Dubai"
   },
   {
     "_id": "prod-1302",
@@ -4633,19 +4688,74 @@ const products = [
         "slug": "stickers-labels-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Waterproof Vinyl Sticker Printing Dubai | Outdoor Decals | ONPRINT",
-    "seoDescription": "Order waterproof vinyl sticker printing in Dubai. Weatherproof, UV-resistant custom die-cut vinyl stickers for cars, bottles, and outdoor equipment.",
-    "seoKeywords": "waterproof sticker printing dubai, vinyl sticker printing dubai, custom stickers dubai, car decals dubai, outdoor vinyl stickers uae",
-    "seoHeading": "Waterproof Vinyl Stickers & Decals",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "50 × 50 mm (Standard)",
+          "value": "50x50"
+        },
+        {
+          "label": "75 × 75 mm (Popular)",
+          "value": "75x75"
+        },
+        {
+          "label": "100 × 100 mm (Large)",
+          "value": "100x100"
+        },
+        {
+          "label": "Custom Dieline Contour",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "White Waterproof Vinyl (100μ)",
+          "value": "white-vinyl"
+        },
+        {
+          "label": "Clear Transparent Vinyl",
+          "value": "clear-vinyl"
+        },
+        {
+          "label": "Rainbow Holographic Prism Film",
+          "value": "holographic"
+        },
+        {
+          "label": "Natural Brown Kraft Paper",
+          "value": "kraft"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "High-Gloss UV Protective Lamination",
+          "value": "gloss"
+        },
+        {
+          "label": "Anti-Glare Silky Matte Lamination",
+          "value": "matte"
+        },
+        {
+          "label": "Velvet Soft-Touch Film",
+          "value": "velvet"
+        },
+        {
+          "label": "Metallic Hot Foil Accent",
+          "value": "foil"
+        }
+      ]
+    },
+    "seoTitle": "Waterproof Vinyl Stickers Dubai | Weatherproof Decals | ONPRINT",
+    "seoDescription": "Heavy-duty waterproof vinyl stickers and outdoor decals in Dubai. UV-sunlight resistant, scratch-proof, and dishwasher safe for cars, bottles, and equipment.",
+    "seoKeywords": "waterproof stickers dubai, vinyl stickers dubai, outdoor decals uae, weatherproof stickers dubai, car stickers dubai",
+    "seoHeading": "Waterproof Vinyl Stickers & Outdoor Decals in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/waterproof-vinyl-stickers",
-    "imageAlt": "Waterproof vinyl sticker printing in Dubai",
-    "seo_title": "Waterproof Vinyl Sticker Printing Dubai | Outdoor Decals | ONPRINT",
-    "seo_description": "Order waterproof vinyl sticker printing in Dubai. Weatherproof, UV-resistant custom die-cut vinyl stickers for cars, bottles, and outdoor equipment.",
-    "seo_keywords": "waterproof sticker printing dubai, vinyl sticker printing dubai, custom stickers dubai, car decals dubai, outdoor vinyl stickers uae",
-    "seo_heading": "Waterproof Vinyl Stickers & Decals",
+    "imageAlt": "Waterproof vinyl stickers and outdoor decals printed in Dubai",
+    "seo_title": "Waterproof Vinyl Stickers Dubai | Weatherproof Decals | ONPRINT",
+    "seo_description": "Heavy-duty waterproof vinyl stickers and outdoor decals in Dubai. UV-sunlight resistant, scratch-proof, and dishwasher safe for cars, bottles, and equipment.",
+    "seo_keywords": "waterproof stickers dubai, vinyl stickers dubai, outdoor decals uae, weatherproof stickers dubai, car stickers dubai",
+    "seo_heading": "Waterproof Vinyl Stickers & Outdoor Decals in Dubai",
     "canonical_url": "https://www.0nprint.com/products/waterproof-vinyl-stickers",
-    "image_alt": "Waterproof vinyl sticker printing in Dubai"
+    "image_alt": "Waterproof vinyl stickers and outdoor decals printed in Dubai"
   },
   {
     "_id": "prod-1303",
@@ -4683,19 +4793,74 @@ const products = [
         "slug": "stickers-labels-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Roll Label Printing Dubai | Custom Product Packaging Labels | ONPRINT",
-    "seoDescription": "High-speed roll label printing in Dubai for cosmetics, beverage bottles, food jars, and shipping cartons. Fast UAE delivery.",
-    "seoKeywords": "roll label printing dubai, custom label printing dubai, product label printing dubai, bottle labels dubai, packaging labels dubai",
-    "seoHeading": "Custom Roll Labels & Product Packaging Stickers",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "40 × 40 mm (Round / Square)",
+          "value": "40x40"
+        },
+        {
+          "label": "50 × 80 mm (Bottle / Jar)",
+          "value": "50x80"
+        },
+        {
+          "label": "75 × 120 mm (Packaging Box)",
+          "value": "75x120"
+        },
+        {
+          "label": "Custom Machine Roll Size",
+          "value": "custom-roll"
+        }
+      ],
+      "materials": [
+        {
+          "label": "White BOPP Polypropylene Film",
+          "value": "white-bopp"
+        },
+        {
+          "label": "Clear BOPP Transparent Film",
+          "value": "clear-bopp"
+        },
+        {
+          "label": "Silver Metallized Foil Film",
+          "value": "silver-bopp"
+        },
+        {
+          "label": "Textured Estate Wine Paper",
+          "value": "textured-paper"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Waterproof Gloss Overlaminate",
+          "value": "gloss"
+        },
+        {
+          "label": "Anti-Scuff Matte Overlaminate",
+          "value": "matte"
+        },
+        {
+          "label": "Hot Stamped Gold Foil Accent",
+          "value": "gold-foil"
+        },
+        {
+          "label": "Tactile Spot UV Varnish",
+          "value": "spot-uv"
+        }
+      ]
+    },
+    "seoTitle": "Custom Roll Labels Dubai | Product Packaging Stickers | ONPRINT",
+    "seoDescription": "Custom roll labels and packaging stickers in Dubai. Automated dispenser rolls on waterproof BOPP film for bottles, jars, pouches, and shipping cartons.",
+    "seoKeywords": "product labels dubai, packaging stickers dubai, custom roll labels uae, roll sticker printing dubai, packaging labels dubai",
+    "seoHeading": "Custom Roll Labels & Product Packaging Stickers in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/custom-roll-labels",
-    "imageAlt": "Custom roll label printing in Dubai",
-    "seo_title": "Roll Label Printing Dubai | Custom Product Packaging Labels | ONPRINT",
-    "seo_description": "High-speed roll label printing in Dubai for cosmetics, beverage bottles, food jars, and shipping cartons. Fast UAE delivery.",
-    "seo_keywords": "roll label printing dubai, custom label printing dubai, product label printing dubai, bottle labels dubai, packaging labels dubai",
-    "seo_heading": "Custom Roll Labels & Product Packaging Stickers",
+    "imageAlt": "Machine roll labels and product packaging stickers printed in Dubai",
+    "seo_title": "Custom Roll Labels Dubai | Product Packaging Stickers | ONPRINT",
+    "seo_description": "Custom roll labels and packaging stickers in Dubai. Automated dispenser rolls on waterproof BOPP film for bottles, jars, pouches, and shipping cartons.",
+    "seo_keywords": "product labels dubai, packaging stickers dubai, custom roll labels uae, roll sticker printing dubai, packaging labels dubai",
+    "seo_heading": "Custom Roll Labels & Product Packaging Stickers in Dubai",
     "canonical_url": "https://www.0nprint.com/products/custom-roll-labels",
-    "image_alt": "Custom roll label printing in Dubai"
+    "image_alt": "Machine roll labels and product packaging stickers printed in Dubai"
   },
   {
     "_id": "prod-1304",
@@ -4733,19 +4898,70 @@ const products = [
         "slug": "stickers-labels-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Clear Sticker Printing Dubai | Transparent Window & Bottle Decals | ONPRINT",
-    "seoDescription": "Custom clear sticker printing in Dubai with opaque white ink underprinting. Ultra-transparent waterproof vinyl for glass bottles and storefronts.",
-    "seoKeywords": "clear sticker printing dubai, transparent label printing dubai, clear vinyl decals uae, white ink clear stickers dubai",
-    "seoHeading": "Clear & Transparent Vinyl Stickers",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "50 × 50 mm (Standard)",
+          "value": "50x50"
+        },
+        {
+          "label": "75 × 75 mm (Popular)",
+          "value": "75x75"
+        },
+        {
+          "label": "100 × 100 mm (Large)",
+          "value": "100x100"
+        },
+        {
+          "label": "Custom Dieline Contour",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "Optically Clear Transparent Vinyl",
+          "value": "clear-vinyl"
+        },
+        {
+          "label": "Frosted Translucent Vinyl",
+          "value": "frosted-vinyl"
+        },
+        {
+          "label": "Ultra-Clear BOPP Film (Rolls)",
+          "value": "clear-bopp"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "High-Gloss UV Protective Lamination",
+          "value": "gloss"
+        },
+        {
+          "label": "Anti-Glare Silky Matte Lamination",
+          "value": "matte"
+        },
+        {
+          "label": "Velvet Soft-Touch Film",
+          "value": "velvet"
+        },
+        {
+          "label": "Metallic Hot Foil Accent",
+          "value": "foil"
+        }
+      ]
+    },
+    "seoTitle": "Clear Transparent Stickers Dubai | See-Through Vinyl Decals | ONPRINT",
+    "seoDescription": "Custom clear transparent vinyl stickers in Dubai. Crystal clear waterproof film with high-opacity white ink underbase for cosmetic jars, glass doors, and bottles.",
+    "seoKeywords": "transparent stickers dubai, clear stickers dubai, clear vinyl decals uae, see through stickers dubai, window decals dubai",
+    "seoHeading": "Clear & Transparent Vinyl Stickers in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/clear-transparent-stickers",
-    "imageAlt": "Clear transparent vinyl stickers in Dubai",
-    "seo_title": "Clear Sticker Printing Dubai | Transparent Window & Bottle Decals | ONPRINT",
-    "seo_description": "Custom clear sticker printing in Dubai with opaque white ink underprinting. Ultra-transparent waterproof vinyl for glass bottles and storefronts.",
-    "seo_keywords": "clear sticker printing dubai, transparent label printing dubai, clear vinyl decals uae, white ink clear stickers dubai",
-    "seo_heading": "Clear & Transparent Vinyl Stickers",
+    "imageAlt": "Clear transparent vinyl stickers with white ink underbase in Dubai",
+    "seo_title": "Clear Transparent Stickers Dubai | See-Through Vinyl Decals | ONPRINT",
+    "seo_description": "Custom clear transparent vinyl stickers in Dubai. Crystal clear waterproof film with high-opacity white ink underbase for cosmetic jars, glass doors, and bottles.",
+    "seo_keywords": "transparent stickers dubai, clear stickers dubai, clear vinyl decals uae, see through stickers dubai, window decals dubai",
+    "seo_heading": "Clear & Transparent Vinyl Stickers in Dubai",
     "canonical_url": "https://www.0nprint.com/products/clear-transparent-stickers",
-    "image_alt": "Clear transparent vinyl stickers in Dubai"
+    "image_alt": "Clear transparent vinyl stickers with white ink underbase in Dubai"
   },
   {
     "_id": "prod-1305",
@@ -4783,19 +4999,70 @@ const products = [
         "slug": "stickers-labels-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Holographic Sticker Printing Dubai | Rainbow Prism Vinyl Decals | ONPRINT",
-    "seoDescription": "Custom holographic sticker printing in Dubai. Eye-catching rainbow prism vinyl stickers with scratch-resistant protective lamination.",
-    "seoKeywords": "holographic sticker printing dubai, rainbow stickers dubai, iridescent decals uae, custom prism stickers dubai",
-    "seoHeading": "Holographic Vinyl Stickers",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "50 × 50 mm (Standard)",
+          "value": "50x50"
+        },
+        {
+          "label": "75 × 75 mm (Popular)",
+          "value": "75x75"
+        },
+        {
+          "label": "100 × 100 mm (Large)",
+          "value": "100x100"
+        },
+        {
+          "label": "Custom Dieline Contour",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "Rainbow Iridescent Holographic Vinyl",
+          "value": "holographic-vinyl"
+        },
+        {
+          "label": "Cracked Ice Holographic Film",
+          "value": "cracked-ice"
+        },
+        {
+          "label": "Glitter Shimmer Vinyl",
+          "value": "glitter-vinyl"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "High-Gloss UV Protective Lamination",
+          "value": "gloss"
+        },
+        {
+          "label": "Anti-Glare Silky Matte Lamination",
+          "value": "matte"
+        },
+        {
+          "label": "Velvet Soft-Touch Film",
+          "value": "velvet"
+        },
+        {
+          "label": "Metallic Hot Foil Accent",
+          "value": "foil"
+        }
+      ]
+    },
+    "seoTitle": "Holographic Stickers Dubai | Iridescent Rainbow Foil Decals | ONPRINT",
+    "seoDescription": "Eye-catching holographic vinyl stickers in Dubai. Shimmering rainbow prism metallic film with protective gloss lamination for merchandise, laptops, and retail.",
+    "seoKeywords": "holographic stickers dubai, rainbow foil stickers uae, metallic prism stickers dubai, iridescent stickers dubai",
+    "seoHeading": "Holographic Rainbow Foil Vinyl Stickers in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/holographic-stickers",
-    "imageAlt": "Holographic vinyl sticker printing in Dubai",
-    "seo_title": "Holographic Sticker Printing Dubai | Rainbow Prism Vinyl Decals | ONPRINT",
-    "seo_description": "Custom holographic sticker printing in Dubai. Eye-catching rainbow prism vinyl stickers with scratch-resistant protective lamination.",
-    "seo_keywords": "holographic sticker printing dubai, rainbow stickers dubai, iridescent decals uae, custom prism stickers dubai",
-    "seo_heading": "Holographic Vinyl Stickers",
+    "imageAlt": "Iridescent rainbow holographic foil vinyl stickers in Dubai",
+    "seo_title": "Holographic Stickers Dubai | Iridescent Rainbow Foil Decals | ONPRINT",
+    "seo_description": "Eye-catching holographic vinyl stickers in Dubai. Shimmering rainbow prism metallic film with protective gloss lamination for merchandise, laptops, and retail.",
+    "seo_keywords": "holographic stickers dubai, rainbow foil stickers uae, metallic prism stickers dubai, iridescent stickers dubai",
+    "seo_heading": "Holographic Rainbow Foil Vinyl Stickers in Dubai",
     "canonical_url": "https://www.0nprint.com/products/holographic-stickers",
-    "image_alt": "Holographic vinyl sticker printing in Dubai"
+    "image_alt": "Iridescent rainbow holographic foil vinyl stickers in Dubai"
   },
   {
     "_id": "prod-1306",
@@ -4833,19 +5100,74 @@ const products = [
         "slug": "stickers-labels-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Bottle & Cosmetic Label Printing Dubai | Jar & Candle Labels | ONPRINT",
-    "seoDescription": "Premium cosmetic label printing in Dubai. Waterproof BOPP, foil-embossed bottle labels, food jar labels, and candle stickers with fast UAE delivery.",
-    "seoKeywords": "bottle label printing dubai, cosmetic label printing dubai, candle label printing dubai, jar label printing dubai, food packaging label printing dubai",
-    "seoHeading": "Cosmetic, Bottle & Jar Packaging Labels",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "40 × 40 mm (Round / Square)",
+          "value": "40x40"
+        },
+        {
+          "label": "50 × 80 mm (Bottle / Jar)",
+          "value": "50x80"
+        },
+        {
+          "label": "75 × 120 mm (Packaging Box)",
+          "value": "75x120"
+        },
+        {
+          "label": "Custom Machine Roll Size",
+          "value": "custom-roll"
+        }
+      ],
+      "materials": [
+        {
+          "label": "White BOPP Polypropylene Film",
+          "value": "white-bopp"
+        },
+        {
+          "label": "Clear BOPP Transparent Film",
+          "value": "clear-bopp"
+        },
+        {
+          "label": "Silver Metallized Foil Film",
+          "value": "silver-bopp"
+        },
+        {
+          "label": "Textured Estate Wine Paper",
+          "value": "textured-paper"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Waterproof Gloss Overlaminate",
+          "value": "gloss"
+        },
+        {
+          "label": "Anti-Scuff Matte Overlaminate",
+          "value": "matte"
+        },
+        {
+          "label": "Hot Stamped Gold Foil Accent",
+          "value": "gold-foil"
+        },
+        {
+          "label": "Tactile Spot UV Varnish",
+          "value": "spot-uv"
+        }
+      ]
+    },
+    "seoTitle": "Bottle & Jar Labels Dubai | Cosmetic Packaging Stickers | ONPRINT",
+    "seoDescription": "Custom bottle and jar packaging labels in Dubai. Waterproof, oil-resistant BOPP roll and sheet labels for cosmetics, perfumes, honey, juices, and candle jars.",
+    "seoKeywords": "bottle label printing dubai, jar labels dubai, cosmetic labels dubai, perfume packaging stickers uae, candle jar labels dubai",
+    "seoHeading": "Cosmetic Bottle & Jar Packaging Labels in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/cosmetic-bottle-labels",
-    "imageAlt": "Cosmetic and bottle packaging label printing in Dubai",
-    "seo_title": "Bottle & Cosmetic Label Printing Dubai | Jar & Candle Labels | ONPRINT",
-    "seo_description": "Premium cosmetic label printing in Dubai. Waterproof BOPP, foil-embossed bottle labels, food jar labels, and candle stickers with fast UAE delivery.",
-    "seo_keywords": "bottle label printing dubai, cosmetic label printing dubai, candle label printing dubai, jar label printing dubai, food packaging label printing dubai",
-    "seo_heading": "Cosmetic, Bottle & Jar Packaging Labels",
+    "imageAlt": "Waterproof cosmetic bottle labels and jar packaging stickers in Dubai",
+    "seo_title": "Bottle & Jar Labels Dubai | Cosmetic Packaging Stickers | ONPRINT",
+    "seo_description": "Custom bottle and jar packaging labels in Dubai. Waterproof, oil-resistant BOPP roll and sheet labels for cosmetics, perfumes, honey, juices, and candle jars.",
+    "seo_keywords": "bottle label printing dubai, jar labels dubai, cosmetic labels dubai, perfume packaging stickers uae, candle jar labels dubai",
+    "seo_heading": "Cosmetic Bottle & Jar Packaging Labels in Dubai",
     "canonical_url": "https://www.0nprint.com/products/cosmetic-bottle-labels",
-    "image_alt": "Cosmetic and bottle packaging label printing in Dubai"
+    "image_alt": "Waterproof cosmetic bottle labels and jar packaging stickers in Dubai"
   },
   {
     "_id": "prod-1307",
@@ -4883,19 +5205,66 @@ const products = [
         "slug": "stickers-labels-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Gold Foil Sticker Printing Dubai | Luxury Embossed Foil Seals | ONPRINT",
-    "seoDescription": "Custom gold foil sticker printing in Dubai. Reflective 24K hot-stamped metallic foil seals and embossed stickers for luxury packaging and gift boxes.",
-    "seoKeywords": "gold foil stickers dubai, metallic foil seals uae, luxury embossed stickers dubai, hot foil stamping stickers",
-    "seoHeading": "Luxury Gold Foil Stamped Stickers & Seals",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "35 mm Diameter (Round Seal)",
+          "value": "35mm-circle"
+        },
+        {
+          "label": "50 mm Diameter (Standard Seal)",
+          "value": "50mm-circle"
+        },
+        {
+          "label": "Custom Contour Shape",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "Velvet Soft-Touch Board",
+          "value": "velvet"
+        },
+        {
+          "label": "Matte Paper Board",
+          "value": "matte-paper"
+        },
+        {
+          "label": "Waterproof Metallized Poly",
+          "value": "metallized-poly"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "24K Mirror Gold Foil",
+          "value": "gold-foil"
+        },
+        {
+          "label": "Silver Chrome Metallic Foil",
+          "value": "silver-foil"
+        },
+        {
+          "label": "Rose Gold Metallic Foil",
+          "value": "rosegold-foil"
+        },
+        {
+          "label": "Blind Embossed Raised Relief",
+          "value": "embossed"
+        }
+      ]
+    },
+    "seoTitle": "Gold Foil Stickers Dubai | Luxury Packaging Seals | ONPRINT",
+    "seoDescription": "Luxury metallic gold and silver foil stamped stickers in Dubai. Heated brass die foil stamping on soft-touch velvet or matte paper for VIP packaging seals.",
+    "seoKeywords": "gold foil stickers dubai, foil packaging seals uae, metallic foil labels dubai, embossed gold stickers dubai, luxury packaging stickers",
+    "seoHeading": "Luxury Gold Foil Stamped Stickers & Packaging Seals in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/gold-foil-stickers",
-    "imageAlt": "Gold foil stamped luxury stickers in Dubai",
-    "seo_title": "Gold Foil Sticker Printing Dubai | Luxury Embossed Foil Seals | ONPRINT",
-    "seo_description": "Custom gold foil sticker printing in Dubai. Reflective 24K hot-stamped metallic foil seals and embossed stickers for luxury packaging and gift boxes.",
-    "seo_keywords": "gold foil stickers dubai, metallic foil seals uae, luxury embossed stickers dubai, hot foil stamping stickers",
-    "seo_heading": "Luxury Gold Foil Stamped Stickers & Seals",
+    "imageAlt": "Luxury 24K gold foil stamped stickers and packaging seals Dubai",
+    "seo_title": "Gold Foil Stickers Dubai | Luxury Packaging Seals | ONPRINT",
+    "seo_description": "Luxury metallic gold and silver foil stamped stickers in Dubai. Heated brass die foil stamping on soft-touch velvet or matte paper for VIP packaging seals.",
+    "seo_keywords": "gold foil stickers dubai, foil packaging seals uae, metallic foil labels dubai, embossed gold stickers dubai, luxury packaging stickers",
+    "seo_heading": "Luxury Gold Foil Stamped Stickers & Packaging Seals in Dubai",
     "canonical_url": "https://www.0nprint.com/products/gold-foil-stickers",
-    "image_alt": "Gold foil stamped luxury stickers in Dubai"
+    "image_alt": "Luxury 24K gold foil stamped stickers and packaging seals Dubai"
   },
   {
     "_id": "prod-1308",
@@ -4933,19 +5302,62 @@ const products = [
         "slug": "stickers-labels-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "Kraft Paper Sticker Printing Dubai | Eco-Friendly Recycled Labels | ONPRINT",
-    "seoDescription": "Order eco-friendly Kraft paper stickers in Dubai. 100% recycled natural brown kraft labels for organic skincare, gourmet food, and artisan packaging.",
-    "seoKeywords": "kraft paper stickers dubai, eco friendly stickers uae, recycled kraft labels dubai, organic product stickers",
-    "seoHeading": "Eco-Friendly Kraft Paper Stickers",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "50 × 50 mm (Standard)",
+          "value": "50x50"
+        },
+        {
+          "label": "75 × 75 mm (Popular)",
+          "value": "75x75"
+        },
+        {
+          "label": "100 × 100 mm (Large)",
+          "value": "100x100"
+        },
+        {
+          "label": "Custom Dieline Contour",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "Unbleached Natural Brown Kraft (100% Recycled)",
+          "value": "brown-kraft"
+        },
+        {
+          "label": "Textured Laid Kraft Paper",
+          "value": "laid-kraft"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Natural Uncoated Writable Finish",
+          "value": "uncoated"
+        },
+        {
+          "label": "Black Ink High-Contrast Print",
+          "value": "black-ink"
+        },
+        {
+          "label": "White Ink Accent Print",
+          "value": "white-ink"
+        }
+      ]
+    },
+    "seoTitle": "Kraft Paper Stickers Dubai | Eco-Friendly Packaging Labels | ONPRINT",
+    "seoDescription": "Eco-friendly brown kraft paper stickers in Dubai. 100% recycled unbleached kraft paper with strong adhesive for organic food, bakery boxes, and artisan brands.",
+    "seoKeywords": "kraft paper stickers dubai, eco friendly stickers uae, brown kraft labels dubai, recycled paper stickers dubai",
+    "seoHeading": "Eco-Friendly Kraft Paper Packaging Stickers in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/kraft-paper-stickers",
-    "imageAlt": "Eco-friendly kraft paper stickers in Dubai",
-    "seo_title": "Kraft Paper Sticker Printing Dubai | Eco-Friendly Recycled Labels | ONPRINT",
-    "seo_description": "Order eco-friendly Kraft paper stickers in Dubai. 100% recycled natural brown kraft labels for organic skincare, gourmet food, and artisan packaging.",
-    "seo_keywords": "kraft paper stickers dubai, eco friendly stickers uae, recycled kraft labels dubai, organic product stickers",
-    "seo_heading": "Eco-Friendly Kraft Paper Stickers",
+    "imageAlt": "Natural brown kraft paper packaging stickers printed in Dubai",
+    "seo_title": "Kraft Paper Stickers Dubai | Eco-Friendly Packaging Labels | ONPRINT",
+    "seo_description": "Eco-friendly brown kraft paper stickers in Dubai. 100% recycled unbleached kraft paper with strong adhesive for organic food, bakery boxes, and artisan brands.",
+    "seo_keywords": "kraft paper stickers dubai, eco friendly stickers uae, brown kraft labels dubai, recycled paper stickers dubai",
+    "seo_heading": "Eco-Friendly Kraft Paper Packaging Stickers in Dubai",
     "canonical_url": "https://www.0nprint.com/products/kraft-paper-stickers",
-    "image_alt": "Eco-friendly kraft paper stickers in Dubai"
+    "image_alt": "Natural brown kraft paper packaging stickers printed in Dubai"
   },
   {
     "_id": "prod-1309",
@@ -4983,19 +5395,66 @@ const products = [
         "slug": "stickers-labels-printing"
       }
     ],
-    "specifications": [],
-    "seoTitle": "3D Domed Epoxy Sticker Printing Dubai | Crystal Gel Badges | ONPRINT",
-    "seoDescription": "Custom 3D domed epoxy sticker printing in Dubai. Scratch-resistant, UV-proof polyurethane dome decals for industrial machinery, automotive, and tech equipment.",
-    "seoKeywords": "domed epoxy stickers dubai, 3d gel stickers uae, crystal dome decals dubai, polyurethane dome badges",
-    "seoHeading": "3D Domed Epoxy Resin Decals",
+    "specifications": {
+      "sizes": [
+        {
+          "label": "30 × 30 mm (Small Badge)",
+          "value": "30x30"
+        },
+        {
+          "label": "50 × 25 mm (Rectangular Emblem)",
+          "value": "50x25"
+        },
+        {
+          "label": "60 × 60 mm (Round / Custom)",
+          "value": "60x60"
+        },
+        {
+          "label": "Custom Automotive Silhouette",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "Crystal Clear Polyurethane 3D Dome (UV-Cured)",
+          "value": "polyurethane-dome"
+        },
+        {
+          "label": "Bright Chrome Silver Base",
+          "value": "chrome-silver"
+        },
+        {
+          "label": "Brushed Gold Metallic Base",
+          "value": "brushed-gold"
+        },
+        {
+          "label": "White High-Tack Vinyl Base",
+          "value": "white-vinyl"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Automotive Grade Extreme Adhesive",
+          "value": "auto-adhesive"
+        },
+        {
+          "label": "Scratch-Proof Self-Healing Resin",
+          "value": "self-healing"
+        }
+      ]
+    },
+    "seoTitle": "3D Domed Epoxy Stickers Dubai | Resin Gel Badges | ONPRINT",
+    "seoDescription": "Thick 3D domed epoxy resin stickers in Dubai. Scratch-proof crystal polyurethane resin lens over metallic or vinyl bases for automotive badges and appliances.",
+    "seoKeywords": "domed epoxy stickers dubai, 3d resin decals uae, gel badges dubai, polyurethane domed badges dubai, automotive emblem stickers",
+    "seoHeading": "3D Domed Epoxy Resin Decals & Badges in Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/domed-epoxy-stickers",
-    "imageAlt": "3D domed epoxy decals in Dubai",
-    "seo_title": "3D Domed Epoxy Sticker Printing Dubai | Crystal Gel Badges | ONPRINT",
-    "seo_description": "Custom 3D domed epoxy sticker printing in Dubai. Scratch-resistant, UV-proof polyurethane dome decals for industrial machinery, automotive, and tech equipment.",
-    "seo_keywords": "domed epoxy stickers dubai, 3d gel stickers uae, crystal dome decals dubai, polyurethane dome badges",
-    "seo_heading": "3D Domed Epoxy Resin Decals",
+    "imageAlt": "3D domed epoxy resin decals and automotive badges printed in Dubai",
+    "seo_title": "3D Domed Epoxy Stickers Dubai | Resin Gel Badges | ONPRINT",
+    "seo_description": "Thick 3D domed epoxy resin stickers in Dubai. Scratch-proof crystal polyurethane resin lens over metallic or vinyl bases for automotive badges and appliances.",
+    "seo_keywords": "domed epoxy stickers dubai, 3d resin decals uae, gel badges dubai, polyurethane domed badges dubai, automotive emblem stickers",
+    "seo_heading": "3D Domed Epoxy Resin Decals & Badges in Dubai",
     "canonical_url": "https://www.0nprint.com/products/domed-epoxy-stickers",
-    "image_alt": "3D domed epoxy decals in Dubai"
+    "image_alt": "3D domed epoxy resin decals and automotive badges printed in Dubai"
   },
   {
     "_id": "prod-1401",
@@ -7480,6 +7939,608 @@ const products = [
     "seoHeading": "High-Gloss Photo Finish UV Identity Cards Dubai",
     "canonicalUrl": "https://www.0nprint.com/products/high-gloss-photo-uv-id-cards",
     "imageAlt": "High-gloss photo finish UV employee identity cards in Dubai"
+  },
+  {
+    "_id": "prod-1310",
+    "id": 1310,
+    "product_key": "prod-1310",
+    "name": "Custom Logo Stickers & Brand Decals",
+    "slug": "custom-logo-stickers",
+    "description": "Precision contour-cut brand logo stickers on heavy 100-micron waterproof vinyl. Cut exactly to the shape of your company emblem with UV-protective matte or gloss finish for giveaways, laptops, and product swag.",
+    "shortDescription": "Contour-cut waterproof logo stickers for corporate giveaways, merchandise & laptops.",
+    "short_description": "Contour-cut waterproof logo stickers for corporate giveaways, merchandise & laptops.",
+    "price": 45,
+    "min_quantity": 100,
+    "minimumQuantity": 100,
+    "minimum_quantity": 100,
+    "unit": "pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/stickers/die-cut-vinyl-stickers.jpg"
+    ],
+    "image": "/assets/products/stickers/die-cut-vinyl-stickers.jpg",
+    "image_url": "/assets/products/stickers/die-cut-vinyl-stickers.jpg",
+    "category_id": 13,
+    "category": {
+      "_id": "cat-stickers-labels-printing",
+      "id": 13,
+      "name": "Stickers & Product Labels",
+      "slug": "stickers-labels-printing"
+    },
+    "categories": [
+      {
+        "_id": "cat-stickers-labels-printing",
+        "id": 13,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      }
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "50 × 50 mm (Standard)",
+          "value": "50x50"
+        },
+        {
+          "label": "75 × 75 mm (Popular)",
+          "value": "75x75"
+        },
+        {
+          "label": "100 × 100 mm (Large)",
+          "value": "100x100"
+        },
+        {
+          "label": "Custom Dieline Contour",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "White Waterproof Vinyl (100μ)",
+          "value": "white-vinyl"
+        },
+        {
+          "label": "Clear Transparent Vinyl",
+          "value": "clear-vinyl"
+        },
+        {
+          "label": "Rainbow Holographic Prism Film",
+          "value": "holographic"
+        },
+        {
+          "label": "Natural Brown Kraft Paper",
+          "value": "kraft"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "High-Gloss UV Protective Lamination",
+          "value": "gloss"
+        },
+        {
+          "label": "Anti-Glare Silky Matte Lamination",
+          "value": "matte"
+        },
+        {
+          "label": "Velvet Soft-Touch Film",
+          "value": "velvet"
+        },
+        {
+          "label": "Metallic Hot Foil Accent",
+          "value": "foil"
+        }
+      ]
+    },
+    "seoTitle": "Custom Logo Stickers Dubai | Brand Decals Printing | ONPRINT",
+    "seoDescription": "Order custom logo stickers and brand decals in Dubai. Waterproof vinyl die-cut to your exact company logo shape with UV lamination and same-day delivery.",
+    "seoKeywords": "custom logo stickers dubai, logo stickers uae, branded stickers dubai, company logo decals dubai, custom stickers dubai",
+    "seoHeading": "Custom Logo Stickers & Company Brand Decals in Dubai",
+    "canonicalUrl": "https://www.0nprint.com/products/custom-logo-stickers",
+    "imageAlt": "Custom logo stickers and company brand decals printed in Dubai",
+    "seo_title": "Custom Logo Stickers Dubai | Brand Decals Printing | ONPRINT",
+    "seo_description": "Order custom logo stickers and brand decals in Dubai. Waterproof vinyl die-cut to your exact company logo shape with UV lamination and same-day delivery.",
+    "seo_keywords": "custom logo stickers dubai, logo stickers uae, branded stickers dubai, company logo decals dubai, custom stickers dubai",
+    "seo_heading": "Custom Logo Stickers & Company Brand Decals in Dubai",
+    "canonical_url": "https://www.0nprint.com/products/custom-logo-stickers",
+    "image_alt": "Custom logo stickers and company brand decals printed in Dubai"
+  },
+  {
+    "_id": "prod-1311",
+    "id": 1311,
+    "product_key": "prod-1311",
+    "name": "Round & Circle Packaging Stickers",
+    "slug": "round-packaging-stickers",
+    "description": "Circular brand stickers and packaging seals available from 25mm to 100mm diameter. Perfect for coffee cups, delivery bags, bakery boxes, and envelope seals in glossy or matte vinyl.",
+    "shortDescription": "Classic circular logo stickers and packaging seal labels from 25mm to 100mm.",
+    "short_description": "Classic circular logo stickers and packaging seal labels from 25mm to 100mm.",
+    "price": 35,
+    "min_quantity": 100,
+    "minimumQuantity": 100,
+    "minimum_quantity": 100,
+    "unit": "pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/stickers/custom-roll-labels.jpg"
+    ],
+    "image": "/assets/products/stickers/custom-roll-labels.jpg",
+    "image_url": "/assets/products/stickers/custom-roll-labels.jpg",
+    "category_id": 13,
+    "category": {
+      "_id": "cat-stickers-labels-printing",
+      "id": 13,
+      "name": "Stickers & Product Labels",
+      "slug": "stickers-labels-printing"
+    },
+    "categories": [
+      {
+        "_id": "cat-stickers-labels-printing",
+        "id": 13,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      }
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "25 mm (1 inch) Circle",
+          "value": "25mm"
+        },
+        {
+          "label": "38 mm (1.5 inch) Circle",
+          "value": "38mm"
+        },
+        {
+          "label": "50 mm (2 inch) Circle",
+          "value": "50mm"
+        },
+        {
+          "label": "75 mm (3 inch) Circle",
+          "value": "75mm"
+        }
+      ],
+      "materials": [
+        {
+          "label": "Gloss White Vinyl",
+          "value": "gloss-vinyl"
+        },
+        {
+          "label": "Matte White Vinyl",
+          "value": "matte-vinyl"
+        },
+        {
+          "label": "Gold Metallized Paper",
+          "value": "gold-paper"
+        },
+        {
+          "label": "Brown Kraft Paper",
+          "value": "kraft-paper"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Waterproof Gloss Overlaminate",
+          "value": "gloss"
+        },
+        {
+          "label": "Silky Matte Finish",
+          "value": "matte"
+        }
+      ]
+    },
+    "seoTitle": "Round Stickers Dubai | Circle Packaging Seal Printing | ONPRINT",
+    "seoDescription": "High-definition round stickers and circle packaging seals in Dubai. 25mm–100mm circular labels on waterproof vinyl or kraft paper with 24h express dispatch.",
+    "seoKeywords": "round stickers dubai, circle stickers uae, round packaging labels dubai, circle logo stickers dubai, packaging seal stickers",
+    "seoHeading": "Round Stickers & Circle Packaging Seals in Dubai",
+    "canonicalUrl": "https://www.0nprint.com/products/round-packaging-stickers",
+    "imageAlt": "Round circle packaging stickers and logo seals printed in Dubai",
+    "seo_title": "Round Stickers Dubai | Circle Packaging Seal Printing | ONPRINT",
+    "seo_description": "High-definition round stickers and circle packaging seals in Dubai. 25mm–100mm circular labels on waterproof vinyl or kraft paper with 24h express dispatch.",
+    "seo_keywords": "round stickers dubai, circle stickers uae, round packaging labels dubai, circle logo stickers dubai, packaging seal stickers",
+    "seo_heading": "Round Stickers & Circle Packaging Seals in Dubai",
+    "canonical_url": "https://www.0nprint.com/products/round-packaging-stickers",
+    "image_alt": "Round circle packaging stickers and logo seals printed in Dubai"
+  },
+  {
+    "_id": "prod-1312",
+    "id": 1312,
+    "product_key": "prod-1312",
+    "name": "Food Packaging Labels & Freezer-Safe Stickers",
+    "slug": "food-packaging-labels",
+    "description": "Compliant food-safe packaging labels engineered with deep-freeze, moisture-resistant acrylic adhesives. Ideal for frozen foods, honey, dairy, bakery products, and cold beverage bottles.",
+    "shortDescription": "Freezer-safe, condensation-proof food container and ingredient nutrition labels.",
+    "short_description": "Freezer-safe, condensation-proof food container and ingredient nutrition labels.",
+    "price": 60,
+    "min_quantity": 250,
+    "minimumQuantity": 250,
+    "minimum_quantity": 250,
+    "unit": "pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/stickers/cosmetic-bottle-labels.jpg"
+    ],
+    "image": "/assets/products/stickers/cosmetic-bottle-labels.jpg",
+    "image_url": "/assets/products/stickers/cosmetic-bottle-labels.jpg",
+    "category_id": 13,
+    "category": {
+      "_id": "cat-stickers-labels-printing",
+      "id": 13,
+      "name": "Stickers & Product Labels",
+      "slug": "stickers-labels-printing"
+    },
+    "categories": [
+      {
+        "_id": "cat-stickers-labels-printing",
+        "id": 13,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      }
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "50 × 80 mm (Pouch / Box)",
+          "value": "50x80"
+        },
+        {
+          "label": "60 × 100 mm (Container)",
+          "value": "60x100"
+        },
+        {
+          "label": "75 × 120 mm (Large Tub)",
+          "value": "75x120"
+        },
+        {
+          "label": "Custom Die-Cut Sheet or Roll",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "Waterproof White BOPP Polypropylene",
+          "value": "white-bopp"
+        },
+        {
+          "label": "Clear Transparent BOPP Film",
+          "value": "clear-bopp"
+        },
+        {
+          "label": "Freezer-Grade Direct Thermal Paper",
+          "value": "thermal-paper"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Deep-Freeze Adhesive (-40°C Stable)",
+          "value": "freezer-adhesive"
+        },
+        {
+          "label": "Condensation-Proof Gloss Lamination",
+          "value": "gloss"
+        },
+        {
+          "label": "Oil & Grease Resistant Matte Film",
+          "value": "matte"
+        }
+      ]
+    },
+    "seoTitle": "Food Packaging Labels Dubai | Freezer-Safe Sticker Printing | ONPRINT",
+    "seoDescription": "Certified food packaging labels and freezer-safe stickers in Dubai. Moisture, oil, and condensation resistant for meal prep, jars, and bakery packaging.",
+    "seoKeywords": "food packaging labels dubai, food stickers uae, freezer safe labels dubai, jar labels dubai, nutrition label printing dubai",
+    "seoHeading": "Food Packaging Labels & Freezer-Safe Stickers in Dubai",
+    "canonicalUrl": "https://www.0nprint.com/products/food-packaging-labels",
+    "imageAlt": "Food packaging labels and freezer-safe container stickers in Dubai",
+    "seo_title": "Food Packaging Labels Dubai | Freezer-Safe Sticker Printing | ONPRINT",
+    "seo_description": "Certified food packaging labels and freezer-safe stickers in Dubai. Moisture, oil, and condensation resistant for meal prep, jars, and bakery packaging.",
+    "seo_keywords": "food packaging labels dubai, food stickers uae, freezer safe labels dubai, jar labels dubai, nutrition label printing dubai",
+    "seo_heading": "Food Packaging Labels & Freezer-Safe Stickers in Dubai",
+    "canonical_url": "https://www.0nprint.com/products/food-packaging-labels",
+    "image_alt": "Food packaging labels and freezer-safe container stickers in Dubai"
+  },
+  {
+    "_id": "prod-1313",
+    "id": 1313,
+    "product_key": "prod-1313",
+    "name": "QR Code & Variable Barcode Asset Labels",
+    "slug": "qr-code-barcode-labels",
+    "description": "High-contrast scannable QR code and barcode labels printed with sequential numbering or variable data. Engineered for restaurant digital menus, retail inventory, asset tagging, and POS systems.",
+    "shortDescription": "High-contrast Grade-A scannable QR code and barcode inventory asset labels.",
+    "short_description": "High-contrast Grade-A scannable QR code and barcode inventory asset labels.",
+    "price": 50,
+    "min_quantity": 100,
+    "minimumQuantity": 100,
+    "minimum_quantity": 100,
+    "unit": "pcs",
+    "featured": false,
+    "active": true,
+    "images": [
+      "/assets/products/stickers/custom-roll-labels.jpg"
+    ],
+    "image": "/assets/products/stickers/custom-roll-labels.jpg",
+    "image_url": "/assets/products/stickers/custom-roll-labels.jpg",
+    "category_id": 13,
+    "category": {
+      "_id": "cat-stickers-labels-printing",
+      "id": 13,
+      "name": "Stickers & Product Labels",
+      "slug": "stickers-labels-printing"
+    },
+    "categories": [
+      {
+        "_id": "cat-stickers-labels-printing",
+        "id": 13,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      }
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "30 × 30 mm (Menu / Table QR)",
+          "value": "30x30"
+        },
+        {
+          "label": "40 × 20 mm (Retail Barcode)",
+          "value": "40x20"
+        },
+        {
+          "label": "50 × 50 mm (Square Asset Tag)",
+          "value": "50x50"
+        },
+        {
+          "label": "Custom Variable Size",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "Heavyweight Durable White Vinyl",
+          "value": "white-vinyl"
+        },
+        {
+          "label": "Silver Matte Asset Polyester",
+          "value": "silver-poly"
+        },
+        {
+          "label": "Tamper-Evident Void Material",
+          "value": "void-security"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Anti-Glare Matte (Enhanced Optical Read)",
+          "value": "matte"
+        },
+        {
+          "label": "Protective Clear Lamination",
+          "value": "gloss"
+        }
+      ]
+    },
+    "seoTitle": "QR Code & Barcode Stickers Dubai | Asset Label Printing | ONPRINT",
+    "seoDescription": "Scannable QR code stickers and serial barcode labels in Dubai. High-contrast precision printing on durable vinyl for retail, restaurant menus, and equipment tagging.",
+    "seoKeywords": "qr code stickers dubai, barcode labels dubai, asset tags uae, variable barcode printing dubai, serial number labels dubai",
+    "seoHeading": "QR Code & Variable Barcode Asset Labels in Dubai",
+    "canonicalUrl": "https://www.0nprint.com/products/qr-code-barcode-labels",
+    "imageAlt": "Scannable QR code stickers and barcode asset labels in Dubai",
+    "seo_title": "QR Code & Barcode Stickers Dubai | Asset Label Printing | ONPRINT",
+    "seo_description": "Scannable QR code stickers and serial barcode labels in Dubai. High-contrast precision printing on durable vinyl for retail, restaurant menus, and equipment tagging.",
+    "seo_keywords": "qr code stickers dubai, barcode labels dubai, asset tags uae, variable barcode printing dubai, serial number labels dubai",
+    "seo_heading": "QR Code & Variable Barcode Asset Labels in Dubai",
+    "canonical_url": "https://www.0nprint.com/products/qr-code-barcode-labels",
+    "image_alt": "Scannable QR code stickers and barcode asset labels in Dubai"
+  },
+  {
+    "_id": "prod-1314",
+    "id": 1314,
+    "product_key": "prod-1314",
+    "name": "Promotional Event & Giveaway Stickers",
+    "slug": "promotional-handout-stickers",
+    "description": "Cost-effective individual handout stickers for exhibitions, corporate conferences, product launches, and brand activations in Dubai. Glossy or matte finish with peelable backing.",
+    "shortDescription": "Budget-friendly promotional handout stickers for exhibitions, events & activations.",
+    "short_description": "Budget-friendly promotional handout stickers for exhibitions, events & activations.",
+    "price": 40,
+    "min_quantity": 100,
+    "minimumQuantity": 100,
+    "minimum_quantity": 100,
+    "unit": "pcs",
+    "featured": false,
+    "active": true,
+    "images": [
+      "/assets/products/stickers/die-cut-vinyl-stickers.jpg"
+    ],
+    "image": "/assets/products/stickers/die-cut-vinyl-stickers.jpg",
+    "image_url": "/assets/products/stickers/die-cut-vinyl-stickers.jpg",
+    "category_id": 13,
+    "category": {
+      "_id": "cat-stickers-labels-printing",
+      "id": 13,
+      "name": "Stickers & Product Labels",
+      "slug": "stickers-labels-printing"
+    },
+    "categories": [
+      {
+        "_id": "cat-stickers-labels-printing",
+        "id": 13,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      }
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "50 × 50 mm (Standard)",
+          "value": "50x50"
+        },
+        {
+          "label": "75 × 75 mm (Popular)",
+          "value": "75x75"
+        },
+        {
+          "label": "100 × 100 mm (Large)",
+          "value": "100x100"
+        },
+        {
+          "label": "Custom Dieline Contour",
+          "value": "custom"
+        }
+      ],
+      "materials": [
+        {
+          "label": "White Waterproof Vinyl (100μ)",
+          "value": "white-vinyl"
+        },
+        {
+          "label": "Clear Transparent Vinyl",
+          "value": "clear-vinyl"
+        },
+        {
+          "label": "Rainbow Holographic Prism Film",
+          "value": "holographic"
+        },
+        {
+          "label": "Natural Brown Kraft Paper",
+          "value": "kraft"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "High-Gloss UV Protective Lamination",
+          "value": "gloss"
+        },
+        {
+          "label": "Anti-Glare Silky Matte Lamination",
+          "value": "matte"
+        },
+        {
+          "label": "Velvet Soft-Touch Film",
+          "value": "velvet"
+        },
+        {
+          "label": "Metallic Hot Foil Accent",
+          "value": "foil"
+        }
+      ]
+    },
+    "seoTitle": "Promotional Stickers Dubai | Event Giveaway Sticker Printing | ONPRINT",
+    "seoDescription": "Economical promotional stickers and event giveaway decals in Dubai. Vibrant full-colour printing on sturdy vinyl with fast same-day dispatch for DWTC and events.",
+    "seoKeywords": "promotional stickers dubai, event stickers uae, giveaway decals dubai, exhibition stickers dubai, cheap stickers dubai",
+    "seoHeading": "Promotional Event & Giveaway Stickers in Dubai",
+    "canonicalUrl": "https://www.0nprint.com/products/promotional-handout-stickers",
+    "imageAlt": "Promotional event stickers and marketing giveaway decals in Dubai",
+    "seo_title": "Promotional Stickers Dubai | Event Giveaway Sticker Printing | ONPRINT",
+    "seo_description": "Economical promotional stickers and event giveaway decals in Dubai. Vibrant full-colour printing on sturdy vinyl with fast same-day dispatch for DWTC and events.",
+    "seo_keywords": "promotional stickers dubai, event stickers uae, giveaway decals dubai, exhibition stickers dubai, cheap stickers dubai",
+    "seo_heading": "Promotional Event & Giveaway Stickers in Dubai",
+    "canonical_url": "https://www.0nprint.com/products/promotional-handout-stickers",
+    "image_alt": "Promotional event stickers and marketing giveaway decals in Dubai"
+  },
+  {
+    "_id": "prod-1315",
+    "id": 1315,
+    "product_key": "prod-1315",
+    "name": "Bulk Custom Sticker Printing (Rolls & Sheets)",
+    "slug": "bulk-sticker-printing",
+    "description": "Wholesale high-volume sticker and label production for UAE manufacturers, distributors, and logistics hubs. Tiered volume pricing starting from 1,000 to 50,000+ units on automated machine rolls or kiss-cut sheets.",
+    "shortDescription": "High-volume wholesale sticker manufacturing on rolls or sheets with tiered pricing.",
+    "short_description": "High-volume wholesale sticker manufacturing on rolls or sheets with tiered pricing.",
+    "price": 180,
+    "min_quantity": 1000,
+    "minimumQuantity": 1000,
+    "minimum_quantity": 1000,
+    "unit": "1,000 pcs",
+    "featured": true,
+    "active": true,
+    "images": [
+      "/assets/products/stickers/custom-roll-labels.jpg"
+    ],
+    "image": "/assets/products/stickers/custom-roll-labels.jpg",
+    "image_url": "/assets/products/stickers/custom-roll-labels.jpg",
+    "category_id": 13,
+    "category": {
+      "_id": "cat-stickers-labels-printing",
+      "id": 13,
+      "name": "Stickers & Product Labels",
+      "slug": "stickers-labels-printing"
+    },
+    "categories": [
+      {
+        "_id": "cat-stickers-labels-printing",
+        "id": 13,
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      }
+    ],
+    "specifications": {
+      "sizes": [
+        {
+          "label": "40 × 40 mm (Round / Square)",
+          "value": "40x40"
+        },
+        {
+          "label": "50 × 80 mm (Bottle / Jar)",
+          "value": "50x80"
+        },
+        {
+          "label": "75 × 120 mm (Packaging Box)",
+          "value": "75x120"
+        },
+        {
+          "label": "Custom Machine Roll Size",
+          "value": "custom-roll"
+        }
+      ],
+      "materials": [
+        {
+          "label": "White BOPP Polypropylene Film",
+          "value": "white-bopp"
+        },
+        {
+          "label": "Clear BOPP Transparent Film",
+          "value": "clear-bopp"
+        },
+        {
+          "label": "Silver Metallized Foil Film",
+          "value": "silver-bopp"
+        },
+        {
+          "label": "Textured Estate Wine Paper",
+          "value": "textured-paper"
+        }
+      ],
+      "finishes": [
+        {
+          "label": "Waterproof Gloss Overlaminate",
+          "value": "gloss"
+        },
+        {
+          "label": "Anti-Scuff Matte Overlaminate",
+          "value": "matte"
+        },
+        {
+          "label": "Hot Stamped Gold Foil Accent",
+          "value": "gold-foil"
+        },
+        {
+          "label": "Tactile Spot UV Varnish",
+          "value": "spot-uv"
+        }
+      ]
+    },
+    "seoTitle": "Bulk Sticker Printing Dubai | Wholesale Custom Labels UAE | ONPRINT",
+    "seoDescription": "High-volume bulk sticker printing and wholesale labels in Dubai. Machine dispenser rolls and bulk sheets from 1,000 to 50,000+ units with tiered corporate trade pricing.",
+    "seoKeywords": "bulk sticker printing dubai, wholesale stickers uae, bulk custom labels dubai, roll label manufacturer dubai, factory sticker printing",
+    "seoHeading": "Bulk Custom Sticker & Label Printing in Dubai",
+    "canonicalUrl": "https://www.0nprint.com/products/bulk-sticker-printing",
+    "imageAlt": "High volume bulk sticker printing and wholesale labels in Dubai",
+    "seo_title": "Bulk Sticker Printing Dubai | Wholesale Custom Labels UAE | ONPRINT",
+    "seo_description": "High-volume bulk sticker printing and wholesale labels in Dubai. Machine dispenser rolls and bulk sheets from 1,000 to 50,000+ units with tiered corporate trade pricing.",
+    "seo_keywords": "bulk sticker printing dubai, wholesale stickers uae, bulk custom labels dubai, roll label manufacturer dubai, factory sticker printing",
+    "seo_heading": "Bulk Custom Sticker & Label Printing in Dubai",
+    "canonical_url": "https://www.0nprint.com/products/bulk-sticker-printing",
+    "image_alt": "High volume bulk sticker printing and wholesale labels in Dubai"
   }
 ]
 

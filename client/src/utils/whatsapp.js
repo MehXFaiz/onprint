@@ -50,13 +50,13 @@ export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 // 2. Official Core Service Prefilled Inquiries (Clean, Direct & High-Converting)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    'Hello ONPRINT, I need business card printing in Dubai. Please share your available options, prices, and delivery time.',
+    'Hello ONPRINT, I would like a quotation for business cards. Please share your available options, prices, and delivery time.',
   'business-cards-printing':
-    'Hello ONPRINT, I need business card printing in Dubai. Please share your available options, prices, and delivery time.',
+    'Hello ONPRINT, I would like a quotation for business cards. Please share your available options, prices, and delivery time.',
   'business-card-printing-dubai':
-    'Hello ONPRINT, I need business card printing in Dubai. Please share your available options, prices, and delivery time.',
+    'Hello ONPRINT, I would like a quotation for business cards. Please share your available options, prices, and delivery time.',
   'business-card-printing-uae':
-    'Hello ONPRINT, I need corporate business card printing across the UAE. Please share your available card stocks, volume prices, and delivery schedule.',
+    'Hello ONPRINT, I would like a quotation for corporate business cards across the UAE. Please share available card stocks, volume prices, and delivery schedule.',
 
   'bottle-printing':
     'Hello 0nprint, I am interested in ordering Custom Printed Water Bottles (Thermal Stainless Steel / Smart LED / Sports Bottles). Please share available models, minimum quantities, UV print / laser engraving prices, and delivery details.',
@@ -74,18 +74,20 @@ export const SERVICE_INQUIRY_MESSAGES = {
     'Hello 0nprint, I am interested in ordering Roll-Up Banners in Dubai. Please share your prices, sizes, and express delivery details.',
 
   'stickers':
-    'Hello 0nprint, I am interested in ordering Custom Stickers & Labels (Waterproof Vinyl, Die-Cut, Roll Labels, Foil/Clear). Please share your prices, available finishes, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for custom stickers. Please share the available options and pricing.',
   'stickers-labels-printing':
-    'Hello 0nprint, I am interested in ordering Custom Stickers & Labels. Please share your prices, available options, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for custom stickers and product labels. Please share the available options and pricing.',
   'sticker-printing-dubai':
-    'Hello 0nprint, I am interested in ordering Custom Stickers in Dubai. Please share your prices, available options, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for custom stickers in Dubai. Please share the available options, prices, and delivery time.',
+  'custom-stickers':
+    'Hello ONPRINT, I would like a quotation for custom stickers. Please share the available options and pricing.',
 
   'stamps':
-    'Hello 0nprint, I am interested in ordering a Custom Company Stamp (Self-Inking, Pocket, Dater, or Embossing Seal). Please share available models, sizes, required documents, and prices.',
+    'Hello ONPRINT, I would like a quotation for a custom company stamp. Stamp type: custom company stamp. Quantity: 1 unit. Please share the available options and price.',
   'stamps-printing-dubai':
-    'Hello 0nprint, I am interested in ordering a Custom Company Stamp in Dubai. Please share available models, sizes, and prices.',
+    'Hello ONPRINT, I would like a quotation for a custom company stamp. Stamp type: custom company stamp in Dubai. Quantity: 1 unit. Please share the available options and price.',
   'custom-stamps':
-    'Hello 0nprint, I am interested in ordering a Custom Stamp. Please share available models, sizes, and prices.',
+    'Hello ONPRINT, I would like a quotation for a custom company stamp. Stamp type: custom company stamp. Quantity: 1 unit. Please share the available options and price.',
 
   'mugs':
     'Hello 0nprint, I am interested in ordering Custom Printed Mugs (Ceramic, Two-Tone, Magic Heat-Reveal, or Travel Tumblers). Please share your prices, quantities, and delivery details.',
@@ -179,15 +181,26 @@ export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
   const intent = String(details.intent || 'quote').toLowerCase()
 
   let baseMessage = SERVICE_INQUIRY_MESSAGES[canonicalKey] || SERVICE_INQUIRY_MESSAGES.general
-  if (canonicalKey === 'business-cards') {
-    if (prodName) {
-      if (intent === 'order') {
-        baseMessage = `Hello ONPRINT, I would like to order ${prodName} in Dubai. Please confirm the total price, artwork check, and delivery time.`
-      } else {
-        baseMessage = `Hello ONPRINT, I need business card printing in Dubai for ${prodName}. Please share your available options, prices, and delivery time.`
-      }
+  if (canonicalKey === 'stamps') {
+    const stampType = details.stampType || prodName || 'custom company stamp'
+    const qtyVal = details.quantity ? (String(details.quantity).match(/unit|pcs/i) ? details.quantity : `${details.quantity} units`) : '1 unit'
+    baseMessage = `Hello ONPRINT, I would like a quotation for a custom company stamp. Stamp type: ${stampType}. Quantity: ${qtyVal}. Please share the available options and price.`
+  } else if (canonicalKey === 'business-cards') {
+    const qtyVal = details.quantity
+    const paperVal = details.material || details.paper || details.stock || (details.gsm ? `${details.gsm}` : '') || prodName
+    const finVal = details.finish || details.finishing || details.coating
+    const locVal = details.deliveryLocation || details.location || 'Dubai'
+
+    if (qtyVal || paperVal || finVal) {
+      const phrases = []
+      if (qtyVal) phrases.push(`Quantity: ${qtyVal}`)
+      if (paperVal) phrases.push(`Paper/GSM: ${paperVal}`)
+      if (finVal) phrases.push(`Finish: ${finVal}`)
+      if (locVal) phrases.push(`Delivery location: ${locVal}`)
+
+      baseMessage = `Hello ONPRINT, I would like a quotation for business cards. ${phrases.join('. ')}. Please share pricing and available options.`
     } else {
-      baseMessage = 'Hello ONPRINT, I need business card printing in Dubai. Please share your available options, prices, and delivery time.'
+      baseMessage = 'Hello ONPRINT, I would like a quotation for business cards. Please share available options, prices, and delivery time.'
     }
   } else if (prodName) {
     if (intent === 'order') {
@@ -209,7 +222,11 @@ export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
   const finVal = details.finish || details.finishing || details.coating
   if (finVal) detailLines.push(`• Finish / Coating: ${finVal}`)
   const specsVal = details.specifications || details.specs
-  if (specsVal) detailLines.push(`• Specifications: ${specsVal}`)
+  if (details.casingBrand) detailLines.push(`• Stamp Casing: ${details.casingBrand}`)
+  if (details.inkColor) detailLines.push(`• Ink Color: ${details.inkColor}`)
+  if (details.stampText) detailLines.push(`• Text on Stamp: ${details.stampText}`)
+  if (details.artworkStatus) detailLines.push(`• Artwork / Logo: ${details.artworkStatus}`)
+  if (details.specsVal) detailLines.push(`• Specifications: ${details.specsVal}`)
   const locVal = details.deliveryLocation || details.location
   if (locVal) detailLines.push(`• Delivery Location: ${locVal}`)
   const deadlineVal = details.deadline || details.turnaround || details.deliveryDate
@@ -321,31 +338,53 @@ export function getWhatsAppUrl(params = {}) {
  */
 export function formatBusinessCardInquiry({
   quantity = '100',
-  material = '350 GSM Silk / Smooth Matte',
+  paper = '',
+  material = '',
+  gsm = '',
+  stock = '',
   finish = 'Matte',
-  location = 'Dubai, UAE',
+  finishing = '',
+  coating = '',
+  location = 'Dubai',
+  deliveryLocation = '',
   artwork = null,
   name = '',
+  customerName = '',
   company = '',
   notes = '',
+  refNumber = '',
+  pageUrl = '',
 } = {}) {
-  const parts = [
-    'Hello ONPRINT, I need business card printing in Dubai. Please share your available options, prices, and delivery time.'
-  ]
+  const resolvedPaper = paper || material || (gsm ? `${gsm} Artboard` : stock) || '350 GSM Silk'
+  const resolvedFinish = finish || finishing || coating || 'Matte'
+  const resolvedLocation = location || deliveryLocation || 'Dubai'
+  const resolvedQty = quantity ? String(quantity).trim() : '100'
+
+  const specPhrases = []
+  if (resolvedQty) specPhrases.push(`Quantity: ${resolvedQty}`)
+  if (resolvedPaper) specPhrases.push(`Paper/GSM: ${resolvedPaper}`)
+  if (resolvedFinish) specPhrases.push(`Finish: ${resolvedFinish}`)
+  if (resolvedLocation) specPhrases.push(`Delivery location: ${resolvedLocation}`)
+
+  let intro = 'Hello ONPRINT, I would like a quotation for business cards.'
+  if (specPhrases.length > 0) {
+    intro += ` ${specPhrases.join('. ')}.`
+  }
+  intro += ' Please share pricing and available options.'
+
   const extra = []
-  if (quantity) extra.push(`• Quantity: ${quantity}`)
-  if (material) extra.push(`• Cardstock: ${material}`)
-  if (finish) extra.push(`• Finish / Coating: ${finish}`)
-  if (location) extra.push(`• Delivery Location: ${location}`)
-  if (name) extra.push(`• Client Name: ${name}`)
-  if (company) extra.push(`• Company: ${company}`)
+  const clientName = name || customerName
+  if (clientName) extra.push(`• Client Name: ${clientName}`)
+  if (company && company !== 'N/A' && company !== 'Individual') extra.push(`• Company: ${company}`)
+  if (refNumber) extra.push(`• Quote Reference: ${refNumber}`)
   if (artwork) extra.push(`• Artwork: ${typeof artwork === 'string' ? artwork : (artwork?.name || 'File attached')}`)
-  if (notes) extra.push(`• Notes: ${notes}`)
+  if (notes && notes !== 'None') extra.push(`• Notes: ${notes}`)
+  if (pageUrl) extra.push(`• Page URL: ${pageUrl}`)
 
   if (extra.length > 0) {
-    parts.push(`\n*Specifications:*\n${extra.join('\n')}`)
+    return `${intro}\n\n*Additional Details:*\n${extra.join('\n')}`
   }
-  return parts.join('\n')
+  return intro
 }
 
 export function getBusinessCardBuyerIntentUrl(params = {}) {
@@ -396,3 +435,35 @@ export function openWhatsAppDirectly(paramsOrUrl, options = {}) {
   return url
 }
 
+
+
+/**
+ * Generates structured inquiry string for custom stickers
+ */
+export function formatStickerInquiry({
+  type = 'Custom Stickers',
+  size = 'Custom Size',
+  quantity = '100+ pcs',
+  material = 'Waterproof Vinyl',
+  finish = 'Matte Lamination',
+  name = '',
+  company = '',
+  location = 'Dubai, UAE',
+  artwork = null,
+  notes = '',
+} = {}) {
+  const parts = [
+    `Hello ONPRINT, I would like a quotation for custom stickers. Sticker type: ${type}. Size: ${size}. Quantity: ${quantity}. Material/finish: ${[material, finish].filter(Boolean).join(' / ')}. Please share the available options and pricing.`
+  ]
+  const extra = []
+  if (location) extra.push(`• Delivery Location: ${location}`)
+  if (name) extra.push(`• Client Name: ${name}`)
+  if (company) extra.push(`• Company: ${company}`)
+  if (artwork) extra.push(`• Artwork: ${typeof artwork === 'string' ? artwork : (artwork?.name || 'File attached')}`)
+  if (notes) extra.push(`• Notes: ${notes}`)
+
+  if (extra.length > 0) {
+    parts.push(`\n*Specifications:*\n${extra.join('\n')}`)
+  }
+  return parts.join('\n')
+}

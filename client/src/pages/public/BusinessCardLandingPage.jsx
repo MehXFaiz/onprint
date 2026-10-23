@@ -2100,6 +2100,110 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
         </section>
 
+        {/* CROSS-CATEGORY STATIONERY & BRANDING SYNERGY */}
+        <section className="mt-14 sm:mt-20 rounded-3xl border border-[#203357] bg-[#121F38] p-6 sm:p-10 text-white shadow-xl">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#D4AF65]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2.5">
+                <Briefcase className="h-3.5 w-3.5" />
+                Complete Executive Identity Suite
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white">
+                Pair Your Business Cards With Official Corporate Stationery
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl">
+                Unify your brand across every client touchpoint in Dubai. Order matching official company stamps, packaging stickers, and executive letterheads produced in our Al Quoz pressroom.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              to="/categories/custom-stamps-seals"
+              className="group rounded-2xl border border-white/10 bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF65] bg-[#D4AF65]/10 px-2 py-0.5 rounded">
+                  Official Verification
+                </span>
+                <h4 className="font-bold text-base text-white mt-2 group-hover:text-[#D4AF65] transition-colors">
+                  Company Stamps & Seals
+                </h4>
+                <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Self-inking Trodat & Colop rubber stamps, pocket stamps, and legal embossing seals for UAE business contracts.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#D4AF65]">
+                <span>Order Custom Stamps</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/categories/stickers-labels-printing"
+              className="group rounded-2xl border border-white/10 bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF65] bg-[#D4AF65]/10 px-2 py-0.5 rounded">
+                  Product & Packaging
+                </span>
+                <h4 className="font-bold text-base text-white mt-2 group-hover:text-[#D4AF65] transition-colors">
+                  Custom Stickers & Labels
+                </h4>
+                <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Waterproof die-cut vinyl stickers, gold foil embossed packaging seals, and machine roll labels with zero smudge.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#D4AF65]">
+                <span>Explore Stickers</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/categories/letterheads-printing-dubai"
+              className="group rounded-2xl border border-white/10 bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF65] bg-[#D4AF65]/10 px-2 py-0.5 rounded">
+                  Corporate Letters
+                </span>
+                <h4 className="font-bold text-base text-white mt-2 group-hover:text-[#D4AF65] transition-colors">
+                  Executive Letterheads
+                </h4>
+                <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                  100–120 GSM premium bond and textured linen letterheads calibrated to match your business card Pantone colors.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#D4AF65]">
+                <span>Print Letterheads</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/categories/brochures-printing"
+              className="group rounded-2xl border border-white/10 bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF65] bg-[#D4AF65]/10 px-2 py-0.5 rounded">
+                  Sales Collaterals
+                </span>
+                <h4 className="font-bold text-base text-white mt-2 group-hover:text-[#D4AF65] transition-colors">
+                  Brochures & Catalogs
+                </h4>
+                <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Bi-fold, tri-fold, and saddle-stitched company brochures with luxury matte and spot UV finishes for Dubai clients.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#D4AF65]">
+                <span>Browse Brochures</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </div>
+        </section>
+
         {/* 9. BOTTOM HIGH-CONVERTING CALL TO ACTION */}
         <section className="mt-16 sm:mt-24 rounded-3xl bg-slate-950 border border-slate-800 p-8 sm:p-12 lg:p-16 text-white text-center shadow-2xl relative overflow-hidden">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,rgba(212,175,55,0.15),transparent_70%),radial-gradient(ellipse_60%_50%_at_50%_90%,rgba(168,47,25,0.22),transparent_70%)]" />

@@ -720,6 +720,7 @@ export function trackQualifiedLead({
     delivery_location,
     value: estimated_value ? Number(estimated_value) : undefined,
     currency: 'AED',
+    language: language || (pagePath.startsWith('/ar') ? 'ar' : 'en'),
     device_category: device,
   })
 
@@ -732,3 +733,201 @@ export function trackQualifiedLead({
     device_category: device,
   })
 }
+
+/**
+ * 20. Product Inquiry Click (Phase 5 requirement: specifically tracks clicks on product-specific inquiry actions)
+ */
+export function trackProductInquiryClick({
+  source_page,
+  product_name,
+  category_name,
+  service_name,
+  button_location,
+  label,
+} = {}) {
+  const pagePath = getCurrentPagePath()
+  const resolvedProduct = product_name || service_name || category_name || undefined
+  const resolvedLocation = button_location || label || 'product_inquiry_button'
+
+  trackEvent('product_inquiry_click', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    product_name: resolvedProduct,
+    category_name: category_name || undefined,
+    button_location: resolvedLocation,
+    label: label || resolvedLocation,
+    device_category: getDeviceCategory(),
+  })
+}
+
+/**
+ * 21. Order Completed (Phase 5 requirement: fired strictly when a real order confirmation exists)
+ */
+export function trackOrderCompleted({
+  order_number,
+  product_name,
+  quantity,
+  total_price,
+  currency = 'AED',
+  source_page,
+} = {}) {
+  const pagePath = getCurrentPagePath()
+  const device = getDeviceCategory()
+
+  trackEvent('order_completed', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    order_number: order_number ? String(order_number) : undefined,
+    product_name: product_name || undefined,
+    quantity: quantity ? Number(quantity) : undefined,
+    value: total_price ? Number(total_price) : undefined,
+    currency,
+    device_category: device,
+  })
+
+  sendConversionBeacon({
+    conversion_type: 'order_completed',
+    source_page: pagePath,
+    source_label: order_number || 'direct_order',
+    product_name,
+    button_location: 'order_confirmation',
+    device_category: device,
+  })
+}
+
+
+/**
+ * 20. Dedicated Sticker Inquiry & Quotation Analytics
+ * Tracks high-intent sticker conversion funnels in compliance with UAE privacy standards.
+ */
+
+export function trackStickerWhatsAppClick({
+  sticker_type = 'Custom Stickers',
+  quantity,
+  button_location = 'sticker_page_cta',
+  source_page,
+  label,
+} = {}) {
+  const pagePath = getCurrentPagePath('/sticker-printing-dubai')
+  const device = getDeviceCategory()
+
+  trackEvent('sticker_whatsapp_click', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    service_name: 'stickers',
+    sticker_type,
+    quantity: quantity ? Number(quantity) : undefined,
+    button_location,
+    label: label || `sticker_whatsapp_${button_location}`,
+    device_category: device,
+  })
+
+  // Also emit standard whatsapp_click for aggregate reporting
+  trackWhatsAppClick({
+    source_page: source_page || pagePath,
+    service_name: 'stickers',
+    product_name: sticker_type,
+    button_location,
+    label: label || `sticker_whatsapp_${button_location}`,
+  })
+}
+
+export function trackStickerQuoteStart({
+  sticker_type = 'Custom Stickers',
+  source_page,
+} = {}) {
+  const pagePath = getCurrentPagePath('/sticker-printing-dubai')
+  const device = getDeviceCategory()
+
+  trackEvent('sticker_quote_start', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    service_name: 'stickers',
+    sticker_type,
+    device_category: device,
+  })
+}
+
+export function trackStickerQuoteSubmit({
+  sticker_type = 'Custom Stickers',
+  quantity,
+  material,
+  finish,
+  shape,
+  size,
+  source_page,
+  estimated_value,
+} = {}) {
+  const pagePath = getCurrentPagePath('/sticker-printing-dubai')
+  const device = getDeviceCategory()
+
+  trackEvent('sticker_quote_submit', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    service_name: 'stickers',
+    sticker_type,
+    quantity: quantity ? Number(quantity) : undefined,
+    material: material || undefined,
+    finish: finish || undefined,
+    shape: shape || undefined,
+    size: size || undefined,
+    value: estimated_value ? Number(estimated_value) : undefined,
+    currency: 'AED',
+    device_category: device,
+  })
+
+  // Also emit standard qualified_lead beacon
+  trackQualifiedLead({
+    lead_type: 'sticker_quote',
+    product_name: sticker_type,
+    quantity,
+    material,
+    finish,
+    delivery_location: 'Dubai, UAE',
+    estimated_value,
+    source_page,
+  })
+}
+
+export function trackStickerArtworkUpload({
+  file_type,
+  file_size,
+  source_page,
+} = {}) {
+  const pagePath = getCurrentPagePath('/sticker-printing-dubai')
+  const device = getDeviceCategory()
+
+  trackEvent('sticker_artwork_upload', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    file_type: file_type || 'unknown',
+    file_size_kb: file_size ? Math.round(file_size / 1024) : undefined,
+    device_category: device,
+  })
+}
+
+export function trackStickerOrderCompleted({
+  order_id,
+  sticker_type = 'Custom Stickers',
+  quantity,
+  value,
+  currency = 'AED',
+} = {}) {
+  const pagePath = getCurrentPagePath('/sticker-printing-dubai')
+  const device = getDeviceCategory()
+
+  trackEvent('sticker_order_completed', {
+    page_path: pagePath,
+    order_id: order_id || undefined,
+    sticker_type,
+    quantity: quantity ? Number(quantity) : undefined,
+    value: value ? Number(value) : undefined,
+    currency,
+    device_category: device,
+  })
+}
+
+
+// Conversions & Quote Aliases
+export const trackQuoteStart = trackQuoteFormStart
+export const trackQuoteSubmit = trackQuoteRequest

@@ -2,13 +2,13 @@ const BUSINESS_CARDS_LANDING_DATA = {
   'business-card-printing-dubai': {
     slug: 'business-card-printing-dubai',
     path: '/business-card-printing-dubai',
-    title: 'Business Card Printing in Dubai | ONPRINT',
-    metaDescription: 'Explore custom business cards, premium finishes and corporate printing options from ONPRINT. Request a business card quotation for your requirements in Dubai and the UAE.',
+    title: 'Business Card Printing Dubai | Premium Custom Cards | ONPRINT',
+    metaDescription: 'Order custom business cards in Dubai with premium paper and finishing options. Explore business card printing by ONPRINT and request a quote on WhatsApp.',
     focusKeyword: 'business card printing dubai',
     secondaryKeywords: 'business cards dubai, business card printing near me, business card makers dubai, business card design and printing dubai, custom business cards dubai, professional business cards dubai, business card printing services dubai, affordable business card printing dubai, premium business card printing dubai, business card printing online uae, order business cards online dubai, business card printing company dubai, business card price dubai, luxury business cards dubai, matte business cards dubai, glossy business cards dubai, textured business cards dubai, embossed business cards dubai, foil business cards dubai, spot uv business cards dubai, double sided business card printing dubai, custom size business cards dubai, thick business cards dubai, business cards for companies dubai, corporate business card printing uae, bulk business card printing dubai, same day business card printing dubai',
-    badge: 'DUBAI BUSINESS CARD PRESS • FROM AED 45 • AL QUOZ',
-    h1: 'Business Card Printing in Dubai, UAE',
-    subheading: 'Dubai’s premier commercial pressroom for professional, custom, and luxury business cards. From affordable everyday 350 GSM cards starting at AED 45 to double-sided matte, glossy, textured cotton, 24K hot gold foil, and sculptural embossed cards. Order business cards online with 4-hour express rush or visit our Al Quoz press studio.',
+    badge: 'DUBAI BUSINESS CARD ATELIER • BESPOKE FINISHES • AL QUOZ 3',
+    h1: 'Business Card Printing in Dubai',
+    subheading: 'Make a professional first impression with custom business cards from ONPRINT. Explore business card printing options for businesses, professionals, and corporate teams. Choose from available paper stocks and finishing options, then contact our team for a quotation tailored to your requirements.',
     cardCategory: 'all',
     heroStats: [
       { label: 'Pricing Model', val: 'Bespoke Custom Quote' },
@@ -17,7 +17,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
       { label: 'Standard & Custom', val: '85x55, 90x50, Custom' },
     ],
     ctaText: 'Get Free Instant Quote',
-    whatsappText: 'Hello ONPRINT, I would like a quotation for business cards. Quantity: 100. Paper/GSM: 350 GSM Silk / Matte. Finish: Matte Lamination. Delivery location: Dubai. Please share pricing and available options.',
+    whatsappText: 'Hello ONPRINT, I would like a quotation for business cards. Quantity: 100. Paper/GSM: 350 GSM Silk. Finish: Matte Lamination. Delivery location: Dubai. Please share pricing and available options.',
     technicalSpecs: [
       { feature: 'Available Dimensions', detail: 'EU Standard 85 x 55 mm, US Standard 90 x 50 mm, Square 65 x 65 mm, Slim 85 x 40 mm, Custom CNC Die-Cut Shapes' },
       { feature: 'Core Substrates', detail: '300 GSM Economy Artboard, 350 GSM Standard Silk/Matte, 400 GSM Heavyweight Matte, 450 GSM Velvet Board, 600–700 GSM Italian Archival Cotton' },
@@ -32,7 +32,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     faqs: [
       {
         question: 'How much does business card printing cost in Dubai?',
-        answer: 'Simple, standard 300–350 GSM business cards start from just AED 45 to AED 50 for 100 cards with full-colour digital printing (and AED 120 for 500 cards). If you wish to upgrade to premium soft-touch lamination, cards start at AED 75. For luxury embellishments like 24K hot foil stamping or raised 3D spot UV, executive cards start from AED 150. Large corporate volume orders (1,000+ cards) drop down to AED 0.19 per card.',
+        answer: 'Business card pricing in Dubai depends on your selected cardstock (300 to 700 GSM), finishing options (protective matte lamination, velvet soft-touch, 24K hot foil stamping, or embossed details), and order quantity. Contact our team via WhatsApp with your preferred specifications for an accurate, tailored quotation.',
       },
       {
         question: 'Where can I find business card printing near me in Dubai?',
@@ -114,12 +114,12 @@ const BUSINESS_CARDS_LANDING_DATA = {
     slug: 'visiting-card-printing-dubai',
     path: '/visiting-card-printing-dubai',
     title: 'Visiting Card Printing Dubai | Custom Company Visiting Cards | ONPRINT',
-    metaDescription: 'Standard & executive visiting card printing in Dubai from AED 45. Custom bilingual English & Arabic layouts, 300-400gsm stocks, fast same-day Al Quoz dispatch.',
+    metaDescription: 'Standard & executive visiting card printing in Dubai. Custom bilingual English & Arabic layouts, 300-450gsm stocks, fast same-day Al Quoz dispatch.',
     focusKeyword: 'visiting card printing dubai',
     secondaryKeywords: 'visiting cards dubai, company visiting card printing dubai, custom visiting card dubai, visiting card design dubai, urgent visiting card printing dubai',
-    badge: 'COMMERCIAL VISITING CARDS • FROM AED 45 • AL QUOZ',
+    badge: 'COMMERCIAL VISITING CARDS • AL QUOZ ATELIER',
     h1: 'Visiting Card Printing Services in Dubai',
-    subheading: 'High-quality visiting cards engineered for Dubai entrepreneurs, trade houses, executive managers, and consulting firms. From basic affordable 300-350 GSM cards starting at AED 45 to standard bilingual English-Arabic cards and executive gold-foiled cards, ONPRINT provides fast, dependable pressroom fulfillment.',
+    subheading: 'High-quality visiting cards engineered for Dubai entrepreneurs, trade houses, executive managers, and consulting firms. From durable 300-350 GSM cards to standard bilingual English-Arabic layouts and executive gold-foiled cards, ONPRINT provides fast, dependable pressroom fulfillment.',
     cardCategory: 'corporate',
     heroStats: [
       { label: 'Pricing Model', val: 'Bespoke Custom Quote' },
@@ -671,7 +671,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     slug: 'matte-business-cards',
     path: '/matte-business-cards',
     title: 'Matte Business Cards Dubai | Anti-Glare Laminated Cards | ONPRINT',
-    metaDescription: 'Custom matte business card printing in Dubai from AED 45. Durable 350–400 GSM artboard with anti-glare protective lamination. Double-sided printing & fast Al Quoz dispatch.',
+    metaDescription: 'Custom matte business card printing in Dubai. Durable 350–400 GSM artboard with anti-glare protective lamination. Double-sided printing & fast Al Quoz dispatch.',
     focusKeyword: 'matte business cards dubai',
     secondaryKeywords: 'laminated business cards dubai, double sided business cards dubai, matte laminated business cards uae, anti glare visiting cards dubai, matte card printing dubai, textured business cards dubai',
     badge: 'ANTI-GLARE PROTECTIVE MATTE • 350–400 GSM',
@@ -723,17 +723,17 @@ const BUSINESS_CARDS_LANDING_DATA = {
   'bulk-business-cards': {
     slug: 'bulk-business-cards',
     path: '/bulk-business-cards',
-    title: 'Bulk Business Card Printing Dubai | Volume Prices from AED 0.19 | ONPRINT',
-    metaDescription: 'Bulk business card printing in Dubai with wholesale pricing from AED 0.19 per card. Multi-employee name batches, 300–400 GSM cardstock, free pre-press audit & UAE-wide delivery.',
+    title: 'Bulk Business Card Printing Dubai | Volume Corporate Cards | ONPRINT',
+    metaDescription: 'Bulk business card printing in Dubai with tiered corporate volume pricing. Multi-employee name batches, 300–400 GSM cardstock, free pre-press audit & UAE-wide delivery.',
     focusKeyword: 'bulk business card printing dubai',
-    secondaryKeywords: 'bulk business cards price dubai, business card printing price dubai, cheap business card printing dubai, affordable business cards dubai, business cards quotation dubai, business card printing offers uae, order business cards online dubai',
-    badge: 'VOLUME WHOLESALE PRICING • FROM AED 0.19/CARD',
+    secondaryKeywords: 'bulk business cards price dubai, business card printing price dubai, affordable business cards dubai, business cards quotation dubai, business card printing offers uae, order business cards online dubai',
+    badge: 'VOLUME CORPORATE PRICING • MULTI-NAME BATCHES',
     h1: 'Bulk Business Card Printing in Dubai',
-    subheading: 'Maximize your marketing budget with high-volume commercial business card printing. Whether you are ordering 500 cards for a trade fair or 10,000 cards across multiple employee name sets, ONPRINT offers transparent volume-tiered pricing, ISO color consistency, and fast doorstep delivery across Dubai and the UAE.',
+    subheading: 'Maximize your marketing budget with high-volume commercial business card printing. Whether you are ordering 500 cards for a trade fair or corporate sets across multiple employee name sets, ONPRINT offers transparent volume-tiered pricing, ISO color consistency, and fast doorstep delivery across Dubai and the UAE.',
     cardCategory: 'corporate',
     heroStats: [
       { label: 'Bulk Tiers', val: '250 to 10,000+ Cards' },
-      { label: 'Unit Cost', val: 'From AED 0.19 / Card' },
+      { label: 'Corporate Rates', val: 'Tiered Volume Quotes' },
       { label: 'Multi-Name', val: 'Staff Batch Pooling' },
       { label: 'Turnaround', val: '24–48h Dispatch' },
     ],
@@ -752,7 +752,7 @@ const BUSINESS_CARDS_LANDING_DATA = {
     faqs: [
       {
         question: 'How much does bulk business card printing cost in Dubai?',
-        answer: 'Our bulk business card pricing is tiered for maximum savings. Standard 350 GSM cards start at AED 45 for 100 cards, AED 120 for 500 cards, and drop down to as low as AED 0.19 to AED 0.25 per card for orders of 1,000+ cards. Contact us on WhatsApp for an instant tiered volume quote.',
+        answer: 'Our bulk business card pricing is tiered for maximum value based on volume and specifications. Standard 350 GSM cards offer generous volume savings for runs of 500, 1,000, and multi-employee corporate pools. Contact us on WhatsApp for an instant tiered volume quote tailored to your exact team size.',
       },
       {
         question: 'Can we split a bulk order across multiple employee names?',

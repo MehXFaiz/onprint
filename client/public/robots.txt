@@ -20,6 +20,32 @@ Allow: /terms
 Allow: /assets/
 Allow: /uploads/
 
+# Generative AI & Knowledge Engine Access (GEO)
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
 # Admin and Private Areas
 Disallow: /admin
 Disallow: /admin/

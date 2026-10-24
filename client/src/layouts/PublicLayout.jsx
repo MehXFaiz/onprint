@@ -10,6 +10,9 @@ export default function PublicLayout() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    const isArabic = pathname.startsWith('/ar')
+    document.documentElement.lang = isArabic ? 'ar' : 'en'
+    document.documentElement.dir = isArabic ? 'rtl' : 'ltr'
   }, [pathname])
 
   return (

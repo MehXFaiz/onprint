@@ -1,3 +1,4 @@
+import LanguageSwitcher from './LanguageSwitcher'
 import { Link } from 'react-router-dom'
 import Container from './Container'
 import Logo from './Logo'
@@ -193,7 +194,7 @@ export default function SiteFooter() {
           <div className="mt-4 space-y-3 text-xs leading-relaxed text-[#B0BECE]">
             <div className="flex items-start gap-2.5">
               <MapPin className="h-4 w-4 shrink-0 text-[#D4AF65] mt-0.5" />
-              <span>Al Quoz Industrial Area 4, Dubai, United Arab Emirates</span>
+              <span>Al Quoz, Dubai, United Arab Emirates (Online Inquiries &amp; UAE Delivery)</span>
             </div>
             <div className="flex items-start gap-2.5">
               <Clock className="h-4 w-4 shrink-0 text-[#D4AF65] mt-0.5" />
@@ -226,6 +227,8 @@ export default function SiteFooter() {
             <Link to="/track-order" className="hover:text-[#D4AF65] transition-colors">
               Track Order
             </Link>
+            <span className="text-[#203357] hidden sm:inline">|</span>
+            <LanguageSwitcher variant="compact" />
           </div>
         </Container>
       </div>

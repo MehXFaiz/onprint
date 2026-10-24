@@ -66,7 +66,7 @@ const MATERIAL_SPECS = [
   },
 ]
 
-export default function StickersLeadPage() {
+export default function StickersLeadPage({FORMATTED_PHONE}) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -423,7 +423,7 @@ export default function StickersLeadPage() {
                         className="w-full py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-emerald-600/20 hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 cursor-pointer"
                       >
                         <WhatsAppIcon className="h-4 w-4 fill-white" />
-                        <span>Chat &amp; Quote on WhatsApp (+44 7344546056)</span>
+                        <span>Chat &amp; Quote on WhatsApp ({FORMATTED_PHONE})</span>
                       </a>
                     </div>
 

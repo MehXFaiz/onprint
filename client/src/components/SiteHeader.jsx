@@ -1,3 +1,4 @@
+import LanguageSwitcher from './LanguageSwitcher'
 import { useEffect, useMemo, useState, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import {
@@ -847,6 +848,8 @@ export default function SiteHeader() {
               <Truck className="h-3.5 w-3.5" />
             </Link>
 
+            <LanguageSwitcher className="hidden sm:inline-flex" />
+
             {/* Direct 1-Click WhatsApp CTA + Concierge Popover Toggle */}
             <div className="relative flex items-center shrink-0">
               <div className="inline-flex items-center h-8.5 rounded-full border border-emerald-500 bg-emerald-50 shadow-2xs overflow-hidden">
@@ -1279,7 +1282,10 @@ export default function SiteHeader() {
                 <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2">
                   <Logo variant="default" size="sm" />
                 </Link>
-                <button
+                <div className="flex items-center gap-2 ml-auto mr-2">
+                    <LanguageSwitcher variant="compact" />
+                  </div>
+                  <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-[#172644] border border-[#203357] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-colors cursor-pointer"

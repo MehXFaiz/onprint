@@ -11,9 +11,9 @@ import ProductCard from '../../components/ProductCard'
 import Product360Viewer from '../../components/Product360Viewer'
 import { getProductBySlug, getProducts } from '../../services/products'
 import { getProductImage, getProductCategoriesWithImages, getAllProductCategoryImages } from '../../assets/productImages'
-import { trackViewProduct, trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick, trackContactFormStart } from '../../utils/analytics'
+import { trackViewProduct, trackGetQuoteClick, trackProductInquiry, trackProductInquiryClick, trackWhatsAppClick, trackContactFormStart } from '../../utils/analytics'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
-import { getServiceWhatsAppUrl } from '../../utils/whatsapp'
+import { getServiceWhatsAppUrl, getProductInquiryButtonLabel } from '../../utils/whatsapp'
 import ProductReviewsSection from '../../components/ProductReviewsSection'
 
 const CARD_FALLBACK_SIZES = [
@@ -753,11 +753,18 @@ export default function ProductDetailPage() {
                         service_name: product.category?.name,
                         button_location: 'product_detail_get_price',
                       })
+                      trackProductInquiryClick({
+                        source_page: `/products/${product.slug}`,
+                        product_name: product.name,
+                        category_name: product.category?.name,
+                        button_location: 'product_detail_get_price',
+                        label: `product_inquiry_price_${product.slug}`,
+                      })
                     }}
                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-5 py-3.5 text-xs sm:text-sm font-black text-white shadow-md shadow-emerald-600/20 transition-all hover:-translate-y-0.5 cursor-pointer w-full"
                   >
                     <WhatsAppIcon className="h-4.5 w-4.5 fill-white shrink-0" />
-                    <span>Get Quote on WhatsApp</span>
+                    <span>{getProductInquiryButtonLabel(product.category?.slug || product.slug)}</span>
                   </a>
 
                   <a
@@ -791,11 +798,18 @@ export default function ProductDetailPage() {
                         service_name: product.category?.name,
                         button_location: 'product_detail_order_whatsapp',
                       })
+                      trackProductInquiryClick({
+                        source_page: `/products/${product.slug}`,
+                        product_name: product.name,
+                        category_name: product.category?.name,
+                        button_location: 'product_detail_order_whatsapp',
+                        label: `product_inquiry_order_${product.slug}`,
+                      })
                     }}
                     className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#25D366] bg-[#25D366]/15 hover:bg-[#25D366] text-[#25D366] hover:text-white px-5 py-3.5 text-xs sm:text-sm font-black transition-all hover:-translate-y-0.5 cursor-pointer w-full"
                   >
                     <WhatsAppIcon className="h-4.5 w-4.5 fill-current shrink-0" />
-                    <span>Order on WhatsApp</span>
+                    <span>Discuss Your Printing Requirements</span>
                   </a>
                 </div>
 

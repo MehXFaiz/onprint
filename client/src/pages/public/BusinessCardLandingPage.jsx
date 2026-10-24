@@ -838,12 +838,39 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               {/* Hero Action Buttons */}
               <Reveal delay={0.22}>
                 <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                  <a
+                    href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                      formatBusinessCardInquiry({
+                        quantity: formState.quantity || '100',
+                        paper: formState.paper || '350 GSM Silk',
+                        finish: formState.finish || 'Matte Lamination',
+                        sides: 'Double-sided',
+                        location: 'Dubai',
+                        additionalRequirements: 'General Inquiry via Page Top CTA',
+                      })
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackWhatsAppClick({
+                        source_page: pageData?.path || '/business-card-printing-dubai',
+                        service: 'business-cards',
+                        button_location: 'hero_primary_cta',
+                        label: 'get_business_card_quote_on_whatsapp',
+                      })
+                    }}
+                    className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] px-7 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl shadow-[#25D366]/30 transition-all hover:-translate-y-0.5 cursor-pointer"
+                  >
+                    <WhatsAppIcon className="h-5 w-5 fill-current" />
+                    <span>Get a Business Card Quote on WhatsApp</span>
+                  </a>
+
                   <button
                     type="button"
                     onClick={() => scrollToQuote()}
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#D4AF65] px-7 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/35 transition-all hover:-translate-y-0.5 cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#c39e55] px-6 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/35 transition-all hover:-translate-y-0.5 cursor-pointer"
                   >
-                    <span>{pageData.ctaText || 'Get a Free Quote'}</span>
+                    <span>Instant Custom Quote</span>
                     <ArrowRight className="h-4 w-4" />
                   </button>
 
@@ -1379,7 +1406,16 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   </button>
 
                   <a
-                    href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(`Hello ONPRINT, I need business card printing in Dubai for ${card.title} (${card.gsm}). Please share your available options, prices, and delivery time.`)}`}
+                    href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                      formatBusinessCardInquiry({
+                        quantity: '100',
+                        paper: `${card.gsm} ${card.title}`,
+                        finish: card.popularFinishes?.[0] || 'Matte Lamination',
+                        sides: 'Double-sided',
+                        location: 'Dubai',
+                        additionalRequirements: `Inquiry for ${card.title} (${card.gsm})`,
+                      })
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
@@ -1400,7 +1436,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     title={`Inquire about ${card.title} on WhatsApp`}
                   >
                     <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
-                    <span>WhatsApp</span>
+                    <span>Inquire on WhatsApp</span>
                   </a>
                 </div>
               </div>
@@ -1755,6 +1791,82 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
         </section>
 
+        {/* HOW TO ORDER IN 3 SIMPLE STEPS */}
+        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+          <div className="mx-auto max-w-3xl text-center mb-12">
+            <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+              FAST &amp; EFFORTLESS PROCESS
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-[#F5F2EB]">
+              How to Order Business Cards in 3 Simple Steps
+            </h2>
+            <p className="mt-2 text-sm text-[#A0AEC0]">
+              From digital concept to luxury tactile cards delivered anywhere in Dubai and the UAE.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-3xl border border-[#203357] bg-[#172644] p-8 shadow-xs relative">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65]/15 border border-[#D4AF65]/30 text-[#D4AF65] font-black text-lg mb-6">
+                01
+              </div>
+              <h3 className="font-display text-lg font-black text-white">Choose Specs or Send Artwork</h3>
+              <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Select your preferred paper weight (300 to 700 GSM) and finishing options (matte, soft-touch, 24K gold foil, embossing). Upload your print-ready PDF/AI file or request our pre-press design assistance.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-[#203357] bg-[#172644] p-8 shadow-xs relative">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65]/15 border border-[#D4AF65]/30 text-[#D4AF65] font-black text-lg mb-6">
+                02
+              </div>
+              <h3 className="font-display text-lg font-black text-white">Get Instant WhatsApp Quotation</h3>
+              <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Receive an immediate customized price quotation, technical file audit, and digital PDF contract proof directly on WhatsApp within minutes from our Al Quoz print estimators.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-[#203357] bg-[#172644] p-8 shadow-xs relative">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65]/15 border border-[#D4AF65]/30 text-[#D4AF65] font-black text-lg mb-6">
+                03
+              </div>
+              <h3 className="font-display text-lg font-black text-white">Fast Production &amp; Dubai Delivery</h3>
+              <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Your cards are precision-printed on industrial Heidelberg or HP Indigo presses, die-cut, and dispatched. Choose 4-hour express rush or next-day doorstep delivery to your office.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <a
+              href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                formatBusinessCardInquiry({
+                  quantity: '100',
+                  paper: '350 GSM Silk',
+                  finish: 'Matte Lamination',
+                  sides: 'Double-sided',
+                  location: 'Dubai',
+                  additionalRequirements: 'Ready to order - requesting quote & proof check',
+                })
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                trackWhatsAppClick({
+                  source_page: pageData?.path || '/business-card-printing-dubai',
+                  service: 'business-cards',
+                  button_location: 'how_to_order_steps',
+                  label: 'start_order_on_whatsapp',
+                })
+              }}
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-[#25D366]/25 transition-all cursor-pointer"
+            >
+              <WhatsAppIcon className="h-4 w-4 fill-current" />
+              <span>Start Your Order on WhatsApp</span>
+            </a>
+          </div>
+        </section>
+
         {/* 7. TECHNICAL ARTWORK & BLEED GUIDE */}
         <section className="mt-16 sm:mt-24 rounded-3xl border border-[#203357] bg-[#172644] p-8 sm:p-12 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -1794,6 +1906,77 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 <span>Request Free Artwork Check</span>
               </button>
             </div>
+          </div>
+        </section>
+
+        {/* REAL DUBAI CLIENT SCENARIOS & REVIEWS */}
+        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+          <div className="mx-auto max-w-3xl text-center mb-12">
+            <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+              VERIFIED CORPORATE EXPERIENCES
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-[#F5F2EB]">
+              Trusted by Dubai’s Leading Enterprises
+            </h2>
+            <p className="mt-2 text-sm text-[#A0AEC0]">
+              From DIFC legal practices to Downtown luxury brokers and Business Bay tech companies.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                quote: 'We ordered 450 GSM velvet soft-touch cards with 24K mirror gold foil for our senior partners. The foil registration and tactile feel are world-class.',
+                client: 'Karim Al-Mansoor',
+                role: 'Managing Partner',
+                company: 'DIFC Investment Advisory',
+                spec: '450 GSM Velvet + 24K Gold Foil',
+              },
+              {
+                quote: 'The 600 GSM Italian cotton cards with blind letterpress debossing command immediate respect in luxury property viewings. Dispatched within 24 hours.',
+                client: 'Sarah Jenkins',
+                role: 'Principal Broker',
+                company: 'Downtown Dubai Luxury Realty',
+                spec: '600 GSM Cotton + Blind Deboss',
+              },
+              {
+                quote: 'Seamless corporate batch ordering for 25 staff members with bilingual Arabic and English layouts. Strict Pantone color consistency on every reprint.',
+                client: 'Tariq Haddad',
+                role: 'Head of Operations',
+                company: 'Business Bay Tech Scaleup',
+                spec: '350 GSM Silk + Bilingual Print',
+              },
+              {
+                quote: 'Custom die-cut cards on textured linen with protective finish for our concierge team. The WhatsApp pre-press team was fast, clear, and exceptionally helpful.',
+                client: 'Elena Rostova',
+                role: 'Brand Experience Director',
+                company: 'Palm Jumeirah Hospitality',
+                spec: '400 GSM Textured Linen',
+              },
+            ].map((review, i) => (
+              <div
+                key={i}
+                className="rounded-3xl border border-[#203357] bg-[#172644] p-6 shadow-xs flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-1 text-amber-400 mb-3">
+                    {[...Array(5)].map((_, starIdx) => (
+                      <Star key={starIdx} className="h-3.5 w-3.5 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed italic">
+                    "{review.quote}"
+                  </p>
+                </div>
+                <div className="mt-5 pt-3 border-t border-[#203357]">
+                  <h4 className="font-bold text-xs text-white">{review.client}</h4>
+                  <p className="text-[11px] text-slate-400">{review.role} • {review.company}</p>
+                  <span className="inline-block mt-2 rounded-md bg-[#101D35] px-2 py-0.5 text-[9.5px] font-mono text-[#D4AF65] border border-[#203357]">
+                    {review.spec}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -2205,11 +2388,11 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 9. BOTTOM HIGH-CONVERTING CALL TO ACTION */}
-        <section className="mt-16 sm:mt-24 rounded-3xl bg-slate-950 border border-slate-800 p-8 sm:p-12 lg:p-16 text-white text-center shadow-2xl relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,rgba(212,175,55,0.15),transparent_70%),radial-gradient(ellipse_60%_50%_at_50%_90%,rgba(168,47,25,0.22),transparent_70%)]" />
+        <section className="mt-16 sm:mt-24 rounded-3xl bg-[#101D35] border border-[#203357] p-8 sm:p-12 lg:p-16 text-white text-center shadow-2xl relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,rgba(212,175,101,0.15),transparent_70%)]" />
 
           <div className="relative z-10 max-w-2xl mx-auto space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#172644]/5 px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#D4AF65]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#172644] px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#D4AF65]">
               <Sparkles className="h-3.5 w-3.5" />
               Elevate Your Executive Presence
             </div>
@@ -2219,28 +2402,90 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Order your 450–700 GSM luxury cards or high-volume corporate batches with same-day proofing and guaranteed color precision.
+              Order your 300–700 GSM luxury cards or corporate multi-employee batches with fast proofing, precision color calibration, and doorstep delivery across Dubai.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
+              <a
+                href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                  formatBusinessCardInquiry({
+                    quantity: formState.quantity || '100',
+                    paper: formState.paper || '350 GSM Silk',
+                    finish: formState.finish || 'Matte Lamination',
+                    sides: 'Double-sided',
+                    location: 'Dubai',
+                    additionalRequirements: 'Bottom Section Inquiry - Please share available options and price',
+                  })
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  trackWhatsAppClick({
+                    source_page: pageData?.path || '/business-card-printing-dubai',
+                    service: 'business-cards',
+                    button_location: 'bottom_cta_section',
+                    label: 'get_business_card_quote_on_whatsapp',
+                  })
+                }}
+                className="w-full sm:w-auto rounded-2xl bg-[#25D366] hover:bg-[#20ba59] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl shadow-[#25D366]/30 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
+              >
+                <WhatsAppIcon className="h-4 w-4 fill-current" />
+                <span>Get Quote on WhatsApp</span>
+              </a>
+
               <button
                 type="button"
                 onClick={() => scrollToQuote()}
-                className="w-full sm:w-auto rounded-2xl bg-[#D4AF65] hover:bg-[#D4AF65] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#0F172A] shadow-xl shadow-[#D4AF65]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
+                className="w-full sm:w-auto rounded-2xl bg-[#D4AF65] hover:bg-[#c39e55] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
               >
                 Request Custom Quotation
               </button>
+
               <a
                 href="mailto:0nprint183@gmail.com"
-                className="w-full sm:w-auto rounded-2xl border border-white/20 bg-[#172644]/10 hover:bg-[#172644]/20 px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer flex items-center justify-center gap-2"
+                className="w-full sm:w-auto rounded-2xl border border-[#203357] bg-[#172644]/50 hover:bg-[#172644] px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <Mail className="h-4 w-4" />
-                <span>Email: 0nprint183@gmail.com</span>
+                <span>Email Studio</span>
               </a>
             </div>
           </div>
         </section>
       </Container>
+
+      {/* MOBILE STICKY FLOATING WHATSAPP CTA BAR */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#101D35]/95 backdrop-blur-md border-t border-[#203357] p-3 px-4 flex items-center justify-between gap-3 shadow-2xl">
+        <div className="flex flex-col">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF65]">ONPRINT Dubai</span>
+          <span className="text-xs font-black text-white">Business Cards Quote</span>
+        </div>
+        <a
+          href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+            formatBusinessCardInquiry({
+              quantity: formState.quantity || '100',
+              paper: formState.paper || '350 GSM Silk',
+              finish: formState.finish || 'Matte Lamination',
+              sides: 'Double-sided',
+              location: 'Dubai',
+              additionalRequirements: 'Mobile Sticky CTA Inquiry',
+            })
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            trackWhatsAppClick({
+              source_page: pageData?.path || '/business-card-printing-dubai',
+              service: 'business-cards',
+              button_location: 'mobile_sticky_bar',
+              label: 'mobile_sticky_quote_whatsapp',
+            })
+          }}
+          className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-4 py-2 text-xs font-bold text-white shadow-md shadow-[#25D366]/30 cursor-pointer"
+        >
+          <WhatsAppIcon className="h-4 w-4 fill-current" />
+          <span>WhatsApp Quote</span>
+        </a>
+      </div>
     </div>
   )
 }

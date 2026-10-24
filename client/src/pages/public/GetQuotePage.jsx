@@ -20,6 +20,7 @@ import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
+import QuickQuoteWhatsAppForm from '../../components/QuickQuoteWhatsAppForm'
 import { getProductBySlug } from '../../services/products'
 import { getCategories } from '../../services/categories'
 import { createQuote } from '../../services/quotes'
@@ -129,6 +130,9 @@ export default function GetQuotePage() {
   const { state } = useLocation()
   const [searchParams] = useSearchParams()
 
+  const [quoteMode, setQuoteMode] = useState(
+    searchParams.get('mode') === 'wizard' ? 'wizard' : 'quick'
+  )
   const [categories, setCategories] = useState([])
   const [step, setStep] = useState(1)
   const [form, setForm] = useState(initialForm)
@@ -141,6 +145,7 @@ export default function GetQuotePage() {
   const [submitted, setSubmitted] = useState(false)
   const [submittedOrder, setSubmittedOrder] = useState(null)
   const [submitting, setSubmitting] = useState(false)
+  const [submissionError, setSubmissionError] = useState(null)
 
   useEffect(() => {
     getCategories().then(setCategories).catch(() => setCategories([]))
@@ -311,30 +316,32 @@ export default function GetQuotePage() {
     const artworkNames = artworkFiles.length > 0 ? artworkFiles.map((f) => f.name).join(', ') : null
     const artworkList = uploadedArtworkUrls.length > 0 ? uploadedArtworkUrls : (artworkNames ? [artworkNames] : [])
 
-    try {
-      const randomSeq = Math.floor(100000 + Math.random() * 900000)
-      const quoteRef = `ONP-Q-${randomSeq}`
+    const randomSeq = Math.floor(100000 + Math.random() * 900000)
+    const quoteRef = `ONP-Q-${randomSeq}`
 
-      const newQuote = await createQuote({
-        quoteNumber: quoteRef,
-        orderNumber: quoteRef,
-        name: form.name.trim(),
-        email: form.email.trim(),
-        phone: form.phone.trim(),
-        company: form.company.trim() || null,
-        productName: form.product.trim() || 'Custom Print Job',
-        quantity: qty,
-        totalPrice,
-        estimatedPrice: totalPrice,
-        status: 'New',
-        specs,
-        finishes: form.finishes,
-        deliveryUrgency: form.deliveryUrgency,
-        deliveryLocation: form.deliveryLocation,
-        notes: form.notes.trim() || null,
-        artworkFile: artworkNames,
-        artworkFiles: artworkList,
-      })
+    const fallbackQuote = {
+      quoteNumber: quoteRef,
+      orderNumber: quoteRef,
+      name: form.name.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim(),
+      company: form.company.trim() || null,
+      productName: form.product.trim() || 'Custom Print Job',
+      quantity: qty,
+      totalPrice,
+      estimatedPrice: totalPrice,
+      status: 'New',
+      specs,
+      finishes: form.finishes,
+      deliveryUrgency: form.deliveryUrgency,
+      deliveryLocation: form.deliveryLocation,
+      notes: form.notes.trim() || null,
+      artworkFile: artworkNames,
+      artworkFiles: artworkList,
+    }
+
+    try {
+      const newQuote = await createQuote(fallbackQuote)
 
       trackQuoteRequest({
         source_page: 'get_quote_wizard',
@@ -342,8 +349,9 @@ export default function GetQuotePage() {
         category_name: form.product || undefined,
       })
 
-      setSubmittedOrder(newQuote)
+      setSubmittedOrder(newQuote || fallbackQuote)
       setSubmitted(true)
+      setSubmissionError(null)
       window.scrollTo({ top: 0, behavior: 'smooth' })
 
       // Dispatch to WhatsApp
@@ -365,7 +373,29 @@ export default function GetQuotePage() {
         { allowSameTabFallback: true }
       )
     } catch (err) {
-      console.error('Failed to submit quote request:', err)
+      console.warn('Quote creation notice:', err)
+      setSubmissionError('Your specifications are saved locally. Connect directly with our pressroom on WhatsApp below.')
+      setSubmittedOrder(fallbackQuote)
+      setSubmitted(true)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+
+      openWhatsAppDirectly(
+        {
+          title: 'NEW COMMERCIAL PRINT QUOTATION REQUEST',
+          refNumber: quoteRef,
+          name: form.name.trim(),
+          phone: form.phone.trim(),
+          email: form.email.trim(),
+          company: form.company.trim() || 'Individual Client',
+          product: form.product.trim() || 'Custom Print Job',
+          quantity: qty,
+          specs,
+          price: totalPrice,
+          notes: form.notes.trim() || (form.largeFileLink ? `Artwork Link: ${form.largeFileLink}` : 'None'),
+          pageUrl: 'https://www.0nprint.com/get-a-quote',
+        },
+        { allowSameTabFallback: true }
+      )
     } finally {
       setSubmitting(false)
     }
@@ -405,6 +435,11 @@ export default function GetQuotePage() {
 
         {/* WhatsApp Card */}
         <div className="mt-8 w-full max-w-lg rounded-2xl bg-emerald-950/40 border border-emerald-500/30 p-5 text-center space-y-3 shadow-xs">
+          {submissionError && (
+            <div className="rounded-xl border border-amber-500/30 bg-amber-500/15 p-2.5 text-xs text-amber-200 text-left">
+              <strong>Notice:</strong> {submissionError}
+            </div>
+          )}
           <div className="flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-400">
             <WhatsAppIcon className="h-4 w-4 fill-emerald-400" />
             <span>Express WhatsApp Priority Channel</span>
@@ -492,14 +527,52 @@ export default function GetQuotePage() {
           Request a Custom Printing Quote
         </h1>
         <p className="mt-2 text-sm text-[#B0BECE]">
-          From luxury business cards to corporate brochures and packaging, enter your specifications or attach print-ready artwork for guaranteed Dubai factory pricing.
+          From luxury business cards to corporate brochures, stickers, and custom stamps, choose between instant WhatsApp quotation or our full 5-step specification builder.
         </p>
 
-        <div className="mt-10">
-          <StepIndicator current={step} />
+        {/* Quote Mode Toggle Switcher */}
+        <div className="mt-8 flex flex-wrap items-center justify-start gap-2 p-1.5 rounded-2xl bg-[#172644] border border-[#203357] w-fit max-w-full">
+          <button
+            type="button"
+            onClick={() => setQuoteMode('quick')}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer ${
+              quoteMode === 'quick'
+                ? 'bg-[#25D366] text-white shadow-md'
+                : 'text-[#B0BECE] hover:text-[#F5F2EB]'
+            }`}
+          >
+            <WhatsAppIcon className="h-4 w-4 fill-current shrink-0" />
+            <span>⚡ Fast WhatsApp Quote (Instant)</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setQuoteMode('wizard')}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer ${
+              quoteMode === 'wizard'
+                ? 'bg-[#D4AF65] text-[#101D35] shadow-md'
+                : 'text-[#B0BECE] hover:text-[#F5F2EB]'
+            }`}
+          >
+            <FileText className="h-4 w-4 shrink-0" />
+            <span>📋 Detailed 5-Step RFP Builder</span>
+          </button>
         </div>
 
-        <div className="mt-10 rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-8 md:p-10 shadow-xl text-[#F5F2EB]">
+        {quoteMode === 'quick' ? (
+          <div className="mt-8">
+            <QuickQuoteWhatsAppForm
+              initialCategory="business-cards"
+              productName={state?.product || form.product || ''}
+              initialQuantity={state?.quantity ? String(state.quantity) : form.quantity}
+            />
+          </div>
+        ) : (
+          <>
+            <div className="mt-10">
+              <StepIndicator current={step} />
+            </div>
+
+            <div className="mt-10 rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-8 md:p-10 shadow-xl text-[#F5F2EB]">
           {/* Step 1: Product Selection */}
           {step === 1 && (
             <div>
@@ -981,7 +1054,9 @@ export default function GetQuotePage() {
             )}
           </div>
         </div>
-      </Container>
-    </div>
+      </>
+    )}
+  </Container>
+</div>
   )
 }

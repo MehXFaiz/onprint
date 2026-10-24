@@ -13,7 +13,7 @@ const SITE_NAME = 'ONPRINT'
  */
 export const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': ['ProfessionalService', 'OnlineBusiness'],
   '@id': `${SITE_URL}/#organization`,
   name: 'ONPRINT',
   alternateName: '0nprint',
@@ -22,22 +22,15 @@ export const organizationSchema = {
   logo: `${SITE_URL}/logo_icon.png`,
   image: `${SITE_URL}/logo_icon.png`,
   description:
-    'ONPRINT is a commercial printing and corporate branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, executive stationery, product labels, marketing collaterals, and corporate gifts.',
+    'ONPRINT is a commercial printing and corporate branding service based in Dubai, UAE. Specializing in luxury business cards, executive stationery, company stamps & seals, custom stickers & labels, brochures, flyers, banners, and corporate gifts with UAE-wide delivery.',
   email: '0nprint183@gmail.com',
   telephone: FORMATTED_PHONE,
-  priceRange: '$$',
+  priceRange: '$',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Al Quoz',
     addressLocality: 'Dubai',
     addressRegion: 'Dubai',
-    postalCode: '00000',
     addressCountry: 'AE',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 25.1328,
-    longitude: 55.2348,
   },
   openingHoursSpecification: [
     {
@@ -315,10 +308,38 @@ export default function SEOHead({
     // 3. Canonical Tag
     setCanonicalUrl(effectiveCanonical)
 
-    // 3.5. Hreflang Tags for International SEO
-    setHreflangTag('en-ae', effectiveCanonical)
-    setHreflangTag('en', effectiveCanonical)
-    setHreflangTag('x-default', effectiveCanonical)
+    // 3.5. Hreflang Tags for International SEO (Bilingual en-ae & ar-ae)
+    const isArabic = (location.pathname || '').startsWith('/ar')
+    const currentPath = (location.pathname || '/').replace(/\/$/, '') || '/'
+
+    let counterpartUrl = ''
+    if (isArabic) {
+      if (currentPath === '/ar') counterpartUrl = `${SITE_URL}/`
+      else if (currentPath.includes('business-cards')) counterpartUrl = `${SITE_URL}/business-card-printing-dubai`
+      else if (currentPath.includes('stickers')) counterpartUrl = `${SITE_URL}/stickers-labels-printing`
+      else if (currentPath.includes('stamps')) counterpartUrl = `${SITE_URL}/categories/custom-stamps-seals`
+      else if (currentPath.includes('printing-services')) counterpartUrl = `${SITE_URL}/services`
+      else counterpartUrl = `${SITE_URL}${currentPath.replace(/^\/ar/, '') || '/'}`
+
+      setHreflangTag('ar-ae', effectiveCanonical)
+      setHreflangTag('ar', effectiveCanonical)
+      setHreflangTag('en-ae', counterpartUrl)
+      setHreflangTag('en', counterpartUrl)
+      setHreflangTag('x-default', counterpartUrl)
+    } else {
+      if (currentPath === '/') counterpartUrl = `${SITE_URL}/ar`
+      else if (currentPath.includes('business-card')) counterpartUrl = `${SITE_URL}/ar/business-cards`
+      else if (currentPath.includes('sticker') || currentPath.includes('label')) counterpartUrl = `${SITE_URL}/ar/stickers`
+      else if (currentPath.includes('stamp')) counterpartUrl = `${SITE_URL}/ar/stamps`
+      else if (currentPath.includes('service') || currentPath.includes('flyer') || currentPath.includes('brochure')) counterpartUrl = `${SITE_URL}/ar/printing-services`
+      else counterpartUrl = `${SITE_URL}/ar`
+
+      setHreflangTag('en-ae', effectiveCanonical)
+      setHreflangTag('en', effectiveCanonical)
+      setHreflangTag('ar-ae', counterpartUrl)
+      setHreflangTag('ar', counterpartUrl)
+      setHreflangTag('x-default', effectiveCanonical)
+    }
 
     // 4. Open Graph Tags
     setMetaTag('property', 'og:site_name', SITE_NAME)
@@ -327,7 +348,7 @@ export default function SEOHead({
     setMetaTag('property', 'og:type', ogType)
     setMetaTag('property', 'og:url', effectiveCanonical)
     setMetaTag('property', 'og:image', ogImg)
-    setMetaTag('property', 'og:locale', 'en_AE')
+    setMetaTag('property', 'og:locale', isArabic ? 'ar_AE' : 'en_AE')
 
     // 5. Twitter Card Tags
     setMetaTag('name', 'twitter:card', 'summary_large_image')

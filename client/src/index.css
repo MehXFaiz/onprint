@@ -386,3 +386,10 @@ textarea::placeholder {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
+
+/* RTL & Arabic Typography */
+html[lang="ar"],
+body:has([dir="rtl"]),
+[dir="rtl"] {
+  font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}

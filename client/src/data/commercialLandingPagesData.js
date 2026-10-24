@@ -418,13 +418,13 @@ const COMMERCIAL_LANDING_PAGES = {
     "sticker-printing-dubai": {
       "slug": "sticker-printing-dubai",
       "path": "/sticker-printing-dubai",
-      "title": "Sticker Printing Dubai | Custom Die-Cut Vinyl Stickers | ONPRINT",
-      "metaDescription": "Custom sticker printing in Dubai. Waterproof vinyl die-cut stickers, kiss-cut sheets, holographic & clear decals, car & window stickers with express same-day UAE delivery.",
+      "title": "Sticker Printing Dubai | Custom Stickers & Labels | ONPRINT",
+      "metaDescription": "Looking for custom sticker printing in Dubai? Explore sticker and label options from ONPRINT and request a quotation for your business or packaging needs on WhatsApp.",
       "focusKeyword": "sticker printing dubai",
-      "secondaryKeywords": "custom sticker printing dubai, die cut sticker printing dubai, waterproof sticker printing dubai, vinyl sticker printing dubai, sheet sticker printing dubai, clear sticker printing dubai, holographic sticker printing dubai, metallic foil sticker printing dubai, car decal printing dubai, window sticker printing dubai, same day sticker printing dubai",
-      "badge": "CUSTOM DIE-CUT VINYL & DECALS",
-      "h1": "Custom Die-Cut Vinyl Sticker & Decal Printing in Dubai",
-      "subheading": "Premium weatherproof vinyl stickers, precision die-cut to any custom shape. Available in waterproof matte, glossy, holographic prism, clear transparent, and metallic foil finishes with scratch-resistant UV protective overlaminates.",
+      "secondaryKeywords": "sticker printing dubai, custom stickers dubai, sticker printing in dubai, vinyl sticker printing dubai, waterproof stickers dubai, label printing dubai, product label printing dubai, custom packaging labels uae, die cut stickers dubai, holographic stickers dubai, bulk sticker printing dubai",
+      "badge": "CUSTOM DIE-CUT VINYL & LABELS",
+      "h1": "Custom Sticker Printing in Dubai",
+      "subheading": "Give your products and packaging a professional look with custom stickers from ONPRINT. Explore available sticker types, shapes, sizes, materials, and finishing options for your business. Contact our team for a quotation based on your requirements.",
       "stats": [
         {
           "label": "Substrate",

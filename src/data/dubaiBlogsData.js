@@ -1118,7 +1118,7 @@ const DUBAI_BLOGS = [
   },
 ]
 
-const BLOG_TARGET = 70
+const BLOG_TARGET = 85
 
 const blogBlueprints = [
   {
@@ -1416,6 +1416,14 @@ for (const bp of blogBlueprints) {
 
 const { BUSINESS_CARD_LINKABLE_GUIDES } = require('./businessCardLinkableGuidesData')
 for (const guide of BUSINESS_CARD_LINKABLE_GUIDES) {
+  pushBlog({
+    ...guide,
+    id: bid++,
+  })
+}
+
+const { STICKER_LINKABLE_GUIDES } = require('./stickerLinkableGuidesData')
+for (const guide of STICKER_LINKABLE_GUIDES) {
   pushBlog({
     ...guide,
     id: bid++,

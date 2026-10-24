@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Send, Sparkles, Clock, CheckCircle2 } from 'lucide-react'
+import { X, Send, Sparkles, Clock, CheckCircle2, Phone, Mail, FileText } from 'lucide-react'
 import WhatsAppIcon from './WhatsAppIcon'
 import {
   WHATSAPP_PHONE,
   FORMATTED_PHONE,
+  RAW_WHATSAPP_NUMBER,
   SERVICE_INQUIRY_MESSAGES,
   openWhatsAppDirectly,
 } from '../utils/whatsapp'
-import { trackWhatsAppClick } from '../utils/analytics'
+import { trackWhatsAppClick, trackPhoneClick, trackEmailClick } from '../utils/analytics'
 
 const QUICK_PROMPTS = [
   {
@@ -87,7 +89,7 @@ export default function FloatingWhatsApp() {
   }
 
   return (
-    <aside aria-label="WhatsApp Inquiry Concierge" className="fixed bottom-16 right-4 md:bottom-6 md:right-6 z-40 flex flex-col items-end pointer-events-auto">
+    <aside aria-label="WhatsApp Inquiry Concierge" className="fixed bottom-[74px] right-3.5 md:bottom-6 md:right-6 z-40 flex flex-col items-end pointer-events-auto">
       {/* Expanded Concierge Card */}
       <AnimatePresence>
         {isOpen && (
@@ -204,6 +206,31 @@ export default function FloatingWhatsApp() {
                   </button>
                 </div>
               </form>
+
+              {/* Alternative Contact Fallbacks if WhatsApp is unavailable */}
+              <div className="pt-2.5 border-t border-[#203357] space-y-1.5 text-[10.5px] text-[#A0AEC0]">
+                <span className="block text-[9px] font-bold uppercase tracking-wider text-[#D4AF65]">
+                  Alternative Direct Contact:
+                </span>
+                <div className="grid grid-cols-2 gap-1.5">
+                  <a
+                    href={`tel:+${WHATSAPP_PHONE}`}
+                    onClick={() => trackPhoneClick({ source_page: 'floating_concierge', button_location: 'concierge_call_fallback' })}
+                    className="flex items-center justify-center gap-1.5 rounded-lg border border-[#203357] bg-[#101D35] px-2 py-1.5 text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all font-semibold"
+                  >
+                    <Phone className="h-3 w-3 text-[#D4AF65]" />
+                    <span>Call Hotline</span>
+                  </a>
+                  <Link
+                    to="/get-a-quote"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-center gap-1.5 rounded-lg border border-[#203357] bg-[#101D35] px-2 py-1.5 text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all font-semibold"
+                  >
+                    <FileText className="h-3 w-3 text-[#D4AF65]" />
+                    <span>Fast Web Quote</span>
+                  </Link>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

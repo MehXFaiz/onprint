@@ -200,9 +200,9 @@ export default function HomePage() {
     <div className="bg-[#101D35] text-[#F5F2EB]">
       {/* SEO Head Management & Structured Data */}
       <SEOHead
-        title="Business Card Printing & Custom Printing | ONPRINT"
-        description="Order custom business cards with premium printing and finishing options. Explore your choices and request a personalized printing quote from ONPRINT."
-        keywords="printing company in dubai, printing services dubai, commercial printing dubai, luxury business cards dubai, business card printing dubai, sticker printing dubai, brochure printing dubai, same day printing dubai, corporate gifts dubai, offset printing dubai, digital printing press uae"
+        title="Premium Printing Solutions Dubai & UAE | ONPRINT"
+        description="Business cards, custom stickers, rubber stamps, and professional printing solutions tailored to your business in Dubai & across the UAE. Request a quote directly on WhatsApp."
+        keywords="printing company in dubai, printing services dubai, commercial printing dubai, luxury business cards dubai, business card printing dubai, sticker printing dubai, rubber stamps dubai, company stamp dubai, brochure printing dubai, same day printing dubai, corporate gifts dubai, offset printing dubai, digital printing press uae"
         canonicalPath="/"
         faqList={homeFaqs}
       />
@@ -241,11 +241,10 @@ export default function HomePage() {
             </div>
 
             {/* Main Heading in Elegant Editorial Serif Font */}
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-[3.3rem] xl:text-[3.8rem] font-bold leading-[1.1] tracking-tight text-[#F5F2EB]">
-              Commercial &amp; Luxury<br className="hidden sm:inline" />{' '}
-              Printing in{' '}
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-[3.2rem] xl:text-[3.6rem] font-bold leading-[1.12] tracking-tight text-[#F5F2EB]">
+              Premium Printing Solutions for Businesses in{' '}
               <span className="relative inline-block font-serif italic text-[#D4AF65] font-black">
-                Dubai, UAE
+                Dubai &amp; Across the UAE
                 <span
                   className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-[#D4AF65] via-[#D4AF65]/60 to-transparent"
                   aria-hidden="true"
@@ -255,7 +254,7 @@ export default function HomePage() {
 
             {/* Supporting Text */}
             <p className="max-w-xl text-sm sm:text-base leading-[1.75] text-[#B0BECE] font-normal">
-              Direct in-house pressroom in <strong className="text-[#F5F2EB] font-bold">Al Quoz, Dubai</strong>. German Heidelberg offset accuracy, HP Indigo digital, <strong className="text-[#F5F2EB] font-bold">600 GSM cotton &amp; 24K foil business cards</strong>, roll-up exhibition banners, waterproof stickers, and official company seals with same-day UAE dispatch.
+              Business cards, custom stickers, rubber stamps, and professional printing solutions tailored to your business. Request a quote directly on WhatsApp.
             </p>
 
             {/* 4 Tactile Feature Pills */}
@@ -279,9 +278,36 @@ export default function HomePage() {
               })}
             </div>
 
-            {/* Action Buttons: Get a Quote on WhatsApp & Explore Products */}
+            {/* 3 Clear Conversion Calls to Action (Prompt Phase 3) */}
             <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-3.5 pt-2">
-              {/* Primary Action: Get a Quote on WhatsApp */}
+              {/* CTA 1: Get a Free Quote */}
+              <Button
+                to="/get-a-quote"
+                variant="primary"
+                size="lg"
+                icon={false}
+                onClick={() =>
+                  trackGetQuoteClick({
+                    source_page: '/',
+                    button_location: 'hero_get_free_quote',
+                  })
+                }
+                className="!rounded-full px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-black !bg-[#D4AF65] hover:!bg-[#C49E52] !text-[#101D35] shadow-md shadow-[#D4AF65]/20 hover:shadow-lg text-center justify-center"
+              >
+                <span>Get a Free Quote</span>
+                <ArrowRight className="h-4 w-4 ml-1" />
+              </Button>
+
+              {/* CTA 2: Explore Printing Products */}
+              <Link
+                to="/products"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#203357] bg-[#172644] hover:bg-[#203357] hover:border-[#D4AF65] px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-[#F5F2EB] transition-all text-center"
+              >
+                <span>Explore Printing Products</span>
+                <ArrowUpRight className="h-4 w-4 text-[#D4AF65]" />
+              </Link>
+
+              {/* CTA 3: Chat with Us on WhatsApp */}
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -292,28 +318,16 @@ export default function HomePage() {
                   trackWhatsAppClick({
                     source_page: '/',
                     service_name: 'general_hero',
-                    button_location: 'hero_primary_whatsapp',
-                    label: 'hero_get_quote_whatsapp',
+                    button_location: 'hero_chat_whatsapp',
+                    label: 'hero_chat_on_whatsapp',
                   })
                 }
-                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-5 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-black text-white shadow-lg shadow-emerald-600/20 transition-all cursor-pointer text-center"
-                title="Get a Quote on WhatsApp"
+                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-black text-white shadow-lg shadow-emerald-600/20 transition-all cursor-pointer text-center"
+                title="Chat with Us on WhatsApp"
               >
-                <WhatsAppIcon className="h-5 w-5 fill-white shrink-0" />
-                <span>Get Price on WhatsApp</span>
+                <WhatsAppIcon className="h-4.5 w-4.5 fill-white shrink-0" />
+                <span>Chat with Us on WhatsApp</span>
               </motion.a>
-
-              {/* Explore Products Button */}
-              <Button
-                to="/products"
-                variant="primary"
-                size="lg"
-                icon={false}
-                className="!rounded-full px-5 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-black !bg-[#D4AF65] hover:!bg-[#D4AF65] !text-[#101D35] shadow-md shadow-[#D4AF65]/20 hover:shadow-lg text-center justify-center"
-              >
-                <span>Explore Products</span>
-                <ArrowRight className="h-4 w-4 ml-1" />
-              </Button>
             </div>
           </motion.div>
 
@@ -569,7 +583,9 @@ export default function HomePage() {
 
                   <div className="space-y-2">
                     <h3 className="font-serif text-lg font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
-                      Letterhead Printing
+                      <Link to="/products/executive-letterheads-120gsm" className="hover:underline focus:outline-none">
+                        Letterhead Printing
+                      </Link>
                     </h3>
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Official corporate letterheads on 100–120 GSM laser-guaranteed smooth bond, textured linen, royal laid cotton, and metallic foil stamping.
@@ -654,7 +670,9 @@ export default function HomePage() {
 
                   <div className="space-y-2">
                     <h3 className="font-serif text-lg font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
-                      Brochure &amp; Catalog Printing
+                      <Link to="/brochure-printing-dubai" className="hover:underline focus:outline-none">
+                        Brochure &amp; Catalog Printing
+                      </Link>
                     </h3>
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Luxury bi-fold, tri-fold, gate-fold, and saddle-stitched product catalogs with velvet soft-touch lamination and precision fold scoring.
@@ -695,7 +713,7 @@ export default function HomePage() {
                     <span>Inquire on WhatsApp</span>
                   </a>
                   <Link
-                    to="/services/brochures-printing"
+                    to="/brochure-printing-dubai"
                     className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-[#A0AEC0] hover:text-[#D4AF65] py-1 transition-colors"
                   >
                     <span>View Brochure Options</span>
@@ -739,7 +757,9 @@ export default function HomePage() {
 
                   <div className="space-y-2">
                     <h3 className="font-serif text-lg font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
-                      Envelope Printing
+                      <Link to="/products/corporate-envelopes" className="hover:underline focus:outline-none">
+                        Envelope Printing
+                      </Link>
                     </h3>
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Corporate branded business envelopes with secure peel-and-seal adhesive strips in standard DL, C5, and C4 business mailing formats.
@@ -824,7 +844,9 @@ export default function HomePage() {
 
                   <div className="space-y-2">
                     <h3 className="font-serif text-lg font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
-                      Sticker &amp; Label Printing
+                      <Link to="/categories/stickers-labels-printing" className="hover:underline focus:outline-none">
+                        Sticker &amp; Label Printing
+                      </Link>
                     </h3>
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Custom contour die-cut waterproof vinyl stickers, clear transparent decals, bottle labels, and eye-catching holographic finishes.
@@ -909,7 +931,9 @@ export default function HomePage() {
 
                   <div className="space-y-2">
                     <h3 className="font-serif text-lg font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
-                      Custom Stamps &amp; Seals
+                      <Link to="/categories/stamps-printing-dubai" className="hover:underline focus:outline-none">
+                        Custom Stamps &amp; Seals
+                      </Link>
                     </h3>
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Official corporate self-inking rubber stamps, portable pocket folding stamps, heavy-duty daters, and brass wax notary seals.
@@ -950,7 +974,7 @@ export default function HomePage() {
                     <span>Inquire on WhatsApp</span>
                   </a>
                   <Link
-                    to="/services/stamps-printing-dubai"
+                    to="/categories/stamps-printing-dubai"
                     className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-[#A0AEC0] hover:text-[#D4AF65] py-1 transition-colors"
                   >
                     <span>View Stamp Options</span>
@@ -994,7 +1018,9 @@ export default function HomePage() {
 
                   <div className="space-y-2">
                     <h3 className="font-serif text-lg font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
-                      Voucher &amp; Coupon Printing
+                      <Link to="/products/luxury-gold-foil-flyers" className="hover:underline focus:outline-none">
+                        Voucher &amp; Coupon Printing
+                      </Link>
                     </h3>
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Luxury retail gift vouchers, event ticket booklets, and discount coupons with sequential numbering, foil crests, and perforated stubs.

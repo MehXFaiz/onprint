@@ -35,7 +35,14 @@ const BottlesLeadPage = lazy(() => import('./pages/public/BottlesLeadPage'))
 const RollupBannersLeadPage = lazy(() => import('./pages/public/RollupBannersLeadPage'))
 const LocationLandingPage = lazy(() => import('./pages/public/LocationLandingPage'))
 const StampsLandingPage = lazy(() => import('./pages/public/StampsLandingPage'))
+const StickersLandingPage = lazy(() => import('./pages/public/StickersLandingPage'))
 const NotFoundPage = lazy(() => import('./pages/public/NotFoundPage'))
+const ArabicHomePage = lazy(() => import('./pages/public/ArabicHomePage'))
+const ArabicBusinessCardsPage = lazy(() => import('./pages/public/ArabicBusinessCardsPage'))
+const ArabicStickersPage = lazy(() => import('./pages/public/ArabicStickersPage'))
+const ArabicStampsPage = lazy(() => import('./pages/public/ArabicStampsPage'))
+const ArabicPrintingServicesPage = lazy(() => import('./pages/public/ArabicPrintingServicesPage'))
+
 
 function CategoryRouteRedirect() {
   const { slug } = useParams()
@@ -87,6 +94,17 @@ function App() {
         <Routes>
           <Route element={<PublicLayout />}>
             <Route path="/" element={<HomePage />} />
+
+            {/* Official Bilingual Arabic Portal & High-Intent Landing Pages */}
+            <Route path="/ar" element={<ArabicHomePage />} />
+            <Route path="/ar/business-cards" element={<ArabicBusinessCardsPage />} />
+            <Route path="/ar/business-card-printing-dubai" element={<ArabicBusinessCardsPage />} />
+            <Route path="/ar/stickers" element={<ArabicStickersPage />} />
+            <Route path="/ar/stickers-labels-printing" element={<ArabicStickersPage />} />
+            <Route path="/ar/stamps" element={<ArabicStampsPage />} />
+            <Route path="/ar/custom-stamps-seals" element={<ArabicStampsPage />} />
+            <Route path="/ar/printing-services" element={<ArabicPrintingServicesPage />} />
+
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/:slug" element={<ServiceDetailPage />} />
@@ -126,7 +144,7 @@ function App() {
             <Route path="/custom-packaging-dubai" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
             <Route path="/custom-packaging" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
             <Route path="/packaging-printing" element={<Navigate to="/services/luxury-packaging-custom-boxes" replace />} />
-            <Route path="/sticker-printing-dubai" element={<CommercialLandingPage pageKey="sticker-printing-dubai" />} />
+            <Route path="/sticker-printing-dubai" element={<StickersLandingPage />} />
             <Route path="/label-printing-dubai" element={<CommercialLandingPage pageKey="label-printing-dubai" />} />
             <Route path="/signage-printing-dubai" element={<CommercialLandingPage pageKey="signage-printing-dubai" />} />
             <Route path="/large-format-printing-dubai" element={<CommercialLandingPage pageKey="large-format-printing-dubai" />} />
@@ -160,9 +178,9 @@ function App() {
             <Route path="/flyer-and-leaflet-printing" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
             <Route path="/flyers-and-leaflets" element={<Navigate to="/categories/flyers-printing-in-dubai" replace />} />
             <Route path="/sticker-printing" element={<Navigate to="/sticker-printing-dubai" replace />} />
-            <Route path="/stickers" element={<Navigate to="/categories/stickers-labels-printing" replace />} />
+            <Route path="/stickers" element={<StickersLandingPage />} />
             <Route path="/stickers-labels-printing" element={<Navigate to="/categories/stickers-labels-printing" replace />} />
-            <Route path="/custom-stickers-dubai" element={<Navigate to="/sticker-printing-dubai" replace />} />
+            <Route path="/custom-stickers-dubai" element={<StickersLandingPage />} />
             {/* Direct Sticker Category Mapping */}
             <Route path="/stickers/custom-stickers" element={<Navigate to="/products/die-cut-stickers" replace />} />
             <Route path="/stickers/logo-stickers" element={<Navigate to="/products/custom-logo-stickers" replace />} />
@@ -179,6 +197,12 @@ function App() {
             <Route path="/rollup-banner-printing-dubai" element={<Navigate to="/services/rollup-banners" replace />} />
             <Route path="/roll-up-banner-printing-dubai" element={<Navigate to="/services/rollup-banners" replace />} />
             {/* Dedicated Stamp Products Section & Aliases */}
+            <Route path="/rubber-stamps-dubai" element={<StampsLandingPage />} />
+            <Route path="/services/stamps-printing-dubai" element={<StampsLandingPage />} />
+            <Route path="/services/stamps" element={<Navigate to="/categories/stamps-printing-dubai" replace />} />
+            <Route path="/services/custom-stamps" element={<Navigate to="/categories/stamps-printing-dubai" replace />} />
+            <Route path="/services/brochures-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />
+            <Route path="/categories/brochures-printing" element={<Navigate to="/brochure-printing-dubai" replace />} />
             <Route path="/categories/custom-stamps-seals" element={<StampsLandingPage />} />
             <Route path="/categories/stamps-printing-dubai" element={<StampsLandingPage />} />
             <Route path="/stamps" element={<StampsLandingPage />} />

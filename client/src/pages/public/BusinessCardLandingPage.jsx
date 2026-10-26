@@ -56,6 +56,7 @@ import {
   trackProductInquiry,
   trackQuoteRequest,
   trackWhatsAppClick,
+  trackBusinessCardWhatsAppClick,
   trackBusinessCardProductView,
   trackCorporateEnquirySubmit,
   trackQualifiedLead,
@@ -626,6 +627,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const [artworkFile, setArtworkFile] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState(null)
   const [quoteNumber, setQuoteNumber] = useState('')
 
   const scrollToQuote = (prefillType = null, prefillPaper = null, prefillQty = null) => {
@@ -654,6 +656,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const handleQuoteSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitError(null)
     trackGetQuoteClick({ source_page: `business_card_${derivedKey}` })
 
     try {
@@ -708,24 +711,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
       )
     } catch (err) {
       console.error('Quote submission error:', err)
-      const fallbackNum = `ONP-2026-${Math.floor(100000 + Math.random() * 900000)}`
-      setSubmitSuccess(true)
-      setQuoteNumber(fallbackNum)
-
-      openWhatsAppDirectly(
-        {
-          title: 'BUSINESS CARD QUOTE INQUIRY',
-          refNumber: fallbackNum,
-          name: formState.name,
-          phone: formState.phone,
-          email: formState.email,
-          company: formState.company || 'N/A',
-          product: `Business Cards (${formState.cardType})`,
-          quantity: formState.quantity,
-          specs: `Paper: ${formState.paper} | Finish: ${formState.finish}`,
-        },
-        { allowSameTabFallback: true }
-      )
+      setSubmitError('We encountered an issue saving your quote to our server. Your entered details have been saved below. Tap below to send directly via WhatsApp.')
     } finally {
       setIsSubmitting(false)
     }
@@ -852,7 +838,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
-                      trackWhatsAppClick({
+                      trackBusinessCardWhatsAppClick({
                         source_page: pageData?.path || '/business-card-printing-dubai',
                         service: 'business-cards',
                         button_location: 'hero_primary_cta',
@@ -941,7 +927,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() =>
-                          trackWhatsAppClick({ source_page: 'business_card_landing_quote_received', service: 'business-cards', button_location: 'quote_received' })
+                          trackBusinessCardWhatsAppClick({ source_page: 'business_card_landing_quote_received', service: 'business-cards', button_location: 'quote_received' })
                         }
                         className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-3 px-6 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"
                       >
@@ -1165,6 +1151,47 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       />
                     </div>
 
+                    {submitError && (
+                      <div className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-200 space-y-2">
+                        <div className="flex items-start gap-2">
+                          <AlertCircle className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+                          <div>
+                            <p className="font-bold text-white">Direct Server Submission Unavailable</p>
+                            <p className="text-[11px] text-amber-200/90">{submitError}</p>
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            trackBusinessCardWhatsAppClick({
+                              source_page: 'business_card_form_error_fallback',
+                              service: 'business-cards',
+                              product_name: `Business Cards (${formState.cardType})`,
+                              button_location: 'error_fallback_whatsapp',
+                            })
+                            openWhatsAppDirectly(
+                              {
+                                title: 'BUSINESS CARD QUOTE INQUIRY',
+                                name: formState.name,
+                                phone: formState.phone,
+                                email: formState.email,
+                                company: formState.company || 'N/A',
+                                product: `Business Cards (${formState.cardType})`,
+                                quantity: formState.quantity,
+                                specs: `Paper: ${formState.paper} | Finish: ${formState.finish} | Target Delivery: ${formState.deliveryDate}`,
+                                notes: formState.notes || 'Direct Quote Inquirer',
+                              },
+                              { allowSameTabFallback: true }
+                            )
+                          }}
+                          className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-4 text-xs font-bold text-white shadow-sm transition-all cursor-pointer"
+                        >
+                          <WhatsAppIcon className="h-4 w-4 fill-current" />
+                          <span>Tap to Send Saved Details via WhatsApp</span>
+                        </button>
+                      </div>
+                    )}
+
                     <div className="space-y-2 pt-1">
                       <button
                         type="submit"
@@ -1195,7 +1222,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => {
-                          trackWhatsAppClick({
+                          trackBusinessCardWhatsAppClick({
                             source_page: 'business_card_landing_form',
                             service: 'business-cards',
                             product_name: `Business Cards (${formState.cardType})`,
@@ -1419,7 +1446,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
-                      trackWhatsAppClick({
+                      trackBusinessCardWhatsAppClick({
                         source_page: pageData?.path || '/business-card-printing-dubai',
                         service: 'business-cards',
                         product_name: card.title,
@@ -1852,7 +1879,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
-                trackWhatsAppClick({
+                trackBusinessCardWhatsAppClick({
                   source_page: pageData?.path || '/business-card-printing-dubai',
                   service: 'business-cards',
                   button_location: 'how_to_order_steps',
@@ -2420,7 +2447,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
-                  trackWhatsAppClick({
+                  trackBusinessCardWhatsAppClick({
                     source_page: pageData?.path || '/business-card-printing-dubai',
                     service: 'business-cards',
                     button_location: 'bottom_cta_section',
@@ -2473,7 +2500,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => {
-            trackWhatsAppClick({
+            trackBusinessCardWhatsAppClick({
               source_page: pageData?.path || '/business-card-printing-dubai',
               service: 'business-cards',
               button_location: 'mobile_sticky_bar',

@@ -27,6 +27,8 @@ import {
   trackQuoteFormStart,
   trackQuoteRequest,
   trackWhatsAppClick,
+  trackBusinessCardWhatsAppClick,
+  trackStickerWhatsAppClick,
   trackArtworkUpload
 } from '../utils/analytics'
 import { createQuote } from '../services/quotes'
@@ -245,6 +247,23 @@ export default function QuickQuoteWhatsAppForm({
       button_location: 'quick_quote_whatsapp_submit',
       label: `quick_quote_${category}`,
     })
+
+    if (category === 'business-cards') {
+      trackBusinessCardWhatsAppClick({
+        card_type: resolvedProd,
+        quantity: qtyNum,
+        paper_stock: materialFinish,
+        button_location: 'quick_quote_whatsapp_submit',
+        source_page: typeof window !== 'undefined' ? window.location.pathname : 'quick_quote_form',
+      })
+    } else if (category === 'stickers') {
+      trackStickerWhatsAppClick({
+        sticker_type: resolvedProd,
+        quantity: qtyNum,
+        button_location: 'quick_quote_whatsapp_submit',
+        source_page: typeof window !== 'undefined' ? window.location.pathname : 'quick_quote_form',
+      })
+    }
 
     setGeneratedResult({
       refNumber: quoteRef,

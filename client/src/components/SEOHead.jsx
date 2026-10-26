@@ -315,8 +315,8 @@ export default function SEOHead({
     let counterpartUrl = ''
     if (isArabic) {
       if (currentPath === '/ar') counterpartUrl = `${SITE_URL}/`
-      else if (currentPath.includes('business-cards')) counterpartUrl = `${SITE_URL}/business-card-printing-dubai`
-      else if (currentPath.includes('stickers')) counterpartUrl = `${SITE_URL}/stickers-labels-printing`
+      else if (currentPath.includes('business-card')) counterpartUrl = `${SITE_URL}/business-card-printing-dubai`
+      else if (currentPath.includes('sticker')) counterpartUrl = `${SITE_URL}/sticker-printing-dubai`
       else if (currentPath.includes('stamps')) counterpartUrl = `${SITE_URL}/categories/custom-stamps-seals`
       else if (currentPath.includes('printing-services')) counterpartUrl = `${SITE_URL}/services`
       else counterpartUrl = `${SITE_URL}${currentPath.replace(/^\/ar/, '') || '/'}`
@@ -329,7 +329,7 @@ export default function SEOHead({
     } else {
       if (currentPath === '/') counterpartUrl = `${SITE_URL}/ar`
       else if (currentPath.includes('business-card')) counterpartUrl = `${SITE_URL}/ar/business-cards`
-      else if (currentPath.includes('sticker') || currentPath.includes('label')) counterpartUrl = `${SITE_URL}/ar/stickers`
+      else if (currentPath.includes('sticker') || currentPath.includes('label')) counterpartUrl = `${SITE_URL}/ar/sticker-printing-dubai`
       else if (currentPath.includes('stamp')) counterpartUrl = `${SITE_URL}/ar/stamps`
       else if (currentPath.includes('service') || currentPath.includes('flyer') || currentPath.includes('brochure')) counterpartUrl = `${SITE_URL}/ar/printing-services`
       else counterpartUrl = `${SITE_URL}/ar`
@@ -442,8 +442,7 @@ export default function SEOHead({
           email: '0nprint183@gmail.com',
           address: {
             '@type': 'PostalAddress',
-            streetAddress: 'Al Quoz',
-            addressLocality: 'Dubai',
+                        addressLocality: 'Dubai',
             addressRegion: 'Dubai',
             addressCountry: 'AE',
           },

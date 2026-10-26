@@ -30,7 +30,7 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick, trackQuoteRequest, trackQualifiedLead, trackArtworkUpload } from '../../utils/analytics'
+import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick, trackBusinessCardWhatsAppClick, trackQuoteRequest, trackQualifiedLead, trackArtworkUpload } from '../../utils/analytics'
 import { openWhatsAppDirectly, getWhatsAppUrl, getServiceWhatsAppUrl, formatBusinessCardInquiry, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
 
 const CARD_OPTIONS = [
@@ -967,10 +967,12 @@ export default function BusinessCardsLeadPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() =>
-                trackWhatsAppClick({
-                  source_page: 'business_cards_lead_page_bottom',
-                  service: 'business-cards',
+                trackBusinessCardWhatsAppClick({
+                  source_page: '/quote/business-cards',
                   button_location: 'bottom_section',
+                  card_type: selectedCard?.name || 'Business Cards',
+                  quantity: selectedQty?.label,
+                  paper_stock: selectedCard?.name,
                 })
               }
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-7 py-3.5 text-xs font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"

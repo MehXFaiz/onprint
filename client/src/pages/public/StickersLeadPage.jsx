@@ -21,7 +21,7 @@ import Button from '../../components/Button'
 import SEOHead from '../../components/SEOHead'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackQuoteRequest, trackWhatsAppClick } from '../../utils/analytics'
+import { trackGetQuoteClick, trackQuoteRequest, trackWhatsAppClick, trackStickerWhatsAppClick } from '../../utils/analytics'
 import { openWhatsAppDirectly, getWhatsAppUrl, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../../utils/whatsapp'
 
 const STICKER_TYPES = [
@@ -413,12 +413,13 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => {
-                          trackWhatsAppClick({
-                            source_page: '/quote/stickers',
-                            service_name: 'stickers',
-                            button_location: 'stickers_lead_page_quick_chat',
-                            label: 'stickers_lead_direct_whatsapp',
-                          })
+                          trackStickerWhatsAppClick({
+                              source_page: '/quote/stickers',
+                              sticker_type: formData.stickerType,
+                              quantity: formData.quantity,
+                              button_location: 'stickers_lead_page_quick_chat',
+                              label: 'stickers_lead_direct_whatsapp',
+                            })
                         }}
                         className="w-full py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-emerald-600/20 hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 cursor-pointer"
                       >

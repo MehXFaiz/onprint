@@ -342,7 +342,7 @@ const STICKER_FAQS = [
   },
   {
     question: 'What is the fastest turnaround time for urgent sticker printing in Dubai?',
-    answer: 'We provide Same-Day 4-Hour Express production for print-ready vector artwork approved before 11:00 AM at our Al Quoz pressroom. Standard production turnaround is 1 to 2 business days with express courier delivery across Dubai, Abu Dhabi, Sharjah, and all UAE emirates.'
+    answer: 'We provide Same-Day 4-Hour Express production for print-ready vector artwork approved before 11:00 AM with rapid courier dispatch across Dubai. Standard production turnaround is 1 to 2 business days with express courier delivery across Dubai, Abu Dhabi, Sharjah, and all UAE emirates.'
   },
   {
     question: 'What artwork file formats are required for sticker printing?',
@@ -374,6 +374,7 @@ export default function StickersLandingPage() {
   const [modalOpen, setModalOpen] = useState(false)
   const [formSubmitting, setFormSubmitting] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
+  const [formError, setFormError] = useState(null)
   const [customerName, setCustomerName] = useState('')
   const [customerPhone, setCustomerPhone] = useState('')
   const [customerEmail, setCustomerEmail] = useState('')
@@ -457,6 +458,7 @@ export default function StickersLandingPage() {
     if (!customerName || !customerPhone) return
 
     setFormSubmitting(true)
+    setFormError(null)
     trackStickerQuoteStart({ sticker_type: selectedProduct.name, source_page: '/sticker-printing-dubai' })
 
     const refNumber = `ONP-STK-${Math.floor(100000 + Math.random() * 900000)}`
@@ -474,28 +476,28 @@ export default function StickersLandingPage() {
         notes: `Intended Use: ${intendedUse} | Location: ${deliveryLocation} | ${additionalRequirements}`,
         status: 'New',
       })
+
+      trackStickerQuoteSubmit({
+        sticker_type: selectedProduct.name,
+        quantity: effectiveQty,
+        material: selectedMaterial.name,
+        finish: selectedFinish.name,
+        shape: selectedShape.name,
+        size: selectedSize.label,
+        estimated_value: pricingBreakdown.total,
+        source_page: '/sticker-printing-dubai',
+      })
+
+      setFormSuccess(true)
+      setTimeout(() => {
+        openWhatsAppDirectly(dynamicWhatsAppUrl)
+      }, 800)
     } catch (err) {
-      console.warn('Backend quote note:', err.message)
+      console.error('Sticker quote submission error:', err)
+      setFormError('We encountered an issue saving your quote to our server. Your entered details have been preserved. Tap below to send directly via WhatsApp.')
+    } finally {
+      setFormSubmitting(false)
     }
-
-    trackStickerQuoteSubmit({
-      sticker_type: selectedProduct.name,
-      quantity: effectiveQty,
-      material: selectedMaterial.name,
-      finish: selectedFinish.name,
-      shape: selectedShape.name,
-      size: selectedSize.label,
-      estimated_value: pricingBreakdown.total,
-      source_page: '/sticker-printing-dubai',
-    })
-
-    setFormSuccess(true)
-    setFormSubmitting(false)
-
-    // Open WhatsApp as secondary instant confirmation
-    setTimeout(() => {
-      openWhatsAppDirectly(dynamicWhatsAppUrl)
-    }, 800)
   }
 
   const breadcrumbsList = [
@@ -508,7 +510,7 @@ export default function StickersLandingPage() {
       {/* 1. SEO Head Metadata with FAQ & LocalBusiness Schema */}
       <SEOHead
         title="Sticker Printing Dubai | Custom Stickers & Labels | ONPRINT"
-        description="Looking for custom sticker printing in Dubai? Explore sticker and label options from ONPRINT and request a quotation for your business or packaging needs on WhatsApp."
+        description="Order custom stickers and product labels from ONPRINT in Dubai. Explore available materials, shapes and finishes, and request a quote for your printing requirements."
         keywords="sticker printing dubai, custom stickers dubai, sticker printing in dubai, vinyl sticker printing dubai, waterproof stickers dubai, label printing dubai, product label printing dubai, custom packaging labels uae, die cut stickers dubai, holographic stickers dubai, bulk sticker printing dubai"
         canonicalPath="/sticker-printing-dubai"
         breadcrumbs={breadcrumbsList}
@@ -541,9 +543,18 @@ export default function StickersLandingPage() {
             {/* Left Column: Headings & Intros */}
             <div className="lg:col-span-7 space-y-6">
               <Reveal>
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#172644] px-4 py-1.5 text-xs font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
-                  <Sparkles className="h-4 w-4 text-[#D4AF65]" />
-                  <span>Al Quoz Dubai Pressroom • 100% Waterproof Heavy-Duty Vinyl</span>
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#172644] px-4 py-1.5 text-xs font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                    <Sparkles className="h-4 w-4 text-[#D4AF65]" />
+                    <span>Dubai Sticker Printing • 100% Waterproof Heavy-Duty Vinyl</span>
+                  </div>
+                  <Link
+                    to="/ar/sticker-printing-dubai"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF65]/60 bg-[#172644] hover:bg-[#D4AF65]/15 px-3 py-1.5 text-xs font-bold text-[#D4AF65] transition-colors shadow-xs"
+                    title="النسخة العربية - طباعة استيكرات وملصقات دبي"
+                  >
+                    <span>🇦🇪 النسخة العربية (Arabic)</span>
+                  </Link>
                 </div>
               </Reveal>
 
@@ -637,7 +648,7 @@ export default function StickersLandingPage() {
                     </span>
                     <span className="flex items-center gap-1">
                       <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                      Al Quoz Press Floor
+                      Dubai Production Desk
                     </span>
                   </div>
                 </div>
@@ -1280,13 +1291,13 @@ export default function StickersLandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
-                AL QUOZ PRESSROOM LOGISTICS
+                DUBAI PRODUCTION & LOGISTICS
               </span>
               <h2 className="font-serif text-2xl sm:text-4xl font-bold text-white">
                 Production &amp; UAE-Wide Express Delivery
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Located centrally in Al Quoz Industrial Area 4, Dubai, ONPRINT maintains in-house high-speed digital printing and optical cutting plotters.
+                Serving Dubai and the wider UAE, ONPRINT provides high-precision digital sticker printing, die-cutting, and rapid courier delivery directly to your doorstep.
               </p>
 
               <div className="space-y-3 pt-2">
@@ -1295,7 +1306,7 @@ export default function StickersLandingPage() {
                     <Check className="h-3.5 w-3.5" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-white">Same-Day 4-Hour Express Pickup / Courier</h4>
+                    <h4 className="text-xs font-bold text-white">Same-Day 4-Hour Express Courier Delivery</h4>
                     <p className="text-xs text-[#B0BECE]">Available for print-ready vector artwork approved before 11:00 AM.</p>
                   </div>
                 </div>
@@ -1324,13 +1335,13 @@ export default function StickersLandingPage() {
 
             <div className="lg:col-span-5 rounded-2xl border border-[#203357] bg-[#101D35] p-6 space-y-4">
               <h3 className="font-serif text-base font-bold text-white flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-[#D4AF65]" />
-                <span>Central Dubai Production Hub</span>
+                <Truck className="h-4 w-4 text-[#D4AF65]" />
+                <span>Express Doorstep Delivery in Dubai &amp; UAE</span>
               </h3>
               <p className="text-xs text-[#B0BECE] leading-relaxed">
-                ONPRINT Commercial Pressroom<br />
-                Al Quoz Industrial Area 4, Dubai, United Arab Emirates<br />
-                Near Sheikh Zayed Road &amp; Al Khail Road
+                ONPRINT Online Printing &amp; Logistics<br />
+                Direct doorstep dispatch to offices, studios &amp; residences across Dubai (Downtown, DIFC, Business Bay, Marina, Deira) and all 7 Emirates.<br />
+                Fully tracked delivery with WhatsApp status updates.
               </p>
               <div className="border-t border-[#203357] pt-4 flex flex-col gap-2">
                 <button
@@ -1380,6 +1391,230 @@ export default function StickersLandingPage() {
         </Container>
       </section>
 
+      {/* Section 11.5: GEO FactSheet for AI-Assisted Search & Perplexity / Gemini Optimization */}
+      <section id="geo-factsheet" className="py-14 sm:py-20 border-b border-[#203357] bg-[#172644]/40">
+        <Container>
+          <div className="max-w-3xl mb-8">
+            <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+              GEO &amp; SEARCH ENGINE SPECIFICATIONS
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">
+              ONPRINT Commercial Pressroom FactSheet: Dubai Operations
+            </h2>
+            <p className="text-sm text-slate-300 mt-2">
+              Verified operational capabilities, material certifications, minimum order quantities (MOQ), and turnaround guidelines for business procurement and AI search agents.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+              <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Operating Facility</span>
+              <h3 className="font-serif text-sm font-bold text-white">Dubai Production &amp; Courier Hub</h3>
+              <p className="text-xs text-[#B0BECE] leading-relaxed">
+                Industrial digital printing presses serving Dubai and the UAE with Roland Eco-Solvent, UV flatbed, and digital contour cutting plotters.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+              <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Substrate Range</span>
+              <h3 className="font-serif text-sm font-bold text-white">7 Commercial Substrates</h3>
+              <p className="text-xs text-[#B0BECE] leading-relaxed">
+                100μ Polymeric Vinyl, Ultra-Clear Film (with opaque white underprint), Rainbow Holographic, 24K Hot Stamped Gold Foil, 100% Recycled Kraft, Food-Safe BOPP, and 3D Epoxy Resin.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+              <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Weather &amp; Heat Durability</span>
+              <h3 className="font-serif text-sm font-bold text-white">-20°C to +80°C Rating</h3>
+              <p className="text-xs text-[#B0BECE] leading-relaxed">
+                Engineered for UAE summers: UV-inhibited face stocks and permanent solvent acrylic glues resist direct sunlight, car washes, humidity condensation, and commercial dishwashers.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+              <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Batch MOQs &amp; Wholesale</span>
+              <h3 className="font-serif text-sm font-bold text-white">50 pcs to 50,000+ pcs</h3>
+              <p className="text-xs text-[#B0BECE] leading-relaxed">
+                Flexible short-run pilot runs from 50 to 100 units starting at AED 40. High-volume rotary roll labels scaled down to AED 0.08 per piece for UAE FMCG brands.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+              <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Delivery Timelines</span>
+              <h3 className="font-serif text-sm font-bold text-white">Same-Day 4-Hour Express</h3>
+              <p className="text-xs text-[#B0BECE] leading-relaxed">
+                Rush same-day pickup and courier in Dubai for files approved by 11:00 AM. Tracked 24–48h express delivery across Abu Dhabi, Sharjah, Ajman, RAK, and Fujairah.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+              <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Artwork Inspection</span>
+              <h3 className="font-serif text-sm font-bold text-white">Free Pre-Press Verification</h3>
+              <p className="text-xs text-[#B0BECE] leading-relaxed">
+                Every customer order receives a complimentary 300 DPI resolution, CMYK profile, and vector cutline inspection with digital PDF approval before press execution.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Section 11.6: Supporting Customer Guides (Section 7) */}
+      <section className="py-14 sm:py-20 border-b border-[#203357] bg-[#101D35]">
+        <Container>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+            <div>
+              <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+                TECHNICAL KNOWLEDGE BASE
+              </span>
+              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-white mt-1">
+                Helpful Guides for Sticker &amp; Label Buyers
+              </h2>
+              <p className="text-sm text-slate-300 mt-2 max-w-xl">
+                Practical guides written by our Dubai print specialists to help UAE businesses choose materials, format artwork, and reduce packaging costs.
+              </p>
+            </div>
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:underline shrink-0"
+            >
+              <span>View All Technical Guides</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              {
+                title: 'How to Choose the Right Sticker Material for Your Product',
+                slug: 'how-to-choose-stickers-product-packaging-dubai',
+                readTime: '8 min read',
+                desc: 'Compare vinyl, BOPP, kraft, and clear substrates for cartons, pouches, and delivery boxes.',
+              },
+              {
+                title: 'Waterproof vs. Standard Stickers: Which Should You Choose?',
+                slug: 'vinyl-stickers-vs-paper-stickers-uae',
+                readTime: '7 min read',
+                desc: 'Climate durability tests: how Dubai heat and condensation impact paper labels vs polymeric vinyl.',
+              },
+              {
+                title: 'How to Prepare Artwork for Custom Sticker Printing',
+                slug: 'how-to-prepare-artwork-sticker-printing-dubai',
+                readTime: '8 min read',
+                desc: 'Setting up 2mm bleed margins, vector contour cutlines, CMYK colors, and white ink underprints.',
+              },
+              {
+                title: 'Custom Product Labels for Packaging: Sizes, Materials and Finishes',
+                slug: 'labels-for-bottles-and-jars-guide-uae',
+                readTime: '7 min read',
+                desc: 'Complete sizing and oil-resistant substrate guidelines for cosmetic bottles and food jars.',
+              },
+              {
+                title: 'How Businesses Can Use Branded Stickers for Packaging',
+                slug: 'how-to-choose-sticker-sizes-and-finishes-brand',
+                readTime: '8 min read',
+                desc: 'Unboxing psychology: elevating brand perception with 24K gold foil, velvet touch, and box seals.',
+              },
+            ].map((art, idx) => (
+              <Link
+                key={idx}
+                to={`/blog/${art.slug}`}
+                className="rounded-2xl border border-[#203357] bg-[#172644] p-4 flex flex-col justify-between hover:border-[#D4AF65] hover:shadow-lg transition-all group"
+              >
+                <div>
+                  <span className="text-[10px] font-extrabold uppercase text-[#D4AF65] block mb-2">
+                    {art.readTime}
+                  </span>
+                  <h3 className="font-serif text-xs font-bold text-white group-hover:text-[#D4AF65] transition-colors leading-snug">
+                    {art.title}
+                  </h3>
+                  <p className="text-[11px] text-[#B0BECE] mt-2 line-clamp-3 leading-relaxed">
+                    {art.desc}
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-[#203357] flex items-center gap-1 text-[11px] font-bold text-[#D4AF65]">
+                  <span>Read Guide</span>
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Section 11.7: Related Commercial Printing Services */}
+      <section className="py-12 sm:py-16 border-b border-[#203357] bg-[#172644]/50">
+        <Container>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8">
+            <div>
+              <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+                EXPAND YOUR CORPORATE BRANDING
+              </span>
+              <h2 className="font-serif text-xl sm:text-3xl font-bold text-white mt-1">
+                Related Commercial Printing Services in Dubai
+              </h2>
+            </div>
+            <Link to="/services" className="text-xs font-bold text-[#D4AF65] hover:underline flex items-center gap-1">
+              <span>All Printing Services</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              to="/business-card-printing-dubai"
+              className="p-4 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] transition-all group"
+            >
+              <h3 className="font-serif text-sm font-bold text-white group-hover:text-[#D4AF65] transition-colors">
+                Luxury Business Cards
+              </h3>
+              <p className="text-xs text-[#B0BECE] mt-1.5 leading-relaxed">
+                350gsm to 600gsm cotton, 24K gold foil, raised 3D spot UV, and painted gilded edges in Dubai.
+              </p>
+              <span className="mt-3 inline-block text-[11px] font-bold text-[#D4AF65]">Explore Cards →</span>
+            </Link>
+
+            <Link
+              to="/categories/custom-stamps-seals"
+              className="p-4 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] transition-all group"
+            >
+              <h3 className="font-serif text-sm font-bold text-white group-hover:text-[#D4AF65] transition-colors">
+                Official Company Stamps
+              </h3>
+              <p className="text-xs text-[#B0BECE] mt-1.5 leading-relaxed">
+                Self-inking round LLC seals, notary stamps, and VAT TRN markers with 2-hour rush service.
+              </p>
+              <span className="mt-3 inline-block text-[11px] font-bold text-[#D4AF65]">Explore Stamps →</span>
+            </Link>
+
+            <Link
+              to="/services/rollup-banners"
+              className="p-4 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] transition-all group"
+            >
+              <h3 className="font-serif text-sm font-bold text-white group-hover:text-[#D4AF65] transition-colors">
+                Roll-Up Banners &amp; Stands
+              </h3>
+              <p className="text-xs text-[#B0BECE] mt-1.5 leading-relaxed">
+                Vivid anti-curl rollups (85x200cm) with heavy aluminum cassettes for DWTC exhibitions.
+              </p>
+              <span className="mt-3 inline-block text-[11px] font-bold text-[#D4AF65]">Explore Banners →</span>
+            </Link>
+
+            <Link
+              to="/services/luxury-packaging-custom-boxes"
+              className="p-4 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] transition-all group"
+            >
+              <h3 className="font-serif text-sm font-bold text-white group-hover:text-[#D4AF65] transition-colors">
+                Custom Boxes &amp; Packaging
+              </h3>
+              <p className="text-xs text-[#B0BECE] mt-1.5 leading-relaxed">
+                Rigid luxury gift boxes, corrugated shipping mailers, and custom printed product cartons.
+              </p>
+              <span className="mt-3 inline-block text-[11px] font-bold text-[#D4AF65]">Explore Packaging →</span>
+            </Link>
+          </div>
+        </Container>
+      </section>
+
       {/* Final Section 12 Bottom CTA Banner */}
       <section className="py-16 sm:py-24 bg-gradient-to-b from-[#101D35] to-[#0A1222] text-center border-t border-[#203357]">
         <Container>
@@ -1394,7 +1629,7 @@ export default function StickersLandingPage() {
             </h2>
 
             <p className="text-base text-slate-300 leading-relaxed">
-              Connect directly with our Al Quoz press team on WhatsApp for instantaneous quotes, artwork checks, and production schedules.
+              Connect directly with our Dubai production team on WhatsApp for instantaneous quotes, artwork checks, and production schedules.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -1465,6 +1700,32 @@ export default function StickersLandingPage() {
                 </div>
               ) : (
                 <form onSubmit={handleFormSubmit} className="space-y-4">
+                  {formError && (
+                    <div className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-200 space-y-2">
+                      <div className="flex items-start gap-2">
+                        <AlertCircle className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-bold text-white">Direct Server Submission Unavailable</p>
+                          <p className="text-[11px] text-amber-200/90">{formError}</p>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          trackStickerWhatsAppClick({
+                            source_page: '/sticker-printing-dubai',
+                            sticker_type: selectedProduct.name,
+                            button_location: 'sticker_modal_error_fallback',
+                          })
+                          openWhatsAppDirectly(dynamicWhatsAppUrl)
+                        }}
+                        className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-4 text-xs font-bold text-white transition-colors cursor-pointer"
+                      >
+                        <WhatsAppIcon className="h-4 w-4 fill-white" />
+                        <span>Send Quote via WhatsApp Directly</span>
+                      </button>
+                    </div>
+                  )}
                   <div>
                     <label className="block text-xs font-bold text-[#B0BECE] mb-1">Your Full Name *</label>
                     <input

@@ -264,6 +264,11 @@ it('All 8 required conversion events are explicitly exported', () => {
   assert(analyticsCode.includes('trackPhoneClick'), 'trackPhoneClick missing')
   assert(analyticsCode.includes('trackEmailClick'), 'trackEmailClick missing')
   assert(analyticsCode.includes('trackOrderCompleted'), 'trackOrderCompleted missing')
+  assert(analyticsCode.includes('trackBusinessCardWhatsAppClick'), 'trackBusinessCardWhatsAppClick missing')
+  assert(analyticsCode.includes('trackStickerWhatsAppClick'), 'trackStickerWhatsAppClick missing')
+  assert(analyticsCode.includes('business_card_whatsapp_click'), 'business_card_whatsapp_click event missing')
+  assert(analyticsCode.includes('sticker_whatsapp_click'), 'sticker_whatsapp_click event missing')
+  assert(analyticsCode.includes('completed_order'), 'completed_order event missing')
 })
 
 it('Analytics explicitly prohibits PII from telemetry', () => {
@@ -289,6 +294,30 @@ it('App.jsx has valid routes for dedicated landing pages and services', () => {
   assert(appJsxCode.includes('path="/services/brochures-printing"'), 'Brochures service redirect missing')
   assert(appJsxCode.includes('path="/business-card-printing-dubai"'), 'Business cards SEO route missing')
   assert(appJsxCode.includes('path="/sticker-printing-dubai"'), 'Stickers SEO route missing')
+  assert(appJsxCode.includes('path="/ar/business-cards"'), 'Arabic business cards route missing')
+  assert(appJsxCode.includes('path="/ar/stickers"'), 'Arabic stickers route missing')
+})
+
+// -----------------------------------------------------------------------------
+// 8. GEO Content & Pre-Press Guides Verification
+// -----------------------------------------------------------------------------
+console.log('\n--- 8. GEO Content & Pre-Press Guides ---')
+const defaultGuidesPath = path.join(__dirname, '../client/src/data/defaultBlogGuides.js')
+assert(fs.existsSync(defaultGuidesPath), 'defaultBlogGuides.js does not exist')
+const defaultGuidesCode = fs.readFileSync(defaultGuidesPath, 'utf8')
+
+it('Authoritative pre-press guides are defined for business cards, stickers, and artwork', () => {
+  assert(defaultGuidesCode.includes('business-card-paper-stocks-guide-dubai'), 'Business card paper guide missing')
+  assert(defaultGuidesCode.includes('custom-sticker-materials-guide-dubai'), 'Sticker materials guide missing')
+  assert(defaultGuidesCode.includes('print-ready-artwork-preparation-guide'), 'Print-ready artwork guide missing')
+  assert(defaultGuidesCode.includes('gold-foil-vs-raised-spot-uv-business-cards'), 'Foil vs spot UV guide missing')
+})
+
+const indexHtmlPath = path.join(__dirname, '../client/index.html')
+const indexHtmlCode = fs.readFileSync(indexHtmlPath, 'utf8')
+
+it('Index.html crawlable navigation links directly to canonical /sticker-printing-dubai', () => {
+  assert(indexHtmlCode.includes('href="/sticker-printing-dubai"'), 'Index.html does not link to canonical /sticker-printing-dubai')
 })
 
 // -----------------------------------------------------------------------------

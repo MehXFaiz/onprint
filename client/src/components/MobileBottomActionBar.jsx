@@ -10,6 +10,16 @@ export default function MobileBottomActionBar() {
   // Hide on admin routes
   if (pathname.startsWith('/admin')) return null
 
+  // Hide on dedicated landing pages that provide their own tailored mobile sticky CTA bar
+  // to prevent dual-stacked bars, overlapping UI, and blocked buttons on mobile screens
+  const hasDedicatedStickyBar =
+    pathname.includes('business-card') ||
+    pathname.includes('sticker') ||
+    pathname.includes('stamp') ||
+    pathname.startsWith('/ar/')
+
+  if (hasDedicatedStickyBar) return null
+
   return (
     <nav
       aria-label="Mobile Bottom Actions"

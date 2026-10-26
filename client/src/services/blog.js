@@ -1,19 +1,63 @@
 import api from './api'
+import { DEFAULT_BLOG_GUIDES } from '../data/defaultBlogGuides'
+
+export { DEFAULT_BLOG_GUIDES }
 
 /**
  * Fetch public published blog posts with pagination, search, and category/product filters
  */
 export async function getPublicBlogs(params = {}) {
-  const { data } = await api.get('/blogs', { params })
-  return data
+  try {
+    const { data } = await api.get('/blogs', { params })
+    if (data?.data && Array.isArray(data.data) && data.data.length > 0) {
+      return data
+    }
+  } catch {
+    // Fallback if API server is offline or database empty
+  }
+
+  let filtered = [...DEFAULT_BLOG_GUIDES]
+  if (params.category && params.category !== 'All') {
+    filtered = filtered.filter((b) => b.category.toLowerCase().includes(params.category.toLowerCase()))
+  }
+  if (params.search) {
+    const q = params.search.toLowerCase()
+    filtered = filtered.filter((b) => b.title.toLowerCase().includes(q) || b.excerpt.toLowerCase().includes(q))
+  }
+
+  return {
+    success: true,
+    data: filtered,
+    pagination: {
+      page: params.page || 1,
+      limit: params.limit || 12,
+      total: filtered.length,
+      totalPages: 1,
+    },
+  }
 }
 
 /**
  * Fetch a single blog post by slug (includes related blogs, related product, and category)
  */
 export async function getPublicBlogBySlug(slug) {
-  const { data } = await api.get(`/blogs/${slug}`)
-  return data?.data
+  try {
+    const { data } = await api.get(`/blogs/${slug}`)
+    if (data?.data) {
+      return data.data
+    }
+  } catch {
+    // Fallback if API server is offline
+  }
+
+  const found = DEFAULT_BLOG_GUIDES.find((b) => b.slug === slug)
+  if (found) {
+    return {
+      ...found,
+      relatedBlogs: DEFAULT_BLOG_GUIDES.filter((b) => b.slug !== slug).slice(0, 3),
+    }
+  }
+  return null
 }
 
 /**

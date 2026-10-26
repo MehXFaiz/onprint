@@ -19,19 +19,21 @@ import {
 import Container from '../../components/Container'
 import SEOHead from '../../components/SEOHead'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
-import { formatArabicStickerInquiry, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
+import { formatArabicStickerInquiry, WHATSAPP_PHONE, RAW_WHATSAPP_NUMBER, FORMATTED_PHONE } from '../../utils/whatsapp'
 import { trackWhatsAppClick } from '../../utils/analytics'
 
 const STICKER_TYPES = [
-  { id: 'product', name: 'ملصقات المنتجات والعبوات (Product & Packaging Labels)', desc: 'مثالية للبرطمانات، قوارير الزيوت والعطور، وعلب الأغذية والمشروبات.' },
-  { id: 'die_cut', name: 'ستيكرات شعار مقصوصة حسب الشكل (Custom Die-Cut Stickers)', desc: 'قص ليزر دقيق يتبع حدود شعارك الترويجي بدقة متناهية.' },
-  { id: 'clear', name: 'ملصقات شفافة كريستالية (Clear Transparent Labels)', desc: 'خلفية شفافة تماماً تظهر لون المنتج أو الزجاج مع طباعة عالية التباين.' },
+  { id: 'product', name: 'طباعة ملصقات منتجات دبي (Product & Packaging Labels)', desc: 'مثالية للبرطمانات، قوارير الزيوت والعطور، وعلب الأغذية والمشروبات.' },
+  { id: 'die_cut', name: 'استيكرات دبي مقصوصة حسب الشكل (Custom Die-Cut Stickers)', desc: 'قص ليزر دقيق يتبع حدود شعارك الترويجي بدقة متناهية.' },
+  { id: 'clear', name: 'طباعة استيكرات شفافة دبي (Clear Transparent Labels)', desc: 'خلفية شفافة تماماً تظهر لون المنتج أو الزجاج مع طباعة عالية التباين.' },
+  { id: 'barcode', name: 'طباعة ملصقات باركود دبي (Barcode & QR Code Labels)', desc: 'ملصقات مخصصة لتتبع المخزون والترميز والباركود للمتاجر والمستودعات.' },
   { id: 'roll', name: 'ملصقات رول للتغليف الآلي (Roll Labels)', desc: 'ملصقات ملفوفة على بكرات جاهزة لخطوط التعبئة والتغليف السريعة.' },
 ]
 
 const MATERIALS = [
-  { id: 'vinyl_bopp', name: 'فينيل BOPP أبيض مقاوم للماء والزيوت', badge: 'الأكثر متانة', desc: 'مقاوم للماء، الرطوبة، التبريد، والتمزق بدرجة فائقة.' },
-  { id: 'clear_vinyl', name: 'فينيل شفاف ضد الماء (Clear Waterproof)', badge: 'مظهر زجاجي', desc: 'مناسب للزجاجات والعبوات الشفافة ومقاوم للسوائل.' },
+  { id: 'vinyl_bopp', name: 'استيكرات فينيل دبي BOPP أبيض مقاوم للماء', badge: 'الأكثر متانة', desc: 'مقاوم للماء، الرطوبة، التبريد، والتمزق بدرجة فائقة.' },
+  { id: 'waterproof_vinyl', name: 'استيكرات مقاومة للماء دبي (Waterproof Vinyl)', badge: 'ضد الرطوبة والزيوت', desc: 'مثالية للزجاجات والمبردات والمنتجات الاستهلاكية.' },
+  { id: 'clear_vinyl', name: 'طباعة استيكرات شفافة دبي (Clear Vinyl)', badge: 'مظهر زجاجي عصري', desc: 'مناسب للزجاجات والعبوات الشفافة ومقاوم للسوائل.' },
   { id: 'gold_foil', name: 'ورق معدني فويل ذهبي / فضي (Metallic Foil)', badge: 'فاخر للعطور', desc: 'لمعان ذهبي أو فضي يضفي فخامة استثنائية على المنتجات.' },
   { id: 'kraft', name: 'ورق كرافت بني بيئي (Kraft Paper)', badge: 'طبيعي وبيئي', desc: 'خامة ورقية صديقة للبيئة تناسب المنتجات الطبيعية والعضوية.' },
 ]
@@ -91,10 +93,10 @@ export default function ArabicStickersPage() {
   return (
     <div className="bg-[#101D35] text-[#F5F2EB] font-arabic antialiased selection:bg-[#D4AF65] selection:text-[#101D35]" dir="rtl">
       <SEOHead
-        title="طباعة ستيكرات وملصقات مخصصة في دبي | فينيل مقاوم للماء وقص ليزر | ONPRINT"
-        description="خدمات طباعة ملصقات وستيكرات منتجات وتغليف في دبي من ONPRINT. فينيل مقاوم للماء، ستيكرات شفافة، فويل معدني، وقص حسب الشكل للمتاجر والشركات مع توصيل لجميع الإمارات."
-        keywords="طباعة ملصقات دبي, طباعة ستيكرات دبي, ملصقات مخصصة دبي, طباعة ملصقات المنتجات دبي, طباعة ملصقات التغليف دبي, ستيكرات مقاومة للماء دبي, طباعة ملصقات فينيل دبي, طباعة ستيكرات بالجملة دبي"
-        canonicalUrl="https://www.0nprint.com/ar/stickers"
+        title="طباعة استيكرات دبي | طباعة ملصقات مخصصة وفينيل ضد الماء | ONPRINT"
+        description="خدمات طباعة استيكرات دبي وملصقات منتجات مخصصة من ONPRINT. استيكرات فينيل مقاومة للماء، ملصقات باركود، استيكرات شفافة، وقص ليزر ديكت مع شحن سريع لكافة الإمارات."
+        keywords="طباعة استيكرات دبي, طباعة ملصقات دبي, استيكرات دبي, طباعة ملصقات منتجات دبي, استيكرات فينيل دبي, طباعة ستيكرات لاصقة دبي, استيكرات مقاومة للماء دبي, طباعة ملصقات باركود دبي, ملصقات مخصصة دبي, طباعة استيكرات شفافة دبي"
+        canonicalUrl="https://www.0nprint.com/ar/sticker-printing-dubai"
         faqList={ARABIC_STICKER_FAQS.map(f => ({ question: f.q, answer: f.a }))}
       />
 
@@ -104,24 +106,33 @@ export default function ArabicStickersPage() {
         <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#172644]/60 blur-3xl" />
 
         <Container className="relative z-10">
-          <nav className="mb-6 flex items-center gap-2 text-xs text-[#B0BECE]">
-            <Link to="/ar" className="hover:text-[#D4AF65] transition-colors">الرئيسية</Link>
-            <span>/</span>
-            <span className="text-[#D4AF65] font-bold">طباعة ستيكرات وملصقات دبي</span>
-          </nav>
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <nav className="flex items-center gap-2 text-xs text-[#B0BECE]">
+              <Link to="/ar" className="hover:text-[#D4AF65] transition-colors">الرئيسية</Link>
+              <span>/</span>
+              <span className="text-[#D4AF65] font-bold">طباعة استيكرات وملصقات دبي</span>
+            </nav>
+            <Link
+              to="/sticker-printing-dubai"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF65]/40 bg-[#D4AF65]/10 px-3.5 py-1.5 text-xs font-bold text-[#D4AF65] hover:bg-[#D4AF65]/20 hover:border-[#D4AF65] transition-all"
+              title="Switch to English: Custom Sticker Printing Dubai"
+            >
+              <span>🇬🇧 English Version</span>
+            </Link>
+          </div>
 
           <div className="max-w-3xl space-y-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/30 bg-[#D4AF65]/10 px-4 py-1.5 text-xs font-bold text-[#D4AF65]">
               <Tag className="h-3.5 w-3.5 text-[#D4AF65]" />
-              <span>مطبعة ستيكرات وملصقات منتجات في القوز، دبي</span>
+              <span>مطبعة متخصصة في طباعة استيكرات وملصقات منتجات في القوز، دبي</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#F5F2EB] tracking-tight leading-[1.25]">
-              طباعة ملصقات وستيكرات مخصصة في دبي
+              طباعة استيكرات دبي — ملصقات مخصصة وفينيل مقاوم للماء
             </h1>
 
             <p className="text-base sm:text-lg text-[#B0BECE] leading-relaxed">
-              اكتشف خيارات طباعة الملصقات وستيكرات المنتجات والتغليف من <strong>ONPRINT</strong>. تواصل معنا لمعرفة الخيارات المتاحة والحصول على عرض سعر حسب المقاس والكمية والخامات المطلوبة مع سرعة التنفيذ والتوصيل لكافة الإمارات.
+              نوفر في <strong>ONPRINT</strong> حلولاً متكاملة لـ <strong>طباعة ملصقات دبي</strong> و<strong>استيكرات دبي</strong> بجودة احترافية تشمل <strong>طباعة ملصقات منتجات دبي</strong>، <strong>استيكرات فينيل دبي</strong> المقاومة للعوامل الجوية، <strong>طباعة ستيكرات لاصقة دبي</strong> مع قص ليزر، <strong>استيكرات مقاومة للماء دبي</strong>، <strong>طباعة ملصقات باركود دبي</strong> و<strong>طباعة استيكرات شفافة دبي</strong> مع شحن سريع إلى دبي، أبوظبي وجميع الإمارات.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -131,7 +142,7 @@ export default function ArabicStickersPage() {
                 rel="noopener noreferrer"
                 onClick={() =>
                   trackWhatsAppClick({
-                    source_page: '/ar/stickers',
+                    source_page: '/ar/sticker-printing-dubai',
                     button_location: 'arabic_stickers_hero_cta',
                     language: 'ar',
                   })
@@ -139,7 +150,7 @@ export default function ArabicStickersPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-7 py-3.5 text-sm font-black text-white shadow-lg shadow-emerald-600/25 transition-all cursor-pointer"
               >
                 <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
-                <span>اطلب طباعة الملصقات عبر واتساب</span>
+                <span>اطلب طباعة استيكرات وملصقات عبر واتساب</span>
               </a>
 
               <a
@@ -325,7 +336,7 @@ export default function ArabicStickersPage() {
                   rel="noopener noreferrer"
                   onClick={() =>
                     trackWhatsAppClick({
-                      source_page: '/ar/stickers',
+                      source_page: '/ar/sticker-printing-dubai',
                       button_location: 'arabic_stickers_calculator_submit',
                       product_name: 'arabic_stickers_quote',
                       language: 'ar',

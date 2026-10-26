@@ -369,6 +369,7 @@ export function trackWhatsAppClick(params = {}) {
     label,
     product_id,
     product_name,
+    _skipCategoryDispatch,
   } = typeof params === 'object' && params !== null ? params : { label: String(params || '') }
 
   const now = Date.now()
@@ -383,6 +384,49 @@ export function trackWhatsAppClick(params = {}) {
   const resolvedProduct = product_name || service_name || service || undefined
   const resolvedLocation = button_location || label || 'whatsapp_cta'
   const resolvedLabel = label || button_location || resolvedProduct || 'whatsapp_inquiry'
+
+  // Automatically classify into business_card_whatsapp_click or sticker_whatsapp_click if relevant
+  if (!_skipCategoryDispatch) {
+    const pLower = (pagePath || '').toLowerCase()
+    const sLower = (service || service_name || '').toLowerCase()
+    const prodLower = (resolvedProduct || '').toLowerCase()
+
+    const isBusinessCard =
+      pLower.includes('business-card') ||
+      pLower.includes('visiting-card') ||
+      sLower.includes('business-card') ||
+      prodLower.includes('business card')
+
+    const isSticker =
+      pLower.includes('sticker') ||
+      pLower.includes('label') ||
+      sLower.includes('sticker') ||
+      sLower.includes('label') ||
+      prodLower.includes('sticker') ||
+      prodLower.includes('label')
+
+    if (isBusinessCard) {
+      trackEvent('business_card_whatsapp_click', {
+        page_path: pagePath,
+        source_page: source_page || pagePath,
+        service_name: 'business-cards',
+        card_type: resolvedProduct || 'Business Card',
+        button_location: resolvedLocation,
+        label: resolvedLabel,
+        device_category: device,
+      })
+    } else if (isSticker) {
+      trackEvent('sticker_whatsapp_click', {
+        page_path: pagePath,
+        source_page: source_page || pagePath,
+        service_name: 'stickers',
+        sticker_type: resolvedProduct || 'Custom Stickers',
+        button_location: resolvedLocation,
+        label: resolvedLabel,
+        device_category: device,
+      })
+    }
+  }
 
   trackEvent('whatsapp_click', {
     page_path: pagePath,
@@ -785,6 +829,18 @@ export function trackOrderCompleted({
     device_category: device,
   })
 
+  // Also emit completed_order variant for GA4 compatibility
+  trackEvent('completed_order', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    order_number: order_number ? String(order_number) : undefined,
+    product_name: product_name || undefined,
+    quantity: quantity ? Number(quantity) : undefined,
+    value: total_price ? Number(total_price) : undefined,
+    currency,
+    device_category: device,
+  })
+
   sendConversionBeacon({
     conversion_type: 'order_completed',
     source_page: pagePath,
@@ -797,7 +853,47 @@ export function trackOrderCompleted({
 
 
 /**
- * 20. Dedicated Sticker Inquiry & Quotation Analytics
+ * 20. Dedicated Business Card Inquiry & Quotation Analytics
+ * Tracks high-intent business card conversion funnels in compliance with UAE privacy standards.
+ */
+export function trackBusinessCardWhatsAppClick({
+  card_type = 'Business Cards',
+  quantity,
+  paper_stock,
+  finish,
+  button_location = 'business_card_page_cta',
+  source_page,
+  label,
+} = {}) {
+  const pagePath = getCurrentPagePath('/business-card-printing-dubai')
+  const device = getDeviceCategory()
+
+  trackEvent('business_card_whatsapp_click', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    service_name: 'business-cards',
+    card_type,
+    quantity: quantity ? String(quantity) : undefined,
+    paper_stock: paper_stock || undefined,
+    finish: finish || undefined,
+    button_location,
+    label: label || `bc_whatsapp_${button_location}`,
+    device_category: device,
+  })
+
+  // Also emit standard whatsapp_click for aggregate reporting
+  trackWhatsAppClick({
+    _skipCategoryDispatch: true,
+    source_page: source_page || pagePath,
+    service_name: 'business-cards',
+    product_name: card_type,
+    button_location,
+    label: label || `bc_whatsapp_${button_location}`,
+  })
+}
+
+/**
+ * 21. Dedicated Sticker Inquiry & Quotation Analytics
  * Tracks high-intent sticker conversion funnels in compliance with UAE privacy standards.
  */
 
@@ -824,6 +920,7 @@ export function trackStickerWhatsAppClick({
 
   // Also emit standard whatsapp_click for aggregate reporting
   trackWhatsAppClick({
+    _skipCategoryDispatch: true,
     source_page: source_page || pagePath,
     service_name: 'stickers',
     product_name: sticker_type,

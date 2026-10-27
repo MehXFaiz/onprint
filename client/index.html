@@ -179,13 +179,22 @@
     }
     </script>
 
-    <!-- Google Analytics (gtag.js) - Deferred for INP Optimization -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFLRZDTY7S"></script>
+    <!-- Google Analytics (gtag.js) & Google Consent Mode v2 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_MEASUREMENT_ID%"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'analytics_storage': 'granted',
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted'
+      });
       gtag('js', new Date());
-      gtag('config', 'G-PFLRZDTY7S', { send_page_view: false });
+      gtag('config', '%VITE_GA_MEASUREMENT_ID%', {
+        send_page_view: false,
+        cookie_flags: 'SameSite=None;Secure'
+      });
     </script>
 
     <!-- Google AdSense (Deferred for Main-Thread Optimization & Core Web Vitals) -->

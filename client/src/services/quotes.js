@@ -1,3 +1,4 @@
+import { trackQuoteRequest } from '../utils/analytics'
 import api from './api'
 import { syncApprovedQuoteToOrder, saveMyOrder } from './orders'
 
@@ -75,6 +76,15 @@ export async function createQuote(quoteData) {
   }
   const updated = [newQuote, ...current]
   saveQuotes(updated)
+  try {
+    trackQuoteRequest({
+      product_name: quoteData.productName || 'Custom Print Job',
+      button_location: 'quote_form_submit',
+      source_page: typeof window !== 'undefined' ? window.location.pathname : undefined,
+    })
+  } catch {
+    // Non-blocking analytics
+  }
 
   // Also automatically save into orders store for instant tracking
   try {

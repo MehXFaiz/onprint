@@ -20,7 +20,7 @@ import {
  */
 export default function GoogleAnalytics() {
   const location = useLocation()
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || import.meta.env.VITE_GA_ID || 'G-PFLRZDTY7S'
+  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || import.meta.env.VITE_GA_ID || 'G-GM4H4QNS0D'
   const gtmId = import.meta.env.VITE_GTM_ID
 
   // 1. Initialize Google Analytics 4 & optional GTM

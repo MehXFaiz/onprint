@@ -181,7 +181,21 @@ export function trackPageView({ page_title, page_location, page_path } = {}) {
 
   try {
     if (typeof window.gtag === 'function') {
+      window.gtag('set', {
+        page_title: currentTitle,
+        page_location: currentLocation,
+        page_path: currentPath,
+      })
       window.gtag('event', 'page_view', {
+        page_title: currentTitle,
+        page_location: currentLocation,
+        page_path: currentPath,
+        device_category: getDeviceCategory(),
+      })
+    } else {
+      window.dataLayer = window.dataLayer || []
+      window.dataLayer.push({
+        event: 'page_view',
         page_title: currentTitle,
         page_location: currentLocation,
         page_path: currentPath,
@@ -353,12 +367,13 @@ let lastWhatsAppClickTime = 0
 /**
  * Checks if a WhatsApp click was already tracked within the deduplication window
  */
-export function wasWhatsAppRecentlyTracked(windowMs = 900) {
+export function wasWhatsAppRecentlyTracked(windowMs = 1500) {
   return Date.now() - lastWhatsAppClickTime < windowMs
 }
 
 /**
  * 7. WhatsApp Click (With strict time-based deduplication to prevent double firing between component & global listeners)
+ * NOTE: Clicks are inquiries/conversations, NEVER treated as confirmed leads.
  */
 export function trackWhatsAppClick(params = {}) {
   const {
@@ -373,8 +388,8 @@ export function trackWhatsAppClick(params = {}) {
   } = typeof params === 'object' && params !== null ? params : { label: String(params || '') }
 
   const now = Date.now()
-  // Deduplicate any rapid consecutive WhatsApp click triggers within 900ms
-  if (now - lastWhatsAppClickTime < 900) {
+  // Strict 1500ms deduplication against rapid duplicate taps
+  if (now - lastWhatsAppClickTime < 1500) {
     return
   }
   lastWhatsAppClickTime = now
@@ -562,10 +577,11 @@ let lastQuoteRequestTime = 0
 
 /**
  * 11. Quote Request Submission (No PII) - Dispatches quote_request, contact_form_submit, & generate_lead
+ * Deduplicated with a 3000ms submission debounce.
  */
 export function trackQuoteRequest({ source_page, product_name, category_name, button_location } = {}) {
   const now = Date.now()
-  if (now - lastQuoteRequestTime < 1000) return
+  if (now - lastQuoteRequestTime < 3000) return
   lastQuoteRequestTime = now
 
   const pagePath = getCurrentPagePath()

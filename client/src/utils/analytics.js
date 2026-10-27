@@ -807,6 +807,8 @@ export function trackProductInquiryClick({
 /**
  * 21. Order Completed (Phase 5 requirement: fired strictly when a real order confirmation exists)
  */
+const trackedOrderNumbers = new Set()
+
 export function trackOrderCompleted({
   order_number,
   product_name,
@@ -856,6 +858,36 @@ export function trackOrderCompleted({
  * 20. Dedicated Business Card Inquiry & Quotation Analytics
  * Tracks high-intent business card conversion funnels in compliance with UAE privacy standards.
  */
+let lastBusinessCardPageViewPath = ''
+let lastBusinessCardPageViewTime = 0
+
+/**
+ * Verified GA4 Business Card Page View Event with Deduplication
+ */
+export function trackBusinessCardPageView({
+  page_title,
+  page_path,
+  card_category,
+} = {}) {
+  if (typeof window === 'undefined') return
+  const currentPath = page_path || getCurrentPagePath('/business-card-printing-dubai')
+  const now = Date.now()
+  if (lastBusinessCardPageViewPath === currentPath && now - lastBusinessCardPageViewTime < 1000) {
+    return
+  }
+  lastBusinessCardPageViewPath = currentPath
+  lastBusinessCardPageViewTime = now
+
+  const currentTitle = page_title || (typeof document !== 'undefined' ? document.title : 'Business Card Printing Dubai')
+  trackEvent('business_card_page_view', {
+    page_title: currentTitle,
+    page_path: currentPath,
+    category: card_category || 'business-cards',
+    service: 'business-cards',
+    device_category: getDeviceCategory(),
+  })
+}
+
 export function trackBusinessCardWhatsAppClick({
   card_type = 'Business Cards',
   quantity,

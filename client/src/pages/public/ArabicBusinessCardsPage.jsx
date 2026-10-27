@@ -19,7 +19,7 @@ import {
 import Container from '../../components/Container'
 import SEOHead from '../../components/SEOHead'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
-import { formatArabicBusinessCardInquiry, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
+import { formatArabicBusinessCardInquiry, WHATSAPP_PHONE, RAW_WHATSAPP_NUMBER, FORMATTED_PHONE } from '../../utils/whatsapp'
 import { trackWhatsAppClick } from '../../utils/analytics'
 
 const PAPERS = [
@@ -104,12 +104,21 @@ export default function ArabicBusinessCardsPage() {
         <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#172644]/60 blur-3xl" />
 
         <Container className="relative z-10">
-          {/* Breadcrumb Navigation */}
-          <nav className="mb-6 flex items-center gap-2 text-xs text-[#B0BECE]">
-            <Link to="/ar" className="hover:text-[#D4AF65] transition-colors">الرئيسية</Link>
-            <span>/</span>
-            <span className="text-[#D4AF65] font-bold">طباعة كروت شخصية دبي</span>
-          </nav>
+          {/* Breadcrumb Navigation & English Switcher */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <nav className="flex items-center gap-2 text-xs text-[#B0BECE]">
+              <Link to="/ar" className="hover:text-[#D4AF65] transition-colors">الرئيسية</Link>
+              <span>/</span>
+              <span className="text-[#D4AF65] font-bold">طباعة كروت شخصية دبي</span>
+            </nav>
+            <Link
+              to="/business-card-printing-dubai"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF65]/40 bg-[#D4AF65]/10 px-3.5 py-1.5 text-xs font-bold text-[#D4AF65] hover:bg-[#D4AF65]/20 hover:border-[#D4AF65] transition-all"
+              title="Switch to English: Business Card Printing Dubai"
+            >
+              <span>🇬🇧 English Version</span>
+            </Link>
+          </div>
 
           <div className="max-w-3xl space-y-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/30 bg-[#D4AF65]/10 px-4 py-1.5 text-xs font-bold text-[#D4AF65]">

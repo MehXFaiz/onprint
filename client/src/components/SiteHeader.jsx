@@ -331,7 +331,7 @@ export default function SiteHeader() {
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 font-medium text-[#B0BECE]">
               <MapPin className="h-3 w-3 text-[#D4AF65]" />
-              <span>Al Quoz Industrial 4, Dubai, UAE</span>
+              <span>Dubai, UAE • Doorstep Express Dispatch</span>
             </span>
             <span className="text-[#203357]">•</span>
             <span className="flex items-center gap-1.5 text-[#B0BECE]">
@@ -583,7 +583,7 @@ export default function SiteHeader() {
                       <div className="mt-3 pt-2.5 border-t border-[#203357] flex items-center justify-between text-[10px] text-[#B0BECE]">
                         <span className="flex items-center gap-1 font-semibold text-[#F5F2EB]">
                           <Truck className="h-3 w-3 text-emerald-400" />
-                          <span>Al Quoz Pressroom • Express Dispatch Across UAE</span>
+                          <span>Dubai Online Production • Express Dispatch Across UAE</span>
                         </span>
                         <span className="font-bold text-[#D4AF65]">Heidelberg &amp; HP Indigo Press</span>
                       </div>

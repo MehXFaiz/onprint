@@ -57,6 +57,7 @@ import {
   trackQuoteRequest,
   trackWhatsAppClick,
   trackBusinessCardWhatsAppClick,
+  trackBusinessCardPageView,
   trackBusinessCardProductView,
   trackCorporateEnquirySubmit,
   trackQualifiedLead,
@@ -630,6 +631,14 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   const [submitError, setSubmitError] = useState(null)
   const [quoteNumber, setQuoteNumber] = useState('')
 
+  useEffect(() => {
+    trackBusinessCardPageView({
+      page_title: pageData?.title || 'Business Card Printing Dubai',
+      page_path: pageData?.path || '/business-card-printing-dubai',
+      card_category: pageData?.cardCategory || 'all',
+    })
+  }, [derivedKey])
+
   const scrollToQuote = (prefillType = null, prefillPaper = null, prefillQty = null) => {
     if (prefillType || prefillQty) {
       setFormState((prev) => ({
@@ -775,15 +784,24 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             {/* Left Column: Commercial SEO Copy & Value Proposition */}
             <div className="lg:col-span-7 space-y-6">
               <Reveal>
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#D4AF65]/10 px-4 py-1.5 shadow-xs backdrop-blur-md">
-                  <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
-                  <span className="text-[11px] font-black uppercase tracking-[0.22em] text-[#D4AF65]">
-                    {pageData.badge}
-                  </span>
-                  <span className="hidden sm:inline-block h-3 w-px bg-[#D4AF65]/30" />
-                  <span className="hidden sm:inline-block font-mono text-[9.5px] font-bold text-slate-300">
-                    AL QUOZ 3
-                  </span>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#D4AF65]/10 px-4 py-1.5 shadow-xs backdrop-blur-md">
+                    <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
+                    <span className="text-[11px] font-black uppercase tracking-[0.22em] text-[#D4AF65]">
+                      {pageData.badge}
+                    </span>
+                    <span className="hidden sm:inline-block h-3 w-px bg-[#D4AF65]/30" />
+                    <span className="hidden sm:inline-block font-mono text-[9.5px] font-bold text-slate-300">
+                      AL QUOZ 3
+                    </span>
+                  </div>
+                  <Link
+                    to="/ar/business-cards"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF65]/40 bg-[#D4AF65]/10 px-3.5 py-1 text-xs font-bold text-[#D4AF65] hover:bg-[#D4AF65]/20 hover:border-[#D4AF65] transition-all"
+                    title="النسخة العربية - طباعة كروت شخصية في دبي"
+                  >
+                    <span>🇦🇪 النسخة العربية (Arabic)</span>
+                  </Link>
                 </div>
               </Reveal>
 
@@ -827,12 +845,12 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   <a
                     href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
                       formatBusinessCardInquiry({
-                        quantity: formState.quantity || '100',
-                        paper: formState.paper || '350 GSM Silk',
-                        finish: formState.finish || 'Matte Lamination',
+                        quantity: formState.quantity || undefined,
+                        paper: formState.paper || undefined,
+                        finish: formState.finish || undefined,
                         sides: 'Double-sided',
                         location: 'Dubai',
-                        additionalRequirements: 'General Inquiry via Page Top CTA',
+                        
                       })
                     )}`}
                     target="_blank"
@@ -873,18 +891,16 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               {/* Social Proof Badges */}
               <Reveal delay={0.26}>
                 <div className="flex flex-wrap items-center gap-3 text-xs text-slate-300 pt-2">
-                  <div className="flex items-center gap-1 text-amber-500">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                    ))}
-                    <span className="ml-1 font-black text-white">4.9/5</span>
-                  </div>
+                  <span className="inline-flex items-center gap-1 font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2.5 py-1 rounded-full text-[11px]">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                    Doorstep Express UAE Delivery
+                  </span>
                   <span className="text-[#A0AEC0]">•</span>
-                  <span className="font-bold text-slate-200">500+ Corporate Clients</span>
+                  <span className="font-bold text-slate-200">Free PDF Pre-Press Proof</span>
                   <span className="text-[#A0AEC0]">•</span>
-                  <span className="inline-flex items-center gap-1 font-bold text-slate-200">
+                  <span className="inline-flex items-center gap-1 font-bold text-[#D4AF65]">
                     <CheckCircle2 className="h-3.5 w-3.5 text-[#D4AF65]" />
-                    Direct Al Quoz Pressroom
+                    Heidelberg &amp; HP Indigo Calibration
                   </span>
                 </div>
               </Reveal>
@@ -1272,37 +1288,80 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               </div>
             </div>
 
-            {/* 4 Standard Quantity Batch Tiers */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 mt-6">
+            {/* 4 Standard Quantity Batch Tiers with Transparent Pricing & WhatsApp Direct Order */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
               {[
-                { qty: '100', subtitle: 'Starter Batch', desc: 'Ideal for new ventures & freelance networking', label: 'Starter Pack', popular: false },
-                { qty: '250', subtitle: 'Standard Batch', desc: 'Perfect for regular sales meetings & events', label: 'Most Popular', popular: true },
-                { qty: '500', subtitle: 'Growth Batch', desc: 'Recommended for active commercial teams', label: 'Best Value', popular: false },
-                { qty: '1000', subtitle: 'Corporate Batch', desc: 'Bulk volume supply for multi-employee staff', label: 'Corporate Tier', popular: false },
+                { qty: '100', price: '85', unit: '0.85', subtitle: 'Starter Batch', desc: 'Ideal for new ventures, trade shows & fast networking', label: 'Starter Pack', popular: false },
+                { qty: '250', price: '140', unit: '0.56', subtitle: 'Standard Batch', desc: 'Most requested tier for sales meetings & regular client handoffs', label: 'Most Popular', popular: true },
+                { qty: '500', price: '195', unit: '0.39', subtitle: 'Growth Batch', desc: 'High ROI bulk pack recommended for growing commercial teams', label: 'Best Value', popular: false },
+                { qty: '1000', price: '295', unit: '0.30', subtitle: 'Corporate Batch', desc: 'Economical multi-staff supply with strict Pantone fidelity', label: 'Corporate Tier', popular: false },
               ].map((tier) => (
                 <div
                   key={tier.qty}
-                  className={`relative rounded-2xl border p-4 text-center transition-all ${
+                  className={`relative rounded-2xl border p-5 flex flex-col justify-between transition-all ${
                     tier.popular
-                      ? 'border-[#D4AF65] bg-[#101D35] shadow-md ring-1 ring-[#D4AF65]/30'
-                      : 'border-[#203357] bg-[#101D35] hover:border-[#D4AF65]'
+                      ? 'border-[#D4AF65] bg-[#101D35] shadow-lg ring-1 ring-[#D4AF65]/40'
+                      : 'border-[#203357] bg-[#101D35] hover:border-[#D4AF65]/60'
                   }`}
                 >
                   {tier.popular && (
-                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#101D35]">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#D4AF65] px-3 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#101D35] shadow-sm">
                       {tier.label}
                     </span>
                   )}
-                  <div className="text-xs font-bold text-[#D4AF65] uppercase tracking-wider">{tier.qty} Cards</div>
-                  <div className="mt-1 font-display text-base sm:text-lg font-black text-white">{tier.subtitle}</div>
-                  <div className="text-[11px] text-slate-300 mt-1 min-h-[32px] line-clamp-2">{tier.desc}</div>
-                  <button
-                    type="button"
-                    onClick={() => scrollToQuote('Standard Business Cards (350 GSM Silk / Matte)', '350 GSM Standard Silk / Matte Card', tier.qty)}
-                    className="mt-3 w-full rounded-xl bg-[#D4AF65] hover:bg-[#D4AF65] py-2 text-[11px] font-black text-[#101D35] transition-colors cursor-pointer shadow-xs"
-                  >
-                    Select {tier.qty} Cards
-                  </button>
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-black text-[#D4AF65] uppercase tracking-wider">{tier.qty} Cards</span>
+                      <span className="text-[10px] font-mono text-slate-400">AED {tier.unit}/pc</span>
+                    </div>
+                    <div className="mt-1 font-display text-lg font-black text-white">{tier.subtitle}</div>
+                    
+                    {/* Transparent Price Callout */}
+                    <div className="mt-2.5 flex items-baseline gap-1.5 bg-[#172644] px-3 py-2 rounded-xl border border-[#203357]">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">From</span>
+                      <span className="font-display text-2xl font-black text-[#D4AF65]">AED {tier.price}</span>
+                      <span className="text-[10px] text-slate-400 ml-auto">+ 5% VAT</span>
+                    </div>
+
+                    <div className="text-[11px] text-slate-300 mt-2.5 leading-relaxed min-h-[34px]">{tier.desc}</div>
+                  </div>
+
+                  <div className="mt-4 space-y-2 pt-3 border-t border-[#203357]">
+                    <a
+                      href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                        formatBusinessCardInquiry({
+                          quantity: tier.qty,
+                          paper: '350 GSM Standard Silk / Matte',
+                          finish: 'Matte Lamination (Both Sides)',
+                          sides: 'Double-sided CMYK',
+                          location: 'Dubai, UAE',
+                          additionalRequirements: `Standard Batch Inquiry: ${tier.qty} Cards from AED ${tier.price}. Need delivery timeline.`,
+                        })
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => {
+                        trackBusinessCardWhatsAppClick({
+                          source_page: pageData?.path || '/business-card-printing-dubai',
+                          service: 'business-cards',
+                          button_location: `standard_batch_tier_${tier.qty}`,
+                          label: `order_whatsapp_${tier.qty}_cards_aed_${tier.price}`,
+                        })
+                      }}
+                      className="w-full rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 text-[11px] font-bold text-white transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-md shadow-[#25D366]/20"
+                    >
+                      <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
+                      <span>Order {tier.qty} on WhatsApp</span>
+                    </a>
+
+                    <button
+                      type="button"
+                      onClick={() => scrollToQuote('Standard Business Cards (350 GSM Silk / Matte)', '350 GSM Standard Silk / Matte Card', tier.qty)}
+                      className="w-full rounded-xl border border-[#203357] bg-[#172644] hover:bg-[#203357] hover:border-[#D4AF65]/50 py-2 text-[10.5px] font-semibold text-slate-200 transition-colors cursor-pointer text-center"
+                    >
+                      Customize Specifications
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -1325,6 +1384,72 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
                   Same-Day or 24h Al Quoz Pickup
                 </span>
+              </div>
+            </div>
+
+            {/* Premium & Specialty Finishes Quick Matrix */}
+            <div className="mt-6 pt-6 border-t border-[#203357]">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="font-display text-base font-black text-white">
+                    Premium Substrates &amp; Luxury Finishes Price Guide
+                  </h3>
+                  <p className="text-[11px] text-slate-400">
+                    Transparent indicative pricing for popular specialty upgrades (based on standard 100 pcs batch).
+                  </p>
+                </div>
+                <span className="hidden sm:inline-block rounded-md bg-[#101D35] px-2.5 py-1 text-[10px] font-mono font-bold text-[#D4AF65] border border-[#203357]">
+                  Instant Quotes on WhatsApp
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                {[
+                  { name: '400 GSM Matte', price: 'AED 110', tag: 'Heavyweight', spec: 'Anti-curl double matte', finish: '400 GSM Matte Coating' },
+                  { name: '450 GSM Velvet', price: 'AED 145', tag: 'Soft-Touch', spec: 'Peach-skin tactile barrier', finish: '450 GSM Velvet Soft-Touch' },
+                  { name: 'Raised Spot UV', price: 'AED 190', tag: '3D Texture', spec: 'Gloss tactile relief contrast', finish: 'Spot UV 3D Gloss' },
+                  { name: '24K Gold Foil', price: 'AED 240', tag: 'Hot Stamped', spec: 'Metallic mirror foil highlight', finish: '24K Gold Foil Accent' },
+                  { name: '600 GSM Cotton', price: 'AED 380', tag: 'Letterpress', spec: 'Archival deboss & gilded edges', finish: '600 GSM Cotton Duplex' },
+                ].map((item, idx) => (
+                  <div key={idx} className="rounded-xl border border-[#203357] bg-[#101D35] p-3.5 flex flex-col justify-between hover:border-[#D4AF65]/50 transition-colors">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-xs text-white">{item.name}</span>
+                        <span className="text-[9px] font-mono text-[#D4AF65] bg-[#172644] px-1.5 py-0.5 rounded border border-[#203357]">{item.tag}</span>
+                      </div>
+                      <div className="mt-1 font-display text-base font-black text-[#D4AF65]">
+                        {item.price} <span className="text-[9px] font-normal text-slate-400">/ 100 pcs</span>
+                      </div>
+                      <div className="text-[10px] text-slate-400 mt-1">{item.spec}</div>
+                    </div>
+                    <a
+                      href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                        formatBusinessCardInquiry({
+                          quantity: '100',
+                          paper: item.finish,
+                          finish: item.name,
+                          sides: 'Double-sided CMYK',
+                          location: 'Dubai, UAE',
+                          additionalRequirements: `Specialty Finish Inquiry for ${item.name} (${item.price}/100 pcs). Please share sample photos and turnaround.`,
+                        })
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => {
+                        trackBusinessCardWhatsAppClick({
+                          source_page: pageData?.path || '/business-card-printing-dubai',
+                          service: 'business-cards',
+                          button_location: `specialty_strip_${item.name.toLowerCase().replace(/\s+/g, '_')}`,
+                          label: `inquire_${item.name.toLowerCase().replace(/\s+/g, '_')}`,
+                        })
+                      }}
+                      className="mt-3 w-full rounded-lg bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366]/40 py-1.5 text-[10px] font-bold transition-all cursor-pointer flex items-center justify-center gap-1"
+                    >
+                      <WhatsAppIcon className="h-3 w-3 fill-current" />
+                      <span>Quote {item.tag}</span>
+                    </a>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -1440,7 +1565,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                         finish: card.popularFinishes?.[0] || 'Matte Lamination',
                         sides: 'Double-sided',
                         location: 'Dubai',
-                        additionalRequirements: `Inquiry for ${card.title} (${card.gsm})`,
+                        cardType: card.title,
                       })
                     )}`}
                     target="_blank"
@@ -1849,7 +1974,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               </div>
               <h3 className="font-display text-lg font-black text-white">Get Instant WhatsApp Quotation</h3>
               <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Receive an immediate customized price quotation, technical file audit, and digital PDF contract proof directly on WhatsApp within minutes from our Al Quoz print estimators.
+                Receive an immediate customized price quotation, technical file audit, and digital PDF contract proof directly on WhatsApp within minutes from our Dubai print estimators.
               </p>
             </div>
 
@@ -1873,7 +1998,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   finish: 'Matte Lamination',
                   sides: 'Double-sided',
                   location: 'Dubai',
-                  additionalRequirements: 'Ready to order - requesting quote & proof check',
+                  
                 })
               )}`}
               target="_blank"
@@ -2431,12 +2556,12 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               <a
                 href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
                   formatBusinessCardInquiry({
-                    quantity: formState.quantity || '100',
-                    paper: formState.paper || '350 GSM Silk',
-                    finish: formState.finish || 'Matte Lamination',
+                    quantity: formState.quantity || undefined,
+                    paper: formState.paper || undefined,
+                    finish: formState.finish || undefined,
                     sides: 'Double-sided',
                     location: 'Dubai',
-                    additionalRequirements: 'Bottom Section Inquiry - Please share available options and price',
+                    
                   })
                 )}`}
                 target="_blank"
@@ -2484,12 +2609,12 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         <a
           href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
             formatBusinessCardInquiry({
-              quantity: formState.quantity || '100',
-              paper: formState.paper || '350 GSM Silk',
-              finish: formState.finish || 'Matte Lamination',
+              quantity: formState.quantity || undefined,
+              paper: formState.paper || undefined,
+              finish: formState.finish || undefined,
               sides: 'Double-sided',
               location: 'Dubai',
-              additionalRequirements: 'Mobile Sticky CTA Inquiry',
+              
             })
           )}`}
           target="_blank"

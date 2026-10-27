@@ -50,11 +50,11 @@ export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 // 2. Official Core Service Prefilled Inquiries (Clean, Direct & High-Converting)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    'Hello ONPRINT, I would like a quotation for business cards. Please share your available options, prices, and delivery time.',
+    'Hello ONPRINT, I need a business card printing quote in Dubai. Please share available paper options, pricing and delivery time.',
   'business-cards-printing':
-    'Hello ONPRINT, I would like a quotation for business cards. Please share your available options, prices, and delivery time.',
+    'Hello ONPRINT, I need a business card printing quote in Dubai. Please share available paper options, pricing and delivery time.',
   'business-card-printing-dubai':
-    'Hello ONPRINT, I would like a quotation for business cards. Please share your available options, prices, and delivery time.',
+    'Hello ONPRINT, I need a business card printing quote in Dubai. Please share available paper options, pricing and delivery time.',
   'business-card-printing-uae':
     'Hello ONPRINT, I would like a quotation for corporate business cards across the UAE. Please share available card stocks, volume prices, and delivery schedule.',
 
@@ -349,6 +349,30 @@ export function getWhatsAppUrl(params = {}) {
 }
 
 /**
+ * Opens WhatsApp safely in an adjacent tab via synthetic DOM <a> click
+ * without closing the ONPRINT website or triggering aggressive popup blockers.
+ */
+export function openWhatsAppDirectly(input, options = {}) {
+  const url = typeof input === 'string' ? input : getWhatsAppUrl(input)
+  if (typeof window === 'undefined') return
+
+  try {
+    const link = document.createElement('a')
+    link.href = url
+    link.target = '_blank'
+    link.rel = 'noopener noreferrer'
+    link.style.display = 'none'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  } catch (err) {
+    if (options.allowSameTabFallback) {
+      window.location.assign(url)
+    }
+  }
+}
+
+/**
  * Formats a business card quote inquiry matching the buyer-intent specification:
  * "Hello ONPRINT, I would like a quotation for business cards. Quantity: [quantity]. Material/finish: [requirements]. Delivery location: [location]. Please share your best price and delivery time."
  */
@@ -381,22 +405,23 @@ export function formatBusinessCardInquiry({
   const resolvedFinish = finish || finishing || coating || ''
   const resolvedLocation = deliveryLocation || location || 'Dubai'
   const resolvedQty = quantity ? String(quantity).trim() : ''
-  const resolvedReqs = additionalRequirements || notes
+  const resolvedReqs = (additionalRequirements || notes || '').trim()
 
-  const phrases = []
-  if (resolvedProduct) phrases.push(`Card type: ${resolvedProduct}`)
-  if (resolvedQty) phrases.push(`Quantity: ${resolvedQty}`)
-  const matFinish = [resolvedPaper, resolvedFinish].filter(Boolean).join(', ')
-  if (matFinish) phrases.push(`Material/finish: ${matFinish}`)
-  if (sides && sides !== 'N/A') phrases.push(`Sides: ${sides}`)
-  if (resolvedLocation) phrases.push(`Delivery location: ${resolvedLocation}`)
+  const materialFinishParts = [resolvedPaper, resolvedFinish].filter(Boolean)
+  const materialFinishStr = materialFinishParts.join(', ')
 
-  let msg = ''
-  if (phrases.length > 0) {
-    msg = `Hello ONPRINT, I would like a quotation for business card printing. ${phrases.join('. ')}. Please share your best price and delivery time.`
-  } else {
-    msg = 'Hello ONPRINT, I would like a quotation for custom business card printing in Dubai. Please share your available paper stocks, luxury finishes, pricing, and delivery time.'
+  const lines = [
+    'Hello ONPRINT, I would like a quotation for business card printing.',
+  ]
+  if (resolvedProduct) lines.push(`Card type: ${resolvedProduct}`)
+  if (resolvedQty) lines.push(`Quantity: ${resolvedQty}`)
+  if (materialFinishStr) lines.push(`Material/finish: ${materialFinishStr}`)
+  if (sides && sides !== 'N/A') lines.push(`Sides: ${sides}`)
+  if (resolvedLocation) lines.push(`Delivery location: ${resolvedLocation}`)
+  if (resolvedReqs && !resolvedReqs.toLowerCase().includes('cta') && !resolvedReqs.toLowerCase().includes('inquiry') && resolvedReqs !== 'None') {
+    lines.push(`Additional requirements: ${resolvedReqs}`)
   }
+  lines.push('', 'Please share your best price and delivery time.')
 
   const extra = []
   const clientName = name || customerName
@@ -404,15 +429,13 @@ export function formatBusinessCardInquiry({
   if (company && company !== 'N/A' && company !== 'Individual') extra.push(`• Company: ${company}`)
   if (refNumber) extra.push(`• Quote Reference: ${refNumber}`)
   if (artwork) extra.push(`• Artwork: ${typeof artwork === 'string' ? artwork : (artwork?.name || 'File attached / sending in chat')}`)
-  if (resolvedReqs && resolvedReqs.trim() && resolvedReqs !== 'None') {
-    extra.push(`• Requirements: ${resolvedReqs.trim()}`)
-  }
   if (pageUrl) extra.push(`• Page URL: ${pageUrl}`)
 
   if (extra.length > 0) {
-    return `${msg}\n\n*Additional Details:*\n${extra.join('\n')}`
+    lines.push('', '*Additional Details:*', ...extra)
   }
-  return msg
+
+  return lines.join('\n')
 }
 
 export function getBusinessCardBuyerIntentUrl(params = {}) {
@@ -452,7 +475,7 @@ export function formatStickerInquiry(details = {}) {
     artwork,
     refNumber,
     pageUrl,
-  } = details
+  } = details || {}
 
   const resolvedType = type || stickerType || productTitle || productName || ''
   const resolvedQty = quantity ? String(quantity).trim() : ''
@@ -464,39 +487,35 @@ export function formatStickerInquiry(details = {}) {
   const resolvedLocation = deliveryLocation || location || city || 'Dubai'
   const resolvedReqs = additionalRequirements || requirements || notes || ''
 
-  if (resolvedType || resolvedQty || resolvedSize || resolvedMaterial) {
-    const lines = [
-      'Hello ONPRINT, I am interested in custom sticker printing in Dubai.',
-      '',
-      `Sticker type: ${resolvedType || 'Custom Stickers'}`,
-      `Quantity: ${resolvedQty || '500'}`,
-      `Size: ${resolvedSize || '50 x 50 mm'}`,
-      `Material: ${resolvedMaterial || 'Waterproof Vinyl'}`,
-      `Shape: ${resolvedShape || 'Custom Die-Cut'}`,
-      `Finish: ${resolvedFinish || 'Silk Matte'}`,
-      `Intended use: ${resolvedUse || 'Product packaging / branding'}`,
-      `Delivery location: ${resolvedLocation || 'Dubai'}`,
-      `Additional requirements: ${resolvedReqs && resolvedReqs.trim() ? resolvedReqs.trim() : 'None'}`,
-      '',
-      'Please provide the available options, quotation, and estimated delivery time.',
-    ]
+  const lines = [
+    'Hello ONPRINT, I need a quotation for sticker printing.',
+  ]
+  if (resolvedType) lines.push(`Sticker type: ${resolvedType}`)
+  if (resolvedQty) lines.push(`Quantity: ${resolvedQty}`)
+  if (resolvedSize) lines.push(`Size: ${resolvedSize}`)
+  if (resolvedMaterial) lines.push(`Material: ${resolvedMaterial}`)
+  if (resolvedShape) lines.push(`Shape: ${resolvedShape}`)
+  if (resolvedFinish) lines.push(`Finish: ${resolvedFinish}`)
+  if (resolvedUse) lines.push(`Intended use: ${resolvedUse}`)
+  if (resolvedLocation) lines.push(`Delivery location: ${resolvedLocation}`)
+  if (resolvedReqs && !resolvedReqs.toLowerCase().includes('cta') && !resolvedReqs.toLowerCase().includes('inquiry') && resolvedReqs !== 'None') {
+    lines.push(`Additional requirements: ${resolvedReqs}`)
+  }
+  lines.push('', 'Please share your pricing and delivery time.')
 
-    const extra = []
-    const clientName = name || customerName
-    if (clientName) extra.push(`• Client Name: ${clientName}`)
-    if (company && company !== 'N/A' && company !== 'Individual') extra.push(`• Company: ${company}`)
-    if (refNumber) extra.push(`• Quote Reference: ${refNumber}`)
-    if (artwork) extra.push(`• Artwork: ${typeof artwork === 'string' ? artwork : (artwork?.name || 'File attached / sending in chat')}`)
-    if (pageUrl) extra.push(`• Page URL: ${pageUrl}`)
+  const extra = []
+  const clientName = name || customerName
+  if (clientName) extra.push(`• Client Name: ${clientName}`)
+  if (company && company !== 'N/A' && company !== 'Individual') extra.push(`• Company: ${company}`)
+  if (refNumber) extra.push(`• Quote Reference: ${refNumber}`)
+  if (artwork) extra.push(`• Artwork: ${typeof artwork === 'string' ? artwork : (artwork?.name || 'File attached / sending in chat')}`)
+  if (pageUrl) extra.push(`• Page URL: ${pageUrl}`)
 
-    if (extra.length > 0) {
-      lines.push('', '*Additional Details:*', ...extra)
-    }
-
-    return lines.join('\n')
+  if (extra.length > 0) {
+    lines.push('', '*Additional Details:*', ...extra)
   }
 
-  return 'Hello ONPRINT, I am interested in custom sticker printing in Dubai. Please provide the available options, quotation, and estimated delivery time.'
+  return lines.join('\n')
 }
 
 export function getStickerWhatsAppUrl(details = {}) {
@@ -530,97 +549,47 @@ export function formatStampInquiry(details = {}) {
     artwork,
     refNumber,
     pageUrl,
-  } = details
+  } = details || {}
 
   const resolvedType = type || stampType || productName || product || 'Custom Company Stamp'
-  const resolvedQty = quantity ? (String(quantity).match(/unit|pcs/i) ? quantity : `${quantity} unit`) : '1 unit'
+  const resolvedQty = quantity ? (String(quantity).match(/unit|pcs/i) ? quantity : `${quantity} units`) : '1 unit'
+  const resolvedSize = size || dimensions || ''
   const resolvedLocation = deliveryLocation || location || 'Dubai'
-  const resolvedReqs = additionalRequirements || notes
+  const resolvedReqs = additionalRequirements || notes || ''
 
-  const phrases = []
-  if (resolvedType) phrases.push(`Stamp type: ${resolvedType}`)
-  if (resolvedQty) phrases.push(`Quantity: ${resolvedQty}`)
-  if (size || dimensions) phrases.push(`Size: ${size || dimensions}`)
-  if (casingBrand) phrases.push(`Casing: ${casingBrand}`)
-  if (inkColor) phrases.push(`Ink Color: ${inkColor}`)
-  if (resolvedLocation) phrases.push(`Delivery location: ${resolvedLocation}`)
-
-  let msg = 'Hello ONPRINT, I would like a quotation for a custom company stamp.'
-  if (phrases.length > 0) {
-    msg += ` ${phrases.join('. ')}.`
+  const lines = [
+    'Hello ONPRINT, I would like a quotation for a custom company stamp.',
+  ]
+  if (resolvedType) lines.push(`Stamp type: ${resolvedType}`)
+  if (resolvedQty) lines.push(`Quantity: ${resolvedQty}`)
+  if (resolvedSize) lines.push(`Stamp size / shape: ${resolvedSize}`)
+  if (casingBrand) lines.push(`Casing / Body: ${casingBrand}`)
+  if (inkColor) lines.push(`Ink color: ${inkColor}`)
+  if (stampText) lines.push(`Text / Details on stamp: ${stampText}`)
+  if (resolvedLocation) lines.push(`Delivery location: ${resolvedLocation}`)
+  if (resolvedReqs && !resolvedReqs.toLowerCase().includes('cta') && !resolvedReqs.toLowerCase().includes('inquiry') && resolvedReqs !== 'None') {
+    lines.push(`Additional requirements: ${resolvedReqs}`)
   }
-  msg += ' Please share the available options and price.'
+  lines.push('', 'Please share the available options and price.')
 
   const extra = []
   const clientName = name || customerName
   if (clientName) extra.push(`• Client Name: ${clientName}`)
   if (company && company !== 'N/A' && company !== 'Individual') extra.push(`• Company: ${company}`)
-  if (stampText) extra.push(`• Stamp Text: ${stampText}`)
-  if (refNumber) extra.push(`• Reference: ${refNumber}`)
-  if (artwork) extra.push(`• Logo / Trade License: ${typeof artwork === 'string' ? artwork : (artwork?.name || 'Attached / sending in chat')}`)
-  if (resolvedReqs && resolvedReqs.trim() && resolvedReqs !== 'None') {
-    extra.push(`• Requirements: ${resolvedReqs.trim()}`)
-  }
+  if (refNumber) extra.push(`• Quote Reference: ${refNumber}`)
+  if (artwork) extra.push(`• Trade License / Logo File: ${typeof artwork === 'string' ? artwork : (artwork?.name || 'File attached / sending in chat')}`)
   if (pageUrl) extra.push(`• Page URL: ${pageUrl}`)
 
   if (extra.length > 0) {
-    return `${msg}\n\n*Additional Details:*\n${extra.join('\n')}`
+    lines.push('', '*Additional Details:*', ...extra)
   }
-  return msg
+
+  return lines.join('\n')
 }
 
 export function getStampWhatsAppUrl(details = {}) {
   const msg = formatStampInquiry(details)
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`
-}
-
-/**
- * Safely opens WhatsApp click-to-chat across mobile and desktop.
- * - On mobile (iOS / Android), triggers direct app intent via window.location.href
- *   so the native WhatsApp app opens immediately with the prefilled message.
- * - On desktop, attempts window.open with fallback to prevent popup-block dropoffs.
- */
-export function openWhatsAppDirectly(paramsOrUrl, options = {}) {
-  let url = ''
-  if (typeof paramsOrUrl === 'string') {
-    url = paramsOrUrl
-  } else if (paramsOrUrl && typeof paramsOrUrl === 'object') {
-    url = getWhatsAppUrl(paramsOrUrl)
-  } else {
-    url = getServiceWhatsAppUrl('general')
-  }
-
-  if (typeof window !== 'undefined') {
-    const isMobile =
-      /android|iphone|ipad|ipod|mobile|blackberry|iemobile|opera mini/i.test(
-        (navigator?.userAgent || '').toLowerCase()
-      )
-
-    // On mobile devices, trigger direct app intent
-    if (isMobile) {
-      window.location.href = url
-      return url
-    }
-
-    // On desktop, open a new tab safely without popup blocker issues or navigating away from current page
-    try {
-      const a = document.createElement('a')
-      a.href = url
-      a.target = '_blank'
-      a.rel = 'noopener noreferrer'
-      a.style.display = 'none'
-      document.body.appendChild(a)
-      a.click()
-      setTimeout(() => {
-        try { a.remove() } catch {}
-      }, 200)
-      return url
-    } catch (e) {
-      console.warn('Could not trigger link click, falling back to window.open:', e)
-      window.open(url, '_blank', 'noopener,noreferrer')
-      return url
-    }
-  }
 }
 
 // ARABIC WHATSAPP LEAD GENERATION & INQUIRY FORMATTERS

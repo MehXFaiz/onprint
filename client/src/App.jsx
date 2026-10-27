@@ -183,7 +183,6 @@ function App() {
             <Route path="/stickers-labels-printing" element={<StickersLandingPage />} />
             <Route path="/categories/stickers-labels-printing" element={<StickersLandingPage />} />
             <Route path="/quote/stickers" element={<StickersLandingPage />} />
-            <Route path="/quote/business-cards" element={<BusinessCardLandingPage pageKey="business-card-printing-dubai" />} />
             <Route path="/custom-stickers-dubai" element={<StickersLandingPage />} />
             {/* Direct Sticker Category Mapping */}
             <Route path="/stickers/custom-stickers" element={<Navigate to="/products/die-cut-stickers" replace />} />
@@ -253,9 +252,7 @@ function App() {
             <Route path="/account/*" element={<Navigate to="/track-order" replace />} />
             <Route path="/account" element={<Navigate to="/track-order" replace />} />
 
-            {/* Lead Generation Pages */}
-            <Route path="/quote/business-cards" element={<BusinessCardsLeadPage />} />
-            <Route path="/quote/stickers" element={<StickersLeadPage />} />
+            {/* Lead Generation Specialized Aliases */}
             <Route path="/quote/mugs" element={<MugsLeadPage />} />
             <Route path="/quote/bottles" element={<BottlesLeadPage />} />
             <Route path="/quote/water-bottles" element={<Navigate to="/quote/bottles" replace />} />

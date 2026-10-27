@@ -1936,76 +1936,71 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
         </section>
 
-        {/* REAL DUBAI CLIENT SCENARIOS & REVIEWS */}
+        {/* 7. PRINT SPECIFICATIONS & APPLICATION PROFILES */}
         <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
           <div className="mx-auto max-w-3xl text-center mb-12">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
-              VERIFIED CORPORATE EXPERIENCES
+              CORPORATE APPLICATION PROFILES
             </span>
             <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-[#F5F2EB]">
-              Trusted by Dubai’s Leading Enterprises
+              Engineered for Every Corporate Requirement
             </h2>
             <p className="mt-2 text-sm text-[#A0AEC0]">
-              From DIFC legal practices to Downtown luxury brokers and Business Bay tech companies.
+              From DIFC legal practices to Downtown hospitality and Business Bay enterprise scaleups.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                quote: 'We ordered 450 GSM velvet soft-touch cards with 24K mirror gold foil for our senior partners. The foil registration and tactile feel are world-class.',
-                client: 'Karim Al-Mansoor',
-                role: 'Managing Partner',
-                company: 'DIFC Investment Advisory',
-                spec: '450 GSM Velvet + 24K Gold Foil',
+                title: 'Executive Leadership',
+                description: '450 GSM velvet soft-touch cards with 24K mirror gold or rose gold foil stamping. High tactile contrast designed for boardrooms and investor presentations.',
+                application: 'Private Equity & Legal',
+                spec: '450 GSM Velvet + 24K Foil',
               },
               {
-                quote: 'The 600 GSM Italian cotton cards with blind letterpress debossing command immediate respect in luxury property viewings. Dispatched within 24 hours.',
-                client: 'Sarah Jenkins',
-                role: 'Principal Broker',
-                company: 'Downtown Dubai Luxury Realty',
-                spec: '600 GSM Cotton + Blind Deboss',
+                title: 'Luxury Real Estate',
+                description: '600 GSM pure cotton cards with deep blind letterpress debossing and hand-painted gilded edges for high-value client interactions.',
+                application: 'Brokers & Hospitality',
+                spec: '600 GSM Cotton + Deboss',
               },
               {
-                quote: 'Seamless corporate batch ordering for 25 staff members with bilingual Arabic and English layouts. Strict Pantone color consistency on every reprint.',
-                client: 'Tariq Haddad',
-                role: 'Head of Operations',
-                company: 'Business Bay Tech Scaleup',
-                spec: '350 GSM Silk + Bilingual Print',
+                title: 'Enterprise Teams',
+                description: '350 GSM premium silk with scuff-resistant matte lamination and bilingual Arabic/English typesetting with strict Pantone color consistency across batch reprints.',
+                application: 'Corporate Multi-Name',
+                spec: '350 GSM Silk + Bilingual',
               },
               {
-                quote: 'Custom die-cut cards on textured linen with protective finish for our concierge team. The WhatsApp pre-press team was fast, clear, and exceptionally helpful.',
-                client: 'Elena Rostova',
-                role: 'Brand Experience Director',
-                company: 'Palm Jumeirah Hospitality',
-                spec: '400 GSM Textured Linen',
+                title: 'Design & Creative',
+                description: '400 GSM textured Italian linen and uncoated craft stocks with custom die-cut contours and raised 3D Scodix spot UV highlights.',
+                application: 'Studios & Agencies',
+                spec: '400 GSM Linen + Die-Cut',
               },
-            ].map((review, i) => (
+            ].map((profile, i) => (
               <div
                 key={i}
                 className="rounded-3xl border border-[#203357] bg-[#172644] p-6 shadow-xs flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center gap-1 text-amber-400 mb-3">
-                    {[...Array(5)].map((_, starIdx) => (
-                      <Star key={starIdx} className="h-3.5 w-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-xs text-slate-300 leading-relaxed italic">
-                    "{review.quote}"
+                  <span className="inline-block rounded-md bg-[#101D35] px-2 py-0.5 text-[10px] font-mono text-[#D4AF65] border border-[#203357] mb-3">
+                    {profile.application}
+                  </span>
+                  <h3 className="font-bold text-sm text-white mb-2">{profile.title}</h3>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    {profile.description}
                   </p>
                 </div>
                 <div className="mt-5 pt-3 border-t border-[#203357]">
-                  <h4 className="font-bold text-xs text-white">{review.client}</h4>
-                  <p className="text-[11px] text-slate-400">{review.role} • {review.company}</p>
-                  <span className="inline-block mt-2 rounded-md bg-[#101D35] px-2 py-0.5 text-[9.5px] font-mono text-[#D4AF65] border border-[#203357]">
-                    {review.spec}
+                  <span className="text-[11px] font-mono font-bold text-emerald-400">
+                    {profile.spec}
                   </span>
                 </div>
               </div>
             ))}
           </div>
         </section>
+
+
 
         {/* 8. COMPREHENSIVE 16-QUESTION FAQ ACCORDION */}
         <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16 max-w-4xl mx-auto">

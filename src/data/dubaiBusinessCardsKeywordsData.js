@@ -4644,8 +4644,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business card printing dubai",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -4655,8 +4655,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Request Business Card Quote / WhatsApp Concierge"
   },
   {
-    "keyword": "cheap business card printing dubai uae",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai uae",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4666,8 +4666,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business card printing dubai al quoz",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai al quoz",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4677,8 +4677,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business card printing dubai business bay",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai business bay",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -4688,8 +4688,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business card printing dubai difc",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai difc",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -4699,8 +4699,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business card printing dubai near me",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai near me",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Local / Transactional",
     "priority": "High",
@@ -4710,8 +4710,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business card printing dubai online",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai online",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4721,8 +4721,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business card printing dubai instant quote",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai instant quote",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial Investigation",
     "priority": "Medium",
@@ -4732,8 +4732,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business card printing dubai high quality",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai high quality",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4743,8 +4743,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business card printing dubai fast turnaround",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai fast turnaround",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4754,8 +4754,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business card printing dubai same day delivery",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business card printing dubai same day delivery",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Local / Transactional",
     "priority": "Medium",
@@ -4766,7 +4766,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial Investigation",
     "priority": "High",
@@ -4777,7 +4777,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards dubai",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -4788,7 +4788,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards uae",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4799,7 +4799,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards al quoz",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4810,7 +4810,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards business bay",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -4821,7 +4821,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards difc",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -4832,7 +4832,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards near me",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Local / Transactional",
     "priority": "High",
@@ -4843,7 +4843,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards online",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4854,7 +4854,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards instant quote",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial Investigation",
     "priority": "Medium",
@@ -4865,7 +4865,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards high quality",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4876,7 +4876,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards fast turnaround",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4887,7 +4887,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "low cost visiting cards same day delivery",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Local / Transactional",
     "priority": "Medium",
@@ -4897,8 +4897,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -4908,8 +4908,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Request Business Card Quote / WhatsApp Concierge"
   },
   {
-    "keyword": "cheap business cards bulk dubai",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk dubai",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -4919,8 +4919,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk uae",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk uae",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4930,8 +4930,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk al quoz",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk al quoz",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4941,8 +4941,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk business bay",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk business bay",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -4952,8 +4952,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk difc",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk difc",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -4963,8 +4963,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk near me",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk near me",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Local / Transactional",
     "priority": "High",
@@ -4974,8 +4974,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk online",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk online",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -4985,8 +4985,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk instant quote",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk instant quote",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial Investigation",
     "priority": "Medium",
@@ -4996,8 +4996,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk high quality",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk high quality",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -5007,8 +5007,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk fast turnaround",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk fast turnaround",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -5018,8 +5018,8 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
     "conversion_cta": "Order Cards / WhatsApp Quote"
   },
   {
-    "keyword": "cheap business cards bulk same day delivery",
-    "cluster": "Cheap Business Cards",
+    "keyword": "affordable business cards bulk same day delivery",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Local / Transactional",
     "priority": "Medium",
@@ -5030,7 +5030,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Transactional",
     "priority": "High",
@@ -5041,7 +5041,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai uae",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -5052,7 +5052,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai al quoz",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -5063,7 +5063,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai business bay",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -5074,7 +5074,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai difc",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "High",
@@ -5085,7 +5085,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai near me",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Local / Transactional",
     "priority": "High",
@@ -5096,7 +5096,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai online",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -5107,7 +5107,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai instant quote",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial Investigation",
     "priority": "Medium",
@@ -5118,7 +5118,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai high quality",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -5129,7 +5129,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai fast turnaround",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Commercial",
     "priority": "Medium",
@@ -5140,7 +5140,7 @@ const DUBAI_BUSINESS_CARD_KEYWORDS = [
   },
   {
     "keyword": "inexpensive card printer dubai same day delivery",
-    "cluster": "Cheap Business Cards",
+    "cluster": "affordable business cards",
     "cluster_id": "10",
     "search_intent": "Local / Transactional",
     "priority": "Medium",
@@ -63874,8 +63874,8 @@ const BUSINESS_CARD_QUESTION_KEYWORDS = [
   },
   {
     "id": 53,
-    "question": "where can startups get cheap business cards in dubai",
-    "keyword": "where can startups get cheap business cards in dubai",
+    "question": "where can startups get affordable business cards in dubai",
+    "keyword": "where can startups get affordable business cards in dubai",
     "intent": "Informational / FAQ",
     "cluster": "Business Card FAQ & Knowledge Engine",
     "target_url": "https://www.0nprint.com/business-card-printing-dubai#faq",

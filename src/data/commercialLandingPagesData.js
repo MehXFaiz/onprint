@@ -320,7 +320,7 @@ const COMMERCIAL_LANDING_PAGES = {
       "title": "Flyer Printing Dubai | Express Marketing Leaflets | ONPRINT",
       "metaDescription": "High-speed flyer printing in Dubai. A4, A5, A6, DL promotional leaflets on 150gsm–300gsm art paper. Same-day rush printing & bulk delivery across the UAE.",
       "focusKeyword": "flyer printing dubai",
-      "secondaryKeywords": "flyer printing services dubai, leaflet printing dubai, promotional flyers dubai, cheap flyer printing dubai, same day flyer printing dubai",
+      "secondaryKeywords": "flyer printing services dubai, leaflet printing dubai, promotional flyers dubai, affordable flyer printing dubai, same day flyer printing dubai",
       "badge": "MARKETING LEAFLETS & PROMOTIONS",
       "h1": "High-Impact Flyer & Leaflet Printing in Dubai",
       "subheading": "Cost-effective, high-volume promotional flyers and leaflets designed for mass distribution, door drops, retail hand-outs, and trade exhibitions across the United Arab Emirates.",

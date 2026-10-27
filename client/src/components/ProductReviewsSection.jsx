@@ -17,9 +17,9 @@ import api from '../services/api'
 export default function ProductReviewsSection({ product, categorySlug }) {
   const [reviews, setReviews] = useState([])
   const [stats, setStats] = useState({
-    totalReviews: 18,
-    averageRating: 4.9,
-    breakdown: { 5: 16, 4: 2, 3: 0, 2: 0, 1: 0 },
+    totalReviews: 0,
+    averageRating: 0,
+    breakdown: { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 },
   })
   const [selectedRatingFilter, setSelectedRatingFilter] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -51,52 +51,13 @@ export default function ProductReviewsSection({ product, categorySlug }) {
           if (data.stats) setStats(data.stats)
         }
       } catch {
-        // Fallback reviews for rich customer assurance
-        setReviews([
-          {
-            id: 101,
-            author_name: 'Karim Al-Husseini',
-            company: 'Apex Luxury Capital DIFC',
-            rating: 5,
-            title: 'Exceptional 600 GSM Cotton & 24K Gold Stamping',
-            comment:
-              'We ordered 2,500 executive business cards with blind letterpress and champagne gold foil edges. The Heidelberg precision and tactile finish exceeded our international expectations. Dispatched to DIFC within 48 hours.',
-            verified_purchase: true,
-            helpful_votes: 14,
-            created_at: new Date(Date.now() - 5 * 86400000).toISOString(),
-            staff_reply: {
-              reply_text: 'Thank you Karim! Our Al Quoz pressroom team takes immense pride in fine letterpress craftsmanship.',
-              replied_by: 'Production Director, ONPRINT Dubai',
-              replied_at: new Date(Date.now() - 4 * 86400000).toISOString(),
-            },
-          },
-          {
-            id: 102,
-            author_name: 'Elena Rostova',
-            company: 'Atelier Bloom Dubai Marina',
-            rating: 5,
-            title: 'Flawless Color Accuracy & Spot UV Alignment',
-            comment:
-              'The raised 3D Scodix spot UV on our velvet matte brochures made the artwork pop magnificently. Pre-flight proofing caught a bleed issue before printing which saved our launch deadline.',
-            verified_purchase: true,
-            helpful_votes: 9,
-            created_at: new Date(Date.now() - 12 * 86400000).toISOString(),
-            staff_reply: null,
-          },
-          {
-            id: 103,
-            author_name: 'Tariq Al-Mansoori',
-            company: 'Desert Horizon Real Estate',
-            rating: 5,
-            title: 'Reliable Corporate Procurement Partner',
-            comment:
-              'Consistently high-grade offset print runs for our presentation folders and marketing collateral. Clean invoicing with 5% UAE VAT and swift delivery directly to our Business Bay headquarters.',
-            verified_purchase: true,
-            helpful_votes: 6,
-            created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
-            staff_reply: null,
-          },
-        ])
+        // Keep authentic state when no reviews API endpoint is returned
+        setReviews([])
+        setStats({
+          totalReviews: 0,
+          averageRating: 0,
+          breakdown: { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 },
+        })
       }
     }
     loadReviews()
@@ -171,8 +132,11 @@ export default function ProductReviewsSection({ product, categorySlug }) {
     return reviews.filter((r) => r.rating === selectedRatingFilter)
   }, [reviews, selectedRatingFilter])
 
-  // Schema.org AggregateRating and Review Schema JSON-LD
+  // Schema.org AggregateRating and Review Schema JSON-LD (strictly conditional on verified reviews)
   const schemaMarkup = useMemo(() => {
+    if (!reviews || reviews.length === 0 || !stats.totalReviews || stats.totalReviews === 0) {
+      return null
+    }
     return {
       '@context': 'https://schema.org',
       '@type': 'Product',
@@ -180,8 +144,8 @@ export default function ProductReviewsSection({ product, categorySlug }) {
       description: product?.description || 'Custom print products with luxury finishes in Dubai, UAE.',
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue: stats.averageRating || '4.9',
-        reviewCount: stats.totalReviews || reviews.length || 18,
+        ratingValue: stats.averageRating ? String(stats.averageRating) : '5.0',
+        reviewCount: stats.totalReviews,
         bestRating: '5',
         worstRating: '1',
       },
@@ -191,7 +155,7 @@ export default function ProductReviewsSection({ product, categorySlug }) {
           '@type': 'Person',
           name: r.author_name || 'Verified Client',
         },
-        datePublished: r.created_at ? r.created_at.slice(0, 10) : '2026-02-15',
+        datePublished: r.created_at ? r.created_at.slice(0, 10) : new Date().toISOString().slice(0, 10),
         reviewBody: r.comment,
         name: r.title,
         reviewRating: {
@@ -207,7 +171,9 @@ export default function ProductReviewsSection({ product, categorySlug }) {
   return (
     <section className="mt-16 rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-10 shadow-xs text-[#F5F2EB]">
       {/* Google Schema.org Rich Snippet Injector */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
+      {schemaMarkup && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
+      )}
 
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#203357] pb-6">
@@ -232,51 +198,68 @@ export default function ProductReviewsSection({ product, categorySlug }) {
         </button>
       </div>
 
-      {/* Rating Score Summary Grid */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 rounded-2xl bg-[#101D35] border border-[#203357] p-6">
-        {/* Score & Stars */}
-        <div className="flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-[#203357] pb-6 md:pb-0 md:pr-6">
-          <span className="font-display text-5xl font-black text-[#F5F2EB]">
-            {stats.averageRating ? stats.averageRating.toFixed(1) : '4.9'}
-          </span>
-          <div className="mt-2 flex items-center gap-1 text-[#D4AF65]">
-            {[1, 2, 3, 4, 5].map((s) => (
-              <Star key={s} className="h-5 w-5 fill-current" />
-            ))}
-          </div>
-          <span className="mt-2 text-xs font-semibold text-[#B0BECE]">
-            Based on {stats.totalReviews || reviews.length} verified ratings
-          </span>
+      {reviews.length === 0 ? (
+        <div className="mt-8 rounded-2xl bg-[#101D35] border border-[#203357] p-8 text-center">
+          <MessageSquare className="mx-auto h-10 w-10 text-[#D4AF65]/60 mb-3" />
+          <h3 className="font-display text-lg font-bold text-[#F5F2EB]">Be the First to Review This Print Product</h3>
+          <p className="mt-2 text-xs sm:text-sm text-[#B0BECE] max-w-md mx-auto">
+            Have you printed this product with us? Share your feedback on stock quality, color accuracy, and delivery to assist other UAE businesses.
+          </p>
+          <button
+            type="button"
+            onClick={() => setIsModalOpen(true)}
+            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#D4AF65] hover:bg-[#D4AF65]/90 text-[#101D35] px-4 py-2 text-xs font-black transition-all shadow-xs cursor-pointer"
+          >
+            <Plus className="h-4 w-4" /> Share Your Review
+          </button>
         </div>
+      ) : (
+        <>
+          {/* Rating Score Summary Grid */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 rounded-2xl bg-[#101D35] border border-[#203357] p-6">
+            {/* Score & Stars */}
+            <div className="flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-[#203357] pb-6 md:pb-0 md:pr-6">
+              <span className="font-display text-5xl font-black text-[#F5F2EB]">
+                {stats.averageRating ? stats.averageRating.toFixed(1) : '5.0'}
+              </span>
+              <div className="mt-2 flex items-center gap-1 text-[#D4AF65]">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <Star key={s} className="h-5 w-5 fill-current" />
+                ))}
+              </div>
+              <span className="mt-2 text-xs font-semibold text-[#B0BECE]">
+                Based on {stats.totalReviews || reviews.length} verified ratings
+              </span>
+            </div>
 
-        {/* Rating Breakdown Bars */}
-        <div className="md:col-span-2 space-y-2">
-          {[5, 4, 3, 2, 1].map((stars) => {
-            const count = stats.breakdown?.[stars] || (stars === 5 ? 16 : stars === 4 ? 2 : 0)
-            const total = stats.totalReviews || 18
-            const pct = Math.round((count / total) * 100)
-            return (
-              <button
-                key={stars}
-                type="button"
-                onClick={() => setSelectedRatingFilter(selectedRatingFilter === stars ? null : stars)}
-                className={`w-full flex items-center gap-3 text-xs cursor-pointer p-1 rounded-md transition-colors ${
-                  selectedRatingFilter === stars ? 'bg-amber-100/50' : 'hover:bg-[#172644]'
-                }`}
-              >
-                <span className="w-12 text-left font-bold text-[#F5F2EB]">{stars} Stars</span>
-                <div className="flex-1 bg-[#203357] rounded-full h-2.5 overflow-hidden">
-                  <div
-                    className="bg-[#D4AF65] h-full rounded-full transition-all duration-500"
-                    style={{ width: `${pct}%` }}
-                  />
-                </div>
-                <span className="w-10 text-right text-[#B0BECE] font-mono">{pct}%</span>
-              </button>
-            )
-          })}
-        </div>
-      </div>
+            {/* Rating Breakdown Bars */}
+            <div className="md:col-span-2 space-y-2">
+              {[5, 4, 3, 2, 1].map((stars) => {
+                const count = stats.breakdown?.[stars] || 0
+                const total = stats.totalReviews || 1
+                const pct = total > 0 ? Math.round((count / total) * 100) : 0
+                return (
+                  <button
+                    key={stars}
+                    type="button"
+                    onClick={() => setSelectedRatingFilter(selectedRatingFilter === stars ? null : stars)}
+                    className={`w-full flex items-center gap-3 text-xs cursor-pointer p-1 rounded-md transition-colors ${
+                      selectedRatingFilter === stars ? 'bg-amber-100/50' : 'hover:bg-[#172644]'
+                    }`}
+                  >
+                    <span className="w-12 text-left font-bold text-[#F5F2EB]">{stars} Stars</span>
+                    <div className="flex-1 bg-[#203357] rounded-full h-2.5 overflow-hidden">
+                      <div
+                        className="bg-[#D4AF65] h-full rounded-full transition-all duration-500"
+                        style={{ width: `${pct}%` }}
+                      />
+                    </div>
+                    <span className="w-10 text-right text-[#B0BECE] font-mono">{pct}%</span>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
 
       {/* Filter Active Pill */}
       {selectedRatingFilter && (
@@ -355,6 +338,8 @@ export default function ProductReviewsSection({ product, categorySlug }) {
           </div>
         ))}
       </div>
+        </>
+      )}
 
       {/* Review Submission Modal */}
       {isModalOpen && (

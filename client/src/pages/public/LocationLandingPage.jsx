@@ -9,7 +9,7 @@ import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
 import { FORMATTED_PHONE, getServiceWhatsAppUrl } from '../../utils/whatsapp'
 
-const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://0nprint.com').replace(/\/$/, '')
+const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
 const LOCATION_DATA = {
   'abu-dhabi': {
@@ -112,36 +112,48 @@ export default function LocationLandingPage({ locationKey }) {
 
   const locationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: `ONPRINT ${locationData.name}`,
+    '@type': 'Service',
+    serviceType: 'Commercial Printing Services',
+    name: `Commercial Printing Services in ${locationData.name}`,
     description: locationData.description,
     url: `${SITE_URL}/printing-services-${locationKey}`,
-    telephone: FORMATTED_PHONE,
-    email: '0nprint183@gmail.com',
-    priceRange: '$$',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: locationData.name,
-      addressRegion: locationData.region,
-      addressCountry: 'AE',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: locationData.geo.lat,
-      longitude: locationData.geo.lng,
-    },
-    areaServed: locationData.areas.map((area) => ({
-      '@type': 'City',
-      name: area,
-    })),
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '08:30',
-        closes: '18:30',
+    provider: {
+      '@type': 'ProfessionalService',
+      name: 'ONPRINT',
+      url: SITE_URL,
+      telephone: FORMATTED_PHONE,
+      email: '0nprint183@gmail.com',
+      priceRange: '$',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Al Quoz Industrial Area 3',
+        addressLocality: 'Dubai',
+        addressRegion: 'Dubai',
+        addressCountry: 'AE',
       },
+    },
+    areaServed: [
+      {
+        '@type': 'AdministrativeArea',
+        name: locationData.region,
+      },
+      ...locationData.areas.map((area) => ({
+        '@type': 'City',
+        name: area,
+      })),
     ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `Commercial Printing Services for ${locationData.name}`,
+      itemListElement: SERVICES.map((s) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: s.title,
+          description: s.desc,
+        },
+      })),
+    },
   }
 
   const whatsAppUrl = getServiceWhatsAppUrl('general', {

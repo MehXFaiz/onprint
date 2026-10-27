@@ -188,7 +188,7 @@ const DLX_220_KEYWORDS = [
     conversion_value: 'High',
   },
   {
-    keyword: 'cheap printing press in dubai',
+    keyword: 'affordable printing press in dubai',
     search_intent: 'Commercial',
     cluster: 'Printing Services Dubai',
     target_url: `${SITE_URL}/services`,
@@ -1033,7 +1033,7 @@ const DLX_220_KEYWORDS = [
     conversion_value: 'Medium',
   },
   {
-    keyword: 'cheap flyer printing dubai',
+    keyword: 'affordable flyer printing dubai',
     search_intent: 'Commercial',
     cluster: 'Flyers & Brochures',
     target_url: `${SITE_URL}/flyer-printing-dubai`,

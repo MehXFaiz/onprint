@@ -1256,67 +1256,62 @@ export default function HomePage() {
       </section>
 
             {/* ========================================================================= */}
-      {/* 10B. CLIENT TESTIMONIALS & CORPORATE TRUST                                */}
+      {/* 10B. CLIENT PRINT CAPABILITIES & FINISHING SPECIFICATIONS                 */}
       {/* ========================================================================= */}
       <section className="bg-[#101D35] py-16 sm:py-24 border-t border-[#203357] text-[#F5F2EB] relative overflow-hidden">
         <div className="pointer-events-none absolute -right-24 top-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[#D4AF65]/10 blur-3xl -z-10" aria-hidden="true" />
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
-              VERIFIED CORPORATE REPUTATION
+              PRINT ENGINEERING &amp; CRAFTSMANSHIP
             </span>
             <h2 className="font-serif mt-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#F5F2EB]">
-              Trusted by Leading Dubai Enterprises &amp; Agencies
+              Commercial Print Finishing Capabilities
             </h2>
             <p className="mt-2 text-sm text-[#B0BECE]">
-              Real-world feedback from corporate procurement heads, marketing directors, and business founders across the UAE.
+              Every order is produced to exacting pre-press standards in our Al Quoz pressroom with calibrated Heidelberg offset and HP Indigo digital presses.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                quote: 'The 600 GSM cotton business cards with 24K mirror gold foil debossing set our firm apart at investor meetings. Delivered right to our DIFC office within 24 hours.',
-                author: 'Tariq Al-Hashemi',
-                role: 'Managing Partner',
-                company: 'DIFC Wealth Advisory',
-                service: 'Executive Business Cards',
+                title: 'Executive Cotton & Metallic Foil Stamping',
+                description: '600 GSM duplex and triplex cotton cardstocks paired with 24K mirror hot-foil debossing and painted gilded edges. Built for leadership teams, investment desks, and luxury brands.',
+                category: 'Corporate Stationery',
+                spec: '600 GSM + Precision Foil',
               },
               {
-                quote: 'Printed 8 roll-up exhibition banners and backdrops for our trade booth at DWTC. Zero edge curl, calibrated Pantone color matching, and heavy-duty aluminium stands.',
-                author: 'Sarah Jenkins',
-                role: 'Brand & Events Director',
-                company: 'Dubai Media City Agency',
-                service: 'Exhibition Roll-Up Banners',
+                title: 'DWTC Exhibition Graphics & Roll-Up Banners',
+                description: 'Heavy-duty tear-resistant grey-back blockout film with calibrated Pantone matching and zero edge curl. Complete with weighted aluminium cassette hardware and padded carry cases.',
+                category: 'Events & Displays',
+                spec: 'Anti-Curl + 100% Blockout',
               },
               {
-                quote: 'Our bilingual company stamps and waterproof product roll-labels arrived same-day with perfect Arabic calligraphy registration. Best print partner in Al Quoz.',
-                author: 'Karim Mansour',
-                role: 'Operations Lead',
-                company: 'Business Bay Trading LLC',
-                service: 'Official Stamps & Labels',
+                title: 'Packaging Boxes & Waterproof Labels',
+                description: 'Custom luxury rigid presentation boxes, folding carton mailers, and die-cut BOPP vinyl roll labels with soft-touch matte lamination and raised 3D Scodix spot UV highlights.',
+                category: 'Packaging & Labels',
+                spec: 'Die-Cut + Scodix 3D UV',
               },
             ].map((t, idx) => (
               <Reveal key={idx} delay={idx * 0.1}>
                 <div className="h-full flex flex-col justify-between rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-7 shadow-md hover:border-[#D4AF65] transition-all group">
                   <div>
-                    <div className="flex items-center gap-1 text-[#D4AF65] mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-[#D4AF65]" />
-                      ))}
-                    </div>
-                    <p className="text-sm text-[#F5F2EB] leading-relaxed italic">
-                      "{t.quote}"
+                    <span className="rounded-full bg-[#101D35] border border-[#203357] px-3 py-1 text-[11px] font-bold text-[#D4AF65] inline-block mb-3">
+                      {t.category}
+                    </span>
+                    <h3 className="text-base font-bold text-[#F5F2EB] mb-2">{t.title}</h3>
+                    <p className="text-xs sm:text-sm text-[#B0BECE] leading-relaxed">
+                      {t.description}
                     </p>
                   </div>
 
                   <div className="mt-6 pt-5 border-t border-[#203357] flex items-center justify-between">
-                    <div>
-                      <h4 className="text-sm font-bold text-[#F5F2EB]">{t.author}</h4>
-                      <p className="text-xs text-[#B0BECE]">{t.role} • {t.company}</p>
-                    </div>
-                    <span className="rounded-full bg-[#101D35] border border-[#203357] px-2.5 py-1 text-[10px] font-bold text-[#D4AF65]">
-                      {t.service}
+                    <span className="text-xs font-mono text-emerald-400 font-semibold flex items-center gap-1">
+                      <CheckCircle2 className="h-3.5 w-3.5" /> In-House Press
+                    </span>
+                    <span className="rounded-full bg-[#101D35] border border-[#203357] px-2.5 py-1 text-[10px] font-mono font-bold text-[#D4AF65]">
+                      {t.spec}
                     </span>
                   </div>
                 </div>
@@ -1325,6 +1320,8 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+
+
 
 {/* ========================================================================= */}
       {/* 11. BLOG ARTICLES / GUIDES                                               */}

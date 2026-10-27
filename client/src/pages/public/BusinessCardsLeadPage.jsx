@@ -350,8 +350,8 @@ export default function BusinessCardsLeadPage() {
                   Free Pre-Flight Artwork Check
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Star className="h-4 w-4 text-amber-500 fill-amber-500" />
-                  4.9/5.0 Google Verified
+                  <ShieldCheck className="h-4 w-4 text-[#D4AF65]" />
+                  100% Pre-Press Proof Guarantee
                 </span>
               </div>
             </Reveal>

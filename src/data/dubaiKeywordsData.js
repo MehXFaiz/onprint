@@ -155,7 +155,7 @@ const DUBAI_KEYWORDS = [
     notes: 'High intent time-sensitive printing need.',
   },
   {
-    keyword: 'cheap printing dubai',
+    keyword: 'affordable commercial printing dubai',
     cluster: 'Main & Commercial Printing',
     search_intent: 'Commercial',
     keyword_type: 'secondary',
@@ -639,7 +639,7 @@ const DUBAI_KEYWORDS = [
     notes: 'Full color 4/4 printing.',
   },
   {
-    keyword: 'cheap flyer printing dubai',
+    keyword: 'affordable flyer printing dubai',
     cluster: 'Flyers & Leaflets',
     search_intent: 'Commercial',
     keyword_type: 'secondary',
@@ -1873,29 +1873,6 @@ const allLocations = [
   'the greens',
   'the lakes',
   'emaar business park',
-  'oman muscat',
-  'qatar doha',
-  'kuwait city',
-  'bahrain manama',
-  'saudi riyadh',
-  'saudi jeddah',
-  'saudi dammam',
-  'saudi khobar',
-  'egypt cairo',
-  'lebanon beirut',
-  'jordan amman',
-  'uk london',
-  'usa new york',
-  'usa los angeles',
-  'usa miami',
-  'canada toronto',
-  'australia sydney',
-  'singapore',
-  'hong kong',
-  'global',
-  'international',
-  'worldwide',
-  'export',
   'middle east',
   'gcc',
   'mena',
@@ -1906,7 +1883,6 @@ const questionFrames = [
   { frame: 'where to print {product} in {location}', intent: 'Transactional' },
   { frame: 'how much does {product} cost in {location}', intent: 'Transactional' },
   { frame: 'best {product} printing company in {location}', intent: 'Commercial' },
-  { frame: 'cheap {product} {location}', intent: 'Commercial' },
   { frame: 'affordable {product} in {location}', intent: 'Commercial' },
   { frame: 'urgent {product} printing {location}', intent: 'Transactional' },
   { frame: 'same day {product} {location}', intent: 'Transactional' },
@@ -1920,7 +1896,6 @@ const questionFrames = [
   { frame: 'bulk {product} wholesale {location}', intent: 'Commercial' },
   { frame: 'custom {product} maker {location}', intent: 'Commercial' },
   { frame: '{product} designer near me', intent: 'Commercial' },
-  { frame: '{product} with free design {location}', intent: 'Transactional' },
   { frame: '24 hour {product} {location}', intent: 'Transactional' },
   { frame: '{product} delivery {location}', intent: 'Transactional' },
   { frame: '{product} design and print {location}', intent: 'Commercial' },
@@ -1936,10 +1911,23 @@ const questionFrames = [
 ]
 
 const existingSet = new Set(DUBAI_KEYWORDS.map((k) => k.keyword.toLowerCase()))
-const KEYWORD_TARGET = 3000
+const KEYWORD_TARGET = 800
+
+const isCleanCandidate = (candidate = '') => {
+  const c = candidate.toLowerCase().trim()
+  if (!c || c.length < 5) return false
+  if (/\bcheap\b/i.test(c)) return false
+  if (/dubai.*dubai/i.test(c)) return false
+  if (/uae.*uae/i.test(c)) return false
+  if (/\b([a-z]{3,})\s+\1\b/i.test(c)) return false
+  const foreignCities = /\b(london|new york|toronto|sydney|cairo|beirut|amman|riyadh|jeddah|dammam|khobar|singapore|hong kong|muscat|doha|kuwait city|manama|los angeles|miami)\b/i
+  if (foreignCities.test(c)) return false
+  return true
+}
 
 const pushUnique = (entry) => {
-  const key = entry.keyword.toLowerCase()
+  const key = entry.keyword.toLowerCase().trim()
+  if (!isCleanCandidate(key)) return false
   if (existingSet.has(key)) return false
   if (DUBAI_KEYWORDS.length >= KEYWORD_TARGET) return false
   existingSet.add(key)
@@ -1949,8 +1937,13 @@ const pushUnique = (entry) => {
 
 for (const bp of allProducts) {
   for (const loc of allLocations) {
+    const termHasLocation = bp.term.toLowerCase().includes(loc.toLowerCase()) || bp.term.toLowerCase().includes('dubai') || bp.term.toLowerCase().includes('uae')
+
     for (const pref of modifierPrefixes) {
-      const candidate = `${pref} ${bp.term} ${loc}`.trim()
+      if (bp.term.toLowerCase().includes(pref.toLowerCase())) continue
+      const candidate = termHasLocation
+        ? `${pref} ${bp.term}`.trim()
+        : `${pref} ${bp.term} ${loc}`.trim()
       pushUnique({
         keyword: candidate,
         cluster: bp.cluster,
@@ -1960,11 +1953,14 @@ for (const bp of allProducts) {
         target_url: bp.url,
         priority: ['best', 'urgent', 'luxury', 'same day', 'premium', 'bulk'].includes(pref) ? 'High' : 'Medium',
         status: 'Tracking',
-        notes: `Geo-located long-tail: ${candidate}`,
+        notes: `Local search query: ${candidate}`,
       })
     }
     for (const suf of suffixVariants) {
-      const candidate = `${bp.term} ${suf} ${loc}`.replace(/\s+/g, ' ').trim()
+      if (bp.term.toLowerCase().includes(suf.toLowerCase())) continue
+      const candidate = termHasLocation
+        ? `${bp.term} ${suf}`.replace(/\s+/g, ' ').trim()
+        : `${bp.term} ${suf} ${loc}`.replace(/\s+/g, ' ').trim()
       pushUnique({
         keyword: candidate,
         cluster: bp.cluster,
@@ -1999,7 +1995,7 @@ for (const bp of allProducts) {
           target_url: bp.url,
           priority: q.intent === 'Transactional' ? 'High' : q.intent === 'Commercial' ? 'High' : 'Low',
           status: 'Tracking',
-          notes: `Question/voice-search keyword targeting ${loc}`,
+          notes: `Local query targeting ${loc}`,
         })
       }
     }

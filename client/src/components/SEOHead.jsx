@@ -550,23 +550,28 @@ export default function SEOHead({
     }
 
     // 13. Review/AggregateRating Schema for Products/Services
-    if (reviews && Array.isArray(reviews) && reviews.length > 0) {
+    const validReviews = Array.isArray(reviews)
+      ? reviews.filter((r) => (r.rating > 0) && (r.text || r.comment))
+      : []
+
+    if (validReviews.length > 0) {
+      const avg = validReviews.reduce((acc, r) => acc + (r.rating || 0), 0) / validReviews.length
       const reviewSchema = {
         '@context': 'https://schema.org',
         '@type': 'Product',
         name: product?.name || service?.name || 'ONPRINT Services',
         aggregateRating: {
           '@type': 'AggregateRating',
-          ratingValue: reviews.reduce((acc, r) => acc + (r.rating || 0), 0) / reviews.length,
-          reviewCount: reviews.length,
+          ratingValue: Number(avg.toFixed(1)),
+          reviewCount: validReviews.length,
           bestRating: '5',
           worstRating: '1',
         },
-        review: reviews.map((r) => ({
+        review: validReviews.map((r) => ({
           '@type': 'Review',
           author: {
             '@type': 'Person',
-            name: r.author || 'Anonymous',
+            name: r.author || r.author_name || 'Verified Client',
           },
           reviewRating: {
             '@type': 'Rating',
@@ -575,7 +580,7 @@ export default function SEOHead({
             worstRating: '1',
           },
           reviewBody: r.text || r.comment || '',
-          datePublished: r.date || new Date().toISOString(),
+          datePublished: r.date || (r.created_at ? r.created_at.slice(0, 10) : new Date().toISOString().slice(0, 10)),
         })),
       }
       setStructuredDataScript('onprint-schema-reviews', reviewSchema)

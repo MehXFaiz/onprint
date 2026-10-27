@@ -7,6 +7,7 @@ import {
   Award,
   Users,
   CheckCircle,
+  CheckCircle2,
   Sparkles,
   Clock,
   ArrowRight,

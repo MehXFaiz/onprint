@@ -96,7 +96,7 @@
       "author_name": "ONPRINT Pre-Press Engineering Team",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1650,
       "seo_score": 98,
       "readability_score": 82,
@@ -133,7 +133,20 @@
       ],
       "_id": "blog-1",
       "created_at": "2026-08-10T08:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.487Z"
+      "updated_at": "2026-09-14T15:21:08.487Z",
+      "category": "Office Stationery Printing",
+      "categoryData": {
+        "name": "Office Stationery Printing",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "How to Choose the Right Business Card Paper",
+        "slug": "premium-business-cards"
+      },
+      "author": "ONPRINT Pre-Press Engineering Team",
+      "publishedAt": "2026-08-10T08:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "Choosing Business Card Paper in Dubai: 350gsm vs 450gsm vs 600gsm | ONPRINT"
     },
     {
       "id": 2,
@@ -146,7 +159,7 @@
       "author_name": "ONPRINT Technical Press Operators",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 8,
+      "reading_time": "8 min read",
       "word_count": 1780,
       "seo_score": 97,
       "readability_score": 81,
@@ -183,7 +196,20 @@
       ],
       "_id": "blog-2",
       "created_at": "2026-08-14T09:30:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Printing Services",
+      "categoryData": {
+        "name": "Printing Services",
+        "slug": "brochures-printing"
+      },
+      "productData": {
+        "name": "Digital vs Offset Printing in Dubai",
+        "slug": "digital-offset-printing"
+      },
+      "author": "ONPRINT Technical Press Operators",
+      "publishedAt": "2026-08-14T09:30:00.000Z",
+      "readTime": "8 min read",
+      "seo_title": "Digital vs Offset Printing in Dubai: Cost, Quality & Speed Guide | ONPRINT"
     },
     {
       "id": 3,
@@ -196,7 +222,7 @@
       "author_name": "ONPRINT Finishing Specialists",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 8,
+      "reading_time": "8 min read",
       "word_count": 1820,
       "seo_score": 96,
       "readability_score": 83,
@@ -228,7 +254,20 @@
       ],
       "_id": "blog-3",
       "created_at": "2026-08-18T11:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Office Stationery Printing",
+      "categoryData": {
+        "name": "Office Stationery Printing",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "Ultimate Guide to Luxury Finishes",
+        "slug": "luxury-packaging-custom-boxes"
+      },
+      "author": "ONPRINT Finishing Specialists",
+      "publishedAt": "2026-08-18T11:00:00.000Z",
+      "readTime": "8 min read",
+      "seo_title": "Luxury Print Finishes in Dubai: Foil Stamping, Spot UV & Embossing | ONPRINT"
     },
     {
       "id": 4,
@@ -241,7 +280,7 @@
       "author_name": "ONPRINT Exhibition Logistics Team",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 8,
+      "reading_time": "8 min read",
       "word_count": 1720,
       "seo_score": 97,
       "readability_score": 80,
@@ -273,7 +312,20 @@
       ],
       "_id": "blog-4",
       "created_at": "2026-08-22T08:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Printing Services",
+      "categoryData": {
+        "name": "Printing Services",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "productData": {
+        "name": "Complete Checklist for Dubai World Trade Centre (DWTC) Exhibition Printing",
+        "slug": "roll-up-banners"
+      },
+      "author": "ONPRINT Exhibition Logistics Team",
+      "publishedAt": "2026-08-22T08:00:00.000Z",
+      "readTime": "8 min read",
+      "seo_title": "DWTC Exhibition Printing Checklist: Rollups, Badges & Booth Graphics | ONPRINT"
     },
     {
       "id": 5,
@@ -286,7 +338,7 @@
       "author_name": "ONPRINT Production Operations",
       "status": "published",
       "is_featured": 0,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1540,
       "seo_score": 96,
       "readability_score": 82,
@@ -318,7 +370,20 @@
       ],
       "_id": "blog-5",
       "created_at": "2026-08-25T14:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Printing Services",
+      "categoryData": {
+        "name": "Printing Services",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "productData": {
+        "name": "Same-Day Printing in Dubai",
+        "slug": "digital-offset-printing"
+      },
+      "author": "ONPRINT Production Operations",
+      "publishedAt": "2026-08-25T14:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "Same-Day Printing in Dubai: Rush Turnaround Guide | ONPRINT"
     },
     {
       "id": 6,
@@ -331,7 +396,7 @@
       "author_name": "ONPRINT Structural Packaging Engineers",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 9,
+      "reading_time": "9 min read",
       "word_count": 1950,
       "seo_score": 97,
       "readability_score": 81,
@@ -363,7 +428,20 @@
       ],
       "_id": "blog-6",
       "created_at": "2026-08-28T10:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Luxury Packaging",
+      "categoryData": {
+        "name": "Luxury Packaging",
+        "slug": "brochures-printing"
+      },
+      "productData": {
+        "name": "Designing Custom Retail Packaging",
+        "slug": "luxury-packaging-custom-boxes"
+      },
+      "author": "ONPRINT Structural Packaging Engineers",
+      "publishedAt": "2026-08-28T10:00:00.000Z",
+      "readTime": "9 min read",
+      "seo_title": "Custom Retail Packaging in Dubai: Box Styles & Material Guide | ONPRINT"
     },
     {
       "id": 7,
@@ -376,7 +454,7 @@
       "author_name": "ONPRINT Pre-Press Quality Assurance",
       "status": "published",
       "is_featured": 0,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1600,
       "seo_score": 98,
       "readability_score": 83,
@@ -408,7 +486,20 @@
       ],
       "_id": "blog-7",
       "created_at": "2026-08-30T12:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Printing Services",
+      "categoryData": {
+        "name": "Printing Services",
+        "slug": "brochures-printing"
+      },
+      "productData": {
+        "name": "How to Prepare Print-Ready PDF Artwork",
+        "slug": "digital-offset-printing"
+      },
+      "author": "ONPRINT Pre-Press Quality Assurance",
+      "publishedAt": "2026-08-30T12:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "How to Prepare Print-Ready PDF Artwork: Technical Prepress Guide | ONPRINT"
     },
     {
       "id": 8,
@@ -421,7 +512,7 @@
       "author_name": "ONPRINT Corporate Accounts Desk",
       "status": "published",
       "is_featured": 0,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1580,
       "seo_score": 96,
       "readability_score": 82,
@@ -448,7 +539,20 @@
       ],
       "_id": "blog-8",
       "created_at": "2026-09-02T09:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Corporate Stationery",
+      "categoryData": {
+        "name": "Corporate Stationery",
+        "slug": "letterheads-printing-dubai"
+      },
+      "productData": {
+        "name": "Corporate Stationery Essentials for New Companies Setting Up in Dubai & DIFC",
+        "slug": "executive-notebooks"
+      },
+      "author": "ONPRINT Corporate Accounts Desk",
+      "publishedAt": "2026-09-02T09:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "Corporate Stationery Essentials for New Dubai & DIFC Companies | ONPRINT"
     },
     {
       "id": 9,
@@ -461,7 +565,7 @@
       "author_name": "ONPRINT Hospitality Print Division",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1680,
       "seo_score": 97,
       "readability_score": 82,
@@ -488,7 +592,20 @@
       ],
       "_id": "blog-9",
       "created_at": "2026-09-04T10:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Hospitality Print",
+      "categoryData": {
+        "name": "Hospitality Print",
+        "slug": "brochures-printing"
+      },
+      "productData": {
+        "name": "Synthetic Waterproof Menus",
+        "slug": "brochures-printing"
+      },
+      "author": "ONPRINT Hospitality Print Division",
+      "publishedAt": "2026-09-04T10:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "Synthetic Waterproof Menus in Dubai: The Future of Restaurant Print | ONPRINT"
     },
     {
       "id": 10,
@@ -501,7 +618,7 @@
       "author_name": "ONPRINT Large Format Production",
       "status": "published",
       "is_featured": 0,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1590,
       "seo_score": 96,
       "readability_score": 83,
@@ -528,7 +645,20 @@
       ],
       "_id": "blog-10",
       "created_at": "2026-09-06T11:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Banners & Large Format",
+      "categoryData": {
+        "name": "Banners & Large Format",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "productData": {
+        "name": "Roll-Up Banners & Exhibition Signage",
+        "slug": "roll-up-banners"
+      },
+      "author": "ONPRINT Large Format Production",
+      "publishedAt": "2026-09-06T11:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "Roll-Up Banners in Dubai: Sizing, Hardware & Media Guide | ONPRINT"
     },
     {
       "id": 11,
@@ -541,7 +671,7 @@
       "author_name": "ONPRINT Adhesive Finishing Lab",
       "status": "published",
       "is_featured": 0,
-      "reading_time": 6,
+      "reading_time": "6 min read",
       "word_count": 1480,
       "seo_score": 97,
       "readability_score": 84,
@@ -568,7 +698,20 @@
       ],
       "_id": "blog-11",
       "created_at": "2026-09-08T09:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Stickers & Labels",
+      "categoryData": {
+        "name": "Stickers & Labels",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "productData": {
+        "name": "Custom Die-Cut Vinyl Stickers",
+        "slug": "die-cut-stickers"
+      },
+      "author": "ONPRINT Adhesive Finishing Lab",
+      "publishedAt": "2026-09-08T09:00:00.000Z",
+      "readTime": "6 min read",
+      "seo_title": "Custom Die-Cut Vinyl Stickers in Dubai: Waterproof & UV-Resistant | ONPRINT"
     },
     {
       "id": 12,
@@ -581,7 +724,7 @@
       "author_name": "ONPRINT Sustainability Advisory Group",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 8,
+      "reading_time": "8 min read",
       "word_count": 1750,
       "seo_score": 98,
       "readability_score": 81,
@@ -608,7 +751,20 @@
       ],
       "_id": "blog-12",
       "created_at": "2026-09-09T10:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Printing Guides",
+      "categoryData": {
+        "name": "Printing Guides",
+        "slug": "brochures-printing"
+      },
+      "productData": {
+        "name": "Sustainable & FSC-Certified Printing in the UAE",
+        "slug": "digital-offset-printing"
+      },
+      "author": "ONPRINT Sustainability Advisory Group",
+      "publishedAt": "2026-09-09T10:00:00.000Z",
+      "readTime": "8 min read",
+      "seo_title": "Sustainable & FSC-Certified Printing in the UAE | ONPRINT Eco Guide"
     },
     {
       "id": 13,
@@ -621,7 +777,7 @@
       "author_name": "ONPRINT Identity Security Systems",
       "status": "published",
       "is_featured": 0,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1550,
       "seo_score": 97,
       "readability_score": 83,
@@ -648,7 +804,20 @@
       ],
       "_id": "blog-13",
       "created_at": "2026-09-10T11:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "ID Cards & Badges",
+      "categoryData": {
+        "name": "ID Cards & Badges",
+        "slug": "id-card-printing-dubai"
+      },
+      "productData": {
+        "name": "PVC ID Cards & Smart Badges",
+        "slug": "id-card-printing-dubai"
+      },
+      "author": "ONPRINT Identity Security Systems",
+      "publishedAt": "2026-09-10T11:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "PVC ID Cards & Smart Badges in Dubai: Security & RFID Guide | ONPRINT"
     },
     {
       "id": 14,
@@ -661,7 +830,7 @@
       "author_name": "ONPRINT Real Estate Collateral Team",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 8,
+      "reading_time": "8 min read",
       "word_count": 1710,
       "seo_score": 97,
       "readability_score": 80,
@@ -688,7 +857,20 @@
       ],
       "_id": "blog-14",
       "created_at": "2026-09-11T12:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Brochures & Catalogs",
+      "categoryData": {
+        "name": "Brochures & Catalogs",
+        "slug": "brochures-printing"
+      },
+      "productData": {
+        "name": "Luxury Property Marketing Collateral",
+        "slug": "brochures-printing"
+      },
+      "author": "ONPRINT Real Estate Collateral Team",
+      "publishedAt": "2026-09-11T12:00:00.000Z",
+      "readTime": "8 min read",
+      "seo_title": "Luxury Real Estate Brochure Printing in Dubai | ONPRINT Property Guide"
     },
     {
       "id": 15,
@@ -701,7 +883,7 @@
       "author_name": "ONPRINT Merchandise Consultants",
       "status": "published",
       "is_featured": 0,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1610,
       "seo_score": 96,
       "readability_score": 83,
@@ -728,7 +910,20 @@
       ],
       "_id": "blog-15",
       "created_at": "2026-09-12T13:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Corporate Gifts",
+      "categoryData": {
+        "name": "Corporate Gifts",
+        "slug": "lanyard-printing-dubai"
+      },
+      "productData": {
+        "name": "Promotional Corporate Gifting in Dubai",
+        "slug": "custom-branded-tote-bags"
+      },
+      "author": "ONPRINT Merchandise Consultants",
+      "publishedAt": "2026-09-12T13:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "Corporate Gifts Printing in Dubai: High-Impact Promotional Ideas | ONPRINT"
     },
     {
       "id": 16,
@@ -741,7 +936,7 @@
       "author_name": "ONPRINT Paper Sourcing Lab",
       "status": "published",
       "is_featured": 0,
-      "reading_time": 8,
+      "reading_time": "8 min read",
       "word_count": 1740,
       "seo_score": 97,
       "readability_score": 82,
@@ -768,7 +963,20 @@
       ],
       "_id": "blog-16",
       "created_at": "2026-09-13T09:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Printing Guides",
+      "categoryData": {
+        "name": "Printing Guides",
+        "slug": "brochures-printing"
+      },
+      "productData": {
+        "name": "Paper Stocks & Textures",
+        "slug": "digital-offset-printing"
+      },
+      "author": "ONPRINT Paper Sourcing Lab",
+      "publishedAt": "2026-09-13T09:00:00.000Z",
+      "readTime": "8 min read",
+      "seo_title": "Paper Stocks & Textures in Dubai: Complete Commercial Print Guide | ONPRINT"
     },
     {
       "id": 17,
@@ -781,7 +989,7 @@
       "author_name": "ONPRINT Outdoor Signage Engineers",
       "status": "published",
       "is_featured": 0,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1560,
       "seo_score": 97,
       "readability_score": 81,
@@ -808,7 +1016,20 @@
       ],
       "_id": "blog-17",
       "created_at": "2026-09-13T14:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Banners & Large Format",
+      "categoryData": {
+        "name": "Banners & Large Format",
+        "slug": "flyers-printing-in-dubai"
+      },
+      "productData": {
+        "name": "Large Format Outdoor Printing",
+        "slug": "beach-flags"
+      },
+      "author": "ONPRINT Outdoor Signage Engineers",
+      "publishedAt": "2026-09-13T14:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "Outdoor Banner Printing in Dubai: Heat & UV Weatherproofing | ONPRINT"
     },
     {
       "id": 18,
@@ -821,7 +1042,7 @@
       "author_name": "ONPRINT Color Management Lab",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 8,
+      "reading_time": "8 min read",
       "word_count": 1720,
       "seo_score": 98,
       "readability_score": 82,
@@ -848,7 +1069,20 @@
       ],
       "_id": "blog-18",
       "created_at": "2026-09-14T08:00:00.000Z",
-      "updated_at": "2026-09-14T15:21:08.534Z"
+      "updated_at": "2026-09-14T15:21:08.534Z",
+      "category": "Printing Guides",
+      "categoryData": {
+        "name": "Printing Guides",
+        "slug": "brochures-printing"
+      },
+      "productData": {
+        "name": "Pantone Color Matching System (PMS) in Commercial Print",
+        "slug": "digital-offset-printing"
+      },
+      "author": "ONPRINT Color Management Lab",
+      "publishedAt": "2026-09-14T08:00:00.000Z",
+      "readTime": "8 min read",
+      "seo_title": "Pantone Color Matching in Dubai Print: Spot Colors vs CMYK | ONPRINT"
     },
     {
       "id": 19,
@@ -862,17 +1096,17 @@
       "author_name": "ONPRINT Pre-Press Engineering Team",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1380,
       "target_location": "Dubai, UAE",
       "published_at": "2026-10-15T09:00:00.000Z",
       "featured_image": "/assets/products/card-velvet-foil.jpg",
       "image_alt": "Bilingual Arabic and English corporate business card design layout with gold foil in Dubai",
-      "seo_title": "Business Card Design Guide for Dubai Businesses | Pre-Press Specs | ONPRINT",
+      "seo_title": "Business Card Design Guide for Dubai Businesses: Bilingual Typography, Bleed & Finishes | ONPRINT Dubai",
       "meta_description": "Complete business card design guide for Dubai & UAE brands. Learn standard UAE card sizes (85x55mm & 90x50mm), bilingual Arabic-English typography, 3mm bleed, and foil/Spot UV artwork setup.",
       "focus_keyword": "business card design dubai",
       "secondary_keywords": "bilingual business card design uae, business card size dubai, print ready business card pdf, foil stamping artwork setup",
-      "canonical_url": "https://0nprint.com/blog/business-card-design-guide-dubai-businesses",
+      "canonical_url": "https://www.0nprint.com/blog/business-card-design-guide-dubai-businesses",
       "og_title": "Business Card Design Guide for Dubai Businesses: Bilingual Typography, Bleed & Finishes",
       "og_description": "Pre-press engineering specifications for designing corporate and luxury business cards in Dubai.",
       "og_image": "https://0nprint.com/assets/products/card-velvet-foil.jpg",
@@ -895,7 +1129,20 @@
         }
       ],
       "content": "\n      <h2>Why Technical Pre-Press Design Determines Print Quality in Dubai</h2>\n      <p>Even the finest 600 GSM Italian cotton board or 450 GSM velvet-laminated card stock can be undermined by a poorly prepared artwork file. Across Dubai’s corporate districts—from DIFC financial institutions to architectural practices in Dubai Design District (d3)—designing a business card requires balancing aesthetic restraint with strict mechanical press tolerances.</p>\n      <p>This guide from the pre-press engineering team at <a href=\"/business-card-printing-dubai\">ONPRINT Dubai</a> outlines the exact dimensions, color spaces, bilingual typography standards, and finishing masks required to produce flawless corporate cards.</p>\n\n      <h2>1. Standard Business Card Sizes in Dubai (85×55 mm vs 90×50 mm)</h2>\n      <p>Before opening Adobe Illustrator or InDesign, confirm which dimensional standard your organization uses:</p>\n      <table class=\"w-full text-left border-collapse my-6\">\n        <thead>\n          <tr class=\"border-b-2 border-neutral-300\">\n            <th class=\"py-3 font-bold\">Format Name</th>\n            <th class=\"py-3 font-bold\">Trim Size</th>\n            <th class=\"py-3 font-bold\">With 3mm Bleed</th>\n            <th class=\"py-3 font-bold\">Safe Text Margin</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">European / DIFC Standard</td>\n            <td class=\"py-2.5\">85 × 55 mm</td>\n            <td class=\"py-2.5\">91 × 61 mm</td>\n            <td class=\"py-2.5\">75 × 45 mm (5mm inside trim)</td>\n          </tr>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">UAE Commercial Standard</td>\n            <td class=\"py-2.5\">90 × 50 mm</td>\n            <td class=\"py-2.5\">96 × 56 mm</td>\n            <td class=\"py-2.5\">80 × 40 mm (5mm inside trim)</td>\n          </tr>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">Square Boutique Format</td>\n            <td class=\"py-2.5\">65 × 65 mm</td>\n            <td class=\"py-2.5\">71 × 71 mm</td>\n            <td class=\"py-2.5\">55 × 55 mm (5mm inside trim)</td>\n          </tr>\n        </tbody>\n      </table>\n\n      <h2>2. Mastering Bilingual (Arabic &amp; English) Typography</h2>\n      <p>In the UAE, executives frequently require bilingual cards that honor both Arabic (right-to-left) and English (left-to-right) scripts. Avoid these common typography mistakes:</p>\n      <ul>\n        <li><strong>Optical Point-Size Balancing:</strong> Arabic script often has a smaller x-height than Latin capitals. Increase the Arabic font size by 1 pt to 1.5 pt (e.g., 8.5 pt Arabic paired with 7.5 pt English) so both scripts carry equal visual weight.</li>\n        <li><strong>Minimum Legible Font Size:</strong> Never set contact numbers or email addresses smaller than <strong>6.5 pt</strong> on coated stocks, or <strong>7.5 pt</strong> when reversed (white text knocked out of a rich black background).</li>\n        <li><strong>Outline All Fonts:</strong> Always convert live text to vector outlines (<code>Create Outlines</code> in Illustrator) before exporting your press PDF so Arabic ligatures and diacritics never shift.</li>\n      </ul>\n\n      <h2>3. Rich Black vs Pure Black (K:100%)</h2>\n      <p>For fine body text and QR codes, always use <strong>Pure Black (C:0, M:0, Y:0, K:100)</strong> so characters print from a single black plate without multi-color registration fringes. For large solid black backgrounds, use <strong>Pressroom Rich Black (C:40, M:30, Y:30, K:100)</strong> for deep, velvety density.</p>\n\n      <h2>4. Designing Vector Masks for 24K Foil, Spot UV &amp; Embossing</h2>\n      <p>When ordering <a href=\"/foil-business-cards\">24K Gold Foil business cards</a>, <a href=\"/spot-uv-business-cards\">Raised 3D Spot UV cards</a>, or <a href=\"/embossed-business-cards\">blind debossed cards</a>, include a dedicated vector spot-color layer labeled <code>FOIL</code>, <code>SPOT_UV</code>, or <code>EMBOSS</code>:</p>\n      <ul>\n        <li>Keep minimum foil stroke weights at <strong>0.5 pt (0.18 mm)</strong> or thicker to prevent bridging during heated brass-die stamping.</li>\n        <li>Maintain at least <strong>1.5 mm clearance</strong> between raised Spot UV elements and the cut edge of the card so the polymer never chips during guillotine trimming.</li>\n      </ul>\n\n      <h2>Need Pre-Press Artwork Support?</h2>\n      <p>Explore our <a href=\"/business-card-design\">Business Card Design &amp; Pre-Press Service in Dubai</a> or configure your print run directly on our <a href=\"/business-card-printing-dubai\">Business Card Printing Dubai</a> hub.</p>\n    ",
-      "_id": "blog-19"
+      "_id": "blog-19",
+      "category": "Business Cards Printing",
+      "categoryData": {
+        "name": "Business Cards Printing",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "Business Card Design Guide for Dubai Businesses",
+        "slug": "business-cards-printing"
+      },
+      "author": "ONPRINT Pre-Press Engineering Team",
+      "publishedAt": "2026-10-15T09:00:00.000Z",
+      "readTime": "7 min read",
+      "meta_title": "Business Card Design Guide for Dubai Businesses: Bilingual Typography, Bleed & Finishes | ONPRINT Dubai"
     },
     {
       "id": 20,
@@ -909,17 +1156,17 @@
       "author_name": "ONPRINT Corporate Onboarding Team",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 6,
+      "reading_time": "6 min read",
       "word_count": 1290,
       "target_location": "Dubai, UAE",
       "published_at": "2026-10-15T10:00:00.000Z",
       "featured_image": "/assets/products/basic_business_cards.jpg",
       "image_alt": "Startup business card printing checklist and sample kit in Dubai UAE",
-      "seo_title": "Business Card Printing Checklist for UAE Startups | ONPRINT Dubai",
+      "seo_title": "Business Card Printing Checklist for UAE Startups & Newly Licensed Free-Zone Companies | ONPRINT Dubai",
       "meta_description": "Essential 10-point business card printing checklist for UAE startups in DMCC, DIFC, and Dubai Mainland. Choose the right GSM, quantity, QR vCard setup, and turnaround.",
       "focus_keyword": "business card printing checklist uae startups",
       "secondary_keywords": "affordable business cards dubai, startup business cards uae, corporate business cards dubai, same day business cards dubai",
-      "canonical_url": "https://0nprint.com/blog/business-card-printing-checklist-uae-startups",
+      "canonical_url": "https://www.0nprint.com/blog/business-card-printing-checklist-uae-startups",
       "og_title": "Business Card Printing Checklist for UAE Startups & Newly Licensed Companies",
       "og_description": "Everything newly licensed Dubai and UAE founders need to verify before printing their first batch of corporate business cards.",
       "og_image": "https://0nprint.com/assets/products/basic_business_cards.jpg",
@@ -937,7 +1184,20 @@
         }
       ],
       "content": "\n      <h2>Why Every UAE Startup Needs Physical Business Cards from Day One</h2>\n      <p>Whether you have just received your trade license in DMCC, DIFC Innovation Hub, Dubai Internet City, or Dubai Mainland, face-to-face networking drives B2B deal flow in the Emirates. From bank account onboarding visits with relationship managers to trade events at the Dubai World Trade Centre, handing over a crisp, well-engineered business card establishes immediate institutional credibility.</p>\n      <p>Use this practical checklist from <a href=\"/business-card-printing-dubai\">ONPRINT</a> before sending your startup’s cards to press.</p>\n\n      <h2>The 10-Point UAE Startup Business Card Checklist</h2>\n      <ol>\n        <li><strong>Match Your Trade License Entity Name:</strong> When meeting UAE corporate bankers, landlords, or government procurement officers, ensure your legal entity name (or registered brand name) and Free Zone / Mainland zone are clearly stated.</li>\n        <li><strong>Format UAE Phone Numbers Internationally:</strong> Always write mobile and landline numbers with the <code>+971</code> country code (e.g., <code>+971 50 XXX XXXX</code>) so international visitors and WhatsApp scanners can dial immediately.</li>\n        <li><strong>Select 350 GSM or 400 GSM Soft-Touch for Initial Batches:</strong> Avoid flimsy 250 GSM cards. Our <a href=\"/premium-business-cards\">400 GSM Matte and Soft-Touch Velvet cards</a> provide an executive feel at startup-friendly prices.</li>\n        <li><strong>Include a High-Contrast Vector QR Code:</strong> Keep the QR code at least 18×18 mm with a 2 mm quiet zone, printed in 100% K black on a light surface so phone cameras scan it in under half a second.</li>\n        <li><strong>Order Smart Quantities (100–250 Cards per Person):</strong> Early-stage startups often relocate offices or update titles within 6–12 months. Digital short-run printing lets you order 100 or 250 cards per person without waste.</li>\n        <li><strong>Pair Founders with Flagship Stock:</strong> Many Dubai startups print 350 GSM matte cards for field sales staff while equipping founders with <a href=\"/luxury-business-cards\">600 GSM cotton or gold-foil cards</a> for investor and C-suite meetings.</li>\n        <li><strong>Verify 3mm Bleed &amp; CMYK Color Mode:</strong> Convert RGB hex colors (especially neon blues and greens) to CMYK before printing to prevent unexpected color shifts.</li>\n        <li><strong>Bundle Your Official Company Stamp &amp; Letterhead:</strong> Newly licensed UAE companies require an official company stamp for courier deliveries, tenancy contracts, and bank forms. Order your stamp alongside your <a href=\"/corporate-business-cards\">corporate business cards</a> for unified branding.</li>\n        <li><strong>Plan Ahead—Or Use 4-Hour Express Dispatch:</strong> Standard production takes 24–48 hours. If you have an unexpected pitch tomorrow morning, use our <a href=\"/same-day-business-card-printing\">Same-Day 4-Hour Express Business Card service</a> in Al Quoz.</li>\n      </ol>\n    ",
-      "_id": "blog-20"
+      "_id": "blog-20",
+      "category": "Business Cards Printing",
+      "categoryData": {
+        "name": "Business Cards Printing",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "Business Card Printing Checklist for UAE Startups & Newly Licensed Free-Zone Companies",
+        "slug": "business-cards-printing"
+      },
+      "author": "ONPRINT Corporate Onboarding Team",
+      "publishedAt": "2026-10-15T10:00:00.000Z",
+      "readTime": "6 min read",
+      "meta_title": "Business Card Printing Checklist for UAE Startups & Newly Licensed Free-Zone Companies | ONPRINT Dubai"
     },
     {
       "id": 21,
@@ -951,17 +1211,17 @@
       "author_name": "ONPRINT Technical Print Team",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1340,
       "target_location": "Dubai, UAE",
       "published_at": "2026-10-15T11:00:00.000Z",
       "featured_image": "/assets/products/luxury_business_cards.jpg",
       "image_alt": "Comparison of standard 350gsm vs premium 450gsm vs luxury 600gsm business cards in Dubai",
-      "seo_title": "Premium vs Standard Business Cards in Dubai: Practical Guide | ONPRINT",
+      "seo_title": "Premium vs Standard Business Cards: A Practical Guide for Dubai Companies | ONPRINT Dubai",
       "meta_description": "Compare standard 350 GSM business cards against 450 GSM velvet soft-touch and 600 GSM cotton luxury cards in Dubai. Practical breakdown of cost, durability, and finishes.",
       "focus_keyword": "premium business cards dubai",
       "secondary_keywords": "luxury business cards dubai, standard vs premium business cards, matte and glossy business cards dubai, custom business cards dubai",
-      "canonical_url": "https://0nprint.com/blog/premium-vs-standard-business-cards-dubai-guide",
+      "canonical_url": "https://www.0nprint.com/blog/premium-vs-standard-business-cards-dubai-guide",
       "og_title": "Premium vs Standard Business Cards: A Practical Guide for Dubai Companies",
       "og_description": "Side-by-side comparison of standard 350 GSM, premium 450 GSM velvet, and luxury 600 GSM cotton business cards for UAE enterprises.",
       "og_image": "https://0nprint.com/assets/products/luxury_business_cards.jpg",
@@ -979,7 +1239,20 @@
         }
       ],
       "content": "\n      <h2>Choosing the Right Tier for Your Brand &amp; Budget</h2>\n      <p>Not every business interaction requires a triple-layered 600 GSM gilded-edge card—and conversely, handing a thin economy card to a private equity partner in DIFC can undercut a high-ticket proposal. Understanding the mechanical and visual differences between <strong>Standard</strong>, <strong>Premium</strong>, and <strong>Luxury</strong> business cards allows Dubai procurement teams to allocate print budgets intelligently.</p>\n\n      <h2>Side-by-Side Comparison: Standard vs Premium vs Luxury</h2>\n      <table class=\"w-full text-left border-collapse my-6\">\n        <thead>\n          <tr class=\"border-b-2 border-neutral-300\">\n            <th class=\"py-3 font-bold\">Attribute</th>\n            <th class=\"py-3 font-bold\">Standard Tier (350 GSM)</th>\n            <th class=\"py-3 font-bold\">Premium Tier (400–450 GSM)</th>\n            <th class=\"py-3 font-bold\">Luxury Tier (600 GSM Cotton)</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">Substrate</td>\n            <td class=\"py-2.5\">350 GSM Coated Silk Artboard</td>\n            <td class=\"py-2.5\">400–450 GSM Heavyweight Artboard</td>\n            <td class=\"py-2.5\">600 GSM 100% Italian Archival Cotton</td>\n          </tr>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">Protective Lamination</td>\n            <td class=\"py-2.5\">Smooth Matte or High Gloss</td>\n            <td class=\"py-2.5\">30μ Velvet Soft-Touch Anti-Scuff</td>\n            <td class=\"py-2.5\">Natural Uncoated Cotton Texture</td>\n          </tr>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">Signature Finishes</td>\n            <td class=\"py-2.5\">Full-Bleed CMYK, Rounded Corners</td>\n            <td class=\"py-2.5\">Raised 3D Spot UV, Metallic Foil</td>\n            <td class=\"py-2.5\">Deep Blind Deboss, 24K Foil, Painted Edges</td>\n          </tr>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">Best Use Case</td>\n            <td class=\"py-2.5\">Trade Fairs, Retail, Daily Handouts</td>\n            <td class=\"py-2.5\">Consultancies, Corporate Sales, Real Estate</td>\n            <td class=\"py-2.5\">C-Suite Founders, Law Partners, Luxury Brands</td>\n          </tr>\n        </tbody>\n      </table>\n\n      <h2>Explore Live Samples &amp; Specifications</h2>\n      <p>Compare all 22 card variations on our main <a href=\"/business-card-printing-dubai\">Business Card Printing Dubai</a> page, or inspect our dedicated <a href=\"/premium-business-cards\">Premium Business Cards</a> and <a href=\"/luxury-business-cards\">Luxury 600 GSM Cotton Business Cards</a> hubs.</p>\n    ",
-      "_id": "blog-21"
+      "_id": "blog-21",
+      "category": "Business Cards Printing",
+      "categoryData": {
+        "name": "Business Cards Printing",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "Premium vs Standard Business Cards",
+        "slug": "business-cards-printing"
+      },
+      "author": "ONPRINT Technical Print Team",
+      "publishedAt": "2026-10-15T11:00:00.000Z",
+      "readTime": "7 min read",
+      "meta_title": "Premium vs Standard Business Cards: A Practical Guide for Dubai Companies | ONPRINT Dubai"
     },
     {
       "id": 22,
@@ -993,17 +1266,17 @@
       "author_name": "ONPRINT Corporate Branding Team",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1360,
       "target_location": "Dubai, UAE",
       "published_at": "2026-10-15T12:00:00.000Z",
       "featured_image": "/assets/products/card-painted-edge.jpg",
       "image_alt": "Cohesive corporate business cards and networking print collateral for Dubai companies",
-      "seo_title": "Business Branding & Networking Print Materials for Dubai Companies | ONPRINT",
+      "seo_title": "Business Branding and Networking Materials for Dubai Companies: Exhibitions & Executive Meetings | ONPRINT Dubai",
       "meta_description": "Complete guide to cohesive corporate networking materials in Dubai: executive business cards, presentation folders, company profiles, and exhibition collateral.",
       "focus_keyword": "corporate business cards dubai",
       "secondary_keywords": "business branding materials dubai, networking print collateral uae, business card suppliers dubai, exhibition printing dubai",
-      "canonical_url": "https://0nprint.com/blog/business-branding-networking-materials-dubai-companies",
+      "canonical_url": "https://www.0nprint.com/blog/business-branding-networking-materials-dubai-companies",
       "og_title": "Business Branding and Networking Materials for Dubai Companies",
       "og_description": "How Dubai enterprises coordinate business cards, presentation folders, and exhibition print collateral.",
       "og_image": "https://0nprint.com/assets/products/card-painted-edge.jpg",
@@ -1016,7 +1289,20 @@
         }
       ],
       "content": "\n      <h2>Building a Cohesive Physical Brand Touchpoint System in Dubai</h2>\n      <p>When a prospective client meets your team at a Dubai World Trade Centre exhibition or receives a proposal pack in Business Bay, they rarely see your business card in isolation. It is handed over inside a die-cut presentation folder alongside a saddle-stitched or perfect-bound company profile brochure. When these items are printed by different brokers on mismatched paper stocks, corporate colors drift noticeably.</p>\n      <p>At <a href=\"/business-card-printing-dubai\">ONPRINT</a> in Al Quoz, we manufacture your entire corporate networking suite under one roof.</p>\n\n      <h2>The 5 Essential Networking Print Materials for Dubai Enterprises</h2>\n      <ul>\n        <li><strong>1. Executive &amp; Multi-Employee Business Cards:</strong> Produce standardized <a href=\"/corporate-business-cards\">corporate business card batches</a> with die-cut slots that lock cleanly into your presentation folders.</li>\n        <li><strong>2. Die-Cut Interlocking Presentation Folders:</strong> Printed on rigid 350–400 GSM silk board with velvet lamination and built-in business card slits for A4 tenders and contracts.</li>\n        <li><strong>3. Saddle-Stitched or Perfect-Bound Company Profiles:</strong> Pair a 350 GSM soft-touch cover with 150 GSM silk interior pages to showcase project case studies.</li>\n        <li><strong>4. Hybrid Physical + NFC Smart Business Cards:</strong> Equip booth staff at GITEX or Arab Health with NFC tap cards alongside traditional <a href=\"/same-day-business-card-printing\">same-day printed business cards</a>.</li>\n        <li><strong>5. Official Corporate Letterheads &amp; Compliment Slips:</strong> Printed on 100–120 GSM laser-guaranteed bond or watermarked Conqueror paper.</li>\n      </ul>\n\n      <h2>Request a Unified Corporate Sample Pack</h2>\n      <p>Visit our <a href=\"/business-card-printing-dubai\">Business Card Printing in Dubai</a> hub or contact our corporate accounts desk to standardize your company’s print specifications across all UAE offices.</p>\n    ",
-      "_id": "blog-22"
+      "_id": "blog-22",
+      "category": "Business Cards Printing",
+      "categoryData": {
+        "name": "Business Cards Printing",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "Business Branding and Networking Materials for Dubai Companies",
+        "slug": "business-cards-printing"
+      },
+      "author": "ONPRINT Corporate Branding Team",
+      "publishedAt": "2026-10-15T12:00:00.000Z",
+      "readTime": "7 min read",
+      "meta_title": "Business Branding and Networking Materials for Dubai Companies: Exhibitions & Executive Meetings | ONPRINT Dubai"
     },
     {
       "id": 23,
@@ -1030,17 +1316,17 @@
       "author_name": "ONPRINT Pre-Press Engineering Team — Al Quoz, Dubai",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 8,
+      "reading_time": "8 min read",
       "word_count": 1490,
       "target_location": "Dubai, UAE",
       "published_at": "2026-10-16T09:00:00.000Z",
       "featured_image": "/assets/products/business-cards/bc_minimalist.jpg",
       "image_alt": "Pre-press bleed, trim, and vector foil mask artwork setup for business card printing in Dubai",
-      "seo_title": "How to Prepare Artwork for Business Card Printing Dubai | Pre-Press Guide | ONPRINT",
+      "seo_title": "How to Prepare Artwork for Professional Business Card Printing in Dubai (Pre-Press Technical Guide) | ONPRINT Dubai",
       "meta_description": "Step-by-step pre-press guide to preparing business card artwork in Dubai: 90x55mm and 85x55mm bleed settings, CMYK ink limits, vector font outlines, and Spot UV / Foil mask layers.",
       "focus_keyword": "business card design and printing dubai",
       "secondary_keywords": "how to prepare business card artwork, business card bleed size uae, print ready pdf business cards dubai, foil and spot uv mask setup",
-      "canonical_url": "https://0nprint.com/blog/how-to-prepare-artwork-business-card-printing-dubai",
+      "canonical_url": "https://www.0nprint.com/blog/how-to-prepare-artwork-business-card-printing-dubai",
       "og_title": "How to Prepare Artwork for Professional Business Card Printing in Dubai",
       "og_description": "Exact pre-press specifications for bleed, safe zones, CMYK color profiles, and vector finishing masks.",
       "og_image": "https://0nprint.com/assets/products/business-cards/bc_minimalist.jpg",
@@ -1058,7 +1344,20 @@
         }
       ],
       "content": "\n      <h2>Direct Answer: Quick Pre-Press Artwork Specification Summary</h2>\n      <p><strong>To prepare print-ready business card artwork for commercial presses in Dubai:</strong> set your document trim size to either <strong>90 × 55 mm</strong> (UAE Corporate Standard) or <strong>85 × 55 mm</strong> (ISO/DIFC Standard), add a <strong>3 mm bleed</strong> on all four sides (resulting in a 96 × 61 mm or 91 × 61 mm canvas), keep all text and logos at least <strong>4–5 mm inside the trim line</strong>, convert color mode to <strong>CMYK (FOGRA39)</strong>, outline all fonts to vector paths, and supply any <a href=\"/foil-business-cards\">metallic foil</a> or <a href=\"/spot-uv-business-cards\">Spot UV</a> areas as a separate 100% vector spot-color mask layer.</p>\n\n      <h2>Step-by-Step Pre-Press Specifications Table</h2>\n      <table class=\"w-full text-left border-collapse my-6\">\n        <thead>\n          <tr class=\"border-b-2 border-neutral-300\">\n            <th class=\"py-3 font-bold\">Pre-Press Parameter</th>\n            <th class=\"py-3 font-bold\">Required Specification</th>\n            <th class=\"py-3 font-bold\">Why It Matters on Press</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">UAE Standard Trim Size</td>\n            <td class=\"py-2.5\">90 × 55 mm (Bleed size: 96 × 61 mm)</td>\n            <td class=\"py-2.5\">Matches UAE wallet slots and corporate card holders</td>\n          </tr>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">European / ISO Trim Size</td>\n            <td class=\"py-2.5\">85 × 55 mm (Bleed size: 91 × 61 mm)</td>\n            <td class=\"py-2.5\">Matches credit-card dimensions preferred in DIFC</td>\n          </tr>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">Safe Margin Zone</td>\n            <td class=\"py-2.5\">Minimum 4 mm inside trim edge</td>\n            <td class=\"py-2.5\">Prevents text or QR codes from being clipped by hydraulic guillotines</td>\n          </tr>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">Color Mode &amp; Rich Black</td>\n            <td class=\"py-2.5\">CMYK (Rich Black: C40 M30 Y30 K100; Body text: K100)</td>\n            <td class=\"py-2.5\">Prevents muddy RGB shifts and 4-color registration haloing on small type</td>\n          </tr>\n          <tr class=\"border-b border-neutral-200\">\n            <td class=\"py-2.5 font-semibold\">Resolution &amp; Fonts</td>\n            <td class=\"py-2.5\">300–600 DPI; All fonts converted to Outlines</td>\n            <td class=\"py-2.5\">Eliminates missing font substitution and Arabic ligature breaks</td>\n          </tr>\n        </tbody>\n      </table>\n\n      <h2>Need Pre-Press Verification in Dubai?</h2>\n      <p>Every order placed through our <a href=\"/business-card-printing-dubai\">Business Card Printing Dubai</a> hub or <a href=\"/business-card-design\">Business Card Design &amp; Pre-Press Service</a> includes a complimentary 12-point pre-press check by our Al Quoz engineers before printing begins.</p>\n    ",
-      "_id": "blog-23"
+      "_id": "blog-23",
+      "category": "Business Cards Printing",
+      "categoryData": {
+        "name": "Business Cards Printing",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "How to Prepare Artwork for Professional Business Card Printing in Dubai (Pre-Press Technical Guide)",
+        "slug": "business-card-design"
+      },
+      "author": "ONPRINT Pre-Press Engineering Team — Al Quoz, Dubai",
+      "publishedAt": "2026-10-16T09:00:00.000Z",
+      "readTime": "8 min read",
+      "meta_title": "How to Prepare Artwork for Professional Business Card Printing in Dubai (Pre-Press Technical Guide) | ONPRINT Dubai"
     },
     {
       "id": 24,
@@ -1072,17 +1371,17 @@
       "author_name": "ONPRINT Quality Control Team — Al Quoz, Dubai",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1410,
       "target_location": "Dubai, UAE",
       "published_at": "2026-10-16T12:00:00.000Z",
       "featured_image": "/assets/products/business-cards/bc_embossed.jpg",
       "image_alt": "Quality control inspection of luxury business cards at ONPRINT Dubai pressroom",
-      "seo_title": "Common Business Card Printing Mistakes & How to Avoid Them | ONPRINT Dubai",
+      "seo_title": "Common Business Card Printing Mistakes and How to Avoid Them (Dubai Print Engineer Audit) | ONPRINT Dubai",
       "meta_description": "Learn the 8 most common business card printing mistakes in Dubai—including RGB color shifts, border trimming drift, Arabic font disconnection, and low-GSM paper—and how to prevent them.",
       "focus_keyword": "business cards dubai",
       "secondary_keywords": "common business card printing mistakes, business card quality tips dubai, avoid blurry business cards, business card printing errors",
-      "canonical_url": "https://0nprint.com/blog/common-business-card-printing-mistakes-dubai",
+      "canonical_url": "https://www.0nprint.com/blog/common-business-card-printing-mistakes-dubai",
       "og_title": "Common Business Card Printing Mistakes and How to Avoid Them",
       "og_description": "Real-world quality control lessons from ONPRINT’s Al Quoz pressroom on preventing costly business card reprints.",
       "og_image": "https://0nprint.com/assets/products/business-cards/bc_embossed.jpg",
@@ -1100,7 +1399,20 @@
         }
       ],
       "content": "\n      <h2>Direct Answer: The Top 8 Business Card Printing Mistakes to Avoid</h2>\n      <p>Based on thousands of pre-press inspections at our Al Quoz, Dubai facility, the most frequent causes of disappointing business cards are: <strong>(1) Designing in RGB instead of CMYK</strong>, <strong>(2) Placing thin perimeter border frames close to the trim edge</strong>, <strong>(3) Using 4-color rich black for tiny 6pt contact text</strong>, <strong>(4) Leaving Arabic fonts un-outlined</strong>, <strong>(5) Printing dark solid backgrounds without matte or velvet lamination</strong>, <strong>(6) Generating dense static QR codes smaller than 18 × 18 mm</strong>, <strong>(7) Overlapping hot foil and deep emboss dies without clearance</strong>, and <strong>(8) Choosing sub-300gsm paper that bends in humidity</strong>.</p>\n\n      <h2>Mistake vs. Pre-Press Engineering Fix</h2>\n      <ul>\n        <li><strong>Mistake #1 — Thin Perimeter Borders Near the Trim Line:</strong> Hydraulic guillotines have a ±0.5mm mechanical tolerance. <em>Fix:</em> Use full-bleed backgrounds (extended 3mm past trim) instead of narrow 1–2mm frames.</li>\n        <li><strong>Mistake #2 — Heavy Dark Solids Without Lamination:</strong> Dark navy, charcoal, or black cards printed on unlaminated board scuff easily and show white paper fibers along the cut edge. <em>Fix:</em> Specify <a href=\"/premium-business-cards\">400–450 GSM Soft-Touch Velvet Lamination</a> or pulp-dyed <a href=\"/luxury-business-cards\">600 GSM Cotton stock</a>.</li>\n        <li><strong>Mistake #3 — Un-Outlined Arabic Typography:</strong> When PDF files are opened on different RIP stations without font outlining, Arabic characters can detach or flip left-to-right. <em>Fix:</em> Always run \"Create Outlines\" (`Ctrl+Shift+O`) before exporting your PDF.</li>\n        <li><strong>Mistake #4 — Tiny, Unscannable QR Codes:</strong> Encoding a full vCard directly into a static QR code creates hundreds of micro-modules that blur below 20mm. <em>Fix:</em> Use a short URL QR code at least 18 × 18 mm with a 2mm quiet zone, and never apply gloss Spot UV directly over the QR code (glare blocks phone cameras).</li>\n      </ul>\n\n      <h2>Get a Free Pre-Press File Check Before You Print</h2>\n      <p>Upload your artwork on our <a href=\"/business-card-printing-dubai\">Business Card Printing Dubai</a> page or message our pre-press desk on WhatsApp (+44 7344546056) for a complimentary file inspection prior to production.</p>\n    ",
-      "_id": "blog-24"
+      "_id": "blog-24",
+      "category": "Business Cards Printing",
+      "categoryData": {
+        "name": "Business Cards Printing",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "Common Business Card Printing Mistakes and How to Avoid Them (Dubai Print Engineer Audit)",
+        "slug": "business-cards-printing"
+      },
+      "author": "ONPRINT Quality Control Team — Al Quoz, Dubai",
+      "publishedAt": "2026-10-16T12:00:00.000Z",
+      "readTime": "7 min read",
+      "meta_title": "Common Business Card Printing Mistakes and How to Avoid Them (Dubai Print Engineer Audit) | ONPRINT Dubai"
     },
     {
       "id": 25,
@@ -1114,17 +1426,17 @@
       "author_name": "ONPRINT Client Advisory Team — Al Quoz, Dubai",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 8,
+      "reading_time": "8 min read",
       "word_count": 1520,
       "target_location": "Dubai, UAE",
       "published_at": "2026-10-16T15:00:00.000Z",
       "featured_image": "/assets/products/card-soft-touch.jpg",
       "image_alt": "Business card printing FAQ guide for Dubai and UAE corporate customers",
-      "seo_title": "Business Card Printing FAQs Dubai: Cost, GSM, Same-Day & Delivery | ONPRINT",
+      "seo_title": "Business Card Printing FAQs for Dubai Customers: Pricing, Paper GSM, Turnaround & Delivery | ONPRINT Dubai",
       "meta_description": "Answers to every question about business card printing in Dubai: how much business cards cost in AED, standard sizes (90x55mm vs 85x55mm), paper GSM, 4-hour express printing, and UAE delivery.",
       "focus_keyword": "business card printing with delivery dubai",
       "secondary_keywords": "business card printing faqs dubai, how much do business cards cost in dubai, pvc business cards dubai, eco-friendly business cards dubai",
-      "canonical_url": "https://0nprint.com/blog/business-card-printing-faqs-dubai-customers",
+      "canonical_url": "https://www.0nprint.com/blog/business-card-printing-faqs-dubai-customers",
       "og_title": "Business Card Printing FAQs for Dubai Customers (Pricing, Specs & Delivery)",
       "og_description": "Concise, factual answers on Dubai business card pricing, paper GSM, finishes, MOQ, and same-day delivery.",
       "og_image": "https://0nprint.com/assets/products/card-soft-touch.jpg",
@@ -1147,7 +1459,20 @@
         }
       ],
       "content": "\n      <h2>Direct Answers to Common Dubai Business Card Printing Questions</h2>\n      <p>Whether you are ordering your first startup batch or managing procurement for a 200-person enterprise in DIFC, this factual reference guide answers the most frequent questions received at our Al Quoz, Dubai pressroom.</p>\n\n      <h2>1. Pricing, Minimum Quantities &amp; Payment</h2>\n      <ul>\n        <li><strong>What is the starting price for business cards in Dubai?</strong> Standard 350gsm double-sided CMYK cards with matte or gloss lamination start at <strong>AED 95 for 100 cards</strong>. Executive 450gsm soft-touch velvet cards start at <strong>AED 160 for 100 cards</strong>, and bespoke <a href=\"/luxury-business-cards\">600gsm Italian cotton cards</a> with hot foil or letterpress debossing start at <strong>AED 350 for 100 cards</strong>.</li>\n        <li><strong>What is the minimum order quantity (MOQ)?</strong> Our minimum order quantity is <strong>100 cards per name</strong> for digital and specialty finishes, with volume discounts at 250, 500, 1,000, and 5,000+ units.</li>\n      </ul>\n\n      <h2>2. Paper Stocks, PVC &amp; Eco-Friendly Materials</h2>\n      <ul>\n        <li><strong>What paper weights (GSM) are stocked in-house?</strong> We stock 300gsm economy board, 350gsm silk art card, 400–450gsm rigid executive board, 600gsm 100% archival cotton, 650–700gsm triplex color-core board, 350gsm unbleached Kraft, and 760-micron rigid PVC.</li>\n        <li><strong>Do you print waterproof PVC and frosted plastic business cards?</strong> Yes—we produce tear-proof, waterproof 760-micron white PVC and translucent frosted PVC cards ideal for hospitality, marine, fitness, and outdoor industries in the UAE.</li>\n        <li><strong>Do you offer eco-friendly business cards in Dubai?</strong> Yes—we stock FSC-certified 100% recycled uncoated boards, European Fedrigoni textured papers, and unbleached brown Kraft board printed with soy/vegetable-based inks.</li>\n      </ul>\n\n      <h2>3. Turnaround Times &amp; UAE Delivery Coverage</h2>\n      <ul>\n        <li><strong>How fast is same-day express printing?</strong> Orders approved before 12:00 PM GST on <a href=\"/same-day-business-card-printing\">Same-Day Business Card Printing</a> lines are completed within <strong>4 hours</strong>.</li>\n        <li><strong>How long do specialty finishes (Gold Foil, Spot UV, Embossing) take?</strong> Standard digital runs take 24–48 hours. Custom brass-die <a href=\"/foil-business-cards\">hot foil stamping</a>, <a href=\"/embossed-business-cards\">blind embossing</a>, and <a href=\"/spot-uv-business-cards\">raised 3D Spot UV</a> take 2–4 working days.</li>\n        <li><strong>Which areas in Dubai and the UAE do you deliver to?</strong> We dispatch daily via dedicated courier across Dubai (Al Quoz, DIFC, Business Bay, Downtown, Marina, JLT, Deira, Jebel Ali) and overnight across <a href=\"/business-card-printing-abu-dhabi\">Abu Dhabi</a>, <a href=\"/business-card-printing-sharjah\">Sharjah</a>, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain.</li>\n      </ul>\n\n      <h2>Order or Request a Custom Quotation</h2>\n      <p>Configure your exact specifications on our <a href=\"/business-card-printing-dubai\">Business Card Printing Dubai</a> page or message us directly on WhatsApp at <strong>+44 7344546056</strong>.</p>\n    ",
-      "_id": "blog-25"
+      "_id": "blog-25",
+      "category": "Business Cards Printing",
+      "categoryData": {
+        "name": "Business Cards Printing",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "Business Card Printing FAQs for Dubai Customers",
+        "slug": "business-cards-printing"
+      },
+      "author": "ONPRINT Client Advisory Team — Al Quoz, Dubai",
+      "publishedAt": "2026-10-16T15:00:00.000Z",
+      "readTime": "8 min read",
+      "meta_title": "Business Card Printing FAQs for Dubai Customers: Pricing, Paper GSM, Turnaround & Delivery | ONPRINT Dubai"
     },
     {
       "id": 26,
@@ -1160,7 +1485,7 @@
       "author_name": "ONPRINT Compliance & Pre-Press Desk",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1850,
       "seo_score": 95,
       "readability_score": 82,
@@ -1172,7 +1497,7 @@
       "secondary_keywords": "rubber stamps dubai, official company seal uae, trodat stamp dubai, trade license stamp dubai",
       "meta_title": "Official UAE Company Stamp Requirements: Trade License & TRN Guide | ONPRINT",
       "meta_description": "Legal guide to ordering company stamps in Dubai: DED trade license documentation, required bilingual typography, Trodat 4913 sizes, and same-day Al Quoz production.",
-      "canonical_url": "/blog/official-uae-company-stamp-legal-requirements-guide",
+      "canonical_url": "https://www.0nprint.com/blog/official-uae-company-stamp-legal-requirements-guide",
       "og_title": "Official UAE Company Stamp Requirements: Trade License & TRN Guide | ONPRINT",
       "og_description": "Legal guide to ordering company stamps in Dubai: DED trade license documentation, required bilingual typography, Trodat 4913 sizes, and same-day Al Quoz production.",
       "og_image": "/assets/products/stamps.jpg",
@@ -1197,7 +1522,20 @@
         }
       ],
       "created_at": "2026-10-28T10:00:00.000Z",
-      "updated_at": "2026-10-28T10:00:00.000Z"
+      "updated_at": "2026-10-28T10:00:00.000Z",
+      "category": "Rubber Stamps & Seals",
+      "categoryData": {
+        "name": "Rubber Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "productData": {
+        "name": "Self-Inking Company Stamps",
+        "slug": "self-inking-company-stamps"
+      },
+      "author": "ONPRINT Compliance & Pre-Press Desk",
+      "publishedAt": "2026-10-28T10:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "Official UAE Company Stamp Requirements: Trade License & TRN Guide | ONPRINT"
     },
     {
       "id": 27,
@@ -1210,7 +1548,7 @@
       "author_name": "ONPRINT Packaging Engineering Unit",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 8,
+      "reading_time": "8 min read",
       "word_count": 2100,
       "seo_score": 95,
       "readability_score": 82,
@@ -1222,7 +1560,7 @@
       "secondary_keywords": "rigid boxes dubai, luxury packaging uae, custom retail boxes dubai, magnetic gift boxes uae",
       "meta_title": "Custom Retail Packaging & Rigid Boxes Dubai Guide | ONPRINT",
       "meta_description": "Pre-press guide to luxury rigid boxes and retail packaging in Dubai: 1200-1800 GSM greyboard, magnetic flaps, foam EVA inserts, and short-run production.",
-      "canonical_url": "/blog/custom-retail-packaging-boxes-dubai-guide",
+      "canonical_url": "https://www.0nprint.com/blog/custom-retail-packaging-boxes-dubai-guide",
       "og_title": "Custom Retail Packaging & Rigid Boxes Dubai Guide | ONPRINT",
       "og_description": "Pre-press guide to luxury rigid boxes and retail packaging in Dubai: 1200-1800 GSM greyboard, magnetic flaps, foam EVA inserts, and short-run production.",
       "og_image": "/assets/products/packaging.jpg",
@@ -1243,7 +1581,20 @@
         }
       ],
       "created_at": "2026-10-28T11:00:00.000Z",
-      "updated_at": "2026-10-28T11:00:00.000Z"
+      "updated_at": "2026-10-28T11:00:00.000Z",
+      "category": "Packaging & Boxes",
+      "categoryData": {
+        "name": "Stickers & Product Labels",
+        "slug": "stickers-labels-printing"
+      },
+      "productData": {
+        "name": "Custom Roll Labels & Packaging Seals",
+        "slug": "custom-roll-labels"
+      },
+      "author": "ONPRINT Packaging Engineering Unit",
+      "publishedAt": "2026-10-28T11:00:00.000Z",
+      "readTime": "8 min read",
+      "seo_title": "Custom Retail Packaging & Rigid Boxes Dubai Guide | ONPRINT"
     },
     {
       "id": 28,
@@ -1256,7 +1607,7 @@
       "author_name": "ONPRINT Exhibition Operations Team",
       "status": "published",
       "is_featured": 1,
-      "reading_time": 7,
+      "reading_time": "7 min read",
       "word_count": 1950,
       "seo_score": 95,
       "readability_score": 82,
@@ -1268,7 +1619,7 @@
       "secondary_keywords": "roll up banners dubai, trade show printing dubai, pop up media wall uae, gitex printing dubai",
       "meta_title": "DWTC Exhibition Booth Printing & Banners Dubai Guide | ONPRINT",
       "meta_description": "Complete DWTC exhibitor guide: Roll-up banners (85x200cm), curved pop-up backdrops, foam board signage, and rush 24-hour delivery to Dubai World Trade Centre.",
-      "canonical_url": "/blog/dwtc-exhibition-booth-printing-signage-guide-dubai",
+      "canonical_url": "https://www.0nprint.com/blog/dwtc-exhibition-booth-printing-signage-guide-dubai",
       "og_title": "DWTC Exhibition Booth Printing & Banners Dubai Guide | ONPRINT",
       "og_description": "Complete DWTC exhibitor guide: Roll-up banners (85x200cm), curved pop-up backdrops, foam board signage, and rush 24-hour delivery to Dubai World Trade Centre.",
       "og_image": "/assets/products/rollup_banner.jpg",
@@ -1289,7 +1640,272 @@
         }
       ],
       "created_at": "2026-10-28T12:00:00.000Z",
-      "updated_at": "2026-10-28T12:00:00.000Z"
+      "updated_at": "2026-10-28T12:00:00.000Z",
+      "category": "Banners & Exhibitions",
+      "categoryData": {
+        "name": "Banners & Exhibitions",
+        "slug": "rollup-banners"
+      },
+      "productData": {
+        "name": "Retractable Roll-Up Banners",
+        "slug": "standard-rollup-banner-85x200"
+      },
+      "author": "ONPRINT Exhibition Operations Team",
+      "publishedAt": "2026-10-28T12:00:00.000Z",
+      "readTime": "7 min read",
+      "seo_title": "DWTC Exhibition Booth Printing & Banners Dubai Guide | ONPRINT"
+    },
+    {
+      "id": 101,
+      "slug": "business-card-paper-stocks-guide-dubai",
+      "title": "Soft-Touch Velvet Lamination vs Uncoated Cotton vs Textured Linen Business Cards in Dubai",
+      "excerpt": "Technical comparison of surface coatings and specialty textures for Dubai business cards: Soft-Touch Velvet film vs 100% Uncoated Italian Cotton vs Conqueror Textured Linen.",
+      "category": "Business Cards",
+      "categoryData": {
+        "name": "Business Cards",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "Soft-Touch Velvet Business Cards",
+        "slug": "soft-touch-velvet-business-cards"
+      },
+      "author": "ONPRINT Pre-Press Team",
+      "author_name": "ONPRINT Pre-Press Team",
+      "published_at": "2026-08-15T09:00:00.000Z",
+      "publishedAt": "2026-08-15T09:00:00.000Z",
+      "reading_time": "7 min read",
+      "readTime": "7 min read",
+      "word_count": 1450,
+      "featured_image": "/assets/products/business-cards.jpg",
+      "image_alt": "Soft-touch velvet vs uncoated cotton vs textured linen business cards in Dubai",
+      "meta_title": "Velvet Lamination vs Uncoated Cotton vs Linen Business Cards Dubai | ONPRINT",
+      "meta_description": "Compare Soft-Touch Velvet lamination, Uncoated Italian Cotton, and Textured Linen business cards in Dubai. Durability in UAE humidity, ink absorption, and pricing.",
+      "focus_keyword": "velvet vs uncoated business cards dubai",
+      "secondary_keywords": "soft touch business cards uae, textured linen visiting cards dubai, uncoated cotton cards dubai",
+      "canonical_url": "https://www.0nprint.com/blog/business-card-paper-stocks-guide-dubai",
+      "faqs": [
+        {
+          "question": "Which business card surface resists fingerprints and humidity best in Dubai?",
+          "answer": "Soft-touch velvet thermal lamination bonded to 400 GSM or 450 GSM silk artboard provides the highest resistance to moisture, edge fraying, and wallet abrasion in UAE coastal humidity.",
+          "is_approved": true
+        },
+        {
+          "question": "Can you write with a ballpoint pen on soft-touch velvet laminated cards?",
+          "answer": "Velvet lamination has a sealed polypropylene surface that can smudge wet gel inks. If your team writes appointment times or notes on cards, choose Uncoated Cotton or Textured Linen stock, or leave the reverse side unlaminated.",
+          "is_approved": true
+        },
+        {
+          "question": "Which texture works best with blind debossing and letterpress?",
+          "answer": "Uncoated 600 GSM 100% cotton board is engineered specifically for deep letterpress and blind debossing because its long cotton fibers compress cleanly without cracking.",
+          "is_approved": true
+        }
+      ],
+      "content": "<h2>Surface Engineering: How Coating & Texture Shape Brand Perception</h2>\n<p>While card weight (GSM) determines stiffness, the <strong>surface finish and fiber texture</strong> determine how a business card feels between the thumb and forefinger and how colors appear under office lighting. In Dubai's corporate sectors—from DIFC private banking to hospitality and luxury retail—choosing between <strong>Soft-Touch Velvet Lamination</strong>, <strong>Uncoated Archival Cotton</strong>, and <strong>Textured Woven Linen</strong> requires matching the substrate to your brand colors and daily usage.</p>\n\n<h2>1. Soft-Touch Velvet Lamination (BOPP Suede Film on 400–450 GSM Silk)</h2>\n<p>Soft-touch velvet lamination applies a 28-micron bi-axially oriented polypropylene (BOPP) film with a microscopic polyurethane suede texture over heavy coated artboard using heat and pressure.</p>\n<ul>\n  <li><strong>Tactile Feel:</strong> Peach-skin, ultra-matte suede warmth with zero glare under harsh LED spotlights.</li>\n  <li><strong>Color Impact:</strong>Slightly mutes bright whites by 3–5%, making it extraordinary for dark navy, charcoal, emerald, and rich black backgrounds paired with <a href=\"/foil-business-cards\">24K Gold Foil</a> or <a href=\"/spot-uv-business-cards\">Raised 3D Spot UV</a>.</li>\n  <li><strong>UAE Climate Durability:</strong> Seals paper fibers completely against Dubai coastal humidity and prevents toner cracking along trimmed edges.</li>\n</ul>\n\n<h2>2. Uncoated 100% Cotton & Natural Wove Stocks (350–600 GSM)</h2>\n<p>Uncoated stocks contain no clay coating or plastic film laminate. The ink absorbs directly into the natural cellulose or cotton fibers.</p>\n<ul>\n  <li><strong>Tactile Feel:</strong> Organic, warm, raw paper grain that communicates heritage, sustainability, and understated luxury.</li>\n  <li><strong>Color Impact:</strong> Because liquid offset ink soaks into uncoated fibers (dot gain), CMYK colors print 10–15% softer and warmer than on coated stocks. Minimalist typography, Pantone spot inks, and <a href=\"/embossed-business-cards\">blind debossing</a> excel here.</li>\n  <li><strong>Practical Advantage:</strong> Easily writable with fountain pens, rollerballs, and official <a href=\"/categories/stamps-printing-dubai\">company rubber stamps</a>.</li>\n</ul>\n\n<h2>3. Textured Linen, Laid & Felt-Marked Specialty Boards (350–400 GSM)</h2>\n<p>Textured boards such as Conqueror Bamboo, Italian Felt, and Cross-Hatch Linen are embossed at the paper mill with a geometric weave or linear watermark pattern.</p>\n<ul>\n  <li><strong>Tactile Feel:</strong> Distinct ribbed or cross-hatched fabric relief across both faces of the card.</li>\n  <li><strong>Best Design Approach:</strong> Avoid heavy full-bleed dark ink floods (which can bridge unevenly across deep texture valleys); instead, leverage open cream or white space with crisp vector logos and metallic foil accents.</li>\n</ul>\n\n<h2>Side-by-Side Surface Comparison Matrix</h2>\n<table class=\"w-full text-left border-collapse my-6 border border-neutral-200\">\n  <thead>\n    <tr class=\"bg-neutral-100 text-neutral-900\">\n      <th class=\"p-3 border border-neutral-200\">Performance Factor</th>\n      <th class=\"p-3 border border-neutral-200\">Soft-Touch Velvet</th>\n      <th class=\"p-3 border border-neutral-200\">Uncoated Cotton</th>\n      <th class=\"p-3 border border-neutral-200\">Textured Linen / Felt</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Full-Bleed Dark Backgrounds</td>\n      <td class=\"p-3 border border-neutral-200\">Excellent (No edge scuffing)</td>\n      <td class=\"p-3 border border-neutral-200\">Moderate (Best with light backgrounds)</td>\n      <td class=\"p-3 border border-neutral-200\">Moderate (Texture shows through)</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Pen Writability</td>\n      <td class=\"p-3 border border-neutral-200\">Low (Requires permanent marker)</td>\n      <td class=\"p-3 border border-neutral-200\">Excellent (Instant ink dry)</td>\n      <td class=\"p-3 border border-neutral-200\">Very Good</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Best Pairing Finish</td>\n      <td class=\"p-3 border border-neutral-200\">Raised 3D Spot UV &amp; Hot Foil</td>\n      <td class=\"p-3 border border-neutral-200\">Letterpress Deboss &amp; Painted Edges</td>\n      <td class=\"p-3 border border-neutral-200\">Metallic Gold / Silver Foil</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Compare live pricing and order directly on our <a href=\"/business-card-printing-dubai\">Business Card Printing Dubai</a> page, explore <a href=\"/velvet-business-cards\">Velvet Business Cards</a>, or message our print specialists on WhatsApp at <a href=\"https://wa.me/447344546056\">+44 7344 546056</a> for a custom quotation.</p>",
+      "status": "published",
+      "seo_title": "Velvet Lamination vs Uncoated Cotton vs Linen Business Cards Dubai | ONPRINT"
+    },
+    {
+      "id": 102,
+      "slug": "custom-sticker-materials-guide-dubai",
+      "title": "Custom Sticker Materials in Dubai: Waterproof BOPP Vinyl vs Clear vs UV DTF vs Kraft Labels",
+      "excerpt": "Detailed engineering comparison of sticker and product label substrates in Dubai: Waterproof White Vinyl, BOPP Roll Labels, Clear Transparent Film, UV DTF 3D Crystal, and Eco Kraft Paper.",
+      "category": "Stickers & Labels",
+      "categoryData": {
+        "name": "Stickers & Labels",
+        "slug": "stickers-labels-printing"
+      },
+      "productData": {
+        "name": "Custom Die-Cut Vinyl Stickers",
+        "slug": "die-cut-vinyl-stickers"
+      },
+      "author": "ONPRINT Pre-Press Team",
+      "author_name": "ONPRINT Pre-Press Team",
+      "published_at": "2026-08-18T09:00:00.000Z",
+      "publishedAt": "2026-08-18T09:00:00.000Z",
+      "reading_time": "8 min read",
+      "readTime": "8 min read",
+      "word_count": 1720,
+      "featured_image": "/assets/products/stickers.jpg",
+      "image_alt": "Custom Sticker Materials Guide Dubai - Vinyl, BOPP, Clear and UV DTF",
+      "meta_title": "Custom Sticker Materials Dubai: Vinyl vs BOPP vs UV DTF | ONPRINT",
+      "meta_description": "Choose the right sticker material in Dubai: Waterproof PVC vinyl, BOPP roll labels for jars/bottles, clear transparent film with white ink, or 3D UV DTF transfers.",
+      "focus_keyword": "sticker materials dubai",
+      "secondary_keywords": "waterproof vinyl stickers dubai, bopp roll labels uae, uv dtf stickers dubai, clear transparent labels dubai",
+      "canonical_url": "https://www.0nprint.com/blog/custom-sticker-materials-guide-dubai",
+      "faqs": [
+        {
+          "question": "Are vinyl and BOPP stickers completely waterproof and oil-resistant in Dubai?",
+          "answer": "Yes. Both monomeric/polymeric PVC vinyl (for individual die-cut stickers) and BOPP polypropylene film (for roll labels) are 100% waterproof, ice-bucket safe, and resistant to cosmetic oils when paired with UV lamination.",
+          "is_approved": true
+        },
+        {
+          "question": "How do you prevent clear transparent stickers from looking faded on dark bottles?",
+          "answer": "We print a high-opacity White Ink underbase layer directly beneath your CMYK artwork so colors remain vibrant even when applied to amber glass, dark cold-brew bottles, or tinted perfume flacons.",
+          "is_approved": true
+        },
+        {
+          "question": "What is the difference between a standard vinyl sticker and a UV DTF transfer sticker?",
+          "answer": "A vinyl sticker has a continuous background shape around your design, whereas a UV DTF transfer leaves only the raised 3D ink letters and logo adhered directly to hard surfaces (glass, metal, acrylic, wood) with zero background film.",
+          "is_approved": true
+        }
+      ],
+      "content": "<h2>Why Substrate & Adhesive Selection Matters in the UAE Climate</h2>\n<p>In Dubai and across the UAE, product labels and promotional stickers face demanding conditions: ambient summer warehouse temperatures exceeding 45°C, chilled condensation on specialty coffee cups and cold-pressed juice bottles, and cosmetic oils on skincare jars. Choosing an incorrect paper label for a refrigerated beverage results in peeling edges and soggy fibres within hours.</p>\n\n<h2>1. Waterproof White PVC Vinyl (Die-Cut & Kiss-Cut Singles)</h2>\n<p>Our 100-micron polymeric white vinyl with permanent solvent acrylic adhesive is the workhorse for brand promotional giveaways, laptops, equipment decals, and outdoor graphics.</p>\n<ul>\n  <li><strong>Best For:</strong> <a href=\"/products/die-cut-vinyl-stickers\">Die-Cut Vinyl Stickers</a>, <a href=\"/products/kiss-cut-sticker-sheets\">Kiss-Cut Sticker Sheets</a>, and outdoor window/vehicle decals.</li>\n  <li><strong>Durability:</strong> Weatherproof, dishwasher top-rack resilient, and UV-fade resistant for 2–3 years outdoors when finished with gloss or matte UV overlaminate.</li>\n</ul>\n\n<h2>2. White, Clear & Metallized BOPP (Machine & Hand Roll Labels)</h2>\n<p>Bi-Axially Oriented Polypropylene (BOPP) is thinner (50–60 microns) and stiffer than PVC vinyl, making it the industry standard for <a href=\"/products/custom-roll-labels\">Custom Roll Labels</a> applied to cylindrical bottles, jars, and food containers.</p>\n<ul>\n  <li><strong>Resistance:</strong> Impervious to water, refrigeration condensation, citrus acids, essential oils, and friction scuffing.</li>\n  <li><strong>Clear BOPP (No-Label Look):</strong> Printed with CMYK + Opaque White underbase for cosmetics, honey jars, and beverage bottles (<a href=\"/products/clear-transparent-stickers\">Clear Transparent Stickers</a>).</li>\n</ul>\n\n<h2>3. UV DTF 3D Crystal Transfer Stickers (No Background Film)</h2>\n<p><a href=\"/products/uv-dtf-transfer-stickers\">UV DTF Transfer Stickers</a> cure layered white, CMYK, and high-build gloss varnish directly onto an A/B release transfer sheet. When rubbed onto a hard object and peeled, only the raised 3D logo remains—looking like direct pad printing on perfume bottles, ceramic mugs, helmets, and electronics.</p>\n\n<h2>4. Uncoated Paper & Natural Brown Kraft Stickers (Dry Indoor Packaging)</h2>\n<p>For dry bakery boxes, tissue paper seals, garment swing tags, and eco-friendly shipping cartons, <a href=\"/products/kraft-paper-stickers\">Kraft Paper & Eco Stickers</a> offer an organic, writable texture at the lowest per-unit cost.</p>\n\n<h2>Sticker Substrate Selection Matrix</h2>\n<table class=\"w-full text-left border-collapse my-6 border border-neutral-200\">\n  <thead>\n    <tr class=\"bg-neutral-100 text-neutral-900\">\n      <th class=\"p-3 border border-neutral-200\">Material</th>\n      <th class=\"p-3 border border-neutral-200\">Water / Oil Proof</th>\n      <th class=\"p-3 border border-neutral-200\">Supplied Format</th>\n      <th class=\"p-3 border border-neutral-200\">Primary UAE Application</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">100μ White Vinyl</td>\n      <td class=\"p-3 border border-neutral-200\">Yes (100% Waterproof)</td>\n      <td class=\"p-3 border border-neutral-200\">Die-Cut Singles / Sheets</td>\n      <td class=\"p-3 border border-neutral-200\">Brand merch, laptops, outdoor decals, cafe cups</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">BOPP Film (White/Clear/Foil)</td>\n      <td class=\"p-3 border border-neutral-200\">Yes (Water + Oil + Chemical)</td>\n      <td class=\"p-3 border border-neutral-200\">3-Inch Core Rolls / Sheets</td>\n      <td class=\"p-3 border border-neutral-200\">Cosmetics, beverages, food jars, supplements</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">UV DTF Crystal Transfer</td>\n      <td class=\"p-3 border border-neutral-200\">Yes (Scratch &amp; Water Proof)</td>\n      <td class=\"p-3 border border-neutral-200\">A/B Transfer Gang Sheets</td>\n      <td class=\"p-3 border border-neutral-200\">Perfume flacons, corporate gifts, rigid boxes</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Brown Kraft / Matte Paper</td>\n      <td class=\"p-3 border border-neutral-200\">No (Indoor Dry Use Only)</td>\n      <td class=\"p-3 border border-neutral-200\">Kiss-Cut Sheets / Rolls</td>\n      <td class=\"p-3 border border-neutral-200\">Bakery boxes, mailers, coffee bean bags</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Explore our complete range on the <a href=\"/sticker-printing-dubai\">Sticker Printing Dubai</a> and <a href=\"/label-printing-dubai\">Label Printing Dubai</a> hubs, or request an instant quote on WhatsApp at <a href=\"https://wa.me/447344546056\">+44 7344 546056</a>.</p>",
+      "status": "published",
+      "seo_title": "Custom Sticker Materials Dubai: Vinyl vs BOPP vs UV DTF | ONPRINT"
+    },
+    {
+      "id": 103,
+      "slug": "print-ready-artwork-preparation-guide",
+      "title": "How to Set Up CutContour Die-Lines, White Ink & Foil Layers in Adobe Illustrator",
+      "excerpt": "Advanced pre-press tutorial for Dubai designers: creating 100% Magenta CutContour vector paths for die-cut stickers, White_Ink underbases for clear labels, and overprint masks for foil.",
+      "category": "Design Guides",
+      "categoryData": {
+        "name": "Design Guides",
+        "slug": "stickers-labels-printing"
+      },
+      "productData": {
+        "name": "Custom Die-Cut Stickers",
+        "slug": "die-cut-vinyl-stickers"
+      },
+      "author": "ONPRINT Pre-Press Team",
+      "author_name": "ONPRINT Pre-Press Team",
+      "published_at": "2026-08-22T09:00:00.000Z",
+      "publishedAt": "2026-08-22T09:00:00.000Z",
+      "reading_time": "6 min read",
+      "readTime": "6 min read",
+      "word_count": 1520,
+      "featured_image": "/assets/products/artwork.jpg",
+      "image_alt": "Adobe Illustrator CutContour dieline and white ink layer setup guide for Dubai printing",
+      "meta_title": "How to Set Up CutContour Die-Lines & White Ink in Illustrator | ONPRINT",
+      "meta_description": "Step-by-step Adobe Illustrator guide for die-cut stickers, packaging dielines, white underbase ink, and gold foil spot layers for commercial printing in Dubai.",
+      "focus_keyword": "cutcontour dieline setup illustrator",
+      "secondary_keywords": "die cut sticker file setup dubai, white ink layer illustrator, foil overprint setup pdf",
+      "canonical_url": "https://www.0nprint.com/blog/print-ready-artwork-preparation-guide",
+      "faqs": [
+        {
+          "question": "How should I name the die-cut path in Adobe Illustrator?",
+          "answer": "Create a new Spot Color swatch named exactly CutContour (case-sensitive) with 100% Magenta (C:0 M:100 Y:0 K:0), apply a 0.25pt stroke on a separate top layer, and enable Overprint Stroke.",
+          "is_approved": true
+        },
+        {
+          "question": "What if I only have a PNG or Canva logo without a vector CutContour line?",
+          "answer": "No problem—send your high-resolution PNG or PDF logo to our prepress team via WhatsApp (+447344546056) and we will trace the smooth offset contour dieline and send you a digital proof before cutting.",
+          "is_approved": true
+        }
+      ],
+      "content": "<h2>Precision Pre-Press Setup for Custom Die-Cutting & Specialty Inks</h2>\n<p>When ordering <a href=\"/products/die-cut-vinyl-stickers\">Custom Die-Cut Vinyl Stickers</a>, <a href=\"/products/clear-transparent-stickers\">Clear Transparent Labels</a>, or <a href=\"/products/presentation-folders\">Die-Cut Presentation Folders</a> in Dubai, automated optical plotters and UV presses read specific vector spot channels embedded in your PDF file. Following these exact steps eliminates production delays.</p>\n\n<h2>1. Creating a Vector CutContour Line for Die-Cut & Kiss-Cut Stickers</h2>\n<ol>\n  <li>Open your artwork in Adobe Illustrator in <strong>CMYK Color Mode</strong>.</li>\n  <li>Create a new layer above your artwork named <code>CutContour</code>.</li>\n  <li>Use <code>Object &gt; Path &gt; Offset Path</code> (typically <strong>2.0 mm to 2.5 mm</strong> around your logo) and unite the shapes into a single smooth compound path without jagged anchor points.</li>\n  <li>Create a new Swatch: set <strong>Color Type: Spot Color</strong>, name it <code>CutContour</code>, and set values to <code>C:0 M:100 Y:0 K:0</code>.</li>\n  <li>Assign a <code>0.25 pt</code> stroke (no fill) and check <strong>Overprint Stroke</strong> in the Attributes panel.</li>\n</ol>\n\n<h2>2. Setting Up a White Ink Underbase for Clear, Kraft & Metallic Substrates</h2>\n<p>Standard CMYK inks are translucent. When printing on transparent vinyl, brushed gold polyester, or brown kraft paper, any area that needs to appear opaque requires a white underbase:</p>\n<ul>\n  <li>Duplicate the vector elements that require white backing onto a layer named <code>White_Ink</code>.</li>\n  <li>Assign a Spot Color swatch named <code>White</code> (<code>C:100 M:0 Y:0 K:0</code>) and enable <strong>Overprint Fill</strong>.</li>\n  <li>Choke (contract) the white path by <code>-0.08 mm</code> so a tiny white halo never peeks out from behind your CMYK graphic.</li>\n</ul>\n\n<h2>3. Submitting Files for Free Pre-Flight Check</h2>\n<p>Upload your vector PDF directly on our <a href=\"/get-a-quote\">Online Quotation Form</a> or send your file via WhatsApp to <a href=\"https://wa.me/447344546056\">+44 7344 546056</a> for complimentary pre-flight inspection by our Al Quoz prepress engineers.</p>",
+      "status": "published",
+      "seo_title": "How to Set Up CutContour Die-Lines & White Ink in Illustrator | ONPRINT"
+    },
+    {
+      "id": 104,
+      "slug": "gold-foil-vs-raised-spot-uv-business-cards",
+      "title": "Gold Foil Stamping vs Raised 3D Spot UV: Which Luxury Print Finish Is Right for Your Brand?",
+      "excerpt": "Technical comparison between 24K hot metallic foil stamping and tactile raised 3D Spot UV polymer for luxury business cards, stickers, and presentation folders in Dubai.",
+      "category": "Business Cards",
+      "categoryData": {
+        "name": "Business Cards",
+        "slug": "business-cards-printing"
+      },
+      "productData": {
+        "name": "Foil Business Cards",
+        "slug": "foil-business-cards"
+      },
+      "author": "ONPRINT Pre-Press Team",
+      "author_name": "ONPRINT Pre-Press Team",
+      "published_at": "2026-08-25T09:00:00.000Z",
+      "publishedAt": "2026-08-25T09:00:00.000Z",
+      "reading_time": "6 min read",
+      "readTime": "6 min read",
+      "word_count": 1580,
+      "featured_image": "/assets/products/foil_cards.jpg",
+      "image_alt": "Gold Foil vs Raised 3D Spot UV Business Cards in Dubai",
+      "meta_title": "Gold Foil vs Raised 3D Spot UV Business Cards Dubai | ONPRINT",
+      "meta_description": "Compare 24K hot gold foil stamping and raised 3D Spot UV on velvet business cards and labels in Dubai. Reflectivity, tactile height, artwork rules, and pricing.",
+      "focus_keyword": "gold foil vs spot uv business cards dubai",
+      "secondary_keywords": "raised 3d spot uv dubai, hot foil stamping uae, luxury business card finishes dubai",
+      "canonical_url": "https://www.0nprint.com/blog/gold-foil-vs-raised-spot-uv-business-cards",
+      "faqs": [
+        {
+          "question": "Can 24K Gold Foil and Raised 3D Spot UV be combined on the same business card?",
+          "answer": "Yes. Applying metallic gold foil to the primary logo and clear Raised 3D Spot UV to a geometric background pattern over 450 GSM soft-touch velvet lamination is our most requested VIP card specification in Dubai.",
+          "is_approved": true
+        },
+        {
+          "question": "Which finish has a faster production turnaround in Dubai?",
+          "answer": "Digital Raised 3D Spot UV requires no metal die fabrication and can be completed within 24–48 hours, whereas traditional hot-stamped metallic foil requires 48–72 hours for brass die etching and press registration.",
+          "is_approved": true
+        }
+      ],
+      "content": "<h2>Choosing Between Metallic Mirror Brilliance and Clear Tactile Relief</h2>\n<p>When upgrading corporate <a href=\"/business-card-printing-dubai\">business cards</a>, <a href=\"/products/gold-foil-stickers\">luxury packaging labels</a>, or <a href=\"/products/presentation-folders\">executive presentation folders</a> in Dubai, the two highest-converting embellishments are <strong>Metallic Foil Stamping</strong> and <strong>Raised 3D Spot UV Varnish</strong>. Understanding how each finish interacts with light and touch helps you select the right specification for your brand identity.</p>\n\n<h2>1. Hot-Stamped & Digital Metallic Foil (Gold, Silver, Rose Gold, Copper)</h2>\n<p>Foil stamping bonds an ultra-thin metallic polyester pigment layer onto the card stock using heat and pressure. Unlike metallic CMYK ink simulations, real foil acts as a true mirror surface that catches ambient room light at every angle.</p>\n<ul>\n  <li><strong>Visual Effect:</strong> Opaque, high-contrast metallic sheen (available in 24K Mirror Gold, Satin Champagne Gold, Brushed Silver, Rose Gold, and Holographic).</li>\n  <li><strong>Best Use Case:</strong> Wordmarks, crests, monograms, and fine border frames on dark navy, black, or emerald cards (<a href=\"/foil-business-cards\">Foil Business Cards Dubai</a>).</li>\n</ul>\n\n<h2>2. Raised 3D Spot UV Polymer (Tactile Clear Gloss)</h2>\n<p>Raised 3D Spot UV jets a clear, high-build UV-curable polymer (50 to 100 microns thick) directly over specific areas of a matte or soft-touch velvet laminated card.</p>\n<ul>\n  <li><strong>Visual &amp; Tactile Effect:</strong> Transparent glass-like dome that intensifies the underlying CMYK color while creating dramatic tone-on-tone contrast (especially black gloss pattern over matte black card).</li>\n  <li><strong>Best Use Case:</strong> Tactile logos, braille-like textures, repeating monogram patterns, and modern tech/real-estate branding (<a href=\"/spot-uv-business-cards\">Spot UV Business Cards Dubai</a>).</li>\n</ul>\n\n<h2>Technical Comparison: Foil Stamping vs Raised Spot UV</h2>\n<table class=\"w-full text-left border-collapse my-6 border border-neutral-200\">\n  <thead>\n    <tr class=\"bg-neutral-100 text-neutral-900\">\n      <th class=\"p-3 border border-neutral-200\">Specification</th>\n      <th class=\"p-3 border border-neutral-200\">Metallic Foil Stamping</th>\n      <th class=\"p-3 border border-neutral-200\">Raised 3D Spot UV</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Opacity</td>\n      <td class=\"p-3 border border-neutral-200\">100% Opaque Metallic Mirror</td>\n      <td class=\"p-3 border border-neutral-200\">100% Clear Transparent Gloss</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Tactile Profile</td>\n      <td class=\"p-3 border border-neutral-200\">Flush or slightly debossed into paper</td>\n      <td class=\"p-3 border border-neutral-200\">Raised 3D dome (+50–80 microns)</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Minimum Line Weight</td>\n      <td class=\"p-3 border border-neutral-200\">0.4 pt (0.15 mm)</td>\n      <td class=\"p-3 border border-neutral-200\">0.5 pt (0.18 mm)</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Dubai Turnaround</td>\n      <td class=\"p-3 border border-neutral-200\">48 – 72 Hours</td>\n      <td class=\"p-3 border border-neutral-200\">24 – 48 Hours</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Request physical sample swatches or get an instant price for your artwork via WhatsApp at <a href=\"https://wa.me/447344546056\">+44 7344 546056</a> or our <a href=\"/get-a-quote\">Online Quote Estimator</a>.</p>",
+      "status": "published",
+      "seo_title": "Gold Foil vs Raised 3D Spot UV Business Cards Dubai | ONPRINT"
+    },
+    {
+      "id": 201,
+      "slug": "corporate-mugs-vs-insulated-water-bottles-gifting-dubai",
+      "title": "Custom Branded Ceramic Mugs vs Insulated Stainless Steel Flasks: Corporate Gifting Guide for Dubai Teams",
+      "excerpt": "Compare custom sublimated/UV ceramic mugs and laser-engraved 304 stainless steel thermal flasks for employee onboarding kits, DWTC exhibition giveaways, and VIP corporate gifts in Dubai.",
+      "category": "Corporate Gifting & Drinkware",
+      "category_slug": "mug-printing-dubai",
+      "product_slug": "executive-matte-black-mugs",
+      "author_name": "ONPRINT Corporate Merchandise Desk",
+      "status": "draft",
+      "seoReviewStatus": "needs_review",
+      "published_at": null,
+      "reading_time": 7,
+      "word_count": 1480,
+      "featured_image": "/uploads/categories/mug-printing-dubai.jpg",
+      "image_alt": "Custom branded corporate ceramic mugs and laser engraved thermal water bottles in Dubai",
+      "seo_title": "Custom Corporate Mugs vs Insulated Water Bottles Dubai Guide | ONPRINT",
+      "meta_description": "Compare custom printed ceramic mugs and laser-engraved thermal flasks for Dubai corporate gifting. MOQ, print durability, unit cost, and UAE delivery.",
+      "focus_keyword": "corporate mugs vs water bottles dubai",
+      "secondary_keywords": "custom mug printing dubai, branded water bottles uae, employee onboarding gift items dubai",
+      "canonical_url": "https://www.0nprint.com/blog/corporate-mugs-vs-insulated-water-bottles-gifting-dubai"
+    },
+    {
+      "id": 202,
+      "slug": "flyer-vs-trifold-brochure-vs-booklet-comparison-dubai",
+      "title": "A5 Flyer vs Tri-Fold Brochure vs Saddle-Stitched Booklet: Choosing the Right Marketing Collateral in Dubai",
+      "excerpt": "A practical commercial print buyer guide comparing flat A5/A4 flyers, 6-panel tri-fold brochures, and multi-page saddle-stitched booklets for Dubai real estate, clinics, and retail campaigns.",
+      "category": "Commercial Print Buying Guides",
+      "category_slug": "brochures-printing",
+      "product_slug": "tri-fold-brochures-printing",
+      "author_name": "ONPRINT Commercial Press Team",
+      "status": "draft",
+      "seoReviewStatus": "needs_review",
+      "published_at": null,
+      "reading_time": 7,
+      "word_count": 1540,
+      "featured_image": "/uploads/categories/brochures-printing.jpg",
+      "image_alt": "Comparison of A5 flyers, tri-fold brochures, and saddle-stitched corporate booklets in Dubai",
+      "seo_title": "Flyer vs Tri-Fold Brochure vs Booklet Printing Dubai | ONPRINT",
+      "meta_description": "Compare A5 flyers, tri-fold brochures, and saddle-stitched booklets in Dubai. Learn paper GSM rules, folding specs, and unit economics for UAE campaigns.",
+      "focus_keyword": "flyer vs brochure vs booklet dubai",
+      "secondary_keywords": "tri fold brochure printing dubai, a5 flyer printing uae, saddle stitched booklet dubai",
+      "canonical_url": "https://www.0nprint.com/blog/flyer-vs-trifold-brochure-vs-booklet-comparison-dubai"
+    },
+    {
+      "id": 203,
+      "slug": "dubai-cafe-restaurant-stickers-menus-packaging-guide",
+      "title": "Dubai Cafe, Restaurant & Cloud Kitchen Printing Guide: Waterproof Cup Stickers, Tamper Seals & Menus",
+      "excerpt": "Complete hospitality printing specification guide for Dubai cafes and restaurants: ice-proof BOPP cup stickers, delivery bag tamper-evident security labels, DL takeaway menus, and wipe-clean dine-in menus.",
+      "category": "Hospitality & Packaging",
+      "category_slug": "stickers-labels-printing",
+      "product_slug": "packaging-box-sealing-stickers",
+      "author_name": "ONPRINT Hospitality & Packaging Team",
+      "status": "draft",
+      "seoReviewStatus": "needs_review",
+      "published_at": null,
+      "reading_time": 8,
+      "word_count": 1620,
+      "featured_image": "/assets/products/stickers.jpg",
+      "image_alt": "Dubai cafe and cloud kitchen waterproof cup stickers, tamper seals, and menus",
+      "seo_title": "Dubai Cafe & Restaurant Stickers, Tamper Seals & Menus Guide | ONPRINT",
+      "meta_description": "Printing guide for Dubai cafes, restaurants, and cloud kitchens: waterproof iced-cup labels, tamper-evident delivery seals, and waterproof synthetic menus.",
+      "focus_keyword": "cafe cup stickers and restaurant menus dubai",
+      "secondary_keywords": "cloud kitchen packaging stickers dubai, tamper evident delivery labels uae, waterproof restaurant menus dubai",
+      "canonical_url": "https://www.0nprint.com/blog/dubai-cafe-restaurant-stickers-menus-packaging-guide"
     }
   ],
   "keywords": [

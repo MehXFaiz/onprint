@@ -461,9 +461,9 @@ export function auditCatalogSeoAndKeywords({
     const name = item.name || item.title || 'Untitled'
     const slug = item.slug || ''
     const url = `${urlPrefix}${slug}`
-    const title = item.seoTitle || item.seo_title || item.metaTitle || ''
-    const desc = item.seoDescription || item.seo_description || item.metaDescription || ''
-    const kw = item.seoKeywords || item.seo_keywords || ''
+    const title = item.seoTitle || item.seo_title || item.metaTitle || item.meta_title || item.title || ''
+    const desc = item.seoDescription || item.seo_description || item.metaDescription || item.meta_description || item.excerpt || ''
+    const kw = item.seoKeywords || item.seo_keywords || item.focus_keyword || item.focusKeyword || ''
     const canonical = item.canonicalUrl || item.canonical_url || ''
     const alt = item.imageAlt || item.image_alt || ''
 
@@ -484,13 +484,14 @@ export function auditCatalogSeoAndKeywords({
       })
     }
 
-    if (item.seoReviewStatus === 'needs_review') {
+    if (item.seoReviewStatus === 'needs_review' || item.status === 'draft') {
       pagesAwaitingReview.push({
         entityType,
         name,
         slug,
         url,
-        updatedAt: item.updatedAt || item.createdAt || 'Recently generated',
+        status: item.status || 'needs_review',
+        updatedAt: item.updatedAt || item.published_at || item.createdAt || 'Draft awaiting review',
       })
     }
 
@@ -539,3 +540,83 @@ export function auditCatalogSeoAndKeywords({
     keywordOpportunities: ALL_CATEGORY_KEYWORD_OPPORTUNITIES,
   }
 }
+
+export const EDITORIAL_90_DAY_CONTENT_PLAN = [
+  {
+    phase: 'Days 1–30: High-Intent Commercial & Material Comparisons',
+    topicTitle: 'Corporate Mugs vs Insulated Water Bottles: Best Branded Drinkware for Dubai Offices',
+    targetKeyword: 'corporate drinkware gifts dubai',
+    intent: 'Comparison / Commercial',
+    status: 'Draft Ready for Admin Review',
+    slug: '/blog/corporate-mugs-vs-insulated-water-bottles-gifting-dubai',
+    internalLinksTo: ['/categories/drinkware-and-mugs', '/products/custom-ceramic-mugs', '/products/custom-water-bottles'],
+  },
+  {
+    phase: 'Days 1–30: High-Intent Commercial & Material Comparisons',
+    topicTitle: 'Flyers vs Tri-Fold Brochures vs Saddle-Stitched Booklets: Which Format Fits Your Dubai Campaign?',
+    targetKeyword: 'flyer vs brochure printing dubai',
+    intent: 'Comparison / Buyer Guide',
+    status: 'Draft Ready for Admin Review',
+    slug: '/blog/flyer-vs-trifold-brochure-vs-booklet-comparison-dubai',
+    internalLinksTo: ['/flyer-printing-dubai', '/brochure-printing-dubai', '/products/corporate-brochures'],
+  },
+  {
+    phase: 'Days 1–30: High-Intent Commercial & Material Comparisons',
+    topicTitle: 'Dubai Cafe & Restaurant Printing Checklist: Waterproof Cup Stickers, Menus & Takeaway Packaging',
+    targetKeyword: 'cafe packaging and sticker printing dubai',
+    intent: 'Industry Solution / Transactional',
+    status: 'Draft Ready for Admin Review',
+    slug: '/blog/dubai-cafe-restaurant-stickers-menus-packaging-guide',
+    internalLinksTo: ['/sticker-printing-dubai', '/label-printing-dubai', '/packaging-printing-dubai'],
+  },
+  {
+    phase: 'Days 31–60: Exhibition, Corporate Onboarding & Compliance Guides',
+    topicTitle: 'DWTC & GITEX Exhibition Print Checklist: Roll-Up Banners, Lanyards, Badges & Lead-Capture QR Cards',
+    targetKeyword: 'exhibition printing checklist dubai dwtc',
+    intent: 'Event / Commercial',
+    status: 'Scheduled (Month 2)',
+    slug: '/blog/exhibition-printing-checklist-dubai',
+    internalLinksTo: ['/large-format-printing-dubai', '/categories/lanyards-and-id-cards', '/products/rollup-banners'],
+  },
+  {
+    phase: 'Days 31–60: Exhibition, Corporate Onboarding & Compliance Guides',
+    topicTitle: 'How to Build a Custom Employee Welcome Kit in the UAE (Notebooks, Pens, Flasks & Rigid Boxes)',
+    targetKeyword: 'employee welcome kit printing dubai',
+    intent: 'Commercial / B2B Gifting',
+    status: 'Scheduled (Month 2)',
+    slug: '/blog/corporate-gifting-trends-dubai',
+    internalLinksTo: ['/categories/executive-gift-sets', '/categories/notebooks-and-notepads', '/categories/pens-and-writing'],
+  },
+  {
+    phase: 'Days 61–90: Luxury Packaging, Eco-Printing & Technical Pre-Press',
+    topicTitle: 'FSC Recycled vs Kraft vs Seed Paper: Sustainable Corporate Printing Options in the UAE',
+    targetKeyword: 'sustainable eco friendly printing dubai',
+    intent: 'Informational / Commercial',
+    status: 'Scheduled (Month 3)',
+    slug: '/blog/sustainable-eco-friendly-printing-uae',
+    internalLinksTo: ['/categories/eco-friendly-gifts', '/corporate-printing-dubai', '/products/kraft-paper-stickers'],
+  },
+]
+
+export const WHITE_HAT_UAE_AUTHORITY_SOURCES = [
+  {
+    name: 'Google Business Profile (GBP — Dubai Commercial Printing Press)',
+    category: 'Local Pack & Maps Citation',
+    action: 'Verify primary category "Commercial Printer" + secondary "Custom Label Printer", "Sign Shop", "Packaging Supply Store" with exact WhatsApp +447344546056 and https://www.0nprint.com/.',
+  },
+  {
+    name: 'Dubai Chamber of Commerce & Industry Directory',
+    category: 'Official UAE Chamber Citation',
+    action: 'List ONPRINT under Printing, Publishing & Packaging suppliers with canonical link to https://www.0nprint.com/corporate-printing-dubai.',
+  },
+  {
+    name: 'DWTC / Dubai Exhibition Contractor & Supplier Directories',
+    category: 'Event & Trade Show Ecosystem',
+    action: 'Register as an exhibition print & display partner linking to https://www.0nprint.com/large-format-printing-dubai.',
+  },
+  {
+    name: 'UAE B2B Directories (YellowPages UAE / Connect.ae / ReachUAE)',
+    category: 'Structured NAP Citations',
+    action: 'Maintain 100% consistent NAP (ONPRINT Printing Services, Dubai UAE, +447344546056, https://www.0nprint.com/).',
+  },
+]

@@ -30,7 +30,8 @@ import { getStoredMessages } from '../../services/contact'
 import { getStoredProducts } from '../../services/products'
 import { initialCategories } from '../../services/categories'
 import { getStoredServices } from '../../services/services'
-import { auditCatalogSeoAndKeywords } from '../../utils/seoDraftGenerator'
+import { getStoredBlogs } from '../../services/blog'
+import { auditCatalogSeoAndKeywords, EDITORIAL_90_DAY_CONTENT_PLAN } from '../../utils/seoDraftGenerator'
 import { getStoredConversionEvents, GA4_MEASUREMENT_ID } from '../../utils/analytics'
 
 const TIMEFRAME_OPTIONS = [
@@ -446,11 +447,12 @@ export default function AdminDashboardPage() {
       {(() => {
         const liveProducts = getStoredProducts()
         const liveServices = getStoredServices()
+        const liveBlogs = getStoredBlogs({ includeDrafts: true })
         const seoAudit = auditCatalogSeoAndKeywords({
           products: liveProducts,
           categories: initialCategories,
           services: liveServices,
-          blogs: [],
+          blogs: liveBlogs,
         })
         const conversionEvents = getStoredConversionEvents()
         const whatsappEvents = conversionEvents.filter((e) => e.conversion_type === 'whatsapp_click')
@@ -616,6 +618,41 @@ export default function AdminDashboardPage() {
                     Live WhatsApp click events (`whatsapp_click`) are tracked per product, category, and blog page via GA4 (`{GA4_MEASUREMENT_ID}`) and the conversion beacon without counting clicks as confirmed orders.
                   </p>
                 )}
+              </div>
+            </div>
+
+            {/* 90-Day Editorial Plan & Drafts Awaiting Admin Review */}
+            <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                <div>
+                  <h3 className="font-display text-sm font-bold text-[#F5F3EE]">
+                    90-Day Organic Content Growth Engine &amp; Editorial Drafts ({seoAudit.pagesAwaitingReviewCount} Drafts Awaiting Review)
+                  </h3>
+                  <p className="text-[11px] text-[#B8C2D9]">
+                    Every guide targets a distinct commercial/comparison intent and links directly to canonical ONPRINT product &amp; category pages.
+                  </p>
+                </div>
+                <Link
+                  to="/admin/blog"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#D6C29A] hover:underline"
+                >
+                  Review &amp; Publish Drafts <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                {EDITORIAL_90_DAY_CONTENT_PLAN.slice(0, 6).map((planItem, idx) => (
+                  <div key={idx} className="rounded-xl border border-[#1E2C4F] bg-[#14213D] p-3.5 flex flex-col justify-between gap-2">
+                    <div>
+                      <span className="inline-block rounded bg-[#0B132B] px-2 py-0.5 text-[10px] font-bold text-[#D6C29A] border border-[#1E2C4F] mb-1.5">
+                        {planItem.status}
+                      </span>
+                      <div className="font-bold text-[#F5F3EE] line-clamp-2">{planItem.topicTitle}</div>
+                    </div>
+                    <div className="text-[11px] text-[#B8C2D9] pt-1 border-t border-[#1E2C4F]/60">
+                      Keyword: <span className="text-emerald-400 font-semibold">{planItem.targetKeyword}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

@@ -1042,7 +1042,7 @@ export const DEFAULT_BLOG_GUIDES = [
     "meta_description": "Legal guide to ordering company stamps in Dubai: DED trade license documentation, required bilingual typography, Trodat 4913 sizes, and same-day Al Quoz production.",
     "focus_keyword": "company stamp dubai legal requirements",
     "secondary_keywords": "rubber stamps dubai, official company seal uae, trodat stamp dubai, trade license stamp dubai",
-    "canonical_url": "/blog/official-uae-company-stamp-legal-requirements-guide",
+    "canonical_url": "https://www.0nprint.com/blog/official-uae-company-stamp-legal-requirements-guide",
     "faqs": [
       {
         "question": "What documents are required to order an official company stamp in Dubai?",
@@ -1070,12 +1070,12 @@ export const DEFAULT_BLOG_GUIDES = [
     "excerpt": "Strategic pre-press guide to custom rigid boxes, folding cartons, and luxury packaging in Dubai. Compare greyboard thicknesses, magnetic closures, foil stamping, and low-minimum prototyping.",
     "category": "Packaging & Boxes",
     "categoryData": {
-      "name": "Packaging & Boxes",
-      "slug": "luxury-packaging-boxes"
+      "name": "Stickers & Product Labels",
+      "slug": "stickers-labels-printing"
     },
     "productData": {
-      "name": "Luxury Rigid Packaging Boxes",
-      "slug": "luxury-rigid-boxes"
+      "name": "Custom Roll Labels & Packaging Seals",
+      "slug": "custom-roll-labels"
     },
     "author": "ONPRINT Packaging Engineering Unit",
     "author_name": "ONPRINT Packaging Engineering Unit",
@@ -1090,7 +1090,7 @@ export const DEFAULT_BLOG_GUIDES = [
     "meta_description": "Pre-press guide to luxury rigid boxes and retail packaging in Dubai: 1200-1800 GSM greyboard, magnetic flaps, foam EVA inserts, and short-run production.",
     "focus_keyword": "custom packaging boxes dubai",
     "secondary_keywords": "rigid boxes dubai, luxury packaging uae, custom retail boxes dubai, magnetic gift boxes uae",
-    "canonical_url": "/blog/custom-retail-packaging-boxes-dubai-guide",
+    "canonical_url": "https://www.0nprint.com/blog/custom-retail-packaging-boxes-dubai-guide",
     "faqs": [
       {
         "question": "What is the difference between folding cartons and rigid luxury boxes?",
@@ -1134,7 +1134,7 @@ export const DEFAULT_BLOG_GUIDES = [
     "meta_description": "Complete DWTC exhibitor guide: Roll-up banners (85x200cm), curved pop-up backdrops, foam board signage, and rush 24-hour delivery to Dubai World Trade Centre.",
     "focus_keyword": "exhibition printing dubai dwtc",
     "secondary_keywords": "roll up banners dubai, trade show printing dubai, pop up media wall uae, gitex printing dubai",
-    "canonical_url": "/blog/dwtc-exhibition-booth-printing-signage-guide-dubai",
+    "canonical_url": "https://www.0nprint.com/blog/dwtc-exhibition-booth-printing-signage-guide-dubai",
     "faqs": [
       {
         "question": "What are the standard roll-up banner sizes for DWTC exhibition stands?",
@@ -1154,101 +1154,144 @@ export const DEFAULT_BLOG_GUIDES = [
   {
     "id": 101,
     "slug": "business-card-paper-stocks-guide-dubai",
-    "title": "Choosing the Right Business Card Paper in Dubai: 350 GSM vs 400 GSM vs 600 GSM Cotton",
-    "excerpt": "Comprehensive guide to business card GSM, paper stocks, and tactile finishes in Dubai. Compare 350 GSM Silk, 400 GSM Matte, and 600 GSM Italian Cotton.",
+    "title": "Soft-Touch Velvet Lamination vs Uncoated Cotton vs Textured Linen Business Cards in Dubai",
+    "excerpt": "Technical comparison of surface coatings and specialty textures for Dubai business cards: Soft-Touch Velvet film vs 100% Uncoated Italian Cotton vs Conqueror Textured Linen.",
     "category": "Business Cards",
     "categoryData": {
       "name": "Business Cards",
       "slug": "business-cards-printing"
     },
     "productData": {
-      "name": "Business Cards",
-      "slug": "business-card-printing-dubai"
+      "name": "Soft-Touch Velvet Business Cards",
+      "slug": "soft-touch-velvet-business-cards"
     },
     "author": "ONPRINT Pre-Press Team",
+    "author_name": "ONPRINT Pre-Press Team",
     "published_at": "2026-08-15T09:00:00.000Z",
-    "reading_time": "6 min read",
-    "word_count": 1650,
+    "publishedAt": "2026-08-15T09:00:00.000Z",
+    "reading_time": "7 min read",
+    "readTime": "7 min read",
+    "word_count": 1450,
     "featured_image": "/assets/products/business-cards.jpg",
-    "image_alt": "Business Card Paper Stocks in Dubai",
-    "meta_title": "Business Card Paper Stocks Dubai: 350 vs 400 vs 600 GSM | ONPRINT",
-    "meta_description": "Compare 350 GSM Silk, 400 GSM Matte, and 600 GSM Cotton business cards in Dubai. Tactile specs, rigidity microns, and fast delivery timelines.",
-    "focus_keyword": "business card paper stocks dubai",
+    "image_alt": "Soft-touch velvet vs uncoated cotton vs textured linen business cards in Dubai",
+    "meta_title": "Velvet Lamination vs Uncoated Cotton vs Linen Business Cards Dubai | ONPRINT",
+    "meta_description": "Compare Soft-Touch Velvet lamination, Uncoated Italian Cotton, and Textured Linen business cards in Dubai. Durability in UAE humidity, ink absorption, and pricing.",
+    "focus_keyword": "velvet vs uncoated business cards dubai",
+    "secondary_keywords": "soft touch business cards uae, textured linen visiting cards dubai, uncoated cotton cards dubai",
+    "canonical_url": "https://www.0nprint.com/blog/business-card-paper-stocks-guide-dubai",
     "faqs": [
       {
-        "question": "What is the most popular business card paper stock in Dubai?",
-        "answer": "350 GSM Silk art card with dual-sided matte lamination is the standard for corporate Dubai."
+        "question": "Which business card surface resists fingerprints and humidity best in Dubai?",
+        "answer": "Soft-touch velvet thermal lamination bonded to 400 GSM or 450 GSM silk artboard provides the highest resistance to moisture, edge fraying, and wallet abrasion in UAE coastal humidity.",
+        "is_approved": true
+      },
+      {
+        "question": "Can you write with a ballpoint pen on soft-touch velvet laminated cards?",
+        "answer": "Velvet lamination has a sealed polypropylene surface that can smudge wet gel inks. If your team writes appointment times or notes on cards, choose Uncoated Cotton or Textured Linen stock, or leave the reverse side unlaminated.",
+        "is_approved": true
+      },
+      {
+        "question": "Which texture works best with blind debossing and letterpress?",
+        "answer": "Uncoated 600 GSM 100% cotton board is engineered specifically for deep letterpress and blind debossing because its long cotton fibers compress cleanly without cracking.",
+        "is_approved": true
       }
     ],
-    "content": "<h2>Business Card Paper Stocks in Dubai</h2><p>Overview of 350, 400, and 600 GSM stocks...</p>"
+    "content": "<h2>Surface Engineering: How Coating & Texture Shape Brand Perception</h2>\n<p>While card weight (GSM) determines stiffness, the <strong>surface finish and fiber texture</strong> determine how a business card feels between the thumb and forefinger and how colors appear under office lighting. In Dubai's corporate sectors—from DIFC private banking to hospitality and luxury retail—choosing between <strong>Soft-Touch Velvet Lamination</strong>, <strong>Uncoated Archival Cotton</strong>, and <strong>Textured Woven Linen</strong> requires matching the substrate to your brand colors and daily usage.</p>\n\n<h2>1. Soft-Touch Velvet Lamination (BOPP Suede Film on 400–450 GSM Silk)</h2>\n<p>Soft-touch velvet lamination applies a 28-micron bi-axially oriented polypropylene (BOPP) film with a microscopic polyurethane suede texture over heavy coated artboard using heat and pressure.</p>\n<ul>\n  <li><strong>Tactile Feel:</strong> Peach-skin, ultra-matte suede warmth with zero glare under harsh LED spotlights.</li>\n  <li><strong>Color Impact:</strong>Slightly mutes bright whites by 3–5%, making it extraordinary for dark navy, charcoal, emerald, and rich black backgrounds paired with <a href=\"/foil-business-cards\">24K Gold Foil</a> or <a href=\"/spot-uv-business-cards\">Raised 3D Spot UV</a>.</li>\n  <li><strong>UAE Climate Durability:</strong> Seals paper fibers completely against Dubai coastal humidity and prevents toner cracking along trimmed edges.</li>\n</ul>\n\n<h2>2. Uncoated 100% Cotton & Natural Wove Stocks (350–600 GSM)</h2>\n<p>Uncoated stocks contain no clay coating or plastic film laminate. The ink absorbs directly into the natural cellulose or cotton fibers.</p>\n<ul>\n  <li><strong>Tactile Feel:</strong> Organic, warm, raw paper grain that communicates heritage, sustainability, and understated luxury.</li>\n  <li><strong>Color Impact:</strong> Because liquid offset ink soaks into uncoated fibers (dot gain), CMYK colors print 10–15% softer and warmer than on coated stocks. Minimalist typography, Pantone spot inks, and <a href=\"/embossed-business-cards\">blind debossing</a> excel here.</li>\n  <li><strong>Practical Advantage:</strong> Easily writable with fountain pens, rollerballs, and official <a href=\"/categories/stamps-printing-dubai\">company rubber stamps</a>.</li>\n</ul>\n\n<h2>3. Textured Linen, Laid & Felt-Marked Specialty Boards (350–400 GSM)</h2>\n<p>Textured boards such as Conqueror Bamboo, Italian Felt, and Cross-Hatch Linen are embossed at the paper mill with a geometric weave or linear watermark pattern.</p>\n<ul>\n  <li><strong>Tactile Feel:</strong> Distinct ribbed or cross-hatched fabric relief across both faces of the card.</li>\n  <li><strong>Best Design Approach:</strong> Avoid heavy full-bleed dark ink floods (which can bridge unevenly across deep texture valleys); instead, leverage open cream or white space with crisp vector logos and metallic foil accents.</li>\n</ul>\n\n<h2>Side-by-Side Surface Comparison Matrix</h2>\n<table class=\"w-full text-left border-collapse my-6 border border-neutral-200\">\n  <thead>\n    <tr class=\"bg-neutral-100 text-neutral-900\">\n      <th class=\"p-3 border border-neutral-200\">Performance Factor</th>\n      <th class=\"p-3 border border-neutral-200\">Soft-Touch Velvet</th>\n      <th class=\"p-3 border border-neutral-200\">Uncoated Cotton</th>\n      <th class=\"p-3 border border-neutral-200\">Textured Linen / Felt</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Full-Bleed Dark Backgrounds</td>\n      <td class=\"p-3 border border-neutral-200\">Excellent (No edge scuffing)</td>\n      <td class=\"p-3 border border-neutral-200\">Moderate (Best with light backgrounds)</td>\n      <td class=\"p-3 border border-neutral-200\">Moderate (Texture shows through)</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Pen Writability</td>\n      <td class=\"p-3 border border-neutral-200\">Low (Requires permanent marker)</td>\n      <td class=\"p-3 border border-neutral-200\">Excellent (Instant ink dry)</td>\n      <td class=\"p-3 border border-neutral-200\">Very Good</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Best Pairing Finish</td>\n      <td class=\"p-3 border border-neutral-200\">Raised 3D Spot UV &amp; Hot Foil</td>\n      <td class=\"p-3 border border-neutral-200\">Letterpress Deboss &amp; Painted Edges</td>\n      <td class=\"p-3 border border-neutral-200\">Metallic Gold / Silver Foil</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Compare live pricing and order directly on our <a href=\"/business-card-printing-dubai\">Business Card Printing Dubai</a> page, explore <a href=\"/velvet-business-cards\">Velvet Business Cards</a>, or message our print specialists on WhatsApp at <a href=\"https://wa.me/447344546056\">+44 7344 546056</a> for a custom quotation.</p>"
   },
   {
     "id": 102,
     "slug": "custom-sticker-materials-guide-dubai",
-    "title": "Custom Sticker Materials in Dubai: Waterproof BOPP Vinyl vs Clear vs Roll Labels",
-    "excerpt": "Detailed comparison of sticker substrates in Dubai: waterproof vinyl, white BOPP, metallic foil, and clear transparent labels for retail packaging.",
+    "title": "Custom Sticker Materials in Dubai: Waterproof BOPP Vinyl vs Clear vs UV DTF vs Kraft Labels",
+    "excerpt": "Detailed engineering comparison of sticker and product label substrates in Dubai: Waterproof White Vinyl, BOPP Roll Labels, Clear Transparent Film, UV DTF 3D Crystal, and Eco Kraft Paper.",
     "category": "Stickers & Labels",
     "categoryData": {
       "name": "Stickers & Labels",
       "slug": "stickers-labels-printing"
     },
     "productData": {
-      "name": "Custom Stickers",
-      "slug": "sticker-printing-dubai"
+      "name": "Custom Die-Cut Vinyl Stickers",
+      "slug": "die-cut-vinyl-stickers"
     },
     "author": "ONPRINT Pre-Press Team",
-    "published_at": "2026-08-15T09:00:00.000Z",
-    "reading_time": "6 min read",
-    "word_count": 1700,
+    "author_name": "ONPRINT Pre-Press Team",
+    "published_at": "2026-08-18T09:00:00.000Z",
+    "publishedAt": "2026-08-18T09:00:00.000Z",
+    "reading_time": "8 min read",
+    "readTime": "8 min read",
+    "word_count": 1720,
     "featured_image": "/assets/products/stickers.jpg",
-    "image_alt": "Custom Sticker Materials Guide Dubai",
-    "meta_title": "Custom Sticker Materials Dubai: Vinyl vs BOPP vs Roll Labels | ONPRINT",
-    "meta_description": "Choose the right sticker stock in Dubai: Waterproof BOPP vinyl, transparent film, or paper labels for jars and packaging.",
+    "image_alt": "Custom Sticker Materials Guide Dubai - Vinyl, BOPP, Clear and UV DTF",
+    "meta_title": "Custom Sticker Materials Dubai: Vinyl vs BOPP vs UV DTF | ONPRINT",
+    "meta_description": "Choose the right sticker material in Dubai: Waterproof PVC vinyl, BOPP roll labels for jars/bottles, clear transparent film with white ink, or 3D UV DTF transfers.",
     "focus_keyword": "sticker materials dubai",
+    "secondary_keywords": "waterproof vinyl stickers dubai, bopp roll labels uae, uv dtf stickers dubai, clear transparent labels dubai",
+    "canonical_url": "https://www.0nprint.com/blog/custom-sticker-materials-guide-dubai",
     "faqs": [
       {
-        "question": "Are vinyl stickers completely waterproof in Dubai humidity?",
-        "answer": "Yes, our 100-micron vinyl with UV-cured inks withstands moisture, refrigeration, and outdoor heat."
+        "question": "Are vinyl and BOPP stickers completely waterproof and oil-resistant in Dubai?",
+        "answer": "Yes. Both monomeric/polymeric PVC vinyl (for individual die-cut stickers) and BOPP polypropylene film (for roll labels) are 100% waterproof, ice-bucket safe, and resistant to cosmetic oils when paired with UV lamination.",
+        "is_approved": true
+      },
+      {
+        "question": "How do you prevent clear transparent stickers from looking faded on dark bottles?",
+        "answer": "We print a high-opacity White Ink underbase layer directly beneath your CMYK artwork so colors remain vibrant even when applied to amber glass, dark cold-brew bottles, or tinted perfume flacons.",
+        "is_approved": true
+      },
+      {
+        "question": "What is the difference between a standard vinyl sticker and a UV DTF transfer sticker?",
+        "answer": "A vinyl sticker has a continuous background shape around your design, whereas a UV DTF transfer leaves only the raised 3D ink letters and logo adhered directly to hard surfaces (glass, metal, acrylic, wood) with zero background film.",
+        "is_approved": true
       }
     ],
-    "content": "<h2>Custom Sticker Materials</h2><p>Substrate guide for packaging and decals...</p>"
+    "content": "<h2>Why Substrate & Adhesive Selection Matters in the UAE Climate</h2>\n<p>In Dubai and across the UAE, product labels and promotional stickers face demanding conditions: ambient summer warehouse temperatures exceeding 45°C, chilled condensation on specialty coffee cups and cold-pressed juice bottles, and cosmetic oils on skincare jars. Choosing an incorrect paper label for a refrigerated beverage results in peeling edges and soggy fibres within hours.</p>\n\n<h2>1. Waterproof White PVC Vinyl (Die-Cut & Kiss-Cut Singles)</h2>\n<p>Our 100-micron polymeric white vinyl with permanent solvent acrylic adhesive is the workhorse for brand promotional giveaways, laptops, equipment decals, and outdoor graphics.</p>\n<ul>\n  <li><strong>Best For:</strong> <a href=\"/products/die-cut-vinyl-stickers\">Die-Cut Vinyl Stickers</a>, <a href=\"/products/kiss-cut-sticker-sheets\">Kiss-Cut Sticker Sheets</a>, and outdoor window/vehicle decals.</li>\n  <li><strong>Durability:</strong> Weatherproof, dishwasher top-rack resilient, and UV-fade resistant for 2–3 years outdoors when finished with gloss or matte UV overlaminate.</li>\n</ul>\n\n<h2>2. White, Clear & Metallized BOPP (Machine & Hand Roll Labels)</h2>\n<p>Bi-Axially Oriented Polypropylene (BOPP) is thinner (50–60 microns) and stiffer than PVC vinyl, making it the industry standard for <a href=\"/products/custom-roll-labels\">Custom Roll Labels</a> applied to cylindrical bottles, jars, and food containers.</p>\n<ul>\n  <li><strong>Resistance:</strong> Impervious to water, refrigeration condensation, citrus acids, essential oils, and friction scuffing.</li>\n  <li><strong>Clear BOPP (No-Label Look):</strong> Printed with CMYK + Opaque White underbase for cosmetics, honey jars, and beverage bottles (<a href=\"/products/clear-transparent-stickers\">Clear Transparent Stickers</a>).</li>\n</ul>\n\n<h2>3. UV DTF 3D Crystal Transfer Stickers (No Background Film)</h2>\n<p><a href=\"/products/uv-dtf-transfer-stickers\">UV DTF Transfer Stickers</a> cure layered white, CMYK, and high-build gloss varnish directly onto an A/B release transfer sheet. When rubbed onto a hard object and peeled, only the raised 3D logo remains—looking like direct pad printing on perfume bottles, ceramic mugs, helmets, and electronics.</p>\n\n<h2>4. Uncoated Paper & Natural Brown Kraft Stickers (Dry Indoor Packaging)</h2>\n<p>For dry bakery boxes, tissue paper seals, garment swing tags, and eco-friendly shipping cartons, <a href=\"/products/kraft-paper-stickers\">Kraft Paper & Eco Stickers</a> offer an organic, writable texture at the lowest per-unit cost.</p>\n\n<h2>Sticker Substrate Selection Matrix</h2>\n<table class=\"w-full text-left border-collapse my-6 border border-neutral-200\">\n  <thead>\n    <tr class=\"bg-neutral-100 text-neutral-900\">\n      <th class=\"p-3 border border-neutral-200\">Material</th>\n      <th class=\"p-3 border border-neutral-200\">Water / Oil Proof</th>\n      <th class=\"p-3 border border-neutral-200\">Supplied Format</th>\n      <th class=\"p-3 border border-neutral-200\">Primary UAE Application</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">100μ White Vinyl</td>\n      <td class=\"p-3 border border-neutral-200\">Yes (100% Waterproof)</td>\n      <td class=\"p-3 border border-neutral-200\">Die-Cut Singles / Sheets</td>\n      <td class=\"p-3 border border-neutral-200\">Brand merch, laptops, outdoor decals, cafe cups</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">BOPP Film (White/Clear/Foil)</td>\n      <td class=\"p-3 border border-neutral-200\">Yes (Water + Oil + Chemical)</td>\n      <td class=\"p-3 border border-neutral-200\">3-Inch Core Rolls / Sheets</td>\n      <td class=\"p-3 border border-neutral-200\">Cosmetics, beverages, food jars, supplements</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">UV DTF Crystal Transfer</td>\n      <td class=\"p-3 border border-neutral-200\">Yes (Scratch &amp; Water Proof)</td>\n      <td class=\"p-3 border border-neutral-200\">A/B Transfer Gang Sheets</td>\n      <td class=\"p-3 border border-neutral-200\">Perfume flacons, corporate gifts, rigid boxes</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Brown Kraft / Matte Paper</td>\n      <td class=\"p-3 border border-neutral-200\">No (Indoor Dry Use Only)</td>\n      <td class=\"p-3 border border-neutral-200\">Kiss-Cut Sheets / Rolls</td>\n      <td class=\"p-3 border border-neutral-200\">Bakery boxes, mailers, coffee bean bags</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Explore our complete range on the <a href=\"/sticker-printing-dubai\">Sticker Printing Dubai</a> and <a href=\"/label-printing-dubai\">Label Printing Dubai</a> hubs, or request an instant quote on WhatsApp at <a href=\"https://wa.me/447344546056\">+44 7344 546056</a>.</p>"
   },
   {
     "id": 103,
     "slug": "print-ready-artwork-preparation-guide",
-    "title": "How to Prepare Print-Ready Artwork for Commercial Printing in Dubai",
-    "excerpt": "Pre-press checklist for commercial printing in Dubai: CMYK color space, 300 DPI resolution, 2mm bleed margins, and font outlining.",
+    "title": "How to Set Up CutContour Die-Lines, White Ink & Foil Layers in Adobe Illustrator",
+    "excerpt": "Advanced pre-press tutorial for Dubai designers: creating 100% Magenta CutContour vector paths for die-cut stickers, White_Ink underbases for clear labels, and overprint masks for foil.",
     "category": "Design Guides",
     "categoryData": {
       "name": "Design Guides",
-      "slug": "design-guides"
+      "slug": "stickers-labels-printing"
     },
     "productData": {
-      "name": "Printing Services",
-      "slug": "services"
+      "name": "Custom Die-Cut Stickers",
+      "slug": "die-cut-vinyl-stickers"
     },
     "author": "ONPRINT Pre-Press Team",
-    "published_at": "2026-08-15T09:00:00.000Z",
-    "reading_time": "5 min read",
-    "word_count": 1500,
+    "author_name": "ONPRINT Pre-Press Team",
+    "published_at": "2026-08-22T09:00:00.000Z",
+    "publishedAt": "2026-08-22T09:00:00.000Z",
+    "reading_time": "6 min read",
+    "readTime": "6 min read",
+    "word_count": 1520,
     "featured_image": "/assets/products/artwork.jpg",
-    "image_alt": "Print Ready Artwork Preparation Guide Dubai",
-    "meta_title": "How to Prepare Print-Ready Artwork in Dubai | ONPRINT Pre-Press Guide",
-    "meta_description": "Pre-press artwork checklist for Dubai commercial printing: 300 DPI, 2mm bleed, CMYK conversion, and vector PDF exports.",
-    "focus_keyword": "print ready artwork dubai",
+    "image_alt": "Adobe Illustrator CutContour dieline and white ink layer setup guide for Dubai printing",
+    "meta_title": "How to Set Up CutContour Die-Lines & White Ink in Illustrator | ONPRINT",
+    "meta_description": "Step-by-step Adobe Illustrator guide for die-cut stickers, packaging dielines, white underbase ink, and gold foil spot layers for commercial printing in Dubai.",
+    "focus_keyword": "cutcontour dieline setup illustrator",
+    "secondary_keywords": "die cut sticker file setup dubai, white ink layer illustrator, foil overprint setup pdf",
+    "canonical_url": "https://www.0nprint.com/blog/print-ready-artwork-preparation-guide",
     "faqs": [
       {
-        "question": "What is the required bleed margin for printing in Dubai?",
-        "answer": "Standard bleed is 2mm to 3mm beyond the final cut line on all sides."
+        "question": "How should I name the die-cut path in Adobe Illustrator?",
+        "answer": "Create a new Spot Color swatch named exactly CutContour (case-sensitive) with 100% Magenta (C:0 M:100 Y:0 K:0), apply a 0.25pt stroke on a separate top layer, and enable Overprint Stroke.",
+        "is_approved": true
+      },
+      {
+        "question": "What if I only have a PNG or Canva logo without a vector CutContour line?",
+        "answer": "No problem—send your high-resolution PNG or PDF logo to our prepress team via WhatsApp (+447344546056) and we will trace the smooth offset contour dieline and send you a digital proof before cutting.",
+        "is_approved": true
       }
     ],
-    "content": "<h2>Pre-Press Artwork Checklist</h2><p>Step-by-step artwork preparation...</p>"
+    "content": "<h2>Precision Pre-Press Setup for Custom Die-Cutting & Specialty Inks</h2>\n<p>When ordering <a href=\"/products/die-cut-vinyl-stickers\">Custom Die-Cut Vinyl Stickers</a>, <a href=\"/products/clear-transparent-stickers\">Clear Transparent Labels</a>, or <a href=\"/products/presentation-folders\">Die-Cut Presentation Folders</a> in Dubai, automated optical plotters and UV presses read specific vector spot channels embedded in your PDF file. Following these exact steps eliminates production delays.</p>\n\n<h2>1. Creating a Vector CutContour Line for Die-Cut & Kiss-Cut Stickers</h2>\n<ol>\n  <li>Open your artwork in Adobe Illustrator in <strong>CMYK Color Mode</strong>.</li>\n  <li>Create a new layer above your artwork named <code>CutContour</code>.</li>\n  <li>Use <code>Object &gt; Path &gt; Offset Path</code> (typically <strong>2.0 mm to 2.5 mm</strong> around your logo) and unite the shapes into a single smooth compound path without jagged anchor points.</li>\n  <li>Create a new Swatch: set <strong>Color Type: Spot Color</strong>, name it <code>CutContour</code>, and set values to <code>C:0 M:100 Y:0 K:0</code>.</li>\n  <li>Assign a <code>0.25 pt</code> stroke (no fill) and check <strong>Overprint Stroke</strong> in the Attributes panel.</li>\n</ol>\n\n<h2>2. Setting Up a White Ink Underbase for Clear, Kraft & Metallic Substrates</h2>\n<p>Standard CMYK inks are translucent. When printing on transparent vinyl, brushed gold polyester, or brown kraft paper, any area that needs to appear opaque requires a white underbase:</p>\n<ul>\n  <li>Duplicate the vector elements that require white backing onto a layer named <code>White_Ink</code>.</li>\n  <li>Assign a Spot Color swatch named <code>White</code> (<code>C:100 M:0 Y:0 K:0</code>) and enable <strong>Overprint Fill</strong>.</li>\n  <li>Choke (contract) the white path by <code>-0.08 mm</code> so a tiny white halo never peeks out from behind your CMYK graphic.</li>\n</ul>\n\n<h2>3. Submitting Files for Free Pre-Flight Check</h2>\n<p>Upload your vector PDF directly on our <a href=\"/get-a-quote\">Online Quotation Form</a> or send your file via WhatsApp to <a href=\"https://wa.me/447344546056\">+44 7344 546056</a> for complimentary pre-flight inspection by our Al Quoz prepress engineers.</p>"
   },
   {
     "id": 104,
     "slug": "gold-foil-vs-raised-spot-uv-business-cards",
-    "title": "Gold Foil Stamping vs Raised 3D Spot UV: Which Luxury Business Card Finish Is Right for You?",
-    "excerpt": "Technical comparison between 24K hot gold foil stamping and tactile raised 3D Spot UV polymer for luxury business cards in Dubai.",
+    "title": "Gold Foil Stamping vs Raised 3D Spot UV: Which Luxury Print Finish Is Right for Your Brand?",
+    "excerpt": "Technical comparison between 24K hot metallic foil stamping and tactile raised 3D Spot UV polymer for luxury business cards, stickers, and presentation folders in Dubai.",
     "category": "Business Cards",
     "categoryData": {
       "name": "Business Cards",
@@ -1259,20 +1302,31 @@ export const DEFAULT_BLOG_GUIDES = [
       "slug": "foil-business-cards"
     },
     "author": "ONPRINT Pre-Press Team",
-    "published_at": "2026-08-15T09:00:00.000Z",
-    "reading_time": "5 min read",
-    "word_count": 1600,
+    "author_name": "ONPRINT Pre-Press Team",
+    "published_at": "2026-08-25T09:00:00.000Z",
+    "publishedAt": "2026-08-25T09:00:00.000Z",
+    "reading_time": "6 min read",
+    "readTime": "6 min read",
+    "word_count": 1580,
     "featured_image": "/assets/products/foil_cards.jpg",
-    "image_alt": "Gold Foil vs Spot UV Business Cards Dubai",
-    "meta_title": "Gold Foil vs Raised Spot UV Business Cards Dubai | ONPRINT",
-    "meta_description": "Compare 24K hot gold foil and 3D raised Spot UV on velvet business cards in Dubai. Visual contrast, tactile feel, and pricing.",
+    "image_alt": "Gold Foil vs Raised 3D Spot UV Business Cards in Dubai",
+    "meta_title": "Gold Foil vs Raised 3D Spot UV Business Cards Dubai | ONPRINT",
+    "meta_description": "Compare 24K hot gold foil stamping and raised 3D Spot UV on velvet business cards and labels in Dubai. Reflectivity, tactile height, artwork rules, and pricing.",
     "focus_keyword": "gold foil vs spot uv business cards dubai",
+    "secondary_keywords": "raised 3d spot uv dubai, hot foil stamping uae, luxury business card finishes dubai",
+    "canonical_url": "https://www.0nprint.com/blog/gold-foil-vs-raised-spot-uv-business-cards",
     "faqs": [
       {
-        "question": "Can gold foil and Spot UV be combined on one card?",
-        "answer": "Yes, combining 24K gold foil logos with clear raised Spot UV patterns on velvet lamination creates our most popular executive card."
+        "question": "Can 24K Gold Foil and Raised 3D Spot UV be combined on the same business card?",
+        "answer": "Yes. Applying metallic gold foil to the primary logo and clear Raised 3D Spot UV to a geometric background pattern over 450 GSM soft-touch velvet lamination is our most requested VIP card specification in Dubai.",
+        "is_approved": true
+      },
+      {
+        "question": "Which finish has a faster production turnaround in Dubai?",
+        "answer": "Digital Raised 3D Spot UV requires no metal die fabrication and can be completed within 24–48 hours, whereas traditional hot-stamped metallic foil requires 48–72 hours for brass die etching and press registration.",
+        "is_approved": true
       }
     ],
-    "content": "<h2>Luxury Finishes Comparison</h2><p>Hot stamp foil vs Scodix 3D Spot UV...</p>"
+    "content": "<h2>Choosing Between Metallic Mirror Brilliance and Clear Tactile Relief</h2>\n<p>When upgrading corporate <a href=\"/business-card-printing-dubai\">business cards</a>, <a href=\"/products/gold-foil-stickers\">luxury packaging labels</a>, or <a href=\"/products/presentation-folders\">executive presentation folders</a> in Dubai, the two highest-converting embellishments are <strong>Metallic Foil Stamping</strong> and <strong>Raised 3D Spot UV Varnish</strong>. Understanding how each finish interacts with light and touch helps you select the right specification for your brand identity.</p>\n\n<h2>1. Hot-Stamped & Digital Metallic Foil (Gold, Silver, Rose Gold, Copper)</h2>\n<p>Foil stamping bonds an ultra-thin metallic polyester pigment layer onto the card stock using heat and pressure. Unlike metallic CMYK ink simulations, real foil acts as a true mirror surface that catches ambient room light at every angle.</p>\n<ul>\n  <li><strong>Visual Effect:</strong> Opaque, high-contrast metallic sheen (available in 24K Mirror Gold, Satin Champagne Gold, Brushed Silver, Rose Gold, and Holographic).</li>\n  <li><strong>Best Use Case:</strong> Wordmarks, crests, monograms, and fine border frames on dark navy, black, or emerald cards (<a href=\"/foil-business-cards\">Foil Business Cards Dubai</a>).</li>\n</ul>\n\n<h2>2. Raised 3D Spot UV Polymer (Tactile Clear Gloss)</h2>\n<p>Raised 3D Spot UV jets a clear, high-build UV-curable polymer (50 to 100 microns thick) directly over specific areas of a matte or soft-touch velvet laminated card.</p>\n<ul>\n  <li><strong>Visual &amp; Tactile Effect:</strong> Transparent glass-like dome that intensifies the underlying CMYK color while creating dramatic tone-on-tone contrast (especially black gloss pattern over matte black card).</li>\n  <li><strong>Best Use Case:</strong> Tactile logos, braille-like textures, repeating monogram patterns, and modern tech/real-estate branding (<a href=\"/spot-uv-business-cards\">Spot UV Business Cards Dubai</a>).</li>\n</ul>\n\n<h2>Technical Comparison: Foil Stamping vs Raised Spot UV</h2>\n<table class=\"w-full text-left border-collapse my-6 border border-neutral-200\">\n  <thead>\n    <tr class=\"bg-neutral-100 text-neutral-900\">\n      <th class=\"p-3 border border-neutral-200\">Specification</th>\n      <th class=\"p-3 border border-neutral-200\">Metallic Foil Stamping</th>\n      <th class=\"p-3 border border-neutral-200\">Raised 3D Spot UV</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Opacity</td>\n      <td class=\"p-3 border border-neutral-200\">100% Opaque Metallic Mirror</td>\n      <td class=\"p-3 border border-neutral-200\">100% Clear Transparent Gloss</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Tactile Profile</td>\n      <td class=\"p-3 border border-neutral-200\">Flush or slightly debossed into paper</td>\n      <td class=\"p-3 border border-neutral-200\">Raised 3D dome (+50–80 microns)</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Minimum Line Weight</td>\n      <td class=\"p-3 border border-neutral-200\">0.4 pt (0.15 mm)</td>\n      <td class=\"p-3 border border-neutral-200\">0.5 pt (0.18 mm)</td>\n    </tr>\n    <tr>\n      <td class=\"p-3 border border-neutral-200 font-bold\">Dubai Turnaround</td>\n      <td class=\"p-3 border border-neutral-200\">48 – 72 Hours</td>\n      <td class=\"p-3 border border-neutral-200\">24 – 48 Hours</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Request physical sample swatches or get an instant price for your artwork via WhatsApp at <a href=\"https://wa.me/447344546056\">+44 7344 546056</a> or our <a href=\"/get-a-quote\">Online Quote Estimator</a>.</p>"
   }
 ];

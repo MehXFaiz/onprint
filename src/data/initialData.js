@@ -1681,13 +1681,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Standard A5 Promotional Flyers | ONPRINT Dubai",
       "seoDescription": "Vibrant A5 marketing flyers on 170–300gsm gloss or matte art paper.",
-      "seoKeywords": "",
+      "seoKeywords": "a5 promotional flyers dubai, a5 flyer printing uae, retail handout leaflets dubai, 170gsm a5 flyers dubai",
       "seoHeading": "Standard A5 Promotional Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/a5-promotional-flyers",
       "imageAlt": "Standard A5 Promotional Flyers printing Dubai",
       "seo_title": "Standard A5 Promotional Flyers | ONPRINT Dubai",
       "seo_description": "Vibrant A5 marketing flyers on 170–300gsm gloss or matte art paper.",
-      "seo_keywords": "",
+      "seo_keywords": "a5 promotional flyers dubai, a5 flyer printing uae, retail handout leaflets dubai, 170gsm a5 flyers dubai",
       "seo_heading": "Standard A5 Promotional Flyers",
       "canonical_url": "https://www.0nprint.com/products/a5-promotional-flyers",
       "image_alt": "Standard A5 Promotional Flyers printing Dubai"
@@ -1731,13 +1731,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Standard A4 Business Advertising Flyers | ONPRINT Dubai",
       "seoDescription": "Corporate A4 presentation flyers with sharp text and infographics.",
-      "seoKeywords": "",
+      "seoKeywords": "a4 business flyers dubai, a4 advertising leaflets uae, corporate flyer printing dubai, full page promotional flyers",
       "seoHeading": "Standard A4 Business Advertising Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/a4-business-flyers",
       "imageAlt": "Standard A4 Business Advertising Flyers printing Dubai",
       "seo_title": "Standard A4 Business Advertising Flyers | ONPRINT Dubai",
       "seo_description": "Corporate A4 presentation flyers with sharp text and infographics.",
-      "seo_keywords": "",
+      "seo_keywords": "a4 business flyers dubai, a4 advertising leaflets uae, corporate flyer printing dubai, full page promotional flyers",
       "seo_heading": "Standard A4 Business Advertising Flyers",
       "canonical_url": "https://www.0nprint.com/products/a4-business-flyers",
       "image_alt": "Standard A4 Business Advertising Flyers printing Dubai"
@@ -1781,13 +1781,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "DL Slim Event & Menu Flyers | ONPRINT Dubai",
       "seoDescription": "Tall 99x210mm DL promo cards & restaurant table handouts.",
-      "seoKeywords": "",
+      "seoKeywords": "dl event flyers dubai, slim menu flyers uae, 99x210mm leaflet printing dubai, takeaway menu flyers dubai",
       "seoHeading": "DL Slim Event & Menu Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/dl-event-flyers",
       "imageAlt": "DL Slim Event & Menu Flyers printing Dubai",
       "seo_title": "DL Slim Event & Menu Flyers | ONPRINT Dubai",
       "seo_description": "Tall 99x210mm DL promo cards & restaurant table handouts.",
-      "seo_keywords": "",
+      "seo_keywords": "dl event flyers dubai, slim menu flyers uae, 99x210mm leaflet printing dubai, takeaway menu flyers dubai",
       "seo_heading": "DL Slim Event & Menu Flyers",
       "canonical_url": "https://www.0nprint.com/products/dl-event-flyers",
       "image_alt": "DL Slim Event & Menu Flyers printing Dubai"
@@ -1831,13 +1831,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Luxury Gold Foil & Spot UV Flyers | ONPRINT Dubai",
       "seoDescription": "Metallic gold foil & raised spot UV luxury flyers on 350gsm card.",
-      "seoKeywords": "",
+      "seoKeywords": "luxury gold foil flyers dubai, spot uv promotional invitations uae, velvet laminated flyers dubai, vip event flyer printing",
       "seoHeading": "Luxury Gold Foil & Spot UV Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/luxury-gold-foil-flyers",
       "imageAlt": "Luxury Gold Foil & Spot UV Flyers printing Dubai",
       "seo_title": "Luxury Gold Foil & Spot UV Flyers | ONPRINT Dubai",
       "seo_description": "Metallic gold foil & raised spot UV luxury flyers on 350gsm card.",
-      "seo_keywords": "",
+      "seo_keywords": "luxury gold foil flyers dubai, spot uv promotional invitations uae, velvet laminated flyers dubai, vip event flyer printing",
       "seo_heading": "Luxury Gold Foil & Spot UV Flyers",
       "canonical_url": "https://www.0nprint.com/products/luxury-gold-foil-flyers",
       "image_alt": "Luxury Gold Foil & Spot UV Flyers printing Dubai"
@@ -1881,13 +1881,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Door Hangers Marketing Flyers | ONPRINT Dubai",
       "seoDescription": "Precision die-cut knob hook flyers for hospitality & real estate.",
-      "seoKeywords": "",
+      "seoKeywords": "door hangers printing dubai, hotel door hanger tags uae, die cut door knob flyers dubai, real estate door hangers",
       "seoHeading": "Door Hangers Marketing Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/door-hangers-printing",
       "imageAlt": "Door Hangers Marketing Flyers printing Dubai",
       "seo_title": "Door Hangers Marketing Flyers | ONPRINT Dubai",
       "seo_description": "Precision die-cut knob hook flyers for hospitality & real estate.",
-      "seo_keywords": "",
+      "seo_keywords": "door hangers printing dubai, hotel door hanger tags uae, die cut door knob flyers dubai, real estate door hangers",
       "seo_heading": "Door Hangers Marketing Flyers",
       "canonical_url": "https://www.0nprint.com/products/door-hangers-printing",
       "image_alt": "Door Hangers Marketing Flyers printing Dubai"
@@ -1931,13 +1931,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Postcards & Direct Mail Flyers | ONPRINT Dubai",
       "seoDescription": "Sturdy 350gsm marketing postcards with UV front & mailing back.",
-      "seoKeywords": "",
+      "seoKeywords": "postcards printing dubai, direct mail marketing cards uae, 350gsm promotional postcards dubai, custom printed mailers",
       "seoHeading": "Postcards & Direct Mail Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/postcards-printing",
       "imageAlt": "Postcards & Direct Mail Flyers printing Dubai",
       "seo_title": "Postcards & Direct Mail Flyers | ONPRINT Dubai",
       "seo_description": "Sturdy 350gsm marketing postcards with UV front & mailing back.",
-      "seo_keywords": "",
+      "seo_keywords": "postcards printing dubai, direct mail marketing cards uae, 350gsm promotional postcards dubai, custom printed mailers",
       "seo_heading": "Postcards & Direct Mail Flyers",
       "canonical_url": "https://www.0nprint.com/products/postcards-printing",
       "image_alt": "Postcards & Direct Mail Flyers printing Dubai"
@@ -1981,13 +1981,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Folded Leaflets & Bi-Fold Flyers | ONPRINT Dubai",
       "seoDescription": "4-page bi-fold & half-fold marketing leaflets with crisp creasing.",
-      "seoKeywords": "",
+      "seoKeywords": "folded leaflets dubai, bi fold flyer printing uae, tri fold menu leaflets dubai, z fold promotional brochures",
       "seoHeading": "Folded Leaflets & Bi-Fold Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/folded-leaflets-flyers",
       "imageAlt": "Folded Leaflets & Bi-Fold Flyers printing Dubai",
       "seo_title": "Folded Leaflets & Bi-Fold Flyers | ONPRINT Dubai",
       "seo_description": "4-page bi-fold & half-fold marketing leaflets with crisp creasing.",
-      "seo_keywords": "",
+      "seo_keywords": "folded leaflets dubai, bi fold flyer printing uae, tri fold menu leaflets dubai, z fold promotional brochures",
       "seo_heading": "Folded Leaflets & Bi-Fold Flyers",
       "canonical_url": "https://www.0nprint.com/products/folded-leaflets-flyers",
       "image_alt": "Folded Leaflets & Bi-Fold Flyers printing Dubai"
@@ -2031,13 +2031,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "High-Impact Gloss & Matte Laminated Flyers | ONPRINT Dubai",
       "seoDescription": "Dual-finish flyers: mirror high-gloss or velvety matte lamination.",
-      "seoKeywords": "",
+      "seoKeywords": "gloss laminated flyers dubai, matte laminated leaflets uae, heavy duty promotional flyers dubai, water resistant flyers",
       "seoHeading": "High-Impact Gloss & Matte Laminated Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/gloss-matte-flyers",
       "imageAlt": "High-Impact Gloss & Matte Laminated Flyers printing Dubai",
       "seo_title": "High-Impact Gloss & Matte Laminated Flyers | ONPRINT Dubai",
       "seo_description": "Dual-finish flyers: mirror high-gloss or velvety matte lamination.",
-      "seo_keywords": "",
+      "seo_keywords": "gloss laminated flyers dubai, matte laminated leaflets uae, heavy duty promotional flyers dubai, water resistant flyers",
       "seo_heading": "High-Impact Gloss & Matte Laminated Flyers",
       "canonical_url": "https://www.0nprint.com/products/gloss-matte-flyers",
       "image_alt": "High-Impact Gloss & Matte Laminated Flyers printing Dubai"
@@ -2081,13 +2081,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "A6 Pocket Marketing Flyers | ONPRINT Dubai",
       "seoDescription": "Compact pocket-sized A6 coupon & promotional handbills.",
-      "seoKeywords": "",
+      "seoKeywords": "a6 pocket flyers dubai, mini promotional handouts uae, package insert cards dubai, compact event flyers",
       "seoHeading": "A6 Pocket Marketing Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/a6-pocket-flyers",
       "imageAlt": "A6 Pocket Marketing Flyers printing Dubai",
       "seo_title": "A6 Pocket Marketing Flyers | ONPRINT Dubai",
       "seo_description": "Compact pocket-sized A6 coupon & promotional handbills.",
-      "seo_keywords": "",
+      "seo_keywords": "a6 pocket flyers dubai, mini promotional handouts uae, package insert cards dubai, compact event flyers",
       "seo_heading": "A6 Pocket Marketing Flyers",
       "canonical_url": "https://www.0nprint.com/products/a6-pocket-flyers",
       "image_alt": "A6 Pocket Marketing Flyers printing Dubai"
@@ -2131,13 +2131,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Kraft & Eco-Friendly Recycled Flyers | ONPRINT Dubai",
       "seoDescription": "100% recycled textured brown kraft paper eco marketing flyers.",
-      "seoKeywords": "",
+      "seoKeywords": "kraft eco flyers dubai, recycled paper flyer printing uae, brown kraft promotional leaflets dubai, sustainable printing dubai",
       "seoHeading": "Kraft & Eco-Friendly Recycled Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/kraft-eco-flyers",
       "imageAlt": "Kraft & Eco-Friendly Recycled Flyers printing Dubai",
       "seo_title": "Kraft & Eco-Friendly Recycled Flyers | ONPRINT Dubai",
       "seo_description": "100% recycled textured brown kraft paper eco marketing flyers.",
-      "seo_keywords": "",
+      "seo_keywords": "kraft eco flyers dubai, recycled paper flyer printing uae, brown kraft promotional leaflets dubai, sustainable printing dubai",
       "seo_heading": "Kraft & Eco-Friendly Recycled Flyers",
       "canonical_url": "https://www.0nprint.com/products/kraft-eco-flyers",
       "image_alt": "Kraft & Eco-Friendly Recycled Flyers printing Dubai"
@@ -2181,13 +2181,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Custom Die-Cut Shaped Flyers | ONPRINT Dubai",
       "seoDescription": "Custom contoured shapes, circles & geometric die-cut flyers.",
-      "seoKeywords": "",
+      "seoKeywords": "custom die cut flyers dubai, shaped promotional leaflets uae, bespoke contour cut flyers dubai, custom shape handouts",
       "seoHeading": "Custom Die-Cut Shaped Flyers",
       "canonicalUrl": "https://www.0nprint.com/products/die-cut-flyers",
       "imageAlt": "Custom Die-Cut Shaped Flyers printing Dubai",
       "seo_title": "Custom Die-Cut Shaped Flyers | ONPRINT Dubai",
       "seo_description": "Custom contoured shapes, circles & geometric die-cut flyers.",
-      "seo_keywords": "",
+      "seo_keywords": "custom die cut flyers dubai, shaped promotional leaflets uae, bespoke contour cut flyers dubai, custom shape handouts",
       "seo_heading": "Custom Die-Cut Shaped Flyers",
       "canonical_url": "https://www.0nprint.com/products/die-cut-flyers",
       "image_alt": "Custom Die-Cut Shaped Flyers printing Dubai"
@@ -5591,13 +5591,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Executive Presentation Folders | ONPRINT Dubai",
       "seoDescription": "350gsm silk folders with die-cut card slot & gold foil stamping.",
-      "seoKeywords": "",
+      "seoKeywords": "executive presentation folders dubai, custom pocket folders uae, corporate document folders dubai, die cut folder printing",
       "seoHeading": "Executive Presentation Folders",
       "canonicalUrl": "https://www.0nprint.com/products/presentation-folders",
       "imageAlt": "Executive Presentation Folders printing Dubai",
       "seo_title": "Executive Presentation Folders | ONPRINT Dubai",
       "seo_description": "350gsm silk folders with die-cut card slot & gold foil stamping.",
-      "seo_keywords": "",
+      "seo_keywords": "executive presentation folders dubai, custom pocket folders uae, corporate document folders dubai, die cut folder printing",
       "seo_heading": "Executive Presentation Folders",
       "canonical_url": "https://www.0nprint.com/products/presentation-folders",
       "image_alt": "Executive Presentation Folders printing Dubai"
@@ -5641,13 +5641,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Corporate Printed Envelopes Suite | ONPRINT Dubai",
       "seoDescription": "DL, C5 & C4 branded envelopes with peel-and-seal adhesive flaps.",
-      "seoKeywords": "",
+      "seoKeywords": "corporate printed envelopes dubai, custom dl c4 c5 envelopes uae, branded business envelopes dubai, window envelope printing",
       "seoHeading": "Corporate Printed Envelopes Suite",
       "canonicalUrl": "https://www.0nprint.com/products/printed-envelopes",
       "imageAlt": "Corporate Printed Envelopes Suite printing Dubai",
       "seo_title": "Corporate Printed Envelopes Suite | ONPRINT Dubai",
       "seo_description": "DL, C5 & C4 branded envelopes with peel-and-seal adhesive flaps.",
-      "seo_keywords": "",
+      "seo_keywords": "corporate printed envelopes dubai, custom dl c4 c5 envelopes uae, branded business envelopes dubai, window envelope printing",
       "seo_heading": "Corporate Printed Envelopes Suite",
       "canonical_url": "https://www.0nprint.com/products/printed-envelopes",
       "image_alt": "Corporate Printed Envelopes Suite printing Dubai"
@@ -5691,13 +5691,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Executive Branded Hardcover Notebooks | ONPRINT Dubai",
       "seoDescription": "Custom debossed leather & linen journals with ribbon marker.",
-      "seoKeywords": "",
+      "seoKeywords": "executive branded notebooks dubai, custom hardcover journals uae, debossed pu leather notebooks dubai, corporate diary printing",
       "seoHeading": "Executive Branded Hardcover Notebooks",
       "canonicalUrl": "https://www.0nprint.com/products/executive-notebooks",
       "imageAlt": "Executive Branded Hardcover Notebooks printing Dubai",
       "seo_title": "Executive Branded Hardcover Notebooks | ONPRINT Dubai",
       "seo_description": "Custom debossed leather & linen journals with ribbon marker.",
-      "seo_keywords": "",
+      "seo_keywords": "executive branded notebooks dubai, custom hardcover journals uae, debossed pu leather notebooks dubai, corporate diary printing",
       "seo_heading": "Executive Branded Hardcover Notebooks",
       "canonical_url": "https://www.0nprint.com/products/executive-notebooks",
       "image_alt": "Executive Branded Hardcover Notebooks printing Dubai"
@@ -5741,13 +5741,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Executive Desk Pads & Weekly Planners | ONPRINT Dubai",
       "seoDescription": "A3 weekly planner desk blotters with 50 tear-off sheets.",
-      "seoKeywords": "",
+      "seoKeywords": "executive desk pads dubai, custom weekly planner pads uae, branded A2 A3 desk blotters dubai, corporate tear off desk pads",
       "seoHeading": "Executive Desk Pads & Weekly Planners",
       "canonicalUrl": "https://www.0nprint.com/products/desk-pads-printing",
       "imageAlt": "Executive Desk Pads & Weekly Planners printing Dubai",
       "seo_title": "Executive Desk Pads & Weekly Planners | ONPRINT Dubai",
       "seo_description": "A3 weekly planner desk blotters with 50 tear-off sheets.",
-      "seo_keywords": "",
+      "seo_keywords": "executive desk pads dubai, custom weekly planner pads uae, branded A2 A3 desk blotters dubai, corporate tear off desk pads",
       "seo_heading": "Executive Desk Pads & Weekly Planners",
       "canonical_url": "https://www.0nprint.com/products/desk-pads-printing",
       "image_alt": "Executive Desk Pads & Weekly Planners printing Dubai"
@@ -5791,13 +5791,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "VIP Executive Stationery Gift Set | ONPRINT Dubai",
       "seoDescription": "VIP boxed corporate set: notebook, metal pen, wallet & USB.",
-      "seoKeywords": "",
+      "seoKeywords": "vip stationery gift sets dubai, executive corporate welcome kits uae, luxury notebook pen gift box dubai, employee onboarding sets",
       "seoHeading": "VIP Executive Stationery Gift Set",
       "canonicalUrl": "https://www.0nprint.com/products/stationery-gift-sets",
       "imageAlt": "VIP Executive Stationery Gift Set printing Dubai",
       "seo_title": "VIP Executive Stationery Gift Set | ONPRINT Dubai",
       "seo_description": "VIP boxed corporate set: notebook, metal pen, wallet & USB.",
-      "seo_keywords": "",
+      "seo_keywords": "vip stationery gift sets dubai, executive corporate welcome kits uae, luxury notebook pen gift box dubai, employee onboarding sets",
       "seo_heading": "VIP Executive Stationery Gift Set",
       "canonical_url": "https://www.0nprint.com/products/stationery-gift-sets",
       "image_alt": "VIP Executive Stationery Gift Set printing Dubai"
@@ -5841,13 +5841,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Executive Corporate Letterheads | ONPRINT Dubai",
       "seoDescription": "120gsm smooth FSC corporate letterheads with foil crests.",
-      "seoKeywords": "",
+      "seoKeywords": "executive corporate letterheads dubai, 120gsm conqueror letterhead printing uae, gold foil company letterheads dubai, official stationery",
       "seoHeading": "Executive Corporate Letterheads",
       "canonicalUrl": "https://www.0nprint.com/products/executive-letterheads",
       "imageAlt": "Executive Corporate Letterheads printing Dubai",
       "seo_title": "Executive Corporate Letterheads | ONPRINT Dubai",
       "seo_description": "120gsm smooth FSC corporate letterheads with foil crests.",
-      "seo_keywords": "",
+      "seo_keywords": "executive corporate letterheads dubai, 120gsm conqueror letterhead printing uae, gold foil company letterheads dubai, official stationery",
       "seo_heading": "Executive Corporate Letterheads",
       "canonical_url": "https://www.0nprint.com/products/executive-letterheads",
       "image_alt": "Executive Corporate Letterheads printing Dubai"
@@ -5891,13 +5891,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Custom Corporate Ring Binders & Lever Arch Files | ONPRINT Dubai",
       "seoDescription": "Durable custom printed 2/4-ring presentation file binders.",
-      "seoKeywords": "",
+      "seoKeywords": "custom corporate ring binders dubai, branded lever arch files uae, presentation d ring binders dubai, custom training manuals",
       "seoHeading": "Custom Corporate Ring Binders & Lever Arch Files",
       "canonicalUrl": "https://www.0nprint.com/products/corporate-ring-binders",
       "imageAlt": "Custom Corporate Ring Binders & Lever Arch Files printing Dubai",
       "seo_title": "Custom Corporate Ring Binders & Lever Arch Files | ONPRINT Dubai",
       "seo_description": "Durable custom printed 2/4-ring presentation file binders.",
-      "seo_keywords": "",
+      "seo_keywords": "custom corporate ring binders dubai, branded lever arch files uae, presentation d ring binders dubai, custom training manuals",
       "seo_heading": "Custom Corporate Ring Binders & Lever Arch Files",
       "canonical_url": "https://www.0nprint.com/products/corporate-ring-binders",
       "image_alt": "Custom Corporate Ring Binders & Lever Arch Files printing Dubai"
@@ -5941,13 +5941,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Corporate Desk & Wall Calendars | ONPRINT Dubai",
       "seoDescription": "Wire-o bound triangular easel desk & multi-sheet wall calendars.",
-      "seoKeywords": "",
+      "seoKeywords": "corporate desk calendars dubai, custom wall calendar printing uae, spiral tent calendars dubai, promotional 2026 calendars",
       "seoHeading": "Corporate Desk & Wall Calendars",
       "canonicalUrl": "https://www.0nprint.com/products/wall-desk-calendars",
       "imageAlt": "Corporate Desk & Wall Calendars printing Dubai",
       "seo_title": "Corporate Desk & Wall Calendars | ONPRINT Dubai",
       "seo_description": "Wire-o bound triangular easel desk & multi-sheet wall calendars.",
-      "seo_keywords": "",
+      "seo_keywords": "corporate desk calendars dubai, custom wall calendar printing uae, spiral tent calendars dubai, promotional 2026 calendars",
       "seo_heading": "Corporate Desk & Wall Calendars",
       "canonical_url": "https://www.0nprint.com/products/wall-desk-calendars",
       "image_alt": "Corporate Desk & Wall Calendars printing Dubai"
@@ -5991,13 +5991,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Carbonless NCR Invoice & Receipt Duplicate Books | ONPRINT Dubai",
       "seoDescription": "2-part & 3-part NCR carbonless books with sequential red numbering.",
-      "seoKeywords": "",
+      "seoKeywords": "carbonless ncr books dubai, custom invoice receipt books uae, duplicate triplicate voucher pads dubai, sequential numbered books",
       "seoHeading": "Carbonless NCR Invoice & Receipt Duplicate Books",
       "canonicalUrl": "https://www.0nprint.com/products/ncr-duplicate-books",
       "imageAlt": "Carbonless NCR Invoice & Receipt Duplicate Books printing Dubai",
       "seo_title": "Carbonless NCR Invoice & Receipt Duplicate Books | ONPRINT Dubai",
       "seo_description": "2-part & 3-part NCR carbonless books with sequential red numbering.",
-      "seo_keywords": "",
+      "seo_keywords": "carbonless ncr books dubai, custom invoice receipt books uae, duplicate triplicate voucher pads dubai, sequential numbered books",
       "seo_heading": "Carbonless NCR Invoice & Receipt Duplicate Books",
       "canonical_url": "https://www.0nprint.com/products/ncr-duplicate-books",
       "image_alt": "Carbonless NCR Invoice & Receipt Duplicate Books printing Dubai"
@@ -6041,13 +6041,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "String & Button Tie Document Envelopes | ONPRINT Dubai",
       "seoDescription": "350gsm expandable gusset pouches with string & button closure.",
-      "seoKeywords": "",
+      "seoKeywords": "string tie envelopes dubai, button and string document folders uae, luxury kraft legal envelopes dubai, archival document wallets",
       "seoHeading": "String & Button Tie Document Envelopes",
       "canonicalUrl": "https://www.0nprint.com/products/string-tie-envelopes",
       "imageAlt": "String & Button Tie Document Envelopes printing Dubai",
       "seo_title": "String & Button Tie Document Envelopes | ONPRINT Dubai",
       "seo_description": "350gsm expandable gusset pouches with string & button closure.",
-      "seo_keywords": "",
+      "seo_keywords": "string tie envelopes dubai, button and string document folders uae, luxury kraft legal envelopes dubai, archival document wallets",
       "seo_heading": "String & Button Tie Document Envelopes",
       "canonical_url": "https://www.0nprint.com/products/string-tie-envelopes",
       "image_alt": "String & Button Tie Document Envelopes printing Dubai"
@@ -6091,13 +6091,13 @@ module.exports = {
       "specifications": [],
       "seoTitle": "Custom Branded Sticky Notes & Desktop Memo Cubes | ONPRINT Dubai",
       "seoDescription": "Full-color 4-side printed memo cubes & branded sticky note pads.",
-      "seoKeywords": "",
+      "seoKeywords": "custom branded sticky notes dubai, printed memo cubes uae, promotional adhesive note pads dubai, corporate desk stationery",
       "seoHeading": "Custom Branded Sticky Notes & Desktop Memo Cubes",
       "canonicalUrl": "https://www.0nprint.com/products/sticky-notes-cubes",
       "imageAlt": "Custom Branded Sticky Notes & Desktop Memo Cubes printing Dubai",
       "seo_title": "Custom Branded Sticky Notes & Desktop Memo Cubes | ONPRINT Dubai",
       "seo_description": "Full-color 4-side printed memo cubes & branded sticky note pads.",
-      "seo_keywords": "",
+      "seo_keywords": "custom branded sticky notes dubai, printed memo cubes uae, promotional adhesive note pads dubai, corporate desk stationery",
       "seo_heading": "Custom Branded Sticky Notes & Desktop Memo Cubes",
       "canonical_url": "https://www.0nprint.com/products/sticky-notes-cubes",
       "image_alt": "Custom Branded Sticky Notes & Desktop Memo Cubes printing Dubai"
@@ -8543,6 +8543,596 @@ module.exports = {
       "seo_heading": "Bulk Custom Sticker & Label Printing in Dubai",
       "canonical_url": "https://www.0nprint.com/products/bulk-sticker-printing",
       "image_alt": "High volume bulk sticker printing and wholesale labels in Dubai"
+    },
+    {
+      "_id": "prod-1805",
+      "id": 1805,
+      "product_key": "prod-1805",
+      "name": "Round Company Seal Stamp",
+      "slug": "round-company-stamps",
+      "description": "Official circular corporate seal stamp in Dubai, laser-etched to microscopic precision for UAE LLC agreements, corporate bank account documentation, Ministry approvals, and trade authorizations. Encased in genuine Austrian Trodat Printy circular casing or Colop round casing with concentric Arabic and English company names, registration number, and official corporate emblem.",
+      "shortDescription": "Official circular corporate seal stamp with dual English & Arabic company name and trade license details for Dubai legal documents.",
+      "short_description": "Official circular corporate seal stamp with dual English & Arabic company name and trade license details for Dubai legal documents.",
+      "price": 95,
+      "min_quantity": 1,
+      "minimumQuantity": 1,
+      "minimum_quantity": 1,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stamps/self-inking-company-stamp.jpg"
+      ],
+      "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "image_url": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "category_id": 18,
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 18,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 18,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Trodat Printy 4642 Circular Casing (42mm)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Colop Printer R40 Round Body (40mm)",
+            "priceModifier": 10
+          },
+          {
+            "label": "Heavy-Duty Metal Core Round Stamp",
+            "priceModifier": 40
+          }
+        ],
+        "sizes": [
+          {
+            "label": "Standard Legal Round (40 mm Dia)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Compact Circular Seal (30 mm Dia)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Large Corporate Seal (45 mm Dia)",
+            "priceModifier": 20
+          },
+          {
+            "label": "Extra Large Notary Round (50 mm Dia)",
+            "priceModifier": 35
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Official Blue Ink (Bank & Legal Standard)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Classic Black Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Security Red Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Forest Green Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Royal Violet Ink",
+            "priceModifier": 0
+          }
+        ]
+      },
+      "seoTitle": "Round Company Stamp Dubai | Official Corporate Seal Stamp | ONPRINT",
+      "seoDescription": "Order official round company stamps in Dubai. Trodat & Colop circular company seals for UAE trade license compliance, bank papers, and contracts. Express 2-hour delivery.",
+      "seoKeywords": "round company stamp dubai, corporate seal dubai, circular stamp uae, company seal maker dubai, round rubber stamp uae",
+      "seoHeading": "Round Corporate Seal Stamp Dubai",
+      "canonicalUrl": "https://www.0nprint.com/products/round-company-stamps",
+      "imageAlt": "Round Company Seal Stamp printing Dubai",
+      "seo_title": "Round Company Stamp Dubai | Official Corporate Seal Stamp | ONPRINT",
+      "seo_description": "Order official round company stamps in Dubai. Trodat & Colop circular company seals for UAE trade license compliance, bank papers, and contracts. Express 2-hour delivery.",
+      "seo_keywords": "round company stamp dubai, corporate seal dubai, circular stamp uae, company seal maker dubai, round rubber stamp uae",
+      "seo_heading": "Round Corporate Seal Stamp Dubai",
+      "canonical_url": "https://www.0nprint.com/products/round-company-stamps",
+      "image_alt": "Round Company Seal Stamp printing Dubai"
+    },
+    {
+      "_id": "prod-1806",
+      "id": 1806,
+      "product_key": "prod-1806",
+      "name": "Rectangular Office & Business Stamp",
+      "slug": "rectangular-company-stamps",
+      "description": "Standard rectangular office and company rubber stamp designed for everyday administrative paperwork, tax invoices, delivery notes, purchase orders, and official correspondence across Dubai and the UAE. Accommodates 3 to 6 lines of text including Company Name, PO Box, Emirate, Phone, Email, and TRN.",
+      "shortDescription": "Classic rectangular self-inking office stamp for invoices, delivery notes, and everyday business paperwork in Dubai.",
+      "short_description": "Classic rectangular self-inking office stamp for invoices, delivery notes, and everyday business paperwork in Dubai.",
+      "price": 85,
+      "min_quantity": 1,
+      "minimumQuantity": 1,
+      "minimum_quantity": 1,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stamps/self-inking-company-stamp.jpg"
+      ],
+      "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "image_url": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "category_id": 18,
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 18,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 18,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Trodat Printy 4.0 Eco-Casing",
+            "priceModifier": 0
+          },
+          {
+            "label": "Colop Printer Standard Body",
+            "priceModifier": 0
+          },
+          {
+            "label": "Trodat Heavy-Duty Steel Core",
+            "priceModifier": 45
+          }
+        ],
+        "sizes": [
+          {
+            "label": "Compact 3-Line (38 × 14 mm)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Standard 4-5 Line (47 × 18 mm)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Large Document 6-Line (58 × 22 mm)",
+            "priceModifier": 20
+          },
+          {
+            "label": "Extra Large (70 × 25 mm)",
+            "priceModifier": 35
+          },
+          {
+            "label": "Jumbo Executive (75 × 38 mm)",
+            "priceModifier": 50
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Official Blue Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Classic Black Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Security Red Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Forest Green Ink",
+            "priceModifier": 0
+          }
+        ]
+      },
+      "seoTitle": "Rectangular Company Stamp Dubai | Office Rubber Stamps | ONPRINT",
+      "seoDescription": "Custom rectangular company stamps in Dubai. Multi-line self-inking rubber stamps for invoices, trade license details, and office administration. Same-day Al Quoz dispatch.",
+      "seoKeywords": "rectangular company stamp dubai, office stamps dubai, business stamp dubai, rectangular stamp maker uae, self inking office stamp dubai",
+      "seoHeading": "Rectangular Office & Company Stamp",
+      "canonicalUrl": "https://www.0nprint.com/products/rectangular-company-stamps",
+      "imageAlt": "Rectangular Company Stamp printing Dubai",
+      "seo_title": "Rectangular Company Stamp Dubai | Office Rubber Stamps | ONPRINT",
+      "seo_description": "Custom rectangular company stamps in Dubai. Multi-line self-inking rubber stamps for invoices, trade license details, and office administration. Same-day Al Quoz dispatch.",
+      "seo_keywords": "rectangular company stamp dubai, office stamps dubai, business stamp dubai, rectangular stamp maker uae",
+      "seo_heading": "Rectangular Office & Company Stamp",
+      "canonical_url": "https://www.0nprint.com/products/rectangular-company-stamps",
+      "image_alt": "Rectangular Company Stamp printing Dubai"
+    },
+    {
+      "_id": "prod-1807",
+      "id": 1807,
+      "product_key": "prod-1807",
+      "name": "Name & Personal Signature Stamp",
+      "slug": "name-signature-stamps",
+      "description": "Precision personal name and facsimile signature rubber stamp. Ideal for medical doctors, hospital nurses, chartered accountants, legal advocates, supervising engineers, and C-level executives in Dubai who frequently sign prescription pads, architectural drawings, inspection reports, and purchase authorizations.",
+      "shortDescription": "Compact personal name and signature self-inking stamp for doctors, engineers, accountants, and executives.",
+      "short_description": "Compact personal name and signature self-inking stamp for doctors, engineers, accountants, and executives.",
+      "price": 75,
+      "min_quantity": 1,
+      "minimumQuantity": 1,
+      "minimum_quantity": 1,
+      "unit": "pcs",
+      "featured": false,
+      "active": true,
+      "images": [
+        "/assets/products/stamps/pocket-mobile-stamp.jpg"
+      ],
+      "image": "/assets/products/stamps/pocket-mobile-stamp.jpg",
+      "image_url": "/assets/products/stamps/pocket-mobile-stamp.jpg",
+      "category_id": 18,
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 18,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 18,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Trodat Printy Compact Casing",
+            "priceModifier": 0
+          },
+          {
+            "label": "Colop Pocket Slide Format",
+            "priceModifier": 15
+          },
+          {
+            "label": "Shiny Handy Mobile Shell",
+            "priceModifier": 10
+          }
+        ],
+        "sizes": [
+          {
+            "label": "Single-Line Name (38 × 14 mm)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Name + License No. (47 × 18 mm)",
+            "priceModifier": 10
+          },
+          {
+            "label": "Full Facsimile Signature + Title (58 × 22 mm)",
+            "priceModifier": 25
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Official Blue Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Classic Black Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Security Red Ink",
+            "priceModifier": 0
+          }
+        ]
+      },
+      "seoTitle": "Name Stamp & Signature Stamp Dubai | Personal Rubber Stamps | ONPRINT",
+      "seoDescription": "Order custom name stamps and signature stamps in Dubai. Self-inking doctor, engineer license, and executive facsimile signature stamps with 2-hour express turnaround.",
+      "seoKeywords": "name stamp dubai, signature stamp dubai, doctor stamp dubai, engineer license stamp uae, personal rubber stamp dubai",
+      "seoHeading": "Name & Signature Rubber Stamp",
+      "canonicalUrl": "https://www.0nprint.com/products/name-signature-stamps",
+      "imageAlt": "Name & Signature Stamp printing Dubai",
+      "seo_title": "Name Stamp & Signature Stamp Dubai | Personal Rubber Stamps | ONPRINT",
+      "seo_description": "Order custom name stamps and signature stamps in Dubai. Self-inking doctor, engineer license, and executive facsimile signature stamps with 2-hour express turnaround.",
+      "seo_keywords": "name stamp dubai, signature stamp dubai, doctor stamp dubai, engineer license stamp uae",
+      "seo_heading": "Name & Signature Rubber Stamp",
+      "canonical_url": "https://www.0nprint.com/products/name-signature-stamps",
+      "image_alt": "Name & Signature Stamp printing Dubai"
+    },
+    {
+      "_id": "prod-1808",
+      "id": 1808,
+      "product_key": "prod-1808",
+      "name": "Custom Logo & Brand Rubber Stamp",
+      "slug": "custom-logo-stamps",
+      "description": "Ultra-sharp custom logo rubber stamp laser-etched to 1000 DPI vector fidelity. Reproduces intricate brand logos, decorative crests, coffee cup stamps, paper bag packaging seals, and retail loyalty stamps. Suitable for smooth bond paper, kraft boxes, untreated wood, and unglazed cardboard.",
+      "shortDescription": "High-definition laser-etched rubber stamp reproducing your custom vector logo, emblem, or packaging crest.",
+      "short_description": "High-definition laser-etched rubber stamp reproducing your custom vector logo, emblem, or packaging crest.",
+      "price": 110,
+      "min_quantity": 1,
+      "minimumQuantity": 1,
+      "minimum_quantity": 1,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stamps/self-inking-company-stamp.jpg"
+      ],
+      "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "image_url": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "category_id": 18,
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 18,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 18,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Self-Inking High-Impact Casing",
+            "priceModifier": 0
+          },
+          {
+            "label": "Handcrafted Beechwood Mount + Separate Pad",
+            "priceModifier": 20
+          },
+          {
+            "label": "Heavy Metal Commercial Frame",
+            "priceModifier": 45
+          }
+        ],
+        "sizes": [
+          {
+            "label": "Circular Logo (40 mm Diameter)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Square Brand Stamp (50 × 50 mm)",
+            "priceModifier": 20
+          },
+          {
+            "label": "Large Rectangular Logo (60 × 40 mm)",
+            "priceModifier": 30
+          },
+          {
+            "label": "Coffee Cup / Loyalty Card Mini (20 × 20 mm)",
+            "priceModifier": 0
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Official Blue Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Classic Black Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Security Red Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Forest Green Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Metallic Gold Specialty Ink Pad",
+            "priceModifier": 35
+          }
+        ]
+      },
+      "seoTitle": "Custom Logo Stamp Dubai | Brand Rubber Stamps & Packaging Seals | ONPRINT",
+      "seoDescription": "Laser-etched custom logo stamps in Dubai. Precision rubber stamps with your brand emblem for packaging, cups, contracts, and loyalty cards. Express same-day production.",
+      "seoKeywords": "custom logo stamp dubai, brand rubber stamp uae, custom stamp maker dubai, logo stamp for packaging, custom rubber stamp dubai",
+      "seoHeading": "Custom Logo & Brand Rubber Stamp",
+      "canonicalUrl": "https://www.0nprint.com/products/custom-logo-stamps",
+      "imageAlt": "Custom Logo Stamp printing Dubai",
+      "seo_title": "Custom Logo Stamp Dubai | Brand Rubber Stamps & Packaging Seals | ONPRINT",
+      "seo_description": "Laser-etched custom logo stamps in Dubai. Precision rubber stamps with your brand emblem for packaging, cups, contracts, and loyalty cards. Express same-day production.",
+      "seo_keywords": "custom logo stamp dubai, brand rubber stamp uae, custom stamp maker dubai, logo stamp for packaging, custom rubber stamp dubai",
+      "seo_heading": "Custom Logo & Brand Rubber Stamp",
+      "canonical_url": "https://www.0nprint.com/products/custom-logo-stamps",
+      "image_alt": "Custom Logo Stamp printing Dubai"
+    },
+    {
+      "_id": "prod-1809",
+      "id": 1809,
+      "product_key": "prod-1809",
+      "name": "VAT & TRN Tax Invoice Stamp",
+      "slug": "vat-trn-stamps",
+      "description": "Pre-formatted UAE Federal Tax Authority (FTA) compliant corporate rubber stamp. Displays legal company name in Arabic and English, 15-digit Tax Registration Number (TRN), Authorized Signatory line, and date area. Essential for accounts departments, VAT commercial invoices, tax credit notes, and customs clearance paperwork.",
+      "shortDescription": "Official FTA compliant VAT & TRN rubber stamp with 15-digit Tax Registration Number and authorized signature box.",
+      "short_description": "Official FTA compliant VAT & TRN rubber stamp with 15-digit Tax Registration Number and authorized signature box.",
+      "price": 85,
+      "min_quantity": 1,
+      "minimumQuantity": 1,
+      "minimum_quantity": 1,
+      "unit": "pcs",
+      "featured": false,
+      "active": true,
+      "images": [
+        "/assets/products/stamps/self-inking-company-stamp.jpg"
+      ],
+      "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "image_url": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "category_id": 18,
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 18,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 18,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Trodat Printy 4913 High-Capacity Casing",
+            "priceModifier": 0
+          },
+          {
+            "label": "Colop Printer Line",
+            "priceModifier": 0
+          },
+          {
+            "label": "Heavy-Duty Steel Core for Accounts",
+            "priceModifier": 40
+          }
+        ],
+        "sizes": [
+          {
+            "label": "Standard TRN Box (58 × 22 mm)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Detailed Multi-Emirate TRN (70 × 25 mm)",
+            "priceModifier": 20
+          },
+          {
+            "label": "Compact Invoice Margin (47 × 18 mm)",
+            "priceModifier": 0
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Official Blue Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Classic Black Ink",
+            "priceModifier": 0
+          },
+          {
+            "label": "Security Red Ink",
+            "priceModifier": 0
+          }
+        ]
+      },
+      "seoTitle": "VAT Stamp UAE | TRN Company Stamp Dubai | Tax Invoice Stamp | ONPRINT",
+      "seoDescription": "FTA compliant VAT & TRN rubber stamps in Dubai. Official tax registration number company stamps for commercial invoices and accounts. Express delivery across UAE.",
+      "seoKeywords": "vat stamp uae, trn stamp uae, tax invoice stamp dubai, vat stamp maker dubai, company trn stamp uae",
+      "seoHeading": "VAT & TRN Tax Invoice Company Stamp",
+      "canonicalUrl": "https://www.0nprint.com/products/vat-trn-stamps",
+      "imageAlt": "VAT TRN Company Stamp printing Dubai",
+      "seo_title": "VAT Stamp UAE | TRN Company Stamp Dubai | Tax Invoice Stamp | ONPRINT",
+      "seo_description": "FTA compliant VAT & TRN rubber stamps in Dubai. Official tax registration number company stamps for commercial invoices and accounts. Express delivery across UAE.",
+      "seo_keywords": "vat stamp uae, trn stamp uae, tax invoice stamp dubai, vat stamp maker dubai, company trn stamp uae",
+      "seo_heading": "VAT & TRN Tax Invoice Company Stamp",
+      "canonical_url": "https://www.0nprint.com/products/vat-trn-stamps",
+      "image_alt": "VAT TRN Company Stamp printing Dubai"
+    },
+    {
+      "_id": "prod-1810",
+      "id": 1810,
+      "product_key": "prod-1810",
+      "name": "Custom Stamp Design & Bulk Corporate Stamp Orders",
+      "slug": "bulk-corporate-stamp-orders",
+      "description": "Turnkey corporate stamp provisioning for UAE enterprise groups, multi-branch banks, government contractors, healthcare networks, hospitality chains, and law firms. Includes unified brand template design, bulk trade license verification, volume discounts up to 35%, and scheduled multi-address courier dispatch across all 7 Emirates.",
+      "shortDescription": "Volume corporate stamp manufacturing with unified brand templates, centralized billing, and express multi-branch UAE delivery.",
+      "short_description": "Volume corporate stamp manufacturing with unified brand templates, centralized billing, and express multi-branch UAE delivery.",
+      "price": 70,
+      "min_quantity": 5,
+      "minimumQuantity": 5,
+      "minimum_quantity": 5,
+      "unit": "pcs",
+      "featured": true,
+      "active": true,
+      "images": [
+        "/assets/products/stamps/self-inking-company-stamp.jpg"
+      ],
+      "image": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "image_url": "/assets/products/stamps/self-inking-company-stamp.jpg",
+      "category_id": 18,
+      "category": {
+        "_id": "cat-stamps-printing-dubai",
+        "id": 18,
+        "name": "Custom Stamps & Seals",
+        "slug": "stamps-printing-dubai"
+      },
+      "categories": [
+        {
+          "_id": "cat-stamps-printing-dubai",
+          "id": 18,
+          "name": "Custom Stamps & Seals",
+          "slug": "stamps-printing-dubai"
+        }
+      ],
+      "specifications": {
+        "materials": [
+          {
+            "label": "Trodat Printy Fleet Mix (Rectangular + Round)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Heavy Metal Core Accounts Fleet",
+            "priceModifier": 35
+          },
+          {
+            "label": "Executive Pocket Stamp Fleet",
+            "priceModifier": 20
+          }
+        ],
+        "sizes": [
+          {
+            "label": "Standard Multi-Department Bundle (Assorted Sizes)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Executive 10-Pack (5 Round Seals + 5 Rectangular)",
+            "priceModifier": 0
+          },
+          {
+            "label": "Branch Office Starter Kit (Seal + Dater + TRN + Signature)",
+            "priceModifier": 120
+          }
+        ],
+        "finishes": [
+          {
+            "label": "Standard Corporate Blue & Black Mix",
+            "priceModifier": 0
+          },
+          {
+            "label": "Department Color-Coded Ink Suite",
+            "priceModifier": 25
+          }
+        ]
+      },
+      "seoTitle": "Bulk Corporate Stamp Orders Dubai | Wholesale Stamp Maker UAE | ONPRINT",
+      "seoDescription": "Bulk company stamp orders in Dubai. Wholesale corporate stamps for multi-branch organizations, banks, and enterprises with volume discounts and express UAE delivery.",
+      "seoKeywords": "bulk company stamps dubai, wholesale stamps uae, corporate stamp supplier dubai, bulk rubber stamp orders, enterprise stamp maker uae",
+      "seoHeading": "Bulk Corporate Stamp Orders & Enterprise Fleet Supply",
+      "canonicalUrl": "https://www.0nprint.com/products/bulk-corporate-stamp-orders",
+      "imageAlt": "Bulk Corporate Stamp Orders printing Dubai",
+      "seo_title": "Bulk Corporate Stamp Orders Dubai | Wholesale Stamp Maker UAE | ONPRINT",
+      "seo_description": "Bulk company stamp orders in Dubai. Wholesale corporate stamps for multi-branch organizations, banks, and enterprises with volume discounts and express UAE delivery.",
+      "seo_keywords": "bulk company stamps dubai, wholesale stamps uae, corporate stamp supplier dubai, bulk rubber stamp orders, enterprise stamp maker uae",
+      "seo_heading": "Bulk Corporate Stamp Orders & Enterprise Fleet Supply",
+      "canonical_url": "https://www.0nprint.com/products/bulk-corporate-stamp-orders",
+      "image_alt": "Bulk Corporate Stamp Orders printing Dubai"
     }
   ],
   "orders": [],

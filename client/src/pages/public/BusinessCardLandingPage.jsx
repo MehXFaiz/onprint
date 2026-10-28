@@ -61,6 +61,8 @@ import {
   trackBusinessCardProductView,
   trackCorporateEnquirySubmit,
   trackQualifiedLead,
+  trackQuoteFormStart,
+  trackArtworkUpload,
 } from '../../utils/analytics'
 import { openWhatsAppDirectly,
   formatBusinessCardInquiry, getWhatsAppUrl, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
@@ -725,7 +727,8 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   }, [derivedKey])
 
   const scrollToQuote = (prefillType = null, prefillPaper = null, prefillQty = null) => {
-    if (prefillType || prefillQty) {
+    if (prefillType || prefillPaper || prefillQty) {
+      setHasInteractedWithForm(true)
       setFormState((prev) => ({
         ...prev,
         ...(prefillType ? { cardType: prefillType } : {}),
@@ -736,14 +739,28 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
     quoteFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  const [hasInteractedWithForm, setHasInteractedWithForm] = useState(false)
+
   const handleFormChange = (e) => {
     const { name, value } = e.target
+    if (!hasInteractedWithForm) {
+      setHasInteractedWithForm(true)
+      trackQuoteFormStart({
+        form_name: 'business_card_quote_form',
+        source_page: pageData?.path || '/business-card-printing-dubai',
+        product_name: formState.cardType,
+      })
+    }
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       setArtworkFile(e.target.files[0])
+      trackArtworkUpload({
+        file_count: 1,
+        source_page: pageData?.path || '/business-card-printing-dubai',
+      })
     }
   }
 
@@ -933,14 +950,19 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 <div className="flex flex-wrap items-center gap-3.5 pt-2">
                   <a
                     href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
-                      formatBusinessCardInquiry({
-                        quantity: formState.quantity || undefined,
-                        paper: formState.paper || undefined,
-                        finish: formState.finish || undefined,
-                        sides: 'Double-sided',
-                        location: 'Dubai',
-                        
-                      })
+                      formatBusinessCardInquiry(
+                        hasInteractedWithForm
+                          ? {
+                              cardType: formState.cardType,
+                              quantity: formState.quantity,
+                              size: formState.size,
+                              paper: formState.paper,
+                              finish: formState.finish,
+                              location: formState.deliveryLocation,
+                              notes: formState.notes,
+                            }
+                          : {}
+                      )
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -1688,12 +1710,10 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   <a
                     href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
                       formatBusinessCardInquiry({
-                        quantity: '100',
-                        paper: `${card.gsm} ${card.title}`,
-                        finish: card.popularFinishes?.[0] || 'Matte Lamination',
-                        sides: 'Double-sided',
-                        location: 'Dubai',
                         cardType: card.title,
+                        paper: card.gsm,
+                        finish: (card.popularFinishes || []).join(', '),
+                        specs: card.specs,
                       })
                     )}`}
                     target="_blank"
@@ -1722,6 +1742,181 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               </div>
             </Reveal>
             ))}
+          </div>
+        </section>
+
+        {/* 2B. TAILORED PACKAGES FOR INDIVIDUALS, STARTUPS & CORPORATE/BULK BUYERS + QUOTE CHECKLIST */}
+        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+          <div className="mx-auto max-w-3xl text-center mb-10">
+            <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+              TAILORED ORDERING FOR EVERY BUYER TIER
+            </span>
+            <h2 className="font-display mt-2 text-2xl sm:text-3xl lg:text-4xl font-black text-[#F5F2EB]">
+              Business Card Packages for Individuals, Startups &amp; Corporate Teams
+            </h2>
+            <p className="mt-2 text-sm text-[#A0AEC0]">
+              Whether you need a single 100-card personal box, a multi-founder startup pack, or a 10,000+ card corporate employee rollout across the UAE, choose your buyer profile below for an immediate quotation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {[
+              {
+                badge: 'Individuals & Freelancers',
+                title: 'Personal & Executive Name Cards',
+                qtyRange: '100 – 250 Cards (1 Name)',
+                priceNote: 'From AED 85 (350 GSM) • Luxury Upgrades Available',
+                desc: 'Ideal for consultants, real estate brokers, doctors, and independent professionals who need premium visiting cards in Dubai with fast 4-hour or 24-hour turnaround.',
+                features: [
+                  'Low 100-card minimum order per person',
+                  'Choice of 350–450 GSM Silk/Velvet or 600 GSM Cotton',
+                  'Optional QR code vCard & bilingual Arabic/English sides',
+                  'Same-day 4h express rush or next-day Dubai courier',
+                ],
+                waSpecs: {
+                  cardType: 'Individual / Executive Business Cards (1 Name)',
+                  quantity: '100 - 250 Cards',
+                  paper: '350 GSM Silk or 450 GSM Velvet Soft-Touch',
+                  specs: 'Single-name personal business card run with free PDF proof',
+                },
+                formType: 'Standard 350-400 GSM Silk / Matte',
+                formPaper: '350 GSM Standard Silk / Matte Card',
+                formQty: '100',
+              },
+              {
+                badge: 'Startups & SMEs',
+                title: 'Startup & Founder Multi-Name Packs',
+                qtyRange: '250 – 1,000 Cards (1 to 5 Names)',
+                priceNote: 'From AED 140 • Multi-Founder Batch Splitting',
+                desc: 'Built for DIFC Innovation Hub, Dubai Internet City, and UAE Free Zone startups launching their brand identity for investor meetings, GITEX, and client pitches.',
+                features: [
+                  'Split runs across co-founders & early team members',
+                  'Custom business cards with logo & social media handles',
+                  'Pre-press artwork check or custom layout assistance',
+                  '24K gold foil, Spot UV, or minimalist uncoated stocks',
+                ],
+                waSpecs: {
+                  cardType: 'Startup & Founder Business Card Package',
+                  quantity: '500 Cards (Multi-Founder / Team Pack)',
+                  paper: '400 GSM Matte or 450 GSM Velvet Soft-Touch',
+                  specs: 'Startup team business cards with logo & QR code',
+                },
+                formType: 'Velvet Soft-Touch Laminated',
+                formPaper: '450 GSM Velvet Soft-Touch Board',
+                formQty: '500',
+              },
+              {
+                badge: 'Corporate & Bulk Buyers',
+                title: 'Enterprise Multi-Employee & Bulk Runs',
+                qtyRange: '1,000 – 10,000+ Cards (5 to 500+ Staff)',
+                priceNote: 'Volume Tiered Pricing • TRN Tax Invoicing',
+                desc: 'Centralized corporate business card printing across the UAE for HR, procurement, and marketing departments requiring strict Pantone color consistency and rapid staff re-orders.',
+                features: [
+                  'Locked master template for effortless employee reprints',
+                  'Upload Excel staff roster for automated bilingual proofs',
+                  'Heidelberg offset & HP Indigo Pantone calibration',
+                  'Official UAE VAT tax invoice & multi-branch delivery',
+                ],
+                waSpecs: {
+                  cardType: 'Corporate Bulk / Multi-Employee Business Cards',
+                  quantity: '1,000+ Cards (Corporate Multi-Staff Batch)',
+                  paper: '350-450 GSM Corporate Standard (Double-Sided)',
+                  specs: 'Bilingual English/Arabic corporate template + UAE VAT invoice',
+                },
+                formType: 'Corporate Multi-Name Batch',
+                formPaper: '400 GSM Heavyweight Matte Coating',
+                formQty: '1000',
+              },
+            ].map((pkg) => (
+              <div
+                key={pkg.title}
+                className="rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-7 shadow-lg flex flex-col justify-between hover:border-[#D4AF65] transition-all"
+              >
+                <div>
+                  <span className="inline-block rounded-full bg-[#D4AF65]/15 border border-[#D4AF65]/40 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#D4AF65]">
+                    {pkg.badge}
+                  </span>
+                  <h3 className="font-display text-xl font-black text-white mt-3">
+                    {pkg.title}
+                  </h3>
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-xl bg-[#101D35] border border-[#203357] px-3.5 py-2">
+                    <span className="text-xs font-black text-[#D4AF65]">{pkg.qtyRange}</span>
+                    <span className="text-[10.5px] font-semibold text-slate-300">{pkg.priceNote}</span>
+                  </div>
+                  <p className="mt-3 text-xs text-slate-300 leading-relaxed">
+                    {pkg.desc}
+                  </p>
+                  <ul className="mt-4 space-y-2 border-t border-[#203357] pt-4 text-xs text-slate-200">
+                    {pkg.features.map((feat) => (
+                      <li key={feat} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-[#203357] grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <a
+                    href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+                      formatBusinessCardInquiry(pkg.waSpecs)
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackBusinessCardWhatsAppClick({
+                        source_page: pageData?.path || '/business-card-printing-dubai',
+                        service: 'business-cards',
+                        product_name: pkg.title,
+                        button_location: `buyer_segment_${pkg.badge.toLowerCase().replace(/[^a-z0-9]+/g, '_')}`,
+                      })
+                    }}
+                    className="w-full rounded-xl bg-[#25D366] hover:bg-[#20ba59] py-2.5 px-3 text-[11px] font-bold text-white transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm"
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
+                    <span>WhatsApp Quote</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => scrollToQuote(pkg.formType, pkg.formPaper, pkg.formQty)}
+                    className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#C49E52] py-2.5 px-3 text-[11px] font-black uppercase tracking-wider text-[#101D35] transition-all cursor-pointer flex items-center justify-center gap-1"
+                  >
+                    <span>Select Package</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* What Information Customers Should Provide for an Instant Quote */}
+          <div className="mt-8 rounded-3xl border border-[#203357] bg-[#101D35] p-6 sm:p-8 shadow-md">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div className="max-w-xl">
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#D4AF65]">
+                  FAST QUOTATION CHECKLIST
+                </span>
+                <h3 className="font-display text-lg sm:text-xl font-black text-white mt-1">
+                  What Information to Share for an Instant Business Card Quote
+                </h3>
+                <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                  When messaging our print estimators on WhatsApp ({FORMATTED_PHONE}) or submitting the quote form, sharing these 4 details lets us reply with an exact price and turnaround within minutes:
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 flex-1">
+                {[
+                  { step: '1. Quantity & Names', detail: 'Total cards required (100, 250, 500, 1,000+) and number of employee names.' },
+                  { step: '2. Paper & Finish', detail: '350 GSM Silk, 450 GSM Velvet, or 600 GSM Cotton + Foil, Spot UV, or Embossing.' },
+                  { step: '3. Artwork or Design', detail: 'Attach your PDF/AI logo file, or let us know if you need layout/typesetting help.' },
+                  { step: '4. Delivery & Timeline', detail: 'Your office area in Dubai/UAE and whether you need 4h same-day or 24-48h dispatch.' },
+                ].map((item) => (
+                  <div key={item.step} className="rounded-2xl border border-[#203357] bg-[#172644] p-3.5">
+                    <span className="text-xs font-black text-[#D4AF65] block">{item.step}</span>
+                    <p className="text-[11px] text-slate-300 mt-1 leading-relaxed">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -2126,14 +2321,19 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           <div className="mt-8 text-center">
             <a
               href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
-                formatBusinessCardInquiry({
-                  quantity: '100',
-                  paper: '350 GSM Silk',
-                  finish: 'Matte Lamination',
-                  sides: 'Double-sided',
-                  location: 'Dubai',
-                  
-                })
+                formatBusinessCardInquiry(
+                  hasInteractedWithForm
+                    ? {
+                        cardType: formState.cardType,
+                        quantity: formState.quantity,
+                        size: formState.size,
+                        paper: formState.paper,
+                        finish: formState.finish,
+                        location: formState.deliveryLocation,
+                        notes: formState.notes,
+                      }
+                    : {}
+                )
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -2689,14 +2889,19 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
               <a
                 href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
-                  formatBusinessCardInquiry({
-                    quantity: formState.quantity || undefined,
-                    paper: formState.paper || undefined,
-                    finish: formState.finish || undefined,
-                    sides: 'Double-sided',
-                    location: 'Dubai',
-                    
-                  })
+                  formatBusinessCardInquiry(
+                    hasInteractedWithForm
+                      ? {
+                          cardType: formState.cardType,
+                          quantity: formState.quantity,
+                          size: formState.size,
+                          paper: formState.paper,
+                          finish: formState.finish,
+                          location: formState.deliveryLocation,
+                          notes: formState.notes,
+                        }
+                      : {}
+                  )
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -2742,14 +2947,19 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </div>
         <a
           href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
-            formatBusinessCardInquiry({
-              quantity: formState.quantity || undefined,
-              paper: formState.paper || undefined,
-              finish: formState.finish || undefined,
-              sides: 'Double-sided',
-              location: 'Dubai',
-              
-            })
+            formatBusinessCardInquiry(
+              hasInteractedWithForm
+                ? {
+                    cardType: formState.cardType,
+                    quantity: formState.quantity,
+                    size: formState.size,
+                    paper: formState.paper,
+                    finish: formState.finish,
+                    location: formState.deliveryLocation,
+                    notes: formState.notes,
+                  }
+                : {}
+            )
           )}`}
           target="_blank"
           rel="noopener noreferrer"

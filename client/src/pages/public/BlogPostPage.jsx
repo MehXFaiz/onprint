@@ -388,7 +388,7 @@ export default function BlogPostPage() {
 
             {/* WhatsApp */}
             <a
-              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(shareTitle + ' ' + shareUrl)}`}
+              href={`https://wa.me/447344546056?text=${encodeURIComponent('Hello ONPRINT, I just read "' + shareTitle + '" (' + shareUrl + ') and would like a printing quotation.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-8 w-8 rounded-lg border border-border bg-background text-secondary hover:border-accent hover:text-accent transition-colors"

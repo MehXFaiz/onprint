@@ -1,4 +1,7 @@
 import api from './api'
+import { generateEntitySeoDraft, slugifyText } from '../utils/seoDraftGenerator'
+
+const SERVICES_STORAGE_KEY = 'onprint_admin_services_v2'
 
 export const defaultServices = [
   {
@@ -195,17 +198,155 @@ export const defaultServices = [
   },
 ]
 
+export function getStoredServices() {
+  try {
+    const saved = localStorage.getItem(SERVICES_STORAGE_KEY)
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        const existingSlugs = new Set(parsed.map((s) => s.slug))
+        const missing = defaultServices.filter((ds) => !existingSlugs.has(ds.slug))
+        return missing.length > 0 ? [...parsed, ...missing] : parsed
+      }
+    }
+  } catch {
+    // ignore
+  }
+  return defaultServices
+}
+
+export function saveServices(services) {
+  try {
+    localStorage.setItem(SERVICES_STORAGE_KEY, JSON.stringify(services))
+  } catch {
+    // ignore
+  }
+}
+
+export function addService(serviceData) {
+  const current = getStoredServices()
+  const slug = serviceData.slug || slugifyText(serviceData.name || 'service')
+  const draftSeo = generateEntitySeoDraft({
+    entityType: 'service',
+    name: serviceData.name,
+    slug,
+    categoryName: serviceData.category?.name || serviceData.category || 'Commercial Printing',
+    shortDescription: serviceData.shortDescription || serviceData.short_description || '',
+    description: serviceData.description || '',
+    existingCatalogItems: current,
+  })
+
+  const finalSeoTitle = serviceData.seoTitle || serviceData.seo_title || draftSeo.seoTitle
+  const finalSeoDescription = serviceData.seoDescription || serviceData.seo_description || draftSeo.seoDescription
+  const finalSeoKeywords = serviceData.seoKeywords || serviceData.seo_keywords || draftSeo.seoKeywords
+  const finalSeoHeading = serviceData.seoHeading || serviceData.seo_heading || draftSeo.seoHeading
+  const finalCanonicalUrl = serviceData.canonicalUrl || serviceData.canonical_url || draftSeo.canonicalUrl
+  const finalImageAlt = serviceData.imageAlt || serviceData.image_alt || draftSeo.imageAlt
+
+  const newService = {
+    _id: `serv-${Date.now()}`,
+    id: Date.now(),
+    slug,
+    active: serviceData.active !== false,
+    order: Number(serviceData.order || current.length + 1),
+    ...serviceData,
+    image: serviceData.image || serviceData.image_url || '/uploads/categories/business-cards-printing.jpg',
+    image_url: serviceData.image_url || serviceData.image || '/uploads/categories/business-cards-printing.jpg',
+    seoTitle: finalSeoTitle,
+    seo_title: finalSeoTitle,
+    seoDescription: finalSeoDescription,
+    seo_description: finalSeoDescription,
+    seoKeywords: finalSeoKeywords,
+    seo_keywords: finalSeoKeywords,
+    seoHeading: finalSeoHeading,
+    seo_heading: finalSeoHeading,
+    canonicalUrl: finalCanonicalUrl,
+    canonical_url: finalCanonicalUrl,
+    imageAlt: finalImageAlt,
+    image_alt: finalImageAlt,
+    seoReviewStatus: serviceData.seoReviewStatus || 'needs_review',
+  }
+
+  const updated = [newService, ...current]
+  saveServices(updated)
+  api.post('/services', newService).catch(() => {})
+  return newService
+}
+
+export function updateService(serviceId, serviceData) {
+  const current = getStoredServices()
+  const targetId = String(serviceId)
+  const idx = current.findIndex(
+    (s) => String(s._id || s.id) === targetId || (serviceData.slug && s.slug === serviceData.slug)
+  )
+
+  if (idx === -1) {
+    return addService(serviceData)
+  }
+
+  const existing = current[idx]
+  const resolvedSlug = serviceData.slug || existing.slug
+  const draftSeo = generateEntitySeoDraft({
+    entityType: 'service',
+    name: serviceData.name || existing.name,
+    slug: resolvedSlug,
+    categoryName: serviceData.category?.name || existing.category?.name || 'Commercial Printing',
+    shortDescription: serviceData.shortDescription || existing.shortDescription || '',
+    description: serviceData.description || existing.description || '',
+    existingCatalogItems: current,
+  })
+
+  const finalSeoTitle = serviceData.seoTitle || existing.seoTitle || draftSeo.seoTitle
+  const finalSeoDescription = serviceData.seoDescription || existing.seoDescription || draftSeo.seoDescription
+  const finalSeoKeywords = serviceData.seoKeywords || existing.seoKeywords || draftSeo.seoKeywords
+  const finalSeoHeading = serviceData.seoHeading || existing.seoHeading || draftSeo.seoHeading
+  const finalCanonicalUrl = serviceData.canonicalUrl || existing.canonicalUrl || draftSeo.canonicalUrl
+  const finalImageAlt = serviceData.imageAlt || existing.imageAlt || draftSeo.imageAlt
+
+  const updatedItem = {
+    ...existing,
+    ...serviceData,
+    slug: resolvedSlug,
+    seoTitle: finalSeoTitle,
+    seo_title: finalSeoTitle,
+    seoDescription: finalSeoDescription,
+    seo_description: finalSeoDescription,
+    seoKeywords: finalSeoKeywords,
+    seo_keywords: finalSeoKeywords,
+    seoHeading: finalSeoHeading,
+    seo_heading: finalSeoHeading,
+    canonicalUrl: finalCanonicalUrl,
+    canonical_url: finalCanonicalUrl,
+    imageAlt: finalImageAlt,
+    image_alt: finalImageAlt,
+    seoReviewStatus: serviceData.seoReviewStatus || existing.seoReviewStatus || 'approved',
+  }
+
+  current[idx] = updatedItem
+  saveServices(current)
+  api.put(`/services/${existing.id || existing._id || targetId}`, updatedItem).catch(() => {})
+  return updatedItem
+}
+
+export function deleteService(serviceId) {
+  const current = getStoredServices()
+  const updated = current.filter((s) => String(s._id || s.id) !== String(serviceId))
+  saveServices(updated)
+  return updated
+}
+
 export async function getServices() {
+  const stored = getStoredServices()
   try {
     const { data } = await api.get('/services')
     if (data?.data && Array.isArray(data.data) && data.data.length > 0) {
       const existingSlugs = new Set(data.data.map((s) => s.slug))
-      const missing = defaultServices.filter((ds) => !existingSlugs.has(ds.slug))
+      const missing = stored.filter((ds) => !existingSlugs.has(ds.slug))
       return missing.length > 0 ? [...data.data, ...missing] : data.data
     }
-    return defaultServices
+    return stored
   } catch {
-    return defaultServices
+    return stored
   }
 }
 
@@ -218,18 +359,19 @@ export async function getServiceBySlug(slug) {
   } catch {
     // Fallback if API server is offline or returns an error
   }
-  const found = defaultServices.find((s) => s.slug === slug)
+  const stored = getStoredServices()
+  const found = stored.find((s) => s.slug === slug || String(s._id || s.id) === String(slug))
   if (found) return found
 
   // Fallback slug aliases
   if (slug === 'sticker-printing-dubai' || slug === 'sticker-printing') {
-    return defaultServices.find((s) => s.slug === 'stickers-labels-printing')
+    return stored.find((s) => s.slug === 'stickers-labels-printing')
   }
   if (slug === 'rollup-banner-printing-dubai' || slug === 'roll-up-banners' || slug === 'rollup-banner') {
-    return defaultServices.find((s) => s.slug === 'rollup-banners')
+    return stored.find((s) => s.slug === 'rollup-banners')
   }
   if (slug === 'custom-stamps-dubai' || slug === 'stamp-printing-dubai' || slug === 'stamps') {
-    return defaultServices.find((s) => s.slug === 'stamps-printing-dubai')
+    return stored.find((s) => s.slug === 'stamps-printing-dubai')
   }
 
   throw new Error('Service not found')

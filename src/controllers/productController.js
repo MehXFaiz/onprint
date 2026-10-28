@@ -298,6 +298,13 @@ async function createProduct(req, res, next) {
     if (!name) throw new ApiError(400, 'Product name is required')
 
     const cleanSlug = generateSlug(slug || name)
+    const cleanNameLower = name.trim().toLowerCase().replace(/\s+in\s+dubai$/i, '').replace(/\s+dubai$/i, '')
+    const defaultSeoKeywords = `${cleanNameLower} dubai, custom ${cleanNameLower} uae, ${cleanNameLower} printing dubai, order ${cleanNameLower} dubai`
+    const defaultSeoTitle = `${name.trim()} Dubai | Custom Printing UAE | ONPRINT`
+    const defaultSeoDesc =
+      shortDescription ||
+      description ||
+      `Order custom ${name.trim()} in Dubai & across the UAE. Precision commercial printing, artwork verification, and fast WhatsApp quotation.`
 
     const [result] = await connection.execute(
       `INSERT INTO products 
@@ -313,11 +320,11 @@ async function createProduct(req, res, next) {
         price || 0,
         minimumQuantity || 1,
         featured ? 1 : 0,
-        seoTitle || `${name} | ONPRINT Dubai`,
-        seoDescription || shortDescription || description || '',
-        seoKeywords || '',
-        seoHeading || name,
-        imageAlt || name,
+        seoTitle || defaultSeoTitle,
+        seoDescription || defaultSeoDesc,
+        seoKeywords || defaultSeoKeywords,
+        seoHeading || `${name.trim()} in Dubai`,
+        imageAlt || `${name.trim()} - Custom Commercial Printing in Dubai, UAE`,
         `https://www.0nprint.com/products/${cleanSlug}`,
       ]
     )

@@ -1,10 +1,11 @@
 import api from './api'
 import catalogProducts from '../data/catalogProducts.json'
 import { resolveCanonicalCategorySlug } from '../utils/categoryMapping'
+import { generateEntitySeoDraft } from '../utils/seoDraftGenerator'
 
 export const defaultProducts = catalogProducts
 
-const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v8'
+const PRODUCTS_STORAGE_KEY = 'onprint_admin_products_v9'
 
 export function getStoredProducts() {
   try {
@@ -250,6 +251,26 @@ export function addProduct(productData) {
       ? [primaryImg]
       : []
 
+  const draftSeo = generateEntitySeoDraft({
+    entityType: 'product',
+    name: productData.name,
+    slug,
+    categoryName: productData.category?.name || '',
+    categorySlug: productData.category?.slug || '',
+    shortDescription: productData.shortDescription || productData.short_description || '',
+    description: productData.description || '',
+    price: productData.price,
+    minimumQuantity: productData.minimumQuantity || productData.min_quantity,
+    existingCatalogItems: current,
+  })
+
+  const finalSeoTitle = productData.seoTitle || productData.seo_title || draftSeo.seoTitle
+  const finalSeoDescription = productData.seoDescription || productData.seo_description || draftSeo.seoDescription
+  const finalSeoKeywords = productData.seoKeywords || productData.seo_keywords || draftSeo.seoKeywords
+  const finalSeoHeading = productData.seoHeading || productData.seo_heading || draftSeo.seoHeading
+  const finalCanonicalUrl = productData.canonicalUrl || productData.canonical_url || draftSeo.canonicalUrl
+  const finalImageAlt = productData.imageAlt || productData.image_alt || draftSeo.imageAlt
+
   const newProduct = {
     _id: `prod-${Date.now()}`,
     slug,
@@ -260,12 +281,25 @@ export function addProduct(productData) {
     _isCustom: true,
     _updatedAt: Date.now(),
     ...productData,
+    seoTitle: finalSeoTitle,
+    seo_title: finalSeoTitle,
+    seoDescription: finalSeoDescription,
+    seo_description: finalSeoDescription,
+    seoKeywords: finalSeoKeywords,
+    seo_keywords: finalSeoKeywords,
+    seoHeading: finalSeoHeading,
+    seo_heading: finalSeoHeading,
+    canonicalUrl: finalCanonicalUrl,
+    canonical_url: finalCanonicalUrl,
+    imageAlt: finalImageAlt,
+    image_alt: finalImageAlt,
+    seoReviewStatus: productData.seoReviewStatus || 'needs_review',
   }
   const updated = [newProduct, ...current]
   saveProducts(updated)
 
   // Sync to API in background if possible
-  api.post('/products', productData).catch(() => {})
+  api.post('/products', newProduct).catch(() => {})
 
   return newProduct
 }
@@ -291,14 +325,48 @@ export function updateProduct(productId, productData) {
   }
 
   const existing = current[idx]
+  const resolvedSlug = productData.slug || existing.slug
+  const draftSeo = generateEntitySeoDraft({
+    entityType: 'product',
+    name: productData.name || existing.name,
+    slug: resolvedSlug,
+    categoryName: productData.category?.name || existing.category?.name || '',
+    categorySlug: productData.category?.slug || existing.category?.slug || '',
+    shortDescription: productData.shortDescription || existing.shortDescription || '',
+    description: productData.description || existing.description || '',
+    price: productData.price ?? existing.price,
+    minimumQuantity: productData.minimumQuantity ?? existing.minimumQuantity,
+    existingCatalogItems: current,
+  })
+
+  const finalSeoTitle = productData.seoTitle || existing.seoTitle || draftSeo.seoTitle
+  const finalSeoDescription = productData.seoDescription || existing.seoDescription || draftSeo.seoDescription
+  const finalSeoKeywords = productData.seoKeywords || existing.seoKeywords || draftSeo.seoKeywords
+  const finalSeoHeading = productData.seoHeading || existing.seoHeading || draftSeo.seoHeading
+  const finalCanonicalUrl = productData.canonicalUrl || existing.canonicalUrl || draftSeo.canonicalUrl
+  const finalImageAlt = productData.imageAlt || existing.imageAlt || draftSeo.imageAlt
+
   const updatedItem = {
     ...existing,
     ...productData,
     _id: existing._id || existing.id || targetId,
     id: existing.id || targetId,
-    slug: productData.slug || existing.slug,
+    slug: resolvedSlug,
     image: primaryImg || existing.image || '',
     images: imgList.length > 0 ? imgList : (existing.images || (existing.image ? [existing.image] : [])),
+    seoTitle: finalSeoTitle,
+    seo_title: finalSeoTitle,
+    seoDescription: finalSeoDescription,
+    seo_description: finalSeoDescription,
+    seoKeywords: finalSeoKeywords,
+    seo_keywords: finalSeoKeywords,
+    seoHeading: finalSeoHeading,
+    seo_heading: finalSeoHeading,
+    canonicalUrl: finalCanonicalUrl,
+    canonical_url: finalCanonicalUrl,
+    imageAlt: finalImageAlt,
+    image_alt: finalImageAlt,
+    seoReviewStatus: productData.seoReviewStatus || existing.seoReviewStatus || 'approved',
     _isCustom: true,
     _updatedAt: Date.now(),
   }
@@ -307,7 +375,7 @@ export function updateProduct(productId, productData) {
   saveProducts(current)
 
   // Sync to backend API in background if available
-  api.put(`/products/${existing.id || existing._id || targetId}`, productData).catch(() => {})
+  api.put(`/products/${existing.id || existing._id || targetId}`, updatedItem).catch(() => {})
 
   return updatedItem
 }

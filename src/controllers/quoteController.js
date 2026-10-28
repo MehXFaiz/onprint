@@ -28,9 +28,21 @@ async function createQuote(req, res, next) {
       staffNotes,
     } = req.body
 
-    if (!name || !email) {
-      throw new ApiError(400, 'Name and email are required to request a quote')
+    // Honeypot anti-spam check
+    if (req.body.website_url || req.body.honeypot) {
+      return res.status(200).json({ success: true, message: 'Quote request received.' })
     }
+
+    if (!name || (!email && !phone)) {
+      throw new ApiError(400, 'Customer name and either phone/WhatsApp or email are required to request a quote')
+    }
+
+    // Validate artwork file extensions if provided
+    const allowedExts = /\.(pdf|ai|eps|psd|png|jpg|jpeg|svg|webp|tif|tiff|zip)$/i
+    const rawFiles = Array.isArray(artworkFiles) ? artworkFiles : artworkFile ? [artworkFile] : []
+    const safeArtworkFiles = rawFiles
+      .map((f) => String(typeof f === 'object' ? f?.name || f?.url || '' : f).trim())
+      .filter((f) => f && (allowedExts.test(f) || f.startsWith('/uploads/') || f.startsWith('http')))
 
     const randomSeq = Math.floor(100000 + Math.random() * 900000)
     const quoteNumber = req.body.quoteNumber || req.body.orderNumber || `ONP-Q-${randomSeq}`
@@ -53,8 +65,8 @@ async function createQuote(req, res, next) {
       finishes: Array.isArray(finishes) ? finishes : (finishes ? [finishes] : []),
       deliveryUrgency: deliveryUrgency || 'Standard',
       deliveryLocation: deliveryLocation || 'Dubai',
-      artworkFile: artworkFile || null,
-      artworkFiles: Array.isArray(artworkFiles) ? artworkFiles : (artworkFile ? [artworkFile] : []),
+      artworkFile: safeArtworkFiles[0] || artworkFile || null,
+      artworkFiles: safeArtworkFiles,
       totalPrice: finalPrice,
       estimatedPrice: finalPrice,
       staffNotes: staffNotes || null,

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { ArrowLeft, ChevronRight, Wrench, Save, Image as ImageIcon, Search, Globe } from 'lucide-react'
+import { ArrowLeft, ChevronRight, Wrench, Save, Image as ImageIcon, Search, Globe, Sparkles, CheckCircle2 } from 'lucide-react'
 import Button from '../../components/Button'
 import ImageUploader from '../../components/ImageUploader'
-import { getServices } from '../../services/services'
+import { getServices, getStoredServices, addService, updateService } from '../../services/services'
+import { generateEntitySeoDraft } from '../../utils/seoDraftGenerator'
 
 export default function AdminServiceFormPage() {
   const navigate = useNavigate()
@@ -28,6 +29,7 @@ export default function AdminServiceFormPage() {
     seoKeywords: '',
     seoHeading: '',
     imageAlt: '',
+    seoReviewStatus: 'approved',
   })
 
   useEffect(() => {
@@ -49,6 +51,7 @@ export default function AdminServiceFormPage() {
             seoKeywords: found.seoKeywords || '',
             seoHeading: found.seoHeading || '',
             imageAlt: found.imageAlt || '',
+            seoReviewStatus: found.seoReviewStatus || 'approved',
           })
           setSlugEdited(true)
         }
@@ -78,6 +81,33 @@ export default function AdminServiceFormPage() {
     }))
   }
 
+  const handleGenerateSeoDraft = () => {
+    if (!form.name.trim()) {
+      setError('Please enter a Service Name first so the SEO engine can generate accurate metadata.')
+      return
+    }
+    setError(null)
+    const allServices = getStoredServices()
+    const draft = generateEntitySeoDraft({
+      entityType: 'service',
+      name: form.name.trim(),
+      slug: form.slug || form.name,
+      shortDescription: form.shortDescription,
+      description: form.description,
+      existingCatalogItems: allServices,
+    })
+    setForm((prev) => ({
+      ...prev,
+      slug: prev.slug || draft.slug,
+      seoTitle: draft.seoTitle,
+      seoDescription: draft.seoDescription,
+      seoKeywords: draft.seoKeywords,
+      seoHeading: draft.seoHeading,
+      imageAlt: prev.imageAlt || draft.imageAlt,
+      seoReviewStatus: 'needs_review',
+    }))
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!form.name.trim()) {
@@ -86,11 +116,39 @@ export default function AdminServiceFormPage() {
     }
 
     setSubmitting(true)
-    setTimeout(() => {
+    try {
+      const cleanSlug = form.slug.trim() || slugify(form.name.trim())
+      const payload = {
+        name: form.name.trim(),
+        slug: cleanSlug,
+        shortDescription: form.shortDescription,
+        description: form.description || form.shortDescription,
+        image: form.image || '/uploads/categories/business-cards-printing.jpg',
+        image_url: form.image || '/uploads/categories/business-cards-printing.jpg',
+        active: form.status === 'active',
+        order: Number(form.displayOrder || 0),
+        seoTitle: form.seoTitle,
+        seoDescription: form.seoDescription,
+        seoKeywords: form.seoKeywords,
+        seoHeading: form.seoHeading,
+        imageAlt: form.imageAlt,
+        canonicalUrl: `https://www.0nprint.com/services/${cleanSlug}`,
+        seoReviewStatus: form.seoReviewStatus || 'needs_review',
+      }
+
+      if (isEdit) {
+        updateService(id, payload)
+      } else {
+        addService(payload)
+      }
+
       navigate('/admin/services', {
         state: { toast: `Service "${form.name}" ${isEdit ? 'updated' : 'created'} successfully.` },
       })
-    }, 300)
+    } catch (err) {
+      setError(err.message || 'Failed to save service.')
+      setSubmitting(false)
+    }
   }
 
   if (loading) {
@@ -231,12 +289,36 @@ export default function AdminServiceFormPage() {
 
           {/* SEO Card */}
           <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
-            <div className="flex items-center gap-2 border-b border-[#1E2C4F] pb-3">
-              <Search className="h-4 w-4 text-[#D6C29A]" />
-              <h2 className="font-display text-base font-bold text-[#F5F3EE]">
-                Google Search Optimization (SEO)
-              </h2>
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#1E2C4F] pb-3">
+              <div className="flex items-center gap-2">
+                <Search className="h-4 w-4 text-[#D6C29A]" />
+                <h2 className="font-display text-base font-bold text-[#F5F3EE]">
+                  Google Search &amp; AI Answer Optimization (SEO + GEO)
+                </h2>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <select
+                  value={form.seoReviewStatus}
+                  onChange={(e) => setForm((prev) => ({ ...prev, seoReviewStatus: e.target.value }))}
+                  className="rounded-lg border border-[#1E2C4F] bg-[#0B132B] px-2.5 py-1.5 text-[11px] font-bold text-[#D6C29A] focus:border-[#D6C29A] focus:outline-none"
+                >
+                  <option value="needs_review">Status: Draft (Needs Admin Review)</option>
+                  <option value="approved">Status: Reviewed &amp; Approved</option>
+                </select>
+                <button
+                  type="button"
+                  onClick={handleGenerateSeoDraft}
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-[#D6C29A] px-3 py-1.5 text-xs font-extrabold text-[#0B132B] hover:bg-[#e5d4b0] transition-colors"
+                >
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Auto-Generate SEO Draft
+                </button>
+              </div>
             </div>
+            <p className="text-[11px] text-[#B8C2D9]">
+              <CheckCircle2 className="inline h-3.5 w-3.5 text-emerald-400 mr-1 -mt-0.5" />
+              Generates unique Dubai/UAE SEO Title, Meta Description, H1, Primary + Secondary Keywords, Canonical URL, and Image Alt text from your service data.
+            </p>
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-1">

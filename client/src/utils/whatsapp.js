@@ -50,84 +50,84 @@ export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 // 2. Official Core Service Prefilled Inquiries (Clean, Direct & High-Converting)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    'Hello ONPRINT, I need custom business cards in Dubai. Please help me choose a suitable paper, finish and quantity and provide a quotation.',
+    'Hello ONPRINT, I am interested in business cards. Please provide a quotation for my required quantity and finish.',
   'business-cards-printing':
-    'Hello ONPRINT, I need custom business cards in Dubai. Please help me choose a suitable paper, finish and quantity and provide a quotation.',
+    'Hello ONPRINT, I am interested in business cards. Please provide a quotation for my required quantity and finish.',
   'business-card-printing-dubai':
-    'Hello ONPRINT, I need custom business cards in Dubai. Please help me choose a suitable paper, finish and quantity and provide a quotation.',
+    'Hello ONPRINT, I am interested in business cards. Please provide a quotation for my required quantity and finish.',
   'business-card-printing-uae':
-    'Hello ONPRINT, I would like a quotation for corporate business cards across the UAE. Please share available card stocks, volume prices, and delivery schedule.',
+    'Hello ONPRINT, I am interested in business cards. Please provide a quotation for my required quantity and finish.',
 
   'bottle-printing':
-    'Hello 0nprint, I am interested in ordering Custom Printed Water Bottles (Thermal Stainless Steel / Smart LED / Sports Bottles). Please share available models, minimum quantities, UV print / laser engraving prices, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Printed Water Bottles. Please share pricing, options and delivery details.',
   'bottle-printing-dubai':
-    'Hello 0nprint, I am interested in ordering Custom Printed Water Bottles in Dubai. Please share available models, minimum quantities, prices, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Printed Water Bottles in Dubai. Please share pricing, options and delivery details.',
   'water-bottle-printing-dubai':
-    'Hello 0nprint, I am interested in ordering Custom Water Bottles in Dubai. Please share available bottle models, prices, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Water Bottles in Dubai. Please share pricing, options and delivery details.',
 
   'bottle-labels':
-    'Hello 0nprint, I am interested in ordering Custom Waterproof Bottle Labels & Jar Stickers. Please share material options, minimum quantities, prices, and delivery details.',
+    'Hello ONPRINT, I need custom stickers. Please quote for my size, material and quantity.',
 
   'rollup-banners':
-    'Hello 0nprint, I am interested in ordering Retractable Roll-Up Banners (85x200cm / 100x200cm / 120x200cm). Please share your prices, stand options, and 24-hour delivery details.',
+    'Hello ONPRINT, I would like a quotation for Retractable Roll-Up Banners. Please share pricing, options and delivery details.',
   'rollup-banner-printing-dubai':
-    'Hello 0nprint, I am interested in ordering Roll-Up Banners in Dubai. Please share your prices, sizes, and express delivery details.',
+    'Hello ONPRINT, I would like a quotation for Roll-Up Banners in Dubai. Please share pricing, options and delivery details.',
 
   'stickers':
-    'Hello ONPRINT, I need custom stickers in Dubai. Please quote for my size, material and quantity.',
+    'Hello ONPRINT, I need custom stickers. Please quote for my size, material and quantity.',
   'stickers-labels-printing':
-    'Hello ONPRINT, I need custom stickers in Dubai. Please quote for my size, material and quantity.',
+    'Hello ONPRINT, I need custom stickers. Please quote for my size, material and quantity.',
   'sticker-printing-dubai':
-    'Hello ONPRINT, I need custom stickers in Dubai. Please quote for my size, material and quantity.',
+    'Hello ONPRINT, I need custom stickers. Please quote for my size, material and quantity.',
   'custom-stickers':
-    'Hello ONPRINT, I need custom stickers in Dubai. Please quote for my size, material and quantity.',
+    'Hello ONPRINT, I need custom stickers. Please quote for my size, material and quantity.',
 
   'stamps':
-    'Hello ONPRINT, I would like a quotation for a custom company stamp. Stamp type: custom company stamp. Quantity: 1 unit. Please share the available options and price.',
+    'Hello ONPRINT, I would like a quotation for Custom Company Stamps & Seals. Please share pricing, options and delivery details.',
   'stamps-printing-dubai':
-    'Hello ONPRINT, I would like a quotation for a custom company stamp. Stamp type: custom company stamp in Dubai. Quantity: 1 unit. Please share the available options and price.',
+    'Hello ONPRINT, I would like a quotation for Custom Company Stamps & Seals in Dubai. Please share pricing, options and delivery details.',
   'custom-stamps':
-    'Hello ONPRINT, I would like a quotation for a custom company stamp. Stamp type: custom company stamp. Quantity: 1 unit. Please share the available options and price.',
+    'Hello ONPRINT, I would like a quotation for Custom Company Stamps & Seals. Please share pricing, options and delivery details.',
 
   'mugs':
-    'Hello 0nprint, I am interested in ordering Custom Printed Mugs (Ceramic, Two-Tone, Magic Heat-Reveal, or Travel Tumblers). Please share your prices, quantities, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Printed Mugs. Please share pricing, options and delivery details.',
   'mug-printing-dubai':
-    'Hello 0nprint, I am interested in ordering Custom Printed Mugs in Dubai. Please share your prices, quantities, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Printed Mugs in Dubai. Please share pricing, options and delivery details.',
 
   'id-cards':
-    'Hello 0nprint, I am interested in ordering Corporate PVC ID Cards (Staff Photo IDs, RFID/NFC Access Cards, Badges & Lanyards). Please share your prices, specifications, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Corporate PVC ID Cards. Please share pricing, options and delivery details.',
   'id-card-printing-dubai':
-    'Hello 0nprint, I am interested in ordering Corporate PVC ID Cards in Dubai. Please share your prices, specifications, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Corporate PVC ID Cards in Dubai. Please share pricing, options and delivery details.',
 
   'lanyards':
-    'Hello 0nprint, I am interested in ordering Custom Branded Neck Lanyards (Satin Sublimation / Polyester with Safety Breakaway & Metal Hook). Please share your prices, minimum quantities, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Branded Lanyards. Please share pricing, options and delivery details.',
   'lanyard-printing-dubai':
-    'Hello 0nprint, I am interested in ordering Custom Branded Lanyards in Dubai. Please share your prices, clip options, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Branded Lanyards in Dubai. Please share pricing, options and delivery details.',
 
   'flyers':
-    'Hello 0nprint, I am interested in ordering Custom Flyers & Leaflets (A5, A4, DL, Bi-Fold/Tri-Fold). Please share your paper stocks, prices, and express delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Flyers & Leaflets. Please share pricing, options and delivery details.',
   'flyers-printing-in-dubai':
-    'Hello 0nprint, I am interested in ordering Custom Flyers in Dubai. Please share your paper stocks, prices, and express delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Flyers in Dubai. Please share pricing, options and delivery details.',
 
   'brochures':
-    'Hello 0nprint, I am interested in ordering Custom Printed Brochures & Catalogs (Bi-Fold, Tri-Fold, Saddle-Stitched / Perfect Bound). Please share your prices, paper & lamination options, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Brochures & Catalogs. Please share pricing, options and delivery details.',
   'brochures-printing':
-    'Hello 0nprint, I am interested in ordering Custom Brochures in Dubai. Please share your prices, paper & lamination options, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Brochures in Dubai. Please share pricing, options and delivery details.',
 
   'stationery':
-    'Hello 0nprint, I am interested in ordering Corporate Office Stationery (Letterheads, Envelopes, Presentation Folders, Notebooks). Please share your prices, paper stocks, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Corporate Office Stationery. Please share pricing, options and delivery details.',
   'office-stationery-printing':
-    'Hello 0nprint, I am interested in ordering Corporate Office Stationery in Dubai. Please share your prices, specifications, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Corporate Office Stationery in Dubai. Please share pricing, options and delivery details.',
 
   'letterheads':
-    'Hello 0nprint, I am interested in ordering Corporate Official Letterheads (100gsm/120gsm bond, textured linen, gold foil accents). Please share your prices, paper stocks, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Corporate Letterheads. Please share pricing, options and delivery details.',
   'envelopes':
-    'Hello 0nprint, I am interested in ordering Custom Branded Envelopes (DL, C5, C4 with peel & seal strips). Please share your sizes, minimum quantities, prices, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Branded Envelopes. Please share pricing, options and delivery details.',
   'vouchers':
-    'Hello 0nprint, I am interested in ordering Custom Gift Vouchers & Coupons (Sequential Numbering, Perforated Stubs, Foil Accents). Please share your options, prices, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for Custom Gift Vouchers & Coupons. Please share pricing, options and delivery details.',
 
   'general':
-    'Hello 0nprint, I am interested in your custom printing services (Business Cards, Flyers, Brochures, Stickers, Banners & Corporate Merchandise). Please share your prices, available options, and delivery details.',
+    'Hello ONPRINT, I would like a quotation for your custom printing services in Dubai. Please share pricing, options and delivery details.',
 }
 
 /**
@@ -222,9 +222,9 @@ export function getServiceWhatsAppUrl(serviceKey = 'general', details = {}) {
   let baseMessage = SERVICE_INQUIRY_MESSAGES[canonicalKey] || SERVICE_INQUIRY_MESSAGES.general
   if (prodName) {
     if (intent === 'order') {
-      baseMessage = `Hello ONPRINT, I would like to order ${prodName}. Please confirm total price, artwork check, and delivery details.`
+      baseMessage = `Hello ONPRINT, I would like to order ${prodName}. Please confirm pricing, options and delivery details.`
     } else {
-      baseMessage = `Hello ONPRINT, I am interested in ordering ${prodName}. Please share your prices, available options, and delivery details.`
+      baseMessage = `Hello ONPRINT, I would like a quotation for ${prodName}. Please share pricing, options and delivery details.`
     }
   }
 
@@ -389,6 +389,7 @@ export function formatBusinessCardInquiry({
   finishing = '',
   coating = '',
   sides = '',
+  specs = '',
   location = '',
   deliveryLocation = '',
   artwork = null,
@@ -404,31 +405,30 @@ export function formatBusinessCardInquiry({
 } = {}) {
   const resolvedProduct = cardType || productName || ''
   const resolvedSize = size || dimensions || ''
-  const resolvedPaper = paperStock || paper || material || (gsm ? `${gsm} Silk` : stock) || ''
+  const resolvedPaper = paperStock || paper || material || (gsm ? `${gsm}` : stock) || ''
   const resolvedFinish = finish || finishing || coating || ''
-  const resolvedLocation = deliveryLocation || location || 'Dubai'
+  const resolvedLocation = deliveryLocation || location || ''
   const resolvedQty = quantity ? String(quantity).trim() : ''
+  const resolvedSpecs = (specs || '').trim()
   const resolvedReqs = (additionalRequirements || notes || '').trim()
 
   const materialFinishParts = [resolvedPaper, resolvedFinish].filter(Boolean)
   const materialFinishStr = materialFinishParts.join(', ')
 
   const lines = [
-    'Hello ONPRINT, I need custom business cards in Dubai. Please help me choose a suitable paper, finish and quantity and provide a quotation.',
+    'Hello ONPRINT, I would like a quotation for business card printing.',
   ]
-  const hasSpecs = Boolean(resolvedProduct || resolvedQty || resolvedSize || materialFinishStr || (sides && sides !== 'N/A') || deliveryLocation || location || resolvedReqs)
   if (resolvedProduct) lines.push(`Card type: ${resolvedProduct}`)
   if (resolvedQty) lines.push(`Quantity: ${resolvedQty}`)
   if (resolvedSize) lines.push(`Size: ${resolvedSize}`)
   if (materialFinishStr) lines.push(`Material/finish: ${materialFinishStr}`)
+  if (resolvedSpecs) lines.push(`Specifications: ${resolvedSpecs}`)
   if (sides && sides !== 'N/A') lines.push(`Sides: ${sides}`)
-  if (hasSpecs && resolvedLocation) lines.push(`Delivery location: ${resolvedLocation}`)
+  if (resolvedLocation) lines.push(`Delivery location: ${resolvedLocation}`)
   if (resolvedReqs && !resolvedReqs.toLowerCase().includes('cta') && !resolvedReqs.toLowerCase().includes('inquiry') && resolvedReqs !== 'None') {
     lines.push(`Additional requirements: ${resolvedReqs}`)
   }
-  if (hasSpecs) {
-    lines.push('', 'Please share your best price and delivery time.')
-  }
+  lines.push('', 'Please share your best price and delivery time.')
 
   const extra = []
   const clientName = name || customerName
@@ -495,7 +495,7 @@ export function formatStickerInquiry(details = {}) {
   const resolvedReqs = additionalRequirements || requirements || notes || ''
 
   const lines = [
-    'Hello ONPRINT, I need custom stickers in Dubai. Please quote for my size, material and quantity.',
+    'Hello ONPRINT, I need a quotation for sticker printing.',
   ]
   const hasSpecs = Boolean(resolvedType || resolvedQty || resolvedSize || resolvedMaterial || resolvedShape || resolvedFinish || resolvedUse || deliveryLocation || location || city || resolvedReqs)
   if (resolvedType) lines.push(`Sticker type: ${resolvedType}`)

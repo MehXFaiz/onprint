@@ -30,7 +30,7 @@ import WhatsAppIcon from '../../components/WhatsAppIcon'
 import SEOHead from '../../components/SEOHead'
 import Reveal from '../../components/Reveal'
 import { createQuote } from '../../services/quotes'
-import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick, trackBusinessCardWhatsAppClick, trackQuoteRequest, trackQualifiedLead, trackArtworkUpload } from '../../utils/analytics'
+import { trackGetQuoteClick, trackProductInquiry, trackWhatsAppClick, trackBusinessCardWhatsAppClick, trackQuoteFormStart, trackQuoteRequest, trackQualifiedLead, trackArtworkUpload } from '../../utils/analytics'
 import { openWhatsAppDirectly, getWhatsAppUrl, getServiceWhatsAppUrl, formatBusinessCardInquiry, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
 
 const CARD_OPTIONS = [
@@ -175,6 +175,14 @@ export default function BusinessCardsLeadPage() {
   const [deliveryLocation, setDeliveryLocation] = useState('Dubai, UAE')
   const [artworkFile, setArtworkFile] = useState(null)
   const [formError, setFormError] = useState('')
+  const [hasStartedForm, setHasStartedForm] = useState(false)
+
+  const notifyFormStart = () => {
+    if (!hasStartedForm) {
+      setHasStartedForm(true)
+      trackQuoteFormStart({ form_name: 'business_card_estimator_form', source_page: '/quote/business-cards', product_name: selectedCard.name })
+    }
+  }
 
   const handleArtworkChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -694,7 +702,7 @@ export default function BusinessCardsLeadPage() {
                         type="text"
                         required
                         value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        onChange={(e) => { notifyFormStart(); setFormData({ ...formData, name: e.target.value }) }}
                         placeholder="e.g. Tariq Al-Mansoor"
                         className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                       />
@@ -709,7 +717,7 @@ export default function BusinessCardsLeadPage() {
                           type="tel"
                           required
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          onChange={(e) => { notifyFormStart(); setFormData({ ...formData, phone: e.target.value }) }}
                           placeholder="+971 50 123 4567"
                           className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                         />
@@ -722,7 +730,7 @@ export default function BusinessCardsLeadPage() {
                           type="email"
                           required
                           value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          onChange={(e) => { notifyFormStart(); setFormData({ ...formData, email: e.target.value }) }}
                           placeholder="tariq@company.ae"
                           className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                         />

@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { ArrowLeft, ChevronRight, Package, Save, Image as ImageIcon, Search, Globe } from 'lucide-react'
+import { ArrowLeft, ChevronRight, Package, Save, Image as ImageIcon, Search, Globe, Sparkles, CheckCircle2 } from 'lucide-react'
 import Button from '../../components/Button'
 import ImageUploader from '../../components/ImageUploader'
 import { getStoredProducts, addProduct, updateProduct } from '../../services/products'
 import { getCategories } from '../../services/categories'
+import { generateEntitySeoDraft } from '../../utils/seoDraftGenerator'
 
 export default function AdminProductFormPage() {
   const navigate = useNavigate()
@@ -34,6 +35,7 @@ export default function AdminProductFormPage() {
     seoDescription: '',
     seoKeywords: '',
     seoHeading: '',
+    seoReviewStatus: 'approved',
   })
 
   useEffect(() => {
@@ -65,11 +67,42 @@ export default function AdminProductFormPage() {
         seoDescription: found.seoDescription || '',
         seoKeywords: found.seoKeywords || '',
         seoHeading: found.seoHeading || '',
+        seoReviewStatus: found.seoReviewStatus || 'approved',
       })
       setSlugEdited(true)
     }
     setLoading(false)
   }, [id, isEdit])
+
+  const handleGenerateSeoDraft = () => {
+    if (!form.name.trim()) {
+      setError('Please enter a Product Name first so the SEO engine can generate accurate metadata.')
+      return
+    }
+    setError(null)
+    const allProducts = getStoredProducts()
+    const draft = generateEntitySeoDraft({
+      entityType: 'product',
+      name: form.name.trim(),
+      slug: form.slug || form.name,
+      categoryName: form.categoryName,
+      shortDescription: form.shortDescription,
+      description: form.description,
+      price: form.price,
+      minimumQuantity: form.minimumQuantity,
+      existingCatalogItems: allProducts,
+    })
+    setForm((prev) => ({
+      ...prev,
+      slug: prev.slug || draft.slug,
+      seoTitle: draft.seoTitle,
+      seoDescription: draft.seoDescription,
+      seoKeywords: draft.seoKeywords,
+      seoHeading: draft.seoHeading,
+      imageAlt: prev.imageAlt || draft.imageAlt,
+      seoReviewStatus: 'needs_review',
+    }))
+  }
 
   const slugify = (text) => {
     return (text || '')
@@ -147,6 +180,8 @@ export default function AdminProductFormPage() {
         seo_heading: form.seoHeading || form.name.trim(),
         seoHeading: form.seoHeading || form.name.trim(),
         canonical_url: `https://www.0nprint.com/products/${cleanSlug}`,
+        canonicalUrl: `https://www.0nprint.com/products/${cleanSlug}`,
+        seoReviewStatus: form.seoReviewStatus || 'needs_review',
       }
 
       if (isEdit) {
@@ -356,12 +391,36 @@ export default function AdminProductFormPage() {
 
           {/* SEO & Meta Tags Card */}
           <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
-            <div className="flex items-center gap-2 border-b border-[#1E2C4F] pb-3">
-              <Search className="h-4 w-4 text-[#D6C29A]" />
-              <h2 className="font-display text-base font-bold text-[#F5F3EE]">
-                Google Search Optimization (SEO)
-              </h2>
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#1E2C4F] pb-3">
+              <div className="flex items-center gap-2">
+                <Search className="h-4 w-4 text-[#D6C29A]" />
+                <h2 className="font-display text-base font-bold text-[#F5F3EE]">
+                  Google Search &amp; AI Answer Optimization (SEO + GEO)
+                </h2>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <select
+                  value={form.seoReviewStatus}
+                  onChange={(e) => setForm((prev) => ({ ...prev, seoReviewStatus: e.target.value }))}
+                  className="rounded-lg border border-[#1E2C4F] bg-[#0B132B] px-2.5 py-1.5 text-[11px] font-bold text-[#D6C29A] focus:border-[#D6C29A] focus:outline-none"
+                >
+                  <option value="needs_review">Status: Draft (Needs Admin Review)</option>
+                  <option value="approved">Status: Reviewed &amp; Approved</option>
+                </select>
+                <button
+                  type="button"
+                  onClick={handleGenerateSeoDraft}
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-[#D6C29A] px-3 py-1.5 text-xs font-extrabold text-[#0B132B] hover:bg-[#e5d4b0] transition-colors"
+                >
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Auto-Generate SEO Draft
+                </button>
+              </div>
             </div>
+            <p className="text-[11px] text-[#B8C2D9]">
+              <CheckCircle2 className="inline h-3.5 w-3.5 text-emerald-400 mr-1 -mt-0.5" />
+              Generates unique Dubai/UAE SEO Title, Meta Description, H1, Primary + Secondary Keywords, Canonical URL, and Image Alt text from your factual product data — deduplicated against all 122+ catalog products. If left blank on save, ONPRINT automatically generates a draft for review.
+            </p>
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-1">

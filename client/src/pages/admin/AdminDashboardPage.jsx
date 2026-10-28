@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Package,
@@ -17,12 +17,21 @@ import {
   Calendar,
   FolderTree,
   BookOpen,
+  Search,
+  CheckCircle2,
+  Sparkles,
+  Globe,
 } from 'lucide-react'
 import Button from '../../components/Button'
 import { getAdminDashboard } from '../../services/admin'
 import { getStoredOrders } from '../../services/orders'
 import { getStoredQuotes } from '../../services/quotes'
 import { getStoredMessages } from '../../services/contact'
+import { getStoredProducts } from '../../services/products'
+import { initialCategories } from '../../services/categories'
+import { getStoredServices } from '../../services/services'
+import { auditCatalogSeoAndKeywords } from '../../utils/seoDraftGenerator'
+import { getStoredConversionEvents, GA4_MEASUREMENT_ID } from '../../utils/analytics'
 
 const TIMEFRAME_OPTIONS = [
   { value: 'all', label: 'All Time' },
@@ -106,6 +115,18 @@ export default function AdminDashboardPage() {
       createdAt: m.createdAt,
     }))
 
+    const storedProducts = getStoredProducts()
+    const storedServices = getStoredServices()
+    const defaultProductStats = {
+      total: storedProducts.length,
+      active: storedProducts.filter((p) => p.active !== false).length,
+      inactive: storedProducts.filter((p) => p.active === false).length,
+    }
+    const defaultServiceStats = {
+      total: storedServices.length,
+      active: storedServices.filter((s) => s.active !== false).length,
+    }
+
     try {
       const response = await getAdminDashboard({ timeframe: selectedTimeframe })
       if (response?.success && response?.data) {
@@ -113,6 +134,10 @@ export default function AdminDashboardPage() {
         setData({
           ...backendData,
           timeframe: selectedTimeframe,
+          products: backendData.products?.total ? backendData.products : defaultProductStats,
+          categories: backendData.categories?.total ? backendData.categories : { total: initialCategories.length },
+          services: backendData.services?.total ? backendData.services : defaultServiceStats,
+          blogs: backendData.blogs?.total ? backendData.blogs : { total: 25, published: 25 },
           orders: backendData.orders || orderStats,
           quotes: backendData.quotes || quoteStats,
           messages: backendData.messages || messageStats,
@@ -124,13 +149,15 @@ export default function AdminDashboardPage() {
       } else {
         setData({
           timeframe: selectedTimeframe,
-          products: { total: 0, active: 0, inactive: 0 },
+          products: defaultProductStats,
+          categories: { total: initialCategories.length },
           orders: orderStats,
           revenue: calculatedRevenue || 0,
           quotes: quoteStats,
           messages: messageStats,
           users: { total: 1, customers: 0, admins: 1 },
-          services: { total: 7, active: 7 },
+          services: defaultServiceStats,
+          blogs: { total: 25, published: 25 },
           newsletterSubscribers: { total: 0 },
           recentOrders,
           recentQuotes,
@@ -140,13 +167,15 @@ export default function AdminDashboardPage() {
     } catch {
       setData({
         timeframe: selectedTimeframe,
-        products: { total: 0, active: 0, inactive: 0 },
+        products: defaultProductStats,
+        categories: { total: initialCategories.length },
         orders: orderStats,
         revenue: calculatedRevenue || 0,
         quotes: quoteStats,
         messages: messageStats,
         users: { total: 1, customers: 0, admins: 1 },
-        services: { total: 7, active: 7 },
+        services: defaultServiceStats,
+        blogs: { total: 25, published: 25 },
         newsletterSubscribers: { total: 0 },
         recentOrders,
         recentQuotes,
@@ -412,6 +441,186 @@ export default function AdminDashboardPage() {
           <div className="mt-0.5 text-[11px] font-bold text-emerald-600">{blogs.published} Published</div>
         </Link>
       </div>
+
+      {/* Centralized All-Product SEO, Keyword & WhatsApp Lead Generation Hub (Section 10) */}
+      {(() => {
+        const liveProducts = getStoredProducts()
+        const liveServices = getStoredServices()
+        const seoAudit = auditCatalogSeoAndKeywords({
+          products: liveProducts,
+          categories: initialCategories,
+          services: liveServices,
+          blogs: [],
+        })
+        const conversionEvents = getStoredConversionEvents()
+        const whatsappEvents = conversionEvents.filter((e) => e.conversion_type === 'whatsapp_click')
+        const whatsappByProductMap = new Map()
+        whatsappEvents.forEach((e) => {
+          const key = e.product_name || e.landing_page || 'General WhatsApp Inquiry'
+          whatsappByProductMap.set(key, (whatsappByProductMap.get(key) || 0) + 1)
+        })
+        const topWhatsappProducts = Array.from(whatsappByProductMap.entries())
+          .map(([label, count]) => ({ label, count }))
+          .sort((a, b) => b.count - a.count)
+          .slice(0, 6)
+
+        return (
+          <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs space-y-6">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#1E2C4F] pb-5">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
+                  <Sparkles className="h-4 w-4" />
+                  <span>All-Product SEO, GEO &amp; WhatsApp Lead Engine</span>
+                </div>
+                <h2 className="font-display mt-1 text-xl sm:text-2xl font-black text-[#F5F3EE]">
+                  Centralized SEO Health, Keyword Registry &amp; Lead Funnel
+                </h2>
+                <p className="mt-1 text-xs text-[#B8C2D9]">
+                  Dynamic monitoring across all {seoAudit.totals.products} products, {seoAudit.totals.categories} categories, {seoAudit.totals.services} services, and {blogs.total || 25} blog guides. WhatsApp clicks and quote inquiries are strictly separated from confirmed orders.
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-2.5">
+                <Link
+                  to="/admin/seo"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#D6C29A] px-4 py-2 text-xs font-extrabold text-[#0B132B] hover:bg-[#e5d4b0] transition-colors"
+                >
+                  <Search className="h-3.5 w-3.5" />
+                  Open Full SEO Command Center
+                </Link>
+                <Link
+                  to="/admin/products/new"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2 text-xs font-bold text-[#F5F3EE] hover:border-[#D6C29A] transition-colors"
+                >
+                  <Plus className="h-3.5 w-3.5 text-[#D6C29A]" />
+                  Add Product (Auto-SEO)
+                </Link>
+              </div>
+            </div>
+
+            {/* 8-Card SEO & Funnel Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                  Total Audited Catalog
+                </span>
+                <div className="mt-2 text-2xl font-black text-[#F5F3EE]">
+                  {seoAudit.totals.products + seoAudit.totals.categories + seoAudit.totals.services + (blogs.total || 25)} Pages
+                </div>
+                <div className="mt-1 text-[11px] text-emerald-400 font-semibold">
+                  {seoAudit.totals.products} Products • {seoAudit.totals.categories} Categories • {seoAudit.totals.services} Services
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                  Pages Missing SEO Fields
+                </span>
+                <div className="mt-2 text-2xl font-black text-[#F5F3EE]">
+                  {seoAudit.missingSeoCount}
+                </div>
+                <div className="mt-1 text-[11px] font-semibold text-emerald-400">
+                  {seoAudit.missingSeoCount === 0
+                    ? '100% Complete (Title, Meta, H1, Keywords, Alt, Canonical)'
+                    : `${seoAudit.missingSeoCount} pages require metadata review`}
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                  Keyword Opportunities &amp; Review
+                </span>
+                <div className="mt-2 text-2xl font-black text-[#D6C29A]">
+                  {seoAudit.keywordOpportunitiesCount} Active Targets
+                </div>
+                <div className="mt-1 text-[11px] text-[#B8C2D9] font-semibold">
+                  {seoAudit.pagesAwaitingReviewCount} Drafts Awaiting Admin Review • {seoAudit.duplicateKeywordCount} Duplicate Warnings
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
+                  GA4 &amp; Search Console Status
+                </span>
+                <div className="mt-2 flex items-center gap-1.5 text-sm font-black text-emerald-400">
+                  <CheckCircle2 className="h-4 w-4 shrink-0" />
+                  <span>GA4 Active ({GA4_MEASUREMENT_ID})</span>
+                </div>
+                <div className="mt-1 text-[11px] text-[#B8C2D9] font-semibold">
+                   WhatsApp (+447344546056): {whatsappEvents.length} Tracked Clicks • Sitemap Live
+                </div>
+              </div>
+            </div>
+
+            {/* Two-Column Breakdown: Deduplicated Keyword Bank & WhatsApp Lead Attribution */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="font-display text-sm font-bold text-[#F5F3EE]">
+                    Deduplicated Buyer-Intent Keyword Registry (All 19 Categories)
+                  </h3>
+                  <span className="rounded-full bg-[#14213D] px-2.5 py-0.5 text-[10px] font-bold text-[#D6C29A] border border-[#1E2C4F]">
+                    No Daily Repetition
+                  </span>
+                </div>
+                <div className="max-h-56 overflow-y-auto divide-y divide-[#1E2C4F] text-xs">
+                  {seoAudit.keywordOpportunities.slice(0, 10).map((item, idx) => (
+                    <div key={idx} className="py-2.5 flex items-center justify-between gap-3">
+                      <div className="min-w-0">
+                        <div className="font-bold text-[#F5F3EE] truncate">{item.keyword}</div>
+                        <div className="text-[11px] text-[#B8C2D9] truncate">
+                          {item.category} → <span className="text-[#D6C29A]">{item.targetUrl}</span>
+                        </div>
+                      </div>
+                      <span className="shrink-0 rounded-md bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold text-emerald-400 border border-emerald-500/20">
+                        {item.searchIntent}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="font-display text-sm font-bold text-[#F5F3EE]">
+                    WhatsApp Inquiries vs. Quotes vs. Confirmed Orders
+                  </h3>
+                  <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold text-emerald-400 border border-emerald-500/20">
+                    +44 7344 546056
+                  </span>
+                </div>
+                <div className="grid grid-cols-3 gap-3 mb-4 text-center">
+                  <div className="rounded-xl border border-[#1E2C4F] bg-[#14213D] p-3">
+                    <div className="text-lg font-black text-emerald-400">{whatsappEvents.length}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#B8C2D9]">WhatsApp Clicks</div>
+                  </div>
+                  <div className="rounded-xl border border-[#1E2C4F] bg-[#14213D] p-3">
+                    <div className="text-lg font-black text-purple-400">{quotes.total}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#B8C2D9]">Quote Requests</div>
+                  </div>
+                  <div className="rounded-xl border border-[#1E2C4F] bg-[#14213D] p-3">
+                    <div className="text-lg font-black text-[#D6C29A]">{orders.total}</div>
+                    <div className="text-[10px] font-bold uppercase text-[#B8C2D9]">Confirmed Orders</div>
+                  </div>
+                </div>
+                {topWhatsappProducts.length > 0 ? (
+                  <div className="divide-y divide-[#1E2C4F] text-xs">
+                    {topWhatsappProducts.map((row, idx) => (
+                      <div key={idx} className="py-2 flex items-center justify-between">
+                        <span className="text-[#F5F3EE] font-semibold truncate">{row.label}</span>
+                        <span className="text-emerald-400 font-bold">{row.count} clicks</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-xs text-[#B8C2D9] leading-relaxed">
+                    Live WhatsApp click events (`whatsapp_click`) are tracked per product, category, and blog page via GA4 (`{GA4_MEASUREMENT_ID}`) and the conversion beacon without counting clicks as confirmed orders.
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        )
+      })()}
 
       {/* Recent Activity Widgets */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">

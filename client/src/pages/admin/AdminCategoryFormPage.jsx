@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { ArrowLeft, ChevronRight, FolderTree, Save, Image as ImageIcon, Search, Globe, Sparkles } from 'lucide-react'
+import { ArrowLeft, ChevronRight, FolderTree, Save, Image as ImageIcon, Search, Globe, Sparkles, CheckCircle2 } from 'lucide-react'
 import Button from '../../components/Button'
 import ImageUploader from '../../components/ImageUploader'
-import { getCategoryById, createCategory, updateCategory } from '../../services/categories'
+import { getCategoryById, createCategory, updateCategory, initialCategories } from '../../services/categories'
+import { generateEntitySeoDraft } from '../../utils/seoDraftGenerator'
 
 export default function AdminCategoryFormPage() {
   const navigate = useNavigate()
@@ -93,6 +94,30 @@ export default function AdminCategoryFormPage() {
     setForm((prev) => ({
       ...prev,
       slug: slugify(e.target.value),
+    }))
+  }
+
+  const handleGenerateSeoDraft = () => {
+    if (!form.name.trim()) {
+      setError('Please enter a Category Name first so the SEO engine can generate accurate metadata.')
+      return
+    }
+    setError(null)
+    const draft = generateEntitySeoDraft({
+      entityType: 'category',
+      name: form.name.trim(),
+      slug: form.slug || form.name,
+      description: form.description,
+      existingCatalogItems: initialCategories,
+    })
+    setForm((prev) => ({
+      ...prev,
+      slug: prev.slug || draft.slug,
+      seoTitle: draft.seoTitle,
+      seoDescription: draft.seoDescription,
+      seoKeywords: draft.seoKeywords,
+      seoHeading: draft.seoHeading,
+      imageAlt: prev.imageAlt || draft.imageAlt,
     }))
   }
 
@@ -276,12 +301,26 @@ export default function AdminCategoryFormPage() {
 
           {/* SEO & Meta Tags Card */}
           <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
-            <div className="flex items-center gap-2 border-b border-[#1E2C4F] pb-3">
-              <Search className="h-4 w-4 text-[#D6C29A]" />
-              <h2 className="font-display text-base font-bold text-[#F5F3EE]">
-                Google Search Engine Optimization (SEO)
-              </h2>
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#1E2C4F] pb-3">
+              <div className="flex items-center gap-2">
+                <Search className="h-4 w-4 text-[#D6C29A]" />
+                <h2 className="font-display text-base font-bold text-[#F5F3EE]">
+                  Google Search &amp; AI Answer Optimization (SEO + GEO)
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={handleGenerateSeoDraft}
+                className="inline-flex items-center gap-1.5 rounded-lg bg-[#D6C29A] px-3 py-1.5 text-xs font-extrabold text-[#0B132B] hover:bg-[#e5d4b0] transition-colors"
+              >
+                <Sparkles className="h-3.5 w-3.5" />
+                Auto-Generate SEO Draft
+              </button>
             </div>
+            <p className="text-[11px] text-[#B8C2D9]">
+              <CheckCircle2 className="inline h-3.5 w-3.5 text-emerald-400 mr-1 -mt-0.5" />
+              Generates unique Dubai/UAE SEO Title, Meta Description, H1, Primary + Secondary Keywords, Canonical URL, and Image Alt text from your category data.
+            </p>
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-1">

@@ -59,6 +59,303 @@ const STICKER_FALLBACK_FINISHES = [
   { label: '24K Gold Hot Foil Accent', priceModifier: 45 },
 ]
 
+function getCategorySpecProfile(product) {
+  if (!product) {
+    return {
+      sizes: CARD_FALLBACK_SIZES,
+      materials: CARD_FALLBACK_MATERIALS,
+      finishes: CARD_FALLBACK_FINISHES,
+      printTech: 'German Heidelberg Speedmaster Offset & HP Indigo HD Digital Press',
+      substratesText: '350 GSM Silk Artboard, 400 GSM Matte, 450 GSM Velvet Soft-Touch, 600 GSM Archival Cotton',
+      embellishmentsText: '24K Gold & Silver Hot Foil, Raised 3D Spot UV, Blind Debossing, Gilded Painted Edges',
+      whoNeedsIt: 'Corporate executives, sales teams, luxury retail brands, and exhibition exhibitors across Dubai and the UAE.',
+    }
+  }
+
+  const haystack = `${product.name || ''} ${product.slug || ''} ${product.category?.name || ''} ${product.category?.slug || ''}`.toLowerCase()
+
+  if (/sticker|label|decal/.test(haystack)) {
+    return {
+      sizes: STICKER_FALLBACK_SIZES,
+      materials: STICKER_FALLBACK_MATERIALS,
+      finishes: STICKER_FALLBACK_FINISHES,
+      printTech: 'Roland Eco-Solvent Print & Cut, UV DTF Transfer Press & Rotary Flexo Label System',
+      substratesText: 'Waterproof White Vinyl (100μ), Clear Transparent BOPP, Brushed Metallic Foil, Eco Kraft & Holographic Film',
+      embellishmentsText: 'Optical Kiss-Cut & Die-Cut Contour, Weatherproof UV Lamination, 3D Crystal Resin & Hot Foil',
+      whoNeedsIt: 'F&B cafes, specialty coffee roasters, cosmetic & perfume brands, e-commerce packaging, and industrial logistics across the UAE.',
+    }
+  }
+
+  if (/stamp|seal|trodat|colop|dater/.test(haystack)) {
+    return {
+      sizes: [
+        { label: '40 × 40 mm Round Official Seal', priceModifier: 0 },
+        { label: '47 × 18 mm Rectangular (4–5 Lines)', priceModifier: 0 },
+        { label: '58 × 22 mm Large Corporate (6 Lines)', priceModifier: 20 },
+        { label: '30 × 30 mm Compact Pocket Stamp', priceModifier: 10 },
+      ],
+      materials: [
+        { label: 'Trodat Printy Self-Inking Casing', priceModifier: 0 },
+        { label: 'Heavy-Duty Professional Metal Frame', priceModifier: 45 },
+        { label: 'Pre-Inked Flash Microporous Stamp', priceModifier: 25 },
+        { label: 'Portable Folding Pocket Casing', priceModifier: 15 },
+      ],
+      finishes: [
+        { label: 'Official Corporate Blue Ink', priceModifier: 0 },
+        { label: 'Archival Document Black Ink', priceModifier: 0 },
+        { label: 'Red / Green Accounting Ink', priceModifier: 5 },
+        { label: 'Bilingual Arabic + English Layout', priceModifier: 10 },
+      ],
+      printTech: 'High-Precision CO2 Laser Rubber Engraving & Flash Microporous Exposure Unit',
+      substratesText: 'Original Austrian Trodat & Colop Self-Inking Mechanisms, Heavy-Duty Steel Frames, High-Density Laser Rubber',
+      embellishmentsText: 'Bilingual Arabic/English Trade License Ring Alignment, Custom Logo Centerpiece, Replaceable Ink Cartridges',
+      whoNeedsIt: 'PROs, mainland & free-zone companies, legal offices, accounting departments, clinics, and logistics signatories in Dubai.',
+    }
+  }
+
+  if (/mug|cup|tumbler/.test(haystack)) {
+    return {
+      sizes: [
+        { label: '11 oz Standard Corporate Mug (325 ml)', priceModifier: 0 },
+        { label: '15 oz Executive Large Mug (440 ml)', priceModifier: 10 },
+        { label: '350 ml Insulated Travel Tumbler', priceModifier: 25 },
+      ],
+      materials: [
+        { label: 'AAA-Grade Gloss White Ceramic', priceModifier: 0 },
+        { label: 'Executive Matte Black / Navy Ceramic', priceModifier: 12 },
+        { label: 'Heat-Sensitive Magic Color-Reveal Coating', priceModifier: 18 },
+        { label: 'Double-Wall Stainless Steel Interior', priceModifier: 25 },
+      ],
+      finishes: [
+        { label: 'Full-Wrap High-Def Dye Sublimation', priceModifier: 0 },
+        { label: 'Raised 3D UV Direct Logo Print', priceModifier: 15 },
+        { label: 'Permanent Laser-Engraved Crest', priceModifier: 20 },
+        { label: 'Individual White / Kraft Presentation Box', priceModifier: 8 },
+      ],
+      printTech: '360° Rotary UV LED Direct-to-Object Press & High-Temperature Dye-Sublimation Kiln',
+      substratesText: 'AAA-Grade Chip-Resistant Ceramic, Soft-Touch Matte Glaze, Thermochromic Heat-Reveal Coating & 304 Stainless Steel',
+      embellishmentsText: 'Dishwasher-Resistant Curing, Wrap-Around Full-Color Graphics, Metallic Rim Accents & Individual Gift Boxing',
+      whoNeedsIt: 'Corporate offices, employee onboarding kits, trade show giveaways, hospitality lounges, and promotional campaigns in Dubai.',
+    }
+  }
+
+  if (/bottle|flask|drinkware/.test(haystack)) {
+    return {
+      sizes: [
+        { label: '500 ml Vacuum Insulated Flask', priceModifier: 0 },
+        { label: '750 ml Executive Sports Bottle', priceModifier: 15 },
+        { label: '1000 ml Large Thermal Bottle', priceModifier: 25 },
+      ],
+      materials: [
+        { label: '304 Food-Grade Double-Wall Stainless Steel', priceModifier: 0 },
+        { label: 'Smart LED Touch-Cap Temperature Flask', priceModifier: 20 },
+        { label: 'Matte Powder-Coated Thermal Steel', priceModifier: 15 },
+        { label: 'Lightweight Brushed Aluminum / Bamboo Lid', priceModifier: 10 },
+      ],
+      finishes: [
+        { label: 'Permanent Fiber Laser Engraving', priceModifier: 0 },
+        { label: '360° Full-Color Rotary UV Print', priceModifier: 18 },
+        { label: 'Personalized Individual Name Engraving', priceModifier: 25 },
+        { label: 'VIP Cylinder Gift Tube Packaging', priceModifier: 12 },
+      ],
+      printTech: 'Precision Rotary Fiber Laser Engraving & 360° Cylindrical UV LED Curing System',
+      substratesText: 'Food-Grade 304 Double-Wall Vacuum Insulated Stainless Steel, Copper-Lined Thermal Core, Powder-Coated Matte Finishes',
+      embellishmentsText: 'Scratch-Proof Laser Etching, Tactile Raised UV Brand Logos, Smart LED Thermal Caps & Individual Gift Boxes',
+      whoNeedsIt: 'Corporate wellness programs, VIP client gifting, fitness & sports events, universities, and conferences across the UAE.',
+    }
+  }
+
+  if (/rollup|roll-up|banner|signage|flag|backdrop|exhibition/.test(haystack)) {
+    return {
+      sizes: [
+        { label: '85 × 200 cm (Standard Retractable)', priceModifier: 0 },
+        { label: '100 × 200 cm (Wide Presentation)', priceModifier: 45 },
+        { label: '120 × 200 cm (Exhibition Backdrop)', priceModifier: 85 },
+        { label: 'Custom Architectural / Stand Dimension', priceModifier: 60 },
+      ],
+      materials: [
+        { label: '440 GSM Blockout Anti-Curl PVC Film', priceModifier: 0 },
+        { label: 'Grey-Back Tear-Resistant Polypropylene', priceModifier: 25 },
+        { label: 'Double-Sided Heavyweight Blockout Banner', priceModifier: 55 },
+        { label: 'Laser-Cut Cast Acrylic / Brushed Aluminum', priceModifier: 90 },
+      ],
+      finishes: [
+        { label: 'Anti-Glare Matte Exhibition Overlaminate', priceModifier: 0 },
+        { label: 'Standard Aluminum Cassette + Padded Carry Bag', priceModifier: 0 },
+        { label: 'Luxury Broad-Base Teardrop Chrome Stand', priceModifier: 65 },
+        { label: 'UV Weatherproof Outdoor Protection', priceModifier: 35 },
+      ],
+      printTech: '1440 DPI Large-Format Eco-Solvent & Latex Exhibition Press with Optical Contour Finishing',
+      substratesText: '440 GSM Anti-Curl Blockout Polypropylene, Heavy-Duty Outdoor PVC Vinyl, Cast Acrylic & Anodized Aluminum Hardware',
+      embellishmentsText: 'Studio-Light Anti-Glare Lamination, Reinforced Spring Rollers, Padded Canvas Transport Bags & Express DWTC Delivery',
+      whoNeedsIt: 'Trade show exhibitors at DWTC & Expo City, retail malls, conferences, real estate roadshows, and corporate lobbies in Dubai.',
+    }
+  }
+
+  if (/id-card|id card|name-badge|badge|nameplate|plaque/.test(haystack)) {
+    return {
+      sizes: [
+        { label: 'CR80 Standard ID (86 × 54 mm)', priceModifier: 0 },
+        { label: '70 × 25 mm Executive Magnetic Badge', priceModifier: 0 },
+        { label: '75 × 30 mm Hospitality Staff Tag', priceModifier: 10 },
+      ],
+      materials: [
+        { label: '760 Micron Solid White CR80 PVC', priceModifier: 0 },
+        { label: 'RFID / Mifare 13.56MHz Smart Access Card', priceModifier: 20 },
+        { label: 'Brushed Champagne Gold / Silver Aluminum', priceModifier: 15 },
+        { label: 'Polished Cast Acrylic / Stainless Steel', priceModifier: 25 },
+      ],
+      finishes: [
+        { label: 'Double-Sided High-Def UV Print', priceModifier: 0 },
+        { label: 'Triple-Magnet Clothing-Safe Fastener', priceModifier: 12 },
+        { label: 'Crystal Domed Polyurethane Epoxy Coating', priceModifier: 15 },
+        { label: 'Slot Punch + Clear Rigid Badge Holder', priceModifier: 8 },
+      ],
+      printTech: 'High-Definition Direct-to-Card UV LED Press, Thermal Retransfer & Precision Fiber Laser Engraving',
+      substratesText: '760 Micron Laminated PVC, Embedded NXP Mifare/RFID Chips, Brushed Anodized Aluminum & Cast Acrylic',
+      embellishmentsText: 'Clothing-Safe Triple Neodymium Magnets, Scratch-Proof Polyurethane Domed Resin, Variable Staff Data & Barcode Serialization',
+      whoNeedsIt: 'Hotels, airlines, hospitals, corporate headquarters, schools, security contractors, and luxury retail teams across the UAE.',
+    }
+  }
+
+  if (/lanyard/.test(haystack)) {
+    return {
+      sizes: [
+        { label: '20 mm Executive Width × 900 mm', priceModifier: 0 },
+        { label: '15 mm Slim Width × 900 mm', priceModifier: 0 },
+        { label: '25 mm Wide Exhibition Strap × 900 mm', priceModifier: 10 },
+      ],
+      materials: [
+        { label: 'Ultra-Smooth Satin Sublimation Polyester', priceModifier: 0 },
+        { label: 'Heavy-Duty Ribbed Woven Polyester', priceModifier: 8 },
+        { label: 'Eco-Friendly Recycled PET / Bamboo Fiber', priceModifier: 15 },
+      ],
+      finishes: [
+        { label: 'Metal Lobster Trigger Hook + Safety Breakaway', priceModifier: 0 },
+        { label: 'Dual Bulldog Clips (No-Twist Event Pass)', priceModifier: 10 },
+        { label: 'Detachable Quick-Release Buckle + Retractable Reel', priceModifier: 18 },
+      ],
+      printTech: 'Double-Sided Edge-to-Edge High-Definition Dye Sublimation & Precision Screen Printing',
+      substratesText: 'High-Tensile Satin Polyester, Ribbed Jacquard Weave, Eco-RPET Fabric & Heavy-Duty Die-Cast Metal Hardware',
+      embellishmentsText: 'Pantone-Matched Brand Colors, Rear Neck Safety Breakaway Release, Detachable Buckles & Retractable Yo-Yo Reels',
+      whoNeedsIt: 'Conferences, exhibitions, corporate offices, schools, government summits, and VIP hospitality events in Dubai.',
+    }
+  }
+
+  if (/flyer|leaflet|door-hanger|postcard/.test(haystack)) {
+    return {
+      sizes: [
+        { label: 'A5 Standard (148 × 210 mm)', priceModifier: 0 },
+        { label: 'A4 Full Page (210 × 297 mm)', priceModifier: 25 },
+        { label: 'DL Slim Menu / Event (99 × 210 mm)', priceModifier: 0 },
+        { label: 'A6 Compact Pocket (105 × 148 mm)', priceModifier: 0 },
+      ],
+      materials: [
+        { label: '150 GSM Gloss Coated Art Paper', priceModifier: 0 },
+        { label: '170 GSM Silk Matte Art Paper', priceModifier: 15 },
+        { label: '250 GSM Heavyweight Promotional Card', priceModifier: 30 },
+        { label: '300 GSM Luxury Artboard / Recycled Kraft', priceModifier: 45 },
+      ],
+      finishes: [
+        { label: 'Double-Sided Full-Color CMYK Satin', priceModifier: 0 },
+        { label: 'High-Gloss UV Protective Lamination', priceModifier: 25 },
+        { label: 'Anti-Glare Matte Lamination', priceModifier: 25 },
+        { label: 'Precision Bi-Fold / Tri-Fold Scoring', priceModifier: 30 },
+      ],
+      printTech: 'Heidelberg Speedmaster Commercial Offset & High-Speed HP Indigo Digital Press',
+      substratesText: '130 GSM to 350 GSM FSC-Certified Gloss & Silk Matte Art Paper, Uncoated Bond & Natural Brown Kraft',
+      embellishmentsText: 'Double-Sided Full-Bleed Printing, Gloss/Matte Lamination, Die-Cut Door Hanger Hooks & Express Same-Day Dispatch',
+      whoNeedsIt: 'Restaurants, real estate brokers, retail promotions, clinics, fitness studios, and exhibition marketers across Dubai.',
+    }
+  }
+
+  if (/brochure|catalog|booklet|menu/.test(haystack)) {
+    return {
+      sizes: [
+        { label: 'A4 Portrait (210 × 297 mm)', priceModifier: 0 },
+        { label: 'A4 Landscape (297 × 210 mm)', priceModifier: 15 },
+        { label: 'A5 Compact Booklet (148 × 210 mm)', priceModifier: 0 },
+        { label: 'Square Executive (210 × 210 mm)', priceModifier: 20 },
+      ],
+      materials: [
+        { label: '170 GSM Silk Inner + 300 GSM Artboard Cover', priceModifier: 0 },
+        { label: '200 GSM Heavyweight Matte Art Paper Throughout', priceModifier: 35 },
+        { label: 'Waterproof Tear-Proof Synthetic Menu Stock', priceModifier: 55 },
+      ],
+      finishes: [
+        { label: 'Saddle-Stitched (Wire Stapled Spine)', priceModifier: 0 },
+        { label: 'PUR Perfect-Bound Square Book Spine', priceModifier: 65 },
+        { label: 'Velvet Soft-Touch Cover + Spot UV Logo', priceModifier: 50 },
+        { label: 'Precision Tri-Fold / Gate-Fold Creasing', priceModifier: 20 },
+      ],
+      printTech: 'Heidelberg 4-Color Commercial Offset & Automated Horizon Saddle-Stitch / PUR Perfect Binding Line',
+      substratesText: '150–200 GSM Silk & Matte Coated Text Pages, 300–350 GSM Heavyweight Cover Boards & Waterproof Synthetic Substrates',
+      embellishmentsText: 'Anti-Crack Spine Scoring, Soft-Touch Velvet Cover Lamination, Raised Spot UV & Metallic Foil Stamping',
+      whoNeedsIt: 'Corporate company profiles, real estate developers, luxury hospitality menus, product catalogs, and annual reports in the UAE.',
+    }
+  }
+
+  if (/letterhead|envelope|folder|notebook|ncr|pad|binder|calendar|sticky|stationery/.test(haystack)) {
+    return {
+      sizes: [
+        { label: 'A4 Corporate Standard (210 × 297 mm)', priceModifier: 0 },
+        { label: 'DL / C5 / C4 Corporate Envelope Suite', priceModifier: 0 },
+        { label: 'A5 Executive Hardcover / Pad Format', priceModifier: 15 },
+      ],
+      materials: [
+        { label: '120 GSM Smooth Laser-Guaranteed Uncoated', priceModifier: 0 },
+        { label: '120 GSM Conqueror Watermarked Laid / Wove', priceModifier: 45 },
+        { label: '350 GSM Heavyweight Presentation Board', priceModifier: 35 },
+        { label: 'Carbonless 2-Ply / 3-Ply NCR Sequential Paper', priceModifier: 25 },
+      ],
+      finishes: [
+        { label: 'High-Resolution Offset CMYK + Pantone', priceModifier: 0 },
+        { label: 'Metallic Gold / Silver Hot Foil Stamping', priceModifier: 55 },
+        { label: 'Die-Cut Interlocking Pocket + Business Card Slits', priceModifier: 35 },
+        { label: 'Sequential Numbering, Perforation & Spine Binding', priceModifier: 25 },
+      ],
+      printTech: 'Lithographic Pantone Spot-Color Offset Press, Automated Die-Cutting & Foil Stamping Line',
+      substratesText: '100–120 GSM Laser-Guaranteed Uncoated Bond, Conqueror Watermarked Paper, 350 GSM Artboard & Carbonless NCR Sets',
+      embellishmentsText: 'High-Heat Office Laser Printer Safe Inks, Blind Embossing, Peel-and-Seal Strips & Die-Cut Document Pockets',
+      whoNeedsIt: 'Law firms, financial institutions, medical clinics, corporate offices, logistics companies, and government contractors in Dubai.',
+    }
+  }
+
+  if (/polo|t-shirt|shirt|hoodie|uniform|vest|cap|tote|bag|lanyard|gift|pen|usb|power-bank|mouse|keychain|award|trophy|coaster|wristband|ribbon/.test(haystack)) {
+    return {
+      sizes: [
+        { label: 'Standard Corporate Sizing / Assorted Mix', priceModifier: 0 },
+        { label: 'Executive Gift Box Presentation', priceModifier: 25 },
+        { label: 'Custom Branded Specification', priceModifier: 15 },
+      ],
+      materials: [
+        { label: 'Premium Executive Commercial Grade', priceModifier: 0 },
+        { label: 'Heavyweight 220 GSM Cotton / Eco Canvas', priceModifier: 15 },
+        { label: 'Brushed Metal / PU Leather / Optical Crystal', priceModifier: 30 },
+      ],
+      finishes: [
+        { label: 'Full-Color UV / DTF Brand Logo Print', priceModifier: 0 },
+        { label: 'High-Density Multi-Thread Embroidery', priceModifier: 20 },
+        { label: 'Precision Fiber Laser Engraving / Debossing', priceModifier: 20 },
+      ],
+      printTech: 'Multi-Head Industrial Tajima Embroidery, Direct-to-Film (DTF) Heat Press & UV LED Object Customization',
+      substratesText: 'Combed Ring-Spun Cotton Pique, Heavyweight Organic Canvas, Anodized Aluminum, PU Leather & K9 Optical Crystal',
+      embellishmentsText: 'Colorfast Stitch Embroidery, Engraved Metal Nameplates, Custom Die-Cut Foam Gift Boxes & Individual Polybagging',
+      whoNeedsIt: 'Corporate events, staff uniforms, VIP client appreciation gifts, exhibitions, and brand activations across Dubai and the UAE.',
+    }
+  }
+
+  return {
+    sizes: CARD_FALLBACK_SIZES,
+    materials: CARD_FALLBACK_MATERIALS,
+    finishes: CARD_FALLBACK_FINISHES,
+    printTech: 'German Heidelberg Speedmaster Offset & HP Indigo HD Digital Press',
+    substratesText: '350 GSM Silk Artboard, 400 GSM Matte, 450 GSM Velvet Soft-Touch, 600–700 GSM Archival Italian Cotton',
+    embellishmentsText: '24K Gold & Silver Hot Foil, Raised 3D Spot UV, Blind Debossing, Gilded Painted Edges',
+    whoNeedsIt: 'Executives, founders, luxury real estate consultants, hospitality brands, and corporate teams across Dubai and the UAE.',
+  }
+}
+
 function OptionGroup({ label, options, selected, onSelect }) {
   if (!options?.length) return null
   return (
@@ -118,26 +415,22 @@ export default function ProductDetailPage() {
     )
   }, [product])
 
+  const categorySpecProfile = useMemo(() => getCategorySpecProfile(product), [product])
+
   const resolvedSizes = useMemo(() => {
     if (product?.specifications?.sizes?.length) return product.specifications.sizes
-    if (isSticker) return STICKER_FALLBACK_SIZES
-    if (isCardOrPrint) return CARD_FALLBACK_SIZES
-    return []
-  }, [product, isSticker, isCardOrPrint])
+    return categorySpecProfile.sizes
+  }, [product, categorySpecProfile])
 
   const resolvedMaterials = useMemo(() => {
     if (product?.specifications?.materials?.length) return product.specifications.materials
-    if (isSticker) return STICKER_FALLBACK_MATERIALS
-    if (isCardOrPrint) return CARD_FALLBACK_MATERIALS
-    return []
-  }, [product, isSticker, isCardOrPrint])
+    return categorySpecProfile.materials
+  }, [product, categorySpecProfile])
 
   const resolvedFinishes = useMemo(() => {
     if (product?.specifications?.finishes?.length) return product.specifications.finishes
-    if (isSticker) return STICKER_FALLBACK_FINISHES
-    if (isCardOrPrint) return CARD_FALLBACK_FINISHES
-    return []
-  }, [product, isSticker, isCardOrPrint])
+    return categorySpecProfile.finishes
+  }, [product, categorySpecProfile])
 
   useEffect(() => {
     setStatus('loading')
@@ -145,21 +438,10 @@ export default function ProductDetailPage() {
       .then((data) => {
         setProduct(data)
         setQuantity(data.minimumQuantity || 1)
-        const itemIsSticker = /sticker|label|decal|packaging/i.test(
-          `${data.name || ''} ${data.slug || ''} ${data.category?.name || ''} ${data.category?.slug || ''}`
-        )
-        const isCard = /card|visiting|stationery|print|luxury|cotton|foil|uv|brochure|flyer/i.test(
-          `${data.name || ''} ${data.slug || ''} ${data.category?.name || ''}`
-        )
-        const initSizes = data.specifications?.sizes?.length
-          ? data.specifications.sizes
-          : (itemIsSticker ? STICKER_FALLBACK_SIZES : (isCard ? CARD_FALLBACK_SIZES : []))
-        const initMaterials = data.specifications?.materials?.length
-          ? data.specifications.materials
-          : (itemIsSticker ? STICKER_FALLBACK_MATERIALS : (isCard ? CARD_FALLBACK_MATERIALS : []))
-        const initFinishes = data.specifications?.finishes?.length
-          ? data.specifications.finishes
-          : (itemIsSticker ? STICKER_FALLBACK_FINISHES : (isCard ? CARD_FALLBACK_FINISHES : []))
+        const profile = getCategorySpecProfile(data)
+        const initSizes = data.specifications?.sizes?.length ? data.specifications.sizes : profile.sizes
+        const initMaterials = data.specifications?.materials?.length ? data.specifications.materials : profile.materials
+        const initFinishes = data.specifications?.finishes?.length ? data.specifications.finishes : profile.finishes
 
         setSize(initSizes[0] || null)
         setMaterial(initMaterials[0] || null)
@@ -1000,48 +1282,88 @@ export default function ProductDetailPage() {
           </div>
         )}
 
-                {/* Structured Technical Specifications Table */}
+        {/* Structured Technical Specifications Table + GEO Answer Block */}
         <div className="mt-16 rounded-3xl border border-border bg-surface p-6 sm:p-10 shadow-xs">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
             <ShieldCheck className="h-4 w-4" />
             <span>Engineering &amp; Production Standards</span>
           </div>
-          <h2 className="font-display text-2xl font-black tracking-tight text-primary mb-6">
-            Technical Specifications &amp; Commercial Standards
+          <h2 className="font-display text-2xl font-black tracking-tight text-primary mb-2">
+            {product.name} — Technical Specifications &amp; Commercial Standards
           </h2>
+          <p className="text-sm text-secondary mb-6 leading-relaxed">
+            <strong>Who uses this product:</strong> {categorySpecProfile.whoNeedsIt}
+          </p>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm">
               <tbody className="divide-y divide-border">
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 pr-4 font-bold text-primary w-1/3 sm:w-1/4">Print Technology</td>
-                  <td className="py-3.5 text-secondary">German Heidelberg Speedmaster Offset &amp; HP Indigo HD Digital Press</td>
+                  <td className="py-3.5 pr-4 font-bold text-primary w-1/3 sm:w-1/4">Print &amp; Production Technology</td>
+                  <td className="py-3.5 text-secondary">{categorySpecProfile.printTech}</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 pr-4 font-bold text-primary">Color Calibration</td>
-                  <td className="py-3.5 text-secondary">ISO 12647-2 Certified CMYK with Solid Pantone Spot Color Matching</td>
+                  <td className="py-3.5 pr-4 font-bold text-primary">Color &amp; Alignment Calibration</td>
+                  <td className="py-3.5 text-secondary">ISO 12647-2 Certified CMYK with Solid Pantone Spot Color Matching &amp; Vector Precision</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 pr-4 font-bold text-primary">Substrates Available</td>
-                  <td className="py-3.5 text-secondary">350 GSM Silk Artboard, 400 GSM Matte, 450 GSM Velvet Soft-Touch, 600–700 GSM Archival Italian Cotton</td>
+                  <td className="py-3.5 pr-4 font-bold text-primary">Substrates &amp; Materials Available</td>
+                  <td className="py-3.5 text-secondary">{categorySpecProfile.substratesText}</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 pr-4 font-bold text-primary">Signature Embellishments</td>
-                  <td className="py-3.5 text-secondary">24K Gold &amp; Silver Hot Foil, Raised 3D Spot UV, Blind Debossing, Gilded Painted Edges</td>
+                  <td className="py-3.5 pr-4 font-bold text-primary">Signature Finishes &amp; Options</td>
+                  <td className="py-3.5 text-secondary">{categorySpecProfile.embellishmentsText}</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 pr-4 font-bold text-primary">Artwork Pre-Flight</td>
-                  <td className="py-3.5 text-secondary">Complimentary 300 DPI vector audit, bleed margin verification, and PDF digital proof</td>
+                  <td className="py-3.5 pr-4 font-bold text-primary">Minimum Order Quantity (MOQ)</td>
+                  <td className="py-3.5 text-secondary">{product.minimumQuantity || 1} {product.unit || 'units'} (Bulk corporate volume discounts available)</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 pr-4 font-bold text-primary">Turnaround &amp; Dispatch</td>
-                  <td className="py-3.5 text-secondary">Same-day priority &amp; 24–48h express dispatch directly from Al Quoz, Dubai</td>
+                  <td className="py-3.5 pr-4 font-bold text-primary">Artwork Pre-Flight Check</td>
+                  <td className="py-3.5 text-secondary">Complimentary 300 DPI vector audit, bleed margin verification, and digital proof before production</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="py-3.5 pr-4 font-bold text-primary">Doorstep Delivery</td>
-                  <td className="py-3.5 text-secondary">Insured courier delivery across Dubai, Abu Dhabi, Sharjah, and all 7 UAE Emirates</td>
+                  <td className="py-3.5 pr-4 font-bold text-primary">Turnaround &amp; UAE Delivery</td>
+                  <td className="py-3.5 text-secondary">Express Al Quoz, Dubai production with insured courier delivery across Dubai, Abu Dhabi, Sharjah &amp; all UAE Emirates</td>
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          {/* 3-Step Ordering Guide + Contextual Internal Links */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-border pt-6">
+            <div className="rounded-2xl border border-border bg-white/[0.02] p-4">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-accent">Step 1 · Select Specs</span>
+              <p className="mt-1 text-xs text-secondary leading-relaxed">
+                Choose your preferred size, substrate, finish, and quantity above or request custom dimensions.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-white/[0.02] p-4">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-accent">Step 2 · Share Artwork</span>
+              <p className="mt-1 text-xs text-secondary leading-relaxed">
+                Send your logo or print-ready PDF/AI file via WhatsApp (+44 7344 546056) or upload on our quotation page.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-white/[0.02] p-4">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-accent">Step 3 · Proof &amp; Dispatch</span>
+              <p className="mt-1 text-xs text-secondary leading-relaxed">
+                Approve your digital proof and receive fast doorstep delivery across Dubai and all 7 UAE Emirates.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-bold">
+            <span className="text-secondary">Helpful Links:</span>
+            {product.category?.slug && (
+              <Link to={`/categories/${product.category.slug}`} className="text-accent hover:underline">
+                Explore All {product.category.name} →
+              </Link>
+            )}
+            <Link to={`/get-a-quote?product=${encodeURIComponent(product.name)}`} className="text-accent hover:underline">
+              Online Quotation Form →
+            </Link>
+            <Link to="/blog" className="text-accent hover:underline">
+              UAE Printing Buying Guides →
+            </Link>
           </div>
         </div>
 

@@ -6,6 +6,7 @@
  */
 
 // Track the last pageview to prevent duplicate pageview emissions
+export const GA4_MEASUREMENT_ID = 'G-GM4H4QNS0D'
 let lastTrackedPath = null
 let isInitialized = false
 
@@ -271,6 +272,16 @@ export function trackGetQuoteClick({ source_page, product_name, category_name, b
  * Separates whatsapp_click, contact_form_submit, quote_request, phone_click, email_click, and product_inquiry.
  * Never reports clicks as confirmed orders.
  */
+export function getStoredConversionEvents() {
+  if (typeof window === 'undefined') return []
+  try {
+    const raw = localStorage.getItem('onprint_conversion_events_v1')
+    return raw ? JSON.parse(raw) : []
+  } catch {
+    return []
+  }
+}
+
 export function sendConversionBeacon({
   conversion_type,
   source_page,
@@ -279,7 +290,7 @@ export function sendConversionBeacon({
   button_location,
   device_category,
 } = {}) {
-  if (typeof window === 'undefined' || typeof fetch !== 'function' || !conversion_type) return
+  if (typeof window === 'undefined' || !conversion_type) return
   try {
     const pagePath = getCurrentPagePath()
     const resolvedLandingPage =
@@ -293,13 +304,25 @@ export function sendConversionBeacon({
       button_location: button_location || undefined,
       device_category: device_category || getDeviceCategory(),
       query_string: window.location.search || '',
+      timestamp: new Date().toISOString(),
     }
-    fetch('/api/seo/conversions/track', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-      keepalive: true,
-    }).catch(() => {})
+
+    try {
+      const existing = getStoredConversionEvents()
+      const updated = [payload, ...existing].slice(0, 500)
+      localStorage.setItem('onprint_conversion_events_v1', JSON.stringify(updated))
+    } catch {
+      // ignore storage quota errors
+    }
+
+    if (typeof fetch === 'function') {
+      fetch('/api/seo/conversions/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true,
+      }).catch(() => {})
+    }
   } catch {
     // Gracefully ignore network/beacon errors
   }
@@ -599,6 +622,17 @@ export function trackQuoteRequest({ source_page, product_name, category_name, bu
     device_category: device,
   })
 
+  // Exact event: quote_form_submit (fires ONLY after successful form submission)
+  trackEvent('quote_form_submit', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    form_name: 'quote_request_form',
+    product_name: resolvedProduct,
+    category_name: category_name || undefined,
+    button_location: resolvedLocation,
+    device_category: device,
+  })
+
   // Also emit contact_form_submit so form submission funnel captures both quote & contact forms
   trackEvent('contact_form_submit', {
     page_path: pagePath,
@@ -656,11 +690,18 @@ export function trackQuoteFormStart({ form_name = 'quote_wizard', source_page, p
  */
 export function trackArtworkUpload({ file_count = 1, source_page } = {}) {
   const pagePath = getCurrentPagePath()
+  const device = getDeviceCategory()
   trackEvent('artwork_upload', {
     file_count,
     page_path: pagePath,
     source_page: source_page || pagePath,
-    device_category: getDeviceCategory(),
+    device_category: device,
+  })
+  trackEvent('artwork_upload_success', {
+    file_count,
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    device_category: device,
   })
 }
 
@@ -847,8 +888,19 @@ export function trackOrderCompleted({
     device_category: device,
   })
 
-  // Also emit completed_order variant for GA4 compatibility
+  // Also emit completed_order & order_confirmed variants for GA4 funnel tracking
   trackEvent('completed_order', {
+    page_path: pagePath,
+    source_page: source_page || pagePath,
+    order_number: order_number ? String(order_number) : undefined,
+    product_name: product_name || undefined,
+    quantity: quantity ? Number(quantity) : undefined,
+    value: total_price ? Number(total_price) : undefined,
+    currency,
+    device_category: device,
+  })
+
+  trackEvent('order_confirmed', {
     page_path: pagePath,
     source_page: source_page || pagePath,
     order_number: order_number ? String(order_number) : undefined,

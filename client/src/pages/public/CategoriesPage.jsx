@@ -85,6 +85,18 @@ export default function CategoriesPage() {
     })
   }, [searchQuery, selectedDeptFilter])
 
+  // Filter store categories based on search query
+  const filteredStoreCategories = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim()
+    if (!q) return categories
+    return categories.filter(
+      (cat) =>
+        (cat.name || '').toLowerCase().includes(q) ||
+        (cat.description || '').toLowerCase().includes(q) ||
+        (cat.slug || '').toLowerCase().includes(q)
+    )
+  }, [categories, searchQuery])
+
   const breadcrumbsList = [
     { name: 'Home', url: '/' },
     { name: 'Departments & Categories', url: '/categories' },
@@ -277,6 +289,38 @@ export default function CategoriesPage() {
             })
           )}
         </div>
+
+        {/* Complete 19-Category Store Directory */}
+        {!loading && filteredStoreCategories.length > 0 && (
+          <div className="mt-16 pt-12 border-t border-[#122240]">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+              <div>
+                <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+                  COMPLETE DUBAI PRINT DIRECTORY
+                </span>
+                <h2 className="font-display text-2xl sm:text-3xl font-black text-[#F5F2EB] mt-1">
+                  All {filteredStoreCategories.length} Store Categories
+                </h2>
+                <p className="text-xs sm:text-sm text-[#B0BECE] mt-1 max-w-2xl">
+                  Browse any product category directly or click WhatsApp to receive an instant custom quotation from our Al Quoz pressroom.
+                </p>
+              </div>
+              <Link
+                to="/products"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:underline shrink-0"
+              >
+                <span>View All 120+ Products</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
+              {filteredStoreCategories.map((cat, idx) => (
+                <CategoryCard key={cat.slug || cat.id || idx} category={cat} index={idx} />
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Bottom Commercial Press Capabilities */}
         <div className="mt-20 rounded-3xl border border-[#122240] bg-[#081226] p-8 sm:p-12 shadow-sm">

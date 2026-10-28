@@ -8,8 +8,10 @@ import Reveal from '../../components/Reveal'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import SEOHead from '../../components/SEOHead'
 import { Sparkles, CheckCircle2, ShieldCheck, Truck, Layers, ArrowRight, Award } from 'lucide-react'
+import WhatsAppIcon from '../../components/WhatsAppIcon'
 import { getServices } from '../../services/services'
-import { trackViewServices } from '../../utils/analytics'
+import { getServiceWhatsAppUrl } from '../../utils/whatsapp'
+import { trackViewServices, trackWhatsAppClick, trackGetQuoteClick } from '../../utils/analytics'
 
 export default function ServicesPage() {
   const [services, setServices] = useState(null)
@@ -37,17 +39,47 @@ export default function ServicesPage() {
         <Breadcrumbs items={[{ name: 'Printing Services' }]} />
 
         {/* Page Header */}
-        <div className="border-b border-border pb-10">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-accent">
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>COMMERCIAL PRINT SOLUTIONS</span>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-border pb-10">
+          <div>
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-accent">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>COMMERCIAL PRINT SOLUTIONS</span>
+            </div>
+            <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
+              Commercial Printing &amp; Branding Services in Dubai, UAE
+            </h1>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-secondary sm:text-base">
+              From executive office stationery and luxury foil-stamped business cards to premium marketing collaterals and large-format exhibition graphics, ONPRINT provides end-to-end commercial printing services across Dubai and the UAE with guaranteed color accuracy and ISO-certified quality.
+            </p>
           </div>
-          <h1 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-primary sm:text-5xl">
-            Commercial Printing &amp; Branding Services in Dubai, UAE
-          </h1>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-secondary sm:text-base">
-            From executive office stationery and luxury foil-stamped business cards to premium marketing collaterals and large-format exhibition graphics, ONPRINT provides end-to-end commercial printing services across Dubai and the UAE with guaranteed color accuracy and ISO-certified quality.
-          </p>
+
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <a
+              href={getServiceWhatsAppUrl('general', { includePageUrl: true })}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackWhatsAppClick({
+                  source_page: '/services',
+                  service_name: 'All Commercial Services',
+                  button_location: 'services_hero_whatsapp',
+                })
+              }
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-5 py-2.5 text-xs sm:text-sm font-black text-white shadow-md transition-all"
+            >
+              <WhatsAppIcon className="h-4 w-4 fill-white shrink-0" />
+              <span>WhatsApp Quote</span>
+            </a>
+
+            <Link
+              to="/get-a-quote"
+              onClick={() => trackGetQuoteClick({ source_page: '/services', button_location: 'services_hero_quote' })}
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-5 py-2.5 text-xs sm:text-sm font-black text-[#040A18] shadow-md transition-all"
+            >
+              <span>Request Custom Quote</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
 
         {/* Services Grid */}
@@ -160,10 +192,26 @@ export default function ServicesPage() {
                   We offer dedicated courier dispatch and same-day delivery throughout Dubai (DIFC, Business Bay, Downtown, Dubai Marina, JLT, Al Quoz, Deira) and next-day distribution to Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain.
                 </p>
               </div>
-              <div className="lg:col-span-4 flex justify-start lg:justify-end">
+              <div className="lg:col-span-4 flex flex-wrap items-center justify-start lg:justify-end gap-3">
+                <a
+                  href={getServiceWhatsAppUrl('general', { includePageUrl: true })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source_page: '/services',
+                      service_name: 'UAE Express Dispatch',
+                      button_location: 'services_footer_whatsapp',
+                    })
+                  }
+                  className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] px-5 py-3 text-xs sm:text-sm font-black text-white shadow-lg transition-all"
+                >
+                  <WhatsAppIcon className="h-4 w-4 fill-white shrink-0" />
+                  <span>WhatsApp Us</span>
+                </a>
                 <Link
                   to="/get-a-quote"
-                  className="inline-flex items-center gap-2 rounded-full bg-accent hover:bg-accent-hover px-6 py-3.5 text-sm font-bold text-white shadow-lg transition-all"
+                  className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-6 py-3 text-xs sm:text-sm font-black text-[#040A18] shadow-lg transition-all"
                 >
                   <span>Request Custom Quote</span>
                   <ArrowRight className="h-4 w-4" />

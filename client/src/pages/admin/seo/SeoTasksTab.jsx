@@ -213,7 +213,7 @@ export default function SeoTasksTab({ showToast }) {
       case 'medium':
         return 'bg-blue-50 text-blue-700 border-blue-200'
       default:
-        return 'bg-neutral-100 text-[#B8C2D9] border-[#1E2C4F]'
+        return 'bg-neutral-100 text-[#B8C2D9] border-[#122240]'
     }
   }
 
@@ -232,14 +232,14 @@ export default function SeoTasksTab({ showToast }) {
       case 'content':
         return 'bg-amber-50 text-amber-700 border-amber-200'
       default:
-        return 'bg-neutral-100 text-[#F5F3EE] border-[#1E2C4F]'
+        return 'bg-neutral-100 text-[#F5F3EE] border-[#122240]'
     }
   }
 
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
@@ -262,7 +262,7 @@ export default function SeoTasksTab({ showToast }) {
               size="sm"
               onClick={handleGenerate}
               disabled={generating}
-              className="flex items-center gap-1.5 border-[#1E2C4F] text-[#F5F3EE] hover:border-[#D6C29A]"
+              className="flex items-center gap-1.5 border-[#122240] text-[#F5F3EE] hover:border-[#D6C29A]"
             >
               <Sparkles className={`h-4 w-4 text-[#D6C29A] ${generating ? 'animate-spin' : ''}`} />
               <span>{generating ? 'Scanning…' : 'Auto-Generate Tasks'}</span>
@@ -295,7 +295,7 @@ export default function SeoTasksTab({ showToast }) {
 
         {/* KPI Summary Cards */}
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <div className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+          <div className="rounded-xl border border-[#122240] bg-[#040A18] p-4">
             <span className="text-[11px] font-bold text-[#B8C2D9] uppercase tracking-wider block mb-1">
               Total Tasks
             </span>
@@ -332,7 +332,7 @@ export default function SeoTasksTab({ showToast }) {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 shadow-xs">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="relative">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#B8C2D9]/70" />
@@ -341,7 +341,7 @@ export default function SeoTasksTab({ showToast }) {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search tasks, descriptions..."
-              className="w-full rounded-xl border border-[#1E2C4F] pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+              className="w-full rounded-xl border border-[#122240] pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
             />
           </div>
 
@@ -349,7 +349,7 @@ export default function SeoTasksTab({ showToast }) {
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+              className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
             >
               {CATEGORIES.map((c) => (
                 <option key={c.value} value={c.value}>
@@ -363,7 +363,7 @@ export default function SeoTasksTab({ showToast }) {
             <select
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
-              className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+              className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
             >
               {PRIORITIES.map((p) => (
                 <option key={p.value} value={p.value}>
@@ -377,7 +377,7 @@ export default function SeoTasksTab({ showToast }) {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+              className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
             >
               {STATUSES.map((s) => (
                 <option key={s.value} value={s.value}>
@@ -392,12 +392,12 @@ export default function SeoTasksTab({ showToast }) {
       {/* Task List Table */}
       <div className="space-y-3">
         {loading ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#14213D] rounded-2xl border border-[#1E2C4F]">
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#081226] rounded-2xl border border-[#122240]">
             <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6C29A] mb-2" />
             Loading SEO task queue…
           </div>
         ) : filteredTasks.length === 0 ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#14213D] rounded-2xl border border-[#1E2C4F]">
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#081226] rounded-2xl border border-[#122240]">
             No SEO tasks match your filter criteria. Click "Auto-Generate Tasks" to analyze audit issues.
           </div>
         ) : (
@@ -406,8 +406,8 @@ export default function SeoTasksTab({ showToast }) {
             return (
               <div
                 key={task.id}
-                className={`rounded-2xl border transition-all duration-200 bg-[#14213D] p-5 shadow-2xs hover:border-[#1E2C4F] ${
-                  isCompleted ? 'bg-[#0B132B]/60 opacity-80' : ''
+                className={`rounded-2xl border transition-all duration-200 bg-[#081226] p-5 shadow-2xs hover:border-[#122240] ${
+                  isCompleted ? 'bg-[#040A18]/60 opacity-80' : ''
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
@@ -418,7 +418,7 @@ export default function SeoTasksTab({ showToast }) {
                       className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border transition-colors cursor-pointer ${
                         isCompleted
                           ? 'border-emerald-600 bg-emerald-600 text-white'
-                          : 'border-[#1E2C4F] hover:border-[#D6C29A] text-transparent hover:text-neutral-300'
+                          : 'border-[#122240] hover:border-[#D6C29A] text-transparent hover:text-neutral-300'
                       }`}
                       title={isCompleted ? 'Mark as incomplete' : 'Mark as completed'}
                     >
@@ -495,7 +495,7 @@ export default function SeoTasksTab({ showToast }) {
                     <button
                       type="button"
                       onClick={() => openEdit(task)}
-                      className="p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] hover:bg-[#1E2C4F] rounded-lg transition-colors cursor-pointer"
+                      className="p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] hover:bg-[#122240] rounded-lg transition-colors cursor-pointer"
                       title="Edit task"
                     >
                       <Edit2 className="h-4 w-4" />
@@ -528,7 +528,7 @@ export default function SeoTasksTab({ showToast }) {
           }}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -537,7 +537,7 @@ export default function SeoTasksTab({ showToast }) {
                 setShowAddModal(false)
                 setEditingItem(null)
               }}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F]"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -557,7 +557,7 @@ export default function SeoTasksTab({ showToast }) {
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   placeholder="e.g. Audit striking-distance queries for Business Cards Dubai"
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   required
                 />
               </div>
@@ -569,7 +569,7 @@ export default function SeoTasksTab({ showToast }) {
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="Specific optimization guidelines, test hypotheses, or checklist items..."
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
@@ -579,7 +579,7 @@ export default function SeoTasksTab({ showToast }) {
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   >
                     <option value="onpage">On-Page SEO</option>
                     <option value="technical">Technical SEO</option>
@@ -595,7 +595,7 @@ export default function SeoTasksTab({ showToast }) {
                   <select
                     value={formData.priority}
                     onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   >
                     <option value="critical">Critical</option>
                     <option value="high">High</option>
@@ -611,7 +611,7 @@ export default function SeoTasksTab({ showToast }) {
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   >
                     <option value="pending">Pending</option>
                     <option value="in_progress">In Progress</option>
@@ -626,7 +626,7 @@ export default function SeoTasksTab({ showToast }) {
                     value={formData.assigned_to}
                     onChange={(e) => setFormData({ ...formData, assigned_to: e.target.value })}
                     placeholder="e.g. SEO Specialist, Lead Tech"
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   />
                 </div>
               </div>
@@ -637,11 +637,11 @@ export default function SeoTasksTab({ showToast }) {
                   type="date"
                   value={formData.due_date}
                   onChange={(e) => setFormData({ ...formData, due_date: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
-              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#1E2C4F]">
+              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#122240]">
                 <Button
                   type="button"
                   variant="outline"
@@ -669,7 +669,7 @@ export default function SeoTasksTab({ showToast }) {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in"
         >
-          <div className="relative w-full max-w-md rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl">
+          <div className="relative w-full max-w-md rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl">
             <h3 className="font-display text-lg font-black text-[#F5F3EE]">Delete SEO Task?</h3>
             <p className="mt-2 text-xs text-[#B8C2D9]">
               Are you sure you want to permanently delete{' '}

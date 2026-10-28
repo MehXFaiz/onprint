@@ -674,7 +674,7 @@ export default function ProductDetailPage() {
                   onClick={() => setViewMode('360')}
                   className={`flex min-h-[38px] items-center gap-1.5 rounded-lg px-2.5 sm:px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     viewMode === '360'
-                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                      ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
                       : 'text-secondary hover:text-primary'
                   }`}
                 >
@@ -686,7 +686,7 @@ export default function ProductDetailPage() {
                   onClick={() => setViewMode('photo')}
                   className={`flex min-h-[38px] items-center gap-1.5 rounded-lg px-2.5 sm:px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     viewMode === 'photo'
-                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                      ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
                       : 'text-secondary hover:text-primary'
                   }`}
                 >
@@ -696,7 +696,7 @@ export default function ProductDetailPage() {
               </div>
 
               {product.featured && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#101D35] shadow-xs">
+                <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#040A18] shadow-xs">
                   <Sparkles className="h-3 w-3" />
                   Featured
                 </span>
@@ -953,13 +953,13 @@ export default function ProductDetailPage() {
                       onClick={() => setQuantity(tier.qty)}
                       className={`flex flex-col items-center justify-center rounded-xl border p-2 text-center transition-all cursor-pointer ${
                         quantity === tier.qty
-                          ? 'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] font-black shadow-xs ring-1 ring-[#D4AF65]'
-                          : 'border-[#203357] bg-[#101D35] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#F5F2EB] font-semibold shadow-2xs'
+                          ? 'border-[#D4AF65] bg-[#D4AF65] text-[#040A18] font-black shadow-xs ring-1 ring-[#D4AF65]'
+                          : 'border-[#122240] bg-[#040A18] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#F5F2EB] font-semibold shadow-2xs'
                       }`}
                     >
                       <span className="text-xs">{tier.label}</span>
                       {tier.discount > 0 && (
-                        <span className={`text-[10px] font-bold ${quantity === tier.qty ? 'text-[#101D35]/80' : 'text-emerald-600'}`}>-{tier.discount}%</span>
+                        <span className={`text-[10px] font-bold ${quantity === tier.qty ? 'text-[#040A18]/80' : 'text-emerald-600'}`}>-{tier.discount}%</span>
                       )}
                     </button>
                   ))}
@@ -1148,7 +1148,7 @@ export default function ProductDetailPage() {
                   onClick={() => { setActiveCategoryTab(idx); setCategoryLightbox(null) }}
                   className={`rounded-xl border px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     activeCategoryTab === idx
-                      ? 'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] shadow-xs'
+                      ? 'border-[#D4AF65] bg-[#D4AF65] text-[#040A18] shadow-xs'
                       : 'border-border bg-surface text-secondary hover:border-primary hover:text-primary'
                   }`}
                 >

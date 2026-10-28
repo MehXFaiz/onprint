@@ -64,7 +64,7 @@ export default function AdminPortfolioFormPage() {
       </nav>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1E2C4F] pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#122240] pb-6">
         <div>
           <Link
             to="/admin/portfolio"
@@ -90,8 +90,8 @@ export default function AdminPortfolioFormPage() {
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs space-y-5">
-          <div className="border-b border-[#1E2C4F] pb-4">
+        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-5">
+          <div className="border-b border-[#122240] pb-4">
             <h3 className="font-display text-base font-bold text-[#F5F3EE] flex items-center gap-2">
               <ImageIcon className="h-4 w-4 text-[#D6C29A]" />
               Project Showcase Details
@@ -110,7 +110,7 @@ export default function AdminPortfolioFormPage() {
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
                 placeholder="e.g. Executive Leather Journals"
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
@@ -123,7 +123,7 @@ export default function AdminPortfolioFormPage() {
                 value={form.client}
                 onChange={(e) => setForm({ ...form, client: e.target.value })}
                 placeholder="e.g. Vertex Tech Dubai"
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function AdminPortfolioFormPage() {
               <select
                 value={form.category}
                 onChange={(e) => setForm({ ...form, category: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
               >
                 <option value="Corporate Gifts">Corporate Gifts</option>
                 <option value="Stationery">Office Stationery</option>
@@ -163,16 +163,16 @@ export default function AdminPortfolioFormPage() {
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
               placeholder="Describe printing technique, material finishing, and client outcome..."
-              className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+              className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
             />
           </div>
         </div>
 
         {/* Footer Actions */}
-        <div className="flex flex-wrap items-center justify-end gap-3 rounded-2xl bg-[#14213D] p-4 border border-[#1E2C4F] shadow-xs">
+        <div className="flex flex-wrap items-center justify-end gap-3 rounded-2xl bg-[#081226] p-4 border border-[#122240] shadow-xs">
           <Link
             to="/admin/portfolio"
-            className="w-full sm:w-auto text-center rounded-xl border border-[#1E2C4F] px-5 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B] transition-colors"
+            className="w-full sm:w-auto text-center rounded-xl border border-[#122240] px-5 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#040A18] transition-colors"
           >
             Cancel
           </Link>

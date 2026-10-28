@@ -90,7 +90,7 @@ export default function ArabicHomePage() {
   const [openFaq, setOpenFaq] = useState(0)
 
   return (
-    <div className="bg-[#101D35] text-[#F5F2EB] font-arabic antialiased selection:bg-[#D4AF65] selection:text-[#101D35]" dir="rtl">
+    <div className="bg-[#040A18] text-[#F5F2EB] font-arabic antialiased selection:bg-[#D4AF65] selection:text-[#040A18]" dir="rtl">
       <SEOHead
         title="مطبعة في دبي | أون برينت ONPRINT – خدمات الطباعة التجارية والفاخرة في الإمارات"
         description="أون برينت ONPRINT مطبعة تجارية متكاملة في القوز، دبي. طباعة كروت شخصية فاخرة، أختام شركات معتمدة، ستيكرات وملصقات مقاومة للماء، بروشورات ورول اب بانر مع توصيل لكافة الإمارات."
@@ -100,9 +100,9 @@ export default function ArabicHomePage() {
       />
 
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#203357] bg-gradient-to-b from-[#0C1629] via-[#101D35] to-[#101D35]">
+      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#122240] bg-gradient-to-b from-[#020611] via-[#040A18] to-[#040A18]">
         <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#172644]/60 blur-3xl" />
+        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#081226]/60 blur-3xl" />
 
         <Container className="relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
@@ -142,7 +142,7 @@ export default function ArabicHomePage() {
               <Link
                 to="/ar/business-cards"
                 onClick={() => trackGetQuoteClick({ source_page: '/ar', product_name: 'business_cards_ar' })}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#172644] hover:bg-[#203357] border border-[#203357] hover:border-[#D4AF65] px-6 py-3.5 text-sm font-bold text-[#F5F2EB] transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#081226] hover:bg-[#122240] border border-[#122240] hover:border-[#D4AF65] px-6 py-3.5 text-sm font-bold text-[#F5F2EB] transition-all"
               >
                 <span>استكشف الكروت الشخصية</span>
                 <ArrowLeft className="h-4 w-4 text-[#D4AF65]" />
@@ -151,19 +151,19 @@ export default function ArabicHomePage() {
 
             {/* Quick Guarantees Bar */}
             <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-right sm:text-center text-xs text-[#B0BECE]">
-              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#172644]/40 border border-[#203357]">
+              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#081226]/40 border border-[#122240]">
                 <Clock className="h-4 w-4 text-[#D4AF65] shrink-0" />
                 <span>تنفيذ سريع خلال 24 ساعة</span>
               </div>
-              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#172644]/40 border border-[#203357]">
+              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#081226]/40 border border-[#122240]">
                 <Truck className="h-4 w-4 text-emerald-400 shrink-0" />
                 <span>توصيل لكافة إمارات الدولة</span>
               </div>
-              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#172644]/40 border border-[#203357]">
+              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#081226]/40 border border-[#122240]">
                 <ShieldCheck className="h-4 w-4 text-[#D4AF65] shrink-0" />
                 <span>أختام رسمية معتمدة قانونياً</span>
               </div>
-              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#172644]/40 border border-[#203357]">
+              <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-[#081226]/40 border border-[#122240]">
                 <Award className="h-4 w-4 text-[#D4AF65] shrink-0" />
                 <span>دقة ألوان ألمانية Heidelberg</span>
               </div>
@@ -173,7 +173,7 @@ export default function ArabicHomePage() {
       </section>
 
       {/* 2. CORE PRODUCTS GRID */}
-      <section className="py-16 sm:py-20 border-b border-[#203357]">
+      <section className="py-16 sm:py-20 border-b border-[#122240]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
@@ -193,11 +193,11 @@ export default function ArabicHomePage() {
               return (
                 <div
                   key={dept.slug}
-                  className="rounded-3xl border border-[#203357] bg-[#172644]/80 hover:bg-[#172644] hover:border-[#D4AF65]/60 transition-all p-6 sm:p-8 flex flex-col justify-between shadow-lg"
+                  className="rounded-3xl border border-[#122240] bg-[#081226]/80 hover:bg-[#081226] hover:border-[#D4AF65]/60 transition-all p-6 sm:p-8 flex flex-col justify-between shadow-lg"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#101D35] border border-[#203357] text-[#D4AF65]">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#040A18] border border-[#122240] text-[#D4AF65]">
                         <Icon className="h-6 w-6" />
                       </div>
                       <span className="rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/30 px-3 py-1 text-[11px] font-bold text-[#D4AF65]">
@@ -217,7 +217,7 @@ export default function ArabicHomePage() {
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-[#203357] space-y-1.5">
+                    <div className="pt-2 border-t border-[#122240] space-y-1.5">
                       {dept.features.map((feat, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-xs text-[#F5F2EB]">
                           <CheckCircle2 className="h-3.5 w-3.5 text-[#D4AF65] shrink-0" />
@@ -227,7 +227,7 @@ export default function ArabicHomePage() {
                     </div>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-[#203357] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <div className="pt-6 mt-6 border-t border-[#122240] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <Link
                       to={dept.slug}
                       className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-[#D4AF65] hover:text-white transition-colors py-2"
@@ -265,7 +265,7 @@ export default function ArabicHomePage() {
       </section>
 
       {/* 3. PRESSROOM CAPABILITIES & DELIVERY COVERAGE */}
-      <section className="py-16 sm:py-20 border-b border-[#203357] bg-[#0C1629]">
+      <section className="py-16 sm:py-20 border-b border-[#122240] bg-[#020611]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="space-y-5">
@@ -280,25 +280,25 @@ export default function ArabicHomePage() {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-2xl bg-[#101D35] border border-[#203357]">
+                <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240]">
                   <h4 className="font-bold text-[#F5F2EB] text-sm mb-1">مطبعة مركزية في القوز</h4>
                   <p className="text-xs text-[#B0BECE] leading-relaxed">
                     إشراف فني مباشر ومراقبة دقيقة لجودة كل شحنة قبل خروجها للمستلم.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#101D35] border border-[#203357]">
+                <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240]">
                   <h4 className="font-bold text-[#F5F2EB] text-sm mb-1">تشطيبات فاخرة متخصصة</h4>
                   <p className="text-xs text-[#B0BECE] leading-relaxed">
                     بصمة ذهبية بارزة 24K، حواف ملونة، ورنيش موضعي ثلاثي الأبعاد، وسلوفان مطفي.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#101D35] border border-[#203357]">
+                <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240]">
                   <h4 className="font-bold text-[#F5F2EB] text-sm mb-1">توصيل سريع لكافة الإمارات</h4>
                   <p className="text-xs text-[#B0BECE] leading-relaxed">
                     توصيل سريع في دبي (الخليج التجاري، مركز دبي المالي، وسط دبي)، وأبوظبي، والشارقة.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#101D35] border border-[#203357]">
+                <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240]">
                   <h4 className="font-bold text-[#F5F2EB] text-sm mb-1">خدمة عملاء عبر واتساب</h4>
                   <p className="text-xs text-[#B0BECE] leading-relaxed">
                     استجابة فورية لمراجعة ملفات التصميم وإرسال البروفات الرقمية مجاناً قبل الاعتماد.
@@ -307,7 +307,7 @@ export default function ArabicHomePage() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-[#203357] bg-[#101D35] p-6 sm:p-8 space-y-6">
+            <div className="rounded-3xl border border-[#122240] bg-[#040A18] p-6 sm:p-8 space-y-6">
               <h3 className="text-xl font-black text-[#F5F2EB]">
                 مناطق التوصيل والخدمة اليومية في الإمارات
               </h3>
@@ -316,28 +316,28 @@ export default function ArabicHomePage() {
               </p>
 
               <div className="grid grid-cols-2 gap-3 text-xs">
-                <div className="p-3 rounded-xl bg-[#172644] border border-[#203357] text-[#F5F2EB] font-bold">
+                <div className="p-3 rounded-xl bg-[#081226] border border-[#122240] text-[#F5F2EB] font-bold">
                   📍 دبي: DIFC, Business Bay, Downtown, Al Quoz, Media City, JLT
                 </div>
-                <div className="p-3 rounded-xl bg-[#172644] border border-[#203357] text-[#F5F2EB] font-bold">
+                <div className="p-3 rounded-xl bg-[#081226] border border-[#122240] text-[#F5F2EB] font-bold">
                   📍 أبوظبي: جزيرة المارية، الكورنيش، المصفح، مدينة خليفة
                 </div>
-                <div className="p-3 rounded-xl bg-[#172644] border border-[#203357] text-[#F5F2EB] font-bold">
+                <div className="p-3 rounded-xl bg-[#081226] border border-[#122240] text-[#F5F2EB] font-bold">
                   📍 الشارقة: المناطق الصناعية، المجاز، الخان
                 </div>
-                <div className="p-3 rounded-xl bg-[#172644] border border-[#203357] text-[#F5F2EB] font-bold">
+                <div className="p-3 rounded-xl bg-[#081226] border border-[#122240] text-[#F5F2EB] font-bold">
                   📍 باقي الإمارات: عجمان، رأس الخيمة، الفجيرة، أم القيوين
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-[#203357]">
+              <div className="pt-2 border-t border-[#122240]">
                 <p className="text-xs text-[#B0BECE] mb-3">
                   هل تحتاج استشارة فورية بخصوص المقاسات أو الكميات؟ تحدث مع المهندس المختص:
                 </p>
                 <div className="flex flex-wrap items-center gap-3">
                   <a
                     href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-[#203357] bg-[#172644] px-4 py-2 text-xs font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#122240] bg-[#081226] px-4 py-2 text-xs font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
                   >
                     <Phone className="h-3.5 w-3.5 text-[#D4AF65]" />
                     <span>الهاتف: {FORMATTED_PHONE}</span>
@@ -359,7 +359,7 @@ export default function ArabicHomePage() {
       </section>
 
       {/* 4. ARABIC FAQS */}
-      <section className="py-16 sm:py-20 border-b border-[#203357]">
+      <section className="py-16 sm:py-20 border-b border-[#122240]">
         <Container>
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
@@ -375,7 +375,7 @@ export default function ArabicHomePage() {
               {ARABIC_FAQS.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#203357] bg-[#172644]/70 overflow-hidden transition-colors"
+                  className="rounded-2xl border border-[#122240] bg-[#081226]/70 overflow-hidden transition-colors"
                 >
                   <button
                     type="button"
@@ -398,7 +398,7 @@ export default function ArabicHomePage() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#B0BECE] leading-relaxed border-t border-[#203357]/60">
+                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#B0BECE] leading-relaxed border-t border-[#122240]/60">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -412,7 +412,7 @@ export default function ArabicHomePage() {
       </section>
 
       {/* 5. BOTTOM WHATSAPP CONVERSION BANNER */}
-      <section className="py-14 sm:py-16 bg-[#0C1629] text-center">
+      <section className="py-14 sm:py-16 bg-[#020611] text-center">
         <Container>
           <div className="max-w-2xl mx-auto space-y-4">
             <h2 className="text-2xl sm:text-3xl font-black text-[#F5F2EB]">

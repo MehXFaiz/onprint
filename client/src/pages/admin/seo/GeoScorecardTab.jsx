@@ -121,7 +121,7 @@ export default function GeoScorecardTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
@@ -170,7 +170,7 @@ export default function GeoScorecardTab({ showToast }) {
           return (
             <div
               key={pillar.pillar_id || idx}
-              className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs hover:border-[#D6C29A]/30 transition-all flex flex-col justify-between"
+              className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs hover:border-[#D6C29A]/30 transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between">
@@ -204,7 +204,7 @@ export default function GeoScorecardTab({ showToast }) {
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#1E2C4F] flex items-center justify-between text-[11px] text-[#B8C2D9]">
+              <div className="mt-4 pt-3 border-t border-[#122240] flex items-center justify-between text-[11px] text-[#B8C2D9]">
                 <span>Pillar 0{idx + 1} of 09</span>
                 <span className="text-emerald-700 font-semibold flex items-center gap-1">
                   <CheckCircle2 className="h-3.5 w-3.5" />
@@ -217,7 +217,7 @@ export default function GeoScorecardTab({ showToast }) {
       </div>
 
       {/* Transparency Guarantee Note */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-6 text-xs text-[#B8C2D9]">
+      <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-6 text-xs text-[#B8C2D9]">
         <h4 className="font-bold text-[#F5F3EE] uppercase tracking-wider text-[11px] mb-1">
           Strict GEO Compliance &amp; Honest Scoring Guarantee
         </h4>

@@ -41,9 +41,9 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="py-16 sm:py-24 bg-[#101D35] min-h-[calc(100vh-200px)] flex items-center">
+    <div className="py-16 sm:py-24 bg-[#040A18] min-h-[calc(100vh-200px)] flex items-center">
       <Container className="flex flex-col items-center justify-center">
-        <div className="w-full max-w-md rounded-3xl border border-[#203357] bg-[#172644] p-8 shadow-2xl sm:p-10 text-[#F5F2EB]">
+        <div className="w-full max-w-md rounded-3xl border border-[#122240] bg-[#081226] p-8 shadow-2xl sm:p-10 text-[#F5F2EB]">
           <div className="text-center">
             <Link to="/" className="inline-block">
               <Logo size="md" />
@@ -78,7 +78,7 @@ export default function RegisterPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Sarah Al-Maktoum"
-                className="mt-2 w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="mt-2 w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
               {errors.name && <p className="mt-1 text-xs font-semibold text-[#D4AF65]">{errors.name}</p>}
             </div>
@@ -94,7 +94,7 @@ export default function RegisterPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="sarah@company.ae"
-                className="mt-2 w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="mt-2 w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
               {errors.email && <p className="mt-1 text-xs font-semibold text-[#D4AF65]">{errors.email}</p>}
             </div>
@@ -109,7 +109,7 @@ export default function RegisterPage() {
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 placeholder="Dubai Creative Studio LLC"
-                className="mt-2 w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="mt-2 w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
             </div>
 
@@ -124,7 +124,7 @@ export default function RegisterPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="mt-2 w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="mt-2 w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
               {errors.password && <p className="mt-1 text-xs font-semibold text-[#D4AF65]">{errors.password}</p>}
             </div>
@@ -140,7 +140,7 @@ export default function RegisterPage() {
             </Button>
           </form>
 
-          <div className="mt-6 text-center text-xs font-medium text-[#A0AEC0] pt-6 border-t border-[#203357]">
+          <div className="mt-6 text-center text-xs font-medium text-[#A0AEC0] pt-6 border-t border-[#122240]">
             Already have an account?{' '}
             <Link to="/login" className="font-bold text-[#D4AF65] hover:underline">
               Sign In

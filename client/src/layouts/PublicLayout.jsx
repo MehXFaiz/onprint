@@ -16,15 +16,15 @@ export default function PublicLayout() {
   }, [pathname])
 
   return (
-    <div className="flex min-h-screen w-full min-w-0 flex-col bg-[#101D35] text-[#F5F2EB] antialiased selection:bg-[#D4AF65] selection:text-[#101D35]">
+    <div className="flex min-h-screen w-full min-w-0 flex-col bg-[#040A18] text-[#F5F2EB] antialiased selection:bg-[#D4AF65] selection:text-[#040A18]">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:rounded-xl focus:bg-[#D4AF65] focus:px-4 focus:py-2.5 focus:text-xs focus:font-black focus:uppercase focus:tracking-wider focus:text-[#101D35] focus:shadow-2xl"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:rounded-xl focus:bg-[#D4AF65] focus:px-4 focus:py-2.5 focus:text-xs focus:font-black focus:uppercase focus:tracking-wider focus:text-[#040A18] focus:shadow-2xl"
       >
         Skip to main content
       </a>
       <SiteHeader />
-      <main id="main-content" tabIndex={-1} className="flex-1 min-w-0 w-full bg-[#101D35] text-[#F5F2EB] pb-20 md:pb-0 focus:outline-none">
+      <main id="main-content" tabIndex={-1} className="flex-1 min-w-0 w-full bg-[#040A18] text-[#F5F2EB] pb-20 md:pb-0 focus:outline-none">
         <Outlet />
       </main>
       <SiteFooter />

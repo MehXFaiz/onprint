@@ -176,9 +176,9 @@ export default function PageSeoEditorModal({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-neutral-900/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-150">
-      <div className="relative w-full max-w-4xl bg-[#14213D] rounded-2xl shadow-2xl border border-[#1E2C4F] overflow-hidden flex flex-col max-h-[92vh]">
+      <div className="relative w-full max-w-4xl bg-[#081226] rounded-2xl shadow-2xl border border-[#122240] overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-[#1E2C4F] bg-[#0B132B]/80 flex items-center justify-between shrink-0">
+        <div className="px-6 py-4 border-b border-[#122240] bg-[#040A18]/80 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-xl bg-[#D6C29A]/10 text-[#D6C29A] flex items-center justify-center font-bold">
               <Layers className="h-5 w-5" />
@@ -224,7 +224,7 @@ export default function PageSeoEditorModal({
               variant="secondary"
               size="sm"
               onClick={() => onOpenAiAnalysis && onOpenAiAnalysis(page)}
-              className="text-xs font-bold border-[#1E2C4F] hover:border-[#D6C29A]"
+              className="text-xs font-bold border-[#122240] hover:border-[#D6C29A]"
             >
               <Sparkles className="h-3.5 w-3.5 mr-1.5 text-[#D6C29A]" />
               Analyze with AI
@@ -239,7 +239,7 @@ export default function PageSeoEditorModal({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex border-b border-[#1E2C4F] bg-[#14213D] px-6 shrink-0 gap-6">
+        <div className="flex border-b border-[#122240] bg-[#081226] px-6 shrink-0 gap-6">
           <button
             onClick={() => setActiveTab('meta')}
             className={`py-3 text-xs font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
@@ -321,7 +321,7 @@ export default function PageSeoEditorModal({
           {activeTab === 'meta' && (
             <div className="space-y-5">
               {/* Google SERP Preview Card */}
-              <div className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+              <div className="rounded-xl border border-[#122240] bg-[#040A18] p-4">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#B8C2D9]/70">
                     Google SERP Desktop &amp; Mobile Preview
@@ -364,7 +364,7 @@ export default function PageSeoEditorModal({
                   value={formData.meta_title}
                   onChange={(e) => handleInputChange('meta_title', e.target.value)}
                   placeholder="e.g., Luxury Business Card Printing Dubai | Express 24h Delivery | ONPRINT"
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                 />
               </div>
 
@@ -391,7 +391,7 @@ export default function PageSeoEditorModal({
                   value={formData.meta_description}
                   onChange={(e) => handleInputChange('meta_description', e.target.value)}
                   placeholder="Write an authentic, click-worthy snippet that summarizes the page and includes a clear CTA..."
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                 />
               </div>
 
@@ -406,7 +406,7 @@ export default function PageSeoEditorModal({
                     value={formData.focus_keyword}
                     onChange={(e) => handleInputChange('focus_keyword', e.target.value)}
                     placeholder="e.g., business card printing dubai"
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                   />
                   <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
                     Primary target search query for this specific page.
@@ -421,7 +421,7 @@ export default function PageSeoEditorModal({
                     value={formData.secondary_keywords}
                     onChange={(e) => handleInputChange('secondary_keywords', e.target.value)}
                     placeholder="e.g., luxury cards, gold foil stamping, express print"
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                   />
                   <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
                     Comma-separated semantic variations and LSI terms.
@@ -440,7 +440,7 @@ export default function PageSeoEditorModal({
                     value={formData.h1}
                     onChange={(e) => handleInputChange('h1', e.target.value)}
                     placeholder="e.g., Premium Business Card Printing in Dubai"
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -452,13 +452,13 @@ export default function PageSeoEditorModal({
                     value={formData.canonical_url}
                     onChange={(e) => handleInputChange('canonical_url', e.target.value)}
                     placeholder={`https://www.0nprint.com${page.url}`}
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-[#122240] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none font-mono"
                   />
                 </div>
               </div>
 
               {/* Robots Directives */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-[#1E2C4F]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-[#122240]">
                 <div>
                   <label className="block text-xs font-bold text-[#F5F3EE] mb-1.5">
                     Robots Index Directive
@@ -466,7 +466,7 @@ export default function PageSeoEditorModal({
                   <select
                     value={formData.robots_index}
                     onChange={(e) => handleInputChange('robots_index', e.target.value)}
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                   >
                     <option value="index">index (Allow search engines to index)</option>
                     <option value="noindex">noindex (Prevent search indexing)</option>
@@ -479,7 +479,7 @@ export default function PageSeoEditorModal({
                   <select
                     value={formData.robots_follow}
                     onChange={(e) => handleInputChange('robots_follow', e.target.value)}
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                   >
                     <option value="follow">follow (Crawl and follow outbound links)</option>
                     <option value="nofollow">nofollow (Do not follow outbound links)</option>
@@ -493,7 +493,7 @@ export default function PageSeoEditorModal({
           {activeTab === 'geo' && (
             <div className="space-y-5">
               {/* Intent and Entities Card */}
-              <div className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+              <div className="rounded-xl border border-[#122240] bg-[#040A18] p-4">
                 <div className="flex items-center gap-2 mb-1">
                   <Sparkles className="h-4 w-4 text-[#D6C29A]" />
                   <h3 className="font-bold text-xs text-[#F5F3EE]">
@@ -514,7 +514,7 @@ export default function PageSeoEditorModal({
                   <select
                     value={formData.search_intent}
                     onChange={(e) => handleInputChange('search_intent', e.target.value)}
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2.5 text-xs text-[#F5F3EE] font-bold focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2.5 text-xs text-[#F5F3EE] font-bold focus:border-[#D6C29A] focus:outline-none"
                   >
                     <option value="Commercial">Commercial (Evaluating printing/packaging suppliers)</option>
                     <option value="Transactional">Transactional (Ready to order, request quote, or purchase)</option>
@@ -534,7 +534,7 @@ export default function PageSeoEditorModal({
                     value={formData.focus_entity}
                     onChange={(e) => handleInputChange('focus_entity', e.target.value)}
                     placeholder="e.g., Luxury Business Card Printing Dubai"
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                   />
                   <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
                     Primary real-world topic/entity recognized by search engines.
@@ -552,7 +552,7 @@ export default function PageSeoEditorModal({
                   value={formData.related_entities}
                   onChange={(e) => handleInputChange('related_entities', e.target.value)}
                   placeholder="e.g., Al Quoz, Dubai, Heidelberg Speedmaster, 450gsm silk artboard, Hot foil stamping, Spot UV, Blind debossing, DIFC corporate stationery"
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                 />
                 <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
                   Comma-separated co-occurring entities, machinery, certifications, materials, and Dubai geographic entities.
@@ -574,7 +574,7 @@ export default function PageSeoEditorModal({
                   value={formData.seo_content}
                   onChange={(e) => handleInputChange('seo_content', e.target.value)}
                   placeholder="Comprehensive, authoritative content block highlighting Dubai production capabilities, technical specs, turnaround times, and local relevance..."
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:ring-1 focus:ring-[#D6C29A] focus:outline-none"
                 />
                 <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
                   Authoritative paragraphs addressing search intent, answering technical specifications, and strengthening topical coverage.
@@ -614,7 +614,7 @@ export default function PageSeoEditorModal({
                   value={formData.faq_content}
                   onChange={(e) => handleInputChange('faq_content', e.target.value)}
                   placeholder={`[\n  {\n    "question": "What is the turnaround time?",\n    "answer": "Standard turnaround is 24-48 hours in Dubai."\n  }\n]`}
-                  className="w-full font-mono text-xs rounded-xl border border-[#1E2C4F] p-3.5 bg-neutral-900 text-amber-300 focus:border-[#D6C29A] focus:outline-none leading-relaxed"
+                  className="w-full font-mono text-xs rounded-xl border border-[#122240] p-3.5 bg-neutral-900 text-amber-300 focus:border-[#D6C29A] focus:outline-none leading-relaxed"
                 />
                 <p className="mt-1 text-[11px] text-[#B8C2D9]/70">
                   Formatted answer-first Q&amp;A pairs automatically injected into page schema and visible FAQ sections.
@@ -626,7 +626,7 @@ export default function PageSeoEditorModal({
           {/* TAB 3: OPEN GRAPH & TWITTER */}
           {activeTab === 'social' && (
             <div className="space-y-5">
-              <div className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+              <div className="rounded-xl border border-[#122240] bg-[#040A18] p-4">
                 <h3 className="font-bold text-xs text-[#F5F3EE] mb-1">Open Graph &amp; Social Sharing Cards</h3>
                 <p className="text-[11px] text-[#B8C2D9]">
                   Controls how this page appears when shared on WhatsApp, LinkedIn, Facebook, X/Twitter, and iMessage.
@@ -635,8 +635,8 @@ export default function PageSeoEditorModal({
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Open Graph (Facebook / LinkedIn / WhatsApp) */}
-                <div className="space-y-4 rounded-xl border border-[#1E2C4F] p-4">
-                  <span className="text-xs font-black text-[#F5F3EE] uppercase tracking-wider block border-b border-[#1E2C4F] pb-2">
+                <div className="space-y-4 rounded-xl border border-[#122240] p-4">
+                  <span className="text-xs font-black text-[#F5F3EE] uppercase tracking-wider block border-b border-[#122240] pb-2">
                     Open Graph (Facebook / WhatsApp)
                   </span>
 
@@ -647,7 +647,7 @@ export default function PageSeoEditorModal({
                       value={formData.og_title}
                       onChange={(e) => handleInputChange('og_title', e.target.value)}
                       placeholder={formData.meta_title || 'OG Title'}
-                      className="w-full rounded-lg border border-[#1E2C4F] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                      className="w-full rounded-lg border border-[#122240] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                     />
                   </div>
 
@@ -658,7 +658,7 @@ export default function PageSeoEditorModal({
                       value={formData.og_description}
                       onChange={(e) => handleInputChange('og_description', e.target.value)}
                       placeholder={formData.meta_description || 'OG Description'}
-                      className="w-full rounded-lg border border-[#1E2C4F] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                      className="w-full rounded-lg border border-[#122240] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                     />
                   </div>
 
@@ -669,14 +669,14 @@ export default function PageSeoEditorModal({
                       value={formData.og_image}
                       onChange={(e) => handleInputChange('og_image', e.target.value)}
                       placeholder="https://www.0nprint.com/images/og-share.jpg"
-                      className="w-full rounded-lg border border-[#1E2C4F] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none font-mono"
+                      className="w-full rounded-lg border border-[#122240] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none font-mono"
                     />
                   </div>
                 </div>
 
                 {/* Twitter Cards */}
-                <div className="space-y-4 rounded-xl border border-[#1E2C4F] p-4">
-                  <span className="text-xs font-black text-[#F5F3EE] uppercase tracking-wider block border-b border-[#1E2C4F] pb-2">
+                <div className="space-y-4 rounded-xl border border-[#122240] p-4">
+                  <span className="text-xs font-black text-[#F5F3EE] uppercase tracking-wider block border-b border-[#122240] pb-2">
                     Twitter Card
                   </span>
 
@@ -687,7 +687,7 @@ export default function PageSeoEditorModal({
                       value={formData.twitter_title}
                       onChange={(e) => handleInputChange('twitter_title', e.target.value)}
                       placeholder={formData.meta_title || 'Twitter Title'}
-                      className="w-full rounded-lg border border-[#1E2C4F] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                      className="w-full rounded-lg border border-[#122240] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                     />
                   </div>
 
@@ -698,7 +698,7 @@ export default function PageSeoEditorModal({
                       value={formData.twitter_description}
                       onChange={(e) => handleInputChange('twitter_description', e.target.value)}
                       placeholder={formData.meta_description || 'Twitter Description'}
-                      className="w-full rounded-lg border border-[#1E2C4F] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                      className="w-full rounded-lg border border-[#122240] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                     />
                   </div>
 
@@ -709,7 +709,7 @@ export default function PageSeoEditorModal({
                       value={formData.twitter_image}
                       onChange={(e) => handleInputChange('twitter_image', e.target.value)}
                       placeholder="https://www.0nprint.com/images/twitter-card.jpg"
-                      className="w-full rounded-lg border border-[#1E2C4F] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none font-mono"
+                      className="w-full rounded-lg border border-[#122240] px-3 py-2 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none font-mono"
                     />
                   </div>
                 </div>
@@ -732,7 +732,7 @@ export default function PageSeoEditorModal({
                 <select
                   value={formData.schema_type}
                   onChange={(e) => handleInputChange('schema_type', e.target.value)}
-                  className="rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs text-[#F5F3EE] font-bold focus:border-[#D6C29A] focus:outline-none"
+                  className="rounded-xl border border-[#122240] px-3 py-2 text-xs text-[#F5F3EE] font-bold focus:border-[#D6C29A] focus:outline-none"
                 >
                   <option value="WebPage">WebPage (General)</option>
                   <option value="Service">Service (Commercial Printing Service)</option>
@@ -755,7 +755,7 @@ export default function PageSeoEditorModal({
                   value={formData.schema_markup}
                   onChange={(e) => handleInputChange('schema_markup', e.target.value)}
                   placeholder={`{\n  "@context": "https://schema.org",\n  "@type": "WebPage",\n  "name": "Page Title"\n}`}
-                  className="w-full font-mono text-xs rounded-xl border border-[#1E2C4F] p-3.5 bg-neutral-900 text-emerald-400 focus:border-[#D6C29A] focus:outline-none leading-relaxed"
+                  className="w-full font-mono text-xs rounded-xl border border-[#122240] p-3.5 bg-neutral-900 text-emerald-400 focus:border-[#D6C29A] focus:outline-none leading-relaxed"
                 />
                 <p className="mt-1 text-[11px] text-[#B8C2D9]">
                   Must be valid JSON-LD. This script tag will be injected directly into the HTML &lt;head&gt; of this page.
@@ -789,13 +789,13 @@ export default function PageSeoEditorModal({
               {loadingHistory ? (
                 <div className="py-12 text-center text-xs text-[#B8C2D9]/70">Loading history log...</div>
               ) : history.length === 0 ? (
-                <div className="py-12 text-center text-xs text-[#B8C2D9]/70 border border-dashed border-[#1E2C4F] rounded-xl">
+                <div className="py-12 text-center text-xs text-[#B8C2D9]/70 border border-dashed border-[#122240] rounded-xl">
                   No previous changes recorded for this page. Changes will appear here upon editing.
                 </div>
               ) : (
-                <div className="divide-y divide-neutral-100 border border-[#1E2C4F] rounded-xl overflow-hidden">
+                <div className="divide-y divide-neutral-100 border border-[#122240] rounded-xl overflow-hidden">
                   {history.map((item) => (
-                    <div key={item.id} className="p-4 hover:bg-[#0B132B]/70 transition-colors">
+                    <div key={item.id} className="p-4 hover:bg-[#040A18]/70 transition-colors">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="rounded bg-neutral-100 px-2 py-0.5 text-[10px] font-mono font-bold text-[#F5F3EE]">
@@ -814,7 +814,7 @@ export default function PageSeoEditorModal({
                             size="sm"
                             onClick={() => handleRollback(item.id)}
                             disabled={saving}
-                            className="text-[11px] font-bold py-1 px-2.5 h-auto text-[#D6C29A] hover:bg-[#D6C29A]/10 border-[#1E2C4F]"
+                            className="text-[11px] font-bold py-1 px-2.5 h-auto text-[#D6C29A] hover:bg-[#D6C29A]/10 border-[#122240]"
                           >
                             <RotateCcw className="h-3 w-3 mr-1" />
                             Rollback
@@ -841,7 +841,7 @@ export default function PageSeoEditorModal({
         </div>
 
         {/* Footer Actions */}
-        <div className="px-6 py-4 border-t border-[#1E2C4F] bg-[#0B132B]/80 flex items-center justify-between shrink-0">
+        <div className="px-6 py-4 border-t border-[#122240] bg-[#040A18]/80 flex items-center justify-between shrink-0">
           <div className="text-xs text-[#B8C2D9]">
             Last Updated:{' '}
             <strong className="text-[#F5F3EE]">

@@ -247,7 +247,7 @@ export default function AdminBlogPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#1E2C4F] pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#122240] pb-5">
         <div>
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
             <Sparkles className="h-3.5 w-3.5" />
@@ -268,7 +268,7 @@ export default function AdminBlogPage() {
 
       {/* KPI Stats Cards */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-        <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 shadow-xs">
           <div className="flex items-center justify-between text-[#B8C2D9]">
             <span className="text-[11px] font-bold uppercase tracking-wider">Total Articles</span>
             <FileText className="h-4 w-4 text-[#B8C2D9]/70" />
@@ -300,7 +300,7 @@ export default function AdminBlogPage() {
           <div className="mt-2 font-display text-2xl font-black text-blue-900">{stats.scheduled}</div>
         </div>
 
-        <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 shadow-xs">
           <div className="flex items-center justify-between text-[#D6C29A]">
             <span className="text-[11px] font-bold uppercase tracking-wider">Featured</span>
             <Star className="h-4 w-4 fill-[#D6C29A] text-[#D6C29A]" />
@@ -310,7 +310,7 @@ export default function AdminBlogPage() {
       </div>
 
       {/* Filter & Search Bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs">
         {/* Search */}
         <div className="relative w-full sm:w-72">
           <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#B8C2D9]/70" />
@@ -322,7 +322,7 @@ export default function AdminBlogPage() {
               setPage(1)
             }}
             placeholder="Search by title, keyword, slug…"
-            className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] pl-10 pr-4 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:bg-[#14213D] focus:outline-none"
+            className="w-full rounded-xl border border-[#122240] bg-[#040A18] pl-10 pr-4 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:bg-[#081226] focus:outline-none"
           />
         </div>
 
@@ -335,7 +335,7 @@ export default function AdminBlogPage() {
               setStatusFilter(e.target.value)
               setPage(1)
             }}
-            className="w-full sm:w-auto sm:max-w-[160px] rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:bg-[#14213D] focus:outline-none"
+            className="w-full sm:w-auto sm:max-w-[160px] rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:bg-[#081226] focus:outline-none"
           >
             <option value="all">All Statuses</option>
             <option value="published">Published</option>
@@ -350,7 +350,7 @@ export default function AdminBlogPage() {
               setCategoryFilter(e.target.value)
               setPage(1)
             }}
-            className="w-full sm:w-auto sm:max-w-[160px] rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:bg-[#14213D] focus:outline-none truncate"
+            className="w-full sm:w-auto sm:max-w-[160px] rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:bg-[#081226] focus:outline-none truncate"
           >
             <option value="all">All Categories</option>
             {categories.map((c) => (
@@ -367,7 +367,7 @@ export default function AdminBlogPage() {
               setProductFilter(e.target.value)
               setPage(1)
             }}
-            className="w-full sm:w-auto sm:max-w-[160px] rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:bg-[#14213D] focus:outline-none truncate"
+            className="w-full sm:w-auto sm:max-w-[160px] rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:bg-[#081226] focus:outline-none truncate"
           >
             <option value="all">All Products</option>
             {products.map((p) => (
@@ -409,7 +409,7 @@ export default function AdminBlogPage() {
       )}
 
       {/* Articles Table */}
-      <div className="overflow-hidden rounded-2xl border border-[#1E2C4F] bg-[#14213D] shadow-xs">
+      <div className="overflow-hidden rounded-2xl border border-[#122240] bg-[#081226] shadow-xs">
         {loading ? (
           <div className="flex min-h-[300px] items-center justify-center">
             <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D6C29A] border-t-transparent" />
@@ -433,7 +433,7 @@ export default function AdminBlogPage() {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full min-w-[800px] text-left text-xs">
-              <thead className="border-b border-[#1E2C4F] bg-[#0B132B]/80 font-bold uppercase tracking-wider text-[#B8C2D9]">
+              <thead className="border-b border-[#122240] bg-[#040A18]/80 font-bold uppercase tracking-wider text-[#B8C2D9]">
                 <tr>
                   <th className="py-3.5 pl-5 pr-2 w-8">
                     <button
@@ -465,8 +465,8 @@ export default function AdminBlogPage() {
                   return (
                     <tr
                       key={post.id}
-                      className={`hover:bg-[#0B132B]/80 transition-colors ${
-                        isSelected ? 'bg-[#0B132B]' : ''
+                      className={`hover:bg-[#040A18]/80 transition-colors ${
+                        isSelected ? 'bg-[#040A18]' : ''
                       }`}
                     >
                       {/* Checkbox */}
@@ -487,7 +487,7 @@ export default function AdminBlogPage() {
                       {/* Title & Thumbnail */}
                       <td className="py-4 px-3">
                         <div className="flex items-center gap-3">
-                          <div className="h-12 w-16 overflow-hidden rounded-lg bg-neutral-100 shrink-0 border border-[#1E2C4F]">
+                          <div className="h-12 w-16 overflow-hidden rounded-lg bg-neutral-100 shrink-0 border border-[#122240]">
                             <img
                               src={post.featured_image || post.featuredImage}
                               alt=""
@@ -572,7 +572,7 @@ export default function AdminBlogPage() {
                           <button
                             type="button"
                             onClick={() => openSeoModal(post)}
-                            className="inline-flex items-center gap-1 rounded-full bg-neutral-100 border border-[#1E2C4F] px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9] hover:bg-neutral-200 cursor-pointer"
+                            className="inline-flex items-center gap-1 rounded-full bg-neutral-100 border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#B8C2D9] hover:bg-neutral-200 cursor-pointer"
                             title="Click to run real-time SEO analysis"
                           >
                             <Sparkles className="h-3 w-3 text-amber-500" />
@@ -622,14 +622,14 @@ export default function AdminBlogPage() {
                             to={`/blog/${post.slug}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors"
+                            className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#122240] hover:text-[#F5F3EE] transition-colors"
                             title="View live on website"
                           >
                             <Eye className="h-4 w-4" />
                           </Link>
                           <Link
                             to={`/admin/blog/${post.id}/edit`}
-                            className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors"
+                            className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#122240] hover:text-[#F5F3EE] transition-colors"
                             title="Edit article"
                           >
                             <Edit2 className="h-4 w-4" />
@@ -654,7 +654,7 @@ export default function AdminBlogPage() {
 
         {/* Pagination Bar */}
         {pagination.totalPages > 1 && (
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#1E2C4F] px-4 sm:px-6 py-3 bg-[#0B132B] text-xs font-semibold text-[#B8C2D9]">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#122240] px-4 sm:px-6 py-3 bg-[#040A18] text-xs font-semibold text-[#B8C2D9]">
             <div>
               Showing {posts.length} of {pagination.total} articles
             </div>
@@ -663,7 +663,7 @@ export default function AdminBlogPage() {
                 type="button"
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page <= 1}
-                className="inline-flex items-center gap-1 rounded-lg border border-[#1E2C4F] bg-[#14213D] px-3 py-1.5 hover:bg-[#0B132B] disabled:opacity-40 cursor-pointer"
+                className="inline-flex items-center gap-1 rounded-lg border border-[#122240] bg-[#081226] px-3 py-1.5 hover:bg-[#040A18] disabled:opacity-40 cursor-pointer"
               >
                 <ChevronLeft className="h-3.5 w-3.5" />
                 Previous
@@ -675,7 +675,7 @@ export default function AdminBlogPage() {
                 type="button"
                 onClick={() => setPage((p) => Math.min(pagination.totalPages, p + 1))}
                 disabled={page >= pagination.totalPages}
-                className="inline-flex items-center gap-1 rounded-lg border border-[#1E2C4F] bg-[#14213D] px-3 py-1.5 hover:bg-[#0B132B] disabled:opacity-40 cursor-pointer"
+                className="inline-flex items-center gap-1 rounded-lg border border-[#122240] bg-[#081226] px-3 py-1.5 hover:bg-[#040A18] disabled:opacity-40 cursor-pointer"
               >
                 Next
                 <ChevronRight className="h-3.5 w-3.5" />
@@ -688,7 +688,7 @@ export default function AdminBlogPage() {
       {/* Single Delete Confirmation Modal */}
       {deleteConfirm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-xs">
-          <div className="w-full max-w-md rounded-2xl bg-[#14213D] p-6 shadow-2xl space-y-4">
+          <div className="w-full max-w-md rounded-2xl bg-[#081226] p-6 shadow-2xl space-y-4">
             <div className="flex items-center gap-3 text-red-600">
               <AlertCircle className="h-6 w-6" />
               <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Delete Blog Article?</h3>
@@ -723,7 +723,7 @@ export default function AdminBlogPage() {
       {/* Bulk Delete Confirmation Modal */}
       {bulkDeleteConfirm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-xs">
-          <div className="w-full max-w-md rounded-2xl bg-[#14213D] p-6 shadow-2xl space-y-4">
+          <div className="w-full max-w-md rounded-2xl bg-[#081226] p-6 shadow-2xl space-y-4">
             <div className="flex items-center gap-3 text-red-600">
               <AlertCircle className="h-6 w-6" />
               <h3 className="font-display text-lg font-bold text-[#F5F3EE]">
@@ -760,9 +760,9 @@ export default function AdminBlogPage() {
       {/* SEO Analysis Breakdown Modal */}
       {seoModalPost && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs overflow-y-auto">
-          <div className="w-full max-w-2xl rounded-3xl bg-[#14213D] shadow-2xl border border-[#1E2C4F] overflow-hidden my-8 animate-in fade-in zoom-in-95">
+          <div className="w-full max-w-2xl rounded-3xl bg-[#081226] shadow-2xl border border-[#122240] overflow-hidden my-8 animate-in fade-in zoom-in-95">
             {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-[#1E2C4F] bg-[#0B132B]/80 px-6 py-4">
+            <div className="flex items-center justify-between border-b border-[#122240] bg-[#040A18]/80 px-6 py-4">
               <div className="flex items-center gap-2 text-[#D6C29A]">
                 <Gauge className="h-5 w-5" />
                 <h3 className="font-display text-base font-black text-[#F5F3EE]">
@@ -781,7 +781,7 @@ export default function AdminBlogPage() {
             {/* Modal Body */}
             <div className="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
               {/* Article Meta Header */}
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+              <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                 <div className="font-bold text-[#F5F3EE] text-sm">{seoModalPost.title}</div>
                 <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px]">
                   <span className="font-mono text-[#B8C2D9]">/blog/{seoModalPost.slug}</span>
@@ -801,7 +801,7 @@ export default function AdminBlogPage() {
               {/* KPI Score Cards Grid */}
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {/* 0-100 Score */}
-                <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-3.5 text-center shadow-xs">
+                <div className="rounded-2xl border border-[#122240] bg-[#081226] p-3.5 text-center shadow-xs">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">
                     Overall Score
                   </div>
@@ -833,7 +833,7 @@ export default function AdminBlogPage() {
                 </div>
 
                 {/* Readability Score */}
-                <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-3.5 text-center shadow-xs">
+                <div className="rounded-2xl border border-[#122240] bg-[#081226] p-3.5 text-center shadow-xs">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">
                     Readability
                   </div>
@@ -844,7 +844,7 @@ export default function AdminBlogPage() {
                 </div>
 
                 {/* Word Count */}
-                <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-3.5 text-center shadow-xs">
+                <div className="rounded-2xl border border-[#122240] bg-[#081226] p-3.5 text-center shadow-xs">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">
                     Word Count
                   </div>
@@ -855,7 +855,7 @@ export default function AdminBlogPage() {
                 </div>
 
                 {/* Keyword Density */}
-                <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-3.5 text-center shadow-xs">
+                <div className="rounded-2xl border border-[#122240] bg-[#081226] p-3.5 text-center shadow-xs">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]/70">
                     Density
                   </div>
@@ -868,7 +868,7 @@ export default function AdminBlogPage() {
 
               {/* 16-point Breakdown Checklist */}
               {seoModalData?.breakdown && (
-                <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 shadow-xs">
+                <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 shadow-xs">
                   <div className="font-bold text-xs uppercase tracking-wider text-[#F5F3EE] mb-3 flex items-center justify-between">
                     <span>16-Point Optimization Checklist</span>
                     <span className="text-[11px] text-[#B8C2D9]/70 font-normal">Google Essentials Compliant</span>
@@ -885,7 +885,7 @@ export default function AdminBlogPage() {
                           className={`flex items-start gap-2 rounded-xl p-2 border ${
                             isPassing
                               ? 'bg-emerald-50/50 border-emerald-100 text-emerald-900'
-                              : 'bg-[#0B132B] border-[#1E2C4F] text-[#F5F3EE]'
+                              : 'bg-[#040A18] border-[#122240] text-[#F5F3EE]'
                           }`}
                         >
                           {isPassing ? (
@@ -907,7 +907,7 @@ export default function AdminBlogPage() {
               )}
 
               {/* Actionable Recommendations List */}
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-4 shadow-xs">
+              <div className="rounded-2xl border border-[#122240] bg-[#081226] p-4 shadow-xs">
                 <div className="font-bold text-xs uppercase tracking-wider text-[#F5F3EE] mb-3">
                   Priority Recommendations &amp; Fixes
                 </div>
@@ -923,7 +923,7 @@ export default function AdminBlogPage() {
                       return (
                         <div
                           key={idx}
-                          className="rounded-xl border border-[#1E2C4F] bg-[#0B132B]/70 p-3 text-xs space-y-1"
+                          className="rounded-xl border border-[#122240] bg-[#040A18]/70 p-3 text-xs space-y-1"
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-bold text-[#F5F3EE]">
@@ -965,7 +965,7 @@ export default function AdminBlogPage() {
             </div>
 
             {/* Modal Footer */}
-            <div className="flex items-center justify-between border-t border-[#1E2C4F] bg-[#0B132B]/80 px-6 py-4">
+            <div className="flex items-center justify-between border-t border-[#122240] bg-[#040A18]/80 px-6 py-4">
               <Button
                 type="button"
                 variant="outline"
@@ -976,7 +976,7 @@ export default function AdminBlogPage() {
               </Button>
               <Link
                 to={`/admin/blog/${seoModalPost.id}/edit`}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-[#D6C29A] px-4 py-2 text-xs font-bold text-[#0B132B] shadow-xs hover:bg-[#D6C29A] transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-[#D6C29A] px-4 py-2 text-xs font-bold text-[#040A18] shadow-xs hover:bg-[#D6C29A] transition-colors"
               >
                 <Edit2 className="h-3.5 w-3.5" />
                 <span>Optimize in Blog Editor</span>

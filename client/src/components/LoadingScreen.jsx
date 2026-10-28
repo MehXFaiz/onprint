@@ -128,7 +128,7 @@ export default function LoadingScreen() {
         <motion.div
           key="onprint-luxury-splash"
           onClick={() => setVisible(false)}
-          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#101D35] text-white overflow-hidden select-none cursor-pointer"
+          className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#040A18] text-white overflow-hidden select-none cursor-pointer"
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
@@ -143,7 +143,7 @@ export default function LoadingScreen() {
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(22, 37, 66, 0.75) 0%, rgba(16, 29, 53, 0.95) 65%, #0C1629 100%)',
+                'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(22, 37, 66, 0.75) 0%, rgba(16, 29, 53, 0.95) 65%, #020611 100%)',
             }}
           />
 

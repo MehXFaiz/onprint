@@ -865,7 +865,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
   }
 
   return (
-    <div className="bg-[#101D35] text-[#F5F2EB] pt-4 sm:pt-6 pb-12 sm:pb-16">
+    <div className="bg-[#040A18] text-[#F5F2EB] pt-4 sm:pt-6 pb-12 sm:pb-16">
       {/* Dynamic SEO & Schema Engine */}
       <SEOHead
         title={pageData?.title || 'Business Card Printing Dubai | ONPRINT'}
@@ -882,7 +882,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         <Breadcrumbs items={breadcrumbs} />
 
         {/* 1. HERO SECTION ABOVE THE FOLD & INSTANT QUOTE FUNNEL */}
-        <section className="mt-4 overflow-hidden rounded-3xl border border-[#203357] bg-[#101D35] text-white p-6 sm:p-10 lg:p-12 shadow-2xl relative">
+        <section className="mt-4 overflow-hidden rounded-3xl border border-[#122240] bg-[#040A18] text-white p-6 sm:p-10 lg:p-12 shadow-2xl relative">
           <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#D4AF65]/15 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl" />
 
@@ -934,7 +934,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   ]).map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-2xl border border-[#203357] bg-[#172644]/80 p-3 shadow-xs backdrop-blur-md"
+                      className="rounded-2xl border border-[#122240] bg-[#081226]/80 p-3 shadow-xs backdrop-blur-md"
                     >
                       <span className="block text-[10px] font-bold uppercase tracking-wider text-neutral-500">
                         {item.label}
@@ -983,7 +983,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   <button
                     type="button"
                     onClick={() => scrollToQuote()}
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#c39e55] px-6 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/35 transition-all hover:-translate-y-0.5 cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#c39e55] px-6 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#040A18] shadow-xl shadow-[#D4AF65]/35 transition-all hover:-translate-y-0.5 cursor-pointer"
                   >
                     <span>Instant Custom Quote</span>
                     <ArrowRight className="h-4 w-4" />
@@ -991,7 +991,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#D4AF65]/50 bg-[#172644]/10 hover:bg-[#D4AF65] hover:text-[#101D35] px-6 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#D4AF65]/50 bg-[#081226]/10 hover:bg-[#D4AF65] hover:text-[#040A18] px-6 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer"
                   >
                     <Mail className="h-4 w-4" />
                     <span>Inquire Studio</span>
@@ -1019,15 +1019,15 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
             {/* Right Column: High-Converting Live Quote Form Card */}
             <div ref={quoteFormRef} className="lg:col-span-5">
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] text-white p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#203357]">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-white p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#122240]">
                   <div className="flex items-center gap-2">
                     <span className="flex h-2.5 w-2.5 rounded-full bg-[#D4AF65] ring-4 ring-[#D4AF65]/20" />
                     <h3 className="font-display text-base font-black text-white">
                       Request Business Card Quote
                     </h3>
                   </div>
-                  <span className="rounded-md bg-[#101D35] border border-[#203357] px-2 py-0.5 text-[9.5px] font-mono font-bold text-[#D4AF65]">
+                  <span className="rounded-md bg-[#040A18] border border-[#122240] px-2 py-0.5 text-[9.5px] font-mono font-bold text-[#D4AF65]">
                     2h Response
                   </span>
                 </div>
@@ -1077,7 +1077,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           value={formState.name}
                           onChange={handleFormChange}
                           placeholder="e.g. Tariq Al Mansoor"
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                         />
                       </div>
                       <div>
@@ -1090,7 +1090,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           value={formState.company}
                           onChange={handleFormChange}
                           placeholder="e.g. Apex Holdings Dubai"
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -1107,7 +1107,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           value={formState.phone}
                           onChange={handleFormChange}
                           placeholder="+971 50 123 4567"
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                         />
                       </div>
                       <div>
@@ -1121,7 +1121,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           value={formState.email}
                           onChange={handleFormChange}
                           placeholder="tariq@company.ae"
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -1135,7 +1135,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           name="quantity"
                           value={formState.quantity}
                           onChange={handleFormChange}
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                         >
                           <option value="100">100 Cards (1 Name)</option>
                           <option value="250">250 Cards</option>
@@ -1153,7 +1153,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           name="cardType"
                           value={formState.cardType}
                           onChange={handleFormChange}
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                         >
                           {CARD_VARIATIONS?.map((c) => (
                             <option key={c.id} value={c.title}>
@@ -1173,7 +1173,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           name="paper"
                           value={formState.paper}
                           onChange={handleFormChange}
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                         >
                           <option value="350 GSM Standard Silk / Matte Card">350 GSM Standard Silk / Matte (Popular Standard)</option>
                           <option value="300 GSM Economy Artboard">300 GSM Economy Artboard (Budget Friendly)</option>
@@ -1194,7 +1194,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           name="finish"
                           value={formState.finish}
                           onChange={handleFormChange}
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                         >
                           <option value="Matte Lamination (Simple & Clean)">Matte Lamination (Simple &amp; Clean - Recommended)</option>
                           <option value="Gloss Lamination (Vibrant & Protective)">Gloss Lamination (Vibrant &amp; Protective)</option>
@@ -1219,7 +1219,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           name="size"
                           value={formState.size}
                           onChange={handleFormChange}
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                         >
                           <option value="85 x 55 mm (Landscape EU Standard)">85 x 55 mm (Landscape EU Standard)</option>
                           <option value="90 x 50 mm (Landscape US Standard)">90 x 50 mm (Landscape US / GCC Standard)</option>
@@ -1238,7 +1238,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           name="deliveryLocation"
                           value={formState.deliveryLocation}
                           onChange={handleFormChange}
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                         >
                           <option value="Dubai, UAE">Dubai (DIFC, Business Bay, Downtown, Marina, Al Quoz)</option>
                           <option value="Abu Dhabi, UAE">Abu Dhabi &amp; ADGM Courier</option>
@@ -1258,7 +1258,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           name="designStatus"
                           value={formState.designStatus}
                           onChange={handleFormChange}
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                         >
                           <option value="Have Print-Ready PDF">Have Print-Ready PDF with Bleed</option>
                           <option value="Need Minor Edits / Resizing">Need Minor File Adjustments</option>
@@ -1273,7 +1273,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           name="deliveryDate"
                           value={formState.deliveryDate}
                           onChange={handleFormChange}
-                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                          className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                         >
                           <option value="Urgent 4h Same-Day Express">Urgent 4h Same-Day (Al Quoz)</option>
                           <option value="Next-Day 24h Delivery">Next-Day 24-Hour Dispatch</option>
@@ -1288,7 +1288,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       <label className="block text-[11px] font-bold text-slate-200 mb-1">
                         Upload Artwork (PDF, AI, PSD, ZIP)
                       </label>
-                      <label className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#203357] bg-[#101D35] hover:border-[#D4AF65] p-2.5 cursor-pointer transition-colors">
+                      <label className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#122240] bg-[#040A18] hover:border-[#D4AF65] p-2.5 cursor-pointer transition-colors">
                         <Upload className="h-4 w-4 text-[#D4AF65] mb-1" />
                         <span className="text-[10.5px] font-bold text-white">
                           {artworkFile ? artworkFile.name : 'Click to browse or drop vector file'}
@@ -1313,7 +1313,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                         value={formState.notes}
                         onChange={handleFormChange}
                         placeholder="Mention corner radius, multiple employee names, or urgent deadline..."
-                        className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                        className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
                       />
                     </div>
 
@@ -1362,7 +1362,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full rounded-2xl bg-[#D4AF65] hover:bg-[#D4AF65] py-3.5 text-xs font-black uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
+                        className="w-full rounded-2xl bg-[#D4AF65] hover:bg-[#D4AF65] py-3.5 text-xs font-black uppercase tracking-wider text-[#040A18] shadow-lg shadow-[#D4AF65]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
                       >
                         {isSubmitting ? (
                           <span>Processing Instant Quote...</span>
@@ -1418,8 +1418,8 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
         {/* AFFORDABLE EVERYDAY BUSINESS CARDS SPOTLIGHT */}
         <section className="mt-12 sm:mt-16">
-          <div className="rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-8 shadow-sm">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#203357]">
+          <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#122240]">
               <div>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-950/60 border border-emerald-400/40 px-3 py-1 text-xs font-bold text-emerald-400">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
@@ -1432,7 +1432,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   Looking for clean, professional business cards without expensive luxury add-ons? Our standard 300 &amp; 350 GSM business cards feature crisp high-definition color, smooth protective lamination, and fast local production in Dubai.
                 </p>
               </div>
-              <div className="flex items-center gap-2 bg-[#101D35] px-4 py-3 rounded-2xl border border-[#203357] shrink-0">
+              <div className="flex items-center gap-2 bg-[#040A18] px-4 py-3 rounded-2xl border border-[#122240] shrink-0">
                 <CheckCircle2 className="h-4 w-4 text-[#D4AF65]" />
                 <span className="text-xs font-bold text-slate-200">Fast 24h Dispatch • Low Minimums</span>
               </div>
@@ -1450,12 +1450,12 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   key={tier.qty}
                   className={`relative rounded-2xl border p-5 flex flex-col justify-between transition-all ${
                     tier.popular
-                      ? 'border-[#D4AF65] bg-[#101D35] shadow-lg ring-1 ring-[#D4AF65]/40'
-                      : 'border-[#203357] bg-[#101D35] hover:border-[#D4AF65]/60'
+                      ? 'border-[#D4AF65] bg-[#040A18] shadow-lg ring-1 ring-[#D4AF65]/40'
+                      : 'border-[#122240] bg-[#040A18] hover:border-[#D4AF65]/60'
                   }`}
                 >
                   {tier.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#D4AF65] px-3 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#101D35] shadow-sm">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#D4AF65] px-3 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#040A18] shadow-sm">
                       {tier.label}
                     </span>
                   )}
@@ -1467,7 +1467,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     <div className="mt-1 font-display text-lg font-black text-white">{tier.subtitle}</div>
                     
                     {/* Transparent Price Callout */}
-                    <div className="mt-2.5 flex items-baseline gap-1.5 bg-[#172644] px-3 py-2 rounded-xl border border-[#203357]">
+                    <div className="mt-2.5 flex items-baseline gap-1.5 bg-[#081226] px-3 py-2 rounded-xl border border-[#122240]">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">From</span>
                       <span className="font-display text-2xl font-black text-[#D4AF65]">AED {tier.price}</span>
                       <span className="text-[10px] text-slate-400 ml-auto">+ 5% VAT</span>
@@ -1476,7 +1476,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     <div className="text-[11px] text-slate-300 mt-2.5 leading-relaxed min-h-[34px]">{tier.desc}</div>
                   </div>
 
-                  <div className="mt-4 space-y-2 pt-3 border-t border-[#203357]">
+                  <div className="mt-4 space-y-2 pt-3 border-t border-[#122240]">
                     <a
                       href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
                         formatBusinessCardInquiry({
@@ -1507,7 +1507,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     <button
                       type="button"
                       onClick={() => scrollToQuote('Standard Business Cards (350 GSM Silk / Matte)', '350 GSM Standard Silk / Matte Card', tier.qty)}
-                      className="w-full rounded-xl border border-[#203357] bg-[#172644] hover:bg-[#203357] hover:border-[#D4AF65]/50 py-2 text-[10.5px] font-semibold text-slate-200 transition-colors cursor-pointer text-center"
+                      className="w-full rounded-xl border border-[#122240] bg-[#081226] hover:bg-[#122240] hover:border-[#D4AF65]/50 py-2 text-[10.5px] font-semibold text-slate-200 transition-colors cursor-pointer text-center"
                     >
                       Customize Specifications
                     </button>
@@ -1516,7 +1516,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               ))}
             </div>
 
-            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[#203357] text-xs text-slate-300">
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[#122240] text-xs text-slate-300">
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
                 <span className="inline-flex items-center gap-1.5 font-medium text-slate-200">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
@@ -1538,7 +1538,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </div>
 
             {/* Premium & Specialty Finishes Quick Matrix */}
-            <div className="mt-6 pt-6 border-t border-[#203357]">
+            <div className="mt-6 pt-6 border-t border-[#122240]">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="font-display text-base font-black text-white">
@@ -1548,7 +1548,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     Transparent indicative pricing for popular specialty upgrades (based on standard 100 pcs batch).
                   </p>
                 </div>
-                <span className="hidden sm:inline-block rounded-md bg-[#101D35] px-2.5 py-1 text-[10px] font-mono font-bold text-[#D4AF65] border border-[#203357]">
+                <span className="hidden sm:inline-block rounded-md bg-[#040A18] px-2.5 py-1 text-[10px] font-mono font-bold text-[#D4AF65] border border-[#122240]">
                   Instant Quotes on WhatsApp
                 </span>
               </div>
@@ -1561,11 +1561,11 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   { name: '24K Gold Foil', price: 'AED 240', tag: 'Hot Stamped', spec: 'Metallic mirror foil highlight', finish: '24K Gold Foil Accent' },
                   { name: '600 GSM Cotton', price: 'AED 380', tag: 'Letterpress', spec: 'Archival deboss & gilded edges', finish: '600 GSM Cotton Duplex' },
                 ].map((item, idx) => (
-                  <div key={idx} className="rounded-xl border border-[#203357] bg-[#101D35] p-3.5 flex flex-col justify-between hover:border-[#D4AF65]/50 transition-colors">
+                  <div key={idx} className="rounded-xl border border-[#122240] bg-[#040A18] p-3.5 flex flex-col justify-between hover:border-[#D4AF65]/50 transition-colors">
                     <div>
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-xs text-white">{item.name}</span>
-                        <span className="text-[9px] font-mono text-[#D4AF65] bg-[#172644] px-1.5 py-0.5 rounded border border-[#203357]">{item.tag}</span>
+                        <span className="text-[9px] font-mono text-[#D4AF65] bg-[#081226] px-1.5 py-0.5 rounded border border-[#122240]">{item.tag}</span>
                       </div>
                       <div className="mt-1 font-display text-base font-black text-[#D4AF65]">
                         {item.price} <span className="text-[9px] font-normal text-slate-400">/ 100 pcs</span>
@@ -1606,7 +1606,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 2. COMPREHENSIVE BUSINESS CARD OPTIONS & FINISHES SHOWCASE */}
-        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-[#122240] pt-12 sm:pt-16">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end mb-8">
             <div>
               <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
@@ -1621,7 +1621,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </div>
 
             {/* Category Filter Pills */}
-            <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 border border-[#203357] p-1.5 rounded-2xl shadow-2xs">
+            <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 border border-[#122240] p-1.5 rounded-2xl shadow-2xs">
               {[
                 { id: 'all', label: 'All Cards' },
                 { id: 'basic', label: 'Simple & Basic Cards' },
@@ -1637,7 +1637,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   onClick={() => setActiveCategory(tab.id)}
                   className={`rounded-xl px-3 py-1.5 text-xs font-black transition-all cursor-pointer ${
                     activeCategory === tab.id
-                      ? 'bg-[#0F172A] text-white shadow-xs'
+                      ? 'bg-[#040A18] text-white shadow-xs'
                       : 'text-[#A0AEC0] hover:text-[#F5F2EB]'
                   }`}
                 >
@@ -1651,7 +1651,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             {filteredCards?.map((card, idx) => (
               <Reveal key={card.id} delay={Math.min((idx % 4) * 0.08, 0.3)}>
                 <div
-                  className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#203357] bg-[#172644] shadow-xs transition-all duration-300 card-hover-lift hover:shimmer h-full hover:border-[#D4AF65] hover:shadow-xl"
+                  className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#122240] bg-[#081226] shadow-xs transition-all duration-300 card-hover-lift hover:shimmer h-full hover:border-[#D4AF65] hover:shadow-xl"
                 >
                 <div>
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
@@ -1662,11 +1662,11 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       loading="lazy"
                     />
                     <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                      <span className="rounded-md bg-[#172644]/95 border border-[#203357] px-2 py-0.5 text-[8.5px] font-black uppercase tracking-wider text-[#F5F2EB] backdrop-blur-xs shadow-xs">
+                      <span className="rounded-md bg-[#081226]/95 border border-[#122240] px-2 py-0.5 text-[8.5px] font-black uppercase tracking-wider text-[#F5F2EB] backdrop-blur-xs shadow-xs">
                         {card.badge}
                       </span>
                     </div>
-                    <span className="absolute bottom-2.5 right-2.5 rounded-md bg-[#D4AF65] px-2 py-0.5 text-[8.5px] font-mono font-black text-[#0F172A] shadow-xs">
+                    <span className="absolute bottom-2.5 right-2.5 rounded-md bg-[#D4AF65] px-2 py-0.5 text-[8.5px] font-mono font-black text-[#040A18] shadow-xs">
                       {card.gsm}
                     </span>
                   </div>
@@ -1688,7 +1688,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                       {(card?.popularFinishes || []).map((f) => (
                         <span
                           key={f}
-                          className="rounded-md bg-[#101D35] border border-[#203357] px-2 py-0.5 text-[9.5px] font-bold text-[#A0AEC0]"
+                          className="rounded-md bg-[#040A18] border border-[#122240] px-2 py-0.5 text-[9.5px] font-bold text-[#A0AEC0]"
                         >
                           {f}
                         </span>
@@ -1701,7 +1701,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   <button
                     type="button"
                     onClick={() => scrollToQuote(card.title, card.specs.split('•')[0].trim())}
-                    className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#C49E52] py-2 text-[11px] font-black uppercase tracking-wider text-[#0F172A] transition-all cursor-pointer flex items-center justify-center gap-1 shadow-xs"
+                    className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#C49E52] py-2 text-[11px] font-black uppercase tracking-wider text-[#040A18] transition-all cursor-pointer flex items-center justify-center gap-1 shadow-xs"
                   >
                     <span>Instant Quote</span>
                     <ArrowRight className="h-3 w-3" />
@@ -1746,7 +1746,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 2B. TAILORED PACKAGES FOR INDIVIDUALS, STARTUPS & CORPORATE/BULK BUYERS + QUOTE CHECKLIST */}
-        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-[#122240] pt-12 sm:pt-16">
           <div className="mx-auto max-w-3xl text-center mb-10">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
               TAILORED ORDERING FOR EVERY BUYER TIER
@@ -1830,7 +1830,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             ].map((pkg) => (
               <div
                 key={pkg.title}
-                className="rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-7 shadow-lg flex flex-col justify-between hover:border-[#D4AF65] transition-all"
+                className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-7 shadow-lg flex flex-col justify-between hover:border-[#D4AF65] transition-all"
               >
                 <div>
                   <span className="inline-block rounded-full bg-[#D4AF65]/15 border border-[#D4AF65]/40 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#D4AF65]">
@@ -1839,14 +1839,14 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   <h3 className="font-display text-xl font-black text-white mt-3">
                     {pkg.title}
                   </h3>
-                  <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-xl bg-[#101D35] border border-[#203357] px-3.5 py-2">
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-xl bg-[#040A18] border border-[#122240] px-3.5 py-2">
                     <span className="text-xs font-black text-[#D4AF65]">{pkg.qtyRange}</span>
                     <span className="text-[10.5px] font-semibold text-slate-300">{pkg.priceNote}</span>
                   </div>
                   <p className="mt-3 text-xs text-slate-300 leading-relaxed">
                     {pkg.desc}
                   </p>
-                  <ul className="mt-4 space-y-2 border-t border-[#203357] pt-4 text-xs text-slate-200">
+                  <ul className="mt-4 space-y-2 border-t border-[#122240] pt-4 text-xs text-slate-200">
                     {pkg.features.map((feat) => (
                       <li key={feat} className="flex items-start gap-2">
                         <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
@@ -1856,7 +1856,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   </ul>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#203357] grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div className="mt-6 pt-4 border-t border-[#122240] grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <a
                     href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
                       formatBusinessCardInquiry(pkg.waSpecs)
@@ -1879,7 +1879,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   <button
                     type="button"
                     onClick={() => scrollToQuote(pkg.formType, pkg.formPaper, pkg.formQty)}
-                    className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#C49E52] py-2.5 px-3 text-[11px] font-black uppercase tracking-wider text-[#101D35] transition-all cursor-pointer flex items-center justify-center gap-1"
+                    className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#C49E52] py-2.5 px-3 text-[11px] font-black uppercase tracking-wider text-[#040A18] transition-all cursor-pointer flex items-center justify-center gap-1"
                   >
                     <span>Select Package</span>
                     <ArrowRight className="h-3 w-3" />
@@ -1890,7 +1890,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
 
           {/* What Information Customers Should Provide for an Instant Quote */}
-          <div className="mt-8 rounded-3xl border border-[#203357] bg-[#101D35] p-6 sm:p-8 shadow-md">
+          <div className="mt-8 rounded-3xl border border-[#122240] bg-[#040A18] p-6 sm:p-8 shadow-md">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
               <div className="max-w-xl">
                 <span className="text-[11px] font-black uppercase tracking-wider text-[#D4AF65]">
@@ -1910,7 +1910,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   { step: '3. Artwork or Design', detail: 'Attach your PDF/AI logo file, or let us know if you need layout/typesetting help.' },
                   { step: '4. Delivery & Timeline', detail: 'Your office area in Dubai/UAE and whether you need 4h same-day or 24-48h dispatch.' },
                 ].map((item) => (
-                  <div key={item.step} className="rounded-2xl border border-[#203357] bg-[#172644] p-3.5">
+                  <div key={item.step} className="rounded-2xl border border-[#122240] bg-[#081226] p-3.5">
                     <span className="text-xs font-black text-[#D4AF65] block">{item.step}</span>
                     <p className="text-[11px] text-slate-300 mt-1 leading-relaxed">{item.detail}</p>
                   </div>
@@ -1921,7 +1921,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 3. INDUSTRY-SPECIFIC BUSINESS CARD SEO & USE CASES (12 SECTORS) */}
-        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-[#122240] pt-12 sm:pt-16">
           <div className="mx-auto max-w-3xl text-center mb-12">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
               TAILORED INDUSTRY SPECIFICATIONS
@@ -1940,14 +1940,14 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               return (
                 <Reveal key={item.title} delay={Math.min((idx % 3) * 0.08, 0.3)}>
                   <div
-                    className="rounded-3xl border border-[#203357] bg-[#172644] p-6 shadow-xs card-hover-lift hover-shimmer h-full hover:border-[#D4AF65] hover:shadow-xl"
+                    className="rounded-3xl border border-[#122240] bg-[#081226] p-6 shadow-xs card-hover-lift hover-shimmer h-full hover:border-[#D4AF65] hover:shadow-xl"
                   >
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-50 border border-amber-200 text-[#D4AF65] shadow-2xs mb-4">
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="font-display text-base font-black text-[#F5F2EB]">{item.title}</h3>
                     <p className="mt-2 text-xs text-[#A0AEC0] leading-relaxed">{item.desc}</p>
-                    <div className="mt-4 rounded-xl border border-[#203357] bg-[#101D35] p-3 text-[11px]">
+                    <div className="mt-4 rounded-xl border border-[#122240] bg-[#040A18] p-3 text-[11px]">
                       <span className="font-bold text-[#D4AF65] block mb-0.5">Recommended Spec:</span>
                       <span className="text-[#A0AEC0] font-medium">{item.recommended}</span>
                     </div>
@@ -1959,7 +1959,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 4. BUSINESS CARD KNOWLEDGE HUB & TECHNICAL PRE-PRESS GUIDES */}
-        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-[#122240] pt-12 sm:pt-16">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
               <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
@@ -1974,7 +1974,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </div>
 
             {/* Guide Tabs */}
-            <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 border border-[#203357] p-1.5 rounded-2xl shadow-2xs">
+            <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 border border-[#122240] p-1.5 rounded-2xl shadow-2xs">
               {[
                 { id: 'size', label: 'Size Standards' },
                 { id: 'gsm', label: 'GSM Paper Guide' },
@@ -1988,7 +1988,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   onClick={() => setActiveGuideTab(g.id)}
                   className={`rounded-xl px-3 py-1.5 text-xs font-black transition-all cursor-pointer ${
                     activeGuideTab === g.id
-                      ? 'bg-[#0F172A] text-white shadow-xs'
+                      ? 'bg-[#040A18] text-white shadow-xs'
                       : 'text-[#A0AEC0] hover:text-[#F5F2EB]'
                   }`}
                 >
@@ -1998,7 +1998,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-10 shadow-xs">
+          <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-10 shadow-xs">
             {activeGuideTab === 'size' && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-4">
@@ -2040,8 +2040,8 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   </ul>
                 </div>
 
-                <div className="lg:col-span-5 bg-[#101D35] p-4 sm:p-6 rounded-2xl border border-[#203357] text-center space-y-4 shadow-sm">
-                  <div className="mx-auto w-full max-w-[12rem] h-32 rounded-xl border-2 border-dashed border-[#D4AF65] bg-[#172644] flex flex-col items-center justify-center p-3 relative shadow-xs">
+                <div className="lg:col-span-5 bg-[#040A18] p-4 sm:p-6 rounded-2xl border border-[#122240] text-center space-y-4 shadow-sm">
+                  <div className="mx-auto w-full max-w-[12rem] h-32 rounded-xl border-2 border-dashed border-[#D4AF65] bg-[#081226] flex flex-col items-center justify-center p-3 relative shadow-xs">
                     <span className="font-mono text-xs font-black text-white">85 mm × 55 mm</span>
                     <span className="text-[10px] text-slate-400 mt-1">ISO 7810 Standard Wallet Ratio</span>
                     <div className="absolute top-1 left-1 text-[8px] font-mono text-[#D4AF65]">+3mm Bleed</div>
@@ -2072,7 +2072,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     { gsm: '450 GSM', name: 'Velvet Soft-Touch', role: 'Luxury Atelier', desc: 'Dense artboard wrapped in suede-like soft touch film. Stiff and luxurious.' },
                     { gsm: '600–700 GSM', name: 'Italian Cotton / Duplex', role: 'Flagship Pinnacle', desc: 'Multi-ply archival board built for deep letterpress debossing and painted edges.' },
                   ].map((item) => (
-                    <div key={item.gsm} className="rounded-2xl border border-[#203357] bg-[#101D35] p-5 shadow-xs">
+                    <div key={item.gsm} className="rounded-2xl border border-[#122240] bg-[#040A18] p-5 shadow-xs">
                       <span className="font-mono text-lg font-black text-[#D4AF65]">{item.gsm}</span>
                       <h4 className="font-display text-sm font-black text-white mt-1">{item.name}</h4>
                       <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5">{item.role}</span>
@@ -2085,7 +2085,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
             {activeGuideTab === 'finishes' && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-6 shadow-xs space-y-3">
+                <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-6 shadow-xs space-y-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4AF65]/15 text-[#D4AF65] border border-[#D4AF65]/30">
                     <Sparkles className="h-5 w-5" />
                   </div>
@@ -2095,7 +2095,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-6 shadow-xs space-y-3">
+                <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-6 shadow-xs space-y-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4AF65]/15 text-[#D4AF65] border border-[#D4AF65]/30">
                     <Layers className="h-5 w-5" />
                   </div>
@@ -2105,7 +2105,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-6 shadow-xs space-y-3">
+                <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-6 shadow-xs space-y-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4AF65]/15 text-[#D4AF65] border border-[#D4AF65]/30">
                     <ShieldCheck className="h-5 w-5" />
                   </div>
@@ -2126,15 +2126,15 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   Streamlined corporate ordering for HR and procurement departments. Maintain exact brand typography, paper consistency, and Pantone colors across your entire organization.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                  <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4">
+                  <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                     <span className="font-mono text-base font-bold text-[#D4AF65]">01. Central Master Asset</span>
                     <p className="text-xs text-slate-300 mt-1">We securely lock your official brand typography, layout, and Pantone color profiles.</p>
                   </div>
-                  <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4">
+                  <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                     <span className="font-mono text-base font-bold text-[#D4AF65]">02. Excel Multi-Name Sync</span>
                     <p className="text-xs text-slate-300 mt-1">Upload your employee roster spreadsheet to generate proofs for 10 to 500 staff in hours.</p>
                   </div>
-                  <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4">
+                  <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                     <span className="font-mono text-base font-bold text-[#D4AF65]">03. Tiered Volume Savings</span>
                     <p className="text-xs text-slate-300 mt-1">Pooled print runs maximize bulk economies of scale with consolidated corporate dispatch.</p>
                   </div>
@@ -2148,19 +2148,19 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                   Print-Ready Vector Artwork &amp; Bleed Checklist
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
-                  <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4 text-xs">
+                  <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4 text-xs">
                     <span className="font-bold text-[#D4AF65] block mb-1">1. Color Mode</span>
                     <span className="text-slate-300">CMYK color space (no RGB). Specify Pantone PMS codes for exact spot colors.</span>
                   </div>
-                  <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4 text-xs">
+                  <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4 text-xs">
                     <span className="font-bold text-[#D4AF65] block mb-1">2. Resolution</span>
                     <span className="text-slate-300">Minimum 300 DPI for raster images; 100% vector for typography and logos.</span>
                   </div>
-                  <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4 text-xs">
+                  <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4 text-xs">
                     <span className="font-bold text-[#D4AF65] block mb-1">3. 3mm Bleed</span>
                     <span className="text-slate-300">Extend background art 3mm beyond the cut line to prevent white margins.</span>
                   </div>
-                  <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4 text-xs">
+                  <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4 text-xs">
                     <span className="font-bold text-[#D4AF65] block mb-1">4. Safety Margin</span>
                     <span className="text-slate-300">Keep all critical contact text at least 3mm to 4mm inside the final trim edge.</span>
                   </div>
@@ -2171,7 +2171,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 5. DUBAI LOCAL SEO & AREA DELIVERY MATRIX (12 AREAS) */}
-        <section className="mt-16 sm:mt-24 rounded-3xl border border-neutral-200 bg-gradient-to-br from-neutral-900 via-[#101D35] to-neutral-950 p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+        <section className="mt-16 sm:mt-24 rounded-3xl border border-neutral-200 bg-gradient-to-br from-neutral-900 via-[#040A18] to-neutral-950 p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
           <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#D4AF65]/15 blur-3xl" />
 
           <div className="relative z-10">
@@ -2194,7 +2194,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               {DUBAI_AREAS?.map((area, idx) => (
                 <Reveal key={area.name} delay={Math.min((idx % 3) * 0.05, 0.25)}>
                   <div
-                    className="rounded-2xl border border-white/10 bg-[#172644]/5 p-4 backdrop-blur-xs transition-colors hover:border-[#D4AF65]/40 hover:bg-[#172644]/10 card-hover-lift hover-shimmer h-full"
+                    className="rounded-2xl border border-white/10 bg-[#081226]/5 p-4 backdrop-blur-xs transition-colors hover:border-[#D4AF65]/40 hover:bg-[#081226]/10 card-hover-lift hover-shimmer h-full"
                   >
                     <div className="flex items-center justify-between">
                       <h4 className="font-display text-sm font-black text-white">{area.name}</h4>
@@ -2214,7 +2214,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 6. GEO / AI SEARCH FACT & ANSWER SECTION (AEO OPTIMIZED) */}
-        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-[#122240] pt-12 sm:pt-16">
           <div className="mx-auto max-w-3xl text-center mb-10">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
               AI SEARCH &amp; FACTUAL VERIFICATION
@@ -2228,42 +2228,42 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
               <h4 className="font-display text-sm font-black text-white">What is ONPRINT?</h4>
               <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 ONPRINT is a licensed commercial printing atelier located in Al Quoz, Dubai, UAE, specializing in luxury business cards, corporate stationery, and corporate merchandise.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
               <h4 className="font-display text-sm font-black text-white">What sizes are printed?</h4>
               <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 We print standard European 85 x 55 mm, US Standard 90 x 50 mm, Square 65 x 65 mm, and custom CNC die-cut visiting cards with 3mm bleed margins.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
               <h4 className="font-display text-sm font-black text-white">What paper weights are offered?</h4>
               <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Stock weights range from standard 350 GSM silk artboard up to 400 GSM matte, 450 GSM velvet, and 600–700 GSM multi-ply Italian cotton boards.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
               <h4 className="font-display text-sm font-black text-white">What is the bleed requirement?</h4>
               <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 All artwork files must include a 2mm to 3mm bleed on all sides and a 3mm safe inner margin, supplied in 300 DPI CMYK vector PDF format.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
               <h4 className="font-display text-sm font-black text-white">How fast is turnaround?</h4>
               <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Standard digital runs are dispatched in 24–48 hours across Dubai. Express same-day 4-hour printing is available for orders approved by 11:00 AM.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
               <h4 className="font-display text-sm font-black text-white">Are multi-name discounts available?</h4>
               <p className="mt-2 text-xs text-slate-300 leading-relaxed">
                 Yes. Procurement teams ordering cards for 5 to 500+ employees receive tiered corporate discounts with unified brand color calibration.
@@ -2273,7 +2273,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* HOW TO ORDER IN 3 SIMPLE STEPS */}
-        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-[#122240] pt-12 sm:pt-16">
           <div className="mx-auto max-w-3xl text-center mb-12">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
               FAST &amp; EFFORTLESS PROCESS
@@ -2287,7 +2287,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-3xl border border-[#203357] bg-[#172644] p-8 shadow-xs relative">
+            <div className="rounded-3xl border border-[#122240] bg-[#081226] p-8 shadow-xs relative">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65]/15 border border-[#D4AF65]/30 text-[#D4AF65] font-black text-lg mb-6">
                 01
               </div>
@@ -2297,7 +2297,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-[#203357] bg-[#172644] p-8 shadow-xs relative">
+            <div className="rounded-3xl border border-[#122240] bg-[#081226] p-8 shadow-xs relative">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65]/15 border border-[#D4AF65]/30 text-[#D4AF65] font-black text-lg mb-6">
                 02
               </div>
@@ -2307,7 +2307,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-[#203357] bg-[#172644] p-8 shadow-xs relative">
+            <div className="rounded-3xl border border-[#122240] bg-[#081226] p-8 shadow-xs relative">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65]/15 border border-[#D4AF65]/30 text-[#D4AF65] font-black text-lg mb-6">
                 03
               </div>
@@ -2354,7 +2354,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 7. TECHNICAL ARTWORK & BLEED GUIDE */}
-        <section className="mt-16 sm:mt-24 rounded-3xl border border-[#203357] bg-[#172644] p-8 sm:p-12 shadow-xl">
+        <section className="mt-16 sm:mt-24 rounded-3xl border border-[#122240] bg-[#081226] p-8 sm:p-12 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-3">
               <div className="inline-flex items-center gap-2 rounded-full bg-[#D4AF65]/15 border border-[#D4AF65]/30 px-3.5 py-1 text-xs font-bold text-[#D4AF65]">
@@ -2379,7 +2379,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               <a
                 href="/assets/products/luxury_business_cards.jpg"
                 download="ONPRINT-Business-Card-Specs-Dubai.jpg"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#D4AF65] px-6 py-4 text-xs font-black uppercase tracking-wider text-[#101D35] shadow-md shadow-[#D4AF65]/20 transition-all cursor-pointer text-center"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#D4AF65] hover:bg-[#D4AF65] px-6 py-4 text-xs font-black uppercase tracking-wider text-[#040A18] shadow-md shadow-[#D4AF65]/20 transition-all cursor-pointer text-center"
               >
                 <Download className="h-4 w-4" />
                 <span>Download Spec Sheet</span>
@@ -2387,7 +2387,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               <button
                 type="button"
                 onClick={() => scrollToQuote()}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] hover:text-[#D4AF65] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-slate-200 transition-all cursor-pointer text-center"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] hover:text-[#D4AF65] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-slate-200 transition-all cursor-pointer text-center"
               >
                 <span>Request Free Artwork Check</span>
               </button>
@@ -2396,7 +2396,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 7. PRINT SPECIFICATIONS & APPLICATION PROFILES */}
-        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-[#122240] pt-12 sm:pt-16">
           <div className="mx-auto max-w-3xl text-center mb-12">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
               CORPORATE APPLICATION PROFILES
@@ -2438,10 +2438,10 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             ].map((profile, i) => (
               <div
                 key={i}
-                className="rounded-3xl border border-[#203357] bg-[#172644] p-6 shadow-xs flex flex-col justify-between"
+                className="rounded-3xl border border-[#122240] bg-[#081226] p-6 shadow-xs flex flex-col justify-between"
               >
                 <div>
-                  <span className="inline-block rounded-md bg-[#101D35] px-2 py-0.5 text-[10px] font-mono text-[#D4AF65] border border-[#203357] mb-3">
+                  <span className="inline-block rounded-md bg-[#040A18] px-2 py-0.5 text-[10px] font-mono text-[#D4AF65] border border-[#122240] mb-3">
                     {profile.application}
                   </span>
                   <h3 className="font-bold text-sm text-white mb-2">{profile.title}</h3>
@@ -2449,7 +2449,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     {profile.description}
                   </p>
                 </div>
-                <div className="mt-5 pt-3 border-t border-[#203357]">
+                <div className="mt-5 pt-3 border-t border-[#122240]">
                   <span className="text-[11px] font-mono font-bold text-emerald-400">
                     {profile.spec}
                   </span>
@@ -2462,7 +2462,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
 
         {/* 8. COMPREHENSIVE 16-QUESTION FAQ ACCORDION */}
-        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16 max-w-4xl mx-auto">
+        <section className="mt-16 sm:mt-24 border-t border-[#122240] pt-12 sm:pt-16 max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
               FREQUENTLY ASKED QUESTIONS
@@ -2475,7 +2475,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </p>
           </div>
 
-          <div className="divide-y divide-slate-200 border-t border-b border-[#203357]">
+          <div className="divide-y divide-slate-200 border-t border-b border-[#122240]">
             {BUSINESS_CARD_FAQS?.map((faq, index) => {
               const isOpen = openFaq === index
               return (
@@ -2510,7 +2510,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 8.5. TOPICAL CLUSTER INTERLINKING DIRECTORY */}
-        <section className="mt-16 sm:mt-24 border-t border-[#203357] pt-12 sm:pt-16">
+        <section className="mt-16 sm:mt-24 border-t border-[#122240] pt-12 sm:pt-16">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
               BUSINESS CARDS TOPICAL CLUSTER
@@ -2525,7 +2525,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Column 1: Luxury & Tactile Finishes */}
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 space-y-3 shadow-md">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 space-y-3 shadow-md">
               <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                 <Sparkles className="h-4 w-4" />
                 <span>Luxury &amp; Tactile Finishes</span>
@@ -2571,7 +2571,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </div>
 
             {/* Column 2: Formats, Speed & Corporate Tiers */}
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 space-y-3 shadow-md">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 space-y-3 shadow-md">
               <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                 <Briefcase className="h-4 w-4" />
                 <span>Executive &amp; Corporate Tiers</span>
@@ -2617,7 +2617,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
             </div>
 
             {/* Column 3: UAE Regional Coverage */}
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 space-y-3 shadow-md">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 space-y-3 shadow-md">
               <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                 <MapPin className="h-4 w-4" />
                 <span>Emirates Regional Dispatch</span>
@@ -2664,8 +2664,8 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           </div>
 
           {/* 8B. Link-Worthy Executive Guides & Print Engineering Resources */}
-          <div className="mt-8 rounded-2xl border border-[#203357] bg-[#172644] p-6 sm:p-8 text-white">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#203357] pb-5 mb-6">
+          <div className="mt-8 rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 text-white">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#122240] pb-5 mb-6">
               <div>
                 <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#D4AF65] mb-1">
                   <FileText className="h-3.5 w-3.5" />
@@ -2741,7 +2741,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                 <Link
                   key={guide.slug}
                   to={guide.slug}
-                  className="group rounded-xl border border-white/10 bg-[#172644]/5 hover:bg-[#172644]/10 hover:border-[#D4AF65]/50 p-4 flex flex-col justify-between transition-all"
+                  className="group rounded-xl border border-white/10 bg-[#081226]/5 hover:bg-[#081226]/10 hover:border-[#D4AF65]/50 p-4 flex flex-col justify-between transition-all"
                 >
                   <div>
                     <span className="inline-block rounded-md bg-[#D4AF65]/10 border border-[#D4AF65]/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
@@ -2765,7 +2765,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* CROSS-CATEGORY STATIONERY & BRANDING SYNERGY */}
-        <section className="mt-14 sm:mt-20 rounded-3xl border border-[#203357] bg-[#121F38] p-6 sm:p-10 text-white shadow-xl">
+        <section className="mt-14 sm:mt-20 rounded-3xl border border-[#122240] bg-[#121F38] p-6 sm:p-10 text-white shadow-xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#D4AF65]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2.5">
@@ -2784,7 +2784,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link
               to="/categories/custom-stamps-seals"
-              className="group rounded-2xl border border-white/10 bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
+              className="group rounded-2xl border border-white/10 bg-[#040A18] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
             >
               <div>
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF65] bg-[#D4AF65]/10 px-2 py-0.5 rounded">
@@ -2805,7 +2805,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
             <Link
               to="/categories/stickers-labels-printing"
-              className="group rounded-2xl border border-white/10 bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
+              className="group rounded-2xl border border-white/10 bg-[#040A18] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
             >
               <div>
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF65] bg-[#D4AF65]/10 px-2 py-0.5 rounded">
@@ -2826,7 +2826,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
             <Link
               to="/categories/letterheads-printing-dubai"
-              className="group rounded-2xl border border-white/10 bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
+              className="group rounded-2xl border border-white/10 bg-[#040A18] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
             >
               <div>
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF65] bg-[#D4AF65]/10 px-2 py-0.5 rounded">
@@ -2847,7 +2847,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
 
             <Link
               to="/categories/brochures-printing"
-              className="group rounded-2xl border border-white/10 bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
+              className="group rounded-2xl border border-white/10 bg-[#040A18] p-5 hover:border-[#D4AF65] transition-all flex flex-col justify-between"
             >
               <div>
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4AF65] bg-[#D4AF65]/10 px-2 py-0.5 rounded">
@@ -2869,11 +2869,11 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         </section>
 
         {/* 9. BOTTOM HIGH-CONVERTING CALL TO ACTION */}
-        <section className="mt-16 sm:mt-24 rounded-3xl bg-[#101D35] border border-[#203357] p-8 sm:p-12 lg:p-16 text-white text-center shadow-2xl relative overflow-hidden">
+        <section className="mt-16 sm:mt-24 rounded-3xl bg-[#040A18] border border-[#122240] p-8 sm:p-12 lg:p-16 text-white text-center shadow-2xl relative overflow-hidden">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,rgba(212,175,101,0.15),transparent_70%)]" />
 
           <div className="relative z-10 max-w-2xl mx-auto space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#172644] px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#D4AF65]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#081226] px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#D4AF65]">
               <Sparkles className="h-3.5 w-3.5" />
               Elevate Your Executive Presence
             </div>
@@ -2922,14 +2922,14 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
               <button
                 type="button"
                 onClick={() => scrollToQuote()}
-                className="w-full sm:w-auto rounded-2xl bg-[#D4AF65] hover:bg-[#c39e55] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#101D35] shadow-xl shadow-[#D4AF65]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
+                className="w-full sm:w-auto rounded-2xl bg-[#D4AF65] hover:bg-[#c39e55] px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-wider text-[#040A18] shadow-xl shadow-[#D4AF65]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
               >
                 Request Custom Quotation
               </button>
 
               <a
                 href="mailto:0nprint183@gmail.com"
-                className="w-full sm:w-auto rounded-2xl border border-[#203357] bg-[#172644]/50 hover:bg-[#172644] px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer flex items-center justify-center gap-2"
+                className="w-full sm:w-auto rounded-2xl border border-[#122240] bg-[#081226]/50 hover:bg-[#081226] px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <Mail className="h-4 w-4" />
                 <span>Email Studio</span>
@@ -2940,7 +2940,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
       </Container>
 
       {/* MOBILE STICKY FLOATING WHATSAPP CTA BAR */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#101D35]/95 backdrop-blur-md border-t border-[#203357] p-3 px-4 flex items-center justify-between gap-3 shadow-2xl">
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#040A18]/95 backdrop-blur-md border-t border-[#122240] p-3 px-4 flex items-center justify-between gap-3 shadow-2xl">
         <div className="flex flex-col">
           <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF65]">ONPRINT Dubai</span>
           <span className="text-xs font-black text-white">Business Cards Quote</span>

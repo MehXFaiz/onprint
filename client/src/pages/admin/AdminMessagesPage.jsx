@@ -67,7 +67,7 @@ export default function AdminMessagesPage() {
       )}
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#14213D] p-6 rounded-3xl border border-[#1E2C4F] shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#081226] p-6 rounded-3xl border border-[#122240] shadow-xs">
         <div>
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
             <MessageSquare className="h-4 w-4" />
@@ -83,7 +83,7 @@ export default function AdminMessagesPage() {
       </div>
 
       {/* Filter Bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs">
         <div className="relative w-full sm:w-80">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
           <input
@@ -91,7 +91,7 @@ export default function AdminMessagesPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search messages by sender, email, subject..."
-            className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] placeholder-neutral-400 focus:border-[#D6C29A] focus:outline-none"
+            className="w-full rounded-xl border border-[#122240] bg-[#040A18] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] placeholder-neutral-400 focus:border-[#D6C29A] focus:outline-none"
           />
         </div>
 
@@ -100,7 +100,7 @@ export default function AdminMessagesPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full sm:w-auto rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
+            className="w-full sm:w-auto rounded-xl border border-[#122240] bg-[#040A18] px-3 py-2 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
           >
             <option value="all">All Statuses</option>
             <option value="unread">Unread Only</option>
@@ -115,7 +115,7 @@ export default function AdminMessagesPage() {
         {/* Messages List Column */}
         <div className="lg:col-span-5 space-y-3">
           {filtered.length === 0 ? (
-            <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-8 text-center text-xs text-[#B8C2D9]">
+            <div className="rounded-3xl border border-[#122240] bg-[#081226] p-8 text-center text-xs text-[#B8C2D9]">
               No messages found matching search criteria.
             </div>
           ) : (
@@ -137,7 +137,7 @@ export default function AdminMessagesPage() {
                       ? 'border-[#D6C29A] bg-red-50/20 shadow-sm'
                       : msg.status === 'unread'
                       ? 'border-[#D6C29A]/40 bg-red-50/10 font-bold'
-                      : 'border-[#1E2C4F] bg-[#14213D] hover:border-[#1E2C4F]'
+                      : 'border-[#122240] bg-[#081226] hover:border-[#122240]'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2">
@@ -148,7 +148,7 @@ export default function AdminMessagesPage() {
                           ? 'bg-amber-100 text-amber-800 border border-amber-200'
                           : msg.status === 'replied'
                           ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                          : 'bg-neutral-100 text-[#B8C2D9] border border-[#1E2C4F]'
+                          : 'bg-neutral-100 text-[#B8C2D9] border border-[#122240]'
                       }`}
                     >
                       {msg.status || 'unread'}
@@ -162,7 +162,7 @@ export default function AdminMessagesPage() {
                     {msg.message}
                   </p>
 
-                  <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-[#B8C2D9]/70 border-t border-[#1E2C4F] pt-2">
+                  <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-[#B8C2D9]/70 border-t border-[#122240] pt-2">
                     <span className="truncate min-w-0">{msg.email}</span>
                     <span className="shrink-0">{formattedDate}</span>
                   </div>
@@ -175,8 +175,8 @@ export default function AdminMessagesPage() {
         {/* Message Detail Viewer Column */}
         <div className="lg:col-span-7">
           {selectedMessage ? (
-            <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs space-y-6">
-              <div className="flex items-start justify-between gap-4 border-b border-[#1E2C4F] pb-5">
+            <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="flex items-start justify-between gap-4 border-b border-[#122240] pb-5">
                 <div>
                   <h2 className="font-display text-xl font-bold text-[#F5F3EE]">
                     {selectedMessage.subject}
@@ -195,7 +195,7 @@ export default function AdminMessagesPage() {
               </div>
 
               {/* Sender Details */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-2xl bg-[#0B132B] p-4 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-2xl bg-[#040A18] p-4 text-xs">
                 <div className="flex items-center gap-2">
                   <User className="h-4 w-4 text-[#D6C29A] shrink-0" />
                   <div>
@@ -226,13 +226,13 @@ export default function AdminMessagesPage() {
                 <label className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]/70 block mb-2">
                   Message Content
                 </label>
-                <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 text-xs text-[#F5F3EE] leading-relaxed whitespace-pre-wrap font-medium">
+                <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 text-xs text-[#F5F3EE] leading-relaxed whitespace-pre-wrap font-medium">
                   {selectedMessage.message}
                 </div>
               </div>
 
               {/* Quick Actions */}
-              <div className="flex items-center justify-end gap-3 border-t border-[#1E2C4F] pt-4">
+              <div className="flex items-center justify-end gap-3 border-t border-[#122240] pt-4">
                 <a
                   href={`mailto:${selectedMessage.email}?subject=RE: ${encodeURIComponent(selectedMessage.subject)}`}
                   className="inline-flex items-center gap-1.5 rounded-xl bg-neutral-900 px-5 py-2.5 text-xs font-bold text-white hover:bg-[#D6C29A] transition-colors"
@@ -243,7 +243,7 @@ export default function AdminMessagesPage() {
               </div>
             </div>
           ) : (
-            <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-12 text-center text-xs text-[#B8C2D9]/70">
+            <div className="rounded-3xl border border-[#122240] bg-[#081226] p-12 text-center text-xs text-[#B8C2D9]/70">
               Select a message from the left list to view details.
             </div>
           )}

@@ -49,9 +49,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="py-16 sm:py-24 bg-[#101D35] min-h-[calc(100vh-200px)] flex items-center">
+    <div className="py-16 sm:py-24 bg-[#040A18] min-h-[calc(100vh-200px)] flex items-center">
       <Container className="flex flex-col items-center justify-center">
-        <div className="w-full max-w-md rounded-3xl border border-[#203357] bg-[#172644] p-8 shadow-2xl sm:p-10 text-[#F5F2EB]">
+        <div className="w-full max-w-md rounded-3xl border border-[#122240] bg-[#081226] p-8 shadow-2xl sm:p-10 text-[#F5F2EB]">
           <div className="text-center">
             <Link to="/" className="inline-block">
               <Logo size="md" />
@@ -69,7 +69,7 @@ export default function LoginPage() {
           </div>
 
           {/* Quick Demo Credentials Assistant */}
-          <div className="mt-6 rounded-2xl border border-[#203357] bg-[#101D35] p-3.5">
+          <div className="mt-6 rounded-2xl border border-[#122240] bg-[#040A18] p-3.5">
             <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-2">
               <span className="flex items-center gap-1">
                 <ShieldCheck className="h-3.5 w-3.5 text-[#D4AF65]" />
@@ -79,7 +79,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={handleFillAdmin}
-              className="flex w-full items-center justify-between rounded-xl border border-[#203357] bg-[#172644] p-2.5 text-left text-xs font-semibold text-[#F5F2EB] transition-all hover:border-[#D4AF65] hover:bg-[#1B2C4D] cursor-pointer"
+              className="flex w-full items-center justify-between rounded-xl border border-[#122240] bg-[#081226] p-2.5 text-left text-xs font-semibold text-[#F5F2EB] transition-all hover:border-[#D4AF65] hover:bg-[#1B2C4D] cursor-pointer"
             >
               <div>
                 <div className="font-bold text-[#F5F2EB]">admin@onprint.ae</div>
@@ -107,7 +107,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@company.com"
-                className="mt-2 w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="mt-2 w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
             </div>
 
@@ -122,7 +122,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="mt-2 w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="mt-2 w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-sm text-[#F5F2EB] placeholder-slate-500 focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
             </div>
 

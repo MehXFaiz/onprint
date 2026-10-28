@@ -18,7 +18,7 @@ export default function ServiceGeoContent({ geoData }) {
     <div className="space-y-8 text-[#F5F2EB]">
       {/* What Is Section - Critical for AI Understanding */}
       {whatIs && (
-        <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 sm:p-8 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
             <Info className="h-3.5 w-3.5" />
             <span>Definition</span>
@@ -44,12 +44,12 @@ export default function ServiceGeoContent({ geoData }) {
 
       {/* Key Information Box - Structured Data for AI */}
       {keyInfo && (
-        <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-6 sm:p-8">
+        <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-6 sm:p-8">
           <h3 className="text-lg font-bold text-[#F5F2EB] mb-4">Key Information</h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {keyInfo.cost && (
-              <div className="rounded-xl border border-[#203357] bg-[#172644] p-3.5">
+              <div className="rounded-xl border border-[#122240] bg-[#081226] p-3.5">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1">
                   Typical Cost
                 </div>
@@ -58,7 +58,7 @@ export default function ServiceGeoContent({ geoData }) {
             )}
             
             {keyInfo.turnaround && (
-              <div className="rounded-xl border border-[#203357] bg-[#172644] p-3.5">
+              <div className="rounded-xl border border-[#122240] bg-[#081226] p-3.5">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1">
                   Turnaround Time
                 </div>
@@ -67,7 +67,7 @@ export default function ServiceGeoContent({ geoData }) {
             )}
             
             {keyInfo.minimumOrder && (
-              <div className="rounded-xl border border-[#203357] bg-[#172644] p-3.5">
+              <div className="rounded-xl border border-[#122240] bg-[#081226] p-3.5">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1">
                   Minimum Order
                 </div>
@@ -76,7 +76,7 @@ export default function ServiceGeoContent({ geoData }) {
             )}
             
             {keyInfo.materials && (
-              <div className="rounded-xl border border-[#203357] bg-[#172644] p-3.5">
+              <div className="rounded-xl border border-[#122240] bg-[#081226] p-3.5">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-1">
                   Materials Available
                 </div>
@@ -89,7 +89,7 @@ export default function ServiceGeoContent({ geoData }) {
 
       {/* Who Needs This Section */}
       {whoNeedsThis && (
-        <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 sm:p-8 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
           <h3 className="text-lg font-bold text-[#F5F2EB] mb-4">{whoNeedsThis.title}</h3>
           
           <ul className="space-y-2">
@@ -107,7 +107,7 @@ export default function ServiceGeoContent({ geoData }) {
       {(advantages || bestFor) && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {advantages && (
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
               <h3 className="text-base font-bold text-[#D4AF65] mb-3">Advantages</h3>
               <ul className="space-y-2">
                 {advantages.map((advantage, idx) => (
@@ -121,7 +121,7 @@ export default function ServiceGeoContent({ geoData }) {
           )}
           
           {bestFor && (
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
               <h3 className="text-base font-bold text-[#D4AF65] mb-3">Best For</h3>
               <ul className="space-y-2">
                 {bestFor.map((use, idx) => (
@@ -138,7 +138,7 @@ export default function ServiceGeoContent({ geoData }) {
 
       {/* FAQs Section - Critical for AI Question Answering */}
       {faqs && faqs.length > 0 && (
-        <div className="rounded-2xl border border-[#203357] bg-[#172644] p-6 sm:p-8 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
             <HelpCircle className="h-3.5 w-3.5" />
             <span>Frequently Asked Questions</span>
@@ -146,7 +146,7 @@ export default function ServiceGeoContent({ geoData }) {
           
           <h3 className="text-lg font-bold text-[#F5F2EB] mb-4">Common Questions</h3>
           
-          <div className="divide-y divide-[#203357]">
+          <div className="divide-y divide-[#122240]">
             {faqs.map((faq, idx) => {
               const isOpen = openFaqIndex === idx
               

@@ -91,7 +91,7 @@ export default function ArabicStickersPage() {
   }, [selectedType, selectedQuantity, selectedSize, selectedMaterial, selectedFinish, selectedLocation, customNotes])
 
   return (
-    <div className="bg-[#101D35] text-[#F5F2EB] font-arabic antialiased selection:bg-[#D4AF65] selection:text-[#101D35]" dir="rtl">
+    <div className="bg-[#040A18] text-[#F5F2EB] font-arabic antialiased selection:bg-[#D4AF65] selection:text-[#040A18]" dir="rtl">
       <SEOHead
         title="طباعة استيكرات دبي | طباعة ملصقات مخصصة وفينيل ضد الماء | ONPRINT"
         description="خدمات طباعة استيكرات دبي وملصقات منتجات مخصصة من ONPRINT. استيكرات فينيل مقاومة للماء، ملصقات باركود، استيكرات شفافة، وقص ليزر ديكت مع شحن سريع لكافة الإمارات."
@@ -101,9 +101,9 @@ export default function ArabicStickersPage() {
       />
 
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#203357] bg-gradient-to-b from-[#0C1629] via-[#101D35] to-[#101D35]">
+      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#122240] bg-gradient-to-b from-[#020611] via-[#040A18] to-[#040A18]">
         <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#172644]/60 blur-3xl" />
+        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#081226]/60 blur-3xl" />
 
         <Container className="relative z-10">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
@@ -155,7 +155,7 @@ export default function ArabicStickersPage() {
 
               <a
                 href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-                className="inline-flex items-center gap-2 rounded-full border border-[#203357] bg-[#172644] px-5 py-3.5 text-sm font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all"
+                className="inline-flex items-center gap-2 rounded-full border border-[#122240] bg-[#081226] px-5 py-3.5 text-sm font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all"
               >
                 <Phone className="h-4 w-4 text-[#D4AF65]" />
                 <span>استشارة فنية: {FORMATTED_PHONE}</span>
@@ -166,10 +166,10 @@ export default function ArabicStickersPage() {
       </section>
 
       {/* 2. SPECIFICATION CALCULATOR */}
-      <section className="py-16 sm:py-20 border-b border-[#203357]">
+      <section className="py-16 sm:py-20 border-b border-[#122240]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-7 rounded-3xl border border-[#203357] bg-[#172644]/70 p-6 sm:p-8 space-y-6">
+            <div className="lg:col-span-7 rounded-3xl border border-[#122240] bg-[#081226]/70 p-6 sm:p-8 space-y-6">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
                   حاسبة مواصفات الملصقات والستيكرات
@@ -191,8 +191,8 @@ export default function ArabicStickersPage() {
                       onClick={() => setSelectedType(t.name)}
                       className={`p-3 rounded-2xl border transition-all cursor-pointer ${
                         selectedType === t.name
-                          ? 'border-[#D4AF65] bg-[#101D35] shadow-xs'
-                          : 'border-[#203357] bg-[#101D35]/50 hover:border-[#203357]/80'
+                          ? 'border-[#D4AF65] bg-[#040A18] shadow-xs'
+                          : 'border-[#122240] bg-[#040A18]/50 hover:border-[#122240]/80'
                       }`}
                     >
                       <div className="text-xs font-bold text-[#F5F2EB]">{t.name}</div>
@@ -214,8 +214,8 @@ export default function ArabicStickersPage() {
                       onClick={() => setSelectedMaterial(m.name)}
                       className={`p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
                         selectedMaterial === m.name
-                          ? 'border-[#D4AF65] bg-[#101D35] shadow-xs'
-                          : 'border-[#203357] bg-[#101D35]/50 hover:border-[#203357]/80'
+                          ? 'border-[#D4AF65] bg-[#040A18] shadow-xs'
+                          : 'border-[#122240] bg-[#040A18]/50 hover:border-[#122240]/80'
                       }`}
                     >
                       <div className="space-y-0.5">
@@ -228,9 +228,9 @@ export default function ArabicStickersPage() {
                         <p className="text-[11px] text-[#B0BECE]">{m.desc}</p>
                       </div>
                       <div className={`h-4 w-4 rounded-full border flex items-center justify-center shrink-0 ${
-                        selectedMaterial === m.name ? 'border-[#D4AF65] bg-[#D4AF65]' : 'border-[#203357]'
+                        selectedMaterial === m.name ? 'border-[#D4AF65] bg-[#D4AF65]' : 'border-[#122240]'
                       }`}>
-                        {selectedMaterial === m.name && <div className="h-1.5 w-1.5 rounded-full bg-[#101D35]" />}
+                        {selectedMaterial === m.name && <div className="h-1.5 w-1.5 rounded-full bg-[#040A18]" />}
                       </div>
                     </div>
                   ))}
@@ -244,7 +244,7 @@ export default function ArabicStickersPage() {
                   <select
                     value={selectedSize}
                     onChange={(e) => setSelectedSize(e.target.value)}
-                    className="w-full bg-[#101D35] border border-[#203357] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
+                    className="w-full bg-[#040A18] border border-[#122240] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
                   >
                     {SIZES.map((s) => (
                       <option key={s} value={s}>{s}</option>
@@ -257,7 +257,7 @@ export default function ArabicStickersPage() {
                   <select
                     value={selectedQuantity}
                     onChange={(e) => setSelectedQuantity(e.target.value)}
-                    className="w-full bg-[#101D35] border border-[#203357] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
+                    className="w-full bg-[#040A18] border border-[#122240] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
                   >
                     {QUANTITIES.map((q) => (
                       <option key={q} value={q}>{q}</option>
@@ -272,7 +272,7 @@ export default function ArabicStickersPage() {
                 <select
                   value={selectedFinish}
                   onChange={(e) => setSelectedFinish(e.target.value)}
-                  className="w-full bg-[#101D35] border border-[#203357] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
+                  className="w-full bg-[#040A18] border border-[#122240] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
                 >
                   {FINISHES.map((f) => (
                     <option key={f} value={f}>{f}</option>
@@ -286,7 +286,7 @@ export default function ArabicStickersPage() {
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="w-full bg-[#101D35] border border-[#203357] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
+                  className="w-full bg-[#040A18] border border-[#122240] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#D4AF65]"
                 >
                   {LOCATIONS.map((loc) => (
                     <option key={loc} value={loc}>{loc}</option>
@@ -301,21 +301,21 @@ export default function ArabicStickersPage() {
                   value={customNotes}
                   onChange={(e) => setCustomNotes(e.target.value)}
                   placeholder="مثال: يرجى التحقق من أبعاد القارورة / طلب عينات سابقة..."
-                  className="w-full bg-[#101D35] border border-[#203357] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE]/50 focus:outline-none focus:border-[#D4AF65]"
+                  className="w-full bg-[#040A18] border border-[#122240] rounded-xl px-3 py-2 text-xs text-[#F5F2EB] placeholder:text-[#B0BECE]/50 focus:outline-none focus:border-[#D4AF65]"
                 />
               </div>
             </div>
 
             {/* Right Column: WhatsApp Message Preview */}
-            <div className="lg:col-span-5 rounded-3xl border border-[#203357] bg-[#101D35] p-6 sm:p-8 space-y-5 sticky top-28">
-              <div className="flex items-center gap-2 pb-3 border-b border-[#203357]">
+            <div className="lg:col-span-5 rounded-3xl border border-[#122240] bg-[#040A18] p-6 sm:p-8 space-y-5 sticky top-28">
+              <div className="flex items-center gap-2 pb-3 border-b border-[#122240]">
                 <WhatsAppIcon className="h-5 w-5 text-emerald-400" />
                 <h3 className="text-base font-bold text-[#F5F2EB]">
                   معاينة رسالة استفسار الملصقات
                 </h3>
               </div>
 
-              <div className="rounded-2xl bg-[#0C1629] border border-[#203357] p-4 text-xs font-mono text-[#F5F2EB] leading-relaxed whitespace-pre-line select-all">
+              <div className="rounded-2xl bg-[#020611] border border-[#122240] p-4 text-xs font-mono text-[#F5F2EB] leading-relaxed whitespace-pre-line select-all">
                 {`مرحباً ONPRINT، أود الحصول على عرض سعر لطباعة الملصقات.
 
 نوع الملصقات: ${selectedType}
@@ -358,7 +358,7 @@ export default function ArabicStickersPage() {
       </section>
 
       {/* 3. MATERIAL RESISTANCE MATRIX */}
-      <section className="py-16 sm:py-20 border-b border-[#203357] bg-[#0C1629]">
+      <section className="py-16 sm:py-20 border-b border-[#122240] bg-[#020611]">
         <Container>
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="text-center">
@@ -371,7 +371,7 @@ export default function ArabicStickersPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-4 rounded-2xl bg-[#101D35] border border-[#203357] space-y-2">
+              <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240] space-y-2">
                 <Droplets className="h-5 w-5 text-emerald-400" />
                 <h4 className="font-bold text-sm text-[#F5F2EB]">مقاومة تامة للماء والزيوت</h4>
                 <p className="text-xs text-[#B0BECE] leading-relaxed">
@@ -379,7 +379,7 @@ export default function ArabicStickersPage() {
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#101D35] border border-[#203357] space-y-2">
+              <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240] space-y-2">
                 <Scissors className="h-5 w-5 text-[#D4AF65]" />
                 <h4 className="font-bold text-sm text-[#F5F2EB]">قص ليزر رقمي عالي الدقة</h4>
                 <p className="text-xs text-[#B0BECE] leading-relaxed">
@@ -387,7 +387,7 @@ export default function ArabicStickersPage() {
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#101D35] border border-[#203357] space-y-2">
+              <div className="p-4 rounded-2xl bg-[#040A18] border border-[#122240] space-y-2">
                 <Sparkles className="h-5 w-5 text-[#D4AF65]" />
                 <h4 className="font-bold text-sm text-[#F5F2EB]">لاصق قوي لا يترك أثراً</h4>
                 <p className="text-xs text-[#B0BECE] leading-relaxed">
@@ -400,7 +400,7 @@ export default function ArabicStickersPage() {
       </section>
 
       {/* 4. ARABIC FAQS */}
-      <section className="py-16 sm:py-20 border-b border-[#203357]">
+      <section className="py-16 sm:py-20 border-b border-[#122240]">
         <Container>
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
@@ -416,7 +416,7 @@ export default function ArabicStickersPage() {
               {ARABIC_STICKER_FAQS.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#203357] bg-[#172644]/70 overflow-hidden"
+                  className="rounded-2xl border border-[#122240] bg-[#081226]/70 overflow-hidden"
                 >
                   <button
                     type="button"
@@ -439,7 +439,7 @@ export default function ArabicStickersPage() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#B0BECE] leading-relaxed border-t border-[#203357]/60">
+                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#B0BECE] leading-relaxed border-t border-[#122240]/60">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -453,7 +453,7 @@ export default function ArabicStickersPage() {
       </section>
 
       {/* 5. FOOTER CONVERSION */}
-      <section className="py-14 bg-[#0C1629] text-center">
+      <section className="py-14 bg-[#020611] text-center">
         <Container>
           <div className="max-w-xl mx-auto space-y-4">
             <h3 className="text-xl sm:text-2xl font-black text-[#F5F2EB]">

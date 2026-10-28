@@ -117,7 +117,7 @@ export default function FaqPage() {
   }, [selectedCategory, searchQuery])
 
   return (
-    <div className="py-16 sm:py-24 bg-[#101D35] min-h-screen text-[#F5F2EB]">
+    <div className="py-16 sm:py-24 bg-[#040A18] min-h-screen text-[#F5F2EB]">
       <SEOHead
         title="Commercial Printing FAQ Dubai | Turnaround, Specs & Prices | ONPRINT"
         description="Comprehensive answers to commercial printing questions in Dubai: turnaround times, CMYK bleed specifications, luxury foil & spot UV finishes, 5% UAE VAT, and corporate credit terms."
@@ -131,8 +131,8 @@ export default function FaqPage() {
         <Breadcrumbs items={[{ name: 'FAQ & Print Knowledgebase' }]} />
 
         {/* Hero Header */}
-        <div className="border-b border-[#203357] pb-8 text-center sm:text-left">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#172644] border border-[#D4AF65]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
+        <div className="border-b border-[#122240] pb-8 text-center sm:text-left">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#081226] border border-[#D4AF65]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
             <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
             <span>COMMERCIAL PRINT KNOWLEDGEBASE</span>
           </div>
@@ -151,7 +151,7 @@ export default function FaqPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by keyword (e.g. foil, turnaround, 300 DPI, VAT, delivery)…"
-              className="w-full rounded-xl border border-[#203357] bg-[#172644] py-2.5 pl-10 pr-4 text-xs sm:text-sm font-medium text-white placeholder:text-slate-400 focus:border-[#D4AF65] focus:outline-none shadow-xs"
+              className="w-full rounded-xl border border-[#122240] bg-[#081226] py-2.5 pl-10 pr-4 text-xs sm:text-sm font-medium text-white placeholder:text-slate-400 focus:border-[#D4AF65] focus:outline-none shadow-xs"
             />
           </div>
         </div>
@@ -165,8 +165,8 @@ export default function FaqPage() {
               onClick={() => setSelectedCategory(cat)}
               className={`rounded-xl px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
-                  : 'bg-[#172644] border border-[#203357] text-slate-200 hover:border-[#D4AF65] hover:text-[#D4AF65]'
+                  ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
+                  : 'bg-[#081226] border border-[#122240] text-slate-200 hover:border-[#D4AF65] hover:text-[#D4AF65]'
               }`}
             >
               {cat}
@@ -175,7 +175,7 @@ export default function FaqPage() {
         </div>
 
         {/* FAQ Accordion List */}
-        <div className="mt-8 divide-y divide-[#203357] border border-[#203357] bg-[#172644] rounded-2xl p-4 sm:p-8 shadow-xs">
+        <div className="mt-8 divide-y divide-[#122240] border border-[#122240] bg-[#081226] rounded-2xl p-4 sm:p-8 shadow-xs">
           {filteredFaqs.length === 0 ? (
             <div className="py-12 text-center">
               <HelpCircle className="h-10 w-10 text-slate-400 mx-auto mb-2" />
@@ -214,7 +214,7 @@ export default function FaqPage() {
         </div>
 
         {/* Support CTA Box */}
-        <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-[#101D35] p-6 sm:p-8 text-white sm:flex-row sm:items-center sm:justify-between shadow-lg">
+        <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-[#040A18] p-6 sm:p-8 text-white sm:flex-row sm:items-center sm:justify-between shadow-lg">
           <div>
             <h3 className="font-display text-base font-bold text-white">
               Have a custom specification or non-standard print request?

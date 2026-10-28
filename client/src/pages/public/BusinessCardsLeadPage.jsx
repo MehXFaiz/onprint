@@ -332,7 +332,7 @@ export default function BusinessCardsLeadPage() {
   }
 
   return (
-    <div className="bg-[#101D35] text-slate-200">
+    <div className="bg-[#040A18] text-slate-200">
       <SEOHead
         title="Business Card Printing Quote UAE | Instant Custom Estimator Dubai | ONPRINT"
         description="Get an instant business card printing quote in Dubai & UAE. Select 350–700 GSM silk, velvet, cotton, or luxury black cardstock, upload artwork or request design assistance, and order via WhatsApp."
@@ -343,7 +343,7 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 1. HERO HEADER                                                            */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#101D35] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#203357]">
+      <section className="relative overflow-hidden bg-[#040A18] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#122240]">
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
             <Reveal>
@@ -394,13 +394,13 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 2. INTERACTIVE SPEC CONFIGURATOR & DUAL CONVERSION FUNNEL                  */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-[#101D35]">
+      <section className="py-12 sm:py-16 bg-[#040A18]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Interactive Card Configurator (7 Cols) */}
             <div className="lg:col-span-7 space-y-8">
               {/* Step 1: Select Card Stock */}
-              <div className="rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
+              <div className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <div className="flex items-center gap-2">
                     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
@@ -426,11 +426,11 @@ export default function BusinessCardsLeadPage() {
                         className={`group text-left p-3.5 rounded-xl border transition-all duration-200 cursor-pointer flex flex-col justify-between ${
                           isSelected
                             ? 'border-[#D4AF65] bg-[#D4AF65]/10 ring-2 ring-[#D4AF65]/20 shadow-xs'
-                            : 'border-[#203357] bg-[#101D35] hover:border-slate-300 hover:bg-[#101D35]/50'
+                            : 'border-[#122240] bg-[#040A18] hover:border-slate-300 hover:bg-[#040A18]/50'
                         }`}
                       >
                         <div className="flex items-start gap-3 w-full">
-                          <div className="h-16 w-16 rounded-lg overflow-hidden bg-slate-100 shrink-0 border border-[#203357]/80">
+                          <div className="h-16 w-16 rounded-lg overflow-hidden bg-slate-100 shrink-0 border border-[#122240]/80">
                             <img
                               src={card.image}
                               alt={card.name}
@@ -456,7 +456,7 @@ export default function BusinessCardsLeadPage() {
                           </div>
                         </div>
 
-                        <div className="mt-3 pt-2 border-t border-[#203357] flex items-center justify-between w-full text-[11px]">
+                        <div className="mt-3 pt-2 border-t border-[#122240] flex items-center justify-between w-full text-[11px]">
                           <span className="font-semibold text-[#B0BECE]">Custom Quote</span>
                           <span
                             className={`font-bold flex items-center gap-1 ${
@@ -473,7 +473,7 @@ export default function BusinessCardsLeadPage() {
               </div>
 
               {/* Step 2: Select Quantity */}
-              <div className="rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
+              <div className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
                     2
@@ -494,7 +494,7 @@ export default function BusinessCardsLeadPage() {
                         className={`p-3 rounded-xl border text-center transition-all duration-200 cursor-pointer ${
                           isSelected
                             ? 'border-[#D4AF65] bg-[#D4AF65] text-white font-bold shadow-xs'
-                            : 'border-[#203357] bg-[#101D35] text-[#F5F2EB] font-semibold hover:bg-[#101D35] hover:border-slate-300'
+                            : 'border-[#122240] bg-[#040A18] text-[#F5F2EB] font-semibold hover:bg-[#040A18] hover:border-slate-300'
                         }`}
                       >
                         <span className="block text-xs sm:text-sm">{qty.label}</span>
@@ -505,7 +505,7 @@ export default function BusinessCardsLeadPage() {
               </div>
 
               {/* Step 3: Optional Add-on Enhancements */}
-              <div className="rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
+              <div className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <div className="flex items-center gap-2">
                     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
@@ -529,13 +529,13 @@ export default function BusinessCardsLeadPage() {
                         className={`p-3 rounded-xl border text-left flex items-center justify-between gap-3 transition-all duration-200 cursor-pointer ${
                           isChecked
                             ? 'border-[#D4AF65] bg-[#D4AF65]/10 text-[#F5F2EB] ring-1 ring-[#D4AF65]/30'
-                            : 'border-[#203357] bg-[#101D35] text-[#F5F2EB] hover:bg-[#101D35]'
+                            : 'border-[#122240] bg-[#040A18] text-[#F5F2EB] hover:bg-[#040A18]'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
                           <div
                             className={`h-4 w-4 rounded flex items-center justify-center border transition-colors ${
-                              isChecked ? 'bg-[#D4AF65] border-[#D4AF65] text-white' : 'border-slate-300 bg-[#172644]'
+                              isChecked ? 'bg-[#D4AF65] border-[#D4AF65] text-white' : 'border-slate-300 bg-[#081226]'
                             }`}
                           >
                             {isChecked && <Check className="h-3 w-3 stroke-[3]" />}
@@ -552,7 +552,7 @@ export default function BusinessCardsLeadPage() {
               </div>
 
               {/* Step 4: Turnaround & Delivery */}
-              <div className="rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
+              <div className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 sm:p-7 shadow-xs">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF65] text-white text-xs font-bold">
                     4
@@ -573,7 +573,7 @@ export default function BusinessCardsLeadPage() {
                         className={`p-3.5 rounded-xl border text-left flex flex-col justify-between transition-all duration-200 cursor-pointer ${
                           isSelected
                             ? 'border-[#D4AF65] bg-[#D4AF65]/10 ring-1 ring-[#D4AF65]'
-                            : 'border-[#203357] bg-[#101D35] hover:bg-[#101D35]'
+                            : 'border-[#122240] bg-[#040A18] hover:bg-[#040A18]'
                         }`}
                       >
                         <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF65]">
@@ -595,8 +595,8 @@ export default function BusinessCardsLeadPage() {
             {/* Right Column: Dynamic Price Summary & Dual-Conversion Form (5 Cols) */}
             <div className="lg:col-span-5 sticky top-24 space-y-6">
               {/* Order / Spec Preview Box */}
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-6 sm:p-8 shadow-lg">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#203357] gap-3">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-6 sm:p-8 shadow-lg">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#122240] gap-3">
                   <div>
                     <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF65]">
                       CONFIGURED SPECIFICATION
@@ -616,7 +616,7 @@ export default function BusinessCardsLeadPage() {
                 </div>
 
                 {/* Specs List */}
-                <div className="py-4 space-y-2 text-xs border-b border-[#203357]">
+                <div className="py-4 space-y-2 text-xs border-b border-[#122240]">
                   <div className="flex justify-between text-[#B0BECE]">
                     <span>Quantity:</span>
                     <span className="font-bold text-[#F5F2EB]">{selectedQty.label}</span>
@@ -658,10 +658,10 @@ export default function BusinessCardsLeadPage() {
                 {/* Divider */}
                 <div className="relative my-6">
                   <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-[#203357]" />
+                    <div className="w-full border-t border-[#122240]" />
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-[#172644] px-3 text-[#B0BECE] font-bold">OR SUBMIT FORM BELOW</span>
+                    <span className="bg-[#081226] px-3 text-[#B0BECE] font-bold">OR SUBMIT FORM BELOW</span>
                   </div>
                 </div>
 
@@ -769,7 +769,7 @@ export default function BusinessCardsLeadPage() {
                       <select
                         value={deliveryLocation}
                         onChange={(e) => setDeliveryLocation(e.target.value)}
-                        className="w-full rounded-xl border border-slate-300 bg-[#101D35] px-3.5 py-2.5 text-xs text-[#F5F2EB] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
+                        className="w-full rounded-xl border border-slate-300 bg-[#040A18] px-3.5 py-2.5 text-xs text-[#F5F2EB] focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] outline-none"
                       >
                         <option value="Dubai, UAE (Express Doorstep Delivery)">Dubai, UAE (Express Doorstep Delivery)</option>
                         <option value="Abu Dhabi, UAE (Next-Day Courier)">Abu Dhabi, UAE (Next-Day Courier)</option>
@@ -784,7 +784,7 @@ export default function BusinessCardsLeadPage() {
                       <label className="block text-xs font-bold text-[#F5F2EB] mb-1">
                         Upload Artwork (Optional)
                       </label>
-                      <div className="relative rounded-xl border border-dashed border-[#203357] bg-[#101D35]/60 p-3 text-center hover:border-[#D4AF65] transition-colors">
+                      <div className="relative rounded-xl border border-dashed border-[#122240] bg-[#040A18]/60 p-3 text-center hover:border-[#D4AF65] transition-colors">
                         <input
                           type="file"
                           accept=".pdf,.ai,.eps,.jpg,.jpeg,.png,.zip"
@@ -814,7 +814,7 @@ export default function BusinessCardsLeadPage() {
                       )}
                     </div>
 
-                    <div className="rounded-xl bg-[#101D35]/80 border border-[#203357] p-2.5 text-[11px] text-[#B0BECE] leading-relaxed">
+                    <div className="rounded-xl bg-[#040A18]/80 border border-[#122240] p-2.5 text-[11px] text-[#B0BECE] leading-relaxed">
                       💡 <strong>Note on WhatsApp Inquiries:</strong> Clicking WhatsApp prepares your exact pre-filled specs. A confirmed binding quotation and delivery schedule are validated with our master pressman in Al Quoz before production starts.
                     </div>
 
@@ -822,7 +822,7 @@ export default function BusinessCardsLeadPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#D4AF65] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-[#101D35] shadow-md shadow-[#D4AF65]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                      className="w-full rounded-xl bg-[#D4AF65] hover:bg-[#D4AF65] py-3.5 px-6 text-xs font-bold uppercase tracking-wider text-[#040A18] shadow-md shadow-[#D4AF65]/25 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? 'Submitting Specification…' : 'Submit Specification & Get Official Quote →'}
                     </button>
@@ -837,7 +837,7 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 3. BUSINESS CARD SWATCH & FINISH GALLERY                                  */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#172644] border-t border-[#203357]">
+      <section className="py-16 sm:py-20 bg-[#081226] border-t border-[#122240]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
@@ -892,7 +892,7 @@ export default function BusinessCardsLeadPage() {
             ].map((finish, idx) => (
               <div
                 key={idx}
-                className="group rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-4 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-md"
+                className="group rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-4 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-md"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100">
                   <img
@@ -924,7 +924,7 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 4. PRE-PRESS QUALITY & ACCURACY STANDARDS                                 */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#101D35] border-t border-[#203357]">
+      <section className="py-16 sm:py-20 bg-[#040A18] border-t border-[#122240]">
         <Container className="max-w-5xl">
           <div className="text-center mb-12">
             <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">
@@ -960,7 +960,7 @@ export default function BusinessCardsLeadPage() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-6 shadow-xs flex flex-col justify-between"
+                  className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-6 shadow-xs flex flex-col justify-between"
                 >
                   <div>
                     <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#D4AF65]/10 text-[#D4AF65] mb-4">
@@ -971,7 +971,7 @@ export default function BusinessCardsLeadPage() {
                       {std.desc}
                     </p>
                   </div>
-                  <div className="mt-5 pt-3 border-t border-[#203357] flex items-center gap-1.5 text-[11px] font-semibold text-[#D4AF65]">
+                  <div className="mt-5 pt-3 border-t border-[#122240] flex items-center gap-1.5 text-[11px] font-semibold text-[#D4AF65]">
                     <CheckCircle2 className="h-3.5 w-3.5" />
                     <span>ONPRINT Dubai Standard</span>
                   </div>
@@ -985,7 +985,7 @@ export default function BusinessCardsLeadPage() {
       {/* ========================================================================= */}
       {/* 5. BOTTOM CTA BANNER                                                      */}
       {/* ========================================================================= */}
-      <section className="py-14 sm:py-16 bg-[#172644] border-t border-[#203357]">
+      <section className="py-14 sm:py-16 bg-[#081226] border-t border-[#122240]">
         <Container className="text-center max-w-3xl space-y-5">
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F2EB]">
             Need a Custom Quantity or Bespoke Die-Line?
@@ -1016,7 +1016,7 @@ export default function BusinessCardsLeadPage() {
               to="/get-a-quote"
               variant="outline"
               size="lg"
-              className="!rounded-xl border-slate-300 bg-[#172644] text-[#F5F2EB] hover:bg-[#101D35] text-xs font-bold !py-3.5 !px-7 shadow-xs"
+              className="!rounded-xl border-slate-300 bg-[#081226] text-[#F5F2EB] hover:bg-[#040A18] text-xs font-bold !py-3.5 !px-7 shadow-xs"
             >
               All Product Quotes →
             </Button>

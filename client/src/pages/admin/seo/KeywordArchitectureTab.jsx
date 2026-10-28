@@ -318,7 +318,7 @@ export default function KeywordArchitectureTab({
   return (
     <div className="space-y-6">
       {/* Header & Metric Cards */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
@@ -371,7 +371,7 @@ export default function KeywordArchitectureTab({
         <div className="mt-5 rounded-xl border border-blue-100 bg-blue-50/60 p-3.5 text-xs text-blue-900 flex items-start gap-3">
           <ShieldCheck className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
           <div className="leading-relaxed">
-            <span className="font-bold">Google Essentials & Real-Time Integrity Policy:</span> In strict adherence to our data integrity standards, search volume, CPC, ranking, and competition are never fabricated. Metrics show <span className="font-semibold text-[#F5F3EE] bg-[#14213D]/80 px-1.5 py-0.5 rounded border border-blue-200">Connect API</span> or <span className="font-semibold text-[#F5F3EE] bg-[#14213D]/80 px-1.5 py-0.5 rounded border border-blue-200">—</span> until live Google Search Console or Google Ads API sync is active.
+            <span className="font-bold">Google Essentials & Real-Time Integrity Policy:</span> In strict adherence to our data integrity standards, search volume, CPC, ranking, and competition are never fabricated. Metrics show <span className="font-semibold text-[#F5F3EE] bg-[#081226]/80 px-1.5 py-0.5 rounded border border-blue-200">Connect API</span> or <span className="font-semibold text-[#F5F3EE] bg-[#081226]/80 px-1.5 py-0.5 rounded border border-blue-200">—</span> until live Google Search Console or Google Ads API sync is active.
           </div>
         </div>
 
@@ -387,7 +387,7 @@ export default function KeywordArchitectureTab({
                 setSearch(e.target.value)
                 setCurrentPage(1)
               }}
-              className="w-full rounded-xl border border-[#1E2C4F] pl-9 pr-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+              className="w-full rounded-xl border border-[#122240] pl-9 pr-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
             />
           </div>
 
@@ -397,7 +397,7 @@ export default function KeywordArchitectureTab({
               setGroupFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Groups (A–N)</option>
             {KEYWORD_GROUPS_LIST.map((g) => (
@@ -413,7 +413,7 @@ export default function KeywordArchitectureTab({
               setCategoryFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Clusters / Categories</option>
             {categories.map((c) => (
@@ -429,7 +429,7 @@ export default function KeywordArchitectureTab({
               setIntentFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Search Intents</option>
             <option value="Commercial">Commercial</option>
@@ -445,7 +445,7 @@ export default function KeywordArchitectureTab({
               setPriorityFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Priorities</option>
             <option value="High">High Priority</option>
@@ -459,7 +459,7 @@ export default function KeywordArchitectureTab({
               setStatusFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Statuses</option>
             <option value="Published">Published</option>
@@ -493,12 +493,12 @@ export default function KeywordArchitectureTab({
       </div>
 
       {/* Main Table */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] shadow-xs overflow-hidden">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
           {paginatedItems.length > 0 ? (
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-[#1E2C4F] bg-[#0B132B]/75 text-[10px] uppercase font-black text-[#B8C2D9]/70">
+                <tr className="border-b border-[#122240] bg-[#040A18]/75 text-[10px] uppercase font-black text-[#B8C2D9]/70">
                   <th
                     className="p-3.5 cursor-pointer hover:text-[#F5F3EE]"
                     onClick={() => handleSort('keyword')}
@@ -547,7 +547,7 @@ export default function KeywordArchitectureTab({
                       : 'bg-blue-50 text-blue-700 border-blue-200'
 
                   return (
-                    <tr key={item.id} className="hover:bg-[#0B132B]/60 transition-colors">
+                    <tr key={item.id} className="hover:bg-[#040A18]/60 transition-colors">
                       {/* Keyword */}
                       <td className="p-3.5 font-bold text-[#F5F3EE] max-w-[200px] truncate" title={item.keyword}>
                         <div className="flex items-center gap-1.5">
@@ -560,7 +560,7 @@ export default function KeywordArchitectureTab({
                         )}
                         <div className="flex items-center gap-1.5 mt-1">
                           {item.keyword_group && (
-                            <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-extrabold uppercase bg-neutral-100 text-[#F5F3EE] border border-[#1E2C4F]">
+                            <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-extrabold uppercase bg-neutral-100 text-[#F5F3EE] border border-[#122240]">
                               Grp {item.keyword_group}
                             </span>
                           )}
@@ -568,7 +568,7 @@ export default function KeywordArchitectureTab({
                             <span className={`inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-bold ${
                               item.conversion_value === 'High'
                                 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                                : 'bg-neutral-100 text-[#B8C2D9] border border-[#1E2C4F]'
+                                : 'bg-neutral-100 text-[#B8C2D9] border border-[#122240]'
                             }`}>
                               {item.conversion_value}
                             </span>
@@ -683,7 +683,7 @@ export default function KeywordArchitectureTab({
                         <div className="flex items-center justify-end gap-1.5">
                           <button
                             onClick={() => handleOpenEdit(item)}
-                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#122240] hover:text-[#F5F3EE] transition-colors cursor-pointer"
                             title="Edit Keyword"
                           >
                             <Edit3 className="h-3.5 w-3.5" />
@@ -713,7 +713,7 @@ export default function KeywordArchitectureTab({
 
         {/* Pagination Bar */}
         {totalPages > 1 && (
-          <div className="border-t border-[#1E2C4F] p-4 flex items-center justify-between text-xs">
+          <div className="border-t border-[#122240] p-4 flex items-center justify-between text-xs">
             <span className="text-[#B8C2D9]">
               Showing {(currentPage - 1) * pageSize + 1} to{' '}
               {Math.min(currentPage * pageSize, filteredItems.length)} of {filteredItems.length}
@@ -722,7 +722,7 @@ export default function KeywordArchitectureTab({
               <button
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                className="rounded-lg border border-[#1E2C4F] px-3 py-1.5 text-xs font-semibold hover:bg-[#0B132B] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="rounded-lg border border-[#122240] px-3 py-1.5 text-xs font-semibold hover:bg-[#040A18] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
                 Previous
               </button>
@@ -732,7 +732,7 @@ export default function KeywordArchitectureTab({
               <button
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                className="rounded-lg border border-[#1E2C4F] px-3 py-1.5 text-xs font-semibold hover:bg-[#0B132B] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="rounded-lg border border-[#122240] px-3 py-1.5 text-xs font-semibold hover:bg-[#040A18] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
                 Next
               </button>
@@ -744,8 +744,8 @@ export default function KeywordArchitectureTab({
       {/* ADD KEYWORD MODAL */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-lg rounded-2xl bg-[#14213D] p-6 shadow-2xl border border-[#1E2C4F] animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4">
+          <div className="w-full max-w-lg rounded-2xl bg-[#081226] p-6 shadow-2xl border border-[#122240] animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between border-b border-[#122240] pb-4">
               <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Add Keyword Target</h3>
               <button
                 onClick={() => setShowAddModal(false)}
@@ -763,7 +763,7 @@ export default function KeywordArchitectureTab({
                   placeholder="e.g. luxury business card printing Dubai"
                   value={formData.keyword}
                   onChange={(e) => setFormData({ ...formData, keyword: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
@@ -774,7 +774,7 @@ export default function KeywordArchitectureTab({
                     type="text"
                     value={formData.cluster}
                     onChange={(e) => setFormData({ ...formData, cluster: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -782,7 +782,7 @@ export default function KeywordArchitectureTab({
                   <select
                     value={formData.search_intent}
                     onChange={(e) => setFormData({ ...formData, search_intent: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226]"
                   >
                     <option value="Commercial">Commercial</option>
                     <option value="Transactional">Transactional</option>
@@ -800,7 +800,7 @@ export default function KeywordArchitectureTab({
                   placeholder="https://www.0nprint.com/services/..."
                   value={formData.target_url}
                   onChange={(e) => setFormData({ ...formData, target_url: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
@@ -812,7 +812,7 @@ export default function KeywordArchitectureTab({
                     placeholder="e.g. Business Cards Landing Page"
                     value={formData.target_page}
                     onChange={(e) => setFormData({ ...formData, target_page: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -820,7 +820,7 @@ export default function KeywordArchitectureTab({
                   <select
                     value={formData.priority}
                     onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226]"
                   >
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
@@ -836,7 +836,7 @@ export default function KeywordArchitectureTab({
                     type="text"
                     value={formData.city}
                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -845,7 +845,7 @@ export default function KeywordArchitectureTab({
                     type="text"
                     value={formData.country}
                     onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
               </div>
@@ -857,11 +857,11 @@ export default function KeywordArchitectureTab({
                   placeholder="Strategic notes, secondary variations..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#1E2C4F]">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#122240]">
                 <Button
                   type="button"
                   variant="outline"
@@ -890,8 +890,8 @@ export default function KeywordArchitectureTab({
       {/* EDIT KEYWORD MODAL */}
       {editingItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-lg rounded-2xl bg-[#14213D] p-6 shadow-2xl border border-[#1E2C4F] animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4">
+          <div className="w-full max-w-lg rounded-2xl bg-[#081226] p-6 shadow-2xl border border-[#122240] animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between border-b border-[#122240] pb-4">
               <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Edit Keyword Target</h3>
               <button
                 onClick={() => setEditingItem(null)}
@@ -908,7 +908,7 @@ export default function KeywordArchitectureTab({
                   required
                   value={formData.keyword}
                   onChange={(e) => setFormData({ ...formData, keyword: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none font-bold"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-bold"
                 />
               </div>
 
@@ -919,7 +919,7 @@ export default function KeywordArchitectureTab({
                     type="text"
                     value={formData.cluster}
                     onChange={(e) => setFormData({ ...formData, cluster: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -927,7 +927,7 @@ export default function KeywordArchitectureTab({
                   <select
                     value={formData.search_intent}
                     onChange={(e) => setFormData({ ...formData, search_intent: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226]"
                   >
                     <option value="Commercial">Commercial</option>
                     <option value="Transactional">Transactional</option>
@@ -944,7 +944,7 @@ export default function KeywordArchitectureTab({
                   type="url"
                   value={formData.target_url}
                   onChange={(e) => setFormData({ ...formData, target_url: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
@@ -955,7 +955,7 @@ export default function KeywordArchitectureTab({
                     type="text"
                     value={formData.target_page}
                     onChange={(e) => setFormData({ ...formData, target_page: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -963,7 +963,7 @@ export default function KeywordArchitectureTab({
                   <select
                     value={formData.priority}
                     onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226]"
                   >
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
@@ -978,7 +978,7 @@ export default function KeywordArchitectureTab({
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226]"
                   >
                     <option value="Tracking">Tracking</option>
                     <option value="Published">Published</option>
@@ -992,7 +992,7 @@ export default function KeywordArchitectureTab({
                     type="text"
                     value={`${formData.city}, ${formData.country}`}
                     disabled
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 bg-neutral-100 text-[#B8C2D9] cursor-not-allowed"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 bg-neutral-100 text-[#B8C2D9] cursor-not-allowed"
                   />
                 </div>
               </div>
@@ -1003,11 +1003,11 @@ export default function KeywordArchitectureTab({
                   rows={2}
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#1E2C4F]">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#122240]">
                 <Button
                   type="button"
                   variant="outline"
@@ -1036,7 +1036,7 @@ export default function KeywordArchitectureTab({
       {/* DELETE CONFIRMATION MODAL */}
       {deletingItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-2xl bg-[#14213D] p-6 shadow-2xl border border-[#1E2C4F] animate-in fade-in zoom-in-95">
+          <div className="w-full max-w-md rounded-2xl bg-[#081226] p-6 shadow-2xl border border-[#122240] animate-in fade-in zoom-in-95">
             <div className="flex items-center gap-3 text-red-600 mb-3">
               <AlertCircle className="h-6 w-6 shrink-0" />
               <h3 className="font-display text-base font-bold text-[#F5F3EE]">Confirm Keyword Deletion</h3>

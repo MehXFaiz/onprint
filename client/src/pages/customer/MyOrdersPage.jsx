@@ -27,7 +27,7 @@ export default function MyOrdersPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1E2C4F] pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#122240] pb-4">
         <div>
           <h1 className="font-display text-2xl font-black text-[#F5F3EE]">My Print Orders</h1>
           <p className="text-xs text-[#F5F3EE]/60">Track all your corporate printing runs and artwork statuses.</p>
@@ -39,7 +39,7 @@ export default function MyOrdersPage() {
       </div>
 
       {orders.length === 0 ? (
-        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-12 text-center shadow-xs">
+        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-12 text-center shadow-xs">
           <Package className="h-10 w-10 text-[#52647D] mx-auto mb-3" />
           <h3 className="font-display text-lg font-bold text-[#F5F3EE]">No print orders yet</h3>
           <p className="text-xs text-[#F5F3EE]/60 mt-1 max-w-sm mx-auto">
@@ -54,7 +54,7 @@ export default function MyOrdersPage() {
           {orders.map((order) => (
             <div
               key={order._id || order.id || order.orderNumber}
-              className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-[#D6C29A]/40 transition-all"
+              className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-[#D6C29A]/40 transition-all"
             >
               <div>
                 <div className="flex items-center gap-2">
@@ -75,13 +75,13 @@ export default function MyOrdersPage() {
                 {order.specs && <p className="text-xs text-[#F5F3EE]/70 mt-1">{order.specs}</p>}
                 {order.notes && <p className="text-[11px] text-[#F5F3EE]/50 italic mt-1">Note: {order.notes}</p>}
                 {order.artworkFile && (
-                  <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#D6C29A] bg-[#0B132B] px-2 py-0.5 rounded-md border border-[#1E2C4F]">
+                  <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#D6C29A] bg-[#040A18] px-2 py-0.5 rounded-md border border-[#122240]">
                     📎 {order.artworkFile}
                   </div>
                 )}
               </div>
 
-              <div className="flex items-center gap-6 border-t md:border-t-0 border-[#1E2C4F] pt-3 md:pt-0 shrink-0">
+              <div className="flex items-center gap-6 border-t md:border-t-0 border-[#122240] pt-3 md:pt-0 shrink-0">
                 <div>
                   <div className="text-[10px] font-bold uppercase text-[#F5F3EE]/50">Total Price</div>
                   <div className="font-black text-[#D6C29A] text-sm">AED {Number(order.totalPrice || 0).toLocaleString()}</div>

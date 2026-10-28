@@ -12,8 +12,8 @@ const navLinks = [
 
 export default function CustomerLayout() {
   return (
-    <div className="flex min-h-screen bg-[#0B132B] text-[#F5F3EE]">
-      <aside className="hidden w-64 shrink-0 flex-col border-r border-[#1E2C4F] bg-[#070D1E] p-6 md:flex max-h-screen overflow-y-auto">
+    <div className="flex min-h-screen bg-[#040A18] text-[#F5F3EE]">
+      <aside className="hidden w-64 shrink-0 flex-col border-r border-[#122240] bg-[#020611] p-6 md:flex max-h-screen overflow-y-auto">
         <Link to="/">
           <Logo size="sm" />
         </Link>
@@ -39,8 +39,8 @@ export default function CustomerLayout() {
                 className={({ isActive }) =>
                   `flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition-all ${
                     isActive
-                      ? 'bg-[#D6C29A] text-[#0B132B] font-black shadow-xs'
-                      : 'text-[#B8C2D9] hover:bg-[#14213D] hover:text-[#F5F3EE]'
+                      ? 'bg-[#D6C29A] text-[#040A18] font-black shadow-xs'
+                      : 'text-[#B8C2D9] hover:bg-[#081226] hover:text-[#F5F3EE]'
                   }`
                 }
               >
@@ -51,7 +51,7 @@ export default function CustomerLayout() {
           })}
         </nav>
 
-        <div className="mt-auto pt-10 border-t border-[#1E2C4F]">
+        <div className="mt-auto pt-10 border-t border-[#122240]">
           <Link
             to="/"
             className="flex items-center gap-2 text-xs font-semibold text-[#B8C2D9] hover:text-[#D6C29A] transition-colors"
@@ -64,7 +64,7 @@ export default function CustomerLayout() {
 
       <main className="flex-1 min-w-0 p-4 sm:p-6 md:p-10">
         {/* Mobile quick navbar */}
-        <div className="mb-6 flex flex-col gap-3 border-b border-[#1E2C4F] pb-4 md:hidden">
+        <div className="mb-6 flex flex-col gap-3 border-b border-[#122240] pb-4 md:hidden">
           <div className="flex items-center justify-between">
             <Link to="/">
               <Logo size="sm" />
@@ -85,7 +85,7 @@ export default function CustomerLayout() {
                 end={link.to === '/account'}
                 className={({ isActive }) =>
                   `shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition-colors ${
-                    isActive ? 'bg-[#D6C29A] text-[#0B132B] font-black shadow-xs' : 'text-[#B8C2D9] hover:bg-[#14213D]'
+                    isActive ? 'bg-[#D6C29A] text-[#040A18] font-black shadow-xs' : 'text-[#B8C2D9] hover:bg-[#081226]'
                   }`
                 }
               >

@@ -43,7 +43,7 @@ export default function AdminSettingsPage() {
       )}
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#14213D] p-6 rounded-3xl border border-[#1E2C4F] shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#081226] p-6 rounded-3xl border border-[#122240] shadow-xs">
         <div>
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
             <Settings className="h-4 w-4" />
@@ -60,8 +60,8 @@ export default function AdminSettingsPage() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Section 1: Studio Identity */}
-        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs space-y-5">
-          <div className="border-b border-[#1E2C4F] pb-4">
+        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-5">
+          <div className="border-b border-[#122240] pb-4">
             <h3 className="font-display text-base font-bold text-[#F5F3EE] flex items-center gap-2">
               <Building className="h-4 w-4 text-[#D6C29A]" />
               Studio Branding & Identity
@@ -79,7 +79,7 @@ export default function AdminSettingsPage() {
                 required
                 value={form.studioName}
                 onChange={(e) => setForm({ ...form, studioName: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
@@ -91,7 +91,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={form.tagline}
                 onChange={(e) => setForm({ ...form, tagline: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>
@@ -116,8 +116,8 @@ export default function AdminSettingsPage() {
         </div>
 
         {/* Section 2: Contact Information */}
-        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs space-y-5">
-          <div className="border-b border-[#1E2C4F] pb-4">
+        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-5">
+          <div className="border-b border-[#122240] pb-4">
             <h3 className="font-display text-base font-bold text-[#F5F3EE] flex items-center gap-2">
               <Mail className="h-4 w-4 text-[#D6C29A]" />
               Customer Contact & Dispatch Info
@@ -134,7 +134,7 @@ export default function AdminSettingsPage() {
                 type="email"
                 value={form.supportEmail}
                 onChange={(e) => setForm({ ...form, supportEmail: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
@@ -146,7 +146,7 @@ export default function AdminSettingsPage() {
                 type="email"
                 value={form.salesEmail}
                 onChange={(e) => setForm({ ...form, salesEmail: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
@@ -172,7 +172,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={form.whatsapp}
                 onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>
@@ -185,14 +185,14 @@ export default function AdminSettingsPage() {
               type="text"
               value={form.address}
               onChange={(e) => setForm({ ...form, address: e.target.value })}
-              className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+              className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
             />
           </div>
         </div>
 
         {/* Section 3: Commercial Parameters */}
-        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs space-y-5">
-          <div className="border-b border-[#1E2C4F] pb-4">
+        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-5">
+          <div className="border-b border-[#122240] pb-4">
             <h3 className="font-display text-base font-bold text-[#F5F3EE] flex items-center gap-2">
               <Globe className="h-4 w-4 text-[#D6C29A]" />
               Commercial & Tax Parameters
@@ -209,7 +209,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 readOnly
                 value={form.currency}
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-neutral-100 px-3.5 py-2.5 text-xs font-bold text-[#F5F3EE] cursor-not-allowed"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-neutral-100 px-3.5 py-2.5 text-xs font-bold text-[#F5F3EE] cursor-not-allowed"
               />
             </div>
 
@@ -221,7 +221,7 @@ export default function AdminSettingsPage() {
                 type="number"
                 value={form.vatRate}
                 onChange={(e) => setForm({ ...form, vatRate: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
@@ -233,7 +233,7 @@ export default function AdminSettingsPage() {
                 type="number"
                 value={form.minOrderAmount}
                 onChange={(e) => setForm({ ...form, minOrderAmount: e.target.value })}
-                className="mt-1.5 w-full rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>
@@ -244,7 +244,7 @@ export default function AdminSettingsPage() {
                 type="checkbox"
                 checked={form.enableOnlineQuote}
                 onChange={(e) => setForm({ ...form, enableOnlineQuote: e.target.checked })}
-                className="h-4 w-4 rounded border-[#1E2C4F] text-[#D6C29A] focus:ring-[#D6C29A]"
+                className="h-4 w-4 rounded border-[#122240] text-[#D6C29A] focus:ring-[#D6C29A]"
               />
               <span className="text-xs font-bold text-[#F5F3EE]">Allow Online Custom Quote Requests</span>
             </label>
@@ -252,7 +252,7 @@ export default function AdminSettingsPage() {
         </div>
 
         {/* Footer Actions */}
-        <div className="flex items-center justify-end gap-3 rounded-2xl bg-[#14213D] p-4 border border-[#1E2C4F] shadow-xs">
+        <div className="flex items-center justify-end gap-3 rounded-2xl bg-[#081226] p-4 border border-[#122240] shadow-xs">
           <Button
             type="submit"
             variant="accent"

@@ -41,7 +41,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8">
       {/* Welcome Card */}
-      <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-sm">
+      <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
@@ -64,17 +64,17 @@ export default function DashboardPage() {
 
       {/* KPI Overview */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Link to="/account/orders" className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs hover:border-[#D6C29A]/40 transition-all">
+        <Link to="/account/orders" className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs hover:border-[#D6C29A]/40 transition-all">
           <div className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]/60">Active Orders</div>
           <div className="mt-2 text-3xl font-black text-[#F5F3EE]">{orders.length}</div>
         </Link>
 
-        <Link to="/account/quotes" className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs hover:border-[#D6C29A]/40 transition-all">
+        <Link to="/account/quotes" className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs hover:border-[#D6C29A]/40 transition-all">
           <div className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]/60">Quotes Requested</div>
           <div className="mt-2 text-3xl font-black text-[#F5F3EE]">{quotes.length}</div>
         </Link>
 
-        <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
           <div className="text-xs font-bold uppercase tracking-wider text-[#F5F3EE]/60">Proof Status</div>
           <div className="mt-2 text-3xl font-black text-[#D6C29A]">
             {orders.length > 0 ? (orders[0].status === 'Pending' ? 'Under Review' : 'Approved') : 'Ready'}
@@ -83,8 +83,8 @@ export default function DashboardPage() {
       </div>
 
       {/* Active Orders List */}
-      <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
-        <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4 mb-4">
+      <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
+        <div className="flex items-center justify-between border-b border-[#122240] pb-4 mb-4">
           <div>
             <h3 className="font-display text-lg font-bold text-[#F5F3EE]">My Print Orders</h3>
             <p className="text-xs text-[#F5F3EE]/60">Track production progress and dispatch details</p>
@@ -104,7 +104,7 @@ export default function DashboardPage() {
             </Button>
           </div>
         ) : (
-          <div className="divide-y divide-[#1E2C4F]">
+          <div className="divide-y divide-[#122240]">
             {orders.slice(0, 5).map((order) => (
               <div key={order._id || order.id || order.orderNumber} className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                 <div>

@@ -118,10 +118,10 @@ export default function Product360Viewer({
 
   return (
     <div
-      className={`group/viewer relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-[#203357] bg-gradient-to-b from-[#101D35] via-[#172644] to-[#101D35] text-[#F5F2EB] select-none ${className}`}
+      className={`group/viewer relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-[#122240] bg-gradient-to-b from-[#040A18] via-[#081226] to-[#040A18] text-[#F5F2EB] select-none ${className}`}
     >
       <div className="absolute left-3 right-3 top-3 z-30 flex flex-wrap items-center justify-between gap-1.5 pointer-events-none">
-        <div className="flex items-center gap-1.5 rounded-full border border-[#203357] bg-[#172644]/90 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-[#F5F2EB] shadow-xs backdrop-blur-md">
+        <div className="flex items-center gap-1.5 rounded-full border border-[#122240] bg-[#081226]/90 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-[#F5F2EB] shadow-xs backdrop-blur-md">
           <Compass className="h-3 w-3 text-[#D4AF65]" />
           <span>360° Studio</span>
           <span className="text-black/30">•</span>
@@ -141,8 +141,8 @@ export default function Product360Viewer({
             title="Toggle Spot UV / Specular Light Reflection"
             className={`flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border transition-all cursor-pointer ${
               specularSheen
-                ? 'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] shadow-xs'
-                : 'border-[#203357] bg-[#172644]/90 text-[#B0BECE] hover:text-[#F5F2EB]'
+                ? 'border-[#D4AF65] bg-[#D4AF65] text-[#040A18] shadow-xs'
+                : 'border-[#122240] bg-[#081226]/90 text-[#B0BECE] hover:text-[#F5F2EB]'
             }`}
           >
             <Sparkles className="h-3.5 w-3.5" />
@@ -151,7 +151,7 @@ export default function Product360Viewer({
             type="button"
             onClick={() => setIsZoomed(!isZoomed)}
             title={isZoomed ? 'Zoom Out' : 'Zoom In'}
-            className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-[#203357] bg-[#172644]/90 text-[#B0BECE] transition-all hover:text-[#F5F2EB] shadow-xs cursor-pointer"
+            className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-[#122240] bg-[#081226]/90 text-[#B0BECE] transition-all hover:text-[#F5F2EB] shadow-xs cursor-pointer"
           >
             {isZoomed ? <Minimize2 className="h-3.5 w-3.5" /> : <Maximize2 className="h-3.5 w-3.5" />}
           </button>
@@ -191,7 +191,7 @@ export default function Product360Viewer({
             {rotationFrames.map((src, idx) => (
               <div
                 key={idx}
-                className="absolute inset-0 rounded-2xl overflow-hidden border border-[#203357] bg-white shadow-2xl transition-opacity duration-100 ease-out"
+                className="absolute inset-0 rounded-2xl overflow-hidden border border-[#122240] bg-white shadow-2xl transition-opacity duration-100 ease-out"
                 style={{
                   opacity: idx === currentFrameIndex ? 1 : 0,
                   zIndex: idx === currentFrameIndex ? 2 : 1,
@@ -227,7 +227,7 @@ export default function Product360Viewer({
             }}
           >
             <div
-              className="absolute inset-0 rounded-2xl overflow-hidden border border-[#203357] bg-white shadow-2xl"
+              className="absolute inset-0 rounded-2xl overflow-hidden border border-[#122240] bg-white shadow-2xl"
               style={{
                 backfaceVisibility: 'hidden',
                 transform: 'translateZ(6px)',
@@ -258,7 +258,7 @@ export default function Product360Viewer({
             </div>
 
             <div
-              className="absolute inset-0 rounded-2xl overflow-hidden border border-[#203357] bg-white shadow-2xl"
+              className="absolute inset-0 rounded-2xl overflow-hidden border border-[#122240] bg-white shadow-2xl"
               style={{
                 backfaceVisibility: 'hidden',
                 transform: 'rotateY(180deg) translateZ(6px)',
@@ -272,7 +272,7 @@ export default function Product360Viewer({
                   draggable={false}
                 />
               ) : (
-                <div className="relative flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-[#101D35] via-[#172644] to-[#0C1629] text-white">
+                <div className="relative flex h-full w-full flex-col justify-between p-6 bg-gradient-to-br from-[#040A18] via-[#081226] to-[#020611] text-white">
                   {/* Subtle Background Gold Grid Watermark */}
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#D4AF65_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
                   <div className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-[#D4AF65]/15 blur-2xl" />
@@ -285,7 +285,7 @@ export default function Product360Viewer({
                       <span className="h-2 w-2 rounded-xs bg-black border border-white/30" title="Key/Black" />
                       <span className="ml-1 text-[8.5px] font-bold text-[#D4AF65]">ISO 12647-2 CALIBRATED</span>
                     </div>
-                    <span className="rounded-md bg-[#D4AF65] px-1.5 py-0.5 text-[7.5px] font-black uppercase tracking-wider text-[#101D35]">
+                    <span className="rounded-md bg-[#D4AF65] px-1.5 py-0.5 text-[7.5px] font-black uppercase tracking-wider text-[#040A18]">
                       REVERSE PROOF
                     </span>
                   </div>
@@ -338,14 +338,14 @@ export default function Product360Viewer({
               }}
             />
             <div
-              className="absolute top-0 left-0 right-0 h-[12px] bg-gradient-to-b from-[#172644] to-[#101D35]"
+              className="absolute top-0 left-0 right-0 h-[12px] bg-gradient-to-b from-[#081226] to-[#040A18]"
               style={{
                 transform: 'rotateX(90deg) translateZ(6px) translateY(-6px)',
                 transformOrigin: 'top center',
               }}
             />
             <div
-              className="absolute bottom-0 left-0 right-0 h-[12px] bg-gradient-to-t from-[#0C1629] to-[#D4AF65]"
+              className="absolute bottom-0 left-0 right-0 h-[12px] bg-gradient-to-t from-[#020611] to-[#D4AF65]"
               style={{
                 transform: 'rotateX(-90deg) translateZ(6px) translateY(6px)',
                 transformOrigin: 'bottom center',
@@ -355,7 +355,7 @@ export default function Product360Viewer({
         )}
 
         <div
-          className={`pointer-events-none absolute bottom-4 z-20 flex items-center gap-2 rounded-full border border-[#203357] bg-[#172644]/95 px-3 py-1.5 text-[10px] font-bold text-[#B0BECE] shadow-md backdrop-blur-md transition-all duration-300 ${
+          className={`pointer-events-none absolute bottom-4 z-20 flex items-center gap-2 rounded-full border border-[#122240] bg-[#081226]/95 px-3 py-1.5 text-[10px] font-bold text-[#B0BECE] shadow-md backdrop-blur-md transition-all duration-300 ${
             isDragging ? 'opacity-0 scale-95' : 'opacity-100'
           }`}
         >
@@ -364,15 +364,15 @@ export default function Product360Viewer({
         </div>
       </div>
 
-      <div className="relative z-30 flex w-full flex-wrap items-center justify-between gap-2 border-t border-[#203357] bg-[#172644] px-4 py-2.5 backdrop-blur-md text-[#F5F2EB]">
+      <div className="relative z-30 flex w-full flex-wrap items-center justify-between gap-2 border-t border-[#122240] bg-[#081226] px-4 py-2.5 backdrop-blur-md text-[#F5F2EB]">
         <div className="flex items-center gap-1 overflow-x-auto py-0.5 max-w-full">
           <button
             type="button"
             onClick={() => snapToAngle(0)}
             className={`shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 350 || normalizedAngle <= 10
-                ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
-                : 'border border-[#203357] bg-[#101D35] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#D4AF65]'
+                ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
+                : 'border border-[#122240] bg-[#040A18] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#D4AF65]'
             }`}
           >
             Front
@@ -382,8 +382,8 @@ export default function Product360Viewer({
             onClick={() => snapToAngle(90)}
             className={`shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 80 && normalizedAngle <= 100
-                ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
-                : 'border border-[#203357] bg-[#101D35] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#D4AF65]'
+                ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
+                : 'border border-[#122240] bg-[#040A18] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#D4AF65]'
             }`}
           >
             Edge (90°)
@@ -393,8 +393,8 @@ export default function Product360Viewer({
             onClick={() => snapToAngle(180)}
             className={`shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 170 && normalizedAngle <= 190
-                ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
-                : 'border border-[#203357] bg-[#101D35] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#D4AF65]'
+                ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
+                : 'border border-[#122240] bg-[#040A18] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#D4AF65]'
             }`}
           >
             Back (180°)
@@ -404,8 +404,8 @@ export default function Product360Viewer({
             onClick={() => snapToAngle(270)}
             className={`shrink-0 whitespace-nowrap rounded-lg px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
               normalizedAngle >= 260 && normalizedAngle <= 280
-                ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
-                : 'border border-[#203357] bg-[#101D35] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#D4AF65]'
+                ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
+                : 'border border-[#122240] bg-[#040A18] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#D4AF65]'
             }`}
           >
             Edge (270°)
@@ -416,7 +416,7 @@ export default function Product360Viewer({
           <button
             type="button"
             onClick={toggleAutoSpin}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-[#203357] bg-[#101D35] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#F5F2EB] shadow-xs transition-colors hover:border-[#D4AF65] hover:text-[#D4AF65] cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[#122240] bg-[#040A18] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#F5F2EB] shadow-xs transition-colors hover:border-[#D4AF65] hover:text-[#D4AF65] cursor-pointer"
           >
             {isPlaying ? (
               <>
@@ -435,7 +435,7 @@ export default function Product360Viewer({
             type="button"
             onClick={resetView}
             title="Reset to 0°"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#203357] bg-[#101D35] text-[#B0BECE] shadow-xs transition-colors hover:text-[#F5F2EB] hover:border-[#D4AF65] cursor-pointer"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#122240] bg-[#040A18] text-[#B0BECE] shadow-xs transition-colors hover:text-[#F5F2EB] hover:border-[#D4AF65] cursor-pointer"
           >
             <RotateCcw className="h-3.5 w-3.5" />
           </button>

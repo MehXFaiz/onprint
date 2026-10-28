@@ -206,7 +206,7 @@ export default function GeoFaqManagerTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
@@ -250,7 +250,7 @@ export default function GeoFaqManagerTab({ showToast }) {
         </div>
 
         {/* Stats Row */}
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-[#1E2C4F] pt-4 text-xs">
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-[#122240] pt-4 text-xs">
           <div>
             <span className="text-[#B8C2D9] block">Total FAQs in Database</span>
             <span className="text-lg font-black text-[#F5F3EE]">{faqs.length}</span>
@@ -283,7 +283,7 @@ export default function GeoFaqManagerTab({ showToast }) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search FAQs, answers, keywords, or URLs…"
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] focus:outline-none focus:border-[#D6C29A] transition-colors"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#122240] bg-[#081226] focus:outline-none focus:border-[#D6C29A] transition-colors"
           />
         </div>
 
@@ -292,7 +292,7 @@ export default function GeoFaqManagerTab({ showToast }) {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-[#F5F3EE] focus:outline-none focus:border-[#D6C29A]"
+            className="text-xs rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-[#F5F3EE] focus:outline-none focus:border-[#D6C29A]"
           >
             {CATEGORIES.map((cat) => (
               <option key={cat} value={cat}>
@@ -305,7 +305,7 @@ export default function GeoFaqManagerTab({ showToast }) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-[#F5F3EE] focus:outline-none focus:border-[#D6C29A]"
+            className="text-xs rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-[#F5F3EE] focus:outline-none focus:border-[#D6C29A]"
           >
             <option value="All">All Statuses</option>
             <option value="Active">Active Only</option>
@@ -317,12 +317,12 @@ export default function GeoFaqManagerTab({ showToast }) {
       {/* FAQ Items List */}
       <div className="space-y-3">
         {loading ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#14213D] rounded-2xl border border-[#1E2C4F]">
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#081226] rounded-2xl border border-[#122240]">
             <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6C29A] mb-2" />
             Loading GEO FAQ Database…
           </div>
         ) : filteredFaqs.length === 0 ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#14213D] rounded-2xl border border-[#1E2C4F]">
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#081226] rounded-2xl border border-[#122240]">
             No FAQs match your search criteria.
           </div>
         ) : (
@@ -331,8 +331,8 @@ export default function GeoFaqManagerTab({ showToast }) {
             return (
               <div
                 key={faq.id}
-                className={`rounded-2xl border transition-all duration-200 bg-[#14213D] ${
-                  isExpanded ? 'border-neutral-900 shadow-md' : 'border-[#1E2C4F] hover:border-[#1E2C4F] shadow-2xs'
+                className={`rounded-2xl border transition-all duration-200 bg-[#081226] ${
+                  isExpanded ? 'border-neutral-900 shadow-md' : 'border-[#122240] hover:border-[#122240] shadow-2xs'
                 }`}
               >
                 <div className="p-5">
@@ -369,7 +369,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       </h3>
 
                       {/* Direct Answer Preview (AEO) */}
-                      <p className="text-xs text-[#F5F3EE] leading-relaxed bg-[#0B132B] p-3 rounded-xl border border-[#1E2C4F]">
+                      <p className="text-xs text-[#F5F3EE] leading-relaxed bg-[#040A18] p-3 rounded-xl border border-[#122240]">
                         <strong className="text-[#D6C29A] font-bold">Direct Snippet: </strong>
                         {faq.answer || faq.direct_answer}
                       </p>
@@ -379,7 +379,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setSchemaPreviewItem(faq)}
-                        className="p-2 text-[#B8C2D9] hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F] transition-colors"
+                        className="p-2 text-[#B8C2D9] hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240] transition-colors"
                         title="View JSON-LD Schema snippet"
                       >
                         <Code className="h-4 w-4" />
@@ -387,7 +387,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => openEditModal(faq)}
-                        className="p-2 text-[#B8C2D9] hover:text-[#D6C29A] rounded-lg hover:bg-[#1E2C4F] transition-colors"
+                        className="p-2 text-[#B8C2D9] hover:text-[#D6C29A] rounded-lg hover:bg-[#122240] transition-colors"
                         title="Edit FAQ"
                       >
                         <Edit3 className="h-4 w-4" />
@@ -403,7 +403,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setExpandedId(isExpanded ? null : faq.id)}
-                        className="p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F] transition-colors"
+                        className="p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240] transition-colors"
                         title="Toggle Details"
                       >
                         <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
@@ -413,13 +413,13 @@ export default function GeoFaqManagerTab({ showToast }) {
 
                   {/* Expanded Details */}
                   {isExpanded && (
-                    <div className="mt-4 pt-4 border-t border-[#1E2C4F] space-y-3 text-xs">
+                    <div className="mt-4 pt-4 border-t border-[#122240] space-y-3 text-xs">
                       {faq.expanded_answer && (
                         <div>
                           <span className="font-bold text-[#F5F3EE] block mb-1">
                             Expanded Comprehensive Answer:
                           </span>
-                          <p className="text-[#B8C2D9] leading-relaxed whitespace-pre-line bg-[#14213D] p-3 rounded-lg border border-[#1E2C4F]">
+                          <p className="text-[#B8C2D9] leading-relaxed whitespace-pre-line bg-[#081226] p-3 rounded-lg border border-[#122240]">
                             {faq.expanded_answer}
                           </p>
                         </div>
@@ -453,7 +453,7 @@ export default function GeoFaqManagerTab({ showToast }) {
           }}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -462,7 +462,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                 setShowAddModal(false)
                 setEditingItem(null)
               }}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F]"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -481,7 +481,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   >
                     {CATEGORIES.filter((c) => c !== 'All').map((cat) => (
                       <option key={cat} value={cat}>
@@ -498,7 +498,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                     value={formData.target_url}
                     onChange={(e) => setFormData({ ...formData, target_url: e.target.value })}
                     placeholder="e.g. /business-card-printing-dubai"
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                     required
                   />
                 </div>
@@ -511,7 +511,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                   value={formData.question}
                   onChange={(e) => setFormData({ ...formData, question: e.target.value })}
                   placeholder="e.g. What is the turnaround time for business card printing in Dubai?"
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   required
                 />
               </div>
@@ -525,7 +525,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                   value={formData.direct_answer}
                   onChange={(e) => setFormData({ ...formData, direct_answer: e.target.value })}
                   placeholder="Direct, truthful answer starting with ONPRINT or clear specification..."
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   required
                 />
               </div>
@@ -539,7 +539,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                   value={formData.expanded_answer}
                   onChange={(e) => setFormData({ ...formData, expanded_answer: e.target.value })}
                   placeholder="Additional specifications, paper weights, turnaround options, or finishing techniques..."
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
@@ -551,7 +551,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                     value={formData.related_keyword}
                     onChange={(e) => setFormData({ ...formData, related_keyword: e.target.value, keywords: e.target.value })}
                     placeholder="e.g. business card printing dubai"
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   />
                   <p className="text-[10px] text-[#B8C2D9]/70 mt-0.5">Primary query targeted by this answer</p>
                 </div>
@@ -561,7 +561,7 @@ export default function GeoFaqManagerTab({ showToast }) {
                   <select
                     value={formData.search_intent}
                     onChange={(e) => setFormData({ ...formData, search_intent: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   >
                     <option value="Commercial">Commercial</option>
                     <option value="Transactional">Transactional</option>
@@ -577,13 +577,13 @@ export default function GeoFaqManagerTab({ showToast }) {
                     type="checkbox"
                     checked={Boolean(formData.is_active)}
                     onChange={(e) => setFormData({ ...formData, is_active: e.target.checked ? 1 : 0 })}
-                    className="rounded border-[#1E2C4F] text-[#D6C29A] focus:ring-[#D6C29A]"
+                    className="rounded border-[#122240] text-[#D6C29A] focus:ring-[#D6C29A]"
                   />
                   <span>Active &amp; Published in Schema</span>
                 </label>
               </div>
 
-              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#1E2C4F]">
+              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#122240]">
                 <Button
                   type="button"
                   variant="outline"
@@ -611,7 +611,7 @@ export default function GeoFaqManagerTab({ showToast }) {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs"
         >
-          <div className="w-full max-w-md rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl">
+          <div className="w-full max-w-md rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl">
             <h4 className="font-display text-lg font-black text-[#F5F3EE]">Delete FAQ?</h4>
             <p className="mt-2 text-xs text-[#B8C2D9]">
               Are you sure you want to delete: <strong>&ldquo;{deletingItem.question}&rdquo;</strong>? This will remove it from the database and generated FAQ schemas.
@@ -643,13 +643,13 @@ export default function GeoFaqManagerTab({ showToast }) {
           onClick={() => setSchemaPreviewItem(null)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setSchemaPreviewItem(null)}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F]"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240]"
             >
               <X className="h-5 w-5" />
             </button>

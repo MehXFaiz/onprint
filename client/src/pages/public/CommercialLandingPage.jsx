@@ -120,7 +120,7 @@ export default function CommercialLandingPage({ pageKey: propKey }) {
               </a>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#203357] bg-[#172644] px-6 py-3 text-sm font-semibold text-[#F5F2EB] transition-all duration-200 hover:bg-[#203357] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#122240] bg-[#081226] px-6 py-3 text-sm font-semibold text-[#F5F2EB] transition-all duration-200 hover:bg-[#122240] active:scale-[0.98]"
               >
                 <Mail className="h-4 w-4" />
                 <span>Contact Press Studio</span>

@@ -599,7 +599,7 @@ export default function BlogPostPage() {
 
         {/* Dynamic Related Category Section */}
         {post.categoryData && (
-          <section aria-label="Explore Category" className="mt-6 rounded-2xl border border-[#203357] bg-[#172644] p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <section aria-label="Explore Category" className="mt-6 rounded-2xl border border-[#122240] bg-[#081226] p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <Layers className="h-5 w-5 text-accent shrink-0" />
               <div>

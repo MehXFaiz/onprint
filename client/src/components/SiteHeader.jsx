@@ -324,16 +324,16 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full select-none bg-[#101D35]/95 backdrop-blur-md border-b border-[#203357] shadow-md transition-all duration-200 text-[#F5F2EB]">
+    <header className="sticky top-0 z-50 w-full select-none bg-[#040A18]/95 backdrop-blur-md border-b border-[#122240] shadow-md transition-all duration-200 text-[#F5F2EB]">
       {/* Top Utility Bar (Al Quoz Pressroom & Hotline - inspired by DLX Print) */}
-      <div className="hidden md:block bg-[#0C1629] border-b border-[#203357] text-[11px] text-[#B0BECE] py-1.5 px-4 sm:px-5 lg:px-6 2xl:px-8">
+      <div className="hidden md:block bg-[#020611] border-b border-[#122240] text-[11px] text-[#B0BECE] py-1.5 px-4 sm:px-5 lg:px-6 2xl:px-8">
         <div className="mx-auto max-w-[1440px] flex items-center justify-between">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 font-medium text-[#B0BECE]">
               <MapPin className="h-3 w-3 text-[#D4AF65]" />
               <span>Dubai, UAE • Doorstep Express Dispatch</span>
             </span>
-            <span className="text-[#203357]">•</span>
+            <span className="text-[#122240]">•</span>
             <span className="flex items-center gap-1.5 text-[#B0BECE]">
               <Truck className="h-3 w-3 text-emerald-400" />
               <span>Doorstep UAE Delivery • Express 24h Turnaround</span>
@@ -344,11 +344,11 @@ export default function SiteHeader() {
               <Phone className="h-3 w-3 text-[#D4AF65]" />
               <span>Hotline: {FORMATTED_PHONE}</span>
             </a>
-            <span className="text-[#203357]">•</span>
+            <span className="text-[#122240]">•</span>
             <Link to="/corporate-quotes" className="text-[#B0BECE] hover:text-[#D4AF65] transition-colors">
               Corporate Quotes
             </Link>
-            <span className="text-[#203357]">•</span>
+            <span className="text-[#122240]">•</span>
             <Link to="/track-order" className="text-[#B0BECE] hover:text-[#D4AF65] transition-colors">
               Track Order
             </Link>
@@ -371,7 +371,7 @@ export default function SiteHeader() {
           >
             <Logo variant="default" size="md" />
           </motion.div>
-          <div className="hidden min-[1180px]:flex items-center gap-1.5 pl-3 border-l border-[#203357]">
+          <div className="hidden min-[1180px]:flex items-center gap-1.5 pl-3 border-l border-[#122240]">
             <span className="text-[10px] font-black uppercase tracking-wider text-[#F5F2EB]">
               DUBAI
             </span>
@@ -384,7 +384,7 @@ export default function SiteHeader() {
 
         {/* Desktop Navigation Links — Unified Glider */}
         <nav
-          className="hidden lg:flex items-center gap-0.5 bg-[#172644]/90 px-2.5 py-1 2xl:px-3 2xl:py-1.5 rounded-full border border-[#203357] shadow-2xs backdrop-blur-md relative shrink-0"
+          className="hidden lg:flex items-center gap-0.5 bg-[#081226]/90 px-2.5 py-1 2xl:px-3 2xl:py-1.5 rounded-full border border-[#122240] shadow-2xs backdrop-blur-md relative shrink-0"
           aria-label="Main Navigation"
           onMouseLeave={() => setHoveredNav(null)}
         >
@@ -418,7 +418,7 @@ export default function SiteHeader() {
               {(hoveredNav === 'catalog' || activeDropdown === 'catalog') && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
+                  className="absolute inset-0 rounded-full bg-[#040A18] shadow-xs border border-[#122240] text-[#F5F2EB] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -432,13 +432,13 @@ export default function SiteHeader() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute left-0 sm:-left-8 lg:-left-20 xl:left-0 top-full mt-3 w-[min(960px,calc(100vw-32px))] max-w-[calc(100vw-32px)] rounded-3xl border border-[#203357] bg-[#172644]/98 backdrop-blur-2xl p-5 shadow-[0_28px_64px_-12px_rgba(11,20,38,0.85)] z-50 text-[#F5F2EB]"
+                  className="absolute left-0 sm:-left-8 lg:-left-20 xl:left-0 top-full mt-3 w-[min(960px,calc(100vw-32px))] max-w-[calc(100vw-32px)] rounded-3xl border border-[#122240] bg-[#081226]/98 backdrop-blur-2xl p-5 shadow-[0_28px_64px_-12px_rgba(11,20,38,0.85)] z-50 text-[#F5F2EB]"
                 >
                   <div className="grid grid-cols-12 gap-5">
                     {/* Left Column: 5 Master Departments */}
-                    <div className="col-span-5 border-r border-[#203357] pr-4 flex flex-col justify-between">
+                    <div className="col-span-5 border-r border-[#122240] pr-4 flex flex-col justify-between">
                       <div>
-                        <div className="flex items-center justify-between px-2 pb-2 mb-1.5 border-b border-[#203357]">
+                        <div className="flex items-center justify-between px-2 pb-2 mb-1.5 border-b border-[#122240]">
                           <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF65]">
                             Master Departments
                           </span>
@@ -457,16 +457,16 @@ export default function SiteHeader() {
                                 onClick={() => setActiveMegaDeptSlug(dept.slug)}
                                 className={`w-full text-left flex items-center justify-between p-2.5 rounded-2xl transition-all cursor-pointer group ${
                                   isSelected
-                                    ? 'bg-gradient-to-r from-[#101D35] to-[#1a2d52] text-white shadow-md'
-                                    : 'hover:bg-[#172644] text-[#B0BECE]'
+                                    ? 'bg-gradient-to-r from-[#040A18] to-[#0B1833] text-white shadow-md'
+                                    : 'hover:bg-[#081226] text-[#B0BECE]'
                                 }`}
                               >
                                 <div className="flex items-center gap-2.5 min-w-0">
                                   <div
                                     className={`flex h-8 w-8 items-center justify-center rounded-xl shrink-0 transition-colors ${
                                       isSelected
-                                        ? 'bg-[#D4AF65] text-[#101D35]'
-                                        : 'bg-[#101D35] border border-[#203357] text-[#B0BECE] group-hover:text-[#D4AF65]'
+                                        ? 'bg-[#D4AF65] text-[#040A18]'
+                                        : 'bg-[#040A18] border border-[#122240] text-[#B0BECE] group-hover:text-[#D4AF65]'
                                     }`}
                                   >
                                     <Icon className="h-4 w-4" />
@@ -492,11 +492,11 @@ export default function SiteHeader() {
                       </div>
 
                       {/* Bottom Footer Actions */}
-                      <div className="pt-3 border-t border-[#203357] space-y-2 mt-2">
+                      <div className="pt-3 border-t border-[#122240] space-y-2 mt-2">
                         <Link
                           to="/products"
                           onClick={() => setActiveDropdown(null)}
-                          className="flex items-center justify-between p-2 rounded-xl bg-[#101D35] hover:bg-[#203357] border border-[#203357] text-xs font-bold text-[#F5F2EB] transition-colors"
+                          className="flex items-center justify-between p-2 rounded-xl bg-[#040A18] hover:bg-[#122240] border border-[#122240] text-xs font-bold text-[#F5F2EB] transition-colors"
                         >
                           <span className="flex items-center gap-1.5">
                             <Layers className="h-3.5 w-3.5 text-[#D4AF65]" />
@@ -522,7 +522,7 @@ export default function SiteHeader() {
                     <div className="col-span-7 flex flex-col justify-between">
                       <div>
                         {/* Department Header Banner */}
-                        <div className="flex items-start justify-between pb-3 mb-3 border-b border-[#203357]">
+                        <div className="flex items-start justify-between pb-3 mb-3 border-b border-[#122240]">
                           <div>
                             <span className="text-[9px] font-black uppercase tracking-widest text-[#D4AF65] block">
                               {activeMegaDepartment.eyebrow}
@@ -551,14 +551,14 @@ export default function SiteHeader() {
                               key={sub.slug}
                               to={`/categories/${sub.slug}`}
                               onClick={() => setActiveDropdown(null)}
-                              className="group p-2.5 rounded-2xl border border-[#203357] bg-[#101D35] hover:bg-[#172644] hover:border-[#D4AF65] hover:shadow-sm transition-all flex flex-col justify-between"
+                              className="group p-2.5 rounded-2xl border border-[#122240] bg-[#040A18] hover:bg-[#081226] hover:border-[#D4AF65] hover:shadow-sm transition-all flex flex-col justify-between"
                             >
                               <div>
                                 <div className="flex items-center justify-between mb-1">
                                   <span className="text-xs font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors truncate">
                                     {sub.name}
                                   </span>
-                                  <span className="rounded-full bg-[#172644] border border-[#203357] px-1.5 py-0.2 text-[9px] font-bold text-[#B0BECE] shrink-0">
+                                  <span className="rounded-full bg-[#081226] border border-[#122240] px-1.5 py-0.2 text-[9px] font-bold text-[#B0BECE] shrink-0">
                                     {sub.productSlugs?.length || 0}
                                   </span>
                                 </div>
@@ -567,7 +567,7 @@ export default function SiteHeader() {
                                 </p>
                               </div>
                               {sub.featuredBadge && (
-                                <div className="mt-2 flex items-center justify-between pt-1 border-t border-[#203357]">
+                                <div className="mt-2 flex items-center justify-between pt-1 border-t border-[#122240]">
                                   <span className="text-[9px] font-extrabold text-[#D4AF65] uppercase tracking-wider">
                                     {sub.featuredBadge}
                                   </span>
@@ -580,7 +580,7 @@ export default function SiteHeader() {
                       </div>
 
                       {/* Reassurance Footer Banner */}
-                      <div className="mt-3 pt-2.5 border-t border-[#203357] flex items-center justify-between text-[10px] text-[#B0BECE]">
+                      <div className="mt-3 pt-2.5 border-t border-[#122240] flex items-center justify-between text-[10px] text-[#B0BECE]">
                         <span className="flex items-center gap-1 font-semibold text-[#F5F2EB]">
                           <Truck className="h-3 w-3 text-emerald-400" />
                           <span>Dubai Online Production • Express Dispatch Across UAE</span>
@@ -606,14 +606,14 @@ export default function SiteHeader() {
             >
               <CreditCard className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Cards</span>
-              <span className="rounded-full bg-[#D4AF65] text-[#101D35] px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
+              <span className="rounded-full bg-[#D4AF65] text-[#040A18] px-1.5 py-0.2 text-[8px] font-black uppercase tracking-wider">
                 DUBAI
               </span>
 
               {hoveredNav === 'cards' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
+                  className="absolute inset-0 rounded-full bg-[#040A18] shadow-xs border border-[#122240] text-[#F5F2EB] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -631,14 +631,14 @@ export default function SiteHeader() {
             >
               <Stamp className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Stamps &amp; Seals</span>
-              <span className="rounded-full bg-[#101D35] border border-[#203357] text-[#D4AF65] px-1.5 py-0.2 text-[8px] font-black uppercase">
+              <span className="rounded-full bg-[#040A18] border border-[#122240] text-[#D4AF65] px-1.5 py-0.2 text-[8px] font-black uppercase">
                 2H
               </span>
 
               {hoveredNav === 'stamps' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
+                  className="absolute inset-0 rounded-full bg-[#040A18] shadow-xs border border-[#122240] text-[#F5F2EB] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -660,7 +660,7 @@ export default function SiteHeader() {
               {hoveredNav === 'stickers' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
+                  className="absolute inset-0 rounded-full bg-[#040A18] shadow-xs border border-[#122240] text-[#F5F2EB] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -682,7 +682,7 @@ export default function SiteHeader() {
               {hoveredNav === 'finishes' && (
                 <motion.div
                   layoutId="navHoverCapsule"
-                  className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
+                  className="absolute inset-0 rounded-full bg-[#040A18] shadow-xs border border-[#122240] text-[#F5F2EB] -z-10"
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                 />
               )}
@@ -716,7 +716,7 @@ export default function SiteHeader() {
                 {(hoveredNav === 'company' || activeDropdown === 'company') && (
                   <motion.div
                     layoutId="navHoverCapsule"
-                    className="absolute inset-0 rounded-full bg-[#101D35] shadow-xs border border-[#203357] text-[#F5F2EB] -z-10"
+                    className="absolute inset-0 rounded-full bg-[#040A18] shadow-xs border border-[#122240] text-[#F5F2EB] -z-10"
                     transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                   />
                 )}
@@ -729,12 +729,12 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-2xl border border-[#203357] bg-[#172644]/98 backdrop-blur-2xl p-2 shadow-2xl z-50 text-[#F5F2EB]"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-2xl border border-[#122240] bg-[#081226]/98 backdrop-blur-2xl p-2 shadow-2xl z-50 text-[#F5F2EB]"
                   >
                     <Link
                       to="/services"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#040A18] hover:text-[#D4AF65] transition-colors"
                     >
                       <Sparkles className="h-4 w-4 text-[#D4AF65]" />
                       <div>
@@ -746,7 +746,7 @@ export default function SiteHeader() {
                     <Link
                       to="/finishes"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#040A18] hover:text-[#D4AF65] transition-colors"
                     >
                       <Palette className="h-4 w-4 text-[#D4AF65]" />
                       <div>
@@ -758,7 +758,7 @@ export default function SiteHeader() {
                     <Link
                       to="/corporate-quotes"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#040A18] hover:text-[#D4AF65] transition-colors"
                     >
                       <Building2 className="h-4 w-4 text-[#D4AF65]" />
                       <div>
@@ -770,7 +770,7 @@ export default function SiteHeader() {
                     <Link
                       to="/about"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#040A18] hover:text-[#D4AF65] transition-colors"
                     >
                       <Building2 className="h-4 w-4 text-[#D4AF65]" />
                       <div>
@@ -782,7 +782,7 @@ export default function SiteHeader() {
                     <Link
                       to="/blog"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#040A18] hover:text-[#D4AF65] transition-colors"
                     >
                       <BookOpen className="h-4 w-4 text-[#D4AF65]" />
                       <div>
@@ -794,7 +794,7 @@ export default function SiteHeader() {
                     <Link
                       to="/contact"
                       onClick={() => setActiveDropdown(null)}
-                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#101D35] hover:text-[#D4AF65] transition-colors"
+                      className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-bold text-[#F5F2EB] hover:bg-[#040A18] hover:text-[#D4AF65] transition-colors"
                     >
                       <MapPin className="h-4 w-4 text-[#D4AF65]" />
                       <div>
@@ -813,7 +813,7 @@ export default function SiteHeader() {
             {/* Direct Phone Hotline */}
             <a
               href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              className="hidden 2xl:inline-flex items-center gap-1.5 h-8.5 px-2.5 rounded-full border border-[#203357] bg-[#101D35] hover:bg-[#172644] hover:border-[#D4AF65] text-xs font-bold text-[#F5F2EB] transition-all whitespace-nowrap shadow-2xs"
+              className="hidden 2xl:inline-flex items-center gap-1.5 h-8.5 px-2.5 rounded-full border border-[#122240] bg-[#040A18] hover:bg-[#081226] hover:border-[#D4AF65] text-xs font-bold text-[#F5F2EB] transition-all whitespace-nowrap shadow-2xs"
               title={`Direct Pressroom Hotline: ${FORMATTED_PHONE}`}
               aria-label="Call Pressroom"
             >
@@ -827,13 +827,13 @@ export default function SiteHeader() {
               whileTap={{ scale: 0.97 }}
               type="button"
               onClick={() => setSearchModalOpen(true)}
-              className="flex h-10 w-10 sm:h-9 sm:w-9 min-[1600px]:w-auto min-[1600px]:px-3 items-center justify-center gap-2 rounded-full border border-[#203357] bg-[#101D35] hover:bg-[#172644] hover:border-[#D4AF65] text-xs text-[#F5F2EB] transition-all cursor-pointer group shrink-0"
+              className="flex h-10 w-10 sm:h-9 sm:w-9 min-[1600px]:w-auto min-[1600px]:px-3 items-center justify-center gap-2 rounded-full border border-[#122240] bg-[#040A18] hover:bg-[#081226] hover:border-[#D4AF65] text-xs text-[#F5F2EB] transition-all cursor-pointer group shrink-0"
               title="Search products (Press / or ⌘K)"
               aria-label="Search products"
             >
               <Search className="h-4 w-4 sm:h-3.5 sm:w-3.5 text-[#D4AF65] group-hover:scale-110 transition-transform shrink-0" />
               <span className="hidden min-[1600px]:inline text-[11px] font-medium text-[#B0BECE]">Search...</span>
-              <kbd className="hidden min-[1600px]:inline-block rounded-md bg-[#172644] border border-[#203357] px-1 py-0.2 text-[8px] font-bold text-[#B0BECE]">
+              <kbd className="hidden min-[1600px]:inline-block rounded-md bg-[#081226] border border-[#122240] px-1 py-0.2 text-[8px] font-bold text-[#B0BECE]">
                 ⌘K
               </kbd>
             </motion.button>
@@ -841,7 +841,7 @@ export default function SiteHeader() {
             {/* Track Orders Button */}
             <Link
               to="/track-order"
-              className="hidden sm:flex relative h-9 w-9 items-center justify-center rounded-full border border-[#203357] bg-[#172644] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-all shadow-2xs shrink-0"
+              className="hidden sm:flex relative h-9 w-9 items-center justify-center rounded-full border border-[#122240] bg-[#081226] text-[#B0BECE] hover:bg-[#122240] hover:text-[#F5F2EB] transition-all shadow-2xs shrink-0"
               title="Track Production & Delivery"
               aria-label="Track order"
             >
@@ -899,9 +899,9 @@ export default function SiteHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.96 }}
                     transition={{ duration: 0.16 }}
-                    className="fixed right-3 left-3 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-full sm:mt-2.5 sm:w-76 rounded-2xl border border-[#203357] bg-[#172644] p-4 shadow-2xl z-50 text-[#F5F2EB]"
+                    className="fixed right-3 left-3 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-full sm:mt-2.5 sm:w-76 rounded-2xl border border-[#122240] bg-[#081226] p-4 shadow-2xl z-50 text-[#F5F2EB]"
                   >
-                    <div className="flex items-center justify-between border-b border-[#203357] pb-3 mb-3">
+                    <div className="flex items-center justify-between border-b border-[#122240] pb-3 mb-3">
                       <div className="flex items-center gap-2.5">
                         <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-xs">
                           <WhatsAppIcon className="h-4.5 w-4.5 fill-current" />
@@ -917,21 +917,21 @@ export default function SiteHeader() {
                       <button
                         type="button"
                         onClick={() => setWhatsappPopoverOpen(false)}
-                        className="text-[#B0BECE] hover:text-[#F5F2EB] p-1 rounded-md hover:bg-[#101D35] transition-colors cursor-pointer"
+                        className="text-[#B0BECE] hover:text-[#F5F2EB] p-1 rounded-md hover:bg-[#040A18] transition-colors cursor-pointer"
                         aria-label="Close"
                       >
                         <X className="h-4 w-4" />
                       </button>
                     </div>
 
-                    <div className="rounded-xl bg-[#101D35] p-3 border border-[#203357] mb-3">
+                    <div className="rounded-xl bg-[#040A18] p-3 border border-[#122240] mb-3">
                       <span className="block text-[10px] font-bold uppercase tracking-wider text-[#B0BECE]">Direct Hotline</span>
                       <div className="mt-1 flex items-center justify-between gap-2">
                         <span className="text-sm font-black tracking-tight text-[#D4AF65]">{FORMATTED_PHONE}</span>
                         <button
                           type="button"
                           onClick={handleCopyNumber}
-                          className="flex items-center gap-1 rounded-lg bg-[#172644] px-2 py-1 text-[11px] font-bold text-[#F5F2EB] shadow-2xs border border-[#203357] hover:bg-[#203357] transition-colors cursor-pointer shrink-0"
+                          className="flex items-center gap-1 rounded-lg bg-[#081226] px-2 py-1 text-[11px] font-bold text-[#F5F2EB] shadow-2xs border border-[#122240] hover:bg-[#122240] transition-colors cursor-pointer shrink-0"
                         >
                           {copied ? (
                             <>
@@ -976,9 +976,9 @@ export default function SiteHeader() {
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen((v) => !v)}
-                  className="flex items-center gap-1.5 rounded-full border border-[#203357] bg-[#101D35] px-2.5 py-1.5 text-xs font-semibold text-[#F5F2EB] hover:bg-[#172644] cursor-pointer shadow-2xs"
+                  className="flex items-center gap-1.5 rounded-full border border-[#122240] bg-[#040A18] px-2.5 py-1.5 text-xs font-semibold text-[#F5F2EB] hover:bg-[#081226] cursor-pointer shadow-2xs"
                 >
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#D4AF65] text-[#101D35] text-[10px] font-bold">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#D4AF65] text-[#040A18] text-[10px] font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'A'}
                   </div>
                   <span className="hidden xl:inline max-w-[70px] truncate">{user?.name || 'Admin'}</span>
@@ -992,9 +992,9 @@ export default function SiteHeader() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2.5 w-52 rounded-2xl border border-[#203357] bg-[#172644] p-2 shadow-xl z-50 text-[#F5F2EB]"
+                      className="absolute right-0 top-full mt-2.5 w-52 rounded-2xl border border-[#122240] bg-[#081226] p-2 shadow-xl z-50 text-[#F5F2EB]"
                     >
-                      <div className="px-3 py-2 border-b border-[#203357] mb-1">
+                      <div className="px-3 py-2 border-b border-[#122240] mb-1">
                         <div className="font-bold text-xs text-[#F5F2EB] truncate">{user?.name || 'Administrator'}</div>
                         <div className="text-[10px] text-[#B0BECE] truncate">{user?.email}</div>
                       </div>
@@ -1002,7 +1002,7 @@ export default function SiteHeader() {
                       <Link
                         to="/admin"
                         onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-[#F5F2EB] hover:text-[#D4AF65] hover:bg-[#101D35] rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-[#F5F2EB] hover:text-[#D4AF65] hover:bg-[#040A18] rounded-lg transition-colors"
                       >
                         <ShieldCheck className="w-4 h-4 text-[#D4AF65]" />
                         <span>Admin Dashboard</span>
@@ -1014,7 +1014,7 @@ export default function SiteHeader() {
                           setUserMenuOpen(false)
                           logout()
                         }}
-                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-400 hover:bg-red-500/10 rounded-lg transition-colors mt-1 border-t border-[#203357] cursor-pointer"
+                        className="flex w-full items-center gap-2 px-3 py-2 text-xs font-medium text-red-400 hover:bg-red-500/10 rounded-lg transition-colors mt-1 border-t border-[#122240] cursor-pointer"
                       >
                         <LogOut className="w-4 h-4" />
                         <span>Sign Out</span>
@@ -1034,7 +1034,7 @@ export default function SiteHeader() {
             >
               <Link
                 to="/get-a-quote"
-                className="group/cta relative inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#C8B185] px-3.5 lg:px-4 py-1.5 sm:py-2 text-xs font-black text-[#101D35] shadow-sm transition-all whitespace-nowrap overflow-hidden"
+                className="group/cta relative inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#C8B185] px-3.5 lg:px-4 py-1.5 sm:py-2 text-xs font-black text-[#040A18] shadow-sm transition-all whitespace-nowrap overflow-hidden"
                 onClick={() => trackGetQuoteClick({ source_page: 'header_desktop' })}
               >
                 <span>Get Instant Quote</span>
@@ -1048,7 +1048,7 @@ export default function SiteHeader() {
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="flex lg:hidden h-10 w-10 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-[#203357] bg-[#172644] text-[#F5F2EB] hover:bg-[#203357] transition-colors cursor-pointer"
+              className="flex lg:hidden h-10 w-10 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-[#122240] bg-[#081226] text-[#F5F2EB] hover:bg-[#122240] transition-colors cursor-pointer"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -1069,10 +1069,10 @@ export default function SiteHeader() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: -16 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-2xl rounded-3xl border border-[#203357] bg-[#172644] p-4 sm:p-6 shadow-2xl text-[#F5F2EB]"
+              className="w-full max-w-2xl rounded-3xl border border-[#122240] bg-[#081226] p-4 sm:p-6 shadow-2xl text-[#F5F2EB]"
             >
               {/* Search Bar Input */}
-              <div className="flex items-center justify-between border-b border-[#203357] pb-3.5 sm:pb-4 gap-2">
+              <div className="flex items-center justify-between border-b border-[#122240] pb-3.5 sm:pb-4 gap-2">
                 <div className="flex items-center gap-2.5 sm:gap-3 flex-1 min-w-0">
                   <Search className="h-5 w-5 text-[#D4AF65] shrink-0" />
                   <input
@@ -1089,7 +1089,7 @@ export default function SiteHeader() {
                   type="button"
                   onClick={() => setSearchModalOpen(false)}
                   aria-label="Close search dialog"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full p-1.5 text-[#B0BECE] hover:text-[#F5F2EB] hover:bg-[#101D35] cursor-pointer shrink-0"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full p-1.5 text-[#B0BECE] hover:text-[#F5F2EB] hover:bg-[#040A18] cursor-pointer shrink-0"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -1111,10 +1111,10 @@ export default function SiteHeader() {
                             key={dept.slug}
                             to={`/categories/${dept.slug}`}
                             onClick={() => setSearchModalOpen(false)}
-                            className="p-3 rounded-2xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] hover:bg-[#172644] text-xs font-bold text-[#F5F2EB] transition-all flex items-center justify-between group shadow-2xs"
+                            className="p-3 rounded-2xl border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] hover:bg-[#081226] text-xs font-bold text-[#F5F2EB] transition-all flex items-center justify-between group shadow-2xs"
                           >
                             <div className="flex items-center gap-2 min-w-0">
-                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#172644] border border-[#203357] text-[#D4AF65] shrink-0">
+                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#081226] border border-[#122240] text-[#D4AF65] shrink-0">
                                 <Icon className="h-3.5 w-3.5" />
                               </div>
                               <div className="min-w-0">
@@ -1154,10 +1154,10 @@ export default function SiteHeader() {
                                 key={dept.slug}
                                 to={`/categories/${dept.slug}`}
                                 onClick={() => setSearchModalOpen(false)}
-                                className="flex items-center justify-between p-2.5 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] hover:bg-[#172644] transition-all"
+                                className="flex items-center justify-between p-2.5 rounded-xl border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] hover:bg-[#081226] transition-all"
                               >
                                 <div className="flex items-center gap-2">
-                                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#172644] text-[#D4AF65] border border-[#203357]">
+                                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#081226] text-[#D4AF65] border border-[#122240]">
                                     <Icon className="h-3 w-3" />
                                   </div>
                                   <span className="text-xs font-extrabold text-[#F5F2EB]">{dept.name}</span>
@@ -1183,10 +1183,10 @@ export default function SiteHeader() {
                                 key={p._id || p.id}
                                 to={`/products/${p.slug}`}
                                 onClick={() => setSearchModalOpen(false)}
-                                className="group flex items-center justify-between p-2.5 rounded-2xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] hover:bg-[#172644] hover:shadow-xs transition-all gap-3"
+                                className="group flex items-center justify-between p-2.5 rounded-2xl border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] hover:bg-[#081226] hover:shadow-xs transition-all gap-3"
                               >
                                 <div className="flex items-center gap-3 min-w-0">
-                                  <div className="h-11 w-11 rounded-xl overflow-hidden bg-[#172644] border border-[#203357] shrink-0">
+                                  <div className="h-11 w-11 rounded-xl overflow-hidden bg-[#081226] border border-[#122240] shrink-0">
                                     <img
                                       src={imgSrc}
                                       alt={p.name}
@@ -1198,7 +1198,7 @@ export default function SiteHeader() {
                                     <div className="flex items-center gap-1.5">
                                       <h6 className="text-xs font-black text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors truncate">{p.name}</h6>
                                       {p.category?.name && (
-                                        <span className="hidden sm:inline-block rounded-full bg-[#101D35] border border-[#203357] px-1.5 py-0.2 text-[8px] font-bold text-[#D4AF65] uppercase shrink-0">
+                                        <span className="hidden sm:inline-block rounded-full bg-[#040A18] border border-[#122240] px-1.5 py-0.2 text-[8px] font-bold text-[#D4AF65] uppercase shrink-0">
                                           {p.category.name}
                                         </span>
                                       )}
@@ -1228,7 +1228,7 @@ export default function SiteHeader() {
                               key={c.slug || c.id}
                               to={`/categories/${c.slug}`}
                               onClick={() => setSearchModalOpen(false)}
-                              className="p-2.5 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] hover:bg-[#172644] text-xs font-bold text-[#F5F2EB] hover:text-[#D4AF65] transition-colors flex items-center justify-between"
+                              className="p-2.5 rounded-xl border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] hover:bg-[#081226] text-xs font-bold text-[#F5F2EB] hover:text-[#D4AF65] transition-colors flex items-center justify-between"
                             >
                               <div className="truncate">
                                 <div>{c.name}</div>
@@ -1287,10 +1287,10 @@ export default function SiteHeader() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-              className="relative ml-auto flex h-full w-full max-w-md flex-col bg-[#101D35] border-l border-[#203357] shadow-2xl z-50 overflow-hidden text-[#F5F2EB]"
+              className="relative ml-auto flex h-full w-full max-w-md flex-col bg-[#040A18] border-l border-[#122240] shadow-2xl z-50 overflow-hidden text-[#F5F2EB]"
             >
               {/* Drawer Header */}
-              <div className="flex items-center justify-between border-b border-[#203357] p-4 shrink-0">
+              <div className="flex items-center justify-between border-b border-[#122240] p-4 shrink-0">
                 <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2">
                   <Logo variant="default" size="sm" />
                 </Link>
@@ -1300,7 +1300,7 @@ export default function SiteHeader() {
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#172644] border border-[#203357] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-colors cursor-pointer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#081226] border border-[#122240] text-[#B0BECE] hover:bg-[#122240] hover:text-[#F5F2EB] transition-colors cursor-pointer"
                   aria-label="Close menu"
                 >
                   <X className="h-5 w-5" />
@@ -1316,7 +1316,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     setSearchModalOpen(true)
                   }}
-                  className="flex w-full items-center justify-between rounded-xl border border-[#203357] bg-[#172644] p-3 text-xs text-[#B0BECE] hover:bg-[#203357] transition-all cursor-pointer"
+                  className="flex w-full items-center justify-between rounded-xl border border-[#122240] bg-[#081226] p-3 text-xs text-[#B0BECE] hover:bg-[#122240] transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
                     <Search className="h-4 w-4 text-[#D4AF65]" />
@@ -1359,7 +1359,7 @@ export default function SiteHeader() {
                   <Link
                     to="/"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#081226]"
                   >
                     <span>Home</span>
                   </Link>
@@ -1374,7 +1374,7 @@ export default function SiteHeader() {
                       <CreditCard className="h-4 w-4 text-[#D4AF65]" />
                       <span>Luxury Business Cards</span>
                     </div>
-                    <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#D4AF65] text-[#040A18] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       DUBAI FLAGSHIP
                     </span>
                   </Link>
@@ -1383,13 +1383,13 @@ export default function SiteHeader() {
                   <Link
                     to="/categories/stamps-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] bg-[#172644] border border-[#203357] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] bg-[#081226] border border-[#122240] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
                   >
                     <div className="flex items-center gap-2">
                       <Stamp className="h-4 w-4 text-[#D4AF65]" />
                       <span>Stamps &amp; Seals</span>
                     </div>
-                    <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#D4AF65] text-[#040A18] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       2-HOUR EXPRESS
                     </span>
                   </Link>
@@ -1398,13 +1398,13 @@ export default function SiteHeader() {
                   <Link
                     to="/categories/stickers-labels-printing"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] bg-[#172644] border border-[#203357] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] bg-[#081226] border border-[#122240] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
                   >
                     <div className="flex items-center gap-2">
                       <Tag className="h-4 w-4 text-[#D4AF65]" />
                       <span>Stickers &amp; Product Labels</span>
                     </div>
-                    <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#D4AF65] text-[#040A18] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       WATERPROOF
                     </span>
                   </Link>
@@ -1415,21 +1415,21 @@ export default function SiteHeader() {
                       Departments &amp; Catalog
                     </span>
 
-                    <div className="space-y-1 border-y border-[#203357] py-1.5">
+                    <div className="space-y-1 border-y border-[#122240] py-1.5">
                       {MASTER_DEPARTMENTS.map((dept) => {
                         const Icon = DEPARTMENT_ICONS[dept.slug] || Layers
                         const isOpen = mobileOpenDept === dept.slug
                         const count = dept.subcategories.reduce((acc, s) => acc + (s.productSlugs?.length || 0), 0)
 
                         return (
-                          <div key={dept.slug} className="rounded-xl overflow-hidden border border-[#203357] bg-[#172644]">
+                          <div key={dept.slug} className="rounded-xl overflow-hidden border border-[#122240] bg-[#081226]">
                             <button
                               type="button"
                               onClick={() => setMobileOpenDept((cur) => (cur === dept.slug ? null : dept.slug))}
-                              className="flex w-full items-center justify-between p-3 text-left text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] transition-colors"
+                              className="flex w-full items-center justify-between p-3 text-left text-xs font-bold text-[#F5F2EB] hover:bg-[#122240] transition-colors"
                             >
                               <div className="flex items-center gap-2.5 min-w-0">
-                                <div className={`flex h-7 w-7 items-center justify-center rounded-lg ${isOpen ? 'bg-[#D4AF65] text-[#101D35]' : 'bg-[#101D35] text-[#B0BECE] border border-[#203357]'} shrink-0`}>
+                                <div className={`flex h-7 w-7 items-center justify-center rounded-lg ${isOpen ? 'bg-[#D4AF65] text-[#040A18]' : 'bg-[#040A18] text-[#B0BECE] border border-[#122240]'} shrink-0`}>
                                   <Icon className="h-3.5 w-3.5" />
                                 </div>
                                 <div className="min-w-0">
@@ -1446,7 +1446,7 @@ export default function SiteHeader() {
                                   initial={{ opacity: 0, height: 0 }}
                                   animate={{ opacity: 1, height: 'auto' }}
                                   exit={{ opacity: 0, height: 0 }}
-                                  className="px-3 pb-3 pt-1 border-t border-[#203357] bg-[#101D35] space-y-1"
+                                  className="px-3 pb-3 pt-1 border-t border-[#122240] bg-[#040A18] space-y-1"
                                 >
                                   <Link
                                     to={`/categories/${dept.slug}`}
@@ -1462,7 +1462,7 @@ export default function SiteHeader() {
                                       key={sub.slug}
                                       to={`/categories/${sub.slug}`}
                                       onClick={() => setMobileMenuOpen(false)}
-                                      className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-xs text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65] transition-colors"
+                                      className="flex items-center justify-between rounded-lg px-2.5 py-1.5 text-xs text-[#F5F2EB] hover:bg-[#081226] hover:text-[#D4AF65] transition-colors"
                                     >
                                       <span className="truncate font-medium">{sub.name}</span>
                                       <span className="text-[10px] text-[#B0BECE] font-bold shrink-0">{sub.productSlugs?.length || 0} items</span>
@@ -1502,7 +1502,7 @@ export default function SiteHeader() {
                             key={cat.slug || cat.id}
                             to={`/categories/${cat.slug}`}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center justify-between gap-1.5 rounded-xl border border-[#203357] bg-[#172644] px-2.5 py-2 text-[11px] font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors min-h-[38px]"
+                            className="flex items-center justify-between gap-1.5 rounded-xl border border-[#122240] bg-[#081226] px-2.5 py-2 text-[11px] font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors min-h-[38px]"
                           >
                             <span className="truncate">{cat.name}</span>
                             <ChevronRight className="h-3 w-3 text-[#D4AF65] shrink-0" />
@@ -1516,7 +1516,7 @@ export default function SiteHeader() {
                   <Link
                     to="/services"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#081226] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
                       <Sparkles className="h-4 w-4 text-[#D4AF65]" />
@@ -1528,13 +1528,13 @@ export default function SiteHeader() {
                   <Link
                     to="/finishes"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#081226] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
                       <Palette className="h-4 w-4 text-[#D4AF65]" />
                       <span>Luxury Finishes (Foil &amp; 3D UV)</span>
                     </div>
-                    <span className="rounded bg-[#D4AF65] text-[#101D35] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#D4AF65] text-[#040A18] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       8 CRAFTS
                     </span>
                   </Link>
@@ -1543,13 +1543,13 @@ export default function SiteHeader() {
                   <Link
                     to="/corporate-quotes"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#081226] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
                       <Building2 className="h-4 w-4 text-[#D4AF65]" />
                       <span>Corporate &amp; Bulk Quotes</span>
                     </div>
-                    <span className="rounded bg-[#101D35] border border-[#203357] text-[#D4AF65] px-1.5 py-0.5 text-[9px] font-black uppercase">
+                    <span className="rounded bg-[#040A18] border border-[#122240] text-[#D4AF65] px-1.5 py-0.5 text-[9px] font-black uppercase">
                       B2B
                     </span>
                   </Link>
@@ -1558,7 +1558,7 @@ export default function SiteHeader() {
                   <Link
                     to="/about"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#081226] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
                       <Building2 className="h-4 w-4 text-[#D4AF65]" />
@@ -1570,7 +1570,7 @@ export default function SiteHeader() {
                   <Link
                     to="/blog"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#081226] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
                       <BookOpen className="h-4 w-4 text-[#D4AF65]" />
@@ -1582,7 +1582,7 @@ export default function SiteHeader() {
                   <Link
                     to="/contact"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#172644] hover:text-[#D4AF65]"
+                    className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] hover:bg-[#081226] hover:text-[#D4AF65]"
                   >
                     <div className="flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-[#D4AF65]" />
@@ -1593,7 +1593,7 @@ export default function SiteHeader() {
               </div>
 
               {/* Drawer Footer Actions */}
-              <div className="border-t border-[#203357] p-4 space-y-2 shrink-0 bg-[#0C1629]">
+              <div className="border-t border-[#122240] p-4 space-y-2 shrink-0 bg-[#020611]">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -1618,7 +1618,7 @@ export default function SiteHeader() {
                     setMobileMenuOpen(false)
                     trackGetQuoteClick({ source_page: 'header_mobile_drawer' })
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D4AF65] hover:bg-[#C8B185] py-3 text-sm font-black text-[#101D35] shadow-md transition-all"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D4AF65] hover:bg-[#C8B185] py-3 text-sm font-black text-[#040A18] shadow-md transition-all"
                 >
                   <span>Get Instant Quote</span>
                   <ArrowRight className="h-4 w-4" />
@@ -1627,7 +1627,7 @@ export default function SiteHeader() {
                 <Link
                   to="/track-order"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl border border-[#203357] bg-[#172644] py-2.5 text-xs font-bold text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-colors shadow-2xs"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-[#122240] bg-[#081226] py-2.5 text-xs font-bold text-[#B0BECE] hover:bg-[#122240] hover:text-[#F5F2EB] transition-colors shadow-2xs"
                 >
                   <Truck className="h-4 w-4 text-[#D4AF65]" />
                   <span>Track Existing Order</span>

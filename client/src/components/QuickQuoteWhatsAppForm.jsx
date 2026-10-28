@@ -328,10 +328,10 @@ export default function QuickQuoteWhatsAppForm({
 
   return (
     <div
-      className={`rounded-3xl border border-[#203357] bg-[#172644] p-5 sm:p-7 shadow-2xl text-[#F5F2EB] ${className}`}
+      className={`rounded-3xl border border-[#122240] bg-[#081226] p-5 sm:p-7 shadow-2xl text-[#F5F2EB] ${className}`}
     >
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-[#203357]">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-[#122240]">
         <div>
           <div className="flex items-center gap-2">
             <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -347,7 +347,7 @@ export default function QuickQuoteWhatsAppForm({
           </p>
         </div>
 
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#101D35] border border-[#203357] text-[11px] text-[#B0BECE] shrink-0">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#040A18] border border-[#122240] text-[11px] text-[#B0BECE] shrink-0">
           <ShieldCheck className="h-4 w-4 text-emerald-400" />
           <span>Verified Pressroom: <strong>{FORMATTED_PHONE}</strong></span>
         </div>
@@ -384,7 +384,7 @@ export default function QuickQuoteWhatsAppForm({
             <button
               type="button"
               onClick={handleCopy}
-              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#203357] bg-[#101D35] px-4 py-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#122240] bg-[#040A18] px-4 py-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#122240] transition-all cursor-pointer"
             >
               {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5 text-[#D4AF65]" />}
               <span>{copied ? 'Copied to Clipboard!' : 'Copy Inquiry Message'}</span>
@@ -419,10 +419,10 @@ export default function QuickQuoteWhatsAppForm({
                 id="quote-category"
                 value={category}
                 onChange={handleCategoryChange}
-                className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-3 text-xs sm:text-sm font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-3 text-xs sm:text-sm font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               >
                 {CATEGORIES.map((c) => (
-                  <option key={c.id} value={c.id} className="bg-[#101D35] text-[#F5F2EB]">
+                  <option key={c.id} value={c.id} className="bg-[#040A18] text-[#F5F2EB]">
                     {c.label}
                   </option>
                 ))}
@@ -446,7 +446,7 @@ export default function QuickQuoteWhatsAppForm({
                 onFocus={handleStart}
                 onChange={(e) => setQuantity(e.target.value)}
                 placeholder="e.g. 500"
-                className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs sm:text-sm font-bold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
+                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm font-bold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none focus:ring-1 focus:ring-[#D4AF65]"
               />
               {/* Quick Preset Buttons */}
               <div className="flex flex-wrap gap-1.5 mt-2">
@@ -457,8 +457,8 @@ export default function QuickQuoteWhatsAppForm({
                     onClick={() => { handleStart(); setQuantity(String(q)) }}
                     className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition-all cursor-pointer ${
                       String(quantity) === String(q)
-                        ? 'bg-[#D4AF65] text-[#101D35]'
-                        : 'border border-[#203357] bg-[#101D35] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#F5F2EB]'
+                        ? 'bg-[#D4AF65] text-[#040A18]'
+                        : 'border border-[#122240] bg-[#040A18] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#F5F2EB]'
                     }`}
                   >
                     {q}
@@ -482,7 +482,7 @@ export default function QuickQuoteWhatsAppForm({
                 onFocus={handleStart}
                 onChange={(e) => setSize(e.target.value)}
                 placeholder="e.g. 90x55mm, 50x50mm, 85x200cm, A5..."
-                className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -497,7 +497,7 @@ export default function QuickQuoteWhatsAppForm({
                 onFocus={handleStart}
                 onChange={(e) => setMaterialFinish(e.target.value)}
                 placeholder="e.g. 400 GSM Matte, 24K Gold Foil, Spot UV, Vinyl..."
-                className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
           </div>
@@ -511,10 +511,10 @@ export default function QuickQuoteWhatsAppForm({
               id="quote-location"
               value={deliveryLocation}
               onChange={(e) => { handleStart(); setDeliveryLocation(e.target.value) }}
-              className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+              className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
             >
               {POPULAR_LOCATIONS.map((loc) => (
-                <option key={loc} value={loc} className="bg-[#101D35] text-[#F5F2EB]">
+                <option key={loc} value={loc} className="bg-[#040A18] text-[#F5F2EB]">
                   {loc}
                 </option>
               ))}
@@ -534,7 +534,7 @@ export default function QuickQuoteWhatsAppForm({
                 onFocus={handleStart}
                 onChange={(e) => setCustomerName(e.target.value)}
                 placeholder="e.g. Ahmed / Sarah"
-                className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
 
@@ -549,13 +549,13 @@ export default function QuickQuoteWhatsAppForm({
                 onFocus={handleStart}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+971 50 123 4567"
-                className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs sm:text-sm text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
               />
             </div>
           </div>
 
           {/* 5. Artwork Upload & Explanation */}
-          <div className="rounded-2xl border border-dashed border-[#203357] bg-[#101D35]/60 p-4">
+          <div className="rounded-2xl border border-dashed border-[#122240] bg-[#040A18]/60 p-4">
             <div className="flex flex-col min-[420px]:flex-row items-start justify-between gap-3">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65] block">
@@ -570,7 +570,7 @@ export default function QuickQuoteWhatsAppForm({
                 </div>
               </div>
 
-              <label className="shrink-0 inline-flex min-h-[42px] items-center gap-1.5 rounded-xl border border-[#203357] bg-[#172644] hover:bg-[#203357] px-3.5 py-2 text-xs font-bold text-[#F5F2EB] transition-colors cursor-pointer">
+              <label className="shrink-0 inline-flex min-h-[42px] items-center gap-1.5 rounded-xl border border-[#122240] bg-[#081226] hover:bg-[#122240] px-3.5 py-2 text-xs font-bold text-[#F5F2EB] transition-colors cursor-pointer">
                 <Upload className="h-3.5 w-3.5 text-[#D4AF65]" />
                 <span>{isUploading ? 'Uploading...' : 'Choose File'}</span>
                 <input
@@ -590,7 +590,7 @@ export default function QuickQuoteWhatsAppForm({
             )}
 
             {artworkFiles.length > 0 && (
-              <div className="mt-2.5 pt-2 border-t border-[#203357] space-y-1.5">
+              <div className="mt-2.5 pt-2 border-t border-[#122240] space-y-1.5">
                 {artworkFiles.map((f, i) => (
                   <div key={i} className="flex items-center justify-between gap-2 text-[11px] text-slate-300">
                     <span className="truncate">📄 {f.name}</span>
@@ -623,7 +623,7 @@ export default function QuickQuoteWhatsAppForm({
               onFocus={handleStart}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="e.g. Need same-day turnaround for DWTC exhibition, single/double sided, custom Pantone code..."
-              className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
+              className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs text-[#F5F2EB] placeholder:text-slate-500 focus:border-[#D4AF65] focus:outline-none"
             />
           </div>
 

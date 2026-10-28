@@ -51,7 +51,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A]/10 px-2.5 py-0.5 text-xs font-bold text-[#D6C29A]">
             <Crosshair className="h-3.5 w-3.5" />
@@ -75,7 +75,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
               value={competitorUrl}
               onChange={(e) => setCompetitorUrl(e.target.value)}
               placeholder="https://competitor-dubai-printer.com/business-cards"
-              className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] focus:outline-none focus:border-[#D6C29A] transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-[#122240] bg-[#081226] focus:outline-none focus:border-[#D6C29A] transition-colors"
               required
             />
           </div>
@@ -87,7 +87,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
               value={targetKeyword}
               onChange={(e) => setTargetKeyword(e.target.value)}
               placeholder="Target Keyword (optional)"
-              className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] focus:outline-none focus:border-[#D6C29A] transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-[#122240] bg-[#081226] focus:outline-none focus:border-[#D6C29A] transition-colors"
             />
           </div>
 
@@ -103,25 +103,25 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
         <div className="space-y-6 animate-in fade-in">
           {/* Overview Metric Cards */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
               <span className="text-xs text-[#B8C2D9] block">Analyzed URL</span>
               <span className="text-xs font-mono font-bold text-[#F5F3EE] line-clamp-1 mt-1">
                 {analysisResult.analyzed_url}
               </span>
             </div>
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
               <span className="text-xs text-[#B8C2D9] block">Content Word Count</span>
               <span className="text-2xl font-black text-[#F5F3EE] mt-1 block">
                 {analysisResult.word_count || 'N/A'}
               </span>
             </div>
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
               <span className="text-xs text-[#B8C2D9] block">Schema Types Present</span>
               <span className="text-sm font-bold text-[#D6C29A] mt-1 block">
                 {analysisResult.schema_types?.length > 0 ? analysisResult.schema_types.join(', ') : 'None Detected'}
               </span>
             </div>
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
               <span className="text-xs text-[#B8C2D9] block">Differentiation Angles</span>
               <span className="text-2xl font-black text-emerald-600 mt-1 block">
                 {analysisResult.differentiation_opportunities?.length || 4}
@@ -130,23 +130,23 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
           </div>
 
           {/* Meta & Structural Inspection */}
-          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
+          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
             <h3 className="font-display text-base font-bold text-[#F5F3EE]">
               Competitor Metadata &amp; Structure
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-              <div className="p-4 rounded-xl bg-[#0B132B] border border-[#1E2C4F] space-y-1">
+              <div className="p-4 rounded-xl bg-[#040A18] border border-[#122240] space-y-1">
                 <span className="font-bold text-[#B8C2D9] block uppercase tracking-wider text-[10px]">Title Tag</span>
                 <p className="font-semibold text-[#F5F3EE]">{analysisResult.title || 'Not found'}</p>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#0B132B] border border-[#1E2C4F] space-y-1">
+              <div className="p-4 rounded-xl bg-[#040A18] border border-[#122240] space-y-1">
                 <span className="font-bold text-[#B8C2D9] block uppercase tracking-wider text-[10px]">H1 Heading</span>
                 <p className="font-semibold text-[#F5F3EE]">{analysisResult.h1 || 'Not found'}</p>
               </div>
 
-              <div className="sm:col-span-2 p-4 rounded-xl bg-[#0B132B] border border-[#1E2C4F] space-y-1">
+              <div className="sm:col-span-2 p-4 rounded-xl bg-[#040A18] border border-[#122240] space-y-1">
                 <span className="font-bold text-[#B8C2D9] block uppercase tracking-wider text-[10px]">Meta Description</span>
                 <p className="text-[#F5F3EE] leading-relaxed">{analysisResult.meta_description || 'Not found'}</p>
               </div>
@@ -155,7 +155,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
 
           {/* Content Gaps & Missing Subtopics */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-bold text-[#D6C29A] uppercase tracking-wider mb-3">
                 <AlertTriangle className="h-4 w-4" />
                 <span>Identified Content Gaps</span>
@@ -204,7 +204,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
           </div>
 
           {/* Actionable Content Recommendations */}
-          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
+          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
             <div className="flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-[#D6C29A]" />
               <h3 className="font-display text-base font-bold text-[#F5F3EE]">
@@ -218,7 +218,7 @@ export default function CompetitorUrlAnalyzerTab({ showToast }) {
                 'Add verified NAP and hours block (Al Quoz, Dubai, Mon–Sat 8:30–18:30).',
                 'Inject FAQPage structured data with direct 40–80 word answer snippets.',
               ]).map((rec, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-[#0B132B] border border-[#1E2C4F]">
+                <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-[#040A18] border border-[#122240]">
                   <span className="font-display font-extrabold text-[#D6C29A] text-xs">
                     0{idx + 1}
                   </span>

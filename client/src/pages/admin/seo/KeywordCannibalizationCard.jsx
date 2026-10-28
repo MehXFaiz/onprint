@@ -43,8 +43,8 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
 
       <div className="space-y-4">
         {reports.map((item, idx) => (
-          <div key={idx} className="bg-[#14213D] rounded-xl border border-amber-200/80 p-4 shadow-xs space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#1E2C4F] pb-2.5">
+          <div key={idx} className="bg-[#081226] rounded-xl border border-amber-200/80 p-4 shadow-xs space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#122240] pb-2.5">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-[#B8C2D9]/70 font-bold uppercase">Shared Keyword:</span>
                 <span className="rounded-md bg-[#D6C29A]/10 text-[#D6C29A] px-2.5 py-0.5 text-xs font-black">
@@ -97,7 +97,7 @@ export default function KeywordCannibalizationCard({ reports = [], onEditPage })
             </div>
 
             {/* Resolution Strategy Guidance */}
-            <div className="rounded-lg bg-[#0B132B] p-2.5 text-[11px] text-[#B8C2D9] flex items-start gap-2">
+            <div className="rounded-lg bg-[#040A18] p-2.5 text-[11px] text-[#B8C2D9] flex items-start gap-2">
               <Link2 className="h-3.5 w-3.5 text-[#D6C29A] shrink-0 mt-0.5" />
               <div>
                 <strong className="text-[#F5F3EE] font-bold">Recommended Resolution: </strong>

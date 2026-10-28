@@ -158,7 +158,7 @@ export default function GeoContentManagerTab({ showToast }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
@@ -202,7 +202,7 @@ export default function GeoContentManagerTab({ showToast }) {
         </div>
 
         {/* Stats Row */}
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-[#1E2C4F] pt-4 text-xs">
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-[#122240] pt-4 text-xs">
           <div>
             <span className="text-[#B8C2D9] block">Verified Knowledge Records</span>
             <span className="text-lg font-black text-[#F5F3EE]">{items.length}</span>
@@ -232,19 +232,19 @@ export default function GeoContentManagerTab({ showToast }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search knowledge records, keys, or direct answers…"
-          className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] focus:outline-none focus:border-[#D6C29A] transition-colors"
+          className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#122240] bg-[#081226] focus:outline-none focus:border-[#D6C29A] transition-colors"
         />
       </div>
 
       {/* Content Records List */}
       <div className="space-y-4">
         {loading ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#14213D] rounded-2xl border border-[#1E2C4F]">
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#081226] rounded-2xl border border-[#122240]">
             <RefreshCw className="h-6 w-6 animate-spin mx-auto text-[#D6C29A] mb-2" />
             Loading Knowledge Database…
           </div>
         ) : filteredItems.length === 0 ? (
-          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#14213D] rounded-2xl border border-[#1E2C4F]">
+          <div className="p-12 text-center text-xs text-[#B8C2D9] bg-[#081226] rounded-2xl border border-[#122240]">
             No knowledge records found.
           </div>
         ) : (
@@ -263,8 +263,8 @@ export default function GeoContentManagerTab({ showToast }) {
             return (
               <div
                 key={item.id}
-                className={`rounded-2xl border transition-all duration-200 bg-[#14213D] ${
-                  isExpanded ? 'border-neutral-900 shadow-md' : 'border-[#1E2C4F] hover:border-[#1E2C4F] shadow-2xs'
+                className={`rounded-2xl border transition-all duration-200 bg-[#081226] ${
+                  isExpanded ? 'border-neutral-900 shadow-md' : 'border-[#122240] hover:border-[#122240] shadow-2xs'
                 }`}
               >
                 <div className="p-5">
@@ -285,7 +285,7 @@ export default function GeoContentManagerTab({ showToast }) {
                         {item.title}
                       </h3>
 
-                      <p className="text-xs text-[#F5F3EE] leading-relaxed bg-[#0B132B] p-3 rounded-xl border border-[#1E2C4F]">
+                      <p className="text-xs text-[#F5F3EE] leading-relaxed bg-[#040A18] p-3 rounded-xl border border-[#122240]">
                         {item.direct_answer}
                       </p>
                     </div>
@@ -294,7 +294,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setSchemaPreviewItem(item)}
-                        className="p-2 text-[#B8C2D9] hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F] transition-colors"
+                        className="p-2 text-[#B8C2D9] hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240] transition-colors"
                         title="View JSON-LD Structure"
                       >
                         <Code className="h-4 w-4" />
@@ -302,7 +302,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => openEditModal(item)}
-                        className="p-2 text-[#B8C2D9] hover:text-[#D6C29A] rounded-lg hover:bg-[#1E2C4F] transition-colors"
+                        className="p-2 text-[#B8C2D9] hover:text-[#D6C29A] rounded-lg hover:bg-[#122240] transition-colors"
                         title="Edit Knowledge Record"
                       >
                         <Edit3 className="h-4 w-4" />
@@ -318,7 +318,7 @@ export default function GeoContentManagerTab({ showToast }) {
                       <button
                         type="button"
                         onClick={() => setExpandedId(isExpanded ? null : item.id)}
-                        className="p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F] transition-colors"
+                        className="p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240] transition-colors"
                         title="Toggle JSON Data"
                       >
                         <ChevronDown className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
@@ -328,7 +328,7 @@ export default function GeoContentManagerTab({ showToast }) {
 
                   {/* Expanded Structured Data Viewer */}
                   {isExpanded && (
-                    <div className="mt-4 pt-4 border-t border-[#1E2C4F] space-y-3 text-xs">
+                    <div className="mt-4 pt-4 border-t border-[#122240] space-y-3 text-xs">
                       <div>
                         <span className="font-bold text-[#F5F3EE] block mb-1">
                           Structured Specifications:
@@ -367,7 +367,7 @@ export default function GeoContentManagerTab({ showToast }) {
           }}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -376,7 +376,7 @@ export default function GeoContentManagerTab({ showToast }) {
                 setShowAddModal(false)
                 setEditingItem(null)
               }}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F]"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -397,7 +397,7 @@ export default function GeoContentManagerTab({ showToast }) {
                     value={formData.entity_key}
                     onChange={(e) => setFormData({ ...formData, entity_key: e.target.value })}
                     placeholder="e.g. business_hours, paper_substrates"
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#D6C29A]"
                     required
                   />
                 </div>
@@ -409,7 +409,7 @@ export default function GeoContentManagerTab({ showToast }) {
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     placeholder="e.g. Paper Substrates &amp; Weights"
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                     required
                   />
                 </div>
@@ -424,7 +424,7 @@ export default function GeoContentManagerTab({ showToast }) {
                   value={formData.direct_answer}
                   onChange={(e) => setFormData({ ...formData, direct_answer: e.target.value })}
                   placeholder="Clear direct factual answer..."
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs focus:outline-none focus:border-[#D6C29A]"
                   required
                 />
               </div>
@@ -438,7 +438,7 @@ export default function GeoContentManagerTab({ showToast }) {
                   value={formData.structured_data}
                   onChange={(e) => setFormData({ ...formData, structured_data: e.target.value })}
                   placeholder='{\n  "key": "value"\n}'
-                  className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
@@ -450,7 +450,7 @@ export default function GeoContentManagerTab({ showToast }) {
                     value={formData.citations}
                     onChange={(e) => setFormData({ ...formData, citations: e.target.value })}
                     placeholder='["https://www.0nprint.com/"]'
-                    className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[#D6C29A]"
                   />
                 </div>
 
@@ -460,14 +460,14 @@ export default function GeoContentManagerTab({ showToast }) {
                       type="checkbox"
                       checked={Boolean(formData.is_active)}
                       onChange={(e) => setFormData({ ...formData, is_active: e.target.checked ? 1 : 0 })}
-                      className="rounded border-[#1E2C4F] text-[#D6C29A] focus:ring-[#D6C29A]"
+                      className="rounded border-[#122240] text-[#D6C29A] focus:ring-[#D6C29A]"
                     />
                     <span>Active Entity</span>
                   </label>
                 </div>
               </div>
 
-              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#1E2C4F]">
+              <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#122240]">
                 <Button
                   type="button"
                   variant="outline"
@@ -495,7 +495,7 @@ export default function GeoContentManagerTab({ showToast }) {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs"
         >
-          <div className="w-full max-w-md rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl">
+          <div className="w-full max-w-md rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl">
             <h4 className="font-display text-lg font-black text-[#F5F3EE]">Delete Knowledge Record?</h4>
             <p className="mt-2 text-xs text-[#B8C2D9]">
               Are you sure you want to delete: <strong>&ldquo;{deletingItem.title}&rdquo;</strong>?
@@ -527,13 +527,13 @@ export default function GeoContentManagerTab({ showToast }) {
           onClick={() => setSchemaPreviewItem(null)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setSchemaPreviewItem(null)}
-              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#1E2C4F]"
+              className="absolute top-5 right-5 p-2 text-[#B8C2D9]/70 hover:text-[#F5F3EE] rounded-lg hover:bg-[#122240]"
             >
               <X className="h-5 w-5" />
             </button>

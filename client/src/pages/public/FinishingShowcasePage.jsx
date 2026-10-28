@@ -8,7 +8,7 @@ import LuxuryFinishesShowcase from '../../components/LuxuryFinishesShowcase'
 
 export default function FinishingShowcasePage() {
   return (
-    <div className="py-16 sm:py-24 bg-[#101D35] text-[#F5F2EB]">
+    <div className="py-16 sm:py-24 bg-[#040A18] text-[#F5F2EB]">
       <SEOHead
         title="Luxury Printing Finishes & Embellishments Dubai | ONPRINT"
         description="Explore tactile commercial printing finishes engineered on our Al Quoz press floor: 24K gold foil, raised 3D spot UV, blind debossing, velvet lamination, gilded edges, letterpress, and PUR binding."
@@ -22,7 +22,7 @@ export default function FinishingShowcasePage() {
 
         {/* Hero Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#172644] border border-[#203357] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#D4AF65]">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#081226] border border-[#122240] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#D4AF65]">
             <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
             <span>Al Quoz Master Presswork</span>
           </div>
@@ -49,7 +49,7 @@ export default function FinishingShowcasePage() {
 
       {/* Technical Specifications Grid */}
       <Container className="mt-20">
-        <div className="rounded-3xl border border-[#203357] bg-[#172644] p-8 sm:p-12 shadow-xl">
+        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-8 sm:p-12 shadow-xl">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF65] mb-3">
             <ShieldCheck className="h-4 w-4" />
             <span>Pre-Press &amp; Production Standards</span>
@@ -90,7 +90,7 @@ export default function FinishingShowcasePage() {
             </div>
           </div>
 
-          <div className="mt-8 pt-8 border-t border-[#203357] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-8 pt-8 border-t border-[#122240] flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[#6B7C96]">
               Need assistance setting up your artwork layers? Our Al Quoz prepress team provides complimentary file pre-flight checks.
             </p>

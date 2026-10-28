@@ -9,15 +9,15 @@ import { getServiceWhatsAppUrl, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-[#203357] bg-[#0C1629] text-[#B0BECE]">
+    <footer className="border-t border-[#122240] bg-[#020611] text-[#B0BECE]">
       {/* 1. HIGH-CONTRAST CALL TO ACTION BANNER */}
-      <div className="border-b border-[#203357] bg-[#101D35] text-[#F5F2EB] py-16 sm:py-20 relative overflow-hidden">
+      <div className="border-b border-[#122240] bg-[#040A18] text-[#F5F2EB] py-16 sm:py-20 relative overflow-hidden">
         <div
           className="pointer-events-none absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute -left-20 -top-20 h-80 w-80 rounded-full bg-[#172644]/60 blur-3xl"
+          className="pointer-events-none absolute -left-20 -top-20 h-80 w-80 rounded-full bg-[#081226]/60 blur-3xl"
           aria-hidden="true"
         />
         <Container className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -36,7 +36,7 @@ export default function SiteFooter() {
           <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto">
             <Link
               to="/get-a-quote"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-6 sm:px-7 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#101D35] shadow-lg shadow-[#D4AF65]/25 transition-all text-center"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-6 sm:px-7 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#040A18] shadow-lg shadow-[#D4AF65]/25 transition-all text-center"
               onClick={() => trackGetQuoteClick({ source_page: 'footer_cta_banner' })}
             >
               <span>Request Custom Quote</span>
@@ -86,7 +86,7 @@ export default function SiteFooter() {
             </a>
             <a
               href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-              className="inline-flex items-center gap-1.5 rounded-full border border-[#203357] bg-[#172644] px-3 py-1.5 text-xs font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#122240] bg-[#081226] px-3 py-1.5 text-xs font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
               aria-label={`Call ${FORMATTED_PHONE}`}
             >
               <Phone className="h-3 w-3 text-[#D4AF65]" />
@@ -94,7 +94,7 @@ export default function SiteFooter() {
             </a>
             <a
               href="mailto:0nprint183@gmail.com"
-              className="inline-flex items-center gap-1.5 rounded-full border border-[#203357] bg-[#172644] px-3 py-1.5 text-xs font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#122240] bg-[#081226] px-3 py-1.5 text-xs font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
               aria-label="Email 0nprint183@gmail.com"
             >
               <Mail className="h-3 w-3 text-[#D4AF65]" />
@@ -212,22 +212,22 @@ export default function SiteFooter() {
       </Container>
 
       {/* 3. BOTTOM COPYRIGHT & LEGAL BAR */}
-      <div className="border-t border-[#203357] bg-[#091120] py-6 pb-20 sm:pb-6 text-xs text-[#8E9BB5]">
+      <div className="border-t border-[#122240] bg-[#020611] py-6 pb-20 sm:pb-6 text-xs text-[#8E9BB5]">
         <Container className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p>© {new Date().getFullYear()} ONPRINT Commercial Printing LLC. All rights reserved. Registered in Dubai, UAE.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6">
             <Link to="/privacy-policy" className="hover:text-[#D4AF65] transition-colors">
               Privacy Policy
             </Link>
-            <span className="text-[#203357] hidden sm:inline">|</span>
+            <span className="text-[#122240] hidden sm:inline">|</span>
             <Link to="/terms" className="hover:text-[#D4AF65] transition-colors">
               Terms &amp; Conditions
             </Link>
-            <span className="text-[#203357] hidden sm:inline">|</span>
+            <span className="text-[#122240] hidden sm:inline">|</span>
             <Link to="/track-order" className="hover:text-[#D4AF65] transition-colors">
               Track Order
             </Link>
-            <span className="text-[#203357] hidden sm:inline">|</span>
+            <span className="text-[#122240] hidden sm:inline">|</span>
             <LanguageSwitcher variant="compact" />
           </div>
         </Container>

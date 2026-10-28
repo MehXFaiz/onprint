@@ -195,11 +195,11 @@ export default function AdminDashboardPage() {
   if (loading) {
     return (
       <div className="space-y-8 animate-pulse">
-        <div className="h-14 rounded-2xl bg-[#14213D] border border-[#1E2C4F]" />
+        <div className="h-14 rounded-2xl bg-[#081226] border border-[#122240]" />
         <div className="h-44 rounded-3xl bg-neutral-800/60 border border-neutral-700/50" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="h-32 rounded-2xl bg-[#14213D] border border-[#1E2C4F] p-5 space-y-3">
+            <div key={i} className="h-32 rounded-2xl bg-[#081226] border border-[#122240] p-5 space-y-3">
               <div className="flex justify-between items-center">
                 <div className="h-3 w-24 bg-neutral-200 rounded" />
                 <div className="h-8 w-8 bg-neutral-200 rounded-full" />
@@ -237,14 +237,14 @@ export default function AdminDashboardPage() {
   return (
     <div className="space-y-8">
       {/* Top Controls Bar */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs">
         <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-[#F5F3EE]">
           <Calendar className="h-4 w-4 text-[#D6C29A]" />
           <span>Filter Metric Window:</span>
           <select
             value={timeframe}
             onChange={(e) => setTimeframe(e.target.value)}
-            className="rounded-lg border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
+            className="rounded-lg border border-[#122240] bg-[#040A18] px-3 py-1.5 text-xs font-bold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none cursor-pointer"
           >
             {TIMEFRAME_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -258,7 +258,7 @@ export default function AdminDashboardPage() {
           type="button"
           onClick={() => loadDashboard(timeframe, true)}
           disabled={refreshing}
-          className="inline-flex items-center gap-1.5 rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-1.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors disabled:opacity-50 cursor-pointer"
+          className="inline-flex items-center gap-1.5 rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-1.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#122240] hover:text-[#F5F3EE] transition-colors disabled:opacity-50 cursor-pointer"
         >
           <RefreshCw className={`h-3.5 w-3.5 text-[#D6C29A] ${refreshing ? 'animate-spin' : ''}`} />
           <span>{refreshing ? 'Syncing MySQL...' : 'Refresh Live DB Data'}</span>
@@ -266,7 +266,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Welcome Banner */}
-      <div className="rounded-3xl border border-[#1E2C4F] bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 p-6 sm:p-8 text-white shadow-xl">
+      <div className="rounded-3xl border border-[#122240] bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 p-6 sm:p-8 text-white shadow-xl">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
@@ -294,7 +294,7 @@ export default function AdminDashboardPage() {
 
             <Link
               to="/admin/orders"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 bg-[#14213D]/10 px-4 py-2.5 text-xs font-bold text-white hover:bg-[#14213D]/20 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 bg-[#081226]/10 px-4 py-2.5 text-xs font-bold text-white hover:bg-[#081226]/20 transition-colors"
             >
               <ShoppingBag className="h-4 w-4" />
               Manage Orders
@@ -308,7 +308,7 @@ export default function AdminDashboardPage() {
         {/* Card 1: Total Products */}
         <Link
           to="/admin/products"
-          className="group rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs transition-all hover:border-[#D6C29A]/40 hover:shadow-md"
+          className="group rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs transition-all hover:border-[#D6C29A]/40 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Products Catalog</span>
@@ -328,7 +328,7 @@ export default function AdminDashboardPage() {
         {/* Card 2: Active Orders */}
         <Link
           to="/admin/orders"
-          className="group rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs transition-all hover:border-[#D6C29A]/40 hover:shadow-md"
+          className="group rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs transition-all hover:border-[#D6C29A]/40 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Total Orders</span>
@@ -344,7 +344,7 @@ export default function AdminDashboardPage() {
         </Link>
 
         {/* Card 3: Revenue */}
-        <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Order Revenue</span>
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
@@ -362,7 +362,7 @@ export default function AdminDashboardPage() {
         {/* Card 4: Quotes */}
         <Link
           to="/admin/quotes"
-          className="group rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs transition-all hover:border-[#D6C29A]/40 hover:shadow-md"
+          className="group rounded-2xl border border-[#122240] bg-[#081226] p-5 shadow-xs transition-all hover:border-[#D6C29A]/40 hover:shadow-md"
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Pending Quotes</span>
@@ -384,7 +384,7 @@ export default function AdminDashboardPage() {
       <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4">
         <Link
           to="/admin/messages"
-          className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-3.5 sm:p-4 shadow-xs hover:border-amber-500 transition-colors"
+          className="rounded-2xl border border-[#122240] bg-[#081226] p-3.5 sm:p-4 shadow-xs hover:border-amber-500 transition-colors"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
             <MessageSquare className="h-3.5 w-3.5 text-amber-600" />
@@ -396,7 +396,7 @@ export default function AdminDashboardPage() {
 
         <Link
           to="/admin/customers"
-          className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-3.5 sm:p-4 shadow-xs hover:border-[#1E2C4F] transition-colors"
+          className="rounded-2xl border border-[#122240] bg-[#081226] p-3.5 sm:p-4 shadow-xs hover:border-[#122240] transition-colors"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
             <Users className="h-3.5 w-3.5 text-indigo-600" />
@@ -408,7 +408,7 @@ export default function AdminDashboardPage() {
 
         <Link
           to="/admin/services"
-          className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-3.5 sm:p-4 shadow-xs hover:border-[#1E2C4F] transition-colors"
+          className="rounded-2xl border border-[#122240] bg-[#081226] p-3.5 sm:p-4 shadow-xs hover:border-[#122240] transition-colors"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
             <Wrench className="h-3.5 w-3.5 text-sky-600" />
@@ -420,7 +420,7 @@ export default function AdminDashboardPage() {
 
         <Link
           to="/admin/categories"
-          className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-3.5 sm:p-4 shadow-xs hover:border-[#D6C29A] transition-colors"
+          className="rounded-2xl border border-[#122240] bg-[#081226] p-3.5 sm:p-4 shadow-xs hover:border-[#D6C29A] transition-colors"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
             <FolderTree className="h-3.5 w-3.5 text-[#D6C29A]" />
@@ -432,7 +432,7 @@ export default function AdminDashboardPage() {
 
         <Link
           to="/admin/blog"
-          className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-3.5 sm:p-4 shadow-xs hover:border-[#D6C29A] transition-colors xs:col-span-2 sm:col-span-1"
+          className="rounded-2xl border border-[#122240] bg-[#081226] p-3.5 sm:p-4 shadow-xs hover:border-[#D6C29A] transition-colors xs:col-span-2 sm:col-span-1"
         >
           <div className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] uppercase tracking-wider">
             <BookOpen className="h-3.5 w-3.5 text-[#D6C29A]" />
@@ -467,8 +467,8 @@ export default function AdminDashboardPage() {
           .slice(0, 6)
 
         return (
-          <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs space-y-6">
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#1E2C4F] pb-5">
+          <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-6">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#122240] pb-5">
               <div>
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
                   <Sparkles className="h-4 w-4" />
@@ -484,14 +484,14 @@ export default function AdminDashboardPage() {
               <div className="flex flex-wrap items-center gap-2.5">
                 <Link
                   to="/admin/seo"
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#D6C29A] px-4 py-2 text-xs font-extrabold text-[#0B132B] hover:bg-[#e5d4b0] transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#D6C29A] px-4 py-2 text-xs font-extrabold text-[#040A18] hover:bg-[#e5d4b0] transition-colors"
                 >
                   <Search className="h-3.5 w-3.5" />
                   Open Full SEO Command Center
                 </Link>
                 <Link
                   to="/admin/products/new"
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3.5 py-2 text-xs font-bold text-[#F5F3EE] hover:border-[#D6C29A] transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2 text-xs font-bold text-[#F5F3EE] hover:border-[#D6C29A] transition-colors"
                 >
                   <Plus className="h-3.5 w-3.5 text-[#D6C29A]" />
                   Add Product (Auto-SEO)
@@ -501,7 +501,7 @@ export default function AdminDashboardPage() {
 
             {/* 8-Card SEO & Funnel Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+              <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
                   Total Audited Catalog
                 </span>
@@ -513,7 +513,7 @@ export default function AdminDashboardPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+              <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
                   Pages Missing SEO Fields
                 </span>
@@ -527,7 +527,7 @@ export default function AdminDashboardPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+              <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
                   Keyword Opportunities &amp; Review
                 </span>
@@ -539,7 +539,7 @@ export default function AdminDashboardPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+              <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">
                   GA4 &amp; Search Console Status
                 </span>
@@ -555,16 +555,16 @@ export default function AdminDashboardPage() {
 
             {/* Two-Column Breakdown: Deduplicated Keyword Bank & WhatsApp Lead Attribution */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5">
+              <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-5">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-display text-sm font-bold text-[#F5F3EE]">
                     Deduplicated Buyer-Intent Keyword Registry (All 19 Categories)
                   </h3>
-                  <span className="rounded-full bg-[#14213D] px-2.5 py-0.5 text-[10px] font-bold text-[#D6C29A] border border-[#1E2C4F]">
+                  <span className="rounded-full bg-[#081226] px-2.5 py-0.5 text-[10px] font-bold text-[#D6C29A] border border-[#122240]">
                     No Daily Repetition
                   </span>
                 </div>
-                <div className="max-h-56 overflow-y-auto divide-y divide-[#1E2C4F] text-xs">
+                <div className="max-h-56 overflow-y-auto divide-y divide-[#122240] text-xs">
                   {seoAudit.keywordOpportunities.slice(0, 10).map((item, idx) => (
                     <div key={idx} className="py-2.5 flex items-center justify-between gap-3">
                       <div className="min-w-0">
@@ -581,7 +581,7 @@ export default function AdminDashboardPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5">
+              <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-5">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-display text-sm font-bold text-[#F5F3EE]">
                     WhatsApp Inquiries vs. Quotes vs. Confirmed Orders
@@ -591,21 +591,21 @@ export default function AdminDashboardPage() {
                   </span>
                 </div>
                 <div className="grid grid-cols-3 gap-3 mb-4 text-center">
-                  <div className="rounded-xl border border-[#1E2C4F] bg-[#14213D] p-3">
+                  <div className="rounded-xl border border-[#122240] bg-[#081226] p-3">
                     <div className="text-lg font-black text-emerald-400">{whatsappEvents.length}</div>
                     <div className="text-[10px] font-bold uppercase text-[#B8C2D9]">WhatsApp Clicks</div>
                   </div>
-                  <div className="rounded-xl border border-[#1E2C4F] bg-[#14213D] p-3">
+                  <div className="rounded-xl border border-[#122240] bg-[#081226] p-3">
                     <div className="text-lg font-black text-purple-400">{quotes.total}</div>
                     <div className="text-[10px] font-bold uppercase text-[#B8C2D9]">Quote Requests</div>
                   </div>
-                  <div className="rounded-xl border border-[#1E2C4F] bg-[#14213D] p-3">
+                  <div className="rounded-xl border border-[#122240] bg-[#081226] p-3">
                     <div className="text-lg font-black text-[#D6C29A]">{orders.total}</div>
                     <div className="text-[10px] font-bold uppercase text-[#B8C2D9]">Confirmed Orders</div>
                   </div>
                 </div>
                 {topWhatsappProducts.length > 0 ? (
-                  <div className="divide-y divide-[#1E2C4F] text-xs">
+                  <div className="divide-y divide-[#122240] text-xs">
                     {topWhatsappProducts.map((row, idx) => (
                       <div key={idx} className="py-2 flex items-center justify-between">
                         <span className="text-[#F5F3EE] font-semibold truncate">{row.label}</span>
@@ -622,7 +622,7 @@ export default function AdminDashboardPage() {
             </div>
 
             {/* 90-Day Editorial Plan & Drafts Awaiting Admin Review */}
-            <div className="rounded-2xl border border-[#1E2C4F] bg-[#0B132B] p-5">
+            <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                 <div>
                   <h3 className="font-display text-sm font-bold text-[#F5F3EE]">
@@ -641,14 +641,14 @@ export default function AdminDashboardPage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
                 {EDITORIAL_90_DAY_CONTENT_PLAN.slice(0, 6).map((planItem, idx) => (
-                  <div key={idx} className="rounded-xl border border-[#1E2C4F] bg-[#14213D] p-3.5 flex flex-col justify-between gap-2">
+                  <div key={idx} className="rounded-xl border border-[#122240] bg-[#081226] p-3.5 flex flex-col justify-between gap-2">
                     <div>
-                      <span className="inline-block rounded bg-[#0B132B] px-2 py-0.5 text-[10px] font-bold text-[#D6C29A] border border-[#1E2C4F] mb-1.5">
+                      <span className="inline-block rounded bg-[#040A18] px-2 py-0.5 text-[10px] font-bold text-[#D6C29A] border border-[#122240] mb-1.5">
                         {planItem.status}
                       </span>
                       <div className="font-bold text-[#F5F3EE] line-clamp-2">{planItem.topicTitle}</div>
                     </div>
-                    <div className="text-[11px] text-[#B8C2D9] pt-1 border-t border-[#1E2C4F]/60">
+                    <div className="text-[11px] text-[#B8C2D9] pt-1 border-t border-[#122240]/60">
                       Keyword: <span className="text-emerald-400 font-semibold">{planItem.targetKeyword}</span>
                     </div>
                   </div>
@@ -662,9 +662,9 @@ export default function AdminDashboardPage() {
       {/* Recent Activity Widgets */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Widget 1: Orders */}
-        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs flex flex-col justify-between">
+        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 shadow-xs flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4 mb-4">
+            <div className="flex items-center justify-between border-b border-[#122240] pb-4 mb-4">
               <div>
                 <h3 className="font-display text-base font-bold text-[#F5F3EE]">Recent Press Orders</h3>
                 <p className="text-xs text-[#B8C2D9]">Live order queue from database</p>
@@ -708,9 +708,9 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Widget 2: Quotes */}
-        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs flex flex-col justify-between">
+        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 shadow-xs flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4 mb-4">
+            <div className="flex items-center justify-between border-b border-[#122240] pb-4 mb-4">
               <div>
                 <h3 className="font-display text-base font-bold text-[#F5F3EE]">Recent Quotes</h3>
                 <p className="text-xs text-[#B8C2D9]">Submitted quote requests</p>
@@ -751,9 +751,9 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Widget 3: Direct Studio Inquiries */}
-        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs flex flex-col justify-between">
+        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 shadow-xs flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4 mb-4">
+            <div className="flex items-center justify-between border-b border-[#122240] pb-4 mb-4">
               <div>
                 <h3 className="font-display text-base font-bold text-[#F5F3EE]">Direct Studio Inquiries</h3>
                 <p className="text-xs text-[#B8C2D9]">Contact form messages & specs</p>

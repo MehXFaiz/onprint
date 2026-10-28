@@ -92,8 +92,8 @@ export default function LanguageSwitcher({ className = '', variant = 'pill' }) {
       onClick={toggleLanguage}
       className={`inline-flex items-center gap-1.5 h-8.5 px-3 rounded-full border transition-all cursor-pointer shadow-2xs ${
         isArabic
-          ? 'bg-[#172644] border-[#D4AF65] text-[#D4AF65] hover:bg-[#D4AF65] hover:text-[#101D35]'
-          : 'bg-[#101D35] border-[#203357] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
+          ? 'bg-[#081226] border-[#D4AF65] text-[#D4AF65] hover:bg-[#D4AF65] hover:text-[#040A18]'
+          : 'bg-[#040A18] border-[#122240] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
       } text-xs font-bold shrink-0 ${className}`}
       title={isArabic ? 'Switch to English version' : 'التبديل إلى النسخة العربية'}
       aria-label={isArabic ? 'Switch to English' : 'التبديل إلى النسخة العربية'}

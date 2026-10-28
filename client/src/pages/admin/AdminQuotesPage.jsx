@@ -123,7 +123,7 @@ export default function AdminQuotesPage() {
   return (
     <div className="space-y-6 pb-16">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#14213D] p-6 rounded-3xl border border-[#1E2C4F] shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#081226] p-6 rounded-3xl border border-[#122240] shadow-xs">
         <div>
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
             <FileText className="h-4 w-4" />
@@ -161,7 +161,7 @@ export default function AdminQuotesPage() {
       )}
 
       {/* Filter Toolbar & Bulk Action indicator */}
-      <div className="flex flex-col gap-4 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs">
+      <div className="flex flex-col gap-4 bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs">
         {/* Status Filter Tabs */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
           {[
@@ -206,7 +206,7 @@ export default function AdminQuotesPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search quotes by number, client name, status, or email..."
-              className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] placeholder-neutral-400 focus:border-[#D6C29A] focus:outline-none"
+              className="w-full rounded-xl border border-[#122240] bg-[#040A18] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] placeholder-neutral-400 focus:border-[#D6C29A] focus:outline-none"
             />
           </div>
 
@@ -235,10 +235,10 @@ export default function AdminQuotesPage() {
       </div>
 
       {/* Table */}
-      <div className="w-full overflow-x-auto rounded-3xl border border-[#1E2C4F] bg-[#14213D] shadow-xs">
+      <div className="w-full overflow-x-auto rounded-3xl border border-[#122240] bg-[#081226] shadow-xs">
         <table className="w-full min-w-[700px] text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-[#1E2C4F] bg-[#0B132B] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
+            <tr className="border-b border-[#122240] bg-[#040A18] text-[11px] font-extrabold uppercase tracking-wider text-[#B8C2D9]">
               <th className="py-3.5 px-4 w-10 text-center">
                 <input
                   type="checkbox"
@@ -248,7 +248,7 @@ export default function AdminQuotesPage() {
                   }}
                   onChange={toggleSelectAll}
                   aria-label="Select all quotes"
-                  className="h-4 w-4 rounded border-[#1E2C4F] text-[#D6C29A] focus:ring-[#D6C29A]/20 cursor-pointer accent-[#D6C29A]"
+                  className="h-4 w-4 rounded border-[#122240] text-[#D6C29A] focus:ring-[#D6C29A]/20 cursor-pointer accent-[#D6C29A]"
                 />
               </th>
               <th className="py-3.5 px-4">Quote #</th>
@@ -280,7 +280,7 @@ export default function AdminQuotesPage() {
                   <tr
                     key={quoteId}
                     className={`transition-colors ${
-                      isSelected ? 'bg-red-50/30 hover:bg-red-50/50' : 'hover:bg-[#0B132B]/60'
+                      isSelected ? 'bg-red-50/30 hover:bg-red-50/50' : 'hover:bg-[#040A18]/60'
                     }`}
                   >
                     <td className="py-3 px-4 w-10 text-center">
@@ -289,7 +289,7 @@ export default function AdminQuotesPage() {
                         checked={isSelected}
                         onChange={() => toggleSelectQuote(quoteId)}
                         aria-label={`Select quote ${q.quoteNumber}`}
-                        className="h-4 w-4 rounded border-[#1E2C4F] text-[#D6C29A] focus:ring-[#D6C29A]/20 cursor-pointer accent-[#D6C29A]"
+                        className="h-4 w-4 rounded border-[#122240] text-[#D6C29A] focus:ring-[#D6C29A]/20 cursor-pointer accent-[#D6C29A]"
                       />
                     </td>
                     <td className="py-3 px-4">
@@ -329,7 +329,7 @@ export default function AdminQuotesPage() {
                       <div className="flex items-center justify-end gap-2">
                         <button
                           onClick={() => navigate(`/admin/quotes/${q._id || q.id}/edit`)}
-                          className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors cursor-pointer"
+                          className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#122240] hover:text-[#F5F3EE] transition-colors cursor-pointer"
                           title="Edit Quote"
                         >
                           <Edit2 className="h-4 w-4" />
@@ -352,7 +352,7 @@ export default function AdminQuotesPage() {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs text-xs font-semibold text-[#B8C2D9]">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs text-xs font-semibold text-[#B8C2D9]">
         <div>
           Showing <span className="font-bold text-[#F5F3EE]">{filtered.length}</span> of{' '}
           <span className="font-bold text-[#F5F3EE]">{quotes.length}</span> quotes
@@ -364,7 +364,7 @@ export default function AdminQuotesPage() {
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#122240] bg-[#040A18] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Previous
           </button>
@@ -374,7 +374,7 @@ export default function AdminQuotesPage() {
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#122240] bg-[#040A18] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Next
           </button>
@@ -414,7 +414,7 @@ export default function AdminQuotesPage() {
       {/* Single Delete Confirmation Modal */}
       {deletingQuote && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-4 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-[#122240] bg-[#081226] p-4 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-center gap-3 text-red-600">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
                 <AlertTriangle className="h-5 w-5" />
@@ -427,11 +427,11 @@ export default function AdminQuotesPage() {
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#1E2C4F]">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#122240]">
               <button
                 type="button"
                 onClick={() => setDeletingQuote(null)}
-                className="rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B] cursor-pointer"
+                className="rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#040A18] cursor-pointer"
               >
                 Cancel
               </button>
@@ -450,7 +450,7 @@ export default function AdminQuotesPage() {
       {/* Bulk Delete Confirmation Modal */}
       {isBulkDeleting && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-4 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-[#122240] bg-[#081226] p-4 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-start gap-3 text-red-600">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100 mt-0.5">
                 <AlertTriangle className="h-5 w-5" />
@@ -465,13 +465,13 @@ export default function AdminQuotesPage() {
               </div>
             </div>
 
-            <div className="max-h-40 overflow-y-auto rounded-2xl bg-[#0B132B] p-3 border border-[#1E2C4F] text-xs space-y-1.5">
+            <div className="max-h-40 overflow-y-auto rounded-2xl bg-[#040A18] p-3 border border-[#122240] text-xs space-y-1.5">
               {quotes
                 .filter((q) => selectedQuoteIds.includes(getQuoteId(q)))
                 .map((q) => (
                   <div
                     key={getQuoteId(q)}
-                    className="flex items-center justify-between font-medium text-[#F5F3EE] py-1 border-b border-[#1E2C4F] last:border-0"
+                    className="flex items-center justify-between font-medium text-[#F5F3EE] py-1 border-b border-[#122240] last:border-0"
                   >
                     <span className="font-mono font-bold text-[#F5F3EE]">{q.quoteNumber}</span>
                     <span className="text-[#B8C2D9] truncate max-w-[150px]">{q.name || 'Client'}</span>
@@ -480,11 +480,11 @@ export default function AdminQuotesPage() {
                 ))}
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#1E2C4F]">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#122240]">
               <button
                 type="button"
                 onClick={() => setIsBulkDeleting(false)}
-                className="rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B] cursor-pointer"
+                className="rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#040A18] cursor-pointer"
               >
                 Cancel
               </button>

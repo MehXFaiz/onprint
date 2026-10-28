@@ -160,11 +160,11 @@ export default function BrochureTypesShowcase({ className = '' }) {
       : BROCHURE_TYPES.filter((b) => b.id === selectedFilter)
 
   return (
-    <section className={`mt-14 sm:mt-18 pt-10 border-t border-[#203357] ${className}`}>
+    <section className={`mt-14 sm:mt-18 pt-10 border-t border-[#122240] ${className}`}>
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#203357] bg-[#172644] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#122240] bg-[#081226] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
             <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
             <span>Complete Folding Styles &amp; Production Specs</span>
           </div>
@@ -209,8 +209,8 @@ export default function BrochureTypesShowcase({ className = '' }) {
               onClick={() => setSelectedFilter(tab.id)}
               className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer shrink-0 flex items-center gap-1.5 ${
                 isActive
-                  ? 'bg-[#D4AF65] text-[#101D35] font-black shadow-md'
-                  : 'bg-[#172644] border border-[#203357] text-[#B0BECE] hover:text-[#F5F2EB] hover:border-[#D4AF65]/40'
+                  ? 'bg-[#D4AF65] text-[#040A18] font-black shadow-md'
+                  : 'bg-[#081226] border border-[#122240] text-[#B0BECE] hover:text-[#F5F2EB] hover:border-[#D4AF65]/40'
               }`}
             >
               <span>{tab.label}</span>
@@ -229,12 +229,12 @@ export default function BrochureTypesShowcase({ className = '' }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-20px' }}
             transition={{ duration: 0.4, delay: (idx % 3) * 0.08 }}
-            className="group flex flex-col justify-between rounded-3xl border border-[#203357] bg-[#172644] overflow-hidden text-[#F5F2EB] shadow-md transition-all duration-300 hover:border-[#D4AF65] hover:shadow-[0_16px_36px_rgba(16,29,53,0.8),0_0_24px_rgba(212,175,101,0.22)]"
+            className="group flex flex-col justify-between rounded-3xl border border-[#122240] bg-[#081226] overflow-hidden text-[#F5F2EB] shadow-md transition-all duration-300 hover:border-[#D4AF65] hover:shadow-[0_16px_36px_rgba(16,29,53,0.8),0_0_24px_rgba(212,175,101,0.22)]"
           >
             {/* Image Container with Zoom & Quick View */}
             <div>
               <div
-                className="relative aspect-[16/11] w-full overflow-hidden bg-[#0C1629] border-b border-[#203357] cursor-pointer"
+                className="relative aspect-[16/11] w-full overflow-hidden bg-[#020611] border-b border-[#122240] cursor-pointer"
                 onClick={() => setModalItem(item)}
                 title={`Click to view ${item.title} full size`}
               >
@@ -244,18 +244,18 @@ export default function BrochureTypesShowcase({ className = '' }) {
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0C1629]/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020611]/70 via-transparent to-transparent pointer-events-none" />
 
                 {/* Badge */}
                 <div className="absolute top-3 left-3">
-                  <span className="rounded-full bg-[#D4AF65] px-3 py-1 text-[9.5px] font-black uppercase tracking-wider text-[#101D35] shadow-xs">
+                  <span className="rounded-full bg-[#D4AF65] px-3 py-1 text-[9.5px] font-black uppercase tracking-wider text-[#040A18] shadow-xs">
                     {item.badge}
                   </span>
                 </div>
 
                 {/* Quick View Indicator Pill */}
                 <div className="absolute bottom-3 right-3 opacity-90 group-hover:opacity-100 transition-opacity">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35]/90 border border-[#203357] px-2.5 py-1 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-md shadow-xs group-hover:border-[#D4AF65]">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#040A18]/90 border border-[#122240] px-2.5 py-1 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-md shadow-xs group-hover:border-[#D4AF65]">
                     <Maximize2 className="h-3 w-3 text-[#D4AF65]" />
                     <span>View HD Photo</span>
                   </span>
@@ -263,7 +263,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
 
                 {/* Turnaround Badge */}
                 <div className="absolute top-3 right-3">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/90 border border-[#203357] px-2.5 py-0.5 text-[9.5px] font-bold text-[#F5F2EB] backdrop-blur-md shadow-xs">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[#040A18]/90 border border-[#122240] px-2.5 py-0.5 text-[9.5px] font-bold text-[#F5F2EB] backdrop-blur-md shadow-xs">
                     <Clock className="h-3 w-3 text-[#D4AF65]" />
                     <span>{item.turnaround}</span>
                   </span>
@@ -288,7 +288,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
                 </p>
 
                 {/* Specs List */}
-                <ul className="mt-4 pt-4 border-t border-[#203357] space-y-1.5 text-[11px] font-medium text-slate-300">
+                <ul className="mt-4 pt-4 border-t border-[#122240] space-y-1.5 text-[11px] font-medium text-slate-300">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white">Sizes:</strong> {item.popularSizes}</span>
@@ -302,11 +302,11 @@ export default function BrochureTypesShowcase({ className = '' }) {
             </div>
 
             {/* Actions Footer */}
-            <div className="p-5 pt-0 mt-auto border-t border-[#203357]/60 flex items-center gap-2">
+            <div className="p-5 pt-0 mt-auto border-t border-[#122240]/60 flex items-center gap-2">
               <button
                 type="button"
                 onClick={() => setModalItem(item)}
-                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-[#101D35] hover:bg-[#203357] border border-[#203357] hover:border-[#D4AF65] px-4 py-2 text-xs font-bold text-[#F5F2EB] transition-all cursor-pointer"
+                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-[#040A18] hover:bg-[#122240] border border-[#122240] hover:border-[#D4AF65] px-4 py-2 text-xs font-bold text-[#F5F2EB] transition-all cursor-pointer"
               >
                 <span>Inspect Specs</span>
                 <ArrowRight className="h-3.5 w-3.5 text-[#D4AF65]" />
@@ -347,10 +347,10 @@ export default function BrochureTypesShowcase({ className = '' }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-3xl rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] shadow-2xl overflow-hidden max-h-[92vh] flex flex-col"
+              className="relative w-full max-w-3xl rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] shadow-2xl overflow-hidden max-h-[92vh] flex flex-col"
             >
               {/* Modal Header */}
-              <div className="flex items-center justify-between p-5 sm:p-6 border-b border-[#203357] bg-[#101D35]/80">
+              <div className="flex items-center justify-between p-5 sm:p-6 border-b border-[#122240] bg-[#040A18]/80">
                 <div>
                   <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF65]">
                     {modalItem.badge} • {modalItem.panels}
@@ -362,7 +362,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
                 <button
                   type="button"
                   onClick={() => setModalItem(null)}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#172644] border border-[#203357] text-[#B0BECE] hover:text-white hover:border-[#D4AF65] transition-colors cursor-pointer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#081226] border border-[#122240] text-[#B0BECE] hover:text-white hover:border-[#D4AF65] transition-colors cursor-pointer"
                   aria-label="Close modal"
                 >
                   <X className="h-5 w-5" />
@@ -372,7 +372,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
               {/* Modal Body */}
               <div className="overflow-y-auto p-5 sm:p-6 space-y-5">
                 {/* Large HD Image */}
-                <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-[#0C1629] border border-[#203357] shadow-inner">
+                <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-[#020611] border border-[#122240] shadow-inner">
                   <img
                     src={modalItem.image}
                     alt={modalItem.title}
@@ -381,34 +381,34 @@ export default function BrochureTypesShowcase({ className = '' }) {
                 </div>
 
                 {/* Description */}
-                <div className="rounded-2xl bg-[#101D35] border border-[#203357] p-4 text-xs sm:text-sm text-slate-200 leading-relaxed">
+                <div className="rounded-2xl bg-[#040A18] border border-[#122240] p-4 text-xs sm:text-sm text-slate-200 leading-relaxed">
                   <p>{modalItem.description}</p>
                 </div>
 
                 {/* Detailed Specifications Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                  <div className="rounded-xl border border-[#203357] bg-[#101D35] p-3.5">
+                  <div className="rounded-xl border border-[#122240] bg-[#040A18] p-3.5">
                     <span className="text-[10px] font-black uppercase text-[#D4AF65] block mb-1">
                       Standard Dimensions
                     </span>
                     <span className="font-semibold text-white">{modalItem.popularSizes}</span>
                   </div>
 
-                  <div className="rounded-xl border border-[#203357] bg-[#101D35] p-3.5">
+                  <div className="rounded-xl border border-[#122240] bg-[#040A18] p-3.5">
                     <span className="text-[10px] font-black uppercase text-[#D4AF65] block mb-1">
                       Paper Stocks &amp; Grammages
                     </span>
                     <span className="font-semibold text-white">{modalItem.paperWeights}</span>
                   </div>
 
-                  <div className="rounded-xl border border-[#203357] bg-[#101D35] p-3.5">
+                  <div className="rounded-xl border border-[#122240] bg-[#040A18] p-3.5">
                     <span className="text-[10px] font-black uppercase text-[#D4AF65] block mb-1">
                       Folding &amp; Finishing Specs
                     </span>
                     <span className="font-semibold text-white">{modalItem.panels}</span>
                   </div>
 
-                  <div className="rounded-xl border border-[#203357] bg-[#101D35] p-3.5">
+                  <div className="rounded-xl border border-[#122240] bg-[#040A18] p-3.5">
                     <span className="text-[10px] font-black uppercase text-[#D4AF65] block mb-1">
                       Turnaround in Dubai
                     </span>
@@ -417,7 +417,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
                 </div>
 
                 {/* Key Features Bullet points */}
-                <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4">
+                <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                   <span className="text-[10px] font-black uppercase tracking-wider text-[#D4AF65] block mb-2">
                     Commercial Manufacturing Highlights
                   </span>
@@ -439,7 +439,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
               </div>
 
               {/* Modal Footer with Direct Inquiry Actions */}
-              <div className="p-5 sm:p-6 border-t border-[#203357] bg-[#101D35]/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+              <div className="p-5 sm:p-6 border-t border-[#122240] bg-[#040A18]/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                 <span className="text-xs text-[#B0BECE] text-center sm:text-left">
                   Direct Heidelberg Pressroom in Al Quoz • No Middlemen
                 </span>
@@ -448,7 +448,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
                   <button
                     type="button"
                     onClick={() => setModalItem(null)}
-                    className="flex-1 sm:flex-none px-4 py-2.5 rounded-full border border-[#203357] text-xs font-bold text-slate-300 hover:text-white cursor-pointer"
+                    className="flex-1 sm:flex-none px-4 py-2.5 rounded-full border border-[#122240] text-xs font-bold text-slate-300 hover:text-white cursor-pointer"
                   >
                     Close
                   </button>

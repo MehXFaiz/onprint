@@ -402,7 +402,7 @@ export default function IdCardLandingPage() {
                 transition={{ duration: 0.6 }}
                 className="text-center max-w-4xl mx-auto"
               >
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#172644] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#D4AF65] mb-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#081226] px-4 py-1 text-xs font-extrabold uppercase tracking-widest text-[#D4AF65] mb-6">
                   <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
                   Professional UV ID Card Solutions
                 </div>
@@ -435,7 +435,7 @@ export default function IdCardLandingPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-[#172644] rounded-xl p-6 shadow-sm border border-[#203357] hover:border-[#D4AF65] transition-all"
+                    className="bg-[#081226] rounded-xl p-6 shadow-sm border border-[#122240] hover:border-[#D4AF65] transition-all"
                   >
                     <feature.icon className="h-10 w-10 text-[#D4AF65] mb-4" />
                     <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
@@ -456,8 +456,8 @@ export default function IdCardLandingPage() {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                       selectedCategory === cat.id
-                        ? 'bg-[#D4AF65] text-[#101D35] font-bold'
-                        : 'bg-[#172644] text-slate-200 border border-[#203357] hover:border-[#D4AF65] hover:text-[#D4AF65]'
+                        ? 'bg-[#D4AF65] text-[#040A18] font-bold'
+                        : 'bg-[#081226] text-slate-200 border border-[#122240] hover:border-[#D4AF65] hover:text-[#D4AF65]'
                     }`}
                   >
                     {cat.name}
@@ -480,9 +480,9 @@ export default function IdCardLandingPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-[#172644] rounded-xl overflow-hidden shadow-sm border border-[#203357] hover:border-[#D4AF65] transition-all group"
+                    className="bg-[#081226] rounded-xl overflow-hidden shadow-sm border border-[#122240] hover:border-[#D4AF65] transition-all group"
                   >
-                    <div className="aspect-[4/3] bg-[#101D35] overflow-hidden">
+                    <div className="aspect-[4/3] bg-[#040A18] overflow-hidden">
                       <img
                         src={card.image}
                         alt={card.title}
@@ -502,7 +502,7 @@ export default function IdCardLandingPage() {
                       <p className="text-sm font-semibold text-[#D4AF65] mb-3">{card.priceHint}</p>
                       <div className="flex flex-wrap gap-1 mb-3">
                         {card.features.slice(0, 3).map((feature) => (
-                          <span key={feature} className="text-xs bg-[#101D35] text-slate-300 border border-[#203357] px-2 py-1 rounded">
+                          <span key={feature} className="text-xs bg-[#040A18] text-slate-300 border border-[#122240] px-2 py-1 rounded">
                             {feature}
                           </span>
                         ))}
@@ -525,7 +525,7 @@ export default function IdCardLandingPage() {
 
           {/* Industry Solutions */}
           <Reveal>
-            <section className="py-16 mb-16 bg-[#172644]/50 border border-[#203357] rounded-2xl p-6 sm:p-10">
+            <section className="py-16 mb-16 bg-[#081226]/50 border border-[#122240] rounded-2xl p-6 sm:p-10">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-12 text-center">
                 Industry Solutions
               </h2>
@@ -536,12 +536,12 @@ export default function IdCardLandingPage() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-[#172644] rounded-xl p-6 shadow-sm border border-[#203357]"
+                    className="bg-[#081226] rounded-xl p-6 shadow-sm border border-[#122240]"
                   >
                     <solution.icon className="h-10 w-10 text-[#D4AF65] mb-4" />
                     <h3 className="text-xl font-semibold text-white mb-2">{solution.title}</h3>
                     <p className="text-sm text-slate-300 mb-3">{solution.desc}</p>
-                    <div className="text-xs font-semibold text-[#D4AF65] bg-[#101D35] border border-[#203357] p-2 rounded">
+                    <div className="text-xs font-semibold text-[#D4AF65] bg-[#040A18] border border-[#122240] p-2 rounded">
                       {solution.recommended}
                     </div>
                   </motion.div>
@@ -552,7 +552,7 @@ export default function IdCardLandingPage() {
 
           {/* Why Choose Us */}
           <Reveal>
-            <section className="py-16 mb-16 bg-[#172644] rounded-2xl p-8 lg:p-12 border border-[#203357]">
+            <section className="py-16 mb-16 bg-[#081226] rounded-2xl p-8 lg:p-12 border border-[#122240]">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
                 Why Choose ONPRINT for ID Cards?
               </h2>
@@ -619,7 +619,7 @@ export default function IdCardLandingPage() {
 
           {/* Contact Info */}
           <Reveal>
-            <section className="py-12 border-t border-[#203357]">
+            <section className="py-12 border-t border-[#122240]">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
                   <WhatsAppIcon className="h-8 w-8 fill-[#25D366] mx-auto mb-3" />

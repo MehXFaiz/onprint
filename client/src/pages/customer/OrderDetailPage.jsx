@@ -13,7 +13,7 @@ export default function OrderDetailPage() {
         <Link to="/account/orders" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D6C29A] hover:underline">
           <ArrowLeft className="h-4 w-4" /> Back to My Orders
         </Link>
-        <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-12 text-center shadow-xs">
+        <div className="rounded-3xl border border-[#122240] bg-[#081226] p-12 text-center shadow-xs">
           <Package className="h-10 w-10 text-[#52647D] mx-auto mb-3" />
           <h3 className="font-display text-lg font-bold text-[#F5F3EE]">Order Not Found</h3>
           <p className="text-xs text-[#F5F3EE]/60 mt-1">We could not find an order matching identifier &quot;{id}&quot;.</p>
@@ -56,14 +56,14 @@ export default function OrderDetailPage() {
       </div>
 
       {/* Production Stage Tracker */}
-      <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+      <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
         <h3 className="font-display text-xs font-bold uppercase tracking-wider text-[#F5F3EE]/60 mb-6">Production Timeline</h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {steps.map((s, idx) => (
             <div key={s.label} className="flex flex-col items-center text-center">
               <div
                 className={`flex h-10 w-10 items-center justify-center rounded-full text-xs font-bold transition-all ${
-                  s.done ? 'bg-[#D6C29A] text-[#0B132B] shadow-xs' : 'border border-[#1E2C4F] bg-[#0B132B] text-[#52647D]'
+                  s.done ? 'bg-[#D6C29A] text-[#040A18] shadow-xs' : 'border border-[#122240] bg-[#040A18] text-[#52647D]'
                 }`}
               >
                 {s.done ? <CheckCircle2 className="h-5 w-5" /> : idx + 1}
@@ -75,14 +75,14 @@ export default function OrderDetailPage() {
       </div>
 
       {/* Order Info Breakdown */}
-      <div className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs space-y-6">
+      <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs space-y-6">
         <div>
           <h2 className="font-display text-xl font-bold text-[#F5F3EE]">{order.productName}</h2>
           {order.specs && <p className="text-xs text-[#F5F3EE]/70 mt-1">{order.specs}</p>}
-          {order.notes && <p className="text-xs text-[#F5F3EE]/60 mt-2 bg-[#0B132B] p-3 rounded-xl border border-[#1E2C4F]">Notes: {order.notes}</p>}
+          {order.notes && <p className="text-xs text-[#F5F3EE]/60 mt-2 bg-[#040A18] p-3 rounded-xl border border-[#122240]">Notes: {order.notes}</p>}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-y border-[#1E2C4F] py-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-y border-[#122240] py-4">
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#F5F3EE]/50">Quantity</span>
             <p className="font-bold text-[#F5F3EE] text-sm mt-0.5">{order.quantity} units</p>
@@ -100,7 +100,7 @@ export default function OrderDetailPage() {
         {order.artworkFile && (
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#F5F3EE]/50">Attached Artwork</span>
-            <div className="mt-1.5 flex items-center gap-2 text-xs font-bold text-[#D6C29A] bg-[#0B132B] p-3 rounded-xl border border-[#1E2C4F]">
+            <div className="mt-1.5 flex items-center gap-2 text-xs font-bold text-[#D6C29A] bg-[#040A18] p-3 rounded-xl border border-[#122240]">
               <span>📎</span>
               <span>{order.artworkFile}</span>
             </div>

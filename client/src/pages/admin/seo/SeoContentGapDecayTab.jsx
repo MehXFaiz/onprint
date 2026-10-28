@@ -117,7 +117,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
   return (
     <div className="space-y-8">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
@@ -142,7 +142,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
               size="sm"
               onClick={loadData}
               disabled={loading}
-              className="text-xs font-bold border-[#1E2C4F]"
+              className="text-xs font-bold border-[#122240]"
             >
               <RefreshCw className={`h-3.5 w-3.5 mr-1.5 ${loading ? 'animate-spin' : ''}`} />
               Re-Scan Opportunities
@@ -152,8 +152,8 @@ export default function SeoContentGapDecayTab({ showToast }) {
       </div>
 
       {/* SECTION 1: Content Decay Monitor (Requirement 14) */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
-        <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+        <div className="flex items-center justify-between border-b border-[#122240] pb-4">
           <div>
             <div className="flex items-center gap-2">
               <TrendingDown className="h-4 w-4 text-red-600" />
@@ -176,7 +176,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-[#1E2C4F] bg-[#0B132B]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#122240] bg-[#040A18]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">URL Path</th>
                   <th className="py-3 px-3">Peak Clicks</th>
                   <th className="py-3 px-3">Recent Clicks</th>
@@ -190,7 +190,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
                 {decayList.map((item) => {
                   const isPending = item.status === 'PENDING'
                   return (
-                    <tr key={item.id} className="hover:bg-[#0B132B]/60 transition-colors">
+                    <tr key={item.id} className="hover:bg-[#040A18]/60 transition-colors">
                       <td className="py-3 px-4 font-mono font-bold text-[#F5F3EE]">
                         {item.page_path}
                       </td>
@@ -247,8 +247,8 @@ export default function SeoContentGapDecayTab({ showToast }) {
       </div>
 
       {/* SECTION 2: 7-Category Intent Content Gap Matrix (Requirement 10) */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-5">
-        <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-5">
+        <div className="flex items-center justify-between border-b border-[#122240] pb-4">
           <div>
             <div className="flex items-center gap-2">
               <Layers className="h-4 w-4 text-[#D6C29A]" />
@@ -278,10 +278,10 @@ export default function SeoContentGapDecayTab({ showToast }) {
         </div>
 
         {/* Selected Intent Table */}
-        <div className="border border-[#1E2C4F] rounded-xl overflow-hidden">
+        <div className="border border-[#122240] rounded-xl overflow-hidden">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="border-b border-[#1E2C4F] bg-[#0B132B]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+              <tr className="border-b border-[#122240] bg-[#040A18]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
                 <th className="py-3 px-4">Target Keyword (Dubai Focus)</th>
                 <th className="py-3 px-3">Current Coverage</th>
                 <th className="py-3 px-4">Mapped / Recommended URL</th>
@@ -293,7 +293,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
               {(contentGapMatrix[activeIntent] || []).map((row, idx) => {
                 const isCovered = row.status === 'Covered'
                 return (
-                  <tr key={idx} className="hover:bg-[#0B132B]/60 transition-colors">
+                  <tr key={idx} className="hover:bg-[#040A18]/60 transition-colors">
                     <td className="py-3 px-4 font-bold text-[#F5F3EE]">
                       {row.keyword}
                     </td>
@@ -343,8 +343,8 @@ export default function SeoContentGapDecayTab({ showToast }) {
       </div>
 
       {/* SECTION 3: Striking-Distance Keywords (Requirements 3 & 40) */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#1E2C4F] pb-4">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#122240] pb-4">
           <div>
             <div className="flex items-center gap-2">
               <Zap className="h-4 w-4 text-[#D6C29A]" />
@@ -380,7 +380,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-[#1E2C4F] bg-[#0B132B]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#122240] bg-[#040A18]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">Search Query</th>
                   <th className="py-3 px-3">Position</th>
                   <th className="py-3 px-3">Tier</th>
@@ -392,7 +392,7 @@ export default function SeoContentGapDecayTab({ showToast }) {
               </thead>
               <tbody className="divide-y divide-neutral-100">
                 {filteredStriking.map((kw, idx) => (
-                  <tr key={idx} className="hover:bg-[#0B132B]/60 transition-colors">
+                  <tr key={idx} className="hover:bg-[#040A18]/60 transition-colors">
                     <td className="py-3 px-4 font-bold text-[#F5F3EE]">
                       {kw.query}
                     </td>

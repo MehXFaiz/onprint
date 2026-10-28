@@ -544,7 +544,7 @@ export default function StickersLandingPage() {
   ]
 
   return (
-    <div className="bg-[#101D35] text-slate-200 min-h-screen">
+    <div className="bg-[#040A18] text-slate-200 min-h-screen">
       {/* 1. SEO Head Metadata with FAQ & LocalBusiness Schema */}
       <SEOHead
         title="Sticker Printing Dubai | Custom Stickers & Labels | ONPRINT"
@@ -557,7 +557,7 @@ export default function StickersLandingPage() {
       />
 
       {/* Sticky Mobile WhatsApp Inquiry Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#101D35]/95 backdrop-blur-md border-t border-[#203357] p-3 sm:hidden shadow-2xl flex items-center justify-between gap-3">
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#040A18]/95 backdrop-blur-md border-t border-[#122240] p-3 sm:hidden shadow-2xl flex items-center justify-between gap-3">
         <div className="min-w-0">
           <p className="text-[10px] font-bold text-[#D4AF65] uppercase truncate">Fast Quote on WhatsApp</p>
           <p className="text-xs font-black text-white truncate">{selectedProduct.name}</p>
@@ -573,7 +573,7 @@ export default function StickersLandingPage() {
       </div>
 
       {/* Hero Section: Section 2 Optimization */}
-      <section className="relative overflow-hidden pt-8 pb-14 sm:py-20 border-b border-[#203357] bg-radial-at-t from-[#172644] to-[#101D35]">
+      <section className="relative overflow-hidden pt-8 pb-14 sm:py-20 border-b border-[#122240] bg-radial-at-t from-[#081226] to-[#040A18]">
         <Container>
           <Breadcrumbs items={breadcrumbsList} />
 
@@ -582,13 +582,13 @@ export default function StickersLandingPage() {
             <div className="lg:col-span-7 space-y-6">
               <Reveal>
                 <div className="flex flex-wrap items-center gap-2.5">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#172644] px-4 py-1.5 text-xs font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#081226] px-4 py-1.5 text-xs font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                     <Sparkles className="h-4 w-4 text-[#D4AF65]" />
                     <span>Dubai Sticker Printing • 100% Waterproof Heavy-Duty Vinyl</span>
                   </div>
                   <Link
                     to="/ar/sticker-printing-dubai"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF65]/60 bg-[#172644] hover:bg-[#D4AF65]/15 px-3 py-1.5 text-xs font-bold text-[#D4AF65] transition-colors shadow-xs"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF65]/60 bg-[#081226] hover:bg-[#D4AF65]/15 px-3 py-1.5 text-xs font-bold text-[#D4AF65] transition-colors shadow-xs"
                     title="النسخة العربية - طباعة استيكرات وملصقات دبي"
                   >
                     <span>🇦🇪 النسخة العربية (Arabic)</span>
@@ -611,15 +611,15 @@ export default function StickersLandingPage() {
               {/* Value Highlights */}
               <Reveal delay={0.25}>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs font-semibold text-slate-300">
-                  <div className="flex items-center gap-2 rounded-xl bg-[#172644]/80 border border-[#203357] p-2.5">
+                  <div className="flex items-center gap-2 rounded-xl bg-[#081226]/80 border border-[#122240] p-2.5">
                     <Droplets className="h-4 w-4 text-[#D4AF65] shrink-0" />
                     <span>Waterproof &amp; Oil-Proof</span>
                   </div>
-                  <div className="flex items-center gap-2 rounded-xl bg-[#172644]/80 border border-[#203357] p-2.5">
+                  <div className="flex items-center gap-2 rounded-xl bg-[#081226]/80 border border-[#122240] p-2.5">
                     <Scissors className="h-4 w-4 text-[#D4AF65] shrink-0" />
                     <span>Optical Contour Die-Cut</span>
                   </div>
-                  <div className="flex items-center gap-2 rounded-xl bg-[#172644]/80 border border-[#203357] p-2.5 col-span-2 sm:col-span-1">
+                  <div className="flex items-center gap-2 rounded-xl bg-[#081226]/80 border border-[#122240] p-2.5 col-span-2 sm:col-span-1">
                     <Clock className="h-4 w-4 text-[#D4AF65] shrink-0" />
                     <span>Same-Day / 24h Express</span>
                   </div>
@@ -657,8 +657,8 @@ export default function StickersLandingPage() {
             {/* Right Column: Hero Showcase Visual */}
             <div className="lg:col-span-5">
               <Reveal delay={0.2}>
-                <div className="relative rounded-3xl border border-[#203357] bg-[#172644] p-4 shadow-2xl overflow-hidden group">
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#0C1629]">
+                <div className="relative rounded-3xl border border-[#122240] bg-[#081226] p-4 shadow-2xl overflow-hidden group">
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#020611]">
                     <img
                       src="/assets/products/stickers/die-cut-vinyl-stickers.jpg"
                       alt="Custom Die-Cut Sticker Printing Dubai - Waterproof Vinyl"
@@ -668,7 +668,7 @@ export default function StickersLandingPage() {
                       loading="eager"
                     />
                     <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-                      <span className="rounded-full bg-[#101D35]/90 border border-[#203357] px-3 py-1 text-[10px] font-black uppercase text-[#D4AF65] backdrop-blur-xs">
+                      <span className="rounded-full bg-[#040A18]/90 border border-[#122240] px-3 py-1 text-[10px] font-black uppercase text-[#D4AF65] backdrop-blur-xs">
                         15 Sticker Styles
                       </span>
                     </div>
@@ -697,7 +697,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 1: Custom Sticker Printing Product Gallery */}
-      <section className="py-14 sm:py-20 border-b border-[#203357]">
+      <section className="py-14 sm:py-20 border-b border-[#122240]">
         <Container>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
@@ -713,7 +713,7 @@ export default function StickersLandingPage() {
             </div>
 
             {/* Filter Tabs */}
-            <div className="flex flex-wrap gap-1.5 p-1 rounded-xl bg-[#172644] border border-[#203357]">
+            <div className="flex flex-wrap gap-1.5 p-1 rounded-xl bg-[#081226] border border-[#122240]">
               {[
                 { id: 'all', label: 'All 15 Products' },
                 { id: 'vinyl', label: 'Waterproof Vinyl' },
@@ -728,8 +728,8 @@ export default function StickersLandingPage() {
                   onClick={() => setActiveCategory(tab.id)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     activeCategory === tab.id
-                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
-                      : 'text-[#B0BECE] hover:text-white hover:bg-[#203357]'
+                      ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
+                      : 'text-[#B0BECE] hover:text-white hover:bg-[#122240]'
                   }`}
                 >
                   {tab.label}
@@ -743,10 +743,10 @@ export default function StickersLandingPage() {
             {filteredProducts.map((prod) => (
               <div
                 key={prod.id}
-                className="rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-5 flex flex-col justify-between hover:border-[#D4AF65] transition-all hover:shadow-xl group"
+                className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 flex flex-col justify-between hover:border-[#D4AF65] transition-all hover:shadow-xl group"
               >
                 <div>
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#0C1629] mb-4 border border-[#203357]">
+                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#020611] mb-4 border border-[#122240]">
                     <img
                       src={prod.image}
                       alt={`${prod.name} Dubai - ONPRINT`}
@@ -756,7 +756,7 @@ export default function StickersLandingPage() {
                       height="300"
                     />
                     <div className="absolute top-2 left-2">
-                      <span className="rounded-full bg-[#101D35]/90 border border-[#203357] px-2.5 py-0.5 text-[9px] font-black uppercase text-[#D4AF65]">
+                      <span className="rounded-full bg-[#040A18]/90 border border-[#122240] px-2.5 py-0.5 text-[9px] font-black uppercase text-[#D4AF65]">
                         {prod.badge}
                       </span>
                     </div>
@@ -769,13 +769,13 @@ export default function StickersLandingPage() {
                     {prod.description}
                   </p>
 
-                  <div className="mt-4 pt-3 border-t border-[#203357] text-[11px] text-slate-300 space-y-1">
+                  <div className="mt-4 pt-3 border-t border-[#122240] text-[11px] text-slate-300 space-y-1">
                     <p><strong className="text-white">Specs:</strong> {prod.specs}</p>
                     <p><strong className="text-white">Uses:</strong> {prod.suitableFor}</p>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#203357] flex items-center justify-between gap-3">
+                <div className="mt-6 pt-4 border-t border-[#122240] flex items-center justify-between gap-3">
                   <div>
                     <span className="text-[10px] text-[#B0BECE] uppercase block">Starting from</span>
                     <span className="text-base font-black text-[#D4AF65]">AED {prod.basePrice}</span>
@@ -785,7 +785,7 @@ export default function StickersLandingPage() {
                   <div className="flex items-center gap-2">
                     <Link
                       to={`/products/${prod.slug}`}
-                      className="rounded-lg border border-[#203357] hover:border-[#D4AF65] bg-[#101D35] px-3 py-2 text-xs font-bold text-white transition-colors"
+                      className="rounded-lg border border-[#122240] hover:border-[#D4AF65] bg-[#040A18] px-3 py-2 text-xs font-bold text-white transition-colors"
                     >
                       Details
                     </Link>
@@ -809,7 +809,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 2 & 3: Sticker Types, Shapes, Sizes & Dimensions */}
-      <section className="py-14 sm:py-20 border-b border-[#203357] bg-[#101D35]">
+      <section className="py-14 sm:py-20 border-b border-[#122240] bg-[#040A18]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left: Shapes & Types */}
@@ -827,7 +827,7 @@ export default function StickersLandingPage() {
                   return (
                     <div
                       key={shape.id}
-                      className="rounded-xl border border-[#203357] bg-[#172644] p-4 space-y-2 hover:border-[#D4AF65] transition-all"
+                      className="rounded-xl border border-[#122240] bg-[#081226] p-4 space-y-2 hover:border-[#D4AF65] transition-all"
                     >
                       <div className="flex items-center gap-2.5">
                         <div className="h-8 w-8 rounded-lg bg-[#D4AF65]/10 flex items-center justify-center text-[#D4AF65]">
@@ -855,7 +855,7 @@ export default function StickersLandingPage() {
                 {STICKER_SIZES.map((s, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between p-3.5 rounded-xl border border-[#203357] bg-[#172644] hover:border-[#D4AF65] transition-colors"
+                    className="flex items-center justify-between p-3.5 rounded-xl border border-[#122240] bg-[#081226] hover:border-[#D4AF65] transition-colors"
                   >
                     <div>
                       <p className="text-xs font-bold text-white">{s.label}</p>
@@ -873,7 +873,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 4: Materials and Finishes */}
-      <section className="py-14 sm:py-20 border-b border-[#203357] bg-[#172644]/50">
+      <section className="py-14 sm:py-20 border-b border-[#122240] bg-[#081226]/50">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
@@ -891,13 +891,13 @@ export default function StickersLandingPage() {
             {STICKER_MATERIALS.map((mat) => (
               <div
                 key={mat.id}
-                className="rounded-2xl border border-[#203357] bg-[#172644] p-5 space-y-3 hover:border-[#D4AF65] transition-all"
+                className="rounded-2xl border border-[#122240] bg-[#081226] p-5 space-y-3 hover:border-[#D4AF65] transition-all"
               >
                 <div className="flex items-center justify-between">
                   <span className="h-8 w-8 rounded-lg bg-[#D4AF65]/10 flex items-center justify-center text-[#D4AF65]">
                     <Layers className="h-4 w-4" />
                   </span>
-                  <span className="text-[10px] font-bold text-[#D4AF65] bg-[#101D35] px-2 py-0.5 rounded border border-[#203357]">
+                  <span className="text-[10px] font-bold text-[#D4AF65] bg-[#040A18] px-2 py-0.5 rounded border border-[#122240]">
                     100% Tested
                   </span>
                 </div>
@@ -907,9 +907,9 @@ export default function StickersLandingPage() {
             ))}
           </div>
 
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 border-t border-[#203357]">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 border-t border-[#122240]">
             {STICKER_FINISHES.map((fin) => (
-              <div key={fin.id} className="p-4 rounded-xl bg-[#101D35] border border-[#203357]">
+              <div key={fin.id} className="p-4 rounded-xl bg-[#040A18] border border-[#122240]">
                 <p className="text-xs font-bold text-white">{fin.name}</p>
                 <p className="text-[11px] text-[#B0BECE] mt-1">{fin.desc}</p>
               </div>
@@ -919,7 +919,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 5 & 6: Use Cases: Packaging, Bottles, Jars & Brand Merch */}
-      <section className="py-14 sm:py-20 border-b border-[#203357] bg-[#101D35]">
+      <section className="py-14 sm:py-20 border-b border-[#122240] bg-[#040A18]">
         <Container>
           <div className="max-w-3xl mb-10">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
@@ -937,7 +937,7 @@ export default function StickersLandingPage() {
             {USE_CASES.map((uc, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl border border-[#203357] bg-[#172644] p-5 space-y-2 hover:border-[#D4AF65] transition-all"
+                className="rounded-2xl border border-[#122240] bg-[#081226] p-5 space-y-2 hover:border-[#D4AF65] transition-all"
               >
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#D4AF65] shrink-0" />
@@ -951,7 +951,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 7 & 8: Interactive Sticker Cost & Quote Calculator */}
-      <section id="calculator-section" className="py-14 sm:py-20 border-b border-[#203357] bg-[#172644]">
+      <section id="calculator-section" className="py-14 sm:py-20 border-b border-[#122240] bg-[#081226]">
         <Container>
           <div className="max-w-3xl mx-auto text-center mb-10">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF65]/10 border border-[#D4AF65] px-3.5 py-1 text-xs font-black uppercase text-[#D4AF65]">
@@ -968,7 +968,7 @@ export default function StickersLandingPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left: Specification Selectors */}
-            <div className="lg:col-span-7 bg-[#101D35] rounded-3xl border border-[#203357] p-6 sm:p-8 space-y-6">
+            <div className="lg:col-span-7 bg-[#040A18] rounded-3xl border border-[#122240] p-6 sm:p-8 space-y-6">
               {/* Product Type Selector */}
               <div>
                 <label className="block text-xs font-black uppercase text-[#D4AF65] mb-2">
@@ -980,7 +980,7 @@ export default function StickersLandingPage() {
                     const found = STICKER_PRODUCTS.find((p) => p.slug === e.target.value)
                     if (found) setSelectedProduct(found)
                   }}
-                  className="w-full rounded-xl border border-[#203357] bg-[#172644] px-4 py-3 text-xs font-bold text-white focus:border-[#D4AF65] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] bg-[#081226] px-4 py-3 text-xs font-bold text-white focus:border-[#D4AF65] focus:outline-none"
                 >
                   {STICKER_PRODUCTS.map((p) => (
                     <option key={p.slug} value={p.slug}>
@@ -1004,7 +1004,7 @@ export default function StickersLandingPage() {
                       className={`p-2.5 rounded-xl border text-xs font-bold transition-all text-left cursor-pointer ${
                         selectedShape.id === sh.id
                           ? 'border-[#D4AF65] bg-[#D4AF65]/15 text-[#D4AF65]'
-                          : 'border-[#203357] bg-[#172644] text-[#B0BECE] hover:text-white'
+                          : 'border-[#122240] bg-[#081226] text-[#B0BECE] hover:text-white'
                       }`}
                     >
                       {sh.name}
@@ -1027,7 +1027,7 @@ export default function StickersLandingPage() {
                       className={`p-2.5 rounded-xl border text-xs font-bold transition-all text-left cursor-pointer ${
                         selectedSize.label === sz.label
                           ? 'border-[#D4AF65] bg-[#D4AF65]/15 text-[#D4AF65]'
-                          : 'border-[#203357] bg-[#172644] text-[#B0BECE] hover:text-white'
+                          : 'border-[#122240] bg-[#081226] text-[#B0BECE] hover:text-white'
                       }`}
                     >
                       {sz.label}
@@ -1048,7 +1048,7 @@ export default function StickersLandingPage() {
                       const found = STICKER_MATERIALS.find((m) => m.id === e.target.value)
                       if (found) setSelectedMaterial(found)
                     }}
-                    className="w-full rounded-xl border border-[#203357] bg-[#172644] px-3.5 py-2.5 text-xs font-bold text-white focus:border-[#D4AF65] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs font-bold text-white focus:border-[#D4AF65] focus:outline-none"
                   >
                     {STICKER_MATERIALS.map((m) => (
                       <option key={m.id} value={m.id}>
@@ -1068,7 +1068,7 @@ export default function StickersLandingPage() {
                       const found = STICKER_FINISHES.find((f) => f.id === e.target.value)
                       if (found) setSelectedFinish(found)
                     }}
-                    className="w-full rounded-xl border border-[#203357] bg-[#172644] px-3.5 py-2.5 text-xs font-bold text-white focus:border-[#D4AF65] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs font-bold text-white focus:border-[#D4AF65] focus:outline-none"
                   >
                     {STICKER_FINISHES.map((f) => (
                       <option key={f.id} value={f.id}>
@@ -1096,7 +1096,7 @@ export default function StickersLandingPage() {
                       className={`p-2 rounded-xl border text-center transition-all cursor-pointer ${
                         !customQty && selectedQtyTier.qty === tier.qty
                           ? 'border-[#D4AF65] bg-[#D4AF65]/15 text-[#D4AF65] font-black'
-                          : 'border-[#203357] bg-[#172644] text-[#B0BECE] hover:text-white font-bold'
+                          : 'border-[#122240] bg-[#081226] text-[#B0BECE] hover:text-white font-bold'
                       }`}
                     >
                       <div className="text-xs">{tier.label}</div>
@@ -1115,7 +1115,7 @@ export default function StickersLandingPage() {
                     placeholder="e.g. 750"
                     value={customQty}
                     onChange={(e) => setCustomQty(e.target.value)}
-                    className="w-32 rounded-lg border border-[#203357] bg-[#172644] px-3 py-1.5 text-xs font-bold text-white focus:border-[#D4AF65] focus:outline-none"
+                    className="w-32 rounded-lg border border-[#122240] bg-[#081226] px-3 py-1.5 text-xs font-bold text-white focus:border-[#D4AF65] focus:outline-none"
                   />
                   <span className="text-xs text-[#B0BECE]">units</span>
                 </div>
@@ -1132,7 +1132,7 @@ export default function StickersLandingPage() {
                     value={intendedUse}
                     onChange={(e) => setIntendedUse(e.target.value)}
                     placeholder="e.g. Bottle label, box seal"
-                    className="w-full rounded-xl border border-[#203357] bg-[#172644] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -1144,7 +1144,7 @@ export default function StickersLandingPage() {
                     value={deliveryLocation}
                     onChange={(e) => setDeliveryLocation(e.target.value)}
                     placeholder="Dubai, UAE"
-                    className="w-full rounded-xl border border-[#203357] bg-[#172644] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                   />
                 </div>
               </div>
@@ -1159,14 +1159,14 @@ export default function StickersLandingPage() {
                   value={additionalRequirements}
                   onChange={(e) => setAdditionalRequirements(e.target.value)}
                   placeholder="e.g. Need 2mm bleed check, vector cutline review"
-                  className="w-full rounded-xl border border-[#203357] bg-[#172644] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Right: Price Breakdown & Prominent WhatsApp Button */}
-            <div className="lg:col-span-5 bg-[#101D35] rounded-3xl border border-[#203357] p-6 sm:p-8 space-y-6 lg:sticky lg:top-24">
-              <div className="border-b border-[#203357] pb-4">
+            <div className="lg:col-span-5 bg-[#040A18] rounded-3xl border border-[#122240] p-6 sm:p-8 space-y-6 lg:sticky lg:top-24">
+              <div className="border-b border-[#122240] pb-4">
                 <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF65]">
                   ESTIMATED QUOTATION
                 </span>
@@ -1194,7 +1194,7 @@ export default function StickersLandingPage() {
                   <span>Standard UAE VAT (5%):</span>
                   <span>AED {pricingBreakdown.vat.toFixed(2)}</span>
                 </div>
-                <div className="border-t border-[#203357] pt-3 flex justify-between items-baseline">
+                <div className="border-t border-[#122240] pt-3 flex justify-between items-baseline">
                   <span className="text-sm font-bold text-white">Estimated Total:</span>
                   <div className="text-right">
                     <span className="text-2xl font-black text-[#D4AF65]">
@@ -1222,19 +1222,19 @@ export default function StickersLandingPage() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(true)}
-                  className="w-full rounded-xl border border-[#203357] hover:border-[#D4AF65] bg-[#172644] py-3 px-4 text-xs font-bold text-slate-200 transition-colors cursor-pointer"
+                  className="w-full rounded-xl border border-[#122240] hover:border-[#D4AF65] bg-[#081226] py-3 px-4 text-xs font-bold text-slate-200 transition-colors cursor-pointer"
                 >
                   Or Submit Official Quotation Form
                 </button>
               </div>
 
               {/* Live Preview of Prefilled WhatsApp Message */}
-              <div className="rounded-xl bg-[#172644]/70 border border-[#203357] p-3.5 space-y-1.5 text-[11px]">
+              <div className="rounded-xl bg-[#081226]/70 border border-[#122240] p-3.5 space-y-1.5 text-[11px]">
                 <div className="flex items-center gap-1.5 font-bold text-[#D4AF65]">
                   <MessageSquare className="h-3.5 w-3.5" />
                   <span>Prefilled WhatsApp Inquiry Format:</span>
                 </div>
-                <pre className="text-[#B0BECE] font-mono text-[10px] whitespace-pre-wrap leading-relaxed max-h-36 overflow-y-auto bg-[#0C1629] p-2 rounded-lg border border-[#203357]">
+                <pre className="text-[#B0BECE] font-mono text-[10px] whitespace-pre-wrap leading-relaxed max-h-36 overflow-y-auto bg-[#020611] p-2 rounded-lg border border-[#122240]">
                   {formatStickerInquiry({
                     stickerType: selectedProduct.name,
                     quantity: `${effectiveQty} pcs`,
@@ -1265,7 +1265,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 9: Artwork & Print-Ready File Requirements */}
-      <section className="py-14 sm:py-20 border-b border-[#203357] bg-[#101D35]">
+      <section className="py-14 sm:py-20 border-b border-[#122240] bg-[#040A18]">
         <Container>
           <div className="max-w-3xl mb-10">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
@@ -1280,7 +1280,7 @@ export default function StickersLandingPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-5 space-y-2">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 space-y-2">
               <span className="h-8 w-8 rounded-lg bg-[#D4AF65]/10 flex items-center justify-center text-[#D4AF65] font-bold text-xs">
                 01
               </span>
@@ -1290,7 +1290,7 @@ export default function StickersLandingPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-5 space-y-2">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 space-y-2">
               <span className="h-8 w-8 rounded-lg bg-[#D4AF65]/10 flex items-center justify-center text-[#D4AF65] font-bold text-xs">
                 02
               </span>
@@ -1300,7 +1300,7 @@ export default function StickersLandingPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-5 space-y-2">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 space-y-2">
               <span className="h-8 w-8 rounded-lg bg-[#D4AF65]/10 flex items-center justify-center text-[#D4AF65] font-bold text-xs">
                 03
               </span>
@@ -1310,7 +1310,7 @@ export default function StickersLandingPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#203357] bg-[#172644] p-5 space-y-2">
+            <div className="rounded-2xl border border-[#122240] bg-[#081226] p-5 space-y-2">
               <span className="h-8 w-8 rounded-lg bg-[#D4AF65]/10 flex items-center justify-center text-[#D4AF65] font-bold text-xs">
                 04
               </span>
@@ -1324,7 +1324,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 10: Production & Delivery Information */}
-      <section className="py-14 sm:py-20 border-b border-[#203357] bg-[#172644]/40">
+      <section className="py-14 sm:py-20 border-b border-[#122240] bg-[#081226]/40">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
@@ -1371,7 +1371,7 @@ export default function StickersLandingPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 rounded-2xl border border-[#203357] bg-[#101D35] p-6 space-y-4">
+            <div className="lg:col-span-5 rounded-2xl border border-[#122240] bg-[#040A18] p-6 space-y-4">
               <h3 className="font-serif text-base font-bold text-white flex items-center gap-2">
                 <Truck className="h-4 w-4 text-[#D4AF65]" />
                 <span>Express Doorstep Delivery in Dubai &amp; UAE</span>
@@ -1381,7 +1381,7 @@ export default function StickersLandingPage() {
                 Direct doorstep dispatch to offices, studios &amp; residences across Dubai (Downtown, DIFC, Business Bay, Marina, Deira) and all 7 Emirates.<br />
                 Fully tracked delivery with WhatsApp status updates.
               </p>
-              <div className="border-t border-[#203357] pt-4 flex flex-col gap-2">
+              <div className="border-t border-[#122240] pt-4 flex flex-col gap-2">
                 <button
                   type="button"
                   onClick={() => handleWhatsAppClick('pressroom_location_card')}
@@ -1397,7 +1397,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 11: Frequently Asked Questions (FAQ) with Schema */}
-      <section className="py-14 sm:py-20 border-b border-[#203357] bg-[#101D35]">
+      <section className="py-14 sm:py-20 border-b border-[#122240] bg-[#040A18]">
         <Container>
           <div className="max-w-3xl mb-10">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
@@ -1415,7 +1415,7 @@ export default function StickersLandingPage() {
             {STICKER_FAQS.map((faq, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl border border-[#203357] bg-[#172644] p-6 space-y-2 hover:border-[#D4AF65] transition-colors"
+                className="rounded-2xl border border-[#122240] bg-[#081226] p-6 space-y-2 hover:border-[#D4AF65] transition-colors"
               >
                 <h3 className="font-serif text-base font-bold text-white">
                   {faq.question}
@@ -1430,7 +1430,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 11.5: GEO FactSheet for AI-Assisted Search & Perplexity / Gemini Optimization */}
-      <section id="geo-factsheet" className="py-14 sm:py-20 border-b border-[#203357] bg-[#172644]/40">
+      <section id="geo-factsheet" className="py-14 sm:py-20 border-b border-[#122240] bg-[#081226]/40">
         <Container>
           <div className="max-w-3xl mb-8">
             <span className="text-xs font-black uppercase tracking-widest text-[#D4AF65]">
@@ -1445,7 +1445,7 @@ export default function StickersLandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+            <div className="p-4 rounded-xl border border-[#122240] bg-[#040A18] space-y-1.5">
               <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Operating Facility</span>
               <h3 className="font-serif text-sm font-bold text-white">Dubai Production &amp; Courier Hub</h3>
               <p className="text-xs text-[#B0BECE] leading-relaxed">
@@ -1453,7 +1453,7 @@ export default function StickersLandingPage() {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+            <div className="p-4 rounded-xl border border-[#122240] bg-[#040A18] space-y-1.5">
               <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Substrate Range</span>
               <h3 className="font-serif text-sm font-bold text-white">7 Commercial Substrates</h3>
               <p className="text-xs text-[#B0BECE] leading-relaxed">
@@ -1461,7 +1461,7 @@ export default function StickersLandingPage() {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+            <div className="p-4 rounded-xl border border-[#122240] bg-[#040A18] space-y-1.5">
               <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Weather &amp; Heat Durability</span>
               <h3 className="font-serif text-sm font-bold text-white">-20°C to +80°C Rating</h3>
               <p className="text-xs text-[#B0BECE] leading-relaxed">
@@ -1469,7 +1469,7 @@ export default function StickersLandingPage() {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+            <div className="p-4 rounded-xl border border-[#122240] bg-[#040A18] space-y-1.5">
               <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Batch MOQs &amp; Wholesale</span>
               <h3 className="font-serif text-sm font-bold text-white">50 pcs to 50,000+ pcs</h3>
               <p className="text-xs text-[#B0BECE] leading-relaxed">
@@ -1477,7 +1477,7 @@ export default function StickersLandingPage() {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+            <div className="p-4 rounded-xl border border-[#122240] bg-[#040A18] space-y-1.5">
               <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Delivery Timelines</span>
               <h3 className="font-serif text-sm font-bold text-white">Same-Day 4-Hour Express</h3>
               <p className="text-xs text-[#B0BECE] leading-relaxed">
@@ -1485,7 +1485,7 @@ export default function StickersLandingPage() {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-[#203357] bg-[#101D35] space-y-1.5">
+            <div className="p-4 rounded-xl border border-[#122240] bg-[#040A18] space-y-1.5">
               <span className="text-[10px] font-bold uppercase text-[#D4AF65]">Artwork Inspection</span>
               <h3 className="font-serif text-sm font-bold text-white">Free Pre-Press Verification</h3>
               <p className="text-xs text-[#B0BECE] leading-relaxed">
@@ -1497,7 +1497,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 11.6: Supporting Customer Guides (Section 7) */}
-      <section className="py-14 sm:py-20 border-b border-[#203357] bg-[#101D35]">
+      <section className="py-14 sm:py-20 border-b border-[#122240] bg-[#040A18]">
         <Container>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
@@ -1556,7 +1556,7 @@ export default function StickersLandingPage() {
               <Link
                 key={idx}
                 to={`/blog/${art.slug}`}
-                className="rounded-2xl border border-[#203357] bg-[#172644] p-4 flex flex-col justify-between hover:border-[#D4AF65] hover:shadow-lg transition-all group"
+                className="rounded-2xl border border-[#122240] bg-[#081226] p-4 flex flex-col justify-between hover:border-[#D4AF65] hover:shadow-lg transition-all group"
               >
                 <div>
                   <span className="text-[10px] font-extrabold uppercase text-[#D4AF65] block mb-2">
@@ -1569,7 +1569,7 @@ export default function StickersLandingPage() {
                     {art.desc}
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[#203357] flex items-center gap-1 text-[11px] font-bold text-[#D4AF65]">
+                <div className="mt-4 pt-3 border-t border-[#122240] flex items-center gap-1 text-[11px] font-bold text-[#D4AF65]">
                   <span>Read Guide</span>
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -1580,7 +1580,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Section 11.7: Related Commercial Printing Services */}
-      <section className="py-12 sm:py-16 border-b border-[#203357] bg-[#172644]/50">
+      <section className="py-12 sm:py-16 border-b border-[#122240] bg-[#081226]/50">
         <Container>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8">
             <div>
@@ -1600,7 +1600,7 @@ export default function StickersLandingPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link
               to="/business-card-printing-dubai"
-              className="p-4 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] transition-all group"
+              className="p-4 rounded-xl border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] transition-all group"
             >
               <h3 className="font-serif text-sm font-bold text-white group-hover:text-[#D4AF65] transition-colors">
                 Luxury Business Cards
@@ -1613,7 +1613,7 @@ export default function StickersLandingPage() {
 
             <Link
               to="/categories/custom-stamps-seals"
-              className="p-4 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] transition-all group"
+              className="p-4 rounded-xl border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] transition-all group"
             >
               <h3 className="font-serif text-sm font-bold text-white group-hover:text-[#D4AF65] transition-colors">
                 Official Company Stamps
@@ -1626,7 +1626,7 @@ export default function StickersLandingPage() {
 
             <Link
               to="/services/rollup-banners"
-              className="p-4 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] transition-all group"
+              className="p-4 rounded-xl border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] transition-all group"
             >
               <h3 className="font-serif text-sm font-bold text-white group-hover:text-[#D4AF65] transition-colors">
                 Roll-Up Banners &amp; Stands
@@ -1639,7 +1639,7 @@ export default function StickersLandingPage() {
 
             <Link
               to="/services/luxury-packaging-custom-boxes"
-              className="p-4 rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] transition-all group"
+              className="p-4 rounded-xl border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] transition-all group"
             >
               <h3 className="font-serif text-sm font-bold text-white group-hover:text-[#D4AF65] transition-colors">
                 Custom Boxes &amp; Packaging
@@ -1654,7 +1654,7 @@ export default function StickersLandingPage() {
       </section>
 
       {/* Final Section 12 Bottom CTA Banner */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-[#101D35] to-[#0A1222] text-center border-t border-[#203357]">
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-[#040A18] to-[#0A1222] text-center border-t border-[#122240]">
         <Container>
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65] bg-[#D4AF65]/10 px-4 py-1.5 text-xs font-black uppercase tracking-wider text-[#D4AF65]">
@@ -1682,7 +1682,7 @@ export default function StickersLandingPage() {
 
               <Link
                 to="/quote/stickers"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-[#203357] hover:border-[#D4AF65] bg-[#172644] px-6 py-4 text-sm font-bold text-white transition-all hover:-translate-y-0.5"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-[#122240] hover:border-[#D4AF65] bg-[#081226] px-6 py-4 text-sm font-bold text-white transition-all hover:-translate-y-0.5"
               >
                 <span>Upload Artwork for Quote</span>
                 <ArrowRight className="h-4 w-4" />
@@ -1700,9 +1700,9 @@ export default function StickersLandingPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="relative w-full max-w-lg rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-8 text-white shadow-2xl space-y-6"
+              className="relative w-full max-w-lg rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 text-white shadow-2xl space-y-6"
             >
-              <div className="flex items-center justify-between border-b border-[#203357] pb-4">
+              <div className="flex items-center justify-between border-b border-[#122240] pb-4">
                 <div>
                   <h3 className="font-serif text-lg font-bold">Request Official PDF Quote</h3>
                   <p className="text-xs text-[#B0BECE]">{selectedProduct.name} • {effectiveQty} pcs</p>
@@ -1710,7 +1710,7 @@ export default function StickersLandingPage() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="rounded-lg p-2 text-[#B0BECE] hover:text-white hover:bg-[#203357]"
+                  className="rounded-lg p-2 text-[#B0BECE] hover:text-white hover:bg-[#122240]"
                 >
                   ✕
                 </button>
@@ -1731,7 +1731,7 @@ export default function StickersLandingPage() {
                       setFormSuccess(false)
                       setModalOpen(false)
                     }}
-                    className="mt-4 rounded-xl bg-[#D4AF65] px-6 py-2.5 text-xs font-bold text-[#101D35]"
+                    className="mt-4 rounded-xl bg-[#D4AF65] px-6 py-2.5 text-xs font-bold text-[#040A18]"
                   >
                     Close Window
                   </button>
@@ -1772,7 +1772,7 @@ export default function StickersLandingPage() {
                       value={customerName}
                       onChange={(e) => setCustomerName(e.target.value)}
                       placeholder="e.g. Tariq Al Mansoori"
-                      className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                      className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
 
@@ -1785,7 +1785,7 @@ export default function StickersLandingPage() {
                         value={customerPhone}
                         onChange={(e) => setCustomerPhone(e.target.value)}
                         placeholder="+971 50 123 4567"
-                        className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                        className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                       />
                     </div>
                     <div>
@@ -1795,7 +1795,7 @@ export default function StickersLandingPage() {
                         value={customerEmail}
                         onChange={(e) => setCustomerEmail(e.target.value)}
                         placeholder="tariq@brand.ae"
-                        className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                        className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                       />
                     </div>
                   </div>
@@ -1808,12 +1808,12 @@ export default function StickersLandingPage() {
                         value={customerCompany}
                         onChange={(e) => setCustomerCompany(e.target.value)}
                         placeholder="e.g. Al Quoz Roastery LLC"
-                        className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                        className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-[#B0BECE] mb-1">Upload Artwork (Optional)</label>
-                      <label className="flex items-center justify-center gap-2 rounded-xl border border-dashed border-[#203357] bg-[#101D35] hover:border-[#D4AF65] px-3 py-2 text-xs text-white cursor-pointer transition-colors">
+                      <label className="flex items-center justify-center gap-2 rounded-xl border border-dashed border-[#122240] bg-[#040A18] hover:border-[#D4AF65] px-3 py-2 text-xs text-white cursor-pointer transition-colors">
                         <Upload className="h-3.5 w-3.5 text-[#D4AF65] shrink-0" />
                         <span className="truncate text-[11px]">{stickerArtworkFile ? stickerArtworkFile.name : 'Attach PDF / AI / PNG'}</span>
                         <input
@@ -1829,7 +1829,7 @@ export default function StickersLandingPage() {
                   <button
                     type="submit"
                     disabled={formSubmitting}
-                    className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#C8B185] text-[#101D35] font-black rounded-xl text-xs uppercase tracking-wider transition-all disabled:opacity-50 cursor-pointer shadow-lg shadow-[#D4AF65]/25"
+                    className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#C8B185] text-[#040A18] font-black rounded-xl text-xs uppercase tracking-wider transition-all disabled:opacity-50 cursor-pointer shadow-lg shadow-[#D4AF65]/25"
                   >
                     {formSubmitting ? 'Submitting Request…' : 'Submit Quotation Request →'}
                   </button>

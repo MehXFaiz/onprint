@@ -22,7 +22,7 @@ export default function EmptyState({
   }
 
   return (
-    <div className={`flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-[#203357] bg-[#172644] px-6 py-16 text-center text-[#F5F2EB] ${className}`}>
+    <div className={`flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-[#122240] bg-[#081226] px-6 py-16 text-center text-[#F5F2EB] ${className}`}>
       {renderIcon()}
       <p className="font-display text-base font-bold text-[#F5F2EB]">{title}</p>
       {note && <p className="max-w-sm text-sm text-[#B0BECE] leading-relaxed">{note}</p>}

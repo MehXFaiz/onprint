@@ -30,14 +30,14 @@ const STATUS_CHOICES = [
 ]
 
 const STATUS_COLORS = {
-  Prospect: 'bg-neutral-100 text-[#F5F3EE] border-[#1E2C4F]',
+  Prospect: 'bg-neutral-100 text-[#F5F3EE] border-[#122240]',
   Researching: 'bg-blue-50 text-blue-700 border-blue-200',
   Contacted: 'bg-amber-50 text-amber-700 border-amber-200',
   Submitted: 'bg-purple-50 text-purple-700 border-purple-200',
   Approved: 'bg-cyan-50 text-cyan-700 border-cyan-200',
   Published: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   Rejected: 'bg-red-50 text-red-700 border-red-200',
-  'Not Relevant': 'bg-neutral-100 text-[#B8C2D9]/70 border-[#1E2C4F]',
+  'Not Relevant': 'bg-neutral-100 text-[#B8C2D9]/70 border-[#122240]',
 }
 
 const ATTRIBUTE_CHOICES = ['follow', 'nofollow', 'sponsored', 'ugc']
@@ -329,7 +329,7 @@ export default function BacklinkOpportunities200Tab({
   return (
     <div className="space-y-6">
       {/* Top Header Card */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
@@ -379,7 +379,7 @@ export default function BacklinkOpportunities200Tab({
         </div>
 
         {/* 8 Live Status Metrics */}
-        <div className="mt-5 pt-4 border-t border-[#1E2C4F] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 text-xs text-center">
+        <div className="mt-5 pt-4 border-t border-[#122240] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 text-xs text-center">
           {STATUS_CHOICES.map((st) => {
             const count = rawItems.filter((i) => i.status === st).length
             return (
@@ -392,7 +392,7 @@ export default function BacklinkOpportunities200Tab({
                 className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
                   statusFilter === st
                     ? 'border-[#D6C29A] bg-[#D6C29A]/5 shadow-xs'
-                    : 'border-[#1E2C4F]/70 bg-[#0B132B] hover:bg-[#1E2C4F]/60'
+                    : 'border-[#122240]/70 bg-[#040A18] hover:bg-[#122240]/60'
                 }`}
               >
                 <div className="text-[10px] font-bold uppercase text-[#B8C2D9]/70 truncate">{st}</div>
@@ -414,7 +414,7 @@ export default function BacklinkOpportunities200Tab({
                 setSearch(e.target.value)
                 setCurrentPage(1)
               }}
-              className="w-full rounded-xl border border-[#1E2C4F] pl-9 pr-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+              className="w-full rounded-xl border border-[#122240] pl-9 pr-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
             />
           </div>
 
@@ -424,7 +424,7 @@ export default function BacklinkOpportunities200Tab({
               setIndustryFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Industries / Clusters</option>
             {industries.map((ind) => (
@@ -440,7 +440,7 @@ export default function BacklinkOpportunities200Tab({
               setStatusFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All 8 Statuses</option>
             {STATUS_CHOICES.map((st) => (
@@ -456,7 +456,7 @@ export default function BacklinkOpportunities200Tab({
               setRelevanceFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Relevances</option>
             <option value="High">High Relevance</option>
@@ -470,7 +470,7 @@ export default function BacklinkOpportunities200Tab({
               setAttributeFilter(e.target.value)
               setCurrentPage(1)
             }}
-            className="rounded-xl border border-[#1E2C4F] bg-[#14213D] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
+            className="rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs focus:border-[#D6C29A] focus:outline-none"
           >
             <option value="all">All Link Attributes</option>
             {ATTRIBUTE_CHOICES.map((attr) => (
@@ -505,12 +505,12 @@ export default function BacklinkOpportunities200Tab({
       </div>
 
       {/* Main CRM Table */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] shadow-xs overflow-hidden">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
           {paginatedItems.length > 0 ? (
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-[#1E2C4F] bg-[#0B132B]/75 text-[10px] uppercase font-black text-[#B8C2D9]/70">
+                <tr className="border-b border-[#122240] bg-[#040A18]/75 text-[10px] uppercase font-black text-[#B8C2D9]/70">
                   <th
                     className="p-3.5 cursor-pointer hover:text-[#F5F3EE]"
                     onClick={() => handleSort('website')}
@@ -550,14 +550,14 @@ export default function BacklinkOpportunities200Tab({
                 {paginatedItems.map((item) => {
                   const statusClass =
                     STATUS_COLORS[item.status] ||
-                    'bg-neutral-100 text-[#B8C2D9] border-[#1E2C4F]'
+                    'bg-neutral-100 text-[#B8C2D9] border-[#122240]'
 
                   const attr =
                     item.link_attribute ||
                     (item.follow_type ? item.follow_type.toLowerCase() : 'follow')
 
                   return (
-                    <tr key={item.id} className="hover:bg-[#0B132B]/60 transition-colors">
+                    <tr key={item.id} className="hover:bg-[#040A18]/60 transition-colors">
                       {/* Website & Domain */}
                       <td className="p-3.5 max-w-[200px]">
                         <div className="font-bold text-[#F5F3EE] truncate" title={item.website}>
@@ -593,7 +593,7 @@ export default function BacklinkOpportunities200Tab({
                               ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
                               : item.relevance === 'Medium'
                               ? 'bg-blue-50 text-blue-700 border-blue-200'
-                              : 'bg-[#0B132B] text-[#B8C2D9] border-[#1E2C4F]'
+                              : 'bg-[#040A18] text-[#B8C2D9] border-[#122240]'
                           }`}
                         >
                           {item.relevance || 'High'}
@@ -637,7 +637,7 @@ export default function BacklinkOpportunities200Tab({
                           className={`rounded-lg border px-2 py-1 text-[11px] font-bold cursor-pointer transition-all ${statusClass} focus:outline-none`}
                         >
                           {STATUS_CHOICES.map((st) => (
-                            <option key={st} value={st} className="bg-[#14213D] text-[#F5F3EE] font-normal">
+                            <option key={st} value={st} className="bg-[#081226] text-[#F5F3EE] font-normal">
                               {st}
                             </option>
                           ))}
@@ -675,7 +675,7 @@ export default function BacklinkOpportunities200Tab({
                               href={item.submission_url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors"
+                              className="rounded-lg p-1.5 text-[#B8C2D9]/70 hover:bg-[#122240] hover:text-[#F5F3EE] transition-colors"
                               title="Direct Submission Portal"
                             >
                               <ExternalLink className="h-3.5 w-3.5" />
@@ -683,7 +683,7 @@ export default function BacklinkOpportunities200Tab({
                           )}
                           <button
                             onClick={() => handleOpenEdit(item)}
-                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#1E2C4F] hover:text-[#F5F3EE] transition-colors cursor-pointer"
+                            className="rounded-lg p-1.5 text-[#B8C2D9] hover:bg-[#122240] hover:text-[#F5F3EE] transition-colors cursor-pointer"
                             title="Edit Opportunity & Notes"
                           >
                             <Edit3 className="h-3.5 w-3.5" />
@@ -713,7 +713,7 @@ export default function BacklinkOpportunities200Tab({
 
         {/* Pagination Bar */}
         {totalPages > 1 && (
-          <div className="border-t border-[#1E2C4F] p-4 flex items-center justify-between text-xs">
+          <div className="border-t border-[#122240] p-4 flex items-center justify-between text-xs">
             <span className="text-[#B8C2D9]">
               Showing {(currentPage - 1) * pageSize + 1} to{' '}
               {Math.min(currentPage * pageSize, filteredItems.length)} of {filteredItems.length}
@@ -722,7 +722,7 @@ export default function BacklinkOpportunities200Tab({
               <button
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                className="rounded-lg border border-[#1E2C4F] px-3 py-1.5 text-xs font-semibold hover:bg-[#0B132B] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="rounded-lg border border-[#122240] px-3 py-1.5 text-xs font-semibold hover:bg-[#040A18] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
                 Previous
               </button>
@@ -732,7 +732,7 @@ export default function BacklinkOpportunities200Tab({
               <button
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                className="rounded-lg border border-[#1E2C4F] px-3 py-1.5 text-xs font-semibold hover:bg-[#0B132B] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="rounded-lg border border-[#122240] px-3 py-1.5 text-xs font-semibold hover:bg-[#040A18] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
               >
                 Next
               </button>
@@ -744,8 +744,8 @@ export default function BacklinkOpportunities200Tab({
       {/* EDIT / VIEW MODAL */}
       {editingItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-xl rounded-2xl bg-[#14213D] p-6 shadow-2xl border border-[#1E2C4F] animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4">
+          <div className="w-full max-w-xl rounded-2xl bg-[#081226] p-6 shadow-2xl border border-[#122240] animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-[#122240] pb-4">
               <div>
                 <h3 className="font-display text-lg font-bold text-[#F5F3EE]">
                   Edit Backlink Opportunity
@@ -769,7 +769,7 @@ export default function BacklinkOpportunities200Tab({
                     required
                     value={formData.website}
                     onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -779,7 +779,7 @@ export default function BacklinkOpportunities200Tab({
                     required
                     value={formData.domain}
                     onChange={(e) => setFormData({ ...formData, domain: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
                   />
                 </div>
               </div>
@@ -790,7 +790,7 @@ export default function BacklinkOpportunities200Tab({
                   type="url"
                   value={formData.url}
                   onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
@@ -801,7 +801,7 @@ export default function BacklinkOpportunities200Tab({
                     type="text"
                     value={formData.industry}
                     onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -810,7 +810,7 @@ export default function BacklinkOpportunities200Tab({
                     type="text"
                     value={formData.link_opportunity}
                     onChange={(e) => setFormData({ ...formData, link_opportunity: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
               </div>
@@ -822,7 +822,7 @@ export default function BacklinkOpportunities200Tab({
                     type="url"
                     value={formData.target_onprint_url}
                     onChange={(e) => setFormData({ ...formData, target_onprint_url: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -831,7 +831,7 @@ export default function BacklinkOpportunities200Tab({
                     type="text"
                     value={formData.anchor_text}
                     onChange={(e) => setFormData({ ...formData, anchor_text: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none font-bold"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-bold"
                   />
                 </div>
               </div>
@@ -842,7 +842,7 @@ export default function BacklinkOpportunities200Tab({
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D] font-bold"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226] font-bold"
                   >
                     {STATUS_CHOICES.map((st) => (
                       <option key={st} value={st}>
@@ -856,7 +856,7 @@ export default function BacklinkOpportunities200Tab({
                   <select
                     value={formData.link_attribute}
                     onChange={(e) => setFormData({ ...formData, link_attribute: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226]"
                   >
                     {ATTRIBUTE_CHOICES.map((attr) => (
                       <option key={attr} value={attr}>
@@ -871,7 +871,7 @@ export default function BacklinkOpportunities200Tab({
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
                   />
                 </div>
               </div>
@@ -883,7 +883,7 @@ export default function BacklinkOpportunities200Tab({
                   placeholder="https://... URL where link is live"
                   value={formData.link_url}
                   onChange={(e) => setFormData({ ...formData, link_url: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
@@ -893,11 +893,11 @@ export default function BacklinkOpportunities200Tab({
                   rows={3}
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#1E2C4F]">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#122240]">
                 <Button
                   type="button"
                   variant="outline"
@@ -926,8 +926,8 @@ export default function BacklinkOpportunities200Tab({
       {/* ADD OPPORTUNITY MODAL */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-xl rounded-2xl bg-[#14213D] p-6 shadow-2xl border border-[#1E2C4F] animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-4">
+          <div className="w-full max-w-xl rounded-2xl bg-[#081226] p-6 shadow-2xl border border-[#122240] animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-[#122240] pb-4">
               <div>
                 <h3 className="font-display text-lg font-bold text-[#F5F3EE]">
                   Add Backlink Opportunity
@@ -952,7 +952,7 @@ export default function BacklinkOpportunities200Tab({
                     placeholder="e.g. Dubai Chamber Directory"
                     value={formData.website}
                     onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -963,7 +963,7 @@ export default function BacklinkOpportunities200Tab({
                     placeholder="e.g. dubaichamber.com"
                     value={formData.domain}
                     onChange={(e) => setFormData({ ...formData, domain: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
                   />
                 </div>
               </div>
@@ -976,7 +976,7 @@ export default function BacklinkOpportunities200Tab({
                   placeholder="https://..."
                   value={formData.url}
                   onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
@@ -987,7 +987,7 @@ export default function BacklinkOpportunities200Tab({
                     type="text"
                     value={formData.industry}
                     onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -996,7 +996,7 @@ export default function BacklinkOpportunities200Tab({
                     type="text"
                     value={formData.link_opportunity}
                     onChange={(e) => setFormData({ ...formData, link_opportunity: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
               </div>
@@ -1008,7 +1008,7 @@ export default function BacklinkOpportunities200Tab({
                     type="url"
                     value={formData.target_onprint_url}
                     onChange={(e) => setFormData({ ...formData, target_onprint_url: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -1017,7 +1017,7 @@ export default function BacklinkOpportunities200Tab({
                     type="text"
                     value={formData.anchor_text}
                     onChange={(e) => setFormData({ ...formData, anchor_text: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none font-bold"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-bold"
                   />
                 </div>
               </div>
@@ -1028,7 +1028,7 @@ export default function BacklinkOpportunities200Tab({
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D] font-bold"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226] font-bold"
                   >
                     {STATUS_CHOICES.map((st) => (
                       <option key={st} value={st}>
@@ -1042,7 +1042,7 @@ export default function BacklinkOpportunities200Tab({
                   <select
                     value={formData.link_attribute}
                     onChange={(e) => setFormData({ ...formData, link_attribute: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#14213D]"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none bg-[#081226]"
                   >
                     {ATTRIBUTE_CHOICES.map((attr) => (
                       <option key={attr} value={attr}>
@@ -1057,7 +1057,7 @@ export default function BacklinkOpportunities200Tab({
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
+                    className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none font-mono"
                   />
                 </div>
               </div>
@@ -1069,11 +1069,11 @@ export default function BacklinkOpportunities200Tab({
                   placeholder="Submission instructions, requirement details..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full rounded-xl border border-[#1E2C4F] p-2.5 focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] p-2.5 focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#1E2C4F]">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#122240]">
                 <Button
                   type="button"
                   variant="outline"

@@ -205,7 +205,7 @@ export default function AdminCategoryFormPage() {
       </div>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#1E2C4F] pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#122240] pb-5">
         <div>
           <h1 className="font-display text-2xl font-black tracking-tight text-[#F5F3EE]">
             {isEdit ? `Edit Category: ${form.name}` : 'Add New Category'}
@@ -220,7 +220,7 @@ export default function AdminCategoryFormPage() {
             variant="outline"
             onClick={() => navigate('/admin/categories')}
             disabled={submitting}
-            className="w-full sm:w-auto justify-center border-[#1E2C4F] text-[#F5F3EE] hover:bg-[#0B132B] text-xs"
+            className="w-full sm:w-auto justify-center border-[#122240] text-[#F5F3EE] hover:bg-[#040A18] text-xs"
           >
             <ArrowLeft className="h-4 w-4 mr-1.5" />
             Cancel
@@ -249,8 +249,8 @@ export default function AdminCategoryFormPage() {
         {/* Left Column: Details & SEO */}
         <div className="space-y-6 lg:col-span-8">
           {/* General Information Card */}
-          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#1E2C4F] pb-3">
+          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
               General Information
             </h2>
 
@@ -264,7 +264,7 @@ export default function AdminCategoryFormPage() {
                 onChange={handleNameChange}
                 placeholder="e.g. Brochures Printing"
                 required
-                className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
@@ -272,7 +272,7 @@ export default function AdminCategoryFormPage() {
               <label className="block text-xs font-bold uppercase tracking-wider text-[#F5F3EE] mb-1.5">
                 URL Slug <span className="text-red-500">*</span>
               </label>
-              <div className="flex items-center rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-semibold text-[#B8C2D9] focus-within:border-[#D6C29A]">
+              <div className="flex items-center rounded-xl border border-[#122240] px-3 py-2 text-xs font-semibold text-[#B8C2D9] focus-within:border-[#D6C29A]">
                 <span className="text-[#B8C2D9]/70">/categories/</span>
                 <input
                   type="text"
@@ -294,14 +294,14 @@ export default function AdminCategoryFormPage() {
                 value={form.description}
                 onChange={(e) => setForm((prev) => ({ ...prev, description: e.target.value }))}
                 placeholder="Describe the products grouped under this category…"
-                className="w-full rounded-xl border border-[#1E2C4F] p-3 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] p-3 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>
 
           {/* SEO & Meta Tags Card */}
-          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#1E2C4F] pb-3">
+          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#122240] pb-3">
               <div className="flex items-center gap-2">
                 <Search className="h-4 w-4 text-[#D6C29A]" />
                 <h2 className="font-display text-base font-bold text-[#F5F3EE]">
@@ -311,7 +311,7 @@ export default function AdminCategoryFormPage() {
               <button
                 type="button"
                 onClick={handleGenerateSeoDraft}
-                className="inline-flex items-center gap-1.5 rounded-lg bg-[#D6C29A] px-3 py-1.5 text-xs font-extrabold text-[#0B132B] hover:bg-[#e5d4b0] transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-[#D6C29A] px-3 py-1.5 text-xs font-extrabold text-[#040A18] hover:bg-[#e5d4b0] transition-colors"
               >
                 <Sparkles className="h-3.5 w-3.5" />
                 Auto-Generate SEO Draft
@@ -336,7 +336,7 @@ export default function AdminCategoryFormPage() {
                 value={form.seoTitle}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoTitle: e.target.value }))}
                 placeholder="e.g. Corporate Gifts Dubai | Custom Promotional Items | ONPRINT"
-                className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
@@ -354,7 +354,7 @@ export default function AdminCategoryFormPage() {
                 value={form.seoDescription}
                 onChange={(e) => setForm((prev) => ({ ...prev, seoDescription: e.target.value }))}
                 placeholder="Write an enticing summary for Google searchers (130-160 characters)..."
-                className="w-full rounded-xl border border-[#1E2C4F] p-3 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] p-3 text-xs font-medium text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
 
@@ -368,7 +368,7 @@ export default function AdminCategoryFormPage() {
                   value={form.seoKeywords}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoKeywords: e.target.value }))}
                   placeholder="corporate gifts dubai, promotional gifts uae"
-                  className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
 
@@ -381,13 +381,13 @@ export default function AdminCategoryFormPage() {
                   value={form.seoHeading}
                   onChange={(e) => setForm((prev) => ({ ...prev, seoHeading: e.target.value }))}
                   placeholder={form.name || 'Defaults to Category Name'}
-                  className="w-full rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                  className="w-full rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Live Google SERP Snippet Preview */}
-            <div className="mt-4 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-4">
+            <div className="mt-4 rounded-xl border border-[#122240] bg-[#040A18] p-4">
               <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8C2D9]">
                 Google SERP Snippet Preview
               </span>
@@ -410,8 +410,8 @@ export default function AdminCategoryFormPage() {
         {/* Right Column: Image & Publishing */}
         <div className="space-y-6 lg:col-span-4">
           {/* Publishing Settings */}
-          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#1E2C4F] pb-3">
+          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
               Publishing
             </h2>
 
@@ -422,7 +422,7 @@ export default function AdminCategoryFormPage() {
               <select
                 value={form.status}
                 onChange={(e) => setForm((prev) => ({ ...prev, status: e.target.value }))}
-                className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] px-3 py-2.5 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               >
                 <option value="active">Active (Visible)</option>
                 <option value="inactive">Inactive (Hidden)</option>
@@ -437,14 +437,14 @@ export default function AdminCategoryFormPage() {
                 type="number"
                 value={form.displayOrder}
                 onChange={(e) => setForm((prev) => ({ ...prev, displayOrder: e.target.value, display_order: e.target.value }))}
-                className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>
 
           {/* Image & Alt Text */}
-          <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
-            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#1E2C4F] pb-3">
+          <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
               Category Image &amp; ALT
             </h2>
 
@@ -462,7 +462,7 @@ export default function AdminCategoryFormPage() {
                 value={form.imageAlt}
                 onChange={(e) => setForm((prev) => ({ ...prev, imageAlt: e.target.value }))}
                 placeholder={form.name || 'Descriptive ALT tag for screen readers & Google Images'}
-                className="w-full rounded-xl border border-[#1E2C4F] px-3 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
+                className="w-full rounded-xl border border-[#122240] px-3 py-2 text-xs font-semibold text-[#F5F3EE] focus:border-[#D6C29A] focus:outline-none"
               />
             </div>
           </div>

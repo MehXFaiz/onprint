@@ -45,7 +45,7 @@ export default function AdminLayout() {
   // Prevent UI flash during auth initialization
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#0B132B] flex items-center justify-center text-[#F5F3EE]">
+      <div className="min-h-screen bg-[#040A18] flex items-center justify-center text-[#F5F3EE]">
         <div className="flex flex-col items-center gap-3">
           <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#D6C29A] border-t-transparent" />
           <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Verifying Admin Session...</span>
@@ -60,9 +60,9 @@ export default function AdminLayout() {
   }
 
   return (
-    <div className="flex min-h-screen w-full bg-[#0B132B] text-[#F5F3EE] flex-col md:flex-row antialiased">
+    <div className="flex min-h-screen w-full bg-[#040A18] text-[#F5F3EE] flex-col md:flex-row antialiased">
       {/* Mobile Top Header */}
-      <div className="flex h-16 w-full items-center justify-between border-b border-[#1E2C4F] bg-[#070D1E] px-4 md:hidden shrink-0 z-40">
+      <div className="flex h-16 w-full items-center justify-between border-b border-[#122240] bg-[#020611] px-4 md:hidden shrink-0 z-40">
         <Link to="/admin" className="flex items-center gap-2.5">
           <Logo variant="light" size="sm" />
           <span className="inline-flex items-center gap-1 rounded-full bg-[#D6C29A]/20 border border-[#D6C29A]/40 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#D6C29A] shadow-xs">
@@ -73,7 +73,7 @@ export default function AdminLayout() {
         <button
           type="button"
           onClick={() => setMobileMenuOpen((v) => !v)}
-          className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-white hover:bg-[#14213D] transition-colors cursor-pointer"
+          className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-white hover:bg-[#081226] transition-colors cursor-pointer"
           aria-label="Toggle Navigation"
           aria-expanded={mobileMenuOpen}
         >
@@ -93,16 +93,16 @@ export default function AdminLayout() {
       {/* Sidebar Navigation */}
       <aside
         aria-label="Admin Sidebar Navigation"
-        className={`fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] h-screen max-h-screen overflow-y-auto transform bg-[#070D1E] border-r border-[#1E2C4F] p-5 sm:p-6 text-[#B8C2D9] transition-transform duration-200 ease-in-out flex flex-col admin-sidebar-scroll md:sticky md:top-0 md:h-screen md:w-64 md:translate-x-0 md:shrink-0 md:flex ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] h-screen max-h-screen overflow-y-auto transform bg-[#020611] border-r border-[#122240] p-5 sm:p-6 text-[#B8C2D9] transition-transform duration-200 ease-in-out flex flex-col admin-sidebar-scroll md:sticky md:top-0 md:h-screen md:w-64 md:translate-x-0 md:shrink-0 md:flex ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
         <div className="flex flex-col shrink-0">
           {/* Header Brand Area */}
-          <div className="flex items-center justify-between pb-6 border-b border-[#1E2C4F] shrink-0">
+          <div className="flex items-center justify-between pb-6 border-b border-[#122240] shrink-0">
             <Link to="/admin" className="flex items-center gap-2.5" onClick={() => setMobileMenuOpen(false)}>
               <Logo variant="light" size="sm" />
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-[#0B132B] shadow-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D6C29A] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-[#040A18] shadow-xs">
                 <ShieldCheck className="h-3 w-3" />
                 Admin
               </span>
@@ -110,7 +110,7 @@ export default function AdminLayout() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex min-h-[42px] min-w-[42px] items-center justify-center rounded-lg p-1 text-[#F5F3EE] hover:bg-[#14213D] md:hidden cursor-pointer"
+              className="inline-flex min-h-[42px] min-w-[42px] items-center justify-center rounded-lg p-1 text-[#F5F3EE] hover:bg-[#081226] md:hidden cursor-pointer"
               aria-label="Close Navigation"
             >
               <X className="h-5 w-5" />
@@ -118,7 +118,7 @@ export default function AdminLayout() {
           </div>
 
           {/* User badge */}
-          <div className="mt-4 px-1 py-2 border-b border-[#1E2C4F] text-xs shrink-0">
+          <div className="mt-4 px-1 py-2 border-b border-[#122240] text-xs shrink-0">
             <div className="font-bold text-[#F5F3EE] truncate">{user?.name}</div>
             <div className="text-[10px] text-[#B8C2D9] truncate">{user?.email}</div>
           </div>
@@ -146,8 +146,8 @@ export default function AdminLayout() {
                 className={({ isActive }) =>
                   `flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition-all ${
                     isActive
-                      ? 'bg-[#D6C29A] text-[#0B132B] shadow-sm font-black'
-                      : 'text-[#B8C2D9] hover:bg-[#14213D] hover:text-[#F5F3EE]'
+                      ? 'bg-[#D6C29A] text-[#040A18] shadow-sm font-black'
+                      : 'text-[#B8C2D9] hover:bg-[#081226] hover:text-[#F5F3EE]'
                   }`
                 }
               >
@@ -159,7 +159,7 @@ export default function AdminLayout() {
         </nav>
 
         {/* Footer Link back to website */}
-        <div className="mt-auto pt-6 border-t border-[#1E2C4F] shrink-0">
+        <div className="mt-auto pt-6 border-t border-[#122240] shrink-0">
           <Link
             to="/"
             className="flex items-center gap-2 text-xs font-bold text-[#B8C2D9] hover:text-[#D6C29A] transition-colors"

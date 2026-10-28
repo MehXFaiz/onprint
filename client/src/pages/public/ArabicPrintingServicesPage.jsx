@@ -84,7 +84,7 @@ export default function ArabicPrintingServicesPage() {
   const [openFaq, setOpenFaq] = useState(0)
 
   return (
-    <div className="bg-[#101D35] text-[#F5F2EB] font-arabic antialiased selection:bg-[#D4AF65] selection:text-[#101D35]" dir="rtl">
+    <div className="bg-[#040A18] text-[#F5F2EB] font-arabic antialiased selection:bg-[#D4AF65] selection:text-[#040A18]" dir="rtl">
       <SEOHead
         title="خدمات الطباعة التجارية والشركات في دبي | مطبعة متكاملة | ONPRINT"
         description="خدمات طباعة متكاملة للشركات في دبي من ONPRINT. طباعة بروشورات وفلايرات، رول اب بانر، مطبوعات مكتبية، وأكياس وهدايا ترويجية مع توصيل سريع في دبي وأبوظبي والإمارات."
@@ -94,9 +94,9 @@ export default function ArabicPrintingServicesPage() {
       />
 
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#203357] bg-gradient-to-b from-[#0C1629] via-[#101D35] to-[#101D35]">
+      <section className="relative overflow-hidden pt-12 pb-20 border-b border-[#122240] bg-gradient-to-b from-[#020611] via-[#040A18] to-[#040A18]">
         <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#172644]/60 blur-3xl" />
+        <div className="pointer-events-none absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-[#081226]/60 blur-3xl" />
 
         <Container className="relative z-10">
           <nav className="mb-6 flex items-center gap-2 text-xs text-[#B0BECE]">
@@ -139,7 +139,7 @@ export default function ArabicPrintingServicesPage() {
 
               <a
                 href={`tel:+${RAW_WHATSAPP_NUMBER}`}
-                className="inline-flex items-center gap-2 rounded-full border border-[#203357] bg-[#172644] px-5 py-3.5 text-sm font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all"
+                className="inline-flex items-center gap-2 rounded-full border border-[#122240] bg-[#081226] px-5 py-3.5 text-sm font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-all"
               >
                 <Phone className="h-4 w-4 text-[#D4AF65]" />
                 <span>مكتب المبيعات: {FORMATTED_PHONE}</span>
@@ -150,7 +150,7 @@ export default function ArabicPrintingServicesPage() {
       </section>
 
       {/* 2. SERVICES CATALOG GRID */}
-      <section className="py-16 sm:py-20 border-b border-[#203357]">
+      <section className="py-16 sm:py-20 border-b border-[#122240]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
@@ -165,7 +165,7 @@ export default function ArabicPrintingServicesPage() {
             {SERVICES.map((srv) => (
               <div
                 key={srv.id}
-                className="rounded-3xl border border-[#203357] bg-[#172644]/70 hover:bg-[#172644] hover:border-[#D4AF65]/60 transition-all p-6 flex flex-col justify-between"
+                className="rounded-3xl border border-[#122240] bg-[#081226]/70 hover:bg-[#081226] hover:border-[#D4AF65]/60 transition-all p-6 flex flex-col justify-between"
               >
                 <div className="space-y-3">
                   <span className="rounded-full bg-[#D4AF65]/10 border border-[#D4AF65]/30 px-3 py-1 text-[10px] font-bold text-[#D4AF65] inline-block">
@@ -177,7 +177,7 @@ export default function ArabicPrintingServicesPage() {
                   <p className="text-xs text-[#B0BECE] leading-relaxed">
                     {srv.desc}
                   </p>
-                  <div className="pt-2 border-t border-[#203357] space-y-1">
+                  <div className="pt-2 border-t border-[#122240] space-y-1">
                     {srv.features.map((f, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs text-[#F5F2EB]">
                         <CheckCircle2 className="h-3 w-3 text-[#D4AF65] shrink-0" />
@@ -187,7 +187,7 @@ export default function ArabicPrintingServicesPage() {
                   </div>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-[#203357]">
+                <div className="pt-5 mt-5 border-t border-[#122240]">
                   <a
                     href={getArabicWhatsAppUrl('general', { service: srv.title })}
                     target="_blank"
@@ -199,7 +199,7 @@ export default function ArabicPrintingServicesPage() {
                         language: 'ar',
                       })
                     }
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#101D35] hover:bg-[#25D366] hover:text-white border border-[#203357] hover:border-emerald-500 py-2.5 text-xs font-bold text-[#D4AF65] transition-all"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#040A18] hover:bg-[#25D366] hover:text-white border border-[#122240] hover:border-emerald-500 py-2.5 text-xs font-bold text-[#D4AF65] transition-all"
                   >
                     <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
                     <span>طلب عرض سعر عبر واتساب</span>
@@ -212,7 +212,7 @@ export default function ArabicPrintingServicesPage() {
       </section>
 
       {/* 3. ARABIC FAQS */}
-      <section className="py-16 sm:py-20 border-b border-[#203357] bg-[#0C1629]">
+      <section className="py-16 sm:py-20 border-b border-[#122240] bg-[#020611]">
         <Container>
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
@@ -228,7 +228,7 @@ export default function ArabicPrintingServicesPage() {
               {ARABIC_SERVICES_FAQS.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#203357] bg-[#101D35] overflow-hidden"
+                  className="rounded-2xl border border-[#122240] bg-[#040A18] overflow-hidden"
                 >
                   <button
                     type="button"
@@ -251,7 +251,7 @@ export default function ArabicPrintingServicesPage() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#B0BECE] leading-relaxed border-t border-[#203357]/60">
+                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#B0BECE] leading-relaxed border-t border-[#122240]/60">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -265,7 +265,7 @@ export default function ArabicPrintingServicesPage() {
       </section>
 
       {/* 4. FOOTER CONVERSION */}
-      <section className="py-14 bg-[#101D35] text-center">
+      <section className="py-14 bg-[#040A18] text-center">
         <Container>
           <div className="max-w-xl mx-auto space-y-4">
             <h3 className="text-xl sm:text-2xl font-black text-[#F5F2EB]">

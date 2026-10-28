@@ -171,7 +171,7 @@ export default function LocationLandingPage({ locationKey }) {
         breadcrumbs={breadcrumbs}
       />
 
-      <div className="min-h-screen bg-[#101D35] text-slate-200">
+      <div className="min-h-screen bg-[#040A18] text-slate-200">
         <Container>
           <Breadcrumbs items={breadcrumbs} />
 
@@ -184,7 +184,7 @@ export default function LocationLandingPage({ locationKey }) {
                 transition={{ duration: 0.6 }}
                 className="text-center max-w-4xl mx-auto"
               >
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#172644] border border-[#D4AF65]/40 text-[#D4AF65] text-xs font-semibold uppercase tracking-wider mb-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#081226] border border-[#D4AF65]/40 text-[#D4AF65] text-xs font-semibold uppercase tracking-wider mb-4">
                   <MapPin className="h-3.5 w-3.5 text-[#D4AF65]" /> Fast Delivery Across {locationData.name}
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -228,7 +228,7 @@ export default function LocationLandingPage({ locationKey }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-[#172644] rounded-lg p-4 border border-[#203357] text-center hover:border-[#D4AF65] transition-colors"
+                    className="bg-[#081226] rounded-lg p-4 border border-[#122240] text-center hover:border-[#D4AF65] transition-colors"
                   >
                     <MapPin className="h-5 w-5 text-[#D4AF65] mx-auto mb-2" />
                     <span className="text-sm font-medium text-slate-200">{area}</span>
@@ -251,7 +251,7 @@ export default function LocationLandingPage({ locationKey }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.08 }}
-                    className="bg-[#172644] rounded-xl p-6 shadow-sm border border-[#203357] hover:border-[#D4AF65]/50 hover:shadow-lg transition-all"
+                    className="bg-[#081226] rounded-xl p-6 shadow-sm border border-[#122240] hover:border-[#D4AF65]/50 hover:shadow-lg transition-all"
                   >
                     <service.icon className="h-10 w-10 text-[#D4AF65] mb-4" />
                     <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
@@ -264,7 +264,7 @@ export default function LocationLandingPage({ locationKey }) {
 
           {/* Why Choose Us */}
           <Reveal>
-            <section className="py-16 mb-16 bg-[#172644] text-white rounded-2xl p-8 lg:p-12 border border-[#203357]">
+            <section className="py-16 mb-16 bg-[#081226] text-white rounded-2xl p-8 lg:p-12 border border-[#122240]">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
                 Why Corporate Clients in {locationData.name} Choose ONPRINT
               </h2>
@@ -314,7 +314,7 @@ export default function LocationLandingPage({ locationKey }) {
 
           {/* Contact Info */}
           <Reveal>
-            <section className="py-12 border-t border-[#203357]">
+            <section className="py-12 border-t border-[#122240]">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
                   <Phone className="h-8 w-8 text-[#D4AF65] mx-auto mb-3" />

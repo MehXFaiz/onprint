@@ -126,12 +126,12 @@ function SectionCardGroup({ section, onQuickView }) {
   const visibleItems = section.items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
 
   return (
-    <div className="relative rounded-3xl border border-[#203357] bg-[#172644] p-5 sm:p-8 lg:p-10 shadow-xs transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl hover-shimmer text-[#F5F2EB]">
+    <div className="relative rounded-3xl border border-[#122240] bg-[#081226] p-5 sm:p-8 lg:p-10 shadow-xs transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl hover-shimmer text-[#F5F2EB]">
       {/* Top Header Section */}
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-[#203357]">
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-[#122240]">
         <div>
           {/* Eyebrow Chip */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#203357] bg-[#101D35] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-[#D4AF65] mb-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#122240] bg-[#040A18] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-[#D4AF65] mb-3">
             <span className="flex h-2 w-2 rounded-full bg-[#D4AF65] animate-pulse" />
             <span>SECTION {section.sectionNumber}</span>
             <span className="text-slate-400">•</span>
@@ -146,8 +146,8 @@ function SectionCardGroup({ section, onQuickView }) {
             {/* Signature Underline Accent Bar */}
             <div className="mt-3 flex items-center gap-2">
               <span className="h-1 w-16 rounded-full bg-[#D4AF65]" />
-              <span className="h-1 w-3.5 rounded-full bg-[#203357]" />
-              <span className="h-1 w-1.5 rounded-full bg-[#203357]/50" />
+              <span className="h-1 w-3.5 rounded-full bg-[#122240]" />
+              <span className="h-1 w-1.5 rounded-full bg-[#122240]/50" />
             </div>
           </div>
           <p className="mt-3 max-w-2xl text-xs sm:text-sm text-[#B0BECE] leading-relaxed">
@@ -158,7 +158,7 @@ function SectionCardGroup({ section, onQuickView }) {
         {/* Carousel Slider Next/Prev Arrows Controls */}
         {totalPages > 1 && (
           <div className="flex items-center gap-3 shrink-0">
-            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#203357] bg-[#101D35] px-3 py-1.5 text-xs font-bold text-[#F5F2EB]">
+            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-[#122240] bg-[#040A18] px-3 py-1.5 text-xs font-bold text-[#F5F2EB]">
               <span>{currentPage + 1}</span>
               <span className="text-slate-400">/</span>
               <span>{totalPages}</span>
@@ -168,7 +168,7 @@ function SectionCardGroup({ section, onQuickView }) {
               <button
                 onClick={handlePrevPage}
                 aria-label={`Previous slide for ${section.title}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#203357] bg-[#101D35] text-[#B0BECE] shadow-xs transition-all hover:border-[#D4AF65] hover:bg-[#D4AF65] hover:text-[#101D35] active:scale-95 cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#122240] bg-[#040A18] text-[#B0BECE] shadow-xs transition-all hover:border-[#D4AF65] hover:bg-[#D4AF65] hover:text-[#040A18] active:scale-95 cursor-pointer"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -176,7 +176,7 @@ function SectionCardGroup({ section, onQuickView }) {
               <button
                 onClick={handleNextPage}
                 aria-label={`Next slide for ${section.title}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D4AF65] bg-[#D4AF65] text-[#101D35] shadow-xs transition-all hover:bg-[#D4AF65]/90 hover:border-[#D4AF65] active:scale-95 cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D4AF65] bg-[#D4AF65] text-[#040A18] shadow-xs transition-all hover:bg-[#D4AF65]/90 hover:border-[#D4AF65] active:scale-95 cursor-pointer"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -219,7 +219,7 @@ function SectionCardGroup({ section, onQuickView }) {
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 currentPage === idx
                   ? 'w-8 bg-[#D4AF65]'
-                  : 'w-2 bg-[#203357] hover:bg-[#D4AF65]'
+                  : 'w-2 bg-[#122240] hover:bg-[#D4AF65]'
               }`}
             />
           ))}
@@ -311,11 +311,11 @@ export default function ProductSectionsShowcase({
     return null
   }
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-[#101D35] border-y border-[#203357]">
+    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 bg-[#040A18] border-y border-[#122240]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Intro Banner */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/30 bg-[#172644] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#D4AF65] shadow-2xs">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/30 bg-[#081226] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#D4AF65] shadow-2xs">
             <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
             Dubai Premium Print Showcase
           </div>
@@ -338,9 +338,9 @@ export default function ProductSectionsShowcase({
         </div>
 
         {/* Bottom Guarantee Banner */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-[#203357] bg-[#172644] p-5 sm:p-7 shadow-xs text-[#F5F2EB]">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-[#122240] bg-[#081226] p-5 sm:p-7 shadow-xs text-[#F5F2EB]">
           <div className="flex items-start sm:items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#101D35] border border-[#203357] text-[#D4AF65] font-bold shadow-2xs">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#040A18] border border-[#122240] text-[#D4AF65] font-bold shadow-2xs">
               <ShieldCheck className="h-5 w-5 text-[#D4AF65]" />
             </div>
             <div>
@@ -351,7 +351,7 @@ export default function ProductSectionsShowcase({
 
           <Link
             to="/get-a-quote"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#D4AF65] px-6 py-3 text-xs font-black uppercase tracking-wider text-[#0F172A] shadow-xs transition-all active:scale-95 shrink-0 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF65] hover:bg-[#D4AF65] px-6 py-3 text-xs font-black uppercase tracking-wider text-[#040A18] shadow-xs transition-all active:scale-95 shrink-0 cursor-pointer"
           >
             <span>Request Custom Quote</span>
             <ArrowUpRight className="h-4 w-4" />

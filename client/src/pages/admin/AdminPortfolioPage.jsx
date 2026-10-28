@@ -35,7 +35,7 @@ export default function AdminPortfolioPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#14213D] p-6 rounded-3xl border border-[#1E2C4F] shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#081226] p-6 rounded-3xl border border-[#122240] shadow-xs">
         <div>
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6C29A]">
             <ImageIcon className="h-4 w-4" />
@@ -73,7 +73,7 @@ export default function AdminPortfolioPage() {
       )}
 
       {/* Filter */}
-      <div className="bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs">
+      <div className="bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs">
         <div className="relative max-w-md">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#B8C2D9]/70" />
           <input
@@ -81,7 +81,7 @@ export default function AdminPortfolioPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search portfolio projects..."
-            className="w-full rounded-xl border border-[#1E2C4F] bg-[#0B132B] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] placeholder-neutral-400 focus:border-[#D6C29A] focus:outline-none"
+            className="w-full rounded-xl border border-[#122240] bg-[#040A18] pl-10 pr-4 py-2 text-xs font-medium text-[#F5F3EE] placeholder-neutral-400 focus:border-[#D6C29A] focus:outline-none"
           />
         </div>
       </div>
@@ -91,10 +91,10 @@ export default function AdminPortfolioPage() {
         {filtered.map((item) => (
           <div
             key={item.id}
-            className="rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-5 shadow-xs flex flex-col justify-between"
+            className="rounded-3xl border border-[#122240] bg-[#081226] p-5 shadow-xs flex flex-col justify-between"
           >
             <div>
-              <div className="h-44 w-full overflow-hidden rounded-2xl bg-neutral-100 mb-4 border border-[#1E2C4F]">
+              <div className="h-44 w-full overflow-hidden rounded-2xl bg-neutral-100 mb-4 border border-[#122240]">
                 <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
               </div>
               <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#D6C29A]">
@@ -106,10 +106,10 @@ export default function AdminPortfolioPage() {
               <p className="text-xs text-[#B8C2D9] mt-1">Client: {item.client}</p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#1E2C4F] flex items-center justify-end gap-2">
+            <div className="mt-6 pt-4 border-t border-[#122240] flex items-center justify-end gap-2">
               <button
                 onClick={() => navigate(`/admin/portfolio/${item.id}/edit`)}
-                className="rounded-xl border border-[#1E2C4F] p-2 text-[#B8C2D9] hover:bg-[#0B132B] hover:text-[#F5F3EE] transition-colors"
+                className="rounded-xl border border-[#122240] p-2 text-[#B8C2D9] hover:bg-[#040A18] hover:text-[#F5F3EE] transition-colors"
                 title="Edit Project"
               >
                 <Edit2 className="h-4 w-4" />
@@ -127,7 +127,7 @@ export default function AdminPortfolioPage() {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#14213D] p-4 rounded-2xl border border-[#1E2C4F] shadow-xs text-xs font-semibold text-[#B8C2D9]">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#081226] p-4 rounded-2xl border border-[#122240] shadow-xs text-xs font-semibold text-[#B8C2D9]">
         <div>
           Showing <span className="font-bold text-[#F5F3EE]">{filtered.length}</span> of{' '}
           <span className="font-bold text-[#F5F3EE]">{items.length}</span> projects
@@ -136,7 +136,7 @@ export default function AdminPortfolioPage() {
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#122240] bg-[#040A18] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Previous
           </button>
@@ -146,7 +146,7 @@ export default function AdminPortfolioPage() {
           <button
             type="button"
             disabled
-            className="rounded-xl border border-[#1E2C4F] bg-[#0B132B] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
+            className="rounded-xl border border-[#122240] bg-[#040A18] px-3 py-1.5 text-[#B8C2D9]/70 opacity-60 cursor-not-allowed"
           >
             Next
           </button>
@@ -156,7 +156,7 @@ export default function AdminPortfolioPage() {
       {/* Delete Confirmation Modal */}
       {deletingItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-2xl space-y-5">
+          <div className="w-full max-w-md rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-2xl space-y-5">
             <div className="flex items-center gap-3 text-red-600">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
                 <AlertTriangle className="h-5 w-5" />
@@ -169,11 +169,11 @@ export default function AdminPortfolioPage() {
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#1E2C4F]">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#122240]">
               <button
                 type="button"
                 onClick={() => setDeletingItem(null)}
-                className="rounded-xl border border-[#1E2C4F] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#0B132B]"
+                className="rounded-xl border border-[#122240] px-4 py-2.5 text-xs font-bold text-[#F5F3EE] hover:bg-[#040A18]"
               >
                 Cancel
               </button>

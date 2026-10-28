@@ -322,7 +322,7 @@ export default function StampsLandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#101D35] text-[#F5F2EB] selection:bg-[#D4AF65] selection:text-[#101D35]">
+    <div className="min-h-screen bg-[#040A18] text-[#F5F2EB] selection:bg-[#D4AF65] selection:text-[#040A18]">
       {/* 1. SEO Head & Structured Data */}
       <SEOHead
         title="Custom Rubber Stamps & Company Stamps in Dubai | ONPRINT"
@@ -335,7 +335,7 @@ export default function StampsLandingPage() {
       />
 
       {/* 2. Top Banner & Breadcrumbs */}
-      <div className="border-b border-[#203357] bg-[#172644]/80 backdrop-blur-md py-3">
+      <div className="border-b border-[#122240] bg-[#081226]/80 backdrop-blur-md py-3">
         <Container>
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
             <Breadcrumbs
@@ -359,7 +359,7 @@ export default function StampsLandingPage() {
       </div>
 
       {/* 3. Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-16 lg:pt-16 lg:pb-24 border-b border-[#203357]">
+      <section className="relative overflow-hidden pt-12 pb-16 lg:pt-16 lg:pb-24 border-b border-[#122240]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(212,175,101,0.15),rgba(16,29,53,0))]" />
         
         <Container className="relative z-10">
@@ -386,22 +386,22 @@ export default function StampsLandingPage() {
             {/* Quick Badges Grid */}
             <Reveal delay={0.25}>
               <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-left">
-                <div className="rounded-2xl border border-[#203357] bg-[#172644]/90 p-3.5 backdrop-blur-sm">
+                <div className="rounded-2xl border border-[#122240] bg-[#081226]/90 p-3.5 backdrop-blur-sm">
                   <Clock className="h-5 w-5 text-[#D4AF65] mb-1.5" />
                   <div className="text-xs font-extrabold text-[#F5F2EB]">2-Hour Express</div>
                   <div className="text-[10px] text-[#B0BECE]">Emergency Al Quoz rush</div>
                 </div>
-                <div className="rounded-2xl border border-[#203357] bg-[#172644]/90 p-3.5 backdrop-blur-sm">
+                <div className="rounded-2xl border border-[#122240] bg-[#081226]/90 p-3.5 backdrop-blur-sm">
                   <ShieldCheck className="h-5 w-5 text-emerald-400 mb-1.5" />
                   <div className="text-xs font-extrabold text-[#F5F2EB]">DED &amp; Freezone Legal</div>
                   <div className="text-[10px] text-[#B0BECE]">Trade license compliant</div>
                 </div>
-                <div className="rounded-2xl border border-[#203357] bg-[#172644]/90 p-3.5 backdrop-blur-sm">
+                <div className="rounded-2xl border border-[#122240] bg-[#081226]/90 p-3.5 backdrop-blur-sm">
                   <Award className="h-5 w-5 text-[#D4AF65] mb-1.5" />
                   <div className="text-xs font-extrabold text-[#F5F2EB]">Trodat &amp; Colop</div>
                   <div className="text-[10px] text-[#B0BECE]">10,000+ crisp impressions</div>
                 </div>
-                <div className="rounded-2xl border border-[#203357] bg-[#172644]/90 p-3.5 backdrop-blur-sm">
+                <div className="rounded-2xl border border-[#122240] bg-[#081226]/90 p-3.5 backdrop-blur-sm">
                   <Truck className="h-5 w-5 text-sky-400 mb-1.5" />
                   <div className="text-xs font-extrabold text-[#F5F2EB]">All 7 Emirates</div>
                   <div className="text-[10px] text-[#B0BECE]">Same-day Dubai courier</div>
@@ -432,7 +432,7 @@ export default function StampsLandingPage() {
 
                 <a
                   href="#stamp-customizer"
-                  className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#203357] bg-[#172644] hover:bg-[#203357] hover:border-[#D4AF65] px-6 py-4 text-sm font-bold text-[#F5F2EB] transition-all cursor-pointer"
+                  className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#122240] bg-[#081226] hover:bg-[#122240] hover:border-[#D4AF65] px-6 py-4 text-sm font-bold text-[#F5F2EB] transition-all cursor-pointer"
                 >
                   <span>Interactive Stamp Customizer</span>
                   <ArrowRight className="h-4 w-4 text-[#D4AF65]" />
@@ -444,7 +444,7 @@ export default function StampsLandingPage() {
       </section>
 
       {/* 4. Interactive Stamp Customizer & Live Visual Impression Preview */}
-      <section id="stamp-customizer" className="py-16 sm:py-24 border-b border-[#203357] bg-[#12203B]/60">
+      <section id="stamp-customizer" className="py-16 sm:py-24 border-b border-[#122240] bg-[#12203B]/60">
         <Container>
           <div className="mb-10 text-center max-w-3xl mx-auto">
             <span className="text-[11px] font-black uppercase tracking-widest text-[#D4AF65]">
@@ -462,7 +462,7 @@ export default function StampsLandingPage() {
             {/* Left: Interactive Configurator Controls */}
             <div className="lg:col-span-7 space-y-6">
               {/* 1. Stamp Type Selector */}
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] p-5 sm:p-6 shadow-md">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] p-5 sm:p-6 shadow-md">
                 <label className="block text-xs font-black uppercase tracking-wider text-[#D4AF65] mb-3">
                   1. Choose Stamp Category / Type
                 </label>
@@ -476,8 +476,8 @@ export default function StampsLandingPage() {
                         onClick={() => handleTypeChange(type)}
                         className={`text-left p-3 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
                           isSelected
-                            ? 'border-[#D4AF65] bg-[#101D35] ring-2 ring-[#D4AF65]/30'
-                            : 'border-[#203357] bg-[#101D35]/60 hover:border-[#D4AF65]/60 hover:bg-[#101D35]'
+                            ? 'border-[#D4AF65] bg-[#040A18] ring-2 ring-[#D4AF65]/30'
+                            : 'border-[#122240] bg-[#040A18]/60 hover:border-[#D4AF65]/60 hover:bg-[#040A18]'
                         }`}
                       >
                         <div className="flex items-start justify-between gap-2 mb-1">
@@ -491,7 +491,7 @@ export default function StampsLandingPage() {
                         <p className="text-[10px] text-[#B0BECE] line-clamp-1 mb-2">
                           {type.tagline}
                         </p>
-                        <div className="flex items-center justify-between text-[9px] text-emerald-400 font-semibold pt-1 border-t border-[#203357]">
+                        <div className="flex items-center justify-between text-[9px] text-emerald-400 font-semibold pt-1 border-t border-[#122240]">
                           <span>{type.turnaround}</span>
                           <span className="text-[#B0BECE]">{type.badge}</span>
                         </div>
@@ -503,7 +503,7 @@ export default function StampsLandingPage() {
 
               {/* 2. Casing Brand & Dimensions */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="rounded-3xl border border-[#203357] bg-[#172644] p-5 shadow-md">
+                <div className="rounded-3xl border border-[#122240] bg-[#081226] p-5 shadow-md">
                   <label className="block text-xs font-black uppercase tracking-wider text-[#D4AF65] mb-2.5">
                     2. Casing &amp; Mechanism
                   </label>
@@ -515,8 +515,8 @@ export default function StampsLandingPage() {
                         onClick={() => setSelectedBrand(brand)}
                         className={`w-full text-left px-3.5 py-2.5 rounded-xl border text-xs font-bold transition-all cursor-pointer flex items-center justify-between ${
                           selectedBrand === brand
-                            ? 'border-[#D4AF65] bg-[#101D35] text-[#D4AF65]'
-                            : 'border-[#203357] bg-[#101D35]/50 text-[#F5F2EB] hover:border-[#D4AF65]/50'
+                            ? 'border-[#D4AF65] bg-[#040A18] text-[#D4AF65]'
+                            : 'border-[#122240] bg-[#040A18]/50 text-[#F5F2EB] hover:border-[#D4AF65]/50'
                         }`}
                       >
                         <span>{brand}</span>
@@ -526,7 +526,7 @@ export default function StampsLandingPage() {
                   </div>
                 </div>
 
-                <div className="rounded-3xl border border-[#203357] bg-[#172644] p-5 shadow-md">
+                <div className="rounded-3xl border border-[#122240] bg-[#081226] p-5 shadow-md">
                   <label className="block text-xs font-black uppercase tracking-wider text-[#D4AF65] mb-2.5">
                     3. Dimension / Impression Size
                   </label>
@@ -538,8 +538,8 @@ export default function StampsLandingPage() {
                         onClick={() => setSelectedSize(size)}
                         className={`w-full text-left px-3.5 py-2.5 rounded-xl border text-xs font-bold transition-all cursor-pointer flex items-center justify-between ${
                           selectedSize === size
-                            ? 'border-[#D4AF65] bg-[#101D35] text-[#D4AF65]'
-                            : 'border-[#203357] bg-[#101D35]/50 text-[#F5F2EB] hover:border-[#D4AF65]/50'
+                            ? 'border-[#D4AF65] bg-[#040A18] text-[#D4AF65]'
+                            : 'border-[#122240] bg-[#040A18]/50 text-[#F5F2EB] hover:border-[#D4AF65]/50'
                         }`}
                       >
                         <span>{size}</span>
@@ -551,7 +551,7 @@ export default function StampsLandingPage() {
               </div>
 
               {/* 3. Official Ink Colors */}
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] p-5 sm:p-6 shadow-md">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] p-5 sm:p-6 shadow-md">
                 <div className="flex items-center justify-between mb-3">
                   <label className="block text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                     4. Select Document Ink Color
@@ -570,8 +570,8 @@ export default function StampsLandingPage() {
                         onClick={() => setSelectedInk(ink)}
                         className={`p-3 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
                           isSelected
-                            ? 'border-[#D4AF65] bg-[#101D35] ring-2 ring-[#D4AF65]/30'
-                            : 'border-[#203357] bg-[#101D35]/50 hover:border-[#D4AF65]/50'
+                            ? 'border-[#D4AF65] bg-[#040A18] ring-2 ring-[#D4AF65]/30'
+                            : 'border-[#122240] bg-[#040A18]/50 hover:border-[#D4AF65]/50'
                         }`}
                       >
                         <div className="flex items-center gap-2 mb-1.5">
@@ -597,7 +597,7 @@ export default function StampsLandingPage() {
               </div>
 
               {/* 4. Company Stamp Details Form */}
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] p-5 sm:p-6 shadow-md space-y-4">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] p-5 sm:p-6 shadow-md space-y-4">
                 <label className="block text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                   5. Stamp Inscription Details (English &amp; Arabic)
                 </label>
@@ -611,7 +611,7 @@ export default function StampsLandingPage() {
                       value={companyNameEng}
                       onChange={(e) => setCompanyNameEng(e.target.value)}
                       placeholder="e.g. ABC TRADING L.L.C"
-                      className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+                      className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
 
@@ -625,7 +625,7 @@ export default function StampsLandingPage() {
                       value={companyNameAr}
                       onChange={(e) => setCompanyNameAr(e.target.value)}
                       placeholder="اسم الشركة بالعربية كما في الرخصة"
-                      className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+                      className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
 
@@ -638,7 +638,7 @@ export default function StampsLandingPage() {
                       value={tradeLicenseNo}
                       onChange={(e) => setTradeLicenseNo(e.target.value)}
                       placeholder="e.g. CN-1094821 / 589201"
-                      className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+                      className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
 
@@ -651,12 +651,12 @@ export default function StampsLandingPage() {
                       value={trnNumber}
                       onChange={(e) => setTrnNumber(e.target.value)}
                       placeholder="e.g. 100234567800003"
-                      className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+                      className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2 border-t border-[#203357]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2 border-t border-[#122240]">
                   <div>
                     <label className="block text-[11px] font-bold text-[#B0BECE] mb-1">
                       Your Name / Authorized Contact (Optional)
@@ -666,7 +666,7 @@ export default function StampsLandingPage() {
                       value={customerName}
                       onChange={(e) => setCustomerName(e.target.value)}
                       placeholder="e.g. Ahmed Al Mansoori"
-                      className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+                      className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
                     />
                   </div>
 
@@ -677,7 +677,7 @@ export default function StampsLandingPage() {
                     <select
                       value={deliveryLocation}
                       onChange={(e) => setDeliveryLocation(e.target.value)}
-                      className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+                      className="w-full rounded-xl border border-[#122240] bg-[#040A18] px-3.5 py-2.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
                     >
                       <option value="Dubai">Dubai (Same-Day Express Courier)</option>
                       <option value="Abu Dhabi">Abu Dhabi (Next-Day Doorstep Delivery)</option>
@@ -692,7 +692,7 @@ export default function StampsLandingPage() {
               </div>
 
               {/* 5. Quantity & Volume Tiers */}
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] p-5 sm:p-6 shadow-md">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] p-5 sm:p-6 shadow-md">
                 <div className="flex items-center justify-between mb-3">
                   <label className="block text-xs font-black uppercase tracking-wider text-[#D4AF65]">
                     6. Order Quantity &amp; Corporate Fleet Discounts
@@ -714,13 +714,13 @@ export default function StampsLandingPage() {
                         onClick={() => setSelectedQty(tier)}
                         className={`p-3 rounded-2xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center ${
                           isSelected
-                            ? 'border-[#D4AF65] bg-[#D4AF65] text-[#101D35] font-black shadow-md'
-                            : 'border-[#203357] bg-[#101D35] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#F5F2EB]'
+                            ? 'border-[#D4AF65] bg-[#D4AF65] text-[#040A18] font-black shadow-md'
+                            : 'border-[#122240] bg-[#040A18] text-[#B0BECE] hover:border-[#D4AF65] hover:text-[#F5F2EB]'
                         }`}
                       >
                         <span className="text-xs font-extrabold">{tier.label}</span>
                         {tier.discount > 0 && (
-                          <span className={`text-[10px] font-bold ${isSelected ? 'text-[#101D35]/90' : 'text-emerald-400'}`}>
+                          <span className={`text-[10px] font-bold ${isSelected ? 'text-[#040A18]/90' : 'text-emerald-400'}`}>
                             Save {tier.discount}%
                           </span>
                         )}
@@ -735,20 +735,20 @@ export default function StampsLandingPage() {
             {/* Right: Live Stamp Impression Digital Preview & WhatsApp Dispatcher */}
             <div className="lg:col-span-5 sticky top-24 space-y-5">
               {/* Live Preview Canvas Card */}
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] p-6 shadow-xl relative overflow-hidden">
-                <div className="flex items-center justify-between pb-3 border-b border-[#203357]">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6 shadow-xl relative overflow-hidden">
+                <div className="flex items-center justify-between pb-3 border-b border-[#122240]">
                   <span className="text-xs font-extrabold uppercase tracking-wider text-[#D4AF65] flex items-center gap-1.5">
                     <Stamp className="h-4 w-4" />
                     <span>Real-Time Digital Stamp Proof</span>
                   </span>
-                  <span className="rounded-full bg-[#101D35] border border-[#203357] px-2 py-0.5 text-[10px] font-bold text-[#B0BECE]">
+                  <span className="rounded-full bg-[#040A18] border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#B0BECE]">
                     {selectedInk.name}
                   </span>
                 </div>
 
                 {/* Simulated Paper Texture Stage */}
                 <div className="my-5 rounded-2xl bg-[#F5F2EB] p-6 sm:p-8 flex items-center justify-center min-h-[260px] shadow-inner relative overflow-hidden">
-                  <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#101D35_1px,transparent_1px)] [background-size:12px_12px]" />
+                  <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#040A18_1px,transparent_1px)] [background-size:12px_12px]" />
 
                   {selectedType.shape === 'round' ? (
                     /* Circular Impression Preview */
@@ -824,7 +824,7 @@ export default function StampsLandingPage() {
                 </div>
 
                 {/* Pricing & Estimation Summary */}
-                <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4 space-y-2.5">
+                <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4 space-y-2.5">
                   <div className="flex items-center justify-between text-xs text-[#B0BECE]">
                     <span>Stamp Model:</span>
                     <span className="font-bold text-[#F5F2EB]">{selectedType.name}</span>
@@ -846,7 +846,7 @@ export default function StampsLandingPage() {
                     <span className="font-bold text-emerald-400">Free Vector Check Included</span>
                   </div>
 
-                  <div className="pt-2.5 border-t border-[#203357] flex items-baseline justify-between">
+                  <div className="pt-2.5 border-t border-[#122240] flex items-baseline justify-between">
                     <div>
                       <span className="text-[11px] font-bold text-[#B0BECE]">Estimated Total (AED):</span>
                       <div className="text-[10px] text-emerald-400">Inclusive of VAT &bull; Same-Day Dispatch</div>
@@ -895,14 +895,14 @@ export default function StampsLandingPage() {
                       notes: `Stamp text: ${companyNameEng} | Lic: ${tradeLicenseNo} | TRN: ${trnNumber}. Brand: ${selectedBrand}`,
                     }}
                     onClick={() => trackGetQuoteClick({ source_page: 'stamps_customizer', product_name: selectedType.name })}
-                    className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[#203357] bg-[#101D35] hover:bg-[#203357] py-3 text-xs font-extrabold text-[#F5F2EB] transition-colors cursor-pointer"
+                    className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[#122240] bg-[#040A18] hover:bg-[#122240] py-3 text-xs font-extrabold text-[#F5F2EB] transition-colors cursor-pointer"
                   >
                     <FileText className="h-4 w-4 text-[#D4AF65]" />
                     <span>Request Official Corporate Tax Quotation</span>
                   </Link>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-[#203357] flex items-center justify-between text-[10px] text-[#B0BECE]">
+                <div className="mt-4 pt-3 border-t border-[#122240] flex items-center justify-between text-[10px] text-[#B0BECE]">
                   <span className="flex items-center gap-1 font-semibold text-[#F5F2EB]">
                     <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
                     <span>Prepress digital proof before laser cut</span>
@@ -916,7 +916,7 @@ export default function StampsLandingPage() {
       </section>
 
       {/* 5. Complete Stamp Products Catalog Showcase */}
-      <section className="py-16 sm:py-24 border-b border-[#203357]">
+      <section className="py-16 sm:py-24 border-b border-[#122240]">
         <Container>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
@@ -932,7 +932,7 @@ export default function StampsLandingPage() {
             </div>
 
             {/* Catalog Filter Tabs */}
-            <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl border border-[#203357] bg-[#172644]">
+            <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl border border-[#122240] bg-[#081226]">
               {[
                 { id: 'all', label: 'All 10 Models' },
                 { id: 'round', label: 'Round Seals' },
@@ -945,7 +945,7 @@ export default function StampsLandingPage() {
                   onClick={() => setCatalogFilter(tab.id)}
                   className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                     catalogFilter === tab.id
-                      ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                      ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
                       : 'text-[#B0BECE] hover:text-[#F5F2EB]'
                   }`}
                 >
@@ -960,11 +960,11 @@ export default function StampsLandingPage() {
             {filteredProducts.map((prod) => (
               <div
                 key={prod.id}
-                className="group rounded-3xl border border-[#203357] bg-[#172644] overflow-hidden flex flex-col justify-between hover:border-[#D4AF65]/60 hover:shadow-xl transition-all duration-300"
+                className="group rounded-3xl border border-[#122240] bg-[#081226] overflow-hidden flex flex-col justify-between hover:border-[#D4AF65]/60 hover:shadow-xl transition-all duration-300"
               >
                 <div>
                   {/* Image Stage */}
-                  <div className="relative aspect-video overflow-hidden bg-[#101D35]">
+                  <div className="relative aspect-video overflow-hidden bg-[#040A18]">
                     <img
                       src={prod.image || getProductImage({ slug: prod.slug })}
                       alt={`${prod.name} Dubai maker`}
@@ -972,7 +972,7 @@ export default function StampsLandingPage() {
                       loading="lazy"
                     />
                     <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                      <span className="rounded-full bg-[#101D35]/90 border border-[#203357] backdrop-blur-md px-2.5 py-0.5 text-[10px] font-black text-[#D4AF65]">
+                      <span className="rounded-full bg-[#040A18]/90 border border-[#122240] backdrop-blur-md px-2.5 py-0.5 text-[10px] font-black text-[#D4AF65]">
                         {prod.badge}
                       </span>
                     </div>
@@ -1005,7 +1005,7 @@ export default function StampsLandingPage() {
                     </p>
 
                     {/* Features checklist */}
-                    <div className="space-y-1.5 pt-3 border-t border-[#203357] text-[11px] text-[#B0BECE]">
+                    <div className="space-y-1.5 pt-3 border-t border-[#122240] text-[11px] text-[#B0BECE]">
                       <div className="flex items-center gap-1.5">
                         <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                         <span>Casings: {prod.brands.slice(0, 2).join(' &bull; ')}</span>
@@ -1023,7 +1023,7 @@ export default function StampsLandingPage() {
                 </div>
 
                 {/* Card Action CTAs */}
-                <div className="p-5 sm:p-6 pt-0 border-t border-[#203357]/60 flex items-center gap-2">
+                <div className="p-5 sm:p-6 pt-0 border-t border-[#122240]/60 flex items-center gap-2">
                   <a
                     href={getServiceWhatsAppUrl('stamps', {
                       productName: prod.name,
@@ -1049,7 +1049,7 @@ export default function StampsLandingPage() {
 
                   <Link
                     to={`/products/${prod.slug}`}
-                    className="flex items-center justify-center rounded-xl border border-[#203357] bg-[#101D35] hover:border-[#D4AF65] hover:text-[#D4AF65] px-3 py-2.5 text-xs font-bold text-[#F5F2EB] transition-colors"
+                    className="flex items-center justify-center rounded-xl border border-[#122240] bg-[#040A18] hover:border-[#D4AF65] hover:text-[#D4AF65] px-3 py-2.5 text-xs font-bold text-[#F5F2EB] transition-colors"
                   >
                     <span>Details</span>
                     <ArrowRight className="h-3.5 w-3.5 ml-1 text-[#D4AF65]" />
@@ -1062,7 +1062,7 @@ export default function StampsLandingPage() {
       </section>
 
       {/* 6. UAE Legal & Trade License Compliance Guide (GEO & AEO Authority) */}
-      <section className="py-16 sm:py-24 border-b border-[#203357] bg-[#172644]/40">
+      <section className="py-16 sm:py-24 border-b border-[#122240] bg-[#081226]/40">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-5">
@@ -1078,8 +1078,8 @@ export default function StampsLandingPage() {
               </p>
 
               <div className="space-y-3 pt-2">
-                <div className="flex items-start gap-3 rounded-2xl border border-[#203357] bg-[#172644] p-4">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#101D35] text-[#D4AF65] border border-[#203357] shrink-0 font-black text-xs">
+                <div className="flex items-start gap-3 rounded-2xl border border-[#122240] bg-[#081226] p-4">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#040A18] text-[#D4AF65] border border-[#122240] shrink-0 font-black text-xs">
                     1
                   </div>
                   <div>
@@ -1090,8 +1090,8 @@ export default function StampsLandingPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 rounded-2xl border border-[#203357] bg-[#172644] p-4">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#101D35] text-[#D4AF65] border border-[#203357] shrink-0 font-black text-xs">
+                <div className="flex items-start gap-3 rounded-2xl border border-[#122240] bg-[#081226] p-4">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#040A18] text-[#D4AF65] border border-[#122240] shrink-0 font-black text-xs">
                     2
                   </div>
                   <div>
@@ -1115,32 +1115,32 @@ export default function StampsLandingPage() {
             </div>
 
             {/* Right: Technical Features Card */}
-            <div className="lg:col-span-6 rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-8 space-y-6">
+            <div className="lg:col-span-6 rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 space-y-6">
               <h3 className="font-display text-xl font-bold text-[#F5F2EB] flex items-center gap-2">
                 <Award className="h-5 w-5 text-[#D4AF65]" />
                 <span>Technical Specifications &amp; Quality Guarantee</span>
               </h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4">
+                <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                   <div className="text-[#D4AF65] font-extrabold mb-1">1000 DPI Laser Die</div>
                   <p className="text-[#B0BECE] text-[11px]">
                     Computer-controlled laser ablation on odorless vulcanized rubber ensures microscopic clarity without ink smudging.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4">
+                <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                   <div className="text-sky-400 font-extrabold mb-1">Document-Proof Ink</div>
                   <p className="text-[#B0BECE] text-[11px]">
                     Certified to ISO 14145-2 anti-fraud standard. Non-toxic, archival, water-resistant, and indelible on standard bond papers.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4">
+                <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                   <div className="text-emerald-400 font-extrabold mb-1">10,000+ Impressions</div>
                   <p className="text-[#B0BECE] text-[11px]">
                     Built-in high-capacity ink pad delivers thousands of crisp stamps. Slide-out replacement pads are readily available.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4">
+                <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                   <div className="text-[#D4AF65] font-extrabold mb-1">Bilingual Typography</div>
                   <p className="text-[#B0BECE] text-[11px]">
                     Precise digital typesetting in official Arabic and English with harmonious weight balance and correct legal nomenclature.
@@ -1148,14 +1148,14 @@ export default function StampsLandingPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-[#203357] bg-[#101D35] p-4 flex items-center justify-between">
+              <div className="rounded-2xl border border-[#122240] bg-[#040A18] p-4 flex items-center justify-between">
                 <div>
                   <div className="text-xs font-bold text-[#F5F2EB]">Have an urgent rush stamp requirement?</div>
                   <div className="text-[11px] text-[#B0BECE]">Contact our Al Quoz pressroom directly for 2-hour turnaround.</div>
                 </div>
                 <a
                   href={`tel:${WHATSAPP_PHONE}`}
-                  className="rounded-xl bg-[#D4AF65] text-[#101D35] px-4 py-2 text-xs font-black hover:bg-[#C8B185] transition-colors shrink-0"
+                  className="rounded-xl bg-[#D4AF65] text-[#040A18] px-4 py-2 text-xs font-black hover:bg-[#C8B185] transition-colors shrink-0"
                 >
                   Call Pressroom
                 </a>
@@ -1166,7 +1166,7 @@ export default function StampsLandingPage() {
       </section>
 
       {/* 7. Stamp Types Comparison Matrix */}
-      <section className="py-16 sm:py-24 border-b border-[#203357]">
+      <section className="py-16 sm:py-24 border-b border-[#122240]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-[11px] font-black uppercase tracking-widest text-[#D4AF65]">
@@ -1180,9 +1180,9 @@ export default function StampsLandingPage() {
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-3xl border border-[#203357] bg-[#172644] shadow-lg">
+          <div className="overflow-x-auto rounded-3xl border border-[#122240] bg-[#081226] shadow-lg">
             <table className="w-full text-left text-xs">
-              <thead className="bg-[#101D35] text-[#D4AF65] uppercase tracking-wider text-[10px] font-black border-b border-[#203357]">
+              <thead className="bg-[#040A18] text-[#D4AF65] uppercase tracking-wider text-[10px] font-black border-b border-[#122240]">
                 <tr>
                   <th className="p-4 sm:p-5">Stamp Type</th>
                   <th className="p-4 sm:p-5">Mechanism</th>
@@ -1192,8 +1192,8 @@ export default function StampsLandingPage() {
                   <th className="p-4 sm:p-5 text-right">Starting Price</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#203357] text-[#B0BECE]">
-                <tr className="hover:bg-[#101D35]/50 transition-colors">
+              <tbody className="divide-y divide-[#122240] text-[#B0BECE]">
+                <tr className="hover:bg-[#040A18]/50 transition-colors">
                   <td className="p-4 sm:p-5 font-bold text-[#F5F2EB]">Round Corporate Seal</td>
                   <td className="p-4 sm:p-5">Self-inking rotational die</td>
                   <td className="p-4 sm:p-5">10,000+ impressions</td>
@@ -1201,7 +1201,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5 text-emerald-400 font-bold">2-Hour Express</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#D4AF65]">AED 95</td>
                 </tr>
-                <tr className="hover:bg-[#101D35]/50 transition-colors">
+                <tr className="hover:bg-[#040A18]/50 transition-colors">
                   <td className="p-4 sm:p-5 font-bold text-[#F5F2EB]">Rectangular Office Stamp</td>
                   <td className="p-4 sm:p-5">Built-in pad self-inking</td>
                   <td className="p-4 sm:p-5">10,000+ impressions</td>
@@ -1209,7 +1209,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5 text-emerald-400 font-bold">2-Hour Express</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#D4AF65]">AED 85</td>
                 </tr>
-                <tr className="hover:bg-[#101D35]/50 transition-colors">
+                <tr className="hover:bg-[#040A18]/50 transition-colors">
                   <td className="p-4 sm:p-5 font-bold text-[#F5F2EB]">Heavy-Duty Dater Machine</td>
                   <td className="p-4 sm:p-5">Steel-core rotating wheels</td>
                   <td className="p-4 sm:p-5">15,000+ impressions</td>
@@ -1217,7 +1217,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5 text-sky-400 font-bold">Same-Day</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#D4AF65]">AED 130</td>
                 </tr>
-                <tr className="hover:bg-[#101D35]/50 transition-colors">
+                <tr className="hover:bg-[#040A18]/50 transition-colors">
                   <td className="p-4 sm:p-5 font-bold text-[#F5F2EB]">Pocket Mobile Stamp</td>
                   <td className="p-4 sm:p-5">Slide-open portable format</td>
                   <td className="p-4 sm:p-5">5,000+ impressions</td>
@@ -1225,7 +1225,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5 text-emerald-400 font-bold">2-Hour Express</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#D4AF65]">AED 95</td>
                 </tr>
-                <tr className="hover:bg-[#101D35]/50 transition-colors">
+                <tr className="hover:bg-[#040A18]/50 transition-colors">
                   <td className="p-4 sm:p-5 font-bold text-[#F5F2EB]">VAT &amp; TRN Tax Stamp</td>
                   <td className="p-4 sm:p-5">Pre-formatted FTA box</td>
                   <td className="p-4 sm:p-5">10,000+ impressions</td>
@@ -1233,7 +1233,7 @@ export default function StampsLandingPage() {
                   <td className="p-4 sm:p-5 text-emerald-400 font-bold">2-Hour Express</td>
                   <td className="p-4 sm:p-5 text-right font-black text-[#D4AF65]">AED 85</td>
                 </tr>
-                <tr className="hover:bg-[#101D35]/50 transition-colors">
+                <tr className="hover:bg-[#040A18]/50 transition-colors">
                   <td className="p-4 sm:p-5 font-bold text-[#F5F2EB]">Luxury Brass Wax Seal</td>
                   <td className="p-4 sm:p-5">Solid CNC brass + hot wax</td>
                   <td className="p-4 sm:p-5">Lifetime brass durability</td>
@@ -1248,10 +1248,10 @@ export default function StampsLandingPage() {
       </section>
 
       {/* 8. Geographic Reach & Dubai Delivery Coverage */}
-      <section className="py-16 sm:py-20 border-b border-[#203357] bg-[#12203B]/40">
+      <section className="py-16 sm:py-20 border-b border-[#122240] bg-[#12203B]/40">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center sm:text-left">
-            <div className="rounded-3xl border border-[#203357] bg-[#172644] p-6">
+            <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6">
               <MapPin className="h-6 w-6 text-[#D4AF65] mb-3" />
               <h3 className="font-display text-base font-extrabold text-[#F5F2EB]">
                 Al Quoz Pressroom Express Pickup
@@ -1261,7 +1261,7 @@ export default function StampsLandingPage() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-[#203357] bg-[#172644] p-6">
+            <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6">
               <Truck className="h-6 w-6 text-sky-400 mb-3" />
               <h3 className="font-display text-base font-extrabold text-[#F5F2EB]">
                 Same-Day Courier Across Dubai
@@ -1271,7 +1271,7 @@ export default function StampsLandingPage() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-[#203357] bg-[#172644] p-6">
+            <div className="rounded-3xl border border-[#122240] bg-[#081226] p-6">
               <Building2 className="h-6 w-6 text-emerald-400 mb-3" />
               <h3 className="font-display text-base font-extrabold text-[#F5F2EB]">
                 UAE-Wide Doorstep Delivery
@@ -1285,7 +1285,7 @@ export default function StampsLandingPage() {
       </section>
 
       {/* 9. Authentic Pre-Purchase FAQ Accordion */}
-      <section className="py-16 sm:py-24 border-b border-[#203357]">
+      <section className="py-16 sm:py-24 border-b border-[#122240]">
         <Container className="max-w-4xl">
           <div className="text-center mb-12">
             <span className="text-[11px] font-black uppercase tracking-widest text-[#D4AF65]">
@@ -1305,7 +1305,7 @@ export default function StampsLandingPage() {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl border border-[#203357] bg-[#172644] overflow-hidden transition-all duration-200"
+                  className="rounded-2xl border border-[#122240] bg-[#081226] overflow-hidden transition-all duration-200"
                 >
                   <button
                     type="button"
@@ -1327,7 +1327,7 @@ export default function StampsLandingPage() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="px-4 sm:px-5 pb-5 pt-1 text-xs text-[#B0BECE] leading-relaxed border-t border-[#203357]/60"
+                        className="px-4 sm:px-5 pb-5 pt-1 text-xs text-[#B0BECE] leading-relaxed border-t border-[#122240]/60"
                       >
                         {faq.a}
                       </motion.div>
@@ -1341,7 +1341,7 @@ export default function StampsLandingPage() {
       </section>
 
       {/* 10. Internal Links to Complementary Business Printing Services */}
-      <section className="py-16 sm:py-20 border-b border-[#203357] bg-[#172644]/60">
+      <section className="py-16 sm:py-20 border-b border-[#122240] bg-[#081226]/60">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-[11px] font-black uppercase tracking-widest text-[#D4AF65]">
@@ -1358,7 +1358,7 @@ export default function StampsLandingPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link
               to="/business-card-printing-dubai"
-              className="rounded-2xl border border-[#203357] bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all group flex flex-col justify-between"
+              className="rounded-2xl border border-[#122240] bg-[#040A18] p-5 hover:border-[#D4AF65] transition-all group flex flex-col justify-between"
             >
               <div>
                 <CreditCard className="h-6 w-6 text-[#D4AF65] mb-2" />
@@ -1377,7 +1377,7 @@ export default function StampsLandingPage() {
 
             <Link
               to="/categories/letterheads-printing-dubai"
-              className="rounded-2xl border border-[#203357] bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all group flex flex-col justify-between"
+              className="rounded-2xl border border-[#122240] bg-[#040A18] p-5 hover:border-[#D4AF65] transition-all group flex flex-col justify-between"
             >
               <div>
                 <FileText className="h-6 w-6 text-[#D4AF65] mb-2" />
@@ -1396,7 +1396,7 @@ export default function StampsLandingPage() {
 
             <Link
               to="/categories/office-stationery-printing"
-              className="rounded-2xl border border-[#203357] bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all group flex flex-col justify-between"
+              className="rounded-2xl border border-[#122240] bg-[#040A18] p-5 hover:border-[#D4AF65] transition-all group flex flex-col justify-between"
             >
               <div>
                 <Building2 className="h-6 w-6 text-[#D4AF65] mb-2" />
@@ -1415,7 +1415,7 @@ export default function StampsLandingPage() {
 
             <Link
               to="/finishes"
-              className="rounded-2xl border border-[#203357] bg-[#101D35] p-5 hover:border-[#D4AF65] transition-all group flex flex-col justify-between"
+              className="rounded-2xl border border-[#122240] bg-[#040A18] p-5 hover:border-[#D4AF65] transition-all group flex flex-col justify-between"
             >
               <div>
                 <Palette className="h-6 w-6 text-[#D4AF65] mb-2" />
@@ -1436,7 +1436,7 @@ export default function StampsLandingPage() {
       </section>
 
       {/* 11. Final High-Impact Bottom WhatsApp Conversion Bar */}
-      <section className="py-12 bg-gradient-to-r from-[#172644] via-[#101D35] to-[#172644] border-t border-[#203357]">
+      <section className="py-12 bg-gradient-to-r from-[#081226] via-[#040A18] to-[#081226] border-t border-[#122240]">
         <Container>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div>
@@ -1471,7 +1471,7 @@ export default function StampsLandingPage() {
 
               <a
                 href={`tel:${WHATSAPP_PHONE}`}
-                className="rounded-full border border-[#203357] bg-[#101D35] hover:bg-[#203357] px-5 py-3.5 text-xs font-bold text-[#F5F2EB] transition-colors"
+                className="rounded-full border border-[#122240] bg-[#040A18] hover:bg-[#122240] px-5 py-3.5 text-xs font-bold text-[#F5F2EB] transition-colors"
               >
                 {FORMATTED_PHONE}
               </a>

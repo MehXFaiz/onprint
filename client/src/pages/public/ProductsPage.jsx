@@ -263,7 +263,7 @@ export default function ProductsPage() {
   }, [activeDepartment])
 
   return (
-    <div className="py-10 sm:py-16 bg-[#101D35] text-[#F5F2EB] min-h-screen">
+    <div className="py-10 sm:py-16 bg-[#040A18] text-[#F5F2EB] min-h-screen">
       {/* SEO Head Management */}
       <SEOHead
         title={`${activeHeading} | ONPRINT Dubai Commercial Printing Press`}
@@ -285,9 +285,9 @@ export default function ProductsPage() {
         />
 
         {/* Editorial Page Header */}
-        <div className="mt-6 flex flex-col justify-between gap-6 lg:flex-row lg:items-end border-b border-[#203357] pb-8">
+        <div className="mt-6 flex flex-col justify-between gap-6 lg:flex-row lg:items-end border-b border-[#122240] pb-8">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#040A18] px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#D4AF65]">
               <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>{activeEyebrow}</span>
             </div>
@@ -307,7 +307,7 @@ export default function ProductsPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search 110+ products…"
-              className="w-full rounded-2xl border border-[#203357] bg-[#172644] pl-10 pr-9 py-2.5 text-xs font-semibold text-[#F5F2EB] placeholder:text-[#52647D] transition-all focus:border-[#D4AF65] focus:outline-none shadow-xs"
+              className="w-full rounded-2xl border border-[#122240] bg-[#081226] pl-10 pr-9 py-2.5 text-xs font-semibold text-[#F5F2EB] placeholder:text-[#52647D] transition-all focus:border-[#D4AF65] focus:outline-none shadow-xs"
             />
             {searchQuery && (
               <button
@@ -325,7 +325,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Master Department Navigation Tabs */}
-        <div className="mt-8 border-b border-[#203357] pb-4">
+        <div className="mt-8 border-b border-[#122240] pb-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] font-black uppercase tracking-wider text-[#D4AF65]">
               Departments
@@ -341,8 +341,8 @@ export default function ProductsPage() {
               onClick={() => handleSelectDepartment('')}
               className={`shrink-0 min-h-[40px] rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                 !activeDeptParam && !activeCategoryParam
-                  ? 'bg-[#D4AF65] text-[#101D35] shadow-md font-black'
-                  : 'border border-[#203357] bg-[#172644] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
+                  ? 'bg-[#D4AF65] text-[#040A18] shadow-md font-black'
+                  : 'border border-[#122240] bg-[#081226] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
               }`}
             >
               All Products ({products.length})
@@ -363,13 +363,13 @@ export default function ProductsPage() {
                   onClick={() => handleSelectDepartment(dept.slug)}
                   className={`shrink-0 min-h-[40px] rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                     isSelected
-                      ? 'bg-[#D4AF65] text-[#101D35] shadow-md font-black'
-                      : 'border border-[#203357] bg-[#172644] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
+                      ? 'bg-[#D4AF65] text-[#040A18] shadow-md font-black'
+                      : 'border border-[#122240] bg-[#081226] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
                   }`}
                 >
-                  <Icon className={`h-3.5 w-3.5 ${isSelected ? 'text-[#101D35]' : 'text-[#D4AF65]'}`} />
+                  <Icon className={`h-3.5 w-3.5 ${isSelected ? 'text-[#040A18]' : 'text-[#D4AF65]'}`} />
                   <span>{dept.shortName || dept.name}</span>
-                  <span className={`text-[10px] ${isSelected ? 'text-[#101D35]/80' : 'text-[#B0BECE]'} font-semibold`}>
+                  <span className={`text-[10px] ${isSelected ? 'text-[#040A18]/80' : 'text-[#B0BECE]'} font-semibold`}>
                     ({deptProdCount})
                   </span>
                 </button>
@@ -379,7 +379,7 @@ export default function ProductsPage() {
 
           {/* Subcategory Filter Pills (Shown when a Department is active, OR all 19 store categories when browsing All) */}
           {activeDepartment ? (
-            <div className="mt-3 pt-3 border-t border-[#203357]/80 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+            <div className="mt-3 pt-3 border-t border-[#122240]/80 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
               <span className="text-[10px] font-black uppercase tracking-wider text-[#B0BECE] mr-1 shrink-0">
                 Filter by Category:
               </span>
@@ -388,8 +388,8 @@ export default function ProductsPage() {
                 onClick={() => handleSelectCategory('')}
                 className={`shrink-0 min-h-[36px] rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                   !activeCategoryParam
-                    ? 'bg-[#D4AF65] text-[#101D35] font-black'
-                    : 'bg-[#172644] border border-[#203357] text-[#F5F2EB] hover:bg-[#203357]'
+                    ? 'bg-[#D4AF65] text-[#040A18] font-black'
+                    : 'bg-[#081226] border border-[#122240] text-[#F5F2EB] hover:bg-[#122240]'
                 }`}
               >
                 All in {activeDepartment.shortName || activeDepartment.name}
@@ -403,8 +403,8 @@ export default function ProductsPage() {
                     onClick={() => handleSelectCategory(sub.slug)}
                     className={`shrink-0 min-h-[36px] rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                       isSubSelected
-                        ? 'bg-[#D4AF65] text-[#101D35] font-black'
-                        : 'bg-[#172644] border border-[#203357] text-[#F5F2EB] hover:bg-[#203357]'
+                        ? 'bg-[#D4AF65] text-[#040A18] font-black'
+                        : 'bg-[#081226] border border-[#122240] text-[#F5F2EB] hover:bg-[#122240]'
                     }`}
                   >
                     <span>{sub.name}</span>
@@ -414,7 +414,7 @@ export default function ProductsPage() {
               })}
             </div>
           ) : categories.length > 0 ? (
-            <div className="mt-3 pt-3 border-t border-[#203357]/80 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+            <div className="mt-3 pt-3 border-t border-[#122240]/80 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
               <span className="text-[10px] font-black uppercase tracking-wider text-[#B0BECE] mr-1 shrink-0">
                 Quick Category:
               </span>
@@ -423,8 +423,8 @@ export default function ProductsPage() {
                 onClick={() => handleSelectCategory('')}
                 className={`shrink-0 min-h-[36px] rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                   !activeCategoryParam
-                    ? 'bg-[#D4AF65] text-[#101D35] font-black'
-                    : 'bg-[#172644] border border-[#203357] text-[#F5F2EB] hover:bg-[#203357]'
+                    ? 'bg-[#D4AF65] text-[#040A18] font-black'
+                    : 'bg-[#081226] border border-[#122240] text-[#F5F2EB] hover:bg-[#122240]'
                 }`}
               >
                 All Categories ({categories.length})
@@ -438,8 +438,8 @@ export default function ProductsPage() {
                     onClick={() => handleSelectCategory(cat.slug)}
                     className={`shrink-0 min-h-[36px] rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                       isCatSelected
-                        ? 'bg-[#D4AF65] text-[#101D35] font-black'
-                        : 'bg-[#172644] border border-[#203357] text-[#F5F2EB] hover:bg-[#203357]'
+                        ? 'bg-[#D4AF65] text-[#040A18] font-black'
+                        : 'bg-[#081226] border border-[#122240] text-[#F5F2EB] hover:bg-[#122240]'
                     }`}
                   >
                     <span>{cat.name}</span>
@@ -468,7 +468,7 @@ export default function ProductsPage() {
             )}
 
             {activeDeptParam && (
-              <span className="inline-flex min-h-[36px] items-center gap-1 rounded-full bg-[#172644] border border-[#203357] px-3 py-1 text-xs font-semibold text-[#F5F2EB]">
+              <span className="inline-flex min-h-[36px] items-center gap-1 rounded-full bg-[#081226] border border-[#122240] px-3 py-1 text-xs font-semibold text-[#F5F2EB]">
                 <span>Dept: {activeDepartment?.name}</span>
                 <button
                   type="button"
@@ -507,7 +507,7 @@ export default function ProductsPage() {
                   id="catalog-category-select"
                   value={activeCategoryParam}
                   onChange={(e) => handleSelectCategory(e.target.value)}
-                  className="w-full sm:w-auto min-h-[40px] rounded-xl border border-[#203357] bg-[#172644] px-3 py-2 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+                  className="w-full sm:w-auto min-h-[40px] rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
                 >
                   <option value="">All {categories.length} Categories</option>
                   {categories.map((cat) => (
@@ -529,7 +529,7 @@ export default function ProductsPage() {
                 value={sortParam}
                 onChange={(e) => updateFilters({ sort: e.target.value })}
                 aria-label="Sort products by"
-                className="w-full sm:w-auto min-h-[40px] rounded-xl border border-[#203357] bg-[#172644] px-3 py-2 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+                className="w-full sm:w-auto min-h-[40px] rounded-xl border border-[#122240] bg-[#081226] px-3 py-2 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
               >
                 <option value="featured">Sort: Featured / Popular</option>
                 <option value="name-asc">Name (A → Z)</option>
@@ -579,7 +579,7 @@ export default function ProductsPage() {
 
         {/* Pagination Controls */}
         {!loading && !error && totalPages > 1 && (
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#203357] pt-6">
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#122240] pt-6">
             <span className="text-xs font-bold text-[#B0BECE]">
               Showing {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, totalItems)} of {totalItems} products
             </span>
@@ -589,7 +589,7 @@ export default function ProductsPage() {
                 type="button"
                 disabled={currentPage <= 1}
                 onClick={() => updateFilters({ page: String(currentPage - 1) })}
-                className="flex min-h-[42px] items-center gap-1 rounded-xl border border-[#203357] bg-[#172644] px-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
+                className="flex min-h-[42px] items-center gap-1 rounded-xl border border-[#122240] bg-[#081226] px-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#122240] disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
               >
                 <ChevronLeft className="h-4 w-4" />
                 <span>Prev</span>
@@ -606,8 +606,8 @@ export default function ProductsPage() {
                     aria-current={isCurr ? 'page' : undefined}
                     className={`flex min-h-[42px] min-w-[42px] items-center justify-center rounded-xl text-xs font-black transition-all cursor-pointer ${
                       isCurr
-                        ? 'bg-[#D4AF65] text-[#101D35] font-black shadow-xs'
-                        : 'border border-[#203357] bg-[#172644] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB]'
+                        ? 'bg-[#D4AF65] text-[#040A18] font-black shadow-xs'
+                        : 'border border-[#122240] bg-[#081226] text-[#B0BECE] hover:bg-[#122240] hover:text-[#F5F2EB]'
                     }`}
                   >
                     {p}
@@ -619,7 +619,7 @@ export default function ProductsPage() {
                 type="button"
                 disabled={currentPage >= totalPages}
                 onClick={() => updateFilters({ page: String(currentPage + 1) })}
-                className="flex min-h-[42px] items-center gap-1 rounded-xl border border-[#203357] bg-[#172644] px-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
+                className="flex min-h-[42px] items-center gap-1 rounded-xl border border-[#122240] bg-[#081226] px-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#122240] disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
               >
                 <span>Next</span>
                 <ChevronRight className="h-4 w-4" />
@@ -630,7 +630,7 @@ export default function ProductsPage() {
 
         {/* Dubai Commercial Press Trust Strip */}
         <Reveal>
-          <div className="mt-20 rounded-3xl border border-[#101D35] bg-[#101D35] p-8 text-white shadow-xl sm:p-12">
+          <div className="mt-20 rounded-3xl border border-[#040A18] bg-[#040A18] p-8 text-white shadow-xl sm:p-12">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div>
                 <span className="rounded-full bg-[#D4AF65]/20 px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-[#D4AF65]">
@@ -652,7 +652,7 @@ export default function ProductsPage() {
                   to="/contact"
                   variant="outline"
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white hover:text-[#101D35]"
+                  className="border-white/30 text-white hover:bg-white hover:text-[#040A18]"
                 >
                   Contact Studio
                 </Button>

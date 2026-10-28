@@ -49,7 +49,7 @@ export default function AdminSeoAuditPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#1E2C4F] pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#122240] pb-5">
         <div>
           <h1 className="font-display text-2xl font-black tracking-tight text-[#F5F3EE]">
             Automated SEO Health &amp; Audit Dashboard
@@ -63,7 +63,7 @@ export default function AdminSeoAuditPage() {
           variant="outline"
           onClick={runAudit}
           disabled={loading}
-          className="border-[#1E2C4F] text-[#F5F3EE] hover:bg-[#0B132B] text-xs shrink-0"
+          className="border-[#122240] text-[#F5F3EE] hover:bg-[#040A18] text-xs shrink-0"
         >
           <RefreshCw className={`h-4 w-4 mr-1.5 ${loading ? 'animate-spin' : ''}`} />
           Re-run SEO Audit
@@ -73,7 +73,7 @@ export default function AdminSeoAuditPage() {
       {/* Top Metric Cards */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {/* Health Score */}
-        <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Overall Health</span>
             <ShieldCheck className="h-5 w-5 text-emerald-600" />
@@ -86,7 +86,7 @@ export default function AdminSeoAuditPage() {
         </div>
 
         {/* Indexable URLs */}
-        <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Indexed Entities</span>
             <Layers className="h-5 w-5 text-[#D6C29A]" />
@@ -103,7 +103,7 @@ export default function AdminSeoAuditPage() {
         </div>
 
         {/* Dynamic Sitemap */}
-        <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Dynamic Sitemap</span>
             <FileCode className="h-5 w-5 text-blue-600" />
@@ -128,7 +128,7 @@ export default function AdminSeoAuditPage() {
         </div>
 
         {/* Robots.txt */}
-        <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
+        <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-[#B8C2D9]">Robots Directive</span>
             <Globe className="h-5 w-5 text-purple-600" />
@@ -154,47 +154,47 @@ export default function AdminSeoAuditPage() {
       </div>
 
       {/* Core SEO Checklist Card */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs space-y-4">
-        <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#1E2C4F] pb-3">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs space-y-4">
+        <h2 className="font-display text-base font-bold text-[#F5F3EE] border-b border-[#122240] pb-3">
           Architecture &amp; On-Page SEO Checklist
         </h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="flex items-start gap-3 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-3.5">
+          <div className="flex items-start gap-3 rounded-xl border border-[#122240] bg-[#040A18] p-3.5">
             <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
               <div className="text-xs font-bold text-[#F5F3EE]">Canonical Tag Engine</div>
               <div className="text-[11px] text-[#B8C2D9]">Dynamic canonical URLs enforced to https://www.0nprint.com</div>
             </div>
           </div>
-          <div className="flex items-start gap-3 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-3.5">
+          <div className="flex items-start gap-3 rounded-xl border border-[#122240] bg-[#040A18] p-3.5">
             <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
               <div className="text-xs font-bold text-[#F5F3EE]">Schema.org JSON-LD</div>
               <div className="text-[11px] text-[#B8C2D9]">Organization, LocalBusiness, Product, Service, FAQ, Blog schemas active</div>
             </div>
           </div>
-          <div className="flex items-start gap-3 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-3.5">
+          <div className="flex items-start gap-3 rounded-xl border border-[#122240] bg-[#040A18] p-3.5">
             <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
               <div className="text-xs font-bold text-[#F5F3EE]">Single H1 Hierarchy</div>
               <div className="text-[11px] text-[#B8C2D9]">Every public page enforces strictly 1 primary H1 heading</div>
             </div>
           </div>
-          <div className="flex items-start gap-3 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-3.5">
+          <div className="flex items-start gap-3 rounded-xl border border-[#122240] bg-[#040A18] p-3.5">
             <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
               <div className="text-xs font-bold text-[#F5F3EE]">Social Open Graph &amp; Twitter</div>
               <div className="text-[11px] text-[#B8C2D9]">Rich snippet image and meta cards populated automatically</div>
             </div>
           </div>
-          <div className="flex items-start gap-3 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-3.5">
+          <div className="flex items-start gap-3 rounded-xl border border-[#122240] bg-[#040A18] p-3.5">
             <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
               <div className="text-xs font-bold text-[#F5F3EE]">Local Dubai Geo Tags</div>
               <div className="text-[11px] text-[#B8C2D9]">Geo tags mapped to Dubai, UAE coordinate centroid</div>
             </div>
           </div>
-          <div className="flex items-start gap-3 rounded-xl border border-[#1E2C4F] bg-[#0B132B] p-3.5">
+          <div className="flex items-start gap-3 rounded-xl border border-[#122240] bg-[#040A18] p-3.5">
             <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
               <div className="text-xs font-bold text-[#F5F3EE]">BreadcrumbList Navigation</div>
@@ -205,8 +205,8 @@ export default function AdminSeoAuditPage() {
       </div>
 
       {/* Itemized Audit Report */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 shadow-xs">
-        <div className="flex items-center justify-between border-b border-[#1E2C4F] pb-3">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 shadow-xs">
+        <div className="flex items-center justify-between border-b border-[#122240] pb-3">
           <h2 className="font-display text-base font-bold text-[#F5F3EE]">
             Audit Recommendations &amp; Opportunities ({auditData?.issuesCount || 0})
           </h2>

@@ -91,7 +91,7 @@ export default function CategoriesPage() {
   ]
 
   return (
-    <div className="bg-[#101D35] text-slate-200 py-12 sm:py-16">
+    <div className="bg-[#040A18] text-slate-200 py-12 sm:py-16">
       {/* SEO Head Management */}
       <SEOHead
         title="Printing Categories & Departments Dubai | Commercial Printing Catalog | ONPRINT"
@@ -111,9 +111,9 @@ export default function CategoriesPage() {
         />
 
         {/* Page Hero Header */}
-        <div className="mt-8 border-b border-[#203357] pb-10">
+        <div className="mt-8 border-b border-[#122240] pb-10">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#172644] px-4 py-1 text-xs font-black uppercase tracking-widest text-[#D4AF65]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65]/40 bg-[#081226] px-4 py-1 text-xs font-black uppercase tracking-widest text-[#D4AF65]">
               <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
               Dubai Commercial Printing Press • Master Architecture
             </div>
@@ -133,8 +133,8 @@ export default function CategoriesPage() {
                 onClick={() => setSelectedDeptFilter('all')}
                 className={`px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer shrink-0 ${
                   selectedDeptFilter === 'all'
-                    ? 'bg-[#D4AF65] text-[#101D35] shadow-sm'
-                    : 'bg-[#172644] border border-[#203357] text-slate-300 hover:text-white'
+                    ? 'bg-[#D4AF65] text-[#040A18] shadow-sm'
+                    : 'bg-[#081226] border border-[#122240] text-slate-300 hover:text-white'
                 }`}
               >
                 All Departments (5)
@@ -146,8 +146,8 @@ export default function CategoriesPage() {
                   onClick={() => setSelectedDeptFilter(dept.slug)}
                   className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer shrink-0 ${
                     selectedDeptFilter === dept.slug
-                      ? 'bg-[#D4AF65] text-[#101D35] shadow-sm'
-                      : 'bg-[#172644] border border-[#203357] text-slate-300 hover:text-white'
+                      ? 'bg-[#D4AF65] text-[#040A18] shadow-sm'
+                      : 'bg-[#081226] border border-[#122240] text-slate-300 hover:text-white'
                   }`}
                 >
                   {dept.shortName || dept.name}
@@ -162,7 +162,7 @@ export default function CategoriesPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search categories (e.g. Business Cards)..."
-                className="w-full rounded-2xl border border-[#203357] bg-[#172644] pl-10 pr-9 py-2.5 text-xs font-semibold text-white placeholder:text-slate-400 focus:border-[#D4AF65] focus:outline-none shadow-xs"
+                className="w-full rounded-2xl border border-[#122240] bg-[#081226] pl-10 pr-9 py-2.5 text-xs font-semibold text-white placeholder:text-slate-400 focus:border-[#D4AF65] focus:outline-none shadow-xs"
               />
               {searchQuery && (
                 <button
@@ -197,12 +197,12 @@ export default function CategoriesPage() {
               return (
                 <section
                   key={dept.slug}
-                  className="rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-8 relative overflow-hidden"
+                  className="rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-8 relative overflow-hidden"
                 >
                   {/* Department Banner Header */}
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-[#203357]/80">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-[#122240]/80">
                     <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65] text-[#101D35] shrink-0 shadow-md">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4AF65] text-[#040A18] shrink-0 shadow-md">
                         <Icon className="h-6 w-6" />
                       </div>
                       <div>
@@ -210,7 +210,7 @@ export default function CategoriesPage() {
                           <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF65]">
                             {dept.eyebrow}
                           </span>
-                          <span className="rounded-full bg-[#101D35] border border-[#203357] px-2 py-0.2 text-[9px] font-bold text-slate-300">
+                          <span className="rounded-full bg-[#040A18] border border-[#122240] px-2 py-0.2 text-[9px] font-bold text-slate-300">
                             {totalProdCount} Products
                           </span>
                         </div>
@@ -225,7 +225,7 @@ export default function CategoriesPage() {
 
                     <Link
                       to={`/categories/${dept.slug}`}
-                      className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#D4AF65] hover:bg-[#D4AF65] px-5 py-2.5 text-xs font-black text-[#101D35] transition-all shrink-0 self-start lg:self-center"
+                      className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#D4AF65] hover:bg-[#D4AF65] px-5 py-2.5 text-xs font-black text-[#040A18] transition-all shrink-0 self-start lg:self-center"
                     >
                       <span>Explore Department</span>
                       <ArrowRight className="h-3.5 w-3.5" />
@@ -238,7 +238,7 @@ export default function CategoriesPage() {
                       <Link
                         key={sub.slug}
                         to={`/categories/${sub.slug}`}
-                        className="group rounded-2xl border border-[#203357] bg-[#101D35] p-3.5 hover:border-[#D4AF65] transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
+                        className="group rounded-2xl border border-[#122240] bg-[#040A18] p-3.5 hover:border-[#D4AF65] transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
                       >
                         <div>
                           <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-slate-800 mb-3">
@@ -256,7 +256,7 @@ export default function CategoriesPage() {
                             <h3 className="font-display text-xs font-bold text-white group-hover:text-[#D4AF65] transition-colors truncate">
                               {sub.name}
                             </h3>
-                            <span className="rounded-full bg-[#172644] border border-[#203357] px-1.5 py-0.2 text-[9px] font-bold text-slate-400 shrink-0">
+                            <span className="rounded-full bg-[#081226] border border-[#122240] px-1.5 py-0.2 text-[9px] font-bold text-slate-400 shrink-0">
                               {sub.productSlugs.length}
                             </span>
                           </div>
@@ -265,7 +265,7 @@ export default function CategoriesPage() {
                           </p>
                         </div>
 
-                        <div className="mt-3 pt-2 border-t border-[#203357]/60 flex items-center justify-between text-[11px] font-bold text-[#D4AF65]">
+                        <div className="mt-3 pt-2 border-t border-[#122240]/60 flex items-center justify-between text-[11px] font-bold text-[#D4AF65]">
                           <span>{sub.featuredBadge || 'View Products'}</span>
                           <ChevronRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
                         </div>
@@ -279,7 +279,7 @@ export default function CategoriesPage() {
         </div>
 
         {/* Bottom Commercial Press Capabilities */}
-        <div className="mt-20 rounded-3xl border border-[#203357] bg-[#172644] p-8 sm:p-12 shadow-sm">
+        <div className="mt-20 rounded-3xl border border-[#122240] bg-[#081226] p-8 sm:p-12 shadow-sm">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             <div className="flex items-start gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#D4AF65]/10 text-[#D4AF65]">

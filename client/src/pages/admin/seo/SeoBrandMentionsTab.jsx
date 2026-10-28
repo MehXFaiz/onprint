@@ -147,7 +147,7 @@ Dubai, UAE`
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] p-6 sm:p-8 shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2">
@@ -171,7 +171,7 @@ Dubai, UAE`
               variant="accent"
               size="sm"
               onClick={() => setShowAddModal(true)}
-              className="text-xs font-bold bg-[#D6C29A] text-[#0B132B] hover:bg-[#D6C29A]"
+              className="text-xs font-bold bg-[#D6C29A] text-[#040A18] hover:bg-[#D6C29A]"
             >
               <Plus className="h-3.5 w-3.5 mr-1.5" />
               Log Brand Mention
@@ -181,7 +181,7 @@ Dubai, UAE`
 
         {/* Top Metric Cards */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div className="rounded-xl border border-[#1E2C4F]/70 bg-[#0B132B] p-4">
+          <div className="rounded-xl border border-[#122240]/70 bg-[#040A18] p-4">
             <div className="text-[11px] font-bold uppercase tracking-wider text-[#B8C2D9]">Total Mentions</div>
             <div className="mt-1 text-2xl font-black text-[#F5F3EE]">{summary.total}</div>
             <div className="mt-0.5 text-[10px] text-[#B8C2D9]">Tracked in media</div>
@@ -216,14 +216,14 @@ Dubai, UAE`
             placeholder="Search domain, article, or snippet..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] focus:outline-none focus:border-[#D6C29A]"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-[#122240] bg-[#081226] focus:outline-none focus:border-[#D6C29A]"
           />
         </div>
 
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-3 py-2 text-xs rounded-xl border border-[#1E2C4F] bg-[#14213D] text-[#F5F3EE] font-semibold focus:outline-none focus:border-[#D6C29A] w-full sm:w-auto"
+          className="px-3 py-2 text-xs rounded-xl border border-[#122240] bg-[#081226] text-[#F5F3EE] font-semibold focus:outline-none focus:border-[#D6C29A] w-full sm:w-auto"
         >
           <option value="all">All Mentions</option>
           <option value="unlinked">Unlinked Mentions Only</option>
@@ -235,7 +235,7 @@ Dubai, UAE`
       </div>
 
       {/* Mentions Table */}
-      <div className="rounded-2xl border border-[#1E2C4F] bg-[#14213D] overflow-hidden shadow-xs">
+      <div className="rounded-2xl border border-[#122240] bg-[#081226] overflow-hidden shadow-xs">
         {loading ? (
           <div className="p-12 text-center text-sm text-[#B8C2D9]">
             Loading brand mentions...
@@ -248,7 +248,7 @@ Dubai, UAE`
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-[#1E2C4F] bg-[#0B132B]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
+                <tr className="border-b border-[#122240] bg-[#040A18]/80 text-[#B8C2D9] font-bold uppercase text-[10px] tracking-wider">
                   <th className="py-3 px-4">Publication Domain & Title</th>
                   <th className="py-3 px-3">DR</th>
                   <th className="py-3 px-4">Brand Mention Snippet</th>
@@ -261,7 +261,7 @@ Dubai, UAE`
                 {filteredMentions.map((item) => {
                   const isLinked = Boolean(item.is_linked)
                   return (
-                    <tr key={item.id} className="hover:bg-[#0B132B]/60 transition-colors">
+                    <tr key={item.id} className="hover:bg-[#040A18]/60 transition-colors">
                       <td className="py-3 px-4 max-w-xs">
                         <div className="font-bold text-[#F5F3EE] truncate">
                           {item.mentioning_domain}
@@ -313,7 +313,7 @@ Dubai, UAE`
                           <button
                             type="button"
                             onClick={() => setShowPitchModal(item)}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-lg border border-[#1E2C4F] text-[#F5F3EE] hover:bg-[#1E2C4F]"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-lg border border-[#122240] text-[#F5F3EE] hover:bg-[#122240]"
                             title="Generate Pitch"
                           >
                             <Mail className="h-3 w-3 text-[#D6C29A]" />
@@ -338,7 +338,7 @@ Dubai, UAE`
                             href={item.source_url}
                             target="_blank"
                             rel="noreferrer"
-                            className="p-1.5 text-[#B8C2D9]/70 hover:text-[#D6C29A] rounded-lg hover:bg-[#1E2C4F]"
+                            className="p-1.5 text-[#B8C2D9]/70 hover:text-[#D6C29A] rounded-lg hover:bg-[#122240]"
                             title="View Mention Live"
                           >
                             <ExternalLink className="h-3.5 w-3.5" />
@@ -365,7 +365,7 @@ Dubai, UAE`
       {/* Add Mention Modal */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <div className="bg-[#14213D] rounded-2xl max-w-md w-full p-6 space-y-4">
+          <div className="bg-[#081226] rounded-2xl max-w-md w-full p-6 space-y-4">
             <div className="flex items-center justify-between border-b pb-3">
               <h3 className="font-black text-lg text-[#F5F3EE]">Log Discovered Brand Mention</h3>
               <button
@@ -385,7 +385,7 @@ Dubai, UAE`
                   placeholder="https://gulfnews.com/business/printing-trends"
                   value={formData.source_url}
                   onChange={(e) => setFormData({ ...formData, source_url: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] font-mono text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#122240] font-mono text-xs focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
@@ -397,7 +397,7 @@ Dubai, UAE`
                     placeholder="gulfnews.com"
                     value={formData.mentioning_domain}
                     onChange={(e) => setFormData({ ...formData, mentioning_domain: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs focus:outline-none focus:border-[#D6C29A]"
                   />
                 </div>
 
@@ -407,7 +407,7 @@ Dubai, UAE`
                     type="number"
                     value={formData.domain_authority}
                     onChange={(e) => setFormData({ ...formData, domain_authority: Number(e.target.value) })}
-                    className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs focus:outline-none focus:border-[#D6C29A]"
                   />
                 </div>
               </div>
@@ -419,7 +419,7 @@ Dubai, UAE`
                   placeholder="Top Commercial Printing Facilities in Dubai 2026"
                   value={formData.article_title}
                   onChange={(e) => setFormData({ ...formData, article_title: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
@@ -431,7 +431,7 @@ Dubai, UAE`
                   placeholder="...press facilities like ONPRINT located in Al Quoz provide express Heidelberg offset output..."
                   value={formData.mention_snippet}
                   onChange={(e) => setFormData({ ...formData, mention_snippet: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs focus:outline-none focus:border-[#D6C29A]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs focus:outline-none focus:border-[#D6C29A]"
                 />
               </div>
 
@@ -441,7 +441,7 @@ Dubai, UAE`
                   <select
                     value={formData.is_linked}
                     onChange={(e) => setFormData({ ...formData, is_linked: Number(e.target.value) })}
-                    className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs font-semibold focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs font-semibold focus:outline-none focus:border-[#D6C29A]"
                   >
                     <option value={0}>No (Unlinked Mention)</option>
                     <option value={1}>Yes (Active Backlink)</option>
@@ -455,7 +455,7 @@ Dubai, UAE`
                     placeholder="editor@publication.ae"
                     value={formData.contact_email}
                     onChange={(e) => setFormData({ ...formData, contact_email: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-[#1E2C4F] text-xs focus:outline-none focus:border-[#D6C29A]"
+                    className="w-full px-3 py-2 rounded-xl border border-[#122240] text-xs focus:outline-none focus:border-[#D6C29A]"
                   />
                 </div>
               </div>
@@ -475,7 +475,7 @@ Dubai, UAE`
                   variant="accent"
                   size="sm"
                   disabled={actionLoading}
-                  className="text-xs font-bold bg-[#D6C29A] text-[#0B132B] hover:bg-[#D6C29A]"
+                  className="text-xs font-bold bg-[#D6C29A] text-[#040A18] hover:bg-[#D6C29A]"
                 >
                   {actionLoading ? 'Saving...' : 'Save Mention'}
                 </Button>
@@ -488,7 +488,7 @@ Dubai, UAE`
       {/* Outreach Pitch Generator Modal */}
       {showPitchModal && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <div className="bg-[#14213D] rounded-2xl max-w-xl w-full p-6 space-y-4">
+          <div className="bg-[#081226] rounded-2xl max-w-xl w-full p-6 space-y-4">
             <div className="flex items-center justify-between border-b pb-3">
               <div>
                 <h3 className="font-black text-lg text-[#F5F3EE]">Editorial Reclamation Pitch</h3>
@@ -547,7 +547,7 @@ Dubai, UAE`
                     await handleUpdateStatus(showPitchModal.id, 'CONTACTED')
                     setShowPitchModal(null)
                   }}
-                  className="text-xs font-bold bg-[#D6C29A] text-[#0B132B] hover:bg-[#D6C29A]"
+                  className="text-xs font-bold bg-[#D6C29A] text-[#040A18] hover:bg-[#D6C29A]"
                 >
                   Mark as Contacted
                 </Button>

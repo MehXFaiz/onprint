@@ -147,7 +147,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
   ]
 
   return (
-    <div className="bg-[#101D35] text-slate-200">
+    <div className="bg-[#040A18] text-slate-200">
       <SEOHead
         title="Custom Sticker Printing Dubai | Instant Quote & Express UAE Delivery | ONPRINT"
         description="Configure custom waterproof vinyl stickers, die-cut decals, holographic stickers, and roll labels in Dubai. Same-day express turnaround and free digital proofing in Al Quoz."
@@ -157,7 +157,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
       />
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-[#101D35] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#203357]">
+      <section className="relative overflow-hidden bg-[#040A18] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-[#122240]">
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center space-y-4">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF65] bg-[#D4AF65]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
@@ -193,11 +193,11 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
       </section>
 
       {/* Main Form & Specs Grid */}
-      <section className="py-12 sm:py-16 bg-[#101D35]">
+      <section className="py-12 sm:py-16 bg-[#040A18]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Left Column: Form */}
-            <div className="lg:col-span-7 bg-[#172644] rounded-2xl border border-[#203357] text-[#F5F2EB] p-6 sm:p-8 shadow-sm">
+            <div className="lg:col-span-7 bg-[#081226] rounded-2xl border border-[#122240] text-[#F5F2EB] p-6 sm:p-8 shadow-sm">
               {submitted ? (
                 <div className="space-y-6 text-center py-8">
                   <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600">
@@ -268,7 +268,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-[#101D35] border border-[#203357] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#101D35] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
+                          className="w-full px-3.5 py-2.5 bg-[#040A18] border border-[#122240] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#040A18] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                           placeholder="Your name"
                         />
                       </div>
@@ -282,7 +282,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                           required
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-[#101D35] border border-[#203357] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#101D35] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
+                          className="w-full px-3.5 py-2.5 bg-[#040A18] border border-[#122240] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#040A18] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                           placeholder="+971 50 123 4567"
                         />
                       </div>
@@ -299,7 +299,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-[#101D35] border border-[#203357] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#101D35] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
+                          className="w-full px-3.5 py-2.5 bg-[#040A18] border border-[#122240] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#040A18] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                           placeholder="you@company.ae"
                         />
                       </div>
@@ -310,7 +310,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                           name="company"
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-[#101D35] border border-[#203357] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#101D35] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
+                          className="w-full px-3.5 py-2.5 bg-[#040A18] border border-[#122240] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#040A18] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                           placeholder="Brand / Company"
                         />
                       </div>
@@ -326,7 +326,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                           required
                           value={formData.stickerType}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-[#101D35] border border-[#203357] rounded-xl text-xs text-[#F5F2EB] focus:bg-[#101D35] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
+                          className="w-full px-3.5 py-2.5 bg-[#040A18] border border-[#122240] rounded-xl text-xs text-[#F5F2EB] focus:bg-[#040A18] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                         >
                           {STICKER_TYPES.map((type) => (
                             <option key={type.id} value={type.name}>
@@ -344,7 +344,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                           required
                           value={formData.quantity}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-[#101D35] border border-[#203357] rounded-xl text-xs text-[#F5F2EB] focus:bg-[#101D35] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
+                          className="w-full px-3.5 py-2.5 bg-[#040A18] border border-[#122240] rounded-xl text-xs text-[#F5F2EB] focus:bg-[#040A18] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                         >
                           {QUANTITY_OPTIONS.map((qty) => (
                             <option key={qty} value={qty}>
@@ -363,7 +363,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                           name="size"
                           value={formData.size}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-[#101D35] border border-[#203357] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#101D35] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
+                          className="w-full px-3.5 py-2.5 bg-[#040A18] border border-[#122240] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#040A18] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                           placeholder="e.g. 6cm circle, 8x5cm rectangle"
                         />
                       </div>
@@ -373,7 +373,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                           name="finish"
                           value={formData.finish}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 bg-[#101D35] border border-[#203357] rounded-xl text-xs text-[#F5F2EB] focus:bg-[#101D35] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
+                          className="w-full px-3.5 py-2.5 bg-[#040A18] border border-[#122240] rounded-xl text-xs text-[#F5F2EB] focus:bg-[#040A18] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65]"
                         >
                           <option value="Matte Lamination">Matte Lamination (Anti-Glare)</option>
                           <option value="Gloss Lamination">Gloss Lamination (Vibrant Color)</option>
@@ -392,7 +392,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                         value={formData.message}
                         onChange={handleChange}
                         rows={3}
-                        className="w-full px-3.5 py-2.5 bg-[#101D35] border border-[#203357] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#101D35] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] resize-none"
+                        className="w-full px-3.5 py-2.5 bg-[#040A18] border border-[#122240] rounded-xl text-xs text-[#F5F2EB] placeholder:text-[#B0BECE] focus:bg-[#040A18] focus:outline-none focus:border-[#D4AF65] focus:ring-1 focus:ring-[#D4AF65] resize-none"
                         placeholder="e.g. We have artwork ready in vector AI format with 2mm bleed..."
                       />
                     </div>
@@ -401,7 +401,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#C8B185] text-[#101D35] font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#D4AF65]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                        className="w-full py-3.5 bg-[#D4AF65] hover:bg-[#C8B185] text-[#040A18] font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#D4AF65]/25 hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                       >
                         {isSubmitting ? 'Submitting Specifications…' : 'Submit Specification & Get Official Quote →'}
                       </button>
@@ -438,7 +438,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
 
             {/* Right Column: Material Standards & Features */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="bg-[#172644] rounded-2xl border border-[#203357] text-[#F5F2EB] p-6 shadow-sm">
+              <div className="bg-[#081226] rounded-2xl border border-[#122240] text-[#F5F2EB] p-6 shadow-sm">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65]">
                   COMMERCIAL SUBSTRATES
                 </span>
@@ -464,7 +464,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
               </div>
 
               {/* Direct Al Quoz Pressroom Contact Card */}
-              <div className="bg-[#172644] rounded-2xl border border-[#203357] text-[#F5F2EB] p-6 shadow-sm">
+              <div className="bg-[#081226] rounded-2xl border border-[#122240] text-[#F5F2EB] p-6 shadow-sm">
                 <h3 className="font-serif text-base font-bold text-[#F5F2EB] mb-3">
                   Direct In-House Pressroom Assistance
                 </h3>
@@ -483,7 +483,7 @@ export default function StickersLeadPage({FORMATTED_PHONE}) {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-[#203357] flex flex-wrap items-center justify-between gap-2">
+                <div className="mt-5 pt-4 border-t border-[#122240] flex flex-wrap items-center justify-between gap-2">
                   <Link to="/sticker-printing-dubai" className="text-xs font-semibold text-[#D4AF65] hover:underline">
                     View Full Sticker Catalog &rarr;
                   </Link>

@@ -143,14 +143,14 @@ export default function HorizontalProductCarousel() {
   }
 
   return (
-    <section className="relative overflow-hidden border-t border-[#203357] bg-[#101D35] py-16 sm:py-20 text-[#F5F2EB]">
+    <section className="relative overflow-hidden border-t border-[#122240] bg-[#040A18] py-16 sm:py-20 text-[#F5F2EB]">
       {/* Ambient Radial Accent */}
       <div
         className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[#D4AF65]/10 blur-3xl -z-10"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -right-20 top-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[#172644]/70 blur-3xl -z-10"
+        className="pointer-events-none absolute -right-20 top-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[#081226]/70 blur-3xl -z-10"
         aria-hidden="true"
       />
 
@@ -158,7 +158,7 @@ export default function HorizontalProductCarousel() {
         {/* Header with Navigation Controls */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-8 sm:mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#203357] bg-[#172644] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65] shadow-xs">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#122240] bg-[#081226] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF65] shadow-xs">
               <Sparkles className="h-3.5 w-3.5 text-[#D4AF65]" />
               <span>Flagship UAE Product Suite</span>
             </div>
@@ -177,7 +177,7 @@ export default function HorizontalProductCarousel() {
               onClick={() => scrollByAmount('left')}
               disabled={!canScrollLeft}
               aria-label="Previous products"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#203357] bg-[#172644] text-[#F5F2EB] shadow-xs transition-all hover:border-[#D4AF65] hover:text-[#D4AF65] disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#122240] bg-[#081226] text-[#F5F2EB] shadow-xs transition-all hover:border-[#D4AF65] hover:text-[#D4AF65] disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -186,7 +186,7 @@ export default function HorizontalProductCarousel() {
               onClick={() => scrollByAmount('right')}
               disabled={!canScrollRight}
               aria-label="Next products"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#203357] bg-[#172644] text-[#F5F2EB] shadow-xs transition-all hover:border-[#D4AF65] hover:text-[#D4AF65] disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#122240] bg-[#081226] text-[#F5F2EB] shadow-xs transition-all hover:border-[#D4AF65] hover:text-[#D4AF65] disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -220,26 +220,26 @@ export default function HorizontalProductCarousel() {
           {CAROUSEL_FEATURED_PRODUCTS.map((prod) => (
             <article
               key={prod.id}
-              className="snap-start shrink-0 w-[285px] sm:w-[330px] md:w-[360px] flex flex-col rounded-3xl border border-[#203357] bg-[#172644] overflow-hidden text-[#F5F2EB] shadow-md transition-all duration-300 hover:border-[#D4AF65] hover:shadow-[0_16px_36px_rgba(16,29,53,0.8),0_0_24px_rgba(212,175,101,0.22)] group"
+              className="snap-start shrink-0 w-[285px] sm:w-[330px] md:w-[360px] flex flex-col rounded-3xl border border-[#122240] bg-[#081226] overflow-hidden text-[#F5F2EB] shadow-md transition-all duration-300 hover:border-[#D4AF65] hover:shadow-[0_16px_36px_rgba(16,29,53,0.8),0_0_24px_rgba(212,175,101,0.22)] group"
             >
               {/* Image Studio Stage */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#0C1629] border-b border-[#203357]">
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#020611] border-b border-[#122240]">
                 <img
                   src={prod.image}
                   alt={prod.title}
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0C1629]/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020611]/80 via-transparent to-transparent pointer-events-none" />
 
                 <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
-                  <span className="rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[9.5px] font-black uppercase tracking-wider text-[#101D35] shadow-xs">
+                  <span className="rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[9.5px] font-black uppercase tracking-wider text-[#040A18] shadow-xs">
                     {prod.badge}
                   </span>
                 </div>
 
                 <div className="absolute top-3 right-3">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/90 border border-[#203357] px-2.5 py-0.5 text-[9.5px] font-bold text-[#F5F2EB] backdrop-blur-md shadow-xs">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[#040A18]/90 border border-[#122240] px-2.5 py-0.5 text-[9.5px] font-bold text-[#F5F2EB] backdrop-blur-md shadow-xs">
                     <Clock className="h-3 w-3 text-[#D4AF65]" />
                     <span>{prod.turnaround}</span>
                   </span>
@@ -261,11 +261,11 @@ export default function HorizontalProductCarousel() {
                 </p>
 
                 {/* Specs Chips */}
-                <div className="mt-3 pt-3 border-t border-[#203357] flex flex-wrap gap-1.5">
+                <div className="mt-3 pt-3 border-t border-[#122240] flex flex-wrap gap-1.5">
                   {prod.specs.map((spec, i) => (
                     <span
                       key={i}
-                      className="inline-flex items-center gap-1 rounded-full bg-[#101D35] border border-[#203357] px-2.5 py-0.5 text-[10px] font-medium text-[#F5F2EB]"
+                      className="inline-flex items-center gap-1 rounded-full bg-[#040A18] border border-[#122240] px-2.5 py-0.5 text-[10px] font-medium text-[#F5F2EB]"
                     >
                       <Check className="h-3 w-3 text-[#D4AF65] shrink-0" />
                       <span>{spec}</span>
@@ -274,10 +274,10 @@ export default function HorizontalProductCarousel() {
                 </div>
 
                 {/* Actions */}
-                <div className="mt-auto pt-4 border-t border-[#203357] flex items-center gap-2">
+                <div className="mt-auto pt-4 border-t border-[#122240] flex items-center gap-2">
                   <Link
                     to={prod.link}
-                    className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-4 py-2 text-xs font-black uppercase tracking-wider text-[#101D35] transition-all shadow-xs cursor-pointer active:scale-[0.98]"
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-4 py-2 text-xs font-black uppercase tracking-wider text-[#040A18] transition-all shadow-xs cursor-pointer active:scale-[0.98]"
                   >
                     <span>Explore Specs</span>
                     <ArrowUpRight className="h-3.5 w-3.5" />
@@ -320,7 +320,7 @@ export default function HorizontalProductCarousel() {
               className={`h-1.5 rounded-full transition-all cursor-pointer ${
                 activeIndex === idx
                   ? 'w-6 bg-[#D4AF65]'
-                  : 'w-2 bg-[#203357] hover:bg-[#D4AF65]/50'
+                  : 'w-2 bg-[#122240] hover:bg-[#D4AF65]/50'
               }`}
             />
           ))}

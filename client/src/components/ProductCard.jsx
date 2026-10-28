@@ -131,11 +131,11 @@ export default function ProductCard({
         ease: [0.16, 1, 0.3, 1],
       }}
       whileHover={prefersReducedMotion ? undefined : { y: -5 }}
-      className={`group flex flex-col h-full w-full min-w-0 overflow-hidden rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] shadow-md hover:border-[#D4AF65] hover:shadow-[0_20px_35px_-10px_rgba(16,29,53,0.75),0_0_25px_-4px_rgba(212,175,101,0.25)] transition-all duration-300 ${className}`}
+      className={`group flex flex-col h-full w-full min-w-0 overflow-hidden rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] shadow-md hover:border-[#D4AF65] hover:shadow-[0_20px_35px_-10px_rgba(16,29,53,0.75),0_0_25px_-4px_rgba(212,175,101,0.25)] transition-all duration-300 ${className}`}
     >
       {/* Product Image Studio Stage */}
       <div
-        className="relative w-full aspect-[4/3] shrink-0 overflow-hidden bg-[#0C1629] border-b border-[#203357] flex items-center justify-center select-none"
+        className="relative w-full aspect-[4/3] shrink-0 overflow-hidden bg-[#020611] border-b border-[#122240] flex items-center justify-center select-none"
         onPointerEnter={() => setIsHovered(true)}
         onPointerMove={handleMouseMove}
         onPointerLeave={resetMouse}
@@ -151,7 +151,7 @@ export default function ProductCard({
           }}
         >
           {resolvedSrc && !imageError ? (
-            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#101D35] shadow-sm transition-shadow duration-500">
+            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#040A18] shadow-sm transition-shadow duration-500">
               <img
                 src={resolvedSrc}
                 alt={product.imageAlt || product.name}
@@ -164,10 +164,10 @@ export default function ProductCard({
               />
 
               {/* Subtle Vignette on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C1629]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020611]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </div>
           ) : (
-            <div className="flex h-full w-full flex-col items-center justify-center rounded-2xl bg-[#0C1629] border border-[#203357] text-[#F5F2EB] p-4 text-center select-none">
+            <div className="flex h-full w-full flex-col items-center justify-center rounded-2xl bg-[#020611] border border-[#122240] text-[#F5F2EB] p-4 text-center select-none">
               <span className="font-black text-xs uppercase tracking-widest text-[#D4AF65]">ONPRINT</span>
               <span className="text-[11px] font-bold text-[#F5F2EB] mt-1 line-clamp-1">{product.name}</span>
             </div>
@@ -177,12 +177,12 @@ export default function ProductCard({
         {/* Top-Left Floating Badge Group */}
         <div className="absolute left-3 top-3 z-20 pointer-events-none flex flex-wrap items-center gap-1.5">
           {isFeatured ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[9.5px] font-black uppercase tracking-wider text-[#101D35] shadow-xs">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[9.5px] font-black uppercase tracking-wider text-[#040A18] shadow-xs">
               <Sparkles className="h-3 w-3" />
               Signature
             </span>
           ) : product.minimumQuantity ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/90 px-2.5 py-0.5 text-[9.5px] font-bold text-[#F5F2EB] shadow-xs border border-[#203357] backdrop-blur-md">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#040A18]/90 px-2.5 py-0.5 text-[9.5px] font-bold text-[#F5F2EB] shadow-xs border border-[#122240] backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF65]" />
               Min {product.minimumQuantity} pcs
             </span>
@@ -191,7 +191,7 @@ export default function ProductCard({
 
         {/* Top-Right Service Badge */}
         <div className="absolute right-3 top-3 z-20 pointer-events-none">
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/90 px-2.5 py-0.5 text-[9.5px] font-bold text-[#F5F2EB] shadow-xs border border-[#203357] backdrop-blur-md">
+          <span className="inline-flex items-center gap-1 rounded-full bg-[#040A18]/90 px-2.5 py-0.5 text-[9.5px] font-bold text-[#F5F2EB] shadow-xs border border-[#122240] backdrop-blur-md">
             <Clock className="h-3 w-3 text-[#D4AF65]" />
             <span>24h Express</span>
           </span>
@@ -199,7 +199,7 @@ export default function ProductCard({
 
         {/* Interactive Floating Quick-Actions Overlay (Revealed on Image Hover) */}
         <div className="absolute inset-x-3 bottom-3 z-20 flex items-center justify-between gap-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out pointer-events-none">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35]/90 px-2.5 py-1 text-[9px] font-semibold tracking-wider text-[#F5F2EB] backdrop-blur-md border border-[#203357] shadow-xs">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#040A18]/90 px-2.5 py-1 text-[9px] font-semibold tracking-wider text-[#F5F2EB] backdrop-blur-md border border-[#122240] shadow-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF65] animate-ping" />
             <span>Interactive 3D</span>
           </span>
@@ -211,7 +211,7 @@ export default function ProductCard({
                 onClick={handleQuickView}
                 aria-label={`Quick View ${product.name}`}
                 title="Quick View Modal"
-                className="inline-flex items-center gap-1 rounded-full bg-[#172644] hover:bg-[#D4AF65] text-[#F5F2EB] hover:text-[#101D35] px-2.5 py-1 text-[11px] font-bold shadow-xs backdrop-blur-md transition-all active:scale-95 cursor-pointer border border-[#203357]"
+                className="inline-flex items-center gap-1 rounded-full bg-[#081226] hover:bg-[#D4AF65] text-[#F5F2EB] hover:text-[#040A18] px-2.5 py-1 text-[11px] font-bold shadow-xs backdrop-blur-md transition-all active:scale-95 cursor-pointer border border-[#122240]"
               >
                 <Eye className="h-3.5 w-3.5" />
                 <span className="hidden sm:inline">Preview</span>
@@ -254,7 +254,7 @@ export default function ProductCard({
         <div className="min-w-0 space-y-1.5">
           {categoryName ? (
             <div className="flex items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#101D35] border border-[#203357] px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#D4AF65] truncate max-w-full">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#040A18] border border-[#122240] px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#D4AF65] truncate max-w-full">
                 <span className="h-1 w-1 rounded-full bg-[#D4AF65]" />
                 {categoryName}
               </span>
@@ -276,11 +276,11 @@ export default function ProductCard({
 
           {/* Specifications Chips */}
           {featuresList.length > 0 && (
-            <div className="pt-2.5 border-t border-[#203357] flex flex-wrap gap-1.5 min-w-0">
+            <div className="pt-2.5 border-t border-[#122240] flex flex-wrap gap-1.5 min-w-0">
               {featuresList.map((feat, idx) => (
                 <span
                   key={idx}
-                  className="inline-flex items-center gap-1 rounded-full bg-[#101D35] border border-[#203357] px-2.5 py-0.5 text-[10px] font-medium text-[#F5F2EB] min-w-0"
+                  className="inline-flex items-center gap-1 rounded-full bg-[#040A18] border border-[#122240] px-2.5 py-0.5 text-[10px] font-medium text-[#F5F2EB] min-w-0"
                 >
                   <Check className="h-3 w-3 text-[#D4AF65] shrink-0" />
                   <span className="truncate max-w-[140px] sm:max-w-[180px]">{feat}</span>
@@ -291,10 +291,10 @@ export default function ProductCard({
         </div>
 
         {/* Action Buttons Footer */}
-        <div className="mt-auto pt-4 border-t border-[#203357] flex items-center gap-2">
+        <div className="mt-auto pt-4 border-t border-[#122240] flex items-center gap-2">
           <Link
             to={`/products/${product.slug}`}
-            className="group/btn flex-1 inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-4 py-2 text-xs font-black uppercase tracking-wider text-[#101D35] transition-all shadow-xs cursor-pointer active:scale-[0.98]"
+            className="group/btn flex-1 inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-4 py-2 text-xs font-black uppercase tracking-wider text-[#040A18] transition-all shadow-xs cursor-pointer active:scale-[0.98]"
           >
             <span>Explore</span>
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -335,7 +335,7 @@ export default function ProductCard({
               onClick={handleQuickView}
               aria-label={`Quick View ${product.name}`}
               title="Quick View"
-              className="inline-flex items-center justify-center min-h-[42px] min-w-[42px] rounded-full border border-[#203357] bg-[#101D35] text-[#F5F2EB] transition-all hover:border-[#D4AF65] hover:bg-[#172644] hover:text-[#D4AF65] active:scale-95 cursor-pointer shadow-xs shrink-0"
+              className="inline-flex items-center justify-center min-h-[42px] min-w-[42px] rounded-full border border-[#122240] bg-[#040A18] text-[#F5F2EB] transition-all hover:border-[#D4AF65] hover:bg-[#081226] hover:text-[#D4AF65] active:scale-95 cursor-pointer shadow-xs shrink-0"
             >
               <Eye className="h-4 w-4" />
             </button>

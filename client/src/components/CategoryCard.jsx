@@ -22,10 +22,10 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
         ease: [0.22, 1, 0.36, 1],
       }}
       whileHover={{ y: -5 }}
-      className="group relative flex flex-col justify-between h-full overflow-hidden rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] shadow-md transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl"
+      className="group relative flex flex-col justify-between h-full overflow-hidden rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] shadow-md transition-all duration-300 hover:border-[#D4AF65] hover:shadow-xl"
     >
       {/* Top Image Container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#101D35] border-b border-[#203357]">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#040A18] border-b border-[#122240]">
         <img
           src={imageUrl}
           alt={altText}
@@ -40,11 +40,11 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
         />
 
         {/* Ambient bottom vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C1629]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020611]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
         {/* Top Badges */}
         <div className="absolute left-3 top-3 flex items-center gap-1.5 z-20">
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/90 px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#F5F2EB] shadow-xs border border-[#203357] backdrop-blur-md">
+          <span className="inline-flex items-center gap-1 rounded-full bg-[#040A18]/90 px-2.5 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-[#F5F2EB] shadow-xs border border-[#122240] backdrop-blur-md">
             <Sparkles className="h-3 w-3 text-[#D4AF65]" />
             Dubai Press
           </span>
@@ -52,7 +52,7 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
 
         {category.productCount > 0 && (
           <div className="absolute right-3 top-3 z-20">
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#101D35]/90 px-2.5 py-0.5 text-[9.5px] font-bold text-[#F5F2EB] shadow-md border border-[#203357] backdrop-blur-md">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#040A18]/90 px-2.5 py-0.5 text-[9.5px] font-bold text-[#F5F2EB] shadow-md border border-[#122240] backdrop-blur-md">
               <Layers className="h-3 w-3 text-[#D4AF65]" />
               {category.productCount} Items
             </span>
@@ -77,7 +77,7 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
           </p>
         </div>
 
-        <div className="mt-4 flex items-center justify-between border-t border-[#203357] pt-3 text-xs font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
+        <div className="mt-4 flex items-center justify-between border-t border-[#122240] pt-3 text-xs font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
           <span>Explore Category</span>
           <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#D4AF65]" />
         </div>

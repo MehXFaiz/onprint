@@ -198,7 +198,7 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="bg-[#101D35] text-[#F5F2EB]">
+    <div className="bg-[#040A18] text-[#F5F2EB]">
       {/* SEO Head Management & Structured Data */}
       <SEOHead
         title="Premium Printing Solutions Dubai & UAE | ONPRINT"
@@ -211,7 +211,7 @@ export default function HomePage() {
       {/* ========================================================================= */}
       {/* 1. LUXURY MIDNIGHT NAVY & GOLD EDITORIAL HERO                 */}
       {/* ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#101D35] via-[#172644] to-[#101D35] text-[#F5F2EB] pt-8 sm:pt-12 lg:pt-14 pb-14 sm:pb-20">
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#040A18] via-[#081226] to-[#040A18] text-[#F5F2EB] pt-8 sm:pt-12 lg:pt-14 pb-14 sm:pb-20">
         {/* Subtle Ambient Radial Glows */}
         <div
           className="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-[#D4AF65]/10 blur-[120px] -z-10"
@@ -226,7 +226,7 @@ export default function HomePage() {
             className="lg:col-span-6 space-y-6"
           >
             {/* Top Small Atelier Eyebrow Pill */}
-            <div className="inline-flex flex-wrap items-center gap-2 sm:gap-2.5 rounded-2xl sm:rounded-full border border-[#203357] bg-[#172644] px-3.5 sm:px-4 py-1.5 shadow-2xs backdrop-blur-md text-[#F5F2EB] max-w-full">
+            <div className="inline-flex flex-wrap items-center gap-2 sm:gap-2.5 rounded-2xl sm:rounded-full border border-[#122240] bg-[#081226] px-3.5 sm:px-4 py-1.5 shadow-2xs backdrop-blur-md text-[#F5F2EB] max-w-full">
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
@@ -234,7 +234,7 @@ export default function HomePage() {
               <span className="uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[10px] sm:text-[10.5px] font-black text-[#F5F2EB]">
                 DUBAI COMMERCIAL PRESSROOM
               </span>
-              <span className="hidden sm:inline-block h-3 w-px bg-[#203357]" />
+              <span className="hidden sm:inline-block h-3 w-px bg-[#122240]" />
               <span className="flex items-center gap-1 text-[10px] font-bold text-[#D4AF65] uppercase tracking-wider">
                 <Sparkles className="h-3 w-3 text-[#D4AF65] shrink-0" />
                 AL QUOZ ATELIER
@@ -268,9 +268,9 @@ export default function HomePage() {
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.15 + idx * 0.07, duration: 0.45 }}
-                    className="flex items-center gap-2.5 rounded-xl border border-[#203357] bg-[#172644] px-3.5 py-2.5 text-xs sm:text-[12.5px] font-semibold text-[#F5F2EB] shadow-2xs"
+                    className="flex items-center gap-2.5 rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs sm:text-[12.5px] font-semibold text-[#F5F2EB] shadow-2xs"
                   >
-                    <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#D4AF65]/15 text-[#D4AF65] border border-[#203357] shrink-0">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#D4AF65]/15 text-[#D4AF65] border border-[#122240] shrink-0">
                       <Icon className="h-3.5 w-3.5 text-[#D4AF65]" />
                     </div>
                     <span className="text-[#F5F2EB] font-semibold">{feat.label}</span>
@@ -293,7 +293,7 @@ export default function HomePage() {
                     button_location: 'hero_get_free_quote',
                   })
                 }
-                className="!rounded-full px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-black !bg-[#D4AF65] hover:!bg-[#C49E52] !text-[#101D35] shadow-md shadow-[#D4AF65]/20 hover:shadow-lg text-center justify-center"
+                className="!rounded-full px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-black !bg-[#D4AF65] hover:!bg-[#C49E52] !text-[#040A18] shadow-md shadow-[#D4AF65]/20 hover:shadow-lg text-center justify-center"
               >
                 <span>Get a Free Quote</span>
                 <ArrowRight className="h-4 w-4 ml-1" />
@@ -302,7 +302,7 @@ export default function HomePage() {
               {/* CTA 2: Explore Printing Products */}
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#203357] bg-[#172644] hover:bg-[#203357] hover:border-[#D4AF65] px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-[#F5F2EB] transition-all text-center"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#122240] bg-[#081226] hover:bg-[#122240] hover:border-[#D4AF65] px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-[#F5F2EB] transition-all text-center"
               >
                 <span>Explore Printing Products</span>
                 <ArrowUpRight className="h-4 w-4 text-[#D4AF65]" />
@@ -349,10 +349,10 @@ export default function HomePage() {
       {/* ========================================================================= */}
       {/* 2. CORE DUBAI PRINTING SERVICES (4 TACTILE BENTO DISCIPLINES)             */}
       {/* ========================================================================= */}
-      <section className="bg-[#0C1629] py-16 sm:py-24 text-[#F5F2EB]">
+      <section className="bg-[#020611] py-16 sm:py-24 text-[#F5F2EB]">
         <Container>
           <Reveal>
-            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 mb-10 border-b border-[#203357]">
+            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 mb-10 border-b border-[#122240]">
               <div>
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-[#D4AF65]">
                   DIGITAL PRINTING DISCIPLINES • DUBAI &amp; UAE
@@ -378,9 +378,9 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {/* Card 1: Business Card Printing */}
             <Reveal delay={0.05}>
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0C1629] mb-4 border border-[#203357]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#020611] mb-4 border border-[#122240]">
                     <picture>
                       <source
                         type="image/webp"
@@ -397,12 +397,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-[#0F172A] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#040A18] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         Flagship Craft
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-[#101D35]/90 border border-[#203357] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
+                      <span className="rounded-lg bg-[#040A18]/90 border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
                         Same-Day / 24h
                       </span>
                     </div>
@@ -417,7 +417,7 @@ export default function HomePage() {
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Executive 350–600 GSM Italian cotton &amp; silk artboard. 24K hot gold foil, velvet soft-touch, 3D spot UV &amp; gilded painted edges.
                     </p>
-                    <ul className="pt-2 border-t border-[#203357] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
+                    <ul className="pt-2 border-t border-[#122240] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
                       <li className="flex items-center gap-1.5">
                         <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                         <span>350gsm to 600gsm Cotton Stocks</span>
@@ -434,7 +434,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-[#203357] space-y-2">
+                <div className="mt-5 pt-4 border-t border-[#122240] space-y-2">
                   <a
                     href={getServiceWhatsAppUrl('business-cards')}
                     target="_blank"
@@ -465,9 +465,9 @@ export default function HomePage() {
 
             {/* Card 2: Flyer Printing */}
             <Reveal delay={0.1}>
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0C1629] mb-4 border border-[#203357]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#020611] mb-4 border border-[#122240]">
                     <picture>
                       <source
                         type="image/webp"
@@ -484,12 +484,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-[#0F172A] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#040A18] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         Promotional Print
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-[#101D35]/90 border border-[#203357] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
+                      <span className="rounded-lg bg-[#040A18]/90 border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
                         Same-Day / 4h
                       </span>
                     </div>
@@ -504,7 +504,7 @@ export default function HomePage() {
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       High-impact commercial marketing flyers, folded leaflets, and promotional handbills on premium 130–350 GSM gloss or silk paper.
                     </p>
-                    <ul className="pt-2 border-t border-[#203357] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
+                    <ul className="pt-2 border-t border-[#122240] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
                       <li className="flex items-center gap-1.5">
                         <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                         <span>A6, A5, A4 &amp; DL Slim Formats</span>
@@ -521,7 +521,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-[#203357] space-y-2">
+                <div className="mt-5 pt-4 border-t border-[#122240] space-y-2">
                   <a
                     href={getServiceWhatsAppUrl('flyers')}
                     target="_blank"
@@ -552,9 +552,9 @@ export default function HomePage() {
 
             {/* Card 3: Letterhead Printing */}
             <Reveal delay={0.15}>
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0C1629] mb-4 border border-[#203357]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#020611] mb-4 border border-[#122240]">
                     <picture>
                       <source
                         type="image/webp"
@@ -571,12 +571,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-[#0F172A] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#040A18] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         Corporate Prestige
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-[#101D35]/90 border border-[#203357] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
+                      <span className="rounded-lg bg-[#040A18]/90 border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
                         Same-Day / 24h
                       </span>
                     </div>
@@ -591,7 +591,7 @@ export default function HomePage() {
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Official corporate letterheads on 100–120 GSM laser-guaranteed smooth bond, textured linen, royal laid cotton, and metallic foil stamping.
                     </p>
-                    <ul className="pt-2 border-t border-[#203357] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
+                    <ul className="pt-2 border-t border-[#122240] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
                       <li className="flex items-center gap-1.5">
                         <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                         <span>100gsm &amp; 120gsm Laser-Safe Uncoated Stocks</span>
@@ -608,7 +608,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-[#203357] space-y-2">
+                <div className="mt-5 pt-4 border-t border-[#122240] space-y-2">
                   <a
                     href={getServiceWhatsAppUrl('letterheads')}
                     target="_blank"
@@ -639,9 +639,9 @@ export default function HomePage() {
 
             {/* Card 4: Brochure Printing */}
             <Reveal delay={0.2}>
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0C1629] mb-4 border border-[#203357]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#020611] mb-4 border border-[#122240]">
                     <picture>
                       <source
                         type="image/webp"
@@ -658,12 +658,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-[#0F172A] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#040A18] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         Multi-Page Catalog
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-[#101D35]/90 border border-[#203357] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
+                      <span className="rounded-lg bg-[#040A18]/90 border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
                         24-48h Express
                       </span>
                     </div>
@@ -678,7 +678,7 @@ export default function HomePage() {
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Luxury bi-fold, tri-fold, gate-fold, and saddle-stitched product catalogs with velvet soft-touch lamination and precision fold scoring.
                     </p>
-                    <ul className="pt-2 border-t border-[#203357] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
+                    <ul className="pt-2 border-t border-[#122240] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
                       <li className="flex items-center gap-1.5">
                         <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                         <span>Bi-Fold, Tri-Fold, Gate-Fold &amp; Saddle Stitch</span>
@@ -695,7 +695,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-[#203357] space-y-2">
+                <div className="mt-5 pt-4 border-t border-[#122240] space-y-2">
                   <a
                     href={getServiceWhatsAppUrl('brochures')}
                     target="_blank"
@@ -726,9 +726,9 @@ export default function HomePage() {
 
             {/* Card 5: Envelope Printing */}
             <Reveal delay={0.05}>
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0C1629] mb-4 border border-[#203357]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#020611] mb-4 border border-[#122240]">
                     <picture>
                       <source
                         type="image/webp"
@@ -745,12 +745,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-[#0F172A] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#040A18] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         Official Correspondence
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-[#101D35]/90 border border-[#203357] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
+                      <span className="rounded-lg bg-[#040A18]/90 border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
                         Same-Day Ready
                       </span>
                     </div>
@@ -765,7 +765,7 @@ export default function HomePage() {
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Corporate branded business envelopes with secure peel-and-seal adhesive strips in standard DL, C5, and C4 business mailing formats.
                     </p>
-                    <ul className="pt-2 border-t border-[#203357] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
+                    <ul className="pt-2 border-t border-[#122240] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
                       <li className="flex items-center gap-1.5">
                         <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                         <span>DL (Window / Non-Window), C5 &amp; C4 Sizes</span>
@@ -782,7 +782,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-[#203357] space-y-2">
+                <div className="mt-5 pt-4 border-t border-[#122240] space-y-2">
                   <a
                     href={getServiceWhatsAppUrl('envelopes')}
                     target="_blank"
@@ -813,9 +813,9 @@ export default function HomePage() {
 
             {/* Card 6: Custom Sticker & Label Printing */}
             <Reveal delay={0.1}>
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
-                  <Link to="/categories/stickers-labels-printing" className="block relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0C1629] mb-4 border border-[#203357]">
+                  <Link to="/categories/stickers-labels-printing" className="block relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#020611] mb-4 border border-[#122240]">
                     <picture>
                       <source
                         type="image/webp"
@@ -832,12 +832,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-[#0F172A] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#040A18] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         Waterproof Die-Cut
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-[#101D35]/90 border border-[#203357] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
+                      <span className="rounded-lg bg-[#040A18]/90 border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
                         Same-Day
                       </span>
                     </div>
@@ -852,7 +852,7 @@ export default function HomePage() {
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Custom contour die-cut waterproof vinyl stickers, clear transparent decals, bottle labels, and eye-catching holographic finishes.
                     </p>
-                    <ul className="pt-2 border-t border-[#203357] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
+                    <ul className="pt-2 border-t border-[#122240] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
                       <li className="flex items-center gap-1.5">
                         <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                         <span>Custom Shape Die-Cut &amp; Roll Labels</span>
@@ -869,7 +869,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-[#203357] space-y-2">
+                <div className="mt-5 pt-4 border-t border-[#122240] space-y-2">
                   <a
                     href={getServiceWhatsAppUrl('stickers')}
                     target="_blank"
@@ -900,9 +900,9 @@ export default function HomePage() {
 
             {/* Card 7: Custom Stamp Printing */}
             <Reveal delay={0.15}>
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0C1629] mb-4 border border-[#203357]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#020611] mb-4 border border-[#122240]">
                     <picture>
                       <source
                         type="image/webp"
@@ -919,12 +919,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-[#0F172A] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#040A18] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         Official Seal
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-[#101D35]/90 border border-[#203357] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
+                      <span className="rounded-lg bg-[#040A18]/90 border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
                         2h Express
                       </span>
                     </div>
@@ -939,7 +939,7 @@ export default function HomePage() {
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Official corporate self-inking rubber stamps, portable pocket folding stamps, heavy-duty daters, and brass wax notary seals.
                     </p>
-                    <ul className="pt-2 border-t border-[#203357] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
+                    <ul className="pt-2 border-t border-[#122240] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
                       <li className="flex items-center gap-1.5">
                         <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                         <span>Trodat &amp; Colop Self-Inking Housings</span>
@@ -956,7 +956,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-[#203357] space-y-2">
+                <div className="mt-5 pt-4 border-t border-[#122240] space-y-2">
                   <a
                     href={getServiceWhatsAppUrl('stamps')}
                     target="_blank"
@@ -987,9 +987,9 @@ export default function HomePage() {
 
             {/* Card 8: Voucher & Coupon Printing */}
             <Reveal delay={0.2}>
-              <div className="rounded-3xl border border-[#203357] bg-[#172644] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
+              <div className="rounded-3xl border border-[#122240] bg-[#081226] text-[#F5F2EB] group h-full flex flex-col justify-between overflow-hidden p-5 shadow-xs hover:border-[#D4AF65] hover:shadow-xl transition-all duration-300 card-hover-lift hover-shimmer">
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0C1629] mb-4 border border-[#203357]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#020611] mb-4 border border-[#122240]">
                     <picture>
                       <source
                         type="image/webp"
@@ -1006,12 +1006,12 @@ export default function HomePage() {
                       />
                     </picture>
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="rounded-full bg-[#0F172A] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="rounded-full bg-[#040A18] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[#D4AF65] shadow-xs">
                         Security Numbered
                       </span>
                     </div>
                     <div className="absolute bottom-2.5 right-2.5">
-                      <span className="rounded-lg bg-[#101D35]/90 border border-[#203357] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
+                      <span className="rounded-lg bg-[#040A18]/90 border border-[#122240] px-2 py-0.5 text-[10px] font-bold text-[#F5F2EB] backdrop-blur-xs shadow-xs">
                         Same-Day / 24h
                       </span>
                     </div>
@@ -1026,7 +1026,7 @@ export default function HomePage() {
                     <p className="text-xs text-[#B0BECE] leading-relaxed">
                       Luxury retail gift vouchers, event ticket booklets, and discount coupons with sequential numbering, foil crests, and perforated stubs.
                     </p>
-                    <ul className="pt-2 border-t border-[#203357] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
+                    <ul className="pt-2 border-t border-[#122240] space-y-1 text-[11px] font-medium text-[#A0AEC0]">
                       <li className="flex items-center gap-1.5">
                         <CheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                         <span>Sequential Numbering &amp; Security Barcodes</span>
@@ -1043,7 +1043,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-[#203357] space-y-2">
+                <div className="mt-5 pt-4 border-t border-[#122240] space-y-2">
                   <a
                     href={getServiceWhatsAppUrl('vouchers')}
                     target="_blank"
@@ -1100,7 +1100,7 @@ export default function HomePage() {
       {/* ========================================================================= */}
       {/* 8. FEATURED PRODUCTS CATALOG                                             */}
       {/* ========================================================================= */}
-      <section className="bg-[#101D35] py-16 sm:py-24 text-[#F5F2EB]">
+      <section className="bg-[#040A18] py-16 sm:py-24 text-[#F5F2EB]">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end mb-10">
             <div>
@@ -1140,7 +1140,7 @@ export default function HomePage() {
       {/* ========================================================================= */}
       {/* 9. SELECTED PRESS WORK & PORTFOLIO                                       */}
       {/* ========================================================================= */}
-      <section className="bg-[#0C1629] py-16 sm:py-24 text-[#F5F2EB]">
+      <section className="bg-[#020611] py-16 sm:py-24 text-[#F5F2EB]">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end mb-10">
             <div>
@@ -1162,8 +1162,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {portfolioItems.slice(0, 4).map((item, idx) => (
               <Reveal key={item.id} delay={idx * 0.08}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-xl">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0C1629]">
+                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-xl">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#020611]">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -1188,7 +1188,7 @@ export default function HomePage() {
                         {item.specs}
                       </p>
                     </div>
-                    <div className="mt-4 border-t border-[#203357] pt-3">
+                    <div className="mt-4 border-t border-[#122240] pt-3">
                       <ArrowLink to={`/get-a-quote?service=${encodeURIComponent(item.title)}`} className="text-xs font-bold text-[#D4AF65]">
                         Inquire Spec
                       </ArrowLink>
@@ -1204,7 +1204,7 @@ export default function HomePage() {
       {/* ========================================================================= */}
       {/* 10. WHY CHOOSE US & PRODUCTION PROCESS                                    */}
       {/* ========================================================================= */}
-      <section id="production-process" className="py-16 sm:py-24 bg-[#101D35] text-[#F5F2EB]">
+      <section id="production-process" className="py-16 sm:py-24 bg-[#040A18] text-[#F5F2EB]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">THE ONPRINT ADVANTAGE</span>
@@ -1219,8 +1219,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {whyUs.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.08}>
-                <div className="h-full rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-6 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-xl hover:bg-[#203357]/40 group">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4AF65] font-display text-xs font-bold text-[#101D35] shadow-xs">
+                <div className="h-full rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-6 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-xl hover:bg-[#122240]/40 group">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4AF65] font-display text-xs font-bold text-[#040A18] shadow-xs">
                     0{index + 1}
                   </div>
                   <h3 className="font-display mt-4 text-base font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">{item.title}</h3>
@@ -1231,7 +1231,7 @@ export default function HomePage() {
           </div>
 
           {/* Process Steps */}
-          <div className="mt-16 pt-12 border-t border-[#203357]">
+          <div className="mt-16 pt-12 border-t border-[#122240]">
             <div className="text-center max-w-xl mx-auto mb-10">
               <span className="text-xs font-black uppercase tracking-wider text-[#D4AF65]">DISCIPLINED WORKFLOW</span>
               <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-[#F5F2EB] mt-1">
@@ -1242,8 +1242,8 @@ export default function HomePage() {
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
               {processSteps.map((item, idx) => (
                 <Reveal key={item.step} delay={idx * 0.08}>
-                  <div className="rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-5 h-full card-hover-lift hover-shimmer shadow-xs hover:border-[#D4AF65]">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#101D35] border border-[#203357] text-[#D4AF65] text-xs font-bold shadow-2xs">
+                  <div className="rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 h-full card-hover-lift hover-shimmer shadow-xs hover:border-[#D4AF65]">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#040A18] border border-[#122240] text-[#D4AF65] text-xs font-bold shadow-2xs">
                       {item.step}
                     </span>
                     <h4 className="font-bold text-sm text-[#F5F2EB] mt-3">{item.title}</h4>
@@ -1259,7 +1259,7 @@ export default function HomePage() {
             {/* ========================================================================= */}
       {/* 10B. CLIENT PRINT CAPABILITIES & FINISHING SPECIFICATIONS                 */}
       {/* ========================================================================= */}
-      <section className="bg-[#101D35] py-16 sm:py-24 border-t border-[#203357] text-[#F5F2EB] relative overflow-hidden">
+      <section className="bg-[#040A18] py-16 sm:py-24 border-t border-[#122240] text-[#F5F2EB] relative overflow-hidden">
         <div className="pointer-events-none absolute -right-24 top-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[#D4AF65]/10 blur-3xl -z-10" aria-hidden="true" />
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -1296,9 +1296,9 @@ export default function HomePage() {
               },
             ].map((t, idx) => (
               <Reveal key={idx} delay={idx * 0.1}>
-                <div className="h-full flex flex-col justify-between rounded-3xl border border-[#203357] bg-[#172644] p-6 sm:p-7 shadow-md hover:border-[#D4AF65] transition-all group">
+                <div className="h-full flex flex-col justify-between rounded-3xl border border-[#122240] bg-[#081226] p-6 sm:p-7 shadow-md hover:border-[#D4AF65] transition-all group">
                   <div>
-                    <span className="rounded-full bg-[#101D35] border border-[#203357] px-3 py-1 text-[11px] font-bold text-[#D4AF65] inline-block mb-3">
+                    <span className="rounded-full bg-[#040A18] border border-[#122240] px-3 py-1 text-[11px] font-bold text-[#D4AF65] inline-block mb-3">
                       {t.category}
                     </span>
                     <h3 className="text-base font-bold text-[#F5F2EB] mb-2">{t.title}</h3>
@@ -1307,11 +1307,11 @@ export default function HomePage() {
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-5 border-t border-[#203357] flex items-center justify-between">
+                  <div className="mt-6 pt-5 border-t border-[#122240] flex items-center justify-between">
                     <span className="text-xs font-mono text-emerald-400 font-semibold flex items-center gap-1">
                       <CheckCircle2 className="h-3.5 w-3.5" /> In-House Press
                     </span>
-                    <span className="rounded-full bg-[#101D35] border border-[#203357] px-2.5 py-1 text-[10px] font-mono font-bold text-[#D4AF65]">
+                    <span className="rounded-full bg-[#040A18] border border-[#122240] px-2.5 py-1 text-[10px] font-mono font-bold text-[#D4AF65]">
                       {t.spec}
                     </span>
                   </div>
@@ -1328,7 +1328,7 @@ export default function HomePage() {
       {/* 11. BLOG ARTICLES / GUIDES                                               */}
       {/* ========================================================================= */}
       {blogs && blogs.length > 0 && (
-        <section className="bg-[#0C1629] py-16 sm:py-24 text-[#F5F2EB]">
+        <section className="bg-[#020611] py-16 sm:py-24 text-[#F5F2EB]">
           <Container>
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end mb-10">
               <div>
@@ -1350,9 +1350,9 @@ export default function HomePage() {
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {blogs.slice(0, 3).map((blog, idx) => (
                 <Reveal key={blog.id || blog.slug} delay={idx * 0.08}>
-                  <article className="flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-[#203357] bg-[#172644] text-[#F5F2EB] p-5 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-xl">
+                  <article className="flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-[#122240] bg-[#081226] text-[#F5F2EB] p-5 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#D4AF65] hover:shadow-xl">
                     <div>
-                      <div className="aspect-[16/10] overflow-hidden rounded-xl bg-[#0C1629]">
+                      <div className="aspect-[16/10] overflow-hidden rounded-xl bg-[#020611]">
                         <img
                           src={getBlogCoverImage(blog)}
                           alt={blog.image_alt || blog.imageAlt || blog.title}
@@ -1366,7 +1366,7 @@ export default function HomePage() {
                       </div>
 
                       <div className="mt-4 flex flex-wrap items-center gap-2.5 text-[11px] font-semibold text-[#B0BECE]">
-                        <span className="rounded-full bg-[#101D35] border border-[#203357] px-2.5 py-0.5 text-[#D4AF65] uppercase tracking-wider">
+                        <span className="rounded-full bg-[#040A18] border border-[#122240] px-2.5 py-0.5 text-[#D4AF65] uppercase tracking-wider">
                           {blog.category || 'Printing Guide'}
                         </span>
                         <span className="flex items-center gap-1">
@@ -1386,7 +1386,7 @@ export default function HomePage() {
                       </p>
                     </div>
 
-                    <div className="mt-4 border-t border-[#203357] pt-3">
+                    <div className="mt-4 border-t border-[#122240] pt-3">
                       <ArrowLink to={`/blog/${blog.slug}`} className="text-xs font-bold text-[#D4AF65]">
                         Read Guide
                       </ArrowLink>
@@ -1403,7 +1403,7 @@ export default function HomePage() {
       {/* ========================================================================= */}
       {/* 13. BOTTOM CONVERSION CALL TO ACTION                                      */}
       {/* ========================================================================= */}
-      <section className="bg-[#0C1629] py-16 sm:py-20 text-[#F5F2EB] relative overflow-hidden">
+      <section className="bg-[#020611] py-16 sm:py-20 text-[#F5F2EB] relative overflow-hidden">
         <div className="pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-[#D4AF65]/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-[#D4AF65]/10 blur-3xl" />
 
@@ -1446,7 +1446,7 @@ export default function HomePage() {
                       button_location: 'bottom_service_chips',
                     })
                   }
-                  className="flex items-center justify-center gap-2 rounded-xl border border-[#203357] bg-[#172644] px-3 py-2.5 text-xs font-bold text-[#F5F2EB] shadow-xs hover:border-[#25D366] hover:bg-slate-800 hover:text-white transition-all group"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-[#122240] bg-[#081226] px-3 py-2.5 text-xs font-bold text-[#F5F2EB] shadow-xs hover:border-[#25D366] hover:bg-slate-800 hover:text-white transition-all group"
                 >
                   <WhatsAppIcon className="h-3.5 w-3.5 fill-[#25D366] group-hover:scale-110 transition-transform shrink-0" />
                   <span className="truncate">{svc.label}</span>
@@ -1477,7 +1477,7 @@ export default function HomePage() {
               to="/get-a-quote"
               variant="accent"
               size="lg"
-              className="!rounded-full !bg-[#D4AF65] hover:!bg-[#D4AF65] shadow-lg shadow-[#D4AF65]/25 text-center justify-center font-black !py-3.5 !px-5 sm:!px-8 !text-[#0F172A]"
+              className="!rounded-full !bg-[#D4AF65] hover:!bg-[#D4AF65] shadow-lg shadow-[#D4AF65]/25 text-center justify-center font-black !py-3.5 !px-5 sm:!px-8 !text-[#040A18]"
               onClick={() => trackGetQuoteClick({ source_page: 'homepage_bottom_cta' })}
             >
               Request a Custom Quote →

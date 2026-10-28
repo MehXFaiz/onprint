@@ -52,7 +52,7 @@ export default function ProductDetailModal({ product, onClose }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           onClick={onClose}
-          className="absolute inset-0 bg-[#0C1629]/80 backdrop-blur-md"
+          className="absolute inset-0 bg-[#020611]/80 backdrop-blur-md"
         />
 
         {/* Modal Window */}
@@ -61,30 +61,30 @@ export default function ProductDetailModal({ product, onClose }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 12 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl border border-[#203357] bg-[#172644] shadow-2xl text-[#F5F2EB]"
+          className="relative z-10 w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl border border-[#122240] bg-[#081226] shadow-2xl text-[#F5F2EB]"
         >
           {/* Close Button */}
           <button
             type="button"
             onClick={onClose}
             aria-label="Close product modal"
-            className="absolute right-4 top-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-[#101D35] border border-[#203357] text-[#F5F2EB] shadow-md transition-colors hover:bg-[#D4AF65] hover:text-[#101D35] cursor-pointer"
+            className="absolute right-4 top-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-[#040A18] border border-[#122240] text-[#F5F2EB] shadow-md transition-colors hover:bg-[#D4AF65] hover:text-[#040A18] cursor-pointer"
           >
             <X className="h-4 w-4" />
           </button>
 
           <div className="grid grid-cols-1 md:grid-cols-12">
             {/* 360 Inspection Canvas Column */}
-            <div className="relative flex flex-col justify-between bg-[#101D35] p-5 sm:p-7 md:col-span-6 md:border-r border-[#203357]">
+            <div className="relative flex flex-col justify-between bg-[#040A18] p-5 sm:p-7 md:col-span-6 md:border-r border-[#122240]">
               {/* Mode Toggle Switch */}
               <div className="mb-4 flex items-center justify-between">
-                <div className="flex items-center gap-1 rounded-xl border border-[#203357] bg-[#172644] p-1 shadow-2xs">
+                <div className="flex items-center gap-1 rounded-xl border border-[#122240] bg-[#081226] p-1 shadow-2xs">
                   <button
                     type="button"
                     onClick={() => setViewMode('360')}
                     className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                       viewMode === '360'
-                        ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                        ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
                         : 'text-[#A0AEC0] hover:text-[#F5F2EB]'
                     }`}
                   >
@@ -96,7 +96,7 @@ export default function ProductDetailModal({ product, onClose }) {
                     onClick={() => setViewMode('photo')}
                     className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                       viewMode === 'photo'
-                        ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
+                        ? 'bg-[#D4AF65] text-[#040A18] shadow-xs'
                         : 'text-[#A0AEC0] hover:text-[#F5F2EB]'
                     }`}
                   >
@@ -106,7 +106,7 @@ export default function ProductDetailModal({ product, onClose }) {
                 </div>
 
                 {isFeatured && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#101D35] shadow-2xs">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#040A18] shadow-2xs">
                     <Sparkles className="h-3 w-3" />
                     Featured
                   </span>
@@ -114,7 +114,7 @@ export default function ProductDetailModal({ product, onClose }) {
               </div>
 
               {/* Viewer Stage */}
-              <div className="relative w-full overflow-hidden rounded-2xl border border-[#203357] bg-[#0C1629] shadow-2xs">
+              <div className="relative w-full overflow-hidden rounded-2xl border border-[#122240] bg-[#020611] shadow-2xs">
                 {viewMode === '360' ? (
                   <Product360Viewer
                     product={product}
@@ -122,7 +122,7 @@ export default function ProductDetailModal({ product, onClose }) {
                     height="aspect-[4/3]"
                   />
                 ) : (
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0C1629]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#020611]">
                     {primaryImage ? (
                       <img
                         src={primaryImage}
@@ -161,7 +161,7 @@ export default function ProductDetailModal({ product, onClose }) {
                 </p>
 
                 {/* Specs Pill Summary */}
-                <div className="mt-6 space-y-2.5 rounded-2xl border border-[#203357] bg-[#101D35] p-4">
+                <div className="mt-6 space-y-2.5 rounded-2xl border border-[#122240] bg-[#040A18] p-4">
                   {product.minimumQuantity && (
                     <div className="flex items-center justify-between text-xs">
                       <span className="flex items-center gap-2 text-[#A0AEC0]">

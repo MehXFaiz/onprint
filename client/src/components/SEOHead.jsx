@@ -259,14 +259,14 @@ export default function SEOHead({
   // Resolve Images
   const effectiveImage =
     dbSeo?.og_image ||
-    (ogImage
+    (typeof ogImage === 'string' && ogImage
       ? ogImage.startsWith('http')
         ? ogImage
         : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`
       : DEFAULT_IMAGE)
 
   const normalizeImageUrl = (image) => {
-    if (!image) return DEFAULT_IMAGE
+    if (!image || typeof image !== 'string') return DEFAULT_IMAGE
     return image.startsWith('http') ? image : `${SITE_URL}${image.startsWith('/') ? image : `/${image}`}`
   }
 
@@ -381,7 +381,7 @@ export default function SEOHead({
           '@type': 'ListItem',
           position: idx + 1,
           name: b.name,
-          item: b.url.startsWith('http') ? b.url : `${SITE_URL}${b.url.startsWith('/') ? b.url : `/${b.url}`}`,
+          item: (() => { const rawUrl = String(b?.url || b?.path || b?.href || location.pathname || '/'); return rawUrl.startsWith('http') ? rawUrl : `${SITE_URL}${rawUrl.startsWith('/') ? rawUrl : `/${rawUrl}`}` })(),
         })),
       }
       setStructuredDataScript('onprint-schema-breadcrumbs', breadcrumbSchema)
@@ -470,7 +470,7 @@ export default function SEOHead({
         name: service.name,
         serviceType: service.category?.name || 'Commercial Printing Service',
         description: service.description || service.shortDescription || metaDesc,
-        image: serviceImage.startsWith('http') ? serviceImage : `${SITE_URL}${serviceImage.startsWith('/') ? serviceImage : `/${serviceImage}`}`,
+        image: normalizeImageUrl(serviceImage),
         provider: {
           '@type': 'LocalBusiness',
           '@id': `${SITE_URL}/#organization`,
@@ -528,7 +528,7 @@ export default function SEOHead({
         '@type': 'BlogPosting',
         headline: blogArticle.title,
         description: blogArticle.excerpt || metaDesc,
-        image: blogImage.startsWith('http') ? blogImage : `${SITE_URL}${blogImage.startsWith('/') ? blogImage : `/${blogImage}`}`,
+        image: normalizeImageUrl(blogImage),
         author: {
           '@type': 'Organization',
           name: blogArticle.author_name || blogArticle.author || 'ONPRINT Editorial Team',
@@ -560,7 +560,7 @@ export default function SEOHead({
         '@type': 'Article',
         headline: blogArticle.title,
         description: blogArticle.excerpt || metaDesc,
-        image: blogImage.startsWith('http') ? blogImage : `${SITE_URL}${blogImage.startsWith('/') ? blogImage : `/${blogImage}`}`,
+        image: normalizeImageUrl(blogImage),
         author: {
           '@type': 'Organization',
           name: blogArticle.author_name || blogArticle.author || 'ONPRINT Editorial Team',

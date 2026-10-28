@@ -3,9 +3,9 @@ import { motion, useReducedMotion } from 'framer-motion'
 export default function Reveal({
   children,
   delay = 0,
-  y = 24,
+  y = 12,
   x = 0,
-  scale = 0.985,
+  scale = 1,
   className = '',
   as = 'div',
 }) {
@@ -15,11 +15,11 @@ export default function Reveal({
   return (
     <MotionTag
       className={className}
-      initial={reduce ? false : { opacity: 0, y, x, scale }}
+      initial={reduce ? false : { opacity: 1, y, x, scale }}
       whileInView={reduce ? undefined : { opacity: 1, y: 0, x: 0, scale: 1 }}
-      viewport={{ once: true, margin: '-20px' }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{
-        duration: 0.6,
+        duration: 0.45,
         delay,
         ease: [0.16, 1, 0.3, 1],
       }}
@@ -32,7 +32,7 @@ export default function Reveal({
 export function StaggerContainer({
   children,
   className = '',
-  staggerDelay = 0.08,
+  staggerDelay = 0.06,
   as = 'div',
 }) {
   const reduce = useReducedMotion()
@@ -43,10 +43,11 @@ export function StaggerContainer({
       className={className}
       initial={reduce ? false : 'hidden'}
       whileInView={reduce ? undefined : 'visible'}
-      viewport={{ once: true, margin: '-20px' }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={{
-        hidden: {},
+        hidden: { opacity: 1 },
         visible: {
+          opacity: 1,
           transition: {
             staggerChildren: staggerDelay,
           },
@@ -61,7 +62,7 @@ export function StaggerContainer({
 export function StaggerItem({
   children,
   className = '',
-  y = 20,
+  y = 10,
 }) {
   const reduce = useReducedMotion()
 
@@ -72,12 +73,12 @@ export function StaggerItem({
         reduce
           ? undefined
           : {
-              hidden: { opacity: 0, y },
+              hidden: { opacity: 1, y },
               visible: {
                 opacity: 1,
                 y: 0,
                 transition: {
-                  duration: 0.5,
+                  duration: 0.4,
                   ease: [0.16, 1, 0.3, 1],
                 },
               },
@@ -88,4 +89,3 @@ export function StaggerItem({
     </motion.div>
   )
 }
-

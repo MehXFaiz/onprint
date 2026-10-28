@@ -122,7 +122,7 @@ export default function ProductCard({
 
   return (
     <motion.div
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 20, scale: 0.98 }}
+      initial={prefersReducedMotion ? false : { opacity: 1, y: 12, scale: 1 }}
       whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: '-20px' }}
       transition={{

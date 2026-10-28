@@ -12,21 +12,33 @@ export default class ErrorBoundary extends React.Component {
 
   componentDidCatch(error, errorInfo) {
     console.error('ErrorBoundary caught an error:', error, errorInfo)
+    const msg = String(error?.message || '')
     if (
       error?.name === 'ChunkLoadError' ||
-      String(error?.message).includes('Failed to fetch dynamically imported module') ||
-      String(error?.message).includes('Importing a module script failed')
+      msg.includes('Failed to fetch dynamically imported module') ||
+      msg.includes('Importing a module script failed') ||
+      msg.includes('error loading dynamically imported module') ||
+      msg.includes('not a valid JavaScript MIME type') ||
+      msg.includes('Unable to preload CSS')
     ) {
-      const reloaded = sessionStorage.getItem('chunk_reload_attempted')
-      if (!reloaded) {
-        sessionStorage.setItem('chunk_reload_attempted', 'true')
-        window.location.reload()
+      try {
+        const reloaded = sessionStorage.getItem('chunk_reload_attempted')
+        if (!reloaded) {
+          sessionStorage.setItem('chunk_reload_attempted', 'true')
+          window.location.reload()
+        }
+      } catch {
+        // Ignore storage SecurityError in restricted mobile WebViews / Private Browsing
       }
     }
   }
 
   handleReload = () => {
-    sessionStorage.removeItem('chunk_reload_attempted')
+    try {
+      sessionStorage.removeItem('chunk_reload_attempted')
+    } catch {
+      // Ignore storage SecurityError
+    }
     window.location.reload()
   }
 

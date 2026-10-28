@@ -59,7 +59,7 @@ export const portfolioItems = [
     specs: 'Custom 160 × 120 × 60 mm • 1200 GSM Rigid Core • Midnight Velvet EVA Insert • Rose Gold Hot Foil • Color Mode: Deep Black Solid + Foil',
     materialsAndFinishes: '1200 GSM Greyboard, Midnight Velvet Lined Foam, Rose Gold Stamping, Hidden Neodymium Magnets',
     result: 'Drop-tested from 1.5m with zero bottle movement; 2,000 units delivered to luxury boutiques in Dubai Mall and Mall of the Emirates.',
-    image: '/assets/products/product_boxes.jpg',
+    image: '/assets/products/brochures.jpg',
     treatment: 'duotone',
     aspect: 'aspect-[4/3]',
     relatedService: { name: 'Luxury Packaging & Custom Boxes', url: '/services/luxury-packaging-custom-boxes' },

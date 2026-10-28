@@ -420,6 +420,15 @@ body:has([dir="rtl"]),
   }
 }
 
+/* Guarantee main page content is never stuck at opacity: 0 on mobile WebViews or reduced motion */
+@media (max-width: 1024px), (prefers-reduced-motion: reduce) {
+  main [style*="opacity: 0"],
+  main [style*="opacity:0"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Strictly honor user reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {

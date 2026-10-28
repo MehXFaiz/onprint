@@ -1,4 +1,24 @@
-import { lazy, Suspense } from 'react'
+import { lazy as reactLazy, Suspense } from 'react'
+
+function lazy(factory) {
+  return reactLazy(() =>
+    factory().catch((err) => {
+      return new Promise((resolve) => setTimeout(resolve, 400))
+        .then(() => factory())
+        .catch(() => {
+          try {
+            if (!sessionStorage.getItem('onprint_lazy_reload')) {
+              sessionStorage.setItem('onprint_lazy_reload', '1')
+              window.location.reload()
+            }
+          } catch {
+            // Ignore storage restrictions
+          }
+          throw err
+        })
+    })
+  )
+}
 import { Routes, Route, Navigate, useParams } from 'react-router-dom'
 import PublicLayout from './layouts/PublicLayout'
 import GoogleAnalytics from './components/GoogleAnalytics'

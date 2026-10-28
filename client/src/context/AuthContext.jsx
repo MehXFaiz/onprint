@@ -5,6 +5,34 @@ const AuthContext = createContext(null)
 
 const TOKEN_KEY = 'onprint_auth_token'
 
+function safeGetToken() {
+  try {
+    return typeof window !== 'undefined' ? window.localStorage.getItem(TOKEN_KEY) : null
+  } catch {
+    return null
+  }
+}
+
+function safeSetToken(token) {
+  try {
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(TOKEN_KEY, token)
+    }
+  } catch {
+    // Ignore storage SecurityError in restricted mobile WebViews / Private Mode
+  }
+}
+
+function safeRemoveToken() {
+  try {
+    if (typeof window !== 'undefined') {
+      window.localStorage.removeItem(TOKEN_KEY)
+    }
+  } catch {
+    // Ignore storage SecurityError
+  }
+}
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -12,7 +40,7 @@ export function AuthProvider({ children }) {
   // Verify token & restore session from MySQL backend on initial mount
   useEffect(() => {
     async function restoreSession() {
-      const token = localStorage.getItem(TOKEN_KEY)
+      const token = safeGetToken()
       if (!token) {
         setUser(null)
         setLoading(false)
@@ -54,7 +82,7 @@ export function AuthProvider({ children }) {
     try {
       const { data } = await api.post('/auth/login', { email: cleanEmail, password })
       if (data?.token && data?.user) {
-        localStorage.setItem(TOKEN_KEY, data.token)
+        safeSetToken(data.token)
         api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`
         setUser(data.user)
         return data.user
@@ -71,7 +99,7 @@ export function AuthProvider({ children }) {
             role: 'admin',
             status: 'active',
           }
-          localStorage.setItem(TOKEN_KEY, 'mock-admin-jwt-token')
+          safeSetToken('mock-admin-jwt-token')
           setUser(fallbackUser)
           return fallbackUser
         }
@@ -84,7 +112,7 @@ export function AuthProvider({ children }) {
     try {
       const { data } = await api.post('/auth/register', userData)
       if (data?.token && data?.user) {
-        localStorage.setItem(TOKEN_KEY, data.token)
+        safeSetToken(data.token)
         api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`
         setUser(data.user)
         return data.user
@@ -96,7 +124,7 @@ export function AuthProvider({ children }) {
   }
 
   const logout = () => {
-    localStorage.removeItem(TOKEN_KEY)
+    safeRemoveToken()
     delete api.defaults.headers.common['Authorization']
     setUser(null)
   }

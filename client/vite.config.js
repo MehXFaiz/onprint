@@ -36,6 +36,8 @@ export default defineConfig(({ mode }) => {
       // built to the repo-root dist/, which the production server serves directly
       outDir: '../dist',
       emptyOutDir: true,
+      target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14'],
+      cssTarget: ['chrome87', 'safari14', 'ios14'],
       chunkSizeWarningLimit: 600,
       rollupOptions: {
         output: {

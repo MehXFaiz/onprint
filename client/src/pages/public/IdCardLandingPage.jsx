@@ -389,7 +389,7 @@ export default function IdCardLandingPage() {
         ogImage={idCardsImg}
       />
 
-      <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <div className="min-h-screen bg-[#040A18] text-[#F5F2EB]">
         <Container>
           <Breadcrumbs items={breadcrumbs} />
 

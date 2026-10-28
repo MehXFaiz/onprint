@@ -1040,7 +1040,23 @@ const PUBLIC_STATIC_PATHS = new Set([
 
 async function isKnownPublicPath(requestPath) {
   if (requestPath === '/admin' || requestPath.startsWith('/admin/')) return true
-  if (requestPath === '/finishes' || requestPath === '/corporate-quotes' || requestPath === '/bulk-orders') return true
+  if (requestPath === '/ar' || requestPath.startsWith('/ar/')) return true
+  if (
+    requestPath === '/finishes' ||
+    requestPath === '/corporate-quotes' ||
+    requestPath === '/bulk-orders' ||
+    requestPath === '/stickers' ||
+    requestPath === '/stickers-labels-printing' ||
+    requestPath === '/custom-stickers-dubai' ||
+    requestPath === '/rubber-stamps-dubai' ||
+    requestPath === '/stamps' ||
+    requestPath === '/custom-stamps' ||
+    requestPath === '/company-stamps-dubai' ||
+    requestPath === '/stamp-maker-dubai' ||
+    requestPath === '/custom-stamp-printing-dubai' ||
+    requestPath === '/custom-rubber-stamps' ||
+    requestPath === '/quote/stamps'
+  ) return true
   if (PUBLIC_STATIC_PATHS.has(requestPath)) return true
 
   const dynamicRoute = requestPath.match(/^\/(categories|products|services|blog|printing-services|printing-solutions)\/([^/]+)$/)
@@ -1080,6 +1096,22 @@ async function isKnownPublicPath(requestPath) {
 
   // 3. Check hardcoded/fallback catalogs if DB didn't match or was offline
   if (routeType === 'categories') {
+    const canonicalCategories = new Set([
+      'business-cards',
+      'business-cards-printing',
+      'brochures-printing',
+      'flyers-printing-in-dubai',
+      'stickers-labels-packaging',
+      'stickers-labels-printing',
+      'custom-stamps-seals',
+      'stamps-printing-dubai',
+      'id-card-printing-dubai',
+      'rollup-banners',
+      'corporate-stationery',
+      'luxury-packaging-custom-boxes',
+      'custom-mugs-drinkware',
+    ])
+    if (canonicalCategories.has(slug)) return true
     return (initialData.categories || []).some((c) => c.slug === slug && c.active !== false)
   }
   if (routeType === 'products') {
@@ -1334,6 +1366,9 @@ function createApp() {
 
   // SPA, SEO Server-Side Shell & Health-Safe Fallback
   app.get(/^(?!\/api).*/, async (req, res, next) => {
+    if (req.path.startsWith('/assets/') || req.path.startsWith('/uploads/')) {
+      return res.status(404).end()
+    }
     const indexPath = path.join(CLIENT_DIST, 'index.html')
     const hasDist = fs.existsSync(indexPath)
 

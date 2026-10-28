@@ -9,7 +9,7 @@ export default function SampleBoxCTA() {
     <section className="relative overflow-hidden bg-[#040A18] py-16 sm:py-20 border-y border-[#122240]">
       <Container className="relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-30px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}

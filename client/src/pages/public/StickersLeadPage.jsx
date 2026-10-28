@@ -66,7 +66,7 @@ const MATERIAL_SPECS = [
   },
 ]
 
-export default function StickersLeadPage({FORMATTED_PHONE}) {
+export default function StickersLeadPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',

@@ -35,7 +35,7 @@ export default function CarefreeShoppingSection() {
           {/* Left Column: Studio Showcase */}
           <div className="lg:col-span-6 relative">
             <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 16 }}
+              initial={{ opacity: 1, scale: 0.98, y: 10 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
@@ -80,7 +80,7 @@ export default function CarefreeShoppingSection() {
                 return (
                   <motion.div
                     key={feat.title}
-                    initial={{ opacity: 0, x: 16 }}
+                    initial={{ opacity: 1, x: 8 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     whileHover={{ x: 4, transition: { duration: 0.2 } }}

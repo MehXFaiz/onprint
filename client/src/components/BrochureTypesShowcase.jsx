@@ -225,7 +225,7 @@ export default function BrochureTypesShowcase({ className = '' }) {
         {displayedBrochures.map((item, idx) => (
           <motion.article
             key={item.id}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-20px' }}
             transition={{ duration: 0.4, delay: (idx % 3) * 0.08 }}

@@ -16,7 +16,7 @@ export default function CategoryCard({ category, priority = false, index = 0 }) 
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 18 }}
+      initial={{ opacity: 1, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-20px' }}
       transition={{

@@ -18,7 +18,7 @@ import {
 import Container from '../../components/Container'
 import SEOHead from '../../components/SEOHead'
 import WhatsAppIcon from '../../components/WhatsAppIcon'
-import { formatArabicStampInquiry, WHATSAPP_PHONE, FORMATTED_PHONE } from '../../utils/whatsapp'
+import { formatArabicStampInquiry, WHATSAPP_PHONE, FORMATTED_PHONE, RAW_WHATSAPP_NUMBER } from '../../utils/whatsapp'
 import { trackWhatsAppClick } from '../../utils/analytics'
 
 const STAMP_TYPES = [

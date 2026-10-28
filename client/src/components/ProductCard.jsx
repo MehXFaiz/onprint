@@ -294,7 +294,7 @@ export default function ProductCard({
         <div className="mt-auto pt-4 border-t border-[#203357] flex items-center gap-2">
           <Link
             to={`/products/${product.slug}`}
-            className="group/btn flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-4 py-2 text-xs font-black uppercase tracking-wider text-[#101D35] transition-all shadow-xs cursor-pointer active:scale-[0.98]"
+            className="group/btn flex-1 inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-full bg-[#D4AF65] hover:bg-[#C49E52] px-4 py-2 text-xs font-black uppercase tracking-wider text-[#101D35] transition-all shadow-xs cursor-pointer active:scale-[0.98]"
           >
             <span>Explore</span>
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -323,7 +323,7 @@ export default function ProductCard({
             }}
             aria-label={`Inquire about ${product.name} on WhatsApp`}
             title={`Inquire about ${product.name} on WhatsApp`}
-            className="inline-flex items-center justify-center gap-1.5 h-8.5 px-3 rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-300 text-[11px] font-bold transition-all hover:bg-[#25D366] hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
+            className="inline-flex items-center justify-center gap-1.5 min-h-[42px] px-3.5 rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-300 text-[11px] font-bold transition-all hover:bg-[#25D366] hover:text-white active:scale-95 cursor-pointer shadow-xs shrink-0"
           >
             <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
             <span>WhatsApp</span>
@@ -335,9 +335,9 @@ export default function ProductCard({
               onClick={handleQuickView}
               aria-label={`Quick View ${product.name}`}
               title="Quick View"
-              className="inline-flex items-center justify-center h-8.5 w-8.5 rounded-full border border-[#203357] bg-[#101D35] text-[#F5F2EB] transition-all hover:border-[#D4AF65] hover:bg-[#172644] hover:text-[#D4AF65] active:scale-95 cursor-pointer shadow-xs shrink-0"
+              className="inline-flex items-center justify-center min-h-[42px] min-w-[42px] rounded-full border border-[#203357] bg-[#101D35] text-[#F5F2EB] transition-all hover:border-[#D4AF65] hover:bg-[#172644] hover:text-[#D4AF65] active:scale-95 cursor-pointer shadow-xs shrink-0"
             >
-              <Eye className="h-3.5 w-3.5" />
+              <Eye className="h-4 w-4" />
             </button>
           )}
         </div>

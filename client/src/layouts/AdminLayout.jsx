@@ -73,8 +73,9 @@ export default function AdminLayout() {
         <button
           type="button"
           onClick={() => setMobileMenuOpen((v) => !v)}
-          className="rounded-lg p-2 text-white hover:bg-[#14213D] transition-colors cursor-pointer"
+          className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-white hover:bg-[#14213D] transition-colors cursor-pointer"
           aria-label="Toggle Navigation"
+          aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -85,12 +86,14 @@ export default function AdminLayout() {
         <div
           className="fixed inset-0 z-40 bg-black/60 backdrop-blur-xs md:hidden"
           onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
         />
       )}
 
       {/* Sidebar Navigation */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 h-screen max-h-screen overflow-y-auto transform bg-[#070D1E] border-r border-[#1E2C4F] p-6 text-[#B8C2D9] transition-transform duration-200 ease-in-out flex flex-col admin-sidebar-scroll md:sticky md:top-0 md:h-screen md:w-64 md:translate-x-0 md:shrink-0 md:flex ${
+        aria-label="Admin Sidebar Navigation"
+        className={`fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] h-screen max-h-screen overflow-y-auto transform bg-[#070D1E] border-r border-[#1E2C4F] p-5 sm:p-6 text-[#B8C2D9] transition-transform duration-200 ease-in-out flex flex-col admin-sidebar-scroll md:sticky md:top-0 md:h-screen md:w-64 md:translate-x-0 md:shrink-0 md:flex ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
@@ -107,7 +110,7 @@ export default function AdminLayout() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="rounded-lg p-1 text-[#F5F3EE] hover:bg-[#14213D] md:hidden cursor-pointer"
+              className="inline-flex min-h-[42px] min-w-[42px] items-center justify-center rounded-lg p-1 text-[#F5F3EE] hover:bg-[#14213D] md:hidden cursor-pointer"
               aria-label="Close Navigation"
             >
               <X className="h-5 w-5" />

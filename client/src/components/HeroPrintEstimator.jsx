@@ -118,7 +118,7 @@ const ESTIMATOR_PRODUCTS = [
     imageWebp: '/assets/products/flyers/flyer-a5-promotional.webp',
     badge: 'Vivid 4K CMYK',
     turnaround: 'Same-Day / 4h',
-    link: '/categories/flyers-printing-in-dubai',
+    link: '/categories/flyers-brochures-printing',
     quantities: [250, 500, 1000, 2500, 5000],
     unit: 'pcs',
     options: [
@@ -197,7 +197,7 @@ const ESTIMATOR_PRODUCTS = [
     imageWebp: '/assets/products/rollup_banner.webp',
     badge: 'DWTC & Expo',
     turnaround: 'Rush 24h Ready',
-    link: '/services/rollup-banners',
+    link: '/categories/banners-displays-printing',
     quantities: [1, 2, 5, 10],
     unit: 'units',
     options: [

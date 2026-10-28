@@ -497,7 +497,7 @@ export default function HomePage() {
 
                   <div className="space-y-2">
                     <h3 className="font-serif text-lg font-bold text-[#F5F2EB] group-hover:text-[#D4AF65] transition-colors">
-                      <Link to="/categories/flyers-printing-in-dubai" className="hover:underline focus:outline-none">
+                      <Link to="/categories/flyers-brochures-printing" className="hover:underline focus:outline-none">
                         Flyer &amp; Leaflet Printing
                       </Link>
                     </h3>
@@ -540,7 +540,7 @@ export default function HomePage() {
                     <span>Inquire on WhatsApp</span>
                   </a>
                   <Link
-                    to="/categories/flyers-printing-in-dubai"
+                    to="/categories/flyers-brochures-printing"
                     className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-[#A0AEC0] hover:text-[#D4AF65] py-1 transition-colors"
                   >
                     <span>View Flyer Options</span>

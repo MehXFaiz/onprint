@@ -107,15 +107,47 @@ export default function QuickQuoteWhatsAppForm({
 
   const handleFileChange = async (e) => {
     handleStart()
-    const files = Array.from(e.target.files || [])
-    if (files.length === 0) return
+    const selected = Array.from(e.target.files || [])
+    if (selected.length === 0) return
 
-    setArtworkFiles((prev) => [...prev, ...files])
-    trackArtworkUpload({ file_count: files.length, source_page: 'quick_quote_whatsapp_form' })
+    const ALLOWED = ['.pdf', '.ai', '.eps', '.psd', '.tiff', '.tif', '.jpg', '.jpeg', '.png', '.zip']
+    const MAX_BYTES = 50 * 1024 * 1024
+    const valid = []
+    const invalid = []
+    const oversized = []
+
+    selected.forEach((f) => {
+      const ext = `.${f.name.split('.').pop().toLowerCase()}`
+      if (!ALLOWED.includes(ext)) {
+        invalid.push(f.name)
+      } else if (f.size > MAX_BYTES) {
+        oversized.push(f.name)
+      } else {
+        valid.push(f)
+      }
+    })
+
+    if (invalid.length > 0 || oversized.length > 0) {
+      const msgParts = []
+      if (invalid.length > 0) {
+        msgParts.push(`Unsupported format (${invalid.join(', ')}). Allowed: PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP.`)
+      }
+      if (oversized.length > 0) {
+        msgParts.push(`Exceeds 50MB (${oversized.join(', ')}). You can attach large files directly in WhatsApp chat.`)
+      }
+      setErrors((prev) => ({ ...prev, artwork: msgParts.join(' ') }))
+    } else {
+      setErrors((prev) => ({ ...prev, artwork: undefined }))
+    }
+
+    if (valid.length === 0) return
+
+    setArtworkFiles((prev) => [...prev, ...valid])
+    trackArtworkUpload({ file_count: valid.length, source_page: 'quick_quote_whatsapp_form' })
 
     setIsUploading(true)
     try {
-      const res = await uploadArtwork(files)
+      const res = await uploadArtwork(valid)
       if (res?.urls) {
         setUploadedArtworkUrls((prev) => [...prev, ...res.urls])
       }
@@ -124,6 +156,11 @@ export default function QuickQuoteWhatsAppForm({
     } finally {
       setIsUploading(false)
     }
+  }
+
+  const removeArtworkFile = (index) => {
+    setArtworkFiles((prev) => prev.filter((_, i) => i !== index))
+    setUploadedArtworkUrls((prev) => prev.filter((_, i) => i !== index))
   }
 
   const validate = () => {
@@ -519,13 +556,13 @@ export default function QuickQuoteWhatsAppForm({
 
           {/* 5. Artwork Upload & Explanation */}
           <div className="rounded-2xl border border-dashed border-[#203357] bg-[#101D35]/60 p-4">
-            <div className="flex items-start justify-between gap-3">
+            <div className="flex flex-col min-[420px]:flex-row items-start justify-between gap-3">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF65] block">
                   Artwork Upload (Optional)
                 </span>
                 <p className="text-[11px] text-[#B0BECE] mt-0.5">
-                  Supported formats: PDF, AI, EPS, PSD, TIFF, JPG, PNG.
+                  Supported formats: PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP (Max 50MB).
                 </p>
                 <div className="mt-1 flex items-center gap-1.5 text-[10.5px] text-emerald-300">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
@@ -533,7 +570,7 @@ export default function QuickQuoteWhatsAppForm({
                 </div>
               </div>
 
-              <label className="shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-[#203357] bg-[#172644] hover:bg-[#203357] px-3 py-2 text-xs font-bold text-[#F5F2EB] transition-colors cursor-pointer">
+              <label className="shrink-0 inline-flex min-h-[42px] items-center gap-1.5 rounded-xl border border-[#203357] bg-[#172644] hover:bg-[#203357] px-3.5 py-2 text-xs font-bold text-[#F5F2EB] transition-colors cursor-pointer">
                 <Upload className="h-3.5 w-3.5 text-[#D4AF65]" />
                 <span>{isUploading ? 'Uploading...' : 'Choose File'}</span>
                 <input
@@ -546,12 +583,28 @@ export default function QuickQuoteWhatsAppForm({
               </label>
             </div>
 
+            {errors.artwork && (
+              <p className="mt-2 text-[11px] font-semibold text-red-400" role="alert">
+                {errors.artwork}
+              </p>
+            )}
+
             {artworkFiles.length > 0 && (
-              <div className="mt-2.5 pt-2 border-t border-[#203357] space-y-1">
+              <div className="mt-2.5 pt-2 border-t border-[#203357] space-y-1.5">
                 {artworkFiles.map((f, i) => (
-                  <div key={i} className="flex items-center justify-between text-[11px] text-slate-300">
-                    <span className="truncate max-w-[280px]">📄 {f.name}</span>
-                    <span className="text-emerald-400 font-semibold shrink-0">Attached ✓</span>
+                  <div key={i} className="flex items-center justify-between gap-2 text-[11px] text-slate-300">
+                    <span className="truncate">📄 {f.name}</span>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className="text-emerald-400 font-semibold">Attached ✓</span>
+                      <button
+                        type="button"
+                        onClick={() => removeArtworkFile(i)}
+                        aria-label={`Remove ${f.name}`}
+                        className="rounded px-1.5 py-0.5 text-[10px] font-bold text-red-300 hover:bg-red-500/20 cursor-pointer"
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>

@@ -108,38 +108,38 @@ export default function SiteFooter() {
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF65]">Signature Products</p>
           <ul className="mt-4 space-y-2.5 text-xs sm:text-sm font-medium">
             <li>
-              <Link to="/business-card-printing-dubai" className="transition-colors hover:text-[#D4AF65]">
+              <Link to="/business-card-printing-dubai" className="inline-block py-0.5 transition-colors hover:text-[#D4AF65]">
                 Business Card Printing Dubai
               </Link>
             </li>
             <li>
-              <Link to="/categories/custom-stamps-seals" className="transition-colors hover:text-[#D4AF65]">
+              <Link to="/categories/stamps-printing-dubai" className="inline-block py-0.5 transition-colors hover:text-[#D4AF65]">
                 Company Stamps &amp; Seals
               </Link>
             </li>
             <li>
-              <Link to="/categories/stickers-printing-dubai" className="transition-colors hover:text-[#D4AF65]">
+              <Link to="/categories/stickers-labels-printing" className="inline-block py-0.5 transition-colors hover:text-[#D4AF65]">
                 Custom Sticker &amp; Label Printing
               </Link>
             </li>
             <li>
-              <Link to="/categories/roll-up-banners-dubai" className="transition-colors hover:text-[#D4AF65]">
+              <Link to="/categories/banners-displays-printing" className="inline-block py-0.5 transition-colors hover:text-[#D4AF65]">
                 Roll-Up Banners Dubai
               </Link>
             </li>
             <li>
-              <Link to="/categories/letterheads-printing-dubai" className="transition-colors hover:text-[#D4AF65]">
+              <Link to="/products/executive-letterheads-120gsm" className="inline-block py-0.5 transition-colors hover:text-[#D4AF65]">
                 Executive Letterheads
               </Link>
             </li>
             <li>
-              <Link to="/categories/bottle-printing-dubai" className="transition-colors hover:text-[#D4AF65]">
+              <Link to="/categories/drinkware-and-mugs" className="inline-block py-0.5 transition-colors hover:text-[#D4AF65]">
                 Custom Bottle Printing
               </Link>
             </li>
             <li>
               <Link to="/products" className="inline-flex items-center gap-1 text-[#D4AF65] hover:underline font-bold pt-1">
-                <span>View Full 110+ Catalog</span>
+                <span>View Full 120+ Catalog</span>
                 <ArrowRight className="h-3 w-3" />
               </Link>
             </li>

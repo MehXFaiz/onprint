@@ -621,7 +621,7 @@ export default function SiteHeader() {
 
             {/* Stamps & Seals — Clearly Visible Main Navigation Item */}
             <NavLink
-              to="/categories/custom-stamps-seals"
+              to="/categories/stamps-printing-dubai"
               onMouseEnter={() => setHoveredNav('stamps')}
               className={({ isActive }) =>
                 `relative z-10 flex items-center gap-1.5 rounded-full px-2.5 2xl:px-3 py-1 text-xs font-bold transition-colors whitespace-nowrap ${
@@ -827,11 +827,11 @@ export default function SiteHeader() {
               whileTap={{ scale: 0.97 }}
               type="button"
               onClick={() => setSearchModalOpen(true)}
-              className="flex h-8.5 w-8.5 min-[1600px]:w-auto min-[1600px]:px-3 items-center justify-center gap-2 rounded-full border border-[#203357] bg-[#101D35] hover:bg-[#172644] hover:border-[#D4AF65] text-xs text-[#F5F2EB] transition-all cursor-pointer group shrink-0"
+              className="flex h-10 w-10 sm:h-9 sm:w-9 min-[1600px]:w-auto min-[1600px]:px-3 items-center justify-center gap-2 rounded-full border border-[#203357] bg-[#101D35] hover:bg-[#172644] hover:border-[#D4AF65] text-xs text-[#F5F2EB] transition-all cursor-pointer group shrink-0"
               title="Search products (Press / or ⌘K)"
               aria-label="Search products"
             >
-              <Search className="h-3.5 w-3.5 text-[#D4AF65] group-hover:scale-110 transition-transform shrink-0" />
+              <Search className="h-4 w-4 sm:h-3.5 sm:w-3.5 text-[#D4AF65] group-hover:scale-110 transition-transform shrink-0" />
               <span className="hidden min-[1600px]:inline text-[11px] font-medium text-[#B0BECE]">Search...</span>
               <kbd className="hidden min-[1600px]:inline-block rounded-md bg-[#172644] border border-[#203357] px-1 py-0.2 text-[8px] font-bold text-[#B0BECE]">
                 ⌘K
@@ -841,7 +841,7 @@ export default function SiteHeader() {
             {/* Track Orders Button */}
             <Link
               to="/track-order"
-              className="hidden sm:flex relative h-8.5 w-8.5 items-center justify-center rounded-full border border-[#203357] bg-[#172644] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-all shadow-2xs shrink-0"
+              className="hidden sm:flex relative h-9 w-9 items-center justify-center rounded-full border border-[#203357] bg-[#172644] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-all shadow-2xs shrink-0"
               title="Track Production & Delivery"
               aria-label="Track order"
             >
@@ -852,7 +852,7 @@ export default function SiteHeader() {
 
             {/* Direct 1-Click WhatsApp CTA + Concierge Popover Toggle */}
             <div className="relative flex items-center shrink-0">
-              <div className="inline-flex items-center h-8.5 rounded-full border border-emerald-500 bg-emerald-50 shadow-2xs overflow-hidden">
+              <div className="inline-flex items-center h-10 sm:h-9 rounded-full border border-emerald-500 bg-emerald-50 shadow-2xs overflow-hidden">
                 <a
                   href={getServiceWhatsAppUrl(location.pathname)}
                   target="_blank"
@@ -864,11 +864,11 @@ export default function SiteHeader() {
                       label: 'header_whatsapp_direct',
                     })
                   }
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold text-emerald-800 hover:bg-[#25D366] hover:text-white transition-colors cursor-pointer h-full"
                   aria-label="Get Price on WhatsApp"
                   title="Chat directly on WhatsApp"
                 >
-                  <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
+                  <WhatsAppIcon className="h-4 w-4 sm:h-3.5 sm:w-3.5 fill-current shrink-0" />
                   <span className="hidden min-[420px]:inline text-[11px] font-extrabold">WhatsApp</span>
                   <span className="relative flex h-2 w-2 shrink-0">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -881,13 +881,13 @@ export default function SiteHeader() {
                     setWhatsappPopoverOpen((v) => !v)
                     setUserMenuOpen(false)
                   }}
-                  className={`px-1.5 py-1 border-l border-emerald-300 text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer h-full flex items-center ${
+                  className={`px-2 py-1 border-l border-emerald-300 text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer h-full flex items-center justify-center ${
                     whatsappPopoverOpen ? 'bg-emerald-100' : ''
                   }`}
                   aria-label="Show WhatsApp hotline number"
                   title="View & copy WhatsApp number"
                 >
-                  <ChevronDown className="h-3 w-3" />
+                  <ChevronDown className="h-3.5 w-3.5" />
                 </button>
               </div>
 
@@ -1048,9 +1048,9 @@ export default function SiteHeader() {
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="flex lg:hidden h-8.5 w-8.5 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full border border-[#203357] bg-[#172644] text-[#F5F2EB] hover:bg-[#203357] transition-colors cursor-pointer"
+              className="flex lg:hidden h-10 w-10 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-[#203357] bg-[#172644] text-[#F5F2EB] hover:bg-[#203357] transition-colors cursor-pointer"
             >
-              {mobileMenuOpen ? <X className="h-4.5 w-4.5" /> : <Menu className="h-4.5 w-4.5" />}
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
@@ -1058,7 +1058,12 @@ export default function SiteHeader() {
       {/* 3. UNIVERSAL SEARCH MODAL WITH SPRING ANIMATION */}
       <AnimatePresence>
         {searchModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-24 px-3 sm:px-4 bg-slate-900/60 backdrop-blur-sm">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Search Products and Categories"
+            className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-24 px-3 sm:px-4 bg-slate-900/60 backdrop-blur-sm"
+          >
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: -16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -1072,17 +1077,19 @@ export default function SiteHeader() {
                   <Search className="h-5 w-5 text-[#D4AF65] shrink-0" />
                   <input
                     ref={searchInputRef}
-                    type="text"
+                    type="search"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search 200+ products, categories, or finishes..."
-                    className="w-full bg-transparent text-sm sm:text-base font-semibold text-[#F5F2EB] placeholder:text-[#B0BECE] focus:outline-none min-w-0"
+                    aria-label="Search products, categories, or finishes"
+                    className="w-full bg-transparent text-base font-semibold text-[#F5F2EB] placeholder:text-[#B0BECE] focus:outline-none min-w-0"
                   />
                 </div>
                 <button
                   type="button"
                   onClick={() => setSearchModalOpen(false)}
-                  className="rounded-full p-1.5 text-[#B0BECE] hover:text-[#F5F2EB] hover:bg-[#101D35] cursor-pointer shrink-0"
+                  aria-label="Close search dialog"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full p-1.5 text-[#B0BECE] hover:text-[#F5F2EB] hover:bg-[#101D35] cursor-pointer shrink-0"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -1259,7 +1266,12 @@ export default function SiteHeader() {
       {/* 4. MODERN MOBILE & TABLET DRAWER WITH STAGGERED SPRING ANIMATION */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="fixed inset-0 z-50 lg:hidden flex">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile Navigation Menu"
+            className="fixed inset-0 z-50 lg:hidden flex"
+          >
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -1283,12 +1295,12 @@ export default function SiteHeader() {
                   <Logo variant="default" size="sm" />
                 </Link>
                 <div className="flex items-center gap-2 ml-auto mr-2">
-                    <LanguageSwitcher variant="compact" />
-                  </div>
-                  <button
+                  <LanguageSwitcher variant="compact" />
+                </div>
+                <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#172644] border border-[#203357] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-colors cursor-pointer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#172644] border border-[#203357] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB] transition-colors cursor-pointer"
                   aria-label="Close menu"
                 >
                   <X className="h-5 w-5" />
@@ -1369,7 +1381,7 @@ export default function SiteHeader() {
 
                   {/* Stamps & Seals (Clearly Visible Main Navigation Item) */}
                   <Link
-                    to="/categories/custom-stamps-seals"
+                    to="/categories/stamps-printing-dubai"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-bold text-[#F5F2EB] bg-[#172644] border border-[#203357] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors"
                   >
@@ -1473,10 +1485,32 @@ export default function SiteHeader() {
                   >
                     <div className="flex items-center gap-2">
                       <Layers className="h-4 w-4 text-[#D4AF65]" />
-                      <span>All 110+ Products Catalog</span>
+                      <span>All 120+ Products Catalog</span>
                     </div>
                     <ArrowRight className="h-3.5 w-3.5 text-[#D4AF65]" />
                   </Link>
+
+                  {/* Direct 1-Tap Access to All 19 Store Categories */}
+                  {categories.length > 0 && (
+                    <div className="pt-2 pb-1">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-[#D4AF65] px-3.5 block mb-1.5">
+                        Direct Jump • All {categories.length} Categories
+                      </span>
+                      <div className="grid grid-cols-2 gap-1.5 px-1">
+                        {categories.map((cat) => (
+                          <Link
+                            key={cat.slug || cat.id}
+                            to={`/categories/${cat.slug}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center justify-between gap-1.5 rounded-xl border border-[#203357] bg-[#172644] px-2.5 py-2 text-[11px] font-bold text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65] transition-colors min-h-[38px]"
+                          >
+                            <span className="truncate">{cat.name}</span>
+                            <ChevronRight className="h-3 w-3 text-[#D4AF65] shrink-0" />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {/* Services */}
                   <Link

@@ -89,16 +89,18 @@ export default function FloatingWhatsApp() {
   }
 
   return (
-    <aside aria-label="WhatsApp Inquiry Concierge" className="fixed bottom-[74px] right-3.5 md:bottom-6 md:right-6 z-40 flex flex-col items-end pointer-events-auto">
+    <aside aria-label="WhatsApp Inquiry Concierge" className="fixed bottom-[82px] right-3 md:bottom-6 md:right-6 z-40 flex flex-col items-end pointer-events-auto">
       {/* Expanded Concierge Card */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            role="dialog"
+            aria-label="ONPRINT WhatsApp Concierge"
             initial={{ opacity: 0, y: 16, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.95 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="mb-3 w-[min(370px,calc(100vw-2rem))] max-h-[calc(100vh-6.5rem)] flex flex-col overflow-hidden rounded-3xl border border-[#203357] bg-[#172644] shadow-2xl text-[#F5F2EB]"
+            className="mb-3 w-[min(370px,calc(100vw-1.5rem))] max-h-[calc(100vh-7.5rem)] flex flex-col overflow-hidden rounded-3xl border border-[#203357] bg-[#172644] shadow-2xl text-[#F5F2EB]"
           >
             {/* Header */}
             <div className="relative shrink-0 bg-gradient-to-r from-[#128C7E] to-[#075E54] p-3.5 sm:p-4 text-white">
@@ -125,10 +127,10 @@ export default function FloatingWhatsApp() {
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/20 hover:text-white cursor-pointer"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/20 hover:text-white cursor-pointer"
                   aria-label="Close WhatsApp chat"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-4.5 w-4.5" />
                 </button>
               </div>
 

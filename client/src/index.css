@@ -393,3 +393,63 @@ body:has([dir="rtl"]),
 [dir="rtl"] {
   font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
 }
+
+/* =========================================================================
+   MOBILE SAFE-AREA, SCROLLBAR & ACCESSIBILITY (WCAG 2.2 AA) UTILITIES
+   ========================================================================= */
+
+.safe-area-bottom {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Prevent iOS Safari auto-zoom on focus by ensuring >= 16px font-size on mobile inputs */
+@media (max-width: 640px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Strictly honor user reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-marquee-track,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-gold-pulse {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .bento-card:hover,
+  .bento-card-dark:hover,
+  .card-clean:hover,
+  .card-hover-lift:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .group:hover .img-hover-scale {
+    transform: none !important;
+  }
+}

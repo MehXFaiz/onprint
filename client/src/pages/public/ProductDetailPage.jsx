@@ -367,9 +367,10 @@ function OptionGroup({ label, options, selected, onSelect }) {
             key={option.label}
             type="button"
             onClick={() => onSelect(option)}
-            className={`rounded-lg border px-4 py-2 text-xs font-semibold transition-all cursor-pointer ${
+            aria-pressed={selected?.label === option.label}
+            className={`min-h-[42px] rounded-xl border px-3.5 py-2 text-left text-xs font-semibold transition-all cursor-pointer ${
               selected?.label === option.label
-                ? 'border-accent bg-accent-soft text-accent shadow-xs'
+                ? 'border-accent bg-accent-soft text-accent shadow-xs font-bold'
                 : 'border-border bg-surface text-secondary hover:border-primary hover:text-primary'
             }`}
           >
@@ -666,36 +667,36 @@ export default function ProductDetailPage() {
           {/* Gallery & 360 Viewer */}
           <div className="lg:col-span-6">
             {/* Mode Toggle Switch */}
-            <div className="mb-4 flex items-center justify-between">
-              <div className="flex items-center gap-1 rounded-xl border border-border bg-surface p-1 shadow-xs">
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+              <div className="flex flex-wrap items-center gap-1 rounded-xl border border-border bg-surface p-1 shadow-xs">
                 <button
                   type="button"
                   onClick={() => setViewMode('360')}
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+                  className={`flex min-h-[38px] items-center gap-1.5 rounded-lg px-2.5 sm:px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     viewMode === '360'
                       ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
                       : 'text-secondary hover:text-primary'
                   }`}
                 >
-                  <Compass className="h-3.5 w-3.5" />
+                  <Compass className="h-3.5 w-3.5 shrink-0" />
                   <span>360° Interactive View</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setViewMode('photo')}
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+                  className={`flex min-h-[38px] items-center gap-1.5 rounded-lg px-2.5 sm:px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
                     viewMode === 'photo'
                       ? 'bg-[#D4AF65] text-[#101D35] shadow-xs'
                       : 'text-secondary hover:text-primary'
                   }`}
                 >
-                  <ImageIcon className="h-3.5 w-3.5" />
+                  <ImageIcon className="h-3.5 w-3.5 shrink-0" />
                   <span>Static Photo</span>
                 </button>
               </div>
 
               {product.featured && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+                <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#101D35] shadow-xs">
                   <Sparkles className="h-3 w-3" />
                   Featured
                 </span>
@@ -842,6 +843,7 @@ export default function ProductDetailPage() {
                   <input
                     id="quantity"
                     type="number"
+                    inputMode="numeric"
                     min={product.minimumQuantity || 1}
                     step={1}
                     value={quantity}
@@ -853,7 +855,7 @@ export default function ProductDetailPage() {
                       })
                     }
                     onChange={(e) => setQuantity(Math.max(product.minimumQuantity || 1, parseInt(e.target.value, 10) || 1))}
-                    className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm font-bold text-primary focus:border-accent focus:outline-none"
+                    className="mt-2 min-h-[44px] w-full rounded-lg border border-border bg-surface px-3 py-2 text-base sm:text-sm font-bold text-primary focus:border-accent focus:outline-none"
                   />
                 </div>
 
@@ -864,6 +866,7 @@ export default function ProductDetailPage() {
                   <input
                     id="customerName"
                     type="text"
+                    autoComplete="name"
                     value={customerName}
                     onFocus={() =>
                       trackContactFormStart({
@@ -874,7 +877,7 @@ export default function ProductDetailPage() {
                     }
                     onChange={(e) => setCustomerName(e.target.value)}
                     placeholder="e.g. Ahmed / Sarah"
-                    className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-xs font-semibold text-primary focus:border-accent focus:outline-none"
+                    className="mt-2 min-h-[44px] w-full rounded-lg border border-border bg-surface px-3 py-2 text-base sm:text-xs font-semibold text-primary focus:border-accent focus:outline-none"
                   />
                 </div>
 
@@ -885,6 +888,7 @@ export default function ProductDetailPage() {
                   <input
                     id="deliveryLocation"
                     type="text"
+                    autoComplete="address-level2"
                     value={deliveryLocation}
                     onFocus={() =>
                       trackContactFormStart({
@@ -895,7 +899,7 @@ export default function ProductDetailPage() {
                     }
                     onChange={(e) => setDeliveryLocation(e.target.value)}
                     placeholder="e.g. Dubai / Abu Dhabi / Sharjah"
-                    className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-xs font-semibold text-primary focus:border-accent focus:outline-none"
+                    className="mt-2 min-h-[44px] w-full rounded-lg border border-border bg-surface px-3 py-2 text-base sm:text-xs font-semibold text-primary focus:border-accent focus:outline-none"
                   />
                 </div>
               </div>

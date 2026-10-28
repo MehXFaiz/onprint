@@ -210,22 +210,33 @@ export default function GetQuotePage() {
     if (selected.length === 0) return
 
     const ALLOWED = ['.pdf', '.ai', '.eps', '.psd', '.tiff', '.tif', '.jpg', '.jpeg', '.png', '.zip']
+    const MAX_BYTES = 50 * 1024 * 1024 // 50MB max per file
     const valid = []
     const invalid = []
+    const oversized = []
 
     selected.forEach((f) => {
       const ext = `.${f.name.split('.').pop().toLowerCase()}`
-      if (ALLOWED.includes(ext)) {
-        valid.push(f)
-      } else {
+      if (!ALLOWED.includes(ext)) {
         invalid.push(f.name)
+      } else if (f.size > MAX_BYTES) {
+        oversized.push(f.name)
+      } else {
+        valid.push(f)
       }
     })
 
-    if (invalid.length > 0) {
+    if (invalid.length > 0 || oversized.length > 0) {
+      const msgParts = []
+      if (invalid.length > 0) {
+        msgParts.push(`Unsupported format (${invalid.join(', ')}). Allowed: PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP.`)
+      }
+      if (oversized.length > 0) {
+        msgParts.push(`File exceeds 50MB limit (${oversized.join(', ')}). Please paste a cloud link below or send via WhatsApp.`)
+      }
       setErrors((prev) => ({
         ...prev,
-        artwork: `Unsupported format (${invalid.join(', ')}). Allowed: PDF, AI, EPS, PSD, TIFF, JPG, PNG, ZIP.`,
+        artwork: msgParts.join(' '),
       }))
     } else {
       setErrors((prev) => ({ ...prev, artwork: undefined }))

@@ -198,10 +198,25 @@ export default function ProductsPage() {
   // Sorted Products
   const sortedProducts = useMemo(() => {
     const list = [...filteredProducts]
+    const getNumPrice = (p) => {
+      const num = Number(p.basePrice || p.startingPrice || p.price || 0)
+      return Number.isFinite(num) && num > 0 ? num : 999999
+    }
+    const getNumMoq = (p) => {
+      const raw = String(p.minOrder || p.moq || '100').replace(/[^0-9]/g, '')
+      const num = parseInt(raw, 10)
+      return Number.isFinite(num) && num > 0 ? num : 100
+    }
     if (sortParam === 'name-asc') {
       list.sort((a, b) => (a.name || '').localeCompare(b.name || ''))
     } else if (sortParam === 'name-desc') {
       list.sort((a, b) => (b.name || '').localeCompare(a.name || ''))
+    } else if (sortParam === 'price-asc') {
+      list.sort((a, b) => getNumPrice(a) - getNumPrice(b))
+    } else if (sortParam === 'price-desc') {
+      list.sort((a, b) => getNumPrice(b) - getNumPrice(a))
+    } else if (sortParam === 'moq-asc') {
+      list.sort((a, b) => getNumMoq(a) - getNumMoq(b))
     }
     // Default 'featured' keeps original curated order
     return list
@@ -320,11 +335,11 @@ export default function ProductsPage() {
             </span>
           </div>
 
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
             <button
               type="button"
               onClick={() => handleSelectDepartment('')}
-              className={`shrink-0 rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
+              className={`shrink-0 min-h-[40px] rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                 !activeDeptParam && !activeCategoryParam
                   ? 'bg-[#D4AF65] text-[#101D35] shadow-md font-black'
                   : 'border border-[#203357] bg-[#172644] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
@@ -346,15 +361,15 @@ export default function ProductsPage() {
                   key={dept.slug}
                   type="button"
                   onClick={() => handleSelectDepartment(dept.slug)}
-                  className={`shrink-0 rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                  className={`shrink-0 min-h-[40px] rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                     isSelected
                       ? 'bg-[#D4AF65] text-[#101D35] shadow-md font-black'
                       : 'border border-[#203357] bg-[#172644] text-[#F5F2EB] hover:border-[#D4AF65] hover:text-[#D4AF65]'
                   }`}
                 >
-                  <Icon className={`h-3.5 w-3.5 ${isSelected ? 'text-[#D4AF65]' : 'text-slate-400'}`} />
+                  <Icon className={`h-3.5 w-3.5 ${isSelected ? 'text-[#101D35]' : 'text-[#D4AF65]'}`} />
                   <span>{dept.shortName || dept.name}</span>
-                  <span className={`text-[10px] ${isSelected ? 'text-[#D4AF65]' : 'text-slate-400'} font-semibold`}>
+                  <span className={`text-[10px] ${isSelected ? 'text-[#101D35]/80' : 'text-[#B0BECE]'} font-semibold`}>
                     ({deptProdCount})
                   </span>
                 </button>
@@ -362,16 +377,16 @@ export default function ProductsPage() {
             })}
           </div>
 
-          {/* Subcategory Filter Pills (Shown when a Department is active) */}
-          {activeDepartment && (
-            <div className="mt-3 pt-3 border-t border-[#203357]/80 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-              <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 mr-1 shrink-0">
+          {/* Subcategory Filter Pills (Shown when a Department is active, OR all 19 store categories when browsing All) */}
+          {activeDepartment ? (
+            <div className="mt-3 pt-3 border-t border-[#203357]/80 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+              <span className="text-[10px] font-black uppercase tracking-wider text-[#B0BECE] mr-1 shrink-0">
                 Filter by Category:
               </span>
               <button
                 type="button"
                 onClick={() => handleSelectCategory('')}
-                className={`shrink-0 rounded-xl px-3 py-1 text-xs font-bold transition-all cursor-pointer ${
+                className={`shrink-0 min-h-[36px] rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                   !activeCategoryParam
                     ? 'bg-[#D4AF65] text-[#101D35] font-black'
                     : 'bg-[#172644] border border-[#203357] text-[#F5F2EB] hover:bg-[#203357]'
@@ -386,7 +401,7 @@ export default function ProductsPage() {
                     key={sub.slug}
                     type="button"
                     onClick={() => handleSelectCategory(sub.slug)}
-                    className={`shrink-0 rounded-xl px-3 py-1 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                    className={`shrink-0 min-h-[36px] rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                       isSubSelected
                         ? 'bg-[#D4AF65] text-[#101D35] font-black'
                         : 'bg-[#172644] border border-[#203357] text-[#F5F2EB] hover:bg-[#203357]'
@@ -398,11 +413,45 @@ export default function ProductsPage() {
                 )
               })}
             </div>
-          )}
+          ) : categories.length > 0 ? (
+            <div className="mt-3 pt-3 border-t border-[#203357]/80 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+              <span className="text-[10px] font-black uppercase tracking-wider text-[#B0BECE] mr-1 shrink-0">
+                Quick Category:
+              </span>
+              <button
+                type="button"
+                onClick={() => handleSelectCategory('')}
+                className={`shrink-0 min-h-[36px] rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+                  !activeCategoryParam
+                    ? 'bg-[#D4AF65] text-[#101D35] font-black'
+                    : 'bg-[#172644] border border-[#203357] text-[#F5F2EB] hover:bg-[#203357]'
+                }`}
+              >
+                All Categories ({categories.length})
+              </button>
+              {categories.map((cat) => {
+                const isCatSelected = activeCategoryParam === cat.slug
+                return (
+                  <button
+                    key={cat.slug || cat.id}
+                    type="button"
+                    onClick={() => handleSelectCategory(cat.slug)}
+                    className={`shrink-0 min-h-[36px] rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                      isCatSelected
+                        ? 'bg-[#D4AF65] text-[#101D35] font-black'
+                        : 'bg-[#172644] border border-[#203357] text-[#F5F2EB] hover:bg-[#203357]'
+                    }`}
+                  >
+                    <span>{cat.name}</span>
+                  </button>
+                )
+              })}
+            </div>
+          ) : null}
         </div>
 
-        {/* Toolbar: Sorting & Active Filter Chips */}
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+        {/* Toolbar: Sorting, Direct Category Select & Active Filter Chips */}
+        <div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-2">
             {(activeDeptParam || activeCategoryParam || searchQueryParam) && (
               <button
@@ -411,53 +460,85 @@ export default function ProductsPage() {
                   setSearchQuery('')
                   updateFilters({ department: '', category: '', search: '' })
                 }}
-                className="inline-flex items-center gap-1.5 rounded-full border border-red-200 bg-red-50 px-3 py-1 text-xs font-bold text-red-700 hover:bg-red-100 transition-colors cursor-pointer"
+                className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full border border-red-400/40 bg-red-500/15 px-3.5 py-1.5 text-xs font-bold text-red-200 hover:bg-red-500/25 transition-colors cursor-pointer"
               >
-                <X className="h-3 w-3" />
+                <X className="h-3.5 w-3.5" />
                 <span>Reset All Filters</span>
               </button>
             )}
 
             {activeDeptParam && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#172644] border border-[#203357] px-3 py-1 text-xs font-semibold text-[#F5F2EB]">
+              <span className="inline-flex min-h-[36px] items-center gap-1 rounded-full bg-[#172644] border border-[#203357] px-3 py-1 text-xs font-semibold text-[#F5F2EB]">
                 <span>Dept: {activeDepartment?.name}</span>
                 <button
                   type="button"
                   onClick={() => handleSelectDepartment('')}
-                  className="hover:text-red-400 ml-1 cursor-pointer"
+                  aria-label="Clear department filter"
+                  className="hover:text-red-400 ml-1 p-1 cursor-pointer"
                 >
-                  <X className="h-3 w-3" />
+                  <X className="h-3.5 w-3.5" />
                 </button>
               </span>
             )}
 
             {activeCategoryParam && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#D4AF65]/15 border border-[#D4AF65]/40 px-3 py-1 text-xs font-semibold text-[#D4AF65]">
+              <span className="inline-flex min-h-[36px] items-center gap-1 rounded-full bg-[#D4AF65]/15 border border-[#D4AF65]/40 px-3 py-1 text-xs font-semibold text-[#D4AF65]">
                 <span>Cat: {activeHeading}</span>
                 <button
                   type="button"
                   onClick={() => handleSelectCategory('')}
-                  className="hover:text-red-400 ml-1 cursor-pointer"
+                  aria-label="Clear category filter"
+                  className="hover:text-red-400 ml-1 p-1 cursor-pointer"
                 >
-                  <X className="h-3 w-3" />
+                  <X className="h-3.5 w-3.5" />
                 </button>
               </span>
             )}
           </div>
 
-          {/* Sort Selector */}
-          <div className="flex items-center gap-2 text-xs font-bold text-[#B0BECE]">
-            <SlidersHorizontal className="h-3.5 w-3.5 text-[#D4AF65]" />
-            <span>Sort by:</span>
-            <select
-              value={sortParam}
-              onChange={(e) => updateFilters({ sort: e.target.value })}
-              className="rounded-xl border border-[#203357] bg-[#172644] px-3 py-1.5 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
-            >
-              <option value="featured">Featured / Most Popular</option>
-              <option value="name-asc">Product Name (A → Z)</option>
-              <option value="name-desc">Product Name (Z → A)</option>
-            </select>
+          {/* Category Dropdown + Sort Selector */}
+          <div className="flex flex-wrap items-center gap-2.5 text-xs font-bold text-[#B0BECE]">
+            {categories.length > 0 && (
+              <div className="flex items-center gap-1.5 flex-1 sm:flex-initial min-w-[160px]">
+                <label htmlFor="catalog-category-select" className="sr-only">
+                  Filter by Category
+                </label>
+                <select
+                  id="catalog-category-select"
+                  value={activeCategoryParam}
+                  onChange={(e) => handleSelectCategory(e.target.value)}
+                  className="w-full sm:w-auto min-h-[40px] rounded-xl border border-[#203357] bg-[#172644] px-3 py-2 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+                >
+                  <option value="">All {categories.length} Categories</option>
+                  {categories.map((cat) => (
+                    <option key={cat.slug || cat.id} value={cat.slug}>
+                      {cat.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            <div className="flex items-center gap-2 flex-1 sm:flex-initial min-w-[175px]">
+              <SlidersHorizontal className="h-3.5 w-3.5 text-[#D4AF65] shrink-0 hidden sm:inline" />
+              <label htmlFor="catalog-sort-select" className="shrink-0 hidden sm:inline">
+                Sort by:
+              </label>
+              <select
+                id="catalog-sort-select"
+                value={sortParam}
+                onChange={(e) => updateFilters({ sort: e.target.value })}
+                aria-label="Sort products by"
+                className="w-full sm:w-auto min-h-[40px] rounded-xl border border-[#203357] bg-[#172644] px-3 py-2 text-xs font-semibold text-[#F5F2EB] focus:border-[#D4AF65] focus:outline-none"
+              >
+                <option value="featured">Sort: Featured / Popular</option>
+                <option value="name-asc">Name (A → Z)</option>
+                <option value="name-desc">Name (Z → A)</option>
+                <option value="moq-asc">Min. Order Qty (Low → High)</option>
+                <option value="price-asc">Starting Price (Low → High)</option>
+                <option value="price-desc">Starting Price (High → Low)</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -499,16 +580,16 @@ export default function ProductsPage() {
         {/* Pagination Controls */}
         {!loading && !error && totalPages > 1 && (
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#203357] pt-6">
-            <span className="text-xs font-bold text-slate-500">
+            <span className="text-xs font-bold text-[#B0BECE]">
               Showing {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, totalItems)} of {totalItems} products
             </span>
 
-            <div className="flex items-center gap-1.5">
+            <div className="flex flex-wrap items-center justify-center gap-1.5">
               <button
                 type="button"
                 disabled={currentPage <= 1}
                 onClick={() => updateFilters({ page: String(currentPage - 1) })}
-                className="flex h-9 items-center gap-1 rounded-xl border border-[#203357] bg-[#172644] px-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="flex min-h-[42px] items-center gap-1 rounded-xl border border-[#203357] bg-[#172644] px-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
               >
                 <ChevronLeft className="h-4 w-4" />
                 <span>Prev</span>
@@ -521,7 +602,9 @@ export default function ProductsPage() {
                     key={p}
                     type="button"
                     onClick={() => updateFilters({ page: String(p) })}
-                    className={`flex h-9 w-9 items-center justify-center rounded-xl text-xs font-black transition-all cursor-pointer ${
+                    aria-label={`Page ${p}`}
+                    aria-current={isCurr ? 'page' : undefined}
+                    className={`flex min-h-[42px] min-w-[42px] items-center justify-center rounded-xl text-xs font-black transition-all cursor-pointer ${
                       isCurr
                         ? 'bg-[#D4AF65] text-[#101D35] font-black shadow-xs'
                         : 'border border-[#203357] bg-[#172644] text-[#B0BECE] hover:bg-[#203357] hover:text-[#F5F2EB]'
@@ -536,7 +619,7 @@ export default function ProductsPage() {
                 type="button"
                 disabled={currentPage >= totalPages}
                 onClick={() => updateFilters({ page: String(currentPage + 1) })}
-                className="flex h-9 items-center gap-1 rounded-xl border border-[#203357] bg-[#172644] px-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="flex min-h-[42px] items-center gap-1 rounded-xl border border-[#203357] bg-[#172644] px-3 text-xs font-bold text-[#F5F2EB] hover:bg-[#203357] disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
               >
                 <span>Next</span>
                 <ChevronRight className="h-4 w-4" />

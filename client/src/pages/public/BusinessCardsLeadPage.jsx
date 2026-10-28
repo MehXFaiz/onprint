@@ -106,6 +106,30 @@ const CARD_OPTIONS = [
     description: '100-micron high-gloss raised polymer cured over velvet matte backgrounds for maximum tactile contrast.',
     specs: ['400 GSM Velvet Base', '100μ Dimensional Elevation', 'Glass-Like Gloss Finish'],
   },
+  {
+    id: 'luxury-black-pulp',
+    name: '450–600 GSM Luxury Black Pulp-Dyed',
+    tag: 'Solid Black Core',
+    badge: '3-4 Days',
+    pricePer100: 'Custom Quote',
+    basePrice: 210,
+    minQty: 100,
+    image: '/assets/products/card-velvet-foil.jpg',
+    description: 'Through-dyed solid black cardstock printed with 24K gold/silver metallic foil or dense opaque white ink.',
+    specs: ['Solid Black Core (No White Edge)', '24K Foil or White Ink', 'Blind Deboss Ready'],
+  },
+  {
+    id: 'folded-or-custom-cut',
+    name: 'Folded 4-Panel / Square / Custom Die-Cut',
+    tag: 'Custom Layout',
+    badge: '2-4 Days',
+    pricePer100: 'Custom Quote',
+    basePrice: 150,
+    minQty: 100,
+    image: '/assets/products/basic_business_cards.jpg',
+    description: 'Scored 4-page folded tent cards (170x55mm), square (65x65mm), vertical portrait, or custom CNC die-cut shapes.',
+    specs: ['4-Panel Scored or Custom Cut', '350–450 GSM Artboard', 'Bilingual & Menu Ready'],
+  },
 ]
 
 const QUANTITY_OPTIONS = [
@@ -302,9 +326,9 @@ export default function BusinessCardsLeadPage() {
   return (
     <div className="bg-[#101D35] text-slate-200">
       <SEOHead
-        title="Business Card Printing Dubai | Instant Custom Quote & Express UAE Delivery | ONPRINT"
-        description="Configure luxury business cards in Dubai. 350-600 GSM Italian cotton, 24K hot foil, velvet soft-touch, spot UV, and painted edges with same-day express press turnaround in Al Quoz."
-        keywords="business card printing dubai, luxury business cards dubai, business cards quote dubai, 600 gsm cotton business cards, foil business cards dubai, same day business card printing dubai, visiting cards dubai"
+        title="Business Card Printing Quote UAE | Instant Custom Estimator Dubai | ONPRINT"
+        description="Get an instant business card printing quote in Dubai & UAE. Select 350–700 GSM silk, velvet, cotton, or luxury black cardstock, upload artwork or request design assistance, and order via WhatsApp."
+        keywords="business card printing quote uae, business card artwork printing uae, business cards with design assistance dubai, company visiting card supplier dubai, business card printing for offices dubai, recurring business card printing uae, business card reprint service uae, employee name card printing dubai"
         canonicalPath="/quote/business-cards"
       />
 
@@ -379,7 +403,7 @@ export default function BusinessCardsLeadPage() {
                     </h2>
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#B0BECE]">
-                    6 Options
+                    8 Options
                   </span>
                 </div>
 

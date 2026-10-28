@@ -85,7 +85,7 @@ const CARD_VARIATIONS = [
     badge: 'Most Popular • Everyday Standard',
     image: basicBusinessCardsImg,
     description:
-      'Clean, crisp digital printing on durable 350 GSM silk-coated art card with protective matte or gloss lamination. Our most economical and popular choice for everyday business networking, sales teams, and startups.',
+      'Clean, crisp silk finish visiting cards in Dubai printed on durable 350 GSM silk-coated art card with protective matte or gloss lamination. Ideal for personal name card printing in Dubai, everyday networking, sales teams, and startups.',
     specs: '350 GSM Art Card • Double-Sided CMYK • Matte or Gloss Finish • Low Minimums',
     suitableFor: 'Startups, Small Businesses, Sales Reps, Retail Staff, Daily Networking, Trade Fairs',
     popularFinishes: ['Smooth Matte', 'Protective Gloss', 'Clean Uncoated'],
@@ -176,7 +176,7 @@ const CARD_VARIATIONS = [
     badge: '360° Profile',
     image: paintedEdgeCardImg,
     description:
-      'Ultra-thick multi-ply card stacks hand-beveled with mirror metallic foil (Gold/Silver) or custom Pantone-matched painted borders for a dramatic 360-degree edge appearance.',
+      'Painted edge business cards in the UAE crafted on ultra-thick 700 GSM multi-ply card stacks, hand-beveled with mirror metallic foil (Gold/Silver) or custom Pantone-matched painted borders for a 360-degree profile.',
     specs: '700 GSM Duplex • Mirror Foil Edges • Pantone Tint • Multilayer Core',
     suitableFor: 'VIP Club Members, Creative Directors, Luxury Hotel Concierges, High-Net-Worth Brokers',
     popularFinishes: ['Mirror Gilded Edges', 'Custom Pantone Painted', 'Triplex Multi-Ply'],
@@ -267,7 +267,7 @@ const CARD_VARIATIONS = [
     badge: 'Modern Arc',
     image: '/assets/products/business-cards/bc_rounded_corners.jpg',
     description:
-      'Die-cut rounded corners with smooth 3mm (subtle credit card style) or 6mm (bold curvature) radii that eliminate pocket dog-ears and snagging.',
+      'Rounded corner business cards in the UAE precision die-cut with smooth 3mm (credit card style) or 6mm (bold curvature) radii that eliminate pocket dog-ears and snagging.',
     specs: '3mm / 6mm Precision Radii • 4 Corners Die-Trimmed • Smooth Edges',
     suitableFor: 'App Developers, Tech Companies, Health Clinics, Modern Startups',
     popularFinishes: ['Velvet Soft-Touch', 'Spot UV Contrast', 'Gold Foil Accent'],
@@ -293,7 +293,7 @@ const CARD_VARIATIONS = [
     badge: 'Color Sandwich',
     image: '/assets/products/business-cards/bc_triplex.jpg',
     description:
-      'Three thick paper layers laminated together with a vibrant colored middle seam (Red, Cyan, Yellow, Black) visible along the card profile edge.',
+      'Triplex business cards in the UAE engineered by laminating three thick paper layers together with a vibrant colored middle seam (Red, Cyan, Yellow, Black, or Gold) visible along the card profile edge.',
     specs: '650 GSM Triplex Sandwich • Colored Internal Core Seam • Ultra-Rigid',
     suitableFor: 'Design Agencies, Media Agencies, Animation Studios, Branding Consultants',
     popularFinishes: ['Contrasting Core Seam', 'Matte Face', 'Foil Accents'],
@@ -306,7 +306,7 @@ const CARD_VARIATIONS = [
     badge: 'Complete Info',
     image: '/assets/products/business-cards/bc_bilingual.jpg',
     description:
-      'Full-bleed color printing on both front and back. Ideal for showcasing English on side A and Arabic typography on side B for UAE commercial business.',
+      'Bilingual business cards (English & Arabic) in the UAE with full-bleed color printing on both sides. Ideal for custom logo visiting cards and business cards with social media details, QR codes, and dual-language layouts.',
     specs: 'Bilingual English/Arabic Ready • Full Color Both Sides • Balanced Bleed',
     suitableFor: 'UAE Businesses, International Trade Companies, Bilingual Professionals',
     popularFinishes: ['Double Matte', 'Foil Front + Matte Reverse'],
@@ -319,7 +319,7 @@ const CARD_VARIATIONS = [
     badge: 'Budget Friendly',
     image: standardSilkImg,
     description:
-      'Crisp full-color front with an uncoated, absorbent reverse side perfect for handwritten notes, client appointments, or stamp loyalty programs.',
+      'Uncoated business cards in Dubai and single-sided coated cards with an absorbent writable surface, ideal for handwritten notes, personal messages, and immediate pen writing without ink smearing.',
     specs: 'Coated Silk Front • Uncoated Absorbent Back • Pen & Pencil Writable',
     suitableFor: 'Medical Doctors, Dental Clinics, Hair Stylists, Service Technicians',
     popularFinishes: ['Matte Front', 'Uncoated Reverse'],
@@ -388,6 +388,32 @@ const CARD_VARIATIONS = [
     specs: '350–400 GSM • Coated Front + Uncoated Writable Back • Smudge-Free Stamp Ink Absorption',
     suitableFor: 'Medical & Dental Clinics, Beauty Salons, Specialty Coffee Shops, Retail Boutiques, Fitness Studios',
     popularFinishes: ['Matte Front + Writable Back', 'Rounded Corners', 'Custom Stamp Grid Layout'],
+  },
+  {
+    id: 'folded-tent-business-cards',
+    title: 'Folded Business Cards (4-Panel Scored Tent Cards)',
+    category: 'specialty',
+    gsm: '350–400 GSM',
+    badge: '4-Page Mini Brochure',
+    image: brochuresImg,
+    description:
+      'Folded business cards in Dubai and folded visiting card printing in the UAE (170 x 55 mm precision-scored to fold cleanly to 85 x 55 mm). Gives you 4 full panels for bilingual company profiles, service price lists, appointment tables, or mini product catalogs.',
+    specs: '170×55mm Flat → 85×55mm Folded • Anti-Crack Crease Score • Horizontal or Vertical Fold',
+    suitableFor: 'Medical Clinics, Real Estate Portfolios, Luxury Spas, Hospitality Concierges, B2B Catalogs',
+    popularFinishes: ['Matte Laminated + Crease Score', 'Velvet Soft-Touch Folded', 'Spot UV Cover'],
+  },
+  {
+    id: 'luxury-black-pulp-cards',
+    title: 'Luxury Black Business Cards (Pulp-Dyed Matte Black)',
+    category: 'luxury',
+    gsm: '450–600 GSM',
+    badge: 'Solid Black Core • Metallic Foil',
+    image: velvetFoilCardImg,
+    description:
+      'Luxury black business cards in Dubai crafted on through-dyed solid black Italian boards (no white paper edges) paired with metallic finish business cards UAE embellishments: 24K mirror gold, silver, copper hot foil, or dense opaque white pigment ink.',
+    specs: '450–600 GSM Solid Black Core • 24K Gold / Silver Hot Foil • Opaque White Ink & Blind Deboss',
+    suitableFor: 'VIP Concierges, Luxury Automotive, Private Equity, Nightlife & Hospitality, Architecture Firms',
+    popularFinishes: ['24K Gold Foil on Black', 'Silver Foil + Raised Spot UV', 'White Ink + Blind Deboss'],
   },
 ]
 
@@ -464,6 +490,12 @@ const INDUSTRY_SOLUTIONS = [
     icon: Scissors,
     recommended: '350 GSM Recycled Kraft or Custom Die-Cut Silhouette',
     desc: 'Distinctive, sustainable, and memorable cards that highlight your independent design philosophy and artistic signature.',
+  },
+  {
+    title: 'Recruitment & Executive Search Agencies',
+    icon: Briefcase,
+    recommended: '400 GSM Silk Matte + Bilingual Layout + LinkedIn / vCard QR',
+    desc: 'High-volume recruitment agency business cards in the UAE with multi-consultant name batch pooling, fast employee reprints, and direct LinkedIn QR codes.',
   },
 ]
 
@@ -634,6 +666,21 @@ const BUSINESS_CARD_FAQS = [
     question: 'Can I order appointment cards, loyalty stamp cards, or startup business card packages in the UAE?',
     answer:
       'Yes. We print custom appointment cards and loyalty cards on 350–400 GSM board with an uncoated writable reverse that accepts ballpoint pens and rubber loyalty stamps without smearing. For UAE startups and new company launches, we offer low 100-card minimums and multi-founder batch splitting.',
+  },
+  {
+    question: 'Do you print folded business cards, vertical visiting cards, square cards, and mini slim cards in Dubai?',
+    answer:
+      'Yes. Alongside standard landscape cards (85 x 55 mm and 90 x 50 mm), we print vertical portrait visiting cards (55 x 85 mm), square business cards (65 x 65 mm), compact mini slim cards (85 x 40 mm), and 4-panel scored folded business cards (170 x 55 mm folded to 85 x 55 mm) ideal for bilingual company profiles, mini menus, and appointment schedules.',
+  },
+  {
+    question: 'Can ONPRINT produce luxury black business cards, triplex color-core cards, and painted edge cards in the UAE?',
+    answer:
+      'Yes. Our Al Quoz atelier crafts luxury black business cards on 450–600 GSM solid pulp-dyed black boards stamped with 24K gold/silver metallic foil or opaque white ink, 650 GSM triplex sandwich cards with a colored middle core seam, and 700 GSM painted or mirror-gilded edge cards.',
+  },
+  {
+    question: 'Do you provide a corporate business card reprint service, recurring office supply, and design assistance?',
+    answer:
+      'Yes. We serve as a long-term company visiting card supplier for Dubai offices, recruitment agencies, and multi-branch UAE enterprises. We archive your approved master artwork and Pantone color profiles for fast 1-click employee reprints, and our pre-press studio offers full business card design assistance and bilingual English-Arabic typesetting.',
   },
 ]
 
@@ -1152,10 +1199,13 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           onChange={handleFormChange}
                           className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
                         >
-                          <option value="85 x 55 mm (EU Standard)">85 x 55 mm (EU Standard Wallet Size)</option>
-                          <option value="90 x 50 mm (US Standard)">90 x 50 mm (US / GCC Standard)</option>
-                          <option value="65 x 65 mm (Square)">65 x 65 mm (Modern Square)</option>
-                          <option value="Custom Die-Cut Shape">Custom Shaped Die-Cut Size</option>
+                          <option value="85 x 55 mm (Landscape EU Standard)">85 x 55 mm (Landscape EU Standard)</option>
+                          <option value="90 x 50 mm (Landscape US Standard)">90 x 50 mm (Landscape US / GCC Standard)</option>
+                          <option value="55 x 85 mm (Vertical Portrait)">55 x 85 mm (Vertical / Portrait Layout)</option>
+                          <option value="65 x 65 mm (Square)">65 x 65 mm (Square Business Card)</option>
+                          <option value="85 x 40 mm (Compact Mini Slim)">85 x 40 mm (Compact Mini / Slim Card)</option>
+                          <option value="170 x 55 mm Folded to 85 x 55 mm (4-Panel)">170 x 55 mm → 85 x 55 mm (Folded 4-Panel Card)</option>
+                          <option value="Custom Die-Cut Shape / Custom Size">Custom Size / Custom Die-Cut Layout</option>
                         </select>
                       </div>
                       <div>
@@ -1783,7 +1833,13 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-[#D4AF65] shrink-0 mt-0.5" />
                       <span>
-                        <strong className="text-white">Square Modern (65 x 65 mm):</strong> Contemporary boutique format popular with fashion designers, architects, and culinary chefs.
+                        <strong className="text-white">Square (65 x 65 mm) &amp; Compact Mini (85 x 40 mm):</strong> Square business cards printing in Dubai and slim mini visiting cards for boutique retail, creatives, and modern tech brands.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-[#D4AF65] shrink-0 mt-0.5" />
+                      <span>
+                        <strong className="text-white">Vertical Portrait (55 x 85 mm) &amp; Folded 4-Panel (170 x 55 mm):</strong> Vertical visiting cards in the UAE for modern QR/badge aesthetics, plus scored folded business cards offering 4 panels for bilingual profiles or appointment grids.
                       </span>
                     </li>
                   </ul>

@@ -50,11 +50,11 @@ export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 // 2. Official Core Service Prefilled Inquiries (Clean, Direct & High-Converting)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    'Hello ONPRINT, I need custom business cards in Dubai. Please quote for my quantity and preferred finish.',
+    'Hello ONPRINT, I need custom business cards in Dubai. Please help me choose a suitable paper, finish and quantity and provide a quotation.',
   'business-cards-printing':
-    'Hello ONPRINT, I need custom business cards in Dubai. Please quote for my quantity and preferred finish.',
+    'Hello ONPRINT, I need custom business cards in Dubai. Please help me choose a suitable paper, finish and quantity and provide a quotation.',
   'business-card-printing-dubai':
-    'Hello ONPRINT, I need custom business cards in Dubai. Please quote for my quantity and preferred finish.',
+    'Hello ONPRINT, I need custom business cards in Dubai. Please help me choose a suitable paper, finish and quantity and provide a quotation.',
   'business-card-printing-uae':
     'Hello ONPRINT, I would like a quotation for corporate business cards across the UAE. Please share available card stocks, volume prices, and delivery schedule.',
 
@@ -414,7 +414,7 @@ export function formatBusinessCardInquiry({
   const materialFinishStr = materialFinishParts.join(', ')
 
   const lines = [
-    'Hello ONPRINT, I need custom business cards in Dubai. Please quote for my quantity and preferred finish.',
+    'Hello ONPRINT, I need custom business cards in Dubai. Please help me choose a suitable paper, finish and quantity and provide a quotation.',
   ]
   const hasSpecs = Boolean(resolvedProduct || resolvedQty || resolvedSize || materialFinishStr || (sides && sides !== 'N/A') || deliveryLocation || location || resolvedReqs)
   if (resolvedProduct) lines.push(`Card type: ${resolvedProduct}`)

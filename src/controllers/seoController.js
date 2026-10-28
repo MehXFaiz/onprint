@@ -67,6 +67,10 @@ Allow: /flyer-printing-dubai
 Allow: /sticker-printing-dubai
 Allow: /stickers
 Allow: /label-printing-dubai
+Allow: /ar/
+Allow: /ar/business-cards
+Allow: /ar/sticker-printing-dubai
+Allow: /ar/stamps
 Allow: /rollup-banners
 Allow: /rollup-banner-printing-dubai
 Allow: /stamps

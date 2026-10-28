@@ -50,11 +50,11 @@ export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 // 2. Official Core Service Prefilled Inquiries (Clean, Direct & High-Converting)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    'Hello ONPRINT, I need a business card printing quote in Dubai. Please share available paper options, pricing and delivery time.',
+    'Hello ONPRINT, I need custom business cards in Dubai. Please quote for my quantity and preferred finish.',
   'business-cards-printing':
-    'Hello ONPRINT, I need a business card printing quote in Dubai. Please share available paper options, pricing and delivery time.',
+    'Hello ONPRINT, I need custom business cards in Dubai. Please quote for my quantity and preferred finish.',
   'business-card-printing-dubai':
-    'Hello ONPRINT, I need a business card printing quote in Dubai. Please share available paper options, pricing and delivery time.',
+    'Hello ONPRINT, I need custom business cards in Dubai. Please quote for my quantity and preferred finish.',
   'business-card-printing-uae':
     'Hello ONPRINT, I would like a quotation for corporate business cards across the UAE. Please share available card stocks, volume prices, and delivery schedule.',
 
@@ -74,13 +74,13 @@ export const SERVICE_INQUIRY_MESSAGES = {
     'Hello 0nprint, I am interested in ordering Roll-Up Banners in Dubai. Please share your prices, sizes, and express delivery details.',
 
   'stickers':
-    'Hello ONPRINT, I would like a quotation for custom stickers. Please share the available options and pricing.',
+    'Hello ONPRINT, I need custom stickers in Dubai. Please quote for my size, material and quantity.',
   'stickers-labels-printing':
-    'Hello ONPRINT, I would like a quotation for custom stickers and product labels. Please share the available options and pricing.',
+    'Hello ONPRINT, I need custom stickers in Dubai. Please quote for my size, material and quantity.',
   'sticker-printing-dubai':
-    'Hello ONPRINT, I would like a quotation for custom stickers in Dubai. Please share the available options, prices, and delivery time.',
+    'Hello ONPRINT, I need custom stickers in Dubai. Please quote for my size, material and quantity.',
   'custom-stickers':
-    'Hello ONPRINT, I would like a quotation for custom stickers. Please share the available options and pricing.',
+    'Hello ONPRINT, I need custom stickers in Dubai. Please quote for my size, material and quantity.',
 
   'stamps':
     'Hello ONPRINT, I would like a quotation for a custom company stamp. Stamp type: custom company stamp. Quantity: 1 unit. Please share the available options and price.',
@@ -378,6 +378,8 @@ export function openWhatsAppDirectly(input, options = {}) {
  */
 export function formatBusinessCardInquiry({
   quantity = '',
+  size = '',
+  dimensions = '',
   paper = '',
   material = '',
   gsm = '',
@@ -401,6 +403,7 @@ export function formatBusinessCardInquiry({
   cardType = '',
 } = {}) {
   const resolvedProduct = cardType || productName || ''
+  const resolvedSize = size || dimensions || ''
   const resolvedPaper = paperStock || paper || material || (gsm ? `${gsm} Silk` : stock) || ''
   const resolvedFinish = finish || finishing || coating || ''
   const resolvedLocation = deliveryLocation || location || 'Dubai'
@@ -411,17 +414,21 @@ export function formatBusinessCardInquiry({
   const materialFinishStr = materialFinishParts.join(', ')
 
   const lines = [
-    'Hello ONPRINT, I would like a quotation for business card printing.',
+    'Hello ONPRINT, I need custom business cards in Dubai. Please quote for my quantity and preferred finish.',
   ]
+  const hasSpecs = Boolean(resolvedProduct || resolvedQty || resolvedSize || materialFinishStr || (sides && sides !== 'N/A') || deliveryLocation || location || resolvedReqs)
   if (resolvedProduct) lines.push(`Card type: ${resolvedProduct}`)
   if (resolvedQty) lines.push(`Quantity: ${resolvedQty}`)
+  if (resolvedSize) lines.push(`Size: ${resolvedSize}`)
   if (materialFinishStr) lines.push(`Material/finish: ${materialFinishStr}`)
   if (sides && sides !== 'N/A') lines.push(`Sides: ${sides}`)
-  if (resolvedLocation) lines.push(`Delivery location: ${resolvedLocation}`)
+  if (hasSpecs && resolvedLocation) lines.push(`Delivery location: ${resolvedLocation}`)
   if (resolvedReqs && !resolvedReqs.toLowerCase().includes('cta') && !resolvedReqs.toLowerCase().includes('inquiry') && resolvedReqs !== 'None') {
     lines.push(`Additional requirements: ${resolvedReqs}`)
   }
-  lines.push('', 'Please share your best price and delivery time.')
+  if (hasSpecs) {
+    lines.push('', 'Please share your best price and delivery time.')
+  }
 
   const extra = []
   const clientName = name || customerName
@@ -488,8 +495,9 @@ export function formatStickerInquiry(details = {}) {
   const resolvedReqs = additionalRequirements || requirements || notes || ''
 
   const lines = [
-    'Hello ONPRINT, I need a quotation for sticker printing.',
+    'Hello ONPRINT, I need custom stickers in Dubai. Please quote for my size, material and quantity.',
   ]
+  const hasSpecs = Boolean(resolvedType || resolvedQty || resolvedSize || resolvedMaterial || resolvedShape || resolvedFinish || resolvedUse || deliveryLocation || location || city || resolvedReqs)
   if (resolvedType) lines.push(`Sticker type: ${resolvedType}`)
   if (resolvedQty) lines.push(`Quantity: ${resolvedQty}`)
   if (resolvedSize) lines.push(`Size: ${resolvedSize}`)
@@ -497,11 +505,13 @@ export function formatStickerInquiry(details = {}) {
   if (resolvedShape) lines.push(`Shape: ${resolvedShape}`)
   if (resolvedFinish) lines.push(`Finish: ${resolvedFinish}`)
   if (resolvedUse) lines.push(`Intended use: ${resolvedUse}`)
-  if (resolvedLocation) lines.push(`Delivery location: ${resolvedLocation}`)
+  if (hasSpecs && resolvedLocation) lines.push(`Delivery location: ${resolvedLocation}`)
   if (resolvedReqs && !resolvedReqs.toLowerCase().includes('cta') && !resolvedReqs.toLowerCase().includes('inquiry') && resolvedReqs !== 'None') {
     lines.push(`Additional requirements: ${resolvedReqs}`)
   }
-  lines.push('', 'Please share your pricing and delivery time.')
+  if (hasSpecs) {
+    lines.push('', 'Please share your pricing and delivery time.')
+  }
 
   const extra = []
   const clientName = name || customerName

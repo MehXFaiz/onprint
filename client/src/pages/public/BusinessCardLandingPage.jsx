@@ -248,14 +248,14 @@ const CARD_VARIATIONS = [
   },
   {
     id: 'die-cut-business-cards',
-    title: 'Die-Cut Business Cards (Custom Shapes)',
+    title: 'Custom Shaped & Die-Cut Business Cards',
     category: 'specialty',
     gsm: '400 GSM',
     badge: 'Custom Silhouette',
     image: '/assets/products/business-cards/bc_diecut.jpg',
     description:
-      'Precision steel die cutting into bespoke brand shapes, geometric outlines, interior window cutouts, or custom silhouette contours that stand out instantly.',
-    specs: 'Bespoke CNC Steel Rule Die • Crisp Clean Margins • Custom Silhouette',
+      'Custom shaped business cards in Dubai precision-cut with CNC steel-rule dies into bespoke brand shapes, geometric outlines, interior window cutouts, or custom silhouette contours.',
+    specs: 'Bespoke CNC Steel Rule Die • Custom Shaped Contours • Crisp Clean Margins',
     suitableFor: 'Creative Directors, Product Designers, Boutique Brands, Marketing Innovators',
     popularFinishes: ['Custom Contour', 'Matte Finish', 'Foil Stamped Detail'],
   },
@@ -274,15 +274,15 @@ const CARD_VARIATIONS = [
   },
   {
     id: 'minimal-business-cards',
-    title: 'Minimal Business Cards (Monochrome Atelier)',
+    title: 'Minimalist Business Cards (Monochrome Atelier)',
     category: 'luxury',
     gsm: '450–600 GSM',
     badge: 'Understated Luxury',
     image: '/assets/products/business-cards/bc_minimalist.jpg',
     description:
-      'High-contrast monochromatic aesthetics with pure typographical precision. Black foil on white cotton or white pigment on deep black pulp-dyed stock.',
+      'Minimalist business card printing in the UAE featuring high-contrast monochromatic aesthetics and pure typographical precision. Black foil on white cotton or white ink on deep black pulp-dyed stock.',
     specs: 'Pulp-Dyed Solid Black / Pure Cotton White • Micro-Typographic Precision',
-    suitableFor: 'Minimalist Architects, Fine Jewelers, Contemporary Art Curators, Authors',
+    suitableFor: 'Minimalist Architects, Fine Jewelers, Contemporary Art Curators, Startup Founders',
     popularFinishes: ['Black Gloss Foil on Matte Black', 'Blind Debossed Monogram'],
   },
   {
@@ -362,6 +362,32 @@ const CARD_VARIATIONS = [
     specs: '760μ Solid / Frosted PVC • UV Cured Ink + White Underbase • 3mm Rounded Corners',
     suitableFor: 'Yacht Charters, Beach Clubs, Fitness Trainers, Construction Engineers, VIP Membership',
     popularFinishes: ['Frosted Translucent PVC', 'Solid Matte PVC + Spot UV', 'NFC Chip Ready'],
+  },
+  {
+    id: 'qr-nfc-smart-cards',
+    title: 'QR Code & Smart NFC Business Cards (Contactless vCard)',
+    category: 'specialty',
+    gsm: '400–600 GSM / 760μ PVC',
+    badge: 'Tap & Scan • Digital vCard',
+    image: '/assets/products/business-cards/bc_rounded_corners.jpg',
+    description:
+      'QR code business cards in Dubai and smart NFC business cards embedded with contactless NTAG215/216 microchips. Tap any smartphone or scan the vector QR code to instantly save your vCard, WhatsApp, or portfolio.',
+    specs: 'High-Contrast Vector QR Code • Embedded NTAG216 NFC Chip • iOS & Android Ready',
+    suitableFor: 'Tech Startups, Real Estate Brokers, Exhibition Teams, Professional Networking in UAE',
+    popularFinishes: ['Matte Velvet + Raised UV QR', '760μ Matte Black NFC PVC', '600 GSM Cotton NFC'],
+  },
+  {
+    id: 'appointment-loyalty-cards',
+    title: 'Appointment & Loyalty Stamp Cards (Writable Cardstock)',
+    category: 'corporate',
+    gsm: '350–400 GSM',
+    badge: 'Writable & Stamp-Ready',
+    image: standardSilkImg,
+    description:
+      'Custom appointment cards printing in the UAE and loyalty cards printing in Dubai. Engineered with a laminated full-color branded front and an absorbent uncoated reverse side that accepts pen ink and loyalty rubber stamps without smudging.',
+    specs: '350–400 GSM • Coated Front + Uncoated Writable Back • Smudge-Free Stamp Ink Absorption',
+    suitableFor: 'Medical & Dental Clinics, Beauty Salons, Specialty Coffee Shops, Retail Boutiques, Fitness Studios',
+    popularFinishes: ['Matte Front + Writable Back', 'Rounded Corners', 'Custom Stamp Grid Layout'],
   },
 ]
 
@@ -599,6 +625,16 @@ const BUSINESS_CARD_FAQS = [
     answer:
       'Yes. For enterprise brands requiring strict brand compliance, we print using genuine Pantone Matching System (PMS) spot inks on Heidelberg offset presses, eliminating the color shifts common in standard digital CMYK toner reproduction.',
   },
+  {
+    question: 'Do you print QR code business cards and smart NFC business cards in Dubai?',
+    answer:
+      'Yes. We print high-contrast vector QR code business cards in Dubai with error-corrected scannability for digital vCards, WhatsApp links, and company profiles. We also manufacture smart NFC business cards with embedded contactless NTAG215/216 chips inside multi-ply 600 GSM cardstock or 760-micron PVC.',
+  },
+  {
+    question: 'Can I order appointment cards, loyalty stamp cards, or startup business card packages in the UAE?',
+    answer:
+      'Yes. We print custom appointment cards and loyalty cards on 350–400 GSM board with an uncoated writable reverse that accepts ballpoint pens and rubber loyalty stamps without smearing. For UAE startups and new company launches, we offer low 100-card minimums and multi-founder batch splitting.',
+  },
 ]
 
 export default function BusinessCardLandingPage({ pageKey: propKey }) {
@@ -618,9 +654,11 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
     phone: '',
     email: '',
     quantity: '100',
+    size: '85 x 55 mm (EU Standard)',
     cardType: 'Standard Business Cards (350 GSM Silk / Matte)',
     paper: '350 GSM Standard Silk / Matte Card',
     finish: 'Matte Lamination (Simple & Clean)',
+    deliveryLocation: 'Dubai, UAE',
     designStatus: 'Have Print-Ready PDF',
     deliveryDate: 'Standard 24-48 Hours',
     notes: '',
@@ -676,7 +714,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         email: formState.email,
         productName: `Business Cards: ${formState.cardType}`,
         quantity: Number(formState.quantity) || 100,
-        specs: `Paper: ${formState.paper} | Finish: ${formState.finish} | Design: ${formState.designStatus} | Timeline: ${formState.deliveryDate}${artworkFile ? ` | File: ${artworkFile.name}` : ''}`,
+        specs: `Size: ${formState.size} | Paper: ${formState.paper} | Finish: ${formState.finish} | Location: ${formState.deliveryLocation} | Design: ${formState.designStatus} | Timeline: ${formState.deliveryDate}${artworkFile ? ` | File: ${artworkFile.name}` : ''}`,
         notes: formState.notes,
         totalPrice: 0,
       }
@@ -699,7 +737,7 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
         material: formState.paper,
         finish: formState.finish,
         has_artwork: Boolean(artworkFile),
-        delivery_location: 'Dubai, UAE',
+        delivery_location: formState.deliveryLocation || 'Dubai, UAE',
         source_page: `business_card_${derivedKey}`,
       })
 
@@ -713,7 +751,11 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
           company: formState.company || 'N/A',
           product: `Business Cards (${formState.cardType})`,
           quantity: formState.quantity,
-          specs: `Paper: ${formState.paper} | Finish: ${formState.finish} | Target Delivery: ${formState.deliveryDate}`,
+          size: formState.size,
+          material: formState.paper,
+          finish: formState.finish,
+          deliveryLocation: formState.deliveryLocation || 'Dubai, UAE',
+          specs: `Size: ${formState.size} | Paper: ${formState.paper} | Finish: ${formState.finish} | Target Delivery: ${formState.deliveryDate}`,
           notes: formState.notes || 'None',
         },
         { allowSameTabFallback: true }
@@ -1095,6 +1137,42 @@ export default function BusinessCardLandingPage({ pageKey: propKey }) {
                           <option value="Raised 3D Spot UV">Raised 3D Spot UV (Scodix)</option>
                           <option value="Blind Debossing">Sculptural Blind Debossing</option>
                           <option value="Painted Gilded Edges">Painted / Gilded Edges</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div>
+                        <label className="block text-[11px] font-bold text-slate-200 mb-1">
+                          Card Size / Dimensions
+                        </label>
+                        <select
+                          name="size"
+                          value={formState.size}
+                          onChange={handleFormChange}
+                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                        >
+                          <option value="85 x 55 mm (EU Standard)">85 x 55 mm (EU Standard Wallet Size)</option>
+                          <option value="90 x 50 mm (US Standard)">90 x 50 mm (US / GCC Standard)</option>
+                          <option value="65 x 65 mm (Square)">65 x 65 mm (Modern Square)</option>
+                          <option value="Custom Die-Cut Shape">Custom Shaped Die-Cut Size</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-slate-200 mb-1">
+                          Delivery Location
+                        </label>
+                        <select
+                          name="deliveryLocation"
+                          value={formState.deliveryLocation}
+                          onChange={handleFormChange}
+                          className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3 py-2 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                        >
+                          <option value="Dubai, UAE">Dubai (DIFC, Business Bay, Downtown, Marina, Al Quoz)</option>
+                          <option value="Abu Dhabi, UAE">Abu Dhabi &amp; ADGM Courier</option>
+                          <option value="Sharjah, UAE">Sharjah &amp; SAIF Zone Courier</option>
+                          <option value="Ajman & Northern Emirates">Ajman, RAK, UAQ &amp; Fujairah</option>
+                          <option value="Al Quoz Pressroom Pickup">Al Quoz 3 Pressroom Pickup (Dubai)</option>
                         </select>
                       </div>
                     </div>

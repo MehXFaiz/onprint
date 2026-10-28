@@ -90,7 +90,7 @@ const homeFaqs = [
   {
     question: 'What are your primary commercial printing services in Dubai?',
     answer:
-      'ONPRINT specializes in high-speed digital and commercial print disciplines: Premium Business Card Printing (cotton, 24K gold foil, spot UV), Marketing Flyers & Leaflets, Official Letterhead & Envelope Stationery, Multi-Page Brochures & Catalogs, Custom Waterproof Stickers & Labels, Official Company Stamps, and Security Vouchers. We also produce roll-up banners, exhibition signage, and corporate gifts in our Al Quoz pressroom.',
+      'ONPRINT specializes in high-speed digital and commercial print disciplines: Premium Business Card Printing (cotton, 24K gold foil, spot UV, QR & NFC cards), Custom Waterproof Stickers & Branded Packaging Labels, Official Company Stamps, Corporate Stationery Printing across the UAE (letterheads, envelopes, folders), Marketing Flyers & Brochures, and Business Branding Print Materials in Dubai produced directly in our Al Quoz pressroom.',
   },
   {
     question: 'How do I order custom business cards with luxury finishes in Dubai?',
@@ -203,7 +203,7 @@ export default function HomePage() {
       <SEOHead
         title="Premium Printing Solutions Dubai & UAE | ONPRINT"
         description="Business cards, custom stickers, rubber stamps, and professional printing solutions tailored to your business in Dubai & across the UAE. Request a quote directly on WhatsApp."
-        keywords="printing company in dubai, printing services dubai, commercial printing dubai, luxury business cards dubai, business card printing dubai, sticker printing dubai, rubber stamps dubai, company stamp dubai, brochure printing dubai, same day printing dubai, corporate gifts dubai, offset printing dubai, digital printing press uae"
+        keywords="printing company in dubai, printing services dubai, commercial printing dubai, luxury business cards dubai, business card printing dubai, sticker printing dubai, rubber stamps dubai, company stamp dubai, brochure printing dubai, same day printing dubai, corporate stationery printing uae, business branding print materials dubai, business card printing for startups uae, custom labels for small businesses dubai, branded packaging labels for businesses dubai, offset printing dubai, digital printing press uae"
         canonicalPath="/"
         faqList={homeFaqs}
       />

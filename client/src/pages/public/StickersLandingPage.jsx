@@ -128,16 +128,16 @@ const STICKER_PRODUCTS = [
   {
     id: 1306,
     slug: 'cosmetic-bottle-labels',
-    name: 'Cosmetic, Bottle & Jar Packaging Labels',
+    name: 'Cosmetic Product, Custom Bottle & Jar Labels',
     category: 'labels',
     badge: 'Oil & Moisture Proof',
     basePrice: 75,
     minQty: 250,
     image: '/assets/products/stickers/cosmetic-bottle-labels.jpg',
-    description: 'Resistant to essential oils, lotions, alcohol, and moisture condensation. Matte anti-fingerprint and soft-touch laminates available.',
-    specs: 'BOPP Synthetic Substrate • Oil-Resistant Emulsion • Anti-Scuff Coating',
-    shapes: ['Wrap-Around', 'Front & Back Pair', 'Oval', 'Circle Lid'],
-    suitableFor: 'Perfumes, Skincare Bottles, Candle Jars, Essential Oils, Shampoos',
+    description: 'Cosmetic product labels and custom bottle labels in Dubai engineered with jar label printing UAE durability. Resistant to essential oils, lotions, alcohol, and moisture condensation.',
+    specs: 'BOPP Synthetic Substrate • Oil-Resistant Emulsion • Anti-Scuff Velvet / Matte',
+    shapes: ['Wrap-Around Bottle', 'Front & Back Pair', 'Oval', 'Circle Jar Lid'],
+    suitableFor: 'Perfumes, Skincare Bottles, Glass Jars, Candle Jars, Essential Oils, Beverage Bottles',
   },
   {
     id: 1307,
@@ -198,16 +198,16 @@ const STICKER_PRODUCTS = [
   {
     id: 1311,
     slug: 'round-packaging-stickers',
-    name: 'Round & Circle Packaging Stickers',
+    name: 'Retail & Small Business Packaging Stickers',
     category: 'labels',
-    badge: 'Standard Box & Bag Seals',
+    badge: 'Low MOQ • Box & Bag Seals',
     basePrice: 35,
     minQty: 100,
     image: '/assets/products/stickers/custom-roll-labels.jpg',
-    description: 'The everyday staple for retail unboxing. Perfect circular stickers for sealing shopping bags, tissue wrapping, and takeout containers.',
-    specs: 'High-Tack Gloss Artboard / Matte Vinyl • Rapid Peel • 25mm to 100mm',
-    shapes: ['Perfect 30mm, 40mm, 50mm, 60mm Circles'],
-    suitableFor: 'Boutique Packaging, Bakery Bags, Coffee Cups, Shipping Carton Seals',
+    description: 'Retail packaging stickers in the UAE and small business packaging labels in Dubai. Ideal branded packaging labels for businesses sealing shopping bags, tissue paper, mailers, and boxes.',
+    specs: 'High-Tack Gloss Artboard / Matte Vinyl • Rapid Peel • 25mm to 100mm • Low 100-pc MOQ',
+    shapes: ['Perfect 30mm, 40mm, 50mm, 60mm Circles & Squares'],
+    suitableFor: 'Small Businesses, D2C Startups, Boutique Retail Packaging, Bakery Bags, Coffee Cups',
   },
   {
     id: 1312,
@@ -226,44 +226,72 @@ const STICKER_PRODUCTS = [
   {
     id: 1313,
     slug: 'qr-code-barcode-labels',
-    name: 'QR Code & Variable Barcode Asset Labels',
+    name: 'QR Code Product Stickers & Barcode Labels',
     category: 'labels',
-    badge: 'High-Contrast Scannable',
+    badge: 'Grade-A Scannable',
     basePrice: 50,
     minQty: 100,
     image: '/assets/products/stickers/custom-roll-labels.jpg',
-    description: 'Anti-glare matte synthetic stickers engineered for rapid optical scanning by laser and smartphone barcode readers.',
-    specs: 'Variable Data Serialization • EAN-13, Code 128, QR Codes • Scuff-Proof',
-    shapes: ['Small Asset Rectangle', 'Square QR Code'],
-    suitableFor: 'Inventory Tracking, Digital Restaurant Menus, Warehouse Pallets',
+    description: 'QR code product stickers in the UAE and barcode stickers in Dubai. Anti-glare matte synthetic labels engineered for instant optical scanning by POS lasers and smartphone cameras.',
+    specs: 'Variable Data Serialization • GS1 EAN-13, Code 128, Dynamic QR Codes • Scuff-Proof',
+    shapes: ['Small Asset Rectangle', 'Square QR Code', 'Roll or Sheet Format'],
+    suitableFor: 'Retail SKUs, Inventory Tracking, Digital Restaurant Menus, Smart Product Packaging',
   },
   {
     id: 1314,
     slug: 'promotional-handout-stickers',
-    name: 'Promotional Event & Giveaway Stickers',
+    name: 'Bulk Promotional & Event Giveaway Stickers',
     category: 'vinyl',
-    badge: 'Budget Event Handouts',
+    badge: 'Bulk Event Handouts',
     basePrice: 40,
     minQty: 250,
     image: '/assets/products/stickers/die-cut-vinyl-stickers.jpg',
-    description: 'Economical, high-yield sticker prints with easy crack-and-peel backing designed for mass marketing distributions at Dubai World Trade Centre (DWTC).',
-    specs: 'Crack-Back Paper Backing • Fast Dispensing • Vivid Full-Color Digital',
+    description: 'Bulk promotional stickers in the UAE with easy crack-and-peel backing designed for trade show giveaways, brand activations, and mass marketing at DWTC.',
+    specs: 'Crack-Back Liner • Fast Dispensing • Vivid Full-Color UV / Eco-Solvent',
     shapes: ['Die-Cut', 'Rectangle Handout Card', 'Square'],
-    suitableFor: 'Exhibitions, Music Festivals, School Marketing, Community Campaigns',
+    suitableFor: 'DWTC Exhibitions, Brand Activations, Retail Campaigns, Startup Swag',
   },
   {
     id: 1315,
     slug: 'bulk-sticker-printing',
-    name: 'Bulk Custom Sticker Printing (Rolls & Sheets)',
+    name: 'Wholesale & Bulk Custom Stickers (Rolls & Sheets)',
     category: 'labels',
     badge: 'Tiered Wholesale Rates',
     basePrice: 180,
     minQty: 1000,
     image: '/assets/products/stickers/custom-roll-labels.jpg',
-    description: 'High-volume commercial press runs for industrial manufacturers, retail chains, and packaging converters across the UAE.',
+    description: 'Wholesale custom stickers in Dubai and high-volume commercial press runs for FMCG manufacturers, retail chains, and corporate packaging across the UAE.',
     specs: 'Rotary Flexo & Industrial UV Curable Press • Down to AED 0.08 / sticker',
-    shapes: ['All Custom Shapes on Rolls or Multi-Item Sheets'],
-    suitableFor: 'High-Volume FMCG Brands, Distribution Hubs, Chain Supermarkets',
+    shapes: ['All Custom Shapes on Machine Rolls or Multi-Item Sheets'],
+    suitableFor: 'High-Volume FMCG Brands, Distribution Hubs, Chain Supermarkets, E-Commerce',
+  },
+  {
+    id: 1316,
+    slug: 'kiss-cut-sticker-sheets',
+    name: 'Kiss-Cut Sticker Sheets (Multi-Design Sheets)',
+    category: 'vinyl',
+    badge: 'Easy-Peel Sheet Format',
+    basePrice: 55,
+    minQty: 100,
+    image: '/assets/products/stickers/die-cut-vinyl-stickers.jpg',
+    description: 'Kiss cut sticker sheets in the UAE precision-cut through the top vinyl layer while keeping the backing sheet intact for rapid peeling or multi-logo brand packs.',
+    specs: 'A4 / A5 / Custom Sheet Sizes • Multiple Contours Per Sheet • Waterproof Vinyl',
+    shapes: ['Multi-Sticker Brand Sheet', 'Fast-Peel Packaging Sheet'],
+    suitableFor: 'Subscription Boxes, Merch Packs, Fast Retail Fulfillment, Promotional Inserts',
+  },
+  {
+    id: 1317,
+    slug: 'removable-adhesive-labels',
+    name: 'Removable Clean-Peel Adhesive Labels',
+    category: 'specialty',
+    badge: 'Zero Sticky Residue',
+    basePrice: 55,
+    minQty: 100,
+    image: '/assets/products/stickers/clear-transparent-vinyl-stickers.jpg',
+    description: 'Removable adhesive labels in the UAE formulated with low-tack pressure-sensitive acrylic glue that adheres securely to glass, plastic, metal, or electronics and peels off cleanly with zero residue.',
+    specs: 'Residue-Free Clean Peel • Matte or Clear Vinyl • Indoor & Outdoor Rated',
+    shapes: ['Circle', 'Rectangle', 'Custom Contour', 'Window Decal'],
+    suitableFor: 'Glassware, Electronics, Temporary Retail Promotions, Reusable Containers, Appliances',
   },
 ]
 
@@ -292,6 +320,7 @@ const STICKER_MATERIALS = [
   { id: 'gold-foil', name: 'Metallic Hot Stamped 24K Gold Foil', desc: 'Reflective mirror gold, rose gold, or silver foil stamping.', priceMod: 40 },
   { id: 'kraft-paper', name: 'Natural Recycled Brown Kraft Paper', desc: 'Organic, earthy textured paper for artisanal & eco packaging.', priceMod: 10 },
   { id: 'epoxy-resin', name: '3D Polyurethane Epoxy Resin', desc: 'Flexible crystal clear resin lens with high scratch resistance.', priceMod: 60 },
+  { id: 'removable-vinyl', name: 'Removable Clean-Peel Vinyl (Zero Residue)', desc: 'Peels off glass, plastic, and metal cleanly without sticky residue.', priceMod: 10 },
 ]
 
 const STICKER_FINISHES = [
@@ -351,6 +380,14 @@ const STICKER_FAQS = [
   {
     question: 'How do I get a sticker printing quote on WhatsApp?',
     answer: 'Simply select your specifications in our interactive calculator above and click "Get a Sticker Printing Quote on WhatsApp". Your selected sticker type, quantity, size, material, and finish will be prefilled automatically. You can attach your artwork file directly in chat (+44 7344546056) for a free pre-press verification proof.'
+  },
+  {
+    question: 'Do you print removable adhesive labels that peel off without leaving residue?',
+    answer: 'Yes. We supply removable adhesive labels in the UAE engineered with clean-peel acrylic adhesives. They hold firmly on glass jars, retail windows, electronics, and reusable containers during use, yet peel away cleanly without leaving sticky glue residue.'
+  },
+  {
+    question: 'Can small businesses order custom packaging labels in low quantities or wholesale bulk?',
+    answer: 'Yes. We support custom labels for small businesses in Dubai with low minimum order quantities starting at just 100 stickers—including multi-design kiss-cut sticker sheets and QR code product stickers—while also offering wholesale custom stickers and bulk roll labels up to 50,000+ units.'
   }
 ]
 
@@ -379,6 +416,7 @@ export default function StickersLandingPage() {
   const [customerPhone, setCustomerPhone] = useState('')
   const [customerEmail, setCustomerEmail] = useState('')
   const [customerCompany, setCustomerCompany] = useState('')
+  const [stickerArtworkFile, setStickerArtworkFile] = useState(null)
 
   // Filtered Products for Gallery
   const filteredProducts = useMemo(() => {
@@ -473,7 +511,7 @@ export default function StickersLandingPage() {
         productName: `Custom Stickers: ${selectedProduct.name}`,
         quantity: `${effectiveQty} pcs`,
         specs: `Shape: ${selectedShape.name} | Size: ${selectedSize.label} | Material: ${selectedMaterial.name} | Finish: ${selectedFinish.name}`,
-        notes: `Intended Use: ${intendedUse} | Location: ${deliveryLocation} | ${additionalRequirements}`,
+        notes: `Intended Use: ${intendedUse} | Location: ${deliveryLocation}${stickerArtworkFile ? ` | File: ${stickerArtworkFile.name}` : ''} | ${additionalRequirements}`,
         status: 'New',
       })
 
@@ -511,7 +549,7 @@ export default function StickersLandingPage() {
       <SEOHead
         title="Sticker Printing Dubai | Custom Stickers & Labels | ONPRINT"
         description="Order custom stickers and product labels from ONPRINT in Dubai. Explore available materials, shapes and finishes, and request a quote for your printing requirements."
-        keywords="sticker printing dubai, custom stickers dubai, sticker printing in dubai, vinyl sticker printing dubai, waterproof stickers dubai, label printing dubai, product label printing dubai, custom packaging labels uae, die cut stickers dubai, holographic stickers dubai, bulk sticker printing dubai"
+        keywords="sticker printing dubai, custom stickers dubai, sticker printing in dubai, vinyl sticker printing dubai, waterproof vinyl labels dubai, clear transparent stickers dubai, custom die cut logo stickers uae, roll label printing uae, cosmetic product labels dubai, jar label printing uae, barcode stickers dubai, removable adhesive labels uae, food packaging labels dubai, qr code product stickers uae, custom bottle labels dubai, retail packaging stickers uae, product branding labels dubai, kiss cut sticker sheets uae, small business packaging labels dubai, wholesale custom stickers dubai, bulk promotional stickers uae, custom labels for small businesses dubai, branded packaging labels for businesses dubai"
         canonicalPath="/sticker-printing-dubai"
         breadcrumbs={breadcrumbsList}
         faqList={STICKER_FAQS}
@@ -1762,15 +1800,30 @@ export default function StickersLandingPage() {
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-bold text-[#B0BECE] mb-1">Company / Brand Name</label>
-                    <input
-                      type="text"
-                      value={customerCompany}
-                      onChange={(e) => setCustomerCompany(e.target.value)}
-                      placeholder="e.g. Al Quoz Roastery LLC"
-                      className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
-                    />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-[#B0BECE] mb-1">Company / Brand Name</label>
+                      <input
+                        type="text"
+                        value={customerCompany}
+                        onChange={(e) => setCustomerCompany(e.target.value)}
+                        placeholder="e.g. Al Quoz Roastery LLC"
+                        className="w-full rounded-xl border border-[#203357] bg-[#101D35] px-3.5 py-2.5 text-xs text-white focus:border-[#D4AF65] focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-[#B0BECE] mb-1">Upload Artwork (Optional)</label>
+                      <label className="flex items-center justify-center gap-2 rounded-xl border border-dashed border-[#203357] bg-[#101D35] hover:border-[#D4AF65] px-3 py-2 text-xs text-white cursor-pointer transition-colors">
+                        <Upload className="h-3.5 w-3.5 text-[#D4AF65] shrink-0" />
+                        <span className="truncate text-[11px]">{stickerArtworkFile ? stickerArtworkFile.name : 'Attach PDF / AI / PNG'}</span>
+                        <input
+                          type="file"
+                          accept=".pdf,.ai,.eps,.psd,.zip,.jpg,.png,.svg"
+                          onChange={(e) => setStickerArtworkFile(e.target.files?.[0] || null)}
+                          className="hidden"
+                        />
+                      </label>
+                    </div>
                   </div>
 
                   <button

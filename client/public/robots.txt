@@ -15,6 +15,14 @@ Allow: /about
 Allow: /contact
 Allow: /faq
 Allow: /get-a-quote
+Allow: /business-card-printing-dubai
+Allow: /business-card-printing-uae
+Allow: /sticker-printing-dubai
+Allow: /label-printing-dubai
+Allow: /corporate-printing-dubai
+Allow: /ar/
+Allow: /ar/business-cards
+Allow: /ar/sticker-printing-dubai
 Allow: /privacy-policy
 Allow: /terms
 Allow: /assets/

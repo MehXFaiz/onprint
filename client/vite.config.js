@@ -2,6 +2,31 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
+function unwrapCssLayers(css) {
+  let out = css.replace(/@layer\s+[a-zA-Z0-9_.,\s-]+;/g, '')
+  while (true) {
+    const match = out.match(/@layer\s+[a-zA-Z0-9_.\s-]+\{/)
+    if (!match) break
+    const startIdx = match.index
+    const openBraceIdx = startIdx + match[0].length - 1
+    let depth = 1
+    let i = openBraceIdx + 1
+    while (i < out.length && depth > 0) {
+      const ch = out[i]
+      if (ch === '{') depth++
+      else if (ch === '}') depth--
+      i++
+    }
+    if (depth === 0) {
+      const inner = out.slice(openBraceIdx + 1, i - 1)
+      out = out.slice(0, startIdx) + inner + out.slice(i)
+    } else {
+      break
+    }
+  }
+  return out
+}
+
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -15,6 +40,18 @@ export default defineConfig(({ mode }) => {
         name: 'html-transform',
         transformIndexHtml(html) {
           return html.replace(/%VITE_GA_MEASUREMENT_ID%/g, gaId)
+        },
+      },
+      {
+        name: 'unwrap-css-layers',
+        enforce: 'post',
+        generateBundle(_options, bundle) {
+          for (const fileName of Object.keys(bundle)) {
+            const chunk = bundle[fileName]
+            if (chunk.type === 'asset' && fileName.endsWith('.css') && typeof chunk.source === 'string') {
+              chunk.source = unwrapCssLayers(chunk.source)
+            }
+          }
         },
       },
     ],

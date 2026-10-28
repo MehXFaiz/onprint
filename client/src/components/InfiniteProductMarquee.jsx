@@ -136,16 +136,6 @@ export default function InfiniteProductMarquee() {
       aria-label="ONPRINT Dubai Live Production Showcase"
       className="relative overflow-hidden bg-[#040A18] py-16 sm:py-20 md:py-24 border-y border-[#122240]"
     >
-      {/* Background ambient lighting accents */}
-      <div
-        className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[#D4AF65]/10 blur-3xl"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -right-20 top-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-[#040A18]/80 blur-3xl"
-        aria-hidden="true"
-      />
-
       {/* Header & Context */}
       <Container className="relative z-10 mb-10 sm:mb-14">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -193,17 +183,17 @@ export default function InfiniteProductMarquee() {
       <div className="relative w-full overflow-hidden">
         {/* Left infinity fade overlay */}
         <div
-          className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-28 md:w-44 z-20 bg-gradient-to-r from-[#040A18] via-[#040A18]/85 to-transparent"
+          className="pointer-events-none hidden sm:block absolute left-0 top-0 bottom-0 w-12 sm:w-28 md:w-44 z-20 bg-gradient-to-r from-[#040A18] via-[#040A18]/85 to-transparent"
           aria-hidden="true"
         />
         {/* Right infinity fade overlay */}
         <div
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-28 md:w-44 z-20 bg-gradient-to-l from-[#040A18] via-[#040A18]/85 to-transparent"
+          className="pointer-events-none hidden sm:block absolute right-0 top-0 bottom-0 w-12 sm:w-28 md:w-44 z-20 bg-gradient-to-l from-[#040A18] via-[#040A18]/85 to-transparent"
           aria-hidden="true"
         />
 
         {/* Continuous Track */}
-        <div className="onprint-marquee-track flex gap-4 sm:gap-6 py-4 px-2">
+        <div className="onprint-marquee-track flex gap-4 sm:gap-6 py-4 px-4 sm:px-2">
           {DUPLICATED_ITEMS.map((item, index) => {
             const hasError = imageErrorMap[`${item.id}-${index}`]
             const fallbackBg = 'linear-gradient(135deg, #081226 0%, #040A18 100%)'
@@ -212,7 +202,7 @@ export default function InfiniteProductMarquee() {
               <Link
                 key={`${item.id}-${index}`}
                 to={item.link}
-                className="group relative flex-shrink-0 w-[270px] sm:w-[310px] md:w-[340px] rounded-2xl sm:rounded-3xl bg-[#081226]/95 border border-[#122240] p-3 sm:p-3.5 shadow-lg transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#D4AF65] hover:shadow-[0_16px_40px_rgba(212,175,101,0.22)] backdrop-blur-xs select-none block"
+                className={`group relative flex-shrink-0 w-[260px] sm:w-[310px] md:w-[340px] rounded-2xl sm:rounded-3xl bg-[#081226] border border-[#122240] p-3 sm:p-3.5 shadow-lg transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#D4AF65] select-none block ${index >= MARQUEE_PRODUCTS.length ? 'hidden md:block' : ''}`}
               >
                 {/* Product Image Stage */}
                 <div className="relative overflow-hidden rounded-xl sm:rounded-2xl aspect-[16/10] bg-[#040A18]">
@@ -225,7 +215,7 @@ export default function InfiniteProductMarquee() {
                       width="340"
                       height="212"
                       onError={() => handleImageError(`${item.id}-${index}`)}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   ) : (
                     <div
@@ -243,15 +233,15 @@ export default function InfiniteProductMarquee() {
 
                   {/* Category Pill Badge */}
                   <div className="absolute top-2.5 left-2.5">
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF65]/40 bg-[#040A18]/90 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D4AF65] backdrop-blur-xs shadow-xs">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF65] animate-pulse" />
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF65]/40 bg-[#040A18]/95 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D4AF65] shadow-xs">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF65]" />
                       {item.category}
                     </span>
                   </div>
 
                   {/* Material Tag Badge */}
                   <div className="absolute bottom-2.5 right-2.5">
-                    <span className="inline-block rounded-md bg-[#040A18]/85 px-2 py-0.5 text-[10px] font-semibold text-[#F5F2EB] backdrop-blur-xs border border-[#122240]">
+                    <span className="inline-block rounded-md bg-[#040A18]/95 px-2 py-0.5 text-[10px] font-semibold text-[#F5F2EB] border border-[#122240]">
                       {item.tag}
                     </span>
                   </div>
@@ -301,7 +291,7 @@ export default function InfiniteProductMarquee() {
         </div>
       </Container>
 
-      {/* Pure CSS Animation & Accessibility Styles */}
+      {/* Pure CSS Animation & Mobile-Safe Touch Scroll Styles */}
       <style>{`
         @keyframes onprintMarqueeScroll {
           0% {
@@ -312,18 +302,19 @@ export default function InfiniteProductMarquee() {
           }
         }
 
-        .onprint-marquee-track {
-          display: flex;
-          width: max-content;
-          will-change: transform;
-          animation: onprintMarqueeScroll 48s linear infinite;
+        @media (min-width: 768px) {
+          .onprint-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: onprintMarqueeScroll 48s linear infinite;
+          }
         }
 
-        /* Respect accessibility preferences for reduced motion */
-        @media (prefers-reduced-motion: reduce) {
+        @media (max-width: 767px), (prefers-reduced-motion: reduce) {
           .onprint-marquee-track {
             animation: none !important;
             transform: none !important;
+            width: 100% !important;
             overflow-x: auto !important;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;

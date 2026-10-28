@@ -429,6 +429,23 @@ body:has([dir="rtl"]),
   }
 }
 
+/* Prevent mobile Safari/Android GPU compositor VRAM exhaustion from excessive blur/will-change layers */
+@media (max-width: 768px) {
+  .blur-2xl,
+  .blur-3xl,
+  [class*="blur-["] {
+    display: none !important;
+  }
+  .backdrop-blur-xs,
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
 /* Strictly honor user reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {

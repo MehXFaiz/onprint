@@ -221,6 +221,12 @@
     </script>
 
     <script>
+      // Polyfill ES2021/ES2022 helpers for older iOS Safari & Android WebViews
+      if (!Object.hasOwn) { Object.hasOwn = function (o, p) { return Object.prototype.hasOwnProperty.call(o, p); }; }
+      if (!Array.prototype.at) { Array.prototype.at = function (n) { n = Math.trunc(n) || 0; if (n < 0) n += this.length; return n < 0 || n >= this.length ? undefined : this[n]; }; }
+      if (!String.prototype.replaceAll) { String.prototype.replaceAll = function (s, r) { return Object.prototype.toString.call(s).toLowerCase() === '[object regexp]' ? this.replace(s, r) : this.split(s).join(r); }; }
+      if (typeof caches !== 'undefined' && caches.keys) { caches.keys().then(function (k) { for (var i = 0; i < k.length; i++) caches.delete(k[i]); }).catch(function () {}); }
+      window.addEventListener('error', function (e) { var t = e && e.target; if (t && t.tagName === 'SCRIPT' && t.src && t.src.indexOf('/assets/') !== -1 && window.location.search.indexOf('_cb=') === -1) { var sep = window.location.search ? '&' : '?'; window.location.replace(window.location.pathname + window.location.search + sep + '_cb=' + Date.now()); } }, true);
       // Clean up any stale service workers or caches from preview environments
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function (registrations) {

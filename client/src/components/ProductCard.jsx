@@ -142,13 +142,15 @@ export default function ProductCard({
       >
         {/* Framed 3D Tilt Image Stage */}
         <div
-          className="relative h-full w-full p-3 flex items-center justify-center will-change-transform"
-          style={{
-            transform: isHovered && !prefersReducedMotion
-              ? `perspective(900px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale3d(1.02, 1.02, 1.02)`
-              : 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
-            transition: isHovered ? 'transform 0.12s ease-out' : 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)',
-          }}
+          className="relative h-full w-full p-3 flex items-center justify-center"
+          style={
+            isHovered && !prefersReducedMotion
+              ? {
+                  transform: `perspective(900px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale3d(1.02, 1.02, 1.02)`,
+                  transition: 'transform 0.12s ease-out',
+                }
+              : undefined
+          }
         >
           {resolvedSrc && !imageError ? (
             <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#040A18] shadow-sm transition-shadow duration-500">

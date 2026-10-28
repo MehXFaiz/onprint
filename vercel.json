@@ -21,7 +21,16 @@
       ]
     },
     {
-      "source": "/((?!api/|assets/|uploads/).*)",
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/((?!api|assets|uploads).*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -40,7 +49,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/((?!api/|assets/|uploads/).*)",
+      "source": "/((?!api|assets|uploads|favicon\\.ico|robots\\.txt|sitemap\\.xml|llms\\.txt|ads\\.txt).*)",
       "destination": "/index.html"
     }
   ]

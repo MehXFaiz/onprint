@@ -214,13 +214,13 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#040A18] via-[#081226] to-[#040A18] text-[#F5F2EB] pt-8 sm:pt-12 lg:pt-14 pb-14 sm:pb-20">
         {/* Subtle Ambient Radial Glows */}
         <div
-          className="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-[#D4AF65]/10 blur-[120px] -z-10"
+          className="pointer-events-none hidden sm:block absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-[#D4AF65]/10 blur-[120px] -z-10"
           aria-hidden="true"
         />
         <Container className="relative z-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Left Column: Editorial Headline & Value Proposition */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 1, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 space-y-6"
@@ -265,7 +265,7 @@ export default function HomePage() {
                 return (
                   <motion.div
                     key={feat.label}
-                    initial={{ opacity: 0, y: 12 }}
+                    initial={{ opacity: 1, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.15 + idx * 0.07, duration: 0.45 }}
                     className="flex items-center gap-2.5 rounded-xl border border-[#122240] bg-[#081226] px-3.5 py-2.5 text-xs sm:text-[12.5px] font-semibold text-[#F5F2EB] shadow-2xs"
@@ -334,7 +334,7 @@ export default function HomePage() {
 
           {/* Right Column: Interactive Print Estimator & Order Hub */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            initial={{ opacity: 1, scale: 1, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 relative flex items-center justify-center min-w-0"

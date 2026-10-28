@@ -413,7 +413,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
   }
 
   return `
-    <div style="font-family: system-ui, -apple-system, sans-serif; color: #0f172a; background: #ffffff; max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <div style="font-family: system-ui, -apple-system, sans-serif; color: #F5F2EB; background: #040A18; max-width: 1200px; margin: 0 auto; padding: 20px;">
       <header style="border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
         <a href="/" style="font-size: 1.5rem; font-weight: 900; color: #101D35; text-decoration: none; letter-spacing: 0.1em;">
           ON<span style="color: #D4AF65;">PRINT</span>

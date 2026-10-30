@@ -421,7 +421,7 @@ const COMMERCIAL_LANDING_PAGES = {
       "title": "Sticker Printing Dubai | Custom Die-Cut Vinyl Stickers | ONPRINT",
       "metaDescription": "Custom sticker printing in Dubai. Waterproof vinyl die-cut stickers, kiss-cut sheets, holographic & clear decals, car & window stickers with express same-day UAE delivery.",
       "focusKeyword": "sticker printing dubai",
-      "secondaryKeywords": "custom sticker printing dubai, die cut sticker printing dubai, waterproof sticker printing dubai, vinyl sticker printing dubai, sheet sticker printing dubai, clear sticker printing dubai, holographic sticker printing dubai, metallic foil sticker printing dubai, car decal printing dubai, window sticker printing dubai, same day sticker printing dubai",
+      "secondaryKeywords": "custom sticker printing dubai, waterproof stickers dubai, vinyl sticker printing dubai, die cut stickers dubai, transparent stickers dubai, product label printing dubai, packaging stickers dubai, roll label printing dubai, custom logo stickers dubai, bottle label printing dubai, jar label printing dubai, holographic stickers dubai, qr code stickers dubai, food packaging labels uae, cosmetic labels dubai, waterproof vinyl labels uae, custom shape stickers dubai, uv resistant stickers dubai, same day sticker printing dubai",
       "badge": "CUSTOM DIE-CUT VINYL & DECALS",
       "h1": "Custom Die-Cut Vinyl Sticker & Decal Printing in Dubai",
       "subheading": "Premium weatherproof vinyl stickers, precision die-cut to any custom shape. Available in waterproof matte, glossy, holographic prism, clear transparent, and metallic foil finishes with scratch-resistant UV protective overlaminates.",

@@ -50,13 +50,13 @@ export const FORMATTED_PHONE = formatPhoneNumber(WHATSAPP_PHONE)
 // 2. Official Core Service Prefilled Inquiries (Clean, Direct & High-Converting)
 export const SERVICE_INQUIRY_MESSAGES = {
   'business-cards':
-    'Hello ONPRINT, I am interested in business cards. Please provide a quotation for my required quantity and finish.',
+    'Hello ONPRINT, I need a quotation for custom business card printing in Dubai. Please share your available materials, quantities and prices.\n\n• Product: Business Cards\n• Quantity: \n• Size: \n• Paper & Finish: \n• Delivery Location: ',
   'business-cards-printing':
-    'Hello ONPRINT, I am interested in business cards. Please provide a quotation for my required quantity and finish.',
+    'Hello ONPRINT, I need a quotation for custom business card printing in Dubai. Please share your available materials, quantities and prices.\n\n• Product: Business Cards\n• Quantity: \n• Size: \n• Paper & Finish: \n• Delivery Location: ',
   'business-card-printing-dubai':
-    'Hello ONPRINT, I am interested in business cards. Please provide a quotation for my required quantity and finish.',
+    'Hello ONPRINT, I need a quotation for custom business card printing in Dubai. Please share your available materials, quantities and prices.\n\n• Product: Business Cards\n• Quantity: \n• Size: \n• Paper & Finish: \n• Delivery Location: ',
   'business-card-printing-uae':
-    'Hello ONPRINT, I am interested in business cards. Please provide a quotation for my required quantity and finish.',
+    'Hello ONPRINT, I need a quotation for custom business card printing in Dubai. Please share your available materials, quantities and prices.\n\n• Product: Business Cards\n• Quantity: \n• Size: \n• Paper & Finish: \n• Delivery Location: ',
 
   'bottle-printing':
     'Hello ONPRINT, I would like a quotation for Custom Printed Water Bottles. Please share pricing, options and delivery details.',
@@ -74,13 +74,13 @@ export const SERVICE_INQUIRY_MESSAGES = {
     'Hello ONPRINT, I would like a quotation for Roll-Up Banners in Dubai. Please share pricing, options and delivery details.',
 
   'stickers':
-    'Hello ONPRINT, I need custom stickers. Please quote for my size, material and quantity.',
+    'Hello ONPRINT, I need a quotation for custom sticker printing in Dubai. Please share your sticker materials, sizes, quantities and prices.',
   'stickers-labels-printing':
-    'Hello ONPRINT, I need custom stickers. Please quote for my size, material and quantity.',
+    'Hello ONPRINT, I need a quotation for custom sticker printing in Dubai. Please share your sticker materials, sizes, quantities and prices.',
   'sticker-printing-dubai':
-    'Hello ONPRINT, I need custom stickers. Please quote for my size, material and quantity.',
+    'Hello ONPRINT, I need a quotation for custom sticker printing in Dubai. Please share your sticker materials, sizes, quantities and prices.',
   'custom-stickers':
-    'Hello ONPRINT, I need custom stickers. Please quote for my size, material and quantity.',
+    'Hello ONPRINT, I need a quotation for custom sticker printing in Dubai. Please share your sticker materials, sizes, quantities and prices.',
 
   'stamps':
     'Hello ONPRINT, I would like a quotation for Custom Company Stamps & Seals. Please share pricing, options and delivery details.',

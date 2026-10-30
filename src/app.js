@@ -94,6 +94,10 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
           <span><strong>Location:</strong> ${escapeHtml(blogData.target_location || 'Dubai, UAE')}</span> |
           <span><strong>Reading Time:</strong> ${escapeHtml(String(blogData.reading_time || 7))} min read</span>
         </div>
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin-bottom: 1.5rem;">
+          <p style="margin: 0; font-weight: bold; color: #166534;">Quick Answer:</p>
+          <p style="margin: 6px 0 0 0; color: #15803d; line-height: 1.6;">${escapeHtml(blogData.excerpt || metaDesc)}</p>
+        </div>
         <div class="blog-prerendered-content" style="line-height: 1.75; color: #1e293b;">
           ${blogData.content || `<p>${escapeHtml(metaDesc)}</p>`}
         </div>
@@ -210,7 +214,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
         ` : ''}
       </section>
     `
-  } else if (commercialData) {
+  } else if (commercialData && !bcData) {
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
         <h2>${escapeHtml(commercialData.h1 || commercialData.title)}</h2>
@@ -225,6 +229,25 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
             </ul>
           </div>
         ` : ''}
+        ${commercialData.technicalSpecs && commercialData.technicalSpecs.length > 0 ? `
+          <div style="margin: 24px 0;">
+            <h3>Product &amp; Material Specifications</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.925rem;">
+              <tbody>
+                ${commercialData.technicalSpecs.map(s => `
+                  <tr style="border-bottom: 1px solid #e2e8f0;">
+                    <td style="padding: 8px 10px; font-weight: 600; background: #f8fafc; width: 30%;">${escapeHtml(s.feature)}</td>
+                    <td style="padding: 8px 10px; color: #475569;">${escapeHtml(s.detail)}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        ` : ''}
+        <div style="margin-top: 24px; padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
+          <p style="margin: 0; font-weight: bold; color: #166534;">Direct WhatsApp Quote &amp; Artwork Consultation:</p>
+          <p style="margin: 4px 0 0 0; color: #15803d;">Connect with our Dubai production team on WhatsApp at <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(cleanPathKey.includes('sticker') || cleanPathKey.includes('label') ? 'Hello ONPRINT, I need a quotation for custom sticker printing in Dubai. Please share your sticker materials, sizes, quantities and prices.' : `Hello ONPRINT, I would like a quotation for ${commercialData.h1 || 'printing services'} in Dubai. Please share options, pricing and turnaround.`)}" style="color: #15803d; font-weight: bold;">+${WHATSAPP_NUMBER}</a> for instant volume pricing and pre-press assistance.</p>
+        </div>
         ${commercialData.faqs && commercialData.faqs.length > 0 ? `
           <h3>Frequently Asked Questions</h3>
           ${commercialData.faqs.map(f => `
@@ -240,7 +263,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
         <h2>Direct Answer: ${escapeHtml(bcData.h1 || 'Business Card Printing in Dubai')}</h2>
-        <p><strong>ONPRINT</strong> is a direct commercial printing press in <strong>Al Quoz, Dubai, UAE</strong> specializing in standard, premium, and luxury business card printing. We print in-house on calibrated Heidelberg offset and high-definition digital presses with paper weights from <strong>300gsm to 700gsm</strong> (including 350gsm Matte/Silk, 450gsm Soft-Touch Velvet, 600gsm 100% Italian Cotton, 760-micron Waterproof PVC, and FSC-certified Eco-Friendly Recycled/Kraft boards). Orders start from <strong>AED 95 for 100 cards</strong> with <strong>4-hour same-day express rush printing</strong> and courier delivery across Dubai (DIFC, Business Bay, Downtown, Marina, JLT, DWTC), Abu Dhabi, Sharjah, and all 7 UAE Emirates.</p>
+        <p><strong>ONPRINT</strong> is a direct commercial printing press in <strong>Al Quoz, Dubai, UAE</strong> specializing in standard, premium, and luxury business card printing. We print in-house on calibrated Heidelberg offset and high-definition digital presses with paper weights from <strong>300gsm to 700gsm</strong> (including 350 GSM Matte/Silk, 450gsm Soft-Touch Velvet, 600 GSM Cotton, 760 Micron PVC, and FSC-certified Eco-Friendly Recycled/Kraft boards). Orders start from <strong>AED 95 for 100 cards</strong> with <strong>4-hour same-day express rush printing</strong> and courier delivery across Dubai (DIFC, Business Bay, Downtown, Marina, JLT, DWTC), Abu Dhabi, Sharjah, and all 7 UAE Emirates.</p>
       </section>
 
       <section style="margin-bottom: 2rem;">
@@ -298,7 +321,7 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
               <td style="padding: 10px;">From AED 290</td>
             </tr>
             <tr style="border-bottom: 1px solid #e2e8f0;">
-              <td style="padding: 10px; font-weight: 600;"><a href="/luxury-business-cards">Luxury 600 GSM 100% Cotton Cards</a></td>
+              <td style="padding: 10px; font-weight: 600;"><a href="/luxury-business-cards">Luxury 600 GSM Cotton Cards</a></td>
               <td style="padding: 10px;">600–700 GSM Archival Italian Cotton / Triplex</td>
               <td style="padding: 10px;">Letterpress, 24K Foil, Painted / Gilded Edges</td>
               <td style="padding: 10px;">90×55 mm or 85×55 mm</td>
@@ -971,8 +994,18 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     siteUrl,
   })
 
-  if (rendered.includes('<div id="root"></div>')) {
-    rendered = rendered.replace('<div id="root"></div>', `<div id="root">${prerenderedBody}</div>`)
+  const rootStart = rendered.indexOf('<div id="root"')
+  const bodyEnd = rendered.indexOf('</body>')
+  if (rootStart !== -1 && bodyEnd !== -1) {
+    const rootClosing = rendered.lastIndexOf('</div>', bodyEnd)
+    if (rootClosing > rootStart) {
+      rendered =
+        rendered.slice(0, rootStart) +
+        `<div id="root" style="background-color: #040A18; color: #F5F3EE; min-height: 100vh;"><div id="ssr-seo-content">${prerenderedBody}</div></div>` +
+        rendered.slice(rootClosing + 6)
+    }
+  } else if (rendered.includes('<div id="root"></div>')) {
+    rendered = rendered.replace('<div id="root"></div>', `<div id="root"><div id="ssr-seo-content">${prerenderedBody}</div></div>`)
   }
 
   return rendered

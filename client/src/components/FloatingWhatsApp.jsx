@@ -89,7 +89,7 @@ export default function FloatingWhatsApp() {
   }
 
   return (
-    <aside aria-label="WhatsApp Inquiry Concierge" className="fixed bottom-[82px] right-3 md:bottom-6 md:right-6 z-40 flex flex-col items-end pointer-events-auto">
+    <aside aria-label="WhatsApp Inquiry Concierge" className="fixed bottom-[74px] right-3 md:bottom-6 md:right-6 z-40 flex flex-col items-end pointer-events-auto">
       {/* Expanded Concierge Card */}
       <AnimatePresence>
         {isOpen && (

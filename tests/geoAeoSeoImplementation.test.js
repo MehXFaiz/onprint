@@ -2,7 +2,7 @@ const assert = require('assert')
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
-const app = require('../src/app')
+const createApp = require('../src/app')
 const persistentStore = require('../src/data/persistentStore')
 const {
   PRIORITIZED_BUSINESS_CARD_KEYWORDS,
@@ -131,6 +131,7 @@ async function runTests() {
   console.log('✔ Verified all 8 citation-worthy Business Card guides in persistentStore')
 
   // 3. Start Express server and test HTTP routes, SSR HTML, JSON-LD, robots.txt, llms.txt, sitemap.xml, and conversions
+  const app = createApp()
   const server = http.createServer(app)
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve))
 

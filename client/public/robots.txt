@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 Allow: /ads.txt
-Allow: /llms.txt
 Allow: /services
 Allow: /services/
 Allow: /products
@@ -16,25 +15,6 @@ Allow: /about
 Allow: /contact
 Allow: /faq
 Allow: /get-a-quote
-Allow: /business-card-printing-dubai
-Allow: /business-card-printing-uae
-Allow: /sticker-printing-dubai
-Allow: /label-printing-dubai
-Allow: /corporate-printing-dubai
-Allow: /printing-services-dubai
-Allow: /large-format-printing-dubai
-Allow: /packaging-printing-dubai
-Allow: /custom-packaging-dubai
-Allow: /flyer-printing-dubai
-Allow: /brochure-printing-dubai
-Allow: /signage-printing-dubai
-Allow: /promotional-printing-dubai
-Allow: /ar
-Allow: /ar/
-Allow: /ar/business-cards
-Allow: /ar/stickers
-Allow: /ar/stamps
-Allow: /ar/printing-services
 Allow: /privacy-policy
 Allow: /terms
 Allow: /assets/
@@ -42,16 +22,6 @@ Allow: /uploads/
 
 # Generative AI & Knowledge Engine Access (GEO)
 User-agent: GPTBot
-Allow: /
-Disallow: /admin
-Disallow: /api/
-
-User-agent: OAI-SearchBot
-Allow: /
-Disallow: /admin
-Disallow: /api/
-
-User-agent: ChatGPT-User
 Allow: /
 Disallow: /admin
 Disallow: /api/
@@ -66,17 +36,7 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-User-agent: anthropic-ai
-Allow: /
-Disallow: /admin
-Disallow: /api/
-
 User-agent: Google-Extended
-Allow: /
-Disallow: /admin
-Disallow: /api/
-
-User-agent: GoogleOther
 Allow: /
 Disallow: /admin
 Disallow: /api/

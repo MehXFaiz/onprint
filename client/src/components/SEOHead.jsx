@@ -208,6 +208,7 @@ export default function SEOHead({
   faqList,
   blogArticle,
   reviews,
+  video,
 }) {
   const location = useLocation()
   const [dbSeo, setDbSeo] = useState(null)
@@ -662,6 +663,26 @@ export default function SEOHead({
     } else {
       setStructuredDataScript('onprint-schema-custom', null)
     }
+
+    // 15. VideoObject Schema (Image & Video SEO)
+    if (video) {
+      const videoSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: video.name || fullTitle,
+        description: video.description || metaDesc,
+        thumbnailUrl: normalizeImageUrl(video.thumbnailUrl || effectiveImage),
+        uploadDate: video.uploadDate || '2026-10-01T09:00:00+04:00',
+        contentUrl: video.contentUrl || video.url,
+        embedUrl: video.embedUrl || video.contentUrl || video.url,
+        publisher: {
+          '@id': `${SITE_URL}/#organization`,
+        },
+      }
+      setStructuredDataScript('onprint-schema-video', videoSchema)
+    } else {
+      setStructuredDataScript('onprint-schema-video', null)
+    }
   }, [
     fullTitle,
     metaDesc,
@@ -684,6 +705,7 @@ export default function SEOHead({
     blogArticle,
     reviews,
     structuredData,
+    video,
   ])
 
   return null

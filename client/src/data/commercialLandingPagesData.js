@@ -5,7 +5,7 @@ const COMMERCIAL_LANDING_PAGES = {
       "title": "Printing Services Dubai | Commercial Printing Press | ONPRINT",
       "metaDescription": "Top commercial printing services in Dubai. High-capacity Heidelberg offset & HP Indigo digital printing press in Al Quoz, Dubai. Same-day proofing & UAE delivery.",
       "focusKeyword": "printing services dubai",
-      "secondaryKeywords": "printing company in dubai, printing press dubai, commercial printing dubai, digital printing dubai, offset printing dubai, print shop dubai, business branding print materials dubai, corporate stationery printing uae",
+      "secondaryKeywords": "printing company in dubai, printing press dubai, commercial printing dubai, digital printing dubai, offset printing dubai, print shop dubai",
       "badge": "COMMERCIAL DIGITAL & OFFSET PRESS DUBAI",
       "h1": "Commercial Printing Services & Digital Press in Dubai",
       "subheading": "Precision commercial printing in Al Quoz, Dubai. From short-run on-demand digital collaterals to 100,000+ unit offset publications, ONPRINT delivers calibrated color fidelity and luxury finishing for UAE businesses.",
@@ -320,7 +320,7 @@ const COMMERCIAL_LANDING_PAGES = {
       "title": "Flyer Printing Dubai | Express Marketing Leaflets | ONPRINT",
       "metaDescription": "High-speed flyer printing in Dubai. A4, A5, A6, DL promotional leaflets on 150gsm–300gsm art paper. Same-day rush printing & bulk delivery across the UAE.",
       "focusKeyword": "flyer printing dubai",
-      "secondaryKeywords": "flyer printing services dubai, leaflet printing dubai, promotional flyers dubai, cheap flyer printing dubai, same day flyer printing dubai",
+      "secondaryKeywords": "flyer printing services dubai, leaflet printing dubai, promotional flyers dubai, affordable flyer printing dubai, same day flyer printing dubai",
       "badge": "MARKETING LEAFLETS & PROMOTIONS",
       "h1": "High-Impact Flyer & Leaflet Printing in Dubai",
       "subheading": "Cost-effective, high-volume promotional flyers and leaflets designed for mass distribution, door drops, retail hand-outs, and trade exhibitions across the United Arab Emirates.",
@@ -418,13 +418,13 @@ const COMMERCIAL_LANDING_PAGES = {
     "sticker-printing-dubai": {
       "slug": "sticker-printing-dubai",
       "path": "/sticker-printing-dubai",
-      "title": "Sticker Printing Dubai | Custom Stickers & Labels | ONPRINT",
-      "metaDescription": "Looking for custom sticker printing in Dubai? Explore sticker and label options from ONPRINT and request a quotation for your business or packaging needs on WhatsApp.",
+      "title": "Sticker Printing Dubai | Custom Die-Cut Vinyl Stickers | ONPRINT",
+      "metaDescription": "Custom sticker printing in Dubai. Waterproof vinyl die-cut stickers, kiss-cut sheets, holographic & clear decals, car & window stickers with express same-day UAE delivery.",
       "focusKeyword": "sticker printing dubai",
-      "secondaryKeywords": "custom sticker printing dubai, waterproof stickers dubai, vinyl sticker printing dubai, die cut stickers dubai, transparent stickers dubai, product label printing dubai, packaging stickers dubai, roll label printing dubai, custom logo stickers dubai, bottle label printing dubai, jar label printing dubai, holographic stickers dubai, qr code stickers dubai, food packaging labels uae, cosmetic labels dubai, waterproof vinyl labels uae, custom shape stickers dubai, uv resistant stickers dubai, bulk sticker printing dubai",
-      "badge": "CUSTOM DIE-CUT VINYL & LABELS",
-      "h1": "Custom Sticker Printing in Dubai",
-      "subheading": "Give your products and packaging a professional look with custom stickers from ONPRINT. Explore available sticker types, shapes, sizes, materials, and finishing options for your business. Contact our team for a quotation based on your requirements.",
+      "secondaryKeywords": "custom sticker printing dubai, waterproof stickers dubai, vinyl sticker printing dubai, die cut stickers dubai, transparent stickers dubai, product label printing dubai, packaging stickers dubai, roll label printing dubai, custom logo stickers dubai, bottle label printing dubai, jar label printing dubai, holographic stickers dubai, qr code stickers dubai, food packaging labels uae, cosmetic labels dubai, waterproof vinyl labels uae, custom shape stickers dubai, uv resistant stickers dubai, same day sticker printing dubai",
+      "badge": "CUSTOM DIE-CUT VINYL & DECALS",
+      "h1": "Custom Die-Cut Vinyl Sticker & Decal Printing in Dubai",
+      "subheading": "Premium weatherproof vinyl stickers, precision die-cut to any custom shape. Available in waterproof matte, glossy, holographic prism, clear transparent, and metallic foil finishes with scratch-resistant UV protective overlaminates.",
       "stats": [
         {
           "label": "Substrate",
@@ -530,7 +530,7 @@ const COMMERCIAL_LANDING_PAGES = {
       "title": "Label Printing Dubai | Custom Product Labels & Roll Printing | ONPRINT",
       "metaDescription": "Custom product label printing in Dubai. Roll labels and sheet labels for cosmetics, perfume bottles, food jars, candles & packaging. Fast UAE delivery.",
       "focusKeyword": "label printing dubai",
-      "secondaryKeywords": "custom label printing dubai, product label printing dubai, custom bottle labels dubai, roll label printing uae, clear transparent stickers dubai, waterproof vinyl labels dubai, food packaging labels dubai, cosmetic product labels dubai, jar label printing uae, barcode stickers dubai, qr code product stickers uae, removable adhesive labels uae, retail packaging stickers uae, product branding labels dubai, small business packaging labels dubai, branded packaging labels for businesses dubai",
+      "secondaryKeywords": "custom label printing dubai, product label printing dubai, bottle label printing dubai, roll label printing dubai, transparent label printing dubai, packaging sticker printing dubai, food packaging label printing dubai, cosmetic label printing dubai, candle label printing dubai, jar label printing dubai, barcode label printing dubai, embossed sticker printing dubai",
       "badge": "PRODUCT ROLL LABELS & BOTTLING",
       "h1": "Custom Product Label & Roll Printing Solutions in Dubai",
       "subheading": "Precision roll and sheet labels for cosmetics, perfumes, food & beverage jars, candle packaging, pharmaceutical containers, and retail boxes. Certified water, oil, and chemical resistant.",
@@ -829,7 +829,7 @@ const COMMERCIAL_LANDING_PAGES = {
       "title": "Corporate Printing Dubai | Office Stationery & ESG | ONPRINT",
       "metaDescription": "Corporate printing services in Dubai. Executive letterheads, presentation folders, envelopes, NCR books & ESG recycled printing. Al Quoz facility.",
       "focusKeyword": "corporate printing dubai",
-      "secondaryKeywords": "corporate stationery printing uae, business branding print materials dubai, office stationery printing dubai, corporate stationery dubai, presentation folders dubai, envelope printing dubai, ncr receipt books dubai",
+      "secondaryKeywords": "office stationery printing dubai, corporate stationery dubai, presentation folders dubai, envelope printing dubai, ncr receipt books dubai",
       "badge": "B2B CORPORATE STATIONERY SOLUTIONS",
       "h1": "Comprehensive Corporate Stationery & B2B Printing in Dubai",
       "subheading": "Standardize your corporate identity across all official communications. Executive letterheads, presentation folders, branded envelopes, NCR invoice pads, and sustainable ESG print collaterals.",
@@ -1020,15 +1020,15 @@ const COMMERCIAL_LANDING_PAGES = {
       "metaDescription": "Custom bottle printing & laser engraving in Dubai from AED 22. Thermal stainless steel, glass bamboo bottles, aluminium sports bottles & protein shakers. Fast UAE delivery.",
       "focusKeyword": "bottle printing dubai",
       "secondaryKeywords": "custom bottle printing dubai, water bottle printing dubai, personalized bottle printing uae, stainless steel bottle printing dubai, metal bottle engraving dubai, promotional water bottles uae, branded bottles dubai, corporate bottle printing uae, customized water bottles dubai, logo printing on bottles dubai, reusable bottle printing dubai, bulk bottle printing dubai, glass bottle printing dubai, sports bottle printing dubai, bottle printing price dubai, wholesale branded bottles uae",
-      "badge": "CUSTOM BOTTLE PRINTING & ENGRAVING DUBAI • BESPOKE QUOTE",
+      "badge": "CUSTOM BOTTLE PRINTING & ENGRAVING DUBAI • FROM AED 22",
       "h1": "Custom Bottle Printing & Logo Engraving in Dubai, UAE",
       "subheading": "Precision bottle printing and rotary laser engraving in Al Quoz, Dubai. From double-wall stainless steel thermal flasks and eco-friendly borosilicate glass bottles to lightweight aluminium sports bottles and gym shakers with custom company logos, ONPRINT delivers scratch-resistant, dishwasher-safe drinkware for corporate gifting, events, and brand merchandise.",
       "quoteLink": "/quote/bottles",
       "whatsappText": "Hello ONPRINT Dubai, I would like to get a quote for Custom Water Bottle Printing with company logo.",
       "stats": [
         {
-          "label": "Pricing Model",
-          "value": "Custom Quote Available"
+          "label": "Starting Price",
+          "value": "From AED 22 / Unit"
         },
         {
           "label": "Minimum Order",
@@ -1150,4 +1150,4 @@ const COMMERCIAL_LANDING_PAGES = {
     }
   }
 
-module.exports = { COMMERCIAL_LANDING_PAGES };
+export { COMMERCIAL_LANDING_PAGES };

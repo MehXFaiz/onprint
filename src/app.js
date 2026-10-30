@@ -218,7 +218,10 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
     dynamicBody = `
       <section style="margin-bottom: 2rem;">
         <h2>${escapeHtml(commercialData.h1 || commercialData.title)}</h2>
-        <p style="font-size: 1.1rem; line-height: 1.7; color: #334155;">${escapeHtml(commercialData.subheading || commercialData.metaDescription || metaDesc)}</p>
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin: 16px 0 20px 0;">
+          <p style="margin: 0; font-weight: bold; color: #166534;">Quick Answer:</p>
+          <p style="margin: 6px 0 0 0; color: #15803d; line-height: 1.6;">${escapeHtml(commercialData.subheading || commercialData.metaDescription || metaDesc)}</p>
+        </div>
         ${commercialData.highlights && commercialData.highlights.length > 0 ? `
           <div style="margin: 24px 0;">
             <h3>Technical Capabilities &amp; Finishing</h3>
@@ -618,8 +621,20 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     alternateName: '0nprint',
     legalName: 'ONPRINT Printing & Branding Solutions',
     url: siteUrl,
-    logo: `${siteUrl}/logo_icon.png`,
-    image: `${siteUrl}/logo_icon.png`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/logo_icon.png`,
+      contentUrl: `${siteUrl}/logo_icon.png`,
+      width: '512',
+      height: '512',
+      caption: 'ONPRINT Printing Press Dubai Logo',
+    },
+    image: {
+      '@type': 'ImageObject',
+      url: ogImage || `${siteUrl}/logo_icon.png`,
+      contentUrl: ogImage || `${siteUrl}/logo_icon.png`,
+      caption: 'ONPRINT Commercial Printing Dubai Facility',
+    },
     description: 'ONPRINT is a commercial printing, corporate stationery, and business branding press located in Al Quoz, Dubai, UAE. Specializing in luxury business cards, brochures, product labels, roll-up banners, bottle printing, and corporate gifts.',
     email: '0nprint183@gmail.com',
     telephone: '+44 7344546056',
@@ -686,9 +701,30 @@ async function renderSeoShell(requestPath, { noindex = false } = {}) {
     },
   }
 
+  const webPageJson = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${canonical}#webpage`,
+    url: canonical,
+    name: title,
+    description: description,
+    isPartOf: {
+      '@id': `${siteUrl}/#website`,
+    },
+    about: {
+      '@id': `${siteUrl}/#organization`,
+    },
+    inLanguage: requestPath.startsWith('/ar') ? 'ar-AE' : 'en-AE',
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: ogImage,
+      contentUrl: ogImage,
+    },
+  }
+
   rendered = rendered.replace(
     '</head>',
-    `    <script type="application/ld+json">${JSON.stringify(organizationJson)}</script>\n    <script type="application/ld+json">${JSON.stringify(websiteJson)}</script>\n  </head>`
+    `    <script type="application/ld+json">${JSON.stringify(organizationJson)}</script>\n    <script type="application/ld+json">${JSON.stringify(websiteJson)}</script>\n    <script type="application/ld+json">${JSON.stringify(webPageJson)}</script>\n  </head>`
   )
 
   // Inject BreadcrumbList JSON-LD for nested landing pages

@@ -19,8 +19,20 @@ export const organizationSchema = {
   alternateName: '0nprint',
   legalName: 'ONPRINT Printing & Branding Solutions',
   url: SITE_URL,
-  logo: `${SITE_URL}/logo_icon.png`,
-  image: `${SITE_URL}/logo_icon.png`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE_URL}/logo_icon.png`,
+    contentUrl: `${SITE_URL}/logo_icon.png`,
+    width: '512',
+    height: '512',
+    caption: 'ONPRINT Printing Press Dubai Logo',
+  },
+  image: {
+    '@type': 'ImageObject',
+    url: `${SITE_URL}/logo_icon.png`,
+    contentUrl: `${SITE_URL}/logo_icon.png`,
+    caption: 'ONPRINT Dubai Facility and Operations',
+  },
   description:
     'ONPRINT is a commercial printing and corporate branding service based in Dubai, UAE. Specializing in luxury business cards, executive stationery, company stamps & seals, custom stickers & labels, brochures, flyers, banners, and corporate gifts with UAE-wide delivery.',
   email: '0nprint183@gmail.com',
@@ -356,9 +368,27 @@ export default function SEOHead({
     setMetaTag('name', 'twitter:description', twitterDescription)
     setMetaTag('name', 'twitter:image', twitterImg)
 
-    // 6. Base Organization & WebSite Schemas
+    // 6. Base Organization, WebSite & WebPage Schemas
     setStructuredDataScript('onprint-schema-organization', organizationSchema)
     setStructuredDataScript('onprint-schema-website', websiteSchema)
+
+    const webPageSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${effectiveCanonical}#webpage`,
+      url: effectiveCanonical,
+      name: fullTitle,
+      description: metaDesc,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      about: { '@id': `${SITE_URL}/#organization` },
+      inLanguage: isArabic ? 'ar-AE' : 'en-AE',
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        url: ogImg,
+        contentUrl: ogImg,
+      },
+    }
+    setStructuredDataScript('onprint-schema-webpage', webPageSchema)
 
     // 7. Database JSON-LD Schema (if defined in page_seo)
     if (dbSeo?.schema_markup && dbSeo.schema_markup.trim()) {

@@ -64,7 +64,7 @@ export default function SiteFooter() {
         {/* Col 1: Brand Info */}
         <div className="space-y-4 lg:col-span-2 lg:pr-4">
           <Link to="/" className="inline-block">
-            <Logo variant="light" size="lg" />
+            <Logo variant="default" size="lg" />
           </Link>
           <p className="text-xs sm:text-sm leading-relaxed text-[#756657] max-w-sm">
             ONPRINT is Dubai’s premier commercial printing house in Al Quoz. Delivering precision 600–700 GSM cotton business cards, metallic foil packaging, corporate stationery, official seals, and high-impact signage across the UAE.

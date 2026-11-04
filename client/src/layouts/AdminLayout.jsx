@@ -64,7 +64,7 @@ export default function AdminLayout() {
       {/* Mobile Top Header */}
       <div className="flex h-16 w-full items-center justify-between border-b border-[#DED2C1] bg-[#EDE3D5] px-4 md:hidden shrink-0 z-40">
         <Link to="/admin" className="flex items-center gap-2.5">
-          <Logo variant="light" size="sm" />
+          <Logo variant="default" size="sm" />
           <span className="inline-flex items-center gap-1 rounded-full bg-[#C5A989]/20 border border-[#C5A989]/40 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#795C43] shadow-xs">
             <ShieldCheck className="h-3 w-3 text-[#795C43]" />
             Admin
@@ -101,7 +101,7 @@ export default function AdminLayout() {
           {/* Header Brand Area */}
           <div className="flex items-center justify-between pb-6 border-b border-[#DED2C1] shrink-0">
             <Link to="/admin" className="flex items-center gap-2.5" onClick={() => setMobileMenuOpen(false)}>
-              <Logo variant="light" size="sm" />
+              <Logo variant="default" size="sm" />
               <span className="inline-flex items-center gap-1.5 rounded-full bg-[#C5A989] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-white shadow-xs">
                 <ShieldCheck className="h-3 w-3" />
                 Admin

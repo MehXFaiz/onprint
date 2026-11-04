@@ -4,15 +4,19 @@ import logoIconLightImg from '../assets/logo_icon_light.png'
 
 export default function Logo({
   className = '',
-  variant = 'light', // Default to 'light' for luxury dark navy backgrounds
+  variant = 'default', // 'default' | 'dark' | 'inverted'
   size = 'md', // 'sm' | 'md' | 'lg' | 'xl' | 'splash'
   showText = true,
   iconOnly = false,
 }) {
-  const isLight = variant === 'light' || variant === 'default' // In luxury dark theme, both use the light icon & warm ivory text
+  const isInverted = variant === 'inverted' || variant === 'on-dark'
   const isIcon = iconOnly || !showText
 
-  const iconSrc = logoIconLightImg || logoIconImg
+  // High-contrast brand icon: use dark icon (#1e1e1e with orange fold) on warm beige/cream/ivory surfaces;
+  // use light icon only when explicitly inverted on dark backgrounds.
+  const iconSrc = isInverted ? (logoIconLightImg || logoIconImg) : (logoIconImg || logoIconLightImg)
+  const textColor = isInverted ? 'text-white' : 'text-[#352719]'
+  const accentColor = isInverted ? 'text-[#C5A989]' : 'text-[#795C43]'
 
   const sizeMap = {
     sm: {
@@ -65,9 +69,9 @@ export default function Logo({
       {!isIcon && (
         <div className="flex flex-col justify-center leading-none">
           <span
-            className={`font-black uppercase font-display select-none transition-colors duration-200 text-[#352719] ${currentSize.text} ${currentSize.tracking}`}
+            className={`font-black uppercase font-display select-none transition-colors duration-200 ${textColor} ${currentSize.text} ${currentSize.tracking}`}
           >
-            ON<span className="text-[#795C43]">PRINT</span>
+            ON<span className={accentColor}>PRINT</span>
           </span>
         </div>
       )}

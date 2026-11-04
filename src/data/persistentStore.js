@@ -9,6 +9,7 @@ const { GEO_CONTENT_RECORDS } = require('./geoContentData')
 const { DUBAI_AI_VISIBILITY_QUERIES } = require('./dubaiAiVisibilityData')
 const { BUSINESS_CARD_LINKABLE_GUIDES } = require('./businessCardLinkableGuidesData')
 const { BUSINESS_CARD_BACKLINK_PROSPECTS } = require('../services/businessCardLinkBuildingService')
+const { PAGE_SEO_MASTER_LIST } = require('./pageSeoMasterData')
 
 const DEFAULT_SEO_TASKS = [
   {
@@ -1618,6 +1619,34 @@ function getNotificationLogs() {
   return Array.isArray(store.notification_logs) ? store.notification_logs : []
 }
 
+
+function getKeywords() {
+  const store = loadStore()
+  return Array.isArray(store.keywords) ? store.keywords : []
+}
+
+function getBacklinks() {
+  const store = loadStore()
+  return Array.isArray(store.backlinks) ? store.backlinks : []
+}
+
+function getPageSeoList() {
+  const store = loadStore()
+  const overrides = store.page_seo || {}
+  return PAGE_SEO_MASTER_LIST.map((p) => {
+    const override = overrides[p.url] || overrides[String(p.id)] || {}
+    return { ...p, ...override }
+  })
+}
+
+function updatePageSeoItem(urlOrId, updates) {
+  const store = loadStore()
+  if (!store.page_seo) store.page_seo = {}
+  store.page_seo[urlOrId] = { ...(store.page_seo[urlOrId] || {}), ...updates }
+  saveStore(store)
+  return store.page_seo[urlOrId]
+}
+
 module.exports = {
   getOrders,
   addOrder,
@@ -1687,6 +1716,10 @@ module.exports = {
   respondToReview,
   addNotificationLog,
   getNotificationLogs,
+  getKeywords,
+  getBacklinks,
+  getPageSeoList,
+  updatePageSeoItem,
 }
 
 

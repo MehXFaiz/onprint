@@ -71,7 +71,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       // built to the repo-root dist/, which the production server serves directly
-      outDir: '../dist',
+      outDir: process.env.VERCEL ? 'dist' : (process.env.BUILD_OUT_DIR || '../dist'),
       emptyOutDir: true,
       target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14'],
       cssTarget: ['chrome87', 'safari14', 'ios14'],

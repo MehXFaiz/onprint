@@ -14,11 +14,17 @@ const fs = require('fs')
 const { execSync } = require('child_process')
 
 const PORT = process.env.PORT || 5000
-const CLIENT_DIST = path.join(__dirname, 'dist')
+const CLIENT_DIST = fs.existsSync(path.join(__dirname, 'client', 'dist'))
+  ? path.join(__dirname, 'client', 'dist')
+  : path.join(__dirname, 'dist')
 
 let app = null
 
 async function ensureClientBuilt() {
+  if (process.env.VERCEL) {
+    // In Vercel Services, client is built independently by its own service
+    return true
+  }
   const indexPath = path.join(CLIENT_DIST, 'index.html')
   if (fs.existsSync(indexPath)) return true
 

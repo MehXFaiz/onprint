@@ -31,7 +31,9 @@ const { COMMERCIAL_LANDING_PAGES } = require('./data/commercialLandingPagesData'
 const initialData = require('./data/initialData')
 const programmaticSeoService = require('./services/programmaticSeoService')
 
-const CLIENT_DIST = path.join(__dirname, '..', 'dist')
+const CLIENT_DIST = fs.existsSync(path.join(__dirname, '..', 'client', 'dist'))
+  ? path.join(__dirname, '..', 'client', 'dist')
+  : path.join(__dirname, '..', 'dist')
 const WHATSAPP_NUMBER = (process.env.WHATSAPP_NUMBER || '447344546056').replace(/[^\d]/g, '').replace(/^00/, '')
 
 function escapeHtml(value = '') {

@@ -17,10 +17,6 @@
     "client": {
       "root": "client",
       "framework": "vite"
-    },
-    "streamlit-cloud": {
-      "root": "streamlit-cloud",
-      "runtime": "python"
     }
   },
   "headers": [

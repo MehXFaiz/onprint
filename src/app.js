@@ -1450,11 +1450,19 @@ function createApp() {
   app.use('/assets', express.static(path.join(__dirname, 'assets'), staticCacheOptions))
   app.use('/assets', express.static(path.join(__dirname, '..', 'client', 'public', 'assets'), staticCacheOptions))
 
+  // Public Catalog API Cache Middleware (2 min cache, 5 min stale-while-revalidate for GET)
+  const catalogCacheMiddleware = (req, res, next) => {
+    if (req.method === 'GET' && !req.headers['authorization']) {
+      res.setHeader('Cache-Control', 'public, max-age=120, stale-while-revalidate=300')
+    }
+    next()
+  }
+
   // API Routes
   app.use('/api/auth', authRoutes)
-  app.use('/api/categories', categoryRoutes)
-  app.use('/api/services', serviceRoutes)
-  app.use('/api/products', productRoutes)
+  app.use('/api/categories', catalogCacheMiddleware, categoryRoutes)
+  app.use('/api/services', catalogCacheMiddleware, serviceRoutes)
+  app.use('/api/products', catalogCacheMiddleware, productRoutes)
   app.use('/api/contact', contactRoutes)
   app.use('/api/quotes', quoteRoutes)
   app.use('/api/orders', orderRoutes)

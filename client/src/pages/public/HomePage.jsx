@@ -34,9 +34,7 @@ import InfiniteProductMarquee from '../../components/InfiniteProductMarquee'
 import HeroPrintEstimator from '../../components/HeroPrintEstimator'
 import SEOHead from '../../components/SEOHead'
 import { CornerMarks, CmykDots } from '../../components/PrintMarks'
-import { getServices } from '../../services/services'
 import { getProducts } from '../../services/products'
-import { getCategories } from '../../services/categories'
 import { getPublicBlogs } from '../../services/blog'
 import { trackViewHomepage, trackGetQuoteClick, trackWhatsAppClick } from '../../utils/analytics'
 import { portfolioItems } from '../../data/portfolio'
@@ -140,9 +138,6 @@ const homeFaqs = [
 ]
 
 export default function HomePage() {
-  const [services, setServices] = useState(null)
-  const [categories, setCategories] = useState(null)
-  const [allProducts, setAllProducts] = useState(null)
   const [featuredProducts, setFeaturedProducts] = useState(null)
   const [blogs, setBlogs] = useState([])
   const [quickViewProduct, setQuickViewProduct] = useState(null)
@@ -150,24 +145,7 @@ export default function HomePage() {
   useEffect(() => {
     trackViewHomepage()
 
-    getServices()
-      .then((data) => setServices(data || []))
-      .catch(() => setServices([]))
-
-    getCategories({ status: 'active', sort: 'display_order_asc' })
-      .then((data) => {
-        const filteredCategories = (data || []).filter(
-          (cat) =>
-            !cat.slug?.includes('custom-packaging') &&
-            !cat.slug?.includes('luxury-packaging') &&
-            !cat.name?.toLowerCase().includes('custom packaging') &&
-            !cat.name?.toLowerCase().includes('luxury packaging')
-        )
-        setCategories(filteredCategories)
-      })
-      .catch(() => setCategories([]))
-
-    getProducts()
+    getProducts({ featured: true })
       .then((res) => {
         const list = res?.data || []
         const filteredProducts = list.filter((p) => {
@@ -183,12 +161,9 @@ export default function HomePage() {
         const uniqueProducts = Array.from(
           new Map(filteredProducts.map((p) => [p._id || p.slug, p])).values()
         )
-        setAllProducts(uniqueProducts)
-        const feat = uniqueProducts.filter((p) => p.featured)
-        setFeaturedProducts(feat.length > 0 ? feat.slice(0, 4) : uniqueProducts.slice(0, 4))
+        setFeaturedProducts(uniqueProducts.slice(0, 4))
       })
       .catch(() => {
-        setAllProducts([])
         setFeaturedProducts([])
       })
 

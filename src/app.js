@@ -484,9 +484,52 @@ function buildPrerenderedHtml(requestPath, { h1, title, description, bcData, com
   `
 }
 
+let cachedClientIndexHtml = null
+let cachedClientIndexTime = 0
+
+async function getClientIndexHtml() {
+  const indexPath = path.join(CLIENT_DIST, 'index.html')
+  if (fs.existsSync(indexPath)) {
+    try {
+      return await fs.promises.readFile(indexPath, 'utf8')
+    } catch {}
+  }
+
+  // If local build is missing, fetch from bound client service URL (injected by Vercel)
+  const clientBaseUrl = process.env.CLIENT_SERVICE_URL
+  if (clientBaseUrl) {
+    const now = Date.now()
+    if (cachedClientIndexHtml && now - cachedClientIndexTime < 60000) {
+      return cachedClientIndexHtml
+    }
+    try {
+      const response = await fetch(new URL('index.html', clientBaseUrl))
+      if (response.ok) {
+        cachedClientIndexHtml = await response.text()
+        cachedClientIndexTime = now
+        return cachedClientIndexHtml
+      }
+    } catch (err) {
+      console.warn('[renderSeoShell] Error fetching index.html from CLIENT_SERVICE_URL:', err.message)
+    }
+  }
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ONPRINT Dubai</title>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>`
+}
+
 async function renderSeoShell(requestPath, { noindex = false } = {}) {
   const indexPath = path.join(CLIENT_DIST, 'index.html')
-  const html = await fs.promises.readFile(indexPath, 'utf8')
+  const html = await getClientIndexHtml()
   const siteUrl = (process.env.SITE_URL || 'https://www.0nprint.com').replace(/\/$/, '')
 
   let seo
@@ -1213,6 +1256,13 @@ function createApp() {
       const clientUrls = process.env.CLIENT_URL
         ? process.env.CLIENT_URL.split(',').map((u) => u.trim().replace(/\/$/, ''))
         : []
+      if (process.env.CLIENT_SERVICE_URL) {
+        try {
+          clientUrls.push(new URL(process.env.CLIENT_SERVICE_URL).origin)
+        } catch {
+          clientUrls.push(process.env.CLIENT_SERVICE_URL.replace(/\/$/, ''))
+        }
+      }
 
       if (clientUrls.includes('*') || clientUrls.includes(origin)) {
         return callback(null, true)
@@ -1441,7 +1491,7 @@ function createApp() {
       return res.status(404).end()
     }
     const indexPath = path.join(CLIENT_DIST, 'index.html')
-    const hasDist = fs.existsSync(indexPath)
+    const hasDist = fs.existsSync(indexPath) || Boolean(process.env.CLIENT_SERVICE_URL)
 
     res.setHeader('Cache-Control', 'no-cache, must-revalidate')
 
@@ -1451,7 +1501,10 @@ function createApp() {
         const renderedShell = await renderSeoShell(req.path, { noindex: !knownPath })
         return res.status(knownPath ? 200 : 404).type('html').send(renderedShell)
       } catch (error) {
-        return res.sendFile(indexPath)
+        if (fs.existsSync(indexPath)) {
+          return res.sendFile(indexPath)
+        }
+        return res.type('html').send(await getClientIndexHtml())
       }
     }
 
